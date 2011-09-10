@@ -1,6 +1,6 @@
 class ASIWebPageRequest < Pod::Spec
   version  '1.8.1'
-  part_of  'ASIHTTPRequest', :version => '1.8.1'
+  part_of  'ASIHTTPRequest', '1.8.1'
   homepage 'http://allseeing-i.com/ASIHTTPRequest/ASIWebPageRequest'
   author   'Ben Copsey' => 'ben@allseeing-i.com'
 
@@ -9,5 +9,5 @@ class ASIWebPageRequest < Pod::Spec
     complete webpages, including external resources like images and stylesheets.
   }
 
-  source_dir 'Classes/ASIWebPageRequest'
+  source_files 'Classes/ASIWebPageRequest/*.m'
 end
