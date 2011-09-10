@@ -1,7 +1,7 @@
 Pod::Spec.new do
   name     'ASIWebPageRequest'
-  version  '1.8.1'
-  part_of  'ASIHTTPRequest', '1.8.1'
+  version  '1.8'
+  part_of  'ASIHTTPRequest', '1.8'
   homepage 'http://allseeing-i.com/ASIHTTPRequest/ASIWebPageRequest'
   author   'Ben Copsey' => 'ben@allseeing-i.com'
 

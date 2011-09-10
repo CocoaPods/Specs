@@ -1,4 +1,5 @@
-class ASIHTTPRequest < Pod::Spec
+Pod::Spec.new do
+  name     'ASIHTTPRequest'
   version  '1.8'
   summary  'Easy to use CFNetwork wrapper for HTTP requests, Objective-C, Mac OS X and iPhone'
   homepage 'http://allseeing-i.com/ASIHTTPRequest'
@@ -22,3 +23,4 @@ class ASIHTTPRequest < Pod::Spec
 
   dependency 'Reachability', '~> 2.0', '>= 2.0.4'
 end
+
