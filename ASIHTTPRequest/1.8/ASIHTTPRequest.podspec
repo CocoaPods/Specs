@@ -22,6 +22,12 @@ Pod::Spec.new do
 
   source_files 'Classes'
 
+  frameworks 'System/Library/Frameworks/CFNetwork.framework',
+             'System/Library/Frameworks/SystemConfiguration.framework',
+             'System/Library/Frameworks/MobileCoreServices.framework',
+             'System/Library/Frameworks/CoreGraphics.framework',
+             'usr/lib/libz.1.2.3.dylib'
+
   dependency 'Reachability', '~> 2.0', '>= 2.0.4'
 end
 

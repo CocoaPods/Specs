@@ -12,6 +12,6 @@ Pod::Spec.new do
     Currently it only supports unzipping. In the future, creating zip files will be supported.
   }
 
-  source_files 'SSZipArchive.m', 'minizip/*.c'
+  source_files 'SSZipArchive.*', 'minizip/*.{h,c}'
   xcconfig 'Config.xcconfig'
 end
