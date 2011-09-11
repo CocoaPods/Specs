@@ -5,7 +5,8 @@ Pod::Spec.new do
   homepage 'http://allseeing-i.com/ASIHTTPRequest'
   author   'Ben Copsey' => 'ben@allseeing-i.com'
   source   :git         => 'https://github.com/pokeb/asi-http-request.git',
-           :commit      => '63061ac428a3ea639f4c75b9857074208ff77389'
+           #:commit      => '63061ac428a3ea639f4c75b9857074208ff77389'
+           :tag         => 'v1.8'
 
   description %{
     ASIHTTPRequest is an easy to use wrapper around the CFNetwork API that
