@@ -13,4 +13,5 @@ Pod::Spec.new do
   }
 
   source_files 'SSZipArchive.m', 'minizip/*.c'
+  xcconfig 'Config.xcconfig'
 end
