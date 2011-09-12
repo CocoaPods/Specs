@@ -9,10 +9,8 @@ Pod::Spec.new do
     complete webpages, including external resources like images and stylesheets.
   }
 
-  part_of  'ASIHTTPRequest', '1.8'
-  dependency 'ASIHTTPRequest', '1.8'
+  part_of_dependency  'ASIHTTPRequest', '1.8'
   source_files 'Classes/ASIWebPageRequest/*.m', 'Classes/ASIWebPageRequest/*.h'
 
-  frameworks 'usr/lib/libxml2.2.7.3.dylib'
-  header_search_paths '$(SDKROOT)/usr/include/libxml2'
+  xcconfig 'OTHER_LDFLAGS' => '-l xml2.2.7.3', 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'
 end

@@ -23,11 +23,10 @@ Pod::Spec.new do
   source_files 'Classes'
 
   # TODO actually I think one or some of these are for Reachability
-  frameworks 'System/Library/Frameworks/CFNetwork.framework',
-             'System/Library/Frameworks/SystemConfiguration.framework',
-             'System/Library/Frameworks/MobileCoreServices.framework',
-             'System/Library/Frameworks/CoreGraphics.framework',
-             'usr/lib/libz.1.2.3.dylib'
+  xcconfig 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
+                              '-framework CFNetwork ' \
+                              '-framework MobileCoreServices ' \
+                              '-l z.1.2.3'
 
   dependency 'Reachability', '~> 2.0', '>= 2.0.4'
 end
