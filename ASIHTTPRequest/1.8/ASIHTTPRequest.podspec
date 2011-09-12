@@ -22,6 +22,7 @@ Pod::Spec.new do
 
   source_files 'Classes'
 
+  # TODO actually I think one or some of these are for Reachability
   frameworks 'System/Library/Frameworks/CFNetwork.framework',
              'System/Library/Frameworks/SystemConfiguration.framework',
              'System/Library/Frameworks/MobileCoreServices.framework',

@@ -1,7 +1,6 @@
 Pod::Spec.new do
   name     'ASIWebPageRequest'
   version  '1.8.1'
-  part_of  'ASIHTTPRequest', '1.8.1'
   homepage 'http://allseeing-i.com/ASIHTTPRequest/ASIWebPageRequest'
   author   'Ben Copsey' => 'ben@allseeing-i.com'
 
@@ -10,6 +9,8 @@ Pod::Spec.new do
     complete webpages, including external resources like images and stylesheets.
   }
 
+  part_of  'ASIHTTPRequest', '1.8.1'
+  dependency 'ASIHTTPRequest', '1.8.1'
   source_files 'Classes/ASIWebPageRequest/*.m', 'Classes/ASIWebPageRequest/*.h'
 
   frameworks 'usr/lib/libxml2.2.7.3.dylib'
