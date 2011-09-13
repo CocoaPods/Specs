@@ -20,7 +20,8 @@ Pod::Spec.new do
     using multipart/form-data.
   }
 
-  source_files 'Classes'
+  # Exclude the ASIWebPageRequest files.
+  source_files 'Classes/ASI[^Web]*.*'
 
   # TODO actually I think one or some of these are for Reachability
   xcconfig 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \

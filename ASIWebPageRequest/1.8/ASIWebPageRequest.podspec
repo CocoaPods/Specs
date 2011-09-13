@@ -10,7 +10,7 @@ Pod::Spec.new do
   }
 
   part_of_dependency  'ASIHTTPRequest', '1.8'
-  source_files 'Classes/ASIWebPageRequest/*.m', 'Classes/ASIWebPageRequest/*.h'
+  source_files 'Classes/ASIWebPageRequest.h', 'Classes/ASIWebPageRequest.m'
 
   xcconfig 'OTHER_LDFLAGS' => '-l xml2.2.7.3', 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'
 end
