@@ -26,7 +26,7 @@ Pod::Spec.new do
   xcconfig 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
                               '-framework CFNetwork ' \
                               '-framework MobileCoreServices ' \
-                              '-l z.1.2.3'
+                              '-l z.1'
 
   dependency 'Reachability', '~> 2.0', '>= 2.0.4'
 end
