@@ -12,4 +12,5 @@ Pod::Spec.new do
   xcconfig 'OTHER_LDFLAGS' => '-ObjC ' \
                               '-all_load ' \
                               '-l z'
+  dependency 'JSONKit'
 end
