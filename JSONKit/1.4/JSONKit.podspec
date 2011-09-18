@@ -8,4 +8,6 @@ Pod::Spec.new do
            :commit => 'v1.4'
 
   source_files 'JSONKit.*'
+
+  xcconfig 'OTHER_LDFLAGS' => '-ObjC'
 end
