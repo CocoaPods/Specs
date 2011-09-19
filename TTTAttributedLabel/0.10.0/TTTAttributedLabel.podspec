@@ -2,10 +2,10 @@ Pod::Spec.new do
   name     'TTTAttributedLabel'
   version  '0.10.0'
   summary  'A drop-in replacement for UILabel that supports NSAttributedStrings'
-  homepage 'https://github.com/samsoffes/ssziparchive'
+  homepage 'https://github.com/mattt/TTTAttributedLabel'
   author   'Mattt Thompson' => 'm@mattt.me'
-  source   :git => 'https://github.com/samsoffes/ssziparchive.git',
-           :tag => '0.1.0'
+  source   :git => 'https://github.com/mattt/TTTAttributedLabel.git',
+           :tag => '0.10.0'
 
   description "TTTAttributedLabel is a drop-in replacement for UILabel that supports NSAttributedStrings. " \
               "NSAttributedString is pretty rad. When it was ported into iOS 4 from Mac OS, iPhone developers everywhere rejoiced. Unfortunately, as of iOS 4 none of the standard controls in UIKit support it. Bummer. "\
