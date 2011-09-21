@@ -1,4 +1,5 @@
-Pod::Spec.new do
+Pod::Spec.new do       
+  name         'Objection'
   version      '0.8.7'                                                                  
   summary      'A lightweight dependency injection framework for Objective-C.' 
   author       'Justin DeWind' => 'dewind@atomicobject.com'                                
