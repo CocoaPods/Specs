@@ -1,14 +1,12 @@
-Pod::Spec.new do
-  name     'ASIHTTPRequest'
-  version  '1.8'
-  summary  'Easy to use CFNetwork wrapper for HTTP requests, Objective-C, Mac OS X and iPhone'
-  homepage 'http://allseeing-i.com/ASIHTTPRequest'
-  author   'Ben Copsey' => 'ben@allseeing-i.com'
-  source   :git         => 'https://github.com/pokeb/asi-http-request.git',
-           #:commit      => '63061ac428a3ea639f4c75b9857074208ff77389'
-           :tag         => 'v1.8'
+Pod::Spec.new do |s|
+  s.name     = 'ASIHTTPRequest'
+  s.version  = '1.8'
+  s.summary  = 'Easy to use CFNetwork wrapper for HTTP requests, Objective-C, Mac OS X and iPhone'
+  s.homepage = 'http://allseeing-i.com/ASIHTTPRequest'
+  s.author   = { 'Ben Copsey' => 'ben@allseeing-i.com' }
+  s.source   = { :git => 'https://github.com/pokeb/asi-http-request.git', :tag => 'v1.8' }
 
-  description %{
+  s.description = %{
     ASIHTTPRequest is an easy to use wrapper around the CFNetwork API that
     makes some of the more tedious aspects of communicating with web servers
     easier. It is written in Objective-C and works in both Mac OS X and iPhone
@@ -21,13 +19,13 @@ Pod::Spec.new do
   }
 
   # Exclude the ASIWebPageRequest files.
-  source_files 'Classes/ASI[^Web]*.*'
+  s.source_files = 'Classes/ASI[^Web]*.*'
 
   # TODO actually I think one or some of these are for Reachability
-  xcconfig 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
-                              '-framework CFNetwork ' \
-                              '-framework MobileCoreServices ' \
-                              '-l z.1'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
+                                    '-framework CFNetwork ' \
+                                    '-framework MobileCoreServices ' \
+                                    '-l z.1' }
 
   dependency 'Reachability', '~> 2.0', '>= 2.0.4'
 end

@@ -1,13 +1,12 @@
-Pod::Spec.new do
-  name     'JSONKit'
-  version  '1.4'
-  summary  'A Very High Performance Objective-C JSON Library.'
-  homepage 'https://github.com/johnezang/JSONKit'
-  author   'John Engelhart'
-  source   :git    => 'https://github.com/johnezang/JSONKit.git',
-           :commit => 'v1.4'
+Pod::Spec.new do |s|
+  s.name     = 'JSONKit'
+  s.version  = '1.4'
+  s.summary  = 'A Very High Performance Objective-C JSON Library.'
+  s.homepage = 'https://github.com/johnezang/JSONKit'
+  s.author   = 'John Engelhart'
+  s.source   = { :git => 'https://github.com/johnezang/JSONKit.git', :tag => 'v1.4' }
 
-  source_files 'JSONKit.*'
+  s.source_files = 'JSONKit.*'
 
-  xcconfig 'OTHER_LDFLAGS' => '-ObjC'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 end
