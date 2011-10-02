@@ -6,4 +6,5 @@ Pod::Spec.new do |s|
   s.authors      = 'Apple', 'Donoho Design Group, LLC' 
   s.summary      = 'A wrapper for the SystemConfiguration Reachablity APIs.'
   s.source_files = 'External/Reachability'
+  s.header_dir   = s.name
 end
