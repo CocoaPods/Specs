@@ -5,5 +5,5 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.atomcraft.de'
   s.author   = { 'atomtom' => 'pool@atomton.net' }
   s.source   = { :git => 'git://github.com/atomton/ATMHud.git', :commit => 'fc79fed7268362c744de5470169db0a381866ad7' }
-  s.source_files = '*{h,m}'
+  s.source_files = '*.{h,m}'
 end
