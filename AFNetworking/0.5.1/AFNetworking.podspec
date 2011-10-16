@@ -6,9 +6,19 @@ Pod::Spec.new do |s|
   s.author   = { 'Gowalla' => 'live@gowalla.com' }
   s.source   = { :git => 'https://github.com/gowalla/AFNetworking.git', :tag => '0.5.1' }
 
-  s.source_files = 'AFNetworking'
+  if config.ios?
+    s.source_files = 'AFNetworking' # everything
+  else
+    s.source_files = %w{
+      AFNetworking/AFHTTPRequestOperation.h
+      AFNetworking/AFJSONRequestOperation.h
+      AFNetworking/NSData+AFNetworking.h
+      AFNetworking/NSMutableURLRequest+AFNetworking.h
+      AFNetworking/NSString+AFNetworking.h
+    }
+  end
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load -l z' }
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load -lz' }
 
   s.dependency 'JSONKit'
 end

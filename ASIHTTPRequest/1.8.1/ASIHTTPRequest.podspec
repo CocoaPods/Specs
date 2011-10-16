@@ -18,13 +18,14 @@ Pod::Spec.new do |s|
     using multipart/form-data.
   }
 
-  s.source_files = 'Classes'
+  if config.ios?
+    s.dependency 'Reachability', '~> 2.0', '>= 2.0.4'
+    s.source_files = 'Classes'
+    s.frameworks   = 'SystemConfiguration', 'MobileCoreServices', 'CFNetwork'
+  else
+    s.source_files = 'Classes/ASI[^AuthenticationDialog]*.*'
+    s.frameworks   = 'SystemConfiguration', 'CoreServices'
+  end
 
-  # TODO actually I think one or some of these are for Reachability
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
-                                    '-framework CFNetwork ' \
-                                    '-framework MobileCoreServices ' \
-                                    '-l z.1' }
-
-  s.dependency 'Reachability', '~> 2.0', '>= 2.0.4'
+  s.library    = 'z.1'
 end

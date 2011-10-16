@@ -1,3 +1,5 @@
+# TODO JSONKit does *not* support GC, we need to specify that.
+
 Pod::Spec.new do |s|
   s.name     = 'JSONKit'
   s.version  = '1.4'
