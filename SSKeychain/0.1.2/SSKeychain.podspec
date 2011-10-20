@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = 'SSKeychain'
-  s.version      = '0.1.0'
+  s.version      = '0.1.2'
   s.summary      = 'Simple Cocoa wrapper for the keychain that works on Mac and iOS'
   s.homepage     = 'https://github.com/samsoffes/sskeychain'
   s.author       = { 'Sam Soffes' => 'sam@samsoff.es' }
-  s.source       = { :git => 'https://github.com/samsoffes/sskeychain.git', :tag => '0.1.0' }
+  s.source       = { :git => 'https://github.com/samsoffes/sskeychain.git', :tag => '0.1.2' }
   s.description  = 'SSKeychain is a simple utility class for making the system keychain less sucky.'
   s.source_files = 'SSKeychain.*'
 end
