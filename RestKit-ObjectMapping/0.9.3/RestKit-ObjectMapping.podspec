@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'RestKit-Network', '0.9.3'
   s.source_files = 'Code/ObjectMapping/*.{h,m}'
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' }
 
   def s.copy_header_mapping(from)
     from.relative_path_from(Pathname.new('Code'))

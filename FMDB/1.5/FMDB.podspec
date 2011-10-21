@@ -8,6 +8,4 @@ Pod::Spec.new do |s|
                  :tag => 'v1.5' }
 
   s.source_files = 'src'
-
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 end

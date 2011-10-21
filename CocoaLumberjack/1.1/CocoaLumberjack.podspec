@@ -8,5 +8,4 @@ Pod::Spec.new do |s|
                  :tag => '1.1' }
 
   s.source_files = 'Lumberjack'
-  
 end

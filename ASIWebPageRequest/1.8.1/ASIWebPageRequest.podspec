@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.part_of_dependency = 'ASIHTTPRequest', '1.8.1'
   s.source_files = 'Classes/ASIWebPageRequest/*.m', 'Classes/ASIWebPageRequest/*.h'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-l xml2.2.7.3', 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+  s.library = 'xml2.2.7.3'
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
 

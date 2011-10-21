@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
     }
   end
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load -lz' }
-
+  s.library = 'z'
   s.dependency 'JSONKit'
 end

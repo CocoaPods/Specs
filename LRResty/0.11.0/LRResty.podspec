@@ -6,5 +6,4 @@ Pod::Spec.new do |s|
   s.authors      = { 'Luke Redpath' => 'luke@lukeredpath.co.uk' }
   s.source       = { :git => 'https://github.com/lukeredpath/LRResty.git', :tag => 'v0.11.0' }
   s.source_files = 'Classes', 'Classes/Categories'
-  s.xcconfig     = { 'OTHER_LDFLAGS' => '-ObjC -all_load' }
 end

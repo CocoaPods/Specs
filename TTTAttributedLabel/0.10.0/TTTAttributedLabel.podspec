@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'TTTAttributedLabel'
   s.version  = '0.10.0'
+  s.platform = :ios
   s.summary  = 'A drop-in replacement for UILabel that supports NSAttributedStrings'
   s.homepage = 'https://github.com/mattt/TTTAttributedLabel'
   s.author   = { 'Mattt Thompson' => 'm@mattt.me' }

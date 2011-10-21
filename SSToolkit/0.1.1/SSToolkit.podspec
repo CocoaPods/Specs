@@ -13,9 +13,7 @@ Pod::Spec.new do |s|
 
   s.resources    = 'Resources'
   s.source_files = 'SSToolkit/**/*.{h,m}'
-
   s.frameworks   = 'QuartzCore', 'CoreGraphics'
-  s.xcconfig     = { 'OTHER_LDFLAGS' => '-all_load -ObjC' }
 
   def s.post_install
     prefix_header = config.project_pods_root + 'Pods-Prefix.pch'
