@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
                  :tag => 'v1.5' }
 
   s.source_files = 'src/FM*.*'
+  s.library = 'sqlite3'
 end
