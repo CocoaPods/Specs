@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ccgus/fmdb.git',
                  :tag => 'v1.5' }
 
-  s.source_files = 'src'
+  s.source_files = 'src/FM*.*'
 end
