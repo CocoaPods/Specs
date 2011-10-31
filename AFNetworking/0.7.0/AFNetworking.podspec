@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AFNetworking'
 
+  s.clean_paths = ['iOS Example', 'Mac Example', 'AFNetworking.xcworkspace']
+
   s.library = 'z'
   s.dependency 'JSONKit'
 end
