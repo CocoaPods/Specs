@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'MessageUI'
 
-  s.compiler_flags = '-fobjc-arc'
+  s.requires_arc = true
 
   s.clean_paths = 'BlocksKit.xcodeproj/', 'GHUnitIOS.framework/', 'Tests/', '.gitignore'
 
