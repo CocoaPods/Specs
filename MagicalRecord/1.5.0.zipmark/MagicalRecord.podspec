@@ -11,6 +11,5 @@ Pod::Spec.new do |s|
 
   s.description = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
   s.source_files = 'Source', 'Source/Categories'
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' }
   s.framework = 'CoreData'
 end

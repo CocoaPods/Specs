@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.0.1'
   s.summary  = 'Quick and easy dialog screens for iOS'
   s.homepage = 'http://escoz.com'
-  s.author   = { 'Eduardo Scoz' => 'not available' }
+  s.author   = { 'Eduardo Scoz' => 'eduardoscoz AT gmail' }
 
   # Substituting Paul's forked repo with zipmark-specific updates
   # This should eventually be submitted to the main project and we should repoint to the relevant commit
