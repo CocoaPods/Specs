@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'QR and barcode scan library'
   s.homepage = 'http://zbar.sourceforge.net/'
   s.author   = { 'Jeff Brown' => 'spadix@users.sourceforge.net' }
-  s.source   = { :git => 'https://github.com/darvin/zbar' }
+  s.source   = { :git => 'https://github.com/darvin/zbar', :commit => '9baf85a8cc9df2c79c10e53e432be4155e3088ad'  }
 
   s.description = %{
 ZBar is an open source software suite for reading bar codes from various sources, such as video streams, image files and raw intensity sensors. It supports many popular symbologies (types of bar codes) including EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code.
@@ -18,6 +18,9 @@ The flexible, layered implementation facilitates bar code scanning and decoding 
   s.source_files = 'iphone', 'iphone/include', 'iphone/include/ZBarSDK'
   s.resources    = 'iphone/res'
 
-  s.framework = 'AVFoundation.framework', 'CoreMedia.framework', 'CoreVideo.framework', 'QuartzCore.framework', 'libiconv.dylib'
+  s.frameworks = 'AVFoundation', 'CoreMedia', 'CoreVideo', 'QuartzCore'
+  s.library = 'iconv''
+  s.clean_paths = 'java', 'perl', 'python'
+  s.header_dir = s.name, s.name + '/iphone/include', s.name + '/include'
 
 end
