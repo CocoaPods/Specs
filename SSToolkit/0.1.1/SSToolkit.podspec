@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                    'easier by solving common problems all iOS developers face. Some really ' \
                    'handy classes are SSCollectionView, SSGradientView, SSSwitch, and many more.'
 
-  s.resources    = 'Resources'
+  s.resources    = 'Resources/SSToolkit.bundle'
   s.source_files = 'SSToolkit/**/*.{h,m}'
   s.frameworks   = 'QuartzCore', 'CoreGraphics'
 

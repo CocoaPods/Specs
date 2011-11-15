@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     s.source_files = 'Classes'
     s.frameworks   = 'SystemConfiguration', 'MobileCoreServices', 'CFNetwork'
   else
-    s.source_files = 'Classes/ASI[^Auth]*.*'
+    s.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog\.\w$/)
     s.frameworks   = 'SystemConfiguration', 'CoreServices'
   end
 

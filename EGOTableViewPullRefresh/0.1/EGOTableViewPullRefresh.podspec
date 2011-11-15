@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                  :commit => '743679ffeb6ac02f0afffaac46f318dd2ce6122e' }
 
   s.source_files = 'EGOTableViewPullRefresh/Classes/View/*.{h,m}'
-  s.resources    = 'EGOTableViewPullRefresh/Resources'
+  s.resources    = 'EGOTableViewPullRefresh/Resources/*.png'
   s.clean_paths  = 'Demo'
   s.framework    = 'QuartzCore'
 end
