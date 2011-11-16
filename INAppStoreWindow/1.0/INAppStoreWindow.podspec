@@ -1,4 +1,4 @@
-Pod:Spec.new do |s|
+Pod::Spec.new do |s|
 	s.name			= 'INAppStoreWindow'
 	s.version		= '1.0'
 	s.summary		= 'Mac App Store style NSWindow subclass'
