@@ -7,4 +7,6 @@ Pod:Spec.new do |s|
 	s.source_files	= 'INAppStoreWindow.{h, m}'
 	s.source   		= { :git => 'https://github.com/indragiek/INAppStoreWindow.git', :tag => 'v1.0' }
 	s.clean_paths	= 'SampleApp'
+	s.platform 		= :osx
+	s.requires_arc 	= true
 end
