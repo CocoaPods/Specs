@@ -12,4 +12,7 @@ This pod consists of the three sub-pods: RestKit-Network, RestKit-ObjectMapping,
   s.dependency 'RestKit-Network',       '0.9.3'
   s.dependency 'RestKit-ObjectMapping', '0.9.3'
   #s.dependency 'RestKit-CoreData',      '0.9.3'
+
+  # Otherwise it won’t pass `spec lint`.
+  s.source_files = []
 end
