@@ -9,12 +9,14 @@ end
 
 desc "Run `pod spec lint` on all specs"
 task :lint do
+  exit if ENV['skip-lint']
+
   if File.exist?(GEMS_DIR)
     gems = Dir.glob(File.join(GEMS_DIR, 'gems', '*'))
     pod  = File.join(gems.find { |path| path =~ /cocoapods-[\d\.]+$/ }, 'bin/pod')
   end
 
-  specs = `git diff --name-only | grep '.podspec$'`.strip.split("\n")
+  specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = FileList['**/*.podspec'] if specs.empty?
 
   failures = []
