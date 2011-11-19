@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Arash Payan' => 'arash.payan@gmail.com' }
   s.source   = { :git => 'git://github.com/arashpayan/appirater.git', :commit => '0f3776a47b17bd4f6cbee0ad02c9450869d26c42' }
   s.source_files = '*.{h,m}'
+  s.frameworks   = 'CFNetwork', 'SystemConfiguration'
 end
