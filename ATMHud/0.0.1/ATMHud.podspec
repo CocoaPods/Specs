@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.summary  = 'Library for the creation of HUDs in iPhone applications.'
   s.homepage = 'https://github.com/atomton/ATMHud'
-  s.author   = { 'atomtom' => 'pool@atomton.net' }
+  s.author   = { 'Marcel Müller' => 'pool@atomton.net' }
   s.source   = { :git => 'git://github.com/atomton/ATMHud.git', :commit => 'fc79fed7268362c744de5470169db0a381866ad7' }
   s.source_files = 'ATM*.{h,m}'
   s.frameworks   = 'QuartzCore', 'AudioToolbox'
