@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   if config.ios?
     s.dependency 'Reachability', '~> 2.0', '>= 2.0.4'
     s.source_files = 'Classes'
-    s.frameworks   = 'SystemConfiguration', 'MobileCoreServices', 'CFNetwork'
+    s.frameworks   = 'MobileCoreServices', 'CFNetwork'
   else
     s.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog\.\w$/)
     s.frameworks   = 'SystemConfiguration', 'CoreServices'
