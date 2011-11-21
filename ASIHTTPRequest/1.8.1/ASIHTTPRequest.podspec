@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   }
 
   if config.ios?
-    s.dependency 'Reachability', '~> 2.0', '>= 2.0.4'
+    s.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
     s.source_files = 'Classes'
     s.frameworks   = 'MobileCoreServices', 'CFNetwork'
   else
