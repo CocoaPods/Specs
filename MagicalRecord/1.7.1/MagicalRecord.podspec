@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'http://github.com/magicalpanda/MagicalRecord.git', :tag => '1.7.1' }
 
   s.description = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
-  s.source_files = 'Source', 'Source/**/*.{h,m}'
+  s.source_files = 'Source/**/*.{h,m}'
   s.framework = 'CoreData'
 end
