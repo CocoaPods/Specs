@@ -5,14 +5,40 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.restkit.org'
   s.author   = { 'Blake Watters' => 'blakewatters@gmail.com' }
   s.source   = { :git => 'https://github.com/RestKit/RestKit.git', :tag => '0.9.3' }
-  s.description = 'RestKit is a Cocoa framework for interacting with RESTful web services in Objective C on iOS and Mac OS X. It provides a set of primitives for interacting with web services wrapping GET, POST, PUT and DELETE HTTP verbs behind a clean, simple interface. RestKit also provides a system for modeling remote resources by mapping them from JSON (or XML) payloads back into local domain objects. Object mapping functions with normal NSObject derived classes with properties. There is also an object mapping implementation included that provides a Core Data backed store for persisting objects loaded from the web.
 
-This pod consists of the three sub-pods: RestKit-Network, RestKit-ObjectMapping, and RestKit-CoreData.'
+  # It has no source_files itself, so the resolver should not allow dependencies on this spec unless it’s a `part_of' type dependency
 
-  s.dependency 'RestKit-Network',       '0.9.3'
-  s.dependency 'RestKit-ObjectMapping', '0.9.3'
-  #s.dependency 'RestKit-CoreData',      '0.9.3'
+  # This creates a new Pod::Specification instance, which has the the following attributes:
+  # * part_of:  'RestKit', '0.9.3'
+  # * name:    'RestKit/Network'
+  # Other attributes are delegated to the `part_of' spec, so the version, summary etc will by default be the same
+  s.subspec 'Network' do |ns|
+    ns.description = 'The network layer provides a request/response abstraction on top of NSURLConnection.'
+    ns.dependency 'LibComponentLogging-NSLog'
+    ns.source_files = 'Code/RestKit.h', 'Code/{Network,Support}/*.{h,m}'
+  end
 
-  # Otherwise it won’t pass `spec lint`.
-  s.source_files = []
+  # Like before, this creates a new spec with the name: RestKit/ObjectMapping and is a part of RestKit
+  s.subspec 'ObjectMapping' do |os|
+    os.description = %{The object mapping layer provides a simple API for turning remote JSON/XML responses into objects.}
+    os.dependency 'RestKit/Network'
+    os.source_files = 'Code/ObjectMapping/*.{h,m}'
+
+    # This spec will have the name: RestKit/ObjectMapping/JSON.
+    # Since it’s nested under another sub spec, it automatically depends on the parent: RestKit/ObjectMapping
+    os.subspec 'JSONKit' do |jos|
+      jos.description = 'The RestKit JSON parser which wraps JSONKit.'
+      jos.source_files = 'Code/Support/Parsers/JSON/RKJSONParserJSONKit.{h,m}'
+      jos.dependency 'JSONKit'
+    end
+
+    # This spec will have the name: RestKit/ObjectMapping/XML.
+    # Since it’s nested under another sub spec, it automatically depends on the parent: RestKit/ObjectMapping
+    os.subspec 'XML' do |xos|
+      xos.description = 'The RestKit XML parser which wraps libxml2.'
+      xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserLibXML.{h,m}'
+      xos.library = 'xml2'
+      xos.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+    end
+  end
 end
