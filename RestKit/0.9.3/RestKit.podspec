@@ -8,6 +8,10 @@ Pod::Spec.new do |s|
 
   # It has no source_files itself, so the resolver should not allow dependencies on this spec unless it’s a `part_of' type dependency
 
+  def s.copy_header_mapping(from)
+    from.relative_path_from(Pathname.new('Code'))
+  end
+
   # This creates a new Pod::Specification instance, which has the the following attributes:
   # * part_of:  'RestKit', '0.9.3'
   # * name:    'RestKit/Network'
