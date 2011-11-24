@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://jverkoey.github.com/nimbus/'
   s.author   = { 'Jeff Verkoeyen'    => 'jverkoey@gmail.com',
                  'Bubnov Slavik'     => 'bubnovslavik@gmail.com',
-                 'Roger Chapman'     => 'roger@stormid.com',
+                 'Roger Chapman'     => 'rogchap@gmail.com',
                  'Manu Cornet'       => 'manu.cornet@gmail.com',
                  'Glenn Grant'       => 'glenn@ensquared.net',
                  'Aviel Lazar'       => 'aviellazar@gmail.com',
@@ -23,9 +23,7 @@ Pod::Spec.new do |s|
   s.description = 'Nimbus is an iOS framework whose feature set grows only as fast as its documentation. '  \
                   'By focusing on documentation first and features second, Nimbus hopes to be a framework ' \
                   'that accelerates the development process of any application by being easy to use and '   \
-                  'simple to understand.  Nimbus has been built with much inspiration from the Three20 '    \
-                  'framework. That being said, there are a number of fundamental problems with Three20 '    \
-                  'that Nimbus works very hard to avoid. '
+                  'simple to understand.'
 
   s.platform = :ios
 
