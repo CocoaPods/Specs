@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
     using multipart/form-data.
   }
 
+  s.clean_paths = '*Sample', 'External', '*.xcodeproj', 'Build Scripts'
+
   if config.ios?
     s.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
     s.source_files = 'Classes'
