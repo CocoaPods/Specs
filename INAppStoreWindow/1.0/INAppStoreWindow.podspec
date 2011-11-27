@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 	s.clean_paths	= 'SampleApp'
 	s.platform 		= :osx
 	s.requires_arc 	= true
+	s.license		= 'BSD'
 end

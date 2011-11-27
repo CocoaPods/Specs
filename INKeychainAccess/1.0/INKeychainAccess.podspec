@@ -6,4 +6,6 @@ Pod::Spec.new do |s|
 	s.author   		= { 'Indragie Karunaratne' => 'indragiek@gmail.com' }
 	s.source_files	= '*.{h,m}'
 	s.source   		= { :git => 'https://github.com/indragiek/INKeychainAccess.git', :tag => 'v1.0' }
+	s.license		= 'BSD'
+	s.framework		= 'Security'
 end
