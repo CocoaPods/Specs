@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Lightweight Objective-C Regular Expressions for Mac OS X using the ICU Library'
   s.homepage = 'http://regexkit.sourceforge.net/RegexKitLite/'
   s.author   = { 'John Engelhart' => 'regexkitlite@gmail.com' }
-  s.source   = { :svn => 'https://regexkit.svn.sourceforge.net/svnroot/regexkit/RegexKitLite' }
+  s.source   = { :svn => 'http://regexkit.svn.sourceforge.net/svnroot/regexkit/RegexKitLite' }
   s.source_files = '**/RegexKitLite.{h,m}'
   s.clean_paths = "examples", "Documentation"
   s.library = 'icucore'
