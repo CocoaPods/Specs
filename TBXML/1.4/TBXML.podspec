@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod lint TBXML.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name     = 'TBXML'
   s.version  = '1.4'
