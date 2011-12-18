@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Tom Bradley' => 'tom@tbxml.co.uk' }
   s.source   = { 
     :git => 'https://github.com/steipete/TBXML.git', 
-    :commit => 'e7c6495020287a943a0b8fded93346f3f765c3a0' 
+    :commit => 'fc2db6c94e87de3d1e0fff50baf762397bc9e687' 
   }
   s.description = %{
     TBXML is a light-weight XML document parser written in Objective-C 
