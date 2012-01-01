@@ -11,4 +11,9 @@ Pod::Spec.new do |s|
   s.source_files = 'SSZipArchive.*', 'minizip/*.{h,c}'
 
   s.clean_paths = ["Tests", ".gitignore"]
+
+  # Maintain the dir structure for headers
+  def s.copy_header_mapping(from)
+    from
+  end
 end
