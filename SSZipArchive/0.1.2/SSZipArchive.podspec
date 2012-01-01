@@ -9,4 +9,6 @@ Pod::Spec.new do |s|
   s.description  = "SSZipArchive is a simple utility class for zipping and unzipping files on iOS and Mac."
 
   s.source_files = 'SSZipArchive.*', 'minizip/*.{h,c}'
+
+  s.clean_paths = ["Tests", ".gitignore"]
 end
