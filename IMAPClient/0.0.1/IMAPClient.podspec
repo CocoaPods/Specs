@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'imap'
+  s.name     = 'IMAPClient'
   s.version  = '0.0.1'
   s.license  = 'MIT'
   s.summary  = 'An asynchrounous IMAP client for iOS.'
