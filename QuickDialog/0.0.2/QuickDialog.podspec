@@ -13,4 +13,34 @@ Pod::Spec.new do |s|
   s.source_files = 'quickdialog'
   s.requires_arc = true
 
+  def s.post_install(target)
+    headers = <<'EOHEADERS'
+
+#ifdef __OBJC__
+#import "QuickDialogController.h"
+#import "QuickDialogController+Loading.h"
+#import "QuickDialogStyleProvider.h"
+#import "QLabelElement.h"
+#import "QBadgeElement.h"
+#import "QBooleanElement.h"
+#import "QButtonElement.h"
+#import "QDateTimeInlineElement.h"
+#import "QListPickerInlineElement.h"
+#import "QFloatElement.h"
+#import "QMapElement.h"
+#import "QRadioElement.h"
+#import "QRadioItemElement.h"
+#import "QTextElement.h"
+#import "QWebElement.h"
+#import "QDecimalElement.h"
+#import "QSortingSection.h"
+#import "QDateTimeElement.h"
+#endif
+
+EOHEADERS
+    prefix_header = config.project_pods_root + target.prefix_header_filename
+    prefix_header.open('a') do |file|
+      file.puts(headers)
+    end
+  end
 end
