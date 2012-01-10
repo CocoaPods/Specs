@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'OCMock'
   s.version = '1.77.1'
-  s.platform = :ios
   s.homepage = 'http://ocmock.org'
   s.author = { 'Erik Doernenburg' => 'erik@doernenburg.com' }
   s.source = { :git => 'https://github.com/erikdoe/ocmock.git',
