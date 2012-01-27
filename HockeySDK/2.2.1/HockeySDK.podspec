@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Distribute beta apps and collect crash reports with HockeyApp.'
   s.homepage = 'http://hockeyapp.net/'
   s.author   = { 'Andreas Linde' => 'mail@andreaslinde.de', 'Thomas Dohmke' => "thomas@dohmke.de" }
-  s.source   = { :git => 'https://github.com/codenauts/HockeySDK-iOS', :tag => '2.2.1' }
+  s.source   = { :git => 'https://github.com/codenauts/HockeySDK-iOS.git', :tag => '2.2.1' }
 
   s.description = 'HockeyApp is a server to distribute beta apps and collect crash reports. '          \
                   'It improves the testing process dramatically and can be used for both beta '        \
