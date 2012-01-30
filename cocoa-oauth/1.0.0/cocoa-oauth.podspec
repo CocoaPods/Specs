@@ -7,7 +7,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Caleb Davenport' => 'caleb@guicocoa.com' }
   s.source   = { :git => 'https://github.com/guicocoa/cocoa-oauth.git', :commit => 'a777311ca1884e71b842812d56cf208f6f55f757' }
 
-  s.description = 'An optional longer description of cocoa-oauth.'
-
   s.source_files = '*.{h,m}'
 end
