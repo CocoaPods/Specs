@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'cocoa-oauth'
-  s.version  = '1.0.0'
+  s.version  = '0.0.1'
   s.license  = 'BSD'
   s.summary  = 'Cocoa library for creating signed requests according to the OAuth 1.0a standard.'
   s.homepage = 'https://github.com/guicocoa/cocoa-oauth'
