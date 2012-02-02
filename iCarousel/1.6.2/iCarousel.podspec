@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '1.6.2'
   s.summary  = 'A simple, highly customisable, data-driven 3D carousel for iOS and Mac OS.'
   s.homepage = 'http://www.charcoaldesign.co.uk/source/cocoa#icarousel'
-  s.author   = { 'Nick Lockwood' => '' }
+  s.author   = 'Nick Lockwood'
   s.source   = { :git => 'git://github.com/nicklockwood/iCarousel.git', :tag => 'v1.6.2' }
 
   s.description = 'iCarousel is a class designed to simplify the implementation of various ' \
