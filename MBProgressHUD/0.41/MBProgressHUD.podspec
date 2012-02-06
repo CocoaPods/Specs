@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.{h,m}'
   s.clean_paths  = ".gitattributes", ".gitignore", "Demo"
+  s.framework    = "CoreGraphics"
 end
