@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Patrick Richards' => 'contact@domesticcat.com.au' }
   s.source   = { :git => 'git://github.com/domesticcatsoftware/DCIntrospect.git', :commit => "3ef2c10710f007b6d699c2a0b996ce1e3a79bde0" }
   s.source_files = 'DCIntrospect'
-  s.framework    = 'QuartzCore'
+  s.frameworks   = 'QuartzCore'
   s.clean_paths  = 'DCIntrospectDemo'
 end
