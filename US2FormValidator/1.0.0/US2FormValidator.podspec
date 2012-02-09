@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.description  = 'This framework allows you to validate inputs of text fields and text views in a convenient way. Add your own validators and dependencies of validations.'
   s.platform     = :ios
   s.source       = { :git => 'https://github.com/ustwo/US2FormValidator.git', :tag => '1.0.0' }
-  s.source_files = 'US2FormValidationFramework/source/base', 'US2FormValidationFramework/source/conditions', 'US2FormValidationFramework/source/validators'
+  s.source_files = 'US2FormValidationFramework/source/**/*.{h,m}'
   s.resource     = "US2FormValidationFramework/source/Localization.bundle"
 end
