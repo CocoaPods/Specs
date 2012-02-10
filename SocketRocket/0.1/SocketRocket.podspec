@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SocketRocket/*.{h,m,c}'
   s.clean_paths  = %w{SRWebSocketTests SocketRocket.xcodeproj TestChat TestChatServer TestSupport extern}
   s.requires_arc = true
-  s.frameworks   = %w{CFNetwork Security libicucore.dylib}
+  s.frameworks   = %w{CFNetwork Security}
+  s.libraries    = "icucore"
 end
