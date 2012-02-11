@@ -1,0 +1,13 @@
+Pod::Spec.new do |s|
+  s.name     = 'SGHotKeysLib'
+  s.version  = '1.1'
+  s.authors  = 'Justin Williams', 'Quentin D. Carnicelli'
+  s.summary  = 'SGHotKeysLib is a fork of Quentin D. Carnicelli\'s excellent PTHotKeysLib library for registering shortcut keys on Mac OS X.'
+  s.homepage = 'https://github.com/AgileBits/SGHotKeysLib'
+  s.source   = { :git => 'git://github.com/AgileBits/SGHotKeysLib.git' }
+  s.description = 'PTHotKeysLib has served us well for many years, but as I was upgrading my company\'s applications to run natively in 64 bit I was running into issues. The original code itself used many deprecated methods, 32 bit integer types, etc. As I fixed those issues, my OCD started to get the best of me and I started reformatting and rewriting portions of the code using modern Objective-C practices and paradigms.'
+  s.platform = :osx
+  s.source_files = 'SGHotKeysLib'
+  s.framework = 'Carbon'
+  s.clean_paths = 'Source', 'SGHotKeyCenter.xcodeproj', 'Resources', 'Frameworks', 'English.lproj'
+end
