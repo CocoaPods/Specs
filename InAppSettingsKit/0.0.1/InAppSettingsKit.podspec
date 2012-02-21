@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'InAppSettingKit'
-  s.version   = '0.1'
+  s.version   = '0.0.1'
   s.platform  = :ios
   s.summary   = 'InAppSettingsKit is an open source solution to to easily ' \
                 'add in-app settings to your iPhone apps.'
