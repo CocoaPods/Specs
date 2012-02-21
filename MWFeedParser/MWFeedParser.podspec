@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/mwaterfall/MWFeedParser'
   s.author   = { 'Michael Waterfall (author)' => 'mw@d3i.com', 'Tomáš Jukin (pod creator)' => 'tomas@jukin.cz' }
 
-  s.source   = { :git => 'git://github.com/mwaterfall/MWFeedParser.git', :tag => 'v1.0.0' }
+  s.source   = { :git => 'git://github.com/Inza/MWFeedParser.git', :tag => 'v1.0.0' }
   
   s.description = %{MWFeedParser is an Objective-C framework for downloading and parsing RSS (1.* and 2.*) and Atom web feeds. It is a very simple and clean implementation that reads the following information from a web feed:
   
