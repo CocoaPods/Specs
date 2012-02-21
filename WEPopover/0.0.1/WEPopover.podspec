@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
                 'custom background and available for iPhone as well.'
   s.homepage  = 'https://github.com/werner77/WEPopover'
   s.author    = { 'Werner Altewischer' => 'http://www.werner-it.com/' }
-  s.source    = { :git => 'https://github.com/werner77/WEPopover.git' }
+  s.source    = { :git => 'https://github.com/werner77/WEPopover.git',
+                  :commit => 'b666e8f4fb0661587d7431ccf8749438878ddd2a' }
   s.resources = '*.png'
   s.source_files  = 'Classes/Popover/*.*'
 end
