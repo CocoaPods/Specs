@@ -6,5 +6,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Jason Morrissey' => 'http://jasonmorrissey.org/' }
   s.source   = { :git => 'https://github.com/jasonmorrissey/JMTabView.git',
                  :commit => '2ba6a1f396f7aa8b418ae82336aa1c9c2be9b2b6' }
-  s.source_files = 'JMTabView/Classes/*/*.{h,m}'
+  s.source_files = 'JMTabView/Classes/**/*.{h,m}'
 end
