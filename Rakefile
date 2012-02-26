@@ -37,7 +37,7 @@ task :lint do
   failures = []
   specs.each do |spec|
     begin
-      command = "pod spec lint '#{spec}'"
+      command = "pod spec lint '#{spec}' --verbose"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`

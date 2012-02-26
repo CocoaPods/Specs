@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.frameworks   = 'MessageUI'
     s.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
   else
-    s.source_files = 'BlocksKit/*.{h,m}'
+    s.source_files = 'BlocksKit/*.{h,m}'
   end
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
