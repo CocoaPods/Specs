@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.dependency 'A2DynamicDelegate'
   s.clean_paths = 'GHUnitIOS.framework/', 'Tests/', 'BlocksKit.xcodeproj/', '.gitignore'
   if config.ios?
-    s.frameworks   = 'MessageUI'
-    s.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
+    s.frameworks   = 'MessageUI'
+    s.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
   else
     s.source_files = 'BlocksKit/*.{h,m}'
   end
