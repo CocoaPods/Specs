@@ -22,7 +22,9 @@ namespace :travis do
     end
   end
 
-  task :setup => [:install_opencflite_debs, :fix_rvm_include_dir]
+  task :setup => [:install_opencflite_debs, :fix_rvm_include_dir] do
+    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle install"
+  end
 end
 
 desc "Run `pod spec lint` on all specs"
