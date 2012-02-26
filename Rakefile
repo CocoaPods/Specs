@@ -1,9 +1,13 @@
-GEMS_DIR = '.gems'
-
-desc "Installs the latest versions of the CocoaPods gems in `.gems'"
-task :install_gems do
-  unless File.exist?(GEMS_DIR)
-    sh "gem install cocoapods --install-dir='#{GEMS_DIR}' --no-rdoc --no-ri"
+namespace :travis do
+  task :install_opencflite_debs do
+    sh "mkdir -p .debs"
+    Dir.chdir(".debs") do
+      base_url = "https://github.com/downloads/CocoaPods/OpenCFLite"
+      %w{ opencflite1_248-1_i386.deb opencflite-dev_248-1_i386.deb }.each do |deb|
+        sh "wget #{File.join(base_url, deb)}" unless File.exist?(deb)
+      end
+      sh "sudo dpkg -i *.deb"
+    end
   end
 end
 
@@ -11,24 +15,19 @@ desc "Run `pod spec lint` on all specs"
 task :lint do
   exit if ENV['skip-lint']
 
-  if File.exist?(GEMS_DIR)
-    gems = Dir.glob(File.join(GEMS_DIR, 'gems', '*'))
-    pod  = File.join(gems.find { |path| path =~ /cocoapods-[\d\.]+$/ }, 'bin/pod')
-  end
-
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = FileList['**/*.podspec'] if specs.empty?
 
   failures = []
   specs.each do |spec|
     begin
-      if gems
-        sh "macruby -I '#{gems.join("/lib' -I '")}/lib' '#{pod}' spec lint '#{spec}'"
-      else
-        sh "pod spec lint '#{spec}'"
-      end
-    rescue
-      failures << spec
+      command = "pod spec lint '#{spec}'"
+      puts command
+      # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
+      puts `#{command}`
+      failures << spec unless $?.success?
+    rescue Interrupt
+      break
     end
   end
   unless failures.empty?

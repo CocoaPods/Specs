@@ -1,0 +1,2 @@
+source :rubygems
+gem 'cocoapods'
