@@ -12,6 +12,10 @@ First of all, you need to install the tools.
     $ [sudo] gem install cocoapods
     $ pod setup
 
+CocoaPods uses a versioning scheme known as [Semantic Versioning](http://semver.org/). See this [example](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more info on why this scheme is used.
+
+If the library, that you are creating a specification for, does not yet have any tagged versions in its repo, then it’s best to start with the lowest version ‘0.0.1’, which will ensure that once the author does add tagged versions they will be equal or higher than ‘0.0.1’. It is _your_ responsibility to ask the author of the library to tag versions, luckily we have [a template](https://github.com/CocoaPods/Specs/wiki/%22Add-semantic-version-tags%22-issue-template) for this.
+
 A specification file has to be namespaced by the library’s name and the version for which the specification is meant. For instance, the directory for a library named ‘Bananas’ with version ‘1.2.3’ should be:
 
     $ mkdir -p Bananas/1.2.3
