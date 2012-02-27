@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/Inferis/ViewDeck.git',
                   :commit => '271e337152312bcaca37204c3ab54a3c564afc58'}
   s.source_files  = 'ViewDeck/*.{h,m}'
+  s.frameworks   = 'QuartzCore'
 end
