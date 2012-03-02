@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Timo Puronen' => 'timo.puronen@reaktor.fi' }
   s.source   = { :git => 'git://github.com/tpuronen/rump-ios.git', :tag => '1.0.0' }
   s.platform = :ios
-  s.source_files = 'Rump/'
+  s.source_files = 'Rump/Rump.*'
   s.clean_path = "RumpTests"
   s.requires_arc = true
 end
