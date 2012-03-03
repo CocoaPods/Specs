@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name     = 'OOMaskedIconView'
-  s.version  = '0.0.1'
+  s.name     = 'MOOMaskedIconView'
+  s.version  = '0.1.0'
   s.license  = 'Public domain / MIT'
   s.summary  = 'UIView subclass that uses black-and-white masks to draw icons.'
   s.homepage = 'https://github.com/peyton/MOOMaskedIconView'
   s.author   = { 'Peyton Randolph' => '_@peytn.com' }
-  s.source   = { :git => 'https://github.com/peyton/MOOMaskedIconView.git' }
+  s.source   = { :git => 'https://github.com/peyton/MOOMaskedIconView.git', :tag => 'v0.1.0' }
   s.description = 'MOOMaskedIconView is a UIView subclass that uses ' \
                   'black-and-white masks to draw icons of different ' \
                   'styles at any size or resolution. It\'s like Photoshop ' \
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MOOMaskedIconView'
   s.clean_paths = "Demo Project", "Editor Support"
   s.frameworks = 'QuartzCore', 'Accelerate'
-  s.requires_arc = true
+  s.requires_arc = false
 end
