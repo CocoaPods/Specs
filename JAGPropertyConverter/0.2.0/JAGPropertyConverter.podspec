@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint JAGPropertyConverter.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name     = 'JAGPropertyConverter'
   s.version  = '0.2.0'
