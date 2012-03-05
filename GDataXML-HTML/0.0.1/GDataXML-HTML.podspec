@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
                    'or HTML on iOS based devices (iPhone, iPad etc)'
   s.source_files = 'GDataXML-HTML/lib/*.{h,m}'
   s.libraries    = 'xml2'
+  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
