@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/samvermette/SVWebViewController'
   s.author   = { 'Sam Vermette' => 'http://samvermette.com' }
   s.source   = { :git => 'https://github.com/samvermette/SVWebViewController.git',
-                 :commit => '109968eaa4bc667a7ce16f340a6dad68096f8946' }
+                 :commit => '3044698e210318cca7d9acf5b2ca3394ea389723' }
   s.resources = 'SVWebViewController/SVWebViewController.bundle/**/*.png'
   s.source_files = '*.{h,m}'
+  s.clean_paths = 'Demo'
 end
