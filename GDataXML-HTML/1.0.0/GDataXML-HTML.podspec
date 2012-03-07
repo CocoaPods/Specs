@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/graetzer/GDataXML-HTML'
   s.author   = { 'Simon Grätzer' => 'simon@graetzer.org' }
 
-  s.source   = { :git => 'https://github.com/graetzer/GDataXML-HTML', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/graetzer/GDataXML-HTML.git', :tag => '1.0.0' }
 
   s.description = 'GDataXML implements parts of NSXML so it\'s easy to parse XML or HTML ' \
                    'with a DOM style API including XPath support. This fork of the original ' \
