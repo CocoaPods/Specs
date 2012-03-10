@@ -6,8 +6,9 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/iloveitaly/MABCocoaToolkit'
   s.author   = { 'Michael Bianco' => 'iloveitaly@gmail.com' }
 
-  s.source   = { :git => 'http://github.com/iloveitaly/MABCocoaToolkit.git' }
+  s.source   = { :git => 'http://github.com/iloveitaly/MABCocoaToolkit.git', :tag => '1.0.0' }
   s.description = 'Bundle of categories and classes to make some common Cocoa tasks easier: support folder management, table view resizing, string search, and some other tasks.'
   s.platform = :osx
   s.source_files = '*.{h,m}'
+  s.framework = 'SystemConfiguration'
 end
