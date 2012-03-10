@@ -8,5 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git    => 'git@github.com:sergeyzenchenko/MulticastDelegate.git',
                  :commit => '62b2404ae4707d667d455db48cc074f4a39d038e' }
 
+  s.requires_arc = true
+  
   s.source_files = '*.{h,m}'
 end
