@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.description = 'Bundle of categories and classes to make some common Cocoa tasks easier: support folder management, table view resizing, string search, and some other tasks.'
   s.platform = :osx
   s.source_files = '*.{h,m}'
-  s.framework = 'SystemConfiguration'
+  s.frameworks = 'SystemConfiguration', 'IOKit'
 end
