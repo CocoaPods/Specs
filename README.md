@@ -33,6 +33,12 @@ You can verify the specification file with the lint command.
 
     $ pod spec lint Bananas.podspec
 
+You can also verify the entire set by running the rake task.
+
+    $ rake lint
+
+_(Note: this is run on every commit by [Travis](http://travis-ci.org/#!/CocoaPods/Specs))_
+
 Once you have created a working specification create a pull request. Once accepted, you will receive push access to this repo. Feel free to push updates, specs for other libraries you use, and participate in other tickets.
 
 
