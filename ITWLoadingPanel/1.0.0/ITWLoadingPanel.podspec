@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint ITWLoadingPanel.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name     = 'ITWLoadingPanel'
   s.version  = '1.0.0'
@@ -15,5 +9,7 @@ Pod::Spec.new do |s|
 
   s.description = 'ITWLoadingPanel is a class for adding a download info panel, made at Intotheweb.'
   s.platform = :ios
-  s.source_files = 'Classes', 'Classes/**/*.{h,m,xib}'
+  s.source_files = ITWLoadingPanel/*.{h,m}'
+  s.resources = 'ITWLoadingPanel/*.{xib}'
+  s.clean_paths  = 'ITWLoadingPanelExample', 'ITWLoadingPanelExample.xcodeproj', 'Screenshot.png'
 end
