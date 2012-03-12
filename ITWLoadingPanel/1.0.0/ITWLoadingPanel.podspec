@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.description = 'ITWLoadingPanel is a class for adding a download info panel, made at Intotheweb.'
   s.platform = :ios
-  s.source_files = ITWLoadingPanel/*.{h,m}'
+  s.source_files = 'ITWLoadingPanel/*.{h,m}'
   s.resources = 'ITWLoadingPanel/*.{xib}'
   s.clean_paths  = 'ITWLoadingPanelExample', 'ITWLoadingPanelExample.xcodeproj', 'Screenshot.png'
 end
