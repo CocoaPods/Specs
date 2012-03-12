@@ -1,14 +1,8 @@
-#
-# Be sure to run `pod spec lint DirectoryWatchdog.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name     = 'DirectoryWatchdog'
   s.version  = '1.0.0'
   s.license  = 'Apache License 2.0'
-  s.summary  = 'A simpe utility class to monitor real time changes in a directory, such as the documents dir for an app.'
+  s.summary  = 'A simpe utility class to monitor real time changes in a directory, such as the documents dir for an app with File Sharing enabled.'
   s.homepage = 'https://github.com/graetzer/DirectoryWatchdog'
   s.author   = { 'Simon Grätzer' => 'simon@graetzer.org' }
 
