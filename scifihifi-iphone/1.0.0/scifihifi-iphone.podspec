@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/ldandersen/scifihifi-iphone'
   s.author   = { 'Francis Chong' => 'francis@ignition.hk' }
 
-  s.source   = { :git => 'https://github.com/ldandersen/scifihifi-iphone.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/ldandersen/scifihifi-iphone.git', :commit => '6c4eb60ad577737a72097d0041f3ceb59e6c41ad' }
   s.description = 'Open source iPhone code from scifihifi.'
 
   s.platform = :ios
