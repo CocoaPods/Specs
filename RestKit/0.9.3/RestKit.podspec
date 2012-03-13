@@ -33,6 +33,11 @@ Pod::Spec.new do |s|
     os.dependency 'RestKit/Network'
     os.source_files = 'Code/ObjectMapping/*.{h,m}'
 
+    # TODO warn the user when none of the adapters is chosen, or have the
+    # ability to specify preferred dependencies? Although that doesn't make
+    # much sense in this case, as we can't really have a preference between
+    # JSON and XML.
+
     # This spec will have the name: RestKit/ObjectMapping/JSON.
     # Since it’s nested under another sub spec, it automatically depends on the parent: RestKit/ObjectMapping
     os.subspec 'JSONKit' do |jos|
@@ -48,6 +53,23 @@ Pod::Spec.new do |s|
       xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserLibXML.{h,m}'
       xos.library = 'xml2'
       xos.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+    end
+
+    # This spec will have the name: RestKit/ObjectMapping/CoreData.
+    s.subspec 'CoreData' do |cdos|
+      cdos.description = %{The Core Data layer provides additional support on top of the object mapper for mapping from remote resources to persist local objects.}
+      cdos.source_files = 'Code/CoreData/*.{h,m}'
+      cdos.frameworks = 'CoreData'
+
+      # If we copy headers to the default location, then importing CoreData:
+      #
+      #  #import <CoreData/CoreData.h>
+      #
+      # will use RestKit's header instead of the system framework. Therefor, we
+      # namespace it as RKCoreData.
+      def cdos.copy_header_mapping(from)
+        "RKCoreData/#{from.basename}"
+      end
     end
   end
 end
