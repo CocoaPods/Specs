@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
                  :tag => '0.1.0' }
   s.source_files = 'NSData+Godzippa.{h,m}'
   
-  s.library = 'zlib'
+  s.library = 'z'
 end
