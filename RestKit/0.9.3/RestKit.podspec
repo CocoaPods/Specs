@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
     end
 
     # This spec will have the name: RestKit/ObjectMapping/CoreData.
-    s.subspec 'CoreData' do |cdos|
+    os.subspec 'CoreData' do |cdos|
       cdos.description = %{The Core Data layer provides additional support on top of the object mapper for mapping from remote resources to persist local objects.}
       cdos.source_files = 'Code/CoreData/*.{h,m}'
       cdos.frameworks = 'CoreData'
