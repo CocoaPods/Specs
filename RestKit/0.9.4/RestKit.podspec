@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   # Full name: RestKit/Network
   s.subspec 'Network' do |ns|
     ns.description = 'The network layer provides a request/response abstraction on top of NSURLConnection.'
-    ns.dependency 'LibComponentLogging-NSLog'
+    ns.dependency 'LibComponentLogging-NSLog', '>= 1.0.4'
     ns.dependency 'cocoa-oauth'
     ns.dependency 'FileMD5Hash'
     ns.dependency 'SOCKit'
