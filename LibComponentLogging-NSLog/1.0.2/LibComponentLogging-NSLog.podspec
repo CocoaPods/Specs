@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'LibComponentLogging-NSLog'
   s.version  = '1.0.2'
+  s.license  = 'MIT'
   s.summary  = 'LibComponentLogging-NSLog is a simple LibComponentLogging logger implementation which redirects logging to NSLog.'
   s.homepage = 'http://0xc0.de/LibComponentLogging'
   s.author   = { 'Arne Harren' => 'ah@0xc0.de' }
