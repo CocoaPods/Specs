@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.description = 'TimeScroller is an effort to reproduce the nifty view ' \
                   'that hovers beside the scroll bar in the Path app.'
   s.platform = :ios
-  s.source_files = 'TimeScroller/TimeScroller.{h,m}'
-  s.resources = "TimeScroller/*.png"
-  s.clean_paths = "TimeScroller/en.lproj", "TimeScroller.xcodeproj"
+  s.source_files = 'TimerScroller/TimeScroller.{h,m}'
+  s.resources = "TimerScroller/*.png"
+  s.clean_paths = "TimerScroller/en.lproj", "TimeScroller.xcodeproj"
   s.framework = 'QuartzCore'
 end
