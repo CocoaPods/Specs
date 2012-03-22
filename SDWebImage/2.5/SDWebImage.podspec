@@ -19,8 +19,9 @@ Pod::Spec.new do |s|
   s.source_files = '{SD,UI}*.{h,m}'
   s.clean_paths  = 'SDWebImage.xcodeproj'
 
-  s.subspec 'MapKit' do
-    s.source_files = 'MKAnnotationView+WebCache.*'
-    s.framework    = 'MapKit'
-  end
+  # TODO currently CocoaPods always tries to install the subspec even if the dependency is on just 'SDWebImage'
+  #s.subspec 'MapKit' do
+    #s.source_files = 'MKAnnotationView+WebCache.*'
+    #s.framework    = 'MapKit'
+  #end
 end
