@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
                    'private UIKit UIProgressHUD with some additional features.'
 
   s.source_files = '*.{h,m}'
-  s.clean_paths  = ".gitattributes", ".gitignore", "Demo"
+  s.clean_paths  = ".gitattributes", ".gitignore", "Demo", "MBProgressHUD.xcodeproj", "MBProgressHUD.xcworkspace"
   s.framework    = "CoreGraphics"
 end
