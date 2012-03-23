@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SVWebViewController/*.{h,m}'
   s.resources = 'SVWebViewController/SVWebViewController.bundle'
   s.clean_paths = 'Demo'
+  s.requires_arc = true;
 end
