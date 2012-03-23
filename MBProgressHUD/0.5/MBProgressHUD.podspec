@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'An iOS activity indicator view.'
   s.homepage = 'https://github.com/matej/MBProgressHUD'
-  s.author   = { 'Matej Bukovinski' => 'matej@bukovinski.com' }
+  s.author   = { 'Matej Bukovinski' => 'matej@bukovinski.com',
+                 'Jonathan George'  => 'jonathan@jdg.net' }
 
   s.source   = { :git => 'https://github.com/jdg/MBProgressHUD.git', :tag => '0.5' }
 
