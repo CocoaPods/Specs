@@ -19,7 +19,3 @@ Pod::Spec.new do |s|
     end
   end
 end
-
-
-s.source_files = 'Classes/ASIWebPageRequest/*.m', 'Classes/ASIWebPageRequest/*.h'
-s.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
