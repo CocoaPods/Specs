@@ -8,7 +8,11 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/robbiehanson/CocoaHTTPServer.git', :tag => '2.2.1' }
   s.source_files = '{Core,Extensions}/**/*.{h,m}'
   s.clean_paths  = %w{Samples Vendor}
-  s.frameworks   = %w{CoreServices Security}
+  if config.ios?
+    s.frameworks = 'CFNetwork', 'Security'
+  else
+    s.frameworks = 'CoreServices', 'Security'
+  end
   
   s.dependency "CocoaAsyncSocket", "0.0.1"
   s.dependency "CocoaLumberjack", "1.3"
