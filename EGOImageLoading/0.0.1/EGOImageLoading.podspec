@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'What if images on the iPhone were as easy as HTML?'
   s.homepage = 'https://github.com/enormego/EGOImageLoading'
-  s.author   = { 'Shaun Harrison' => nil }
+  s.author   = 'Shaun Harrison'
   s.source   = { :git    => 'git://github.com/enormego/EGOImageLoading.git',
                  :commit => '9a3fa6b657c6b8217a24ff87c1fe4f670401f3bd' }
 
