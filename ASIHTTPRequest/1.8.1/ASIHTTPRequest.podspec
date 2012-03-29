@@ -20,14 +20,12 @@ Pod::Spec.new do |s|
 
   s.clean_paths = '*Sample', 'External', '*.xcodeproj', 'Build Scripts'
 
-  if config.ios?
-    s.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
-    s.source_files = 'Classes'
-    s.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
-  else
-    s.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog\.\w$/)
-    s.frameworks   = 'SystemConfiguration', 'CoreServices'
-  end
+  s.ios.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
+  s.ios.source_files = 'Classes'
+  s.ios.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
+
+  s.osx.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog\.\w$/)
+  s.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
 
   s.library    = 'z.1'
 end

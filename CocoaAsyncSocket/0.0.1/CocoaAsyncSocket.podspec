@@ -18,9 +18,6 @@ Pod::Spec.new do |s|
   s.source_files = '{GCD,RunLoop}/*.{h,m}'
   s.clean_paths  = 'Vendor', 'GCD/Xcode', 'RunLoop/Xcode'
 
-  if config.ios?
-    s.frameworks = 'CFNetwork'
-  else
-    s.frameworks = 'CoreServices'
-  end
+  s.ios.frameworks = 'CFNetwork'
+  s.osx.frameworks = 'CoreServices'
 end

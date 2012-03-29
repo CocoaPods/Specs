@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
                   "invoking object (e.g., a NSOperation or NSThread)."
 
   files = FileList['**/*.{h,m}']
-  files.exclude(/GMAppleDouble/) if config.ios?
-  s.source_files = files
+  s.ios.source_files = files.dup.exclude(/GMAppleDouble/)
+  s.osx.source_files = files
 
   s.clean_paths = 'ZipKit.{xcodeproj,lineform}', 'ZipKitFW-Info.plist', 'ZipKit_Prefix.pch', 'Demo Projects'
 
   s.library = 'z'
-  s.framework = 'CoreServices' if config.osx?
+  s.osx.framework = 'CoreServices'
 end
