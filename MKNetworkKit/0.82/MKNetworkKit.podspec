@@ -8,14 +8,12 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.82' }
 
   files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
-  if config.ios?
-    files.exclude(/NSAlert/)
-    s.frameworks = 'CFNetwork', 'Security'
-  else
-    files.exclude(/UIAlertView/)
-    s.frameworks = 'CoreServices', 'Security'
-  end
-  s.source_files = files
+  s.ios.source_files = files.dup.exclude(/NSAlert/)
+  s.osx.source_files = files.dup.exclude(/UIAlertView/)
+
+  s.ios.frameworks = 'CFNetwork', 'Security'
+  s.osx.frameworks = 'CoreServices', 'Security'
+
   s.clean_paths  = 'MKNetworkKit-*', '*-Demo', 'SampleImage.jpg'
   s.requires_arc = true
 
