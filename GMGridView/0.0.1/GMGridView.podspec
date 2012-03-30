@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
   s.author    = { 'Gulam Moledina' =>  'http://www.gmoledina.ca/' }
   s.source    = { :git => 'https://github.com/gmoledina/GMGridView.git',
                   :commit => '9ae7d4d25c84d388b08fff38c53a53940991b975' }
-  s.source_files = 'GMGridView'
+  s.source_files = 'GMGridView/*.{h,m}'
   s.requires_arc = true
   s.frameworks = 'QuartzCore'
-  s.clean_paths = 'GMGridView.xcodeproj'
+  s.clean_paths = 'Example'
 end
