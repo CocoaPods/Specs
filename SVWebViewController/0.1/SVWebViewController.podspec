@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.resources = 'SVWebViewController/SVWebViewController.bundle'
   s.clean_paths = 'Demo'
   s.requires_arc = true;
+  s.frameworks = 'MessageUI'
 end
