@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Drop in classes for adding a download info panel.'
   s.homepage = 'https://github.com/brunow/ITWLoadingPanel'
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
-  s.source   = { :git => 'https://brunow@github.com/brunow/ITWLoadingPanel.git', :tag => '1.0.1' }
+  s.source   = { :git => 'https://github.com/brunow/ITWLoadingPanel.git', :tag => '1.0.1' }
 
   s.description = 'ITWLoadingPanel is a class for adding a download info panel, made at Intotheweb.'
   s.platform = :ios
