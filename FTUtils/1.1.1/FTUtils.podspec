@@ -11,5 +11,4 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Headers/*/*.h'
   s.clean_paths = "Examples", "Support", "Tests", "UnitTests", "apidocs"
   s.framework = 'QuartzCore'
-  s.xcconfig = { 'OTHER_LDFLAGS' => ["-all_load", "-ObjC"]}
 end
