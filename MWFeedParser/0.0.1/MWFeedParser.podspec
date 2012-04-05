@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   
   s.source_files = 'Classes'
-  s.clean_paths = "Classes/DetailTableViewController.{h,m}" , "Classes/RootViewController.{h,m}" , "Classes/MWFeedParserAppDelegate.{h,m}"
+  s.clean_paths = "Classes/DetailTableViewController.{h,m}" , "Classes/RootViewController.{h,m}" , "Classes/MWFeedParserAppDelegate.{h,m}" , 'MWFeedParser.xcodeproj' , 'Icon.png' , 'MWFeedParser-Info.plist' , 'WFeedParser_Prefix.pch' , 'MainWindow.xib' , 'RootViewController.xib' , 'TODO.taskpaper' , 'main.m'
   s.framework = 'Foundation'
 
 end
