@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     and no validation is performed whatsoever whilst importing and 
     parsing an XML document.
   }
-  s.platform = :ios
   s.source_files = 'TBXML-Code/*.{h,m}' , 'TBXML-Headers/*.{h,m}'
   s.library = 'z'
   s.requires_arc = true
+  s.clean_paths = 'TBXML-Support' , "TBXML-Tests", "TBXML.xcodeproj"
 end
