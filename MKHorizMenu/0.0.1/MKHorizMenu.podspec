@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'MKHorizMenuDemo'
+  s.name     = 'MKHorizMenu'
   s.version  = '0.0.1'
   s.summary  = 'Demo of MKHorizMenu a simple, drop-in replacement for the Three20 fame horizontal menus used in news apps'
   s.homepage = 'http://mugunthkumar.com'
