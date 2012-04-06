@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'NLCoreData'
   s.framework     = 'CoreData'
   s.requires_arc  = true
-  s.clean_paths   = 'NLCoreDataExample/', 'NLCoreDataExample.xcodeproj/', 'NLCoreDataTests/', '.git/', '.gitignore', 'TODO'
+  s.clean_paths   = 'NLCoreDataExample/', 'NLCoreDataExample.xcodeproj/', 'NLCoreDataTests/', 'TODO'
   
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
