@@ -26,11 +26,11 @@ end
 Pod::Spec.new do |s|
   s.extend(overrides)
   s.name     = 'RestKit'
-  s.version  = '0.9.4'
+  s.version  = '0.10.0'
   s.summary  = 'RestKit is a framework for consuming and modeling RESTful web resources on iOS and OS X.'
   s.homepage = 'http://www.restkit.org'
   s.author   = { 'Blake Watters' => 'blakewatters@gmail.com' }
-  s.source   = { :git => 'https://github.com/RestKit/RestKit', :commit => 'a84f52376afdca7cab8cc12b80e9bd3237a8699b' }
+  s.source   = { :git => 'https://github.com/RestKit/RestKit', :tag => 'v0.10.0' }
 
   # Full name: RestKit/Network
   s.subspec 'Network' do |ns|
@@ -48,6 +48,7 @@ Pod::Spec.new do |s|
     end
   end
 
+  # Full name: RestKit/UI
   s.subspec 'UI' do |us|
     us.extend(overrides)
     us.platform = :ios
