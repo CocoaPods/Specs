@@ -13,10 +13,4 @@ Pod::Spec.new do |s|
   s.header_dir   = 'LibComponentLogging'
 
   s.dependency 'LibComponentLogging-Core', '>= 1.1.6'
-
-  def s.post_install(target)
-    Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging') do
-      system 'sed \'s/<UniquePrefix>/MyApp/g\' LCLNSLoggerConfig.template.h > LCLNSLoggerConfig.h'
-    end
-  end
 end
