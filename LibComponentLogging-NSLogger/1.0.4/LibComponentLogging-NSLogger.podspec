@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source_files = 'LCLNSLogger*.{h,m}'
   s.header_dir   = 'LibComponentLogging'
 
-  #s.dependency 'LibComponentLogging-Core', '>= 1.1.6'
+  s.dependency 'LibComponentLogging-Core', '>= 1.1.6'
   s.dependency 'NSLogger'
 
   def s.post_install(target)
