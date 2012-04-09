@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                   'Developer/Designer the freedom to customise all aspects of the TabBar.'
   s.homepage = 'http://jinthagerman.github.com/JBTabBarController'
   s.author   = { 'Jin Budelmann' => 'jin@bitcrank.com' }
-  s.source   = { :git => 'https://jinthagerman@github.com/jinthagerman/JBTabBarController.git', :tag => '0.3' }
+  s.source   = { :git => 'https://github.com/jinthagerman/JBTabBarController.git', :tag => '0.3' }
   s.platform = :ios
   s.source_files = 'JBTabBarController/*.{h,m}'
   s.resources = "JBTabBarController/JBTabBarController.bundle"
