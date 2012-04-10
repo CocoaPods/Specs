@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/edgecase/ECSlidingViewController.git', :tag => '0.9.0' }
   s.platform = :ios
   s.source_files = 'ECSlidingViewController/Vendor/ECSlidingViewController/'
-  s.clean_paths  = 'ECSlidingViewController.xcodeproj', 'ECSlidingViewController.xcodeproj/**/*'
+  s.clean_paths  = 'ECSlidingViewController.xcodeproj'
   s.requires_arc = true
 end
