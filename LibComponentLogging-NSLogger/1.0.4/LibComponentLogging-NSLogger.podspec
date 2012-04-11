@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'LibComponentLogging-NSLogger is a logging back-end for LibComponentLogging which integrates the logging client from Florent Pillet\'s NSLogger project.'
   s.homepage = 'http://0xc0.de/LibComponentLogging'
   s.author   = { 'Arne Harren' => 'ah@0xc0.de' }
-  s.source   = { :git => 'https://github.com/aharren/LibComponentLogging-NSLogger', :tag => '1.0.4' }
+  s.source   = { :git => 'https://github.com/aharren/LibComponentLogging-NSLogger.git', :tag => '1.0.4' }
 
   s.description = 'LibComponentLogging-NSLogger is a logging back-end for LibComponentLogging which integrates the logging client from Florent Pillet\'s NSLogger project.'
 
