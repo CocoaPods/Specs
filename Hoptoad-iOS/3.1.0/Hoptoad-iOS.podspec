@@ -6,8 +6,9 @@ Pod::Spec.new do |s|
   s.homepage = 'http://airbrake.io/pages/ios-notifier'
   s.author   = {'GUI Cocoa, LLC.' => 'caleb@guicocoa.com'}
   s.source   = { :git => 'git://github.com/guicocoa/hoptoad-ios.git', :tag => '3.1.0' }
-  s.source_files = 'Airbrake/gcalertview/*.{h,m}', 'Airbrake/notifier/*.{h,m}'
+  s.source_files = 'Airbrake/notifier/*.{h,m}'
   s.resources    = 'Airbrake/notifier/ABNotifier.bundle'
   s.frameworks   = 'SystemConfiguration'
   s.dependency 'KissXML'
+  s.dependency 'GCCommonCode-iOS'
 end
