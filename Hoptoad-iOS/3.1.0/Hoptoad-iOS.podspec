@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
   s.resources    = 'Airbrake/notifier/ABNotifier.bundle'
   s.frameworks   = 'SystemConfiguration'
   s.dependency 'KissXML'
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC'}
 end
