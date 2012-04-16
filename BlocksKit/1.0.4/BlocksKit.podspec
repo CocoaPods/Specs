@@ -8,14 +8,8 @@ Pod::Spec.new do |s|
                  'Alexsander Akers' => 'a2@pandamonia.us' }
   s.source   = { :git => 'https://github.com/zwaldowski/BlocksKit.git', :tag => 'v1.0.4' }
   s.source_files = 'BlocksKit'
+  s.prefix_header_contents = '#import "BlocksKit.h"'
   s.dependency 'A2DynamicDelegate'
   s.clean_paths = 'GHUnitIOS.framework/', 'Tests/', 'BlocksKit.xcodeproj/', '.gitignore'
   s.ios.frameworks = 'MessageUI'
-
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "BlocksKit.h"\n#endif})
-    end
-  end
 end

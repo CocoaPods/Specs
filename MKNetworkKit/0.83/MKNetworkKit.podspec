@@ -7,6 +7,8 @@ Pod::Spec.new do |s|
   s.author   = { 'MugunthKumar' => 'mknetworkkit@mk.sg' }
   s.source   = { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.83' }
 
+  s.prefix_header_contents = '#import "MKNetworkKit.h"'
+
   files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
   s.ios.source_files = files.dup.exclude(/NSAlert/)
   s.osx.source_files = files.dup.exclude(/UIAlertView/)
@@ -26,12 +28,6 @@ Pod::Spec.new do |s|
     header_contents = header.read.sub('Reachability/Reachability.h', 'Reachability.h')
     header.open('w') do |file|
      file.puts(header_contents)
-    end
-
-    # Add MKNetworkKit.h to the prefix header
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "MKNetworkKit.h"\n#endif})
     end
   end
 end
