@@ -41,11 +41,9 @@ Pod::Spec.new do |s|
     ns.dependency 'FileMD5Hash'
     ns.dependency 'SOCKit'
     ns.source_files = 'Code/RestKit.h', 'Code/{Network,Support}/*.{h,m}'
-    if config.ios?
-      ns.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
-    else
-      ns.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
-    end
+
+    ns.ios.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
+    ns.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
   end
 
   # Full name: RestKit/UI
