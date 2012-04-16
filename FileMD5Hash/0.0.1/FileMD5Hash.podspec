@@ -7,13 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Joel Lopes Da Silva' => 'joel@lopes-da-silva.com' }
   s.source   = { :git => 'https://github.com/JoeKun/FileMD5Hash.git', :commit => 'd00c0c51c6d0955d9daf94c30cfd95a219d4914e' }
 
+  s.prefix_header_file = 'Common/FileMD5Hash_Prefix.pch'
   s.source_files = 'Common/*.{h,c}'
   s.clean_paths = "Mac", "iOS", 'FileMD5Hash.xcodeproj'
-
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#import "FileMD5Hash_Prefix.pch"})
-    end
-  end
 end
