@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.benreeves.co.uk'
   s.author   = { 'Max Howell' => 'max@methylblue.com' }
   s.source   = { :git => 'https://github.com/zootreeves/Objective-C-HMTL-Parser.git', :commit => '172a033c945cbe72bb5effda3d061445d8930aac' }
-  s.platform = :ios
   s.source_files = '*.{h,m}'
   s.library = 'xml2'
   s.framework = 'Foundation'
