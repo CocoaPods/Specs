@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint MKStoreKit.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name     = 'MKStoreKit'
   s.version  = '4.3'
@@ -20,5 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'StoreKit', 'Security'
   s.dependency 'JSONKit', '~> 1.4'
   s.dependency 'NSData+Base64', '~> 1.0'
-  s.dependency 'SFHFKeychainUtils.h', '0.0.1'
+  s.dependency 'SFHFKeychainUtils', '0.0.1'
 end
