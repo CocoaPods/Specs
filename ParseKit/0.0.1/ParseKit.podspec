@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'ParseKit'
-  s.version  = '1.0'
+  s.version  = '0.0.1'
   s.license  = 'Apache'
   s.summary  = 'Objective-C/Cocoa String Tokenizer and Parser toolkit. Supports Grammars.'
   s.homepage = 'http://parsekit.com/'
