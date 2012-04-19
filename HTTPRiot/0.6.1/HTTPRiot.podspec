@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
                   'Source/HTTPRiot/Vendor/AIXMLSerialization/*.{h,m}'
                   
    s.dependency "KissXML"
-   s.dependency "SBJson"
+   s.dependency "SBJson", "2.2.3"
 end
