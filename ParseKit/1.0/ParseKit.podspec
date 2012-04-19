@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://parsekit.com/'
   s.author   = { 'Todd Ditchendorf' => 'todd.ditchendorf@gmail.com' }
 
-  s.source   = { :git => 'https://github.com/itod/parsekit.git' :commit => 'b1f7fc39c2b8bd3b87a02183d86f64aa4852b5b1'}
+  s.source   = { :git => 'https://github.com/itod/parsekit.git', :commit => 'b1f7fc39c2b8bd3b87a02183d86f64aa4852b5b1'}
   
   s.description = %{ 
     ParseKit is a Mac OS X Framework written by Todd Ditchendorf in 
