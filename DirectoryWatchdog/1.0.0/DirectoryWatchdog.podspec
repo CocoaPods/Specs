@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
 
 
   s.source   = { :git => 'https://github.com/graetzer/DirectoryWatchdog.git', :tag => '1.0.0' }
-  s.description = 'DirectoryWatchdog is a simple utility tool to mointor real time changes in local folders. '\
-                  'Most common use is the monitoring of an applications documents direcory in combination'\
+  s.description = 'DirectoryWatchdog is a simple utility tool to monitor real time changes in local folders. '\
+                  'Most common use is the monitoring of an applications documents directory in combination'\
                   ' with iTunes file sharing support. This code uses the BSD kqueue API and should work on OSX as well as iOS.'
 
   s.source_files = 'DirectoryWatchdog/lib/*.{h,m}'
