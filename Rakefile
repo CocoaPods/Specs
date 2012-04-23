@@ -38,7 +38,7 @@ task :lint do
   specs.each do |spec|
     begin
       next if not File.exists? spec
-      command = "pod spec lint '#{spec}' --verbose"
+      command = "pod spec lint '#{spec}' --no-install --only-errors --verbose"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`
