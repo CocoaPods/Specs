@@ -87,10 +87,19 @@ Pod::Spec.new do |s|
     models.dependency 'Nimbus/Core'
   end
 
+  s.subspec 'NetworkControllers' do |controllers|
+    controllers.homepage     = 'http://jverkoey.github.com/nimbus/group___nimbus_network_controllers.html'
+    controllers.summary      = 'View controllers that display loading states while they load information from the network or disk.'
+    controllers.source_files = 'src/networkcontrollers/src'
+    controllers.dependency 'Nimbus/Core'
+  end
+
   s.subspec 'NetworkImage' do |image|
     image.homepage     = 'http://jverkoey.github.com/nimbus/group___nimbus_network_image.html'
     image.summary      = 'Image views that load images from the network and efficiently store the result in memory and on disk.'
     image.source_files = 'src/networkimage/src'
+    image.dependency 'Nimbus/Core'
+    image.dependency 'ASIHTTPRequest'
   end
 
   s.subspec 'Overview' do |overview|
@@ -113,6 +122,7 @@ Pod::Spec.new do |s|
         Nimbus' implementation also provides helpful features such as keeping the center page centered when the device changes orientation.
     }
     psv.source_files = 'src/pagingscrollview/src'
+    psv.dependency 'Nimbus/Core'
   end
 
   s.subspec 'Photos' do |photos|
@@ -139,6 +149,7 @@ Pod::Spec.new do |s|
                               "the main UI thread. Nimbus operations provide a consistent means of processing data in a "     \
                               "defered way using NSOperations."
     operations.source_files = 'src/operations/src'
+    operations.dependency 'Nimbus/Core'
 
     operations.subspec 'JSON' do |json|
       json.homepage     = 'http://jverkoey.github.com/nimbus/interface_n_i_network_j_s_o_n_request.html'
