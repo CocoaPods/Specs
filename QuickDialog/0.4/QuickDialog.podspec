@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                    'and efficient, you can create forms with multiple text fields, or with ' \
                    'thousands of items with no sweat!'
 
-  s.source_files = 'quickdialog'
+  s.source_files = 'quickdialog', '*.{h,m}'
   s.clean_paths  = 'sample', '*.xc*', 'libQuickDialog', 'other'
   s.requires_arc = true
   s.framework = 'MapKit' , 'CoreLocation'
