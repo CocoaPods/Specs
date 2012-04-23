@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/danielctull/TestFlight-SDK.git', :tag => '1.0' }
   s.description = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
   s.platform = :ios
-  s.source_files = '', '*.{h,m}'
+  s.source_files = '', 'TestFlight.h'
   s.library = 'libTestFlight'
 end
