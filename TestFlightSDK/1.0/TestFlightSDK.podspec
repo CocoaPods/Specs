@@ -1,4 +1,3 @@
-
 Pod::Spec.new do |s|
   s.name     = 'TestFlightSDK'
   s.version  = '1.0'
@@ -9,6 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/danielctull/TestFlight-SDK.git', :tag => '1.0' }
   s.description = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
   s.platform = :ios
-  s.source_files = '', 'TestFlight.h'
-  s.library = 'libTestFlight'
+  s.source_files = 'TestFlight.h'
+  s.library = 'TestFlight', 'z'
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '$(SRCROOT)/Pods/TestFlightSDK' }
 end
