@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author   = {  'satoshi ootake'     => 'ootake1@gmail.com' }
   s.source   = { :git => 'https://github.com/ootake/NSDate-TimeDifference.git' , :tag => '1.0.0' }
   s.source_files = 'NSDate+TimeDifference/NSDate+TimeDifference.{h,m}'
+  s.resource = "NSDate+TimeDifference/NSDate+TimeDifference.bundle"
   s.platform = :ios
   s.clean_paths = 'NSDate+TimeDifferenceExample.xcodeproj' , 'NSDate+TimeDifferenceExample'
   s.requires_arc = true
