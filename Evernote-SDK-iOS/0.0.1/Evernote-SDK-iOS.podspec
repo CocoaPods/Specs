@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
   s.author   = 'Evernote'
   s.source   = { :git => 'https://github.com/evernote/evernote-sdk-ios.git' }
   s.source_files = 'evernote-sdk-ios/**/*.{h,m}'
-  s.clean_paths = 'evernote-sdk-ios.xcodeproj', 'SampleApp'
+  s.clean_paths = 'evernote-sdk-ios.xcodeproj', 'SampleApp', 'evernote-sdk-ios/3rdParty/cocoa-oauth', 'evernote-sdk-ios/3rdParty/SSKeychain'
   s.frameworks = 'Foundation', 'Security'
+  s.dependency 'cocoa-oauth', '~> 0.0.1'
+  s.dependency 'SSKeychain', '~> 0.1.2'
 end
