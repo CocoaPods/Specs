@@ -20,11 +20,8 @@ Pod::Spec.new do |s|
     ns.description = 'The network layer provides a request/response abstraction on top of NSURLConnection.'
     ns.dependency 'LibComponentLogging-NSLog'
     ns.source_files = 'Code/RestKit.h', 'Code/{Network,Support}/*.{h,m}'
-    if config.ios?
-        ns.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
-    else
-        ns.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
-    end
+    ns.ios.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
+    ns.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
   end
 
   # Like before, this creates a new spec with the name: RestKit/ObjectMapping and is a part of RestKit

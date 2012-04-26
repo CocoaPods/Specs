@@ -8,16 +8,13 @@ Pod::Spec.new do |s|
   s.author   = { 'Andreas Linde' => 'mail@andreaslinde.de' }
   s.source   = { :git => 'https://github.com/TheRealKerni/QuincyKit.git', :tag => '2.1.7' }
 
-  if config.ios?
-    s.source_files = 'client/iOS/*.{h,m}'
-    s.resource     = 'client/iOS/Quincy.bundle'
-    s.clean_paths  = 'client/iOS/QuincyLib', 'client/Mac', 'demo', 'server'
+  s.clean_paths  = 'client/iOS/QuincyLib', 'demo', 'server'
 
-    s.frameworks   = 'SystemConfiguration', 'CrashReporter'
-    s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/QuincyKit/client/iOS"' }
-  else
-    s.source_files = 'client/Mac/*.{h,m}'
-    s.resource     = 'client/Mac/BWQuincyMain.nib'
-    s.clean_paths  = 'client/iOS', 'demo', 'server'
-  end
+  s.ios.source_files = 'client/iOS/*.{h,m}'
+  s.ios.resource     = 'client/iOS/Quincy.bundle'
+  s.ios.frameworks   = 'SystemConfiguration', 'CrashReporter'
+  s.ios.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/QuincyKit/client/iOS"' }
+
+  s.osx.source_files = 'client/Mac/*.{h,m}'
+  s.osx.resource     = 'client/Mac/BWQuincyMain.nib'
 end
