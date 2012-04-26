@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary   = "Chameleon is a port of Apple's UIKit for iOS (and some minimal related frameworks) to Mac OS X."
   s.homepage  = "http://chameleonproject.org/"
   s.author    = { "Sean Heber" => "sean@iconfactory.com" }
-  s.source    = { :git => "https://github.com/BigZaphod/Chameleon.git", :commit => "0fca8cb74ab48390845cec2034df1d850c4e01f3" }
+  s.source    = { :git => "https://github.com/BigZaphod/Chameleon.git", :commit => "af3dcfd6e86078ed6b2fd1c4c45adf3622b0e925" }
 
   s.license  = {
     :type => 'Copyright (c) The Iconfactory',
