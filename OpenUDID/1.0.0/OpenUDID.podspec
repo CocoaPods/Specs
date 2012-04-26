@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://OpenUDID.org'
   s.author   = { 'Yann Lechelle' => 'ylechelle@gmail.com' }
 
-  s.source   = { :git => 'https://github.com/ylechelle/OpenUDID.git' }
+  s.source   = { :git => 'https://github.com/ylechelle/OpenUDID.git', :tag => '1.0.0' }
 
   s.description = 'Open source initiative for a universal and persistent UDID solution for iOS.'
 
