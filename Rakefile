@@ -35,10 +35,13 @@ task :lint do
   specs = FileList['**/*.podspec'] if specs.empty?
 
   failures = []
+  version = `pod --version`
+  options = version =~ /0\.[1-5]\..*/ ? '--verbose' : '--quick --only-errors'
   specs.each do |spec|
     begin
       next if not File.exists? spec
-      command = "pod spec lint '#{spec}' --verbose"
+      # Transition to 0.6
+      command = "pod spec lint '#{spec}' #{options}"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`
