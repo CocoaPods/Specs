@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Mooseyard Networking library'
   s.homepage = 'https://bitbucket.org/snej/mynetwork/wiki/Home'
   s.authors  = { 'Jens Alfke' => 'jens@mooseyard.com' }
-  s.source   = { :hg  => 'https://bitbucket.org/fmedlin/mynetwork', :revision => 'bda2f5e2a09a' }
+  s.source   = { :hg  => 'https://bitbucket.org/cell/mynetwork', :revision => 'db0207bc75d7' }
   s.description = 'Mooseyard Networking library: Cocoa utilities, including a generic TCP server/client, ' \
                   'plus the reference (well, the only) implementation of the message-oriented BLIP protocol.'
   s.platform = :ios
