@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/meiwin/MwfTableViewController.git', :tag => '0.0.2' }
 
-  s.source_files = 'main/*.{h,m}'
+  s.source_files = 'main/**/*.{h,m}'
 
   s.clean_paths = 'test', 'demo'
 
