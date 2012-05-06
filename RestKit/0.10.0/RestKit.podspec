@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
     os.subspec 'XML' do |xos|
       xos.extend(overrides)
       xos.description = 'The RestKit XML parser which wraps NSXMLParser.'
-      xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserLibXML.{h,m}'
+      xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserXMLReader.{h,m}'
       xos.dependency 'XMLReader'
     end
 
