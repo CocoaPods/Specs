@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
   s.xcconfig = { 
     'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include"'
   }
-  s.resources = "Resources-iPad/Images/*.png", "Resources/Images/*.{png,pvr,ccz,gz}"
   s.frameworks = ["OpenGLES", "OpenAL", "AVFoundation", "AudioToolbox", "QuartzCore", "GameKit"]
   s.library = 'z'
   s.dependency 'TouchJSON'
+  s.clean_paths = '*.xcodeproj', 'templates', 'tools', 'tests', 'Resources'
 
   def s.copy_header_mapping(from)
     from.relative_path_from(Pathname.new('cocos2d'))
