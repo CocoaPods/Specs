@@ -5,13 +5,14 @@ Pod::Spec.new do |s|
   s.summary  = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage = 'https://github.com/ShareKit/ShareKit'
   s.author   = { 'ShareKit Community' => 'No Email' }
-  s.source   = { :git => 'https://github.com/ShareKit/ShareKit.git', :commit => '09a3ff3c2a4c83d3e3d72cf13f67843bc17a41d2' }
+  s.source   = { :git => 'https://github.com/ShareKit/ShareKit.git', :commit => 'b8129c7c229a383ea5926aaa7869aadbccb71e8f' }
   
   s.subspec 'Core' do |core|
   	core.resource = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
-  	core.source_files = 'Classes/ShareKit/SHKConfig.h', 'Classes/ShareKit/{Configuration,Core,Customize UI,Reachability,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+  	core.source_files = 'Classes/ShareKit/SHKConfig.h', 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
   	core.frameworks = 'SystemConfiguration', 'Security', 'MessageUI'
   	core.dependency 'SSKeychain'
+  	core.dependency 'Reachability'
   end
   
   s.subspec 'AllSharers' do |allsharers|
