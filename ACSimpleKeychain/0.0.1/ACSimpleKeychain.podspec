@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'Dead simple keychain wrapper for iOS.'
   s.homepage = 'https://github.com/alexchugunov/ACSimpleKeychain'
-  s.author   = { 'Andre Neves' => 'andrefgneves@gmail.com' }
+  s.author   = { 'Alex Chugunov' => 'alex.chugunov@gmail.com' }
 
   s.source   = { :git => 'https://github.com/alexchugunov/ACSimpleKeychain.git', :commit => 'edd22181aa55f47fff0c7d476b8a583b650b4264' }
   s.platform = :ios
