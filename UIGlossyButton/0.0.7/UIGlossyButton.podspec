@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   # the layer effects file is for adding drop shadow effect to the button, actually not a must 
   # for using UIGlossyButton, but you can include it using subspec
   s.subspec 'LayerEffects' do |l|
-  	s.source_files  = 'UIGlossyButton/UIView+LayerEffects.{h,m}'
+  	l.source_files  = 'UIGlossyButton/UIView+LayerEffects.{h,m}'
   end
 end
