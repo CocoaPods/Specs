@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     # Fix an import statement which is used inconsistently in MKNetworkKit
     # TODO create a ticket for this upstream
     header = (pod_destroot + 'MKNetworkKit/MKNetworkKit.h')
-    header_contents = header.read.sub('Reachability/Reachability.h', 'Reachability.h')
+    header_contents = header.read.sub('Reachability/Reachability.h', 'Reachability.h').gsub('Categories/', '')
     header.open('w') do |file|
      file.puts(header_contents)
     end
