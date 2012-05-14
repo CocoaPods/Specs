@@ -1,17 +1,18 @@
 Pod::Spec.new do |s|
-  s.name         = 'ShareKit'
-  s.version      = '2.0'
-  s.platform     = :ios
-  s.summary      = 'Drop in sharing features for all iPhone and iPad apps.'
-  s.homepage     = 'http://getsharekit.com/'
-  s.author       = { 'ShareKit Community' => 'No Email' }
-  s.source       = { :git => 'https://github.com/ShareKit/ShareKit.git', :commit => 'b8129c7c229a383ea5926aaa7869aadbccb71e8f' }
-  s.license      = 'MIT'
-  s.resource     = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
-  # Classes/ShareKit/SHKConfig.h does not exits in this commit
-  # s.source_files = 'Classes/ShareKit/SHKConfig.h', 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
-  s.source_files = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
-  s.frameworks   = 'SystemConfiguration', 'Security', 'MessageUI'
+  s.name          = 'ShareKit'
+  s.version       = '2.0'
+  s.platform      = :ios
+  s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
+  s.homepage      = 'http://getsharekit.com/'
+  s.author        = 'ShareKit Community'
+  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => 'b8129c7c229a383ea5926aaa7869aadbccb71e8f' }
+  s.license       = { :type => 'MIT',
+                      :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
+                               %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
+                               %Q|THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE| }
+  s.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
+  s.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+  s.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI'
 
   s.dependency 'SSKeychain'
   s.dependency 'Reachability'
@@ -71,5 +72,4 @@ Pod::Spec.new do |s|
   	vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
   	vkontakte.dependency 'JSONKit'
   end
-
 end

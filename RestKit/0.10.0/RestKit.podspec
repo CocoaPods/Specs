@@ -32,6 +32,18 @@ Pod::Spec.new do |s|
   s.author   = { 'Blake Watters' => 'blakewatters@gmail.com' }
   s.source   = { :git => 'https://github.com/RestKit/RestKit', :tag => 'v0.10.0' }
 
+  s.preferred_dependency = 'JSON'
+
+  s.subspec 'JSON' do |js|
+    js.dependency 'RestKit/ObjectMapping/JSON'
+    js.dependency 'RestKit/ObjectMapping/CoreData'
+  end
+
+  s.subspec 'XML' do |xs|
+    xs.dependency 'RestKit/ObjectMapping/XML'
+    xs.dependency 'RestKit/ObjectMapping/CoreData'
+  end
+
   # Full name: RestKit/Network
   s.subspec 'Network' do |ns|
     ns.extend(overrides)
