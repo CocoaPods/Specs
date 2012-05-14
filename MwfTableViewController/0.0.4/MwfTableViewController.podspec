@@ -1,5 +1,7 @@
 Pod::Spec.new do |s|
   
+  s.platform = :ios
+  
   s.name     = 'MwfTableViewController'
   
   s.version  = '0.0.4'
