@@ -18,58 +18,59 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
 
   s.subspec 'Evernote' do |evernote|
-  	evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
+    evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
   end
 
   s.subspec 'Facebook' do |facebook|
-  	facebook.source_files = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
-  	facebook.dependency 'Facebook-iOS-SDK'
+    facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
+    facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
+    facebook.dependency 'Facebook-iOS-SDK'
   end
 
   s.subspec 'Flickr' do |flickr|
-  	flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/**/*.{h,m}'
-  	flickr.framework = 'CFNetwork'
-  	flickr.dependency 'objectiveflickr'
+    flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/**/*.{h,m}'
+    flickr.framework = 'CFNetwork'
+    flickr.dependency 'objectiveflickr'
   end
 
   s.subspec 'Foursquare' do |foursquare|
-  	foursquare.source_files = 'Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}'
-  	foursquare.framework = 'CoreLocation'
-  	foursquare.dependency 'SBJson'
+    foursquare.source_files = 'Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}'
+    foursquare.framework = 'CoreLocation'
+    foursquare.dependency 'SBJson'
   end
 
   s.subspec 'GoogleReader' do |googlereader|
-  	googlereader.source_files = 'Classes/ShareKit/Sharers/Services/Google Reader/**/*.{h,m}'
+    googlereader.source_files = 'Classes/ShareKit/Sharers/Services/Google Reader/**/*.{h,m}'
   end
 
   s.subspec 'Instapaper' do |instapaper|
-  	instapaper.source_files = 'Classes/ShareKit/Sharers/Services/Instapaper/**/*.{h,m}'
+    instapaper.source_files = 'Classes/ShareKit/Sharers/Services/Instapaper/**/*.{h,m}'
   end
 
   s.subspec 'LinkedIn' do |linkedin|
-  	linkedin.source_files = 'Classes/ShareKit/Sharers/Services/LinkedIn/**/*.{h,m}'
+    linkedin.source_files = 'Classes/ShareKit/Sharers/Services/LinkedIn/**/*.{h,m}'
   end
 
   s.subspec 'Pinboard' do |pinboard|
-  	pinboard.source_files = 'Classes/ShareKit/Sharers/Services/Pinboard/**/*.{h,m}'
+    pinboard.source_files = 'Classes/ShareKit/Sharers/Services/Pinboard/**/*.{h,m}'
   end
 
   s.subspec 'ReadItLater' do |readitlater|
-  	readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
+    readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
   end
 
   s.subspec 'Tumblr' do |tumblr|
-  	tumblr.source_files = 'Classes/ShareKit/Sharers/Services/Tumblr/**/*.{h,m}'
+    tumblr.source_files = 'Classes/ShareKit/Sharers/Services/Tumblr/**/*.{h,m}'
   end
 
   s.subspec 'Twitter' do |twitter|
-  	twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
-  	twitter.framework = 'Twitter'
-  	twitter.dependency 'JSONKit'
+    twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
+    twitter.framework = 'Twitter'
+    twitter.dependency 'JSONKit'
   end
 
   s.subspec 'Vkontakte' do |vkontakte|
-  	vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
-  	vkontakte.dependency 'JSONKit'
+    vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
+    vkontakte.dependency 'JSONKit'
   end
 end
