@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/{bch15_5,binarize,isaac,qrdec,qrdectxt,rs,util}.c',
                    'iphone/*.m'
 
-  s.frameworks   = 'AVFoundation', 'CoreMedia', 'CoreVideo', 'QuartzCore'
+  s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
   s.library      = 'iconv'
 

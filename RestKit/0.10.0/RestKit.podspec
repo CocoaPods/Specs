@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
     os.subspec 'XML' do |xos|
       xos.extend(overrides)
       xos.description = 'The RestKit XML parser which wraps NSXMLParser.'
-      xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserLibXML.{h,m}'
+      xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserXMLReader.{h,m}'
       xos.dependency 'XMLReader'
     end
 
@@ -88,5 +88,12 @@ Pod::Spec.new do |s|
       cdos.source_files = 'Code/CoreData/*.{h,m}'
       cdos.frameworks = 'CoreData'
     end
+    
+    # Full name: RestKit/Testing
+    s.subspec 'Testing' do |ts|
+      ts.extend(overrides)
+      ts.source_files = 'Code/Testing/*.{h,m}'
+    end
+    
   end
 end
