@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/xissburg/XBImageFilters'
   s.author   = { 'xissburg' => 'http://xissburg.com' }
   s.source   = { :git => 'https://xissburg@github.com/xissburg/XBImageFilters.git', :tag => '1.0' }
-  s.source_files = 'XBImageFilters/*.{h,m}'
+  s.source_files = 'XBImageFilters/Classes/**/*.{h,m}'
   s.frameworks   = ['OpenGLES', 'CoreVideo', 'CoreMedia', 'CoreGraphics', 'GLKit', 'QuartzCore', 'AVFoundation']
   s.resources    = 'XBImageFilters/Resources/Shaders/*.glsl'
-  s.clean_paths  = ['XBImageFilters/Classes/Sample', 'XBImageFilters/Resources/Images', 'XBPageCurl.xcodeproj']
+  s.clean_paths  = ['XBImageFilters/Classes/Sample', 'XBImageFilters/Resources/Images', 'XBImageFilters.xcodeproj']
   s.requires_arc = true
 end
