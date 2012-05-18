@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
   s.resources = "Graphics/*.png"
 
   #s.requires_arc = true
+  s.frameworks = "ImageIO", "QuartzCore", "MessageUI"
 
 end
