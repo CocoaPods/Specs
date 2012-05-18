@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   
   s.name     = 'MwfTableViewController'
   
-  s.version  = '0.0.2'
+  s.version  = '0.0.5'
   
   s.license  = 'MIT'
   
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   
   s.author   = { 'Meiwin Fu' => 'meiwin@blockthirty.com' }
 
-  s.source   = { :git => 'https://github.com/meiwin/MwfTableViewController.git', :tag => '0.0.2' }
+  s.source   = { :git => 'https://github.com/meiwin/MwfTableViewController.git', :tag => '0.0.5' }
 
   s.source_files = 'main/**/*.{h,m}'
 
