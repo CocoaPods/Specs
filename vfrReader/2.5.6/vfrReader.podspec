@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
 
-  s.source_files = 'Sources', 'Sources/**/*.{h,m}'
+  s.source_files = 'Sources/**/*.{h,m}'
 
   s.resources = "Resources/**/*.{pdf,srings}"
   s.resources = "Graphics/*.png"
