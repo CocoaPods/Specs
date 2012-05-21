@@ -13,4 +13,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   s.resources = "Resources/*.png"
   s.clean_paths = "Examples", "Scripts"
+  
+  s.framework = 'QuartzCore'
+ 
 end
