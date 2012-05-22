@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Alan Quatermain' => 'jimdovey@mac.com' }
   s.source   = { :git => 'git://github.com/AlanQuatermain/AQGridView.git', :commit => 'f6c5589a6dabfff693fc7def7342327b9b0df3f9' }
   s.platform = :ios
+  s.requires_arc = true
   s.source_files = 'Classes'
   s.resources = "Resources/*.png"
   s.clean_paths = "Examples", "Scripts", "AQGridView.xcodeproj", "AQGridView_Prefix.pch"
