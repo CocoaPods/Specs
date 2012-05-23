@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                'with a "Tell a Friend" template in ios apps.'
   s.homepage = 'https://github.com/aporat/iTellAFriend'
   s.author   = { 'Adar Porat' => 'http://github.com/aporat' }
-  s.source   = { :git => 'https://github.com/aporat/iTellAFriend.git' }
+  s.source   = { :git => 'https://github.com/aporat/iTellAFriend.git', :tag => '1.0.0' }
   
   s.platform = :ios
   s.source_files = 'src/*.{h,m}'
