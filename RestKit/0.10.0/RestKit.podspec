@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
     # Normally CocoaPods adds the header dir to the search paths too, but in the
     # case of RestKit we don't want that. Because it's not needed, but especially
     # because it would break: #import <CoreData/CoreData.h>
-    ns.exclude_headers = 'Code/RestKit.h'
+    ns.exclude_header_search_paths = 'Code/RestKit.h'
 
     ns.ios.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
     ns.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
