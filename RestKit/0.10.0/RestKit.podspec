@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
 
   # Full name: RestKit/Network
   s.subspec 'Network' do |ns|
-    ns.description = 'The network layer provides a request/response abstraction on top of NSURLConnection.'
     ns.dependency 'LibComponentLogging-NSLog', '>= 1.0.4'
     ns.dependency 'cocoa-oauth'
     ns.dependency 'FileMD5Hash'
@@ -47,34 +46,29 @@ Pod::Spec.new do |s|
     us.ios.source_files = 'Code/UI/*.{h,m}'
     us.ios.framework = 'QuartzCore'
     us.ios.dependency 'UDTableView'
-
     us.osx.source_files = 'Code/UI/UIImage+RKAdditions.{h,m}'
   end
 
   # Full name: RestKit/ObjectMapping
   s.subspec 'ObjectMapping' do |os|
-    os.description = %{The object mapping layer provides a simple API for turning remote JSON/XML responses into objects.}
     os.dependency 'ISO8601DateFormatter', '>= 0.6'
     os.dependency 'RestKit/Network'
     os.source_files = 'Code/ObjectMapping/*.{h,m}'
 
     # Full name: RestKit/ObjectMapping/JSON
     os.subspec 'JSON' do |jos|
-      jos.description = 'The RestKit JSON parser which wraps JSONKit.'
       jos.source_files = 'Code/Support/Parsers/JSON/RKJSONParserJSONKit.{h,m}'
       jos.dependency 'JSONKit', '>= 1.5pre'
     end
 
     # Full name: RestKit/ObjectMapping/XML
     os.subspec 'XML' do |xos|
-      xos.description = 'The RestKit XML parser which wraps NSXMLParser.'
       xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserXMLReader.{h,m}'
       xos.dependency 'XMLReader'
     end
 
     # Full name: RestKit/ObjectMapping/CoreData
     os.subspec 'CoreData' do |cdos|
-      cdos.description = %{The Core Data layer provides additional support on top of the object mapper for mapping from remote resources to persist local objects.}
       cdos.source_files = 'Code/CoreData/*.{h,m}'
       cdos.frameworks = 'CoreData'
     end
