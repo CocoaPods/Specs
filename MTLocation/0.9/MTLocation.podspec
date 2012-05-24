@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.source_files = '*.{h,m}'
+  s.resources = "Resources/*.png"
   s.frameworks   = 'MapKit', 'CoreLocation'
 end
 
