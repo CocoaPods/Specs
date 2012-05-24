@@ -10,7 +10,8 @@ Pod::Spec.new do |s|
   s.license   = 'BSD'
   s.source    = { :git => 'https://github.com/futuretap/InAppSettingsKit.git',
                   :commit => '9b4d9e8ae8662e3917b82b993a3e6d132d89be28' }
-  s.resources = 'InAppSettingsKit/Xibs/*.*'
+
+  s.resources     = 'InAppSettingsKit/Xibs/*.*'
   s.source_files  = 'InAppSettingsKit/**/*.{h,m}'
-  s.clean_paths = 'InAppSettingsKitSampleApp'
+  s.clean_paths   = 'InAppSettingsKitSampleApp'
 end

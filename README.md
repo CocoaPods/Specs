@@ -33,14 +33,22 @@ You can verify the specification file with the lint command.
 
     $ pod spec lint Bananas.podspec
 
+Before create a pull request, please verify the specification on a test project locally. Create a Podfile:
+
+```ruby
+platform :ios
+dependency 'Bananas', :podspec => 'Bananas.podspec'
+```
+
+where `:podspec` point to a file.
+
+Once you have created a working specification create a pull request. Once accepted, you will receive push access to this repo. Feel free to push updates, specs for other libraries you use, and participate in other tickets.
+
 You can also verify the entire set by running the rake task.
 
     $ rake lint
 
 _(Note: this is run on every commit by [Travis](http://travis-ci.org/#!/CocoaPods/Specs))_
-
-Once you have created a working specification create a pull request. Once accepted, you will receive push access to this repo. Feel free to push updates, specs for other libraries you use, and participate in other tickets.
-
 
 ### License
 

@@ -16,6 +16,10 @@ Pod::Spec.new do |s|
 
   s.prefix_header_contents = '#import "MKNetworkKit.h"'
 
+  def s.copy_header_mapping(from)
+    from.sub('MKNetworkKit/', '')
+  end
+
   s.dependency 'Reachability', '~> 3.0'
 
   def s.post_install(target)

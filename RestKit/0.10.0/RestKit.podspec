@@ -78,5 +78,10 @@ Pod::Spec.new do |s|
       cdos.source_files = 'Code/CoreData/*.{h,m}'
       cdos.frameworks = 'CoreData'
     end
+
+    # Full name: RestKit/Testing
+    s.subspec 'Testing' do |ts|
+      ts.source_files = 'Code/Testing/*.{h,m}'
+    end
   end
 end
