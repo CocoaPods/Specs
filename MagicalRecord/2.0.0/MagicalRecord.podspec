@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.description  = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
   s.source_files = 'MagicalRecord/**/*.{h,m}'
   s.framework    = 'CoreData'
+  s.clean_paths  = 'Project Files'
 
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
