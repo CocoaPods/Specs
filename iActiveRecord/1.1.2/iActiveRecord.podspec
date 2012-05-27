@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Alex Denisov' => '1101.debian@gmail.com' }
   s.source   = { :git => 'git://github.com/AlexDenisov/iActiveRecord.git', :tag => '1.1.2'}
   s.platform = :ios
-  s.source_files = 'iActiveRecord/*.{c,h,m}'
+  s.source_files = 'iActiveRecord/*.{c,h,m}', 'iActiveRecord/deps/*.{c,h,m}'
   s.library = 'sqlite3'
   s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_CORE SQLITE_ENABLE_UNICODE' }
 end
