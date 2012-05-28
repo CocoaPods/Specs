@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version       = '2.1.1'
   s.license       = 'BSD'
   s.summary       = 'NanoStore is an open source, lightweight schema-less local key-value document store written in Objective-C for Mac OS X and iOS.'
-  s.homepage      = 'git://github.com/tciuro/NanoStore.git'
+  s.homepage      = 'https://github.com/tciuro/NanoStore'
   s.authors       = { 'Tito Ciuro' => 'tciuro@mac.com' }
   s.source        = { :git => 'git://github.com/tciuro/NanoStore.git', :tag => '2.1.1' }
   s.source_files  = 'Classes/**/*.{h,m}'
