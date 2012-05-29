@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Jasper Blues' => 'jasper.blues@expanz.com' }
   s.source   = { :git => 'https://jasperblues@github.com/expanz/xcode-editor.git' }
   s.platform = :osx  
-  s.source_files = 'xcode-editor/Source/Main/*.{h,m}'
+  s.source_files = 'xcode-editor/Source/Main/*'
   s.clean_paths = "xcode-editor.xcodeproj" , 'Source' 
   s.requires_arc = true  
 end
