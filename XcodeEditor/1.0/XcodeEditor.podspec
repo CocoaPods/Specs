@@ -5,9 +5,9 @@ Pod::Spec.new do |s|
   s.summary  = 'An API for manipulating Xcode Projects using objective-C.'
   s.homepage = 'https://github.com/expanz/xcode-editor'
   s.author   = { 'Jasper Blues' => 'jasper.blues@expanz.com' }
-  s.source   = { :git => 'https://jasperblues@github.com/expanz/xcode-editor.git' }
+  s.source   = { :git => 'git@github.com:expanz/xcode-editor.git' }
   s.platform = :osx  
-  s.source_files = 'xcode-editor/Source/Main/*'
+  s.source_files = 'Source/Main/*'
   s.clean_paths = "xcode-editor.xcodeproj" , 'Source' 
   s.requires_arc = true  
 end
