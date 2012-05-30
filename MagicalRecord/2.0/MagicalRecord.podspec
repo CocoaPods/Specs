@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'MagicalRecord/**/*.{h,m}'
   s.framework    = 'CoreData'
   s.clean_paths  = 'Project Files'
+  s.requires_arc = true
 
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
