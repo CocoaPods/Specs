@@ -28,8 +28,6 @@ Pod::Spec.new do |s|
     ss.source_files = 'src/ThirdParty/GTM*.{h,m}'
   end
 
-
-
   # S3 does not build because it needs a Constants.h file defined by clients
   %w[ AutoScaling CloudWatch DynamoDB EC2 ElasticLoadBalancing S3 SES SNS QS STS SimpleDB ].each do |name|
     s.subspec name do |ss|
