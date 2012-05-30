@@ -8,6 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/expanz/xcode-editor.git' }
   s.platform = :osx  
   s.source_files = '*'
-  s.clean_paths = "xcode-editor.xcodeproj" , 'Source' 
   s.requires_arc = true  
 end
