@@ -11,7 +11,9 @@ Pod::Spec.new do |s|
   We don’t believe in lock in. You own and have complete access to your data, and can export at anytime, so build with confidence.'
 
   s.platform = :ios
-  s.source_files = 'StackMob', 'StackMob/Utils', 'StackMob/External/reachability', 'StackMob/External/JSONKit', 'StackMob/External/OAuthConsumer', 'StackMob/External/OAuthConsumer/Crypto'
+  s.source_files = 'StackMob', 'StackMob/Utils', 'StackMob/External/SecureUDID', 'StackMob/External/OAuthConsumer', 'StackMob/External/OAuthConsumer/Crypto'
+  s.dependency 'Reachability', '2.0.5'
+  s.dependency 'JSONKit', '1.5pre'
   s.frameworks = 'CFNetwork', 'SystemConfiguration'
   s.requires_arc = false
 end
