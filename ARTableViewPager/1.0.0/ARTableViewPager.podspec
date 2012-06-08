@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/arconsis/ARTableViewPager.git', :tag => '1.0.0' }
   s.description = 'An optional longer description of ARTableViewPager.'
   s.platform = :ios
-  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
-  s.clean_path = "examples"
+  s.source_files = 'Classes/*.{h,m}'
+  s.clean_path = "Example", "Screenshots", "ARTableViewPager"
   s.requires_arc = true
 
 end
