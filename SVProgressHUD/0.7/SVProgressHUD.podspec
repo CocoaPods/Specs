@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/samvermette/SVProgressHUD.git', :tag => '0.7' }
 
   s.description = 'SVProgressHUD is an easy-to-use, clean and lightweight progress HUD for iOS. ' \
-                  'It’s a simplified and prettified alternative to the popular MBProgressHUD. '  \
-                  'Its fade in/out animations are highly inspired on Lauren Britcher’s HUD in '  \
+                  'It\'s a simplified and prettified alternative to the popular MBProgressHUD. '  \
+                  'Its fade in/out animations are highly inspired on Lauren Britcher\'s HUD in '  \
                   'Tweetie for iOS. The success and error icons are from Glyphish.'
 
   s.source_files = 'SVProgressHUD/*.{h,m}'
