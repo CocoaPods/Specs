@@ -22,7 +22,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'SenTestingKit'
 
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(DEVELOPER_FRAMEWORKS_DIR)"',
-                 'LD_RUNPATH_SEARCH_PATHS' => '"$(DEVELOPER_FRAMEWORKS_DIR)"' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
 end
 
