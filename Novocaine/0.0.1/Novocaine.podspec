@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/auser/novocaine.git', :tag => '0.0.1' }
   s.description = 'An optional longer description of Novocaine.'
 
-  s.source_files = 'Novocaine/*'
+  s.source_files = 'Novocaine'
+  s.clean_paths = "Novocaine.xcodeproj"
 
-  s.framework = 'AudioToolbox'
+  s.frameworks = 'AudioToolbox', 'Accelerate'
 end
