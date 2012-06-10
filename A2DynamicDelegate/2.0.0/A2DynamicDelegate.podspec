@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'A2DynamicDelegate'
-  s.version      = '2.00'
+  s.version      = '2.0.0'
   s.license      = 'BSD'
   s.summary      = 'Blocks are to functions as A2DynamicDelegate is to delegates.'
   s.homepage     = 'https://github.com/pandamonia/A2DynamicDelegate'
