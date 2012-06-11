@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.version  = '1.6'
   s.license  = 'BSD'
   s.summary  = 'Unit test assertions on steroids: Hamcrest matchers for Objective-C'
-  s.homepage = 'https://github.com/jonreid/OCHamcrest'
+  s.homepage = 'https://github.com/hamcrest/OCHamcrest'
   s.author   = { 'Jon Reid' => 'jon.reid@mac.com' }
 
-  s.source   = { :git => 'https://github.com/jonreid/OCHamcrest.git', :tag => 'V1.6' }
+  s.source   = { :git => 'https://github.com/hamcrest/OCHamcrest.git', :tag => 'V1.6' }
 
   s.description = %{
       OCHamcrest is a framework for writing matcher objects, allowing you to
