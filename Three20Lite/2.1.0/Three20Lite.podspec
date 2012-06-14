@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                'changes compared to the original Three20 project. See project homepage for more details.'
   s.homepage = 'https://github.com/aporat/three20lite'
   s.author   = { 'Joe Hewitt' => 'http://github.com/joehewitt' }
-  s.source   = { :git => 'https://github.com/aporat/three20lite.git', :tag => '2.1.0' }
+  s.source   = { :git => 'https://github.com/aporat/three20lite.git', :commit => '05e16294aa2581f3b7671a26876a775b7ee2149c' }
   s.dependency 'SBJson'
   
   s.platform = :ios
