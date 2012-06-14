@@ -16,6 +16,4 @@ Pod::Spec.new do |s|
   s.source_files = 'quickdialog'
   s.clean_paths  = 'sample', '*.xc*', 'libQuickDialog', 'other'
   s.requires_arc = true
-
-  s.prefix_header_contents = '#import "QuickDialog.h"'
 end

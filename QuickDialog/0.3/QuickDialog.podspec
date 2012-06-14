@@ -17,6 +17,4 @@ Pod::Spec.new do |s|
   s.clean_paths  = 'sample', '*.xc*', 'libQuickDialog', 'other'
   s.requires_arc = true
   s.framework = 'MapKit' , 'CoreLocation'
-
-  s.prefix_header_contents = '#import "QuickDialog.h"'
 end
