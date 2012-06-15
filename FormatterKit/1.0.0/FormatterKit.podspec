@@ -9,6 +9,13 @@ Pod::Spec.new do |s|
 
   s.description = "FormatterKit is a collection of well-crafted NSFormatter subclasses for things like units of information, distance, and relative time intervals. Each formatter abstracts away the complex business logic of their respective domain, so that you can focus on the more important aspects of your application."
 
+  s.source_files = 'TTTArrayFormatter/*.{h,m}',
+                   'TTTLocationFormatter/*.{h,m}',
+                   'TTTOrdinalNumberFormatter/*.{h,m}',
+                   'TTTTimeIntervalFormatter/*.{h,m}',
+                   'TTTUnitOfInformationFormatter/*.{h,m}',
+                   'TTTURLRequestFormatter/*.{h,m}'
+
   s.clean_paths = ['FormatterKit Example']
 
   s.requires_arc = true
