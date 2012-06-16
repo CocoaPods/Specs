@@ -18,16 +18,17 @@ Pod::Spec.new do |s|
     using multipart/form-data.
   }
 
-  s.clean_paths = '*Sample', 'External', '*.xcodeproj', 'Build Scripts'
+  s.clean_paths = '*Sample', 'External', '*.xcodeproj', 'Build Scripts', 'Classes/Tests'
 
   if config.ios?
     s.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
-    s.source_files = 'Classes'
+    s.source_files = 'Classes', 'Classes/ASIWebPageRequest', 'Classes/CloudFiles', 'Classes/S3'
     s.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
   else
     s.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog\.\w$/)
     s.frameworks   = 'SystemConfiguration', 'CoreServices'
   end
 
-  s.library    = 'z.1'
+  s.library    = 'z.1', 'xml2'
+  s.xcconfig        =  { 'HEADER_SEARCH_PATHS' => "${SDK_DIR}/usr/include/libxml2" }
 end
