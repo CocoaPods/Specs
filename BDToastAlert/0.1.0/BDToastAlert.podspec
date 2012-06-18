@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.description = 'A simple UIKit class for displaying non-obstructive alert message labels on iOS UIView. Sometimes your app might want to display messages and errors to user, but not needing user interaction to acknowledge those messages. BDAlertView can do that.'
   s.platform = :ios
   s.source_files = 'Classes', 'BDToastAlert/BDToastAlert/BDToastAlert'
+  s.clean_paths   = 'BDToastAlert/', 'BDToastAlert/BDToastAlert.xcodeproj/',  '.git/', '.gitignore'
   s.frameworks = 'QuartzCore'
   s.requires_arc = true
 end
