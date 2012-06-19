@@ -18,5 +18,7 @@ Pod::Spec.new do |s|
     from.relative_path_from(Pathname.new('cocos2d'))
   end
   
-  s.ios.dependency 'FontLabel'
+  if config.ios?
+      s.dependency 'FontLabel'
+  end
 end
