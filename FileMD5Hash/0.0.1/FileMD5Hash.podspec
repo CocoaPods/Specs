@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Joel Lopes Da Silva' => 'joel@lopes-da-silva.com' }
   s.source   = { :git => 'https://github.com/JoeKun/FileMD5Hash.git', :commit => 'd00c0c51c6d0955d9daf94c30cfd95a219d4914e' }
 
-  s.source_files = 'Common/*.{h,c,pch}'
+  s.source_files = 'Common/*.{h,c}'
   s.clean_paths = "Mac", "iOS", 'FileMD5Hash.xcodeproj'
 
   def s.post_install(target)

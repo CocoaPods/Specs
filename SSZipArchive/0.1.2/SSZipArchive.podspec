@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SSZipArchive.*', 'minizip/*.{h,c}'
 
+  s.library = 'z'
+
   s.clean_paths = ["Tests", ".gitignore"]
 
   # Maintain the dir structure for headers

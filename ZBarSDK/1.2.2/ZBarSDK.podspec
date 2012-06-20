@@ -20,14 +20,15 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/{bch15_5,binarize,isaac,qrdec,qrdectxt,rs,util}.c',
                    'iphone/*.m'
 
-  s.frameworks   = 'AVFoundation', 'CoreMedia', 'CoreVideo', 'QuartzCore'
+  s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
   s.library      = 'iconv'
 
   s.clean_paths  = FileList['*'].exclude(/(include|zbar|iphone|README|LICENSE)$/)
 
   s.xcconfig = { "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*]"        => 'ZBarReaderViewImpl_Simulator.m',
-                 "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]" => 'ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m' }
+                 "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]" => 'ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m',
+                 "GCC_PREPROCESSOR_DEFINITIONS"                             => '$(inherited) NDEBUG=1' }
 
   # Maintain the dir structure for headers
   def s.copy_header_mapping(from)

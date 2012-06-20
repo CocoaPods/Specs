@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
                    "Currently it only supports unzipping. In the future, creating zip files will be supported."
 
   s.source_files = 'SSZipArchive.*', 'minizip/*.{h,c}'
+  s.library = 'z'
 end
