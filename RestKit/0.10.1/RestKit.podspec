@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   s.subspec 'UI' do |us|
     us.ios.source_files = 'Code/UI'
     us.ios.framework    = 'QuartzCore'
-    us.ios.dependency     'UDTableView'
+    #us.ios.dependency     'UDTableView'
 
     us.osx.source_files = 'Code/UI/UIImage+RKAdditions.{h,m}'
   end
