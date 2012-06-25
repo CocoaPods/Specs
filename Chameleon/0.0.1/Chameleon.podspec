@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description = "Chameleon is a port of Apple's UIKit (and some minimal related frameworks) to Mac OS X. It is meant to be as much of a drop-in replacement for the real UIKit as possible. It also adapts some iOS user interface conventions to the Mac (such as UIAlertView being represented by NSAlert) so that apps built using Chameleon have as much chance as possible of feeling at home on the desktop with relatively little porting effort."
   s.homepage    = "http://chameleonproject.org/"
   s.author      = { "Sean Heber" => "sean@iconfactory.com" }
-  s.source      = { :git => "https://github.com/BigZaphod/Chameleon.git", :commit => "b73f34a77052160ef69527b4eecffe9532466820" }
+  s.source      = { :git => "https://github.com/BigZaphod/Chameleon.git", :commit => "af3dcfd6e86078ed6b2fd1c4c45adf3622b0e925" }
   s.license     = { :type => 'Modified BSD License' }
   s.platform    = :osx, '10.6'
   s.frameworks  = 'IOKit', 'QuartzCore', 'SystemConfiguration', 'AppKit', 'Foundation', 'QTKit', 'WebKit'
