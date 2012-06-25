@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'FRLayeredNavigationController'
 
-  s.clean_paths = 'FRLayeredNavigationControllerDemo', '*.png', 'FRLayeredNavigationControllerDemo', 'FRLayeredNavigationController.xcodeproj', 'docs', 'index.html'
+  s.clean_paths = '*.png', 'FRLayeredNavigationControllerDemo', 'FRLayeredNavigationController.xcodeproj', 'docs', 'index.html'
 
   s.framework = 'UIKit'
 
