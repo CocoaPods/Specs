@@ -19,6 +19,4 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit'
 
   s.requires_arc = true
-
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -fobjc-arc -all_load' }
 end
