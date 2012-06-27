@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'client/iOS/*.{h,m}'
   s.resource     = 'client/iOS/Quincy.bundle'
-  s.clean_paths  = 'client/iOS/QuincyLib', 'client/Mac', 'demo', 'server'
+
 
   s.frameworks   = 'SystemConfiguration', 'CrashReporter'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/QuincyKit/client/iOS"' }

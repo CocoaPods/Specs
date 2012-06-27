@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/ZaBlanc/RaptureXML.git', :tag => '1.0.0' }
   s.platform = :ios
   s.source_files = 'RaptureXML/*'
-  s.clean_paths = "RaptureXML.xcodeproj/", "Tests/", ".gitignore", "EncodingTests.m", "Library-Prefix.pch"
+
   s.libraries = 'z', 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end

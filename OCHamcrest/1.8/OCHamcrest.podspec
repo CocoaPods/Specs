@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   }
 
   s.source_files = 'Source/OCHamcrest.h', 'Source/Core/**/*.{h,m,mm}', 'Source/Library/**/*.{h,m,mm}'
-  s.clean_paths = "Examples", "Documentation", "Source/Tests", "Source/TestSupport"
+
 end

@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/mindbrix/UIImage-PDF.git', :tag => '1.0.0' }
   s.platform = :ios
   s.source_files = 'UIImage+PDF/*.{h,m}'
-  s.clean_paths = "Classes", "UIImage+PDF example.xcodeproj", "iPad", "*.{xib,plist,pch,pdf}", "main.m"
+
   s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
 end

@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/kstenerud/ObjectAL-for-iPhone.git', :tag => 'v2.1' }
   s.platform = :ios
   s.source_files = 'ObjectAL/ObjectAL/**/*.{h,m,c}'
-  s.clean_paths = FileList['*'].exclude(/(ObjectAL|README.mdown|README.BleedingEdge)$/)
+
   s.frameworks = 'OpenAL', 'AudioToolbox', 'AVFoundation'
 end

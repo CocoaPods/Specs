@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'RDActionSheet/RDActionSheet.{h,m}'
   s.resources = "RDActionSheet/*.png"
   s.framework = 'UIKit'
-  s.clean_paths = "RDActionSheet.xcodeproj" , 'RDActionSheet/en.lproj' , 'RDActionSheet/RDActionSheet-Info.plist' , 'RDActionSheet/RDActionSheet-Prefix.pch' ,'RDActionSheet/RDAppDelegate.{h,m}' , 'RDActionSheet/RDViewController.{h,m}'
+
   end

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'CFNetwork', 'Security'
   s.osx.frameworks = 'CoreServices', 'Security'
 
-  s.clean_paths  = 'MKNetworkKit-*', '*-Demo', 'SampleImage.jpg'
+
   s.requires_arc = true
 
   s.dependency 'Reachability', '~> 3.0'

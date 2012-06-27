@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.description = 'With SOCKit and SOCPattern you can easily transform objects into strings and vice versa.'
 
   s.source_files = '*.{h,m}'
-  s.clean_paths  = "tests", "SOCKit.xcodeproj"
+
 end

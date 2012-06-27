@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/tciuro/NoticeView.git', :tag => '1.0.0' }
   s.platform = :ios
   s.source_files = 'NoticeView/WBNoticeView/*.{m,h}'
-  s.clean_paths = 'NoticeView.xcodeproj', 'NoticeView/*.{pch,h,m,plist}', 'NoticeView/en.lproj', 'NoticeView/Images'
+
   s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.resources = 'NoticeView/WBNoticeView/NoticeView.bundle'
 end

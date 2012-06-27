@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   end
   s.source_files = files 
   
-  s.clean_paths = FileList['*'].exclude(/(Source|README.markdown|MIT.LICENSE)$/)
+
 
   s.library = 'stdc++'
 end

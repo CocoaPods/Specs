@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.library      = 'iconv'
 
-  s.clean_paths  = FileList['*'].exclude(/(include|zbar|iphone|README|LICENSE)$/)
+
 
   s.xcconfig = { "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*]"        => 'ZBarReaderViewImpl_Simulator.m',
                  "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]" => 'ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m',

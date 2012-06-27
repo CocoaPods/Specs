@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'NSDate-Utilities.{h,m}' , 'TimeFormatters.{h,m}'
   s.framework = 'Foundation'
-  s.clean_paths = "HelloWorld.xcodeproj" , 'Test Bed' , 'HelloWorld_Prefix.pch' , 'Info.plist' , 'do-git' 
+
 end

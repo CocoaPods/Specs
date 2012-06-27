@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*.{h,m}', 'Classes-iOS/**/*.{h,m}', 'Libraries/YelpKit/*.{h,m}', 'Libraries/GTM/**/*.{h,m}', 'Libraries/GHKit/**/*.{h,m}'
   s.platform = :ios
   s.framework = 'CoreLocation'
-  s.clean_paths = 'Examples', 'Documentation', 'Project-MacOSX', 'Project-iOS', 'Classes-MacOSX', 'Tests'
+
 end
 

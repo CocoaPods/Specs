@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/**/*.{h,m}'
 
-  s.clean_paths = 'ConciseKitSpecs'
+
 
   s.frameworks = 'Foundation'
 end

@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
                   :tag => '1.0.0' }
   s.source_files = 'LKBadgeView.{h,m}' 
   s.frameworks = 'UIKit'
-  s.clean_paths = "Docs", "LKBadgeView.xcodeproj" , 'LKBadgeViewTests' , 'SampleApplication'
+
 end

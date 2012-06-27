@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                    'and performances!'
 
   s.source_files = '{SD,UI}*.{h,m}'
-  s.clean_paths  = 'SDWebImage.xcodeproj', 'Examples'
+
 
   # TODO currently CocoaPods always tries to install the subspec even if the dependency is on just 'SDWebImage'
   #s.subspec 'MapKit' do

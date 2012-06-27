@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/Dejal/DejalActivityView.git', :tag => '1.0' }
   s.platform = :ios
   s.source_files = 'DejalActivityView.{h,m}'
-  s.clean_paths = "Demo/", ".gitignore"
+
   s.framework = 'UIKit'
   s.requires_arc = true
 end

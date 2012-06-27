@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'ADVProgressBar/Classes/*.{h,m}'
   s.resources = "ADVProgressBar/Resources/*.png"
   s.framework = 'UIKit'
-  s.clean_paths = "ADVProgressBar.xcodeproj" , 'ADVProgressBar/en.lproj' , 'ADVProgressBar/ADVAppDelegate.{h,m}' , 'ADVProgressBar/ADVViewController.{h,m}' , 'ADVProgressBar/ADVProgressBar-Info.plist' , 'ADVProgressBar/ADVProgressBar-Prefix.pch'
+
   s.requires_arc = true  
 end

@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description = 'Localizations available for Chinese, Japanese, Turkish, English, and German'
   s.source_files = 'SEHumanizedTime/*.{h,m}'
   s.resources = 'SEHumanizedTime/{en,de,ja,tr,zh-Hans}.lproj'
-  s.clean_paths = 'SEHumanizedTimeDiffDemo.xcodeproj', 'SEHumanizedTimeDiffDemo'
+
   s.frameworks = 'Foundation'
 end

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                    'TTTUnitOfInformationFormatter/*.{h,m}',
                    'TTTURLRequestFormatter/*.{h,m}'
 
-  s.clean_paths = ['FormatterKit Example']
+
 
   s.requires_arc = true
 

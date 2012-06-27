@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'pinview'
   s.resources = "pinview/*.{png,xib}"
-  s.clean_paths = "Classes", "*.{plist,pch,md,m,xcodeproj}", "SampleApp"
+
 end

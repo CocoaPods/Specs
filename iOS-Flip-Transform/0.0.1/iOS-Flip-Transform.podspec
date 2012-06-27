@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'transform/framework/*.{h,m}'
   s.framework = 'QuartzCore'
-  s.clean_paths = "transform.xcodeproj" , 'transform/en.lproj' , 'transform/*.{h,m,png,plist,pch}' 
+
 end

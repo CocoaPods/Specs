@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.source_files = files.dup.exclude(/GMAppleDouble/)
   s.osx.source_files = files
 
-  s.clean_paths = 'ZipKit.{xcodeproj,lineform}', 'ZipKitFW-Info.plist', 'ZipKit_Prefix.pch', 'Demo Projects'
+
 
   s.library = 'z'
   s.osx.framework = 'CoreServices'

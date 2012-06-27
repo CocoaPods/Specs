@@ -6,5 +6,5 @@ Pod::Spec.new do |s|
   s.author   = 'Nick Lockwood'
   s.source   = { :git => 'git://github.com/nicklockwood/WebContentView.git', :tag => '1.0.3' }
   s.source_files = 'WebContentView/WebContentView.{h,m}'
-  s.clean_paths = 'WebContentViewExample', 'WebContentViewExample.xcodeproj'
+
 end

@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/mixpanel/mixpanel-iphone.git', :commit => '9437d073225d1e21fc11d08d993f79f9f28e4fe5' }
   s.platform = :ios
   s.source_files = 'MPLib/**/*.{h,m}'
-  s.clean_paths = FileList['*'].exclude(/(MPLib|readme.mdown)$/)
+
 end

@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.{h,m}'
   s.framework    = 'Foundation'
   s.requires_arc = true
-  s.clean_paths  = 'Support'
+
 end

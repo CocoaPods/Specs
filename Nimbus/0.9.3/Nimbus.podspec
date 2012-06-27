@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
                   'simple to understand.'
 
   s.platform = :ios
-  s.clean_paths = 'docs', 'examples', 'scripts', 'templates', 'thirdparty'
+
 
   s.subspec 'Core' do |core|
     core.source_files = 'src/core/src'

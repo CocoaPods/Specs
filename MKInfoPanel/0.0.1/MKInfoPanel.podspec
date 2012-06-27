@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
                  :commit => '1661c3b5cab545ee8245c8c9d65a89274c74d2b0' }
   s.resources = 'MKInfoBundle/*.{png,xib}'
   s.source_files = 'MKInfoBundle/*.{h,m}'
-  s.clean_paths = 'MKInfoPanelDemo.xcodeproj', 'MKInfoPanelDemo'
+
 end
 

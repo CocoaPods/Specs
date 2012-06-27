@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'BlocksKit'
   s.prefix_header_contents = '#import "BlocksKit.h"'
   s.dependency 'A2DynamicDelegate'
-  s.clean_paths = 'GHUnitIOS.framework/', 'Tests/', 'BlocksKit.xcodeproj/', '.gitignore'
+
   s.ios.frameworks = 'MessageUI'
 end

@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.authors      = { 'Square' => '' }
   s.source       = { :git => 'git://github.com/square/SocketRocket.git' }
   s.source_files = 'SocketRocket/*.{h,m,c}'
-  s.clean_paths  = %w{SRWebSocketTests SocketRocket.xcodeproj TestChat TestChatServer TestSupport extern}
+
   s.requires_arc = true
 
   s.ios.frameworks = %w{CFNetwork Security}

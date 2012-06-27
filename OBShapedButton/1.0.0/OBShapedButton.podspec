@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description = 'Instances of OBShapedButton respond to touches only in areas where the image that is assigned to the button for UIControlStateNormal is non-transparent.'
   s.platform = :ios
   s.source_files = 'OBShapedButton/**/*.{h,m}', 'UIImage+ColorAtPixel/**/*.{h,m}'
-  s.clean_paths = "ShapedButtonDemo"
+
   s.requires_arc = false
 end

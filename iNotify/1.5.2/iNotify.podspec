@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author   = 'Nick Lockwood'
   s.source   = { :git => 'https://github.com/nicklockwood/iNotify.git', :tag => '1.5.2' }
   s.source_files = 'iNotify/iNotify.{h,m}'
-  s.clean_paths = 'Examples'
+
   s.resources		= 'iNotify/iNotify.bundle'
 end

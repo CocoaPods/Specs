@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MAKVONotificationCenter.{h,m}'
   s.header_dir   = s.name
   s.requires_arc = true
-  s.clean_paths  = FileList['*'].exclude(/(MAKVONotificationCenter..|README.mdown|LICENSE)$/)
+
 end

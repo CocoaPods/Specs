@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'OCCalendarView/*.{h,m}'
   s.framework = 'UIKit' , 'QuartzCore'
-  s.clean_paths = "Demo" , 'demo.png' 
+
 end
