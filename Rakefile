@@ -32,16 +32,16 @@ task :lint do
   exit if ENV['skip-lint']
 
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
-  specs = FileList['**/*.podspec'] if specs.empty?
+  specs = ['.'] if specs.empty?
 
   failures = []
   version = `pod --version`
-  options = version =~ /0\.[1-5]\..*/ ? '--verbose' : '--quick --only-errors'
   specs.each do |spec|
     begin
       next if not File.exists? spec
-      # Transition to 0.6
-      command = "pod spec lint '#{spec}' #{options}"
+      # todo test
+      ENV['skip_setup']='1'
+      command = "pod spec lint '#{spec}' --quick --only-errors"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`
