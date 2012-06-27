@@ -39,9 +39,8 @@ task :lint do
   specs.each do |spec|
     begin
       next if not File.exists? spec
-      # todo test
-      ENV['skip_setup']='1'
-      command = "pod spec lint '#{spec}' --quick --only-errors"
+      ENV['SKIP_SETUP']='1'
+      command = "~/Documents/GitHub/CP/CocoaPods/bin/pod spec lint '#{spec}' --quick --only-errors"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`
