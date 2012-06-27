@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'MulticastDelegate'
   s.version  = '0.0.1'
   s.license  = 'MIT'
-  s.summary  = 'MulticastDelegate extracted from XMPPFramework'
+  s.summary  = 'MulticastDelegate extracted from XMPPFramework.'
   s.homepage = 'https://github.com/sergeyzenchenko/MulticastDelegate'
   s.author   = 'XMPPFramework'
   s.source   = { :git    => 'git@github.com:sergeyzenchenko/MulticastDelegate.git',

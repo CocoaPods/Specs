@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'PSPushPopPressView'
   s.version  = '0.0.1'
   s.license  = 'MIT'
-  s.summary  = 'Zoom, Rotate, Drag ? everything at the same time. A view-container for direct manipulation, inspired by Our Choice from Push Pop Press'
+  s.summary  = 'Zoom, Rotate, Drag ? everything at the same time. A view-container for direct manipulation, inspired by Our Choice from Push Pop Press.'
   s.homepage = 'http://petersteinberger.com'
   s.author   = { 'Peter Steinberger' => 'steipete@gmail.com' }
   s.source   = { :git => 'https://github.com/steipete/PSPushPopPressView.git', :commit => 'efbf8d6e53a28b73cee60d0fe50130affbeafc27' }

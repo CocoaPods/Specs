@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'JTObjectMapping'
   s.version  = '0.0.1'
   s.license  = 'MIT'
-  s.summary  = 'A very simple objective-c framework that maps a JSON response from NSDictionary or NSArray to an NSObject subclass for iOS'
+  s.summary  = 'A very simple objective-c framework that maps a JSON response from NSDictionary or NSArray to an NSObject subclass for iOS.'
   s.homepage = 'https://github.com/mystcolor/JTObjectMapping'
   s.author   = 'mystcolor'
   s.source   = { :git    => 'https://github.com/mystcolor/JTObjectMapping.git',

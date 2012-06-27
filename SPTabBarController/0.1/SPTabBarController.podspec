@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'SPTabBarController'
   s.version  = '0.1'
-  s.summary  = 'Custom tab bar container controller for iOS 5'
+  s.summary  = 'Custom tab bar container controller for iOS 5.'
   s.homepage = 'https://github.com/cpatni/SPTabBarController'
   s.author   = { 'Chandra Patni' => 'http://rubyorchard.wordpress.com' }
 

@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version        = "0.0.1"
   s.summary        = "A UI framework for Mac based on Core Animation."
   s.description    = "TwUI is a hardware accelerated UI framework for Mac, inspired by UIKit. It enables:\n"\
-                     "- GPU accelerated rendering backed by CoreAnimation\n"\
+                     "- GPU accelerated rendering backed by CoreAnimation.\n"\
                      "- Simple model/view/controller development familiar to iOS developers."
   s.homepage       = "https://github.com/twitter/twui"
   s.author         = { "Twitter, Inc." => "opensource@twitter.com" }

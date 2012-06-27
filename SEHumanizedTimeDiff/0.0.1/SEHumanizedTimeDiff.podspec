@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'SEHumanizedTimeDiff'
   s.version = '0.0.1'
   s.license = 'MIT'
-  s.summary = 'An NSDate category to have humanly meaningful time intervals since todays date'
+  s.summary = 'An NSDate category to have humanly meaningful time intervals since todays date.'
   s.homepage = 'https://github.com/fictorial/SEHumanizedTimeDiff'
   s.author = { 'Sarp Erdag' => 'sarp.erdag@apperto.com' }
   s.source = { :git => 'git://github.com/fictorial/SEHumanizedTimeDiff.git', :tag => '0.0.1' }
