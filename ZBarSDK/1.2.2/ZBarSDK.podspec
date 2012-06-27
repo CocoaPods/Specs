@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '1.2.2'
   s.platform = :ios
   s.license  = 'GNU LGPL 2.1'
-  s.summary  = 'QR and barcode scan library'
+  s.summary  = 'QR and barcode scan library.'
   s.homepage = 'http://zbar.sourceforge.net/'
   s.author   = { 'Jeff Brown' => 'spadix@users.sourceforge.net' }
   s.source   = { :hg => 'http://zbar.hg.sourceforge.net:8000/hgroot/zbar/zbar', :revision => 'iPhoneSDK-1.2.2' }

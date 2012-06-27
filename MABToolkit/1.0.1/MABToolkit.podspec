@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'MABToolkit'
   s.version  = '1.0.1'
   s.license  = 'MIT'
-  s.summary  = 'Some reusable code to handle some common Mac dev problems'
+  s.summary  = 'Some reusable code to handle some common Mac dev problems.'
   s.homepage = 'https://github.com/iloveitaly/MABCocoaToolkit'
   s.author   = { 'Michael Bianco' => 'iloveitaly@gmail.com' }
 

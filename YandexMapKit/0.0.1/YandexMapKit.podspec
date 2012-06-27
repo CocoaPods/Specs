@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'YandexMapKit'
   s.version  = '0.0.1'
   s.license  = 'http://legal.yandex.ru/mapkit/'
-  s.summary  = 'Yandex Map Kit for iOS'
+  s.summary  = 'Yandex Map Kit for iOS.'
   s.homepage = 'https://github.com/yandexmobile/yandexmapkit-ios'
   s.author   = 'Yandex'
   s.source   = { :http => 'https://github.com/downloads/yandexmobile/yandexmapkit-ios/YandexMapKit.zip' }

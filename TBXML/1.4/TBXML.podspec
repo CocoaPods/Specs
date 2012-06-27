@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'TBXML'
   s.version  = '1.4'
   s.license  = 'MIT'
-  s.summary  = 'A fast XML parser'
+  s.summary  = 'A fast XML parser.'
   s.homepage = 'http://www.tbxml.co.uk'
   s.author   = { 'Tom Bradley' => 'tom@tbxml.co.uk' }
   s.source   = { 

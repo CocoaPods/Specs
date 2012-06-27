@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.name     = 'vfrReader'
   s.version  = '2.5.6'
   s.license  = 'MIT' 
-  s.summary  = 'An open source PDF file reader/viewer for iOS'
+  s.summary  = 'An open source PDF file reader/viewer for iOS.'
   s.homepage = 'http://www.vfr.org/'
   s.author   = { 'Julius Oklamcak' => 'joklamcak@gmail.com' }
 

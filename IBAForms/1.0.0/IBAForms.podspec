@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.summary = 'A simple iPhone forms library'
+  s.summary = 'A simple iPhone forms library.'
   s.license = 'Apache License, Version 2.0'
   s.source = { :git => 'https://github.com/ittybittydude/IBAForms.git', :tag => '1.0.0' }
   s.source_files = 'library/**/*.{h,m}'

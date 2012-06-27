@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'FormatterKit'
   s.version  = '1.0.0'
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
-  s.summary  = '`stringWithFormat:` for the sophisticated hacker set'
+  s.summary  = '`stringWithFormat:` for the sophisticated hacker set.'
   s.homepage = 'https://github.com/mattt/FormatterKit'
   s.author   = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/mattt/FormatterKit.git', :tag => '1.0.0' }

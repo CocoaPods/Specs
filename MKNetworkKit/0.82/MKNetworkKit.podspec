@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'MKNetworkKit'
   s.version  = '0.82'
   s.license  = 'MIT'
-  s.summary  = 'Full ARC based Networking Kit for iOS 4+ devices'
+  s.summary  = 'Full ARC based Networking Kit for iOS 4+ devices.'
   s.homepage = 'https://github.com/MugunthKumar/MKNetworkKit'
   s.author   = { 'MugunthKumar' => 'mknetworkkit@mk.sg' }
   s.source   = { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.82' }

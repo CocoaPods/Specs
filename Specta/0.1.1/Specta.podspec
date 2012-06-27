@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'Specta'
   s.version  = '0.1.1'
   s.license  = 'MIT'
-  s.summary  = 'A light-weight TDD / BDD framework for Objective-C & Cocoa'
+  s.summary  = 'A light-weight TDD / BDD framework for Objective-C & Cocoa.'
   s.homepage = 'http://github.com/petejkim/specta'
   s.author   = { 'Peter Jihoon Kim' => 'raingrove@gmail.com' }
 

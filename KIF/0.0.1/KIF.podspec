@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KIF'
   s.version  = '0.0.1'
   s.license  = 'Apache'
-  s.summary  = 'Keep It Functional - iOS Test Framework'
+  s.summary  = 'Keep It Functional - iOS Test Framework.'
   s.homepage = 'https://github.com/square/KIF'
   s.author   = { 'Square' => 'https://squareup.com/' }
   s.source   = { :git => 'https://github.com/square/KIF.git', :commit => 'bab7c825c8' }

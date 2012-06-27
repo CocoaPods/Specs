@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'LLRoundSwitch'
   s.version  = '1.0.0'
   s.license  = 'MIT'
-  s.summary  = 'Customizable replacement for UISwitch with ARC support'
+  s.summary  = 'Customizable replacement for UISwitch with ARC support.'
   s.homepage = 'http://github.com/LordLobo/LLRoundSwitch'
   s.author   = { 'LordLobo' => 'dan.giralte@gmail.com' }
 

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'Expecta'
   s.version  = '0.1.1'
   s.license  = 'MIT'
-  s.summary  = 'A matcher framework for Objective-C & Cocoa'
+  s.summary  = 'A matcher framework for Objective-C & Cocoa.'
   s.homepage = 'http://github.com/petejkim/expecta'
   s.author   = { 'Peter Jihoon Kim' => 'raingrove@gmail.com' }
 

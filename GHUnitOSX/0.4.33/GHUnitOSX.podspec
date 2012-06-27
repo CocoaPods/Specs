@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'GHUnitOSX'
   s.version  = '0.4.33'
   s.license  = 'MIT'
-  s.summary  = 'Test Framework for Objective-C'
+  s.summary  = 'Test Framework for Objective-C.'
   s.homepage = 'https://github.com/gabriel/gh-unit'
   s.author   = { 'Gabriel Handford' => 'gabrielh@gmail.com' }
   s.source   = { :git => 'https://github.com/gabriel/gh-unit.git', :commit => '565564e3ab3b78d0b9cf9c90dd4ad66982f07ef4'}
