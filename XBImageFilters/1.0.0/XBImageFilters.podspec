@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'OpenGL ES 2-based image and real-time camera filters for iOS.'
   s.homepage = 'https://github.com/xissburg/XBImageFilters'
   s.author   = { 'xissburg' => 'http://xissburg.com' }
-  s.source   = { :git => 'git://xissburg@github.com/xissburg/XBImageFilters.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/xissburg/XBImageFilters.git', :tag => '1.0.0' }
   s.source_files = 'XBImageFilters/Classes/**/*.{h,m}'
   s.frameworks   = ['OpenGLES', 'CoreVideo', 'CoreMedia', 'CoreGraphics', 'GLKit', 'QuartzCore', 'AVFoundation']
   s.resources    = 'XBImageFilters/Resources/Shaders/*.glsl'

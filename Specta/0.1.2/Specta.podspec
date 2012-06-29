@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://github.com/petejkim/specta'
   s.author   = { 'Peter Jihoon Kim' => 'raingrove@gmail.com' }
 
-  s.source   = { :git => 'http://github.com/petejkim/specta.git', :tag => 'v0.1.2' }
+  s.source   = { :git => 'https://github.com/petejkim/specta.git', :tag => 'v0.1.2' }
 
   s.description = %{
     Specta is a light-weight testing framework for Objective-C and Cocoa that

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'RaptureXML is a simple, block-based XML library for the iOS platform that provides an expressive API that makes XML processing freakin\' fun for once in my life.'
   s.homepage = 'https://github.com/ZaBlanc/RaptureXML'
   s.author   = { 'John Blanco' => 'zablanc@gmail.com' }
-  s.source   = { :git => 'git://github.com/ZaBlanc/RaptureXML.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/ZaBlanc/RaptureXML.git', :tag => '1.0.0' }
   s.platform = :ios
   s.source_files = 'RaptureXML/*'
   s.clean_paths = "RaptureXML.xcodeproj/", "Tests/", ".gitignore", "EncodingTests.m", "Library-Prefix.pch"

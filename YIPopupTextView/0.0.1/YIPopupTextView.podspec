@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = "facebook's post-like input text view for iOS."
   s.homepage = 'https://github.com/inamiy/YIPopupTextView'
   s.author   = { 'Yasuhiro Inami' => 'inamiy@gmail.com' }
-  s.source   = { :git => 'git://github.com/inamiy/YIPopupTextView.git', :commit => '02ada60e3a' }
+  s.source   = { :git => 'https://github.com/inamiy/YIPopupTextView.git', :commit => '02ada60e3a' }
   s.source_files = 'YIPopupTextView/**/*.{h,m}'
   s.clean_paths = 'YIPopupTextViewDemo', 'YIPopupTextViewDemo.xcodeproj'
   s.requires_arc = true  

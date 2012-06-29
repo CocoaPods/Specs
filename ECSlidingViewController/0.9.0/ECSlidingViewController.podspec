@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'ECSlidingViewController is a view controller container that presents its child view controllers in two layers. It provides functionality for sliding the top view to reveal the views underneath it. This functionality is inspired by the Path 2.0 and Facebook iPhone apps.'
   s.homepage = 'https://github.com/edgecase/ecslidingviewcontroller'
   s.author   = { 'Mike Enriquez' => 'mike@edgecase.com' }
-  s.source   = { :git => 'git://github.com/edgecase/ECSlidingViewController.git', :tag => '0.9.0' }
+  s.source   = { :git => 'https://github.com/edgecase/ECSlidingViewController.git', :tag => '0.9.0' }
   s.platform = :ios
   s.source_files = 'ECSlidingViewController/Vendor/ECSlidingViewController/'
   s.clean_paths  = 'ECSlidingViewController.xcodeproj'

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'In-App Purchases StoreKit for iOS devices.'
   s.homepage = 'https://github.com/MugunthKumar/MKStoreKit'
   s.author   = { 'Mugunth' => 'http://mugunthkumar.com/' }
-  s.source   = { :git => 'git://github.com/MugunthKumar/MKStoreKit.git', :tag => '4.3' }
+  s.source   = { :git => 'https://github.com/MugunthKumar/MKStoreKit.git', :tag => '4.3' }
   s.platform = :ios
   s.source_files = '*.{h,m}'
   s.requires_arc = true

@@ -5,6 +5,6 @@ Pod::Spec.new do |s|
   s.summary  = 'Library for KISSmetrics.'
   s.homepage = 'http://www.kissmetrics.com'
   s.author   = { 'kissmetrics' => 'support@kissmetrics.com' }
-  s.source   = { :git => 'git://github.com/enriquez/KISSmetrics-iOS-Mac-OS-X-Library.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/enriquez/KISSmetrics-iOS-Mac-OS-X-Library.git', :tag => '1.0.0' }
   s.source_files = '*.{h,m}'
 end

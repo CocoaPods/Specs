@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Quick and easy dialog screens for iOS.'
   s.homepage = 'http://escoz.com/quickdialog-released/'
   s.author   = { 'Eduardo Scoz' => 'contact@escoz.com' }
-  s.source   = { :git => 'git://github.com/escoz/QuickDialog.git', :tag => '0.4' }
+  s.source   = { :git => 'https://github.com/escoz/QuickDialog.git', :tag => '0.4' }
 
   s.description  = 'QuickDialog allows you to create HIG-compliant iOS forms for your apps without ' \
                    'having to directly deal with UITableViews, delegates and data sources. Fast ' \

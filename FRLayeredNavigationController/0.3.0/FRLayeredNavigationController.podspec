@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/weissi/FRLayeredNavigationController'
   s.author   = { 'Johannes Weiß' => 'weiss@tux4u.de' }
 
-  s.source   = { :git => 'git://github.com/weissi/FRLayeredNavigationController.git', :tag => 'v0.3' }
+  s.source   = { :git => 'https://github.com/weissi/FRLayeredNavigationController.git', :tag => 'v0.3' }
 
   s.description = 'FRLayeredNavigationController gives iPad developers a simple drop-in replacement for UINavigationController for great UIs. It is a view controller compositor which enables you to develop -- as we think -- great iPad apps. Influenced by the UI of the Twitter and Soundcloud iPad apps.'
 

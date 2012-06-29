@@ -10,7 +10,7 @@ other documents and arrays.
   DESC
   s.homepage = 'https://github.com/martinkou/bson-objc'
   s.author   = { 'Martin Kou' => 'martinkou@tixxme.com' }
-  s.source   = { :git    => 'git://github.com/martinkou/bson-objc.git',
+  s.source   = { :git    => 'https://github.com/martinkou/bson-objc.git',
                  :commit => '38ab9edcabec805a2a2f57bbee1540824138e3d5' }
   s.source_files = 'BSONCodec.{h,m}'
 end

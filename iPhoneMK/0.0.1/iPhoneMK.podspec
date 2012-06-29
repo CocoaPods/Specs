@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'iPhoneMK is a loose collection of Objective-C classes for the iPhone SDK.'
   s.homepage = 'https://github.com/michaelkamprath/iPhoneMK'
   s.author   = { 'Michael F. Kamprath' => 'michael@claireware.com' }
-  s.source   = { :git => 'git://github.com/michaelkamprath/iPhoneMK.git', :commit => '85b3b4aac8' }
+  s.source   = { :git => 'https://github.com/michaelkamprath/iPhoneMK.git', :commit => '85b3b4aac8' }
   s.platform = :ios
   s.clean_paths = "Sample App"
   s.source_files = '**/*.{h,m}'

@@ -5,6 +5,6 @@ Pod::Spec.new do |s|
   s.summary  = 'NSFormatter subclass for formatting phone numbers.'
   s.homepage = 'http://github.com/edgecase/PhoneNumberFormatter'
   s.author   = { 'Mike Enriquez' => 'mike@edgecase.com' }
-  s.source   = { :git => 'git@github.com:edgecase/PhoneNumberFormatter.git', :tag => '0.1.0' }
+  s.source   = { :git => 'https://github.com/edgecase/PhoneNumberFormatter.git', :tag => '0.1.0' }
   s.source_files = 'ext/PhoneNumberFormatter/**/*.{h,m}'
 end

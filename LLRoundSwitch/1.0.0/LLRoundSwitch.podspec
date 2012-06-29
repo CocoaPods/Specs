@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://github.com/LordLobo/LLRoundSwitch'
   s.author   = { 'LordLobo' => 'dan.giralte@gmail.com' }
 
-  s.source   = { :git => 'http://github.com/LordLobo/LLRoundSwitch.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/LordLobo/LLRoundSwitch.git', :tag => '1.0.0' }
 
   s.description = 'Customize the on/off text, the color of the background, supports event delegation, all with ARC in-mind.'
 

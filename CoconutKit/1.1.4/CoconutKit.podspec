@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   
-  s.source   = { :git => 'git://github.com/defagos/CoconutKit-binaries.git', :tag => '1.1.4' }
+  s.source   = { :git => 'https://github.com/defagos/CoconutKit-binaries.git', :tag => '1.1.4' }
   
   s.source_files = 'empty.m'
   s.resources = 'CoconutKit-resources.bundle'

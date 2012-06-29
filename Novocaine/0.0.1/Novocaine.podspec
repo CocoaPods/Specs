@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://alexbw.github.com/novocaine/'
   s.author   = { 'Ari Lerner' => 'arilerner@mac.com', 'Alex Wiltschko' => '@awiltsch' }
 
-  s.source   = { :git => 'git://github.com/auser/novocaine.git', :tag => '0.0.1' }
+  s.source   = { :git => 'https://github.com/auser/novocaine.git', :tag => '0.0.1' }
   s.description = 'An optional longer description of Novocaine.'
 
   s.source_files = 'Novocaine'

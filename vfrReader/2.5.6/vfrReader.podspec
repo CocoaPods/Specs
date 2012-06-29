@@ -1,5 +1,3 @@
-#
-#
 Pod::Spec.new do |s|
   s.name     = 'vfrReader'
   s.version  = '2.5.6'

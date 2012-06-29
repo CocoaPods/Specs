@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A JTable-inspired alternative way of modelling your table view data.'
   s.homepage = 'https://github.com/lukeredpath/LRTableModel'
   s.author   = 'Luke Redpath'
-  s.source   = { :git => 'git://github.com/lukeredpath/LRTableModel.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/lukeredpath/LRTableModel.git', :tag => 'v1.0' }
   s.source_files = 'Classes'
   s.clean_paths = %w{Examples LRTableModel.xcworkspace LRTableModel.xcodeproj Reources Support Tests}
 end
