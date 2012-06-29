@@ -26,7 +26,7 @@ Now edit the stub specification following the explanations therein contained. Th
 $ vim Bananas.podspec
 ```
 
-You can verify the specification file with the lint command, which checks for common errors and whether the pod builds.
+You can verify the specification file with the lint command. This command checks for common errors and whether the pod builds on the platforms that it supports.
 
 ```console
 $ pod spec lint Bananas.podspec --verbose
