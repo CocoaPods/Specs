@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'The Windows Azure Access Control Service library for iOS is a subset of the Windows Azure Toolkit for iOS and it allows adding federated identity to an iOS app.'
   s.homepage = 'http://github.com/auth10/WindowsAzureACS-iOS'
   s.author   = { 'Chris Rinser' => 'chrisner@microsoft.com', 'Matias Woloski' => 'matias@auth10.com' }
-  s.source   = { :git => 'http://github.com/auth10/WindowsAzureACS-iOS.git', :tag => 'v1.0.0' }
+  s.source   = { :git => 'https://github.com/auth10/WindowsAzureACS-iOS.git', :tag => 'v1.0.0' }
   s.platform = :ios
   s.source_files = 'library'
   s.library = 'xml2'

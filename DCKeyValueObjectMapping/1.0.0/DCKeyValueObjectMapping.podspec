@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/dchohfi/KeyValueObjectMapping'
   s.author   = { 'Diego Chohfi' => 'dchohfi@gmail.com' }
 
-  s.source   = { :git => 'http://github.com/dchohfi/KeyValueObjectMapping.git', :tag => '1.0.0' }
+  s.source   = { :git => 'https://github.com/dchohfi/KeyValueObjectMapping.git', :tag => '1.0.0' }
   s.source_files = 'KeyValueObjectMapping'
 
   s.requires_arc = true

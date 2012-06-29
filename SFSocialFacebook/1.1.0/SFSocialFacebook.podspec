@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://developers.facebook.com/docs/reference/iossdk'
   s.author   = { 'Massaki' => 'marcio.massaki@i.ndigo.com.br' }
 
-  s.source   = { :git => 'git@github.com:indigotech/facebook-ios-sdk.git', :tag => 'social_facebook_v1.1.0' }
+  s.source   = { :git => 'https://github.com/indigotech/facebook-ios-sdk.git', :tag => 'social_facebook_v1.1.0' }
 
   s.platform = :ios
 

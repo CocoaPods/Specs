@@ -14,7 +14,7 @@ it has issues.
   DESC
   s.homepage = 'https://github.com/msgpack/msgpack-objectivec'
   s.author   = { 'Chris Hulbert' => 'chris.hulbert@gmail.com' }
-  s.source   = { :git    => 'git://github.com/msgpack/msgpack-objectivec.git',
+  s.source   = { :git    => 'https://github.com/msgpack/msgpack-objectivec.git',
                  :commit => '6b450b234a96dd4ba25889e652d15701c7436f8c' }
   s.source_files = '*.{h,m}', 'msgpack_src/*.{c,h}'
 end

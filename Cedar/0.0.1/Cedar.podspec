@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'BDD-style testing using Objective-C.'
   s.homepage = 'https://github.com/pivotal/cedar'
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
-  s.source   = { :git => 'git://github.com/pivotal/cedar.git', :commit => '0a87b32d104b388ecc824088e17d64e05e85f8fd' }
+  s.source   = { :git => 'https://github.com/pivotal/cedar.git', :commit => '0a87b32d104b388ecc824088e17d64e05e85f8fd' }
   
   files = FileList['Source/**/*.{h,m}']
   if config.ios?

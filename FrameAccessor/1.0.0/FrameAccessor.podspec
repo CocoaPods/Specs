@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     view.width = 167;
   }
   s.author   = { 'Alex Denisov' => '1101.debian@gmail.com' }
-  s.source   = { :git => 'git://github.com/AlexDenisov/FrameAccessor.git', :tag => '1.0.0'}
+  s.source   = { :git => 'https://github.com/AlexDenisov/FrameAccessor.git', :tag => '1.0.0'}
   s.platform = :ios
   s.source_files = 'UIView+FrameAccessor.{h,m}'
 end

@@ -5,6 +5,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/cpatni/SPTabBarController'
   s.author   = { 'Chandra Patni' => 'http://rubyorchard.wordpress.com' }
 
-  s.source   = { :git => 'https://github.com/cpatni/SPTabBarController', :commit => 'b1418fd253b891d12dcf1b6340d6c8207ca463b7' }
+  s.source   = { :git => 'https://github.com/cpatni/SPTabBarController.git', :commit => 'b1418fd253b891d12dcf1b6340d6c8207ca463b7' }
   s.source_files = 'SPTabBarController/SPTabBarController.{h,m}'
 end

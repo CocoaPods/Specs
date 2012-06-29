@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'MulticastDelegate extracted from XMPPFramework.'
   s.homepage = 'https://github.com/sergeyzenchenko/MulticastDelegate'
   s.author   = 'XMPPFramework'
-  s.source   = { :git    => 'git@github.com:sergeyzenchenko/MulticastDelegate.git',
+  s.source   = { :git    => 'https://github.com/sergeyzenchenko/MulticastDelegate.git',
                  :commit => '62b2404ae4707d667d455db48cc074f4a39d038e' }
 
   s.requires_arc = true

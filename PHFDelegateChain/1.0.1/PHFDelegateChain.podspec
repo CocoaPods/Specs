@@ -11,7 +11,7 @@ will forward it to the registered objects.
   DESC
   s.homepage = 'https://github.com/fphilipe/PHFDelegateChain'
   s.author   = { 'Philipe Fatio' => 'philipe.fatio@gmail.com' }
-  s.source   = { :git => 'git://github.com/fphilipe/PHFDelegateChain.git',
+  s.source   = { :git => 'https://github.com/fphilipe/PHFDelegateChain.git',
                  :tag => 'v1.0.1' }
   s.source_files = 'PHFDelegateChain.{h,m}'
   s.requires_arc = true

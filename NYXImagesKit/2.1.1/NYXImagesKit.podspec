@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A set of efficient categories for UIImage class. It allows filtering, resizing, masking, rotating, enhancing... and more.'
   s.homepage = 'https://github.com/Nyx0uf/NYXImagesKit'
   s.author   = 'Benjamin Godard'
-  s.source   = { :git => 'git://github.com/Nyx0uf/NYXImagesKit.git', :tag => 'v2.1.1' }
+  s.source   = { :git => 'https://github.com/Nyx0uf/NYXImagesKit.git', :tag => 'v2.1.1' }
 
   s.source_files = 'Categories', 'Classes', 'Helper'
 
