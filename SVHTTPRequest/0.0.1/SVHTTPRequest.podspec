@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Sam Vermette" => "hello@samvermette.com" }
   s.source       = { :git => "https://github.com/samvermette/SVHTTPRequest.git", :commit => "31ec15badeefe171beb605962b03ffe5fa2e5f7b" }
-  s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
+  s.requires_arc = true
+  s.platform = :ios, '5.0'
   s.source_files = 'SVHTTPRequest/*.{h,m}'
 end
