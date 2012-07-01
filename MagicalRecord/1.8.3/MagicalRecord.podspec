@@ -10,11 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.{h,m}'
   s.framework    = 'CoreData'
   s.clean_paths  = 'iOS App Unit Tests', 'Mac App Unit Tests', 'Magical Record.xcodeproj', 'Unit Tests'
-
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#define MR_SHORTHAND 1\n#import "CoreData+MagicalRecord.h"\n#endif})
-    end
-  end
+  s.prefix_header_contents = "#define MR_SHORTHAND 1\n#import \"CoreData+MagicalRecord.h\""
 end

@@ -8,11 +8,9 @@ Pod::Spec.new do |s|
   s.source_files = 'SocketRocket/*.{h,m,c}'
   s.clean_paths  = %w{SRWebSocketTests SocketRocket.xcodeproj TestChat TestChatServer TestSupport extern}
   s.requires_arc = true
-  
-  if config.ios?
-      s.frameworks = %w{CFNetwork Security}
-  else
-      s.frameworks = %w{CoreServices Security}
-  end
+
+  s.ios.frameworks = %w{CFNetwork Security}
+  s.osx.frameworks = %w{CoreServices Security}
+
   s.libraries    = "icucore"
 end
