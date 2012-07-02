@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'Base32'
   s.version  = '1.0.0'
   s.license  = 'Public Domain'
-  s.summary  = 'RFC 4648 Base32 implementation in Objective-C ARC'
+  s.summary  = 'RFC 4648 Base32 implementation in Objective-C ARC.'
   s.homepage = 'http://github.com/ekscrypto/Base32'
   s.author   = { 'Dave Poirier' => 'ekscrypto@gmail.com' }
   s.source   = { :git => 'https://github.com/ekscrypto/Base32.git', :tag => '1.0.0' }
