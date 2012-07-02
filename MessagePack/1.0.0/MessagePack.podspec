@@ -16,5 +16,5 @@ it has issues.
   s.author   = { 'Chris Hulbert' => 'chris.hulbert@gmail.com' }
   s.source   = { :git => 'https://github.com/msgpack/msgpack-objectivec.git',
                  :tag => '1.0.0' }
-  s.source_files = '*.{h,m}', 'msgpack_src/*.{c,h}'
+  s.source_files = '*.{h,m}', 'msgpack_src/*.{c,h}', 'msgpack_src/msgpack/*.h'
 end
