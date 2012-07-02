@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'ZKSforce'
-  s.version  = '25.0.1'
-  s.license  = 'BSD'
+  s.version  = '25.0.2'
+  s.license  = 'MIT'
   s.summary  = 'A Cocoa library for calling the Salesforce.com SOAP APIs.'
   s.homepage = 'https://github.com/superfell/zkSforce'
   s.author   = { 'Simon Fell' => 'fellforce@gmail.com' }
-  s.source   = { :git => 'git://github.com/superfell/zkSforce.git', :tag => 'v25.0.1' }
+  s.source   = { :git => 'https://github.com/superfell/zkSforce.git', :tag => 'v25.0.2' }
   s.source_files = 'zkSforce'
   s.clean_path = "samples"
   s.library = 'xml2'
