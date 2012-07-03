@@ -1,13 +1,12 @@
 Pod::Spec.new do |s|
   s.name     = 'HockeySDK'
   s.version  = '2.2.6'
-  s.license  = 'MIT'
   s.platform = :ios
   s.summary  = 'Distribute beta apps and collect crash reports with HockeyApp.'
   s.homepage = 'http://hockeyapp.net/'
   s.author   = { 'Andreas Linde' => 'mail@andreaslinde.de', 'Thomas Dohmke' => "thomas@dohmke.de" }
+  s.license  = {:type => 'MIT', :file => 'LICENSE.txt' }
   s.source   = { :git => 'https://github.com/codenauts/HockeySDK-iOS.git', :tag => '2.2.6' }
-
   s.description = 'HockeyApp is a server to distribute beta apps and collect crash reports. '          \
                   'It improves the testing process dramatically and can be used for both beta '        \
                   'and App Store builds. Only beta builds will notify users about a new version  '     \
@@ -20,5 +19,6 @@ Pod::Spec.new do |s|
   s.resources    = 'Resources/Hockey.bundle', 'Resources/Quincy.bundle'
   s.frameworks   = 'QuartzCore', 'SystemConfiguration', 'CrashReporter'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"' }
+  s.preserve_paths = 'Vendor/CrashReporter.framework'
   s.clean_paths  = 'Support'
 end

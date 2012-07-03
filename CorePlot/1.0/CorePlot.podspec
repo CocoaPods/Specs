@@ -16,12 +16,8 @@ Pod::Spec.new do |s|
 
   files = FileList['framework/TestResources/CorePlotProbes.d', 'framework/Source/*.{h,m}']
   files.exclude(/(TestCase|Tests)\.[hm]/)
-  if config.ios?
-    files.include('framework/CorePlot-CocoaTouch.h', 'framework/iPhoneOnly/*.{h,m}')
-  else
-    files.include('framework/CorePlot.h', 'framework/MacOnly/*.{h,m}')
-  end
-  s.source_files = files
+  s.ios.source_files = files.dup.include('framework/CorePlot-CocoaTouch.h', 'framework/iPhoneOnly/*.{h,m}')
+  s.osx.source_files = files.dup.include('framework/CorePlot.h', 'framework/MacOnly/*.{h,m}')
 
   s.clean_paths = 'documentation', 'examples', 'scripts', 'QCPlugin', 'framework/*.{xcodeproj,lproj}'
   s.framework   = 'QuartzCore'

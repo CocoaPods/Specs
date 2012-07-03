@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.description = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
   s.platform = :ios
   s.source_files = 'TestFlight.h'
+  s.preserve_paths = 'libTestFlight.a'
   s.library = 'TestFlight', 'z'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/TestFlightSDK"' }
 end
