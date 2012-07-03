@@ -12,6 +12,4 @@ Pod::Spec.new do |s|
   s.frameworks = 'MessageUI'
 
   s.requires_arc = true
-
-  s.clean_paths = 'BlocksKit.xcodeproj/', 'GHUnitIOS.framework/', 'Tests/', '.gitignore'
 end
