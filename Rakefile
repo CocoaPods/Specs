@@ -33,14 +33,34 @@ task :lint do
 
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = ['.'] if specs.empty?
-
+  last_commit_specs = `git diff --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
   failures = []
-  version = `pod --version`
+
+  unless last_commit_specs.empty?
+    puts
+    puts "\033[7m Last commit                                                                     \033[0m"
+    puts
+    failures += lint_specs(last_commit_specs,false)
+  end
+
+  puts "\033[7m Repo                                                                            \033[0m"
+  puts
+  failures += lint_specs(specs,true)
+  unless failures.empty?
+    puts
+    puts "The following specs did not pass `spec lint`:"
+    puts failures.join("\n")
+    exit 1
+  end
+end
+
+def lint_specs(specs, only_errors)
+  failures = []
   specs.each do |spec|
     begin
       next if not File.exists? spec
       ENV['SKIP_SETUP']='1'
-      command = "pod spec lint '#{spec}' --quick --only-errors"
+      command = "pod spec lint '#{spec}' --quick#{' --only-errors' if only_errors}"
       puts command
       # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
       puts `#{command}`
@@ -49,12 +69,7 @@ task :lint do
       break
     end
   end
-  unless failures.empty?
-    puts
-    puts "The following specs did not pass `spec lint`:"
-    puts failures.join("\n")
-    exit 1
-  end
+  failures
 end
 
 task :default => :lint
