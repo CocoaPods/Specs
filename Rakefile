@@ -38,12 +38,12 @@ task :lint do
 
   unless last_commit_specs.empty?
     puts
-    puts "\033[7m Last commit                                                                     \033[0m"
+    puts ">>> Last commit <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     puts
     failures += lint_specs(last_commit_specs,false)
   end
 
-  puts "\033[7m Repo                                                                            \033[0m"
+  puts ">>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
   puts
   failures += lint_specs(specs,true)
   unless failures.empty?
