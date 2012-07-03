@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/zwaldowski/BlocksKit.git', :tag => 'v1.0.6' }
   s.clean_paths = 'GHUnitIOS.framework/', 'Tests/', 'BlocksKit.xcodeproj/', '.gitignore'
 
-  s.prefix_header_contents = '#import "BlocksKit.h"'
 
   s.ios.frameworks   = 'MessageUI'
   s.ios.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
