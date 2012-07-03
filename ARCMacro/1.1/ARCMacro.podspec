@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://gist.github.com/2823399"
   s.license      = 'Apache License 2.0'
   s.author       = { "HIRANO Satoshi" => "happy.hirano@gmail.com" }
-  s.source       = { :git => "https://gist.github.com/2823399.git", :commit => "beebdc4d221403333130f3630945ec99518d50df" }
+  s.source       = { :git => "git://gist.github.com/2823399.git", :commit => "beebdc4d221403333130f3630945ec99518d50df" }
   s.source_files = 'ARCMacro.h'
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
