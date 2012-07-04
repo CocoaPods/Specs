@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'Classes/MWFSlideNavigationViewController.{h,m}'
   s.framework = 'UIKit'
-  s.clean_paths = "Demo" , 'MWFSlideNavigationViewController.xcodeproj'
+
   s.requires_arc = true  
 end

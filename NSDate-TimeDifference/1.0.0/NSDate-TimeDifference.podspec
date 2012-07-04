@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source_files = 'NSDate+TimeDifference/NSDate+TimeDifference.{h,m}'
   s.resource = "NSDate+TimeDifference/NSDate+TimeDifference.bundle"
   s.platform = :ios
-  s.clean_paths = 'NSDate+TimeDifferenceExample.xcodeproj' , 'NSDate+TimeDifferenceExample'
+
   s.requires_arc = true
 end

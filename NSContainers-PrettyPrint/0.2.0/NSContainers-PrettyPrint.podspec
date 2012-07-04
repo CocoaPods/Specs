@@ -26,8 +26,6 @@ Pod::Spec.new do |s|
   s.source_files = 'PrettyPrint/*.{h,m}'
   # preparing for later, when the docs will be right
   # s.preserve_paths = 'PrettyPrint', '*.md'
-  s.clean_paths = 'examples/', 'vendor/', 'PrettyPrintTests/', 'SwizzleDemo/',
-    'PrettyPrint.xcodeproj', 'Rakefile', 'PrettyPrint/PrettyPrint-Prefix.pch'
   s.framework = 'Foundation'
   s.requires_arc = true
 end

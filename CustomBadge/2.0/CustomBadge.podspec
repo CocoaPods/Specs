@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Draws a typical iOS badge indicator with a custom text on any view.'
   s.homepage = 'http://www.spaulus.com/2011/04/custombadge-2-0-retina-ready-scalable-light-reflex/?lang=en'
   s.author   = { 'Sascha Paulus' => 'open@spaulus.com' }
-  s.source   = { :git => 'http://github.com/ckteebe/CustomBadge.git', :commit => '3e6eed7bdb3e5faa02f79a9d81b0b11316d44a2e' }
+  s.source   = { :git => 'https://github.com/ckteebe/CustomBadge.git', :commit => '3e6eed7bdb3e5faa02f79a9d81b0b11316d44a2e' }
   s.platform = :ios
   s.source_files = 'Classes/CustomBadge.{h,m}'
   s.clean_path = '*.{xcodeproj,plist,xib,pch}', 'main.m', 'Classes/*AppDelegate.{h,m}', 'Classes/*ViewController.{h,m}'

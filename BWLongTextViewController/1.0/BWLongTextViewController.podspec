@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.description = 'Simple IOS controller that show a full screen textView with keyboard.'
   s.platform = :ios
   s.source_files = 'BWLongTextViewController/*.{h,m}'
-  s.clean_paths = 'BWLongTextViewControllerExample', 'BWLongTextViewControllerExample.xcodeproj', 'LICENSE'
+
 end

@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                  'Robert Böhnke' => 'robb@soundcloud.com',
                  'Tobias Kräntzer' => 'tk@soundcloud.com' }
 
-  s.source   = { :git => 'git://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => 'v1.0' }
 
   s.platform = :ios
   

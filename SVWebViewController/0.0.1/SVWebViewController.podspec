@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.resources = 'SVWebViewController/SVWebViewController.bundle/**/*.png'
   s.source_files = 'SVWebViewController/*.{h,m}'
   s.resources = 'SVWebViewController.bundle'
-  s.clean_paths = 'Demo'
+
 end

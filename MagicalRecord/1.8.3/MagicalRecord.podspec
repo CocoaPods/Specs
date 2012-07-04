@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description  = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
   s.source_files = 'Source/**/*.{h,m}'
   s.framework    = 'CoreData'
-  s.clean_paths  = 'iOS App Unit Tests', 'Mac App Unit Tests', 'Magical Record.xcodeproj', 'Unit Tests'
+
   s.prefix_header_contents = "#define MR_SHORTHAND 1\n#import \"CoreData+MagicalRecord.h\""
 end

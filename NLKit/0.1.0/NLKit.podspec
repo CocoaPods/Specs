@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'NLKit'
   s.framework     = 'CoreLocation', 'MessageUI', 'Security', 'QuartzCore'
   s.requires_arc  = true
-  s.clean_paths   = 'NLKitExample/', 'NLKitExample.xcodeproj/', 'NLKitTests/', '.git/', '.gitignore', 'TODO'
+
 
   s.prefix_header_contents = '#import "NLKit.h"'
 end

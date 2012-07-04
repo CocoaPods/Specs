@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/gekitz/UIDevice-with-UniqueIdentifier-for-iOS-5'
   s.author   = 'Georg Kitz'
 	
-  s.source   = { :git => 'git://github.com/gekitz/UIDevice-with-UniqueIdentifier-for-iOS-5.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/gekitz/UIDevice-with-UniqueIdentifier-for-iOS-5.git', :tag => 'v1.0' }
 	
   s.source_files = 'Classes/*.{h,m}'
   s.clean_path = 'UIDeviceAddition', 'UIDeviceAddition.xcodeproj'

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'ObjectiveLibModbus'
   s.version  = '0.0.2'
   s.license  = 'GNU'
-  s.summary  = 'Obj-C wrapper for libmodbus'
+  s.summary  = 'Obj-C wrapper for libmodbus.'
   s.homepage = 'https://github.com/iUtvikler/ObjectiveLibModbus'
   s.author   = { 'Lars-Jørgen Kristiansen' => 'LarsJK.84@gmail.com' }
   s.source   = { :git => 'https://github.com/iUtvikler/ObjectiveLibModbus.git', :tag => '0.0.2' }

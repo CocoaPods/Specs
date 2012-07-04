@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'include/**/*.{h,m}', 'src/**/*.{h,m}'
 
-  s.clean_paths = "debugapp", "demoapp", "docs", "frameworks", "jsdemoapp", "jssrc", "res", "test", "*.xcodeproj"
+
 
   if config.ios?
     s.frameworks = 'Foundation', 'CoreGraphics'

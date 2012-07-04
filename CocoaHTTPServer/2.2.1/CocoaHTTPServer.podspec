@@ -2,12 +2,12 @@ Pod::Spec.new do |s|
   s.name           = 'CocoaHTTPServer'
   s.version        = '2.2.1'
   s.license        = 'BSD'
-  s.summary        = 'A small, lightweight, embeddable HTTP server for Mac OS X or iOS applications'
+  s.summary        = 'A small, lightweight, embeddable HTTP server for Mac OS X or iOS applications.'
   s.homepage       = 'https://github.com/robbiehanson/CocoaHTTPServer'
   s.authors        = { 'Robbie Hanson' => 'cocoahttpserver@googlegroups.com' }
   s.source         = { :git => 'https://github.com/robbiehanson/CocoaHTTPServer.git', :tag => '2.2.1' }
   s.source_files   = '{Core,Extensions}/**/*.{h,m}'
-  s.clean_paths    = %w{Samples Vendor}
+
 
   s.ios.frameworks = 'CFNetwork', 'Security'
   s.osx.frameworks = 'CoreServices', 'Security'

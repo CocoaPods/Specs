@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'GMGridView/*.{h,m}'
   s.requires_arc = true
   s.frameworks = 'QuartzCore'
-  s.clean_paths = 'Example', 'GMGridView/GMGridView.xcodeproj'
+
 end

@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   end
   s.source_files = files
 
-  s.clean_paths = 'projects'
+
 
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lstdc++' }
 end

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                  :commit => '1218f721c6e781196607c82a2a6ff82f40e23636' }
   s.platform = :ios
   s.source_files = 'JASidePanels/Source/*'
-  s.clean_paths = "JASidePanels/Demo", "JASidePanels/en.lproj", "JASidePanels.xcodeproj"
+
   s.framework = 'QuartzCore'
   s.requires_arc = true
 end

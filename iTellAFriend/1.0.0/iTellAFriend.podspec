@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.platform = :ios
   s.source_files = 'src/*.{h,m}'
-  s.clean_paths = "Classes", "*.{plist,pch,md,m,xcodeproj}", "example"
+
   s.frameworks = 'MessageUI'
 
 end

@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Pat Shields' => 'yeoldefortran@gmail.com' }
   s.homepage = 'https://github.com/pashields/ClassMapper'
 
-  s.source   = { :git => 'git://github.com/pashields/ClassMapper.git', :tag => 'v0.0.1' }
+  s.source   = { :git => 'https://github.com/pashields/ClassMapper.git', :tag => 'v0.0.1' }
 
   s.platform = :ios
 

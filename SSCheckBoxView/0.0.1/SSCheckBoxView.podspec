@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SSCheckBoxView/SSCheckBoxView', 'SSCheckBoxView/SSCheckBoxView/Helpers'
   s.resources = "SSCheckBoxView/SSCheckBoxView/Graphics/*.png"
-  s.clean_paths = 'SSCheckBoxViewDemo.xcodeproj'
+
 end

@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.clean_paths = 'BlocksKit.xcodeproj/', 'GHUnitIOS.framework/', 'Tests/', '.gitignore'
+
 end

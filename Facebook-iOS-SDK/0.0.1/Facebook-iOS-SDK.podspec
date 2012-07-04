@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/*.{h,m}'
   s.resource     = 'FBDialog.bundle'
-  s.clean_paths  = 'sample', 'test'
+
 
   s.dependency 'SBJson', '2.2.3'
 end
