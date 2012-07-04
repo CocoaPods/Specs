@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'BDToastAlert'
   s.version  = '0.1.0'
   s.license  = 'BSD'
-  s.summary  = 'A simple UIKit class for displaying non-obstructive message/alert labels on iOS UIView '
+  s.summary  = 'A simple UIKit class for displaying non-obstructive message/alert labels on iOS UIView.'
   s.homepage = 'https://github.com/norsez/BDToastAlert'
   s.author   = { 'Norsez Orankijanan' => 'norsez@gmail.com' }
   s.source   = { :git => 'https://github.com/norsez/BDToastAlert.git', :tag => '0.1.0' }
