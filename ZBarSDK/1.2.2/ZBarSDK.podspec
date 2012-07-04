@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
 
-  s.source_files = 'include/**/*.h', 'zbar/**/*.h', 'iphone/include/**/*.h',
+  s.source_files = 'include/zbar.h', 'zbar/**/*.h', 'iphone/**/*.h',
                    'zbar/{config,decoder,error,image,img_scanner,refcnt,scanner,symbol}.c',
                    'zbar/decoder/{code128,code39,ean,i25,qr_finder,databar,code93}.c',
                    'zbar/qrcode/{bch15_5,binarize,isaac,qrdec,qrdectxt,rs,util}.c',
