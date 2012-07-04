@@ -24,13 +24,14 @@ Pod::Spec.new do |s|
 
   s.library      = 'iconv'
 
-  s.clean_paths  = FileList['*'].exclude(/(include|zbar|iphone|README|LICENSE)$/)
-
   s.xcconfig = { "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*]"        => 'ZBarReaderViewImpl_Simulator.m',
                  "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]" => 'ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m',
                  "GCC_PREPROCESSOR_DEFINITIONS"                             => '$(inherited) NDEBUG=1' }
 
   s.prefix_header_file = 'iphone/include/prefix.pch'
+
+  s.compiler_flags = '-Wno-tautological-compare',   '-Wno-missing-prototypes', '-Wno-logical-op-parentheses',
+                     '-Wno-bitwise-op-parentheses', '-Wno-incompatible-pointer-types'
 
   # Maintain the dir structure for headers
   def s.copy_header_mapping(from)
