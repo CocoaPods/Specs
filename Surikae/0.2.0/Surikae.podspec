@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'Surikae replace a method by blocks. It’s helpful for unit testing for Objective-C.'
   s.platform = :ios
   s.source_files = 'surikae'
-  s.clean_paths = "sample", "test"
   s.framework = 'Foundation'
 end
