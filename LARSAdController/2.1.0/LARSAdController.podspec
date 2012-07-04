@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'LARSAdController.h'
   s.license = 'MIT'
-  s.preserve_paths = 'LICENSE'
   s.frameworks = 'iAd'
   s.dependency 'GoogleAds'
 end
