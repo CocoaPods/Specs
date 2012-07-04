@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'Data-aware view-controller that displays a UIView list in an automatically laid out grid.'
   s.platform = :ios
   s.source_files = 'Classes', 'Classes'
-  s.clean_paths = '*.xcodeproj', 'BDDynamicGridViewDemo', '*podspec'
   s.requires_arc = true
 end

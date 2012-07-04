@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'Simple block-based concurrent multiple-URL data downloader based only on NSURLConnection. Your app needs to download concurrently from multiple URLs (local or not). This class does it a simple way using blocks and NSURLConnection.'
   s.platform = :ios
   s.source_files = 'Classes', 'Classes'
-  s.clean_paths = '*.xcodeproj', 'BDMultiDownloader', '*.podspec'
   s.requires_arc = true
 end
