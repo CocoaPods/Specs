@@ -5,8 +5,7 @@ Pod::Spec.new do |s|
   s.description  = 'This is a category for the NSDate class that provides some convenience methods for working with NSDate objects and displaying formatted and relative strings.'
   s.homepage     = 'https://github.com/billymeltdown/nsdate-helper'
   s.license      = {
-  	:type => 'BSD-new',
-  	:file => '',
+  	:type => 'Modified BSD License',
   	:text => 'Copyright © 2009, 2010, ZETETIC LLC
 All rights reserved.
 
