@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name     = 'WCXMLParser'
-  s.version  = ''
+  s.version  = '0.0.1'
   s.license  = ''
   s.summary  = 'Painless, block using, easy requestn XML Parser'
   s.homepage = 'https://github.com/wess/WCXMLParser'
