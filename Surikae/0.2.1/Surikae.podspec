@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Surikae'
-  s.version  = '0.2.0'
+  s.version  = '0.2.1'
   s.license  = 'BSD'
   s.summary  = 'Surikae exchanges a class or instance method. It’s helpful for unit testing of Objective-C.'
   s.homepage = 'https://github.com/katsuyoshi/Surikae/wiki'
