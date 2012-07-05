@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 a science project or worse. ElementParser is lightweight framework to provide easy access to xml and html content. Rather than get lost in the complexities of the HTML and XML specifications, it aspires to not obscure their essential simplicity. It does not do everything, but aspires to do "just enough".'
   s.source_files = 'Classes/**/*.{h,m}'
   s.requires_arc = false
+  s.compiler_flags = '-w' # Disable all warnings
 end
