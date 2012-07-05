@@ -14,6 +14,5 @@ Pod::Spec.new do |s|
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
   s.requires_arc = true
-  s.source_files = 'Lumberjack'
-  s.clean_paths  = 'Benchmarking', 'Xcode', 'Lumberjack/Extensions'
+  s.source_files = 'Lumberjack', 'Lumberjack/Extensions'
 end

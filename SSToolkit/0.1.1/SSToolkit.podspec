@@ -15,10 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SSToolkit/**/*.{h,m}'
   s.frameworks   = 'QuartzCore', 'CoreGraphics'
 
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "SSToolkitDefines.h"\n#endif})
-    end
-  end
+  s.prefix_header_file = 'Other Sources/SSToolkit_Prefix.pch'
 end
