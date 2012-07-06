@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license  = 'Apache License, Version 2.0'
   s.summary  = 'The iOS SDK provides Vkontakte Platform support for iOS apps.'
   s.homepage = 'https://github.com/StonerHawk/Vkontakte-iOS-SDK'
-  s.author   = 'Andrey Yastrebov' => 'ayastrebov@gmail.com'
+  s.author   = { 'Andrey Yastrebov' => 'ayastrebov@gmail.com' }
 
   s.source   = { :git => 'https://github.com/StonerHawk/Vkontakte-iOS-SDK', :tag => '0.9' }
 
