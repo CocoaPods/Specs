@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/StonerHawk/Vkontakte-iOS-SDK.git', :tag => '0.9' }
 
-  s.source_files = 'Vkontakte/*.{h,m,xib}'
+  s.source_files = 'Vkontakte/*.{h,m}'
   s.preserve_paths  = ".gitattributes", ".gitignore", "Vkontakte-iOS-SDK.xcodeproj", "Vkontakte-iOS-SDK_Demo", "LICENSE-2.0.txt"
   s.dependency 'MBProgressHUD', '0.5'
 end
