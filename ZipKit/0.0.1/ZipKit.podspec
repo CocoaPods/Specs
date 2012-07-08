@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://bitbucket.org/kolpanic/zipkit/wiki/Home'
   s.author   = { 'Karl Moskowski' => 'kolpanic@voodooergonomics.com' }
 
-  s.source = { :hg => 'https://bitbucket.org/kolpanic/zipkit', :revision => '214d9d44b266' }
+  s.source = { :hg => 'https://bitbucket.org/kolpanic/zipkit', :revision => '531cd75fef32' }
 
   s.description = "ZipKit is an Objective-C framework for reading and writing Zip archives in "   \
                   "Mac OS X and iOS apps. It supports the standard PKZip format, files larger "   \
