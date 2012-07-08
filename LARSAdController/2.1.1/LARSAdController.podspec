@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author = {'Lars Anderson' => 'iAm@theonlylars.com'}
   s.source = {:git => 'https://github.com/larsacus/LARSAdController.git', :tag => '2.1.1'}
   s.platform = :ios
-  s.source_files = 'LARSAdController.h'
+  s.source_files = 'LARSAdController.{h,m}'
   s.license = 'MIT'
   s.frameworks = 'iAd'
   s.dependency 'AdMob'
