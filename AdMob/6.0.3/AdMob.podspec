@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'The Google AdMob Ads SDK.'
   s.homepage = 'https://developers.google.com/mobile-ads-sdk/download'
   s.author   = 'Google'
-  s.source   = { :git => 'git://github.com/larsacus/GoogleAds.git' }
+  s.source   = { :git => 'https://github.com/larsacus/GoogleAds.git', :tag => '6.0.3' }
   s.description = %{
     The Google AdMob Ads SDK is the next generation in Google mobile advertising featuring refined ad formats and streamlined APIs for access to Google's AdMob and DoubleClick For Publishers (upgraded DFP) [Android and iOS only] mobile advertising solutions.
   }
