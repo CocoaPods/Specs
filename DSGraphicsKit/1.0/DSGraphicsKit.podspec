@@ -8,14 +8,14 @@ Pod::Spec.new do |s|
 
                     DSGraphicsKit provides support to quickly perform the following operations:
 
-                    - Images:
+                    * Images:
                       - Create icons with fills, glows and shadows from the alpha channel of an image.
                       - Resize with corner rounding.
                       - Render a layer to an image.
-                    - Views:
+                    * Views:
                       - Add a 3d rotation along the y axis.
                       - Add a reflection.
-                    - Animations:
+                    * Animations:
                       - Add a pop up animation to a layer.
                    DESC
   s.homepage     = 'https://github.com/Discontinuity-srl/DSGraphicsKit'
