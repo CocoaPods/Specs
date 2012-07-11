@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
                     'SizableExample', 'TabbedExample', 'ViewDeckExample',
                     'MultiViewDeckExample', 'NavigationExample',
                     'ViewDeckExample.xcodeproj'
+  s.license   = { :type => 'MIT' }
 end
