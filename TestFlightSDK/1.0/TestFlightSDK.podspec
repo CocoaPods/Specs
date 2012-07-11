@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TestFlight.h'
   s.preserve_paths = 'libTestFlight.a'
   s.library = 'TestFlight', 'z'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/TestFlightSDK"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/TestFlightSDK"' }
 end
