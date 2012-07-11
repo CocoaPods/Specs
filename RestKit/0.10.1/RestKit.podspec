@@ -30,13 +30,16 @@ Pod::Spec.new do |s|
   ### Subspecs
 
   s.subspec 'Network' do |ns|
-    ns.source_files   = 'Code/Network', 'Code/Support'
+    ns.source_files   = 'Code/Network', 'Code/Support', 'Vendor/cocoa-oauth'
     ns.ios.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
     ns.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
     ns.dependency       'LibComponentLogging-NSLog', '>= 1.0.4'
-    ns.dependency       'cocoa-oauth'
     ns.dependency       'FileMD5Hash'
     ns.dependency       'SOCKit'
+    #
+    # project uses bespoke cocoa-oauth (cf. source_files above), can't pull from repo
+    #
+    #ns.dependency       'cocoa-oauth'
   end
 
   s.subspec 'UI' do |us|
