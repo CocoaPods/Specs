@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   # s.platform = :osx # UIAutomation isn't yet on OS X
 
-  s.source_files = '*.js'
+  s.preserve_paths = '*.js'
 end
