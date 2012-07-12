@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'ZipKit'
   s.version  = '0.0.1'
-  s.license  = 'BSD'
+  s.license  = { :type => 'BSD', :file => 'COPYING.TXT' }
   s.summary  = 'An Objective-C Zip framework for Mac OS X and iOS.'
   s.homepage = 'https://bitbucket.org/kolpanic/zipkit/wiki/Home'
   s.author   = { 'Karl Moskowski' => 'kolpanic@voodooergonomics.com' }
@@ -16,10 +16,9 @@ Pod::Spec.new do |s|
                   "invoking object (e.g., a NSOperation or NSThread)."
 
   files = FileList['**/*.{h,m}']
-  s.ios.source_files = files.dup.exclude(/GMAppleDouble/).exclude(/Demo Projects/)
+  files.exclude(/Demo Projects/)
+  s.ios.source_files = files.dup.exclude(/GMAppleDouble/)
   s.osx.source_files = files
-
-  s.clean_paths = 'ZipKit.{xcodeproj,lineform}', 'ZipKitFW-Info.plist', 'ZipKit_Prefix.pch', 'Demo Projects'
 
   s.library = 'z'
   s.osx.framework = 'CoreServices'
