@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/facebook/facebook-ios-sdk.git', :tag => 'sdk-version-3.0.5.b' }
   s.source_files =  'src/*.{h,m}'
   s.resource     =  'src/FBiOSSDKResources.bundle'
+  s.library      =  'sqlite3.0'
 
   s.dependency 'SBJson', '2.2.3'
   def s.post_install(target)
