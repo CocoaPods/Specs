@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git://github.com/expanz/xcode-editor.git' }
   s.platform = :osx  
   s.source_files = 'Source/Main/*.{h,m}', 'Source/Main/Utils/*.{h,m}'
-  s.requires_arc = true  
+  s.requires_arc = true
+  s.dependency 'OCLogTemplate'
 end
