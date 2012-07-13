@@ -1,20 +1,76 @@
 Pod::Spec.new do |s|
-  s.name     = 'ShareKit'
-  s.version  = '2.0'
-  s.license  = 'MIT'
-  s.summary  = 'Drop in sharing features for all iPhone and iPad apps '
-  s.homepage = 'http://getsharekit.com/'
-  s.author   = { 'ShareKit' => 'http://getsharekit.com/' }
-  s.source   = { :git => 'https://github.com/ShareKit/ShareKit.git', :commit => '80fd5e1625271c447d24632831a6fab5b9995244' }
-  s.platform = :ios  
-  s.source_files = 'Classes/ShareKit/Configuration/*.{h,m}'  , 'Classes/ShareKit/Core/*.{h,m}'  , 'Classes/ShareKit/Core/Base Sharer Classes/*.{h,m}'  , 'Classes/ShareKit/Core/Categories/*.{h,m}' , 'Classes/ShareKit/Core/Helpers/*.{h,m}' , 'Classes/ShareKit/Core/Helpers/OAuth/*.{h,m}' , 'Classes/ShareKit/Core/Helpers/OAuth/Categories/*.{h,m}'  , 'Classes/ShareKit/Core/Helpers/OAuth/Crytpo/Base64Transcoder.{h,c}'  , 'Classes/ShareKit/Customize UI/*.{h,m}'  , 'Classes/ShareKit/UI/*.{h,m}'  , 'Classes/ShareKit/Sharers/Actions/Copy/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Email/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Logout of All Services/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Open in Safari/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Print/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Save to Album/*.{h,m}' , 'Classes/ShareKit/Sharers/Actions/Text Message/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Evernote/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Evernote/Helpers/edam/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Evernote/Helpers/thrift/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Evernote/Helpers/thrift/protocol/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Evernote/Helpers/thrift/transport/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Facebook/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Flickr/SHKFlickr.{h,m}' , 'Classes/ShareKit/Sharers/Services/FoursquareV2/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Google Reader/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Instapaper/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/LinkedIn/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Pinboard/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Read It Later/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Tumblr/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Twitter/*.{h,m}' , 'Classes/ShareKit/Sharers/Services/Vkontakte/*.{h,m}'
-  s.resources = "Classes/ShareKit/ShareKit.bundle"
-  s.framework = 'CFNetwork' , 'Twitter' , 'CoreLocation' , 'UIKit' , 'Foundation' , 'CoreGraphics' , 'MessageUI' , 'Security' , 'SystemConfiguration'
-  s.clean_paths = "ShareKit.xcodeproj" , 'Submodules' , 'MainWindow.xib' , 'RootViewController.xib' , 'ShareKit-Info.plist' , 'ShareKit_Prefix.pch' , 'Classes/Example' , 'Classes/ShareKit/Sharers/Services/Flickr/LFHTTPRequest.{h,m}' , 'Classes/ShareKit/Sharers/Services/Flickr/LFSiteReachability.{h,m}' , 'Classes/ShareKit/Sharers/Services/Flickr/NSData_LFHTTPFormExtensions.{h,m}' , 'Classes/ShareKit/Sharers/Services/Flickr/LFWebAPIKit.h'
-  s.dependency 'JSONKit'
-  s.dependency 'Facebook-iOS-SDK'  
-  s.dependency 'objectiveflickr'
-  s.dependency 'Reachability'
-  s.dependency 'SSKeychain'
+  s.name          = 'ShareKit'
+  s.version       = '2.0'
+  s.platform      = :ios
+  s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
+  s.homepage      = 'http://getsharekit.com/'
+  s.author        = 'ShareKit Community'
+  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => 'b8129c7c229a383ea5926aaa7869aadbccb71e8f' }
+  s.license       = { :type => 'MIT',
+                      :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
+                               %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
+                               %Q|THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE| }
+  s.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
+  s.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+  s.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI'
 
+  s.dependency 'SSKeychain'
+  s.dependency 'Reachability'
+
+  s.subspec 'Evernote' do |evernote|
+    evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
+  end
+
+  s.subspec 'Facebook' do |facebook|
+    facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
+    facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
+    facebook.dependency 'Facebook-iOS-SDK'
+  end
+
+  s.subspec 'Flickr' do |flickr|
+    flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/**/*.{h,m}'
+    flickr.framework = 'CFNetwork'
+    flickr.dependency 'objectiveflickr'
+  end
+
+  s.subspec 'Foursquare' do |foursquare|
+    foursquare.source_files = 'Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}'
+    foursquare.framework = 'CoreLocation'
+    foursquare.dependency 'SBJson'
+  end
+
+  s.subspec 'GoogleReader' do |googlereader|
+    googlereader.source_files = 'Classes/ShareKit/Sharers/Services/Google Reader/**/*.{h,m}'
+  end
+
+  s.subspec 'Instapaper' do |instapaper|
+    instapaper.source_files = 'Classes/ShareKit/Sharers/Services/Instapaper/**/*.{h,m}'
+  end
+
+  s.subspec 'LinkedIn' do |linkedin|
+    linkedin.source_files = 'Classes/ShareKit/Sharers/Services/LinkedIn/**/*.{h,m}'
+  end
+
+  s.subspec 'Pinboard' do |pinboard|
+    pinboard.source_files = 'Classes/ShareKit/Sharers/Services/Pinboard/**/*.{h,m}'
+  end
+
+  s.subspec 'ReadItLater' do |readitlater|
+    readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
+  end
+
+  s.subspec 'Tumblr' do |tumblr|
+    tumblr.source_files = 'Classes/ShareKit/Sharers/Services/Tumblr/**/*.{h,m}'
+  end
+
+  s.subspec 'Twitter' do |twitter|
+    twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
+    twitter.framework = 'Twitter'
+    twitter.dependency 'JSONKit'
+  end
+
+  s.subspec 'Vkontakte' do |vkontakte|
+    vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
+    vkontakte.dependency 'JSONKit'
+  end
 end
