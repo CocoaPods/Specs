@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.dependency 'NSLogger'
 
   def s.post_install(target)
-    Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging/') do
+    Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging-NSLogger/LibComponentLogging/') do
         system 'sed \'s/<UniquePrefix>/MyApp/g\' LCLNSLoggerConfig.template.h > LCLNSLoggerConfig.h'
     end
   end
