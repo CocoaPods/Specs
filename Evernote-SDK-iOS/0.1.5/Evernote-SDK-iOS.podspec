@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/evernote/evernote-sdk-ios'
   s.author   = 'Evernote'
   s.source   = { :git => 'https://github.com/evernote/evernote-sdk-ios.git', :tag => '0.1.5' }
-  s.source_files = 'evernote-sdk-ios/*.{h,m}', 'evernote-sdk-ios/EDAM/*.{h,m}', 'evernote-sdk-ios/internal/*.{h,m}', 'evernote-sdk-ios/3rdParty/Thrift', 'evernote-sdk-ios/3rdParty/NSString+URLEncoding'
-  s.clean_paths = 'evernote-sdk-ios.xcodeproj', 'SampleApp', 'evernote-sdk-ios/3rdParty/cocoa-oauth', 'evernote-sdk-ios/3rdParty/SSKeychain'
+  s.source_files = 'evernote-sdk-ios/*.{h,m}', 'evernote-sdk-ios/EDAM/*.{h,m}', 'evernote-sdk-ios/internal/*.{h,m}', 'evernote-sdk-ios/3rdParty/Thrift/**/*.{h,m}', 'evernote-sdk-ios/3rdParty/NSString+URLEncoding/*.{h,m}'
   s.frameworks = 'Foundation', 'Security'
   s.dependency 'cocoa-oauth', '~> 0.0.1'
   s.dependency 'SSKeychain', '~> 0.1.2'
