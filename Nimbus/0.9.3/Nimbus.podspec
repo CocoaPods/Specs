@@ -1,5 +1,3 @@
-# TODO
-# * clean_paths
 Pod::Spec.new do |s|
   s.name     = 'Nimbus'
   s.version  = '0.9.3'

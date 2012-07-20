@@ -9,7 +9,4 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/YannickL/YLProgressBar.git',
                   :tag => '1.0.0' }
   s.source_files = ['YLProgressBar/YLProgressBar.{h,m}', 'YLProgressBar/ARCMacro.h']
-  s.clean_paths = ['YLProgressBar.xcodeproj', 'YLProgressBar/Resources', 'YLProgressBar/en.lproj',
-                   'YLAppDelegate.*', 'YLBackgroundView.*', 'YLProgressBar-Info.plist',
-                   'YLProgressBar-Prefix.pch', 'YLViewController.h', 'main.m']
 end

@@ -9,5 +9,4 @@ Pod::Spec.new do |s|
   s.source_files = 'UIImage+GIF.{h,m}'
   s.framework    = 'ImageIO'
   s.license      = ''
-  s.clean_paths  = 'LBGIFImage*', '.DS_Store'
 end
