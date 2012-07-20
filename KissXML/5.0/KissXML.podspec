@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
   s.source       = { :git => 'https://github.com/robbiehanson/KissXML.git', :tag => '5.0' }
   s.source_files = 'KissXML/**/*.{h,m}'
-  s.clean_path   = 'UnitTesting'
   s.library      = 'xml2'
   s.requires_arc = true
   s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }

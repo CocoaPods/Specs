@@ -12,12 +12,4 @@ Pod::Spec.new do |s|
   s.platform = :ios
 
   s.source_files = 'Classes/DDPageControl.{h,m}'
-
-  s.clean_path = "Classes/DDPageControlAppDelegate.*",
-                 "Classes/DDPageControlViewController.*",
-                 "*.xib",
-                 "*.pch",
-                 "*.plist",
-                 "*.xcodeproj",
-                 "*.m"
 end

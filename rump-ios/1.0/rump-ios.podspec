@@ -8,6 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/tpuronen/rump-ios.git', :tag => '1.0.0' }
   s.platform = :ios
   s.source_files = 'Rump/Rump.*'
-  s.clean_path = "RumpTests"
   s.requires_arc = true
 end

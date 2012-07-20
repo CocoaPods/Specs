@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.{h,m}'
 
-  s.clean_path = "AttributedLabel Example"
   
   s.framework = 'CoreText'
 end

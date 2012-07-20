@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Simon Fell' => 'fellforce@gmail.com' }
   s.source   = { :git => 'https://github.com/superfell/zkSforce.git', :tag => 'v25.0.2' }
   s.source_files = 'zkSforce'
-  s.clean_path = "samples"
   s.library = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end

@@ -20,6 +20,5 @@ Pod::Spec.new do |s|
     files.exclude(/UIControl/, /UITextField/)
   end
   s.source_files = files
-  s.clean_path   = 'GHAPIDemo', 'RACiOSDemo', 'external', 'ReactiveCocoaFramework/ReactiveCocoa.xcodeproj', 'ReactiveCocoaFramework/ReactiveCocoaTests', '.gitignore', '.gitmodules'
   s.requires_arc = true
 end

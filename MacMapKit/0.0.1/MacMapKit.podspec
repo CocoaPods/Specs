@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
 
   s.resources  = "Source/Framework/Resources/*.{png,html,css,}"
-  s.clean_path = "Source/DemoApp", "Source/MapKit.xcodeproj"
   s.dependency 'SBJson', '2.2.3'
   
   s.header_dir = 'MapKit'

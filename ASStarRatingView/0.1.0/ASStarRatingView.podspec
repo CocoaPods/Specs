@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'ASStarRatingView/**/*.{h,m}'
   s.resources = "ASStarRatingView/stars/*.png"
-  s.clean_path = "ASStarRatingViewDemo"
 end
