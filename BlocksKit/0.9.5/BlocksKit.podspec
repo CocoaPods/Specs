@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'BlocksKit'
   s.version  = '0.9.5'
+  s.license  = 'MIT'
   s.summary  = 'The Objective-C block utilities you always wish you had.'
   s.homepage = 'https://github.com/zwaldowski/BlocksKit'
   s.author   = { 'Zachary Waldowski' => 'zwaldowski@gmail.com'}
@@ -12,6 +13,4 @@ Pod::Spec.new do |s|
   s.frameworks = 'MessageUI'
 
   s.requires_arc = true
-
-
 end

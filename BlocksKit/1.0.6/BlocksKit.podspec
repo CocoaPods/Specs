@@ -7,9 +7,6 @@ Pod::Spec.new do |s|
   s.license  = { :type => 'MIT' }
   s.source   = { :git => 'https://github.com/zwaldowski/BlocksKit.git', :tag => 'v1.0.6' }
 
-
-  s.prefix_header_contents = '#import "BlocksKit.h"'
-
   s.ios.frameworks   = 'MessageUI'
   s.ios.source_files = 'BlocksKit/*.{h,m}', 'BlocksKit/UIKit/*.{h,m}', 'BlocksKit/MessageUI/*.{h,m}'
   s.osx.source_files = 'BlocksKit/*.{h,m}'
