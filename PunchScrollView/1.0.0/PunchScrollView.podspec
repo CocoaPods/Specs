@@ -5,6 +5,9 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/tapwork/PunchScrollView'
   s.author   = { 'Christian Menschel' => 'http://www.tapwork.de' }
 
+  # TODO please add a license
+  s.license  = 'UNKNOWN!'
+
   s.source   = { :git => 'https://github.com/tapwork/PunchScrollView.git', :tag => '1.0.0' }
 
   s.platform = :ios

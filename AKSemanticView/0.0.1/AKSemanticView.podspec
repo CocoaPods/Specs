@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/indiebrain/AKSemanticView'
   s.author   = { 'Aaron Kuehler' => 'aaron.kuehler@gmail.com' }
   s.source   = { :git => 'https://github.com/indiebrain/AKSemanticView.git', :tag => '0.0.1' }
-  s.description = 'An optional longer description of AKSemanticView.'
 
   s.source_files = 'AKSemanticView/src/**/*.{h,m}'
   s.requires_arc = true
