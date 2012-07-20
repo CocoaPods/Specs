@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ActiveSupportInflector.{h,m}', 'NSString+ActiveSupportInflector.{h,m}'
   s.resource     = 'ActiveSupportInflector.plist'
-  s.clean_path   = 'ActiveSupportInflectorTest.*'
 end

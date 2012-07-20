@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AKSemanticView/src/**/*.{h,m}'
   s.requires_arc = true
-  s.clean_path = "example", "en.lproj", "main.m", "AKSemanticView-Info.plist", "AKSemanticView-Prefix.pch"
 end

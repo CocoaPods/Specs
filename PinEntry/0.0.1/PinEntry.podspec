@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'PinEntry', 'PinEntry/Classes/**/*.{h,m,xib}'
   s.resources = "PinEntry/Resources/*.png"
-  s.clean_path = "Demo", "PinEntry.xcodeprj"
   s.framework = 'UIKit'
   s.requires_arc = false
 end

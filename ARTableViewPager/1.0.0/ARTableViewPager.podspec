@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.description = 'An optional longer description of ARTableViewPager.'
   s.platform = :ios
   s.source_files = 'Classes/*.{h,m}'
-  s.clean_path = "Example", "Screenshots", "ARTableViewPager"
   s.requires_arc = true
 
 end
