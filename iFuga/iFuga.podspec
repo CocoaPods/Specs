@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gavrix/ifuga.git", :commit => 'ed3ccc658d764c75b938c0d662b5970de58bd9ec'}
    s.platform     = :ios
 
-   s.ios.deployment_target = '4.x','5.x'
+   s.ios.deployment_target = '4.3','5.x'
   s.source_files = 'iFuga/*'
 
   
