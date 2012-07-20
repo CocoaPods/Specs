@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "iFuga"
-  s.version      = "0.0.1"
+  s.version      = "1.0"
   s.summary      = "iOS component for displaying a fullscreen image gallery Supports orientation changes."
   s.homepage     = "https://github.com/gavrix/ifuga"
 
