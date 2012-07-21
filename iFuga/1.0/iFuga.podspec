@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "iFuga"
-  s.version      = "1.0.0"
+  s.version      = '1.0'
   s.summary      = "iOS component for displaying a fullscreen image gallery Supports orientation changes."
   s.homepage     = "https://github.com/gavrix/ifuga"
 
@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gavrix/ifuga.git", :tag => 'v1.0'}
    s.platform     = :ios
 
-   s.ios.deployment_target = '4.3','5.x'
-  s.source_files = 'iFuga/*'
-
+   s.ios.deployment_target = '4.x', '5.x'
+  s.source_files = 'iFuga/iFuga'
+  s.frameworks   = 'QuartzCore'
   
 end
