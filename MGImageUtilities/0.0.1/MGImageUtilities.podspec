@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Useful UIImage categories for iPhone/iPad developers."
   s.homepage     = "http://mattgemmell.com/"
-  s.license      = { :type => 'BSD', :file => 'Source Code License.rtf' }
+  s.license      = 'BSD'
   s.author       = { "Matt Gemmell" => "matt@mattgemmell.com" }
   s.source       = { :git => "https://github.com/mattgemmell/MGImageUtilities.git", :commit => "2903a9a2993684ea001b06c61cba2a51faf631d6" }
   s.platform     = :ios
