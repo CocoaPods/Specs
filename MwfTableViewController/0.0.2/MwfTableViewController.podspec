@@ -1,4 +1,6 @@
 Pod::Spec.new do |s|
+
+  s.platform = :ios
   
   s.name     = 'MwfTableViewController'
   
@@ -16,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'main/**/*.{h,m}'
 
-  s.clean_paths = 'test', 'demo'
+
 
   s.frameworks = 'Foundation'
 

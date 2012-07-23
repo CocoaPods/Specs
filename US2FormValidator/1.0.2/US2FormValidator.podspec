@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/ustwo/US2FormValidator.git', :tag => '1.0.2' }
   s.source_files = 'US2FormValidationFramework/source/**/*.{h,m}'
   s.resource     = 'US2FormValidationFramework/source/Localization.bundle'
-  s.clean_paths  = 'Documentation', 'US2FormValidationFrameworkSample', 'US2FormValidationFramework/tests', 'US2FormValidationFramework/documentation', 'US2FormValidationFramework/US2FormValidationFramework.xcodeproj'
+
 end

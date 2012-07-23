@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/RestKit/XML-to-NSDictionary.git', :commit => '30ca7efa24197df3cb27ffbf2e4afafd8fa827f2' }
 
   s.source_files = '*.{h,m}'
-  s.clean_path   = 'Demo'
 end

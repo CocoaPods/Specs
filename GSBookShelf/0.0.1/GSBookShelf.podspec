@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                   :commit => 'e6d590ceb40a4dd2dfbef34d353ccae60a56ebe8' }
   s.platform = :ios
   s.source_files = 'BookShelf/GS*.{h,m}', 'BookShelf/NSMutableArray+Rearrange.{h,m}'
-  s.clean_paths = '*.xcodeproj', '**/*.lproj', '**/*.plist', '*.xcworkspace',
+
   s.frameworks = 'QuartzCore', 'UIKit'
   s.requires_arc = true
 end

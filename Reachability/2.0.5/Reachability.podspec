@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.description  = 'This is Apple’s example code of the SystemConfiguration Reachability APIs, ' \
                    'adapted by Andrew Donoho, split-off from the ASIHTTPRequest source. ' \
                    '(This code needs an actual maintainer.)'
-  s.source       = { :git => 'git://github.com/CocoaPods/unmaintained-pod-Reachability.git', :tag => '2.0.5' }
+  s.source       = { :git => 'https://github.com/CocoaPods/unmaintained-pod-Reachability.git', :tag => '2.0.5' }
   s.source_files = 'Reachability.{h,m}'
   s.framework    = 'SystemConfiguration'
 end

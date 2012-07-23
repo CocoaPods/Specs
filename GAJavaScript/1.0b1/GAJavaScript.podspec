@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'Classes'
   s.resource     = "ga-js-runtime.js"
-  s.clean_paths  = "GAJavaScript.xcodeproj", "Samples", "Tests", "ThirdParty", ".gitignore", "GAJavaScriptTests-Info.plist", "GAJavaScript_Prefix.pch"
+
 end
