@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name          = 'UIGlossyButton'
   s.version       = '0.0.7'
   s.license       = 'MIT'
-  s.summary       = 'Generate system like or other nice button without any image'
+  s.summary       = 'Generate system like or other nice button without any image.'
   s.homepage      = 'https://github.com/waterlou/UIGlossyButton'
   s.author        = { 'waterlou' => 'https://github.com/waterlou' }
 
