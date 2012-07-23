@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name      = 'GMGridView'
   s.version   = '1.1.1'
   s.platform  = :ios
+  s.license   = 'MIT'
   s.summary   = 'A performant Grid-View for iOS (iPhone/iPad) that allows ' \
                 'sorting of views with gestures (the user can move the items ' \
                 'with his finger to sort them) and pinching/rotating/panning ' \
