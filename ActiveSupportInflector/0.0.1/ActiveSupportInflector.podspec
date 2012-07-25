@@ -6,12 +6,10 @@ Pod::Spec.new do |s|
   s.author    = { "Tom Ward" => "tom@popdog.net" }
   s.source    = { :git => "https://github.com/tomafro/ActiveSupportInflector.git", :commit => "c281b5d8432f12ad59c86195fbd583cc228822b7" }
 
-  # TODO uncomment once CocoaPods 0.6 is released
-  # s.license   = { :type => 'MIT', :file => 'MIT-LICENSE' }
+  s.license   = { :type => 'MIT', :file => 'MIT-LICENSE' }
 
   s.description  = "An Objective-C implementation of ActiveSupport's Inflector."
 
   s.source_files = 'ActiveSupportInflector.{h,m}', 'NSString+ActiveSupportInflector.{h,m}'
   s.resource     = 'ActiveSupportInflector.plist'
-  s.clean_path   = 'ActiveSupportInflectorTest.*'
 end

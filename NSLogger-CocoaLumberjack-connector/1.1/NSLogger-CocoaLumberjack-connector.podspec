@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/steipete/NSLogger-CocoaLumberjack-connector.git', :tag => '1.1' }
   s.description = 'This is a bridge for the projects http://github.com/robbiehanson/CocoaLumberjack (A general purpose super-fast logging framework) and http://github.com/fpillet/NSLogger (send logs to a client app via network).'
   s.source_files = 'PSDDFormatter', 'DDNSLoggerLogger.*'
-  s.clean_paths  = 'Example'
+
   s.dependency 'NSLogger'
   s.dependency 'CocoaLumberjack'
 end

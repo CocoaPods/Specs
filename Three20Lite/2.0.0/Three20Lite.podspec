@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'src/*.{h,m}', 'src/{Core,Network,Navigator,UI,Style}/*.{h,m}'
   s.resources = "src/Three20.bundle"
-  s.clean_paths = "Classes", "*.{plist,pch,md,m,xcodeproj}", "Examples"
+
   s.frameworks = 'QuartzCore'
 
 end

@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'TDBadgedCell (xcode project)/TDBadgedCell.{h,m}'
 
-  s.clean_paths = "*/Classes", "*/TDBadgedTableCell*.*", "*/main.m"
+
 
   s.frameworks = 'QuartzCore'
 end

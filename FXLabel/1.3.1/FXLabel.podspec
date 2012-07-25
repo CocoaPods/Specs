@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/nicklockwood/FXLabel.git', :tag => '1.3.1' }
   s.platform = :ios
   s.source_files = 'FXLabel'
-  s.clean_paths = 'Examples', 'Tests'
+
   s.requires_arc = true
 end

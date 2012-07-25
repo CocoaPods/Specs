@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
   s.name     = 'OCHamcrest'
   s.version  = '1.7'
   s.license  = 'BSD'
-  s.summary  = 'Unit test assertions on steroids: Hamcrest matchers for Objective-C'
-  s.homepage = 'https://github.com/jonreid/OCHamcrest'
+  s.summary  = 'Unit test assertions on steroids: Hamcrest matchers for Objective-C.'
+  s.homepage = 'https://github.com/hamcrest/OCHamcrest'
   s.author   = { 'Jon Reid' => 'jon.reid@mac.com' }
 
-  s.source   = { :git => 'https://github.com/jonreid/OCHamcrest.git', :tag => 'V1.7' }
+  s.source   = { :git => 'https://github.com/hamcrest/OCHamcrest.git', :tag => 'V1.7' }
 
   s.description = %{
       OCHamcrest is a framework for writing matcher objects, allowing you to
@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   }
 
   s.source_files = 'Source/OCHamcrest.h', 'Source/Core/**/*.{h,m,mm}', 'Source/Library/**/*.{h,m,mm}'
-  s.clean_paths = "Examples", "Documentation", "Source/Tests", "Source/TestSupport"
+
   s.library = 'stdc++'
 end

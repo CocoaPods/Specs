@@ -14,12 +14,7 @@ Pod::Spec.new do |s|
                    "5. A lovely API on top of KVO.\n"
 
   files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-  if config.ios?
-    files.exclude(/NSButton/, /AppKit/)
-  else
-    files.exclude(/UIControl/, /UITextField/)
-  end
-  s.source_files = files
-  s.clean_path   = 'GHAPIDemo', 'RACiOSDemo', 'external', 'ReactiveCocoaFramework/ReactiveCocoa.xcodeproj', 'ReactiveCocoaFramework/ReactiveCocoaTests', '.gitignore', '.gitmodules'
+  s.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
+  s.osx.source_files = files.dup.exclude(/UIControl/, /UITextField/)
   s.requires_arc = true
 end

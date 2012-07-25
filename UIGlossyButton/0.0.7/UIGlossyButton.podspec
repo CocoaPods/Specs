@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.platform      = :ios
   s.source        = { :git => 'https://github.com/waterlou/UIGlossyButton.git', :tag => 'v0.0.7' }
   s.preferred_dependency = 'Core'
+
   s.frameworks    = 'UIKit', 'QuartzCore'
 
   s.subspec 'Core' do |c|

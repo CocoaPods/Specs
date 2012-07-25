@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A collection of well-documented iOS classes for making life easier.'
   s.homepage = 'http://sstoolk.it'
   s.author   = { 'Sam Soffes' => 'sam@samsoff.es' }
+  s.license  = 'MIT'
   s.source   = { :git => 'https://github.com/samsoffes/sstoolkit.git', :tag => '0.1.1' }
 
   s.description  = 'SSToolkit is a collection of well-documented iOS classes for making life ' \
@@ -15,10 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SSToolkit/**/*.{h,m}'
   s.frameworks   = 'QuartzCore', 'CoreGraphics'
 
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "SSToolkitDefines.h"\n#endif})
-    end
-  end
+  s.prefix_header_file = 'Other Sources/SSToolkit_Prefix.pch'
 end

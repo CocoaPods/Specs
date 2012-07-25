@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
 	s.author       = { 'Alex Zielenski' => 'support@alexzielenski.com' }
 	s.source       = { :git => 'https://github.com/alexzielenski/ZKTextField.git', :tag => '0.0.1' }
 	s.source_files = 'src'
-	s.clean_paths  = 'ZKTextField' # Sample App
+
 	s.platform 		 = :osx
 end

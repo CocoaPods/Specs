@@ -2,11 +2,11 @@ Pod::Spec.new do |s|
   s.name     = 'Specta'
   s.version  = '0.1.0'
   s.license  = 'MIT'
-  s.summary  = 'A light-weight TDD / BDD framework for Objective-C & Cocoa'
+  s.summary  = 'A light-weight TDD / BDD framework for Objective-C & Cocoa.'
   s.homepage = 'http://github.com/petejkim/specta'
   s.author   = { 'Peter Jihoon Kim' => 'raingrove@gmail.com' }
 
-  s.source   = { :git => 'http://github.com/petejkim/specta.git', :tag => 'v0.1.0' }
+  s.source   = { :git => 'https://github.com/petejkim/specta.git', :tag => 'v0.1.0' }
 
   s.description = %{
     Specta is a light-weight testing framework for Objective-C and Cocoa that
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/**/*.{h,m}'
 
-  s.clean_paths = "Rakefile", "products", "test", "*.xcodeproj"
+
 
   s.frameworks = 'Foundation', 'SenTestingKit'
 

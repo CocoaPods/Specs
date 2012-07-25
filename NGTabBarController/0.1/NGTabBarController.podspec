@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.platform     = :ios
   s.source_files = 'NGTabBarController'
-  s.clean_paths  = 'Demo', 'NGTabBarController.xcodeproj', '.gitignore'
+
   s.requires_arc = true
 end
