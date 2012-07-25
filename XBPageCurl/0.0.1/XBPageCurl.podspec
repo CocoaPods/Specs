@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'XBPageCurl'
   s.version  = '0.0.1'
-  s.license  = 'MIT'
+  s.license  = { :type => 'MIT', file: 'COPYRIGHT.txt' }
   s.platform = :ios
   s.summary  = 'A decent page curl transition for iOS.'
   s.homepage = 'https://github.com/xissburg/XBPageCurl'
