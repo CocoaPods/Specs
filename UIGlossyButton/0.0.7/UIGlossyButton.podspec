@@ -8,13 +8,17 @@ Pod::Spec.new do |s|
 
   s.platform      = :ios
   s.source        = { :git => 'https://github.com/waterlou/UIGlossyButton.git', :tag => 'v0.0.7' }
-  s.source_files  = 'UIGlossyButton/UIGlossyButton.{h,m}'
-  s.clean_paths   = 'UIGlossyButton.xcodeproj', 'screenshot.png', 'UIGlossyButton/TestButtonViewController.*', 'UIGlossyButton/en.lproj/', 'UIGlossyButton/UIGlossyButton-Info.plist', 'UIGlossyButton/UIGlossyButton-Prefix.pch', 'UIGlossyButton/UIGlossyButtonAppDelegate.*', 'UIGlossyButton/main.m'
+  s.preferred_dependency = 'Core'
   s.frameworks    = 'UIKit', 'QuartzCore'
 
+  s.subspec 'Core' do |c|
+  	c.source_files  = 'UIGlossyButton/UIGlossyButton.{h,m}'
+  end
+
   # the layer effects file is for adding drop shadow effect to the button, actually not a must 
-  # for using UIGlossyButton, but you can include it using subspec
+  # for using UIGlossyButton, but you can include it using subspec, it is opt-out
   s.subspec 'LayerEffects' do |l|
   	l.source_files  = 'UIGlossyButton/UIView+LayerEffects.{h,m}'
   end
+
 end
