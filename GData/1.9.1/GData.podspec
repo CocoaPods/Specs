@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'YouTube' do |gdyt|
     gdyt.frameworks   = 'CFNetwork', 'SystemConfiguration'
-    gdyt.source_files = 'Clients/YouTube/*.{h,m}', 'Clients/YouTube/Touch/*.{h,m}'
+    gdyt.source_files = 'Source/Clients/YouTube/*.{h,m}', 'Source/Clients/YouTube/Touch/*.{h,m}'
   end
   
 end
