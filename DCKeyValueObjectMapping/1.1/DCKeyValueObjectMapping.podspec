@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'DCKeyValueObjectMapping'
   s.version  = '1.1'
   s.license  = 'MIT'
-  s.summary  = 'Automatic KeyValue Object Mapping for Objective-C, parse JSON/Plist/XML automatically, support Core Data'
+  s.summary  = 'Automatic KeyValue Object Mapping for Objective-C, parse JSON/Plist/XML automatically, support Core Data, convetion over configuration.'
   s.homepage = 'https://github.com/dchohfi/KeyValueObjectMapping'
   s.author   = { 'Diego Chohfi' => 'dchohfi@gmail.com' }
 
