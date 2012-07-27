@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
   s.license      = 'MIT'
   s.author       = { "Sergey Gavrilyuk" => "sergey.gavrilyuk@gmail.com" }
-  s.source       = { :git => "https://github.com/gavrix/ifuga.git", :tag => 'v1.1'}
+  s.source       = { :git => "https://github.com/gavrix/ifuga.git", :tag => '1.1'}
   s.platform     = :ios
 
   s.ios.deployment_target = '4.x', '5.x'
