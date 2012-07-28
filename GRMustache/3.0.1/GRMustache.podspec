@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/groue/GRMustache'
   s.author   = { 'Gwendal Roué' => 'gr@pierlis.com' }
   s.source   = { :git => 'https://github.com/groue/GRMustache.git', :tag => 'v3.0.1' }
-  s.description = 'Objective-C implementation of the {{ mustache }} template engine, for both MacOS Cocoa and iOS'
   s.source_files = 'src/classes'
 
   s.framework = 'Foundation'
