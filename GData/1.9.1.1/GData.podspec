@@ -15,12 +15,13 @@ Pod::Spec.new do |s|
                    'Source/Geo/*.{h,m}', 'Source/HTTPFetcher/*.{h,m}', 'Source/Introspection/*.{h,m}',
                    'Source/Media/*.{h,m}', 'Source/Networking/*.{h,m}', 'Source/OAuth2/*.{h,m}',
                    'Source/XMLSupport/*.{h,m}', 'Source/*.{h,m}'
+  s.compiler_flags = '-Wno-format-extra-args', '-Wno-format-invalid-specifier', '-Wno-incompatible-pointer-types'
   s.libraries = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-  
+
   s.subspec 'YouTube' do |gdyt|
     gdyt.frameworks   = 'CFNetwork', 'SystemConfiguration'
     gdyt.source_files = 'Source/Clients/YouTube/*.{h,m}', 'Source/Clients/YouTube/Touch/*.{h,m}'
   end
-  
+
 end
