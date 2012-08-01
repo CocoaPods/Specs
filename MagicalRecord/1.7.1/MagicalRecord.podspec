@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.description  = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
   s.source_files = 'Source/**/*.{h,m}'
   s.framework    = 'CoreData'
+  s.requires_arc = true
   s.prefix_header_contents = "#define MR_SHORTHAND 1\n#import \"CoreData+MagicalRecord.h\""
 end
