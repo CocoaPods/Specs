@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = '_.m is a port of Underscore.js to Objective-C.'
   s.homepage = 'http://kmalakoff.github.com/_.m/'
   s.authors  = { 'Kevin Malakoff' => 'xmann.intl@gmail.com' }
-  s.source   = { :git => 'https://github.com/malakoff/_.m.git', :tag => '0.1.0' }
+  s.source   = { :git => 'https://github.com/kmalakoff/_.m.git', :tag => '0.1.0' }
 
   s.description = '_.m strives to provide a full Underscore.js feature set in Objective-C in a way that is familiar to JavaScript developers by using Subjective-Script.'
 
