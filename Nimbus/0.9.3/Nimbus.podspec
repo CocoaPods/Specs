@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
                   'simple to understand.'
 
   s.platform = :ios
+  s.compiler_flags = '-Wno-switch'
 
 
   s.subspec 'Core' do |core|
