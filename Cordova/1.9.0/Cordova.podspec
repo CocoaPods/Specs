@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-Wno-format', '-Wno-deprecated-objc-isa-usage'
 
   s.platform     = :ios, '4.3'
-#  s.ios.deployment_target = '5.0'
 
   s.requires_arc = false
 
