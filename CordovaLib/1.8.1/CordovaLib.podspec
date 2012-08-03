@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
 
 #  s.source       = { :git => "http://git-wip-us.apache.org/repos/asf/incubator-cordova-ios.git", :tag => "1.8.1" }
   s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.8.1" }
-  s.source_files = 'CordovaLib/Classes/*.{h,m}', 'CordovaLib/Classes/JSON/JSONKit.{h,m}'
+  s.source_files = 'CordovaLib/Classes/*.{h,m}'
+  s.resources    = 'CordovaLib/javascript/*.js', 'CordovaLib/VERSION'
   s.compiler_flags = '-Wno-format', '-Wno-deprecated-objc-isa-usage'
 
   s.platform     = :ios, '4.3'
@@ -17,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = false
 
-#  s.dependency 'JSONKit', '~> 1.4'
+  s.dependency 'JSONKit', '~> 1.4'
+  s.frameworks = 'AddressBook', 'AddressBookUI', 'AudioToolbox', 'AVFoundation', 'CoreLocation', 'MediaPlayer', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreMedia'
 
 end
