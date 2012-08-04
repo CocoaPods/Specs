@@ -15,11 +15,13 @@ Pod::Spec.new do |s|
   s.source_files            = 'cpp/core/src/zxing/**/*.{h,cpp}', 'objc/src/ZXing/*.{h,m,mm}'
   s.compiler_flags          = '-IZXing/cpp/core/src/'
 
+  s.platform                = :osx
+  s.requires_arc            = false
+
   s.subspec 'ios' do |ios|
     ios.source_files        = 'iphone/Barcodes/Classes/*.{h,m}', 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
     ios.compiler_flags      = '-IZXing/cpp/core/src/'
+    ios.dependency          = 'ZXing'
+    ios.platform            = :ios, '4.3'
   end
-
-  s.platform                = :ios, '4.3'
-  s.requires_arc            = false
 end
