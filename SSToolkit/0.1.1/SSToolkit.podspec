@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A collection of well-documented iOS classes for making life easier.'
   s.homepage = 'http://sstoolk.it'
   s.author   = { 'Sam Soffes' => 'sam@samsoff.es' }
+  s.license  = 'MIT'
   s.source   = { :git => 'https://github.com/samsoffes/sstoolkit.git', :tag => '0.1.1' }
 
   s.description  = 'SSToolkit is a collection of well-documented iOS classes for making life ' \
