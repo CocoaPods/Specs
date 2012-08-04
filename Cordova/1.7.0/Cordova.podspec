@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.7.0" }
   s.source_files = 'CordovaLib/Classes/*.{h,m}'
   s.resources    = 'CordovaLib/javascript/*.js', 'CordovaLib/VERSION'
-  s.compiler_flags = '-Wno-format', '-Wno-deprecated-objc-isa-usage'
 
   s.platform     = :ios, '4.3'
 

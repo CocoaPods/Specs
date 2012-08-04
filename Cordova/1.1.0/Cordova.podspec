@@ -9,15 +9,14 @@ Pod::Spec.new do |s|
 
 #  s.source       = { :git => "http://git-wip-us.apache.org/repos/asf/incubator-cordova-ios.git", :tag => "1.1.0" }
   s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.1.0" }
-  s.source_files = 'PhoneGapLib/Classes/*.{h,m}'
+  s.source_files = 'PhoneGapLib/Classes/*.{h,m}', 'PhoneGapLib/Classes/JSON/*.{h,m}'
   s.resources    = 'PhoneGapLib/javascripts/core/*.js', 'PhoneGapLib/VERSION'
-  s.compiler_flags = '-Wno-format', '-Wno-deprecated-objc-isa-usage', '-Wno-visibility'
+  s.compiler_flags = '-Wno-deprecated-objc-isa-usage', '-Wno-visibility'
 
   s.platform     = :ios, '4.3'
 
   s.requires_arc = false
 
-  s.dependency 'SBJson', '~> 2.2.3'
   s.frameworks = 'AddressBook', 'AddressBookUI', 'AudioToolbox', 'AVFoundation', 'CoreLocation', 'MediaPlayer', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreMedia'
 
 end
