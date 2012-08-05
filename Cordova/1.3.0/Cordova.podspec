@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Cordova"
   s.version      = "1.3.0"
-  s.summary      = "Library to include Cordova (formally known as PhoneGap) as dependecy in own applications."
+  s.summary      = "Apache Cordova is a platform for building native mobile applications using HTML, CSS and JavaScript."
   s.homepage     = "http://www.phonegap.com/"
   s.author       = "Original developed by Nitobi (acquire by Adobe) and all other PhoneGap Contributors"
 
