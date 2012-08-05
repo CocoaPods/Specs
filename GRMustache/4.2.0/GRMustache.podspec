@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/groue/GRMustache.git', :tag => 'v4.2.0' }
   s.description = 'Production-ready {{ Mustache }} templates for MacOS Cocoa and iOS.'
   s.source_files = 'src/classes'
-  s.clean_paths = 'Guides', 'include', 'lib', 'Makefile', 'Reference', 'TODO.txt', 'src/bin', 'src/GRMustache.xcodeproj', 'src/tests', 'src/vendor'
+  s.preserve_paths = 'include', 'src/classes'
   s.framework = 'Foundation'
   s.dependency 'JRSwizzle', '~> 1.0'
 end
