@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.source         = { :git => "https://github.com/twitter/twui.git", :commit => "ef55cfcd65f5ce364abde22452bed1fa84c7e03f" }
 
   s.platform       = :osx, '10.6'
-#  s.compiler_flags = '-Wno-objc-missing-super-calls'
   s.frameworks     = 'ApplicationServices', 'QuartzCore', 'Cocoa'
 
   s.subspec 'Support' do |ss|

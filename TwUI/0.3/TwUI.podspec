@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.source         = { :git => "https://github.com/github/twui.git", :commit => "0.3.0" }
 
   s.platform       = :osx, '10.6'
-#  s.compiler_flags = '-Wno-objc-missing-super-calls'
   s.requires_arc   = true
   s.frameworks     = 'ApplicationServices', 'QuartzCore', 'Cocoa'
 
