@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                        = "ZXing"
-  s.version                     = "2.1"
+  s.version                     = "2.1pre"
   s.summary                     = "Multi-format 1D/2D barcode image processing library."
   s.homepage                    = "http://code.google.com/p/zxing/"
   s.author                      = "ZXing team (http://code.google.com/p/zxing/people/list)"
@@ -20,10 +20,11 @@ Pod::Spec.new do |s|
   s.frameworks                  = 'AddressBook', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'ImageIO'
 
   s.subspec 'ios' do |ios|
-    ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
-    ios.compiler_flags          = '-IZXing/cpp/core/src/', '-IZXing/iphone/ZXingWidget/Classes/'
     ios.platform                = :ios, '4.3'
     ios.ios.deployment_target   = '4.3'
+
+    ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
+    ios.compiler_flags          = '-IZXing/cpp/core/src/', '-IZXing/iphone/ZXingWidget/Classes/'
 
 #   must use xcconfig additional to compiler_flag -I to make this header path also available for the including project
     ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/' }
