@@ -13,18 +13,20 @@ Pod::Spec.new do |s|
 
   s.source_files                = 'cpp/core/src/zxing/**/*.{h,cpp}', 'objc/src/ZXing/*.{h,m,mm}'
   s.compiler_flags              = '-IZXing/cpp/core/src/'
+  s.requires_arc                = false
+
 # workaround for a missing import in objc/src/ZXing/ZXImage.mm
   s.prefix_header_contents      = '#import <ImageIO/CGImageSource.h>'
-  s.requires_arc                = false
 
   s.libraries                   = 'stdc++', 'iconv'
   s.frameworks                  = 'AddressBook', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'ImageIO'
 
   s.subspec 'ios' do |ios|
-    ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
-    ios.compiler_flags          = '-IZXing/cpp/core/src/', '-IZXing/iphone/ZXingWidget/Classes/'
     ios.platform                = :ios, '4.3'
     ios.ios.deployment_target   = '4.3'
+
+    ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
+    ios.compiler_flags          = '-IZXing/cpp/core/src/', '-IZXing/iphone/ZXingWidget/Classes/'
 
 #   must use xcconfig additional to compiler_flag -I to make this header path also available for the including project
     ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/' }
