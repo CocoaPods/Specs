@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Cordova"
   s.version      = "1.6.0"
-  s.summary      = "Library to include Cordova as dependecy in own applications."
+  s.summary      = "Apache Cordova is a platform for building native mobile applications using HTML, CSS and JavaScript."
   s.homepage     = "http://incubator.apache.org/cordova/"
   s.author       = "Original developed by Nitobi (acquire by Adobe) and all other PhoneGap and Cordova Contributors"
 
@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.6.0" }
   s.source_files = 'CordovaLib/Classes/*.{h,m}'
   s.resources    = 'CordovaLib/javascript/*.js', 'CordovaLib/VERSION'
-  s.compiler_flags = '-Wno-format', '-Wno-deprecated-objc-isa-usage'
 
   s.platform     = :ios, '4.3'
 
