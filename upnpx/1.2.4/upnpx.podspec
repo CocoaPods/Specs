@@ -11,14 +11,8 @@ Pod::Spec.new do |s|
                   'The Current implementation has support for control point/client only.'
 
   files = FileList['src/{api,common,eventserver,ssdp,upnp}/*.{h,m,mm,c,cpp}']
-  if config.ios?
-    files.include('src/port/ios/*.{h,m}')
-  else
-    files.include('src/port/macos/*.{h.m}')
-  end
-  s.source_files = files
-
-
+  s.ios.source_files = files.dup.include('src/port/ios/*.{h,m}')
+  s.osx.source_files = files.dup.include('src/port/macos/*.{h.m}')
 
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lstdc++' }
 end

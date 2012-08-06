@@ -17,8 +17,5 @@ Pod::Spec.new do |s|
   def s.copy_header_mapping(from)
     from.relative_path_from(Pathname.new('cocos2d'))
   end
-  
-  if config.ios?
-      s.dependency 'FontLabel'
-  end
+  s.ios.dependency 'FontLabel'
 end
