@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.authors  = {'Jon Beilin' => 'jon@diy.org'}
   s.source   = { :git => 'https://github.com/dongle/AssetPicker.git', :tag => 'v0.1.0' }
   s.platform = :ios
-  s.source_files = 'DIYAssetPicker'
+  s.source_files = 'DIYAssetPicker/*.{h,m,png}'
   s.framework = 'UIKit', 'AssetsLibrary', 'Foundation', 'CoreGraphics'
 end
