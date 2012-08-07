@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source_files =  'src/*.{h,m}'
   s.resource     =  'src/FacebookSDKResources.bundle'
   s.library      =  'sqlite3.0'
+  s.header_dir   =  'FacebookSDK'
 
   s.dependency 'SBJson', '2.2.3'
   def s.post_install(target)
