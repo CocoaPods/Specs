@@ -33,43 +33,41 @@ task :lint do
 
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = ['.'] if specs.empty?
-  last_commit_specs = `git diff --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
-  failures = []
+  last_commit_podspecs = `git diff --diff-filter=ACMRTUXB --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
+  last_commit_specs = last_commit_podspecs.map {|p| p.gsub(/(.*)\/.*\/.*/,'\1')}.uniq
 
-  unless last_commit_specs.empty?
-    puts
-    puts ">>> Last commit <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-    puts
-    failures += lint_specs(last_commit_specs,false)
+  failures = 0
+
+  unless last_commit_podspecs.empty?
+    puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+    command = "~/documents/github/cp/cocoapods/bin/pod spec lint '#{last_commit_podspecs.join("' '")}' "
+    failures += 1 unless excute_command(command)
   end
 
-  puts ">>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-  puts
-  failures += lint_specs(specs,true)
-  unless failures.empty?
-    puts
-    puts "The following specs did not pass `spec lint`:"
-    puts failures.join("\n")
+  unless last_commit_specs.empty?
+    puts "\n>>> last commit pods (quick lint with warnings) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+    command = "~/documents/github/cp/cocoapods/bin/pod spec lint --quick '#{last_commit_specs.join("' '")}' "
+    failures += 1 unless excute_command(command)
+  end
+
+  puts "\n>>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+  command = "~/Documents/GitHub/CP/CocoaPods/bin/pod repo lint ."
+  failures += 1 unless excute_command(command)
+
+  unless failures.zero?
     exit 1
   end
 end
 
-def lint_specs(specs, only_errors)
-  failures = []
-  specs.each do |spec|
-    begin
-      next if not File.exists? spec
-      ENV['SKIP_SETUP']='1'
-      command = "pod spec lint '#{spec}' --quick#{' --only-errors' if only_errors}"
-      puts command
-      # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
-      puts `#{command}`
-      failures << spec unless $?.success?
-    rescue Interrupt
-      break
-    end
-  end
-  failures
+def excute_command(command)
+  # begin
+    ENV['SKIP_SETUP']='1'
+    puts command
+    # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
+    system command
+  # rescue Interrupt
+  #   break
+  #   false
 end
 
 task :default => :lint
