@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage       = "https://github.com/github/twui"
   s.author         = { "Twitter, Inc." => "opensource@twitter.com" }
   s.license        = { :type => 'Apache License, Version 2.0' }
-  s.source         = { :git => "https://github.com/github/twui.git", :commit => "0.3.0" }
+  s.source         = { :git => "https://github.com/github/twui.git", :tag => "0.3.0" }
 
   s.platform       = :osx, '10.6'
   s.requires_arc   = true
