@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'ODRefreshControl'
-  s.version  = '0.0.1'
+  s.version  = '0.0.2'
   s.license  = 'MIT'
   s.summary  = "A pull down to refresh control like the one in Apple's iOS6 Mail App."
   s.homepage = 'https://github.com/Sephiroth87/ODRefreshControl'
