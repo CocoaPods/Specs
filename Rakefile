@@ -40,18 +40,18 @@ task :lint do
 
   unless last_commit_podspecs.empty?
     puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-    command = "~/documents/github/cp/cocoapods/bin/pod spec lint '#{last_commit_podspecs.join("' '")}' "
+    command = "pod spec lint '#{last_commit_podspecs.join("' '")}' "
     failures += 1 unless excute_command(command)
   end
 
   unless last_commit_specs.empty?
     puts "\n>>> last commit pods (quick lint with warnings) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-    command = "~/documents/github/cp/cocoapods/bin/pod spec lint --quick '#{last_commit_specs.join("' '")}' "
+    command = "pod spec lint --quick '#{last_commit_specs.join("' '")}' "
     failures += 1 unless excute_command(command)
   end
 
   puts "\n>>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-  command = "~/Documents/GitHub/CP/CocoaPods/bin/pod repo lint ."
+  command = "pod repo lint ."
   failures += 1 unless excute_command(command)
 
   unless failures.zero?
