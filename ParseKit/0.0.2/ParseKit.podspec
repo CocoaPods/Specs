@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Todd Ditchendorf' => 'todd.ditchendorf@gmail.com' }
 
   s.source   = { :svn => 'http://parsekit.googlecode.com/svn/trunk/', :revision => '74'}
+  s.source   = { :svn => 'http://parsekit.googlecode.com/svn/trunk', :revision => '74'}
 
   s.description = %{
     ParseKit is a Mac OS X Framework written by Todd Ditchendorf in
@@ -23,12 +24,10 @@ Pod::Spec.new do |s|
     for ParseKit.
   }
 
-  s.source_files = 'include/**/*.{h,m}', 'src/**/*.{h,m}'
-
-  s.ios.frameworks = 'Foundation', 'CoreGraphics'
-  s.osx.framework = 'Foundation'
-
-  s.library = 'icucore'
-
-  s.requires_arc = false
+  s.source_files   =  'include/**/*.{h,m}', 'src/**/*.{h,m}'
+  s.ios.frameworks =  'Foundation', 'CoreGraphics'
+  s.osx.framework  =  'Foundation'
+  s.library        =  'icucore'
+  s.requires_arc   =  false
+  s.compiler_flags =  '-Wno-format'
 end

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Box2D is an open source C++ engine for simulating rigid bodies in 2D. Box2D is developed by Erin Catto and has the zlib license. While the zlib license does not require acknowledgement, we encourage you to give credit to Box2D in your product.'
   s.homepage = 'http://www.cocos2d-iphone.org'
   s.author   = 'Erin Catto'
-  s.source = {:svn => 'http://box2d.googlecode.com/svn/trunk/Box2D', :revision => '249'}
+  s.source = {:svn => 'http://box2d.googlecode.com/svn/trunk/Box2D', :revision => '249' }
   s.source_files = 'Box2D/**/*.{h,cpp}'
   def s.copy_header_mapping(from)
     from.relative_path_from(Pathname.new('Box2D'))
