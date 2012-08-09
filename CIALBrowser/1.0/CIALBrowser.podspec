@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Sylver Bruneau" => "sylver.bruneau@gmail.com" }
   s.source       = { :git => "https://github.com/sylverb/CIALBrowser.git", :tag => "v1.0" }
   s.platform     = :ios
-  s.source_files = 'CIALBrowser', 'CIALBrowser/**/*.{h,m}'
+  s.source_files = 'CIALBrowser/**/*.{h,m}'
   s.resources = "CIALBrowser/*.bundle"
   s.frameworks = 'MessageUI'
 end
