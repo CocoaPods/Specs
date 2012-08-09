@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  version = '1.1'
+  version = '1.2'
   s.name     = 'LOG_EXPR'
   s.version  = version
   s.license  = { :type => 'MIT', :file => 'MIT-LICENSE' }
