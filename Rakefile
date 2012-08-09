@@ -31,6 +31,9 @@ desc "Run `pod spec lint` on all specs"
 task :lint do
   exit if ENV['skip-lint']
 
+  ENV['SKIP_SETUP']='1'
+  ENV['CP_REPOS_DIR']= Pathname.new(Dir.pwd).dirname.to_s
+
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = ['.'] if specs.empty?
   last_commit_podspecs = `git diff --diff-filter=ACMRTUXB --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
@@ -38,11 +41,11 @@ task :lint do
 
   failures = 0
 
-  unless last_commit_podspecs.empty?
-    puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-    command = "pod spec lint '#{last_commit_podspecs.join("' '")}' "
-    failures += 1 unless excute_command(command)
-  end
+  # unless last_commit_podspecs.empty?
+  #   puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+  #   command = "pod spec lint '#{last_commit_podspecs.join("' '")}' "
+  #   failures += 1 unless excute_command(command)
+  # end
 
   unless last_commit_specs.empty?
     puts "\n>>> last commit pods (quick lint with warnings) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
@@ -61,7 +64,6 @@ end
 
 def excute_command(command)
   # begin
-    ENV['SKIP_SETUP']='1'
     puts command
     # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
     system command
