@@ -203,7 +203,7 @@ Pod::Spec.new do |s|
     # Full name: Three20/ext/JSON
     ext.subspec 'JSON' do |js|
       js.extend(overrides)
-      js.source_files = 'src/extThree20JSON/{Sources,Headers}/*.{h,m}'
+      js.source_files = 'src/extThree20JSON/{Source,Headers}/*.{h,m}'
       js.header_dir = 'extThree20JSON'
       js.dependency 'Three20/Core'
       js.dependency 'Three20/Network'
@@ -236,7 +236,7 @@ Pod::Spec.new do |s|
     # Full name: Three20/ext/XML
     ext.subspec 'XML' do |xs|
       xs.extend(overrides)
-      xs.source_files = 'src/extThree20XML/{Sources,Headers}/*.{h,m}'
+      xs.source_files = 'src/extThree20XML/{Source,Headers}/*.{h,m}'
       xs.header_dir = 'extThree20XML'
       xs.dependency 'Three20/Core'
       xs.dependency 'Three20/Network'
