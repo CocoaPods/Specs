@@ -1,3 +1,5 @@
+require 'pathname'
+
 def rvm_ruby_dir
   @rvm_ruby_dir ||= File.expand_path('../..', `which ruby`.strip)
 end
