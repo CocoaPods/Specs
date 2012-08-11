@@ -22,8 +22,4 @@ Pod::Spec.new do |s|
                   :tag => '1.4.2'}
   s.source_files  = 'ViewDeck/*.{h,m}'
   s.frameworks    = 'QuartzCore'
-  s.preserve_paths = 'FeaturesExample.xcodeproj', 'FeaturesExample',
-                    'SizableExample', 'TabbedExample', 'ViewDeckExample',
-                    'MultiViewDeckExample', 'NavigationExample',
-                    'ViewDeckExample.xcodeproj'
 end
