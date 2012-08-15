@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'FlurrySDK'
   s.version  = '4.0.1'
-  s.license  = 'Commercial'
+  s.license  = {:kind => 'Commercial', :file => 'LICENSE'}
   s.summary  = 'FlurrySDK for analytics reporting.'
   s.homepage = 'http://www.flurry.com'
   s.author   = { 'Flurry' => 'http://www.flurry.com' }
