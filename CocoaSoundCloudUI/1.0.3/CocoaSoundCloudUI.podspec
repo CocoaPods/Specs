@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'CocoaSoundCloudUI'
-  s.version  = '1.0.0'
+  s.version  = '1.0.3'
   s.summary  = 'A simple way to share audio on soundcloud.com.'
   s.homepage = 'https://github.com/soundcloud/CocoaSoundCloudUI'
   s.author   = { 'Ullrich Schäfer' => 'ullrich@soundcloud.com',
@@ -8,12 +8,12 @@ Pod::Spec.new do |s|
                  'Tobias Kräntzer' => 'tk@soundcloud.com' }
   s.license  = 'Apache License, Version 2.0'
 
-  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => '1.0.3' }
 
   s.platform = :ios
-  
+
   s.source_files = 'Sources', 'Sources/**/*.{h,m}'
-  
+
   s.resource = "SoundCloud.bundle"
 
   s.framework = 'AddressBook'
