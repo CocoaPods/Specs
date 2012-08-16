@@ -213,10 +213,11 @@ Pod::Spec.new do |s|
     # This extension cannot be used with Three20/ext/YAJL
     ext.subspec 'SBJSON' do |sbs|
       sbs.extend(overrides)
-      sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.{h,m}'
+      sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.h'
       sbs.header_dir = 'extThree20JSON'
       sbs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'EXTJSON_SBJSON' }
       sbs.dependency 'Three20/ext/JSON'
+      sbs.dependency 'SBJson'
     end
 
     # Full name: Three20/ext/YAJL
