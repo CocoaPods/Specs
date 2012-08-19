@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.resources    = 'NoticeView/WBNoticeView/NoticeView.bundle'
   s.compiler_flags = '-Wno-format', '-Wno-objc-missing-super-calls'
+  s.requires_arc = true
 end
