@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jberlana/iOSKenBurns.git', :commit => '04feef2a64117c2a6c4dd21db51e42d1425ea649' }
   s.platform = :ios
   s.source_files = 'KenBurns/*.{h,m}'
-  s.requires_arc = true
+  s.requires_arc = false
 end
