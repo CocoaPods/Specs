@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/pkyeck/socket.IO-objc.git", :commit => 'c07d45aa905f45213c84a0298fa163fd6c1b79a3' }
 
   s.source_files = '*.{h,m}'
-  s.framework  = 'SBJson', 'SocketRocket'
   
   s.requires_arc = true
 
