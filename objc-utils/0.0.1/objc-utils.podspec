@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'CoreFoundationAdditions' do |sp|
     sp.source_files = 'CoreFoundationAdditions/**/*.{h,m,c}'
+    s.library   = 'z'
   end
 
   s.subspec 'CoreGraphicsUtils' do |sp|
