@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = "StackMob's SDK for accessing the StackMob Services on iOS."
   s.homepage = 'http://stackmob.com'
   s.author   = { 'StackMob' => 'info@stackmob.com' }
-  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-sdk.git', :commit => 'f529baf054f92dc76f248a8e9d320cd3f494f21a' }
+  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-sdk.git', :commit => '736773c682f9dc236e8d92036a1500f5768671cd' }
   s.platform = :ios
   s.source_files = 'Classes/*.{h,m}', 'Utility/*.{h,m}', 'CoreData/Classes/*.{h,m}'
   s.dependency 'AFNetworking', '~> 1.0RC1'
@@ -13,6 +13,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.documentation = {
   	:appledoc => [
+  		'--index-desc','OverviewForDocs.md',
+  		'--clean-output',
   		'--no-keep-undocumented-objects',
     	'--no-keep-undocumented-members',
     	'--no-repeat-first-par',
