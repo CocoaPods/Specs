@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "toast-notifications-ios"
+  s.name         = "iToast"
   s.version      = "0.0.1"
   s.summary      = "We at Guru software really love toast notifications available on android OS, so we've built a similar feature for the IOS enabled devices."
   s.homepage     = "https://github.com/ecstasy2/toast-notifications-ios"
