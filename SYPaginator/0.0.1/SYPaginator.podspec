@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'SYPaginator'
   s.platform     = :ios
-  s.version      = '1.0'
+  s.version      = '0.0.1'
   s.license      = 'MIT'
   s.summary      = 'Simple paging scroll view to make complicated tasks easier.'
   s.homepage     = 'https://github.com/Synthetic/SYPaginator'
