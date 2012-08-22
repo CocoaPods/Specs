@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/dlinsin/DLStarRating"
   s.license      = 'Eclipse Public License'
   s.author       = { " David Linsin" => "dlinsin@gmail.com" }
-  s.source       = { :git => "https://github.com/dlinsin/DLStarRating.git", :commit => '000d2a5219abfca004e8920c53d503dae8c0a7d9' }
+  s.source       = { :git => "https://github.com/dlinsin/DLStarRating.git", :commit => '21eb2811d2a54ac792293de292677adf4255a915' }
   s.platform     = :ios
   s.source_files = 'DLStarRating', 'DLStarRating/**/*.{h,m}'
   s.resource     = "DLStarRating/images/*.png"
