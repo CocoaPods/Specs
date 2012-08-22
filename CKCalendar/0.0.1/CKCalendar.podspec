@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Jason Kozemczak" => "jason.kozemczak@gmail.com" }
   s.source       = { :git => "https://github.com/jaykz52/CKCalendar.git", :commit => "6aa84b5fb13f7be95d6b39bbf0614e9276850a0a" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'Source/*.{h,m}'
-  s.resources = "resources/*.png"
+  s.source_files = 'Source', 'Source/resources'
+  s.frameworks = 'UIKit', 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
 end
