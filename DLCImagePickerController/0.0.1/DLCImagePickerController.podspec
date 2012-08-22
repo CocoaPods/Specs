@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
   s.homepage     = "www.backspac.es"
   s.license      = 'BSD'
   s.author       = { "Dmitri Cherniak" => "dmitric@gmail.com" }
-  s.source       = { :git => "https://github.com/gobackspaces/DLCImagePickerController.git", :commit => "9335c41d92f005d5fbe94ef9ca34dcb108563447" }
+  s.source       = { :git => "https://github.com/gobackspaces/DLCImagePickerController.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Classes'
   s.resources    = "Resources/**/*.*", "Images/{UI,Overlays}/*.png"
   s.requires_arc = true
-  # Temporaru, this might break the podspec in the future.
+  # Temporary, this might break the podspec in the future.
   s.dependency 'GPUImage', :head
 end
