@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
                  'Peter Steinberger' => 'me@petersteinberger.com' }
 
   #s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git', :tag => '0.0.1' }
-  s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git', :commit => '92324e1b06c9ea598c302dd3e97bbe557ac091fd' }
+  s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git',
+                 :commit => '8dbcb6df9396e10a1442cf9994067434eb5c4385' }
 
   s.source_files = 'KKGridView'
 
