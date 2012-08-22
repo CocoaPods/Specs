@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KFAppleScriptHandlerAdditions'
   s.version  = '2.3.0'
   s.license  = 'CC Attribution-NonCommercial'
-  s.summary  = 'A NSAppleScript category to ease integration with AppleScripts from Cocoa'
+  s.summary  = 'A NSAppleScript category to ease integration with AppleScripts from Cocoa.'
   s.homepage = 'http://homepage.mac.com/kenferry/software.html'
   s.author   = { 'Ken Ferry' => 'kenferry@mac.com' }
 
@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :osx
   s.source_files = 'KF*.{h,m}'
 
-  s.clean_paths = "Testing", "Demo App", "Beta"
+
 end

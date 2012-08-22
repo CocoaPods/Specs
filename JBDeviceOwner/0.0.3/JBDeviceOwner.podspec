@@ -17,8 +17,4 @@ Pod::Spec.new do |s|
   s.platform      = :ios
   s.framework     = 'AddressBook'
   s.requires_arc  = true
-  s.clean_paths   = 'JBDeviceOwner.xcodeproj',
-                    'JBDeviceOwnerExample/JBDeviceOwner.framework',
-                    'JBDeviceOwnerExample/JBDeviceOwnerExample.xcodeproj',
-                    'JBDeviceOwnerExample/JBDeviceOwnerExample'
 end

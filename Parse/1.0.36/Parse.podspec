@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = '1.0.36'
   s.license = 'unknown'
   s.platform = :ios
-  s.summary = 'The mobile app platform for developers'
+  s.summary = 'The mobile app platform for developers.'
   s.homepage = 'http://parse.com/'
   s.author = { 'Parse' => 'support@parse.com' }
   s.source = { :git => 'https://github.com/fictorial/Parse.git', :tag => '1.0.36' }

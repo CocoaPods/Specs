@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.ios.source_files = files.dup.include('framework/CorePlot-CocoaTouch.h', 'framework/iPhoneOnly/*.{h,m}')
   s.osx.source_files = files.dup.include('framework/CorePlot.h', 'framework/MacOnly/*.{h,m}')
 
-  s.clean_paths = 'documentation', 'examples', 'scripts', 'QCPlugin', 'framework/*.{xcodeproj,lproj}'
+
   s.framework   = 'QuartzCore'
 end

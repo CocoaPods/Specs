@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   }
   s.frameworks = ["OpenGLES", "OpenAL", "AVFoundation", "AudioToolbox", "QuartzCore", "GameKit"]
   s.library = 'z'
-  s.clean_paths = '*.xcodeproj', 'templates', 'tools', 'tests', 'Resources', 'Resources-Mac', 'Resources-iPad'
+
 
   def s.copy_header_mapping(from)
     from.relative_path_from(Pathname.new('cocos2d'))

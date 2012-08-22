@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                  'Tobias Kräntzer' => 'tk@soundcloud.com' }
 
 
-  s.source   = { :git => 'git://github.com/soundcloud/CocoaSoundCloudAPI.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudAPI.git', :tag => 'v1.0' }
 
   s.source_files = 'Sources', 'Sources/**/*.{h,m}'
 

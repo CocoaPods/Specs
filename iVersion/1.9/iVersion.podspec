@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.author   = 'Nick Lockwood'
   s.source   = { :git => 'https://github.com/nicklockwood/iVersion.git', :tag => '1.9' }
   s.source_files = 'iVersion/iVersion.{h,m}'
-  s.clean_paths = 'Examples'
+
   s.resources = 'iVersion.bundle'
 end

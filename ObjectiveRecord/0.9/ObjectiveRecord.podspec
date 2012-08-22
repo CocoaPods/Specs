@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Lightweight, Active Record style of managing your CoreData objects.'
   s.homepage = 'https://github.com/mneorr/Objective-Record'
   s.author   = { 'Marin Usalj' => 'mneorr@gmail.com' }
-  s.source   = { :git => 'git://github.com/mneorr/Objective-Record.git', :tag => '0.9' }
+  s.source   = { :git => 'https://github.com/mneorr/Objective-Record.git', :tag => '0.9' }
 
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   

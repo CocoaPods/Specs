@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => 'https://github.com/pandamonia/A2DynamicDelegate.git', :tag => 'v2.0.0' }
   s.source_files = 'A2DynamicDelegate.{h,m}', 'A2BlockDelegate.{h,m}', 'A2BlockClosure.{h,m}'
-  s.clean_paths  = 'Demo', 'A2DynamicDelegate.xcodeproj', 'Tests'
+
   s.dependency   'libffi'
 end

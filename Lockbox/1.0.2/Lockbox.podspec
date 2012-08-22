@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/granoff/Lockbox.git', :tag => '1.0.2' }
 
   s.source_files = 'Lockbox.{h,m}'
-  s.clean_path = 'LockBox'
   s.framework = 'Security'
 end

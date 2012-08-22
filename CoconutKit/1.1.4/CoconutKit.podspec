@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'CoconutKit'
   s.version = '1.1.4'
   s.license = 'MIT'
-  s.summary = 'CoconutKit is a library of high-quality iOS components'
+  s.summary = 'CoconutKit is a library of high-quality iOS components.'
   s.homepage = 'https://github.com/defagos/CoconutKit'
   s.author = { 'Samuel Défago' => 'defagos@gmail.com' }
 
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   
-  s.source   = { :git => 'git://github.com/defagos/CoconutKit-binaries.git', :tag => '1.1.4' }
+  s.source   = { :git => 'https://github.com/defagos/CoconutKit-binaries.git', :tag => '1.1.4' }
   
   s.source_files = 'empty.m'
   s.resources = 'CoconutKit-resources.bundle'

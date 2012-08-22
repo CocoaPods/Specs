@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/PrimaryFeather/Sparrow-Framework.git', :tag => 'v1.3' }
   s.platform = :ios
   s.source_files = 'sparrow/src/Classes/*.{h,m}'
-  s.clean_paths = 'BUILDING.md', '.gitignore', 'samples/barebone', 'samples/demo', 'sparrow/doc', 'sparrow/src/Fixtures', 'sparrow/src/UnitTests*', 'sparrow/src/Sparrow.xcodeproj'
+
   s.frameworks = 'OpenGLES', 'OpenAL', 'QuartzCore', 'AudioToolbox', 'AVFoundation'
   s.library = 'z'
 end

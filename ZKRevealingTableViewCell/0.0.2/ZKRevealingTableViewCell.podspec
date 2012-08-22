@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description  = 'A different kind of swipe-to-reveal that pans with your finger and works left and right to reveal a background view.'
   s.platform     = :ios
   s.source_files = 'vendor'
-  s.clean_paths  = "ZKRevealingTableViewCell", "ZKRevealingTableViewCell.xcodeproj", "Preview.png"
+
   s.framework    = 'QuartzCore'
 end

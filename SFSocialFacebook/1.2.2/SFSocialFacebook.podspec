@@ -7,15 +7,13 @@ Pod::Spec.new do |s|
   s.homepage = 'http://developers.facebook.com/docs/reference/iossdk'
   s.author   = { 'Massaki' => 'marcio.massaki@i.ndigo.com.br' }
 
-  s.source   = { :git => 'git@github.com:indigotech/facebook-ios-sdk.git', :tag => 'social_facebook_v1.2.2' }
+  s.source   = { :git => 'https://github.com/indigotech/facebook-ios-sdk.git', :tag => 'social_facebook_v1.2.2' }
 
   s.platform = :ios
 
   s.source_files = 'src/*.{h,m}', 'src/SFSocialFacebook/*.{h,m}', 'src/SFSocialFacebook/Models/*.{h,m}'
 
   s.resource = "src/FBDialog.bundle"
-
-  s.clean_paths = "sample", "test", "SBJson"
 
   s.dependency 'SBJson', '~> 3.0.1'
 end

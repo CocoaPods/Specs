@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ootake/NSDate-TimeDifference.git' , :commit => 'dc3578a7afee5ed152118bb3a36f233b16313f2d' }
   s.source_files = 'NSDate+TimeDifference/NSDate+TimeDifference.{h,m}'
   s.platform = :ios
-  s.clean_paths = 'NSDate+TimeDifferenceExample.xcodeproj' , 'NSDate+TimeDifferenceExample'
+
   s.requires_arc = true
 end

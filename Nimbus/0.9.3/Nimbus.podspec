@@ -1,5 +1,3 @@
-# TODO
-# * clean_paths
 Pod::Spec.new do |s|
   s.name     = 'Nimbus'
   s.version  = '0.9.3'
@@ -26,7 +24,8 @@ Pod::Spec.new do |s|
                   'simple to understand.'
 
   s.platform = :ios
-  s.clean_paths = 'docs', 'examples', 'scripts', 'templates', 'thirdparty'
+  s.compiler_flags = '-Wno-switch'
+
 
   s.subspec 'Core' do |core|
     core.source_files = 'src/core/src'

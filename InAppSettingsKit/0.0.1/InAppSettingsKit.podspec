@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.resources     = 'InAppSettingsKit/Xibs/*.*'
   s.source_files  = 'InAppSettingsKit/**/*.{h,m}'
-  s.clean_paths   = 'InAppSettingsKitSampleApp'
+
 end

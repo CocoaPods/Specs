@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/ognen/httpriot'
   
   s.author   = { 'Ognen Ivanovski' => '' }
-  s.source   = { :git => 'git://github.com/ognen/httpriot.git', :tag => 'v0.6.11'}
+  s.source   = { :git => 'https://github.com/ognen/httpriot.git', :tag => 'v0.6.11'}
   s.platform = :ios
   
   s.source_files = 'Source/HTTPRiot/*.{h,m}', 
