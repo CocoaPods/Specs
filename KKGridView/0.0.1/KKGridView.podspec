@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   #s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git', :tag => '0.0.1' }
   s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git',
-                 :commit => '8dbcb6df9396e10a1442cf9994067434eb5c4385' }
+                 :commit => :head }
 
   s.source_files = 'KKGridView'
 
