@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Core Data Persistence with AFNetworking, Done Right."
   s.homepage     = "https://github.com/AFNetworking/AFIncrementalStore"
 
-  s.license      = { :type => 'MIT', :file => 'LICENSE'}
+  s.license      = 'MIT'
 
   s.author       = { "Mattt Thompson" => "m@mattt.me" }
 
