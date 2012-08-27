@@ -26,10 +26,10 @@ Pod::Spec.new do |s|
         system('sed \'s/<UniquePrefix>/MyApp/g\' LCLUserDefaultsConfig.template.h > LCLUserDefaultsConfig.h')
       end
       Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging-UserDefaults/') do
-        FileUtils.ln_s('../../LibComponentLogging-UserDefaults/LCLUserDefaultsConfig.h', 'LCLUserDefaultsConfig.h')
+        FileUtils.ln_sf('../../LibComponentLogging-UserDefaults/LCLUserDefaultsConfig.h', 'LCLUserDefaultsConfig.h')
       end
       Dir.chdir(config.project_pods_root + 'BuildHeaders/LibComponentLogging-UserDefaults/') do
-        FileUtils.ln_s('../../LibComponentLogging-UserDefaults/LCLUserDefaultsConfig.h', 'LCLUserDefaultsConfig.h')
+        FileUtils.ln_sf('../../LibComponentLogging-UserDefaults/LCLUserDefaultsConfig.h', 'LCLUserDefaultsConfig.h')
       end
       return
     end

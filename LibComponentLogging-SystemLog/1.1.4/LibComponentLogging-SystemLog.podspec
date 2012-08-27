@@ -26,10 +26,10 @@ Pod::Spec.new do |s|
         system('sed \'s/<UniquePrefix>/MyApp/g\' LCLSystemLogConfig.template.h > LCLSystemLogConfig.h')
       end
       Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging-SystemLog/') do
-        FileUtils.ln_s('../../LibComponentLogging-SystemLog/LCLSystemLogConfig.h', 'LCLSystemLogConfig.h')
+        FileUtils.ln_sf('../../LibComponentLogging-SystemLog/LCLSystemLogConfig.h', 'LCLSystemLogConfig.h')
       end
       Dir.chdir(config.project_pods_root + 'BuildHeaders/LibComponentLogging-SystemLog/') do
-        FileUtils.ln_s('../../LibComponentLogging-SystemLog/LCLSystemLogConfig.h', 'LCLSystemLogConfig.h')
+        FileUtils.ln_sf('../../LibComponentLogging-SystemLog/LCLSystemLogConfig.h', 'LCLSystemLogConfig.h')
       end
       return
     end
