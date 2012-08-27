@@ -29,10 +29,10 @@ Pod::Spec.new do |s|
         system('sed \'s/<UniquePrefix>/MyApp/g\' LCLNSLoggerConfig.template.h > LCLNSLoggerConfig.h')
       end
       Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging-NSLogger/') do
-        FileUtils.ln_s('../../LibComponentLogging-NSLogger/LCLNSLoggerConfig.h', 'LCLNSLoggerConfig.h')
+        FileUtils.ln_s('../../LibComponentLogging-NSLogger/LCLNSLoggerConfig.h', 'LCLNSLoggerConfig.h', :force => true)
       end
       Dir.chdir(config.project_pods_root + 'BuildHeaders/LibComponentLogging-NSLogger/') do
-        FileUtils.ln_s('../../LibComponentLogging-NSLogger/LCLNSLoggerConfig.h', 'LCLNSLoggerConfig.h')
+        FileUtils.ln_s('../../LibComponentLogging-NSLogger/LCLNSLoggerConfig.h', 'LCLNSLoggerConfig.h', :force => true)
       end
       return
     end
