@@ -1,7 +1,7 @@
 
-d::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name     = 'PPRevealSideViewController'
-  s.version  = '0.0.1'
+  s.version  = '0.1.0'
   s.license  = 'MIT'
   s.summary  = 'A new container controller to easily push views on side like Path or Facebook.'
   s.homepage = 'www.ipup.pro'
