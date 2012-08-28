@@ -1,4 +1,5 @@
-Pod::Spec.new do |s|
+
+d::Spec.new do |s|
   s.name     = 'PPRevealSideViewController'
   s.version  = '0.0.1'
   s.license  = 'MIT'
@@ -11,3 +12,4 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 end
+
