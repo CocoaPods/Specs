@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version = '1.0.0'
   s.summary = 'A shift/reduce parsing framework for Mac OS X and iOS.'
   s.author = { 'Beelsebob' => '' }
+  s.license = 'BSD/MIT-like'
   s.homepage = 'https://github.com/beelsebob/CoreParse'
   s.source = { :git => 'https://github.com/beelsebob/CoreParse.git', :tag => '1.0.0' }
   s.source_files = 'CoreParse/**/*.{h,m}'
