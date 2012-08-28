@@ -11,9 +11,16 @@ Pod::Spec.new do |s|
   s.author       = { "Dmitri Cherniak" => "dmitric@gmail.com" }
   s.source       = { :git => "https://github.com/gobackspaces/DLCImagePickerController.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'Classes'
-  s.resources    = "Resources/**/*.*", "Images/{UI,Overlays}/*.png"
   s.requires_arc = true
-  # Temporary, this might break the podspec in the future.
-  s.dependency 'GPUImage', :head
+
+  s.subspec 'Core' do |sp|
+    sp.source_files = 'Classes'
+    sp.resources = "Resources/**/*.*", "Images/{UI,Overlays}/*.png"
+    # Temporary, this might break the podspec in the future.
+    sp.dependency 'GPUImage', :head
+  end
+
+  s.subspec 'FilterSamples' do |sp|
+    sp.resources = "Images/FilterSamples/*.png"
+  end
 end
