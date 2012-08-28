@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = "StackMob's SDK for accessing the StackMob Services on iOS."
   s.homepage = 'http://stackmob.com'
   s.author   = { 'StackMob' => 'info@stackmob.com' }
-  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-sdk.git', :commit => 'b7ba4f83d442a530fbbd3d5bacf169e8b3b448c5' }
+  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-sdk.git', :commit => '47927ba8dea0a96b03df24758db5c88de8abca20' }
   s.platform = :ios
   s.source_files = 'Classes/*.{h,m}', 'Utility/*.{h,m}', 'CoreData/Classes/*.{h,m}'
   s.dependency 'AFNetworking', '~> 1.0RC1'
