@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.resource   = '**/YandexMapKit.bundle'
   s.frameworks = 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreTelephony', 'QuartzCore', 'MessageUI', 'OpenGLES', 'Security', 'SystemConfiguration'
   s.libraries  = 'sqlite3', 'stdc++', 'xml2', 'YandexMapKit', 'z'
+  s.preserve_paths = '**/libYandexMapKit.a'
   s.xcconfig     = { 'HEADER_SEARCH_PATHS'  => '"$(SDKROOT)/usr/include/libxml2"',
                      'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/YandexMapKit/YandexMapKit"' }
 end
