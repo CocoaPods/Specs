@@ -9,8 +9,6 @@ Pod::Spec.new do |s|
   s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/gdata-objectivec-client' }
   s.source   = { :svn => 'http://gdata-objectivec-client.googlecode.com/svn', :tag => 'gdata-objectivec-client-1.9.1' }
 
-  s.preferred_dependency = 'Core'
-
   s.subspec 'Core' do |gdc|
     gdc.source_files   = 'Source/ACL/*.{h,m}', 'Source/BaseClasses/*.{h,m}', 'Source/Elements/*.{h,m}',
                          'Source/Geo/*.{h,m}', 'Source/HTTPFetcher/*.{h,m}', 'Source/Introspection/*.{h,m}',
