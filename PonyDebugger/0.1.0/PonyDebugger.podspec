@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'ObjC/**/*.{h,m}'
   s.frameworks = 'CFNetwork', 'CoreData', 'Security', 'Foundation'
-  s.library   = 'libicucore'
+  s.library   = 'icucore'
   s.requires_arc = true
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(CONFIGURATION_BUILD_DIR)/usr/local/include', 'OTHER_LDFLAGS' => '-ObjC' }
   s.dependency 'SocketRocket', '~> 0.1'
