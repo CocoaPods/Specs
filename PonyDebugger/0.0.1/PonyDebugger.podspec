@@ -14,4 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = 'ObjC/{DerivedSources,PonyDebugger}/**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'SocketRocket'
+  # The readme says that it is needed but it lints without
+  s.frameworks   = 'CoreData'
 end
