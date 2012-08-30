@@ -16,7 +16,7 @@
 #
 Pod::Spec.new do |s|
   s.name         = "AeroGear"
-  s.version      = "1.0.0.Alpha"
+  s.version      = "0.0.1"
   s.summary      = "Provides a lightweight set of utilities for communication, security, storage and more."
   s.homepage     = "https://github.com/aerogear/aerogear-ios"
   s.license      = 'Apache License, Version 2.0'
