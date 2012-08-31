@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "FoldViewController"
-  s.version      = "0.0.2"
+  s.version      = "1.0.1"
   s.summary      = "A folding view controller for the iOS platform based on the excellent ECSlidingViewController and XYOrigami projects."
   s.description  = <<-DESC
                      A folding view controller for the iOS platform based on the excellent ECSlidingViewController and XYOrigami projects.
   
-                     * Offered 'as is' to encourage others to improve.
+                     * Offered 'as is' to encourage other developers to improve.
                     DESC
   s.homepage     = "https://github.com/Tumunu/FoldViewController"
   s.license      = {
