@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.0.1'
   s.license  = 'MIT'
   s.platform = :ios
-  s.summary  = 'A high-performance iOS grid view.'
+  s.summary  = '[deprecated] A high-performance iOS grid view.'
   s.homepage = 'https://github.com/kolinkrewinkel/KKGridView'
   s.authors  = { 'Kolin Krewinkel'   => 'kolin.krewinkel@me.com',
                  'Giulio Petek'      => 'gi-lo@touch-mania.com',
