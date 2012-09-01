@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, "5.0"
   s.requires_arc = true
 
-  s.source_files = 'Util.h', 'Util.h'
+  s.source_files = 'Util.h', 'Util.m'
 
   s.subspec 'CoreFoundation' do |sp|
     sp.source_files = 'CoreFoundation/**/*.{h,m,c}'
