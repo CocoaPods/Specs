@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gobackspaces/DLCImagePickerController.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'
   s.requires_arc = true
-  s.framework    = 'ALAssetsLibrary'
+  s.framework    = 'AssetsLibrary'
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Classes'
