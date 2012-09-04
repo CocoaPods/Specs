@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Apache License, Version 2.0 ', :file => 'LICENSE' }
   s.author       = { "Gregory Haines" => "greg@greghaines.net" }
   s.source       = { :git => "https://github.com/gresrun/GHSidebarNav.git", :tag => "1.0.0" }
-  s.source_files = 'NSObject+Subscripts.h', 'GHSidebarNav', 'GHSidebarNav/**/*.{h,m}'
+  s.source_files = 'NSObject+Subscripts.h', 'GHSidebarNav/**/*.{h,m}'
   s.platform     = :ios, '5.0'
 
   s.resources = "GHSidebarNav/Images/*.png"
