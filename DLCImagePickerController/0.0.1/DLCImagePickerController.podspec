@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'FilterSamples' do |sp|
-    sp.resources = "Images/FilterSamples/*.png"
+    sp.resources = "Images/FilterSamples/*.jpg"
   end
 end
