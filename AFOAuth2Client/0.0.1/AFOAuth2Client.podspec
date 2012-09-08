@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/AFNetworking/AFOAuth2Client.git',
                  :commit => '068c25f83b800451cf0b5ba0da7a6a018252c0a9' }
   s.source_files = '*.{h,m}'
+  s.dependency 'AFNetworking', '~>0.10.0'
 end
