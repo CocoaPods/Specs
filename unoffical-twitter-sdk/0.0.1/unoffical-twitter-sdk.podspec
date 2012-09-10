@@ -25,16 +25,19 @@ Pod::Spec.new do |s|
 
   s.source_files = 'unoffical-twitter-sdk/TwitterDialog.{h,m}',
                    'unoffical-twitter-sdk/OAuth/**/*.{h,c,m}'
-  s.public_header_files = 'unoffical-twitter-sdk/TwitterDialog.h'
-  s.preserve_paths = 'unoffical-twitter-sdk/OAuth'
+  s.public_header_files = 'unoffical-twitter-sdk/TwitterDialog.h',
+                          'unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h',
+                          'unoffical-twitter-sdk/OAuth/Guts/OAuth.h'
 
   s.resources = "unoffical-twitter-sdk/*.png"
 
   s.dependency 'SBJson'
 
   def s.post_install(target)
+    old_header = File.read( config.project_pods_root + 'unoffical-twitter-sdk/unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h' )
+        
     File.open( config.project_pods_root + 'unoffical-twitter-sdk/unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h', "w+" ) do |file|
-      file.puts file.read.gsub("#error","//#error")
+      file.puts old_header.gsub("#error", "//#error")
     end
   end
 
