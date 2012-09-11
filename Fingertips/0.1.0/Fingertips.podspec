@@ -15,6 +15,8 @@ Pod::Spec.new do |f|
 
   f.source_files = '*.{h,m}'
 
+  f.requires_arc = true
+
   f.documentation = {
     :appledoc => [
       '--project-company', 'Development Seed',
