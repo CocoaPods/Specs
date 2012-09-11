@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                     All of the controls are fully compatible with OS X 10.6 and 10.7.
                     Each of the NSControl subclasses are completely independent (aside from a few categories) so you are free to pick and choose the controls you need instead of using the entire framework.
                    DESC
-  s.homepage     = "http://indragie.com"
+  s.homepage     = "https://github.com/indragiek/SNRHUDKit"
   s.license      = {
     :type => 'BSD license',
     :text => <<-LICENSE
