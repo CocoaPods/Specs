@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
                    'unoffical-twitter-sdk/OAuth/**/*.{h,c,m}'
   s.public_header_files = 'unoffical-twitter-sdk/TwitterDialog.h',
                           'unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h',
+                          'unoffical-twitter-sdk/OAuth/Protocols/OAuthTwitterCallbacks.h',
                           'unoffical-twitter-sdk/OAuth/Guts/OAuth.h'
 
   s.resources = "unoffical-twitter-sdk/*.png"
