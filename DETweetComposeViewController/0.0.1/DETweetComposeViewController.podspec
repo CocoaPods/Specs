@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source_files = 'DETweetComposeViewController'
-  s.public_header_files = 'DETweetComposeViewController/DETweetComposeViewController.h'
+  s.public_header_files = 'DETweetComposeViewController/*.h'
 
   s.resources = "DETweetComposeViewController/Resources/*.png",
                 "DETweetComposeViewController/*.xib"
