@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
       if obj.isa.to_s == "PBXBuildFile"
         fileRef = obj.attributes["fileRef"]
         file_name = project.objects[fileRef].pathname.basename.to_s
-        if ["NSColor+TUIExtensions.m"].include? (file_name)
+        if ["NSColor+TUIExtensions.m"].include?(file_name)
           puts "Removed #{obj.settings.delete('COMPILER_FLAGS')} from #{file_name}"
         end
       end
