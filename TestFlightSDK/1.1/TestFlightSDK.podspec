@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.summary  = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
   s.homepage = 'http://www.testflightapp.com'
   s.author   = { 'TestFlight' => 'support@testflightapp.com' }
-  s.source   = { :http => 'https://d3fqheiq7nlyrx.cloudfront.net/sdk-downloads/TestFlightSDK1.1.zip'
+  s.source   = { :http => 'https://d3fqheiq7nlyrx.cloudfront.net/sdk-downloads/TestFlightSDK1.1.zip' }
   s.description = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
   s.platform = :ios
   s.source_files = 'TestFlight.h'
