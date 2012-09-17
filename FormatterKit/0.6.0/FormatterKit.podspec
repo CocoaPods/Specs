@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'FormatterKit'
   s.version  = '0.6.0'
+  s.license  = 'MIT'
   s.summary  = '`stringWithFormat:` for the sophisticated hacker set.'
   s.homepage = 'https://github.com/mattt/FormatterKit'
   s.author   = { 'Mattt Thompson' => 'm@mattt.me' }
