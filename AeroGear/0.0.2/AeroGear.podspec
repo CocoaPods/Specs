@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AeroGear-iOS/AeroGear-iOS'
   s.public_header_files = 'AeroGear-iOS/AeroGear-iOS/AeroGear.h', 'AeroGear-iOS/AeroGear-iOS/AGPipe.h', 'AeroGear-iOS/AeroGear-iOS/AGPipeline.h'
   s.requires_arc = true
-  s.dependency 'AFNetworking', '~> 1.0RC1'
+  s.dependency 'AFNetworking', '1.0RC1'
 end
