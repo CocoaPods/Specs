@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
 
   # Airship ships both UA-prefixed ASI and SBJson, as well as un-prefixed
   # versions that are no longer used in the .xcodeproj.
-  s.source_files = FileList['Airship/**/*.{h,m,c}'].exclude(/\/asi-http-request\//) \
-                                                   .exclude(/\/json-framework\//) \ 
+  s.source_files = FileList['Airship/**/*.{h,m,c}'].exclude(/\/asi-http-request\//)
+                                                   .exclude(/\/json-framework\//)
                                                    .exclude(/\/google-toolbox-for-mac\//)
   
   s.libraries    = 'z', 'sqlite3.0'
