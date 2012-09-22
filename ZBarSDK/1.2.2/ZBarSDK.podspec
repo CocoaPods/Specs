@@ -20,6 +20,8 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/{bch15_5,binarize,isaac,qrdec,qrdectxt,rs,util}.c',
                    'iphone/*.m'
 
+  s.header_mappings_dir = 'zbar'
+
   s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
   s.library      = 'iconv'
@@ -32,9 +34,4 @@ Pod::Spec.new do |s|
 
   s.compiler_flags = '-Wno-tautological-compare',   '-Wno-missing-prototypes', '-Wno-logical-op-parentheses',
                      '-Wno-bitwise-op-parentheses', '-Wno-incompatible-pointer-types'
-
-  # Maintain the dir structure for headers
-  def s.copy_header_mapping(from)
-    from
-  end
 end
