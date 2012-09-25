@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SKBounceAnimation/SKBounceAnimation.{h,m}'
 
-  s.frameworks = 'CoreGraphics.framework', 'QuartzCore.framework'
+  s.frameworks = 'CoreGraphics', 'QuartzCore'
 end
