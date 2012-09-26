@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.resource     =  'src/FacebookSDKResources.bundle'
   s.library      =  'sqlite3.0'
   s.header_dir   =  'FacebookSDK'
-  s.framework = 'Accounts', 'CoreLocation', 'AdSupport', 'Social'
+  s.weak_frameworks = 'Accounts', 'AdSupport', 'Social'
+  s.framework = 'CoreLocation'
 end
