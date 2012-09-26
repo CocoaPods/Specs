@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.library      =  'sqlite3.0'
   s.header_dir   =  'FacebookSDK'
   s.dependency 'SBJson', '2.2.3'
+  s.framework = 'Accounts', 'CoreLocation', 'AdSupport', 'Social'
 end
