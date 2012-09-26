@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     =  'http://developers.facebook.com/docs/reference/iossdk'
   s.author       =  'Facebook'
   s.source       =  { :git => 'https://github.com/facebook/facebook-ios-sdk.git', :tag => 'sdk-version-3.1.0' }
-  s.source_files =  'src/*.{h,m}'
+  s.source_files =  'src/*.{h,m}', 'src/JSON/*.{h,m}'
   s.resource     =  'src/FacebookSDKResources.bundle'
   s.library      =  'sqlite3.0'
   s.header_dir   =  'FacebookSDK'
