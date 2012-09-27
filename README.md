@@ -1,4 +1,4 @@
-# A repository of CocoaPods specifications.
+# A repository of CocoaPods specifications. 
 
 [![Build Status](https://secure.travis-ci.org/CocoaPods/Specs.png?branch=master)](http://travis-ci.org/CocoaPods/Specs)
 
