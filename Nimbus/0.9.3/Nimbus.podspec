@@ -97,6 +97,7 @@ Pod::Spec.new do |s|
     image.summary      = 'Image views that load images from the network and efficiently store the result in memory and on disk.'
     image.source_files = 'src/networkimage/src'
     image.dependency 'Nimbus/Core'
+
   end
 
   s.subspec 'Overview' do |overview|
