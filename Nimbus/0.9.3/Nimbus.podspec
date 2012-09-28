@@ -66,6 +66,7 @@ Pod::Spec.new do |s|
   s.subspec 'NetworkImage' do |image|
     image.source_files = 'src/networkimage/src'
     image.dependency 'Nimbus/Core'
+
   end
 
   s.subspec 'Overview' do |overview|
