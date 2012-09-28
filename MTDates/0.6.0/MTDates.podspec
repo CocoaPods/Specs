@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       	= { "Adam Kirk" => "atomkirk@gmail.com" }
   s.source       	= { :git => "https://github.com/mysterioustrousers/MTDates.git", :tag => "0.6.0" }
   s.source_files 	= 'MTDates/*.{h,m}'
+  s.requires_arc 	= true
 end
