@@ -7,5 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { "Nick Lockwood" => "support@charcoaldesign.co.uk" }
   s.source       = { :git => "https://github.com/nicklockwood/SwipeView.git", :tag => "1.2.7" }
   s.source_files = 'SwipeView'
+  s.requires_arc = true
   s.platform     = :ios
 end
