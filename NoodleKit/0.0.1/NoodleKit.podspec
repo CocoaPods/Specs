@@ -39,12 +39,13 @@ Pod::Spec.new do |s|
     sp.source_files = 'NSWindow-NoodleEffects.{h,m}'
   end
 
-  s.subspec 'NoodleLineNumberView' do |sp|
-    sp.source_files = 'NoodleLineNumberView.{h,m}'
-  end
-
   s.subspec 'NoodleLineNumberMarker' do |sp|
     sp.source_files = 'NoodleLineNumberMarker.{h,m}'
+  end
+
+  s.subspec 'NoodleLineNumberView' do |sp|
+    sp.source_files = 'NoodleLineNumberView.{h,m}'
+    sp.dependency 'NoodleKit/NoodleLineNumberMarker'
   end
 
   s.subspec 'NSTableView-NoodleExtensions' do |sp|
