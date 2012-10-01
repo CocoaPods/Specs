@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
                   'simple to understand.'
 
   s.platform = :ios
-  s.compiler_flags = '-Wno-switch'
 
 
   s.subspec 'Core' do |core|
@@ -66,7 +65,7 @@ Pod::Spec.new do |s|
   s.subspec 'NetworkImage' do |image|
     image.source_files = 'src/networkimage/src'
     image.dependency 'Nimbus/Core'
-    image.dependency 'ASIHTTPRequest'
+
   end
 
   s.subspec 'Overview' do |overview|
