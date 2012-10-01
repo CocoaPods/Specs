@@ -19,7 +19,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   s.authors      = { "Sandeep Dhull" => "sdhull@tavisca.com", "Kauserali Hafizji" => "ali.hafizji@gmail.com" }
-  s.source       = { :git => "https://github.com/taviscaios/TVCalibratedSlider.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/taviscaios/TVCalibratedSlider.git", :tag => "v1.0.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Classes'
   s.resources = "Resources/*.png"
