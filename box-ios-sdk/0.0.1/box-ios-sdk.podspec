@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Box' => 'developers@box.net' }
   s.platform     = :ios
   s.source       = { :git => 'https://github.com/box/box-ios-sdk.git', :commit => '6bb100550322c11f09f949ab1383d797298f1a94' }
-  s.source_files = 'Classes/SDKFiles', 'Classes/SDKFiles/**/*.{h,m}'
+  s.source_files = 'Classes/SDKFiles'
   s.framework    = 'Security'
   s.license      = 'Commercial'
 end
