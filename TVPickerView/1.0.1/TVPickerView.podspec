@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   }
 
   s.author       = 'TaviscaIos'
-  s.source       = { :git => "https://github.com/taviscaios/TVPickerView.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/taviscaios/TVPickerView.git", :tag => "v1.0.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'TVPickerView/Classes/**/*.{h,m}'
   s.resources = "TVPickerView/Resources/Normal/*.png","TVPickerView/Resources/Retina/*.png"
