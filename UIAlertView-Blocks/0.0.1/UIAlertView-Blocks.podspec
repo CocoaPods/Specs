@@ -4,6 +4,7 @@ Pod::Spec.new do |s|
   s.platform 	 = :ios
   s.author       = 'Jiva Devoe'
   s.license      = 'MIT'
+  s.requires_arc = true
   s.summary      = 'A category for UIAlertView and UIActionSheet which allows you to use blocks to handle the pressed button events rather than implementing a delegate.'
   s.source_files = '*.{h,m}'
   s.homepage	 = 'https://github.com/jivadevoe/UIAlertView-Blocks'
