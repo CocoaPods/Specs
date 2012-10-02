@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 
   s.preferred_dependency = 'Main'	
 
-  s.subspec 'Main' do |s|
-    s.source_files = 'SDWebImage/{SD,UI}*.{h,m}'
-    s.framework = 'ImageIO'
+  s.subspec 'Main' do |sp|
+    sp.source_files = 'SDWebImage/{SD,UI}*.{h,m}'
+    sp.framework = 'ImageIO'
   end
 
-  s.subspec 'MapKit' do
-    s.dependency 'SDWebImage/Main'
-    s.source_files = 'MKAnnotationView+WebCache.*'
-    s.framework    = 'MapKit'
+  s.subspec 'MapKit' do |sp|
+    sp.dependency 'SDWebImage/Main'
+    sp.source_files = 'MKAnnotationView+WebCache.*'
+    sp.framework    = 'MapKit'
   end
 end
