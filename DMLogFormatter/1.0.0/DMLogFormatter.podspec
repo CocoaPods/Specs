@@ -1,18 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "DMLogFormatter"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of DMLogFormatter."
-  s.description  = "Log formatter for Lumberjack logging framework"
+  s.version      = "1.0.0"
+  s.summary      = "A clean log formatter for CocoaLumberjack."
+  s.description  = "A clean log formatter for CocoaLumberjack."
   s.homepage     = "https://github.com/devmob-DE/CocoaLumberjack-DMLogFormatter"
 
-  s.license      = { :type => 'MIT', :file => 'https://raw.github.com/devmob-DE/CocoaLumberjack-DMLogFormatter/master/LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Martin Stolz" => "martin@devmob.de" }
 
-  s.source       = { :git => "http://EXAMPLE/DMLogFormatter.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/devmob-DE/CocoaLumberjack-DMLogFormatter.git", :tag => "1.0.0" }
   s.platform     = :ios, '3.0'
 
-  s.source_files = '*.m'
-  s.public_header_files = '*.h'
+  s.source_files = '*.{m,h}'
 
   s.dependency 'CocoaLumberjack', '~> 1.3'
 end
