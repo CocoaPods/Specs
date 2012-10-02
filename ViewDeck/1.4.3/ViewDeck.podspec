@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'ViewDeck'
-  s.version   = '1.4.2.1'
+  s.version   = '1.4.3'
   s.platform  = :ios
   s.summary   = 'An implementation of the sliding functionality found in the ' \
                 'Path 2.0 or Facebook iOS apps.'
