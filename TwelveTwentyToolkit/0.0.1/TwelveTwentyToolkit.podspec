@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://twelvetwenty.nl'
   s.license      = 'MIT'
   s.author       = { 'Eric-Paul Lecluse' => 'epologee@gmail.com', 'Jankees van Woezik' => 'jankeesvw@gmail.com' }
-  s.source       = { :git => 'https://github.com/TwelveTwenty/TwelveTwentyToolkit-ObjC.git', :commit => :head }
+  s.source       = { :git => 'https://github.com/TwelveTwenty/TwelveTwentyToolkit-ObjC.git', :tag => '0.0.1' }
   s.platform     = :ios, '5.0'
   s.source_files = 'TwelveTwentyToolkit/TwelveTwentyToolkit.h'
   s.requires_arc = true
