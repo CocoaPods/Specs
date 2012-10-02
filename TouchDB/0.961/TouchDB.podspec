@@ -73,4 +73,7 @@ Pod::Spec.new do |s|
   s.dependency 'CocoaHTTPServer'
   s.dependency 'MYUtilities'
   s.dependency 'JSONKit'
+
+  s.framework = 'SystemConfiguration'
+  s.library   = 'sqlite3'
 end
