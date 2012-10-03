@@ -30,7 +30,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/airbrake/airbrake-ios.git", :tag => "3.1.0" }
   s.source_files = 'Airbrake/notifier/*.{h,m}'
   s.source_files = 'Airbrake/gcalertview/*.{h,m}'
-  s.resources    = 'Airbrake/notifier/ABNotifier.bundle'
   s.frameworks   = 'SystemConfiguration.framework'  
   s.libraries    = 'libxml2.dylib'
   s.dependency   'KissXML'
