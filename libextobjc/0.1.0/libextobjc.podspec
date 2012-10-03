@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "libextobjc"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "A Cocoa library to extend the Objective-C programming language."
   s.homepage     = "https://github.com/jspahrsummers/libextobjc"
   s.author       = { "Justin Spahr-Summers" => "jspahrsummers@github.com" }
-  s.source       = { :git => "https://github.com/jspahrsummers/libextobjc.git", :commit => "a125cc2e76c21e01fbff58fd3c35dca8d3f5569f" }
+  s.source       = { :git => "https://github.com/jspahrsummers/libextobjc.git", :tag => s.version.to_s }
   s.source_files = "extobjc/metamacros.h", "extobjc/EXTRuntimeExtensions.{h,m}"
   s.requires_arc = true
 
