@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://airbrake.io/pages/ios-notifier"
   s.author       = { "Airbrake" => "support@airbrake.io" }
   s.license      = { :type => 'MIT', :text => license }
+  s.platform     = :ios
   s.source       = { :git => "https://github.com/airbrake/airbrake-ios.git", :tag => "3.1.0" }
   s.source_files = 'Airbrake/notifier/*.{h,m}'
   s.source_files = 'Airbrake/gcalertview/*.{h,m}'
