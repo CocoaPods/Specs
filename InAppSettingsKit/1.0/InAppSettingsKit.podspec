@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license   = 'BSD'
   s.source    = { :git => 'https://github.com/futuretap/InAppSettingsKit.git', :tag => '1.0' }
 
-  s.resources     = 'InAppSettingsKit/Xibs/*.*'
   s.source_files  = 'InAppSettingsKit/**/*.{h,m}'
+  s.framework = 'MessageUI'
 
 end
