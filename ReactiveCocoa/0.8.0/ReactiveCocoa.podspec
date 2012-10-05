@@ -11,12 +11,24 @@ Pod::Spec.new do |s|
                    "2. An approach to minimizing state and mutability.\n"                                  \
                    "3. A declarative way to define behaviors and the relationships between properties.\n"  \
                    "4. A unified, high-level interface for asynchronous operations.\n"                     \
-                   "5. A lovely API on top of KVO.\n"
+                   "5. A lovely API on top of KVO."
 
-  files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-  s.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/,/NSTask/)
-  s.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /Event/, /DelegateProxy/)
   s.requires_arc = true
-  s.dependency 'JRSwizzle', '~> 1.0'
-  s.dependency 'libextobjc/EXTConcreteProtocol', '~> 0.1.0'
+
+  s.subspec 'Core' do |sp|
+    files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
+    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
+    sp.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /Event/, /DelegateProxy/)
+    sp.header_dir = 'ReactiveCocoa'
+
+    sp.dependency 'JRSwizzle', '~> 1.0'
+    sp.dependency 'libextobjc/EXTConcreteProtocol', '~> 0.1.0'
+  end
+
+  s.subspec 'RACExtensions' do |sp|
+    files = FileList['RACExtensions/*.{h,m}']
+    sp.ios.source_files = files.dup.exclude(/NSTask/)
+    sp.osx.source_files = files
+    sp.dependency 'ReactiveCocoa/Core'
+  end
 end
