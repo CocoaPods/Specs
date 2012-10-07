@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
 
   s.license      = 'Public Domain'
   s.author       = "hellozimi"
-  s.source       = { :git => "https://github.com/hellozimi/HCYoutubeParser.git",
-                     :commit => "295bac16683becb6172ef207a21591ec4090c6ba" }
+  s.source       = { :git => "https://github.com/hellozimi/HCYoutubeParser.git" }
 
   s.platform     = :ios
   s.source_files = 'YoutubeParser/Classes'
