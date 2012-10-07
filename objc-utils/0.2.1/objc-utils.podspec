@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author       = { "Marcel Ruegenberg" => "github@dustlab.com" }
-  s.source       = { :git => "https://github.com/mruegenberg/objc-utils.git", :tag => "0.2.0" }
+  s.source       = { :git => "https://github.com/mruegenberg/objc-utils.git", :tag => "0.2.1" }
   
   s.platform = :ios, "5.0"
   s.requires_arc = true
