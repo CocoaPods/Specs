@@ -6,6 +6,5 @@ Pod::Spec.new do |s|
   s.summary  = 'Evernote SDK for osx.'
   s.homepage = 'https://github.com/evernote/evernote-sdk-mac'
   s.author   = 'Evernote'
-  s.source   = { :git => 'https://github.com/evernote/evernote-sdk-mac.git' }
   s.source_files = 'evernote-sdk-mac/src/edam/*.{h,m}', 'evernote-sdk-mac/src/thrift/*.{h,m}', 'evernote-sdk-mac/src/thrift/protocol/*.{h,m}', 'evernote-sdk-mac/src/thrift/transport/*.{h,m}'
 end
