@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "iOS-Hierarchy-Viewer"
   s.version      = "1.3"
-  s.summary      = "iOS Hierarchy Viewer allows developers to debug their user interfaces. If there are problems with layout calculations, it will catch them by giving a real time preview of the UIViews hierarchy."
+  s.summary      = "Allows to debug user interfaces with a real time preview of the UIViews hierarchy."
   s.description  = "iOS Hierarchy Viewer allows developers to debug their user interfaces. If there are problems with layout calculations, it will catch them by giving a real time preview of the UIViews hierarchy." \
                    "Features:" \
                    "- the client is implemented in HTML/JS/CSS. Additional software is not required" \

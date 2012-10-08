@@ -16,12 +16,16 @@ Pod::Spec.new do |s|
                    'several times, a guarantee that bogus URLs won\'t be retried again and again, ' \
                    'and performances!'
 
-  s.source_files = 'SDWebImage/{MK,SD,UI}*.{h,m}'
-  s.framework = 'ImageIO'
+  s.preferred_dependency = 'Main'	
 
-  # TODO currently CocoaPods always tries to install the subspec even if the dependency is on just 'SDWebImage'
-  #s.subspec 'MapKit' do
-    #s.source_files = 'MKAnnotationView+WebCache.*'
-    #s.framework    = 'MapKit'
-  #end
+  s.subspec 'Main' do |sp|
+    sp.source_files = 'SDWebImage/{SD,UI}*.{h,m}'
+    sp.framework = 'ImageIO'
+  end
+
+  s.subspec 'MapKit' do |sp|
+    sp.dependency 'SDWebImage/Main'
+    sp.source_files = 'MKAnnotationView+WebCache.*'
+    sp.framework    = 'MapKit'
+  end
 end

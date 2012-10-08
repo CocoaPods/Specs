@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "ORSSerialPort"
   s.version      = "0.0.1"
-  s.summary      = "A simple, Cocoa-like set of Objective-C classes useful for programmers writing Objective-C Cocoa apps that must communicate with external devices through a serial port (most commonly RS-232)."
+  s.summary      = "Set of Objective-C classes useful for communicating with external devices through a serial port (most commonly RS-232)."
+  s.description  = "A simple, Cocoa-like set of Objective-C classes useful for programmers writing Objective-C Cocoa apps that must communicate with external devices through a serial port (most commonly RS-232)."
   s.homepage     = "https://github.com/armadsen/ORSSerialPort"
   s.license      = 'MIT'
   s.author       = { "Andrew Madsen" => "andrew@openreelsoftware.com" }
