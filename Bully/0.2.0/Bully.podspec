@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'Bully'
   s.version      = '0.2.0'
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
   s.summary      = 'Pusher Objective-C Client.'
   s.homepage     = 'https://github.com/samsoffes/bully'
   s.author       = { 'Sam Soffes' => 'sam@samsoff.es' }
@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.dependency 'SocketRocket'
+  s.dependency 'Reachability'
 end
