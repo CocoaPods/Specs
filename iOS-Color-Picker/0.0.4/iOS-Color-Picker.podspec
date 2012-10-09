@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}'
   s.resources = "Resources/*.png", 'ColorPickerViewController.xib'
   s.frameworks = 'QuartzCore', 'Foundation', 'UIKit', 'CoreGraphics'
-  s.dependency 'UIColor-Utilities', '~> 0.1'
+  s.dependency 'UIColor-Utilities', '~> 1.0'
 end
