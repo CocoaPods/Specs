@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.0'
   s.source_files = 'REVClusterMap/REVClusterMap/*.{h,m}'
   s.resources = "REVClusterMap/Recources/assets/*.png"
-  s.frameworks = 'MapKit.framework'
+  s.frameworks = 'MapKit'
 end
