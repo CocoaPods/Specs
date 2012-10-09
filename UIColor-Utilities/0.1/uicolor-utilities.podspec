@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "uicolor-utilities"
+  s.name         = "UIColor-Utilities"
   s.version      = "0.1"
   s.summary      = "Helpful utilities for UIColor for iPhone."
   s.homepage     = "https://github.com/fcanas/uicolor-utilities"
