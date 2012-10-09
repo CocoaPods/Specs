@@ -10,3 +10,4 @@ Pod::Spec.new do |s|
   s.source_files = 'KJSimpleBinding/*.{h,m}'
   s.requires_arc = false
 end
+
