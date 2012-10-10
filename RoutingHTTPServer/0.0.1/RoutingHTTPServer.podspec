@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  spec.dependency "CocoaHTTPServer", "~> 2.2.1"
+  s.dependency "CocoaHTTPServer", "~> 2.2.1"
 end
