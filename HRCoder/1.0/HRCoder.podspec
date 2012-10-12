@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "HRCoder"
   s.version      = "1.0"
-  s.summary      = "HRCoder is a replacement for the NSKeyedArchiver and NSKeyedUnarchiver classes that uses a human-readable/editable format that can easily be stored in a  regular Plist or JSON file."
+  s.summary      = "Replacement for the NSKeyedArchiver and NSKeyedUnarchiver classes that uses a human-readable format."
   s.description  = <<-DESC
                     HRCoder is a replacement for the NSKeyedArchiver and NSKeyedUnarchiver classes. Although the NSKeyedArchiver writes data in binary Plist format, the structure of the Plist makes it hard to read, and nearly impossible to generate by hand.
 
