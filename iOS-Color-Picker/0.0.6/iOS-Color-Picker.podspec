@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/fcanas/ios-color-picker.git", :tag => "0.0.6"}
   s.platform     = :ios, '4.3'
   s.source_files = '*.{h,m}'
-  s.resources = "Resources/*.png", 'ColorPickerViewController.xib'
+  s.resources = "Resources/*.png", 'FCColorPickerViewController.xib'
   s.frameworks = 'QuartzCore', 'Foundation', 'UIKit', 'CoreGraphics'
   s.dependency 'UIColor-Utilities', '~> 1.0'
 end
