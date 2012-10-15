@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                   'by setting property headingEnabled.'
 
   s.requires_arc = true
-  s.source_files = '*.{h,m}'
+  s.source_files = 'MTLocation'
   s.resources = "Resources/*.png"
   s.frameworks   = 'MapKit', 'CoreLocation'
 end
