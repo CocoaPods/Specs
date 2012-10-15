@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
   s.platform = :ios
   s.name     = 'YTFToggler'
+  s.version  = '0.1'
   s.license  = 'MIT'
   s.summary  = 'Simple toggler for side views.'
   s.homepage = 'https://github.com/yetithefoot/YTFToggler'
   s.authors  = {'YetiTheFoot' => 'reg.yeti@gmail.com'}
-  s.source   = { :git => 'https://github.com/yetithefoot/YTFToggler.git'}
+  s.source   = { :git => 'https://github.com/yetithefoot/YTFToggler.git', :tag => '0.1'}
   s.source_files = 'YTFToggler/YTFToggler'
   s.requires_arc = false
   s.framework = 'UIKit', 'Foundation', 'CoreGraphics'
