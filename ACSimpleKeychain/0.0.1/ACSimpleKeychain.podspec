@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ACSimpleKeychain/**/*.{h,m}'
 
-  s.clean_paths = "KeychainExample", "KeychainExampleTests"
+
 end

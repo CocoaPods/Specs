@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.authors  = {'Mattt Thompson' => 'm@mattt.me'}
   s.source   = { :git => 'https://github.com/mattt/CupertinoYankee.git', :tag => '0.1.0' }
   s.source_files = 'NSDate+CupertinoYankee.{h,m}'
-  s.clean_paths = ['Example']
+
 end

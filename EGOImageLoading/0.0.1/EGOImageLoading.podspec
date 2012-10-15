@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
                  :commit => '9a3fa6b657c6b8217a24ff87c1fe4f670401f3bd' }
 
   s.source_files = 'EGO*/*.{h,m}'
-  s.clean_paths  = 'Demo'
+
   s.dependency 'EGOCache'
 end

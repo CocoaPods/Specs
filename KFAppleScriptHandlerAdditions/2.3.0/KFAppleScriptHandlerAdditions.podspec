@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :osx
   s.source_files = 'KF*.{h,m}'
 
-  s.clean_paths = "Testing", "Demo App", "Beta"
+
 end

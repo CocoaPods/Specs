@@ -1,4 +1,4 @@
 source :rubygems
 
-gem 'cocoapods', '>=0.6.0.rc2'
+gem 'cocoapods', ">= #{YAML.load_file(File.dirname(__FILE__) + "/CocoaPods-version.yml")['last']}"
 gem 'rake'

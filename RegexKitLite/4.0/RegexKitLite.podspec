@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author   = { 'John Engelhart' => 'regexkitlite@gmail.com' }
   s.source   = { :svn => 'http://regexkit.svn.sourceforge.net/svnroot/regexkit/RegexKitLite', :revision => '69' }
   s.source_files = '**/RegexKitLite.{h,m}'
-  s.clean_paths = "examples", "Documentation"
+
   s.library = 'icucore'
 end

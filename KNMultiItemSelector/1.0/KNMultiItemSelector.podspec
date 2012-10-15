@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.source_files = 'KNMultiItemSelector/KNMultiItemSelector.{h,m}', 'KNMultiItemSelector/KNSelectorItem.{h,m}'
   s.resources = "KNMultiItemSelector/Images/*.png"
-  s.clean_paths = "Docs", "KNFBFriendSelectorDemo.xcodeproj", "KNFBFriendSelectorDemo", '.gitignore', 'KNMultiItemSelector/SDWebImage'
+
   
   s.requires_arc = true
   s.dependency 'SDWebImage'

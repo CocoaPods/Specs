@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'XBPageCurl/*.{h,m,c}'
   s.frameworks   = 'OpenGLES'
   s.resources    = 'XBPageCurl/Resources/*.glsl'
-  s.clean_paths  = 'Sample', 'Tests', 'XBPageCurl.xcodeproj'
+
 end

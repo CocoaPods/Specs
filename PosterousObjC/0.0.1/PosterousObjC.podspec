@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Josh Grenon' => 'http://joshgrenon.com/' }
   s.source   = { :git => 'https://github.com/joshgrenon/PosterousObjC.git', :commit => '12cf5de435' }
   s.source_files  = 'Classes/PosterousClient/**/*.{h,m}' 
-  s.clean_paths   = 'Classes/Examples', 'Classes/Helper Classes', 'Classes/PosterousClient/Dependencies', 'Examples', '*.xcodeproj', 'Resources', 'build', 'en.lproj'
+
   s.frameworks    = 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'CoreGraphics'
   s.library       = 'z'
 

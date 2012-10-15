@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/fictorial/SEHumanizedTimeDiff'
   s.author = { 'Sarp Erdag' => 'sarp.erdag@apperto.com' }
   s.source = { :git => 'https://github.com/fictorial/SEHumanizedTimeDiff.git', :tag => '0.0.1' }
-  s.description = 'Localizations available for Chinese, Japanese, Turkish, English, and German'
+  s.description = 'Localizations available for Chinese, Japanese, Turkish, English, and German.'
   s.source_files = 'SEHumanizedTime/*.{h,m}'
   s.resources = 'SEHumanizedTime/{en,de,ja,tr,zh-Hans}.lproj'
-  s.clean_paths = 'SEHumanizedTimeDiffDemo.xcodeproj', 'SEHumanizedTimeDiffDemo'
+
   s.frameworks = 'Foundation'
 end

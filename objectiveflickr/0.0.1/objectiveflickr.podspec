@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/*.{h,m}' , 'LFWebAPIKit/*.{h,m}'
   s.resources = 'BridgeSupport'
   s.framework = 'SystemConfiguration'
-  s.clean_paths = 'Examples' , 'ObjectiveFlickr.xcodeproj' , 'ObjectiveFlickr-Info.plist' , 'LFWebAPIKit/Tests'
+
 end

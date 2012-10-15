@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description = 'The code in FTUtils is common utility code extracted from Free Time Studios iPhone projects. Currently, there is only one primary utility (FTAnimation) and some simple preprocessor macros. Some unit tests exist for the code, but more are needed.'
   s.platform = :ios
   s.source_files = 'Classes', 'Headers/*/*.h'
-  s.clean_paths = "Examples", "Support", "Tests", "UnitTests", "apidocs"
+
   s.framework = 'QuartzCore'
 end

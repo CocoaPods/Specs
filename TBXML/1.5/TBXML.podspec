@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TBXML-Code/*.{h,m}' , 'TBXML-Headers/*.{h,m}'
   s.library = 'z'
   s.requires_arc = true
-  s.clean_paths = 'TBXML-Support' , "TBXML-Tests", "TBXML.xcodeproj"
+
 end

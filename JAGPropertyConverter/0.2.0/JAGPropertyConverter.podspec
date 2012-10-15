@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description = 'With minimal configuration, JAGPropertyConverter allows easy persistence, copying, or API serialization of your Model objects.  It also allows run-time querying of an object\'s properties and their attributes.'
   s.platform = :ios
   s.source_files = 'JAGPropertyConverter'
-  s.clean_paths = "JAGPropertyConverterTests", "JAGPropertyConverter.xcodeproj", "Documentation", "AppledocSettings.plist"
+
   s.requires_arc = true
 end

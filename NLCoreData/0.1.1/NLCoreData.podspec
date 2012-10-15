@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'NLCoreData'
   s.framework     = 'CoreData'
   s.requires_arc  = true
-  s.clean_paths   = 'NLCoreDataExample/', 'NLCoreDataExample.xcodeproj/', 'NLCoreDataExampleTests/', '.git/', '.gitignore'
+
 
   s.prefix_header_contents = '#import "NLCoreData.h"'
 end

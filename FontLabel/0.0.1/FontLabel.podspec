@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   }
   s.source   = { :git => 'https://github.com/zynga/FontLabel.git', :commit => "2fe3721146b9607a1154823fc98c4cb003551557"}
   s.source_files = 'FontLabel/Classes/FontLabel/*.{h,m}'
-  s.clean_paths  = 'FontLabel/*.{xcodeproj,ttf,xib,plist}', 'FontLabel/UnitTests', 'FontLabel/main.m'
+
 end

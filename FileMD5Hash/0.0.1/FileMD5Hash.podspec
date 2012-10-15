@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
 
   s.prefix_header_file = 'Common/FileMD5Hash_Prefix.pch'
   s.source_files = 'Common/*.{h,c}'
-  s.clean_paths = "Mac", "iOS", 'FileMD5Hash.xcodeproj'
+
 end

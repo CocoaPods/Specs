@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "BaseModel"
   s.version      = "2.3.1"
-  s.summary      = "BaseModel provides a base class for building model objects for your iOS or Mac OS projects. It saves you the hassle of writing boilerplate code, and encourages good practices by reducing the incentive to cut corners in your model implementation."
+  s.summary      = "BaseModel provides a base class for building model objects for your iOS or Mac OS projects."
   s.description  = <<-DESC
                       BaseModel provides a base class for building model objects for your iOS or Mac OS projects. It saves you the hassle of writing boilerplate code, and encourages good practices by reducing the incentive to cut corners in your model implementation.
 
@@ -11,10 +11,10 @@ Pod::Spec.new do |s|
 
                       BaseModel is designed to work with the AutoCoding and HRCoder libraries.
                    DESC
-  s.homepage     = "http://charcoaldesign.co.uk/source/cocoa#basemodel"
-  s.license      = 'zlib'
-  s.author       = { "Nick Lockwood" => "email@address.com" }
-  s.source       = { :git => "https://github.com/nicklockwood/BaseModel.git", :tag => "2.3.1" }
+  s.homepage =  "http://charcoaldesign.co.uk/source/cocoa#basemodel"
+  s.license  =  'zlib'
+  s.author   =  { "Nick Lockwood" => "email@address.com" }
+  s.source   =  { :git => "https://github.com/nicklockwood/BaseModel.git", :tag => "2.3.1" }
 
   s.ios.deployment_target =  '4.0'
   s.osx.deployment_target =  '10.6'

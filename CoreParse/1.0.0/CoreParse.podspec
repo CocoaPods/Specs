@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/beelsebob/CoreParse'
   s.source = { :git => 'https://github.com/beelsebob/CoreParse.git', :tag => '1.0.0' }
   s.source_files = 'CoreParse/**/*.{h,m}'
-  s.clean_paths = 'CoreParseTests', 'CoreParse.xcodeproj'
+
   s.requires_arc = false
   s.frameworks = 'Foundation'
 end

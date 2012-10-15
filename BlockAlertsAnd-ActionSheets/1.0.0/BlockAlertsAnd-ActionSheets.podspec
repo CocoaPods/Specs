@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'BlockAlertsDemo/ToAddToYourProjects', 'BlockAlertsDemo/ProjectSpecific/BlockUI.h'
   s.resources = "BlockAlertsDemo/images/ActionSheet/*.png", "BlockAlertsDemo/images/AlertView/*.png"
-  s.clean_paths = "BlockAlertsDemo.xcodeproj", "BlockAlertsDemo/en.lproj", "BlockAlertsDemo/BlockAlertsDemo-info.plit" , "BlockAlertsDemo/BlockAlertsDemo-Prefix.pch" , "BlockAlertsDemo/BlockAlertsDemoAppDelegate.h" , "BlockAlertsDemo/BlockAlertsDemoAppDelegate.m" , "BlockAlertsDemo/BlockAlertsDemoViewController.h" , "BlockAlertsDemo/BlockAlertsDemoViewController.m" , "BlockAlertsDemo/main.m"
+
 end

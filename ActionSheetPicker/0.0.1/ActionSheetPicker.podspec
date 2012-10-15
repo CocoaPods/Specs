@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/TimCinel/ActionSheetPicker.git', :commit => '5937d2f6ffd800c57be2b397acfd1dc15d61f860' }
   s.platform = :ios
   s.source_files = 'ActionSheetPicker.h', 'Pickers/*.{h,m}' 
-  s.clean_paths = FileList['*'].exclude(/(ActionSheetPicker.h|Pickers|README.md|LICENSE)$/)
+
   s.framework = 'UIKit'
 end

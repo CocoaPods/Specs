@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'TimerScroller/TimeScroller.{h,m}'
   s.resources = "TimerScroller/*.png"
-  s.clean_paths = "TimerScroller/en.lproj", "TimeScroller.xcodeproj"
+
   s.framework = 'QuartzCore'
 end

@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'ITWLoadingPanel/*.{h,m}'
   s.resources = 'ITWLoadingPanel/*.{xib}'
-  s.clean_paths = 'ITWLoadingPanelExample', 'ITWLoadingPanelExample.xcodeproj', 'Screenshot.png'
+
 end

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/samvermette/SVSegmentedControl.git',
                  :commit => '709663865561323c6e47c20b17f0f3bb04acf31e' }
   s.source_files = 'SVSegmentedControl/*.{h,m}'
-  s.clean_paths = 'Demo'
+
   s.frameworks = 'QuartzCore'
   s.requires_arc = true  
 end

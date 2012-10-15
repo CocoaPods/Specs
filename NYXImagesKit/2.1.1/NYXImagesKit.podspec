@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.clean_paths = 'NYXImagesKit.xcodeproj', 'Other Sources'
+
 
 end

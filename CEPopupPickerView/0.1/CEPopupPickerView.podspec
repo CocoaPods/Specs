@@ -12,9 +12,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'CEPopupPickerView/CEPopupPickerView.{h,m}'
-  s.clean_paths = '*.xcodeproj', '**/*.lproj', '**/*.plist', '*.xcworkspace',
-  '*Tests', 'Podfile', '**/*.pch',
-    "**/CEAppDelegate.*",
-    "**/CEViewController.{h,m}",
-    "**/main.m"
 end

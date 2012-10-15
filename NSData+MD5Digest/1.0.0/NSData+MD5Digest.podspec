@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.requires_arc = true
   s.source_files = 'NSData+MD5Digest/NSData+MD5Digest.{h,m}'
-  s.clean_paths  = "NSData+MD5Digest.xcodeproj"
+
 end

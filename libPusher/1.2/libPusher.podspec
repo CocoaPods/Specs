@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = 'Luke Redpath'
   s.source       = { :git => 'https://github.com/lukeredpath/libPusher.git', :tag => 'v1.2' }
   s.source_files = 'Library/*'
-  s.clean_paths  = ["Frameworks", "Functional Specs", "Sample", "Scripts", "Unit Tests", "*.xcodeproj", "*.xcworkspace"]
+
   s.requires_arc = true
   s.dependency "JSONKit", "1.4"
   s.dependency 'SocketRocket', :git => "git://github.com/square/SocketRocket", :commit => "ec6c145f4a"

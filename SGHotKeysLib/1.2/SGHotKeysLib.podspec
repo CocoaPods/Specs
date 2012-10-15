@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :osx
   s.source_files = 'SGHotKeysLib'
   s.framework = 'Carbon'
-  s.clean_paths = 'Source', 'SGHotKeyCenter.xcodeproj', 'Resources', 'Frameworks', 'English.lproj'
+
 end

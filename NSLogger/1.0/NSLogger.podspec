@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Client Logger/iOS/*.{h,m}'
   s.frameworks   = 'CFNetwork', 'SystemConfiguration'
 
-  s.clean_paths  = 'Docs', 'Screenshots', 'Desktop Viewer', 'Client Logger/iOS/*Test App*'
+
 end

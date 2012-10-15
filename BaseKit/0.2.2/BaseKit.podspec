@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.description = 'BaseKit is a set of IOS class to make your life easier.'
   s.platform = :ios
-  s.clean_paths  = 'Examples', 'GHUnitIOS.framework', 'Test', 'Vendor', 'README.md', '.gitignore', 'BaseKit.xcodeproj', 'LICENSE', 'form-mapping.png'
+
 
   s.subspec 'Core' do |core|
     core.source_files = 'Code/Core/*.{h,m}'

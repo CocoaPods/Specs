@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'UAModalPanel/Panel/Categories/UIView+JMNoise.{h,m}' , 'UAModalPanel/Panel/Panels/*.{h,m}' , 'UAModalPanel/Panel/Views/*.{h,m}'
   s.resources = "UAModalPanel/Panel/Images/*.png"
   s.framework = 'UIKit' , 'QuartzCore'
-  s.clean_paths = "UAModalPanel.xcodeproj" , 'UAModalPanel/Example Project'
+
 
 end

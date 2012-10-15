@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.description = "Fictorial's fork adds extra delegate methods; also see homepage for example which uses UIPageControl."
   s.platform = :ios
   s.source_files = 'PagedFlowView/PagedFlowView.{h,m}'
-  s.clean_paths = "PagedFlowView.xcodeproj", "PagedFlowView/{en.lproj,images}", "PagedFlowView/{AppDelegate,ViewController,main}.{h,m}", "PagedFlowView/*.{plist,pch}"
+
   s.frameworks = 'UIKit', 'Foundation'
 end

@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/BradLarson/GPUImage.git', :commit => 'd84a7020c7' }
   s.source_files = 'framework/Source/**/*.{h,m}'
   s.frameworks   = ['OpenGLES', 'CoreVideo', 'CoreMedia', 'QuartzCore', 'AVFoundation']
-  s.clean_paths  = ['framework/GPUImage.xcodeproj', 'framework/GPUImageTests', 'examples']
+
   s.requires_arc = true
 end

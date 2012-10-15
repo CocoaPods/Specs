@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
                   :commit => '52b181733e043dda121817e6ea1c5f4a146985ef' }
   s.source_files = 'ATArrayView/*.{h,m}' , 'ATByteImage/*.{h,m}' , 'ATPagingView/*.{h,m}'
   s.frameworks = 'UIKit'
-  s.clean_paths = "ATPagingView/ATPagingViewDemo", "ATArrayView/ATArrayViewDemo"
+
 end

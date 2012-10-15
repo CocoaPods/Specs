@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'PSPushPopPressView.{h,m}'
   s.framework = 'UIKit' , 'QuartzCore'
-  s.clean_paths = "PSPushPopPressView.xcodeproj" , 'Example' 
+
 end

@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
                   'with minimal code changes.'
   s.source_files = 'iCarousel'
   s.frameworks   = 'QuartzCore'
-  s.clean_paths  = 'Examples', 'Tests'
+  s.license      = { :type => 'zlib', :file => 'LICENCE.md' }
 end

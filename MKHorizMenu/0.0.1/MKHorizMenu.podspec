@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MKHorizMenu/*.{h,m}'
   s.resources = "MKHorizMenu/*.png"
   s.framework = 'UIKit'
-  s.clean_paths = "MKHorizMenuDemo.xcodeproj" , 'MKHorizMenuDemo'  
+
 end

@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors       = { 'Tito Ciuro' => 'tciuro@mac.com' }
   s.source        = { :git => 'https://github.com/tciuro/NanoStore.git', :tag => '2.1.1' }
   s.source_files  = 'Classes/**/*.{h,m}'
-  s.clean_paths   = FileList['*'].exclude(/(Classes|README.md|LICENSE)$/)
+
   s.library       = 'sqlite3'
   s.requires_arc  = true
 end

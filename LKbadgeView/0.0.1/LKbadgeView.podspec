@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
                   :commit => 'd15e5a0cd9e7eca4b1705bf1fc97a72a3ff72974' }
   s.source_files = 'LKBadgeView.{h,m}' 
   s.frameworks = 'UIKit'
-  s.clean_paths = "Docs", "LKBadgeView.xcodeproj" , 'LKBadgeViewTests' , 'SampleApplication'
+
 end

@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
                  :commit => '57bc879c10304ac4d7de844c94678d31a032516a'}
   s.platform = :ios
   s.source_files = 'MKAdditions/*.{h,m}'
-  s.clean_paths = "UIKitCategoryAdditions.xcodeproj", "UIKitCategoryAdditions"
+
   s.requires_arc = false
 end

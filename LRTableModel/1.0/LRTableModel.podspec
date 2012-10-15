@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.author   = 'Luke Redpath'
   s.source   = { :git => 'https://github.com/lukeredpath/LRTableModel.git', :tag => 'v1.0' }
   s.source_files = 'Classes'
-  s.clean_paths = %w{Examples LRTableModel.xcworkspace LRTableModel.xcodeproj Reources Support Tests}
+
 end

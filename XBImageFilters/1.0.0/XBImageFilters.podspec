@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'XBImageFilters/Classes/**/*.{h,m}'
   s.frameworks   = ['OpenGLES', 'CoreVideo', 'CoreMedia', 'CoreGraphics', 'GLKit', 'QuartzCore', 'AVFoundation']
   s.resources    = 'XBImageFilters/Resources/Shaders/*.glsl'
-  s.clean_paths  = ['XBImageFilters/Classes/Sample', 'XBImageFilters/Resources/Images', 'XBImageFilters.xcodeproj']
+
   s.requires_arc = true
 end

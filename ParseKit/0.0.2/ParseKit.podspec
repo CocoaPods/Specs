@@ -7,33 +7,27 @@ Pod::Spec.new do |s|
   s.author   = { 'Todd Ditchendorf' => 'todd.ditchendorf@gmail.com' }
 
   s.source   = { :svn => 'http://parsekit.googlecode.com/svn/trunk/', :revision => '74'}
-  
-  s.description = %{ 
-    ParseKit is a Mac OS X Framework written by Todd Ditchendorf in 
-    Objective-C 2.0 and released under the Apache Open Source License 
-    Version 2.0. ParseKit is suitable for use on Mac OS X Leopard, 
-    Snow Leopard or iOS. ParseKit is an Objective-C implementation 
-    of the tools described in Building Parsers with Java by Steven 
-    John Metsker. 
+  s.source   = { :svn => 'http://parsekit.googlecode.com/svn/trunk', :revision => '74'}
 
-    ParseKit includes additional features beyond the 
-    designs from the book and also some changes to match common 
-    Cocoa/Objective-C conventions. These changes are relatively superficial, 
-    however, and Metsker’s book is the best documentation available 
+  s.description = %{
+    ParseKit is a Mac OS X Framework written by Todd Ditchendorf in
+    Objective-C 2.0 and released under the Apache Open Source License
+    Version 2.0. ParseKit is suitable for use on Mac OS X Leopard,
+    Snow Leopard or iOS. ParseKit is an Objective-C implementation
+    of the tools described in Building Parsers with Java by Steven
+    John Metsker.
+
+    ParseKit includes additional features beyond the
+    designs from the book and also some changes to match common
+    Cocoa/Objective-C conventions. These changes are relatively superficial,
+    however, and Metsker’s book is the best documentation available
     for ParseKit.
   }
 
-  s.source_files = 'include/**/*.{h,m}', 'src/**/*.{h,m}'
-
-  s.clean_paths = "debugapp", "demoapp", "docs", "frameworks", "jsdemoapp", "jssrc", "res", "test", "*.xcodeproj"
-
-  if config.ios?
-    s.frameworks = 'Foundation', 'CoreGraphics'
-  else 
-    s.framework = 'Foundation'
-  end
-
-  s.library = 'icucore'
-
-  s.requires_arc = false
+  s.source_files   =  'include/**/*.{h,m}', 'src/**/*.{h,m}'
+  s.ios.frameworks =  'Foundation', 'CoreGraphics'
+  s.osx.framework  =  'Foundation'
+  s.library        =  'icucore'
+  s.requires_arc   =  false
+  s.compiler_flags =  '-Wno-format'
 end

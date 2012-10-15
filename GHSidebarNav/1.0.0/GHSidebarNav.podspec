@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
 
   s.resources = "GHSidebarNav/Images/*.png"
   s.requires_arc = true
-
   def s.post_install(target)
     prefix_header = config.project_pods_root + target.prefix_header_filename
     prefix_header.open('a') do |file|

@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/**/*.{h,m}'
 
-  s.clean_paths = "Rakefile", "products", "test", "*.xcodeproj"
+
 
   s.frameworks = 'Foundation', 'SenTestingKit'
 

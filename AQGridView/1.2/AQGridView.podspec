@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'Classes'
   s.resources = "Resources/*.png"
-  s.clean_paths = "Examples", "Scripts", "AQGridView.xcodeproj", "AQGridView_Prefix.pch"
+
   s.framework = 'QuartzCore'
 end

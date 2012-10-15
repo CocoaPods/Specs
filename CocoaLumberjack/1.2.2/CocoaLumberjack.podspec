@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
   s.source_files = 'Lumberjack'
-  s.clean_paths = 'Benchmarking', 'Xcode'
+
 end

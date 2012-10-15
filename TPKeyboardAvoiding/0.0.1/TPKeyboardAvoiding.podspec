@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                     "When the keyboard is about to appear, the subclass will find the subview that's about to be edited, " \
                     "and adjust its frame and content offset to make sure that view is visible, with an animation to match the keyboard pop-up. "\
                     "When the keyboard disappears, it restores its prior size." 
-  s.clean_paths = "TPKeyboardAvoidingSample*"
+
   s.source_files = 'TPKeyboardAvoidingScrollView.{h,m}','TPKeyboardAvoidingTableView.{h,m}'
   s.requires_arc = false
 end

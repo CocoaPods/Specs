@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/domesticcatsoftware/DCIntrospect.git', :commit => "3ef2c10710f007b6d699c2a0b996ce1e3a79bde0" }
   s.source_files = 'DCIntrospect'
   s.frameworks   = 'QuartzCore'
-  s.clean_paths  = 'DCIntrospectDemo'
+
 end
