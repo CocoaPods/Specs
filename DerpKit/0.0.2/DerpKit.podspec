@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DerpKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "DerpKit is a set of categories and classes that should've been included in Cocoa Touch."
   s.homepage     = "http://github.com/amazingsyco/DerpKit"
 
