@@ -1,5 +1,5 @@
-license = <<EOT
-Copyright (C) 2011 GUI Cocoa, LLC.
+license_text = <<EOT
+Copyright (c) 2012 Jim Dovey
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,19 @@ THE SOFTWARE.
 EOT
 
 Pod::Spec.new do |s|
-  s.name         = "Airbrake-iOS"
-  s.version      = "3.1.0"
-  s.summary      = "A Airbrake Notifier for iOS."
-  s.homepage     = "http://airbrake.io/pages/ios-notifier"
-  s.author       = { "Airbrake" => "support@airbrake.io" }
-  s.license      = { :type => 'MIT', :text => license }
+  s.name         = "iPhoneContacts"
+  s.version      = "0.0.1"
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/airbrake/airbrake-ios.git", :tag => "3.1.0" }
-  s.source_files = 'Airbrake/{notifier,gcalertview}/*.{h,m}'
-  s.frameworks   = 'SystemConfiguration.framework'  
-  s.libraries    = 'libxml2.dylib'
-  s.dependency   'KissXML'
+  s.license      = { :type => "MIT", :text => license_text }
+  s.summary      = "A wrapper for the iPhone's C-based AddressBook framework."
+  s.authors      = {
+    "Jim Dovey" => "jimdovey@mac.com",
+    "David Beck" => "david@davidbeck.co"
+  }
+  s.homepage     = "https://github.com/davbeck/iPhoneContacts"
+  s.source       = { 
+    :git => "https://github.com/davbeck/iPhoneContacts.git",
+    :commit => "056a0045f3" 
+  }
+  s.source_files    = './*.{h,m}'
 end
