@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = "StackMob's Push SDK for sending push notifications via the StackMob Services on iOS."
   s.homepage = 'http://stackmob.com'
   s.author   = { 'StackMob' => 'info@stackmob.com' }
-  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-push-sdk.git', :commit => '2154988fa2ff20f3eaf895b0f4951c198d5861eb' }
+  s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-push-sdk.git', :commit => '2154988fa2ff20f3eaf895b0f4951c198d5861eb', :tag => s.version.to_s }
   s.platform = :ios
   s.source_files = 'stackmob-ios-push-sdk/*.{h,m}'
   s.dependency 'stl-oauth-client', :git => 'https://github.com/jonah-carbonfive/stl-oauth-client.git', :commit => 'd73a89b92a4ec6068b2ae36e09b32e6d8717e180'
