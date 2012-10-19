@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "TISwipeableTableView"
   s.version      = "0.0.1"
+  s.platform     =  :ios
   s.summary      = "Allows you to swipe a UITableViewCell and reveal a back view, functions like cells in the Twitter app."
   s.homepage     = "https://github.com/thermogl/TISwipeableTableView"
   s.author       = { "Tom Irving" => "info@thermoglobalnuclearwar.com" }
