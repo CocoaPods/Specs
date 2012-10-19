@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "GrannySmith"
   s.version      = "0.0.1"
-  s.summary      = "GrannySmith is Hulu's Objective C open source project. The first tool provided in GrannySmith is GSFancyText. It allows you to format rich text in iOS in HTML/CSS fashion."
+  s.summary      = "Allows to format rich text in iOS in HTML/CSS fashion."
+  s.description  = "GrannySmith is Hulu's Objective C open source project. The first tool provided in GrannySmith is GSFancyText. It allows you to format rich text in iOS in HTML/CSS fashion."
   s.homepage     = "https://github.com/hulu/GrannySmith"
   s.license      = {
     :type => 'MIT',

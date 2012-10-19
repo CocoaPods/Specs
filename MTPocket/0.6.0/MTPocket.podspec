@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "MTPocket"
   s.version      = "0.6.0"
-  s.summary      = "A Cocoa web request library that doesn't suck. Simple and powerful. Convenient and informative. JSON and XML to collection object conversion. Comprehensive request and response objects."
+  s.summary      = "Web request library that doesn't suck. Simple and powerful. Convenient and informative. JSON and XML to collection object conversion."
   s.homepage     = "https://github.com/mysterioustrousers/MTPocket"
   s.license      = 'BSD'
   s.author       = { "Adam Kirk" => "atomkirk@gmail.com" }
