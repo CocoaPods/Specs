@@ -2,7 +2,8 @@ Pod::Spec.new do |s|
   s.name      = 'FTWButton'
   s.version   = '1.0'
   s.platform  = :ios
-  s.summary   = 'FTWButton is a UIControl subclass that lets you easily set color, gradient, text, '\
+  s.summary   = 'A UIControl subclass with easy color, gradient, text, and icon properties.'
+  s.description   = 'FTWButton is a UIControl subclass that lets you easily set color, gradient, text, '\
                 'and icon properties for various states and animates between them.'
   s.homepage  = 'https://github.com/FTW/FTWButton'
   s.license   = {
