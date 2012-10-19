@@ -21,5 +21,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.source    = { :git => 'https://github.com/FTW/FTWButton.git', :tag => 'v1.0' }
   s.source_files  = 'FTWButton/FTWButton.{h,m}'
   s.frameworks    = 'QuartzCore'
-  s.dependency    = 'SKInnerShadowLayer'
+  s.dependency    'SKInnerShadowLayer', '~> 1.0'
 end
