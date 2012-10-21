@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MGBox2"
-  s.version      = "1.0.0"
+  s.version      = "1.3.0"
   s.summary      = "Simple, quick iOS tables, grids, and more."
   s.homepage     = "https://github.com/sobri909/MGBox2"
 
