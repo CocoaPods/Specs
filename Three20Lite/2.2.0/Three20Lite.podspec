@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'Three20Lite'
-  s.version      =  '2.1.0'
+  s.version      =  '2.2.0'
   s.license      =  'Apache License, Version 2.0'
   s.summary      =  'Lite edition of Three20, a collection of iPhone UI classes.'
   s.description  =  'Three20 is a collection of iPhone UI classes, like a photo viewer, and general utilities,' \
