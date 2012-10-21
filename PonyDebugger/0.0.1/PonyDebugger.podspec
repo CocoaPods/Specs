@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/square/PonyDebugger"
   s.license      = 'Apache Licence, Version 2.0'
   s.author       = 'Square'
-  s.source       = { :git => "https://github.com/square/PonyDebugger.git", :commit => "74c2322a7664407732ce80c22dca8488b2c2e8ce" }
+  s.source       = { :git => "https://github.com/square/PonyDebugger.git", :commit => "0bd4bf9fbefa0777358cbb7a015b91ecbee11597" }
   s.platform     = :ios, '5.0'
   s.source_files = 'ObjC/{DerivedSources,PonyDebugger}/**/*.{h,m}'
   s.requires_arc = true
