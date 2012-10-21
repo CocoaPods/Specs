@@ -1,8 +1,7 @@
-
 Pod::Spec.new do |s|
   s.name         = "NSUnit"
   s.version      = "0.0.1"
-  s.summary      = "NSUnit is a unit testing framework for Objective-C projects. NSUnit builds on top of SenTestingKit and provides a more Objective-C friendly API, particularly for testing against Foundation classes."
+  s.summary      = "NSUnit is a unit testing framework, providing a more Objective-C friendly API, particularly for testing against Foundation classes."
 
   s.license  	 = 'MIT'
   s.homepage     = "https://github.com/jacksonh/NSUnit"
