@@ -116,7 +116,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   
   s.source_files = 'src/Three20/{Sources,Headers}/*.{h,m}'
-  s.compiler_flags = '-Wno-deprecated-declarations', '-Wno-objc-redundant-literal-use', '-Wno-format-extra-args'
   s.resources = 'src/Three20.bundle'
   
   s.preferred_dependency = 'UI'
