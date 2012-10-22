@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Raquel Galan" => "iprayforwaves@gmail.com" }
   s.author       = 'runway20'
-  s.source       = { :git => "git://github.com/runway20/PopoverView.git", :commit => "e896603ea3a0fed1833a8292ad6928d04596fd8f" }
+  s.source       = { :git => "https://github.com/runway20/PopoverView.git", :commit => "e896603ea3a0fed1833a8292ad6928d04596fd8f" }
   s.platform     = :ios
   s.source_files = 'PopoverView/*.{h,m}'
 end
