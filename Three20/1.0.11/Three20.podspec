@@ -19,7 +19,7 @@ overrides = Module.new do
     (@private_header_files ||= []).each do |pattern|
       pattern = pod_destroot + pattern
       pattern = pattern + '*.h' if pattern.directory?
-      pattern.glob.each do |file|
+      Pathname.glob(pattern).each do |file|
         files << file.relative_path_from(pod_destroot)
       end
     end
