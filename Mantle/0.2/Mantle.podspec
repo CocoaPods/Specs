@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "GitHub" => "support@github.com" }
 
   s.source       = { :git => "https://github.com/github/Mantle.git", :tag => "0.2" }
-  s.source_files = 'Mantle', 'Mantle/**/*.{h,m}'
+  s.source_files = 'Mantle'
   s.framework    = 'Foundation'
 
   s.ios.deployment_target = '5.0' # there are usages of __weak
