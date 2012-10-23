@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FoundationExtension"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "Foundation/UIKit extension kit."
   s.description  = <<-DESC
                     This library includes small Foundation/UIKit extensions. This library does not includes high-level data structure, algorithm or frameworks, but collection of code snippets.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/youknowone/FoundationExtension"
   s.license      = "2-clause BSD"
   s.author       = { "Jeong YunWon" => "jeong@youknowone.org" }
-  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "pod-0.1" }
+  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "pod-0.2" }
   s.dependency "cdebug", "~> 0.1"
 
   s.subspec "FoundationExtension" do |ss|
