@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = 'foursquare-ios-api'
+  s.name         = 'Foursquare-iOS-API'
   s.version      = '1.1.0'
   s.summary      = 'Foursquare API v2 for iOS.'
   s.license 	 = 'BSD'
