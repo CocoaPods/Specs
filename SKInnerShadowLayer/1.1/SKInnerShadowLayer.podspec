@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'SKInnerShadowLayer'
-  s.version   = '1.0'
+  s.version   = '1.1'
   s.platform  = :ios
   s.summary   = 'SKInnerShadowLayer is a CAGradientLayer subclass that adds properties to create an'\
                 ' inner shadow on a given layer.'
@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     LICENSE
   }
   s.author    = { 'Soroush Khanlou' =>  'http://khanlou.com/' }
-  s.source    = { :git => 'https://github.com/khanlou/SKInnerShadowLayer.git', :tag => 'v1.0' }
+  s.source    = { :git => 'https://github.com/khanlou/SKInnerShadowLayer.git', :tag => 'v1.1' }
   s.source_files  = 'SKInnerShadowLayer/SKInnerShadowLayer.{h,m}'
   s.frameworks    = 'QuartzCore'
   s.requires_arc = true
