@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/kolinkrewinkel/KKGridView.git', :commit => '8dbcb6df9396e10a1442cf9994067434eb5c4385' }
 
   s.source_files = 'KKGridView'
-  s.clean_paths  = 'Examples', 'KKGridView.xcodeproj', 'Resources'
+
   s.library      = 'stdc++'
   s.framework    = 'QuartzCore'
   s.requires_arc = true
