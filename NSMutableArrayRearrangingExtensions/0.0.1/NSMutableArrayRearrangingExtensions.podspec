@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author       = { "KAZUMA Ukyo" => "yaakaito@gmail.com" }
-  s.source       = { :git => "https://github.com/yaakaito/NSMutableArrayRearrangingExtensions.git", :commit => "3bac9d538cd7433f0dfa83e487ee85c6c56bc8bf" }
+  s.source       = { :git => "https://github.com/yaakaito/NSMutableArrayRearrangingExtensions.git", :tag => "0.0.1" }
   s.source_files = 'NSMutableArrayRearrangingExtensions/*.{h,m}'
   s.public_header_files = 'NSMutableArrayRearrangingExtensions/NSMutableArray+Rearranging.h'
 end
