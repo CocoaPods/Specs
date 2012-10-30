@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       =  { 'Dominik Pich' => 'dominik@pich.info' }
   s.license      = { :type => 'MIT'}
 
-  s.source       =  { :git => 'https://github.com/Daij-Djan/sundown.git'} ### this should work but doesnt! :tag => '0.1.0' }
+  s.source       =  { :git => 'https://github.com/Daij-Djan/sundown.git', :tag => '0.1.0' }
   s.source_files = 'src/*.{h,c,m}', 'html/*.{h,c}'
   s.requires_arc = true
 end
