@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT'}
 
   s.platform     = :ios, '4.0'
-  s.source       =  { :git => 'https://github.com/Daij-Djan/MicrophoneBlowDetector.git'} ### this should work but doesnt! :tag => '0.1.0' }
+  s.source       =  { :git => 'https://github.com/Daij-Djan/MicrophoneBlowDetector.git', :tag => '0.1.0' }
   s.source_files = '**/DDMicBlowDetector.{h,m}'
 end
 
