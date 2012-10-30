@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'RNCryptor'
   s.version = '2.0'
   s.summary = 'an easy-to-use, Objective-C interface to the AES functionality of CommonCrypto.'
-  s.homepage = 'http://robnapier.net/blog/aes-commoncrypto-564'
+  s.homepage = 'https://github.com/rnapier/RNCryptor'
   s.license  = {
     :type => 'MIT',
     :text => 'This code is licensed under the MIT License:
