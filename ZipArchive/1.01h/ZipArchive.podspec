@@ -21,7 +21,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.author       = { "Unknow Name" => "acsolu@gmail.com" }
   s.source       = { :svn => 'http://ziparchive.googlecode.com/svn/trunk/@12' }
   s.source_files = 'ZipArchive', '*.{h,m}'
-  s.public_header_files = '*.h'
+  s.public_header_files = '*.h', 'minizip/*.h'
   s.preserve_paths = "minizip"
   s.library   = 'libz'
   s.requires_arc = true
