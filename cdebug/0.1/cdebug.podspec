@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "cdebug"
   s.version      = "0.1"
-  s.summary      = "Debug macro collection for c/objc."
+  s.summary      = "Debug mode log/assertion macro for c/objc in a file."
   s.description  = <<-DESC
-                    Debug macro collections.
+                    Debug log/assertion macro collections for debug mode only.
                     Append file, line, time to macro
                     
                     * dprintf as printf/NSLog wrapper
