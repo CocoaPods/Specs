@@ -23,6 +23,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.source_files = 'ZipArchive', '*.{h,m}'
   s.public_header_files = '*.h', 'minizip/*.h'
   s.preserve_paths = "minizip"
-  s.library   = 'libz'
+  s.library   = 'z'
   s.requires_arc = true
 end
