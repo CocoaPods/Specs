@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          =  'Full ARC based Networking Kit for iOS 4+ devices.'
   s.homepage         =  'https://github.com/MugunthKumar/MKNetworkKit'
   s.author           =  { 'MugunthKumar' => 'mknetworkkit@mk.sg' }
-  s.source           =  { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :commit => '72823c882086c6edd58707e11406a52d6b320bf9' }
+  s.source           =  { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.85' }
 
   files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
   s.ios.source_files =  files.dup.exclude(/NSAlert/)
