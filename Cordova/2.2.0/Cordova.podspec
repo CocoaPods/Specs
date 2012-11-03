@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source                = { :git => "http://git-wip-us.apache.org/repos/asf/incubator-cordova-ios.git", :tag => "2.2.0" }
 #  s.source               = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "2.2.0" }
   s.source_files          = 'CordovaLib/Classes/*.{h,m}'
-  s.resources             = 'CordovaLib/javascript/*.js', 'CordovaLib/VERSION'
+  s.resources             = 'CordovaLibTests/CordovaLibApp/www/cordova.ios.js', 'CordovaLib/VERSION'
 
   s.platform              = :ios, '4.3'
   s.requires_arc          = true
