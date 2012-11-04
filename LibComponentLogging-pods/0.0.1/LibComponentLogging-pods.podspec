@@ -41,6 +41,7 @@ class LibComponentLoggingPodsConfig
     @lcl_pods_root = @pods_config.project_pods_root + "LibComponentLogging-pods"
     @lcl_pods_headers_root = @pods_config.project_pods_root + (@pods_headers_name + "/LibComponentLogging-pods")
     @lcl_pods_buildheaders_root = @pods_config.project_pods_root + (@pods_buildheaders_name + "/LibComponentLogging-pods")
+    @lcl_pods_template_copies_root = @lcl_pods_root + 'templates'
     @lcl_user_root = @pods_config.project_pods_root + ".."
 
     # suffixes
@@ -140,7 +141,9 @@ class LibComponentLoggingPodsConfig
     return if @configure_already_prepared
 
     note "LibComponentLogging-pods is in beta state, see http://0xc0.de/LibComponentLogging#CocoaPods for details"
-    info "Creating LibComponentLogging configuration"
+    if !exists_file(@lcl_pods_config_components_file) or is_verbose_mode()
+      info "Creating LibComponentLogging configuration"
+    end
 
     # create folders
     create_folder(@lcl_pods_root)
@@ -163,10 +166,14 @@ class LibComponentLoggingPodsConfig
     link_file(@lcl_pods_config_extensions_file, @lcl_pods_buildheaders_config_extensions_file)
 
     # create user configuration files
-    touch_file(@lcl_user_config_components_file)
-    touch_file(@lcl_user_config_extensions_file)
-    note "Use '" + @lcl_user_config_components_file_name + "' to configure log components"
-    note "Use '" + @lcl_user_config_extensions_file_name + "' to configure additional log extensions"
+    if !exists_file(@lcl_user_config_components_file)
+      create_file(@lcl_user_config_components_file)
+      note "Use '" + @lcl_user_config_components_file_name + "' to configure log components"
+    end
+    if !exists_file(@lcl_user_config_extensions_file)
+      create_file(@lcl_user_config_extensions_file)
+      note "Use '" + @lcl_user_config_extensions_file_name + "' to configure additional log extensions"
+    end
 
     # add user configuration files to pods configuration files
     add_include(@lcl_pods_config_components_file, @lcl_user_config_components_file_name)
@@ -182,11 +189,11 @@ class LibComponentLoggingPodsConfig
         if /lcl_config_components_(.+)\.h/ =~ components_file
           # embedded lcl_config_components_<embed_symbol>.h file
           embed_symbol = $1
-          info "Adding LibComponentLogging log components for '" + pod_name + "' (embedded, " + embed_symbol + ")"
+          info "Configuring LibComponentLogging log components for '" + pod_name + "' (embedded, " + embed_symbol + ")"
           add_config_components_embedded(@lcl_pods_config_components_file, components_file, pod_name, embed_symbol);
         else
           # non-embedded lcl_config_components.h file
-          info "Adding LibComponentLogging log components for '" + pod_name + "'"
+          info "Configuring LibComponentLogging log components for '" + pod_name + "'"
           add_config_components(@lcl_pods_config_components_file, components_file)
         end
       end
@@ -199,6 +206,11 @@ class LibComponentLoggingPodsConfig
   def create_folder(path)
     debug "Creating folder '" + path.to_s + "'"
     FileUtils.mkdir_p(path) unless File.directory? path
+  end
+
+  protected
+  def exists_file(file)
+    return File.file? file
   end
 
   protected
@@ -254,6 +266,23 @@ class LibComponentLoggingPodsConfig
   end
 
   protected
+  def keep_last_config_template_copy(file_name)
+    src_file = @pods_config.project_pods_root + file_name
+    cpy_file = @lcl_pods_template_copies_root + file_name
+    cpy_dir = File.dirname(cpy_file)
+    FileUtils.mkdir_p(cpy_dir)
+    copy_file(src_file, cpy_file)
+  end
+
+  protected
+  def equals_last_config_template_copy(file_name)
+    src_file = @pods_config.project_pods_root + file_name
+    cpy_file = @lcl_pods_template_copies_root + file_name
+    return false if !File.file? cpy_file
+    return FileUtils.compare_file(src_file, cpy_file)
+  end
+
+  protected
   def instantiate_config_template(config_template_file_name)
     return if config_template_file_name == ""
 
@@ -261,12 +290,16 @@ class LibComponentLoggingPodsConfig
     config_template_name = File.basename(config_template_file_name)
     config_name = config_template_name.gsub(/\.template/, '')
     config_file = @lcl_user_root + config_name
-    if File.file? config_file then
-      copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @lcl_user_root + (config_name + @lcl_tmp_file_suffix))
-      note "Configuration file '" + config_name + "' already exists, please merge with '" + config_name + @lcl_tmp_file_suffix + "' manually"
+    if File.file? config_file
+      if !equals_last_config_template_copy(config_template_file_name)
+        copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @lcl_user_root + (config_name + @lcl_tmp_file_suffix))
+        note "Configuration file '" + config_name + "' already exists, please merge with '" + config_name + @lcl_tmp_file_suffix + "' manually"
+        keep_last_config_template_copy(config_template_file_name)
+      end
     else
       copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, config_file)
       note "Configuration file '" + config_name + "' needs to be adapted before compiling your project"
+      keep_last_config_template_copy(config_template_file_name)
     end
   end
 
@@ -359,7 +392,7 @@ END
 
   protected
   def info(text)
-    if @pods_config.verbose? then
+    if is_verbose_mode()
       puts "\n-> " + text
     else
       puts text
@@ -373,7 +406,12 @@ END
 
   protected
   def debug(text)
-    puts "   " + text if @pods_config.verbose?
+    puts "   " + text if is_verbose_mode()
+  end
+
+  protected
+  def is_verbose_mode()
+   return @pods_config.verbose?
   end
 
 end
