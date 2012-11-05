@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'grabKit'
-  s.version      = '1.2'
+  s.version      = '0.0.1'
   s.summary      = 'iOS library offering simple and unified methods to retrieve photo albums from social services.'
   s.homepage     = 'https://github.com/pierrotsmnrd/grabKit'
   s.license      = 'MIT'
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'flickr' do |flickr|
     flickr.source_files = 'grabKit/grabKit/grabKitSources/serviceGrabbers/flickrGrabber/*.{m,h}'
-    flickr.dependency 'objectiveflickr', '2.0.1'
+    flickr.dependency 'objectiveflickr', '2.0.2'
   end
 
   s.subspec 'instagram' do |instagram|
