@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'objectiveflickr'
-  s.version  = '2.0.1'
+  s.version  = '2.0.2'
   s.license  = {
     :type => 'MIT',
     :text => <<-LICENSE
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.summary  = 'ObjectiveFlickr, a Flickr API framework for Objective-C.'
   s.homepage = 'https://github.com/lukhnos/objectiveflickr/'
   s.author   = { 'Lukhnos D. Liu' => 'lukhnos@lukhnos.org' }
-  s.source   = { :git => 'https://github.com/lukhnos/objectiveflickr.git', :commit => 'b40d6c984c' }
+  s.source   = { :git => 'https://github.com/lukhnos/objectiveflickr.git', :tag => '2.0.2' }
   s.platform = :ios  
   s.source_files = 'Source/*.{h,m}' , 'LFWebAPIKit/*.{h,m}'
   s.resources = 'BridgeSupport'
