@@ -25,4 +25,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => './Pods/ZipArchive' }
   s.library   = 'z'
   s.requires_arc = false
+  s.platform     = :ios
+  s.framework  = 'UIKit'
 end
