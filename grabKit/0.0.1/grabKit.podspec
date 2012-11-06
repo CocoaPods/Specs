@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                    'grabKit/grabKit/grabKitSources/{configuration,constants,helpers,model,serviceGrabbers}/*.{m,h}',
                    'grabKit/grabKit/grabKitSources/serviceGrabbers/protocols/*.{m,h}',
                    'grabKit/grabKit/grabKitSources/serviceGrabbers/tokenStores/*.{m,h}'                
-  s.requires_arc = false
+  s.requires_arc = true
   s.platform     = :ios
 
   s.subspec 'device' do |device|
