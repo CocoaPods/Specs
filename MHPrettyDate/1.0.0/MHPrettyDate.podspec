@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { "Bobby Williams" => "bjackw@mac.com" }
   s.source       = { :git => "https://github.com/bobjustbob/MHPrettyDate.git", :tag => "v1.0.0" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'MHPrettyDate', 'MHPrettyDate/**/*.{h,m}'
+  s.source_files = 'MHPrettyDate/**/*.{h,m}'
   s.framework  = 'Foundation'
 end
