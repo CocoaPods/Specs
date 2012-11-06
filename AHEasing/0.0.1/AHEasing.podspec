@@ -9,8 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/warrenm/AHEasing.git",
                      :commit => "HEAD" }
 
-  s.ios.deployment_target = '4.0'
-  s.osx.deployment_target = '10.6'
+  s.platform     = :ios
 
   s.source_files = "AHEasing/easing.{h,c}", "AHEasing/CAKeyframeAnimation+AHEasing.{h,m}"
   s.public_header_files = "AHEasing/easing.h", "AHEasing/CAKeyframeAnimation+AHEasing.h"
