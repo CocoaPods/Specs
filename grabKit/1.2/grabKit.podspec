@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'grabKit'
   s.version      = '1.2'
-  s.summary      = 'iOS library offering simple and unified methods to retrieve photo albums from social services.'
+  s.summary      = 'Simple access on iOS to your photos on Facebook, FlickR, Instagram, Picasa, and more.'
   s.homepage     = 'https://github.com/pierrotsmnrd/grabKit'
   s.license      = 'MIT'
   s.author       = { 'Pierre-Olivier Simonard' => 'pierre.olivier.simonard@gmail.com' }
