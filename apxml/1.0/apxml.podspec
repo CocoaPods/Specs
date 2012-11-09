@@ -7,12 +7,12 @@
 # For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
 #
 Pod::Spec.new do |s|
-  s.name         = 'APXML'
+  s.name         = 'apxml'
   s.version      = '1.0'
   s.summary      = "XML DOM for iPhone and iPod Touch."
   s.homepage     = "http://arashpayan.com/projects/APXML/"
   s.author       = { 'Arash Payan', 'Daniel Kuhnke' }
-  s.source       = { :git => 'https://github.com/dkuhnke/apxml.git', :tag => 'v1.0' }
+  s.source       = { :git => 'https://github.com/dkuhnke/apxml.git', :tag => '1.0' }
   s.platform     = :ios
   s.requires_arc = false
   s.source_files = '*.{h,m}'
