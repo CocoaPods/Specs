@@ -8,11 +8,11 @@
 #
 Pod::Spec.new do |s|
   s.name         = 'APXML'
-  s.version      = '0.0.1'
+  s.version      = '1.0'
   s.summary      = "XML DOM for iPhone and iPod Touch."
   s.homepage     = "http://arashpayan.com/projects/APXML/"
   s.author       = { 'Arash Payan', 'Daniel Kuhnke' }
-  s.source       = { :git => 'https://github.com/dkuhnke/apxml.git', :commit => 'bd72496919cab9042de85e147478146b2bad8f57' }
+  s.source       = { :git => 'https://github.com/dkuhnke/apxml.git', :tag => 'v1.0' }
   s.platform     = :ios
   s.requires_arc = false
   s.source_files = '*.{h,m}'
