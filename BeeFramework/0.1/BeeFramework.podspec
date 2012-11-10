@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   # s.platform     = :ios, '5.0'
   s.platform     = :ios
 
-  s.source_files = 'BeeFramework/{Foundation,MVC}/**/*.{h,m}', 'BeeFramework/Bee.h'
+  s.source_files = 'BeeFramework/{Foundation,MVC}/**/*.{h,m,mm}', 'BeeFramework/Bee.h'
   s.frameworks = 'CoreMedia', 'CoreVideo', 'AVFoundation', 'Security', 'SystemConfiguration', 'QuartzCore', 'MobileCoreServices', 'CFNetwork'
   s.library = 'z'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz' }
