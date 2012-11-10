@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'BeeFramework/{Foundation,MVC}/**/*.{h,m}', 'BeeFramework/Bee.h'
   s.frameworks = 'CoreMedia', 'CoreVideo', 'AVFoundation', 'Security', 'SystemConfiguration', 'QuartzCore', 'MobileCoreServices', 'CFNetwork'
-  s.libraries = 'libz'
+  s.library = 'z'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz' }
 
   # Finally, specify any Pods that this Pod depends on.
