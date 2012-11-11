@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Sam Soffes' => 'sam@samsoff.es' }
   s.source       = { :git => 'https://github.com/samsoffes/sskeychain.git', :tag => '0.1.4' }
   s.description  = 'SSKeychain is a simple utility class for making the system keychain less sucky.'
-  s.source_files = 'SSKeychain.*'
+  s.source_files = 'SSKeychain.{h,m}'
   s.frameworks   = 'Security'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
 end
