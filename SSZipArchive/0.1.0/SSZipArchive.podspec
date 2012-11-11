@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.1.0'
   s.summary  = 'Utility class for unzipping files on iOS and Mac.'
   s.homepage = 'https://github.com/soffes/ssziparchive'
+  s.license  = 'MIT'
   s.author   = { 'Sam Soffes' => 'sam@samsoff.es' }
   s.source   = { :git => 'https://github.com/soffes/ssziparchive.git', :tag => '0.1.0' }
 
