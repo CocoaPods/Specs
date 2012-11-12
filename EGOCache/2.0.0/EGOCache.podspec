@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name     = 'EGOCache'
-  s.version  = '2.0.0'
+  s.version  = '2.0'
   s.license  = 'MIT'
   s.summary  = 'Fast Caching for Objective-C (iPhone & Mac Compatible).'
   s.homepage = 'https://github.com/enormego/EGOCache'
   s.author   = 'enormego'
   s.source   = { :git    => 'https://github.com/enormego/EGOCache.git',
-                 :commit => 'bd79aa490914f80ebd94e5366f3b8b9b8522b87e' }
+                 :tag => 'v2.0' }
 
   s.source_files = '*.{h,m}'
 
