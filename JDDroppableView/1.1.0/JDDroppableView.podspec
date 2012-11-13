@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/jaydee3/JDDroppableView"  
   s.license      = "MIT"  
   s.author       = { "Markus Emrich" => "markus@nxtbgthng.com" }  
-  
+  s.requires_arc = true
+
   s.source       = { :git => "https://github.com/jaydee3/JDDroppableView.git", :tag => "pod-1.1.0" }  
   s.source_files = 'Library/DroppableView/**/*.{h,m}'  
   
