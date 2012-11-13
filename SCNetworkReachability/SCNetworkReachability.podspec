@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "reachability-ios"
+  s.name         = "SCNetworkReachability"
   s.version      = "1.0.0"
   s.summary      = "Wrapper for SCNetworkReachability methods of SystemConfiguration.framework"
   s.homepage     = "https://github.com/belkevich/reachability-ios"
