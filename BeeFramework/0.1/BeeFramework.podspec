@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  s.source       = { :git => "https://github.com/stcui/BeeFramework.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/gavinkwoe/BeeFramework.git", :tag => "0.1" }
 
   # If this Pod runs only on iOS or OS X, then specify the platform and
   # the deployment target.
