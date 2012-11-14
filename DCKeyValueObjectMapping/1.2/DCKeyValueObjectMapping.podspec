@@ -8,6 +8,5 @@ Pod::Spec.new do |s|
   s.author           		=  { 'Diego Chohfi' => 'dchohfi@gmail.com' }
   s.source           		=  { :git => 'https://github.com/dchohfi/KeyValueObjectMapping.git', :tag => '1.2' }
   s.source_files     		=  'KeyValueObjectMapping'
-  s.compiler_flags   		=  '-Wno-format-security'
   s.requires_arc     		=  true
 end
