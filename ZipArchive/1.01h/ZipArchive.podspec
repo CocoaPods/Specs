@@ -20,9 +20,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   s.author       = { "Unknow Name" => "acsolu@gmail.com" }
   s.source       = { :svn => 'http://ziparchive.googlecode.com/svn/trunk/@12' }
-  s.source_files = 'ZipArchive', '*.{h,m}'
+  s.source_files = '*.{h,mm}', 'minizip/*.{h,c}'
   s.public_header_files = '*.h'
-  s.preserve_paths = "minizip"
-  s.library   = 'libz'
-  s.requires_arc = true
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => './Pods/ZipArchive' }
+  s.library   = 'z'
+  s.requires_arc = false
+  s.platform     = :ios
+  s.framework  = 'UIKit'
 end
