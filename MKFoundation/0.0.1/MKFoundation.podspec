@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
   s.author       = { "Mugunth Kumar" => "mugunth@steinlogic.com" }
   s.source       = { :git => "https://github.com/MugunthKumar/MKFoundation.git", :commit => "0d2a548a277c8a9430557d610b6c32f646e77852" }
 
+  s.requires_arc =  true
+
   s.ios.source_files = 'MKFoundation/Classes/MKFoundation'
   s.osx.source_files = 'MKFoundation/Classes/MKFoundation/MKObject.{h,m}', 'MKFoundation/Classes/MKFoundation/MKObject+XMLExtensions.{h,m}'
 

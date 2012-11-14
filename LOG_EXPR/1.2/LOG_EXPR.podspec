@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A macro that prints out x, no matter what type x is.'
   s.homepage = 'http://atelierdumobile.com'
   s.author   = { 'Mathieu Godart' => 'mathieu@atelierdumobile.com' }
-  s.source   = { :git => 'https://github.com/MonsieurDart/LOG_EXPR.git', :tag => 'v' + version }
+  s.source   = { :git => 'https://github.com/atelierdumobile/LOG_EXPR.git', :tag => 'v' + version }
 
   s.description = 'LOG_EXPR(x) is a macro that prints out x, no matter what type x is, ' \
                   'without having to worry about format-strings. It works on Mac OS X and iOS. '\

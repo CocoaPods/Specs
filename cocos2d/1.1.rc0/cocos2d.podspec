@@ -7,13 +7,23 @@ Pod::Spec.new do |s|
   s.homepage     =  'http://www.cocos2d-iphone.org'
   s.author       =  { 'Ricardo Quesada' => 'ricardoquesada@gmail.com', 'Zynga Inc.' => 'https://zynga.com/' }
   s.source       =  {:git => 'https://github.com/cocos2d/cocos2d-iphone.git', :commit => '7ee5b9abf645c32379a45317986a308204277bb1'}
-  s.source_files =  'cocos2d/**/*.{h,m,c}'
-  s.frameworks   =  ["CoreGraphics", "OpenGLES", "QuartzCore"]
-  s.library      =  'z'
-  s.resources    =  "Resources/Fonts/fps_images*.png"
+  s.preferred_dependency = 'cocos2d'
 
-  def s.copy_header_mapping(from)
-    from.relative_path_from(Pathname.new('cocos2d'))
+  s.subspec 'cocos2d' do |cc|
+    cc.source_files =  'cocos2d/**/*.{h,m,c}'
+    cc.frameworks   =  ["CoreGraphics", "OpenGLES", "QuartzCore"]
+    cc.library      =  'z'
+    cc.resources    =  "Resources/Fonts/fps_images*.png"
+
+    def cc.copy_header_mapping(from)
+      from.relative_path_from(Pathname.new('cocos2d'))
+    end
+  
+    cc.ios.dependency 'FontLabel'
   end
-  s.ios.dependency 'FontLabel'
+
+  s.subspec 'CocosDenshion' do |cd|
+    cd.source_files =  'CocosDenshion/CocosDenshion/*.{h,m}'
+    cd.frameworks   =  ["AVFoundation", "OpenAL", "CoreFoundation", "AudioToolbox", "Foundation"]
+  end
 end
