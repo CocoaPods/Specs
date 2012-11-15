@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'coby'
   s.version  = '0.0.1'
   s.summary  = 'Opinionated categories for Objective C.'
-  s.homepage = 'https://github.com/pjaspers/Tin'
+  s.homepage = 'https://github.com/pjaspers/coby'
   s.author   = { 'pjaspers' => 'piet@jaspe.rs' }
   s.source   = { :git => 'https://github.com/pjaspers/coby.git', :commit => 'b03cd1965c3783085fe31cbd94fde6d90d0254ff' }
   s.description = 'Opinionated categories on default objc-classes.'
