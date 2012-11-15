@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-push-sdk.git', :tag => s.version.to_s }
   s.platform = :ios, '5.0'
   s.source_files = 'stackmob-ios-push-sdk/*.{h,m}'
+  s.dependency 'AFNetworking', '1.0RC1'
   s.requires_arc = true
   s.documentation = {
   	:appledoc => [
