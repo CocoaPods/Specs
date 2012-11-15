@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'Source/*.{h,m}' , 'LFWebAPIKit/*.{h,m}'
   s.resources = 'BridgeSupport'
-  s.framework = 'SystemConfiguration'
+  s.frameworks = 'SystemConfiguration', 'CFNetwork'
 
 end
