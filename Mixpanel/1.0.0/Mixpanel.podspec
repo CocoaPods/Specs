@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://mixpanel.com'
   s.author   = { 'Mixpanel' => 'support@mixpanel.com' }
   s.source   = { :git => 'https://github.com/mixpanel/mixpanel-iphone.git', :tag => 'v1.0.0' }
+  s.frameworks = 'CoreTelephony'
   s.platform = :ios
   s.source_files = 'Mixpanel/**/*.{h,m}'
 end
