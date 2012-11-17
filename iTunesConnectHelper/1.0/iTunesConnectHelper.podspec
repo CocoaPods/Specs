@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = 'iTunesConnect'
+  s.name         = 'iTunesConnectHelper'
   s.version      = '1.0'
   s.platform     = :ios
   s.summary      = 'Helper class for making purchases with iTunes Connect.'
