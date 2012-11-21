@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'BetterBlocks'
   s.version  = '0.0.1'
   s.license  = { :type => 'MIT', :file => 'LICENSE.txt' }
-  s.summary  = 'Completion and Error blocks for NSURLConnection'
+  s.summary  = 'Completion and Error blocks for NSURLConnection.'
   s.homepage = 'https://github.com/neilco/BetterBlocks'
   s.author   = { 'Neil Cowburn' => 'neilco@gmail.com' }
   s.source   = { :git => 'https://github.com/neilco/BetterBlocks.git',
