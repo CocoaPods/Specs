@@ -27,7 +27,7 @@ LICENSE
 
   s.source       = { :git => "https://github.com/jonahsiegle/JSNotifier.git", :commit => "354f9eadf473468dbf04666130506a52beafb2a3"}
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios
 
   s.source_files = 'JSNotifier\ Sample/JSNotifier.h', 'JSNotifier\ Sample/JSNotifier.m'
 
