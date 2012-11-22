@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.author       = { 'Arne Harren' => 'ah@0xc0.de' }
   s.license      = 'MIT'
 
-  s.summary      = 'Core files of LibComponentLogging, a small logging '       \
-                   'library for Objective-C on Mac OS X and iOS.'
+  s.summary      = 'Logging library which provides log levels, log '           \
+                   'components, and pluggable logging back-ends.'
   s.description  = 'LibComponentLogging is a small logging library for '       \
                    'Objective-C on Mac OS X and iOS which provides log '       \
                    'levels, log components, and pluggable logging '            \
