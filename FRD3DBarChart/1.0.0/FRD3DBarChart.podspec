@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sebastienwindal/FRD3DBarChart.git", :tag => "1.0.0" }
   s.platform     = :ios
   s.source_files = 'FRD3DBarChart/FRD3DBarChartViewController*.{h,m}', 'FRD3DBarChart/Shapes.h'
+  s.frameworks = 'OpenGLES', 'GLKit', 'QuartzCore', 'CoreText'
   s.requires_arc = true
 end
