@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "BeeFramework"
   s.version      = "0.1.1"
-  s.summary      = "Bee Framework is an iOS MVC framework to help you develop your app rapidly."
+  s.summary      = "Bee Framework is an iOS MVC framework to help you develop your app rapidly. Add __BEE_DEBUGGER__=1 in build setting of Pods target to enable Bee Debugger."
   s.description  = <<-DESC
     Bee Framework is a MVC Framework to develop iOS application. 
     It has pretty clear hieracy and signal based mechanism, also with cache and asynchonized networking methods in it.
