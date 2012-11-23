@@ -15,7 +15,14 @@ Pod::Spec.new do |s|
   files.exclude(/\/asi-http-request\//)
   files.exclude(/\/json-framework\//)
   files.exclude(/\/google-toolbox-for-mac\//)
+  files.exclude(/\/ZipFile-OC\//)
+  files.exclude(/\/Reachability.*/)
   s.source_files = files
+
+  s.dependency 'ZipArchive', '1.01h'
+  s.dependency 'Reachability', '3.1.0'
+  s.dependency 'ASIHTTPRequest', '1.8.1'
+  s.dependency 'SBJson', '3.1.1'
   
   s.libraries    = 'z', 'sqlite3.0'
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
