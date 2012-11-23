@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
   s.license      = 'The "New" BSD License *or* the MIT License (2008)'
 
-#  s.source       = { :git => "http://git-wip-us.apache.org/repos/asf/incubator-cordova-ios.git", :tag => "1.4.0" }
+#  s.source       = { :git => "http://git-wip-us.apache.org/repos/asf/cordova-ios.git", :tag => "1.4.0" }
   s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.4.0" }
   s.source_files = 'PhoneGapLib/Classes/*.{h,m}'
   s.resources    = 'PhoneGapLib/javascripts/core/*.js', 'PhoneGapLib/VERSION'
