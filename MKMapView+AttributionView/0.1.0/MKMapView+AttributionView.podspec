@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name = 'MKMapView+AttributionView'
-  s.version = '0.0.1'
+  s.version = '0.1'
   s.authors = {'Bart Vandendriessche' => 'bart.vandendriessche@gmail.com'}
   s.homepage = 'https://github.com/bartvandendriessche/MKMapView-AttributionView'
   s.summary = 'A MKMapView category that adds a method to obtain the AttributionView.'
-  s.source = {:git => 'https://github.com/bartvandendriessche/MKMapView-AttributionView.git', :commit => :head}
+  s.source = {:git => 'https://github.com/bartvandendriessche/MKMapView-AttributionView.git', :tag => '0.1.0'}
   s.license = { :type => 'MIT', :text => <<-LICENSE
                 Copyright (c) 2012 Bart Vandendriessche
 
