@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "lua"
   s.version      = "5.2.1"
-  s.summary      = "the lua language (for embedding)."
+  s.summary      = "The lua language (for embedding)."
   s.homepage     = "https://github.com/qmx/lua"
   s.license      = { :type => "MIT",
 										 :text => <<-LICENSE
