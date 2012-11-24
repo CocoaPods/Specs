@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
                  :tag => 'v2.0' }
 
   s.source_files = '*.{h,m}'
+  s.requires_arc = true
 
   s.license  	 = {
 	:type => 'MIT',
