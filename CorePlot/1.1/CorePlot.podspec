@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                  'Brad Larson'    => 'larson@sunsetlakesoftware.com',
                  'Eric Skroch'    => 'eskroch@mac.com',
                  'Barry Wark'     => 'barrywark@gmail.com' }
-  s.source   = { :hg  => 'https://code.google.com/p/core-plot', :revision => 'release_1.1' }
+  s.source   = { :hg  => 'http://code.google.com/p/core-plot', :revision => 'release_1.1' }
 
   s.description = 'Core Plot is a plotting framework for OS X and iOS. It provides 2D visualization ' \
                   'of data, and is tightly integrated with Apple technologies like Core Animation, ' \
