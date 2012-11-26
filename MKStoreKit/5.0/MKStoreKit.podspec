@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MKStoreKit'
-  s.version  = '0.0.1'
+  s.version  = '5.0'
   s.license = 'zLib'
   s.summary  = 'In-App Purchases StoreKit for iOS devices.'
   s.homepage = 'https://github.com/MugunthKumar/MKStoreKit'
