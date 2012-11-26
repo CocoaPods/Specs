@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'MKMapView+AttributionView'
-  s.version = '0.1'
+  s.version = '0.1.0'
   s.authors = {'Bart Vandendriessche' => 'bart.vandendriessche@gmail.com'}
   s.homepage = 'https://github.com/bartvandendriessche/MKMapView-AttributionView'
   s.summary = 'A MKMapView category that adds a method to obtain the AttributionView.'
