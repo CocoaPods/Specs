@@ -9,4 +9,6 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/nicklockwood/iRate.git', :tag => '1.7' }
   s.source_files =  'iRate/iRate.{h,m}'
   s.resources    =  'iRate/iRate.bundle'
+  s.framework    =  'StoreKit'
+  s.requires_arc =  true
 end
