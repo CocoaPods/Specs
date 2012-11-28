@@ -26,7 +26,7 @@ namespace :travis do
   end
 
   task :setup => [:install_opencflite_debs, :fix_rvm_include_dir] do
-    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle install"
+    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle update"
   end
 end
 
