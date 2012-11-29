@@ -14,10 +14,11 @@ Pod::Spec.new do |s|
                    "5. A lovely API on top of KVO."
 
   s.requires_arc = true
+  s.ios.deployment_target = '5.0'
 
   s.subspec 'Core' do |sp|
     files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/, /Command/)
+    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
     sp.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /Event/, /DelegateProxy/)
     sp.header_dir = 'ReactiveCocoa'
 
@@ -32,5 +33,13 @@ Pod::Spec.new do |s|
     sp.ios.source_files = files.dup.exclude(/NSTask/)
     sp.osx.source_files = files
     sp.dependency 'ReactiveCocoa/Core'
+  end
+
+  def s.pre_install (pod, _)
+    header = pod.root + 'ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h'
+    contents = header.read
+    contents = contents.gsub('ReactiveCocoa/libextobjc/extobjc/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
+    contents = contents.gsub('ReactiveCocoa/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
+    File.open(header, 'w') { |file| file.puts(contents) }
   end
 end
