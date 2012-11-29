@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/ldiqual/tesseract-ios-lib'
   s.author = 'ldiqual'
   s.source = { 
-    :git => 'https://github.com/ldiqual/tesseract-ios-lib', 
+    :git => 'https://github.com/ldiqual/tesseract-ios-lib.git', 
     :commit => '119c71c8af4a76fa97623dc0de3d6228d23631b7' 
     }
   s.license = {
