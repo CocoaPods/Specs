@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mysterioustrousers/MTPocket.git", :tag => "0.6.2" }
   s.source_files = 'MTPocket/*.{h,m}'
   s.dependency 'XMLDictionary', '~> 2.0.0'
-  s.dependency 'MTJSONUtils', '~> 0.0.1'
+  s.dependency 'MTJSONUtils', '~> 0.1.0'
   s.dependency 'Base64'
 end
