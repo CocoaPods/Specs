@@ -10,8 +10,14 @@ Pod::Spec.new do |s|
   s.platform = :ios
 
   s.source_files = 'Classes/**/*.{h,m,mm}'
+  s.resource     = 'ejecta.js'
+
   s.preferred_dependency = 'Library'
-  s.frameworks = 'SystemConfiguration', 'CoreText', 'GameKit', 'CoreGraphics', 'OpenAL', 'AudioToolbox', 'OpenGLES', 'AVFoundation', 'iAd'
+  s.frameworks = 'SystemConfiguration', 'CoreText', 'QuartzCore', 'GameKit', 'CoreGraphics', 'OpenAL', 'AudioToolbox', 'OpenGLES', 'AVFoundation', 'iAd'
+
+  def s.copy_header_mapping(from)
+    from.relative_path_from(Pathname.new('Classes/Ejecta'))
+  end
 
   s.subspec 'Library' do |os|
     os.source_files = 'JavaScriptCore/*.h', 'lodepng/*.{c,h}'
