@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "NSXtensions"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "A collection of useful extensions for standard Cocoa classes."
   s.homepage     = "https://github.com/shoumikhin/NSXtensions"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Anthony Shoumikhin" => "anthony@shoumikh.in" }
-  s.source       = { :git => "https://github.com/shoumikhin/NSXtensions.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/shoumikhin/NSXtensions.git", :tag => "0.2" }
   s.platform     = :ios, '5.1'
   s.source_files = '*.{h,m}'
   s.public_header_files = '*.h'
