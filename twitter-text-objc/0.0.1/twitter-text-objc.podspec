@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'Objective-C port of the twitter-text handling libraries.'
   s.homepage = 'https://github.com/twitter/twitter-text-objc'
-  s.source   = { :git => 'git://github.com/twitter/twitter-text-objc.git' :commit => "aa40ae5fee6e3a937008c87cab1bb0493840d0c1" }
+  s.source   = { :git => 'https://github.com/twitter/twitter-text-objc.git' :commit => "aa40ae5fee6e3a937008c87cab1bb0493840d0c1" }
   s.source_files = 'lib'
   s.author         = { "Twitter, Inc." => "opensource@twitter.com" }
   s.license        = { :type => 'Apache License, Version 2.0' }
