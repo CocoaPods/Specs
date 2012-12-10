@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'MapKit' do |sp|
     sp.dependency 'SDWebImage/Main'
-    sp.source_files = 'MKAnnotationView+WebCache.*'
+    sp.source_files = 'SDWebImage/MKAnnotationView+WebCache.*'
     sp.framework    = 'MapKit'
   end
 end
