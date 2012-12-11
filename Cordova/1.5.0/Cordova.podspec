@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = 'Apache License, Version 2.0'
 
 #  s.source       = { :git => "http://git-wip-us.apache.org/repos/asf/cordova-ios.git", :tag => "1.5.0" }
-  s.source       = { :git => "https://github.com/apache/incubator-cordova-ios.git", :tag => "1.5.0" }
+  s.source       = { :git => "https://github.com/apache/cordova-ios.git", :tag => "1.5.0" }
   s.source_files = 'CordovaLib/Classes/*.{h,m}'
   s.resources    = 'CordovaLib/javascripts/core/*.js', 'CordovaLib/VERSION'
 
