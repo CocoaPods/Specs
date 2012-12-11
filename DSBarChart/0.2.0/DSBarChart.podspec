@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name     = 'DSBarChart'
   s.version  = '0.2.0'
   s.license  = 'MIT'
-  s.summary  = 'A simple objective-c bar chart library.'
+  s.summary  = 'A simple Objective-C Bar Chart / Histogram library.'
   s.homepage = 'https://github.com/dhilipsiva/DSBarChart'
   s.authors  = {'DhilipSiva Bijju' => 'dhilipsiva@gmail.com', 'Gautam Jeyaraman' => 'gautamjeyaraman@gmail.com'}
-  s.source   = { :git => 'A simple Objective-C Bar Chart / Histogram library.', :tag => '0.2.0' }
+  s.source   = { :git => 'https://github.com/dhilipsiva/DSBarChart.git', :tag => '0.2.0' }
   s.source_files = 'DSBarChart/DSBarChart.{h,m}'
   s.requires_arc = true
   s.framework = 'UIKit'
