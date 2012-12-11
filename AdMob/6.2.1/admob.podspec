@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'Admob'
+  s.name = 'AdMob'
   s.version = '6.2.1'
   s.platform = :ios
   s.license = {:type => 'commercial',:text =>'text goes here'}
