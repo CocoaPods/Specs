@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'BugSense-iOS.framework/'
   s.resource     = 'BugSense-iOS.framework/Resources/*', 'BugSense-iOS.framework/Resources/en.lproj/*'
   s.frameworks   = 'SystemConfiguration'
-  s.library      = 'libz'
+  s.library      = 'ibz'
 end
