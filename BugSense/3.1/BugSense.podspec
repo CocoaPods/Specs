@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'BugSense-iOS.framework/Headers/BugSenseController.h'
   s.preserve_paths = 'BugSense-iOS.framework/'
   s.resource     = 'BugSense-iOS.framework/Resources/*', 'BugSense-iOS.framework/Resources/en.lproj/*'
-  s.frameworks   = 'SystemConfiguration'
+  s.frameworks   = 'SystemConfiguration', 'BugSense'
   s.library      = 'z'
   s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/BugSense/"' }
 end
