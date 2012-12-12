@@ -27,8 +27,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.subspec 'Core' do |core|
-    core.requires_arc = true
+  s.subspec 'Core' do |core|    
     core.source_files = 'src/core/src'
   end
 
