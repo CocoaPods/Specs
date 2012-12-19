@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
 
   s.source_files = '*.{h,m}'
 
-  s.framework = 'AdSupport'
+  s.weak_framework = 'AdSupport'
   s.library   = 'z', 'sqlite3'
 
 end
