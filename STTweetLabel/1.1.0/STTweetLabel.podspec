@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "STTweetLabel"
-  s.version      = "1.1"
+  s.version      = "1.1.0"
   s.summary      = "A custom UILabel view controller for iOS with certain words tappable like Twitter."
   s.homepage     = "https://github.com/SebastienThiebaud/STTweetLabel"
 
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Sebastien THIEBAUD" => "sebastien.thiebaud@supinfo.com" }
   s.source       = { 
     :git => "https://github.com/SebastienThiebaud/STTweetLabel.git", 
-    :tag => "1.1"
+    :tag => "1.1.0"
   }
 
   s.platform     = :ios, '5.0'
