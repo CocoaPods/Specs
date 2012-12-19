@@ -8,5 +8,9 @@ Pod::Spec.new do |s|
   s.source_files = 'MAKVONotificationCenter.{h,m}'
   s.header_dir   = s.name
   s.requires_arc = true
+  s.license      = {
+      :type => 'MIT',
+      :file => 'LICENSE'
+  }
 
 end
