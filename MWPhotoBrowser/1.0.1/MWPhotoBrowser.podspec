@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'MessageUI', 'ImageIO'
 
-  s.dependency 'SDWebImage'
+  s.dependency 'SDWebImage','<3.0.0'
   s.dependency 'MBProgressHUD'
 end
