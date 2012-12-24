@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Objective-C utilities and shorthands."
   s.homepage     = "https://github.com/yaakaito/Overline"
-  s.license      = 'MIT (example)'
+  s.license      = 'MIT'
   s.author       = { "KAZUMA Ukyo" => "yaakaito@gmail.com" }
   s.source       = { :git => "https://github.com/yaakaito/Overline.git", :tag => "0.0.1" }
   s.source_files = 'Overline', 'Overline/**/*.{h,m}'
