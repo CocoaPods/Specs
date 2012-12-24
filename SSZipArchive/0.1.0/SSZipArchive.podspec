@@ -2,9 +2,10 @@ Pod::Spec.new do |s|
   s.name     = 'SSZipArchive'
   s.version  = '0.1.0'
   s.summary  = 'Utility class for unzipping files on iOS and Mac.'
-  s.homepage = 'https://github.com/samsoffes/ssziparchive'
+  s.homepage = 'https://github.com/soffes/ssziparchive'
+  s.license  = 'MIT'
   s.author   = { 'Sam Soffes' => 'sam@samsoff.es' }
-  s.source   = { :git => 'https://github.com/samsoffes/ssziparchive.git', :tag => '0.1.0' }
+  s.source   = { :git => 'https://github.com/soffes/ssziparchive.git', :tag => '0.1.0' }
 
   s.description  = "SSZipArchive is a simple utility class for unzipping files based on ZipArchive. " \
                    "Currently it only supports unzipping. In the future, creating zip files will be supported."

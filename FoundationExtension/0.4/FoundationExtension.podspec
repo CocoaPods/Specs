@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
     ss.platform     = :ios
     ss.source_files = "UIKitExtension"
     ss.header_dir = "UIKitExtension"
-    ss.framework  = "CoreGraphics"
     ss.xcconfig = { "GCC_PREFIX_HEADER" => "UIKitExtension/UIKitExtension-Prefix.pch" }
     ss.dependency "FoundationExtension/FoundationExtension"
   end

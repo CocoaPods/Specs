@@ -3,8 +3,8 @@ Pod::Spec.new do |s|
   s.version      = "1.01"
   s.summary      = "ODIN is a number designed to uniquely identify their users’ devices in a convenient and interoperable manner."
   s.description  = <<-DESC
-                    **What is the Open Device Identification Number?**  
-                    
+                    **What is the Open Device Identification Number?**
+
                     The Open Device Identification Number (ODIN) is a number designed for mobile app developers and service providers to uniquely identify their users’ devices in a convenient and interoperable manner. Unlike existing device identification schemes, ODIN is:
 
                     - **Anonymous** A device’s ODIN does not encode any additional information beyond differentiating it from other ODINs. Having a single ODIN does not reveal any information about the originating device’s user, make, model, etc.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
                     Maintenance of ODIN is administered by an ODIN Working Group (http://www.odinmobile.org) comprised of industry developers and service providers.
                    DESC
   s.homepage     = "http://code.google.com/p/odinmobile/"
-  s.license      = { :type => 'Apache License 2.0', :url => 'http://www.apache.org/licenses/LICENSE-2.0' }
+  s.license      = { :type => 'Apache License 2.0' }
   s.license      = {
     :type => 'APACHE',
     :text => <<-LICENSE

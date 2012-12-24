@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Flickr' do |flickr|
     flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/**/*.{h,m}'
-    flickr.framework = 'CFNetwork'
-    flickr.dependency 'objectiveflickr'
+    flickr.framework = 'SystemConfiguration', 'CFNetwork'
+    flickr.dependency 'objectiveflickr', "2.0.2"
   end
 
   s.subspec 'Foursquare' do |foursquare|
