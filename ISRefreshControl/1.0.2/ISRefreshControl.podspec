@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.author       = { "Yosuke Ishikawa" => "ishkawa73@gmail.com" }
   s.source       = { :git => "https://github.com/ishkawa/ISRefreshControl.git", :tag => "1.0.2" }
   s.source_files = 'ISRefreshControl'
+  s.resources    = 'ISRefreshControl/Images/*.png'
   s.framework  = 'QuartzCore'
   s.requires_arc = true
 end
