@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.author         = 'Google Inc.'
   s.source         = { :http => "https://developers.google.com/+/mobile/ios/sdk/google-plus-ios-sdk-1.1.0.zip" }
   s.platform       = :ios
-  s.source_files   = 'google-plus-ios-sdk-1.1.0/lib/*.{h}', 'google-plus-ios-sdk-1.1.0/OpenSource/**/*.{h,m}', 'google-plus-ios-sdk-1.1.0/Resources/*.png'
+  s.source_files   = 'google-plus-ios-sdk-1.1.0/lib/*.{h}', 'google-plus-ios-sdk-1.1.0/OpenSource/**/*.{h,m}'
+  s.resource       = 'google-plus-ios-sdk-1.1.0/Resources/*.png'
   s.preserve_paths = 'google-plus-ios-sdk-1.1.0/lib/libGooglePlusUniversal.a'
   s.library        = 'GooglePlusUniversal'
   s.framework      = 'Security', 'SystemConfiguration'
