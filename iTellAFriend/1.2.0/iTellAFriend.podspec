@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.requires_arc = true
   s.source_files = 'src/*.{h,m}'
-  s.clean_paths = "Classes", "*.{plist,pch,md,m,xcodeproj}", "example"
+  s.preserve_paths = "Classes", "*.{plist,pch,md,m,xcodeproj}", "example"
   s.frameworks = 'MessageUI'
-
 end
