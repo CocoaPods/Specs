@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'AwesomeMenu/QuadCurveMenu/*.{h,m}','AwesomeMenu/AGMedallionView.{h,m}'
   s.resources    = "AwesomeMenu/Images/*.png"
+  s.framework  = 'QuartzCore'
   s.requires_arc = true
 end
