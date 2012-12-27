@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source                      = { :svn => "http://zxing.googlecode.com/svn/tags/2.0" }
 # s.source                      = { :git => "https://github.com/zxing/zxing.git" }
 
+  s.preserve_paths              = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h'
   s.source_files                = 'cpp/core/src/zxing/**/*.cpp', 'objc/src/ZXing/*.{m,mm}'
   s.compiler_flags              = '-IZXing/cpp/core/src/ -IZXing/objc/src/'
   s.requires_arc                = false
