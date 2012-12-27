@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/hoteltonight/HTStateAwareRasterImageView"
   s.license      = 'MIT'
   s.author       = { "Jacob Jennings" => "jacob.r.jennings@gmail.com" }
-  s.source       = { :git => "https://github.com/hoteltonight/HTStateAwareRasterImageView.git", :commit => '493fccf49c5fd24b375b3fbbd73c2870a7e2af4d' }
+  s.source       = { :git => "https://github.com/hoteltonight/HTStateAwareRasterImageView.git", :commit => '48600548ee73fd9588e802186d15dc91dcf3a528' }
   s.ios.deployment_target = '4.3'
   s.source_files = 'Classes', '*.{h,m}'
   s.requires_arc = true
