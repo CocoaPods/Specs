@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
   s.source                      = { :svn => "http://zxing.googlecode.com/svn/tags/2.0" }
 # s.source                      = { :git => "https://github.com/zxing/zxing.git" }
 
-  s.source_files                = 'cpp/core/src/zxing/**/*.{h,cpp}', 'objc/src/ZXing/*.{h,m,mm}'
-  s.compiler_flags              = '-IZXing/cpp/core/src/'
+  s.preserve_paths              = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h'
+  s.source_files                = 'cpp/core/src/zxing/**/*.cpp', 'objc/src/ZXing/*.{m,mm}'
+  s.compiler_flags              = '-IZXing/cpp/core/src/ -IZXing/objc/src/'
   s.requires_arc                = false
 
 # workaround for a missing import in objc/src/ZXing/ZXImage.mm
@@ -26,10 +27,10 @@ Pod::Spec.new do |s|
     ios.ios.deployment_target   = '4.3'
 
     ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
-    ios.compiler_flags          = '-IZXing/cpp/core/src/', '-IZXing/iphone/ZXingWidget/Classes/'
+    ios.compiler_flags          = '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
 
 #   must use xcconfig additional to compiler_flag -I to make this header path also available for the including project
-    ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/' }
+    ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/**' }
     ios.frameworks              = 'AddressBookUI', 'QuartzCore'
   end
 end
