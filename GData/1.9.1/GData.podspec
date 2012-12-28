@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'GData'
   s.version  = '1.9.1'
-  s.platform = :ios
   s.license  = { :type => 'Apache License, Version 2.0', :file => 'COPYING.txt' }
   s.summary  = "The Google data APIs provide a simple protocol for reading and "\
                "writing data on the web. Many Google services provide a Google data API."
