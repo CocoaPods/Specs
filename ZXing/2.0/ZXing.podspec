@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 # workaround for a missing import in objc/src/ZXing/ZXImage.mm
   s.prefix_header_contents      = <<-EOS
 #ifdef __OBJC__
-  #import <ImageIO/CGImageSource.h>'
+  #import <ImageIO/CGImageSource.h>
 #endif
 EOS
 
