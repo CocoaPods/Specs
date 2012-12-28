@@ -13,7 +13,10 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~>1.0'
 
   s.ios.frameworks = 'Security'
+  
   s.prefix_header_contents = <<-EOS
-#import <Security/Security.h>
+#ifdef __OBJC__
+  #import <Security/Security.h>
+#endif /* __OBJC__*/
 EOS
 end
