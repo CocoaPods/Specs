@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/shpakovski/MASPreferences"
   s.license      = "BSD"
   s.author       = "Vadim Shpakovski"
-  s.source       = { :git => "https://github.com/shpakovski/MASPreferences.git", :commit => "1.0" }
+  s.source       = { :git => "https://github.com/shpakovski/MASPreferences.git", :tag => "1.0" }
   s.platform     = :osx
 
   s.source_files = FileList["*.{h,m}"]
