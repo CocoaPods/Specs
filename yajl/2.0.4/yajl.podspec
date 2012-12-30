@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
       system('mv COPYING LICENSE')
     end
   end
-
 end
 
 
