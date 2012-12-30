@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   def s.pre_install(pod, target)
     Dir.chdir(pod.root) do
       system('./configure')
-      system('make')
       system('mv COPYING LICENSE')
     end
   end
