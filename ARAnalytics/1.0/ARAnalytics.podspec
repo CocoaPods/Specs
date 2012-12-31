@@ -10,13 +10,13 @@ Pod::Spec.new do |s|
   s.platform     =  :ios
   s.source_files = '*.{h,m}'
 
-  testflight_sdk = { spec_name: "TestFlight",       dependency: "TestFlightSDK",            import_file: "TestFlight" }
-  mixpanel       = { spec_name: "Mixpanel",         dependency: "Mixpanel",                 import_file: "Mixpanel" }
-  localytics     = { spec_name: "Localytics",       dependency: "Localytics",               import_file: "LocalyticsSession" }
-  flurry         = { spec_name: "Flurry",           dependency: "FlurrySDK",                import_file: "Flurry" }
-  google         = { spec_name: "GoogleAnalytics",  dependency: "GoogleAnalytics-iOS-SDK",  import_file: "GAI" }
-  kissmetrics    = { spec_name: "KISSmetrics",      dependency: "KISSmetrics",              import_file: "KISSMetricsAPI" }
-  crittercism    = { spec_name: "Crittercism",      dependency: "CrittercismSDK",           import_file: "Crittercism" }
+  testflight_sdk = { :spec_name => "TestFlight",       :dependency => "TestFlightSDK",            :import_file => "TestFlight" }
+  mixpanel       = { :spec_name => "Mixpanel",         :dependency => "Mixpanel",                 :import_file => "Mixpanel" }
+  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics",               :import_file => "LocalyticsSession" }
+  flurry         = { :spec_name => "Flurry",           :dependency => "FlurrySDK",                :import_file => "Flurry" }
+  google         = { :spec_name => "GoogleAnalytics",  :dependency => "GoogleAnalytics-iOS-SDK",  :import_file => "GAI" }
+  kissmetrics    = { :spec_name => "KISSmetrics",      :dependency => "KISSmetrics",              :import_file => "KISSMetricsAPI" }
+  crittercism    = { :spec_name => "Crittercism",      :dependency => "CrittercismSDK",           :import_file => "Crittercism" }
 
 # I think we want hockeyapp, not hockey kit.
 #  hockey_kit     = { spec_name: "HockeyKit",        dependency: "HockeyKit",                import_file: "BWGlobal" } 
