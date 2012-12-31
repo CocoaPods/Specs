@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 # I think we want hockeyapp, not hockey kit.
 #  hockey_kit     = { spec_name: "HockeyKit",        dependency: "HockeyKit",                import_file: "BWGlobal" } 
 
-  crashlytics    = { spec_name: "Crashlytics" }
+  crashlytics    = { :spec_name => "Crashlytics" }
 
   
   $all_analytics =  [testflight_sdk, mixpanel, localytics, flurry, google, kissmetrics, crittercism, crashlytics]
