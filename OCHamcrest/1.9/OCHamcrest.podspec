@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'OCHamcrest'
   s.version  = '1.9'
   s.license  = 'BSD'
-  s.summary  = 'Hamcrest for Objective-C: Powerful, combinable, extensible matchers for verification'
+  s.summary  = 'Hamcrest for Objective-C: Powerful, combinable, extensible matchers for verification.'
   s.homepage = 'https://github.com/hamcrest/OCHamcrest'
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
 
