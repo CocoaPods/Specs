@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   common_source_files = ['ObjectiveMetrics', 'Sparkle']
-  s.osx.source_files = *common_source_files
-  s.ios.source_files = *common_source_files, 'TouchMetrics/UIDevice-Extension'
+  s.osx.source_files = common_source_files
+  s.ios.source_files = common_source_files, 'TouchMetrics/UIDevice-Extension'
 
   s.public_header_files = 'ObjectiveMetrics/DMTracker.h'
   s.prefix_header_file = 'ObjectiveMetrics/ObjectiveMetrics-Prefix.pch'
