@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "Objective-Luhn"
+  s.name         = "ObjectiveLuhn"
   s.version      = "1.0.0"
   s.summary      = "The Luhn Algorithm ported to objective-c."
   s.homepage     = "https://github.com/MaxKramer/ObjectiveLuhn"
