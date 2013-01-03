@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = 'A spring-like dependency injection container for objective-c.'
   s.homepage     = 'https://github.com/jasperblues/spring-objective-c'
   s.author       = { 'Jasper Blues' => 'jasper@appsquick.ly' }
-  s.source       = { :git => 'https://github.com/jasperblues/spring-objective-c', :tag => '1.0.1' }
+  s.source       = { :git => 'https://github.com/jasperblues/spring-objective-c.git', :tag => '1.0.1' }
   s.source_files = 'Source/**/*.{h,m}'
   s.libraries    =  'z', 'xml2'
   s.xcconfig     =  { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 SpringLogTemplate.h' }
