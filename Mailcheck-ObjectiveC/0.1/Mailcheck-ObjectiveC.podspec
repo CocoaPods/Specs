@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '6.0'
 
-  s.source_files = 'Classes'
+  s.source_files = 'Mailcheck/*.{h,m}'
 
   s.requires_arc = true
 end
