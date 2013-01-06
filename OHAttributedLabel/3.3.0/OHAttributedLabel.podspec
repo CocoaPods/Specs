@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'OHAttributedLabel/**/*.{h,m}'
   s.framework = 'CoreText'
+  s.prefix_header_contents = "#define OHATTRIBUTEDLABEL_DEDICATED_PROJECT"
 end
