@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /Event/, /DelegateProxy/)
   s.requires_arc = true
   s.dependency 'JRSwizzle', '~> 1.0'
+  s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 end

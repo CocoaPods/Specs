@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
   s.osx.source_files = files.dup.exclude(/UIControl/, /UITextField/)
   s.requires_arc = true
+  s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 end
