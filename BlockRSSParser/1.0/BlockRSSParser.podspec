@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "BlockRSSParser"
   s.version      = "1.0"
-  s.summary      = "AFNetworkingXMLRequestOperation based RSS parser"
+  s.summary      = "AFNetworkingXMLRequestOperation based RSS parser."
   s.homepage     = "https://github.com/tiboll/BlockRSSParser"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
