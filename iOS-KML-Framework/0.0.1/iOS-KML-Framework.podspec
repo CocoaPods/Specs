@@ -21,4 +21,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'TBXML-LICENSE'
 
   s.requires_arc = true
+
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/iOS-KML-Framework/' }
+
 end

@@ -11,8 +11,6 @@ Pod::Spec.new do |s|
 
   s.compiler_flags = '-Dunix'
 
-  s.header_mappings_dir = 'libkml/src'
-
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
 
