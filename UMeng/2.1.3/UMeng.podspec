@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name = 'UMeng'
   s.version = '2.1.3'
   s.license = { :type => 'Copyright', :text => 'LICENSE Copyright 2009 - 2012 UMeng.com, Inc. All rights reserved.' }
-  s.summary = 'UMeng analytics SDK for iOS'
+  s.summary = 'UMeng analytics SDK for iOS.'
   s.homepage = 'http://dev.umeng.com/'
-  s.author = { 'iamdaiyuan','shawnma'}
+  s.author = { 'UMeng'=> 'support@umeng.com' }
   s.source = { :http => 'http://dev.umeng.com/files/download/Analytics_iOS_SDK_2.1.3.OpenUDID.zip' }
   s.description = 'UMeng analytics SDK.'
 
