@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/iObjectiveSee/iObjectiveSee.git", :tag => "0.0.5" }
   s.platform     = :ios
   s.requires_arc = true
-	s.source_files = 'iObjectiveSee/iObjectiveSee.h', 'iObjectiveSee/src/*.{h,m}'
+	s.source_files = 'iObjectiveSee/iObjectiveSee.h', 'iObjectiveSee/src/**/*.{h,m}'
   s.frameworks = 'CoreData', 'UIKit', 'Foundation', 'CoreGraphics', 'QuartzCore', 'CoreFoundation'
 end
 
