@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author       = 'Mario Negro'
   s.license      = 'Copyright'
   s.requires_arc = true
-  s.source       = { :git => "https://github.com/emenegro/pull-to-refresh.git", :commit => '53f4151a4e823a940c31cb4483f518fd575047e3' }
+  s.source       = { :git => "https://github.com/emenegro/pull-to-refresh.git", :commit => '2ddf85d5a42d93df8300f5ee08ea9068a1e677db' }
   s.source_files = 'pull-to-refresh/MNMPullToRefresh/*.{h,m}'
   s.resources    = 'pull-to-refresh/MNMPullToRefresh/*.{png,strings}'
 end
