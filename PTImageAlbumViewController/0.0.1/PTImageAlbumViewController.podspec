@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/exalted/PTImageAlbumViewController.git", :commit => "02fbda6fe403899aa66142fe40a0f5a3f81dc975" }
   s.platform     = :ios, 5.0
 
-  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
+  s.source_files = 'PTImageAlbumViewController'
 
   s.framework  = 'ImageIO'
 
