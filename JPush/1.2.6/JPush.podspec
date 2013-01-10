@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.library = 'PushSDK'
   s.framework = 'UIKit', 'CFNetwork', 'CoreFoundation', 'CoreTelephony', 'CoreGraphics', 'SystemConfiguration', 'Foundation'
   
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/UMeng/JPush-iOS-sdk-1.2.6/lib' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/JPush/JPush-iOS-sdk-1.2.6/lib' }
 end
