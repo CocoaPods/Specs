@@ -39,4 +39,8 @@ Pod::Spec.new do |s|
   s.library    =  'stdc++', 'sqlite3'
   s.frameworks = 'UIKit', 'QuartzCore', 'OpenGLES'
 
+  s.subspec 'Headers' do |sp|
+    sp.source_files = "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/**/*.h"
+  end
+
 end
