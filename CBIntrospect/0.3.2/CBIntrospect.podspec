@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
   s.author   = { 'Christopher Bess' => 'cbess@quantumquinn.com' }
   s.source   = { :git => 'https://github.com/cbess/CBIntrospector.git', :tag => 'v0.3.2' }
 
+  s.platform = :ios
+  s.requires_arc = false
   s.source_files = 'CBIntrospect'
   s.frameworks   = 'QuartzCore'
 end
