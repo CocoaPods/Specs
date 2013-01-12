@@ -8,6 +8,7 @@ namespace :travis do
   task :install_opencflite_debs do
     sh "mkdir -p .debs"
     Dir.chdir(".debs") do
+      sh "wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb" unless File.exist?("libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb")
       base_url = "https://github.com/downloads/CocoaPods/OpenCFLite"
       %w{ opencflite1_248-1_i386.deb opencflite-dev_248-1_i386.deb }.each do |deb|
         sh "wget #{File.join(base_url, deb)}" unless File.exist?(deb)
@@ -25,7 +26,7 @@ namespace :travis do
   end
 
   task :setup => [:install_opencflite_debs, :fix_rvm_include_dir] do
-    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle install"
+    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle update"
   end
 end
 

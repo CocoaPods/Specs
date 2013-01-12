@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gobackspaces/DLCImagePickerController.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'
   s.requires_arc = true
+  s.framework    = 'AssetsLibrary'
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Classes'
@@ -21,6 +22,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'FilterSamples' do |sp|
-    sp.resources = "Images/FilterSamples/*.png"
+    sp.resources = "Images/FilterSamples/*.jpg"
   end
 end

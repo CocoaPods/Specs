@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ccgus/fmdb.git',
                  :tag => 'v2.0' }
 
-  s.source_files = 'src/FM*.*'
+  s.source_files = FileList['src/FM*.{h,m}'].exclude(/fmdb\.m/)
   s.library = 'sqlite3'
 end

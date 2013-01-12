@@ -19,7 +19,7 @@ overrides = Module.new do
     (@private_header_files ||= []).each do |pattern|
       pattern = pod_destroot + pattern
       pattern = pattern + '*.h' if pattern.directory?
-      pattern.glob.each do |file|
+      Pathname.glob(pattern).each do |file|
         files << file.relative_path_from(pod_destroot)
       end
     end
@@ -116,7 +116,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   
   s.source_files = 'src/Three20/{Sources,Headers}/*.{h,m}'
-  s.compiler_flags = '-Wno-deprecated-declarations', '-Wno-objc-redundant-literal-use', '-Wno-format-extra-args'
   s.resources = 'src/Three20.bundle'
   
   s.preferred_dependency = 'UI'
@@ -213,11 +212,10 @@ Pod::Spec.new do |s|
     # This extension cannot be used with Three20/ext/YAJL
     ext.subspec 'SBJSON' do |sbs|
       sbs.extend(overrides)
-      sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.h'
+      sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.{h,m}'
       sbs.header_dir = 'extThree20JSON'
       sbs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'EXTJSON_SBJSON' }
       sbs.dependency 'Three20/ext/JSON'
-      sbs.dependency 'SBJson'
     end
 
     # Full name: Three20/ext/YAJL

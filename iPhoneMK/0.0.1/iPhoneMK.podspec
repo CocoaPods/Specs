@@ -6,7 +6,8 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/michaelkamprath/iPhoneMK'
   s.author   = { 'Michael F. Kamprath' => 'michael@claireware.com' }
   s.source   = { :git => 'https://github.com/michaelkamprath/iPhoneMK.git', :commit => '85b3b4aac8' }
+  s.source_files = FileList['*.*'].exclude(/Sample App/)
   s.platform = :ios
   s.frameworks   = ['QuartzCore', 'AVFoundation']
-  s.source_files = '**/*.{h,m}'
+  s.source_files = 'TableViewCells/**/*.{h,m}', 'Views/**/*.{h,m}'
 end
