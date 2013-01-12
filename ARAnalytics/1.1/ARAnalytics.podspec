@@ -5,21 +5,22 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      =  'Simplify your analytics choices.'
   s.homepage     =  'http://github.com/orta/ARAnalytics'
-  s.author       =  { 'orta' => 'orta.therox@gmail.com' }
-  s.source       =  { :git => 'https://github.com/orta/ARAnalytics.git', :commit => 'HEAD' }
+  s.author       = { 'orta' => 'orta.therox@gmail.com' }
+  s.source       = { :git => 'https://github.com/orta/ARAnalytics.git', :commit => 'HEAD' }
   s.description  =  'Using subspecs you can define your analytics provider with the same API.'
   s.platform     =  :ios
   s.source_files =  ['*.{h,m}', 'Providers/*.{h,m}']
 
-  testflight_sdk = { spec_name: "TestFlight",       dependency: "TestFlightSDK",            import_file: "TestFlight" }
-  mixpanel       = { spec_name: "Mixpanel",         dependency: "Mixpanel",                 import_file: "Mixpanel" }
-  localytics     = { spec_name: "Localytics",       dependency: "Localytics",               import_file: "LocalyticsSession" }
-  flurry         = { spec_name: "Flurry",           dependency: "FlurrySDK",                import_file: "Flurry" }
-  google         = { spec_name: "GoogleAnalytics",  dependency: "GoogleAnalytics-iOS-SDK",  import_file: "GAI" }
-  kissmetrics    = { spec_name: "KISSmetrics",      dependency: "KISSmetrics",              import_file: "KISSMetricsAPI" }
-  crittercism    = { spec_name: "Crittercism",      dependency: "CrittercismSDK",           import_file: "Crittercism" }
-  countly        = { spec_name: "Countly",          dependency: "Countly",                  import_file: "Countly" }
-  crashlytics    = { spec_name: "Crashlytics" }
+
+  testflight_sdk = { :spec_name => "TestFlight",       :dependency => "TestFlightSDK",            :import_file => "TestFlight" }
+  mixpanel       = { :spec_name => "Mixpanel",         :dependency => "Mixpanel",                 :import_file => "Mixpanel" }
+  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics",               :import_file => "LocalyticsSession" }
+  flurry         = { :spec_name => "Flurry",           :dependency => "FlurrySDK",                :import_file => "Flurry" }
+  google         = { :spec_name => "GoogleAnalytics",  :dependency => "GoogleAnalytics-iOS-SDK",  :import_file => "GAI" }
+  kissmetrics    = { :spec_name => "KISSmetrics",      :dependency => "KISSmetrics",              :import_file => "KISSMetricsAPI" }
+  crittercism    = { :spec_name => "Crittercism",      :dependency => "CrittercismSDK",           :import_file => "Crittercism" }
+  countly        = { :spec_name => "Countly",          :dependency => "Countly",                  :import_file => "Countly" }
+  crashlytics    = { :spec_name => "Crashlytics" }
 
   # I think we want hockeyapp, not hockey kit.
   #  hockey_kit     = { spec_name: "HockeyKit",        dependency: "HockeyKit",                import_file: "BWGlobal" } 
