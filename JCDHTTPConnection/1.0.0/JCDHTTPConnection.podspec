@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JCDHTTPConnection"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Block-based NSURLConnection wrapper."
   s.homepage     = "https://github.com/jdriscoll/JCDHTTPConnection"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
