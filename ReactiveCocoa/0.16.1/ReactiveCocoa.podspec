@@ -47,10 +47,7 @@ Pod::Spec.new do |s|
     headers.each { |header_ref|
       header = pod.root + header_ref
       contents = header.read
-      contents = contents.gsub('ReactiveCocoa/libextobjc/extobjc/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
-      contents = contents.gsub('ReactiveCocoa/EXTConcreteProtocol.h', 'EXTConcreteProtocol.h')
-      contents = contents.gsub('ReactiveCocoa/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
-      contents = contents.gsub('ReactiveCocoa/metamacros.h', 'metamacros.h')
+      contents = contents.gsub(/ReactiveCocoa\/(?:libextobjc\/extobjc\/)?(\w+.h)/, '\1')
       File.open(header, 'w') { |file| file.puts(contents) }
     }
   end
