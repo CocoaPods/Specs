@@ -11,5 +11,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'CocoaAsyncSocket', '~> 0.0.1'
   s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
 end
