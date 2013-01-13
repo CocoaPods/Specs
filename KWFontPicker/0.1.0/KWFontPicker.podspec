@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KWFontPicker"
   s.version      = "0.1.0"
-  s.summary      = "Font picker UIPickerView and keyboard manager for iPhone"
+  s.summary      = "Font picker UIPickerView and keyboard manager for iPhone."
   s.homepage     = "https://github.com/kawanet/KWFontPicker"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { "Yusuke Kawasaki" => "u-suke@kawa.net" }
