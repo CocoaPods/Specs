@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "CoreTextToy"
   s.version      = "1.0.1"
-  s.summary      = "This codebase implements CCoreTextLabel, a UILabel style class that supports attributed strings and simple HTML. This pod links to a fork of the original repo as the original does not use version tags right now."
+  s.summary      = "This codebase implements CCoreTextLabel, a UILabel style class that supports attributed strings and simple HTML."
   s.homepage     = "https://github.com/elektrojunge/CoreTextToy"
 
   # Specify the license type. CocoaPods detects automatically the license file if it is named
