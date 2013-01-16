@@ -12,13 +12,13 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   spec.subspec 'Core' do |ss|
-    spec.ios.deployment_target = '4.3'
+    ss.ios.deployment_target = '4.3'
     ss.ios.source_files = 'Core/Source/*.{h,m}', 'Core/Source/iOS/*.{h,m}'
     ss.osx.source_files = 'Core/Source/*.{h,m}', 'Core/Source/OSX/*.{h,m}'
   end
 
   spec.subspec 'DTHMLParser' do |ss|
-    spec.ios.deployment_target = '4.3'
+    ss.ios.deployment_target = '4.3'
     ss.dependency 'DTFoundation/Core'
     ss.source_files = 'Core/Source/DTHTMLParser/*.{h,m}'
     ss.library = 'xml2'
@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'DTZipArchive' do |ss|
-    spec.ios.deployment_target = '4.3'
+    ss.ios.deployment_target = '4.3'
     ss.source_files = 'Core/Source/DTZipArchive/*.{h,m}'
 
     # Ideally minizip should have a Pod
@@ -37,7 +37,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'DTDownload' do |ss|
-    spec.ios.deployment_target = '5.0'
+    ss.ios.deployment_target = '5.0'
     ss.dependency 'DTFoundation/Core'
     ss.source_files = 'Core/Source/DTDownload/*.{h,m}'
     ss.frameworks = ['CoreData']
@@ -45,7 +45,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'DTBonjour' do |ss|
-    spec.ios.deployment_target = '5.0'
+    ss.ios.deployment_target = '5.0'
     ss.source_files = 'Core/Source/DTBonjour/*.{h,m}'
   end
 
