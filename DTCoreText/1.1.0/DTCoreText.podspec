@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DTCoreText'
   spec.version      = '1.1.0'
-  spec.platform     = :ios
+  spec.platform     = :ios, '4.3'
   spec.license      = 'BSD'
   spec.source       = { :git => 'https://github.com/Cocoanetics/DTCoreText.git', :tag => spec.version.to_s }
   spec.source_files = 'Core/Source/*.{h,m,c}'
@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.library      = 'xml2'
   spec.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   spec.prefix_header_contents = '#import <CoreText/CoreText.h>'
-  spec.resources = 'DTCoreTextFontOverrides.plist'
+  spec.resources = 'Demo/Resources/DTCoreTextFontOverrides.plist'
   def spec.post_install(target)
     Dir.chdir(config.project_pods_root + 'DTCoreText/Core/Source/') do
       Dir.glob('*.css') do |css_file|
