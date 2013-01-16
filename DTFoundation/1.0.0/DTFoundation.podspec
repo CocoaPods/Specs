@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/Cocoanetics/DTFoundation.git", :tag => spec.version.to_s  }
   spec.license      = 'BSD'
 
-  spec.ios.deployment_target = '5.0'
+  spec.ios.deployment_target = '4.3'
   spec.osx.deployment_target = '10.6'
   spec.requires_arc = true
 
