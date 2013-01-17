@@ -15,15 +15,13 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'UIKit' do |ss|
-    ss.platform = 'iOS'
-    ss.ios.deployment_target = '4.3'
+    ss.platform = :ios, '4.3'
     ss.ios.frameworks = 'QuartzCore'
     ss.ios.source_files = 'Core/Source/iOS/*.{h,m}'
   end
 
   spec.subspec 'AppKit' do |ss|
-    ss.platform = 'OSX'
-    ss.osx.deployment_target = '10.6'
+    ss.platform = :osx, '10.6'
     ss.osx.source_files = 'Core/Source/OSX/*.{h,m}'
   end
 
