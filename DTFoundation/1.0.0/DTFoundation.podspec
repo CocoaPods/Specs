@@ -10,8 +10,21 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Core' do |ss|
     ss.ios.deployment_target = '4.3'
-    ss.ios.source_files = 'Core/Source/*.{h,m}', 'Core/Source/iOS/*.{h,m}'
-    ss.osx.source_files = 'Core/Source/*.{h,m}', 'Core/Source/OSX/*.{h,m}'
+    ss.osx.deployment_target = '10.6'
+    ss.source_files = 'Core/Source/*.{h,m}'
+  end
+
+  spec.subspec 'UIKit' do |ss|
+    ss.platform = 'iOS'
+    ss.ios.deployment_target = '4.3'
+    ss.ios.frameworks = 'QuartzCore'
+    ss.ios.source_files = 'Core/Source/iOS/*.{h,m}'
+  end
+
+  spec.subspec 'AppKit' do |ss|
+    ss.platform = 'OSX'
+    ss.osx.deployment_target = '10.6'
+    ss.osx.source_files = 'Core/Source/OSX/*.{h,m}'
   end
 
   spec.subspec 'DTHMLParser' do |ss|
