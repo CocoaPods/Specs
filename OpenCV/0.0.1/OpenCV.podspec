@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios
 
-  s.source_files = 'opencv2.framework/**/*.{hpp,h}'
+  s.source_files = 'opencv2.framework/*'
   s.library = 'opencv2'
 end
