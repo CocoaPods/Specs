@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Jeff Argast" => "jeffargast@mac.com" }
   s.source       = { :git => "https://github.com/jeffargast/RSSecrets.git", :commit => '292857e2fa3ed60dfebd0b7956858cfb4c59bcb5' }
   s.platform     = :ios
-  s.source_files = ''
+  s.source_files = '*.{h,m}'
   s.requires_arc = true
 
 end
