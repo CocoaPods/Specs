@@ -25,7 +25,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   s.source_files = 'Appacitive-iOS-SDK/**/*.{h,m}'
 
-  s.frameworks = 'CoreLocation.framework', 'UIKit.framework','SystemConfiguration.framework','Security.framework','Foundation.framework'
 
   s.requires_arc = true
   s.dependency 'MKNetworkKit', '0.85'
