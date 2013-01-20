@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.authors        = {'John Blanco' => 'john@raptureinvenice.com'}
   s.source         = { :git => 'https://github.com/ZaBlanc/InnerBand.git', :tag => '1.0.1' }
   s.source_files   = 'InnerBand/**/*.{h,m}'
-  s.platform       = :ios
+  s.platform       = :ios, '5.0'
   s.framework      = 'QuartzCore', 'CoreData', 'CoreText', 'CoreGraphics', 'UIKit'
+  s.requires_arc   = true
 end
