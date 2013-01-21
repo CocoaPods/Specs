@@ -11,3 +11,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'cocos2d', '~> 2.0.0'
 end
+ 
