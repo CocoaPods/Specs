@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'spring-objective-c'
   s.version      = '1.0.2'
   s.license      = 'Apache2.0'
-  s.summary      = 'Has been renamed to Typhoon!'
+  s.summary      = 'Has been renamed to Typhoon.'
   s.homepage     = 'https://github.com/jasperblues/Typhoon.git'
   s.author       = { 'Jasper Blues' => 'jasper@appsquick.ly' }
   s.source       = { :git => 'https://github.com/jasperblues/Typhoon.git', :tag => '1.0.2' }
