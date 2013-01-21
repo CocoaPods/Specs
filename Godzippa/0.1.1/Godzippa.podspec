@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/mattt/Godzippa.git',
                  :tag => '0.1.1' }
-  s.source_files = 'NSData+Godzippa.{h,m}'
+  s.source_files = 'Godzippa/NSData+Godzippa.{h,m}'
   s.requires_arc = true
   
   s.library = 'z'
