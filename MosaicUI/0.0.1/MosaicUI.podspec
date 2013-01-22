@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { "Ezequiel Alejandro Becerra" => "ezequiel@betzerra.com.ar" }
   s.source       = { :git => "https://github.com/betzerra/MosaicUI.git", :tag => "0.0.1" }
   s.platform     = :ios
-  s.source_files = 'MosaicUI/*'
+  s.source_files = 'MosaicUI/**/*.{h,m}'
   s.requires_arc = true
 end
