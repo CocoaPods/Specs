@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'CocoaSoundCloudAPI'
-  s.version  = '1.0.0'
+  s.version  = '1.0.1'
   s.summary  = 'A simple way to interact with the SoundCloud  CocoaSoundCloudAPI.'
   s.homepage = 'https://github.com/soundcloud/CocoaSoundCloudAPI'
   s.author   = { 'Ullrich Schäfer' => 'ullrich@soundcloud.com',
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
 
-  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudAPI.git', :tag => 'v1.0.0' }
+  s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudAPI.git', :tag => 'v1.0.1' }
 
   s.source_files = 'Sources', 'Sources/**/*.{h,m}'
 
