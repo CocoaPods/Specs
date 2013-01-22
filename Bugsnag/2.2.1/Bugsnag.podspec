@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = ['Bugsnag Plugin', 'Bugsnag Plugin/Categories']
   s.requires_arc = true
 
-  # s.public_header_files = 'Classes/**/*.h'
+  s.public_header_files = 'Bugsnag Plugin/Bugsnag.h'
   s.framework  = 'SystemConfiguration'
   
   # Finally, specify any Pods that this Pod depends on.
