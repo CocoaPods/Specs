@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/soundcloud/CocoaSoundCloudAPI'
   s.author   = { 'Ullrich Schäfer' => 'ullrich@soundcloud.com',
                  'Robert Böhnke' => 'robb@soundcloud.com',
-                 'Tobias Kräntzer' => 'tk@soundcloud.com' }
+                 'Tobias Kräntzer' => 'tk@soundcloud.com',
+                 'Rob Siwek' => 'robert@soundcloud.com' }
 
   s.platform = :ios
 
