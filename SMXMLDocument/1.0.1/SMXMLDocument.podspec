@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SMXMLDocument"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "A lightweight XML Document class for iOS."
   s.description  = <<-DESC
                     SMXMLDocument is a very handy lightweight XML parser for iOS.
