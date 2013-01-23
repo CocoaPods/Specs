@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source          = { :git => 'https://github.com/allending/Kiwi.git', :tag => '2.0.2' }
   s.source_files    = 'Classes'
   s.framework       = 'SenTestingKit'
-  s.xcconfig        = { 'FRAMEWORK_SEARCH_PATHS' => '"$(inherited)" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
+  s.xcconfig        = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
 end
