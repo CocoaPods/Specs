@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
                         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
                         See the License for the specific language governing permissions and
                         limitations under the License.'}
-  s.summary        = 'A collection of tool for handling colors on iOS SDK'
+  s.summary        = 'A collection of tool for handling colors on iOS SDK.'
   s.homepage       = 'https://github.com/marzapower/MPColorTools'
   s.authors        = {'Daniele Di Bernardo' => 'daniele.dib@gmail.com'}
-  s.source         = { :git => 'https://github.com/marzapower/MPColorTools', :tag => '1.0' }
+  s.source         = { :git => 'https://github.com/marzapower/MPColorTools.git', :tag => '1.0' }
   s.source_files   = 'MPColorTools/**/*.{h,m}'
   s.platform       = :ios
 end
