@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'EvalJS'
   s.version  = '0.0.1'
   s.summary  = 'EvalJS lets you run JavaScript code from your iOS app.'
-  s.description = "EvalJS lets you run JavaScript code from your iOS app, without rely on UIWebView"
+  s.description = "EvalJS lets you run JavaScript code from your iOS app, without rely on UIWebView."
 
   s.homepage = 'https://github.com/siuying/EvalJS'
   s.author   = { 'Francis Chong' => 'francis@ignition.hk' }
