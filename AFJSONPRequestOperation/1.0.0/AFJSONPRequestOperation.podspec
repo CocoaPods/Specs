@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/acerbetti/AFJSONPRequestOperation'
   s.author = { 'Stefano Acerbetti' => 'acerbetti@gmail.com' }
   s.license = { :type => 'MIT', :file => 'LICENSE' }
-  s.summary = 'An extension for AFNetworking that provides an interface to parse CSV using CHCSVParser.'
+  s.summary = 'AFNetworking Extension for the JSONP format.'
   s.source = { :git => 'https://github.com/acerbetti/AFJSONPRequestOperation.git', :tag => 'v1.0.0' }
   s.source_files = 'AFJSONPRequestOperation.{h,m}'
   s.dependency 'AFNetworking'
