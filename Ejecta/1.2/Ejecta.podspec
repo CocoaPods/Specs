@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
 
   s.source_files = 'Classes/**/*.{h,m,mm}'
-  s.resource     = 'ejecta.js'
+  s.resources    = 'ejecta.js'
 
   s.preferred_dependency = 'Library'
   s.frameworks = 'SystemConfiguration', 'CoreText', 'QuartzCore', 'GameKit', 'CoreGraphics', 'OpenAL', 'AudioToolbox', 'OpenGLES', 'AVFoundation', 'iAd'
