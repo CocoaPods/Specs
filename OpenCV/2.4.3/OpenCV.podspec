@@ -9,13 +9,13 @@ Pod::Spec.new do |s|
 
   s.source       = { 
     :git => "https://github.com/SebastienThiebaud/OpenCV-iOS.git", 
-    :tag => "2.4.3"
+    :tag => s.version.to_s
   }
   s.platform     = :ios
 
-  s.source_files = 'opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}'
+  s.source_files = 'opencv2.framework/Headers/**/*{.h,.hpp}'
   s.header_mappings_dir = 'Headers'
-  s.preserve_paths = 'opencv2.framework/**'
+  s.preserve_paths = '*'
   s.frameworks = 'Accelerate', 'AssetsLibrary', 'AVFoundation', 'CoreGraphics', 'CoreImage', 'CoreMedia', 'CoreVideo', 'Foundation', 'opencv2', 'QuartzCore', 'UIKit'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/OpenCV' }
 end
