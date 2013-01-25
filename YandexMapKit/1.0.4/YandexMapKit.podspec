@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = '**/Headers/*.h'
   s.resource   = '**/YandexMapKit.bundle'
-  s.frameworks = 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreTelephony', 'QuartzCore', 'MessageUI', 'OpenGLES', 'Security', 'SystemConfiguration'
+  s.frameworks = 'AudioToolbox', 'OpenAL', 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreTelephony', 'QuartzCore', 'MessageUI', 'OpenGLES', 'Security', 'SystemConfiguration'
   s.libraries  = 'sqlite3', 'stdc++', 'xml2', 'YandexMapKit', 'z'
   s.preserve_paths = '**/libYandexMapKit.a'
   s.xcconfig     = { 'HEADER_SEARCH_PATHS'  => '"$(SDKROOT)/usr/include/libxml2"',
