@@ -4,7 +4,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.name     = 'PMPKVObservation'
   s.version  = '0.2'
-  s.platform = :ios
   s.license  = 'MIT'
   s.summary  = 'Yet another attempt at making KVO safer and more convenient.'
   s.homepage = 'https://github.com/aufflick/PMPKVObservation'
