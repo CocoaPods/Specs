@@ -52,5 +52,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.0'
   s.source_files = 'IPOfflineQueue.h', 'IPOfflineQueue.m'
   s.preserve_paths = 'IPOfflineQueue.h', 'IPOfflineQueue.m'
+  s.library = 'libsqlite3'
   s.requires_arc = false
 end
