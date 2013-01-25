@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
+  s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
   s.subspec 'Core' do |sp|
     files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']

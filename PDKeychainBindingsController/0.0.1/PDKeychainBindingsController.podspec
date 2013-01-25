@@ -7,5 +7,6 @@ Pod::Spec.new do |s|
   s.author       =  'Carl Brown' 
   s.source       = { :git => "https://github.com/carlbrown/PDKeychainBindingsController.git", :commit => "78f6debff6" }
   s.source_files = 'PDKeychainBindingsController'
+  s.frameworks   = 'Security'
   s.requires_arc = true
 end
