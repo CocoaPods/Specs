@@ -1,4 +1,3 @@
-#
 Pod::Spec.new do |s|
   s.name         = "OpenCV"
   s.version      = "0.0.1"
@@ -14,6 +13,9 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios
 
-  s.source_files = 'opencv2.framework/Versions/A/Headers/*'
-  s.library = 'opencv2'
+  s.source_files = 'opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}'
+  s.header_mappings_dir = 'Headers'
+  s.preserve_paths = 'opencv2.framework/**'
+  s.frameworks = 'Accelerate', 'AssetsLibrary', 'AVFoundation', 'CoreGraphics', 'CoreImage', 'CoreMedia', 'CoreVideo', 'Foundation', 'opencv2', 'QuartzCore', 'UIKit'
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/OpenCV' }
 end
