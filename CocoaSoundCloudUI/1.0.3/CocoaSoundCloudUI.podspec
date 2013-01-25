@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Ullrich Schäfer' => 'ullrich@soundcloud.com',
                  'Robert Böhnke' => 'robb@soundcloud.com',
                  'Tobias Kräntzer' => 'tk@soundcloud.com' }
-  s.license  = 'Apache License, Version 2.0'
+  s.license  = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
 
   s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => '1.0.3' }
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.framework = 'CoreText'
   s.framework = 'CoreLocation'
 
-  s.dependency 'CocoaSoundCloudAPI', '~> 1.0'
+  s.dependency 'CocoaSoundCloudAPI', '~> 1.0.0'
   s.dependency 'OHAttributedLabel'
   s.dependency 'JSONKit'
 end

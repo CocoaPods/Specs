@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.source        = { :git => "https://github.com/Joan-Lluch/SWRevealViewController.git", :commit => "16bf569a5c53935e43214300df1614ced0055acb" }
 
-  s.platform      = :ios, "6.0"
+  s.platform      = :ios, "5.0"
 
   s.source_files  = "SWRevealViewController/*.{h,m}"
 
