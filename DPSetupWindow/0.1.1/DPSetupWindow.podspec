@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DPSetupWindow"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Class for creating an Installer.app like setup process from a set of view controllers."
   s.homepage     = "https://github.com/danpalmer/DPSetupWindow"
   s.author       = { "Dan Palmer" => "dan.palmer@me.com" }
