@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Kjuly/ALAssetsLibrary-CustomPhotoAlbum.git", :tag => "1.0.0" }
   s.platform     = :ios
   s.source_files = 'ALAssetsLibrary-CustomPhotoAlbum/*.{h,m}'
+  s.frameworks   = 'AssetsLibrary'
 end

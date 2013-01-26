@@ -37,18 +37,11 @@ Pod::Spec.new do |s|
   end
 
   def s.pre_install (pod, _)
-    headers = ['ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACPropertySubscribing.h',
-               'ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h',
-               'ReactiveCocoaFramework/ReactiveCocoa/RACStream.h',
-               'ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptingAssignmentTrampoline.h',
-               'ReactiveCocoaFramework/ReactiveCocoa/RACTuple.h'
-               ]
-
-    headers.each { |header_ref|
-      header = pod.root + header_ref
-      contents = header.read
-      contents = contents.gsub(/ReactiveCocoa\/(?:libextobjc\/extobjc\/)?(\w+.h)/, '\1')
-      File.open(header, 'w') { |file| file.puts(contents) }
+    pod.source_files.each { |source|
+      contents = source.read
+      if contents.gsub!(%r{ReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h}, '\1.h')
+        File.open(source, 'w') { |file| file.puts(contents) }
+      end
     }
   end
 end

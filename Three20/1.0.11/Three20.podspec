@@ -214,7 +214,7 @@ Pod::Spec.new do |s|
       sbs.extend(overrides)
       sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.{h,m}'
       sbs.header_dir = 'extThree20JSON'
-      sbs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'EXTJSON_SBJSON' }
+      sbs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) EXTJSON_SBJSON' }
       sbs.dependency 'Three20/ext/JSON'
     end
 
@@ -228,7 +228,7 @@ Pod::Spec.new do |s|
       ys.private_header_files = 'src/extThree20JSON/Vendors/YAJL/{GHKit,GTM}/*.h',
                                 'src/extThree20JSON/Vendors/YAJL/yajl/src/*.h' 
       ys.header_dir = 'extThree20JSON'
-      ys.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'EXTJSON_YAJL' }
+      ys.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) EXTJSON_YAJL' }
       ys.dependency 'Three20/ext/JSON'
     end
 
