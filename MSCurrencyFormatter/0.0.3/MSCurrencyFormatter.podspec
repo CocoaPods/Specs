@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name         = "MSCurrencyFormatter"
   s.version      = "0.0.3"
   s.summary      = "A piece of code that will automatically format a UITextField with a numberpad to behave like an ATM."
-  s.homepage     = "https://github.com/sxua/MSCurrencyFormatter"
+  s.homepage     = "https://github.com/unteleported/MSCurrencyFormatter"
   s.license      = 'MIT'
-  s.authors       = { "Brandon Butler" => "", "Olexandr Skrypnyk" => "ukraine.sax@gmail.com" }
-  s.source       = { :git => "https://github.com/sxua/MSCurrencyFormatter.git", :tag => "0.0.3" }
+  s.authors       = { "Brandon Butler" => "", "Olexandr Skrypnyk" => "sxua@unteleported.com" }
+  s.source       = { :git => "https://github.com/unteleported/MSCurrencyFormatter.git", :tag => "0.0.3" }
   s.platform     = :ios, '5.0'
   s.source_files = 'MSCurrencyFormatter.{h,m}'
   s.resources = "toggleButton{Down,Up}.png"
