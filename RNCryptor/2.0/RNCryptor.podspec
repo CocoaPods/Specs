@@ -22,5 +22,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.source_files = 'RNCryptor/'
   s.public_header_files = 'RNCryptor/'
   s.frameworks = 'UIKit', 'QuartzCore', 'Security'
-  s.requires_arc = true
+  s.requires_arc = false
 end
