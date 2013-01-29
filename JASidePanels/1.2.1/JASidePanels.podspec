@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'JASidePanels'
-  s.version      =  '1.2.0'
+  s.version      =  '1.2.1'
   s.license      =  { :type => 'MIT', :file => 'README.markdown' }
   s.summary      =  'UIViewController container designed for presenting a center panel with revealable side panels - one to the left and one to the right.'
   s.homepage     =  'https://github.com/gotosleep/JASidePanels'
