@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "CIOAPIClient"
-  s.version      = "0.8.1"
+  s.version      = "0.8.2"
   s.summary      = "API Client for Context.IO"
   s.homepage     = "https://github.com/contextio/iOS-ContextIO"
   s.license      = 'MIT'
   s.author       = { 'Kevin Lord' => 'kevinlord@otherinbox.com' }
-  s.source       = { :git => "https://github.com/contextio/iOS-ContextIO.git", :tag => '0.8.1' }
+  s.source       = { :git => "https://github.com/contextio/iOS-ContextIO.git", :tag => '0.8.2' }
   s.source_files = 'CIOAPIClient', 'CIOAPIClient/OAuth', 'CIOAPIClient/OAuth/Crypto'
   s.requires_arc = true
 
