@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/confidenceJuice/DHCShakeNotifier"
   s.license      = 'MIT'
   s.author       = { "Daniel Haight" => "confidence.designed@gmail.com" }
-  s.source       = { :git => "https://github.com/confidenceJuice/DHCShakeNotifier.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/confidenceJuice/DHCShakeNotifier.git", :tag => "0.1.1" }
   s.platform     = :ios
   s.source_files = 'DHCShakeNotifier'
   s.frameworks = 'Foundation', 'UIKit'
