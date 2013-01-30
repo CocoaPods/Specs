@@ -37,10 +37,10 @@ Pod::Spec.new do |s|
   end
 
   def s.pre_install (pod, _)
-    pod.header_files.each { |header|
-      contents = header.read
+    pod.source_files.each { |source|
+      contents = source.read
       if contents.gsub!(%r{ReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h}, '\1.h')
-        File.open(header, 'w') { |file| file.puts(contents) }
+        File.open(source, 'w') { |file| file.puts(contents) }
       end
     }
   end

@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod spec lint Appacitive-iOS-SDK.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "Appacitive-iOS-SDK"
   s.version      = "1.0.0"
