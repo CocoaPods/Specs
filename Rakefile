@@ -1,3 +1,5 @@
+require 'pathname'
+
 def rvm_ruby_dir
   @rvm_ruby_dir ||= File.expand_path('../..', `which ruby`.strip)
 end
@@ -6,6 +8,7 @@ namespace :travis do
   task :install_opencflite_debs do
     sh "mkdir -p .debs"
     Dir.chdir(".debs") do
+      sh "wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb" unless File.exist?("libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb")
       base_url = "https://github.com/downloads/CocoaPods/OpenCFLite"
       %w{ opencflite1_248-1_i386.deb opencflite-dev_248-1_i386.deb }.each do |deb|
         sh "wget #{File.join(base_url, deb)}" unless File.exist?(deb)
@@ -23,7 +26,7 @@ namespace :travis do
   end
 
   task :setup => [:install_opencflite_debs, :fix_rvm_include_dir] do
-    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle install"
+    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle update"
   end
 end
 
@@ -31,45 +34,45 @@ desc "Run `pod spec lint` on all specs"
 task :lint do
   exit if ENV['skip-lint']
 
+  ENV['SKIP_SETUP']='1'
+  ENV['CP_REPOS_DIR']= Pathname.new(Dir.pwd).dirname.to_s
+
   specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
   specs = ['.'] if specs.empty?
-  last_commit_specs = `git diff --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
-  failures = []
+  last_commit_podspecs = `git diff --diff-filter=ACMRTUXB --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
+  last_commit_specs = last_commit_podspecs.map {|p| p.gsub(/(.*)\/.*\/.*/,'\1')}.uniq
+
+  failures = 0
+
+  # unless last_commit_podspecs.empty?
+  #   puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+  #   command = "pod spec lint '#{last_commit_podspecs.join("' '")}' "
+  #   failures += 1 unless excute_command(command)
+  # end
 
   unless last_commit_specs.empty?
-    puts
-    puts ">>> Last commit <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-    puts
-    failures += lint_specs(last_commit_specs,false)
+    puts "\n>>> last commit pods (quick lint with warnings) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+    command = "pod spec lint --quick '#{last_commit_specs.join("' '")}' "
+    failures += 1 unless excute_command(command)
   end
 
-  puts ">>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-  puts
-  failures += lint_specs(specs,true)
-  unless failures.empty?
-    puts
-    puts "The following specs did not pass `spec lint`:"
-    puts failures.join("\n")
+  puts "\n>>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
+  command = "pod repo lint ."
+  failures += 1 unless excute_command(command)
+
+  unless failures.zero?
     exit 1
   end
 end
 
-def lint_specs(specs, only_errors)
-  failures = []
-  specs.each do |spec|
-    begin
-      next if not File.exists? spec
-      ENV['SKIP_SETUP']='1'
-      command = "pod spec lint '#{spec}' --quick#{' --only-errors' if only_errors}"
-      puts command
-      # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
-      puts `#{command}`
-      failures << spec unless $?.success?
-    rescue Interrupt
-      break
-    end
-  end
-  failures
+def excute_command(command)
+  # begin
+    puts command
+    # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
+    system command
+  # rescue Interrupt
+  #   break
+  #   false
 end
 
 task :default => :lint

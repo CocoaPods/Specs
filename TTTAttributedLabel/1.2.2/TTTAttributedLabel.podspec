@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.summary = 'A drop-in replacement for UILabel that supports NSAttributedStrings.'
   s.source = {:git => 'https://github.com/mattt/TTTAttributedLabel.git', :tag => '1.2.2'}
   s.license = { :type => 'MIT', :file => 'LICENSE' }
-  
   s.platform = :ios
   s.frameworks = 'CoreText'
   s.source_files = 'TTTAttributedLabel.{h,m}'

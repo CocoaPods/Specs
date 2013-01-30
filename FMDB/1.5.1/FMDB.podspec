@@ -3,7 +3,8 @@ Pod::Spec.new do |s|
   s.version  = '1.5.1'
   s.summary  = 'A Cocoa / Objective-C wrapper around SQLite.'
   s.homepage = 'https://github.com/ccgus/fmdb'
-  s.author   = 'August Mueller'
+  s.license  = 'MIT'
+  s.author   = { 'August Mueller' => 'gus@flyingmeat.com' }
   s.source   = { :git => 'https://github.com/ccgus/fmdb.git',
                  :tag => 'v1.5.1' }
 

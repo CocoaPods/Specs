@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/vicpenap/VPPMap.git', :tag => '0.2.0' }
   s.platform = :ios
   s.source_files = 'VPPMap', 'VPPMap/Clustering'
-  s.frameworks = 'MapKit', 'QuartzCore'
+  s.frameworks = 'MapKit', 'QuartzCore', 'CoreLocation'
 end

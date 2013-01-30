@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = 'InnerBand'
-  s.version        = '0.0.1'
+  s.version        = '1.0.0'
   s.license        = { :type => 'Apache 2.0', :text => '
                         Licensed under the Apache License, Version 2.0 (the "License");
                         you may not use this file except in compliance with the License.
@@ -16,9 +16,8 @@ Pod::Spec.new do |s|
   s.summary        = 'A set of classes, macros, components and constants that speed up development.'
   s.homepage       = 'https://github.com/ZaBlanc/InnerBand'
   s.authors        = {'John Blanco' => 'john.blanco@raptureinvenice.com'}
-  s.source         = { :git => 'https://github.com/ZaBlanc/InnerBand.git', :commit => 'cb6b1607da4da9f9add5f473f45c8d45660e3343' }
+  s.source         = { :git => 'https://github.com/marzapower/InnerBand.git', :tag => '1.0.0' }
   s.source_files   = 'InnerBand/**/*.{h,m}'
   s.platform       = :ios
   s.framework      = 'QuartzCore', 'CoreData', 'CoreText', 'CoreGraphics', 'UIKit'
-  s.compiler_flags = '-Wno-arc-bridge-casts-disallowed-in-nonarc'
 end

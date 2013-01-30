@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
                   'filtering, image and binary logging, traces buffering, timing information, etc.'
 
   s.source_files = 'Client Logger/iOS/*.{h,m}'
-  s.frameworks   = 'CFNetwork', 'SystemConfiguration'
+  s.ios.frameworks   = 'CFNetwork', 'SystemConfiguration'
+  s.osx.frameworks = 'CFNetwork', 'SystemConfiguration', 'CoreServices'
 end

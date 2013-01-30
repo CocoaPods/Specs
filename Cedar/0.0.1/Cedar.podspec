@@ -5,18 +5,15 @@ Pod::Spec.new do |s|
   s.summary  = 'BDD-style testing using Objective-C.'
   s.homepage = 'https://github.com/pivotal/cedar'
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
-  s.source   = { :git => 'https://github.com/pivotal/cedar.git', :commit => '0a87b32d104b388ecc824088e17d64e05e85f8fd' }
+  s.license  = { :type => 'MIT', :file => 'MIT.LICENSE' }
+  s.source   = { :git => 'https://github.com/pivotal/cedar.git', :commit => '4a609a1f7317f29e390cc6b40ca1bf2e31f13cd6' }
   
-  files = FileList['Source/**/*.{h,m}']
-  if config.ios?
-    s.header_dir = 'Cedar-iOS'
-    files.exclude(/CDROTestRunner.m$/)
-  else
-    files.exclude(/iPhone/)
-  end
-  s.source_files = files 
+  files_pattern = 'Source/**/*.{h,m,mm}'
+
+  s.ios.header_dir = 'Cedar-iOS'
+  s.ios.source_files = FileList[files_pattern].exclude(/CDROTestRunner.m$/)
   
-
-
+  s.osx.source_files = FileList[files_pattern].exclude(/iPhone/)
+  
   s.library = 'stdc++'
 end

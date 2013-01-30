@@ -27,10 +27,11 @@ Pod::Spec.new do |s|
   s.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
 
   s.library = 'z.1'
+  s.compiler_flags = '-Wno-format', '-Wno-format-extra-args'
 
   s.subspec 'ASIWebPageRequest' do |ws|
     ws.source_files = 'Classes/ASIWebPageRequest/'
-    ws.library      = 'xml2.2.7.3'
+    ws.library      = 'xml2.2'
     ws.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
   end
 

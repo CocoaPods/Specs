@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   s.subspec 'NetworkImage' do |image|
     image.source_files = 'src/networkimage/src'
     image.dependency 'Nimbus/Core'
-    image.dependency 'ASIHTTPRequest'
+
   end
 
   s.subspec 'Overview' do |overview|
