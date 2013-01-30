@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/**/*.{h,m}'
   s.libraries    =  'z', 'xml2'
   s.xcconfig     =  { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+  s.requires_arc = true
 end
