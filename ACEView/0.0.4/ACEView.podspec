@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ACEView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Use the ACE editor in your Cocoa applications."
   s.description  = <<-DESC
                     The ACEView framework aims to allow you to use the ACE source code editor in your Cocoa applications, as if it were a native control.
