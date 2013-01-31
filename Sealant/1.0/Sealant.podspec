@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage        = 'https://github.com/blazingcloud/sealant'
   s.authors         = { 'Blazing Pair' => 'blazingpair@blazingcloud.net', 'Paul Zabelin' => 'paul@blazingcloud.net' }
   s.license         = { :type => 'MIT' }
-  s.source          = { :git => 'https://github.com/blazingcloud/sealant.git' }
+  s.source          = { :git => 'https://github.com/blazingcloud/sealant.git', :tag => "1.0" }
   s.description     = 'This pod provides a set of utilities for automated testing on iOS.'
   s.preserve_paths  = 'Scripts'
   s.requires_arc    = true
