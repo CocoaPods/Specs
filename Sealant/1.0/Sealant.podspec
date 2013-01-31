@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Sealant' do |sa|
     sa.source_files    = 'Classes/*.{h,m}'
+    sa.dependency 'JRSwizzle'
   end
 
   s.subspec 'Kiwi' do |kw|
