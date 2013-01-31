@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'UIImage+PDF'
   s.version = '1.1.0'
-  s.license = 'custom, see https://github.com/mindbrix/UIImage-PDF#licence'
   s.license = {
     :type => 'custom',
     :text => <<-LICENSE
