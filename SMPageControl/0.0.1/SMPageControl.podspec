@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     LICENSE
   }
-  s.author       = "Jerry Jones"
+  s.author       = { "Jerry Jones" => "jerry@spacemanlabs.com" }
   s.source       = {
     :git => "https://github.com/Spaceman-Labs/SMPageControl.git",
     :commit => "38eb16e6d5b45d8030a8a40967b2708a2de65546"
