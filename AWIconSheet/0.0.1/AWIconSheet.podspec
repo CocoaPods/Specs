@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                    iOS 6 share style actionsheet.
                   DESC
   s.homepage     = "https://github.com/appwilldev/AWIconSheet"
-  s.license      = 'MIT'
+  s.license      = { :type => 'MIT', :file => 'README.md' }
   s.author       = { "Appwill" => "" }
   s.source       = { :git => "https://github.com/nickcheng/AWIconSheet.git",
                      :commit => "4ac692ccb4334599008365bec36ce15da3d08eea" }
