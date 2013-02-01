@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "sqlite3"
-  s.version      = "3.7.14.1"
+  s.version      = "3.7.15.1"
   s.summary      = "SQLite is an embedded SQL database engine."
   s.homepage     = "http://www.sqlite.org"
   s.license      = "Public Domain"
