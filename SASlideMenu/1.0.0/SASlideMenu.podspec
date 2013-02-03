@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = 'SASlideMenu'
   s.version      = '1.0.0'
-  s.license      = 'MIT'
+  s.license      = { :type => 'MIT', :file => 'README.md' }
   s.summary      = 'A simple library to create sliding menus that can be used in storyboards and support static cells.'
   s.homepage     = 'https://github.com/stefanoa/SASlideMenu'
-  s.author       = { 'Stefano Antonelli' => 'CHANGEME@EXAMPLE.COM' }
+  s.author       = 'Stefano Antonelli'
 
   s.source       = { :git => 'https://github.com/stefanoa/SASlideMenu.git', :tag => 'v1.0.0' }
 
