@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "TTSwitch"
   s.version      = "0.0.3"
-  s.summary      = "One switch to rule them all."
+  s.summary      = "Fully customizable switch for iOS using images."
   s.homepage     = "http://github.com/twotoasters/TTSwitch"
   
   s.license      = { :type => 'WTFPL', :file => 'LICENSE' }
