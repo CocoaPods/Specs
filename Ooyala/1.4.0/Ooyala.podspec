@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.xcconfig     = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Ooyala"' }
   s.preserve_paths = 'libOoyalaSDK.a'
   s.source_files = 'Headers/*.h'
-  s.library = '-lstdc++', 'Ooyala'
+  s.library = 'stdc++', 'Ooyala'
 end
