@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
-  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => '97ee4b796cbb13f51627e3c22849916ba058f3a1' }
+  s.source        = { :git  => 'https://github.com/dkuhnke/ShareKit.git', :tag => 'v2.0.1' }
   s.license       = { :type => 'MIT',
                       :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
                                %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
