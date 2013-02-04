@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   sqlite_version_format = "%.1d%.2d%.2d%.2d" % s.version.to_s.split('.').push(0)
 
   s.source       = {:http => "http://www.sqlite.org/sqlite-amalgamation-#{sqlite_version_format}.zip"}
-  s.source_files = "sqlite-amalgamation-#{sqlite_version_format}/sqlite3*.{h,c}"
+  s.source_files = "sqlite3*.{h,c}"
 
 end
