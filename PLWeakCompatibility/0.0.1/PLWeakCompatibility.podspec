@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/plausiblelabs/PLWeakCompatibility"
   s.license      = 'BSD'
   s.author       = { "Plausible Labs Cooperative" => "mike@mikeash.com" }
-  s.source       = { :git => "https://github.com/plausiblelabs/PLWeakCompatibility.git", :commit => "d4b88c330e351aa1ecd01aa163066229629956c0" }
+  s.source       = { :git => "https://github.com/plausiblelabs/PLWeakCompatibility.git", :commit => "1e2b14d85946e39ccddb1cbd5071ee2d69fd563c" }
   s.source_files = 'PLWeakCompatibility/PLWeakCompatibilityStubs.[mh]'
   s.requires_arc = true
   s.xcconfig = { 'OTHER_CFLAGS' => '-Xclang -fobjc-runtime-has-weak' }
