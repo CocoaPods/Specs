@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A framework for composing and transforming sequences of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
-  s.source       = { :git => "https://github.com/github/ReactiveCocoa.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v#{s.version}" }
   s.license      = 'Simplified BSD License'
   s.description  = "ReactiveCocoa offers:\n"                                                               \
                    "1. The ability to compose operations on future data.\n"                                \
@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
                    "5. A lovely API on top of KVO."
 
   s.requires_arc = true
+  s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
   s.subspec 'Core' do |sp|
     files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']

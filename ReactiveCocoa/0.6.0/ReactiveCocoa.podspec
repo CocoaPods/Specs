@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A framework for composing and transforming sequences of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
-  s.source       = { :git => "https://github.com/github/ReactiveCocoa.git", :tag => "v0.6.0" }
+  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v0.6.0" }
   s.license      = 'Simplified BSD License'
   s.description  = "ReactiveCocoa offers:\n"                                                               \
                    "1. The ability to compose operations on future data.\n"                                \
@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /Event/, /DelegateProxy/)
   s.requires_arc = true
   s.dependency 'JRSwizzle', '~> 1.0'
+  s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 end

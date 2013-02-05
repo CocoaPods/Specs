@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'RDActionSheet/RDActionSheet.{h,m}'
   s.resources = "RDActionSheet/*.png"
   s.framework = 'UIKit'
+  s.requires_arc = true
 
   end
