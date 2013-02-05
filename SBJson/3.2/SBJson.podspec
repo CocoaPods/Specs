@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'http://stig.github.com/json-framework/'
   s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v3.2.0' }
-
+  s.license = { :type => 'BSD', :file => 'README.md' }
   s.requires_arc = true
   s.source_files = 'Classes'
 end
