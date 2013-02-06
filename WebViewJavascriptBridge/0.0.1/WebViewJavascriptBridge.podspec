@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.author       = { "marcuswestin" => "marcus.westin@gmail.com" }
   s.source       = { :git => "https://github.com/marcuswestin/WebViewJavascriptBridge.git", :tag => "2.1.1" }
   s.platform     = :ios, "4.2"
-  s.source_files = "WebViewJavascriptBridge/WebViewJavascriptBridge.{h,m,js.txt}"
+  s.source_files = "WebViewJavascriptBridge/WebViewJavascriptBridge.{h,m}"
+  s.resource     = "WebViewJavascriptBridge/WebViewJavascriptBridge.js.txt"
   s.framework    = "UIKit"
   s.dependency     "JSONKit"
 end
