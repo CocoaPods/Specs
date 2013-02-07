@@ -9,9 +9,6 @@ Pod::Spec.new do |s|
   
   files = FileList['Intercom/*.{h,a}']
   s.source_files = files
-  s.library = 'Intercom'
-  
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(SRCROOT)/Intercom/" }
 
   s.ios.deployment_target = '5.0'
   s.framework = 'UIKit'
