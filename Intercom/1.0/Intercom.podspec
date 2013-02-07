@@ -7,8 +7,9 @@ Pod::Spec.new do |s|
   s.author   = { "Adam McCarthy" => "adam@intercom.io" }
   s.source   = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => '1.0' }
   
-  s.source_files = 'Intercom/Intercom.h'
-  s.library = 'Intercom/libIntercom.a'
+  files = FileList['Intercom/*.{h,a}']
+  s.source_files = files
+  s.library = 'Intercom'
   
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(SRCROOT)/Intercom/" }
 
