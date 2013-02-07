@@ -6,7 +6,10 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.intercom.io'
   s.author   = { "Adam McCarthy" => "adam@intercom.io" }
   s.source   = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => '1.0' }
-  s.source_files = 'Intercom'
+  s.source_files = '**/*.h'
+  s.preserve_paths = '**/*.a'
+  s.library = 'libIntercom'
+
   s.ios.deployment_target = '5.0'
 
   s.prefix_header_contents = <<-EOS
