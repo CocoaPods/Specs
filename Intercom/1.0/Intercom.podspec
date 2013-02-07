@@ -15,14 +15,7 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Intercom/*.{h,a}'
 
-  #s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
-
   s.ios.deployment_target = '5.0'
   s.framework = 'UIKit'
-  s.prefix_header_contents = <<-EOS
-#import <Availability.h>
-#if __IPHONE_OS_VERSION_MIN_REQUIRED
-  #import "Intercom.h"
-#endif
-EOS
+
 end
