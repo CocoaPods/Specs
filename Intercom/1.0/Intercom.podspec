@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Intercom/*.h'
   s.preserve_paths = 'Intercom/libIntercom.a'
-  s.library = 'Intercom'
+  s.library = 'Intercom/libIntercom.a'
+  
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
 
   s.ios.deployment_target = '5.0'
