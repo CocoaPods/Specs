@@ -7,8 +7,10 @@ Pod::Spec.new do |s|
   s.author   = { "Adam McCarthy" => "adam@intercom.io" }
   s.source   = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => '1.0' }
   
-  files = FileList['Intercom/*.{h,a}']
-  s.source_files = files
+  s.source_files = 'Intercom/*.h'
+  s.preserve_paths = 'Intercom/libIntercom.a'
+  s.library = 'Intercom'
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
 
   s.ios.deployment_target = '5.0'
   s.framework = 'UIKit'
