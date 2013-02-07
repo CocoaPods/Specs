@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Intercom/libIntercom.a'
   s.library = 'Intercom'
 
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
+  #s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
 
   s.ios.deployment_target = '5.0'
   s.framework = 'UIKit'
