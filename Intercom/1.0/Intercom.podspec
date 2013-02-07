@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => '1.0' }
   
   s.source_files = 'Intercom/*.{h,a}'
-  s.library = 'libIntercom.a'
 
   #s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Intercom/"'}
 
