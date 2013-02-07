@@ -8,9 +8,10 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => '1.0' }
   
   s.source_files = 'Intercom/Intercom.h'
-  s.library = 'libIntercom'
+  s.preserve_paths = 'Intercom/libIntercom.a'
+  s.library = 'Intercom'
   
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(SRCROOT)/Pods/Intercom/" }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => "$(SRCROOT)/Intercom/" }
 
   s.ios.deployment_target = '5.0'
   s.framework = 'UIKit'
