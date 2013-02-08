@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.author       =  { 'Nick Lockwood' =>  'http://charcoaldesign.co.uk/' }
   s.source       =  { :git => 'https://github.com/nicklockwood/StandardPaths.git', :tag => '1.5.1'}
   s.source_files =  'StandardPaths/*.{h,m}'
-  s.license      = { :type => 'zlib', :file => 'LICENCE.md' }
+  s.license      = { :type => 'Zlib License', :file => 'LICENCE.md' }
 end
