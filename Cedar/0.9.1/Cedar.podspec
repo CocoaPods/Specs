@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 
   files_pattern = 'Source/**/*.{h,m,mm}'
 
+  s.osx.deployment_target = '10.7'
   s.ios.deployment_target = '5.0'
   s.ios.header_dir = 'Cedar-iOS'
   s.ios.source_files = FileList[files_pattern].exclude(/CDROTestRunner.m$/)
