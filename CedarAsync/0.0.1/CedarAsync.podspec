@@ -37,6 +37,6 @@ it succeeds or times out.
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'Source', 'Source/**/*.{h,m}'
-  s.xcconfig = { 'CLANG_CXX_LIBRARY' => 'libc++' }
+  s.dependency "Cedar"
 
 end
