@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     'Kevin Harwood' => 'kevin.harwood@mutualmobile.com'
   }
   s.homepage = 'https://github.com/mutualmobile/AFHARchiver/AFHARchiver.podspec'
-  s.source       = { :git => "https://github.com/mutualmobile/AFHARchiver.git", :commit => "849d0259d4a1973921fad397742896a9bb7226ee" }
+  s.source       = { :git => "https://github.com/mutualmobile/AFHARchiver.git", :tag => "0.0.1" }
   s.source_files = 'AFHARchiver'
   s.license		   = {
     :type => 'MIT',
