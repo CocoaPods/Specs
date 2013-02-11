@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "2.1"
   s.summary      = "Expat is an XML parser library written in C."
   s.homepage     = "http://www.libexpat.org/"
-  s.license      = { :type => 'MIT', :file => 'expat-2.1.0/COPYING' }
+  s.license      = { :type => 'MIT', :file => 'COPYING' }
 
   s.author       = { "James Clark" => "jjc@jclark.com" }
 
@@ -43,12 +43,12 @@ Pod::Spec.new do |s|
 #define XML_NS 1
 CONFIG_H
 
-    File.open("#{pod.root}/expat-2.1.0/expat_config.h", "w") do |file|
+    File.open("#{pod.root}/expat_config.h", "w") do |file|
       file.puts expat_config
     end
   end
 
-  s.source_files = 'expat-2.1.0/lib/*.{h,c}'
+  s.source_files = 'lib/*.{h,c}'
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/expat/expat-2.1.0' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/expat' }
 end

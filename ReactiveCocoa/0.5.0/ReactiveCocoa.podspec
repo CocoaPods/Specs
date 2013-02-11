@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "ReactiveCocoa"
   s.version      = "0.5.0"
   s.summary      = "A framework for composing and transforming sequences of values."
-  s.homepage     = "https://github.com/github/ReactiveCocoa"
+  s.homepage     = "https://github.com/ReactiveCocoa/ReactiveCocoa"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
   s.source       = { :git => "https://github.com/github/ReactiveCocoa.git", :tag => "v0.5.0" }
   s.license      = 'Simplified BSD License'

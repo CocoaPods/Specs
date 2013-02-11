@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
     scroll bar in the Path app.
   }
   s.platform = :ios
-  s.source_files = 'TimerScroller/*.{h,m}'
+  s.source_files = 'TimerScroller/TimeScroller.{h,m}'
   s.resources = "TimerScroller/*.png"
 
   s.framework = 'QuartzCore'
