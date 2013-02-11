@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MTMultipleViewController"
-  s.version      = "0.2.0"
+  s.version      = "0.3.0"
   s.summary      = "A container view controller that allows the selection of child views based on a UISegmentedControl in the navigation bar."
   s.description  = <<-DESC
                     A container view controller that allows the selection of child views based on a UISegmentedControl in the navigation bar. 
