@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 		`NSObject` `- (NSUInteger)hash` method.
     DESC
   s.homepage     = "https://github.com/levigroker/HashBuilder"
-  s.license      = 'MIT'
+  s.license      = 'Creative Commons Attribution 3.0 Unported License'
   s.author       = { "Levi Brown" => "levigroker@gmail.com" }
   s.source       = { :git => "https://github.com/levigroker/HashBuilder.git", :tag => "1.0" }
   s.platform     = :ios, '5.0'
