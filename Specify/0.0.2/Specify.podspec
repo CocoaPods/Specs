@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.framework    = 'SenTestingKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
   s.requires_arc = true
-  s.dependency 'Inline'
+  s.dependency 'Inline', '~> 0.1.0'
 end
