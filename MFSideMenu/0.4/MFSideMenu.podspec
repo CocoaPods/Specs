@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Michael Frederick' => 'mike@viamike.com' }
   s.source   = { :git => 'https://github.com/mikefrederick/MFSideMenu.git', :tag => s.version.to_s }
   s.platform = :ios
-  s.source_files = 'MFSideMenuDemo/MFSideMenu/*.{h,m}'
-  s.resources = 'MFSideMenuDemo/MFSideMenu/*.png'
+  s.source_files = 'MFSideMenu/*.{h,m}'
   s.frameworks   = 'QuartzCore'
 end
