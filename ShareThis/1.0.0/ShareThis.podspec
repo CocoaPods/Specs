@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '1.0.0'
   s.platform = :ios, '5.0'
   s.license  = { :type => 'BSD'}
-  s.summary  = 'An iOS sharing tool that can be easily inserted into a project'
+  s.summary  = 'An iOS sharing tool that can be easily inserted into a project.'
   s.homepage = 'https://github.com/ign/ShareThis'
   s.author   = { 'Aung Thar' => 'samuraizack@gmail.com',
                  'Grant Bartone'  => 'gbartone@ign.com',
