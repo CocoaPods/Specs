@@ -14,9 +14,12 @@ Pod::Spec.new do |s|
 
   s.source_files = 'RESTMagic', 'RESTMagic/**/*.{h,m}'
 
+  s.requires_arc = true
+
   s.public_header_files = 'RESTMagic/**/*.h'
 
   s.dependency 'JSONKit',       '~> 1.4'
   s.dependency 'GRMustache',    '~> 3.0.1'
+  s.dependency 'Reachability',  '~> 3.0.0'
 
 end
