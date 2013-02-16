@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = '1.0.4'
   s.license      = 'Apache2.0'
   s.summary      = 'A dependency injection container for Objective-C. Light-weight, yet flexible and full-featured.'
-  s.homepage     = 'https://github.com/jasperblues/Typhoon.git'
+  s.homepage     = 'http://www.typhoonframework.org/'
   s.author       = { 'Jasper Blues' => 'jasper@appsquick.ly' }
   s.source       = { :git => 'https://github.com/jasperblues/Typhoon.git', :tag => '1.0.4' }
   s.source_files = 'Source/**/*.{h,m}'

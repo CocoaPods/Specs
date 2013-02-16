@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'SSZipArchive.{h,m}', 'minizip/*.{h,c}'
-  s.preserve_paths = 'minizip'
+  s.header_dir = 'minizip'
   s.library      = 'z'
 end
