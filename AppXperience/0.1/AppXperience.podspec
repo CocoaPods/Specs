@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/atelierdumobile/AppXperienceFramework.git"
   s.license      =  'Proprietary'
   s.author       = { "Nicolas Lauquin" => "nicolas@atelierdumobile.com" }
-  s.source       = { :git => "https://github.com/atelierdumobile/AppXperienceFramework.git" } #, :tag => "1.0"
+  s.source       = { :git => "https://github.com/atelierdumobile/AppXperienceFramework.git" , :tag => "1.0"}
   s.platform     = :ios, '5.0'
 
   s.source_files = 'AppXperience.framework/Versions/A/Headers/*.{h}'
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.frameworks   = 'QuartzCore', 'CoreGraphics', 'UIKit', 'AppXperience'
   s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/AppXperience/"' }
   s.preserve_paths =  'AppXperience.framework', 'AppXperience.bundle'
-  #s.library =
 
   s.dependency 'MKNetworkKit', '~> 0.85'
   s.dependency 'SDWebImage', '~> 3.1'
