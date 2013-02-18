@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Highly customizable toast view for iOS."
   s.homepage     = "https://github.com/ebaker355/DPToastView"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.author       = { "ebaker" => "ebaker@duneparksoftware.com" }
+  s.author       = { "Eric Baker" => "ebaker@duneparksoftware.com" }
   s.source       = { :git => "https://github.com/ebaker355/DPToastView.git", :tag => "0.2a" }
   s.platform     = :ios, '6.0'
   s.source_files = '*.{h,m}'
