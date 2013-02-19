@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "5.0"
   s.requires_arc = true
   s.source_files = "GMDirection"
-  s.dependency     "AFNetworking", "1.0.1"
+  s.dependency     "AFNetworking", "1.1.0"
 end
