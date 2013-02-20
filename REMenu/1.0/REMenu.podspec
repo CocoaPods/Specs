@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.requires_arc = true
   s.source_files = 'REMenu'
-  s.public_header_files = 'REMenu/REMenu.h'
+  s.public_header_files = 'REMenu/*.h'
 
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'QuartzCore'
