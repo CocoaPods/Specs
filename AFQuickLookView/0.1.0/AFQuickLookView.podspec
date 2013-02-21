@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ursachec/AFQuickLookView.git', :tag => '0.1.0' }
   s.source_files = 'AFQuickLookViewHTTPClient.{h,m}', 'AFQuickLookView.{h,m}'
   s.requires_arc = true
-
+  s.frameworks = 'QuickLook'
   s.dependency 'AFNetworking', '>= 0.9.0'
 end
