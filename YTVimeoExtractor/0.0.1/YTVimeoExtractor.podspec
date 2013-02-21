@@ -5,12 +5,11 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                     YTVimeoExtractor is a class which lets you get the iOS 
                     compatible video url from Vimeo which you can use in 
-                    MPMoviePlayerController, no need to use a UIWebView or 
-                    open the YouTube Application.
+                    MPMoviePlayerController, no need to use a UIWebView.
                     DESC
   s.homepage     = "https://github.com/lilfaf/YTVimeoExtractor"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.author       = { "Louis Larpin" => "email@address.com" }
+  s.author       = { "Louis Larpin" => "louis.larpin@gmail.com" }
   s.source       = { :git => "https://github.com/lilfaf/YTVimeoExtractor.git", :tag => "0.0.1" }
 
   s.platform     = :ios, '4.0'
