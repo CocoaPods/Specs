@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name          = 'ShareKit'
-  s.version       = '2.0'
-  s.platform      = :ios
+  s.version       = '2.1'
+  s.platform      = :ios, '5.0'
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
-  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => 'b8129c7c229a383ea5926aaa7869aadbccb71e8f' }
+  s.source        = { :git  => 'https://github.com/dkuhnke/ShareKit.git', :tag => 'v2.1' }
   s.license       = { :type => 'MIT',
                       :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
                                %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
@@ -19,12 +19,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
+    evernote.dependency 'Evernote-SDK-iOS', "1.0.1"
   end
 
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
     facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
-    facebook.dependency 'Facebook-iOS-SDK',"1.2"
+    facebook.dependency 'Facebook-iOS-SDK',"3.1.1"
   end
 
   s.subspec 'Flickr' do |flickr|
