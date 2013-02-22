@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "objective-zip"
   s.version      = "0.0.1"
   s.summary      = "An object-oriented friendly wrapper library for ZLib and MiniZip, in Objective-C for iOS and OS X."
-  s.homepage     = "https://github.com/AgileBits/objective-zip"
+  s.homepage     = "https://github.com/flyingdolphinstudio/Objective-Zip"
 
   s.license      = { :type => 'BSD 2',
 		     :text => <<-LICENSE
@@ -21,7 +21,7 @@ LICENSE
   }
   s.author       = { "Gianluca Bertani" => "gianluca@flyingdolphinstudio.com" }
 
-  s.source       = { :git => "https://github.com/AgileBits/objective-zip.git", :commit => "036235ac38ad0eb8126a8f6cf3bb537c94068fd8" }
+  s.source       = { :git => "https://github.com/flyingdolphinstudio/Objective-Zip", :commit => "df4a2ebd00ed5a57e07c08177c1e60d7d291d961" }
 
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
