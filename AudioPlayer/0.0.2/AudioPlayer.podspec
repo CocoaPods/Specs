@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source_files = '*.{h,m,mm}'
-  s.frameworks = 'AudioToolbox', 'libstdc++.dylib'
+  s.framework = 'AudioToolbox'
   s.requires_arc = true
 
 end
