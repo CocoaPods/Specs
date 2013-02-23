@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'MIHSliderView'
   s.version      = '1.0.0'
   s.platform     = :osx, '10.6'
+  s.homepage     = 'http://github.com/hohl/MIHSliderView'
   s.license      = 'MIT'
   s.summary      = 'Core Animations based slider view for OS X.'
   s.description  = 'MIHSliderView is a OS X drop-in class that displays a couple of slides ' \
@@ -9,7 +10,7 @@ Pod::Spec.new do |s|
                    'The slider is able to use any subclass of NSView as a slide and transitions' \
                    'are customizable with the properties of the MIHSliderView class.'
   s.author       = { 'Michael Hohl' => 'me@michaelhohl.net' }
-  s.source       = { :git => 'https://github.com/hohl/MIHSliderView.git', :tag => 'v1.0.0' }
+  s.source       = { :git => 'https://github.com/hohl/MIHSliderView.git', :tag => 'pod-1.0.0' }
   s.source_files = 'Classes'
   s.resources    = "Resources/*.png"
   s.framework    = 'QuartzCore'
