@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     from.sub('MKNetworkKit/', '')
   end
 
-  s.dependency 'Reachability', '~> 3.0'
+  s.dependency 'Reachability', '~> 3.1.0'
 
   s.license  = { :type => 'MIT',
                  :text => 'MKNetworkKit is licensed under MIT License

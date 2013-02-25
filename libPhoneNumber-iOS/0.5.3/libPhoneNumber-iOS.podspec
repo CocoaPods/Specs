@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.3'
   s.requires_arc = true
   s.source_files = 'libPhoneNumber/NBPhoneNumber.{h,m}', 'libPhoneNumber/NBNumberFormat.{h,m}', 'libPhoneNumber/NBPhoneNumberDesc.{h,m}', 'libPhoneNumber/NBPhoneMetaData.{h,m}', 'libPhoneNumber/NBPhoneNumberUtil.{h,m}', 'libPhoneNumber/NBPhoneNumberDefines.h'
-  s.resources = "libPhoneNumber/**/PhoneNumberMetaData.json"
+  s.resources = "libPhoneNumber/**/NBPhoneNumberMetadata.plist"
 end
