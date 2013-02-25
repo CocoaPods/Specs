@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PonyDebugger'
-  s.version      = '0.2.1-beta1'
+  s.version      = '0.2.1beta1'
   s.summary      = 'Remote network and data debugging for your native iOS app using Chrome Developer Tools.'
   s.homepage     = 'https://github.com/square/PonyDebugger'
   s.description  = <<-DESC
