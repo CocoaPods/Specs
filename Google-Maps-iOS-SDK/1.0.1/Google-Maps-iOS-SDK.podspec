@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   }
   s.author = 'Google Inc.'
 
-  s.source = { :http => 'https://dl.google.com/geosdk/googlemaps-ios-1.0.1.zip' }
+  s.source = { :http => 'https://dl.google.com/geosdk/googlemaps-ios-1.0.1.zip', :flatten => true }
   s.platform = :ios
 
   framework_path = 'GoogleMaps.framework'
