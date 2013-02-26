@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/*.c',
                    'iphone/*.m'
 
-  s.header_mappings_dir = 'zbar'
+  s.public_header_files = 'iphone/**/**/*.h', 'include/*.h'
 
   s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
@@ -31,4 +31,22 @@ Pod::Spec.new do |s|
                  "GCC_PREPROCESSOR_DEFINITIONS"                             => '$(inherited) NDEBUG=1' }
 
   s.prefix_header_file = 'iphone/include/prefix.pch'
+
+  s.compiler_flags = '-w'
+
+  def s.post_install(target_installer)
+    project = target_installer.project
+    project.objects_by_uuid.each do |key, obj|
+      if obj.isa.to_s == "PBXBuildFile"
+        file_ref = obj.file_ref
+        if file_ref.isa.to_s == "PBXFileReference"
+          path = file_ref.pathname
+
+          if (path.extname.to_s == ".h" && path.dirname.to_s.include?("ZBarSDK/zbar"))
+            project.objects_by_uuid.delete(key)
+          end
+        end
+      end
+    end
+  end
 end

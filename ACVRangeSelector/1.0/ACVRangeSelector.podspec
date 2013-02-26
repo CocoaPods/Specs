@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 	DESC
   s.homepage     = "https://github.com/tapsandswipes/ACVRangeSelector"
   s.author       = { "Antonio Cabezuelo Vivo" => "antonio@tapsandswipes.com" }
-  s.source       = { :git => "https://github.com/tapsandswipes/ACVRangeSelector.git", :tag => '1.0.1' }
+  s.source       = { :git => "https://github.com/tapsandswipes/ACVRangeSelector.git", :tag => '1.0.2' }
   s.source_files = 'ACVRangeSelector/*.{h,m}'
   s.resources    = 'ACVRangeSelector/ACVRangeSelector.bundle'
   s.requires_arc = true

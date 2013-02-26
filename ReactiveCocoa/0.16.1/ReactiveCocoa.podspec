@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A framework for composing and transforming sequences of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
-  s.source       = { :git => "https://github.com/github/ReactiveCocoa.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v#{s.version}" }
   s.license      = 'Simplified BSD License'
   s.description  = "ReactiveCocoa offers:\n"                                                               \
                    "1. The ability to compose operations on future data.\n"                                \
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   def s.pre_install (pod, _)
     pod.source_files.each { |source|
       contents = source.read
-      if contents.gsub!(%r{ReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h}, '\1.h')
+      if contents.gsub!(%r{\bReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h\b}, '\1.h')
         File.open(source, 'w') { |file| file.puts(contents) }
       end
     }
