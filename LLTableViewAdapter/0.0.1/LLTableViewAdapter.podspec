@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
       :type => 'MIT',
       :file => 'LICENSE'
     }
-    s.source = { :git => 'https://github.com/lawrencelomax/LLTableViewAdapter.git', :commit => 'HEAD' }
+    s.source = { :git => 'https://github.com/lawrencelomax/LLTableViewAdapter.git', :tag => '0.0.1' }
     s.author = 'Lawrence Lomax'
     s.homepage = 'https://github.com/lawrencelomax/LLTableViewAdapter'
     s.platform = :ios, '5.0'
