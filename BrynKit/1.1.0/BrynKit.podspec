@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.license      = './LICENSE.md'
 
   s.source       = { :git => "https://github.com/brynbellomy/BrynKit.git", :tag => "v#{s.version.to_s}" }
-  s.source_files = './Classes/{Bryn.{h,m},BrynKit.h,BrynKitDebugging.h,BrynKitLogging.h}'
   s.requires_arc = true
   s.xcconfig = { 'PUBLIC_HEADERS_FOLDER_PATH' => 'include/$(TARGET_NAME)' }
 
@@ -22,6 +21,11 @@ Pod::Spec.new do |s|
   #
   # subspecs
   #
+  s.preferred_dependency = 'Main'
+
+  s.subspec 'Main' do |subspec|
+    subspec.source_files = 'Classes/{Bryn.{h,m},BrynKit.h,BrynKitDebugging.h,BrynKitLogging.h}'
+  end
 
   s.subspec 'MBProgressHUD' do |subspec|
     subspec.source_files = 'Classes/BrynKitMBProgressHUD.{h,m}'
