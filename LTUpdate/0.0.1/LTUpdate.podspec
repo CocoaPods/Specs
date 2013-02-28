@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.source_files = 'LTUpdate/*.{h,m}'
-
-  s.resource  = "LTUpdate/LTI18N"
+  s.resources    = "LTUpdate/LTI18N/**"
 
   s.requires_arc = true
 end
