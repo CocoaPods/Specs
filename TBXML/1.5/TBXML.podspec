@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.library = 'z'
   s.requires_arc = true
   s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited)ARC_ENABLED' }
-  s.license = { :type => 'MIT', :file => 'README.markdown' }
+  s.license = { :type => 'MIT', :file => 'README.markdown' }
 end
