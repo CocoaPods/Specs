@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
     :tag => '0.1'
   }
   s.platform     = :ios
-  s.source_files = 'MAToolkit/MAToolkit/**/*.{h,m}'
+  s.source_files = 'MAToolkit/**/*.{h,m}'
   s.requires_arc = true
 end
