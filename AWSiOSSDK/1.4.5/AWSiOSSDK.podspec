@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.description  =  'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
   s.platform     =  :ios
 
-  s.header_mappings_dir = 'include'
+  s.header_mappings_dir = 'src/include'
 
   s.prefix_header_contents = <<-PCH
 #import "AmazonLogger.h"
