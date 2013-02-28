@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MAToolkit"
-  s.version      = "0.0.1"
+  s.version      = "0.1"
   s.summary      = "Collection of extensions for easier object instantiation."
   s.description  = <<-DESC
                     A lazy way to instantiate objects.
