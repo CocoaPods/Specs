@@ -27,8 +27,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/michaelkamprath/iPhoneMK.git', :tag => '1.2.1' }
   s.platform = :ios
   s.frameworks   = ['AVFoundation', 'QuartzCore']
-  s.resources = '{TableViewCells,Views}/**/*.png'
-
   s.preferred_dependency = 'All'
 
   s.subspec 'All' do |ss|
@@ -48,6 +46,7 @@ Pod::Spec.new do |s|
   s.subspec 'MKSocialShareTableViewCell' do |ss|
     ss.frameworks   = ['Social']
     ss.source_files = 'TableViewCells/MKSocialShareTableViewCell/*.{h,m}'
+    ss.resources = 'TableViewCells/MKSocialShareTableViewCell/**/*.png'
     ss.requires_arc = true
   end
 
