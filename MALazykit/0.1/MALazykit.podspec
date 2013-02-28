@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
     :tag => '0.1'
   }
   s.platform     = :ios
-  s.source_files = 'MALazykit/**/*.{h,m}'
+  s.ios.deployment_target = '5.0'
   s.requires_arc = true
+  s.source_files = 'MALazykit/**/*.{h,m}'
 end
