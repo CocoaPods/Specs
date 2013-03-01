@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Collection of extensions for easier object instantiation."
   s.description  = <<-DESC
                     A lazy way to instantiate objects.
-                    Lazykit for providing categories methods for using `[MyObject object]` instead of `[[MyObject alloc] init]`  
+                    Lazykit is a collection of categories adding methods for allow the usage of `[MyObject object]` instead of `[[MyObject alloc] init]`  
                    DESC
   s.homepage     = "https://github.com/marlonandrade/malazykit"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
