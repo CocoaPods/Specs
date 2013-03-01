@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "TXMainThreadCoreDataHelper"
   s.version      = "0.2.0"
-  s.summary      = "It's a simple tool to help you use CoreData in your multithreaded iOS app CORRECTLY."
+  s.summary      = "It's a simple tool to help you use CoreData in your multithreaded iOS/Mac app CORRECTLY."
   s.homepage     = "https://github.com/TonnyXu/TXMainThreadCoreDataHelper"
   s.license      = { :type => 'Apache License', :file => 'LICENSE-2.0.txt' }
   s.author       = { "Tonny Xu" => "tonny.xu@gmail.com" }
