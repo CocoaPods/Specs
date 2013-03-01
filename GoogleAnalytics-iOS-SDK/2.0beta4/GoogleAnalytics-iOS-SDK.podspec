@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = 'Google Inc.'
-  s.source       = { :http => "http://dl.google.com/dl/gaformobileapps/GoogleAnalyticsiOS.zip" }
+  s.source       = { :http => "http://dl.google.com/dl/gaformobileapps/GoogleAnalyticsiOS.zip", :flatten => true }
   s.platform     = :ios
 
   s.source_files = 'Library/*.h'
