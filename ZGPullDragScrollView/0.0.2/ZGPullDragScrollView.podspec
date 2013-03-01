@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Kyle Fang" => "zhigang1992@gmail.com" }
-  s.source       = { :git => "https://github.com/zhigang1992/ZGPullDragScrollView.git", :tag => "0.0.2b" }
+  s.source       = { :git => "https://github.com/zhigang1992/ZGPullDragScrollView.git", :tag => "0.0.2" }
   s.platform     = :ios, '4.3'
   s.source_files = 'Classes', 'ZGPullDragScrollViewClass/**/*.{h,m}'
 
