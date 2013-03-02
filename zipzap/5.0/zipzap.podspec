@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "zipzap"
-  s.version      = "4.0"
+  s.version      = "5.0"
   s.summary      = "zipzap is a zip file I/O library for Mac OS X and iOS."
   s.description  = <<-DESC
 The zip file is an ideal container for compound Objective-C documents. Zip files are widely used and well understood. You can randomly access their parts. The format compresses decently and has extensive operating system and tool support. So we want to make this format an even easier choice for you. Thus, the library features:
@@ -12,7 +12,7 @@ The zip file is an ideal container for compound Objective-C documents. Zip files
   s.homepage     = 'https://github.com/pixelglow/zipzap'
 
   s.author       = 'Pixelglow Software'
-  s.source       = { :git => 'https://github.com/pixelglow/zipzap.git', :tag => '4.0' }
+  s.source       = { :git => 'https://github.com/pixelglow/zipzap.git', :tag => '5.0' }
   s.license      = 'BSD'
 
   s.platform     = :ios, '5.1'
@@ -21,11 +21,10 @@ The zip file is an ideal container for compound Objective-C documents. Zip files
   s.frameworks   = 'Foundation'
   s.libraries    = 'c++', 'z'
   s.requires_arc = true
-#  s.xcconfig     = { 'OTHER_CPLUSPLUSFLAGS' => '-std=gnu++11 -stdlib=libc++' }
+
   s.xcconfig = {
     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
     'CLANG_CXX_LIBRARY' => 'libc++'
   }
-
 
 end
