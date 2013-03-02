@@ -12,5 +12,4 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking'
   s.dependency 'TBXML', :head
   s.dependency 'zipzap'
-  s.dependency 'LRImageManager'
 end
