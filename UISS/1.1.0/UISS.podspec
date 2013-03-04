@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Project/UISS'
   s.resources = "Project/UISSResources.bundle"
   s.preserve_paths = "Project/UISSDemo", "Project/UISSDemo-CocoaPods", "Project/UISSDemoTests"
+  s.prefix_header_file = 'Project/UISS/UISS-Prefix.pch'
 
   s.frameworks = 'Foundation', 'UIKit'
 
