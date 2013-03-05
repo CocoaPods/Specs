@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'KNSemiModalViewController'
-  s.version      =  '0.0.1'
+  s.version      =  '0.3'
   s.license      =  { :type => 'MIT',
                       :text => <<-LICENSE
                         UIViewController+KNSemiModal is licensed under MIT License
@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
   s.summary      =  'Replica of the semi-modal view with pushed-back stacked animation found in the beautiful Park Guides by National Geographic app.'
   s.homepage     =  'https://github.com/kentnguyen/KNSemiModalViewController'
   s.author       =  { 'Kent Nguyen' => 'nguyen.dmz@gmail.com' }
-  s.source       =  { :git => 'https://github.com/kentnguyen/KNSemiModalViewController.git', :commit => '4717f4afabb14d264d3f31a400339b706da0b607' }
-  s.platform     =  :ios, '5.0'
+  s.source       =  { :git => 'https://github.com/kentnguyen/KNSemiModalViewController.git', :tag => '0.3' }
+  s.platform     =  :ios
   s.source_files =  'Source'
 
   s.requires_arc =  true
