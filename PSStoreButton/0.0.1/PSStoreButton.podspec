@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'PSStoreButton'
   s.version  = '0.0.1'
-  s.license  = 'MIT'
+  s.license  = { :type => 'MIT', :file => 'README.mdown' }
   s.summary  = 'UIButton that is styled like iPhone\'s AppStore-Button.'
   s.homepage = 'https://github.com/steipete/PSStoreButton'
   s.author   = { 'Peter Steinberger' => 'steipete@gmail.com' }
@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'UIButton that is styled like iPhone\'s AppStore-Button.'
   s.platform = :ios
   s.source_files = 'PSStoreButton.{h,m}'
-
-  s.libraries = 'CoreGraphics', 'QuartzCore'
+  s.frameworks = 'CoreGraphics', 'QuartzCore'
 end
