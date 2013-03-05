@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.source         = { :git => 'https://github.com/mackoj/NSString-HTML.git', :commit => 'cd36c9bb4e5bf18f42f6f986a957c10da51c83d4' }
   s.ios.deployment_target = '4.3.5'
   s.source_files   = '*.{h,m}'
+  s.public_header_files = "*.h"
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
