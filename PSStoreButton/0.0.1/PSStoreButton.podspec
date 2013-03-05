@@ -9,6 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'UIButton that is styled like iPhone\'s AppStore-Button.'
   s.platform = :ios
   s.source_files = 'PSStoreButton.{h,m}'
-
-  s.libraries = 'CoreGraphics', 'QuartzCore'
+  s.frameworks = 'CoreGraphics', 'QuartzCore'
 end
