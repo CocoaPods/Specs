@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.public_header_files = '*.h'
   s.frameworks = 'Foundation', 'UIKit', 'CoreData', 'MapKit'
   s.requires_arc = true
+  s.requires_objc_categories = true
 end
