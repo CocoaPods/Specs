@@ -14,7 +14,7 @@ An iOS 6 UIActivity subclass implementing uploads to Dropbox – as used in Zipp
   s.platform     = :ios, '6.0'
   s.source_files = 'GSDropboxActivity'
   s.public_header_files = 'GSDropboxActivity'
-  s.resources = 'GSDropboxActivity'
+  s.resources = 'GSDropboxActivity/*.png'
   s.frameworks   = 'Foundation', 'UIKit'
 
   s.requires_arc = true
