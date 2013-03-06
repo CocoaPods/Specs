@@ -1,9 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'MixiSDK'
   s.version  = '1.4.9'
-  s.license  = 'Apache licenses'
-  s.summary  = 'mixi SDK for iOS'
+  s.license  = { :type => 'Apache licenses', :file => 'mixiIOSSDK-1.4.9/LICENSE-2.0.txt' }
+  s.summary  = 'mixi SDK for iOS.'
+  s.authors  = {"mixi" => "contact-mixiapps@mixi.jp"}
   s.homepage = 'http://developer.mixi.co.jp/connect/mixi_graph_api/ios/'
+  s.platform = :ios, '4.0'
 
   s.source = { :http => 'http://developer.mixi.co.jp/appli/ns/ios/download/mixiIOSSDK-1.4.9.zip' }
   s.source_files  = 'mixiIOSSDK-1.4.9/lib/MixiSDK/*.{h,m}',
