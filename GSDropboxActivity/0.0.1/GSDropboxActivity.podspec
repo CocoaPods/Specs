@@ -12,8 +12,9 @@ An iOS 6 UIActivity subclass implementing uploads to Dropbox – as used in Zipp
   s.license      = 'Creative Commons Attribution 3.0 Unported License'
 
   s.platform     = :ios, '6.0'
-  s.source_files = 'Classes', 'GSDropboxActivity/**/*.{h,m,mm}'
-  s.public_header_files = 'GSDropboxActivity/**/*.h'
+  s.source_files = 'GSDropboxActivity'
+  s.public_header_files = 'GSDropboxActivity'
+  s.resources = 'GSDropboxActivity'
   s.frameworks   = 'Foundation', 'UIKit'
 
   s.requires_arc = true
