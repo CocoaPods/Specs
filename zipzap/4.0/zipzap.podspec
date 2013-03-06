@@ -21,5 +21,11 @@ The zip file is an ideal container for compound Objective-C documents. Zip files
   s.frameworks   = 'Foundation'
   s.libraries    = 'c++', 'z'
   s.requires_arc = true
-  s.xcconfig     = { 'OTHER_CPLUSPLUSFLAGS' => '-std=gnu++11 -stdlib=libc++' }
+#  s.xcconfig     = { 'OTHER_CPLUSPLUSFLAGS' => '-std=gnu++11 -stdlib=libc++' }
+  s.xcconfig = {
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
+    'CLANG_CXX_LIBRARY' => 'libc++'
+  }
+
+
 end

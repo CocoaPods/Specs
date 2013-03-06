@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tonyzonghui/AudioPlayer.git", :tag => "0.0.1" }
   s.platform     = :ios
 
-  s.source_files = '*.{h,m}'
+  s.source_files = '*.{h,m,mm}'
   s.framework = 'AudioToolbox'
 
 end
