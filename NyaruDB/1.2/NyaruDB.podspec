@@ -9,10 +9,13 @@ Pod::Spec.new do |s|
 
   s.source_files = 'NyaruDB/NyaruDB/**/*.{h,m}'
 
-  s.requires_arc = true
+  s.subspec 'arc' do |file|
+    file.source_files = 'NyaruDB/NyaruDB/*.{h,m}'
+    file.requires_arc = true
+  end
+
   s.subspec 'no-arc' do |json|
     json.source_files    = 'NyaruDB/NyaruDB/External/JSONKit/*.{h,m}'
     json.requires_arc    = false
-    json.compiler_flags  = '-fno-objc-arc'
   end
 end
