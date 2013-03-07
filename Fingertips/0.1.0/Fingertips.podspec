@@ -7,7 +7,7 @@ Pod::Spec.new do |f|
   f.description = 'A small UIWindow subclass that gives you automatic presentation mode in your iOS app.'
   f.homepage    = 'http://github.com/developmentseed/fingertips'
   f.license     = 'BSD'
-  f.author      = { 'Justin R. Miller' => 'justin@developmentseed.org' }
+  f.author      = { 'MapBox' => 'ios@mapbox.com' }
 
   f.source = { :git => 'https://github.com/developmentseed/fingertips.git', :tag => '0.1.0' }
 
