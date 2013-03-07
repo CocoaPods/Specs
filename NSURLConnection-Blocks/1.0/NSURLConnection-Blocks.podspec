@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "Peanut"
+  s.name         = "NSURLConnection-Blocks"
   s.version      = "1.0"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "NSURLConnection using blocks for success and failure calls."
