@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
 
   s.framework = 'CoreLocation'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++', 'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/MapBox/Proj4"' }
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++' }
 
-#  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/headers' }
 end
