@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.author       =  { 'Alvise Susmel' => 'alvise@50pixels.com' }
   s.source       =  { :git => 'https://github.com/50pixels/FPPopover.git', :tag => '1.3' }
   s.source_files =  '*.{h,m}'
+  s.requires_arc = true
   s.frameworks   =  'QuartzCore', 'UIKit'
 end
