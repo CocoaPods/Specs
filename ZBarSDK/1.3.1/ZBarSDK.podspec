@@ -22,8 +22,6 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'iphone/**/**/*.h', 'include/*.h'
 
-  s.header_mappings_dir = 'zbar'
-
   s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
   s.library      = 'iconv'
