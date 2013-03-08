@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                 :file => "COPYING" }
   s.authors	= { "Michael Weismann" => "mweisman@gmail.com",
 		    "Andrea Cremaschi" => "Andrea.Cremaschi@midainformatica.it" }
-  s.source	= { :git => "https://github.com/andreacremaschi/ShapeKit.git", :tag => s.version.to_s" }
+  s.source	= { :git => "https://github.com/andreacremaschi/ShapeKit.git", :tag => s.version.to_s }
 
   s.requires_arc = true
 
