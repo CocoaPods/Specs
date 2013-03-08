@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.source_files = 'MobileAdView.h', 'AdPostHelper.h', 'AdPostHelper.m'
   s.public_header_files = '*.h'
   s.preserve_paths = 'libMobileAdSDK.a'
+  s.resources = '*.png'
   s.library   = 'MobileAdSDK'
   s.frameworks = 'SystemConfiguration', 'CoreGraphics', 'CoreTelephony'
 end
