@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'include/*.h'
   s.xcconfig = { 'OTHER_CFLAGS' => '-DHAVE_CONFIG_H' }
 
-  s.pre_install do |pod, target_definition|
+  def s.pre_install (pod, target_definition)
     Dir.chdir(pod.root) do
       `./bootstrap 2>&1`
       `./configure 2>&1`
