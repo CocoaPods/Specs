@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   s.frameworks   = 'AVFoundation', 'CFNetwork', 'MediaPlayer', 'MobileCoreServices', 'SystemConfiguration'
   s.libraries    = 'z'
   
-  s.dependency 'ASIHTTPRequest', '~> 1.8'
-  s.dependency 'SBJson', '~> 3.1'
-  s.dependency 'Reachability', '~> 3.0'
+  s.dependency 'ASIHTTPRequest', '~> 1.8.1'
+  s.dependency 'SBJson', '~> 3.2'
+  s.dependency 'Reachability', '~> 3.1.0'
   s.dependency 'TSLibraryImport', '0.0.1'
   
   s.xcconfig     =  { 'OTHER_LDFLAGS' => '-all_load' }
