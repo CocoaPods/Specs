@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'BPKit'
   s.version = '0.0.1'
-  s.summary = 'A library of useful boilerplate actions used in conjunctions with NSBoilerplate.'
+  s.summary = 'A library of boilerplate actions for use in conjunction with NSBoilerplate.com templates.'
   s.homepage = "https://github.com/NSBoilerplate/BPKit"
   s.author = { 'Jeffrey Sambells' => 'bpkit@nsboilerplate.com' }
   s.license = 'MIT'
