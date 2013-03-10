@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/paypal/PayPal-iOS-SDK.git", :tag => "1.0.1" }
   s.platform     = :ios, '5.0'
   s.public_header_files = 'PayPalMobile/*.h'
+  s.source_files = 'PayPalMobile/*.h'
   s.preserve_paths = "PayPalMobile/libPayPalMobile.a"
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreMedia', 'CoreVideo', 'MessageUI', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'UIKit'
   s.libraries = 'stdc++', 'xml2', 'PayPalMobile'  
