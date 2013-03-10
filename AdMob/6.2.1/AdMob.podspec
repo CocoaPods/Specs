@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = FileList['libGoogleAdMobAds.a','*.h', 'Mediation/*.h']
   s.preserve_paths = 'Mediation', 'libGoogleAdMobAds.a'
   s.library = 'GoogleAdMobAds'
-  s.frameworks = 'AudioToolbox', 'MessageUI', 'SystemConfiguration', 'CoreGraphics'
+  s.frameworks = 'AudioToolbox', 'MessageUI', 'SystemConfiguration', 'CoreGraphics', 'AdSupport'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/admob"' }
 end
