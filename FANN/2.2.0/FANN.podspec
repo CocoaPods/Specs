@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.homepage     = "http://leenissen.dk/fann/"
   s.license      = { :type => 'LGPL', :file => 'COPYING.txt' }
   s.author       = { "Steffen Nissen" => "sn@leenissen.dk" }
-  s.source       = { :git => "http://git.code.sf.net/p/fann/code", :commit => "60a02c4bfa23605f1d453c18c92f527ebf1b5b31" }
+  s.source       = { :git => "http://git.code.sf.net/p/fann/code", :tag => "2.2.0" }
   s.source_files = 'src', 'src/**/*.{h,c}'
 end
