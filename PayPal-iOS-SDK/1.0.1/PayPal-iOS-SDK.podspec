@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod spec lint PayPal-iOS-SDK.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "PayPal-iOS-SDK"
   s.version      = "1.0.1"
@@ -19,11 +11,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'PayPalMobile/*.h'
   s.preserve_paths = "PayPalMobile/libPayPalMobile.a"
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreMedia', 'CoreVideo', 'MessageUI', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'UIKit'
-  s.libraries = 'stdc++', 'xml2', 'PayPalMobile'
-  
-  # No lo se
-  # s.requires_arc = true
-
+  s.libraries = 'stdc++', 'xml2', 'PayPalMobile'  
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PayPal-iOS-SDK/PayPalMobile/"' }
