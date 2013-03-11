@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.framework = 'CoreText'
   s.framework = 'CoreLocation'
 
-  s.dependency 'CocoaSoundCloudAPI'
+  s.dependency 'CocoaSoundCloudAPI', '~>1.0.1'
   s.dependency 'OHAttributedLabel'
   s.dependency 'JSONKit'
 end
