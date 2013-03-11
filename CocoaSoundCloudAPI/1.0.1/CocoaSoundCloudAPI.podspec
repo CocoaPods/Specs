@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
 
   s.framework = 'Security'
 
-  s.dependency 'NXOAuth2Client', '1.2.1'
+  s.dependency 'NXOAuth2Client', '~> 1.2.1'
   s.license = 'Apache License, Version 2.0'
 end
