@@ -31,7 +31,7 @@ import commands
 
 libspotifyFileName = \\"libspotify-12.1.51-iOS-universal.zip\\"
 libspotifyRemoteLocation = \\"http://developer.spotify.com/download/libspotify/\\"
-projectDir = os.path.join(\\"#{config.project_pods_root}\\", \\"cocoalibspotify\\")
+projectDir = os.path.join(\\"#{config.project_pods_root}\\", \\"CocoaLibSpotify\\")
 libspotifyDirectoryDir = os.path.join(projectDir, \\"libspotify-12.1.51-iOS-universal\\")
 libspotifyZipDir = os.path.join(projectDir, libspotifyFileName)
 
