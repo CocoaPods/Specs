@@ -29,10 +29,10 @@ import os
 import sys
 import commands
 
-libspotifyFileName = \\"libspotify-12.1.45-iOS-universal.zip\\"
+libspotifyFileName = \\"libspotify-12.1.51-iOS-universal.zip\\"
 libspotifyRemoteLocation = \\"http://developer.spotify.com/download/libspotify/\\"
 projectDir = os.path.join(\\"#{config.project_pods_root}\\", \\"cocoalibspotify\\")
-libspotifyDirectoryDir = os.path.join(projectDir, \\"libspotify-12.1.45-iOS-universal\\")
+libspotifyDirectoryDir = os.path.join(projectDir, \\"libspotify-12.1.51-iOS-universal\\")
 libspotifyZipDir = os.path.join(projectDir, libspotifyFileName)
 
 if (os.path.exists(libspotifyDirectoryDir)):
