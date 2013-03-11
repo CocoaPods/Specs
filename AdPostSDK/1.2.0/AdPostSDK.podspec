@@ -16,6 +16,8 @@ Pod::Spec.new do |s|
   s.public_header_files = '*.h'
   s.preserve_paths = 'libMobileAdSDK.a'
   s.resources = '*.png'
+
   s.library   = 'MobileAdSDK'
   s.frameworks = 'SystemConfiguration', 'CoreGraphics', 'CoreTelephony'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/AdPostSDK' }
 end
