@@ -12,7 +12,9 @@ Pod::Spec.new do |s|
   s.author       = 'Shall We Ad?'
   s.source       = { :git => "https://github.com/youknowone/ShallWeAdSDK.git", :tag => "2.4.6.1" }
   s.platform     = :ios
-  s.source_files = '*.{h,m}', 'ShallWeAD_IOSSDK.Framework/Headers/ShallWeAD.h', '*.a', '*.framework'
-  s.preserve_paths = '*.a', 'ShallWeAD_IOSSDK'
+  s.source_files = '*.{h,m}', 'ShallWeAD_IOSSDK.Framework/Headers/ShallWeAD.h'
+  s.preserve_paths = '*.a', 'ShallWeAD_IOSSDK', '*.framework'
+  s.library = 'ShallWeAD_IOSSDK'
   s.frameworks = 'CoreLocation', 'CoreTelephony', 'CoreGraphics'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/ShallWeAdSDK' }
 end
