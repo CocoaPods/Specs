@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.source   = { :git => 'https://github.com/siuying/IGAutoCompletionToolbar.git', :tag => '0.1.3' }
   s.requires_arc = true
-  s.platform = :ios, '5.0'
+  s.platform = :ios, '6.0'
   s.frameworks = 'QuartzCore'
   s.source_files = 'IGAutoCompletionToolbar/Library/*.{m,h}'
 end
