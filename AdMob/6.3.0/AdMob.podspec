@@ -12,19 +12,13 @@ Copyright 2009 - 2013 Google, Inc. All rights reserved.
 LICENSE
   }
   s.author = 'Google Inc.'
-  
-  # For new versions of admob please send iamdaiyuan a PR
-  # with the new unzipped repo and refer to that.
-  # doing this means the AdMob spec keeps some backwards compatability!
-  
-  s.source = {:git => 'https://github.com/iamdaiyuan/admob.git', :tag => '6.3.0'}
+  s.source = { :http => "http://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip" }
   s.platform = :ios
 
-  s.source_files = FileList['libGoogleAdMobAds.a','*.h']
-  s.preserve_paths = 'libGoogleAdMobAds.a'
-  s.library = 'GoogleAdMobAds'
-
+  s.source_files = 'GoogleAdMobAdsSdkiOS-6.3.0/*.h'
+  s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.3.0'
 
   s.framework = %w{AudioToolbox MessageUI SystemConfiguration CoreGraphics AdSupport}
+  s.library = 'GoogleAdMobAds'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/AdMob/GoogleAdMobAdsSdkiOS-6.3.0"' }
 end
