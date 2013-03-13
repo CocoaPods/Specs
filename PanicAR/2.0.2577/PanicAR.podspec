@@ -2,14 +2,14 @@ Pod::Spec.new do |s|
   s.name         = "PanicAR"
   s.version      = "2.0.2577"
   s.summary      = "Location-based Augmented Reality Framework for point of interest visualization."
-  s.homepage     = "http://github.com/doPanic/Developer"
+  s.homepage     = "http://github.com/doPanic/PanicAR"
   s.license      = {
      :type => 'proprietary',
      :text => 'http://dopanic.com/downloads/ar/PanicARLicenseTermsEN.pdf'
   }
   s.author       = { "Andreas Zeitler" => "azeitler@dopanic.com" }
   s.source       = { 
-    :git => "git@bitbucket.org:dopanic/panicar-public.git",
+    :git => "https://github.com/doPanic/PanicAR.git",
     :tag => "#{s.version.to_s}"
   }
   s.platform        = :ios, '5.0'
