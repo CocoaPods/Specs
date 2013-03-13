@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |sp|
     files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
+    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/, /NSControl/, /NSText/)
     sp.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /RACEventTrampoline/, /RACDelegateProxy/)
 
     sp.header_dir = 'ReactiveCocoa'
