@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "SHAccountManager"
   s.version      = "0.1.0"
-  s.summary      = "Account manager to deal with remote accounts. Use ACAccount or hit OAuth provider (supports Reverse Auth). Currently only uses Twitter"
+  s.summary      = "Account manager to deal with remote accounts. Use ACAccount or hit OAuth provider (supports Reverse Auth). Currently only uses Twitter."
   s.description  = <<-DESC
   A block based account handler for dealing with remote accounts and storing them on the device.
   Does currently use reverse auth with Twitter  - incase you need Twitter access from a server.
