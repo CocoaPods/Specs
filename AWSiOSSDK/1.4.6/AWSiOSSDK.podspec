@@ -13,8 +13,10 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = 'src/include'
 
   s.prefix_header_contents = <<-PCH
+#ifdef __OBJC__
 #import "AmazonLogger.h"
 #import "AmazonErrorHandler.h"
+#endif
   PCH
 
   s.subspec 'Runtime' do |ss|
