@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Marc Ransome" => "marc.ransome@fidgetbox.co.uk" }
   s.source       = { :git => "https://github.com/marcransome/MRSubtleButton.git", :tag => "0.1" }
-  s.platform     = :osx, '10.8'
+  s.platform     = :osx, '10.7'
   s.source_files = '*.{h,m}'
   s.requires_arc = true
 end
