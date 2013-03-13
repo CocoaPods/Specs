@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "MessagesTableViewController"
   s.version      = "1.0.0"
-  s.summary      = "A messages UI for iPhone and iPad.."
+  s.summary      = "A messages UI for iPhone and iPad."
   s.homepage     = "https://github.com/jessesquires/MessagesTableViewController"
   s.license      = 'MIT License'
   s.author       = { "Jesse Squires" => "jesse.d.squires@gmail.com" }
