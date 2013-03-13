@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PanicAR"
-  s.version      = "2.0.2577"
+  s.version      = "2.1.2577"
   s.summary      = "Location-based Augmented Reality Framework for point of interest visualization."
   s.homepage     = "http://github.com/doPanic/PanicAR"
   s.license      = {
