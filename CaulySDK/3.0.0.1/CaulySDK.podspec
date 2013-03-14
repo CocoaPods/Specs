@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = '*.{h,m}', 'library/*.h'
   s.public_header_files = '*.h', 'library/*.h'
-  s.resources = "library/DefaultImages/*.png"
   s.preserve_paths = "library"
+  s.resources = "library/DefaultImages/*.png"
   
-  s.frameworks = 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MediaPlayer', 'MapKit', 'CoreLocation', 'CFNetwork', 'MessageUI', 'EventKit'
   s.libraries = 'z', 'CaulyAds'
+  s.frameworks = 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MediaPlayer', 'MapKit', 'CoreLocation', 'CFNetwork', 'MessageUI', 'EventKit', 'StoreKit'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/CaulySDK/library' }
 end

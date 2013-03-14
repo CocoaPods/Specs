@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'Mobile App Performance Monitoring and Crash Reporting.'
   s.homepage = 'http://www.crittercism.com'
   s.author = { 'Crittercism' => 'support@crittercism.com' }
-  s.source = { :http => 'https://www.crittercism.com/images/Crittercism_v3_3_4_crashonly.zip' }
+  s.source = { :http => 'https://app.crittercism.com/images/Crittercism_v3_3_4_crashonly.zip' }
   s.description = 'Mobile App Performance Monitoring and Crash Reporting.'
   s.platform = :ios
   s.source_files = 'CrittercismSDK-crashonly/*.h'
