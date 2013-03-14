@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Ullrich Schäfer' => 'ullrich@soundcloud.com',
                  'Robert Böhnke' => 'robb@soundcloud.com',
                  'Tobias Kräntzer' => 'tk@soundcloud.com' }
-  s.license  = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
+  s.license  = 'Apache License, Version 2.0'
 
   s.source   = { :git => 'https://github.com/soundcloud/CocoaSoundCloudUI.git', :tag => 'v1.0.0' }
 

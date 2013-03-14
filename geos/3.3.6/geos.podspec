@@ -34,8 +34,8 @@ Pod::Spec.new do |s|
           contents = in_file.read
         end
       end
-      if (!pattern.nil?)
-        contents = contents.gsub(pattern, substs)
+      if (!pattern.nil? and !substs.nil?)
+        contents = contents.gsub(pattern) {|s| substs[s]}
       end
       h_file.puts contents
     end
