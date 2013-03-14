@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "http://github.com/halsk/SimpleRemoteObject.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.1'
   s.source_files = 'SimpleRemoteObject/classes/**/*.{h,m}'
-  s.dependency 'AFNetworking', '~> 1.0.0'
+  s.dependency 'AFNetworking', '>= 1.0.0'
 end
