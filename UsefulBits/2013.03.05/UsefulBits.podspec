@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+Pod::Spec.new do |s|  
   s.name         = 'UsefulBits'
   s.version      = '2013.03.05'
   s.license      = 'Permissive, Kevin Oneil - https://github.com/kevinoneill/Useful-Bits'
