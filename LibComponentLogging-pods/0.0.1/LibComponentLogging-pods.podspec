@@ -441,15 +441,9 @@ Pod::Spec.new do |s|
   s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/.."',
                      'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.."' }
 
-  # add lcl_config to CocoaPods' config
-  class << config
-    attr_accessor :lcl_config
-  end
-  config.lcl_config = LibComponentLoggingPodsConfig.new(config)
-
   # make sure that we have at least the default configuration
   def s.post_install(target)
-    config.lcl_config.configure()
+    LibComponentLoggingPodsConfig.new(Config.instance).configure()
   end
 
 end
