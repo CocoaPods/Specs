@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
                     <key>ATSApplicationFontsPath</key>
                     <string>.</string>
                    DESC
-  s.homepage     = "https://github.com/nschum/FontAwesomeIconFactory"
+  s.homepage     = "http://nschum.github.com/FontAwesomeIconFactory/"
 
   s.license      = 'OFL/MIT'
   s.author       = { "Nikolaj Schumacher" => "me@nschum.de" }
