@@ -1,4 +1,5 @@
 overrides = Module.new do  
+  require 'set'
   
   def pattern_list(patterns)
     if patterns.is_a?(Array) && (!defined?(Rake) || !patterns.is_a?(Rake::FileList))
@@ -12,6 +13,7 @@ overrides = Module.new do
   # They will go in a 'private' sub directory
   def private_header_files=(patterns)
     @private_header_files = self.pattern_list(patterns)
+    @private_headers_set = nil
   end
   attr_reader :private_header_files
   
@@ -32,16 +34,24 @@ overrides = Module.new do
     files
   end
   
-  # We want to put private headers in a 'private' sub directory
+  # CocoaPods < 0.17 for moving private header files to a 'private' sub directory
+  def copy_header_mapping(from)
+    @private_headers_set ||= Set.new expanded_private_header_files(pod_destroot)
+    @private_headers_set.include?(from) ? File.join("private", from.basename) : from.basename
+  end
+  
+  # CocoaPods >= 0.17 for moving private header to a 'private' sub directory
   def self.extended(o)
-    o.pre_install do |pod, target_definition|
-      files = o.expanded_private_header_files(pod.root)
-      Dir.chdir(pod.root) do
-        header_dir = o.attributes_hash['header_dir'] || pod.name
-        private_headers_dest = File.join('src', header_dir, 'Headers', 'private')
-        FileUtils.mkdir_p(private_headers_dest)
-        files.each do |file|
-          FileUtils.mv file, private_headers_dest
+    if o.class.instance_method(:pre_install).arity == 0
+      o.pre_install do |pod, target_definition|
+        files = o.expanded_private_header_files(pod.root)
+        Dir.chdir(pod.root) do
+          header_dir = o.attributes_hash['header_dir'] || pod.name
+          private_headers_dest = File.join('src', header_dir, 'Headers', 'private')
+          FileUtils.mkdir_p(private_headers_dest)
+          files.each do |file|
+            FileUtils.mv file, private_headers_dest
+          end
         end
       end
     end
