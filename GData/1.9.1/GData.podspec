@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
     gdxml.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   end
 
+  s.requires_arc = true
 end
