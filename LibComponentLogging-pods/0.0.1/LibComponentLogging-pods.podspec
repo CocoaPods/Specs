@@ -442,14 +442,10 @@ Pod::Spec.new do |s|
                      'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.." "${PODS_ROOT}/LibComponentLogging-pods"' }
 
   # add lcl_config to CocoaPods' config
-  if not defined? config then
-    # since CocoaPods 0.17, config is no longer defined, define it locally
-    config = Config.instance
-  end
-  class << config
+  class << Config.instance
     attr_accessor :lcl_config
   end
-  config.lcl_config = LibComponentLoggingPodsConfig.new(config)
+  Config.instance.lcl_config = LibComponentLoggingPodsConfig.new(Config.instance)
 
   # make sure that we have at least the default configuration
   def s.post_install(target)
