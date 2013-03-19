@@ -5,11 +5,12 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/hfossli/AGWindowView"
   s.authors      = { "Håvard Fossli" => "hfossli@agens.no" }
   s.source       = { 
-    :git => "git@github.com:hfossli/AGWindowView.git", 
+    :git => "https://github.com/hfossli/AGWindowView.git", 
     :tag => s.version.to_s 
     }
   s.license      = 'MIT'
-  s.source_files = FileList['Source/*'].exclude(/.*Test\.[hm]$/)
+  s.source_files = 'Source/*.{h,m}'
+  s.exclude_files = 'Source/*Test.{h,m}'
   s.frameworks   = 'SystemConfiguration', 'IOKit', 'CoreGraphics', 'UIKit', 'QuartzCore'
   s.platform     = :ios
   s.requires_arc = true
