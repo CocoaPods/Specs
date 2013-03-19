@@ -2,6 +2,12 @@ require 'pathname'
 require 'cocoapods-core'
 require 'cocoapods'
 
+# Configuration
+#-----------------------------------------------------------------------------#
+
+Pod::Config.instance.repos_dir = Pathname.pwd.dirname
+# Pod::Config.instance.verbose = true
+
 #-----------------------------------------------------------------------------#
 
 # TODO pass old spec
@@ -10,20 +16,20 @@ desc "Run `pod spec lint` on all specs"
 task :lint do
   exit if ENV['skip-lint']
 
-  title('Last Commit Specs')
-  puts "The Master repo doesn't accepts specifications with warnings."
-  puts "The specifications from the last commit are linted with the"
-  puts "most strict settings. Please take action if you fail the tests."
+  title('Most Recently Commited Specs ')
+  puts "The Master repo will not accept specifications with warnings."
+  puts "The specifications from the most recent commit are linted with the most strict settings."
+  puts "For more info see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
     puts "\n#{spec_path}"
     spec = Pod::Spec.from_file(spec_path)
     acceptable = check_if_can_be_accepted(spec, spec_path)
-    if ENV['TRAVIS_PULL_REQUEST'] == 'false'
-      lints = quick_lint(spec)
-    else
+    if ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
       lints = lint(spec)
+    else
+      lints = quick_lint(spec)
     end
 
     if acceptable && lints
@@ -184,3 +190,5 @@ module Pod
   def CoreUI.warn(message)
   end
 end
+
+
