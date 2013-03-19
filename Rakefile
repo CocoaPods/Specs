@@ -13,7 +13,7 @@ Pod::Config.instance.verbose = true
 # TODO pass old spec
 # TODO catch spec eval raise
 desc "Run `pod spec lint` on all specs"
-task :lint do
+task :validate do
   exit if ENV['skip-lint']
 
   title('Most Recently Commited Specs ')
@@ -62,7 +62,22 @@ end
 
 #-----------------------------------------------------------------------------#
 
-task :default => :lint
+desc "Deprecated task which was used by git pre-commit hook"
+task :lint do
+  puts
+  puts yellow("The pre-commit hook of the master repo has been deprecated.")
+  puts "You can remove it by running:"
+  puts
+  puts "    $ rm -i ~/.cocoapods/master/.git/hooks/pre-commit"
+  puts
+  puts "Please lint you specifications manually before submitting the to the"
+  puts "specs repo. To do so you can either use:"
+  puts
+  puts "    $ pod push [ REPO ] [NAME.podspec]"
+  puts "    $ pod spec lint [ NAME.podspec | DIRECTORY | http://PATH/NAME.podspec, ... ]"
+end
+
+task :default => :validate
 
 # group Analysis helpers
 #-----------------------------------------------------------------------------#
