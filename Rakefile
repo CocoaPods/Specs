@@ -6,7 +6,7 @@ require 'cocoapods'
 #-----------------------------------------------------------------------------#
 
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
-# Pod::Config.instance.verbose = true
+Pod::Config.instance.verbose = true
 
 #-----------------------------------------------------------------------------#
 
