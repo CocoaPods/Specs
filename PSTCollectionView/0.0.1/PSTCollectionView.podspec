@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
   s.author = 'Peter Steinberger', 'steipete@gmail.com'
   s.source = {
     :git => 'https://github.com/steipete/PSTCollectionView.git',
-    :commit => 'f5e0bd83b16e0520fee166a13b92339a337797b1'
+    :commit => :head
   }
   s.platform = :ios, '4.3'
-  s.source_files = 'PSTCollectionView/'
-  s.public_header_files = 'PSTCollectionView/'
+  s.source_files = 'PSTCollectionView/*{h,m}'
+  s.public_header_files = 'PSTCollectionView/*{h,m}'
   s.frameworks = 'UIKit', 'QuartzCore'
   s.requires_arc = true
 end
