@@ -10,6 +10,7 @@ Pod::Config.instance.verbose = true
 
 PODS_ALLOWED_TO_FAIL = [
   'PinEntry',
+  'LibComponentLogging-pods',
 ]
 
 
