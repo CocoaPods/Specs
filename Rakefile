@@ -8,6 +8,11 @@ require 'cocoapods'
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
 Pod::Config.instance.verbose = true
 
+PODS_ALLOWED_TO_FAIL = [
+  'PinEntry',
+]
+
+
 #-----------------------------------------------------------------------------#
 
 # TODO pass old spec
@@ -43,7 +48,7 @@ task :validate do
   puts "\n\n\n"
   print_health_report(report)
 
-  if has_commit_failures || !report.pods_by_error.empty?
+  if has_commit_failures || !report_acceptable(report)
     puts red("Validation failed!")
     exit 1
   else
@@ -126,6 +131,14 @@ def generate_health_report
     end
   end
   reporter.analyze
+end
+
+def report_acceptable(report)
+  report.pods_by_error.values.all? do |pod_info|
+    pod_info.keys.all? do |pod_name|
+      PODS_ALLOWED_TO_FAIL.include?(pod_name)
+    end
+  end
 end
 
 # group Git helpers
