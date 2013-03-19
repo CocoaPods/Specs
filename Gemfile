@@ -1,6 +1,8 @@
-source :rubygems
+source "http://rubygems.org"
 
-# For now don't use 0.17.RCx
-#gem 'cocoapods', ">= #{YAML.load_file(File.dirname(__FILE__) + "/CocoaPods-version.yml")['last']}"
-gem 'cocoapods', '~> 0.16.4'
+# For now use 0.17 master
+# gem 'cocoapods', ">= #{YAML.load_file(File.dirname(__FILE__) + "/CocoaPods-version.yml")['last']}"
+gem "cocoapods-core", :git => "git://github.com/CocoaPods/Core.git"
+gem "cocoapods",      :git => "git://github.com/CocoaPods/CocoaPods.git"
+
 gem 'rake'
