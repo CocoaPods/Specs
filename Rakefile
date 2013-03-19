@@ -1,78 +1,178 @@
 require 'pathname'
+require 'cocoapods-core'
+require 'cocoapods'
 
-def rvm_ruby_dir
-  @rvm_ruby_dir ||= File.expand_path('../..', `which ruby`.strip)
-end
+#-----------------------------------------------------------------------------#
 
-namespace :travis do
-  task :install_opencflite_debs do
-    sh "mkdir -p .debs"
-    Dir.chdir(".debs") do
-      sh "wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb" unless File.exist?("libicu44_4.4.2-2ubuntu0.11.04.1_i386.deb")
-      base_url = "https://github.com/downloads/CocoaPods/OpenCFLite"
-      %w{ opencflite1_248-1_i386.deb opencflite-dev_248-1_i386.deb }.each do |deb|
-        sh "wget #{File.join(base_url, deb)}" unless File.exist?(deb)
-      end
-      sh "sudo dpkg -i *.deb"
-    end
-  end
-
-  task :fix_rvm_include_dir do
-    unless File.exist?(File.join(rvm_ruby_dir, 'include'))
-      # Make Ruby headers available, RVM seems to do not create a include dir on 1.8.7, but it does on 1.9.3.
-      sh "mkdir '#{rvm_ruby_dir}/include'"
-      sh "ln -s '#{rvm_ruby_dir}/lib/ruby/1.8/i686-linux' '#{rvm_ruby_dir}/include/ruby'"
-    end
-  end
-
-  task :setup => [:install_opencflite_debs, :fix_rvm_include_dir] do
-    sh "CFLAGS='-I#{rvm_ruby_dir}/include' bundle update"
-  end
-end
-
+# TODO pass old spec
+# TODO catch spec eval raise
 desc "Run `pod spec lint` on all specs"
 task :lint do
   exit if ENV['skip-lint']
 
-  ENV['SKIP_SETUP']='1'
-  ENV['CP_REPOS_DIR']= Pathname.new(Dir.pwd).dirname.to_s
+  title('Last Commit Specs')
+  puts "The Master repo doesn't accepts specifications with warnings."
+  puts "The specifications from the last commit are linted with the"
+  puts "most strict settings. Please take action if you fail the tests."
+  puts
+  puts
 
-  specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
-  specs = ['.'] if specs.empty?
-  last_commit_podspecs = `git diff --diff-filter=ACMRTUXB --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
-  last_commit_specs = last_commit_podspecs.map {|p| p.gsub(/(.*)\/.*\/.*/,'\1')}.uniq
+  has_commit_failures = false
+  last_commit_specs.each do |spec_path|
+    puts "#{spec_path}\n\n"
+    spec = Pod::Spec.from_file(spec_path)
+    acceptable = check_if_can_be_accepted(spec, spec_path)
+    if ENV['TRAVIS_PULL_REQUEST']
+      lints = lint(spec)
+    else
+      lints = quick_lint(spec)
+    end
 
-  failures = 0
-
-  # unless last_commit_podspecs.empty?
-  #   puts "\n>>> last commit podspecs (full lint) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-  #   command = "pod spec lint '#{last_commit_podspecs.join("' '")}' "
-  #   failures += 1 unless excute_command(command)
-  # end
-
-  unless last_commit_specs.empty?
-    puts "\n>>> last commit pods (quick lint with warnings) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-    command = "pod spec lint --quick '#{last_commit_specs.join("' '")}' "
-    failures += 1 unless excute_command(command)
+    if acceptable && lints
+      puts green("The spec can be accepted.")
+    else
+      has_commit_failures = true
+    end
   end
 
-  puts "\n>>> Repo <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n\n"
-  command = "pod repo lint ."
-  failures += 1 unless excute_command(command)
+  report = generate_health_report
+  puts "\n\n\n"
+  print_health_report(report)
 
-  unless failures.zero?
+  unless has_commit_failures && report.pods_by_error.empty?
     exit 1
   end
 end
 
-def excute_command(command)
-  # begin
-    puts command
-    # do it this way so we can trap Interrupt, doesn't work well with Kernel::system and Rake's sh
-    system command
-  # rescue Interrupt
-  #   break
-  #   false
+#-----------------------------------------------------------------------------#
+
+desc "Checks the repo for errors or warnings"
+task :health_report do
+  report = generate_health_report
+  puts "\n\n\n"
+  print_health_report(report)
 end
 
+#-----------------------------------------------------------------------------#
+
 task :default => :lint
+
+# group Analysis helpers
+#-----------------------------------------------------------------------------#
+
+# @return [Bool] If the spec can be accepted
+#
+def check_if_can_be_accepted(spec, spec_path)
+  # previous_spec_contents = previous_version_of_spec(spec_path)
+  acceptor = Pod::Source::Acceptor.new('.')
+  errors = acceptor.analyze(spec)
+  errors.each do |error|
+    failures += 1
+    puts red("- #{error}")
+  end
+  errors.count.zero?
+end
+
+# @return [Bool] Whether the spec lints
+#
+def lint(spec)
+  validator = Pod::Validator.new(spec)
+  validator.validate
+end
+
+# @return [Bool] Whether the spec lints
+#
+def quick_lint(spec)
+  linter = Pod::Spec::Linter.new(spec)
+  linter.lint
+  linter.results.each do |result|
+    puts red("- #{result}")
+  end
+  linter.results.count.zero?
+end
+
+# @return [Pod::Source::HealthReport] Returns the health report of the repo.
+#
+def generate_health_report
+  title('Health Report')
+  validator = Pod::Source::HealthReporter.new('.')
+  validator.pre_check do |name, version|
+    print '.'
+  end
+  validator.analyze
+end
+
+# group Git helpers
+#-----------------------------------------------------------------------------#
+
+# @return [Array<String>] Returns the relative path of the podspecs affected by
+#         the last commit.
+#
+def last_commit_specs
+  specs = `git diff-index --name-only HEAD | grep '.podspec$'`.strip.split("\n")
+  specs = ['.'] if specs.empty?
+  `git diff --diff-filter=ACMRTUXB --name-only HEAD~1..HEAD | grep '.podspec$'`.strip.split("\n")
+end
+
+# @return [String] The contents of the given specification before the last
+#         commit.
+#
+def previous_version_of_spec(spec_path)
+  `git show HEAD~1:#{spec_path}`
+end
+
+# group UI helpers
+#-----------------------------------------------------------------------------#
+
+# Prints a title.
+#
+def title(title)
+  cyan_title = "\033[0;36m#{title}\033[0m"
+  puts
+  puts "-" * 80
+  puts cyan_title
+  puts "-" * 80
+  puts
+end
+
+# Colorizes a string to green.
+#
+def green(string)
+  "\033[0;32m#{string}\e[0m"
+end
+
+# Colorizes a string to yellow.
+#
+def yellow(string)
+  "\033[0;33m#{string}\e[0m"
+end
+
+# Colorizes a string to red.
+#
+def red(string)
+  "\033[0;31m#{string}\e[0m"
+end
+
+# @return [void] Prints the given health report.
+#
+def print_health_report(report)
+  report.pods_by_warning.each do |message, versions_by_name|
+    puts yellow("-> #{message}")
+    versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
+    puts
+  end
+
+  report.pods_by_error.each do |message, versions_by_name|
+    puts red("-> #{message}")
+    versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
+    puts
+  end
+end
+
+#-----------------------------------------------------------------------------#
+
+module Pod
+  # Suppress the warnings because they make too much noise at this stage.
+  def CoreUI.warn(message)
+  end
+end
