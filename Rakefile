@@ -160,13 +160,15 @@ end
 # @return [void] Prints the given health report.
 #
 def print_health_report(report)
-  report.pods_by_warning.each do |message, versions_by_name|
+  report.pods_by_warning.keys.sort.each do |message|
+    versions_by_name = report.pods_by_warning[message]
     puts yellow("-> #{message}")
     versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
     puts
   end
 
-  report.pods_by_error.each do |message, versions_by_name|
+  report.pods_by_error.keys.sort.each do |message|
+    versions_by_name = report.pods_by_error[message]
     puts red("-> #{message}")
     versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
     puts
