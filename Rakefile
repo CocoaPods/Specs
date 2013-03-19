@@ -38,6 +38,7 @@ task :lint do
   print_health_report(report)
 
   if has_commit_failures || !report.pods_by_error.empty?
+    puts red("Validation failed!")
     exit 1
   else
     puts green("Validation passed")
@@ -95,8 +96,12 @@ end
 def generate_health_report
   title('Health Report')
   validator = Pod::Source::HealthReporter.new('.')
+  count = 0
   validator.pre_check do |name, version|
-    print '.'
+    count += 1
+    if (count % 20) == 0
+      print '.'
+    end
   end
   validator.analyze
 end
@@ -166,6 +171,8 @@ def print_health_report(report)
     versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
     puts
   end
+
+  puts "Analyzed #{report.analyzed_paths.count} podspecs files."
 end
 
 #-----------------------------------------------------------------------------#
