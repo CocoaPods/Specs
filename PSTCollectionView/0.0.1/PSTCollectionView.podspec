@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
     :commit => 'f5e0bd83b16e0520fee166a13b92339a337797b1'
   }
   s.platform = :ios, '4.3'
-  s.source_files = 'PSTCollectionView/'
-  s.public_header_files = 'PSTCollectionView/'
+  s.source_files = 'PSTCollectionView/*{h,m}'
+  s.public_header_files = 'PSTCollectionView/*.h'
   s.frameworks = 'UIKit', 'QuartzCore'
   s.requires_arc = true
 end
