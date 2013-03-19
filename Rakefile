@@ -116,15 +116,16 @@ end
 #
 def generate_health_report
   title('Health Report')
-  validator = Pod::Source::HealthReporter.new('.')
+  reporter = Pod::Source::HealthReporter.new('.')
+  reporter.master_repo_mode = true
   count = 0
-  validator.pre_check do |name, version|
+  reporter.pre_check do |name, version|
     count += 1
     if (count % 20) == 0
       print '.'
     end
   end
-  validator.analyze
+  reporter.analyze
 end
 
 # group Git helpers
@@ -181,16 +182,16 @@ end
 # @return [void] Prints the given health report.
 #
 def print_health_report(report)
-  report.pods_by_warning.keys.sort.each do |message|
-    versions_by_name = report.pods_by_warning[message]
-    puts yellow("-> #{message}")
+  report.pods_by_error.keys.sort.each do |message|
+    versions_by_name = report.pods_by_error[message]
+    puts red("-> #{message}")
     versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
     puts
   end
 
-  report.pods_by_error.keys.sort.each do |message|
-    versions_by_name = report.pods_by_error[message]
-    puts red("-> #{message}")
+  report.pods_by_warning.keys.sort.each do |message|
+    versions_by_name = report.pods_by_warning[message]
+    puts yellow("-> #{message}")
     versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
     puts
   end
