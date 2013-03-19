@@ -19,6 +19,6 @@ this software.'
   s.source   = { :http => 'https://github.com/downloads/calabash/calabash-ios/calabash.framework-0.9.126.zip', :flatten => true }
   s.preserve_paths = 'Headers', 'Versions', 'calabash'
   s.source_files = 'Headers/*'
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Calabash/calabash" -lstdc++' } 
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Calabash/calabash.framework/calabash" -lstdc++' } 
   s.framework = 'CFNetwork'
 end
