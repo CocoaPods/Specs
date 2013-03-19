@@ -14,12 +14,10 @@ task :lint do
   puts "The Master repo doesn't accepts specifications with warnings."
   puts "The specifications from the last commit are linted with the"
   puts "most strict settings. Please take action if you fail the tests."
-  puts
-  puts
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
-    puts "#{spec_path}\n\n"
+    puts "\n#{spec_path}"
     spec = Pod::Spec.from_file(spec_path)
     acceptable = check_if_can_be_accepted(spec, spec_path)
     if ENV['TRAVIS_PULL_REQUEST']
@@ -29,7 +27,7 @@ task :lint do
     end
 
     if acceptable && lints
-      puts green("The spec can be accepted.")
+      puts green("- The spec can be accepted.")
     else
       has_commit_failures = true
     end
@@ -69,7 +67,6 @@ def check_if_can_be_accepted(spec, spec_path)
   acceptor = Pod::Source::Acceptor.new('.')
   errors = acceptor.analyze(spec)
   errors.each do |error|
-    failures += 1
     puts red("- #{error}")
   end
   errors.count.zero?
