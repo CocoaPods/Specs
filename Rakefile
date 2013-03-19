@@ -39,8 +39,10 @@ task :lint do
   puts "\n\n\n"
   print_health_report(report)
 
-  unless has_commit_failures && report.pods_by_error.empty?
+  if has_commit_failures || !report.pods_by_error.empty?
     exit 1
+  else
+    puts green("Validation passed")
   end
 end
 
