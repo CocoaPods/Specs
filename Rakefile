@@ -19,7 +19,7 @@ task :lint do
   title('Most Recently Commited Specs ')
   puts "The Master repo will not accept specifications with warnings."
   puts "The specifications from the most recent commit are linted with the most strict settings."
-  puts "For more info see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
+  puts "For more information see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
