@@ -20,10 +20,10 @@ task :lint do
     puts "\n#{spec_path}"
     spec = Pod::Spec.from_file(spec_path)
     acceptable = check_if_can_be_accepted(spec, spec_path)
-    if ENV['TRAVIS_PULL_REQUEST']
-      lints = lint(spec)
-    else
+    if ENV['TRAVIS_PULL_REQUEST'] == 'false'
       lints = quick_lint(spec)
+    else
+      lints = lint(spec)
     end
 
     if acceptable && lints
