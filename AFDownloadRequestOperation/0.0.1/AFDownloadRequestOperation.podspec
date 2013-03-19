@@ -11,3 +11,4 @@ Pod::Spec.new do |s|
   s.license        = 'MIT'
   s.dependency 'AFNetworking', '>=1.1'
 end
+
