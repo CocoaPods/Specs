@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files = 'TestPilot/**/*.{h,m}'
   s.public_header_files = 'TestPilot/**/*.h'
  
-  s.dependency 'Stubbilino', :git => 'git@github.com:itsthejb/Stubbilino.git', :branch => 'feature/osx-framework'
+  s.dependency 'Stubbilino'
   s.dependency 'OCHamcrest'
   s.dependency 'OCMock'
   s.dependency 'OCMockito'
