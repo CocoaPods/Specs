@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/hfossli/AGWindowView"
   s.authors      = { "Håvard Fossli" => "hfossli@agens.no" }
   s.source       = { 
-    :git => "git@github.com:hfossli/AGWindowView.git", 
+    :git => "https://github.com/hfossli/AGWindowView.git", 
     :tag => s.version.to_s 
     }
   s.license      = 'MIT'
