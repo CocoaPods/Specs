@@ -17,7 +17,8 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sp|
     sp.source_files = 'Classes'
     sp.resources = "Resources/**/*.*", "Images/{UI,Overlays}/*.png"
-    sp.dependency 'GPUImage'
+    # Temporary, this might break the podspec in the future.
+    sp.dependency 'GPUImage', :head
   end
 
   s.subspec 'FilterSamples' do |sp|
