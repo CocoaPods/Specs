@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://impactjs.com/ejecta'
   s.author = { 'Dominic Szablewski' => 'dominic.szablewski@gmail.com' }
   s.source = { :git => 'https://github.com/phoboslab/Ejecta.git', :tag => 'v1.2' }
-  s.description = 'A Fast, Open Source JavaScript, Canvas & Audio Implementation for iOS.'
   s.platform = :ios
 
   s.source_files = 'Classes/**/*.{h,m,mm}'
