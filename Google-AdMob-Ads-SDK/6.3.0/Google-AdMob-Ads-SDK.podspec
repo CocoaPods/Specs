@@ -23,6 +23,6 @@ LICENSE
 
   s.library = 'GoogleAdMobAds'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob/"'}
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/"'}
 
 end
