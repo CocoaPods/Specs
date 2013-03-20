@@ -25,5 +25,5 @@ Pod::Spec.new do |s|
   s.dependency 'ASIHTTPRequest'
   s.dependency 'Reachability'
   s.dependency 'SFHFKeychainUtils'
-  s.dependency 'FMDB'
+  s.dependency 'FMDB', :head
 end
