@@ -6,7 +6,7 @@ require 'cocoapods'
 #-----------------------------------------------------------------------------#
 
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
-Pod::Config.instance.verbose = true
+# Pod::Config.instance.verbose = true
 
 PODS_ALLOWED_TO_FAIL = {
   "Comments must be deleted." => [
@@ -102,17 +102,19 @@ task :validate do
   puts "The Master repo will not accept specifications with warnings."
   puts "The specifications from the most recent commit are linted with the most strict settings."
   puts "For more information see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
+  puts "Thanks for contributing to the master repo!"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
-    puts "\n#{spec_path}"
     spec = Pod::Spec.from_file(spec_path)
-    acceptable = check_if_can_be_accepted(spec, spec_path)
     if ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+      puts "\n#{spec_path} [Full]"
       lints = lint(spec)
     else
+      puts "\n#{spec_path} [Quick]"
       lints = quick_lint(spec)
     end
+    acceptable = check_if_can_be_accepted(spec, spec_path)
 
     if acceptable && lints
       puts green("- The spec can be accepted.")
