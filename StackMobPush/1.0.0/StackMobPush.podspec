@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-push-sdk.git', :tag => s.version.to_s }
   s.platform = :ios, '5.0'
   s.source_files = 'stackmob-ios-push-sdk/*.{h,m}'
-  s.dependency 'stl-oauth-client', :git => 'https://github.com/jonah-carbonfive/stl-oauth-client.git', :commit => 'd73a89b92a4ec6068b2ae36e09b32e6d8717e180'
+  s.dependency 'stl-oauth-client'
   s.requires_arc = true
   s.documentation = {
   	:appledoc => [
