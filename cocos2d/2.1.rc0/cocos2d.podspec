@@ -10,14 +10,12 @@ Pod::Spec.new do |s|
 
   s.source_files = 'cocos2d/**/*.{h,m,c}', 'CocosDenshion/*.{h,m}',
     FileList['external/libpng/*.{h,c}'].exclude(/pngtest.c/, /example.c/), 'external/kazmath/src/**/*.{c,h}', 'external/kazmath/include/**/*.{c,h}'
-    
+
   s.xcconfig = {
     'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include"'
   }
   s.frameworks =  ["OpenGLES", "OpenAL", "AVFoundation", "AudioToolbox", "QuartzCore", "GameKit"]
   s.library    =  'z'
 
-  def s.copy_header_mapping(from)
-    from.relative_path_from(Pathname.new('cocos2d'))
-  end
+  s.header_mappings_dir = 'cocos2d'
 end

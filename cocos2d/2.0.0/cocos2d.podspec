@@ -25,7 +25,5 @@ Pod::Spec.new do |s|
 #define CC_ENABLE_GL_STATE_CACHE 1
 '''
 
-  def s.copy_header_mapping(from)
-    from.relative_path_from(Pathname.new('cocos2d'))
-  end
+  s.header_mappings_dir = 'cocos2d'
 end
