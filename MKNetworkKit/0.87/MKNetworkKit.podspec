@@ -14,6 +14,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc     =  true
 
+  s.header_mappings_dir =  'MKNetworkKit/'
+
   s.dependency 'Reachability', '~> 3.1.0'
 
   s.license  = { :type => 'MIT',
