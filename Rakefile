@@ -1,5 +1,4 @@
 require 'pathname'
-require 'cocoapods-core'
 require 'cocoapods'
 
 # Configuration
@@ -96,6 +95,7 @@ PODS_ALLOWED_TO_FAIL = {
 # TODO catch spec eval raise
 desc "Run `pod spec lint` on all specs"
 task :validate do
+  require 'cocoapods-core'
   exit if ENV['skip-lint']
 
   title('Most Recently Commited Specs ')
@@ -139,6 +139,7 @@ end
 
 desc "Checks the repo for errors or warnings"
 task :health_report do
+  require 'cocoapods-core'
   report = generate_health_report
   puts "\n\n\n"
   print_health_report(report)
