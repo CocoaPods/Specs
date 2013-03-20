@@ -8,9 +8,86 @@ require 'cocoapods'
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
 Pod::Config.instance.verbose = true
 
-PODS_ALLOWED_TO_FAIL = [
-  'LibComponentLogging-pods',
-]
+PODS_ALLOWED_TO_FAIL = {
+  "Comments must be deleted." => [
+    'LibComponentLogging-pods'
+  ],
+
+  # TODO temporary
+  "Git sources should specify a tag." => [
+    'Appirater',
+    'AQGridView',
+    'ARCHelper',
+    'ARCMacro',
+    'AWSiOSSDK',
+    'AZAppearanceKit',
+    'cocos2d',
+    'CustomBadge',
+    'DCIntrospect',
+    'DDProgressView',
+    'DYRateView',
+    'EGOCache',
+    'EGOTableViewPullRefresh',
+    'Evernote-SDK-Mac',
+    'Flash2Cocos2D',
+    'GHUnitIOS',
+    'GHUnitOSX',
+    'GMGridView',
+    'IBAForms',
+    'iOSInstalledApps',
+    'iPhoneMK',
+    'JASidePanels',
+    'JBKenBurnsView',
+    'JSONKit',
+    'KeychainItemWrapper',
+    'Kiwi',
+    'KKGridView',
+    'libgit2',
+    'MACalendarUI',
+    'MAKVONotificationCenter',
+    'MASShortcut',
+    'MGSplitViewController',
+    'MPFlipViewController',
+    'NSLogger',
+    'NSLogger-CocoaLumberjack-connector',
+    'OCMock',
+    'ODRefreshControl',
+    'OHAttributedLabel',
+    'pubnub-api',
+    'RestKit',
+    'SBJson',
+    'ShareKit',
+    'SocketRocket',
+    'SPTabBarController',
+    'StackMob',
+    'SYCache',
+    'TBXML',
+    'Three20Lite',
+    'TwUI',
+    'UIImage-Resize',
+    'UIResponder+KeyboardCache',
+    'Underscore.m',
+    'vfrReader',
+  ],
+
+  # TODO temporary
+  "The version should be included in the Git tag." => [
+    'BaseKit',
+    'BJRangeSliderWithProgress',
+    'CocoaLumberjack',
+    'cocos2d',
+    'CoreParse',
+    'CouchCocoa',
+    'DDPageControl',
+    'iOS-Hierarchy-Viewer',
+    'JWFolders',
+    'NSLogger',
+    'PINView',
+    'PonyDebugger',
+    'RestKit',
+    'Sparrow-Framework',
+  ],
+}
 
 
 #-----------------------------------------------------------------------------#
@@ -134,11 +211,15 @@ def generate_health_report
 end
 
 def report_acceptable(report)
-  report.pods_by_error.values.all? do |pod_info|
-    pod_info.keys.all? do |pod_name|
-      PODS_ALLOWED_TO_FAIL.include?(pod_name)
+  acceptable = true
+  report.pods_by_error.each do |message, pods|
+    pods.each do |name, version|
+      unless PODS_ALLOWED_TO_FAIL[message].include?(name)
+        acceptable = false
+      end
     end
   end
+  acceptable
 end
 
 # group Git helpers
@@ -198,7 +279,13 @@ def print_health_report(report)
   report.pods_by_error.keys.sort.each do |message|
     versions_by_name = report.pods_by_error[message]
     puts red("-> #{message}")
-    versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
+    versions_by_name.each do |name, versions|
+      if PODS_ALLOWED_TO_FAIL[message].include?(name)
+        puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
+      else
+        puts "  - #{name} (#{versions * ', '})"
+      end
+    end
     puts
   end
 
