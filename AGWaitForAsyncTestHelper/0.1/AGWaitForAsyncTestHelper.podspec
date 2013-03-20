@@ -4,10 +4,11 @@ Pod::Spec.new do |s|
     s.summary      = "C macro for async operations in unit tests. Example: WAIT_WHILE(!jobDone, limitInSeconds);"
     s.homepage     = "https://github.com/hfossli/AGWaitForAsyncTestHelper"
     s.authors      = { "Håvard Fossli" => "hfossli@agens.no" }
+    s.license      = 'MIT'
     s.source       = { 
-        :git => "https://github.com/hfossli/AGWaitForAsyncTestHelper", 
+        :git => "https://github.com/hfossli/AGWaitForAsyncTestHelper.git", 
         :tag => s.version.to_s
-        } 
+        }
     s.source_files = FileList['Source/*']
     s.frameworks   = 'Foundation'
     s.platform     = :ios
