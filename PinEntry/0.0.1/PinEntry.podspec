@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'PinEntry'
   s.version  = '0.0.1'
-  s.license  = ''
   s.summary  = 'iPhone pin entry controller and a custom numpad view.'
   s.homepage = 'https://github.com/farcaller/iphone-pinentry'
   s.author   = { 'Vlzcimif Pouzanov' => 'farcaller@gmail.com' }
