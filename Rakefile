@@ -203,7 +203,6 @@ end
 def generate_health_report
   title('Health Report')
   reporter = Pod::Source::HealthReporter.new('.')
-  reporter.master_repo_mode = true
   count = 0
   reporter.pre_check do |name, version|
     count += 1
@@ -216,7 +215,8 @@ end
 
 def report_acceptable(report)
   acceptable = true
-  report.pods_by_error.each do |message, pods|
+  pods_by_message = report.pods_by_error.merge(report.pods_by_warning)
+  pods_by_message.each do |message, pods|
     pods.each do |name, version|
       unless PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
         acceptable = false
@@ -277,29 +277,37 @@ def red(string)
   "\033[0;31m#{string}\e[0m"
 end
 
-# @return [void] Prints the given health report.
+def colorize(message, color)
+  case color
+  when :red then red(message)
+  when :yellow then yellow(message)
+  when :green then green(message)
+  end
+end
+
+# @return [void] Prints the given health report. It colors errors in red and
+# warnings in yellow. If a Pod is white listed it is indicated.
 #
 def print_health_report(report)
-  report.pods_by_error.keys.sort.each do |message|
-    versions_by_name = report.pods_by_error[message]
-    puts red("-> #{message}")
-    versions_by_name.each do |name, versions|
-      if PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
-        puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
-      else
-        puts "  - #{name} (#{versions * ', '})"
+  messages_by_color = {
+    :red => report.pods_by_error,
+    :yellow => report.pods_by_warning,
+  }
+
+  messages_by_color.each do |color, pods_by_message|
+    pods_by_message.keys.sort.each do |message|
+      versions_by_name = pods_by_message[message]
+      puts colorize("-> #{message}", color)
+      versions_by_name.each do |name, versions|
+        if PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
+          puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
+        else
+          puts "  - #{name} (#{versions * ', '})"
+        end
       end
+      puts
     end
-    puts
   end
-
-  report.pods_by_warning.keys.sort.each do |message|
-    versions_by_name = report.pods_by_warning[message]
-    puts yellow("-> #{message}")
-    versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
-    puts
-  end
-
   puts "Analyzed #{report.analyzed_paths.count} podspecs files."
 end
 
