@@ -307,7 +307,9 @@ end
 
 module Pod
   # Suppress the warnings because they make too much noise at this stage.
-  def CoreUI.warn(message)
+  module CoreUI
+    def self.warn(message)
+    end
   end
 end
 
