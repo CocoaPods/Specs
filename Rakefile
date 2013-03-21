@@ -1,5 +1,6 @@
 require 'pathname'
 require 'cocoapods'
+require 'colored'
 
 # Configuration
 #-----------------------------------------------------------------------------#
@@ -217,7 +218,7 @@ def report_acceptable(report)
   acceptable = true
   report.pods_by_error.each do |message, pods|
     pods.each do |name, version|
-      unless PODS_ALLOWED_TO_FAIL[message].include?(name)
+      unless PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
         acceptable = false
       end
     end
@@ -283,7 +284,7 @@ def print_health_report(report)
     versions_by_name = report.pods_by_error[message]
     puts red("-> #{message}")
     versions_by_name.each do |name, versions|
-      if PODS_ALLOWED_TO_FAIL[message].include?(name)
+      if PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
         puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
       else
         puts "  - #{name} (#{versions * ', '})"
