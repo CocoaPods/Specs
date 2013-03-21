@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "JMImageCacheForkAntoine"
   s.version      = "0.0.1"
   s.summary      = "NSCache based remote-image caching and downloading mechanism for iOS."
-  s.description = 'NSCache based remote-image caching and downloading mechanism for iOS. Is block based and uses a simple UIImageView category to handle loading images with placeholders. With fix to the placeholder behaviour'
+  s.description = 'NSCache based remote-image caching and downloading mechanism for iOS. Is block based and uses a simple UIImageView category to handle loading images with placeholders. With fix to the placeholder behaviour.'
 
   s.homepage     = "https://github.com/antoinerabanes/JMImageCache"
 

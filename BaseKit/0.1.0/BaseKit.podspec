@@ -6,10 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/brunow/BaseKit'
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
   s.source   = { :git => 'https://github.com/brunow/BaseKit.git', :tag => '0.1' }
-
-  s.description = 'BaseKit is a set of IOS class to make your life easier.'
   s.platform = :ios
-
 
   s.subspec 'Core' do |core|
     core.source_files = 'Code/Core/*.{h,m}'

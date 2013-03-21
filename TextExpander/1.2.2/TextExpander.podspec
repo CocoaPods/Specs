@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://smilesoftware.com/sdk'
   s.author = { 'SmileOnMyMac' => 'textexpander-touch@smilesoftware.com' }
   s.source = { :http => 'http://smilesoftware.com/downloads/teTouchSDK_1.2.2.zip' }
-  s.description = 'Add TextExpander touch functionality to your iOS app!'
   s.platform = :ios
   s.source_files = 'teTouchSDK/TextExpander.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'teTouchSDK/TextExpander.framework'

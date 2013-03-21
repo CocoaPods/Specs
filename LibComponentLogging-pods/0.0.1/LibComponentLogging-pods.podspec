@@ -140,7 +140,7 @@ class LibComponentLoggingPodsConfig
   def prepare_configure
     return if @configure_already_prepared
 
-    note "LibComponentLogging-pods is in beta state, see http://0xc0.de/LibComponentLogging#CocoaPods for details"
+    note "LibComponentLogging-pods is in an experimental state, see http://0xc0.de/LibComponentLogging#CocoaPods for details"
     if !exists_file(@lcl_pods_config_components_file) or is_verbose_mode()
       info "Creating LibComponentLogging configuration"
     end
@@ -438,14 +438,14 @@ Pod::Spec.new do |s|
   s.dependency 'LibComponentLogging-Core'
 
   # add include path for user configuration files
-  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/.."',
-                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.."' }
+  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/.." "${PODS_ROOT}/LibComponentLogging-pods"',
+                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.." "${PODS_ROOT}/LibComponentLogging-pods"' }
 
   # add lcl_config to CocoaPods' config
-  class << config
+  class << Config.instance
     attr_accessor :lcl_config
   end
-  config.lcl_config = LibComponentLoggingPodsConfig.new(config)
+  Config.instance.lcl_config = LibComponentLoggingPodsConfig.new(Config.instance)
 
   # make sure that we have at least the default configuration
   def s.post_install(target)

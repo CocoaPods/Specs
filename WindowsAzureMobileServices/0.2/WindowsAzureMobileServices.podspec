@@ -3,8 +3,7 @@ Pod::Spec.new do |s|
   s.version      = '0.2'
   s.license      = { :type => 'Commercial', :file => 'LICENSE.rtf' }
   s.platform     = :ios
-  s.summary      = 'iOS framework for developing apps using Windows Azure.'
-  s.description = 'Windows Azure Mobile SDK for iOS.'
+  s.summary      = 'Windows Azure Mobile SDK for iOS.'
   s.homepage     = 'http://www.windowsazure.com/ios/'
   s.author = { 'WindowsAzureMobileServices' => 'support@windowsazure.com' }
   s.source = { :git => 'https://github.com/jrossano/WindowsAzureMobileServices.git', :tag => '0.2' }

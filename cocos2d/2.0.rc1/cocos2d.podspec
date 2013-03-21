@@ -17,8 +17,5 @@ Pod::Spec.new do |s|
   s.frameworks =  ["OpenGLES", "OpenAL", "AVFoundation", "AudioToolbox", "QuartzCore", "GameKit"]
   s.library    =  'z'
 
-
-  def s.copy_header_mapping(from)
-    from.relative_path_from(Pathname.new('cocos2d'))
-  end
+  s.header_mappings_dir = 'cocos2d'
 end
