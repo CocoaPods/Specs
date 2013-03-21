@@ -207,7 +207,7 @@ def generate_health_report
   count = 0
   reporter.pre_check do |name, version|
     count += 1
-    if (count % 20) == 0
+    if (count % 40) == 0
       print '.'
     end
   end
