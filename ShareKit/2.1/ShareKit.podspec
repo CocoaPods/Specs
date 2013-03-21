@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
-    facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
     facebook.dependency 'Facebook-iOS-SDK',"3.1.1"
   end
 

@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
                          'Source/Geo/*.{h,m}', 'Source/HTTPFetcher/*.{h,m}', 'Source/Introspection/*.{h,m}',
                          'Source/Media/*.{h,m}', 'Source/Networking/*.{h,m}', 'Source/OAuth2/*.{h,m}',
                          'Source/XMLSupport/*.{h,m}', 'Source/*.{h,m}', 'Source/Clients/**/*.{h,m}'
-    gdc.compiler_flags = '-Wno-format-extra-args', '-Wno-format-invalid-specifier', '-Wno-incompatible-pointer-types'
     gdc.libraries      = 'xml2'
     gdc.xcconfig       = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   end
