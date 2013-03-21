@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'Sparrow-Framework'
-  s.version      = '1.3.0'
+  s.version      = '1.3'
   s.license      = 'Simplified BSD'
   s.summary      = 'Objective-C library inspired by Adobe™ Flash and Starling that was built from ground up for iPhone, iPad and iPod Touch.'
   s.description  = 'Sparrow is a pure Objective-C library that was built from ground up for iPhone, iPad and iPod Touch. If you have already worked with Adobe™ Flash or Starling, you will feel right at home: Sparrow uses the same concepts and naming schemes.'

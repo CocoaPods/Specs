@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'DDPageControl'
-  s.version  = '0.1.0'
+  s.version  = '0.1'
   s.license  = 'MIT'
   s.summary  = 'An easily customizable alternative to UIKit\'s UIPageControl.'
   s.homepage = 'https://github.com/ddeville/DDPageControl'

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'PINView'
-  s.version  = '0.1.0'
+  s.version  = '0.1'
   s.license  = 'MIT'
   s.summary  = 'Gives you a drop-in PIN code entry screen that looks like the entry screen seen in Settings.app.'
   s.homepage = 'https://github.com/guicocoa/pinview'

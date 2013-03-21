@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'CoreParse'
-  s.version = '1.1.0'
+  s.version = '1.1'
   s.summary = 'A shift/reduce parsing framework for Mac OS X and iOS.'
   s.author = { 'Beelsebob' => '' }
   s.license = 'BSD/MIT-like'

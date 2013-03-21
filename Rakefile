@@ -48,7 +48,6 @@ PODS_ALLOWED_TO_FAIL = {
     'MASShortcut',
     'MGSplitViewController',
     'MPFlipViewController',
-    'NSLogger',
     'NSLogger-CocoaLumberjack-connector',
     'OCMock',
     'ODRefreshControl',
@@ -70,22 +69,14 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  # TODO temporary
+  # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BaseKit',
     'BJRangeSliderWithProgress',
-    'CocoaLumberjack',
     'cocos2d',
-    'CoreParse',
     'CouchCocoa',
-    'DDPageControl',
     'iOS-Hierarchy-Viewer',
-    'JWFolders',
-    'NSLogger',
-    'PINView',
     'PonyDebugger',
     'RestKit',
-    'Sparrow-Framework',
   ],
 }
 

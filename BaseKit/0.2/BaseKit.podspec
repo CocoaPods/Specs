@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BaseKit'
-  s.version  = '0.2.0'
+  s.version  = '0.2'
   s.license  = 'Apache 2'
   s.summary  = 'BaseKit is a set of IOS class to make your life easier.'
   s.homepage = 'https://github.com/brunow/BaseKit'
