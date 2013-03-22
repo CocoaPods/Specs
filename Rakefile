@@ -99,7 +99,7 @@ task :validate do
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
     spec = Pod::Spec.from_file(spec_path)
-    if ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+    if last_commit_specs.count <= 3
       puts "\n#{spec_path} [Full]"
       lints = lint(spec)
     else
@@ -109,8 +109,10 @@ task :validate do
     acceptable = check_if_can_be_accepted(spec, spec_path)
 
     if acceptable && lints
-      puts green("- The spec can be accepted.")
+      puts green(" -> The spec can be accepted.")
     else
+
+      puts red(" -> The spec cannot be accepted.")
       has_commit_failures = true
     end
   end
