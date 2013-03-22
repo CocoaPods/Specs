@@ -29,7 +29,6 @@ class LibComponentLoggingPodsConfig
     # CocoaPods configuration data
     @pods_config = pods_config
     @pods_headers_name = "Headers"
-    @pods_buildheaders_name = "BuildHeaders"
     @pods_root_name = File.basename(@pods_config.project_pods_root)
 
     # status
@@ -39,8 +38,6 @@ class LibComponentLoggingPodsConfig
     # folders
     @lcl_core_root = @pods_config.project_pods_root + 'LibComponentLogging-Core'
     @lcl_pods_root = @pods_config.project_pods_root + "LibComponentLogging-pods"
-    @lcl_pods_headers_root = @pods_config.project_pods_root + (@pods_headers_name + "/LibComponentLogging-pods")
-    @lcl_pods_buildheaders_root = @pods_config.project_pods_root + (@pods_buildheaders_name + "/LibComponentLogging-pods")
     @lcl_pods_template_copies_root = @lcl_pods_root + 'templates'
     @lcl_user_root = @pods_config.project_pods_root + ".."
 
@@ -63,14 +60,6 @@ class LibComponentLoggingPodsConfig
     @lcl_pods_config_components_file = @lcl_pods_root + @lcl_pods_config_components_file_name
     @lcl_pods_config_logger_file = @lcl_pods_root + @lcl_pods_config_logger_file_name
     @lcl_pods_config_extensions_file = @lcl_pods_root + @lcl_pods_config_extensions_file_name
-
-    @lcl_pods_headers_config_components_file = @lcl_pods_headers_root + @lcl_pods_config_components_file_name
-    @lcl_pods_headers_config_logger_file = @lcl_pods_headers_root + @lcl_pods_config_logger_file_name
-    @lcl_pods_headers_config_extensions_file = @lcl_pods_headers_root + @lcl_pods_config_extensions_file_name
-
-    @lcl_pods_buildheaders_config_components_file = @lcl_pods_buildheaders_root + @lcl_pods_config_components_file_name
-    @lcl_pods_buildheaders_config_logger_file = @lcl_pods_buildheaders_root + @lcl_pods_config_logger_file_name
-    @lcl_pods_buildheaders_config_extensions_file = @lcl_pods_buildheaders_root + @lcl_pods_config_extensions_file_name
 
     # user configuration files
     @lcl_user_config_components_file_name = "lcl_config_components.h" + @lcl_user_config_suffix
@@ -97,8 +86,6 @@ class LibComponentLoggingPodsConfig
 
     # create new logger configuration file
     create_file(@lcl_pods_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_headers_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_buildheaders_config_logger_file)
 
     # add given header file to logger configuration file
     add_include(@lcl_pods_config_logger_file, header)
@@ -147,8 +134,6 @@ class LibComponentLoggingPodsConfig
 
     # create folders
     create_folder(@lcl_pods_root)
-    create_folder(@lcl_pods_headers_root)
-    create_folder(@lcl_pods_buildheaders_root)
 
     # rewrite includes in lcl.* core files to include *.podsconfig files instead of plain lcl config files
     add_suffix_to_includes(@lcl_core_header_file, @lcl_pods_config_suffix)
@@ -156,14 +141,8 @@ class LibComponentLoggingPodsConfig
 
     # create pods configuration files
     create_file(@lcl_pods_config_components_file)
-    link_file(@lcl_pods_config_components_file, @lcl_pods_headers_config_components_file)
-    link_file(@lcl_pods_config_components_file, @lcl_pods_buildheaders_config_components_file)
     create_file(@lcl_pods_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_headers_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_buildheaders_config_logger_file)
     create_file(@lcl_pods_config_extensions_file)
-    link_file(@lcl_pods_config_extensions_file, @lcl_pods_headers_config_extensions_file)
-    link_file(@lcl_pods_config_extensions_file, @lcl_pods_buildheaders_config_extensions_file)
 
     # create user configuration files
     if !exists_file(@lcl_user_config_components_file)
@@ -230,13 +209,6 @@ class LibComponentLoggingPodsConfig
   def copy_file(src_file, dst_file)
     debug "Copying file '" + src_file.to_s + "' to '" + dst_file.to_s + "'"
     FileUtils.cp(src_file, dst_file)
-  end
-
-  protected
-  def link_file(src_file, dst_file)
-    debug "Creating link '" + src_file.to_s + "' to '" + dst_file.to_s + "'"
-    FileUtils.rm(dst_file) if File.file? dst_file
-    FileUtils.ln_s(src_file, dst_file)
   end
 
   protected
