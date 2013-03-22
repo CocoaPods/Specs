@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'APIClient' do |ss|
     ss.source_files = 'TMTumblrSDK/APIClient'
-    ss.dependency   'JXHTTP', { :git => "git@github.com:tumblr/JXHTTP.git", :tag => '1.0.0' }
+    ss.dependency   'JXHTTP', '1.0.0'
 
     ss.subspec 'Authentication' do |sss|
       sss.source_files = 'TMTumblrSDK/Authentication'
