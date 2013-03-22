@@ -8,12 +8,9 @@ require 'colored'
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
 # Pod::Config.instance.verbose = true
 
+# TODO temporary
+#
 PODS_ALLOWED_TO_FAIL = {
-  "Comments must be deleted." => [
-    'LibComponentLogging-pods'
-  ],
-
-  # TODO temporary
   "Git sources should specify a tag." => [
     'Appirater',
     'AQGridView',
