@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "A lightweight class that supports block callbacks instead of CAAnimation delegates."
   s.description  = <<-DESC
-  GSAnimationBlockDelegate offers three different blocks :
+  GSAnimationBlockDelegate offers 3 different blocks :
   blockOnAnimationStarted when the animation starts
   blockOnAnimationSucceeded when the animation succeeds
   and blockOnAnimationFailed when the animation fails.
