@@ -12,7 +12,7 @@ Copyright 2009 - 2012 Google, Inc. All rights reserved.
 LICENSE
   }
   s.author = 'Google Inc.'
-  s.source = { :http => "http://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip", :flatten => true }
+  s.source = { :http => "https://dl.google.com/googleadmobadssdk/googleadmobadssdkios.zip", :flatten => true }
   s.platform = :ios
 
   s.preserve_paths = 'libGoogleAdMobAds.a'

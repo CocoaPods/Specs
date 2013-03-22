@@ -21,9 +21,9 @@ Pod::Spec.new do |s|
   }
 
   s.summary  = "Written by Google, this library is a flexible and efficient Objective-C framework for accessing JSON APIs."
-  s.homepage = 'http://code.google.com/p/google-api-objectivec-client/'
-  s.author   = { 'Google, Inc.' => 'http://code.google.com/p/google-api-objectivec-client/' }
-  s.source   = { :svn => 'http://google-api-objectivec-client.googlecode.com/svn/trunk/' }
+  s.homepage = 'https://code.google.com/p/google-api-objectivec-client/'
+  s.author   = { 'Google, Inc.' => 'https://code.google.com/p/google-api-objectivec-client/' }
+  s.source   = { :svn => 'https://google-api-objectivec-client.googlecode.com/svn/trunk/' }
   s.resource = 'Source/OAuth2/Touch/GTMOAuth2ViewTouch.xib' 
   s.frameworks = 'Security', 'SystemConfiguration'
   s.platform = :ios, '5.0'
