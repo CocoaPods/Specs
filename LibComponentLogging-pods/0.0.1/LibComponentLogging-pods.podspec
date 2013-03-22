@@ -429,7 +429,7 @@ LICENSE
                    'automatically configures logging back-ends and '           \
                    'extensions based on your project\'s CocoaPods pod file.'
 
-  s.source_files = ''
+  s.source_files = 'lcl_pods.h'
 
   s.dependency 'LibComponentLogging-Core'
 
