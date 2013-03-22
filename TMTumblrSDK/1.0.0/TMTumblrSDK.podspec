@@ -1,12 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = 'TMTumblrSDK'
   s.version      = '1.0.0'
-  s.summary      = 'An unopinionated and flexible library for easily integrating Tumblr data into your iOS or OS X application'
+  s.summary      = 'An unopinionated and flexible library for easily integrating Tumblr data into your iOS or OS X application.'
   s.author       = { 'Bryan Irace' => 'bryan@tumblr.com' }
   s.homepage     = 'http://tumblr.github.com/TMTumblrSDK'
-  s.license      = 'Apache 2.0'
+  s.license       = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.source_files = 'TMTumblrSDK'
-  s.resources    = 'TMTumblrSDK/*.{png}'
   s.source        = { :git => 'https://github.com/tumblr/TMTumblrSDK.git', :tag => "#{s.version}" }
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
@@ -39,6 +38,12 @@ Pod::Spec.new do |s|
       '--no-warn-undocumented-member'
     ]
   }
+
+  s.subspec 'Activity' do |ss|
+    ss.platform     = :ios, '5.0'
+    ss.source_files = 'TMTumblrSDK/Activity'
+    ss.resources    = 'TMTumblrSDK/Activity/*.{png}'
+  end
 
   s.subspec 'APIClient' do |ss|
     ss.source_files = 'TMTumblrSDK/APIClient'
