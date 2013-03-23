@@ -14,14 +14,15 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => 'https://github.com/brynbellomy/BrynKit.git', :tag => "v#{s.version.to_s}" }
   s.requires_arc = true
-  s.xcconfig = { 'PUBLIC_HEADERS_FOLDER_PATH' => 'include/$(TARGET_NAME)' }
 
   s.dependency 'libextobjc/EXTScope', '>= 0.2.5'
 
   #
   # main subspec
   #
-  s.preferred_dependency = 'Main'
+  s.preferred_dependency = 'Main' # deprecated in 0.17.x
+  s.default_subspec      = 'Main' # for 0.17.x and up
+
   s.subspec 'Main' do |subspec|
     subspec.source_files = 'Classes/{Bryn.{h,m},BrynKit.h,BrynKitDebugging.h,BrynKitLogging.h}'
   end
@@ -36,6 +37,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'RACHelpers' do |subspec|
     subspec.source_files = 'Classes/RAC*.{m,h}'
+    subspec.dependency 'ReactiveCocoa', '>= 1.4.0'
   end
 
   s.subspec 'GCDThreadsafe' do |subspec|
