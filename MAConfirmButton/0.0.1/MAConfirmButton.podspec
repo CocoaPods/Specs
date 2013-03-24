@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mikeahmarani/MAConfirmButton.git", :commit => "78729c358d5b0857c078549af9428108c8b75ecc" }
   s.platform     = :ios
   s.source_files = 'MAConfirmButton'
+  s.framework    = 'QuartzCore'
 end

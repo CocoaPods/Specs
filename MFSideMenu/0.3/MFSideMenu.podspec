@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MFSideMenuDemo/MFSideMenu/*.{h,m}'
   s.resources = 'MFSideMenuDemo/MFSideMenu/*.png'
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = true  
 end

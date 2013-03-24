@@ -27,5 +27,5 @@ Pod::Spec.new do |s|
   s.libraries    = 'z', 'sqlite3.0'
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
                    'Security', 'SystemConfiguration', 'UIKit', 'CoreTelephony',
-                   'StoreKit', 'CoreLocation', 'MapKit'
+                   'StoreKit', 'CoreLocation', 'MapKit', 'AudioToolbox', 'MessageUI'
 end

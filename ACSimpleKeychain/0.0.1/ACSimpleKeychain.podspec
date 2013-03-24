@@ -8,8 +8,7 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/alexchugunov/ACSimpleKeychain.git', :commit => 'edd22181aa55f47fff0c7d476b8a583b650b4264' }
   s.platform = :ios
-
+  s.requires_arc = true
   s.source_files = 'ACSimpleKeychain/**/*.{h,m}'
-
-
 end
+

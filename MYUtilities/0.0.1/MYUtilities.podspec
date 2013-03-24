@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/snej/MYUtilities'
   s.authors  = { 'Jens Alfke' => 'jens@mooseyard.com' }
   s.source   = { :git  => 'https://github.com/snej/MYUtilities.git', :commit => '0cc46aaf394dfe451d83d0ae3954643662210767' }
-  s.description = 'Objective-C utility code for Cocoa programming on Mac OS X.'
   s.platform = :ios
 
   # for now, this includes just the files needed by MYNetwork and TouchDB.  A lot of the other files in

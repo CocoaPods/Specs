@@ -23,14 +23,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
-    facebook.compiler_flags = '-Wno-incomplete-implementation -Wno-protocol -Wno-missing-prototypes'
     facebook.dependency 'Facebook-iOS-SDK',"1.2"
   end
 
   s.subspec 'Flickr' do |flickr|
-    flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/**/*.{h,m}'
-    flickr.framework = 'CFNetwork'
-    flickr.dependency 'objectiveflickr'
+    flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/SHK*.{h,m}'
+    flickr.framework = 'SystemConfiguration', 'CFNetwork'
+    flickr.dependency 'objectiveflickr', "2.0.2"
   end
 
   s.subspec 'Foursquare' do |foursquare|

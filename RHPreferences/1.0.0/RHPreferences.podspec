@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.author       = 'Richard Heard'
   s.source       = { :git => 'https://github.com/heardrwt/RHPreferences.git', :tag => s.version.to_s}
   s.source_files = 'RHPreferences/*.{h,m}'
+  s.resources    = 'RHPreferences/*.{xib}'
   s.prefix_header_file = 'RHPreferences/RHPreferences-Prefix.pch'
   s.frameworks   = 'Cocoa'
   s.platform     = :osx

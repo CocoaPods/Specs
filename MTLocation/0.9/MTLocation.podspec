@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/myell0w/MTLocation'
   s.author   = { 'Matthias Tretter' => 'myell0w@me.com' }
   s.source   = { :git => 'https://github.com/myell0w/MTLocation.git', :tag => '0.9' }
-
+  s.license  = 'MIT'
   s.description = 'These classes aim to mimic some of the functions of the built-in Google Maps App '       \
                   'on iOS for you. Currently the library contains a simple Location Manager-Singleton '     \
                   'that sends out notifications when CLLocationManager-Delegate-Methods are called and a '  \
