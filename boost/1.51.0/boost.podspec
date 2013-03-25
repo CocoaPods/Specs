@@ -15,15 +15,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'string_algorithms-includes' do |string_algorithms|
     string_algorithms.preserve_paths = 'boost/algorithm/string.hpp',
-				'boost/algorithm/string/',
+				'boost/algorithm/string/**/*.hpp',
 				'boost/config.hpp',
 				'boost/config/**/*.hpp',
 				'boost/range/**/*.hpp',
 				'boost/static_assert.hpp',
 				'boost/assert.hpp',
 				'boost/current_function.hpp',
-				'boost/algorithm/string/detail/trim.hpp',
-				'boost/algorithm/string/classification.hpp',
 				'boost/integer.hpp',
 				'boost/integer_fwd.hpp',
 				'boost/cstdint.hpp',
