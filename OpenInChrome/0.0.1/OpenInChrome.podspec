@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/GoogleChrome/OpenInChrome.git", :commit => "f4eb3956555660c1945aefe160cc8162e7c3f9ad" }
   s.source_files = "OpenInChromeController.{h,m}"
 
-  s.requires_arc = true
+  s.requires_arc = false
 end
