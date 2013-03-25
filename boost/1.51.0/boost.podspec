@@ -13,6 +13,46 @@ Pod::Spec.new do |s|
 
 #  s.source_files = 'boost/*.hpp', 'boost/{config,smart_ptr}/**/*.hpp'
 
+  s.subspec 'string_algorithms-includes' do |string_algorithms|
+    string_algorithms.preserve_paths = 'boost/algorithm/string.hpp',
+				'boost/algorithm/string/',
+				'boost/config.hpp',
+				'boost/config/**/*.hpp',
+				'boost/range/**/*.hpp',
+				'boost/static_assert.hpp',
+				'boost/assert.hpp',
+				'boost/current_function.hpp',
+				'boost/algorithm/string/detail/trim.hpp',
+				'boost/algorithm/string/classification.hpp',
+				'boost/integer.hpp',
+				'boost/integer_fwd.hpp',
+				'boost/cstdint.hpp',
+				'boost/integer_traits.hpp',
+				'boost/ref.hpp',
+				'boost/checked_delete.hpp',
+				'boost/next_prior.hpp',
+				'boost/noncopyable.hpp',
+				'boost/mem_fn.hpp',
+				'boost/bind/**/*.hpp',
+				'boost/get_pointer.hpp',
+				'boost/limits.hpp',
+				'boost/throw_exception.hpp',
+				'boost/detail/**/*.hpp',
+				'boost/exception/**/*.hpp',
+				'boost/function.hpp',
+				'boost/function_equal.hpp',
+				'boost/function/**/*.hpp',
+				'boost/concept_check.hpp',
+				'boost/concept/**/*hpp',
+				'boost/utility.hpp',
+				'boost/utility/**/*.hpp',
+				'boost/type_traits/**/*.hpp',
+				'boost/mpl/**/*.hpp',
+				'boost/preprocessor/**/*.hpp',
+				'boost/iterator.hpp',
+				'boost/iterator/**/*.hpp'
+  end
+
   s.subspec 'shared_ptr-includes' do |shared_ptr|
     shared_ptr.preserve_paths =	'boost/shared_ptr.hpp',
 				'boost/config.hpp',
