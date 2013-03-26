@@ -7,10 +7,8 @@ Pod::Spec.new do |s|
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
   s.source   = { :git => 'https://github.com/brunow/BaseKit.git', :tag => '0.2.5' }
 
-  s.description = 'BaseKit is a set of IOS class to make your life easier.'
   s.platform = :ios
   s.preserve_paths  = 'Examples', 'GHUnitIOS.framework', 'Test', 'Vendor', 'README.md', '.gitignore', 'BaseKit.xcodeproj', 'LICENSE', 'form-mapping.png'
-  s.compiler_flags = '-Wno-format'
 
   s.subspec 'Core' do |core|
     core.source_files = 'Code/Core/*.{h,m}'

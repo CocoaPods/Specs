@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "CJRouter"
   s.version      = "1.0"
-  s.summary      = "Scheme url for iOS. Parsing URL and launch an application on a specified controller"
+  s.summary      = "Scheme url for iOS. Parsing URL and launch an application on a specified controller."
   s.homepage     = "http://batosai.github.com/CJRouter/"
   s.license      = 'MIT'
   s.author       = { "Jeremy Chaufourier" => "jeremy@opsone.net" }

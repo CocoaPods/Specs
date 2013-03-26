@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'LRTVDBAPIClient', 'LRTVDBAPIClient/Categories', 'LRTVDBAPIClient/Model', 'LRTVDBAPIClient/Parser', 'LRTVDBAPIClient/PersistenceManager'
   s.requires_arc = true
   s.dependency 'AFNetworking'
-  s.dependency 'TBXML', :head
+  # This pod requires TBXML :head
+  s.dependency 'TBXML'
   s.dependency 'zipzap'
 end
