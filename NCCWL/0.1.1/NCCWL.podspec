@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'SystemConfiguration', 'CFNetwork', 'CrashReporter'
   s.library   = 'libz'
   s.requires_arc = true
-  s.dependency 'CocoaLumberjack', '1.6'
+  s.dependency 'CocoaLumberjack', '>=1.6'
   s.dependency 'NSLogger', '>= 1.1'
   s.dependency 'SSZipArchive', '>=0.2.3'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/NCCWL"' }
