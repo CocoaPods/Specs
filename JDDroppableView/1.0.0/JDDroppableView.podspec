@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "JDDroppableView"  
   s.version      = "1.0.0"  
-  s.summary      = "A base class for any draggable views. (especially within scrollviews)"
+  s.summary      = "A base class for any draggable views. (especially within scrollviews)."
   
   s.description  = "A DroppableView represents a single draggable View. You may use it as a base class for the views, that you need to be draggable in your project."  
   

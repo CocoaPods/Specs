@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "JTTargetActionBlock"
   s.version      = "1.0.0"
-  s.summary      = "imported from https://gist.github.com/mystcolor/2205564"
+  s.summary      = "imported from https://gist.github.com/mystcolor/2205564."
   s.homepage     = "https://github.com/ZeR0-Wu/JTTargetActionBlock"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { "ZeR0-Wu" => "thelongestmailaccounteverexist@gmail.com" }
