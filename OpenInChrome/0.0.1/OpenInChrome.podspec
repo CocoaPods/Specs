@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "OpenInChrome"
   s.version      = "0.0.1"
+  s.platform     = :ios
   s.summary      = "The easiest way to have your iOS app open links in Chrome."
   s.homepage     = "https://github.com/GoogleChrome/OpenInChrome"
   s.author       = { "Eric Bidelman" => "ebidel@gmail.com", "Michele Aiello" => "michelea@google.com" }
