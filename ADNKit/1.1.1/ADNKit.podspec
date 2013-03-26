@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                     - Simple and powerful API
                     - As much heavylifting as possible is done for you (aka, tons of convenience methods)
                     10- 0% App.net API and features support
-                    - No external dependencies other than `AFNetworking.`
+                    - No external dependencies other than AFNetworking.
                     DESC
   s.homepage     = "https://github.com/joeldev/ADNKit"
    s.license      = {
