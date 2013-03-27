@@ -34,8 +34,8 @@ Pod::Spec.new do |s|
 
   s.compiler_flags = '-w'
 
-  def s.post_install(target_installer)
-    project = target_installer.project
+  s.post_install do |installer|
+    project = installer.project
     project.objects_by_uuid.each do |key, obj|
       if obj.isa.to_s == "PBXBuildFile"
         file_ref = obj.file_ref
