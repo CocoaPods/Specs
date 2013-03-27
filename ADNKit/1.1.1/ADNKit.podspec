@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ADNKit"
-  s.version      = "1.1"
+  s.version      = "1.1.1"
   s.summary      = "Objective-C framework for building App.net applications on iOS and OS X."
   s.description  = <<-DESC
                     ADNKit is an Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
      LICENSE
    }
   s.author       = { "Joel Levin" => "joellevin.email@gmail.com" }
-  s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :tag => "1.1" }
+  s.source       = { :git => "https://github.com/joeldev/ADNKit.git", :tag => "1.1.1" }
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'CoreLocation', 'SystemConfiguration', 'MobileCoreServices', 'UIKit'
   s.ios.source_files = 'ADNKit/*.{h,m}'
@@ -34,27 +34,26 @@ Pod::Spec.new do |s|
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
-  #import <Foundation/Foundation.h>
+	#import <Foundation/Foundation.h>
+
+	#if __IPHONE_OS_VERSION_MIN_REQUIRED
+		#import <MobileCoreServices/MobileCoreServices.h>
+	#endif
+
+	#import <SystemConfiguration/SystemConfiguration.h>
+	#import "AFNetworking.h"
+	#import "ANKResource.h"
+	#import "ANKAnnotationReplacement.h"
+	#import "ANKClient.h"
+	#import "ANKClient+ANKHandlerBlocks.h"
+	#import "NSArray+ANKAdditions.h"
+	#import "NSDictionary+ANKAdditions.h"
 #endif
-
-#if __IPHONE_OS_VERSION_MIN_REQUIRED
-  #import <MobileCoreServices/MobileCoreServices.h>
-#endif
-
-#import <SystemConfiguration/SystemConfiguration.h>
-#import "AFNetworking.h"
-#import "ANKResource.h"
-#import "ANKAnnotationReplacement.h"
-#import "ANKClient.h"
-#import "ANKClient+ANKHandlerBlocks.h"
-#import "NSArray+ANKAdditions.h"
-#import "NSDictionary+ANKAdditions.h"
-
 
   EOS
   s.public_header_files = 'ADNKit/*.h', '*.h'
 
   s.requires_arc = true
 
-  s.dependency 'AFNetworking', '~> 1.1.0'
+  s.dependency 'AFNetworking', '~> 1.2.0'
 end
