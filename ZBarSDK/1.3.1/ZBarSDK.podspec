@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
 
-  s.source_files = 'include/zbar.h', 'zbar/**/*.h', 'iphone/*.h', 'iphone/include/**/*.h',
+  s.source_files = 'include/zbar.h', 'iphone/*.h', 'iphone/include/**/*.h',
                    'zbar/{config,decoder,error,image,img_scanner,refcnt,scanner,symbol}.c',
                    'zbar/decoder/{codabar,code39,code93,code128,databar,ean,i25,qr_finder}.c',
                    'zbar/qrcode/*.c',
@@ -33,20 +33,4 @@ Pod::Spec.new do |s|
   s.prefix_header_file = 'iphone/include/prefix.pch'
 
   s.compiler_flags = '-w'
-
-  s.post_install do |installer|
-    project = installer.project
-    project.objects_by_uuid.each do |key, obj|
-      if obj.isa.to_s == "PBXBuildFile"
-        file_ref = obj.file_ref
-        if file_ref.isa.to_s == "PBXFileReference"
-          path = file_ref.pathname
-
-          if (path.extname.to_s == ".h" && path.dirname.to_s.include?("ZBarSDK/zbar"))
-            project.objects_by_uuid.delete(key)
-          end
-        end
-      end
-    end
-  end
 end
