@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = "Nick Lockwood"
   s.source       = { :git => "https://github.com/nicklockwood/Base64.git", :tag => "1.1" }
   s.source_files = 'Base64'
+  s.requires_arc = true
 end
