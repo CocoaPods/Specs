@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.source_files = 'CBIntrospect/*.{h,m}'
   s.frameworks   = 'QuartzCore'
-  s.dependency = 'JSONKit', '1.5pre'
+  s.dependency 'JSONKit', '1.5pre'
 end
