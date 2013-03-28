@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
   s.source   = { :http => 'https://github.com/pocketchange/pocketchange-ios-sdk/archive/v1.0.3.zip' }
   s.platform = :ios
   s.ios.deployment_target = '4.3'
-  s.source_files = 'PocketChangeSDK/include/*.h'
-  s.preserve_paths = 'PocketChangeSDK/libPocketChangeSDK.a'
+  s.source_files = 'pocketchange-ios-sdk-*/PocketChangeSDK/include/*.h'
+  s.preserve_paths = 'pocketchange-ios-sdk-*/PocketChangeSDK/libPocketChangeSDK.a'
   s.framework = 'UIKit', 'CoreData', 'CoreTelephony', 'QuartzCore', 'Security', 'SystemConfiguration', 'CoreGraphics'
   s.weak_frameworks = 'AdSupport'
   s.libraries = 'PocketChangeSDK'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PocketChangeSDK/PocketChangeSDK"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PocketChangeSDK/pocketchange-ios-sdk-1.0.3/PocketChangeSDK"' }
 end
