@@ -1,5 +1,3 @@
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-
 Pod::Spec.new do |s|
   s.name         = "SHRequest"
   s.version      = "0.0.1"
