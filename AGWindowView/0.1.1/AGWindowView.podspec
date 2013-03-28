@@ -9,8 +9,7 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s 
     }
   s.license      = 'MIT'
-  s.source_files = 'Source/*.{h,m}'
-  s.exclude_files = 'Source/*Test.{h,m}'
+  s.source_files = FileList['Source/*'].exclude(/.*Test\.[hm]$/)
   s.frameworks   = 'SystemConfiguration', 'IOKit', 'CoreGraphics', 'UIKit', 'QuartzCore'
   s.platform     = :ios
   s.requires_arc = true

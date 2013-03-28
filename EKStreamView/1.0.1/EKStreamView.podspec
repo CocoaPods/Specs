@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "EKStreamView"
   s.version      = "1.0.1"
-  s.summary      = "A scrolling view of a number of columns containing multiple cells with variable different heights for iOS, inspired by Pinterest. "
+  s.summary      = "A scrolling view of a number of columns containing multiple cells with variable different heights for iOS, inspired by Pinterest."
   s.homepage     = "https://github.com/ekohe/EKStreamView"
   s.license      = 'Copyright (c) 2012 - 2013 Eli Wang (sirxenofex@gmail.com)'
   s.author       = { "Ekohe" => "eli@ekohe.com" }

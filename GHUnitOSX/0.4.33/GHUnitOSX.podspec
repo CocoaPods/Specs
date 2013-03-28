@@ -11,6 +11,5 @@ Pod::Spec.new do |s|
   s.platform         =  :osx
   s.framework        =  'CoreLocation'
   s.resources        =  'Classes-MacOSX/UI/*.xib'
-  s.compiler_flags   =  '-Wno-format'
 end
 

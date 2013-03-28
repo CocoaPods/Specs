@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 1.0'
   s.dependency 'libPusher', '~> 1.4'
   s.dependency 'grabKit', '1.2.1'
-  s.dependency 'SVProgressHUD', :head
+  s.dependency 'SVProgressHUD'
 end
