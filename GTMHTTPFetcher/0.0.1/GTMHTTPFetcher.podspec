@@ -28,5 +28,7 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'
-  s.source_files   = 'Source/*.{h,m}'
+  s.ios.framework = 'UIKit'
+  s.ios.source_files   = 'Source/*.{h,m}'
+  s.osx.source_files   = FileList['Source/*.{h,m}'].exclude('**/GTMHTTPFetcherLogViewController.*')
 end
