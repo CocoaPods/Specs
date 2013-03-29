@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency  'AFLinkedInOAuth1Client'
-  s.dependency  'SHOmniAuth', :git => "https://github.com/seivan/SHOmniAuth.git", :tag => "0.0.1"
-  s.dependency  'SHAccountStore', :git => "https://github.com/seivan/SHAccountStore.git", :tag => "0.0.1"
-  s.dependency  'SHRequest', :git => "https://github.com/seivan/SHRequest.git", :tag => "0.0.1"
+  s.dependency  'SHOmniAuth', '~>0.0.1'
+  s.dependency  'SHAccountStore', '~>0.0.1'
+  s.dependency  'SHRequest', '~>0.0.1'
 end
