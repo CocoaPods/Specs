@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   }
   s.source = {
     :git => 'https://github.com/bennyguitar/CollapseClick.git',
-    :commit => '29ff02a'
+    :commit => '1d880bc'
   }
   s.homepage    = 'http://subvertapps.com'
   s.license     = 'LICENSE'
