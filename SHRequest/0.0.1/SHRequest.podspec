@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SHRequest/**/*.{h,m}'
 
-  s.dependency 'SHOmniAuth', :git => "https://github.com/seivan/SHOmniAuth.git", :tag => "0.0.1"
-  s.dependency 'OAuthCore'
+  s.dependency 'SHOmniAuth', '~>0.0.1'
+  s.dependency 'OAuthCore', '~>0.0.1'
 end
