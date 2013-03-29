@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency  'TWReverseAuth'
   s.dependency  'AFOAuth1Client'
-  s.dependency  'SHOmniAuth', :git => "https://github.com/seivan/SHOmniAuth.git", :tag => "0.0.1"
+  s.dependency  'SHOmniAuth', '~>0.0.1'
 end
 
