@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHAccountStore.git", :tag => "0.0.1"}
+  s.source       = { :git => "https://github.com/seivan/SHOmniAuth.git", :tag => "0.0.1"}
   
 
   s.platform  = :ios, "5.0"
