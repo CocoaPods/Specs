@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'SMCalloutView.{h,m}'
   s.requires_arc = true
+  s.frameworks   = 'QuartzCore'
 end

@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.summary      = "Allows to debug user interfaces with a real time preview of the UIViews hierarchy."
   s.description  = "iOS Hierarchy Viewer allows developers to debug their user interfaces. If there are problems with layout calculations, it will catch them by giving a real time preview of the UIViews hierarchy." \
                    "Features:" \
-                   "- the client is implemented in HTML/JS/CSS. Additional software is not required" \
-                   "- preview of device/simulator screen. Can be scaled and/or rotated on demand" \
-                   "- debug frames shows the exact UIViews frames" \
-                   "- property list shows obj-c properties and their values for selected UIView"
+                   "- the client is implemented in HTML/JS/CSS. Additional software is not required." \
+                   "- preview of device/simulator screen. Can be scaled and/or rotated on demand." \
+                   "- debug frames shows the exact UIViews frames." \
+                   "- property list shows obj-c properties and their values for selected UIView."
   s.homepage     = "https://github.com/glock45/iOS-Hierarchy-Viewer"
   s.license      = { :type => 'BSD' }
   s.author       = { "Damian Kołakowski" => "krzysztof.zablocki@me.com" }

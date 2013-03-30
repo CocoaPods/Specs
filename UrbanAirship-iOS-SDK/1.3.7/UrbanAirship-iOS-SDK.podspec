@@ -19,13 +19,13 @@ Pod::Spec.new do |s|
   files.exclude(/\/Reachability.*/)
   s.source_files = files
 
-  s.dependency 'ZipArchive', '1.01h'
-  s.dependency 'Reachability', '3.1.0'
-  s.dependency 'ASIHTTPRequest', '1.8.1'
-  s.dependency 'SBJson', '3.1.1'
+  s.dependency 'ZipArchive'
+  s.dependency 'Reachability'
+  s.dependency 'ASIHTTPRequest'
+  s.dependency 'SBJson'
   
   s.libraries    = 'z', 'sqlite3.0'
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
                    'Security', 'SystemConfiguration', 'UIKit', 'CoreTelephony',
-                   'StoreKit', 'CoreLocation', 'MapKit'
+                   'StoreKit', 'CoreLocation', 'MapKit', 'AudioToolbox', 'MessageUI'
 end

@@ -20,14 +20,14 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = 'Google Inc.'
-  s.source       = { :http => "http://dl.google.com/dl/gaformobileapps/googleanalyticsios.zip" }
+  s.source       = { :http => "https://dl.google.com/dl/gaformobileapps/googleanalyticsios.zip" }
   s.platform     = :ios
 
-  s.source_files = 'GoogleAnalyticsiOS_2.0beta3/Library/*.h'
-  s.preserve_paths = 'GoogleAnalyticsiOS_2.0beta3/Library/libGoogleAnalytics.a'
+  s.source_files = 'Library/*.h'
+  s.preserve_paths = 'Library/libGoogleAnalytics.a'
 
   s.frameworks = 'CFNetwork', 'CoreData', 'SystemConfiguration'
   s.library   = 'GoogleAnalytics'
 
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/GoogleAnalyticsiOS_2.0beta3/Library"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/Library"' }
 end
