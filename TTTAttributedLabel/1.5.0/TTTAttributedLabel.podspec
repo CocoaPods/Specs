@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   
   s.platform = :ios
   s.requires_arc = true
-  s.compiler_flags = '-Wno-arc-bridge-casts-disallowed-in-nonarc'
   s.frameworks = 'CoreText'
   s.source_files = 'TTTAttributedLabel'
 end

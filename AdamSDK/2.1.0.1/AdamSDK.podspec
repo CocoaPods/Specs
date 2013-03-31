@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.public_header_files = '*.h'
   s.preserve_paths = '*.a'
   s.frameworks = 'CFNetwork', 'MobileCoreServices', 'CoreTelephony', 'SystemConfiguration', 'CoreLocation', 'CoreGraphics', 'QuartzCore', 'MediaPlayer'
-  s.library = 'z'
+  s.library = 'z', 'AdamPublisher' 
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/AdamSDK' }
 end

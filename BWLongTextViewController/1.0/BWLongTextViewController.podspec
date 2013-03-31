@@ -6,8 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/brunow/BWLongTextViewController'
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
   s.source   = { :git => 'https://github.com/brunow/BWLongTextViewController.git', :tag => '1.0' }
-
-  s.description = 'Simple IOS controller that show a full screen textView with keyboard.'
   s.platform = :ios
   s.source_files = 'BWLongTextViewController/*.{h,m}'
 

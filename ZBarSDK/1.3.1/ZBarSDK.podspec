@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                    'image files and raw intensity sensors. It supports many popular symbologies (types of bar codes) including ' \
                    'EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code.'
 
-  s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
+  s.public_header_files = 'iphone/**/**/*.h', 'include/*.h'
 
   s.source_files = 'include/zbar.h', 'zbar/**/*.h', 'iphone/*.h', 'iphone/include/**/*.h',
                    'zbar/{config,decoder,error,image,img_scanner,refcnt,scanner,symbol}.c',
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/*.c',
                    'iphone/*.m'
 
-  s.public_header_files = 'iphone/**/**/*.h', 'include/*.h'
+  s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
 
   s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
@@ -33,20 +33,4 @@ Pod::Spec.new do |s|
   s.prefix_header_file = 'iphone/include/prefix.pch'
 
   s.compiler_flags = '-w'
-
-  def s.post_install(target_installer)
-    project = target_installer.project
-    project.objects_by_uuid.each do |key, obj|
-      if obj.isa.to_s == "PBXBuildFile"
-        file_ref = obj.file_ref
-        if file_ref.isa.to_s == "PBXFileReference"
-          path = file_ref.pathname
-
-          if (path.extname.to_s == ".h" && path.dirname.to_s.include?("ZBarSDK/zbar"))
-            project.objects_by_uuid.delete(key)
-          end
-        end
-      end
-    end
-  end
 end

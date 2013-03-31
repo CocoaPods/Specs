@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "JSONModel"
   s.version      = "0.8.2"
-  s.summary      = "Magical Data Modelling Framework for JSON. Create rapidly powerful, atomic and smart data model classes"
+  s.summary      = "Magical Data Modelling Framework for JSON. Create rapidly powerful, atomic and smart data model classes."
   s.homepage     = "http://www.jsonmodel.com"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE_jsonmodel.txt' }

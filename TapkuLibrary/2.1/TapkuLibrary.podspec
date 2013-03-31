@@ -15,5 +15,4 @@ Pod::Spec.new do |s|
   s.source_files      = 'src/TapkuLibrary/*.{h,m}'
   s.resources         = 'src/TapkuLibrary.bundle'
   s.frameworks        = 'MapKit', 'QuartzCore'
-  s.compiler_flags    = '-Wno-arc-performSelector-leaks'
 end
