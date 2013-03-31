@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.preserve_paths  = 'Examples', 'GHUnitIOS.framework', 'Test', 'Vendor', 'README.md', '.gitignore', 'BaseKit.xcodeproj', 'LICENSE', 'form-mapping.png'
-  s.compiler_flags = '-Wno-format'
 
   s.subspec 'Core' do |core|
     core.source_files = 'Code/Core/*.{h,m}'

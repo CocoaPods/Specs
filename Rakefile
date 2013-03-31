@@ -1,5 +1,6 @@
 require 'pathname'
 require 'cocoapods'
+require 'colored'
 
 # Configuration
 #-----------------------------------------------------------------------------#
@@ -7,12 +8,9 @@ require 'cocoapods'
 Pod::Config.instance.repos_dir = Pathname.pwd.dirname
 # Pod::Config.instance.verbose = true
 
+# TODO temporary
+#
 PODS_ALLOWED_TO_FAIL = {
-  "Comments must be deleted." => [
-    'LibComponentLogging-pods'
-  ],
-
-  # TODO temporary
   "Git sources should specify a tag." => [
     'Appirater',
     'AQGridView',
@@ -47,7 +45,6 @@ PODS_ALLOWED_TO_FAIL = {
     'MASShortcut',
     'MGSplitViewController',
     'MPFlipViewController',
-    'NSLogger',
     'NSLogger-CocoaLumberjack-connector',
     'OCMock',
     'ODRefreshControl',
@@ -69,22 +66,14 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  # TODO temporary
+  # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BaseKit',
     'BJRangeSliderWithProgress',
-    'CocoaLumberjack',
     'cocos2d',
-    'CoreParse',
     'CouchCocoa',
-    'DDPageControl',
     'iOS-Hierarchy-Viewer',
-    'JWFolders',
-    'NSLogger',
-    'PINView',
     'PonyDebugger',
     'RestKit',
-    'Sparrow-Framework',
   ],
 }
 
@@ -107,7 +96,7 @@ task :validate do
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
     spec = Pod::Spec.from_file(spec_path)
-    if ENV['TRAVIS_PULL_REQUEST'] && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+    if last_commit_specs.count <= 3
       puts "\n#{spec_path} [Full]"
       lints = lint(spec)
     else
@@ -117,8 +106,10 @@ task :validate do
     acceptable = check_if_can_be_accepted(spec, spec_path)
 
     if acceptable && lints
-      puts green("- The spec can be accepted.")
+      puts green(" -> The spec can be accepted.")
     else
+
+      puts red(" -> The spec cannot be accepted.")
       has_commit_failures = true
     end
   end
@@ -202,11 +193,10 @@ end
 def generate_health_report
   title('Health Report')
   reporter = Pod::Source::HealthReporter.new('.')
-  reporter.master_repo_mode = true
   count = 0
   reporter.pre_check do |name, version|
     count += 1
-    if (count % 20) == 0
+    if (count % 40) == 0
       print '.'
     end
   end
@@ -215,9 +205,10 @@ end
 
 def report_acceptable(report)
   acceptable = true
-  report.pods_by_error.each do |message, pods|
+  pods_by_message = report.pods_by_error.merge(report.pods_by_warning)
+  pods_by_message.each do |message, pods|
     pods.each do |name, version|
-      unless PODS_ALLOWED_TO_FAIL[message].include?(name)
+      unless PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
         acceptable = false
       end
     end
@@ -276,29 +267,37 @@ def red(string)
   "\033[0;31m#{string}\e[0m"
 end
 
-# @return [void] Prints the given health report.
+def colorize(message, color)
+  case color
+  when :red then red(message)
+  when :yellow then yellow(message)
+  when :green then green(message)
+  end
+end
+
+# @return [void] Prints the given health report. It colors errors in red and
+# warnings in yellow. If a Pod is white listed it is indicated.
 #
 def print_health_report(report)
-  report.pods_by_error.keys.sort.each do |message|
-    versions_by_name = report.pods_by_error[message]
-    puts red("-> #{message}")
-    versions_by_name.each do |name, versions|
-      if PODS_ALLOWED_TO_FAIL[message].include?(name)
-        puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
-      else
-        puts "  - #{name} (#{versions * ', '})"
+  messages_by_color = {
+    :red => report.pods_by_error,
+    :yellow => report.pods_by_warning,
+  }
+
+  messages_by_color.each do |color, pods_by_message|
+    pods_by_message.keys.sort.each do |message|
+      versions_by_name = pods_by_message[message]
+      puts colorize("-> #{message}", color)
+      versions_by_name.each do |name, versions|
+        if PODS_ALLOWED_TO_FAIL[message] && PODS_ALLOWED_TO_FAIL[message].include?(name)
+          puts "  - [WHITELISTED] #{name} (#{versions * ', '})"
+        else
+          puts "  - #{name} (#{versions * ', '})"
+        end
       end
+      puts
     end
-    puts
   end
-
-  report.pods_by_warning.keys.sort.each do |message|
-    versions_by_name = report.pods_by_warning[message]
-    puts yellow("-> #{message}")
-    versions_by_name.each { |name, versions| puts "  - #{name} (#{versions * ', '})" }
-    puts
-  end
-
   puts "Analyzed #{report.analyzed_paths.count} podspecs files."
 end
 
@@ -306,7 +305,9 @@ end
 
 module Pod
   # Suppress the warnings because they make too much noise at this stage.
-  def CoreUI.warn(message)
+  module CoreUI
+    def self.warn(message)
+    end
   end
 end
 
