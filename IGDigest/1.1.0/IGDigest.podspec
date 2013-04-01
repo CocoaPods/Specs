@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.platform = :ios, '5.0'
-  s.source_files = 'IGDigest/Digest/*.{m,h}'
+  s.source_files = 'IGDigest/Digest/*.{m,h}', 'IGDigest/HMAC/*.{m,h}'
 end
