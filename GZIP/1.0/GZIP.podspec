@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Nick Lockwood" => "support@charcoaldesign.co.uk" }
   s.source       = { :git => "https://github.com/rcdilorenzo/GZIP.git", :tag => "1.0" }
   s.source_files = 'GZIP/NSData+GZIP.{h,m}'
-  s.library      = 'zlib'
+  s.library      = 'z'
   s.platform     = :ios, '5.0'
   s.requires_arc = true
 end
