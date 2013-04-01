@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.header_dir = 'GoogleMaps'
 
   s.frameworks = 'GoogleMaps', 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreText', 'GLKit', 'ImageIO', 'OpenGLES', 'QuartzCore', 'SystemConfiguration'
-  s.libraries = 'icucore', 'c++', 'z'
+  s.libraries = 'icucore', 'stdc++', 'z'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Maps-iOS-SDK"' }
 end
