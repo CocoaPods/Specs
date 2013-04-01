@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "SHAlert"
   s.version      = "0.1.1"
-  s.summary      = "Custom Alert that uses story board for designing and styling. Has good support for Pixate. "
+  s.summary      = "Custom Alert that uses story board for designing and styling. Has good support for Pixate."
   s.description  = <<-DESC
 +(SHViewControllerAlert *)alertControllerWithStoryboardId:(NSString *)storyboardId
                                                 withTitle:(NSString *)theTitle

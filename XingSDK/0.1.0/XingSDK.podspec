@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name           = 'XingSDK'
   s.version        = '0.1.0'
-  s.summary        = 'XingSDK is a framework to access the XING REST API at https://dev.xing.com/'
+  s.summary        = 'XingSDK is a framework to access the XING REST API at https://dev.xing.com/.'
   s.homepage       = 'https://github.com/plu/XingSDK'
   s.author         = { 'Johannes Plunien' => 'plu@pqpq.de' }
   s.source         = { :git => 'https://github.com/plu/XingSDK.git', :tag => '0.1.0' }

@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :svn => 'https://jsoncpp.svn.sourceforge.net/svnroot/jsoncpp/tags/jsoncpp/0.6.0-rc2/' }
   s.source_files = 'dist', 'dist/**/*.{h,cpp}'
   s.preserve_paths = "amalgamate.py", "include", "src"
+  s.header_mappings_dir = 'dist'
 
   def s.pre_install(pod, target_definition)
     Dir.chdir(pod.root) do
@@ -28,11 +29,5 @@ Pod::Spec.new do |s|
       # uncommented as it should be, lets do that now:
       `perl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h`
     end
-  end
-
-  def s.copy_header_mapping(from)
-    # Need this to make sure json.h is copied to json/json.h
-    # (as it is included from this path)
-    from.relative_path_from(Pathname.new('dist'))
   end
 end

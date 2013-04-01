@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author           =  { 'Michael Waterfall' => 'mw@d3i.com' }
   s.source           =  { :git => 'https://github.com/mwaterfall/MWFeedParser.git', :commit => '0b1d301877c43c80e5fe5c7f294a2a34fa62f5a7' }
   s.platform         =  :ios
-  s.compiler_flags   =  '-Wno-format', '-Wno-format-extra-args'
   s.framework        =  'Foundation'
 
   s.subspec 'NSString+HTML' do |ss|
