@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '5.1'
 
-  framework_path = 'GoogleMaps.framework'
+  framework_path = 'GoogleMaps.framework/Versions/A'
 
   s.source_files = "#{framework_path}/Headers/*.h"
   s.resource = "#{framework_path}/Resources/GoogleMaps.bundle"
