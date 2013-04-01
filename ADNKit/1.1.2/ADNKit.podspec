@@ -2,13 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "ADNKit"
   s.version      = "1.1.2"
   s.summary      = "Objective-C framework for building App.net applications on iOS and OS X."
-  s.description  = <<-DESC
-                    ADNKit is an Objective-C framework for building App.net iOS and OS X applications. The guiding design principles are:
-                    - Simple and powerful API
-                    - As much heavylifting as possible is done for you (aka, tons of convenience methods)
-                    10- 0% App.net API and features support
-                    - No external dependencies other than `AFNetworking.`
-                    DESC
+  s.description  = "ADNKit is an Objective-C framework for building App.net iOS and OS X applications."
   s.homepage     = "https://github.com/joeldev/ADNKit"
    s.license      = {
      :type => 'BSD',
