@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
       end
     end
     if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      script_path = target_installer.target_definition.copy_resources_script_name
+      script_path = target_installer.copy_resources_script_path
     else
       script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
     end
