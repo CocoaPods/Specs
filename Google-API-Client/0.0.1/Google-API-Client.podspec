@@ -1,3 +1,5 @@
+# This doesn't lint correctly, but that's fine: https://github.com/CocoaPods/Specs/pull/1564
+
 Pod::Spec.new do |s|
   s.name     = 'Google-API-Client'
   s.version  = '0.0.1'
@@ -26,7 +28,7 @@ Pod::Spec.new do |s|
                "and iOS to easily write native applications using Google's JSON-RPC APIs."
   s.homepage = 'http://code.google.com/p/google-api-objectivec-client'
   s.author   = { 'Google, Inc.' => 'http://code.google.com/p/google-api-objectivec-client' }
-  s.source   = { :svn => 'http://google-api-objectivec-client.googlecode.com/svn/trunk' }
+  s.source   = { :svn => 'http://google-api-objectivec-client.googlecode.com/svn/trunk', :revision => 'r292' }
   s.requires_arc = false
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'
