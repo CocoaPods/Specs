@@ -28,6 +28,15 @@ Pod::Spec.new do |s|
     sp.dependency 'libextobjc/EXTKeyPathCoding', '~> 0.2.5'
     sp.dependency 'libextobjc/EXTConcreteProtocol', '~> 0.2.5'
     sp.dependency 'libextobjc/EXTScope', '~> 0.2.5'
+
+    sp.pre_install do |pod, _|
+      pod.source_files.each { |source|
+        contents = source.read
+        if contents.gsub!(%r{\bReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h\b}, '\1.h')
+          File.open(source, 'w') { |file| file.puts(contents) }
+        end
+      }
+    end
   end
 
   s.subspec 'RACExtensions' do |sp|
@@ -35,14 +44,5 @@ Pod::Spec.new do |s|
     sp.ios.source_files = files.dup.exclude(/NSTask/)
     sp.osx.source_files = files
     sp.dependency 'ReactiveCocoa/Core'
-  end
-
-  def s.pre_install (pod, _)
-    pod.source_files.each { |source|
-      contents = source.read
-      if contents.gsub!(%r{\bReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h\b}, '\1.h')
-        File.open(source, 'w') { |file| file.puts(contents) }
-      end
-    }
   end
 end
