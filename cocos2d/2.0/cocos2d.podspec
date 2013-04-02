@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.library    =  'z'
 
   s.subspec 'CocosDenshion' do |p|
-    p.source_files =  'CocosDenshion/CocosDenshion/*.{h,m}'
+    p.source_files =  'CocosDenshion/{CocosDenshion,CocosDenshionExtras}/*.{h,m}'
     p.frameworks   =  ["OpenAL", "AVFoundation", "AudioToolbox"]
   end
 
