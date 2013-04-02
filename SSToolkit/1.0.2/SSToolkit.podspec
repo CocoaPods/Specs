@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.preserve_paths = 'SSToolkit.xcodeproj', 'Resources'
+  s.prefix_header_contents = '#ifdef __OBJC__', '#import "SSToolkitDefines.h"', '#endif'
 
   def s.post_install(target)
     if Version.new(Pod::VERSION) >= Version.new('0.16.999')
@@ -38,15 +39,6 @@ Pod::Spec.new do |s|
       File.open(script_path, 'a') do |file|
         file.puts "install_resource 'Resources/SSToolkitResources.bundle'"
       end
-    end
-
-    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      prefix_header = target.prefix_header_filename
-    else
-      prefix_header = config.project_pods_root + target.prefix_header_filename
-    end
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "SSToolkitDefines.h"\n#endif})
     end
   end
 end
