@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "AFNetworking-RACExtensions is a delightful extension to the AFNetworking classes for iOS and Mac OS X."
   s.homepage     = "https://github.com/CodaFi/AFNetworking-RACExtensions"
-  s.license      = 'MIT'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Robert Widmann" => "devteam.codafi@gmail.com" }
-  s.source       = { :git => "https://github.com/lexrus/AFNetworking-RACExtensions.git", :commit => "6a180f80eb04a4516851e22fc0a85470adb67b53" }
+  s.source       = { :git => "https://github.com/lexrus/AFNetworking-RACExtensions.git", :commit => "df8cfccc8a4c99cd733a05deec4fc716f6545dc0" }
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.source_files = 'ReactiveAFNetworking'
