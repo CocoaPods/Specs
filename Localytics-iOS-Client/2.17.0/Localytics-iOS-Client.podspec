@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/Localytics-iOS-Client-latest.source.zip" }
   s.platform     = :ios, '4.0'
 
-  s.source_files = 'Localytics-iOS-Client-latest.source/*.{h,m}'
+  s.source_files = '*.{h,m}'
 
   s.framework = 'AdSupport'
   s.library   = 'z', 'sqlite3'
