@@ -40,8 +40,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.0'
 
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
+  s.compiler_flags = '-fno-objc-arc'
 
-  s.framework = 'AdSupport'
-  s.library   = 'z', 'sqlite3'
+  s.weak_frameworks = 'AdSupport'
+  s.libraries   = 'z', 'sqlite3'
 
 end
