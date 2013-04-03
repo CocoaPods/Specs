@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         =  'RestKit'
-  s.version      =  '0.20.0rc1'
+  s.version      =  '0.20.0-pre2'
   s.summary      =  'RestKit is a framework for consuming and modeling RESTful web resources on iOS and OS X.'
   s.homepage     =  'http://www.restkit.org'
   s.author       =  { 'Blake Watters' => 'blakewatters@gmail.com' }
-  s.source       =  { :git => 'https://github.com/RestKit/RestKit.git', :tag => 'v0.20.0-rc1' }
+  s.source       =  { :git => 'https://github.com/RestKit/RestKit.git', :tag => 'v0.20.0-pre2' }
   s.license      =  'Apache License, Version 2.0'
   
   # Platform setup
@@ -14,13 +14,6 @@ Pod::Spec.new do |s|
   
   # Exclude optional Search and Testing modules
   s.preferred_dependency = 'Core'
-  
-  # Add Core Data to the PCH (This should be part of the Core Data Subspec, but CocoaPods does not allow)
-  s.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-#import <CoreData/CoreData.h>
-#endif /* __OBJC__*/
-EOS
 
   ### Subspecs
   
@@ -44,7 +37,7 @@ EOS
     ns.ios.frameworks = 'CFNetwork', 'Security', 'MobileCoreServices', 'SystemConfiguration'
     ns.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration'
     ns.dependency       'SOCKit'
-    ns.dependency       'AFNetworking', '1.1.0'
+    ns.dependency       'AFNetworking', '1.0'
     ns.dependency       'RestKit/ObjectMapping'
     ns.dependency       'RestKit/Support'
   end    
@@ -52,7 +45,7 @@ EOS
   s.subspec 'CoreData' do |cdos|
     cdos.header_dir   = 'RestKit/CoreData'
     cdos.source_files = 'Code/CoreData'
-    cdos.frameworks   = 'CoreData'        
+    cdos.frameworks   = 'CoreData'
   end
   
   s.subspec 'Testing' do |ts|

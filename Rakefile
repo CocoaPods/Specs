@@ -69,11 +69,7 @@ PODS_ALLOWED_TO_FAIL = {
   # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
     'BJRangeSliderWithProgress',
-    'cocos2d',
-    'CouchCocoa',
     'iOS-Hierarchy-Viewer',
-    'PonyDebugger',
-    'RestKit',
   ],
 
   "Rake::FileList is deprecated, use `exclude_files` (public_header_files)." => [
@@ -135,10 +131,11 @@ task :validate do
   exit if ENV['skip-lint']
 
   title('Most Recently Commited Specs ')
-  puts "The Master repo will not accept specifications with warnings."
-  puts "The specifications from the most recent commit are linted with the most strict settings."
-  puts "For more information see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
   puts "Thanks for contributing to the master repo!"
+  puts "The Master repo will not accept specifications with warnings."
+  puts "The specifications from the most recent commit are linted with"
+  puts "the most strict settings."
+  puts "http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
@@ -150,6 +147,7 @@ task :validate do
       puts "\n#{spec_path} [Quick]"
       lints = quick_lint(spec)
     end
+
     acceptable = check_if_can_be_accepted(spec, spec_path)
 
     if acceptable && lints
