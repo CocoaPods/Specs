@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "MDRadialProgress is a custom UIView to display progress in discrete steps."
   s.homepage     = "https://github.com/mdinacci/MDRadialProgress"
-  s.screenshots  = "https://github.com/mdinacci/MDRadialProgress/blob/master/screenshot.png"
+  s.screenshots  = "https://raw.github.com/mdinacci/MDRadialProgress/master/screenshot.png"
   s.license      = 'MIT'
   s.author       = { "Marco Dinacci" => "marco.dinacci@gmail.com" }
   s.source       = { :git => "https://github.com/mdinacci/MDRadialProgress.git", :tag => "0.1" }
