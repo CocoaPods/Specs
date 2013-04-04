@@ -68,7 +68,6 @@ PODS_ALLOWED_TO_FAIL = {
 
   # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BJRangeSliderWithProgress',
     'iOS-Hierarchy-Viewer',
   ],
 
