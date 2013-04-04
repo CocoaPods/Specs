@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Code/**/*.h'
 
   s.dependency 'RestKit', '0.10.3' #:git => 'git://github.com/RestKit/RestKit.git', :tag => 'v0.10.3'
-
+ 
 end
