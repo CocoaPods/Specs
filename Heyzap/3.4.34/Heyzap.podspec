@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Heyzap" => "integration@heyzap.com" }
   s.source       = { :git => "https://github.com/MaxGabriel/HeyzapSDK.git", :tag => "3.4.34" }
   s.platform     = :ios
-  s.resources = 'Heyzap.bundle/*.png'
+  s.resources = 'Heyzap.bundle'
   
 
   s.preserve_paths = 'Heyzap.framework'
