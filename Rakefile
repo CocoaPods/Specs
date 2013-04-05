@@ -75,6 +75,53 @@ PODS_ALLOWED_TO_FAIL = {
     'PonyDebugger',
     'RestKit',
   ],
+
+  "Rake::FileList is deprecated, use `exclude_files` (public_header_files)." => [
+    "GRMustache",
+    "MAZeroingWeakRef",
+    "SinglySDK",
+    "WhirlyGlobe-Headers",
+  ],
+
+  "Rake::FileList is deprecated, use `exclude_files` (source_files)." => [
+    "adlibr",
+    "AdMob",
+    "ADNKit",
+    "AGGeometryKit",
+    "AGWindowView",
+    "Ashton",
+    "ASIHTTPRequest",
+    "BeamMusicPlayerViewController",
+    "Calabash-server",
+    "Cedar",
+    "cocos2d",
+    "CorePlot",
+    "DBPrefsWindowController",
+    "FMDB",
+    "FontAwesomeIconFactory",
+    "geos",
+    "GHUnitOSX",
+    "Google-API-Client",
+    "GTMHTTPFetcher",
+    "iOS-GTLYouTube",
+    "iOS-Hierarchy-Viewer",
+    "JAViewController",
+    "libgit2",
+    "libkml",
+    "libsodium",
+    "LRResty",
+    "MapBox",
+    "MAZeroingWeakRef",
+    "MKNetworkKit",
+    "NyaruDB",
+    "objective-git",
+    "ReactiveCocoa",
+    "Rebel",
+    "SinglySDK",
+    "TouchDB",
+    "TwUI",
+    "UrbanAirship-iOS-SDK",
+  ],
 }
 
 
@@ -88,10 +135,10 @@ task :validate do
   exit if ENV['skip-lint']
 
   title('Most Recently Commited Specs ')
+  puts "Thanks for contributing to the master repo!"
   puts "The Master repo will not accept specifications with warnings."
   puts "The specifications from the most recent commit are linted with the most strict settings."
   puts "For more information see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
-  puts "Thanks for contributing to the master repo!"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|

@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license = {
     :type => 'Copyright',
     :text => <<-LICENSE
-Copyright 2009 - 2012 Google, Inc. All rights reserved.
+Copyright 2009 - 2013 Google, Inc. All rights reserved.
 LICENSE
   }
   s.author = 'Google Inc.'
@@ -23,6 +23,6 @@ LICENSE
 
   s.library = 'GoogleAdMobAds'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/"'}
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/"'}
 
 end
