@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DPToastView"
-  s.version      = "0.2.1"
+  s.version      = "0.2b"
   s.summary      = "Highly customizable toast view for iOS."
   s.homepage     = "https://github.com/ebaker355/DPToastView"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
