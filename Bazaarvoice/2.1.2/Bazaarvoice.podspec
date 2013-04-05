@@ -11,5 +11,6 @@ Pod::Spec.new do |s|
   s.source_files = 'CocoapodsIgnore/BVDummy.{h,m}'
   s.preserve_paths = 'BVSDK.framework'
   s.requires_arc = true
+  s.frameworks = 'BVSDK'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Bazaarvoice"' }
 end
