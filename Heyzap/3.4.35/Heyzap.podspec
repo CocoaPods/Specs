@@ -18,4 +18,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Heyzap"' }
+
+  s.public_header_files = 'Heyzap.framework/Headers'
 end
