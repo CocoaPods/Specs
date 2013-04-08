@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "mailgun"
-  s.version      = "1.0"
+  s.version      = "1.0.3"
   s.summary      = "The Mailgun SDK allows your Mac OS X or iOS application to connect with the programmable email platform."
   s.homepage     = "https://github.com/rackerlabs/objc-mailgun"
   s.license      = 'MIT'
