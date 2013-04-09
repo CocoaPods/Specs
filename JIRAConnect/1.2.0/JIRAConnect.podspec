@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage       = "http://atlassian.com/"
   s.license        = 'Apache License, Version 2.0'
   s.author         = { "Nick Pellow" => "npellow@atlassian.com", "Shihab Hamid" => "shamid@atlassian.com" }
-  s.source         = { :hg  => 'https://bitbucket.org/atlassian/jiraconnect-ios', :revision => '1.1.6' }
+  s.source         = { :hg  => 'https://bitbucket.org/atlassian/jiraconnect-ios', :revision => '1.2.0' }
   s.platform       = :ios, '4.0'
   s.source_files   = 'JIRAConnect/JMCClasses/{Core,Base}/**/*.{h,m}'
   s.resource       = 'JIRAConnect/JMCClasses/{Core,Base,Resources}/**/*.{xib,png,strings}'
