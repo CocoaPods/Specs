@@ -11,10 +11,5 @@ Pod::Spec.new do |s|
   # s.platform     = :ios
 
   s.source_files = 'Library/**/*.{h,m}'
-  s.requires_arc = true
-
-  s.subspec 'PESGraph' do |ps|
-    s.requires_arc = false
-  end
-
+  s.requires_arc = false
 end

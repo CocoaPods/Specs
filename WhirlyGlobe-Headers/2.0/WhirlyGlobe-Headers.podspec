@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "WhirlyGlobe-Headers"
   s.version      = "2.0"
-  s.summary      = "WhirlyGlobe headers is a self contained 3D earth display view suitable for use in iPhone and iPad applications. (temporary)"
+  s.summary      = "WhirlyGlobe headers is a self contained 3D earth display view suitable for use in iPhone and iPad applications. (temporary)."
   s.homepage     = "https://github.com/mousebird/WhirlyGlobe"
   s.license      = { :type => "Apache 2.0" }
   s.author       = { "Steve Gifford" => "sjg@mousebirdconsulting.com" }

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://www.ooyala.com"
   s.license      = { :type => 'Commercial', :text => 'Copyright (c) 2012 Ooyala All rights reserved' }
   s.author       = { 'Ooyala' => 'support@ooyala.com' }
-  s.source       = { :http => "https://ooyala.box.com/shared/static/yor6jmfris8zdfr5m3y3.zip", :tag => "1.4.0" }
+  s.source       = { :http => "https://ooyala.box.com/shared/static/yor6jmfris8zdfr5m3y3.zip" }
   s.platform     = :ios
   s.frameworks   = 'AVFoundation', 'CFNetwork', 'CoreMedia', 'CoreText', 'MediaPlayer', 'Security', 'SystemConfiguration'
   s.xcconfig     = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Ooyala"' }

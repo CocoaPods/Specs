@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/genericspecific/CKUITools"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Constantine Karlis" => "dino@constantinekarlis.com" }
-  s.source       = { :git => "https://github.com/genericspecific/CKUITools.git", :tag => "v0.2.2" }
+  s.source       = { :git => "https://github.com/genericspecific/CKUITools.git", :tag => "v0.2.3" }
   s.platform     = :ios
   s.source_files = '*.{h,m,c}'
   s.requires_arc = true

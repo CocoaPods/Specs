@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/bitstadium/HockeySDK-iOS.git', :tag => '3.0.0' }
 
   s.description = 'HockeyApp is a server to distribute beta apps, collect crash reports and '                   \
-                  'communicate with your app users.'                 \
+                  'communicate with your app users.'                                                            \
                   'It improves the testing process dramatically and can be used for both beta '                 \
                   'and App Store builds. Only beta builds will notify users about a new version. '              \
                   'NOTE: If you want the framework to try again when a network is available, add a dependency ' \
                   'on Reachability and send a notification with the name `BITHockeyNetworkDidBecomeReachable` ' \
-                  'yourself when the network becomse reachable.'
+                  'yourself when the network becomes reachable.'
 
   s.source_files = 'Classes'
   s.requires_arc = true
@@ -32,7 +32,12 @@ Pod::Spec.new do |s|
         raise ::Pod::Informative, "Failed to generate HockeySDK resources bundle"
       end
     end
-    File.open(File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name), 'a') do |file|
+    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
+      script_path = target_installer.copy_resources_script_path
+    else
+      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
+    end
+    File.open(script_path, 'a') do |file|
       file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
     end
   end

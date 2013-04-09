@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'https://chartboost.com/'
   s.author = { 'Chartboost' => 'https://chartboost.com/' }
   s.source = { :git => 'https://github.com/MattesGroeger/ChartboostSDK.git', :tag => '3.0.7' }
-  s.description = 'ChartboostSDK for showing ads and more apps pages, and tracking analytics and in-app purchase revenue.'
   s.platform = :ios
   s.source_files = '**/*.h'
   s.preserve_paths = '**/*.a'
