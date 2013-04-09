@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://projects.lukeredpath.co.uk/resty/'
   s.authors      = { 'Luke Redpath' => 'luke@lukeredpath.co.uk' }
   s.source       = { :git => 'https://github.com/lukeredpath/LRResty.git', :tag => 'v0.11.0' }
+  s.license      = 'MIT'
 
   files = FileList['Classes/**/*.{h,m}']
   files.exclude /NSData\+Base64/

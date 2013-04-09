@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "HMSegmentedControl"
   s.version      = "1.2.0"
-  s.summary      = "A drop-in replacement for UISegmentedControl mimicking the style of the segmented control used in Google Currents and various other Google products."
+  s.summary      = "A drop-in replacement for UISegmentedControl mimicking the style of the segmented control used in Google Currents."
   s.homepage     = "https://github.com/HeshamMegid/HMSegmentedControl"
   s.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   s.author       = { "Hesham Abd-Elmegid" => "hesham.abdelmegid@gmail.com" }

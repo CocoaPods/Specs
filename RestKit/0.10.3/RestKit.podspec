@@ -48,24 +48,31 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ObjectMapping' do |os|
-    os.source_files = 'Code/ObjectMapping'
     os.dependency     'ISO8601DateFormatter', '>= 0.6'
     os.dependency     'RestKit/Network'
+
+
+    os.subspec 'Core' do |cos|
+      cos.source_files = 'Code/ObjectMapping/'
+    end
 
     os.subspec 'JSON' do |jos|
       jos.source_files = 'Code/Support/Parsers/JSON/RKJSONParserJSONKit.{h,m}'
       jos.dependency     'JSONKit', '>= 1.5pre'
+      jos.dependency     'RestKit/ObjectMapping/Core'
     end
 
     os.subspec 'XML' do |xos|
       xos.source_files = 'Code/Support/Parsers/XML/RKXMLParserXMLReader.{h,m}'
       xos.libraries    = 'xml2'
       xos.dependency     'XMLReader'
+      xos.dependency     'RestKit/ObjectMapping/Core'      
     end
 
     os.subspec 'CoreData' do |cdos|
       cdos.source_files = 'Code/CoreData'
       cdos.frameworks   = 'CoreData'
+      cdos.dependency     'RestKit/ObjectMapping/Core'      
     end
   end
 

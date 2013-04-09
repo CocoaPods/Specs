@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.crittercism.com'
   s.author = { 'Crittercism' => 'support@crittercism.com' }
   s.source = { :http => 'https://app.crittercism.com/images/Crittercism_v3_4_9.zip' }
-  s.description = 'Mobile App Performance Monitoring and Crash Reporting.'
   s.platform = :ios
   s.source_files = 'CrittercismSDK/*.h'
   s.preserve_paths = 'CrittercismSDK/libCrittercism_v3_4_9.a'

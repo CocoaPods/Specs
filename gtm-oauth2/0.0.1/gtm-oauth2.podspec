@@ -3,30 +3,30 @@ Pod::Spec.new do |s|
   s.name         = "gtm-oauth2"
   s.version      = "0.0.1"
   s.summary      = "Google Toolbox for Mac - OAuth 2 Controllers."
+  s.description = "The Google Toolbox for Mac OAuth 2 Controllers make it easy for Cocoa applications "\
+                  "to sign in to services using OAuth 2 for authentication and authorization."
   s.homepage     = "http://code.google.com/p/gtm-oauth2"
-  s.author       = "Google Inc."
-  s.source       = { :svn => 'http://gtm-oauth2.googlecode.com/svn/trunk/' }
-
+  s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/google-api-objectivec-client' }
+  s.source       = { :svn => 'http://gtm-oauth2.googlecode.com/svn/trunk/', :revision => 'r107' }
+  s.requires_arc = false
+  s.dependency   'GTMHTTPFetcher'
+  s.dependency    'SBJson'
   s.frameworks = 'Security', 'SystemConfiguration'
-
-  s.osx.deployment_target = '10.5'
-  s.osx.source_files =
-    'HTTPFetcher/GTMHTTPFetcher.{h,m}',
-    'HTTPFetcher/GTMHTTPFetchHistory.{h,m}',
-    'Source/GTMOAuth2Authentication.{h,m}',
-    'Source/GTMOAuth2SignIn.{h,m}',
-    'Source/Mac/GTMOAuth2WindowController.{h,m}'
-
   s.ios.deployment_target = '3.0'
-  s.ios.source_files =
-    'HTTPFetcher/GTMHTTPFetcher.{h,m}',
-    'Source/GTMOAuth2Authentication.{h,m}',
-    'Source/GTMOAuth2SignIn.{h,m}',
-    'Source/Touch/GTMOAuth2ViewControllerTouch.{h,m}'
+  s.osx.deployment_target = '10.5'
 
-  s.subspec 'nibs' do |nibs|
-    nibs.osx.resources = 'Source/Mac/GTMOAuth2Window.xib'
-    nibs.ios.resources = 'Source/Touch/GTMOAuth2ViewTouch.xib'
+  s.subspec 'Core' do |oa2|
+    oa2.source_files   = 'Source/*.{h,m}'
+    
+    oa2.subspec 'Mac' do |mac|
+      mac.osx.source_files = 'Source/Mac/**.{h,m}'
+      mac.osx.resources = 'Source/Mac/**.xib'
+    end
+    
+    oa2.subspec 'Touch' do |touch|
+      touch.ios.source_files = 'Source/Touch/**.{h,m}'
+      touch.ios.resources = 'Source/Touch/**.xib'
+    end
   end
 
   s.license = {

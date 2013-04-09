@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
   s.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
 
   s.library = 'z.1'
-  s.compiler_flags = '-Wno-format', '-Wno-format-extra-args'
 
   s.subspec 'ASIWebPageRequest' do |ws|
     ws.source_files = 'Classes/ASIWebPageRequest/'
