@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.author       = {'Frederic Cormier' => 'fred@i-mo.eu'}
   s.license      = 'MIT'
-  s.description  = 'Autocompletion UITableView based controller.'
   s.source       = { :git => "https://github.com/fredericcormier/IMOAutocompletionViewController.git", :tag => '1.0.2' }
   s.source_files = 'IMOAutocompletionViewControllerDEMO/IMOAutocompletionViewControllerDEMO/IMOAutocompletionViewController/*.{h,m}'
 end
