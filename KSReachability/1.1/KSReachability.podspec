@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.license               = { :type => 'MIT', :file => 'README.md' }
   s.author                = { "Karl Stenerud" => "kstenerud@gmail.com" }
   s.source                = { :git => "https://github.com/kstenerud/KSReachability.git", :tag => "1.1" }
-  s.source_files          = 'KSReachability'
+  s.source_files          = 'KSReachability/KSReachability'
   s.frameworks            = 'Foundation', 'SystemConfiguration'
 end
