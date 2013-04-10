@@ -11,12 +11,13 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, '5.0'
 
+  s.source_files = 'Opentok.framework/Versions/A/Headers/*.h'
+  s.resources    = 'Opentok.framework/Versions/A/Resources/opentok.bundle'
+
   s.frameworks = 'Opentok',
                  'UIKit', 'CoreMedia', 'CoreVideo', 'CoreAudio', 'CoreTelephony', 'CoreGraphics',
                  'CFNetwork', 'AVFoundation', 'SystemConfiguration', 'Security',
                  'QuartzCore', 'AudioToolbox', 'OpenGLES'
-
-  s.resources = 'Opentok.framework/Versions/A/Resources/opentok.bundle'
 
   s.libraries = 'stdc++', 'z'
 
