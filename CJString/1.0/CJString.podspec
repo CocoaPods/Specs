@@ -9,5 +9,4 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '2.0'
   s.source_files = 'CJString'
   s.frameworks   = 'Foundation'
-  s.requires_arc = false
 end
