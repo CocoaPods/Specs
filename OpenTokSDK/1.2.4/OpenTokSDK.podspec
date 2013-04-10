@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/opentok/opentok-ios-sdk.git',
                  :tag => "v#{s.version}" }
 
-  s.platform = :ios
+  s.platform = :ios, '5.0'
 
   s.frameworks = 'Opentok',
                  'UIKit', 'CoreMedia', 'CoreVideo', 'CoreAudio', 'CoreTelephony', 'CoreGraphics',
