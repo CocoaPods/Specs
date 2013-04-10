@@ -16,6 +16,10 @@ Pod::Spec.new do |s|
                  'CFNetwork', 'AVFoundation', 'SystemConfiguration', 'Security',
                  'QuartzCore', 'AudioToolbox', 'OpenGLES'
 
+  s.resources = 'Opentok.framework/Versions/A/Resources/opentok.bundle'
+
+  s.libraries = 'stdc++', 'z'
+
   s.xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenTokSDK/"' }
 
   s.preserve_paths = 'Opentok.framework'
