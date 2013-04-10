@@ -23,9 +23,11 @@ Pod::Spec.new do |s|
     for ParseKit.
   }
 
-  s.source_files   =  'include/**/*.{h,m}', 'src/**/*.{h,m}'
-  s.ios.frameworks =  'Foundation', 'CoreGraphics'
-  s.osx.framework  =  'Foundation'
-  s.library        =  'icucore'
-  s.requires_arc   =  false
+  s.source_files           =  'include/**/*.{h,m}', 'src/**/*.{h,m}'
+  s.ios.prefix_header_file =  'ParseKitMobile_Prefix.pch'
+  s.osx.prefix_header_file =  'ParseKit_Prefix.pch'
+  s.ios.frameworks         =  'Foundation', 'CoreGraphics'
+  s.osx.framework          =  'Foundation'
+  s.library                =  'icucore'
+  s.requires_arc           =  false
 end
