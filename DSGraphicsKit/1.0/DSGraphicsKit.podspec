@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Fabio A. Pelosin' => 'fabio@discontinuity.it' }
   s.source       = { :git => 'https://github.com/Discontinuity-srl/DSGraphicsKit.git', :tag => '1.0' }
   s.platform     = :ios, '4.0'
-  s.source_files = 'Classes'
+  s.source_files = 'Classes/*.{h,m}','Classes/Animations/*','Classes/Images/*','Classes/Views/*'
   s.framework    = 'QuartzCore'
   s.requires_arc = true
 end
