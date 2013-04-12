@@ -17,6 +17,11 @@ Pod::Spec.new do |s|
   s.dependency 'SSKeychain'
   s.dependency 'Reachability'
 
+  s.subspec 'Core' do |core|
+    core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
+    core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+  end
+
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
     evernote.dependency 'Evernote-SDK-iOS', "1.0.1"
