@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/andreamazz/SlideOutNavigation"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Andrea Mazzini" => "andrea.mazzini@gmail.com" }
-  s.source       = { :git => "https://github.com/andreamazz/SlideOutNavigation.git", :commit => '872aad6' }
+  s.source       = { :git => "https://github.com/andreamazz/SlideOutNavigation.git", :tag => 'v1.0.0' }
   s.platform     = :ios, '5.0'
   s.source_files = 'AMSlideOut', '*.{h,m}'
   s.resources    = "AMSlideOut/*.png"
