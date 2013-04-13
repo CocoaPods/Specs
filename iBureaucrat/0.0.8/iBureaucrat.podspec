@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license = { :type => 'Apache2', :file => 'LICENSE' }
   s.author = { "Jasper Blues" => "jasper@appsquick.ly" }
   s.source = { :git => "https://github.com/jasperblues/iBureaucrat.git", :tag => "0.0.8" }
-  s.platform = :ios
+  s.platform = :ios, '5.0'
   s.source_files = 'bureaucrat/**/*.{h,m}'
   s.ios.frameworks = %w{ QuartzCore CoreGraphics }
   s.dependency 'CKUITools'
