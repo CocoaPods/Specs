@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'bureaucrat/**/*.{h,m}'
   s.ios.frameworks = %w{ QuartzCore CoreGraphics }
+  s.dependency 'CKUITools'
   s.requires_arc = true
 end
 
