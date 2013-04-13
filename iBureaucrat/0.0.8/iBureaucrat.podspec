@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "iBureaucrat"
+  s.ios.deployment_target = "5.0"
   s.version = "0.0.8"
   s.summary = "A forms library for iOS."
   s.homepage = "git@github.com:jasperblues/iBureaucrat.git"
