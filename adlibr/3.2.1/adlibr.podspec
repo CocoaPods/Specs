@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'adlibrTestUniversal/AdlibrHelper.{h|m}', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.{h,m}'
   s.exclude_files = 'adlibrTestUniversal/adlibrTestUniversal/ads/lib/JSONKit', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/SubAdView/SubAdlibAdViewTAD.*'
-  s.public_header_files = '*.h', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.h'
+  s.public_header_files = 'adlibrTestUniversal/AdlibrHelper.h', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.h'
   s.preserve_paths = 'adlibrTestUniversal/adlibrTestUniversal/ads/lib/libAdlibr.3.2.1.a'
 
   s.framework = 'iAd'
