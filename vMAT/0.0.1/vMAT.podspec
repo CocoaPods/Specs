@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'vMAT', 'vMAT/**/*.{h,m}'
   s.frameworks = 'Accelerate', 'Foundation'
   s.requires_arc = true
-  s.xcconfig = { 'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++11' }
+  s.xcconfig = { 'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++0x', 'CLANG_CXX_LIBRARY' => 'libc++' }
   s.dependency 'BlocksKit', '~> 1.8.1'
+  s.dependency 'eigen', '~> 3.1.2'
 end
