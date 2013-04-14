@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FPView"
-  s.version      = "0.1"
+  s.version      = "0.1.1"
   s.summary      = "Pretty noise, linear and radial gradient view for iOS."
   s.homepage     = "https://github.com/jameswomack"
 
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s
   }
 
-  s.framework    = 'QuartzCore'
+  s.framework    = 'QuartzCore', 'CoreImage'
   s.platform     = :ios, '5.1'
   s.source_files = '*.{h,m}'
   s.requires_arc = true
