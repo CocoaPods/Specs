@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "ISRefreshControl"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.platform     = :ios, '5.0'
   s.summary      = "iOS5-compatible UIRefreshControl."
   s.homepage     = "https://github.com/ishkawa/ISRefreshControl"
   s.author       = { "Yosuke Ishikawa" => "y@ishkawa.org" }
-  s.source       = { :git => "https://github.com/ishkawa/ISRefreshControl.git", :tag => "1.2.0" }
+  s.source       = { :git => "https://github.com/ishkawa/ISRefreshControl.git", :tag => "1.2.1" }
   s.source_files = 'ISRefreshControl/**/*.{h,m}'
   s.resources    = 'ISRefreshControl/Images/*.png'
   s.framework    = 'QuartzCore'
@@ -22,6 +22,4 @@ Pod::Spec.new do |s|
       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	LICENSE
   }
-
-  s.dependency 'ISMethodSwizzling', :git => 'https://github.com/ishkawa/ISMethodSwizzling.git', :commit => 'c40e8991adefc154b165205fbb154fe0391e03c8'
 end
