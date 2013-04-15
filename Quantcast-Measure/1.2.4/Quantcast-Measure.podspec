@@ -23,14 +23,14 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/quantcast/ios-measurement.git", :tag => "v1.2.4" }
 
-  s.platform     = :ios, '4.0'
+  s.platform     = :ios, '5.0'
 
   s.source_files = 'Quantcast-iOS-Measurement/*.{h,m,mm,c,cpp,xib,nib}'
+  s.compiler_flags = '-fno-objc-arc'
 
   s.frameworks = 'UIKit','Foundation','SystemConfiguration','CoreLocation','CoreTelephony'
   s.weak_framework = 'AdSupport'
 
   s.libraries = 'z','sqlite3'
 
-  s.dependency 'JSONKit', '~> 1.4'
 end
