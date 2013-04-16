@@ -19,6 +19,10 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
+  # dispatch_queue_set_specific() is available in iOS 5.0+ and OS X v10.7+.
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
+
   s.ios.frameworks = 'CFNetwork', 'Security'
   s.osx.frameworks = 'CoreServices', 'Security'
 end
