@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "CIOAPIClient"
   s.version      = "0.8.6"
-  s.summary      = "API Client for Context.IO"
+  s.summary      = "API Client for Context.IO."
   s.homepage     = "https://github.com/contextio/contextio-ios"
   s.license      = 'MIT'
   s.author       = { 'Kevin Lord' => 'kevinlord@otherinbox.com' }
