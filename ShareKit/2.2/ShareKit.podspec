@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
   s.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI'
 
-  s.dependency 'SSKeychain'
+  s.dependency 'SSKeychain', '0.2.1'
   s.dependency 'Reachability'
 
   s.subspec 'Core' do |core|
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.dependency 'Evernote-SDK-iOS', "1.0.1"
+    evernote.dependency 'Evernote-SDK-iOS', "1.1.1"
   end
 
   s.subspec 'Facebook' do |facebook|
