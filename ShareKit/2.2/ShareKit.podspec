@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.dependency 'Evernote-SDK-iOS', "1.0.1"
+    evernote.dependency 'Evernote-SDK-iOS', "1.1.1"
   end
 
   s.subspec 'Facebook' do |facebook|
