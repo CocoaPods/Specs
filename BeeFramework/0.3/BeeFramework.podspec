@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     It has pretty clear hieracy and signal based mechanism, also with cache and asynchonized networking methods in it.
     Add __BEE_DEBUGGER__=1 in build setting of Pods target and add [BeeDebugger show] to AppDelegate to enable Bee Debugger.
   DESC
-  s.homepage     = "http://bbs.whatsbug.com/BeeFramework"
+  s.homepage     = "http://bee-framework.com"
   s.license      = 'MIT'
   s.platform     = :ios
 

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = "Quantcast-Measure"
+  s.name         = "Quantcast-Measure-iOS4"
   s.version      = "1.2.4"
-  s.summary      = "Quantcast Measure for iOS."
+  s.summary      = "Quantcast Measure for iOS (iOS 4 and later)."
   s.description  = <<-DESC
   					Quantcast Measure available for iOS and Android mobile apps. The free service lets you to:
                     * **Showcase Your App Stats** - Get the word out on your mobile app by showcasing your traffic on Quantcast – make your most accomplished metrics accessible to everyone.
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/quantcast/ios-measurement.git", :tag => "v1.2.4" }
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '4.0'
 
   s.source_files = 'Quantcast-iOS-Measurement/*.{h,m,mm,c,cpp,xib,nib}'
   s.compiler_flags = '-fno-objc-arc'
@@ -33,4 +33,8 @@ Pod::Spec.new do |s|
 
   s.libraries = 'z','sqlite3'
 
+  s.dependency 'JSONKit', '~> 1.4'
+  
+  s.prefix_header_contents = "#define QCMEASUREMENT_ENABLE_JSONKIT 1"
+  
 end
