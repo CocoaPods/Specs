@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
     core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI,Reachability}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+    core.framework = 'AVFoundation'
   end
 
   s.subspec 'Evernote' do |evernote|
