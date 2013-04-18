@@ -1,4 +1,4 @@
-﻿Pod::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name     = 'ObjectAL-for-iPhone'
   s.version  = '2.2'
   s.license  = { :type => 'Apache 2.0', :file => 'ObjectAL/LICENSE.ObjectAL.txt' }

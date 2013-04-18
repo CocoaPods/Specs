@@ -1,4 +1,4 @@
-﻿Pod::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name                  = "KSReachability"
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
