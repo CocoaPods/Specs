@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
                   'Most common use is the monitoring of an applications documents directory in combination'\
                   ' with iTunes file sharing support. This code uses the BSD kqueue API and should work on OSX as well as iOS.'
 
-  s.source_files = 'DirectoryWatchdog/lib/*.{h,m}'
+  s.source_files = 'SGDirWatchdog.{h,m}'
 end

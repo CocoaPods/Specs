@@ -7,9 +7,10 @@ Pod::Spec.new do |s|
                   "to sign in to services using OAuth 2 for authentication and authorization."
   s.homepage     = "http://code.google.com/p/gtm-oauth2"
   s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/google-api-objectivec-client' }
-  s.source       = { :svn => 'http://gtm-oauth2.googlecode.com/svn/trunk/' }
+  s.source       = { :svn => 'http://gtm-oauth2.googlecode.com/svn/trunk/', :revision => 'r107' }
   s.requires_arc = false
   s.dependency   'GTMHTTPFetcher'
+  s.dependency    'SBJson'
   s.frameworks = 'Security', 'SystemConfiguration'
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'

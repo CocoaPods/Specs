@@ -24,9 +24,12 @@ Pod::Spec.new do |s|
                "is asynchronous and uses operating-system settings on iOS and Mac OS X."
   s.homepage = 'https://code.google.com/p/gtm-http-fetcher'
   s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/google-api-objectivec-client' }
-  s.source   = { :svn => 'http://gtm-http-fetcher.googlecode.com/svn/trunk' }
+  s.source   = { :svn => 'http://gtm-http-fetcher.googlecode.com/svn/trunk', :revision => 'r119' }
   s.requires_arc = false
+  s.dependency    'SBJson'
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'
-  s.source_files   = 'Source/*.{h,m}'
+  s.ios.framework = 'UIKit'
+  s.ios.source_files   = 'Source/*.{h,m}'
+  s.osx.source_files   = FileList['Source/*.{h,m}'].exclude('**/GTMHTTPFetcherLogViewController.*')
 end
