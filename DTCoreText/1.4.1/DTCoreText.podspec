@@ -15,11 +15,13 @@ Pod::Spec.new do |spec|
   spec.library      = 'xml2'
   spec.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   spec.prefix_header_contents = '#import <CoreText/CoreText.h>'
-  def spec.post_install(target)
-    Dir.chdir(config.project_pods_root + 'DTCoreText/Core/Source/') do
+
+  spec.post_install do |library_representation|
+    Dir.chdir(library_representation.sandbox_dir + 'DTCoreText/Core/Source/') do
       Dir.glob('*.css') do |css_file|
         system '/usr/bin/xxd', '-i', css_file, css_file + '.c'
       end
     end
   end
 end
+
