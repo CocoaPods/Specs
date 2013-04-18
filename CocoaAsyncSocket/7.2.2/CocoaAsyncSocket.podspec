@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'CocoaAsyncSocket'
-  s.version  = '7.1'
+  s.version  = '7.2.2'
   s.license  = { :type => 'public domain', :text => <<-LICENSE
 Public Domain License
 
@@ -10,7 +10,7 @@ The original TCP version (AsyncSocket) was created by Dustin Voss in January 200
 Updated and maintained by Deusty LLC and the Apple development community.
                  LICENSE
                }
-  s.summary  = 'An asynchronous socket networking library for Cocoa.'
+  s.summary  = 'Asynchronous socket networking library for Mac and iOS.'
   s.homepage = 'https://github.com/robbiehanson/CocoaAsyncSocket'
   s.authors  = 'Dustin Voss', { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
 
@@ -27,10 +27,6 @@ Updated and maintained by Deusty LLC and the Apple development community.
   s.source_files = '{GCD,RunLoop}/*.{h,m}'
 
   s.requires_arc = true
-
-  # "Weak references are not supported in OS X v10.6 and iOS 4."
-  s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
 
   s.ios.frameworks = 'CFNetwork', 'Security'
   s.osx.frameworks = 'CoreServices', 'Security'
