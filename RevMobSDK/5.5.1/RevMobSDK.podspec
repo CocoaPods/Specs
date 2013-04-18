@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "RevMobSDK"
-  s.version      = "5.6.0"
+  s.version      = "5.5.1"
   s.summary      = "RevMobSDK for showing ads, banners, more games link and many more."
   s.homepage     = "http://sdk.revmob.com/ios.html"
   s.license      = { :type => 'Commersial', :file => 'LICENSE' }
   s.author       = { "RevMob" => "http://www.revmob.com" }
-  s.source       = { :git => "https://github.com/evil159/RevMobiOSSDK.git", :tag => "5.6.0" }
+  s.source       = { :git => "https://github.com/evil159/RevMobiOSSDK.git", :tag => "5.5.1" }
   s.platform     = :ios
 
   s.source_files = '**/Headers/*.h'
