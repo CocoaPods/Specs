@@ -37,6 +37,10 @@ Pod::Spec.new do |s|
   s.dependency    'SBJson'
   s.dependency    'GTMHTTPFetcher'
   s.dependency    'gtm-oauth2'
+  
+  s.subspec 'Common' do |com|
+    com.source_files = 'Source/GTLDefines.h'
+  end
 
   s.subspec 'Networking' do |net|
     net.source_files   = 'Source/Networking/*.{h,m}'
