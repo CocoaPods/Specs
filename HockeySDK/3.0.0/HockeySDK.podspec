@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CoreText', 'QuartzCore', 'SystemConfiguration', 'CrashReporter', 'CoreGraphics', 'UIKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{$(inherited) BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
+  s.resources    = 'HockeySDK/Resources/HockeySDKResources.bundle'
 
   def s.post_install(target_installer)
     puts "\nGenerating HockeySDK resources bundle\n".yellow if config.verbose?
@@ -31,14 +32,6 @@ Pod::Spec.new do |s|
       unless system(command)
         raise ::Pod::Informative, "Failed to generate HockeySDK resources bundle"
       end
-    end
-    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      script_path = target_installer.copy_resources_script_path
-    else
-      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
-    end
-    File.open(script_path, 'a') do |file|
-      file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
     end
   end
 end
