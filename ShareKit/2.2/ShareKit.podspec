@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
-  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => 'a23b5381bc042dc48ff882e1855d8b1152b9683e' }
+  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :commit => '73857ec78ccc62a17a55d99276dc5bab06cb8e88' }
   s.license       = { :type => 'MIT',
                       :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
                                %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
-    core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
+    core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI,Reachability}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
   end
 
   s.subspec 'Evernote' do |evernote|
