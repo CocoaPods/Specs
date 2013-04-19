@@ -6,7 +6,8 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { 'Simon Støvring' => 'simonstoevring@gmail.com' }
   s.source       = { :git => 'https://github.com/simonbs/BSKeyboardControls.git', :tag => 'v2.0' }
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
   s.source_files = 'BSKeyboardControls/BSKeyboardControls.{h,m}'
   s.requires_arc = true
 end
+
