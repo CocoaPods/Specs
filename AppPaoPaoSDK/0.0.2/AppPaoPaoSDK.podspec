@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/AppPaoPao/apppaopao-ios-sdk.git", :tag => "0.0.2" }
   s.platform     = :ios
   s.source_files = "AppPaoPao/*.{h,m}"
-  s.resources    = "AppPaoPao/*.png", "AppPaoPao/*.xib"
-  s.preserve_paths = 'AppPaoPao.xcodeproj', 'AppPaoPao/Resources', 'AppPaoPaoResources'
+  s.resources    = "AppPaoPao/Resources/*.{xib,png}"
+  s.preserve_paths = 'AppPaoPao.xcodeproj', 'AppPaoPaoResources'
 
   s.frameworks   = 'CoreGraphics', 'Foundation', 'UIKit'
   s.weak_frameworks = 'CoreTelephony'
