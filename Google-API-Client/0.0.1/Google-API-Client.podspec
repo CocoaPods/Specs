@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                "and iOS to easily write native applications using Google's JSON-RPC APIs."
   s.homepage = 'http://code.google.com/p/google-api-objectivec-client'
   s.author   = { 'Google, Inc.' => 'http://code.google.com/p/google-api-objectivec-client' }
-  s.source   = { :svn => 'http://google-api-objectivec-client.googlecode.com/svn/trunk', :revision => 'r292' }
+  s.source   = { :svn => 'http://google-api-objectivec-client.googlecode.com/svn/trunk', :revision => 'r301' }
   s.requires_arc = false
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'
@@ -53,103 +53,108 @@ Pod::Spec.new do |s|
   s.subspec 'Services' do |serv|
     
     serv.subspec 'AdSense' do |ads|
-      files = FileList['Source/Services/AdSense/**/*.{h,m}'].exclude('**/*_Sources.m')
-      ads.source_files   = files
+      ads.exclude_files = 'Source/Services/AdSense/**/*_Sources.m'
+      ads.source_files  = 'Source/Services/AdSense/**/*.{h,m}'
     end
     
     serv.subspec 'Analytics' do |anl|
-      files = FileList['Source/Services/Analytics/**/*.{h,m}'].exclude('**/*_Sources.m')
-      anl.source_files   = files
+      anl.exclude_files = 'Source/Services/Analytics/**/*_Sources.m'
+      anl.source_files  = 'Source/Services/Analytics/**/*.{h,m}'
     end
     
     serv.subspec 'Blogger' do |blg|
-      files = FileList['Source/Services/Blogger/**/*.{h,m}'].exclude('**/*_Sources.m')
-      blg.source_files   = files
+      blg.exclude_files = 'Source/Services/Blogger/**/*_Sources.m'
+      blg.source_files  = 'Source/Services/Blogger/**/*.{h,m}'
     end
     
     serv.subspec 'Books' do |books|
-      files = FileList['Source/Services/Books/**/*.{h,m}'].exclude('**/*_Sources.m')
-      books.source_files   = files
+      books.exclude_files = 'Source/Services/Books/**/*_Sources.m'
+      books.source_files  = 'Source/Services/Books/**/*.{h,m}'
     end
     
     serv.subspec 'Calendar' do |cal|
-      files = FileList['Source/Services/Calendar/**/*.{h,m}'].exclude('**/*_Sources.m')
-      cal.source_files   = files
+      cal.exclude_files = 'Source/Services/Calendar/**/*_Sources.m'
+      cal.source_files  = 'Source/Services/Calendar/**/*.{h,m}'
     end
     
     serv.subspec 'CivicInfo' do |cinfo|
-      files = FileList['Source/Services/CivicInfo/**/*.{h,m}'].exclude('**/*_Sources.m')
-      cinfo.source_files   = files
+      cinfo.exclude_files = 'Source/Services/CivicInfo/**/*_Sources.m'
+      cinfo.source_files  = 'Source/Services/CivicInfo/**/*.{h,m}'
     end
     
     serv.subspec 'Compute' do |compute|
-      files = FileList['Source/Services/Compute/**/*.{h,m}'].exclude('**/*_Sources.m')
-      compute.source_files   = files
+      compute.exclude_files = 'Source/Services/Compute/**/*_Sources.m'
+      compute.source_files  = 'Source/Services/Compute/**/*.{h,m}'
     end
     
     serv.subspec 'Discovery' do |disc|
-      files = FileList['Source/Services/Discovery/**/*.{h,m}'].exclude('**/*_Sources.m')
-      disc.source_files   = files
+      disc.exclude_files = 'Source/Services/Discovery/**/*_Sources.m'
+      disc.source_files  = 'Source/Services/Discovery/**/*.{h,m}'
     end
     
     serv.subspec 'Drive' do |drive|
-      files = FileList['Source/Services/Drive/**/*.{h,m}'].exclude('**/*_Sources.m')
-      drive.source_files   = files
+      drive.exclude_files = 'Source/Services/Drive/**/*_Sources.m'
+      drive.source_files  = 'Source/Services/Drive/**/*.{h,m}'
     end
     
     serv.subspec 'Groupssettings' do |grpss|
-      files = FileList['Source/Services/Groupssettings/**/*.{h,m}'].exclude('**/*_Sources.m')
-      grpss.source_files   = files
+      grpss.exclude_files = 'Source/Services/Groupssettings/**/*_Sources.m'
+      grpss.source_files  = 'Source/Services/Groupssettings/**/*.{h,m}'
     end
     
     serv.subspec 'Latitude' do |lat|
-      files = FileList['Source/Services/Latitude/**/*.{h,m}'].exclude('**/*_Sources.m')
-      lat.source_files   = files
+      lat.exclude_files = 'Source/Services/Latitude/**/*_Sources.m'
+      lat.source_files  = 'Source/Services/Latitude/**/*.{h,m}'
     end
     
     serv.subspec 'Licensing' do |lic|
-      files = FileList['Source/Services/Licensing/**/*.{h,m}'].exclude('**/*_Sources.m')
-      lic.source_files   = files
+      lic.exclude_files = 'Source/Services/Licensing/**/*_Sources.m'
+      lic.source_files  = 'Source/Services/Licensing/**/*.{h,m}'
+    end
+    
+    serv.subspec 'Mirror' do |mir|
+      mir.exclude_files = 'Source/Services/Mirror/**/*_Sources.m'
+      mir.source_files  = 'Source/Services/Mirror/**/*.{h,m}'
     end
     
     serv.subspec 'Orkut' do |ork|
-      files = FileList['Source/Services/Orkut/**/*.{h,m}'].exclude('**/*_Sources.m')
-      ork.source_files   = files
+      ork.exclude_files = 'Source/Services/Orkut/**/*_Sources.m'
+      ork.source_files  = 'Source/Services/Orkut/**/*.{h,m}'
     end
     
     serv.subspec 'Plus' do |plus|
-      files = FileList['Source/Services/Plus/**/*.{h,m}'].exclude('**/*_Sources.m')
-      plus.source_files   = files
+      plus.exclude_files = 'Source/Services/Plus/**/*_Sources.m'
+      plus.source_files  = 'Source/Services/Plus/**/*.{h,m}'
     end
     
     serv.subspec 'Shopping' do |shop|
-      files = FileList['Source/Services/Shopping/**/*.{h,m}'].exclude('**/*_Sources.m')
-      shop.source_files   = files
+      shop.exclude_files = 'Source/Services/Shopping/**/*_Sources.m'
+      shop.source_files  = 'Source/Services/Shopping/**/*.{h,m}'
     end
     
     serv.subspec 'Storage' do |storg|
-      files = FileList['Source/Services/Storage/**/*.{h,m}'].exclude('**/*_Sources.m')
-      storg.source_files   = files
+      storg.exclude_files = 'Source/Services/Storage/**/*_Sources.m'
+      storg.source_files  = 'Source/Services/Storage/**/*.{h,m}'
     end
     
     serv.subspec 'Tasks' do |tasks|
-      files = FileList['Source/Services/Tasks/**/*.{h,m}'].exclude('**/*_Sources.m')
-      tasks.source_files   = files
+      tasks.exclude_files = 'Source/Services/Tasks/**/*_Sources.m'
+      tasks.source_files  = 'Source/Services/Tasks/**/*.{h,m}'
     end
     
     serv.subspec 'Urlshortener' do |urlshort|
-      files = FileList['Source/Services/Urlshortener/**/*.{h,m}'].exclude('**/*_Sources.m')
-      urlshort.source_files   = files
+      urlshort.exclude_files = 'Source/Services/Urlshortener/**/*_Sources.m'
+      urlshort.source_files  = 'Source/Services/Urlshortener/**/*.{h,m}'
     end
     
     serv.subspec 'YouTube' do |ytb|
-      files = FileList['Source/Services/YouTube/**/*.{h,m}'].exclude('**/*_Sources.m')
-      ytb.source_files   = files
+      ytb.exclude_files = 'Source/Services/YouTube/**/*_Sources.m'
+      ytb.source_files  = 'Source/Services/YouTube/**/*.{h,m}'
     end
     
     serv.subspec 'YouTubeAnalytics' do |ytbanal|
-      files = FileList['Source/Services/YouTubeAnalytics/**/*.{h,m}'].exclude('**/*_Sources.m')
-      ytbanal.source_files   = files
+      ytbanal.exclude_files = 'Source/Services/YouTubeAnalytics/**/*_Sources.m'
+      ytbanal.source_files   = 'Source/Services/YouTubeAnalytics/**/*.{h,m}'
     end
     
   end

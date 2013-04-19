@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     ss.prefix_header_contents = '''
 #define SQLITE_ENABLE_FTS4
 #define SQLITE_ENABLE_FTS3_PARENTHESIS
-#define SQLITE_THREADSAFE
+#define SQLITE_THREADSAFE 1
 '''
   end
 
