@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   }
 
   s.platform     = :ios, '5.0'
-  s.source_files = 'STTimeSlider/STTimeSlider.{h,m}, STTimeSlider/STTimeSliderMoveView.{h,m}'
+  s.source_files = 'STTimeSlider/STTimeSlider.{h,m}', 'STTimeSlider/STTimeSliderMoveView.{h,m}'
   s.requires_arc = true
   s.frameworks = 'CoreGraphics', 'QuartzCore'
 end
