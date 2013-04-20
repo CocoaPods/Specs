@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/simonbs/BSKeyboardControls.git", :commit => "baa108195e9cb18a53bede6d33c722470164e872" }
   s.platform     = :ios
   s.source_files = "BSKeyboardControls/BSKeyboardControls.{h,m}"
+  s.requires_arc = true
 end
