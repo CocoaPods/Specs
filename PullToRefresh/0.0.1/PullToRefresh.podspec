@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author   = { 'Leah Culver' => 'leah.culver@gmail.com' }
-  s.source   = { :git => 'https://github.com/leah/PullToRefresh.git', :commit => '6ae5ed942bccd57029312da0106ab4a55f29289d' }
+  s.source   = { :git => 'https://github.com/leah/PullToRefresh.git', :commit => 'eebf1d403c9c27c673cfe35dc32360eeb5cc3845' }
   s.source_files = 'Classes/PullRefreshTableViewController.*'
   s.framework    = 'QuartzCore'
   s.resource     = 'arrow.png'
