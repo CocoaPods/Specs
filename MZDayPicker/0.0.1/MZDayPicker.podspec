@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "MZDayPicker"
   s.version      = "0.0.1"
-  s.summary      = "An iOS day picker to allow users to select date"
+  s.summary      = "An iOS day picker to allow users to select date."
 
   s.homepage     = "https://github.com/m1entus/MZDayPicker"
 
