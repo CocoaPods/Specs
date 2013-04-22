@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MASShortcut"
-  s.version      = "1.1"
+  s.version      = "1.2"
   s.summary      = "Modern framework for managing global keyboard shortcuts compatible with Mac App Store."
   s.description  = <<-DESC
                      Some time ago Cocoa developers used a brilliant framework ShortcutRecorder for managing keyboard shortcuts in application preferences. However, it became incompatible with a new plugin architecture of Xcode 4. 
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://blog.shpakovski.com/2012/07/global-keyboard-shortcuts-in-cocoa.html"
   s.license      = 'BSD'
   s.author       = { "Vadim Shpakovski" => "vadim@shpakovski.com" }
-  s.source       = { :git => "https://github.com/shpakovski/MASShortcut.git", :commit => "3d4235f879e6f31b9bbcfb6b0fa2178de14d88aa" }
+  s.source       = { :git => "https://github.com/shpakovski/MASShortcut.git", :commit => "86443bc53c24cb99b7236c0ce382d701170e3449" }
   s.platform     = :osx
   s.osx.deployment_target = '10.6'
   s.source_files = '*.{h,m}'
