@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'debug.h', 'supports/pod.m'
   s.public_header_files = 'debug.h'
+  s.prefix_header_contents = '#include <cdebug/debug.h>'
 end
