@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.description = 'JPSThumbnailAnnotation is a simple mapkit annotation view for displaying people with clean design and animations.'
 
   s.source_files = 'JPSThumbnailAnnotation/*.{h,m}'
-  s.frameworks   = 'QuartzCore, MapKit, CoreLocation'
+  s.frameworks   = 'QuartzCore', 'MapKit', 'CoreLocation'
   s.requires_arc = true
 end
