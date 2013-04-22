@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
 #include <cdebug/debug.h>
 #include <FoundationExtension/FoundationExtension.h>
     '
-    ss.xcconfig = { "GCC_PREFIX_HEADER" => "FoundationExtension/FoundationExtension-Prefix.pch" }
   end
 
   s.subspec "CocoaExtension" do |ss|
@@ -37,7 +36,6 @@ Pod::Spec.new do |s|
 #include <cdebug/debug.h>
 #include <CocoaExtension/CocoaExtension.h>
     '
-    ss.xcconfig = { "GCC_PREFIX_HEADER" => "CocoaExtension/CocoaExtension-Prefix.pch" }
     ss.dependency "FoundationExtension/FoundationExtension"
   end
 
