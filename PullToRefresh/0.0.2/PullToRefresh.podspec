@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author   = { 'Leah Culver' => 'leah.culver@gmail.com' }
-  s.source   = { :git => 'https://github.com/wibobm/Specs.git', :tag => s.version.to_s }
+  s.source   = { :git => 'https://github.com/wibobm/PullToRefresh.git', :tag => '0.0.2' }
   s.source_files = 'Classes/PullRefreshTableViewController.*'
   s.framework    = 'QuartzCore'
   s.resource     = 'arrow.png'
