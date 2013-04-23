@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "NJKWebViewProgress"
-  s.version      = "0.1.2"
-  s.license      = 'MIT'
+  s.version      = "0.1.3"
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "UIWebView progress interface."
   s.description  = "NJKWebViewProgress is a progress interface library for UIWebView. Currently, UIWebView don't have official progress interface. You can implement progress bar for your in-app browser using this module."
   s.homepage     = "https://github.com/ninjinkun/NJKWebViewProgress"
