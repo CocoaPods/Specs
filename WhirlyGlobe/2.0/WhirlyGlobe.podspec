@@ -27,8 +27,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Headers' do |headers|
-    headers.source_files = "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobe-MaplyComponent}/include/**/*.h"
-    headers.public_header_files = FileList['WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobe-MaplyComponent}/include/**/*.{h}'].exclude(/private/)
+    headers.source_files = "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/**/*.h"
+    headers.public_header_files = "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/*.h"
 
     headers.dependency 'eigen'
     headers.dependency 'boost/shared_ptr-includes'
@@ -48,7 +48,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Component' do |sp|
-    sp.source_files = 'WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/src/**/*.{mm,m}'
+    sp.source_files = 'WhirlyGlobeSrc/WhirlyGlobeComponent/src/**/*.{mm,m}'
 
     sp.dependency 'WhirlyGlobe/Lib'
 
