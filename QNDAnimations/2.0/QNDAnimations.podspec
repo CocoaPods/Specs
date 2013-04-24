@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "QNDAnimations"
   s.version      = "2.0"
-  s.summary      = "This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations."
+  s.summary      = "This is an implementation of a UIView that introduces the idea of 'rewinding', 'toggling' and 'forwarding' in animations."
   s.homepage     = "https://github.com/qnoid/QNDAnimations"
   s.license			 = "MIT"
 
