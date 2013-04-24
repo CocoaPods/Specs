@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name	= "clipper"
-  s.version	= "4.8.8"
+  s.version	= "5.1.4"
   s.summary	= "The Clipper library primarily performs the boolean clipping operations."
   s.description = <<-DESC
 The Clipper library primarily performs the boolean clipping operations - intersection, union, difference & xor - on 2D polygons. It also performs polygon offsetting.
@@ -12,7 +12,7 @@ The clipping code is based on the Vatti clipping algorithm, and out performs oth
   s.license	= { :type => "Boost Software License",
 		    :file => "License.txt" }
   s.author	= { "Angus Johnson" => "awj1958@gmail.com" }
-  s.source      = { :svn => "http://svn.code.sf.net/p/polyclipping/code", :tag => "4.8.8" }
+  s.source	= { :svn => "http://svn.code.sf.net/p/polyclipping/code", :tag => "5.1.4" }
 
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
