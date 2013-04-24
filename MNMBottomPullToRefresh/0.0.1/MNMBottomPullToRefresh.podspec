@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   LICENSE
   }
   s.requires_arc = true
-  s.source       = { :git => "https://github.com/emenegro/bottom-pull-to-refresh.git", :commit => '98ab5de5a5f7aa3aa04d535881771dbdb008ed4b' }
+  s.source       = { :git => "https://github.com/emenegro/bottom-pull-to-refresh.git", :commit => '82d5fed6dd7f4a4df531a6954398b60b9aecec6d' }
   s.source_files = 'MNMBottomPullToRefreshDemo/MNMBottomPullToRefresh/*.{h,m}'
   s.resources    = 'MNMBottomPullToRefreshDemo/MNMBottomPullToRefresh/*.{png,strings}'
 end
