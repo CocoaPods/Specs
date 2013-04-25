@@ -2,8 +2,8 @@
 Pod::Spec.new do |s|
   s.name         = "UMengAppNetwork"
   s.version      = "3.5.4"
-  s.summary      = "Umeng app network sdk."
-  s.description  = ""
+  s.summary      = "Umeng AppNetwork SDK."
+  s.description  = "Umeng AppNetwork promotes your app among other apps that in the network and uses advanced targeting to find the right users for your app and keep them coming back."
   s.homepage     = "http://www.umeng.com/appunion_exchange"
   
   s.license      = {
