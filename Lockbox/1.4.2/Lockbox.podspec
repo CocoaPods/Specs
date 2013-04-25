@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/granoff/Lockbox.git', :tag => '1.4.2' }
 
+  s.platform = :ios
   s.source_files = 'Lockbox.{h,m}'
-  s.clean_path = 'LockBox'
-  s.framework = 'Security'
+  s.frameworks = 'Security'
 end
