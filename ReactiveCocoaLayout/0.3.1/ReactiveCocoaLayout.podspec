@@ -12,14 +12,15 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
 
-  s.header_dir = 'ReactiveCocoaLayout'
-  s.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics'
+  s.source_files = 'ReactiveCocoaLayout/*.{h,m}'
   s.dependency 'Archimedes'
   s.dependency 'ReactiveCocoa'
 
-  files = FileList['ReactiveCocoaLayout/*.{h,m}']
-  s.ios.source_files = files.dup.exclude(/NSCell/, /NSControl/, /NSView/)
-  s.osx.source_files = files.dup.exclude(/UIView/)
+  s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
+  s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
+
+  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
+  s.osx.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'Cocoa'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
