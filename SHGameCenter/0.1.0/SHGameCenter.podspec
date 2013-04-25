@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework = "GameKit"
 
-  s.source_files = 'SHGameCenter/**/*.{h,m}'
+  s.source_files = 'SHGameCenter/**/*.{h,m,implementation,privates}'
   s.requires_arc = true
   s.dependency 'BlocksKit', '~> 1.8'
 end
