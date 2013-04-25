@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "UMengFeedback"
   s.version      = "1.4"
   s.summary      = "UMeng feedback SDK for iOS."
-  s.description  = "UMeng feedback SDK for iOS."
+  s.description  = "UMeng feedback SDK provide users and developers two way feedback communication."
   s.homepage     = "http://dev.umeng.com/sdkdownload/sdkdownload_fb_ios.html"
 
   sdk_version = "1.4"
