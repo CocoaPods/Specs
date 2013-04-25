@@ -14,11 +14,9 @@ Pod::Spec.new do |s|
 
   s.requires_arc     =  true
 
-  def s.copy_header_mapping(from)
-    from.sub('MKNetworkKit/', '')
-  end
+  s.header_mappings_dir =  'MKNetworkKit/'
 
-  s.dependency 'Reachability', '~> 3.0'
+  s.dependency 'Reachability', '~> 3.1.0'
 
   s.license  = { :type => 'MIT',
                  :text => 'MKNetworkKit is licensed under MIT License

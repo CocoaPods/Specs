@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A modern, flexible logging tool.'
   s.homepage = 'https://github.com/fpillet/NSLogger'
   s.author   = { 'Florent Pillet' => 'fpillet@gmail.com' }
-  s.source   = { :git => 'https://github.com/fpillet/NSLogger.git', :commit => '3253608026' }
+  s.source   = { :git => 'https://github.com/fpillet/NSLogger.git', :tag => 'v1.1' }
 
   s.description = 'NSLogger is a high perfomance logging utility which displays traces emitted by ' \
                   'client applications running on Mac OS X or iOS (iPhone OS). It replaces your '   \
