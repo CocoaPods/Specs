@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   crashlytics    = { :spec_name => "Crashlytics" }                                                
   helpshift      = { :spec_name => "Helpshift",        :dependency => "Helpshift",                :import_file => "Helpshift",          :has_extension => false  }
 
-  $all_analytics = [testflight_sdk, mixpanel, localytics, flurry, google, kissmetrics, crittercism, crashlytics, bugsnag, countly, helpshift]
+  all_analytics = [testflight_sdk, mixpanel, localytics, flurry, google, kissmetrics, crittercism, crashlytics, bugsnag, countly, helpshift]
 
   # bring in all files via the core package
   s.subspec "Core" do |ss|
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   end
   
   # make specs for each analytics
-  $all_analytics.each do |analytics_spec|
+  all_analytics.each do |analytics_spec|
     s.subspec analytics_spec[:spec_name] do |ss|
       
       # All subspecs require the core
