@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "DOSingleton"
   s.version      = "0.0.2"
-  s.summary      = "Subclassable Objective-C singleton."
+  s.summary      = "Subclassable Objective-C singleton for Mac OSX and iOS."
   s.homepage     = "https://github.com/stel/DOSingleton"
   s.license      = 'MIT'
   s.author       = { "Dmitry Obukhov" => "stel2k@gmail.com" }
