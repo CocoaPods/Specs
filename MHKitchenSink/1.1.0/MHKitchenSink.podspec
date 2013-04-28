@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/bobjustbob/MHKitchenSink"
   s.license      = 'MIT'
   s.author       = { "Bobby Williams" => "bjackw@mac.com" }
-  s.source       = { :git => "https://github.com/bobjustbob/MHKitchenSink.git", :tag => "v1.1.1" }
+  s.source       = { :git => "https://github.com/bobjustbob/MHKitchenSink.git", :tag => "v1.1.0" }
   s.platform     = :ios, '5.0'
   s.source_files = 'MHKitchenSink/**/*.{h,m}'
   s.requires_arc = true
