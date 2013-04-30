@@ -26,6 +26,7 @@ EOS
     ios.platform                = :ios, '4.3'
     ios.ios.deployment_target   = '4.3'
 
+    ios.preserve_paths              = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h'
     ios.source_files            = 'cpp/core/src/zxing/**/*.cpp', 'objc/src/ZXing/*.{m,mm}', 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
     ios.compiler_flags          = '-IZXing/cpp/core/src/ -IZXing/objc/src/', '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
 
