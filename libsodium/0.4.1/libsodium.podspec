@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "libsodium"
-  s.version      = "0.3"
+  s.version      = "0.4.1"
   s.summary      = "Sodium is a portable, cross-compilable, installable, packageable, API-compatible version of NaCl."
   s.homepage     = "https://github.com/jedisct1/libsodium"
   s.license      = { :type => "BSD",
