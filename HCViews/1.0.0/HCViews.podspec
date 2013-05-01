@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "HCViews"
   s.version      = "1.0.0"
-  s.summary      = "HCViews is a (currently small) collection of convenient views."
+  s.summary      = "HCViews is a (currently small) collection of convenient UIView subclasses."
   s.homepage     = "https://github.com/hypercrypt/HCViews"
 
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
