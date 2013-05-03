@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/seesawco/SEEActivityIndicatorView'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Caleb Davenport' => 'calebmdavenport@gmail.com' }
-  s.source       = { :git => 'https://github.com/soffes/SEEActivityIndicatorView.git', :tag => 'v0.1.0' }
+  s.source       = { :git => 'https://github.com/seesawco/SEEActivityIndicatorView.git', :tag => 'v0.1.0' }
   s.source_files = 'SEEActivityIndicatorView.{h,m}'
   s.platform     = :ios, '5.0'
   s.requires_arc = true
