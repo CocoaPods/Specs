@@ -14,11 +14,9 @@ Pod::Spec.new do |s|
   s.author       = 'mocoplex'
   s.source       = { :git => "https://github.com/youknowone/adlibr-SDK-ios.git", :tag => "3.2.1" }
   s.platform     = :ios
-  s.source_files = '*.{h|m}', FileList.new('adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.{h,m}') do |fl|
-    fl.exclude(/TAD/)
-    fl.exclude(/JSONKit/)
-  end
-  s.public_header_files = '*.h', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.h'
+  s.source_files = 'adlibrTestUniversal/*.{h|m}', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.{h,m}'
+  s.exclude_files = 'adlibrTestUniversal/adlibrTestUniversal/ads/lib/JSONKit', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/SubAdView/SubAdlibAdViewTAD.*'
+  s.public_header_files = 'adlibrTestUniversal/*.h', 'adlibrTestUniversal/adlibrTestUniversal/ads/adlib.mocoplex/**/*.h'
   s.preserve_paths = 'adlibrTestUniversal/adlibrTestUniversal/ads/lib/libAdlibr.3.2.1.a'
 
   s.framework = 'iAd'
