@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://s3.amazonaws.com/showkitweb/release/3/ShowKit-0.1.9.zip" }
 
   s.platform     = :ios, '5.0'
-  s.source_files = 'ShowKit.framework/Versions/A/Headers/*'
+  s.source_files = 'ShowKit.framework/Versions/A/Headers/ShowKit.h'
   s.preserve_paths = 'ShowKit.framework/*'
 
-  s.frameworks = 'ShowKit', 'OpenGLES', 'AVFoundation', 'QuartzCore', 'CFNetwork', 'CoreVideo', 'CoreGraphics', 'CoreMedia', 'AudioToolbox', 'SystemConfiguration'
+  s.frameworks = 'OpenGLES', 'AVFoundation', 'QuartzCore', 'CFNetwork', 'CoreVideo', 'CoreGraphics', 'CoreMedia', 'AudioToolbox', 'SystemConfiguration', 'ShowKit'
   s.libraries = 'resolv', 'z'
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ShowKit"' }
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ShowKit"', 'OTHER_LDFLAGS' => '-lc++' }
 
   s.requires_arc = false
 end
