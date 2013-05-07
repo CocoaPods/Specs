@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'spksmtpmessage'
+  s.name     = 'skpsmtpmessage'
   s.version  = '0.0.1'
   s.license  = 'Public Domain'
   s.platform = :ios
