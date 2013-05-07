@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/hoteltonight/HTCoreImage.git", :tag => '1.0.0' }
   s.ios.deployment_target = '5.0'
   s.source_files = 'Classes', '*.{h,m}'
+  s.frameworks   = 'QuartzCore', 'CoreGraphics', 'CoreImage'
   s.requires_arc = true
 end
