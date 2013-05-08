@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "MMDrawerController"
   s.version      = "0.0.1"
   s.summary      = "A lightweight, easy-to-use side drawer navigation controller."
-  s.homepage     = "https://stash.r.mutualmobile.com/projects/IOS/repos/mmdrawercontainerviewcontroller/browse"
+  s.homepage     = "https://github.com/mutualmobile/MMDrawerController"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Kevin Harwood" => "kevin.harwood@mutualmobile.com" }
   s.source       = { :git => "https://github.com/mutualmobile/MMDrawerController.git", :tag => "0.0.1" }
