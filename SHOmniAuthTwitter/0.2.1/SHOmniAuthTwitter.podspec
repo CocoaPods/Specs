@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SHOmniAuthTwitter/**/*.{h,m}'
   s.requires_arc = true
-  s.dependency  'TWReverseAuth'
-  s.dependency  'AFOAuth1Client'
+  s.dependency  'TWReverseAuth', '~>0.1.0'
+  s.dependency  'AFOAuth1Client', '~> 0.2.0'
   s.dependency  'SHOmniAuth', '~> 0.1.0'
 end
 
