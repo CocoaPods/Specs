@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Marcus Kida" => "mail@marcuskida.de" }
 
-  s.source       = { :git => "https://github.com/kimar/KIImagePager.git", :commit => '7cc22df1f8c2d4d4ed96794d4917f7de50f6cd1a' }
+  s.source       = { :git => "https://github.com/kimar/KIImagePager.git", :tag => '0.0.2' }
   s.platform = :ios, '5.0'
 
   s.source_files = 'KIImagePager/KIImagePager/*.{h,m,png}'
