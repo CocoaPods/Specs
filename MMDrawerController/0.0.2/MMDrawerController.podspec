@@ -12,16 +12,19 @@ Pod::Spec.new do |s|
                        "http://mutualmobile.github.io/MMDrawerController/ExampleImages/example2.png" ]
   
   s.subspec 'Core' do |ss|
+    ss.public_header_files = 'MMDrawerController/MMDrawerController.h', 'MMDrawerController/UIViewController+MMDrawerController.h'
     ss.source_files = 'MMDrawerController/MMDrawerController*', 'MMDrawerController/UIViewController+MMDrawerController*'
     ss.framework  = 'QuartzCore'
   end
   
   s.subspec 'MMDrawerBarButtonItem' do |ss|
+      ss.public_header_files = 'MMDrawerController/MMDrawerBarButtonItem.h'
       ss.source_files = 'MMDrawerController/MMDrawerBarButtonItem.{h,m}'
       ss.dependency 'MMDrawerController/Core'
     end
     
   s.subspec 'MMDrawerVisualStates' do |ss|
+      ss.public_header_files = 'MMDrawerController/MMDrawerVisualState.h'
       ss.source_files = 'MMDrawerController/MMDrawerVisualState.{h,m}'
       ss.dependency 'MMDrawerController/Core'
     end
