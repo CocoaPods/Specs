@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.platform     = :osx
   s.source_files = 'JA*.{h,m}', 'NSIndexPath+JAListViewExtensions.{h,m}'
   s.exclude_files = 'JAListViewAppDelegate.{h,m}'
-
+  s.framework = 'QuartzCore'
 end
