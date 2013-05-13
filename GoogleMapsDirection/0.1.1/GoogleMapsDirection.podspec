@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Djengo/GoogleMapsDirection"
   s.license      = "MIT License"
   s.author       = { "Djengo" => "it@djengo.net" }
-  s.source       = { :git => "https://github.com/Djengo/GoogleMapsDirection.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/Djengo/GoogleMapsDirection.git", :tag => "0.1.1" }
   s.platform     = :ios, "5.0"
   s.requires_arc = true
   s.source_files = "GMDirection"
