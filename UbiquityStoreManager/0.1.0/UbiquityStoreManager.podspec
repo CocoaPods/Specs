@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'LASGPLv3', :file => 'LICENSE' }
   s.author       = { "Maarten Billemont" => "lhunath@lyndir.com" }
   s.source       = { :git => "https://github.com/lhunath/UbiquityStoreManager.git", :tag => "0.1.0" }
-  s.ios.deployment_target = '5.0'
+  s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
   s.source_files = 'Classes', 'UbiquityStoreManager/**/*.{h,m}'
   s.exclude_files = 'UbiquityStoreManagerExample'
