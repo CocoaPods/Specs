@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.exclude_files = 'TheKitchenSyncTests'
   s.libraries     = 'c++'
   s.requires_arc = false
-  s.prefix_header_file = 'TheKitchenSync-Prefix.pch'
   s.xcconfig = { 
     'CLANG_CXX_LIBRARY' => 'libc++', 
     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
