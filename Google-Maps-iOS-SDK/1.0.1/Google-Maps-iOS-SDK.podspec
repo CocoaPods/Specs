@@ -10,10 +10,11 @@ Pod::Spec.new do |s|
   }
   s.author = 'Google Inc.'
 
-  s.source = { :http => 'https://dl.google.com/geosdk/googlemaps-ios-1.0.1.zip' }
+  s.source = { :http => 'https://dl.google.com/geosdk/googlemaps-ios-1.0.1.zip', :flatten => true }
   s.platform = :ios
+  s.ios.deployment_target = '5.1'
 
-  framework_path = 'GoogleMaps-1.0.1/GoogleMaps.framework'
+  framework_path = 'GoogleMaps.framework'
 
   s.source_files = "#{framework_path}/Headers/*.h"
   s.resource = "#{framework_path}/Resources/GoogleMaps.bundle"
@@ -24,5 +25,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'GoogleMaps', 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreText', 'GLKit', 'ImageIO', 'OpenGLES', 'QuartzCore', 'SystemConfiguration'
   s.libraries = 'icucore', 'stdc++', 'z'
 
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Maps-iOS-SDK/GoogleMaps-1.0.1"' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Maps-iOS-SDK"' }
 end
