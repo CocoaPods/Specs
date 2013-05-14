@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Alejandro Isaza" => "al@isaza.ca" }
   s.source       = { :git => "https://github.com/aleph7/AIAnimation.git", :tag => "0.0.2" }
   s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
   s.source_files = 'AIAnimation'
   s.requires_arc = true
-  s.framework  = 'UIKit'
+  s.framework    = 'UIKit'
 end
