@@ -91,7 +91,6 @@ PODS_ALLOWED_TO_FAIL = {
     "AGWindowView",
     "Ashton",
     "ASIHTTPRequest",
-    "BeamMusicPlayerViewController",
     "Calabash-server",
     "Cedar",
     "cocos2d",
