@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 s.name         = "UMengSocial"
 s.version      = "2.1.2"
-s.summary      = "umeng social sdk."
-s.description  = "Social sdk, you can easily share any content to Sina Weibo, Tencent Weibo, Renren, Qzone, Doubban, Wechat and so on using our unified APIs."
+s.summary      = "UMeng's official Social SDK for iOS."
+s.description  = "UMeng Social SDK,You can easily share any content to Sina Weibo, Tencent Weibo, Renren, Qzone, Doubban, Wechat and so on using our unified APIs."
 s.homepage     = "http://dev.umeng.com/doc/document_social_ios.html"
 s.license           = {
     :type => "Copyright",
@@ -10,7 +10,7 @@ s.license           = {
     Copyright 2011 - 2013 Umeng.com. All rights reserved.
     LICENSE
 }
-s.author            = { "umeng" => "support@umeng.com" }
+s.author            = { "UMeng" => "support@umeng.com" }
 s.source            = { :http => "http://dev.umeng.com/files/download/UMSocial_Sdk_All_2.1.0.zip"}
 s.source_files      = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/Sources/*.{h,m}","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/Headers/*/*.h","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/frameworks/*/*.{h,m}"
 s.resources         = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/UMSocialSDKResources.bundle","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/SocialSDKXib/*.xib"
