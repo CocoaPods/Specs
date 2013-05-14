@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
   s.source_files = 'SHOmniAuthFacebook/**/*.{h,m}'
   s.requires_arc = true
   s.frameworks   = 'Accounts', 'Social'
-
-
+  
   s.dependency  'Facebook-iOS-SDK', '~> 3.2.1' 
   s.dependency  'SHOmniAuth',       '~> 0.1.0'
 end
