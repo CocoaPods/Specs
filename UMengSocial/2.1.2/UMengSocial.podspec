@@ -12,7 +12,7 @@ s.license           = {
 }
 s.author            = { "umeng" => "support@umeng.com" }
 s.source            = { :http => "http://dev.umeng.com/files/download/UMSocial_Sdk_All_2.1.0.zip"}
-s.source_files      = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/SocialPlugin/*.{h,m}","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/Headers/*/*.h","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/frameworks/*/*.{h,m}"
+s.source_files      = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/Sources/*.{h,m}","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/Headers/*/*.h","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/frameworks/*/*.{h,m}"
 s.resources         = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/UMSocialSDKResources.bundle","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/SocialSDKXib/*.xib"
 s.preserve_paths    = "UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/libUMSocial_Sdk_2.1.2.a","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/libUMSocial_Sdk_Comment_2.1.2.a","UMSocial_Sdk_All_2.1.2/UMSocial_Sdk_2.1.2/frameworks/Wechat/libWeChatSDK_armv7_armv7s.a"
 s.library           = "UMSocial_Sdk_2.1.2","UMSocial_Sdk_Comment_2.1.2","WeChatSDK_armv7_armv7s","z"
