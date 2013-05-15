@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "David Keegan" => "git@davidkeegan.com" }
   s.source       = { :git => "https://github.com/kgn/DBPrefsWindowController.git", :commit => '8696fee5db40ec62f1544c8d002532b1ba81cd5e' }
   s.platform     = :osx
-  s.source_files = FileList['Source/*.{h,m}'].exclude(/AppController/, /main/, /AppPrefs/)
+  s.source_files = 'Source/*.{h,m}'
+  s.exclude_files= '**/{AppController,main,AppPrefs}*'
   s.requires_arc = true
 end

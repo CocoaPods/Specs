@@ -72,13 +72,6 @@ PODS_ALLOWED_TO_FAIL = {
   ],
 
   "Rake::FileList is deprecated, use `exclude_files` (source_files)." => [
-    "Calabash-server",
-    "Cedar",
-    "cocos2d",
-    "CorePlot",
-    "DBPrefsWindowController",
-    "FMDB",
-    "FontAwesomeIconFactory",
     "geos",
     "GHUnitOSX",
     "Google-API-Client",
