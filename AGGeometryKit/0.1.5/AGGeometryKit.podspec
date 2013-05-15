@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
         :git => "https://github.com/hfossli/AGGeometryKit.git", 
         :tag => s.version.to_s
         }
-    s.source_files = FileList['Source/*'].exclude(/.*Test\.[hm]$/)
+    s.source_files = 'Source'
+    s.exclude_files = '**/*Test.{h,m}'
     s.frameworks   = 'SystemConfiguration', 'IOKit', 'CoreGraphics', 'UIKit', 'QuartzCore'
     s.platform     = :ios
     s.requires_arc = true
