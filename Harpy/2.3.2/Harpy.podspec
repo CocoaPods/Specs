@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ArtSabintsev/Harpy.git", :tag => "2.3.2" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Harpy/*.{h,m}'
-  s.resources    = 'Harpy/Harpy.bundle/*.lproj/*.strings'
+  s.resources    = 'Harpy/Harpy.bundle'
   s.requires_arc = true
 
   s.license      = {
