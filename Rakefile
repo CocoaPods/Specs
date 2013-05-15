@@ -204,6 +204,7 @@ end
 desc "Converts the specifications to yaml"
 task :convert_specs_to_yaml do
   require 'cocoapods-core'
+  skipped_specs_count = 0
   Dir.glob('**/*.podspec') do |spec_path|
     spec = Pod::Spec.from_file(spec_path)
     if spec.safe_to_hash?
@@ -211,8 +212,11 @@ task :convert_specs_to_yaml do
       puts "#{spec_path} -> #{spec_yaml_path}"
       File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
       File.delete(spec_path)
+    else
+      skipped_specs_count += 1
     end
   end
+  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
 
 end
 
