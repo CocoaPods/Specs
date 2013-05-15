@@ -68,19 +68,7 @@ PODS_ALLOWED_TO_FAIL = {
 
   # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BJRangeSliderWithProgress',
-    'cocos2d',
-    'CouchCocoa',
     'iOS-Hierarchy-Viewer',
-    'PonyDebugger',
-    'RestKit',
-  ],
-
-  "Rake::FileList is deprecated, use `exclude_files` (public_header_files)." => [
-    "GRMustache",
-    "MAZeroingWeakRef",
-    "SinglySDK",
-    "WhirlyGlobe-Headers",
   ],
 
   "Rake::FileList is deprecated, use `exclude_files` (source_files)." => [

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'CouchCocoa'
-  s.version  = '0.961beta6'
+  s.version  = '0.961-beta6'
   s.license  = { :type => 'Apache', :text => 'Released under the Apache license, version 2.0.' }
   s.summary  = 'Objective-C API for CouchDB on iOS and Mac OS.'
   s.homepage = 'https://github.com/couchbaselabs/CouchCocoa'
