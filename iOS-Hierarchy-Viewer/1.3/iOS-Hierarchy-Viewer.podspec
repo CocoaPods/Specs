@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/glock45/iOS-Hierarchy-Viewer.git", :tag => "version_1_3" }
   s.platform     = :ios
   s.source_files = 'iOSViewHierarchy/**/*.{h,m}'
-  s.source_files =  FileList['iOSViewHierarchy/**/*.{h,m}'].exclude(/json/)
+  s.exclude_files = '**/*json*'
   # s.preserve_paths = "AUTHORS.txt"
   s.dependency 'JSONKit'
 end
