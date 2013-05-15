@@ -199,6 +199,25 @@ task :lint do
   puts "    $ pod spec lint [ NAME.podspec | DIRECTORY | http://PATH/NAME.podspec, ... ]"
 end
 
+#-----------------------------------------------------------------------------#
+
+desc "Converts the specifications to yaml"
+task :convert_specs_to_yaml do
+  require 'cocoapods-core'
+  Dir.glob('**/*.podspec') do |spec_path|
+    spec = Pod::Spec.from_file(spec_path)
+    if spec.safe_to_hash?
+      spec_yaml_path = "#{spec_path}.yaml"
+      puts "#{spec_path} -> #{spec_yaml_path}"
+      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
+      File.delete(spec_path)
+    end
+  end
+
+end
+
+#-----------------------------------------------------------------------------#
+
 task :default => :validate
 
 # group Analysis helpers
