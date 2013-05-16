@@ -6,11 +6,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'GPL v2 (with linking exception)', :file => 'COPYING' }
   s.author       = 'See AUTHORS file'
   s.source       = { :git => "https://github.com/libgit2/libgit2.git", :tag => "v0.17.0" }
-  s.source_files = FileList.new('deps/http-parser/*.{h,c}', 'src/**/*.{h,c}', 'include/**/*.h') do |fl|
-    fl.exclude('**/include/git2/inttypes.h')
-    fl.exclude('**/include/git2/stdint.h')
-    fl.exclude('**/src/win32/**')
-  end
+  s.source_files = 'deps/http-parser/*.{h,c}', 'src/**/*.{h,c}', 'include/**/*.h'
+  s.exclude_files = '**/include/git2/inttypes.h', '**/include/git2/stdint.h', '**/src/win32/**'
   s.public_header_files = 'include/**/*.h'
   s.preserve_paths = 'Authors'
   s.libraries = 'z'

@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, '5.0'
 
-  s.exclude_files = 'Source/*GNUstep.{h,m}', 'Source/*_Tests.{h,m}', 'vendor/oauthconsumer/OAHMAC_SHA1SignatureProvider.{m}' 
   s.source_files = 'Source/**/*.{h,m}','vendor/oauthconsumer/**/*.{h,m,c}','vendor/fmdb/src/**/*.{h,m}'
+  s.exclude_files = 'Source/*GNUstep.{h,m}', 'Source/*_Tests.{h,m}', 'vendor/oauthconsumer/OAHMAC_SHA1SignatureProvider.{m}' 
 
   s.header_dir = 'TouchDB'
 
