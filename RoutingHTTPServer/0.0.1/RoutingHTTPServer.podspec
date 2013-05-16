@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/mattstevens/RoutingHTTPServer.git', :commit => '535714b4eb9e164e1e0f7147c68f1726592f173f' }
   s.source_files = 'source/*.{h,m}'
   s.requires_arc = true
-  s.dependency 'CocoaHTTPServer', '~> 2.2.1'
+  s.dependency 'CocoaHTTPServer', '~> 2.3'
 end
