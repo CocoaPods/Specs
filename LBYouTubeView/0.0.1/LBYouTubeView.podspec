@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'LBYouTubeView'
   s.version  = '0.0.1'
   s.license  = 'MIT'
-  s.platform = :ios
+  s.platform = :ios, '5.0'
   s.summary  = 'A UIView subclass that displays YouTube videos using a MPMoviePlayerController.'
   s.homepage = 'https://github.com/larcus94/LBYouTubeView'
   s.author = 'Laurin Brandner'
