@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { "Manuel Alabor" => "msites@msites.net" }
   s.license      = "MIT"
   
-  s.source       = { :git => "https://github.com/swissmanu/MACachedImageView.git", :tag => "1.1.0" }
+  s.source       = { :git => "https://github.com/swissmanu/MACachedImageView.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '6.0'
   s.source_files = 'MACachedImageView/MACachedImageView.{h,m}','MACachedImageView/NSString+MD5.{h,m}'
