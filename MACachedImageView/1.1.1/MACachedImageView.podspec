@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MACachedImageView"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "Load images from a URL into a local cache before displaying them and show a fancy loading indicator in the meantime."
   s.homepage     = "https://github.com/swissmanu/MACachedImageView"
   s.author       = { "Manuel Alabor" => "msites@msites.net" }
