@@ -66,21 +66,10 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
     'iOS-Hierarchy-Viewer',
   ],
 
-  "Rake::FileList is deprecated, use `exclude_files` (source_files)." => [
-    "libsodium",
-    "MapBox",
-    "MAZeroingWeakRef",
-    "MKNetworkKit",
-    "ReactiveCocoa",
-    "SinglySDK",
-    "TwUI",
-    "UrbanAirship-iOS-SDK",
-  ],
 }
 
 
