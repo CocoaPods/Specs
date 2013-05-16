@@ -22,13 +22,7 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
 
-  files = FileList['src/libsodium/**/*.{c,h,data}']
-  files.exclude('**/*try.*')
-  files.exclude('**/*version.*')
-
-  
-  s.source_files = files 
-
-
+  s.source_files = 'src/libsodium/**/*.{c,h,data}'
+  s.exclude_files = '**/*try.*', '**/*version.*', '**/crypto_scalarmult*'
 
  end

@@ -71,7 +71,8 @@ Pod::Spec.new do |m|
 
   m.subspec 'Proj4' do |p|
     p.platform = :ios, '4.0'
-    p.source_files = FileList['Proj4/*.{h,c}'].exclude(/nad2nad/)
+    p.source_files = 'Proj4/*.{h,c}'
+    p.exclude_files = 'Proj4/**/*nad2nad*'
   end
 
 end
