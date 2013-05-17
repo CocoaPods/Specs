@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sp|
     s.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}'
     s.ios.exclude_files = '**/*{NSButton,AppKit,NSText,NSControl}*'
-    s.osx.exclude_files = '**/*{UIBarButtonItem,UIControl,UIText,RACEventTrampoline,RACDelegateProxy}*'
+    s.osx.exclude_files = '**/*{UIBarButtonItem,UIControl,UIGestureRecognizer,UIText,RACEventTrampoline,RACDelegateProxy}*'
     sp.header_dir = 'ReactiveCocoa'
 
     sp.dependency 'JRSwizzle', '~> 1.0'
