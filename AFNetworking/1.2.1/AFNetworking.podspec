@@ -16,9 +16,10 @@ Pod::Spec.new do |s|
   s.osx.frameworks = 'CoreServices', 'SystemConfiguration', 'Security'
 
   s.prefix_header_contents = <<-EOS
-#import <Availability.h>
-
 #define _AFNETWORKING_PIN_SSL_CERTIFICATES_
+
+#ifdef __OBJC__
+#import <Availability.h>
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
   #import <SystemConfiguration/SystemConfiguration.h>
@@ -26,6 +27,7 @@ Pod::Spec.new do |s|
 #else
   #import <SystemConfiguration/SystemConfiguration.h>
   #import <CoreServices/CoreServices.h>
+#endif
 #endif
 EOS
 end
