@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name          = "PRAugmentedReality"
-  s.version       = "1.0.0"
+  s.version       = "1.0.1"
   s.summary       = "iOS AR Library with Drupal communication module."
   s.homepage      = "https://github.com/promet/PRAugmentedReality"
-  s.license       = { :type => 'MIT', :file => 'LICENSE' }
+  s.license       = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author        = { "Geoffroy Lesage" => "geoff@promethost.com" }
   
   s.source        = { :git => "https://github.com/promet/PRAugmentedReality.git", :tag => "v#{s.version}" }
