@@ -11,11 +11,13 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '5.0'
   s.ios.frameworks = 'CoreText'
-  s.ios.source_files = FileList['Ashton/*.{h,m}'].exclude(/AppKit/)
+  s.ios.source_files = 'Ashton/*.{h,m}'
+  s.ios.exclude_files = 'Ashton/AshtonAppKit.{h,m}'
 
   s.osx.deployment_target = '10.7'
   s.osx.frameworks = 'CoreText'
-  s.osx.source_files = FileList['Ashton/*.{h,m}'].exclude(/UIKit/)
+  s.osx.source_files = 'Ashton/*.{h,m}'
+  s.osx.exclude_files = 'Ashton/AshtonUIKit.{h,m}'
 
   s.requires_arc = true
 end
