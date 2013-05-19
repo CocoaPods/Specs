@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
                    DESC
   s.homepage     = url
-  s.license      = {:type => 'MIT' } 
+  s.license      = 'MIT'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
   s.source       = { :git => git_url, :tag => s.version.to_s }
