@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   url     = "https://github.com/seivan/#{name}"
   git_url = "#{url}.git"
   s.name         = name
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Segue Blocks and userInfo without swizzling."
   s.description  = <<-DESC
                     Do segueus with blocks without any swizzling or leaks.
