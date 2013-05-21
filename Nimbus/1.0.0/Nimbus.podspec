@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
                   'that accelerates the development process of any application by being easy to use and '   \
                   'simple to understand.'
 
-  s.platform = :ios, '5.0'
+  s.platform = :ios
 
   s.requires_arc = true
 
