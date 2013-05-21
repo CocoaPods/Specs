@@ -14,11 +14,10 @@ Pod::Spec.new do |s|
                   'of data, and is tightly integrated with Apple technologies like Core Animation, ' \
                   'Core Data, and Cocoa Bindings.'
 
-  files = FileList['framework/TestResources/CorePlotProbes.d', 'framework/Source/*.{h,m}']
-  files.exclude(/(TestCase|Tests)\.[hm]/)
-  s.ios.source_files = files.dup.include('framework/CorePlot-CocoaTouch.h', 'framework/iPhoneOnly/*.{h,m}')
-  s.osx.source_files = files.dup.include('framework/CorePlot.h', 'framework/MacOnly/*.{h,m}')
-
+  s.source_files = 'framework/TestResources/CorePlotProbes.d', 'framework/Source/*.{h,m}'
+  s.exclude_files = '**/*{TestCase,Tests}.{h,m}'
+  s.ios.source_files = 'framework/CorePlot-CocoaTouch.h', 'framework/iPhoneOnly/*.{h,m}'
+  s.osx.source_files = 'framework/CorePlot.h', 'framework/MacOnly/*.{h,m}'
 
   s.framework   = 'QuartzCore'
 end

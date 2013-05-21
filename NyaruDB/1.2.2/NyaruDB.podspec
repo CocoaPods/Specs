@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.author       = { "Kelp" => "kelp@phate.org" }
   s.source   = { :git => 'https://github.com/kelp404/NyaruDB.git', :tag => '1.2.2' }
 
-  s.source_files = FileList['NyaruDB/NyaruDB/**/*.{m,h}'].exclude('**/JSONKit-Nyaru.m')
+  s.source_files = 'NyaruDB/NyaruDB/**/*.{m,h}'
+  s.exclude_files = '**/JSONKit-Nyaru.m'
   s.requires_arc = true
 
   s.subspec 'no-arc' do |sp|

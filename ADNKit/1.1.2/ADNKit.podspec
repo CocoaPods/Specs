@@ -24,7 +24,8 @@ Pod::Spec.new do |s|
   s.ios.source_files = 'ADNKit/*.{h,m}'
   s.osx.deployment_target = '10.7'
   s.osx.frameworks = 'CoreLocation', 'SystemConfiguration'
-  s.osx.source_files = FileList['ADNKit/*.{h,m}'].exclude(/ANKOAuthViewController/, /ANKTextFieldCell/, /ANKUsernamePasswordAuthViewController/)
+  s.osx.source_files = 'ADNKit/*.{h,m}'
+  s.osx.exclude_files = '**/*{ANKOAuthViewController,ANKTextFieldCell,ANKUsernamePasswordAuthViewController}*'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__

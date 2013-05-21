@@ -66,61 +66,10 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BJRangeSliderWithProgress',
-    'cocos2d',
-    'CouchCocoa',
     'iOS-Hierarchy-Viewer',
-    'PonyDebugger',
-    'RestKit',
   ],
 
-  "Rake::FileList is deprecated, use `exclude_files` (public_header_files)." => [
-    "GRMustache",
-    "MAZeroingWeakRef",
-    "SinglySDK",
-    "WhirlyGlobe-Headers",
-  ],
-
-  "Rake::FileList is deprecated, use `exclude_files` (source_files)." => [
-    "adlibr",
-    "AdMob",
-    "ADNKit",
-    "AGGeometryKit",
-    "AGWindowView",
-    "Ashton",
-    "ASIHTTPRequest",
-    "Calabash-server",
-    "Cedar",
-    "cocos2d",
-    "CorePlot",
-    "DBPrefsWindowController",
-    "FMDB",
-    "FontAwesomeIconFactory",
-    "geos",
-    "GHUnitOSX",
-    "Google-API-Client",
-    "GTMHTTPFetcher",
-    "iOS-GTLYouTube",
-    "iOS-Hierarchy-Viewer",
-    "JAViewController",
-    "libgit2",
-    "libkml",
-    "libsodium",
-    "LRResty",
-    "MapBox",
-    "MAZeroingWeakRef",
-    "MKNetworkKit",
-    "NyaruDB",
-    "objective-git",
-    "ReactiveCocoa",
-    "Rebel",
-    "SinglySDK",
-    "TouchDB",
-    "TwUI",
-    "UrbanAirship-iOS-SDK",
-  ],
 }
 
 
@@ -198,6 +147,29 @@ task :lint do
   puts "    $ pod push [ REPO ] [NAME.podspec]"
   puts "    $ pod spec lint [ NAME.podspec | DIRECTORY | http://PATH/NAME.podspec, ... ]"
 end
+
+#-----------------------------------------------------------------------------#
+
+desc "Converts the specifications to yaml"
+task :convert_specs_to_yaml do
+  require 'cocoapods-core'
+  skipped_specs_count = 0
+  Dir.glob('**/*.podspec') do |spec_path|
+    spec = Pod::Spec.from_file(spec_path)
+    if spec.safe_to_hash?
+      spec_yaml_path = "#{spec_path}.yaml"
+      puts "#{spec_path} -> #{spec_yaml_path}"
+      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
+      File.delete(spec_path)
+    else
+      skipped_specs_count += 1
+    end
+  end
+  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
+
+end
+
+#-----------------------------------------------------------------------------#
 
 task :default => :validate
 
