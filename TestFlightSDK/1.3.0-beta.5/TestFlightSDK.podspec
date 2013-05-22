@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'TestFlightSDK'
-  s.version  = '1.3.0.beta5'
+  s.version  = '1.3.0-beta.5'
   s.license      = {
     :type => 'Commercial',
     :text => <<-LICENSE
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author   = { 'TestFlight' => 'support@testflightapp.com' }
   s.source   = { :http => 'http://d3fqheiq7nlyrx.cloudfront.net/sdk-downloads/TestFlightSDK1.3.0-beta.5.zip' }
   s.platform = :ios
-  s.source_files = 'TestFlight.h'
+  s.source_files = '*.h'
   s.preserve_paths = 'libTestFlight.a'
   s.library = 'TestFlight', 'z'
   s.framework = 'UIKit'
