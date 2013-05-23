@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "GLView"
-  s.version      = "1.4"
+  s.version      = "1.5"
   s.license       = 'zlib'
   s.summary      = "Simple library for creating an OpenGL view on iOS."
   s.description  = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage      = "https://github.com/nicklockwood/GLView"
   s.author        = { "Nick Lockwood" => "support@charcoaldesign.co.uk" }
-  s.source        = { :git => "https://github.com/nicklockwood/GLView.git", :tag => "1.4" }
+  s.source        = { :git => "https://github.com/nicklockwood/GLView.git", :tag => "1.5" }
   s.platform      = :ios
   s.source_files  = 'GLView/Core/', 'GLView/Images/', 'GLView/Models/'
   s.frameworks    = 'QuartzCore', 'OpenGLES'
