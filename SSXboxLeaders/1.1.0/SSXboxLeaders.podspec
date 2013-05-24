@@ -1,4 +1,4 @@
-Pod::Spec.new do |s| 
+Pod::Spec.new do |s|   
   s.platform     = :ios, '5.0'
   s.name         = 'SSXboxLeaders'
   s.version      = '1.1.0'
