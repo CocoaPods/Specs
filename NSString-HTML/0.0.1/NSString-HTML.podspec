@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.author         = 'Johan Kool'
   s.source         = { :git => 'https://github.com/Koolistov/NSString-HTML.git', :commit => 'cd36c9bb4e5bf18f42f6f986a957c10da51c83d4' }
   s.ios.deployment_target = '4.3.5'
+  s.osx.deployment_target = '10.6'
   s.source_files   = '*.{h,m}'
   s.license      = {
     :type => 'Copyright',
