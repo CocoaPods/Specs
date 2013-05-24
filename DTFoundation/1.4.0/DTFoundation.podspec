@@ -24,6 +24,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'DTSidePanel' do |ss|
     ss.platform = :ios, '5.0'
     ss.dependency 'DTFoundation/UIKit'
+    ss.ios.frameworks = 'QuartzCore'
     ss.ios.source_files = 'Core/Source/iOS/DTSidePanel/*.{h,m}'
   end
 
