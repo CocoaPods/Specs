@@ -49,7 +49,7 @@ Pod::Spec.new do |spec|
     ss.source_files = 'Core/Source/DTReachability/*.{h,m}'
   end
 
-  spec.subspec 'DTSSQLite' do |ss|
+  spec.subspec 'DTSQLite' do |ss|
     ss.ios.deployment_target = '4.3'
     ss.osx.deployment_target = '10.6'
     ss.library = 'sqlite3'
