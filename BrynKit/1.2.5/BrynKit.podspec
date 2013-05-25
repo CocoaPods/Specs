@@ -26,7 +26,8 @@ Pod::Spec.new do |s|
     s.default_subspec = 'Main'
 
     s.subspec 'Main' do |subspec|
-        subspec.source_files = "Classes/Bryn.{h,m}", "Classes/BrynKit.h","Classes/BrynKitDebugging.h", "Classes/BrynKitLogging.h"
+        subspec.source_files = "Main/*.{m,h}"
+        subspec.frameworks = 'ImageIO', 'QuartzCore'
     end
 
     #
@@ -34,18 +35,19 @@ Pod::Spec.new do |s|
     #
 
     s.subspec 'MBProgressHUD' do |subspec|
-        subspec.source_files = "Classes/BrynKitMBProgressHUD.{h,m}"
+        subspec.source_files = "MBProgressHUD/*.{h,m}"
         subspec.dependency 'MBProgressHUD'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'RACHelpers' do |subspec|
-        subspec.source_files = 'Classes/RAC*.{m,h}'
+        subspec.source_files = 'RACHelpers/*.{m,h}'
         subspec.dependency 'ReactiveCocoa', '>= 1.5.0'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'RACDispatchTimer' do |subspec|
+        subspec.source_files = 'RACDispatchTimer/*.{h,m}'
         subspec.dependency 'BrynKit/RACHelpers'
         subspec.dependency 'BrynKit/SEDispatchSource'
         subspec.dependency 'ReactiveCocoa', '>= 1.5.0'
@@ -53,45 +55,46 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'GCDThreadsafe' do |subspec|
-        subspec.source_files = 'Classes/GCDThreadsafe.h'
+        subspec.source_files = 'GCDThreadsafe/*.{m,h}'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'SEDispatchSource' do |subspec|
-        subspec.source_files = 'Classes/SEDispatchSource.{h,m}'
+        subspec.source_files = 'SEDispatchSource/*.{m,h}'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'MemoryLogging' do |subspec|
-        subspec.source_files = 'Classes/BrynKitMemoryLogging.{h,m}'
+        subspec.source_files = 'MemoryLogging/*.{m,h}'
         subspec.dependency 'BrynKit/EDColor'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'EDColor' do |subspec|
-        subspec.source_files = 'Classes/BrynKitEDColor.h'
+        subspec.source_files = 'EDColor/*.{m,h}'
         subspec.dependency 'EDColor'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'CocoaLumberjack' do |subspec|
-        subspec.source_files = 'Classes/{BrynKitCocoaLumberjack.h,BrynKitDDLogColorFormatter.{m,h}}'
+        subspec.source_files = 'CocoaLumberjack/*.{m,h}'
         subspec.dependency 'CocoaLumberjack'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'RRFPSBar' do |subspec|
-        subspec.source_files = 'Classes/RRFPSBar/*.{h,m}'
+        subspec.source_files = 'RRFPSBar/*.{h,m}'
         subspec.dependency 'BrynKit/Main'
     end
 
     s.subspec 'MGBoxHelpers' do |subspec|
-        subspec.source_files = 'Classes/MGBoxHelpers.{h,m}'
+        subspec.source_files = 'MGBoxHelpers/*.{h,m}'
         subspec.dependency 'BrynKit/Main'
+        subspec.dependency 'MGBox2'
     end
 
     s.subspec 'SEGradientSwatch' do |subspec|
-        subspec.source_files = 'Classes/SEGradientSwatch.{h,m}'
+        subspec.source_files = 'SEGradientSwatch/*.{h,m}'
         subspec.dependency 'BrynKit/Main'
     end
 end
