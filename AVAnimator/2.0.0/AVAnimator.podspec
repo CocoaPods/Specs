@@ -10,9 +10,15 @@ Pod::Spec.new do |s|
 
   s.source        = { :git => "https://github.com/mdejong/AVAnimator.git", :tag => "AVAnimator-2.0.0" }
   s.platform      = :ios, '5.0'  
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m,c}'
+  s.source_files  = 'Classes', 'Classes/**/*.{h,m,c}'  
   s.exclude_files = 'Classes/Tests'
   s.frameworks    = 'QuartzCore', 'AVFoundation', 'AudioToolbox', 'CoreVideo', 'CoreMedia', 'MediaPlayer'
   s.library       = 'z' 
   s.requires_arc  = false  
+
+  s.subspec 'ASM' do |asm|
+
+    asm.source_files    = 'Classes/**/*.{s}'
+    asm.compiler_flags  = '-no-integrated-as'
+  end
 end

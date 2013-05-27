@@ -12,7 +12,12 @@ Pod::Spec.new do |s|
 	This SDK requires the Pinterest app to be installed. If version 2.3 or higher of the Pinterest app isn't installed, the Pin It button will redirect the user to the app store to download it. Our app only supports iOS5 and higher.
   }
 
+  s.frameworks   = 'CoreGraphics','UIKit', 'Pinterest'
   s.platform        = :ios, '5.0'
-  s.source_files    = '**/*.h'
+  s.source_files    = 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Headers/*.h'
+  s.resources    = 'Pinterest.embeddedframework/Resources/PinterestSDKResources.bundle' , 'Pinterest.embeddedframework/Pinterest.framework/Resources/Info.plist'
+  s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pinterest-iOS/"' }
+  s.preserve_paths =  'Pinterest.embeddedframework/Pinterest.framework', 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Resources/PinterestSDKResources.bundle', 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Resources/Info.plist'
+  
 
 end
