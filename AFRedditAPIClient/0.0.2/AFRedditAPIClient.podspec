@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.2"
   s.summary      = "AFHTTPClient Subclass for the Reddit Api."
   s.homepage     = "https://github.com/ohwutup/AFRedditAPIClient"
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { "David Ohayon" => "ohwutup@gmail.com" }
   s.source       = {
     :git => "https://github.com/ohwutup/AFRedditAPIClient.git",
