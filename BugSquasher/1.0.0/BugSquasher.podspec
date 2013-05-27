@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/johndoran/BugSquasher.git", :tag => "1.0.0" }
   s.platform     = :ios, '5.0'
   s.source_files = 'JiraApp/bugSquasher', 'JiraApp/bugSquasher/**/**/*.{h,m}'
+  s.resource  = "JiraApp/bugSquasher/**/**/*.xib"
   s.exclude_files = 'Classes/Exclude'
   s.frameworks = 'QuartzCore', 'MediaPlayer','CoreAudio','AudioToolbox'
   s.requires_arc = true
@@ -15,4 +16,3 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking'
   s.dependency 'MBProgressHUD', '~> 0.6'
 end
-
