@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Max Goedjen" => "max.goedjen@gmail.com" }
   s.source       = { :git => "https://github.com/maxgoedjen/Shakedown.git", :tag => "0.6.0" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'Classes/*.{h,m}'
+  s.source_files = 'Classes/**/*.{h,m}'
   s.frameworks   = 'UIKit', 'QuartzCore', 'MessageUI'
   s.requires_arc = true
 end
