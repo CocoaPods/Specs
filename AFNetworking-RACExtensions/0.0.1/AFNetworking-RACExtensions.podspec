@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ReactiveAFNetworking'
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 1.2.0'
-  s.dependency 'ReactiveCocoa', '~> 1.5.0'
+  s.dependency 'ReactiveCocoa', '~> 1.0'
 end
