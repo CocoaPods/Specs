@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.license      = { :type => 'MIT', :file => 'InternetReachableExample/License.txt' }
   s.author       = { "Jennis" => "jennis.myfirstmobileapp@gmail.com" }
-  s.source       = { :git => "https://github.com/Jennis/InternetReachable.git", :commit => "2fba6631ad2ed6f568f2158b1ab194b28408fa25" }
+  s.source       = { :git => "https://github.com/Jennis/InternetReachable.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'InternetReachableExample/InternetReachable/*.{h,m}'
   s.requires_arc = true
