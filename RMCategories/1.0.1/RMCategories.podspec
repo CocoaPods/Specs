@@ -1,4 +1,4 @@
-pod::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name         = "RMCategories"
   s.version      = "1.0.1"
   s.summary      = "A collection of Objective-C categories to make iOS development easier."
