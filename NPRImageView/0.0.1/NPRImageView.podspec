@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/nicnocquee/NPRImageView"
   s.license      = { :type => 'MIT', :file => 'License.txt' }
-  s.author       = { "Nico Prananta" => "email@address.com" }
+  s.author       = "Nico Prananta"
   s.source       = { :git => "https://github.com/nicnocquee/NPRImageView.git", :commit => "5339034f86bb8e16b957af94095b3f2106ac6349" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Class'
