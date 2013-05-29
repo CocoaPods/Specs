@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'nsrails/Source', 'nsrails/Source/**/*.{h,m}'
-  s.preserve_paths = 'docs', '/'
+  s.preserve_paths = 'docs'
 
   s.framework  = 'CoreData'
   s.requires_arc = true
