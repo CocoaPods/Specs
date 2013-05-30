@@ -9,10 +9,12 @@ Pod::Spec.new do |s|
   s.platform      = :ios, '5.0'
   s.requires_arc  = true
   s.source        = { :git => 'https://github.com/waterlou/WTGlyphFontSet.git', :tag => '0.5' }
-  s.frameworks    = 'UIKit', 'CoreText'
-  s.source_files  = 'WTGlyphFontSet/**/*.{h,m}'
-  s.preferred_dependency = 'fontawesome'
+  s.default_subspec = 'core'
 
+  s.subspec 'core' do |core|
+    core.source_files  = 'WTGlyphFontSet/**/*.{h,m}'
+    core.frameworks    = 'UIKit', 'CoreText'
+  end
   s.subspec 'fontawesome' do |fontawesome|
     fontawesome.resource = 'fontawesome/**/*.{ttf,otf,plist}'
   end
