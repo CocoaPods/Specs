@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source        = { :git => 'https://github.com/waterlou/WTGlyphFontSet.git', :tag => '0.5' }
   s.frameworks    = 'UIKit', 'CoreText'
   s.source_files  = 'WTGlyphFontSet/**/*.{h,m}'
+  s.preferred_dependency = 'fontawesome'
 
   s.subspec 'fontawesome' do |fontawesome|
     fontawesome.resource = 'fontawesome/**/*.{ttf,otf,plist}'
