@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://garethshapiro.com/item/simple-objective-c-api-service"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Gareth Shapiro" => "gareth@sebenza-systems.com" }
-  s.source       = { :git => "https://github.com/GarethShapiro/SimpleObjectiveCAPIService.git", :tag => "0.2" }
+  s.source       = { :git => "https://github.com/GarethShapiro/SimpleObjectiveCAPIService.git", :tag => "0.3" }
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.source_files = '*.{h,m}'
