@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
 
   s.osx.deployment_target = '10.7'
 
-  s.dependency 'AFOAuth1Client', '>= 0.1'
+  s.dependency 'AFOAuth1Client', '0.1.0'
 end

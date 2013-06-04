@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license       = "BSD"
   s.author        = { "John Lluch Zorrilla" => "joan.lluch@sweetwilliamsl.com" }
 
-  s.source        = { :git => "https://github.com/John-Lluch/SWRevealViewController.git", :commit => "6e9216e321d41b694fa0514ea136a6cf2dc83679" }
+  s.source        = { :git => "https://github.com/John-Lluch/SWRevealViewController.git", :commit => "d7fd4be75334c575f407c57d0b32c0720a417236" }
 
   s.platform      = :ios, "5.0"
 

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "HTGradientEasing"
   s.version      = "0.0.4"
   s.platform     = :ios
-  s.summary      = "Apply a variety of easing functions from the AHEasing project to CAGradientLayers. "
+  s.summary      = "Apply a variety of easing functions from the AHEasing project to CAGradientLayers."
   s.homepage     = "https://github.com/hoteltonight/HTGradientEasing"
   s.license      = 'MIT'
   s.author       = { "Jacob Jennings" => "jacob.r.jennings@gmail.com" }

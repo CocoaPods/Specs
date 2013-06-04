@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version      = '0.2.0'
   s.summary      = 'Objective-C wrapper for iconic fonts.'
   s.description  = <<-DESC
-                    - [Entypo](http://entypo.com) pictograms by Daniel Bruce
-                    - [FontAwesome](http://fortawesome.github.com/Font-Awesome/) by Dave Gandy
-                    - [Iconic](http://somerandomdude.com/work/iconic/) font by P.J. Onori
+                    - [Entypo](http://entypo.com) pictograms by Daniel Bruce.
+                    - [FontAwesome](http://fortawesome.github.com/Font-Awesome/) by Dave Gandy.
+                    - [Iconic](http://somerandomdude.com/work/iconic/) font by P.J. Onori.
                    DESC
   s.homepage     = 'https://github.com/AlexDenisov/FontasticIcons'
   s.license      = 'MIT'

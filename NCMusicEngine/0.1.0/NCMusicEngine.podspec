@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'NCMusicEngine/*.h'
   s.requires_arc = true
   s.dependency 'AFNetworking', '>= 1.1.0'
-  s.dependency 'AFDownloadRequestOperation', :git => 'https://github.com/nickcheng/AFDownloadRequestOperation.git'
+  s.dependency 'AFDownloadRequestOperation'#, :git => 'https://github.com/nickcheng/AFDownloadRequestOperation.git'
 end

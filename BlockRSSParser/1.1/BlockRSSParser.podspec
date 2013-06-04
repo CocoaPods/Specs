@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tiboll/BlockRSSParser.git", :tag => "1.1" }
 
   s.platform     = :ios
+  s.ios.deployment_target = '5.0'
 
   s.source_files = 'Classes', 'RSSParser/*.{h,m}'
 
-  s.dependency 'AFNetworking', '~> 0.10.1'
+  s.dependency 'AFNetworking', '1.2.0'
 end

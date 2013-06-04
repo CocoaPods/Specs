@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "CKCalendar"
   s.version      = "0.0.1"
   s.summary      = "A sleek, easily customized calendar control for iOS."
-  s.description  = "A sleek, easily customized calendar control for iOS."
   s.homepage     = "www.cozykozy.com"  
   s.license      = 'MIT'
   s.author       = { "Jason Kozemczak" => "jason.kozemczak@gmail.com" }

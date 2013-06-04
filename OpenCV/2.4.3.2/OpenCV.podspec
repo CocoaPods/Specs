@@ -11,9 +11,8 @@ Pod::Spec.new do |s|
     Q&A forum:   http://answers.opencv.org
     Dev zone:    http://code.opencv.org
 
-    Compilled framework for iOS v2.4.3.2
+    Compilled framework for iOS v2.4.3.2.
               DESC
-                  
   s.license      = { :type => 'BSD', :file => 'LICENSE',
     :text => <<-LICENSE
     IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.

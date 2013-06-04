@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "NoodleKit"
   s.version      = "0.0.1"
-  s.summary      = "Collection of Cocoa classes from http://www.noodlesoft.com/blog"
+  s.summary      = "Collection of Cocoa classes from http://www.noodlesoft.com/blog."
   s.author       = 'Paul Kim'
   s.source       = { :git => "https://github.com/MrNoodle/NoodleKit.git", :commit => "b124f51a9e89778a4c9c59b900f4a7660dcfa650" }
   s.platform     = :osx

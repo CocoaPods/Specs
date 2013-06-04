@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.0.1'
   s.platform = :ios
   s.summary  = 'Stylish and animated tab view for iOS rendered entirely using core graphics.'
+  s.license  = 'BSD'
   s.homepage = 'https://github.com/jasonmorrissey/JMTabView'
   s.author   = { 'Jason Morrissey' => 'http://jasonmorrissey.org/' }
   s.source   = { :git => 'https://github.com/jasonmorrissey/JMTabView.git',

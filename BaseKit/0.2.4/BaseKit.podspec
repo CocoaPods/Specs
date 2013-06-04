@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
   s.source   = { :git => 'https://github.com/brunow/BaseKit.git', :tag => '0.2.4' }
 
-  s.description = 'BaseKit is a set of IOS class to make your life easier.'
   s.platform = :ios
 
 
