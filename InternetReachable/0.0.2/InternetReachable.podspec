@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "InternetReachable"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Its class for prevent application usage without internet."
   s.homepage     = "https://github.com/Jennis/InternetReachable"
   s.license      = 'MIT'
   s.license      = { :type => 'MIT', :file => 'InternetReachableExample/License.txt' }
   s.author       = { "Jennis" => "jennis.myfirstmobileapp@gmail.com" }
-  s.source       = { :git => "https://github.com/Jennis/InternetReachable.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/Jennis/InternetReachable.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.0'
   s.source_files = 'InternetReachableExample/InternetReachable/*.{h,m}', 'InternetReachableExample/InternetReachable/Resource/*.*'
   s.requires_arc = true
