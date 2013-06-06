@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.author = { 'Vungle' => 'support@vungle.com' }
   s.source = { :http => 'https://github.com/downloads/Vungle/AdvertiserSDK/vungle121.zip' }
   s.platform = :ios
-  s.resources  = 'vungle/lib/vunglepub/resources'
+  s.resources  = 'vungle/lib/vunglepub/resources/*.png'
   s.header_dir = 'headers'
   s.header_mappings_dir = 'vungle/lib/vunglepub/headers'  
   s.source_files = 'vungle/lib/vunglepub/*.h', 'vungle/lib/vunglepub/headers/*.h'
