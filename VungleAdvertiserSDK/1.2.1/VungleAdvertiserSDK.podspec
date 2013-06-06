@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
              
    LICENSE
 }
-  s.summary = 'Vungle Advertiser SDK'
+  s.summary = 'Vungle Advertiser SDK.'
   s.homepage = 'http://www.vungle.com/'
   s.author = { 'Vungle' => 'support@vungle.com' }
   s.source = { :http => 'https://github.com/downloads/Vungle/AdvertiserSDK/vungle121.zip' }
