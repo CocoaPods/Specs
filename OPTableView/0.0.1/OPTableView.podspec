@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'OPTableView'
-  s.version  = '0.1'
+  s.version  = '0.0.1'
   s.license  = 'MIT'
   
   s.summary  = 'UITableView subclass with some useful additions.'
