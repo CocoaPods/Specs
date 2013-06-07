@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'KxMenu'
-  s.version  = '1.0'
+  s.version  = '1'
   s.license  = { :type => 'Copyright', :file => 'LICENSE' }
   s.summary  = 'KxMenu is a vertical popup menu for using in iOS applications.'
   s.homepage = 'https://github.com/kolyvan/kxmenu'
