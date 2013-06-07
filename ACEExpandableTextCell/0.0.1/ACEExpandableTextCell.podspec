@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ACEExpandableTextCell/*.{h,m}'
   s.dependency 'SZTextView'
   s.requires_arc = true
+  s.ios.deployment_target = '5.0'
 end
