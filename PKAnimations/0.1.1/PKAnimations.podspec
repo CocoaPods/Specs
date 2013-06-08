@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'PKAnimations/**/*.{h,m}'
   s.requires_arc = true
   s.dependency 'MGCommand', '0.1.1'
+  s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
 end
