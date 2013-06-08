@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Roman Kříž" => "samnung@gmail.com" }
   s.source       = { :git => "https://github.com/samnung/SAMStarListView.git", :tag => "#{s.version}" }
-  s.platform     = :ios
+  s.platform     = :ios, '4.3'
   s.source_files = '*.{h,m}'
   s.requires_arc = true
   s.ios.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
