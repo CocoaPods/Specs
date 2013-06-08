@@ -12,8 +12,9 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.github.com/samnung/SAMStarListView/master/screenNoEmpty.png", "https://raw.github.com/samnung/SAMStarListView/master/screenGrayEmpty.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Roman Kříž" => "samnung@gmail.com" }
-  s.source       = { :git => "https://github.com/samnung/SAMStarListView.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/samnung/SAMStarListView.git", :tag => "#{s.version}" }
   s.platform     = :ios
   s.source_files = '*.{h,m}'
   s.requires_arc = true
+  s.ios.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
 end
