@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'QBFlatButton'
   s.version      = '1.0'
-  s.summary      = 'Flat Style UIButton'
+  s.summary      = 'QBFlatButton is flat style button.'
   s.homepage     = 'https://github.com/questbeat/QBFlatButton'
   s.license      = 'MIT'
   s.author       = { 'Katsuma Tanaka' => 'questbeat@gmail.com' }
