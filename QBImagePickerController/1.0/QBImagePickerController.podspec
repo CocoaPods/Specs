@@ -6,8 +6,9 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { 'Katsuma Tanaka' => 'questbeat@gmail.com' }
   s.source       = { :git => 'https://github.com/questbeat/QBImagePickerController.git', :tag => 'v1.0' }
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
   s.framework    = 'AssetsLibrary'
   s.source_files = 'QBImagePickerController/Classes/*.{h,m}'
   s.resources    = 'QBImagePickerController/Classes/QBImagePickerController.bundle'
+  s.requires_arc = true
 end

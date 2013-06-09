@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/questbeat/QBImagePickerController'
   s.license      = 'MIT'
   s.author       = { 'Katsuma Tanaka' => 'questbeat@gmail.com' }
-  s.source       = { :git => 'https://github.com/questbeat/QBImagePickerController.git', :tag => 'v0.0.1' }
+  s.source       = { :git => 'https://github.com/questbeat/QBImagePickerController.git', :commit => '9517e9cd0a87ceb5780e362ddb3a7fcabe7f66c7' }
   s.platform     = :ios
   s.framework    = 'AssetsLibrary'
   s.source_files = 'QBImagePickerController/Classes/*.{h,m}'
