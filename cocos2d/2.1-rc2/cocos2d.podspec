@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author      =  { 'Ricardo Quesada' => 'ricardoquesada@gmail.com', 'Zynga Inc.' => 'https://zynga.com/' }
   s.source      =  {:git => 'https://github.com/cocos2d/cocos2d-iphone.git', :tag => 'release-2.1-rc2'}
 
-  s.source_files = 'cocos2d/**/*.{h,m,c}', 'CocosDenshion/*.{h,m}',
+  s.source_files = 'cocos2d/**/*.{h,m,mm,c}', 'CocosDenshion/*.{h,m}',
     'external/libpng/*.{h,c}', 'external/kazmath/src/**/*.{c,h}', 'external/kazmath/include/**/*.{c,h}'
   s.exclude_files = 'external/libpng/pngtest.c', 'external/libpng/example.c'
 
