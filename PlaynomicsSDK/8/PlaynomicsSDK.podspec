@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name = 'PlaynomicsSDK'
-  s.version = '8.0.0'
+  s.version = '8'
   s.license = { :type => 'Commercial', :text => 'See http://www.playnomics.com/platformpolicy/' }
-  s.summary = 'Playnomics PlayRM iOS SDK'
+  s.summary = 'Playnomics PlayRM iOS SDK.'
   s.homepage = 'http://www.playnomics.com'
   s.author = { 'Playnomics' => 'support@playnomics.com' }
   s.source = { :git => 'https://github.com/playnomics/ios-sdk.git', :tag => 'v8'  }
