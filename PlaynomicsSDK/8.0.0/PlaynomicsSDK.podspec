@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'Playnomics PlayRM iOS SDK'
   s.homepage = 'http://www.playnomics.com'
   s.author = { 'Playnomics' => 'support@playnomics.com' }
-  s.source = { :git => 'git@github.com:playnomics/ios-sdk.git', :tag => 'v8'  }
+  s.source = { :git => 'https://github.com/playnomics/ios-sdk.git', :tag => 'v8'  }
   s.platform = :ios
   s.source_files = 'build/*.h'
   s.preserve_paths = 'build/libplaynomics.a'
