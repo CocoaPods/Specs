@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.author       = { "Oriol Blanc" => "oriolblanc@gmail.com" }
   s.homepage     = "https://github.com/oriolblanc/OBConnection"
   s.summary      = "OBConnection"
-  spec.license   = "WTFPL"
+  s.license   = "WTFPL"
   s.description  = "The easiest and simplest networking library for iOS and OS X, combining AFNetworking, EGOCache and JSONKit."
 
   s.ios.deployment_target = '5.0'
