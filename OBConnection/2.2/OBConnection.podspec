@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "OBConnection"
-  s.version      = "2.2"
+  s.version      = "2.2.1"
   s.author       = { "Oriol Blanc" => "oriolblanc@gmail.com" }
   s.homepage     = "https://github.com/oriolblanc/OBConnection"
-  s.summary      = "OBConnection"
-  s.license   = "WTFPL"
-  s.description  = "The easiest and simplest networking library for iOS and OS X, combining AFNetworking, EGOCache and JSONKit."
+  s.summary      = "The easiest and simplest networking library for iOS and OS X, combining AFNetworking, EGOCache and JSONKit."
+  s.source       = { :git => 'https://github.com/oriolblanc/OBConnection.git',
+                    :tag => '2.2.1' }
+  s.license      = "WTFPL"
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
