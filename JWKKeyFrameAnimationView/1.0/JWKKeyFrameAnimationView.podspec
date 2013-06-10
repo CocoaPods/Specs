@@ -7,14 +7,16 @@ Pod::Spec.new do |s|
   s.source           =  { :git => 'https://github.com/jwkelso/JWKKeyFrameAnimationView.git', :tag => '1.0' }
 
   s.source_files     = 'JWKKeyFrameAnimationView/*.{h,m}'
- 
+  
+  s.platform = :ios
+  
   s.ios.frameworks   =  'QuartzCore'
 
   s.requires_arc     =  true
 
   s.prefix_header_contents = '#import "JWKKeyFrameAnimationView.h"'
 
-  s.license  = { :type => '---',
+  s.license  = { :type => 'MIT',
                  :text => 'JWKKeyFrameAnimationView (https://github.com/jwkelso/JWKKeyFrameAnimationView)
 
 Copyright (c) 2013 James Kelso (http://www.jameskelso.com)
