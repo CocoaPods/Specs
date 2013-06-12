@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files   = '*.{h,m}'
 
-  s.dependency 'EGOCache'
+  s.dependency 'EGOCache', '0.0.1'
   s.frameworks = 'QuartzCore', 'IOKit'
 end
