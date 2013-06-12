@@ -20,14 +20,14 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = 'Google Inc.'
-  s.source       = { :http => "http://dl.google.com/gaformobileapps/GoogleAnalyticsiOS_1.4.tar.gz" }
+  s.source       = { :http => "https://dl.google.com/gaformobileapps/GoogleAnalyticsiOS_1.4.tar.gz" }
   s.platform     = :ios
 
-  s.source_files = 'Google Analytics SDK/Library/GANTracker.h'
-  s.preserve_paths = 'Google Analytics SDK/Library/libGoogleAnalytics.a'
+  s.source_files = 'Library/GANTracker.h'
+  s.preserve_paths = 'Library/libGoogleAnalytics.a'
   
   s.framework = 'CFNetwork'
   s.library   = 'GoogleAnalytics', 'sqlite3'
   
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/Google Analytics SDK/Library"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/Library"' }
 end

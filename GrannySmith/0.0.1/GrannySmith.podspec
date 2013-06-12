@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.subspec 'GSFancyText' do |sp|
-    s.source_files = 'GSFancyText/src'
+    sp.source_files = 'GSFancyText/src'
   end
   def s.post_install(target)
     File.open( config.project_pods_root + 'GrannySmith/GSFancyText/src/GSConfig.h', "w+" ) do |file|

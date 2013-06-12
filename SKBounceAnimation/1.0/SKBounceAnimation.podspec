@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source_files = 'SKBounceAnimation/SKBounceAnimation.{h,m}'
-
+  s.requires_arc = true
   s.frameworks = 'CoreGraphics', 'QuartzCore'
 end

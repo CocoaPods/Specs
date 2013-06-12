@@ -1,9 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "BJImageCropper"
   s.version      = "1.0.1"
-  s.summary      = "A simple UIView subclass that allows a user to crop an image.  If you use it, I'd love to know!  Twitter: @barrettjacobsen"
+  s.summary      = "A simple UIView subclass that allows a user to crop an image."
   s.description  = <<-DESC
                     An easy to use library/control to allow the user to crop an image to their specfications.
+                    If you use it, I'd love to know!  Twitter: @barrettjacobsen
                    DESC
   s.homepage     = "http://www.barrettj.com"
   s.license      = 'MIT'

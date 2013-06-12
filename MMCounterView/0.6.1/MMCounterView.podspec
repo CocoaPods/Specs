@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Component'
   s.frameworks   = 'CoreGraphics', 'Foundation', 'QuartzCore', 'UIKit'
   s.requires_arc = true
-  s.dependency 'CPAnimationSequence', :git => 'https://github.com/mmccroskey/CPAnimationSequence.git', :tag => '0.2.1'
+  s.dependency 'CPAnimationSequence' # :git => 'https://github.com/mmccroskey/CPAnimationSequence.git', :tag => '0.2.1'
 end

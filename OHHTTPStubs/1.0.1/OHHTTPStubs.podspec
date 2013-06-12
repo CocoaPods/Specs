@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.authors  = {'Olivier Halligon' => 'olivier.halligon+ae@gmail.com'}
   s.source   = { :git => 'https://github.com/AliSoftware/OHHTTPStubs.git', :tag => '1.0.1' }
   s.source_files = 'OHHTTPStubs'
+  s.requires_arc = true
 end

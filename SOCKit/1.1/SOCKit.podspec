@@ -6,8 +6,7 @@ Pod::Spec.new do |s|
   s.author    = { "Jeff Verkoeyen" => "jverkoey@gmail.com" }
   s.source    = { :git => "https://github.com/jverkoey/sockit.git", :tag => "1.1" }
 
-  # TODO uncomment when 0.6 is released
-  # s.license  = { :type => 'Apache License Version 2.0', :file => 'LICENSE' }
+  s.license  = { :type => 'Apache License Version 2.0', :file => 'LICENSE' }
 
   s.description = 'With SOCKit and SOCPattern you can easily transform objects into strings and vice versa.'
 

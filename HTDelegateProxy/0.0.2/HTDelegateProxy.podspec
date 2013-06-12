@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '4.3'
   s.osx.deployment_target = '10.5'
   s.source_files = 'Classes', '*.{h,m}'
+  s.requires_arc = true
 end
 

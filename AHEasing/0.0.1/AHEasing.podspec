@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Warren Moore" => "wm@warrenmoore.net" }
 
   s.source       = { :git => "https://github.com/warrenm/AHEasing.git",
-                     :commit => "HEAD" }
+                     :commit => "391b641af7a80f8b4fcb65944d0252c186a85dbc" }
 
   s.platform     = :ios
 

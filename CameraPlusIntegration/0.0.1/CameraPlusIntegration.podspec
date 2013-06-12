@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://api.camerapl.us/app-api'
   s.author = { 'TapTapTap' => 'http://api.camerapl.us/support/forum/3-app-integration-api-support/' }
   s.source = { :http => 'http://api.camerapl.us/static/api/CameraPlusIntegration.zip' }
-  s.description = 'Using the Camera+ app integration API, developers can integrate Camera+ functionality into their apps.'
   s.platform = :ios
   s.source_files = 'CameraPlusIntegration/CameraPlusIntegrationAPI.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'CameraPlusIntegration/CameraPlusIntegrationAPI.framework'

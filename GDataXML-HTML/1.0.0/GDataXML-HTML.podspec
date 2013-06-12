@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                    'with a DOM style API including XPath support. This fork of the original ' \
                    'GDataXML adds support for the HTMLparser module of ' \
                    'libxml2 and allows you to deal with non validating XML ' \
-                   'in a simple way'
+                   'in a simple way.'
   s.source_files = 'GDataXML-HTML/lib/*.{h,m}'
   s.libraries = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }

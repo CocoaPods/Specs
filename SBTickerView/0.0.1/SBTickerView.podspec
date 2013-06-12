@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.homepage  = 'https://github.com/blommegard/SBTickerView'
   s.author    = { 'Simon Blommegård' => 'http://simonb.se/' }
   s.license   = 'MIT'
+  s.requires_arc = true
   s.source    = { :git => 'https://github.com/blommegard/SBTickerView.git',
                   :commit => '9d45f5b320861354a269714b42c831e61ff1ad09' }
   s.source_files  = '*.{h,m}'

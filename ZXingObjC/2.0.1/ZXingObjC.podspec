@@ -9,13 +9,9 @@ Pod::Spec.new do |s|
 
   s.source                      = { :git => "https://github.com/TheLevelUp/ZXingObjC.git", :tag => "v2.0.1" }
 
-#  s.source_files               = FileList['ZXingObjC/**/*.{h,cpp,m,mm}'].exclude(/.*ZXCode128Writer.m/)
-  s.source_files                = 'ZXingObjC/**/*.{h,cpp,m,mm}'
+  s.source_files                = 'ZXingObjC/**/*.{h,m}'
   s.requires_arc                = false
 
-# workaround for a missing import in objc/src/ZXing/ZXImage.mm
-#  s.prefix_header_contents      = '#import <ImageIO/CGImageSource.h>'
-
-  s.libraries                   = 'stdc++', 'iconv'
   s.frameworks                  = 'ImageIO', 'CoreGraphics', 'CoreVideo', 'CoreMedia', 'QuartzCore', 'AVFoundation', 'AudioToolbox'
+
 end

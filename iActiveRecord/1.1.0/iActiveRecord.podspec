@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'iActiveRecord/*.{c,h,m}'
   s.library = 'sqlite3'
-  s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_CORE SQLITE_ENABLE_UNICODE' }
+  s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) SQLITE_CORE SQLITE_ENABLE_UNICODE' }
 end

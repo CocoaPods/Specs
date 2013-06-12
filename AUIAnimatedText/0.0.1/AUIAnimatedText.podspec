@@ -7,7 +7,10 @@ Pod::Spec.new do |s|
   s.author       = { 'Adam Siton'=> 'adamsiton@gmail.com' }
   s.source       = { :git => 'https://github.com/adam-siton/AUIAnimatedText.git',
                      :commit => '098ff3309827a8508a7358ead7f1c5450e3c4b73' }
-  s.description  = 'Properties animatable in AUIAnimatableText and not in UILabel: textColor, text, font, fontSize.'
+  s.description  = <<-DESC
+                    A drop-in UILabel replacement that makes almost all properties animatable by using a CATextLayer instead of CALayer.
+                    Properties animatable in AUIAnimatableText and not in UILabel: textColor, text, font, fontSize.
+                   DESC
   s.platform     = :ios
   s.source_files = 'AUIAnimatedText/AUIAnimatedText/AUIAnimatableLabel.{h,m}', 'AUIAnimatedText/AUIAnimatedText/UIFont+CoreTextExtensions.{h,m}'
   s.framework = 'CoreText', 'QuartzCore', 'CoreGraphics', 'UIKit'
