@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/youknowone/UI7Kit"
   s.license      = "2-clause BSD"
   s.author       = { "Jeong YunWon" => "jeong@youknowone.org" }
-  s.source       = { :git => "https://github.com/youknowone/UI7Kit.git", :commit => "ef2e3aeaf90417317106696d6a784866e4286672" }
+  s.source       = { :git => "https://github.com/youknowone/UI7Kit.git", :commit => "67f07e2069c71872a63fe30e1ea47ce90555e23a" }
   s.dependency "FoundationExtension", "~> 0.29"
 
   s.platform     = :ios
