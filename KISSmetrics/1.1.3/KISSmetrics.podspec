@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'KISSmetrics'
   s.version  = '1.1.3'
-  s.license  = 'MIT'
+  s.license  = { :type => 'MIT', :file => 'LICENSE' }
   s.summary  = 'Library for KISSmetrics.'
   s.homepage = 'http://www.kissmetrics.com'
   s.author   = { 'kissmetrics' => 'support@kissmetrics.com' }
