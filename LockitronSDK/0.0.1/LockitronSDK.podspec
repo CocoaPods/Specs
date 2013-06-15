@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "LockitronSDK"
   s.version      = "0.0.1"
   s.summary      = "iOS SDK for Lockitron."
-  s.homepage     = "https://github.com/SebastienThiebaud/STTimeSlider"
+  s.homepage     = "https://github.com/SebastienThiebaud/LockitronSDK"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Sebastien THIEBAUD" => "sthiebaud@icloud.com" }
