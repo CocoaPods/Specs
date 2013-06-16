@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     	= "http://www.cocoacontrols.com/platforms/ios/controls/klhorizontalselect"
   s.license      	= 'Apache 2.0 License'
   s.author       	= { "Kieran Lafferty" => "kieran.lafferty@gmail.com" }
-  s.source       	= { :git => "https://github.com/mysterioustrousers/MTJSONUtils.git", :commit => "31598b7b6e38ca9c4f3b2a954d80f5161f6973d7" }
+  s.source       	= { :git => "https://github.com/mysterioustrousers/MTJSONUtils.git", :commit => "8643ccb7b17c6730f042bbd5f52095bfe6e47dde" }
   s.source_files 	= 'MTJSONUtils/*.{h,m}'
   s.requires_arc 	= true
 end
