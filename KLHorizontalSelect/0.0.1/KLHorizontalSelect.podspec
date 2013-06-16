@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     	= "http://www.cocoacontrols.com/platforms/ios/controls/klhorizontalselect"
   s.license      	= 'Apache 2.0'
   s.author       	= { "Kieran Lafferty" => "kieran.lafferty@gmail.com"}
-  s.source       	= { :git => "https://github.com/KieranLafferty/KLHorizontalSelect.git", :commit => "637d897bb7ebb469c30ccea9acd441a8f80cfe10" }
+  s.source       	= { :git => "https://github.com/KieranLafferty/KLHorizontalSelect.git", :commit => "8dff222578531ef53ea067a35b8929474d7e3e3b" }
   s.source_files 	= 'Classes/*.{h,m}'
   s.requires_arc 	= true
 end
