@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = '**/*.a'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardIO/CardIO"' }
   s.frameworks = 'AVFoundation','AudioToolbox','CoreMedia','CoreVideo','MobileCoreServices','OpenGLES','QuartzCore','Security','UIKit'
-  s.libraries = 'CardIO', 'stdc++'
+  s.libraries = 'CardIO', 'c++'
   s.requires_arc = true
   s.platform     = :ios, '5.0'
   s.license      = {
