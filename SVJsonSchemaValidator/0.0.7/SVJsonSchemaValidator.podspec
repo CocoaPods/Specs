@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SVJsonSchemaValidator', 'JsonSchemaValidator/**/*.{h,m}'
   s.requires_arc = true
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.platform     = :ios, '5.0'
 end
