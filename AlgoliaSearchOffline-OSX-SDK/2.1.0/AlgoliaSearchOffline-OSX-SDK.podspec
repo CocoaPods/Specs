@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AlgoliaSearchOffline-OSX-SDK'
-  s.version      = '2.0.0'
+  s.version      = '2.1.0'
   s.license = { :type => 'Commercial', :text => 'See http://www.algolia.com/license/commercial/' }
   s.platform = :osx
   s.summary      = 'OS X framework to add Google-like instant search inside your apps.'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                      DESC
   s.homepage     = 'http://www.algolia.com'
   s.author = { 'Algolia' => 'support@algolia.com' }
-  s.source         = { :http => 'http://www.algolia.com/download/AlgoliaSearchOffline-OSX-SDK-2.0.0.tgz' }
+  s.source         = { :http => 'http://www.algolia.com/download/AlgoliaSearchOffline-OSX-SDK-2.1.0.tgz' }
   s.source_files = 'AlgoliaSearch.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'AlgoliaSearch.framework'
   s.frameworks = 'AlgoliaSearch'
