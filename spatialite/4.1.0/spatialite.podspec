@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name	= "spatialite"
-  s.version	= "4.0.0"
+  s.version	= "4.1.0"
   s.summary	= "SpatiaLite is an open source library intended to extend the SQLite core to support fully fledged Spatial SQL capabilities."
   s.homepage	= "https://www.gaia-gis.it/fossil/libspatialite/home"
   s.license	= { :type => "Mozilla Public License v1.1",
 		    :file => "COPYING" }
   s.author	= { " Alessandro Furieri" => "a.furieri@lqt.it" }
-  s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.0.0.tar.gz" }
+  s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.1.0.tar.gz" }
 
   s.compiler_flags = '-DHAVE_CONFIG_H'
   s.ios.compiler_flags = '-U__APPLE__'
@@ -59,12 +59,12 @@ Pod::Spec.new do |s|
 #define PACKAGE "libspatialite"
 #define PACKAGE_BUGREPORT "a.furieri@lqt.it"
 #define PACKAGE_NAME "libspatialite"
-#define PACKAGE_STRING "libspatialite 4.0.0"
+#define PACKAGE_STRING "libspatialite 4.1.0"
 #define PACKAGE_TARNAME "libspatialite"
 #define PACKAGE_URL ""
-#define PACKAGE_VERSION "4.0.0"
+#define PACKAGE_VERSION "4.1.0"
 #define TIME_WITH_SYS_TIME 1
-#define VERSION "4.0.0"
+#define VERSION "4.1.0"
 #define _FILE_OFFSET_BITS 64
 #define _LARGEFILE_SOURCE 1
 #define _LARGE_FILE 1
@@ -81,7 +81,7 @@ CONFIG_H
   # spatialite has a couple #include "*.c"
   # the *.c files that are included can't be compiled
 
-  s.dependency 'sqlite3', '>= 3.7.3'
+  s.depencenty 'sqlite3', '>= 3.7.3'
   s.dependency 'geos'
   s.dependency 'proj4'
   s.dependency 'freexl'
