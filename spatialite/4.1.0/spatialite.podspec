@@ -81,7 +81,7 @@ CONFIG_H
   # spatialite has a couple #include "*.c"
   # the *.c files that are included can't be compiled
 
-  s.depencenty 'sqlite3', '>= 3.7.3'
+  s.dependency 'sqlite3', '>= 3.7.3'
   s.dependency 'geos'
   s.dependency 'proj4'
   s.dependency 'freexl'
