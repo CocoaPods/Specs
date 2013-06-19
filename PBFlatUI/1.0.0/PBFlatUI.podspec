@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 	s.author = {
 		'Piotr Bernad' => 'piotrbernadd@gmail.com'
 	}
-	s.ios.deployment_target = '5.0'
+	s.ios.deployment_target = '6.0'
 	s.summary = 'Easy-to-use UI for iOS apps.'
 	s.license      = { :type => 'MIT' }
 	s.ios.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/../../PBFlatUI/**' }
