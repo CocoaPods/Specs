@@ -5,9 +5,10 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/Cocoanetics/DTDownload"
   spec.author       = { "Oliver Drobnik" => "oliver@drobnik.com" }
   spec.source       = { :git => "https://github.com/Cocoanetics/DTDownload.git", :tag => spec.version.to_s  }
+  spec.platform = :ios
   spec.ios.deployment_target = '5.0'
-  spec.osx.deployment_target = '10.7'
-  spec.dependency 'DTFoundation/Core'
+  spec.dependency 'DTFoundation/Core', '~>1.4.3'
+  spec.dependency 'DTFoundation/UIKit', '~>1.4.3'
   spec.source_files = 'Core/Source/*.{h,m}'
   spec.frameworks = ['CoreData']
   spec.license      = 'BSD'
