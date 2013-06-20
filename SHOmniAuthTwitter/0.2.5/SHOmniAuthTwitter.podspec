@@ -30,4 +30,3 @@ Pod::Spec.new do |s|
   s.dependency  'AFOAuth1Client', '~> 0.2.0'
   s.dependency  'SHOmniAuth', '~> 0.2.0'
 end
-
