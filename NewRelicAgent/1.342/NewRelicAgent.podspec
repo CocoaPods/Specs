@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.preserve_paths = "NewRelic_iOS_Agent_1.342/NewRelicAgent.framework"
   s.frameworks   = "NewRelicAgent", "CoreTelephony", "SystemConfiguration"
   s.library      = "z"
-  s.xcconfig     =  { "FRAMEWORK_SEARCH_PATHS" => '"$(PODS_ROOT)/NewRelicAgent/NewRelic_iOS_Agent_1.3"' }
+  s.xcconfig     =  { "FRAMEWORK_SEARCH_PATHS" => '"$(PODS_ROOT)/NewRelicAgent/NewRelic_iOS_Agent_1.342"' }
   s.documentation = { :appledoc => ['--company-id', 'com.newrelic'] }
 end
