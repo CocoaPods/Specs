@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'scroll view additions for parallaxing interfaces.'
   s.homepage = 'https://github.com/benzguo/BGUtils'
   s.author   = { 'Ben Guo' => 'benzguo@gmail.com' }
-  s.source   = { :git => 'https://github.com/benzguo/BGScrollView.git', :commit => '3d1348feb356c6ea602a7e1bd7caeb7f0680f6f2' }
+  s.source   = { :git => 'https://github.com/benzguo/BGScrollView.git', :commit => 'c01443eedacb4068829de8243fb22d7bcc735d73' }
   s.requires_arc = true
   s.source_files = 'BGScrollView/*.{h,m}'
 end
