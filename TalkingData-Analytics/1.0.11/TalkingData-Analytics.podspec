@@ -10,7 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'TalkingData_iOS_1.0.11/*.h'
   s.resource = 'TalkingData_iOS_1.0.11/*.a'
-
-  s.library = 'z','MobClickLibrary'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/TalkingData-Analytics/TalkingData_iOS_SDK_1.0.11' }
 end
