@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SegueCustomControls"
-  s.version = "1.0"
+  s.version = "1.0.1"
   s.summary = "iOS Custom (Transitions/3D Transforms) push animations. Easily integrated with Storyboard and Segues."
   s.homepage = "https://github.com/vibrazy/SegueCustomTransitions"
   s.license = { :type => 'MIT', :file => 'LICENSE' }
