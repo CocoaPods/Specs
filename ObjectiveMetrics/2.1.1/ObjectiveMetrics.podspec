@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.osx.source_files = common_source_files
   s.ios.source_files = common_source_files + ['TouchMetrics/UIDevice-Extension']
 
-  s.public_header_files = 'ObjectiveMetrics/DMTracker.h'
+  s.public_header_files = ['ObjectiveMetrics/DMTracker.h', 'ObjectiveMetrics/ObjectiveMetrics.h']
   s.prefix_header_file = 'ObjectiveMetrics/ObjectiveMetrics-Prefix.pch'
 
   s.dependency 'SBJson', '~> 3.1.1'

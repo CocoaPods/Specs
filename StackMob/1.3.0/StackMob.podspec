@@ -6,19 +6,22 @@ Pod::Spec.new do |s|
   s.homepage = 'http://stackmob.com'
   s.author   = { 'StackMob' => 'info@stackmob.com' }
   s.source   = { :git => 'https://github.com/stackmob/stackmob-ios-sdk.git', :tag => s.version.to_s }
-  s.platform = :ios, '5.0'
+  s.ios.deployment_target = '5.0'
+  s.ios.frameworks = 'MobileCoreServices'
+  s.osx.deployment_target = '10.7'
+  s.osx.frameworks = 'CoreServices'
   s.source_files = 'Classes/*.{h,m}', 'Utility/*.{h,m}', 'CoreData/Classes/*.{h,m}', 'Push/*.{h,m}'
-  s.dependency 'AFNetworking', '1.0'
-  s.frameworks = 'CoreData', 'CoreLocation', 'Security', 'SystemConfiguration', 'MobileCoreServices'
+  s.dependency 'AFNetworking', '1.1.0'
+  s.frameworks = 'CoreData', 'CoreLocation', 'Security', 'SystemConfiguration'
   s.requires_arc = true
   s.documentation = {
-  	:appledoc => [
-  		'--index-desc','OverviewForDocs.md',
-  		'--clean-output',
-  		'--no-keep-undocumented-objects',
-    	'--no-keep-undocumented-members',
-    	'--no-repeat-first-par',
-    	'--no-merge-categories',
-    	'--install-docset'
+    :appledoc => [
+      '--index-desc','OverviewForDocs.md',
+      '--clean-output',
+      '--no-keep-undocumented-objects',
+      '--no-keep-undocumented-members',
+      '--no-repeat-first-par',
+      '--no-merge-categories',
+      '--install-docset'
     ]}
 end

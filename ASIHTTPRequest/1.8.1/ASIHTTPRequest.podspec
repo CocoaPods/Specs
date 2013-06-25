@@ -19,11 +19,12 @@ Pod::Spec.new do |s|
     using multipart/form-data.
   }
 
+  s.source_files = 'Classes'
+
   s.ios.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
-  s.ios.source_files = 'Classes'
   s.ios.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
 
-  s.osx.source_files = FileList['Classes/*.*'].exclude(/ASIAuthenticationDialog/)
+  s.osx.exclude_files = '**/*ASIAuthenticationDialog*'
   s.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
 
   s.library = 'z.1'

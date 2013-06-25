@@ -20,7 +20,10 @@ Pod::Spec.new do |s|
   s.subspec "FoundationExtension" do |ss|
     ss.source_files = "FoundationExtension"
     ss.public_header_files = "FoundationExtension/*.h"
-    ss.xcconfig = { "GCC_PREFIX_HEADER" => "FoundationExtension/FoundationExtension-Prefix.pch" }
+    ss.prefix_header_contents = '
+#include <cdebug/debug.h>
+#include <FoundationExtension/FoundationExtension.h>
+    '
   end
 
   s.subspec "CocoaExtension" do |ss|
@@ -29,7 +32,10 @@ Pod::Spec.new do |s|
     ss.public_header_files = "CocoaExtension/*.h"
     ss.header_dir = "CocoaExtension"
     ss.framework  = "Cocoa"
-    ss.xcconfig = { "GCC_PREFIX_HEADER" => "CocoaExtension/CocoaExtension-Prefix.pch" }
+    ss.prefix_header_contents = '
+#include <cdebug/debug.h>
+#include <CocoaExtension/CocoaExtension.h>
+    '
     ss.dependency "FoundationExtension/FoundationExtension"
   end
 
@@ -38,7 +44,10 @@ Pod::Spec.new do |s|
     ss.source_files = "UIKitExtension"
     ss.public_header_files = "UIKitExtension/*.h"
     ss.header_dir = "UIKitExtension"
-    ss.xcconfig = { "GCC_PREFIX_HEADER" => "UIKitExtension/UIKitExtension-Prefix.pch" }
+    ss.prefix_header_contents = '
+#include <cdebug/debug.h>
+#include <UIKitExtension/UIKitExtension.h>
+    '
     ss.dependency "FoundationExtension/FoundationExtension"
   end
 end

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'iVersion/iVersion.{h,m}'
   s.resources    = 'iVersion/iVersion.bundle'
+  s.weak_framework = 'StoreKit'
 end
