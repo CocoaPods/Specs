@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
   s.version      = '0.0.1'
   s.summary      = 'CoreData Wrapper.'
   s.homepage     = 'https://github.com/LambertPark/LPActiveRecord'
-  s.license      = { :type => 'Custom', :text => 'Copyright (C) 2010 Apple Inc. All Rights Reserved.' }
-  s.author       = {'Lambert Park' => 'LambertPark@gmail.com'}
-  s.source       = {:git => 'https://github.com/LambertPark/LPActiveRecord.git', :commit => "dee12d70f2f06dc6ad03d9dbd51edcd373fdec65"}
+  s.license      = { :type => 'MIT', :file => 'MIT-LICENSE' }
+  s.author       = { 'Lambert Park' => 'LambertPark@gmail.com' }
+  s.source       = { :git => 'https://github.com/LambertPark/LPActiveRecord.git', :commit => "0d31bb748ad0a1d0f2e77c015da5b9e5ba9d7122" }
   s.platform     = :ios, '5.1'
-  s.source_files = 'LPActiveRecord/LPActiveRecord.h', 'LPActiveRecord/LPCoreDataManager.h,m', 'LPActiveRecord/NSArray+Accessors.h,m', 'LPActiveRecord/NSManagedObject+ActiveRecord.h,m'
+  s.source_files = 'LPActiveRecord/**/*.{h,m}'
   s.framework  	 = 'CoreData'
-  s.requires_arc = false
+  s.requires_arc = true
 end
