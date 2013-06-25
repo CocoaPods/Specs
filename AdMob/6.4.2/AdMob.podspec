@@ -7,13 +7,13 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/patoroco/admob'
   s.author = 'Google Inc.'
   s.license = {
-    type: 'commercial',
-    text: 'Copyright 2009 - 2013 Google, Inc. All rights reserved.'
+    :type => 'commercial',
+    :text => 'Copyright 2009 - 2013 Google, Inc. All rights reserved.'
   }
 
   s.source = {
-    git: 'https://github.com/patoroco/admob.git',
-    tag: '6.4.2'
+    :git => 'https://github.com/patoroco/admob.git',
+    :tag => '6.4.2'
   }
   s.preserve_paths = 'libGoogleAdMobAds.a'
   s.source_files = '*.h', 'Add-ons/Search/*.h', 'Add-ons/Mediation/*.h', 'Add-ons/DoubleClick/*.h'
