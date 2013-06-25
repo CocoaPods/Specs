@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ZXTools"
-  s.version      = "1.3"
-  s.summary      = "张玺的工具箱子，扩展部分UIKit和UIFoundation的类，实现更丰富的功能."
+  s.version      = "1.4"
+  s.summary      = "张玺的工具箱，扩展部分UIKit和UIFoundation的类，实现更丰富的功能."
   #s.license      =  {:type => 'BSD' }
   s.license = 'MIT'  
   #s.license = { :type => 'MIT', :file => 'LICENSE' }
@@ -11,11 +11,30 @@ Pod::Spec.new do |s|
 
   s.author       = { "zhangxi" => "zhangxi_1989@sina.com" }
 
-  s.source       = { :git => "https://github.com/zhangxigithub/ZXTools.git",:tag=>"v1.3"}
+  s.source       = { :git => "https://github.com/zhangxigithub/ZXTools.git",:tag=>"v1.9"}
 
 
   s.platform     = :ios, '5.0'
 
+
+  s.subspec 'ZXBlock' do | ZXBlock |
+
+    ZXBlock.source_files = 'Class/ZXBlock/*.{h,m}'
+
+  end
+
+  s.subspec 'ZXQuartz' do | ZXQuartz |
+
+    ZXQuartz.ios.frameworks = 'QuartzCore'
+    ZXQuartz.source_files = 'Class/ZXQuartz/*.{h,m}'
+  end
+
+  s.subspec 'ZXCoreData' do | ZXCoreData |
+
+    ZXCoreData.ios.frameworks = 'CoreData'
+    ZXCoreData.source_files = 'Class/ZXCoreData/*.{h,m}'
+
+  end
 
     s.subspec 'ZXURL' do | ZXURL |
     ZXURL.source_files = 'Class/ZXURL/*.{h,m}'
@@ -30,6 +49,7 @@ Pod::Spec.new do |s|
   end
   
     s.subspec 'ZXALAssetsLibrary' do | ZXALAssetsLibrary |
+    ZXALAssetsLibrary.ios.frameworks = 'AssetsLibrary'
     ZXALAssetsLibrary.source_files = 'Class/ZXALAssetsLibrary/*.{h,m}'
   end
   
@@ -65,11 +85,11 @@ Pod::Spec.new do |s|
   
 
 
-  s.ios.frameworks   = 'AssetsLibrary',
-                       'CoreLocation',
-                       'MapKit',
-                       'CoreGraphics',
-                       'AVFoundation'
+#  s.ios.frameworks   = 'AssetsLibrary',
+#                       'CoreLocation',
+#                       'MapKit',
+#                       'CoreGraphics',
+#                       'AVFoundation'
 
 
   s.requires_arc = true
