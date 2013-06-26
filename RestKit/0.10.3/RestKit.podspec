@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
     js.dependency 'RestKit/Network'
     js.dependency 'RestKit/ObjectMapping/JSON'
     js.dependency 'RestKit/ObjectMapping/CoreData'
+    js.dependency 'RestKit/ObjectMapping'
     js.dependency 'RestKit/UI'
   end
 

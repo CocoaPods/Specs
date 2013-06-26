@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.authors  = { 'Oliver Drobnik' => 'oliver@drobnik.com' }
   s.source   = { :git => 'https://github.com/Cocoanetics/DTWebArchive.git', :commit => 'a266fd95ced58e0e9a5315d6a04704072af96051' }
   s.source_files = 'Core/Source/*.{h,m}'
+  s.requires_arc = true
 end
