@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'CrittercismSDK/*.h'
   s.preserve_paths = 'CrittercismSDK/libCrittercism_v4_0_0.a'
-  s.library = 'Crittercism_v0_0_0'
+  s.library = 'Crittercism_v4_0_0'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CrittercismSDK/CrittercismSDK"' }
 end
