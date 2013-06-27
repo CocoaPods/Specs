@@ -6,10 +6,10 @@ Pod::Spec.new do |s|
   s.license      = 'BSD'
   s.author       = 'Ba-Z Communication Inc.'
   s.source       = { :git => 'https://github.com/baztokyo/BZPasscodeViewController.git', :tag => '1.0.1' }
-  s.platform     = :ios, '4.3'
+  s.platform     = :ios, '3.2'
   s.source_files = 'BZPasscodeViewController/*.{h,m}'
-  s.resources = 'BZPasscodeViewController/*.xib', 'BZPasscodeViewController/BZPasscodeViewController.bundle'
-  s.frameworks = 'AVFoundation'
+  s.resources    = 'BZPasscodeViewController/*.xib', 'BZPasscodeViewController/BZPasscodeViewController.bundle'
+  s.frameworks   = 'AVFoundation'
   s.requires_arc = false
   s.compiler_flags = '-DBZ_USE_SOUND'
 end
