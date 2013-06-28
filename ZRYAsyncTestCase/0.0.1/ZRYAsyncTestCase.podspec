@@ -10,4 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.source_files          = 'ZRYAsyncTestCase/*'
   s.requires_arc          = true
+  s.ios.framework         = 'SenTestingKit'
+
 end
