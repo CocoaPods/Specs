@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
   s.author       = { "Jennis" => "jennis.myfirstmobileapp@gmail.com" }
   s.source       = { :git => "https://github.com/Jennis/InternetReachable.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'InternetReachableExample/InternetReachable/*.{h,m}', 'InternetReachableExample/InternetReachable/Resource/*.*'
+  s.source_files = 'InternetReachableExample/InternetReachable/*.{h,m}'
+  s.resource 	 = 'InternetReachableExample/InternetReachable/Resource/*.png'
   s.requires_arc = true
   s.dependency 'Reachability'
 end
