@@ -38,6 +38,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'DTZipArchive' do |ss|
     ss.ios.deployment_target = '4.3'
     ss.source_files = 'Core/Source/DTZipArchive/*.{h,m}'
+    ss.library = 'z'
 
     # Ideally minizip should have a Pod
     # ss.dependency 'Minizip'
