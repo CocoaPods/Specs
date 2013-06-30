@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "FamilySearchCocoa"
   s.version      = "0.4.0"
-  s.summary      = "An easy to use library for interacting with the FamilySearch.org API on iOS or OS X"
+  s.summary      = "An easy to use library for interacting with the FamilySearch.org API on iOS or OS X."
   s.description  = <<-DESC
 					You need to get a developer key from https://devnet.familysearch.org/ first. Then you can easily get the current user, add
 					parents, children, spouses and modify a persons events like birth, death, marriage date, etc. More is coming soon.

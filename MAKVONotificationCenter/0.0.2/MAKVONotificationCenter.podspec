@@ -9,8 +9,7 @@ Pod::Spec.new do |s|
   s.header_dir   = s.name
   s.requires_arc = true
   s.license      = {
-      :type => 'MIT',
+      :type => 'BSD',
       :file => 'LICENSE'
   }
-
 end

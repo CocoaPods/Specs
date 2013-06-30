@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Bugsnag"
   s.version      = "2.2.1"
-  s.summary      = "iOS notifier for SDK for bugsnag.com"
+  s.summary      = "iOS notifier for SDK for bugsnag.com."
   s.homepage     = "https://bugsnag.com"
   s.license      = 'MIT'
   s.author       = { "Bugsnag" => "notifiers@bugsnag.com" }

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "JJGraphicsUtilities"
   s.version      = "0.0.3"
   s.platform     = :ios
-  s.summary      = "General graphics utilities, including generic inset effect classes. "
+  s.summary      = "General graphics utilities, including generic inset effect classes."
   s.homepage     = "https://github.com/jacobjennings/JJGraphicsUtilities"
   s.license      = 'MIT'
   s.author       = { "Jacob Jennings" => "jacob.r.jennings@gmail.com" }

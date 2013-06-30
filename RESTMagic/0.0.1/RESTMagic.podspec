@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'RESTMagic/**/*.h'
 
-  s.dependency 'JSONKit',       '~> 1.4'
-  s.dependency 'GRMustache',    '~> 3.0.1'
+  s.dependency 'GRMustache',    '~> 6.4.0'
 
 end

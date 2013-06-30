@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version   = '1.0.0'
   s.platform  = :ios
   s.summary   = 'An animated UIView for displaying a temporary "bezel" notification, mid-screen.'
-  s.description   = 'An animated UIView for displaying a temporary "bezel" notification, mid-screen.'
   s.homepage  = 'https://github.com/kreeger/BDKNotifyHUD'
   s.license   = {
     :type => 'MIT',

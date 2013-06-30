@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.resource  = "BeeDebugger/*.png"
   s.platform     = :ios
 
-  s.source_files = 'BeeDebugger/**/*.{h,m}', 'BeeFramework/**/*.{h,m,mm}', 'BeeTemplates/**/*.{h,m,mm}'
+  s.source_files = 'BeeDebugger/**/*.{h,m}', 'BeeFramework/**/*.{h,m,mm}', 'BeeTemplates/**/*.{h,m,mm}', 'BeeUnitTest/**/*.{h,m,mm}'
   s.frameworks = 'CoreMedia', 'CoreVideo', 'AVFoundation', 'Security', 'SystemConfiguration', 'QuartzCore', 'MobileCoreServices', 'CFNetwork'
   s.library = 'z'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz' }
@@ -25,5 +25,5 @@ Pod::Spec.new do |s|
   s.dependency 'ASIHTTPRequest'
   s.dependency 'Reachability'
   s.dependency 'SFHFKeychainUtils'
-  s.dependency 'FMDB', :head
+  s.dependency 'FMDB'
 end

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "SCNetworkReachability"
   s.version      = "1.0.0"
-  s.summary      = "Wrapper for SCNetworkReachability methods of SystemConfiguration.framework"
+  s.summary      = "Wrapper for SCNetworkReachability methods of SystemConfiguration.framework."
   s.homepage     = "https://github.com/belkevich/reachability-ios"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { "Alexey Belkevich" => "belkevich.alexey@gmail.com" }

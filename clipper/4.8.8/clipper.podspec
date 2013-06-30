@@ -12,7 +12,7 @@ The clipping code is based on the Vatti clipping algorithm, and out performs oth
   s.license	= { :type => "Boost Software License",
 		    :file => "License.txt" }
   s.author	= { "Angus Johnson" => "awj1958@gmail.com" }
-  s.source	= { :http => "http://sourceforge.net/projects/polyclipping/files/clipper_ver4.8.8.zip" }
+  s.source      = { :svn => "http://svn.code.sf.net/p/polyclipping/code", :tag => "4.8.8" }
 
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"

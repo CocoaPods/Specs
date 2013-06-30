@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
           // Display blue sign-up button
           }];
           Documentation
-          More documentation can be found at: http://docs.clutch.io/
+          More documentation can be found at: http://docs.clutch.io.
   DESC
   s.homepage     = "https://clutch.io/"
 

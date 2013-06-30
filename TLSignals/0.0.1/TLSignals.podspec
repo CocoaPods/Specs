@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/bsideup/TLSignals'
   s.author   = { 'Sergey Egorov' => 'bsideup@gmail.com' }
   s.source   = { :git => 'https://github.com/bsideup/TLSignals.git',
-		 :commit => 'HEAD' }
+                 :commit => '262a1defc6da77636cfa86fae316163f752d3d19' }
 
   s.source_files = 'TLSignals/*.{h,m, mm}'
 end

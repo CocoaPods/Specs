@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.author       = { "Mike Enriquez" => "mike@enriquez.me" }
   s.source       = { :git => "https://github.com/enriquez/MEAlertView.git", :tag => "1.0.0" }
   s.platform     = :ios
+  s.requires_arc = true
   s.source_files = 'MEAlertView.h', 'MEAlertView.m'
 end

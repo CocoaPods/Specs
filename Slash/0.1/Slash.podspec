@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "A simple, extensible, language for styling attributed strings."
   s.description  = <<-DESC
-                     A simple, extensible markup language for styling NSAttributedStrings. The language is similar in appearance to HTML, however the tag vocabulary and styles can be easily customized by passing a dictionary argument to the parser. 
+                     A simple, extensible markup language for styling NSAttributedStrings. The language is similar in appearance to HTML, however the tag vocabulary and styles can be easily customized by passing a dictionary argument to the parser.
                     DESC
   s.homepage     = "https://github.com/chrisdevereux/Slash"
   s.license      = { :type => 'MIT', :file => 'LICENCE' }
