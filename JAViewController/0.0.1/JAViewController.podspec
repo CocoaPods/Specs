@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Josh Abernathy" => "josh@github.com" }
   s.source       = { :git => "https://github.com/joshaber/JAViewController.git", :commit => '78de6f13710bf18fb535e4aef653f2a0633d7c95' }
   s.platform     = :osx
-  s.source_files = FileList['*.{h,m}'].exclude("/Demo")
+  s.source_files = '*.{h,m}'
+  s.exclude_files = "Demo"
   s.requires_arc = false
 end

@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Steve Gifford" => "sjg@mousebirdconsulting.com" }
   s.source       = { :git => "https://github.com/mousebird/WhirlyGlobe.git", :tag => "v2.0" }
 
-  s.platform	 = :ios, '5.0'
-  
+  s.platform     = :ios, '5.0'
   s.requires_arc = true
 
   s.dependency 'eigen'
@@ -17,6 +16,6 @@ Pod::Spec.new do |s|
   s.dependency 'boost/math-includes'
 
   s.source_files = "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobe-MaplyComponent}/include/**/*.h"
-  s.public_header_files = FileList['WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobe-MaplyComponent}/include/**/*.{h}'].exclude(/private/)
+  s.private_header_files = "**/*private*"
 
 end

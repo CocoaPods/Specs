@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
   s.subspec 'Core' do |sp|
-    files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-    sp.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/, /NSText/, /NSControl/)
-    sp.osx.source_files = files.dup.exclude(/UIControl/, /UIText/, /RACEventTrampoline/, /RACDelegateProxy/)
+    s.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}'
+    s.ios.exclude_files = '**/*{NSButton,AppKit,NSText,NSControl}*'
+    s.osx.exclude_files = '**/*{UIControl,UIText,RACEventTrampoline,DelegateProxy}*'
     sp.header_dir = 'ReactiveCocoa'
 
     sp.dependency 'JRSwizzle', '~> 1.0'
@@ -40,9 +40,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'RACExtensions' do |sp|
-    files = FileList['RACExtensions/*.{h,m}']
-    sp.ios.source_files = files.dup.exclude(/NSTask/)
-    sp.osx.source_files = files
+    sp.source_files = 'RACExtensions/*.{h,m}'
+    sp.ios.exclude_files = '**/*{NSTask}*'
     sp.dependency 'ReactiveCocoa/Core'
   end
 end
