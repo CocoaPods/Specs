@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.github.com/derpipo/PICircularProgressView/master/Screenshot.png"
   s.license      = 'MIT'
   s.author       = { "DerPipo" => "derpipo@gmail.com" }
-  s.source       = { :git => "https://github.com/DerPipo/PICircularProgressView.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/DerPipo/PICircularProgressView.git", :tag => "0.1.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'PICircularProgressView'
   s.requires_arc = true
