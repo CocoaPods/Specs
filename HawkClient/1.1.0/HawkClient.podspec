@@ -9,4 +9,6 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.platform     = :ios, '5.0'
   s.dependency 'Base64', '~> 1.0.1'
+  s.source_files = 'HawkClientIOS/HawkClient_iOS/HawkClient_iOS/*.{h,m}'
+  s.requires_arc = true
 end
