@@ -1,9 +1,12 @@
 Pod::Spec.new do |s|
-  name    = "SHObjectUserInfo"
-  url     = "https://github.com/seivan/#{name}"
-  git_url = "#{url}.git"
+  name           = "SHObjectUserInfo"
+  url            = "https://github.com/seivan/#{name}"
+  git_url        = "#{url}.git"
+  version        = "1.0.1"
+  source_files   = "#{name}/**/*.{h,m}"
+
   s.name         = name
-  s.version      = "1.0.0"
+  s.version      = version
   s.summary      = "NSObject prefixed userInfo without swizzling."
   s.description  = <<-DESC
                     SHObjectUserInfo is a category on top of NSObject to allow userInfo dictionary without the swizzling. It's built on top of NSMapTable that works with weakToWeak references between an object and its userInfo. 
@@ -20,11 +23,12 @@ Pod::Spec.new do |s|
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => git_url, :tag => s.version.to_s }
+  s.source       = { :git => git_url, :tag => version }
   
 
   s.platform  = :ios, "6.0"
+  s.platform  = :osx, "10.8"
 
-  s.source_files = "#{name}/**/*.{h,m}"
+  s.source_files = source_files
   s.requires_arc = true
 end
