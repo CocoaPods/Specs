@@ -20,8 +20,7 @@ Pod::Spec.new do |s|
   s.preserve_paths    = "UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/libUMSocial_Sdk_2.0.0.a","UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/libUMSocial_Sdk_Comment_2.0.0.a","UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/frameworks/Wechat/libWeChatSDK_armv7_armv7s.a"
   
   s.library           = "UMSocial_Sdk_2.0.0","UMSocial_Sdk_Comment_2.0.0","WeChatSDK_armv7_armv7s","z"
-  s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UMengSocial/UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/"}
-  s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UMengSocial/UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/frameworks/Wechat/"}
+  s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UMengSocial/UMSocial_Sdk_All_2.0.0/UMSocial_Sdk_2.0.0/**"}
   
   s.framework         = "SystemConfiguration","MobileCoreServices"
   s.platform          = :ios,'4.3'
