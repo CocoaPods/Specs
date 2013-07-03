@@ -17,47 +17,47 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
 
-    s.subspec 'ZXURL' do | ZXURL |
-    ZXURL.source_files = 'Class/ZXURL/*.{h,m}'
+    s.subspec 'ZXURL' do | ssZXURL |
+    ssZXURL.source_files = 'Class/ZXURL/*.{h,m}'
   end
   
-    s.subspec 'ZXBase64' do | ZXBase64 |
-    ZXBase64.source_files = 'Class/ZXBase64/*.{h,m}'
+    s.subspec 'ZXBase64' do | ssZXBase64 |
+    ssZXBase64.source_files = 'Class/ZXBase64/*.{h,m}'
   end
   
-    s.subspec 'ZXAES' do | ZXAES |
-    ZXAES.source_files = 'Class/ZXAES/*.{h,m}'
+    s.subspec 'ZXAES' do | ssZXAES |
+    ssZXAES.source_files = 'Class/ZXAES/*.{h,m}'
   end
   
-    s.subspec 'ZXALAssetsLibrary' do | ZXALAssetsLibrary |
-    ZXALAssetsLibrary.source_files = 'Class/ZXALAssetsLibrary/*.{h,m}'
+    s.subspec 'ZXALAssetsLibrary' do | ssZXALAssetsLibrary |
+    ssZXALAssetsLibrary.source_files = 'Class/ZXALAssetsLibrary/*.{h,m}'
   end
   
-    s.subspec 'ZXApplication' do | ZXApplication |
-    ZXApplication.source_files = 'Class/ZXApplication/*.{h,m}'
+    s.subspec 'ZXApplication' do | ssZXApplication |
+    ssZXApplication.source_files = 'Class/ZXApplication/*.{h,m}'
   end
   
-    s.subspec 'ZXDES' do | ZXDES |
-    ZXDES.source_files = 'Class/ZXDES/*.{h,m}'
+    s.subspec 'ZXDES' do | ssZXDES |
+    ssZXDES.source_files = 'Class/ZXDES/*.{h,m}'
   end
   
-    s.subspec 'ZXMD5' do | ZXMD5 |
-    ZXMD5.source_files = 'Class/ZXMD5/*.{h,m}'
+    s.subspec 'ZXMD5' do | ssZXMD5 |
+    ssZXMD5.source_files = 'Class/ZXMD5/*.{h,m}'
   end
   
-    s.subspec 'ZXString' do | ZXString |
-    ZXString.source_files = 'Class/ZXString/*.{h,m}'
+    s.subspec 'ZXString' do | ssZXString |
+    ssZXString.source_files = 'Class/ZXString/*.{h,m}'
   end
   
-      s.subspec 'ZXTableView' do | ZXTableView |
-    ZXTableView.source_files = 'Class/ZXTableView/*.{h,m}'
+      s.subspec 'ZXTableView' do | ssZXTableView |
+    ssZXTableView.source_files = 'Class/ZXTableView/*.{h,m}'
   end
   
-      s.subspec 'ZXMacro' do | ZXMacro |
-    ZXMacro.source_files = 'Class/ZXMacro/*.{h,m}'
+      s.subspec 'ZXMacro' do | ssZXMacro |
+    ssZXMacro.source_files = 'Class/ZXMacro/*.{h,m}'
   end
-    s.subspec 'ZXDate' do | ZXDate |
-    ZXDate.source_files = 'Class/ZXDate/*.{h,m}'
+    s.subspec 'ZXDate' do | ssZXDate |
+    ssZXDate.source_files = 'Class/ZXDate/*.{h,m}'
   end
   
 

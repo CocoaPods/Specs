@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'CrittercismSDK'
   s.version = '4.0.0'
-  s.license = { :type => 'Commercial', :text => 'See http://www.crittercism.com/tos-v3.html' }
+  s.license = { :type => 'Commercial', :text => 'See http://www.crittercism.com/terms-services/' }
   s.summary = 'Mobile App Performance Monitoring and Crash Reporting.'
   s.homepage = 'http://www.crittercism.com'
   s.author = { 'Crittercism' => 'support@crittercism.com' }
