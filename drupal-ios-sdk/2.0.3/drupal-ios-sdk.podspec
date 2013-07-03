@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/workhabitinc/drupal-ios-sdk"
   s.author       = { "Kyle Browning" => "kylebrowning@me.com" }
   s.source       = { :git => "https://github.com/workhabitinc/drupal-ios-sdk.git", :tag => "2.0.3" }
-  s.requires_arc = false
+  s.requires_arc = true
   s.ios.deployment_target = '5.0'
   s.license  = 'MPL 1.1/GPL 2.0'
   s.dependency 'AFNetworking', '~> 1.3.0'
