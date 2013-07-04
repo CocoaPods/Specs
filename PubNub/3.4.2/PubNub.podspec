@@ -30,13 +30,20 @@ Pod::Spec.new do |s|
    'iOS/3.4/pubnub/libs/PubNub/Data/Parsers',
    'PNConstants.h'
 
-  s.prefix_header_file = 'iOS/3.4/pubnub/pubnub-Prefix.pch'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
+
+  s.ios.prefix_header_file = 'iOS/3.4/pubnub/pubnub-Prefix.pch'
+  
   s.requires_arc = true
-  s.ios.frameworks =  'CFNetwork', 'SystemConfiguration'
+  s.frameworks =  'CFNetwork', 'SystemConfiguration'
   s.library   = 'z'
   
   s.dependency 'JSONKit', '~> 1.4'
-  s.platform = :ios
+  s.osx.prefix_header_contents = <<-EOS
+#import "PNImports.h"
+EOS
+  
   s.homepage = 'http://www.pubnub.com/'
   s.license = {
 	    :type => 'MIT',
