@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "TRSDialScrollView"
   s.version      = "1.0.2"
-  s.summary      = "TRSDialScrollView is a customizable UIScrollView for use a dial control."
+  s.summary      = "TRSDialScrollView is a customizable UIScrollView for implementing dial controls."
   s.homepage     = "https://github.com/kevinkirkup/TRSDialScrollView"
   s.screenshots  = "github.com/kevinkirkup/TRSDialScrollView/blob/master/images/TRSDialScrollView.png"
 
