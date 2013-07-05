@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
   s.source_files  = 'MTStringAttributes/*.{h,m}'
-  s.frameworks    = 'CoreGraphics', 'Foundation'
   s.requires_arc  = true
   s.dependency    'Slash', '~> 0.1'
 end
