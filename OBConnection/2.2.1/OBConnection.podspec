@@ -15,5 +15,4 @@ Pod::Spec.new do |s|
 
   s.dependency 'AFNetworking', '~> 1.3.0'
   s.dependency 'EGOCache', '0.0.1'
-  s.dependency 'JSONKit', '1.4'
 end
