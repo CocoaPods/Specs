@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "JTCards"
   s.version      = "0.0.1"
-  s.summary      = "A card based controller for iOS. Similar to the Passbook app."
+  s.summary      = "A card based controller for iOS. Similar to the Passbook app on iOS 6."
   s.homepage     = "https://github.com/jtribe/JTCards"
   s.license      = 'MIT'
   s.author       = { "Armin" => "armin@jtribe.com.au" }
