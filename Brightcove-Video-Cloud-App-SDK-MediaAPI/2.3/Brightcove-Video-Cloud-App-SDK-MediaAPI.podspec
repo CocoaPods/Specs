@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'bc-media-api-2/lib/usr/local/include/*.h'
   s.source = { :http => 'http://files.brightcove.com/bc-media-api-2-3.zip' }
+  s.preserve_paths = 'bc-media-api-2/lib/libBrightcoveMediaAPI.a'
 
   s.platform = :ios
   s.frameworks = 'Foundation'
