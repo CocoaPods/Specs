@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author = 'Brightcove Inc.'
 
   s.source_files = 'bc-media-api-2/lib/usr/local/include/*.h'
+  s.preserve_paths = 'bc-media-api-2/lib/libBrightcoveMediaAPI.a'
   s.source = { :http => 'http://files.brightcove.com/bc-media-api-2-3.zip' }
 
   s.platform = :ios
