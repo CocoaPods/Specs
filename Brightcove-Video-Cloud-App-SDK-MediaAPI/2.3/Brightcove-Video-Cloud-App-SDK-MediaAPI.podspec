@@ -8,10 +8,10 @@ Pod::Spec.new do |s|
 
   s.source_files = 'bc-media-api-2/lib/usr/local/include/*.h'
   s.source = { :http => 'http://files.brightcove.com/bc-media-api-2-3.zip' }
-  s.resource = 'bc-media-api-2/lib/libBrightcoveMediaAPI.a'
+  s.preserve_paths = 'bc-media-api-2/lib/libBrightcoveMediaAPI.a'
 
   s.platform = :ios
   s.frameworks = 'Foundation'
   s.libraries = 'libBrightcoveMediaAPI'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Brightcove-Video-Cloud-App-SDK-MediaAPI/bc-media-api-2/lib/"' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Brightcove-Video-Cloud-App-SDK-MediaAPI/bc-media-api-2/lib/"' }
 end
