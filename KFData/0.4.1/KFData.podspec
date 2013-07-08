@@ -12,8 +12,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
   s.ios.deployment_target = '5.0'
 
-  s.default_subspec = 'Core'
-
   s.subspec 'Core' do |corespec|
     corespec.header_dir = 'KFData'
 
@@ -25,9 +23,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'UI' do |uispec|
+    uispec.dependency 'KFData/Core'
     uispec.platform = :ios
     uispec.ios.frameworks = 'UIKit'
     uispec.ios.source_files = 'Classes/iOS/*.{h,m}'
   end
 end
-
