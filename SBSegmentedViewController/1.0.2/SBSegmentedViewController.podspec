@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Scott90/SBSegmentedViewController"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Scott90" => "my@fake.email" }
-  s.source       = { :git => "https://github.com/Scott90/SBSegmentedViewController.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Scott90/SBSegmentedViewController.git", :tag => "v#{s.version}" }
   s.source_files = 'SBSegmentedViewController/SBSegmentedViewController.*'
   s.platform     = :ios, '5.0'
   s.requires_arc = true
