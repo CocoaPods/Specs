@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   }
   s.author       = { "Raquel Galan" => "iprayforwaves@gmail.com" }
   s.author       = 'runway20'
-  s.source       = { :git => "https://github.com/runway20/PopoverView.git", :commit => "ce6843cb1a09dcaf46c07c66d059707f9946d845" }
+  s.source       = { :git => "https://github.com/runway20/PopoverView.git", :commit => "b283b67cf618c2847a038849224f441b12ecfa40" }
   s.platform     = :ios
   s.source_files = 'PopoverView/*.{h,m}'
 end
