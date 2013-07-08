@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   s.header_dir = 'opencv2'
   s.header_mappings_dir = 'opencv2.framework/Versions/A/Headers/'
   
-  s.libraries    = 'c++', 'stdc++'  
+  s.libraries    = 'c++'
   s.frameworks = 'opencv2', 'Accelerate', 'AssetsLibrary', 'AVFoundation', 'CoreGraphics', 'CoreImage', 'CoreMedia', 'CoreVideo', 'Foundation', 'QuartzCore', 'UIKit'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/OpenCV' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/OpenCV', 'OTHER_LDFLAGS' => '-lc++' }
 end
