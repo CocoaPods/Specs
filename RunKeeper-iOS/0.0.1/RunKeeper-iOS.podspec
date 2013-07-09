@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source_files = 'Classes', 'RunKeeper/**/*.{h,m}'
-  s.exclude_files = 'Classes/Exclude'
+  s.source_files = 'RunKeeper/**/*.{h,m}'
 
   s.resources = "images/*.png"
 
