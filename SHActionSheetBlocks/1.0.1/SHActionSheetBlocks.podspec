@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   url            = "https://github.com/seivan/#{name}"
   git_url        = "#{url}.git"
   s.name         = name
-  version        = "1.0.0"
+  version        = "1.0.1"
   source_files   = "#{name}/**/*.{h,m}"
 
   s.version      = version
@@ -42,4 +42,5 @@ Pod::Spec.new do |s|
                     "https://raw.github.com/seivan/SHActionSheetBlocks/#{version}/Screenshots/Purple/default.png",
                     "https://raw.github.com/seivan/SHActionSheetBlocks/#{version}/Screenshots/Purple/selected.png",
                     "https://raw.github.com/seivan/SHActionSheetBlocks/#{version}/Screenshots/Purple/cancel-selected.png"]
+
 end
