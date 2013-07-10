@@ -21,7 +21,7 @@ FSNConnection offers the following:
 
                    DESC
   s.homepage     = "https://github.com/foursquare/FSNetworking"
-  s.license      = 'Apache'
+  s.license      = { :type => 'Apache', :file => 'license.txt' }
   s.author       = { "Bryan Bonczek" => "bryan@foursquare.com" }
   s.source       = { :git => "https://github.com/foursquare/FSNetworking.git", :commit => "c55651c86293f8415a57aa9e0e720c2311e820b7" }
   s.platform     = :ios, '5.0'
