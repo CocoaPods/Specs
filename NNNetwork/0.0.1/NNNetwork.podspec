@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.resources = "Resources/*"
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 1.3.1'
-  s.dependency 'SSKeychain', '~> 1.1.0'
+  s.dependency 'SSKeychain', '0.1.4'
 end
