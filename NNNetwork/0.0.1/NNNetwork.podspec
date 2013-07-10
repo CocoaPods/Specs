@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/tomazsh/NNNetworkt"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Tomaz Nedeljko" => "tomaz.nedeljko@gmail.com" }
-  #s.source       = { :git => "https://github.com/tomazsh/NNNetwork.git", :commit => "1228b0eaa18bb4f5cea97777b2beb09513bd700a" }
-  s.source       = { :git => "https://github.com/tomazsh/NNNetwork.git", :tag => '0.0.1' }
+  s.source       = { :git => "https://github.com/dburr/NNNetwork.git", :commit => "1228b0eaa18bb4f5cea97777b2beb09513bd700a" }
+  #s.source       = { :git => "https://github.com/tomazsh/NNNetwork.git", :tag => '0.0.1' }
   s.platform     = :ios, '6.0'
   s.source_files = 'NNNetwork'
   s.exclude_files = 'Examples'
