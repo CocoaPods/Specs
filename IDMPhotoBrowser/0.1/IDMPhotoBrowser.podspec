@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "IDMPhotoBrowser"
-  s.version      = "0.1"
+  s.version      = "1.0"
   s.summary      = "IDMPhotoBrowser."
   s.homepage     = "https://github.com/appkraft/IDMPhotoBrowser"
 
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Appkraft" => "all@appkraft.net" }
   s.source       = { 
     :git => "https://github.com/appkraft/IDMPhotoBrowser.git", 
-    :tag => "0.1"
+    :tag => "1.0"
   }
 
   s.platform     = :ios, '5.0'
