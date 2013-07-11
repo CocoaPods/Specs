@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
                  'Brad Larson'    => 'larson@sunsetlakesoftware.com',
                  'Eric Skroch'    => 'eskroch@mac.com',
                  'Barry Wark'     => 'barrywark@gmail.com' }
-
   s.source   = { :http => 'https://core-plot.googlecode.com/files/CorePlot_1.3.zip' }
 
   s.description = 'Core Plot is a plotting framework for OS X and iOS. It provides 2D visualization ' \
@@ -22,12 +21,12 @@ Pod::Spec.new do |s|
   s.framework   = 'QuartzCore'
 
   s.pre_install do |pod, target_definition|
-	Dir.chdir(pod.root) {
-		unless File.exists?('framework')
-			FileUtils.mv Dir.glob('**/framework'), '.'
-			FileUtils.mv Dir.glob('**/License.txt'), '.'
-	    	`dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h`
-		end
-	}
+    Dir.chdir(pod.root) {
+      unless File.exists?('framework')
+        FileUtils.mv Dir.glob('**/framework'), '.'
+        FileUtils.mv Dir.glob('**/License.txt'), '.'
+        `dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h`
+      end
+    }
   end
 end
