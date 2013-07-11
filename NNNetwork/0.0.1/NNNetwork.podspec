@@ -2,8 +2,13 @@
 Pod::Spec.new do |s|
   s.name         = "NNNetwork"
   s.version      = "0.0.1"
-  s.summary      = "A short description of NNNetwork."
+  s.summary      = "Networking categories, OAuth and read later clients"
   s.description  = <<-DESC
+`NNNetwork` is a collection of classes that power networking in Postr. It is
+built atop `AFNetworking` and it provides categories for networking, OAuth 1.0
+utilities and read later integration classes (supports Instapaper, Pocket
+and Readability).  It also includes iOS 6 `UIActivity` providers for these
+services that can be used in `UIActivityViewController`s.
                       DESC
   s.homepage     = "https://github.com/tomazsh/NNNetworkt"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
