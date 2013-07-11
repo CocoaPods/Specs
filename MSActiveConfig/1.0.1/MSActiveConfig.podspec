@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mindsnacks/MSActiveConfig.git", :tag => "v1.0.1" }
   s.platform     = :ios, '6.0'
   s.source_files = 'MSActiveConfig/Classes/*.{h,m}'
-  s.private_header_files = 'Classes/*+Private.h'
+  s.private_header_files = 'MSActiveConfig/Classes/*+Private.h'
   s.requires_arc = true
 end
