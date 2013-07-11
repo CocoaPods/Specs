@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '0.4'
   s.platform = :ios
   s.license  = {:type =>'Apache V2.0', :file =>'LICENSE'}
-  s.summary  = 'Automatic Nib management for 3.5 and 4 inches screens. Very helpfull when you need to have two very distinct interfaces between 3.5 and 4 inches screens.'
+  s.summary  = 'When you need to have two very distinct interfaces between 3.5 and 4 inches screens.'
   s.homepage = 'http://alexiscreuzot.com/KANibHelper'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }
   s.source   = { :git => 'https://github.com/kirualex/KANibHelper.git',
