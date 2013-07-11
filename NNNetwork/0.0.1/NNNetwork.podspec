@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "NNNetwork"
   s.version      = "0.0.1"
-  s.summary      = "Networking categories, OAuth and read later clients"
+  s.summary      = "Networking categories, OAuth and read later clients."
   s.description  = <<-DESC
 `NNNetwork` is a collection of classes that power networking in Postr. It is
 built atop `AFNetworking` and it provides categories for networking, OAuth 1.0
