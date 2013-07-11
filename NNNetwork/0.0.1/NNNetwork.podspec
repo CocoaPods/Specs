@@ -10,7 +10,7 @@ utilities and read later integration classes (supports Instapaper, Pocket
 and Readability).  It also includes iOS 6 `UIActivity` providers for these
 services that can be used in `UIActivityViewController`s.
                       DESC
-  s.homepage     = "https://github.com/tomazsh/NNNetworkt"
+  s.homepage     = "https://github.com/tomazsh/NNNetwork"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Tomaz Nedeljko" => "tomaz.nedeljko@gmail.com" }
   s.source       = { :git => "https://github.com/tomazsh/NNNetwork.git", :commit => '08a9e01832b3eb324e92414adc1775eb36470737' }
