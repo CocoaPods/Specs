@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHOmniAuthTwitter.git", :tag => version }
+  s.source       = { :git => git_url, :tag => version }
   s.platform     = :ios, '6.0'
   
   s.frameworks  = 'Social', 'Accounts'
