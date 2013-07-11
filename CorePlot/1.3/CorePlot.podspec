@@ -22,13 +22,12 @@ Pod::Spec.new do |s|
   s.framework   = 'QuartzCore'
 
   s.pre_install do |pod, target_definition|
-	Dir.chdir(pod.root)
-	unless File.exists?('framework')
-		# Break out of the deep nested structure of the zip file
-		FileUtils.mv Dir.glob('**/framework'), '.'
-
-		# Generate a header file for CorePlotProbes
-    	`dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h`
-	end
+	Dir.chdir(pod.root) {
+		unless File.exists?('framework')
+			FileUtils.mv Dir.glob('**/framework'), '.'
+			FileUtils.mv Dir.glob('**/License.txt'), '.'
+	    	`dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h`
+		end
+	}
   end
 end
