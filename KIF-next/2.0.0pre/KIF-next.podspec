@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.3'
   s.source_files = 'Classes', 'Additions'
   s.public_header_files = 'Classes/**/*.h'
-  s.framework  = 'SenTestingKit'
+  s.frameworks  = 'SenTestingKit', 'CoreGraphics'
 end
