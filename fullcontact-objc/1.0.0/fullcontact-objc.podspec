@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "Objective-C library to access FullContact's v2 API endpoints via iOS and Mac OS X."
   s.homepage     = "https://github.com/fullcontact/fullcontact-cab-objc"
   s.author       = { "Duane Schleen" => "scsnowboards@gmail.com" }
-  s.source       = { :git => "git@github.com:fullcontact/fullcontact-objc.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/fullcontact/fullcontact-objc.git", :tag => "1.0.0" }
   s.source_files = 'fullcontact-objc/fullcontact-objc/Classes/**/*.{h,m}'
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
