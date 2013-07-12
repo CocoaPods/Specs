@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking' ,'~>0.10.0'
   s.dependency 'JSONKit'
   s.resources      =  'FreshdeskSDK/FreshdeskSDKResources.bundle'
-  s.xcconfig       = {'LIBRARY_SEARCH_PATHS' => ' "${PODS_ROOT}/FreshdeskSDK" '}
+  s.xcconfig       = {'LIBRARY_SEARCH_PATHS' => ' "${PODS_ROOT}/FreshdeskSDK/FreshdeskSDK/"'}
 end
