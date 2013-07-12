@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nxtbgthng/SenTestingKitAsync.git", :tag => "1.0.6" }
   s.source_files = 'SenTestingKitAsync/SenTestingKitAsync.{h,m}'
   s.frameworks   = 'SenTestingKit'
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(inherited)" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
   s.requires_arc = true
 end
