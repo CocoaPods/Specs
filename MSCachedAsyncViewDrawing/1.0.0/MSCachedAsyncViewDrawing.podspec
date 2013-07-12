@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Javier Soto" => "ios@javisoto.es" }
   
-  s.source       = { :git => "https://github.com/mindsnacks/MSCachedAsyncViewDrawing.git", :tag => "v1.0.0" }
+  s.source       = { :git => "https://github.com/mindsnacks/MSCachedAsyncViewDrawing.git", :tag => "1.0.0" }
   s.platform     = :ios, '5.0'
   s.source_files = 'MSCachedAsyncViewDrawing.{h,m}'
   s.requires_arc = true
