@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.source         = { :http => "http://download.revealapp.com/Reveal-Framework-0.8.3.zip" }
   s.platform       = :ios
 
-  s.source_files   = 'Reveal-Framework-0.8.3/Reveal.framework/Headers/*.h'
+  s.source_files   = 'Reveal-Framework-0.8.3/Reveal.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'Reveal-Framework-0.8.3/Reveal.framework'
 
   s.license        = { :type => 'Copyright', :file => 'Reveal-Framework-0.8.3/LICENSE.html' }
