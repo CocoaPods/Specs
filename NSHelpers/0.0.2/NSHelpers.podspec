@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   # Deployment
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.5'
-  
+
   s.source_files    = '*.{h,m}'
   s.requires_arc    = false
-  
+
   s.ios.frameworks  = 'Foundation'
 end
