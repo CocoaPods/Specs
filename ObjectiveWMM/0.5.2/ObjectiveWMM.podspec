@@ -16,7 +16,7 @@ headings relative to true north and magnetic north.
   s.source       = { :git => "https://github.com/stephent/ObjectiveWMM.git", :tag => "0.5.2" }
   s.platform     = :ios, '5.0'
   s.source_files = 'ObjectiveWMM/*.{h,m}', 'ObjectiveWMM/WMM/*'
-  s.resource  = "ObjectiveWMM/WMM/WMM.CDF"
-  s.framework  = 'CoreLocation'
+  s.resources    = "ObjectiveWMM/WMM/WMM.CDF"
+  s.framework    = 'CoreLocation'
   s.requires_arc = true
 end
