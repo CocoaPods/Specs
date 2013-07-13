@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   
   s.source = {
     :http => 'http://tycho.apptimize.com/apptimize.zip',
-    flatten: true
+    :flatten => true
   }
   s.platform = :ios
   s.ios.deployment_target = '5.1'
