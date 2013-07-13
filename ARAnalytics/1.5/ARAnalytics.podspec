@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      =  'Use mutliple major analytics platforms with one clean API.'
   s.homepage     =  'http://github.com/orta/ARAnalytics'
   s.authors      =  { 'orta' => 'orta.therox@gmail.com' }
-  s.source       =  { :git => 'https://github.com/orta/ARAnalytics.git', :tag => "1.5" }
+  s.source       =  { :git => 'https://github.com/orta/ARAnalytics.git', :tag => "v1.5" }
   s.description  =  'Using subspecs you can define your analytics provider with the same API.'
   s.platform     =  :ios
 
