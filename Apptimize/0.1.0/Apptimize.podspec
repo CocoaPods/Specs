@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
   
   s.frameworks = 'Apptimize', 'CoreData', 'Security', 'Foundation', 'CFNetwork', 'UIKit'
   s.libraries  = 'icucore', 'z'
-  s.xcconfig   = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Apptimize"' }
+  s.xcconfig   = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Apptimize/apptimize"' }
 end
