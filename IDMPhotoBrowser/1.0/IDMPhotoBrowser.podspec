@@ -14,8 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   
   s.source_files = 'Classes/*.{h,m,bundle}'
-  # s.source_files = 'Classes'
-
+  
   s.dependency 'AFNetworking', '~> 1.3.1'
   s.dependency 'DACircularProgress', '~> 2.1.0'
   s.dependency 'SVProgressHUD', '~> 0.9'
