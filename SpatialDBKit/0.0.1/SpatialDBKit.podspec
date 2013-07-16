@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version	= "0.0.1"
   s.summary	= "SpatialDBKit is the spatial RDBMS for iOS."
   s.description = "SpatialDBKit is actually an Objective-C wrapper of SpatiaLite, the smallest and simplest while powerful Spatial RDBMS in the world!"
-  s.homepage	= ""
+  s.homepage	= "https://github.com/andreacremaschi/SpatialDBKit"
   s.license	= { :type => "Mozilla Public License v1.1",
 		    :file => "LICENSE" }
   s.author	= { "Andrea Cremaschi" => "andrea.cremaschi@midainformatica.it" }
