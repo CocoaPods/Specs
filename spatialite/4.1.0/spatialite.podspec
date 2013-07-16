@@ -68,6 +68,9 @@ Pod::Spec.new do |s|
 #define _FILE_OFFSET_BITS 64
 #define _LARGEFILE_SOURCE 1
 #define _LARGE_FILE 1
+
+#define OMIT_FREEXL 1
+
 CONFIG_H
 
     File.open("#{pod.root}/src/config.h", "w") do |file|
@@ -81,10 +84,13 @@ CONFIG_H
   # spatialite has a couple #include "*.c"
   # the *.c files that are included can't be compiled
 
-  s.dependency 'sqlite3', '>= 3.7.3'
   s.dependency 'geos'
   s.dependency 'proj4'
-  s.dependency 'freexl'
+  # s.dependency 'freexl'	  # I comment this because there is a header search path conflict related to config.h between spatialite and freexl.
+				# TODO: make this optional as a sub spec and optionally remove OMIT_FREEXL in spatialite/src/config.h created above in this .podspec file
+  # s.dependency 'sqlite3', '>= 3.7.3'	# TODO: make this optional as a sub spec and optionally remove HAVE_SQLITE3_H from config.h
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src/headers' }
+  s.libraries = "z", "sqlite3"
+
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 end
