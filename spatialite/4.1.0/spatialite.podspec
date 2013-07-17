@@ -84,6 +84,10 @@ CONFIG_H
   # spatialite has a couple #include "*.c"
   # the *.c files that are included can't be compiled
 
+  s.public_header_files = "src/headers/**/*.h"
+  s.private_header_files = "src/headers/spatialite_private.h"
+  s.header_mappings_dir = "src/headers/"
+
   s.dependency 'geos'
   s.dependency 'proj4'
   # s.dependency 'freexl'	  # I comment this because there is a header search path conflict related to config.h between spatialite and freexl.
