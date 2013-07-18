@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SAXyOX"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "SAXy OX is full-featured XML and JSON marshalling framework for Objective-C."
   s.homepage     = "https://github.com/reaster/saxy"
   s.license      = {
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.author       = { "Richard Easterling" => "richard@OutsourceCafe.com" }
   s.source       = { 
     :git => "https://github.com/reaster/saxy.git", 
-    :commit => "a40cce67e9e3024ef3317da626bd8bf8756549e1"
+    :tag => "0.0.3"
   }
   s.platform     = :ios, '5.0'
   s.source_files = 'Saxy/**/*.{h,m}'
