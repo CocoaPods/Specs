@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "The Backbeam Team" => "contact@backbeam.io" }
-  s.source       = { :git => "https://github.com/backbeam/BackbeamFramework.git", :tag => "0.9.1" }
+  s.source       = { :git => "https://github.com/backbeam/BackbeamFramework.git", :tag => "0.10.2" }
 
   s.platform     = :ios, '5.0'
   s.source_files = 'Backbeam'
