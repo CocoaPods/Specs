@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Backbeam"
-  s.version      = "0.10.1"
+  s.version      = "0.10.2"
   s.summary      = "iOS SDK for backbeam.io."
   s.homepage     = "http://backbeam.io/documentation-ios"
 
