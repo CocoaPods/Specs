@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
-  def s.pre_install(pod, target_definition)
-    platform_config = <<-CONFIG_H
-#define GEOS_ADVANCED 1
+    $platform_config = <<-CONFIG_H
 #define HAVE_DLFCN_H 1
 #define HAVE_FCNTL_H 1
 #define HAVE_FDATASYNC 1
@@ -70,13 +68,10 @@ Pod::Spec.new do |s|
 #define _LARGE_FILE 1
 
 #define OMIT_FREEXL 1
+#define OMIT_GEOS 1
+#define OMIT_PROJ 1
 
 CONFIG_H
-
-    File.open("#{pod.root}/src/config.h", "w") do |file|
-      file.puts platform_config
-    end
-  end
 
   s.source_files = "src/{gaiaaux,gaiageo}/gg_*.c",
                    "src/{dxf,gaiaexif,geopackage,md5,shapefiles,spatialite,srsinit,versioninfo,virtualtext,wfs}/*.c"
@@ -88,13 +83,53 @@ CONFIG_H
   s.private_header_files = "src/headers/spatialite_private.h"
   s.header_mappings_dir = "src/headers/"
 
-  s.dependency 'geos'
-  s.dependency 'proj4'
-  # s.dependency 'freexl'	  # I comment this because there is a header search path conflict related to config.h between spatialite and freexl.
-				# TODO: make this optional as a sub spec and optionally remove OMIT_FREEXL in spatialite/src/config.h created above in this .podspec file
-  # s.dependency 'sqlite3', '>= 3.7.3'	# TODO: make this optional as a sub spec and optionally remove HAVE_SQLITE3_H from config.h
+  s.preferred_dependency = 'standard'
 
-  s.libraries = "z", "sqlite3"
+
+  s.subspec 'core' do |ss|
+    ss.dependency 'sqlite3'
+  end
+
+
+  s.subspec 'geos' do |ss|
+    ss.dependency 'spatialite/core'
+    ss.dependency 'geos'
+    $platform_config << "#undef OMIT_GEOS\n#define GEOS_ADVANCED 1\n"
+  end
+
+  s.subspec 'proj4' do |ss|
+    ss.dependency 'spatialite/core'
+    ss.dependency 'proj4'
+    $platform_config << "#undef OMIT_PROJ\n"
+  end
+
+  s.subspec 'freexl' do |ss|
+    ss.dependency 'spatialite/core'
+    ss.dependency 'freexl'
+
+    # $platform_config << "#undef OMIT_FREEXL\n" 
+    # This is currently not working for two reasons:
+    # 1. there is a header search path conflict related to config.h between spatialite and freexl.
+    # 2. all the "#undef" strings are always added to $platform_config, the pattern is wrong
+    # How to add the strings conditionally, only when the subspecs are active?
+
+  end
+
+  s.subspec 'standard' do |ss|
+    ss.dependency 'spatialite/proj4'
+    ss.dependency 'spatialite/geos'
+  end
+
+  s.libraries = "z", "iconv"
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
+  
+  def s.pre_install(pod, target_definition)
+    File.open("#{pod.root}/src/config.h", "w") do |file|
+      file.puts $platform_config
+    end
+  end
+
+
+
 end
