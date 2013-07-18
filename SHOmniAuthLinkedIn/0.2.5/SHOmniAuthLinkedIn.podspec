@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name         = "SHOmniAuthLinkedIn"
-  url          = "https://github.com/seivan/#{name}"
+  url          = "https://github.com/SHOmniAuth/#{name}"
   git_url      = "#{url}.git"
   version      = "0.2.5"
   source_files = "#{name}/**/*.{h,m}"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                     A strategy for authenticating with LinkedIn via SHOmniAuth.
                     Uses SHAccountStore & SHRequest.
                    DESC
-  s.homepage     = "https://github.com/seivan/SHOmniAuthLinkedIn"
+  s.homepage     = "https://github.com/SHOmniAuth/SHOmniAuthLinkedIn"
 
   s.license      = 'MIT'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
