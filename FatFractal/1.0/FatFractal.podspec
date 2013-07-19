@@ -11,7 +11,7 @@ applications and to create new applications. Some example API methods
 include managing account information, managing users, and retrieving
 lists and objects.
                   DESC
-  s.summary = 'Cloud-hosted application backend service'
+  s.summary = 'Cloud-hosted application backend service.'
   s.homepage = 'http://fatfractal.com/'
   s.author = { 'FatFractal' => 'info@fatfractal.com' }
   s.source = { :http => 'https://system.fatfractal.com/repo/artifact/Releases/R1.0/FF_IOS_SDK_R1.0_R2451.zip' }
