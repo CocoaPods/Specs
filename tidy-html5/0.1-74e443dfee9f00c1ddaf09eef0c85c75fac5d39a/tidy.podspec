@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = 'tidy'
+  s.name         = 'tidy-html5'
   s.version      = '0.1-74e443dfee9f00c1ddaf09eef0c85c75fac5d39a'
   s.summary      = 'HTML Tidy for HTML5'
   s.homepage     = 'http://w3c.github.io/tidy-html5/'
