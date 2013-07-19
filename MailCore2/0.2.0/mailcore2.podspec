@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = 'mailcore2'
-  s.version      = '0.1-c2f75bfae0ae58be952c2abc07d90ead01e1ed89'
+  s.version      = '0.2.0'
   s.summary      = 'MailCore 2 provide a simple and asynchronous API to work with e-mail protocols IMAP, POP and SMTP. The API has been redesigned from ground up.'
   s.homepage     = 'http://libmailcore.com'
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
   s.author       = 'Hoà V. DINH'
-  s.source       = { :git => 'https://github.com/MailCore/mailcore2'}
+  s.source       = { :git => 'https://github.com/MailCore/mailcore2', :tag => '0.2.pre1' }
   s.source_files = 'src/core/**/*.h', 'src/core/**/*.c', 'src/core/**/*.cc', 'src/core/**/*.mm', 'src/core/**/*.m',
   'src/async/**/*.h', 'src/async/**/*.c',    'src/async/**/*.cc', 'src/async/**/*.mm', 'src/async/**/*.m',
   'src/objc/**/*.h', 'src/objc/**/*.c',    'src/objc/**/*.cc', 'src/objc/**/*.mm', 'src/objc/**/*.m',
