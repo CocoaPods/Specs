@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = "crash-report-assert"
-  s.version      = "0.0.1"
-  s.summary      = "Custom Assertion with a \"hack\" to throw exceptions when the assertion fails (instead of just aborting)."
+  s.name         = 'crash-report-assert'
+  s.version      = '0.0.1'
+  s.summary      = 'Custom Assertion with a \"hack\" to throw exceptions when the assertion fails (instead of just aborting).'
   s.description  = <<-DESC
   <h2>Custom assertion</h2>
 Thanks to the article by Mike Ash (see legal at the bottom) I came to the realization that the assertions provided by default although good in principle lack a lot of potential and decided that a better one could be done with some simple tweakings from the code in the article.<br />
@@ -50,10 +50,11 @@ Based on an article by Mike Ash - <a href="http://www.mikeash.com/pyblog/friday-
 Icon was taken from <a href="http://www.iconfinder.com/icondetails/66831/128/error_note_icon">IconFinder.com</a><br />
 And used under this <a href="http://www.iconfinder.com/iconsets/Hand_Drawn_Web_Icon_Set#readme">license</a>
                     DESC
-  s.homepage     = "https://github.com/esttorhe/crash-report-assert"
+  s.homepage     = 'https://github.com/esttorhe/crash-report-assert'
   s.license      = { :type => 'GNU GPL', :file => 'GPL.md' }
   s.author       = { "Esteban Torres" => "me@estebantorr.es" }
   s.source       = { :git => "https://github.com/esttorhe/crash-report-assert.git", :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
+  s.source_files = 'CrashReportAssert-Example/CrashReportAssert/'
   s.dependency 'CocoaLumberjack', '~> 1.6.2'
 end
