@@ -25,5 +25,5 @@ Pod::Spec.new do |s|
   s.dependency 'libetpan'
   s.dependency 'ctemplate'
   s.dependency 'icu4c'
-  s.dependency 'tidy'
+  s.dependency 'tidy-html5'
 end
