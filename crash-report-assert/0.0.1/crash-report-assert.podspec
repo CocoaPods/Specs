@@ -52,7 +52,7 @@ And used under this <a href="http://www.iconfinder.com/iconsets/Hand_Drawn_Web_I
                     DESC
   s.homepage     = "https://github.com/esttorhe/crash-report-assert"
   s.license      = { :type => 'GNU GPL', :file => 'GPL.md' }
-  s.author       = { "Esteban Torres" => "esteban@logn.co" }
+  s.author       = { "Esteban Torres" => "me@estebantorr.es" }
   s.source       = { :git => "https://github.com/esttorhe/crash-report-assert.git", :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
   s.dependency 'CocoaLumberjack', '~> 1.6.2'
