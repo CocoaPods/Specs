@@ -1,7 +1,3 @@
-#
-# Be sure to run `pod spec lint APUtils.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
 Pod::Spec.new do |s|
   s.name         = "APUtils"
   s.version      = "1.0.0"
