@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
 
    Making Game Center easier to work with.
                    DESC
-  s.homepage     = "https://github.com/PodFactory/SHGameCenter"
+  s.homepage     = "https://github.com/seivan/SHGameCenter"
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/PodFactory/SHGameCenter.git", :tag => "0.1.0"}
+  s.source       = { :git => "https://github.com/seivan/SHGameCenter.git", :tag => "0.1.0"}
   
 
   s.platform = :ios, "6.0"
