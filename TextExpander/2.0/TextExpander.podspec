@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = '2.0/TextExpander.framework/Versions/A/Headers/*.h'
   s.preserve_paths = '2.0/TextExpander.framework'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander/teTouchSDK', 'OTHER_LDFLAGS' => '-framework TextExpander' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander/2.0', 'OTHER_LDFLAGS' => '-framework TextExpander' }
 end
