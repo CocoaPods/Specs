@@ -16,7 +16,7 @@ lists and objects.
   s.author = { 'FatFractal' => 'info@fatfractal.com' }
   s.source = { :http => 'https://system.fatfractal.com/repo/artifact/Releases/R1.0/FF_IOS_SDK_R1.0_R2451.zip' }
   s.platform = :ios
-  s.source_files = 'FF_IOS_SDK/FFEF.framework/Versions/A/Headers/*.h'
-  s.preserve_paths = 'FF_IOS_SDK/FFEF.framework'
+  s.source_files = 'FFEF.framework/Versions/A/Headers/*.h'
+  s.preserve_paths = 'FFEF.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/FatFractal', 'OTHER_LDFLAGS' => '-framework FFEF' }
 end
