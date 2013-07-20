@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name         = "SHOmniAuthFlickr"
-  url          = "https://github.com/seivan/#{name}"
+  url          = "https://github.com/SHOmniAuth/#{name}"
   git_url      = "#{url}.git"
   version      = "0.2.0"
   source_files = "#{name}/**/*.{h,m}"
@@ -14,12 +14,12 @@ Pod::Spec.new do |s|
                     A strategy for authenticating with Flickr via SHOmniAuth.
                     Uses SHAccountStore for store and SHRequest for signed requests.
                    DESC
-  s.homepage     = "https://github.com/seivan/SHOmniAuthFlickr"
+  s.homepage     = "https://github.com/SHOmniAuth/SHOmniAuthFlickr"
 
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHOmniAuthFlickr.git", :tag => version }
+  s.source       = { :git => "https://github.com/SHOmniAuth/SHOmniAuthFlickr.git", :tag => version }
   s.platform     = :ios, '5.0'
 
   s.source_files = 'SHOmniAuthFlickr/**/*.{h,m}'

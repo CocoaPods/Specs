@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name           = "SHMessageUIBlocks"
-  url            = "https://github.com/seivan/#{name}"
+  url            = "https://github.com/CocoaStevia/#{name}"
   git_url        = "#{url}.git"
   s.name         = name
   version        = "1.0.0"

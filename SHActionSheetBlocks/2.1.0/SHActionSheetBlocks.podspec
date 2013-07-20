@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name           = "SHActionSheetBlocks"
-  url            = "https://github.com/seivan/#{name}"
+  url            = "https://github.com/PodFactory/#{name}"
   git_url        = "#{url}.git"
   s.name         = name
   version        = "2.1.0"
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   colors = ["Green", "Blue", "Purple"]
-  screenshot_url = "https://raw.github.com/seivan/SHActionSheetBlocks/#{version}/Screenshots"
+  screenshot_url = "https://raw.github.com/PodFactory/SHActionSheetBlocks/#{version}/Screenshots"
   types = ["default.png","selected.png","cancel-selected.png"]
   screenshots = []
   colors.each do |color|
