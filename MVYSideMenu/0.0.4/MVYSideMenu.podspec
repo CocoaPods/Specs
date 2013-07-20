@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'MVYSideMenu'
   s.version  = '0.0.4'
   s.license  = 'MIT'
-  s.summary  = 'iOS Side Menu based on Google+ iPhone app'
+  s.summary  = 'iOS Side Menu based on Google+ iPhone app.'
   s.homepage = 'http://mobivery.com'
   s.screenshots  = "https://raw.github.com/mobivery/MVYSideMenu/master/MVYSideMenuExample/Screenshots/Screenshot-01.png"
   s.authors  = { 'Álvaro Murillo' => 'alvaro.murillo@mobivery.com' }
