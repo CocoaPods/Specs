@@ -23,7 +23,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'AFOAuth1Client', '~>0.1.1'
   s.dependency 'TWReverseAuth', '~>0.1.0'
-  s.post_install do |library_representation|
-    puts "#{s.summary.to_s}".red
-  end
 end
