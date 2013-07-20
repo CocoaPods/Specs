@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name    = "SHObjectUserInfo"
-  url     = "https://github.com/seivan/#{name}"
+  url     = "https://github.com/PodFactory/#{name}"
   git_url = "#{url}.git"
   s.name         = name
   s.version      = "1.0.0"
