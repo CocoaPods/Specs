@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'libsasl2'
   s.version      = '2.1.25'
   s.summary      = 'Cyrus SASL Library.'
-  s.license      = { :type => 'BSD', :file => 'COPYRIGHT' }
+  s.license      = { :type => 'BSD', :file => 'COPYING' }
   s.author       = 'Carnegie Mellon University'
   s.homepage     = 'http://asg.web.cmu.edu/sasl/sasl-implementations.html'
   s.source = { :http => 'http://ftp.andrew.cmu.edu/pub/cyrus-mail/cyrus-sasl-2.1.25.tar.gz' }
