@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'libetpan'
-  s.version      = '1.3.0'
+  s.version      = '1.3.pre1'
   s.summary      = 'Mail Framework for C Language.'
   s.homepage     = 'https://github.com/dinhviethoa/libetpan'
   s.license      = { :type => 'BSD', :file => 'COPYRIGHT' }
