@@ -1,10 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = 'ctemplate'
   s.version      = '2.2.1'
-  s.source = { :git => 'https://github.com/dinhviethoa/ctemplate', :tag => '2.2.1' }
-  s.summary      = 'Powerful but simple template language for C++'
+  s.source = { :git => 'https://github.com/dinhviethoa/ctemplate.git', :tag => '2.2.1' }
+  s.summary      = 'Powerful but simple template language for C++.'
   s.homepage     = 'https://code.google.com/p/ctemplate/'
   s.license      = { :type => 'BSD', :file => 'COPYING' }
+  s.authors      = 'google-ctemplate@googlegroups.com'
   s.header_dir = 'ctemplate'
   s.source_files = 'src/**/*.{c,h,cc}'
   s.exclude_files = 'src/tests/**/*', 'src/windows/**/*'
