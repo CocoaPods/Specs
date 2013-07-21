@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = '51.2'
   s.summary      = 'International Components for Unicode.'
   s.homepage     = 'http://icu-project.org/'
-  s.license      = { :type => 'BSD', :file => 'COPYING' }
+  s.license      = { :type => 'BSD', :file => 'license.html' }
   s.author       = 'IBM'
   s.source = { :http => 'http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz' }
   s.source_files = 'source/common/**/*.{c,h,cpp}', 'source/i18n/**/*.{c,h,cpp}', 'source/io/**/*.{c,h,cpp}',
