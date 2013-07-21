@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://libmailcore.com'
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
   s.author       = 'Hoà V. DINH'
-  s.source       = { :git => 'https://github.com/MailCore/mailcore2', :tag => '0.2.pre1' }
+  s.source       = { :git => 'https://github.com/MailCore/mailcore2.git', :tag => '0.2.pre1' }
   s.source_files = 'src/core/**/*.h', 'src/core/**/*.c', 'src/core/**/*.cc', 'src/core/**/*.mm', 'src/core/**/*.m',
   'src/async/**/*.h', 'src/async/**/*.c',    'src/async/**/*.cc', 'src/async/**/*.mm', 'src/async/**/*.m',
   'src/objc/**/*.h', 'src/objc/**/*.c',    'src/objc/**/*.cc', 'src/objc/**/*.mm', 'src/objc/**/*.m',
