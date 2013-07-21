@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'dropbox-ios-sync-sdk-2.0.0-b3/Dropbox.framework'
 
   s.license      = { :type => 'Copyright', :file => 'dropbox-ios-sync-sdk-2.0.0-b3/LICENSE.txt' }
-  s.frameworks = 'Security', 'Security', 'SystemConfiguration', 'QuartzCore', 'Dropbox'
+  s.frameworks = 'CFNetwork', 'Security', 'Security', 'SystemConfiguration', 'QuartzCore', 'Dropbox'
   s.library = 'c++'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-iOS-SDK/dropbox-ios-sync-sdk-2.0.0-b3"' }
 end
