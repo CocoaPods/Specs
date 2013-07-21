@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Free', :file => 'LICENSE' }
   s.author       = { "honcheng" => "honcheng@gmail.com" }
   s.source       = { :git => "https://github.com/honcheng/iOSPlot.git", :tag => "1.0.1" }
-  s.source_files = "iOSPlot/*.{h,m}"
+  s.source_files = "iOSPlot/PC.{h,m}", "iOSPlot/**/PC*.{h,m}"
   s.framework    = "CoreGraphics"
   s.requires_arc = true
 end
