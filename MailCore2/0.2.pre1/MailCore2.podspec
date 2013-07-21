@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = 'mailcore2'
-  s.version      = '0.2.0'
-  s.summary      = 'MailCore 2 provide a simple and asynchronous API to work with e-mail protocols IMAP, POP and SMTP. The API has been redesigned from ground up.'
+  s.name         = 'MailCore2'
+  s.version      = '0.2.pre1'
+  s.summary      = 'MailCore 2 provide a simple and asynchronous API to work with e-mail protocols IMAP, POP and SMTP.'
   s.homepage     = 'http://libmailcore.com'
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
   s.author       = 'Hoà V. DINH'
