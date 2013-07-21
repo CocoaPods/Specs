@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = 'icu4c'
   s.version      = '51.2'
-  s.summary      = 'International Components for Unicode'
-  s.homepage     = 'https://code.google.com/p/ctemplate/'
+  s.summary      = 'International Components for Unicode.'
+  s.homepage     = 'http://icu-project.org/'
   s.license      = { :type => 'BSD', :file => 'COPYING' }
   s.author       = 'IBM'
   s.source = { :http => 'http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz' }
