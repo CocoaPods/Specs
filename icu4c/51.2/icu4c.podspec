@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
   s.source = { :http => 'http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz' }
   s.source_files = 'source/common/**/*.{c,h,cpp}', 'source/i18n/**/*.{c,h,cpp}', 'source/io/**/*.{c,h,cpp}',
        'source/layout/**/*.{c,h,cpp}', 'source/layoutex/**/*.{c,h,cpp}', 'source/config.h',
-       'source/stubdata/**/*.{c,h,cpp}'
+       'source/stubdata/**/*.{c,h,cpp}',
+       'soruce/tools/tzcode/tzfile.h'
   s.compiler_flags = '-DU_COMMON_IMPLEMENTATION -DU_I18N_IMPLEMENTATION -DU_IO_IMPLEMENTATION'
   s.public_header_files = '**/ucnv.h'
   s.xcconfig = {
