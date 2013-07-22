@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "AdjustIo"
+  s.name         = "AdjustIO"
   s.version      = "2.0"
   s.summary      = "This is the iOS SDK of AdjustIo. You can read more about it at http://adjust.io."
   s.homepage     = "http://adjust.io"
