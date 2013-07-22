@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.summary         = 'A grid menu with elastic layout, depth of field, and realistic animation.'
   s.homepage        = 'https://github.com/rnystrom/RNGridMenu'
   s.author          = { 'Ryan Nystrom' => 'rnystrom@whoisryannystrom.com'}
-  s.source          = { :git => 'https://github.com/rnystrom/RNGridMenu.git', :tag => '0.1.1' }
+  s.source          = { :git => 'https://github.com/rnystrom/RNGridMenu.git', :tag => '0.1.2' }
 
   s.source_files    = 'RNGridMenu.{h,m}'
 
