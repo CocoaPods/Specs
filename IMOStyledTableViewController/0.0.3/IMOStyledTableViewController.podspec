@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "IMOStyledTableViewController"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Style sheet based like Table View Controller."
   s.homepage     = "https://github.com/fredericcormier/IMOStyledTableViewController"
   s.platform     = :ios
