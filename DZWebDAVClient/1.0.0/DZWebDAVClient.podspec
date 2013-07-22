@@ -11,4 +11,17 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.dependency     'AFNetworking'
+  s.prefix_header_contents = <<-EOS
+  #import <Availability.h>
+
+  #if __IPHONE_OS_VERSION_MIN_REQUIRED
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <Security/Security.h>
+  #else
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <CoreServices/CoreServices.h>
+    #import <Security/Security.h>
+  #endif
+EOS
 end
