@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   # versions that are no longer used in the .xcodeproj.
   s.source_files = 'Airship/**/*.{h,m,c}'
   s.exclude_files = '**/asi-http-request/*', '**/json-framework/*', '**/google-toolbox-for-mac/*', '**/ZipFile-OC/*', '**/Reachability/*'
+  s.resources = 'Airship/**/*.{xib,jpg,png,bundle}'
 
   s.libraries    = 'z', 'sqlite3.0'
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
