@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name         = "SHRequest"
-  url          = "https://github.com/seivan/#{name}"
+  url          = "https://github.com/PodFactory/#{name}"
   git_url      = "#{url}.git"
   version      = "0.2.0"
   source_files = "#{name}/**/*.{h,m}"
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
                     Pass in an SHAccount (or anything that follows the account protocol)
                     and do signed requests. Same API as SLRequest.
                    DESC
-  s.homepage     = "https://github.com/seivan/SHRequest"
-  s.source       = { :git => "https://github.com/seivan/SHRequest.git", :tag => version }
+  s.homepage     = "https://github.com/PodFactory/SHRequest"
+  s.source       = { :git => "https://github.com/PodFactory/SHRequest.git", :tag => version }
   s.license      = { :type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
