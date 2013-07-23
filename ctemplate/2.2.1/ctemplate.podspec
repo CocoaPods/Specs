@@ -18,15 +18,17 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
 
-  def s.pre_install (pod, lib)
-    Dir.chdir(pod.root) do
-      toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-      cflags = ""
-      cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
-      ldflags = "-lstdc++ -stdlib=libstdc++"
-      `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
-      `make src/htmlparser/htmlparser_fsm.h`
-      `make src/htmlparser/jsparser_fsm.h`
+  s.pre_install do |pod, lib|
+    if (pod.root + 'configure').exist?
+      Dir.chdir(pod.root) do
+        toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+        cflags = ""
+        cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
+        ldflags = "-lstdc++ -stdlib=libstdc++"
+        `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
+        `make src/htmlparser/htmlparser_fsm.h`
+        `make src/htmlparser/jsparser_fsm.h`
+      end
     end
   end
 end

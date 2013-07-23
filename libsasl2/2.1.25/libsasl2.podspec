@@ -16,11 +16,13 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
 
- def s.pre_install (pod, lib)
-   Dir.chdir(pod.root) do
-     `./configure --disable-gssapi`
-     `sed 's/WITH_DES/WITHOUT_DES/' < config.h > config.h.new`
-     `mv config.h.new config.h`
+ s.pre_install do |pod, lib|
+   if (pod.root + 'configure').exist?
+     Dir.chdir(pod.root) do
+       `./configure --disable-gssapi`
+       `sed 's/WITH_DES/WITHOUT_DES/' < config.h > config.h.new`
+       `mv config.h.new config.h`
+     end
    end
- end
+  end
 end

@@ -19,25 +19,27 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
 
-  def s.pre_install (pod, lib)
-    Dir.chdir(pod.root.to_s + "/source") do
-      `sed 's/#ifdef DEBUG$/#ifdef DEBUG_ICU/' < i18n/rbnf.cpp > i18n/rbnf.cpp.tmp`
-      `mv i18n/rbnf.cpp.tmp i18n/rbnf.cpp`
-      toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-      cflags = ""
-      cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
-      ldflags = "-lstdc++ -stdlib=libstdc++"
-      `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
-      `cd common ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-      `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-      `cd io ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-      `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-      `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-      `cd common ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-      `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-      `cd io ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-      `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-      `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+  s.pre_install do |pod, lib|
+    if (pod.root + 'source/configure').exist?
+      Dir.chdir(pod.root.to_s + "/source") do
+        `sed 's/#ifdef DEBUG$/#ifdef DEBUG_ICU/' < i18n/rbnf.cpp > i18n/rbnf.cpp.tmp`
+        `mv i18n/rbnf.cpp.tmp i18n/rbnf.cpp`
+        toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+        cflags = ""
+        cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
+        ldflags = "-lstdc++ -stdlib=libstdc++"
+        `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
+        `cd common ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
+        `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
+        `cd io ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
+        `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
+        `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
+        `cd common ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+        `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+        `cd io ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+        `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+        `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
+      end
     end
   end
 end
