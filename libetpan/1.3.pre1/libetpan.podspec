@@ -16,10 +16,12 @@ Pod::Spec.new do |s|
   }
   s.libraries = 'iconv'
 
-  def s.pre_install (pod, _)
-    Dir.chdir(pod.root + 'build-mac') do
-      `SRCROOT='true' sh update.sh`
-      raise "[!] Failed pre install hook" unless $?.to_i == 0
+  s.pre_install do |pod, _|
+    if (pod.root + 'build-mac').exist?
+      Dir.chdir(pod.root + 'build-mac') do
+       `SRCROOT='true' sh update.sh`
+        raise "[!] Failed pre install hook" unless $?.to_i == 0
+      end
     end
   end
 end
