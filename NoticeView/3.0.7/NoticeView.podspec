@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Tito Ciuro' => 'tciuro@mac.com' }
   s.source       = { :git => 'https://github.com/tciuro/NoticeView.git', :tag => '3.0.7' }
   s.platform     = :ios
+  s.ios.deployment_target = '5.0'
   s.source_files = 'NoticeView/WBNoticeView/*.{m,h}'
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.resources    = 'NoticeView/WBNoticeView/NoticeView.bundle'
