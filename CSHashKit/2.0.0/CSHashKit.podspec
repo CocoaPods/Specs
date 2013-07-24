@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "2.0.0"
   s.summary      = "A simple class category that implements hash and isEqual: for every Objective-C object."
 
-  s.homepage     = "https://bitbucket.org/fripp/cshashkit/overview"
+  s.homepage     = "https://bitbucket.org/fripp/cshashkit/wiki/Home"
 
   s.license      = 'MIT'
 
@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
 
   s.dependency  'JRSwizzle', '~> 1.0'
+  
   s.requires_arc = true
 end
