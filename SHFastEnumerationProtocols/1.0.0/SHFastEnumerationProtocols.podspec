@@ -29,7 +29,7 @@ TODO: NSIndexSet, NSMutableIndexSet and NSEnumerator.
   s.license      = 'MIT'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => git_url, :tag => version}
+  s.source       = { :git => "git@github.com:PodFactory/SHFastEnumerationProtocols.git", :tag => version}
   
   
   s.ios.deployment_target = "6.0"
