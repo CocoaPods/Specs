@@ -11,13 +11,13 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
 
-  s.source_files =  	'dep/libsoldout/markdown.{h,c}',
-			'dep/libsoldout/buffer.{h,c}',
-			'dep/libsoldout/array.{h,c}',
-			'src/*.{h,cpp}',
-			'platform/ios/Bypass/*.{h,mm,pch}'
+  s.source_files = 'dep/libsoldout/markdown.{h,c}',
+		   'dep/libsoldout/buffer.{h,c}',
+		   'dep/libsoldout/array.{h,c}',
+		   'src/*.{h,cpp}',
+		   'platform/ios/Bypass/Bypass/*.{h,mm,pch}',
 
-  s.public_header_files = 'platform/ios/Bypass/*.h'
+  s.public_header_files = 'platform/ios/Bypass/Bypass/*.h'
 
   s.frameworks = "CoreText", "Foundation", "UIKit"
 

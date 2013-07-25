@@ -13,9 +13,7 @@ Pod::Spec.new do |s|
 
   s.compiler_flags = '-DEIGEN_MPL2_ONLY'
 
-  s.header_mappings_dir = '.'
-
-  s.preserve_paths = './Eigen/**'
+  s.preserve_paths = 'Eigen/*', 'Eigen/**/*'
 
   s.dependency 'boost/numeric-includes'
   s.dependency 'boost/preprocessor-includes'

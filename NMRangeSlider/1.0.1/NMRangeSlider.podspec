@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/muZZkat/NMRangeSlider.git", :tag => "v1.0.1" }
   s.platform     = :ios
   s.source_files = 'NMRangeSlider/*.{h,m}'
+  s.requires_arc = true
   s.resources = "NMRangeSlider/DefaultTheme/*.png", "NMRangeSlider/MetalTheme/*.png" 
 end

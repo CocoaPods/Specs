@@ -66,15 +66,10 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  # Many of these just need to the support for dashes introduced in CP 0.17
   "The version should be included in the Git tag." => [
-    'BJRangeSliderWithProgress',
-    'cocos2d',
-    'CouchCocoa',
     'iOS-Hierarchy-Viewer',
-    'PonyDebugger',
-    'RestKit',
   ],
+
 }
 
 
@@ -88,10 +83,10 @@ task :validate do
   exit if ENV['skip-lint']
 
   title('Most Recently Commited Specs ')
+  puts "Thanks for contributing to the master repo!"
   puts "The Master repo will not accept specifications with warnings."
   puts "The specifications from the most recent commit are linted with the most strict settings."
   puts "For more information see: http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html"
-  puts "Thanks for contributing to the master repo!"
 
   has_commit_failures = false
   last_commit_specs.each do |spec_path|
@@ -153,6 +148,29 @@ task :lint do
   puts "    $ pod spec lint [ NAME.podspec | DIRECTORY | http://PATH/NAME.podspec, ... ]"
 end
 
+#-----------------------------------------------------------------------------#
+
+desc "Converts the specifications to yaml"
+task :convert_specs_to_yaml do
+  require 'cocoapods-core'
+  skipped_specs_count = 0
+  Dir.glob('**/*.podspec') do |spec_path|
+    spec = Pod::Spec.from_file(spec_path)
+    if spec.safe_to_hash?
+      spec_yaml_path = "#{spec_path}.yaml"
+      puts "#{spec_path} -> #{spec_yaml_path}"
+      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
+      File.delete(spec_path)
+    else
+      skipped_specs_count += 1
+    end
+  end
+  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
+
+end
+
+#-----------------------------------------------------------------------------#
+
 task :default => :validate
 
 # group Analysis helpers
@@ -161,11 +179,13 @@ task :default => :validate
 # @return [Bool] If the spec can be accepted
 #
 def check_if_can_be_accepted(spec, spec_path)
-  # previous_spec_contents = previous_version_of_spec(spec_path)
-  acceptor = Pod::Source::Acceptor.new('.')
-  errors = acceptor.analyze(spec)
+  previous_spec_contents = previous_version_of_spec(spec_path)
+  if previous_spec_contents
+    previous_spec = Pod::Specification.from_string(previous_spec_contents, spec_path)
+  end
+  errors = Pod::Source::Acceptor.new('.').analyze(spec, previous_spec)
   errors.each do |error|
-    puts red("- #{error}")
+    puts red("    - ERROR | #{error}")
   end
   errors.count.zero?
 end
@@ -232,7 +252,8 @@ end
 #         commit.
 #
 def previous_version_of_spec(spec_path)
-  `git show HEAD~1:#{spec_path}`
+  contents = `git show HEAD~1:#{spec_path} 2>/dev/null`
+  contents if $?.to_i.zero?
 end
 
 # group UI helpers

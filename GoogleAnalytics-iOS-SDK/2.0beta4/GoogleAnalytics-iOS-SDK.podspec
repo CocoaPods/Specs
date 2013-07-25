@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source_files = 'Library/*.h'
-  s.preserve_paths = 'Library/libGoogleAnalytics.a'
+  s.preserve_paths = 'Library/*.a'
 
   s.frameworks = 'CFNetwork', 'CoreData', 'SystemConfiguration'
   s.library   = 'GoogleAnalytics'

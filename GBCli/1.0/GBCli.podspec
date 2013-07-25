@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'GBCli'
   s.version      = '1.0'
   s.summary      = 'Objective C foundation tool command line interface library.'
-  s.homepage     = 'http://github/tomaz/GBCli'
+  s.homepage     = 'http://github.com/tomaz/GBCli'
   s.license      = 'MIT'
   s.author       = { 'Tomaz Kragelj' => 'tkragelj@gmail.com' }
   s.source       = { :git => 'https://github.com/tomaz/GBCli.git', :tag => '1.0' }
