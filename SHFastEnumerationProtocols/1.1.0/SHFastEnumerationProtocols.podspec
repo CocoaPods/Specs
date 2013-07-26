@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name           = "SHFastEnumerationProtocols"
-  url            = "https://github.com/podfactory/#{name}"
+  url            = "https://github.com/PodFactory/#{name}"
   git_url        = "#{url}.git"
   version        = "1.1.0"
   source_files   = "#{name}/**/*.{h,m}"
