@@ -1,4 +1,3 @@
-
 Pod::Spec.new do |s|
   s.name           = 'Helpshift'
   s.version        = '2.5.0'
@@ -13,5 +12,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'helpshift-ios-2.5.0/libHelpshift.a'
   s.frameworks     = 'CoreGraphics', 'QuartzCore', 'CoreText', 'SystemConfiguration', 'MobileCoreServices', 'CoreTelephony', 'Security', 'Foundation', 'UIKit'
   s.libraries      = 'sqlite3.0', 'z', 'Helpshift'
-  s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/Helpshift/helpshift-ios-2.5.0/"}
+  s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Helpshift/helpshift-ios-2.5.0"'}
 end
