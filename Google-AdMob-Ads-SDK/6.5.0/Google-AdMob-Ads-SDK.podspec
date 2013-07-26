@@ -18,7 +18,7 @@ LICENSE
   s.source_files = 'GoogleAdMobAdsSdkiOS-6.5.0/*.h'
   s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.5.0'
 
-  s.framework = %w{AudioToolbox MessageUI SystemConfiguration CoreGraphics AdSupport}
+  s.framework = %w{AudioToolbox MessageUI SystemConfiguration CoreGraphics AdSupport StoreKit}
   s.library = 'GoogleAdMobAds'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/GoogleAdMobAdsSdkiOS-6.5.0"' }
 end
