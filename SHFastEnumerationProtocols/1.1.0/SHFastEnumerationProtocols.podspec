@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   name           = "SHFastEnumerationProtocols"
   url            = "https://github.com/podfactory/#{name}"
   git_url        = "#{url}.git"
-  s.name         = name
   version        = "1.1.0"
   source_files   = "#{name}/**/*.{h,m}"
 
+  s.name         = name
   s.version      = version
   s.summary      = "NSFastEnumeration helpers and enumeration blocks through a protocol on foundation collection classes."
   s.description  = <<-DESC
