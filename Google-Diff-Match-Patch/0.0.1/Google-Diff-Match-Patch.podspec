@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "The Diff Match and Patch libraries offer robust algorithms to perform the operations required for synchronizing plain text."
   s.homepage     = "http://http://code.google.com/p/google-diff-match-patch/"
 
-  s.license      = { :type => 'Apache License 2.0', :file => 'COPYING' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.authors      = { 'Neil Fraser' => 'fraser@google.com', 'Jan Weiß' => 'jan@geheimwerk.de' }
   
   s.source       = { :git => "https://github.com/JanX2/google-diff-match-patch-Objective-C.git", :commit => "6f29026f24f5856c8c53f9081f8a32a7df7af8c2" }

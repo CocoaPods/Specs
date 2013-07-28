@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'iPhoneMK'
   s.version  = '0.0.1'
-  s.license  = 'Apache 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'iPhoneMK is a loose collection of Objective-C classes for the iPhone SDK.'
   s.homepage = 'https://github.com/michaelkamprath/iPhoneMK'
   s.author   = { 'Michael F. Kamprath' => 'michael@claireware.com' }

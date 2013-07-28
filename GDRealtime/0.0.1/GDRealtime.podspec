@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GDRealtime"
   s.version      = "0.0.1"
-  s.license      = { :type => 'Apache 2.0', :file => 'COPYING' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.summary      = "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative apps via the use of operational transforms."
   s.homepage     = "https://github.com/goodow/realtime"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
