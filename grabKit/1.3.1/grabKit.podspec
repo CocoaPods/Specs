@@ -36,6 +36,8 @@ Pod::Spec.new do |s|
   s.dependency 'PSTCollectionView', '~> 0.0.1' 
   s.dependency 'objectiveflickr', '~> 2.0.2'
 
+  s.ios.frameworks = 'Accounts', 'AdSupport', 'AssetsLibrary', 'CFNetwork', 'QuartzCore', 'Security', 'Social', 'SystemConfiguration'
+
   s.subspec 'GData' do |gdata|
     gdata.dependency 'GData', '~> 0.0.1'  
     gdata.requires_arc = false
