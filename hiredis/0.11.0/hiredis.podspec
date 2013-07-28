@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/redis/hiredis"
   s.license      = { :type => 'BSD', :file => 'COPYING' }
   s.authors      = { "Salvatore Sanfilippo" => "antirez@gmail.com", "Pieter Noordhuis" => "pcnoordhuis@gmail.com" }
-  s.source       = { :git => "https://github.com/redis/hiredis.git", :tag => "v0.11.0" }
+  s.source       = { :git => "https://github.com/redis/hiredis.git", :tag => "v#{s.version}" }
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
   s.source_files = '*.{h,c}'
