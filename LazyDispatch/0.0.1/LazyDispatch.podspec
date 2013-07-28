@@ -19,6 +19,6 @@ LICENSE
   s.osx.deployment_target = '10.7'
   s.source_files = '*.{h,m}'
   s.exclude_files = 'example.{h,m}'
-  s.library   = 'libdispatch'
+  s.library   = 'dispatch'
   s.requires_arc = false
 end
