@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.public_header_files = '*.h'
   s.exclude_files = 'example*.{h,c}', 'test*.{h,c}'
   s.requires_arc = false
+  s.compiler_flags = '-std=c99', '-Wstrict-prototypes', '-Wwrite-strings'
 end
