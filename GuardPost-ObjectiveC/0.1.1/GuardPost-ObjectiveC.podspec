@@ -5,8 +5,8 @@
 # To learn more about the attributes see http://docs.cocoapods.org/specification.html
 #
 Pod::Spec.new do |s|
-  s.name         = "Guardpost-ObjectiveC"
-  s.version      = "0.1.0"
+  s.name         = "GuardPost-ObjectiveC"
+  s.version      = "0.1.1"
   s.summary      = "An objective-C implementation of Mailgun's Guardpost email validation service."
   s.homepage     = "https://github.com/sammyd/GuardPost-ObjectiveC"
   s.license      = 'MIT'
