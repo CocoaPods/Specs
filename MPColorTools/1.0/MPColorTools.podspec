@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name           = 'MPColorTools'
   s.version        = '1.0'
-  s.license        = { :type => 'Apache 2.0', :text => '
+  s.license        = { :type => 'Apache License, Version 2.0', :text => '
                         Copyright [2013] Daniele Di Bernardo
                         
                         Licensed under the Apache License, Version 2.0 (the "License");

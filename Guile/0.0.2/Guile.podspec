@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.summary      = 'The Gilt User Interface Library for iOS.'
   s.homepage     = 'https://github.com/gilt/guile'
   # s.screenshots  = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license      = 'Apache 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Adam Kaplan' => 'akaplan@gilt.com', 'Gilt Mobile' => 'mobile@gilt.com' }
   s.source       = { :git => 'https://github.com/gilt/guile.git', :tag => "#{s.version}" }
 
