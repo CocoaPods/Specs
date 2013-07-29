@@ -5,9 +5,9 @@ Pod::Spec.new do |spec|
   spec.license      = 'BSD'
   spec.source       = { :git => 'https://github.com/Cocoanetics/DTCoreText.git', :tag => spec.version.to_s }
   spec.source_files = 'Core/Source/*.{h,m,c}'
-  spec.dependency 'DTFoundation/Core', '~>1.4.3'
-  spec.dependency 'DTFoundation/UIKit', '~>1.4.3'
-  spec.dependency 'DTFoundation/DTHMLParser', '~>1.4.3'
+  spec.dependency 'DTFoundation/Core', '~>1.4.4'
+  spec.dependency 'DTFoundation/UIKit', '~>1.4.4'
+  spec.dependency 'DTFoundation/DTHMLParser', '~>1.4.4'
   spec.frameworks   = 'MediaPlayer', 'QuartzCore', 'CoreText', 'CoreGraphics', 'ImageIO'
   spec.requires_arc = true
   spec.homepage     = 'https://github.com/Cocoanetics/DTCoreText'
