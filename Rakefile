@@ -66,10 +66,35 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "The version should be included in the Git tag." => [
-    'iOS-Hierarchy-Viewer',
+  "Comments placed at the top of the specification must be deleted." => [
+    'AeroGear',
+    'AeroGear-OTP',
+    'AeroGear-Push',
+    'AngleGradientLayer',
+    'AVAnimator',
+    'BeeDebugger',
+    'BMExtendablePageController',
+    'BrynKit',
+    'DOUAudioStreamer',
+    'Google-API-Client',
+    'iOS-GTLYouTube',
+    'iOS-KML-Framework',
+    'KDXCollectionView',
+    'LibComponentLogging-pods',
+    'MacMapKit',
+    'MBPopoverBackgroundView',
+    'MMPickerView',
+    'NNNetwork',
+    'PPpdf417',
+    'QuincyKit',
+    'SBTickerView',
+    'SEBeamMeUpScotty',
+    'StartAtLoginController',
+    'StateMachine-GCDThreadsafe',
+    'TumbleOn-Utils',
+    'UDBarTrackballItem',
+    'YelpKit',
   ],
-
 }
 
 
