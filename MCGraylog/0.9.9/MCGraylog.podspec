@@ -1,5 +1,3 @@
-#
-# Be sure to run `pod spec lint MCGraylog.podspec' to ensure this is a
 Pod::Spec.new do |s|
   s.name         = "MCGraylog"
   s.version      = "0.9.9"
