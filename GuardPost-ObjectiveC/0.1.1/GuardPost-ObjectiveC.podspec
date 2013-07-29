@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint Guardpost-ObjectiveC.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "GuardPost-ObjectiveC"
   s.version      = "0.1.1"
