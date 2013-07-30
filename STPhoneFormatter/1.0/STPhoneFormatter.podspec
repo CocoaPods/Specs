@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   }
 
   s.platform     = :ios, '5.0'
-  s.source_files = 'STPhoneFormatter/STPhoneFormatter.{h,m}', 'STPhoneFormatter/FormatsCountriesPhone.plist'
+  s.source_files = 'STPhoneFormatter/STPhoneFormatter.{h,m}'
+  s.resource = 'STPhoneFormatter/FormatsCountriesPhone.plist'
   s.requires_arc = true
 end
