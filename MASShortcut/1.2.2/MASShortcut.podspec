@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author       = { "Vadim Shpakovski" => "vadim@shpakovski.com" }
   s.source       = { :git => "https://github.com/shpakovski/MASShortcut.git", :tag => "1.2.2" }
   s.platform     = :osx
-  s.osx.deployment_target = '10.6'
+  s.osx.deployment_target = '10.7'
   s.source_files = '*.{h,m}'
   s.framework  = 'Carbon'
   s.requires_arc = true
