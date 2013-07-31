@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author   = 'Tim Oliver'
   s.source   = { :git => 'https://github.com/TimOliver/TOWebViewController.git', :tag => '1.0.0' }
 
-  s.source_files = 'TOWebViewController/**/*'
+  s.source_files = 'TOWebViewController/**/*.{h,m}'
+  s.resources = 'TOWebViewController/Resources/*.png', 'TOWebViewController/*.lproj'
   s.requires_arc = true
 end
