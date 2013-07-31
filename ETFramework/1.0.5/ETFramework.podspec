@@ -43,7 +43,7 @@ pod install
 
 Once the command runs you need to open the `ETFrameworkDemo.xcworkspace` in order to have the `Pods` included as a library in the project.
                    DESC
-  s.homepage     = "https://github.com/esttorhe/ETFramework"
+  s.homepage     = "http://esttorhe.github.io/ETFramework/"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Esteban Torres' => 'me@estebantorr.es' }
   s.source       = { :git => 'https://github.com/esttorhe/ETFramework.git', :tag => s.version.to_s }
