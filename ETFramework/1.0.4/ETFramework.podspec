@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ETFramework'
-  s.version      = '1.0.3'
+  s.version      = '1.0.4'
   s.summary      = 'Helper framework for iOS projects. Some categories and helper classes for easy and quicker development.'
   s.description  = <<-DESC
   #`ETFramework`
