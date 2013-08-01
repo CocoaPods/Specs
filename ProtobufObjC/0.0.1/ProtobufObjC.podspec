@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'ProtobufObjC'
   s.header_dir = "ProtocolBuffers"
   s.version  = '0.0.1'
-  s.license  = 'Apache 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'An implementation of Protocol Buffers in Objective C.'
   s.homepage = 'http://code.google.com/p/metasyntactic/wiki/ProtocolBuffers'
   s.author   = { 'Cyrus' => 'cyrusn@stwing.upenn.edu' }

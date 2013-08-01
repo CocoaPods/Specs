@@ -27,12 +27,9 @@ PODS_ALLOWED_TO_FAIL = {
     'EGOTableViewPullRefresh',
     'Evernote-SDK-Mac',
     'Flash2Cocos2D',
-    'GHUnitIOS',
-    'GHUnitOSX',
     'GMGridView',
     'IBAForms',
     'iOSInstalledApps',
-    'iPhoneMK',
     'JASidePanels',
     'JBKenBurnsView',
     'JSONKit',
@@ -42,11 +39,9 @@ PODS_ALLOWED_TO_FAIL = {
     'libgit2',
     'MACalendarUI',
     'MAKVONotificationCenter',
-    'MASShortcut',
     'MGSplitViewController',
     'MPFlipViewController',
     'NSLogger-CocoaLumberjack-connector',
-    'OCMock',
     'ODRefreshControl',
     'OHAttributedLabel',
     'pubnub-api',
@@ -56,7 +51,6 @@ PODS_ALLOWED_TO_FAIL = {
     'SocketRocket',
     'SPTabBarController',
     'StackMob',
-    'SYCache',
     'TBXML',
     'Three20Lite',
     'TwUI',
@@ -66,10 +60,20 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "The version should be included in the Git tag." => [
-    'iOS-Hierarchy-Viewer',
+  "Comments placed at the top of the specification must be deleted." => [
+    'Google-API-Client',
+    'iOS-KML-Framework',
+    'KDXCollectionView',
+    'LibComponentLogging-pods',
+    'MacMapKit',
+    'MBPopoverBackgroundView',
+    'MMPickerView',
+    'NNNetwork',
+    'QuincyKit',
+    'SBTickerView',
+    'StateMachine-GCDThreadsafe',
+    'TumbleOn-Utils',
   ],
-
 }
 
 
