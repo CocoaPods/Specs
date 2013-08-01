@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Overline-BlocksKit"
   s.version      = "0.2.1"
-  s.summary      = "Objective-C utilities and shorthands. with BlocksKit"
+  s.summary      = "Objective-C utilities and shorthands. version for BlocksKit."
   s.homepage     = "https://github.com/yaakaito/Overline"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.platform     = :ios
