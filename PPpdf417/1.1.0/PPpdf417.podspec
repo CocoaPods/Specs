@@ -1,4 +1,3 @@
-#
 Pod::Spec.new do |s|
   
   s.name         = "PPpdf417"
