@@ -1,15 +1,9 @@
-#
-# GCDThreadsafe
-# CocoaPods podspec
-#
-
 Pod::Spec.new do |s|
     s.name         = 'GCDThreadsafe'
     s.version      = '0.0.1'
 
     s.ios.deployment_target = '6.1'
     s.osx.deployment_target = '10.8'
-    # s.platform     = :ios, '6.1'
 
     s.author       = { 'bryn austin bellomy' => 'bryn@signals.io' }
     s.summary      = 'Easy threadsafeing + the performance of Grand Central Dispatch.'
@@ -24,11 +18,5 @@ Pod::Spec.new do |s|
     s.xcconfig = { 'CLANG_ENABLE_MODULES' => 'YES' }
 
     s.dependency 'libextobjc', '~> 0.2.5'
-
 end
-
-
-
-
-
 
