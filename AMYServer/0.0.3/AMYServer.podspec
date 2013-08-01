@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks  = 'SenTestingKit'
   
-  s.dependency 'KIF-next', '~> 2.0.0pre3'
+  s.dependency 'KIF-next', '~> 2.0.0pre4'
   s.dependency 'GRMustache', '~> 6.7'
 end
