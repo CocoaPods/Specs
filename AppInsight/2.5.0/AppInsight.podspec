@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'BSD',
                       :text => <<-LICENSE
                                 Copyright (c) 2013, pVelocity Inc.
-                                All rights reserved.
+                                All rights reserved. 
 
                                 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
