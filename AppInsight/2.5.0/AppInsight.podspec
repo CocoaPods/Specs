@@ -1,15 +1,16 @@
 Pod::Spec.new do |s|
   s.name         = "AppInsight"
   s.version      = "2.5.0"
-  s.summary      = <<-SUMMARY
+  s.summary      = "AppInsight is a usage tracking and reporting framework."
+  s.description  = <<-DESCRIPTION
                     cafe moba for App Insight is a lightweight logging & tracking library that provides app developers a customizable way to access, analyze, and visualize the ways users interact with their apps.
 
-                    SUMMARY
+                    DESCRIPTION
   s.homepage     = "http://appinsight.cafemoba.com"
   s.license      = { :type => 'BSD',
                       :text => <<-LICENSE
                                 Copyright (c) 2013, pVelocity Inc.
-                                All rights reserved. 
+                                All rights reserved.
 
                                 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
