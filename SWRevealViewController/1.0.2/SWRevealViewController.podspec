@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage      = "https://github.com/John-Lluch/SWRevealViewController"
   s.license       = "MIT"
   s.author        = { "John Lluch Zorrilla" => "joan.lluch@sweetwilliamsl.com" }
-  s.source        = { :git => "https://github.com/John-Lluch/SWRevealViewController.git", :tag =>  "v#{s.version.to_s}" }
+  s.source        = { :git => "https://github.com/John-Lluch/SWRevealViewController.git", :tag =>  "v#{s.version}" }
   s.platform      = :ios, "5.0"
   s.source_files  = "SWRevealViewController/*.{h,m}"
   s.framework     = "CoreGraphics"

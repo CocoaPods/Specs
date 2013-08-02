@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "FHTTPClient"
   s.version      = "0.0.1"
-  s.license      = { :type => 'Apache License Version 2.0', :file => 'LICENSE' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary      = "A simple iOS HTTP Client for REST services."
   s.homepage     = "https://github.com/furymobile/FHTTPClient"
   s.author       = { "Fury Mobile" => "support@furymobile.com" }

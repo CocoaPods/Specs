@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version       = "0.0.1"
   s.summary       = "iOS static lib for FloJack NFC reader/writer."
   s.homepage      = "https://github.com/flomio/flojack-ios"
-  s.license       = 'Apache v2'
+  s.license       = 'Apache License, Version 2.0'
   s.author        = { "John Bullard" => "john@flomio.com", "Richard Grundy" => "richard@flomio.com" }
   s.source 		    = { :git => 'https://github.com/flomio/flojack-ios.git', :commit => '58e6854df0641cc225d630837c84b6f8027a4da0'}
   s.platform      = :ios
