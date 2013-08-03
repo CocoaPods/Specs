@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { "Constantin Lebrecht" => "constantin@monavari.de" }
-  s.source       = { :git => "git@github.com:hijolan/iOS7Menu.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://git@github.com:hijolan/iOS7Menu.git", :tag => "0.0.1" }
   s.source_files = 'iOS7Menu/Views', 'iOS7Menu/Categories/*.{h,m}'
   s.resource     = 'iOS7Menu/fancyBackground.png'
 
