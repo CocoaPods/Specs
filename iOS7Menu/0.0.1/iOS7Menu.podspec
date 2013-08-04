@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                       Fancy menu that fits ios7 perfectly!
                     DESC
-  s.homepage     = "https://github.com/hijolan/iOS7Menu"
+  s.homepage     = "http://bit.ly/1cAd9WV"
   s.screenshots  = "http://monavari.de/fileadmin/data_archive/images/iOS7Menu/iOS7Menu_screen1.png", "http://monavari.de/fileadmin/data_archive/images/iOS7Menu/iOS7Menu%20-%20Breitband.m4v"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
