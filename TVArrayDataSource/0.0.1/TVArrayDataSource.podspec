@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.author       = { "nghialv" => "nghialv2607@gmail.com" }
   s.source       = {
     :git => "https://github.com/nghialv/TVDataSource.git",
-    :tag => "0.0.1" }
-  s.platform     = :ios, '6.0'
+    :tag => s.version.to_s }
+  s.platform     = :ios, '5.0'
   s.source_files = 'TVArrayDataSource.h', 'TVArrayDataSource.m'
   s.requires_arc = true
 end
