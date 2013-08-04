@@ -1,5 +1,3 @@
-# podspec for MBPopoverBackgroundView
-
 Pod::Spec.new do |s|
   s.name         =  'MBPopoverBackgroundView'
   s.version      =  '0.1.1'
