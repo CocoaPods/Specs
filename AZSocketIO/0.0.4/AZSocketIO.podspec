@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'AZSocketIO'
   s.version  = '0.0.4'
-  s.license  = 'Apache 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'A socket.io client for objective-c. Cocoapods-friendly. Appledocs. Built of AFNetworking and SocketRocket. Websockets + XHR.'
   s.homepage = 'https://github.com/pashields/AZSocketIO'
   s.authors  = {'Patrick Shields' => 'patrick.m.shields@gmail.com'}

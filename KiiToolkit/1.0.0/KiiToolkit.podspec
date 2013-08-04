@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                     utilities that we find useful in app development.
                    DESC
   s.homepage     = "http://github.com/KiiPlatform/KiiToolkit-iOS"
-  s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author       = { "Chris Beauchamp" => "chris.beauchamp@kii.com" }
   s.source       = { :git => "https://github.com/KiiPlatform/KiiToolkit-iOS.git", :tag => "1.0.0" }
   s.platform     = :ios, '4.3'

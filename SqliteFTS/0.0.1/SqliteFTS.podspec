@@ -13,8 +13,8 @@ Because the SQLite library provided by Apple does not include FTS module. Thus, 
 Visit SQLite's [official FTS page](http://www.sqlite.org/fts3.html) for more detailed information.
 		DESC
   s.homepage 	 = 'https://github.com/ebosveld/sqliteFTS' 
-  s.license	 = { :type => 'Apache License 2.0', :text => <<-LICENSE
-		     SQLite is distributed in [Public Domain](http://en.wikipedia.org/wiki/Public_Domain), and does not require a license. This convient project is distributed in [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), which means you can use it for open source/commercial software.
+  s.license	 = { :type => 'Apache License, Version 2.0', :text => <<-LICENSE
+		     SQLite is distributed in [Public Domain](http://en.wikipedia.org/wiki/Public_Domain), and does not require a license. This convient project is distributed in [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), which means you can use it for open source/commercial software.
 		     LICENSE
 		   }
   s.author       = { "Tonny Xu" => "Tonny.Xu@gmail.com" }

@@ -1,5 +1,3 @@
-# Be sure to run `pod spec lint YelpKit.podspec' to ensure this is a valid podspec
-
 Pod::Spec.new do |s|
   s.name         = "YelpKit"
   s.version      = "1.0.4"
