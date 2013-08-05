@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "TVArrayDataSource"
   s.version      = "0.0.1"
-  s.summary      = "ArrayDataSource class for tableview."
-  s.homepage     = "https://github.com/nghialv"
+  s.summary      = "This class will help you implement TableView faster."
+  s.homepage     = "https://github.com/nghialv/TVDataSource"
   s.license      = 'MIT'
   s.author       = { "nghialv" => "nghialv2607@gmail.com" }
   s.source       = {
