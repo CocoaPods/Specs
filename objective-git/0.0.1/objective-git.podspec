@@ -25,4 +25,11 @@ Pod::Spec.new do |s|
     Objective Git provides Objective-C bindings to the libgit2 linkable C Git library.
     This library follows the rugged API as close as possible while trying to maintain a native objective-c feel.
   DESC
+
+  def s.post_install(target)
+    puts "objective-git is deprecated - Please switch to ObjectiveGit to stay up to date."
+  end
 end
+
+
+
