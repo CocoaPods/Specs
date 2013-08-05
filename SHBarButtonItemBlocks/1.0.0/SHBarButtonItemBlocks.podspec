@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name           = "SHBarButtonItemBlocks"
-  url            = "https://github.com/PodFactory/#{name}"
+  url            = "https://github.com/seivan/#{name}"
   git_url        = "#{url}.git"
   s.name         = name
   version        = "1.0.0"
