@@ -1,4 +1,3 @@
-# coding: utf-8
 Pod::Spec.new do |s|
   s.name      = 'SBTickerView'
   s.version   = '0.0.1'
