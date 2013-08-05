@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Practical real-world dates.'
   s.homepage = 'http://ericasadun.com'
   s.author   = { 'Erica Sadun' => 'erica@ericasadun.com' }
-  s.source   = { :git => 'https://github.com/erica/NSDate-Extensions.git', :commit => '7c6730b8e5e4740a332d839f3597bcce11d83160' }
+  s.source   = { :git => 'https://github.com/erica/NSDate-Extensions.git', :commit => '2bfcf3e8abd010d343fa0dbc30eeacbc71145b42' }
   s.platform = :ios  
   s.source_files = 'NSDate-Utilities.{h,m}' , 'TimeFormatters.{h,m}'
   s.framework = 'Foundation'
