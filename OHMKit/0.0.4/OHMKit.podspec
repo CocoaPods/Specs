@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                     Map service responses to objects.
 
-                    OHMKit is a mixin to make any Objective-C class easier to hydrate from a dictionary representation, such as you might get from a RESTful web service.
+                    OHMKit is a mixin to make any Objective-C class easier to hydrate from a dictionary representation, such as you might get from a RESTful web service. 
 
                     It exists because RestKit (which is awesome by the way), is too big, heavy, and indirect.
 
