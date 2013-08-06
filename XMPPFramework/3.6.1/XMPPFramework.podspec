@@ -62,11 +62,6 @@ Pod::Spec.new do |s|
     cds.dependency 'XMPPFramework/Core'
   end
 
-  s.subspec 'ProcessOne' do |po|
-    po.source_files = 'Extensions/ProcessOne/**/*.{h,m}'
-    po.dependency 'XMPPFramework/Core'
-  end
-
   s.subspec 'Reconnect' do |rc|
     rc.source_files = 'Extensions/Reconnect/**/*.{h,m}'
     rc.framework = 'SystemConfiguration'
