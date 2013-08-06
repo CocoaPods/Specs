@@ -28,6 +28,7 @@ Can't find the answer to your question in any of the [wiki](https://github.com/r
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
 
+  s.source_files = 'XMPPFramework.h'
   s.source_files = 'Authentication', 'Authentication/**/*.{h,m}'
   s.source_files = 'Categories', 'Categories/**/*.{h,m}'
   s.source_files = 'Core', 'Core/**/*.{h,m}'
@@ -47,7 +48,7 @@ Can't find the answer to your question in any of the [wiki](https://github.com/r
 
   s.requires_arc = true
 
-    s.dependency 'CocoaLumberjack', '~> 1.6.2'
-    s.dependency 'CocoaAsyncSocket', '~> 7.3.1'
-    s.dependency 'KissXML', '~> 5.0'
+  s.dependency 'CocoaLumberjack', '~> 1.6.2'
+  s.dependency 'CocoaAsyncSocket', '~> 7.3.1'
+  s.dependency 'KissXML', '~> 5.0'
 end
