@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'XMPPFramework'
   s.version = '3.6.1'
   s.platform = :ios, '6.0'
-  s.license = 'BSD'
+  s.license = { :type => 'BSD', :file => 'copying.txt' }
   s.summary = 'An XMPP Framework in Objective-C for the Mac  iOS development community.'
   s.homepage = 'https://github.com/robbiehanson/XMPPFramework'
   s.author = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
@@ -17,17 +17,16 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks = 'CoreLocation'
   s.subspec 'Core' do |core|
-    core.source_files = 'Categories/*.{h,m}', 'Core/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/*.{h,m}', 'Vendor/libidn/*.{h,m,a}', '**/XMPPFramework.h'
-   # core.resource = "Vendor/libidn/libidn.a"
-    core.preserve_paths = 'Vendor/libidn/*.a'
-    core.libraries = 'resolv','idn'
-    core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libresolv',
+    core.source_files = 'Categories/*.{h,m}', 'Core/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/*.{h,m}', 'Vendor/libidn/*.{h,m}', '**/XMPPFramework.h'
+    core.resource = "Vendor/libidn/libidn.a"
+    core.libraries = 'xml2','resolv','idn'
+    core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv',
                       'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/XMPPFramework/Vendor/libidn'}
     
     core.dependency 'XMPPFramework/Authentication'
     core.dependency 'XMPPFramework/Categories'
     core.dependency 'XMPPFramework/Utilities'
-    core.dependency 'KissXML', '~> 5.0'
+    core.ios.dependency 'XMPPFramework/KissXML'
     core.dependency 'CocoaLumberjack','~>1.6.2'
     core.dependency 'CocoaAsyncSocket','~>7.3.1'
   end
@@ -47,10 +46,10 @@ Pod::Spec.new do |s|
    utilities.dependency 'XMPPFramework/Core'
   end
   
-#  s.subspec 'KissXML' do |kissxml|
-#   kissxml.source_files = 'Vendor/KissXML/**/*.{h,m}'
-#   kissxml.dependency 'XMPPFramework/Core'
-#  end
+  s.subspec 'KissXML' do |kissxml|
+   kissxml.source_files = 'Vendor/KissXML/**/*.{h,m}'
+   kissxml.dependency 'XMPPFramework/Core'
+  end
 
   s.subspec 'BandwidthMonitor' do |bwm|
     bwm.source_files = 'Extensions/BandwidthMonitor'
