@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/Cocoanetics/DTDownload.git", :tag => spec.version.to_s  }
   spec.platform = :ios
   spec.ios.deployment_target = '5.0'
-  spec.dependency 'DTFoundation/Core', '~>1.5.0'
+  spec.dependency 'DTFoundation/Core', '~>1.5.1'
   spec.source_files = 'Core/Source/*.{h,m}'
   spec.frameworks = ['CoreData']
   spec.license      = 'BSD'
