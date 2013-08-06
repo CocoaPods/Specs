@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PrettyTimestamp"
   s.version      = "1.1"
-  s.summary      = "An NSDate Category that returns human readable, pretty timestamps between two dates. Currently only available in english."
+  s.summary      = "An NSDate Category that returns human readable, pretty timestamps between two dates. Now available with localisation."
   s.description  = <<-DESC
                     An NSDate Category that returns human readable, pretty timestamps between two dates. Now available with localisation with help from @Whakkee and @MatthewYork.
                     
