@@ -18,9 +18,10 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreLocation'
   s.subspec 'Core' do |core|
     core.source_files = 'Categories/*.{h,m}', 'Core/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/*.{h,m}', 'Vendor/libidn/*.{h,m,a}', '**/XMPPFramework.h'
-    core.resource = "Vendor/libidn/libidn.a"
+   # core.resource = "Vendor/libidn/libidn.a"
+    core.preserve_paths = 'Vendor/libidn/*.a'
     core.libraries = 'resolv','idn'
-    core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv',
+    core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libresolv',
                       'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/XMPPFramework/Vendor/libidn'}
     
     core.dependency 'XMPPFramework/Authentication'
@@ -46,10 +47,10 @@ Pod::Spec.new do |s|
    utilities.dependency 'XMPPFramework/Core'
   end
   
-  s.subspec 'KissXML' do |kissxml|
-   kissxml.source_files = 'Vendor/KissXML/**/*.{h,m}'
-   kissxml.dependency 'XMPPFramework/Core'
-  end
+#  s.subspec 'KissXML' do |kissxml|
+#   kissxml.source_files = 'Vendor/KissXML/**/*.{h,m}'
+#   kissxml.dependency 'XMPPFramework/Core'
+#  end
 
   s.subspec 'BandwidthMonitor' do |bwm|
     bwm.source_files = 'Extensions/BandwidthMonitor'
