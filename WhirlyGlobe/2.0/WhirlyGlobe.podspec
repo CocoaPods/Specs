@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "WhirlyGlobe is a self contained 3D earth display view suitable for use in iPhone and iPad applications."
   s.homepage     = "https://github.com/mousebird/WhirlyGlobe"
   s.license      = {
-    :type => "Apache 2.0",
+    :type => "Apache License, Version 2.0",
     :text => <<-LICENSE
 	Licensed under the Apache License, Version 2.0 (the "License"); you may
 	not use this file except in compliance with the License. You may obtain

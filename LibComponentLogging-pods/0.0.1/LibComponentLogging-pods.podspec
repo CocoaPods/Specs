@@ -1,4 +1,4 @@
-#
+
 #
 # LibComponentLogging auto-configuration for CocoaPods
 #

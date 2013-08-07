@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'Evernote-SDK-iOS'
   s.version  = '0.1.0'
   s.platform = :ios
-  s.license  = 'https://github.com/evernote/evernote-sdk-ios/blob/master/LICENSE'
+  s.license  = 'Commercial'
   s.summary  = 'Evernote SDK for iOS.'
   s.homepage = 'https://github.com/evernote/evernote-sdk-ios'
   s.author   = 'Evernote'

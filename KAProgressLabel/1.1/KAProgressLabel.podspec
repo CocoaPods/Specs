@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KAProgressLabel'
   s.version  = '1.1'
   s.platform = :ios
-  s.license  = {:type =>'Apache V2.0', :file =>'LICENSE'}
+  s.license  = {:type =>'Apache License, Version 2.0', :file =>'LICENSE'}
   s.summary  = 'A circular progress view, perfect for displaying progress or statistics.'
   s.homepage = 'http://alexiscreuzot.com/KAProgressLabel'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }
