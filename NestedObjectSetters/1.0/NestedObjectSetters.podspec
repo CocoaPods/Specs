@@ -13,10 +13,13 @@ Pod::Spec.new do |s|
                           createIntermediateDictionaries:(BOOL)createIntermediates
                               replaceIntermediateObjects:(BOOL)replaceIntermediates;
                    `
+                   
+                   The first method is a convenience method for the second – passing `YES` as both parameters – as that is likely the most wanted behavior.
                   DESC
   s.license      = 'MIT'
   s.author       = { "Ryan Maxwell" => "ryanm@xwell.co.nz" }
   s.source       = { :git => "https://github.com/ryanmaxwell/NestedObjectSetters.git", :tag => "1.0" }
+  s.homepage     = 'http://github.com/ryanmaxwell/NestedObjectSetters'
   
   s.documentation = { :appledoc => ['--project-name', 'NestedObjectSetters']}
   
