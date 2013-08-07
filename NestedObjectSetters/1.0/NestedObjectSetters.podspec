@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
                               replaceIntermediateObjects:(BOOL)replaceIntermediates;
                    `
                   DESC
-  s.homepage     = "http://EXAMPLE/NestedObjectSetters"
   s.license      = 'MIT'
   s.author       = { "Ryan Maxwell" => "ryanm@xwell.co.nz" }
   s.source       = { :git => "https://github.com/ryanmaxwell/NestedObjectSetters.git", :tag => "1.0" }
