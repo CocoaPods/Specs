@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.author       = { "Joseph Ridenour" => "joe@joesapps.net" }
   s.source       = { :git => "https://github.com/flippinjoe21/JKDataSource", :tag => "0.0.1" }
   s.ios.deployment_target = '4.3'
-  s.osx.deployment_target = '10.5'
   s.source_files = 'JKDataSource/*.{h,m}'
   s.frameworks   = 'UIKit'
 end
