@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source = { :git => "https://github.com/siuying/IGFastImage.git", :tag => "1.0.1" }
   s.source_files = 'IGFastImage/FastImage/*.{h,m}'
   s.requires_arc = true
-  s.dependency 'AFNetworking'
+  s.dependency 'AFNetworking', '~> 1.3.1'
 end
