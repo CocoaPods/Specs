@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
   s.subspec 'UIKit' do |ss|
     ss.source_files = 'Categories/UIColor*.{h,m}', 'Categories/UIImage*.{h,m}', 'Widgets/LN{SegmentedControl,TextField}.{h,m}'
   end
-  s.subspec 'HUD' do |ss|
+  s.subspec 'MBProgressHUD' do |ss|
+    ss.dependency 'MBProgressHUD'
     ss.source_files = 'Categories/MB*.{h,m}', 'Categories/UIViewController+HUD.{h,m}'
   end
   
