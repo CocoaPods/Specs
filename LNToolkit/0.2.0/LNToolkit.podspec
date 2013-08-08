@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Rex Sheng" => "shengning@gmail.com" }
   s.source       = { :git => "https://github.com/lognllc/LNToolkit.git", :tag => s.version.to_s }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.source_files = 'Categories/**/*.{h,m}', 'Categories/**/*.{h,m}'
   s.requires_arc = true
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'AFNetworking' do |ss|
-    ss.dependency 'AFNetworking'
+    ss.dependency 'AFNetworking', '~> 1.3'
     ss.source_files = 'Widgets/LN{Image,Remote}View.{h,m}'
   end
 
