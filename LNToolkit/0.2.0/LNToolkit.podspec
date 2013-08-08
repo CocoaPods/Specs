@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
   s.subspec 'AFNetworking' do |ss|
     ss.dependency 'AFNetworking'
     ss.source_files = 'Widgets/LN{Image,Remote}View.{h,m}'
-    ss.source_files = 'UIKit+AFNetworking'
   end
 
 end
