@@ -20,6 +20,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'RSMenuView' do |ss|
     ss.dependency 'RSMenuView', '~> 1.0'
+    ss.dependency 'LNToolkit/UIKit'
+    ss.framework = 'QuartzCore'
     ss.source_files = 'Widgets/LN{Avtar,Badge}*.{h,m}'
   end
   
