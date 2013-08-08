@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name         = "SHOmniAuthFacebook"
-  url          = "https://github.com/seivan/#{name}"
+  url          = "https://github.com/SHOmniAuth/#{name}"
   git_url      = "#{url}.git"
   version      = "0.2.2"
   source_files = "#{name}/**/*.{h,m}"
