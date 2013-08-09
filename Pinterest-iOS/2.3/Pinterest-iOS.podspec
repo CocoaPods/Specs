@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
   s.platform        = :ios, '5.0'
   s.source_files    = 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Headers/*.h'
   s.resources    = 'Pinterest.embeddedframework/Resources/PinterestSDKResources.bundle' , 'Pinterest.embeddedframework/Pinterest.framework/Resources/Info.plist'
-  s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pinterest-iOS/"' }
+  s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pinterest-iOS/Pinterest.embeddedframework"' }
   s.preserve_paths =  'Pinterest.embeddedframework/Pinterest.framework', 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Resources/PinterestSDKResources.bundle', 'Pinterest.embeddedframework/Pinterest.framework/Versions/A/Resources/Info.plist'
-  
 
 end
