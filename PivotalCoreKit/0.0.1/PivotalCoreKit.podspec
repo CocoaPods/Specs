@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Shared library and test code for iOS projects.'
   s.homepage = 'https://github.com/pivotal/PivotalCoreKit'
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
-  s.source   = { :git => 'https://github.com/pivotal/PivotalCoreKit.git', :commit => 'a87825e743bbe1b9d5062fa5ee27ee430d86f305' }
+  s.source   = { :git => 'https://github.com/pivotal/PivotalCoreKit.git', :commit => '9e41f823589521b75ed205cb1a2fb1bb2747ce48' }
   s.platform = :ios
 
   s.subspec 'CoreLib' do |core|
@@ -28,11 +28,11 @@ Pod::Spec.new do |s|
     uicore.source_files = 'UICoreLib/**/*.{h,m}'
     uicore.frameworks   = 'UIKit', 'CoreText'
   end
-  
+
   s.subspec 'SpecHelperLib' do |spec_helper|
     spec_helper.source_files = 'SpecHelperLib/**/*.{h,m}'
     spec_helper.frameworks   = 'UIKit'
     spec_helper.dependency 'Cedar'
   end
-  
+
 end
