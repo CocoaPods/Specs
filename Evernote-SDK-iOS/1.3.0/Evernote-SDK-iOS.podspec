@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     'evernote-sdk-ios/3rdParty/{AFNetworking,KSHTMLWriter,NSString+URLEncoding,Thrift,cocoa-oauth}/**/*.{h,m}'
   s.frameworks = 'Foundation', 'Security', 'StoreKit','MobileCoreServices'
   s.libraries = 'xml2'
-  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
+  s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 
   s.dependency 'SSKeychain', '0.2.1'
 end
