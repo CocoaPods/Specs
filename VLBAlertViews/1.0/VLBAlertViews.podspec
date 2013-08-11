@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "VLBAlertViews"
   s.version      = "1.0"
-  s.summary      = "An API that uses blocks with UIAlertView(s), adds support for multiple delegates per UIAlertView and introduces local scope to a UIAlertViewDelegate." 
+  s.summary      = "An API that uses blocks with UIAlertView(s), adds support for multiple delegates and introduces local scope to a UIAlertViewDelegate." 
   s.homepage     = "https://github.com/qnoid/VLBAlertViews"
   s.license			 = "MIT"
 
