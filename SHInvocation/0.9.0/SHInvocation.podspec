@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
                     * No swizzling or hacks.
                     * Name-scoped selectors.
 
-
                    DESC
   s.homepage     = url
   s.license      = {:type => 'MIT' }
