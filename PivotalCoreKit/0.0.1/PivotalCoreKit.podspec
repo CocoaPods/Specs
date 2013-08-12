@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
   s.source   = { :git => 'https://github.com/pivotal/PivotalCoreKit.git', :commit => '9e41f823589521b75ed205cb1a2fb1bb2747ce48' }
   s.platform = :ios
+  s.ios.deployment_target = '5.0'
 
   s.subspec 'CoreLib' do |core|
     core.source_files = 'CoreLib/**/*.{h,m}'
