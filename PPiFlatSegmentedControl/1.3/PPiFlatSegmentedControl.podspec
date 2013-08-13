@@ -11,19 +11,9 @@ Pod::Spec.new do |s|
   s.description = <<-DESC
 
   PPiFlatSegmentedControl is an UI Control developed avoiding original UISegmentedControl to get interesting features related with the flat design. It's linked with AwesomeFont library in order to add icons to segments
-
-  For iOS apps, edit your app's Info.plist to contain the key:
-                    "Fonts provided by application" (UIAppFonts). 
-                    <key>UIAppFonts</key>
-                    <array>
-                        <string>fontawesome-webfont.ttf</string>
-                    </array>
                     DESC
   s.requires_arc = true
   s.source_files = 'Control/*.{h,m}'
   s.framework = 'QuartzCore'
-  s.dependency 'FontAwesome-iOS'
-  s.public_header_files = ['PPiFlatSegmentedControl.h','NSString+FontAwesome.h']
-  s.resource  = 'Control/fontawesome-webfont.ttf'
-
+  s.public_header_files = 'Control/*.h'
 end
