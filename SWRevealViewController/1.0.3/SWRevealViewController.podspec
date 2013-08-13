@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license       = "MIT"
   s.author        = { "John Lluch Zorrilla" => "joan.lluch@sweetwilliamsl.com" }
   s.source        = { :git => "https://github.com/John-Lluch/SWRevealViewController.git", :tag =>  "v#{s.version}" }
-  s.platform      = :ios, "6.0"
+  s.platform      = :ios, "5.1"
   s.source_files  = "SWRevealViewController/*.{h,m}"
   s.framework     = "CoreGraphics"
   s.requires_arc  = true

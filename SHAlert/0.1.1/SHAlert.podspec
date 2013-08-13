@@ -15,14 +15,14 @@ Pod::Spec.new do |s|
 .
 DESC
 
-  s.homepage     = "https://github.com/PodFactory/SHAlert"
+  s.homepage     = "https://github.com/seivan/SHAlert"
 
   
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/PodFactory/SHAlert.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/seivan/SHAlert.git", :tag => "0.1.1" }
   s.platform     = :ios, '5.0'
   
   s.source_files = 'SHAlert/**/*.{h,m}'

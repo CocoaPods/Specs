@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name    = "SHGestureRecognizerBlocks"
-  url     = "https://github.com/PodFactory/#{name}"
+  url     = "https://github.com/seivan/#{name}"
   git_url = "#{url}.git"
   s.name         = name
   s.version      = "0.9.0"

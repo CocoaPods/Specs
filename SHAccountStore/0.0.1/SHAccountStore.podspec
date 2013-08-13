@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
 
                     The api works the same way as the Accounts framework.
                    DESC
-  s.homepage     = "https://github.com/PodFactory/SHAccountStore"
+  s.homepage     = "https://github.com/seivan/SHAccountStore"
 
   s.license      = {:type => 'MIT' } #,:file => 'LICENSE.md'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/PodFactory/SHAccountStore.git", :tag => s.version.to_s}
+  s.source       = { :git => "https://github.com/seivan/SHAccountStore.git", :tag => s.version.to_s}
   
 
   s.platform  = :ios, "5.0"
