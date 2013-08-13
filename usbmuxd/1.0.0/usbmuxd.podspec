@@ -18,8 +18,7 @@ LICENSE
  s.author = 'Chris Stroud' 
  s.platform = :osx, '10.7' 
  s.source = { :git => "https://github.com/Clstroud/usbmuxd.git", :tag => "v#{s.version}"}
- s.source_files = 'libusbmuxd/*.{h,m}', 'include/*.h', 'common/*.{h,m}', 'daemon/*.{h,m}'
+ s.source_files = 'libusbmuxd/*.{h,c,m,cpp}', 'include/*.h', 'common/*.{h,c,m,cpp}', 'daemon/*.{h,c,m,cpp}'
  s.public_header_files = 'libusbmuxd/usbmuxd.h'
 
 end
-
