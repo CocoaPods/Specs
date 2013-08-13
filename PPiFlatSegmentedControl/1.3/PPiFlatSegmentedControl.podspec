@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
                     DESC
   s.requires_arc = true
   s.source_files = 'Control/*.{h,m}'
-  s.framework = 'QuartzCore'
+  s.frameworks = 'QuartzCore'
   s.public_header_files = 'Control/*.h'
 end
