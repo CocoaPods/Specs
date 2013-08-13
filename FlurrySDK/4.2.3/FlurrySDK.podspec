@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files = '*.h'
   s.preserve_paths = '*.a'
   s.library = 'Flurry_4.2.3'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/Flurry"' }
-  s.framework = 'SystemConfiguration', 'UIKit'
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK"' }
+  s.framework = 'SystemConfiguration', 'UIKit', 'Security'
 end
 
