@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name        = 'GPActivityViewController'
-  s.version     = '1.1.0'
+  s.version     = '1.1.2'
   s.authors     = { 'Gleb Pinigin' => 'gpinigin@gmail.com' }
   s.homepage    = 'https://github.com/gpinigin/GPActivityViewController'
   s.summary     = 'Alternative to UIActivityViewController compatible with iOS5.0.'
   s.source      = { :git => 'https://github.com/gpinigin/GPActivityViewController.git',
-                    :tag => '1.1.0' }
+                    :tag => '1.1.2' }
   s.license     = { :type => "MIT", :file => "LICENSE.md" }
 
   s.platform = :ios, '5.0'
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.ios.weak_frameworks = 'Social'
 
   s.dependency 'AFNetworking', '~> 1.2.0'
-  s.dependency 'Facebook-iOS-SDK', '~> 3.5.0'
+  s.dependency 'Facebook-iOS-SDK', '~> 3.6.0'
   s.dependency 'DEFacebookComposeViewController', '~> 1.0.0'
   s.dependency 'REComposeViewController', '~> 2.0.3'
 end
