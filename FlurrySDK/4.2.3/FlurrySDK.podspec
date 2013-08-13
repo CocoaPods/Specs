@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
   s.summary  = 'FlurrySDK for analytics reporting.'
   s.homepage = 'http://www.flurry.com'
   s.author   = { 'Flurry' => 'http://www.flurry.com' }
-  s.source   = { :git => 'https://github.com/MentallyFriendly/FlurrySDK.git', :tag => '4.2.3' }
+  s.source   = { :git => 'https://github.com/arctouch-ericchamberlain/Flurry-iOS.git', :tag => '4.2.3' }
   s.description = 'FlurrySDK for analytics tracking and reporting.'
   s.platform = :ios
-  s.source_files = '*.h'
-  s.preserve_paths = '*.a'
+  s.source_files = 'Flurry/**/*.h'
+  s.preserve_paths = 'Flurry/**/*.a'
   s.library = 'Flurry_4.2.3'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/Flurry"' }
-  s.framework = 'SystemConfiguration', 'UIKit'
+  s.framework = 'SystemConfiguration', 'UIKit', 'Security'
+  s.weak_frameworks = 'AdSupport'
 end
-
