@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'igor/engine/DEIgorSelfRegisteringSelectorEngine.m'
 
   s.requires_arc = true
-  s.license = {:type => 'MIT', :file => 'README.txt' }
+  s.license = {:type => 'MIT', :file => 'README.md' }
 end
