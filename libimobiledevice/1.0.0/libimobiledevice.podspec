@@ -13,9 +13,9 @@ s.source = { :git => "https://github.com/Clstroud/libimobiledevice.git", :tag =>
 s.preserve_paths = "common/*.h"
 s.source_files = 'src/*.{h,c,m,cpp}', 'include/*.h', 'include/libimobiledevice/*.h', 'common/*.{h,c,m,cpp}'
 s.public_header_files =  'include/libimobiledevice/*.h'
-s.library = 'ssl', 'crypto'
+s.library = 'ssl'
 s.dependency 'libplist'
 s.dependency 'usbmuxd'
-s.xcconfig = {"GCC_PREPROCESSOR_DEFINITIONS" => 'HAVE_OPENSSL HAVE_VASPRINTF HAVE_ASPRINTF HAVE_STPCPY STRIP_DEBUG_CODE', "HEADER_SEARCH_PATHS" => '"${PODS_ROOT}/libplist/include/" "${PODS_ROOT}/libimobiledevice/" "${PODS_ROOT}/libimobiledevice/include/"'}
+s.xcconfig = {"GCC_PREPROCESSOR_DEFINITIONS" => 'HAVE_OPENSSL HAVE_VASPRINTF HAVE_ASPRINTF HAVE_STPCPY', "HEADER_SEARCH_PATHS" => '"${PODS_ROOT}/libplist/include/" "${PODS_ROOT}/libimobiledevice/" "${PODS_ROOT}/libimobiledevice/include/"'}
 
 end
