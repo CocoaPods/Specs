@@ -7,15 +7,14 @@ Pod::Spec.new do |s|
 
   s.name         = name
   s.version      = version
-  s.summary      = "Prefixed UITextField category replacing delegate calls with blocks. Without libffi and swizzling."
+  s.summary      = "Prefixed UITextField category replacing delegate calls with blocks. without libffi and swizzling."
   s.description  = <<-DESC
 
-                    UITextField delegate callbacks via blocks.
+                    Delegate callbacks via blocks.
                     Blocks are hold with a weak reference so you don't have to cleanup when your object is gone.
   
                     * Swizzle and junk free
                     * No need to clean up after - The blocks are self maintained.
-                    * Textfields are referenced in a map with weak properties
                     * Prefixed selectors.
                     * Minimum clutter on top of the public interface.
                     
