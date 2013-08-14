@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.summary      = "eTilbudsavis iOS SDK."
   s.description  = <<-DESC
                      An SDK that makes it easy to talk to the eTilbudsavis API.
-                     Allows you to easily embed catalogs and shopping lists in your own iOS app.
+                     Also allows you to easily embed catalogs and shopping lists in your own iOS app.
                     DESC
 
-  s.homepage     = "http://engineering.etilbudsavis.dk/"
+  s.homepage     = "http://engineering.etilbudsavis.dk/native-ios-eta-sdk/"
   s.license      = 'MIT'
   s.author       = { "Laurie Hufford" => "lh@etilbudsavis.dk" }
 
