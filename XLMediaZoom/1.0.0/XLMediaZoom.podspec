@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint XLMediaZoom.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
 
   s.name         = "XLMediaZoom"
@@ -19,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/xmartlabs/XLMediaZoom"
 
-  s.license      = 'MIT'
+  s.license      = { :type => 'MIT', :file => "LICENSE.txt" }
 
   s.authors      = { "Miguel Revetria" => "miguel@xmartlabs.com", "Martin Barreto" => "martin@xmartlabs.com" }
 
