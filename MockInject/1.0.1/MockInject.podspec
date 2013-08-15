@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gantaa/MockInject.git", :tag => "#{s.version}" }
   s.platform     = :ios, '6.0'
   s.source_files = 'MockInject', 'MockInject/**/*.{h,m}'
+  s.framework       = 'SenTestingKit'
   s.public_header_files = 'MockInject/**/*.h'
   s.requires_arc = true
   s.dependency 'Kiwi'
