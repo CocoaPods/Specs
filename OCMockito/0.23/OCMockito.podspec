@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Jon Reid' => 'jon@qualitycoding.org' }
   s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'V0.23' }
   s.source_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/**/*.{h,m,mm}'
-  s.dependency 'OCHamcrest', '1.9'
+  s.dependency 'OCHamcrest'
 end
