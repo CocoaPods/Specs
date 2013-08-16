@@ -13,8 +13,5 @@ Pod::Spec.new do |s|
   s.header_dir   =  'FacebookSDK'
   s.weak_frameworks = 'Accounts', 'AdSupport', 'Social', 'Security'
   s.framework = 'CoreLocation'
-  # simulate the build rule that converts PNG files to objective-c classes in 3.6.0
-  s.pre_install do |pod, target_definition|
-    Dir.chdir(pod.root){ `find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh` }
-  end
+  s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
 end
