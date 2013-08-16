@@ -8,9 +8,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Vlad Kovtash" => "v.kovtash@gmail.com" }
   s.source       = { :git => "https://github.com/vkovtash/inputtoolbar.git", :tag => s.version.to_s }
-  s.platform     = :ios
   s.source_files = 'UIInputToolbarSample/Classes/UIInputToolbar'
   s.resources = "UIInputToolbarSample/Resources/*.png"
   s.requires_arc = true
 end
-
