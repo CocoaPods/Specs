@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
                     * Works with existing codebase that uses old fashioned segues. 
 
                    DESC
-  s.homepage     = "https://github.com/PodFactory/SHSegueBlock"
+  s.homepage     = "https://github.com/seivan/SHSegueBlock"
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/PodFactory/SHSegueBlock.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/seivan/SHSegueBlock.git", :tag => s.version.to_s }
   
 
   s.platform  = :ios, "6.0"

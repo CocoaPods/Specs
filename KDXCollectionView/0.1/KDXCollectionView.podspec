@@ -1,5 +1,3 @@
-# vim: set ft=ruby fenc=utf-8 sw=2 ts=2 et:
-
 Pod::Spec.new do |s|
   s.name = 'KDXCollectionView'
   s.version = '0.1'

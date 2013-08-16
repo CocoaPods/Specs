@@ -1,6 +1,6 @@
+Pod::Spec.new do |s|
 # This doesn't lint correctly, but that's fine: https://github.com/CocoaPods/Specs/pull/1564
 
-Pod::Spec.new do |s|
   s.name     = 'Google-API-Client'
   s.version  = '0.0.1'
   s.license      = {
