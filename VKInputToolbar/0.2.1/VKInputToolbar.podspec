@@ -13,3 +13,4 @@ Pod::Spec.new do |s|
   s.resources = "UIInputToolbarSample/Resources/*.png"
   s.requires_arc = true
 end
+
