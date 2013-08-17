@@ -1,6 +1,3 @@
-#
-# Not contributed yet
-#
 Pod::Spec.new do |s|
   s.name         = "QMBTabs"
   s.version      = "0.2"
