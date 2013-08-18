@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
   s.libraries = 'iconv'
+  s.frameworks = 'Security', 'CFNetwork'
 
   s.pre_install do |pod, _|
     if (pod.root + 'build-mac').exist?
