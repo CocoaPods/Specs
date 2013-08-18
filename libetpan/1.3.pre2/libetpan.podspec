@@ -17,12 +17,8 @@ Pod::Spec.new do |s|
   s.libraries = 'iconv'
   s.frameworks = 'Security', 'CFNetwork'
 
-  s.pre_install do |pod, _|
-    if (pod.root + 'build-mac').exist?
-      Dir.chdir(pod.root + 'build-mac') do
-       `SRCROOT='true' sh update.sh`
-        raise "[!] Failed pre install hook" unless $?.to_i == 0
-      end
-    end
-  end
+  s.prepare_command = <<-CMD
+    cd build-mac
+    SRCROOT=true sh update.sh
+  CMD
 end
