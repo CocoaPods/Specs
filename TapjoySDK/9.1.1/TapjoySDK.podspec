@@ -45,11 +45,13 @@ Pod::Spec.new do |s|
   s.source = { :http => 'https://s3.amazonaws.com/tapjoy/sdks/TapjoySDK_iOS_v9.1.1.zip' }
   s.platform = :ios  
   
-  s.resource  = "TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Versions/A/Resources/TapjoyResources.bundle"  
+  s.resources  = "TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/**/*.bundle"  
 
-  s.source_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Versions/A/Headers/*.h'
-  s.preserve_paths = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/*'
+  s.public_header_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/**/*.h'
+  s.preserve_paths = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework'
+  s.vendored_frameworks = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework'
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreTelephony', 'MediaPlayer'
   s.weak_frameworks = 'AdSupport'  
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework"'}
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK/**"'}
+  s.requires_arc = true
 end
