@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     :git => "https://github.com/autresphere/ASDepthModal.git",
     :tag => "1.0.0"
   }
-  s.platform = :ios, '6.0'
+  s.platform = :ios, '5.0'
   s.source_files = 'ASDepthModal/*'
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics', 'QuartzCore', 'CoreImage', 'Accelerate'
   s.requires_arc = true

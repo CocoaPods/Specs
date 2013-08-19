@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/siuying/IGAutoString.git', :tag => '1.1.0' }
 
   s.source_files = 'IGAutoString/*.{h,m}'
-  s.dependency 'UniversalDetector', '~> 1.1.0'
+  s.dependency 'UniversalDetector', '>= 1.1.0'
   s.library      =  'iconv'
 
   s.requires_arc = true

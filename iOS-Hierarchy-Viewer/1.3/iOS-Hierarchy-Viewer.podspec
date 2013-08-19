@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/glock45/iOS-Hierarchy-Viewer"
   s.license      = { :type => 'BSD' }
   s.author       = { "Damian Kołakowski" => "krzysztof.zablocki@me.com" }
-  s.source       = { :git => "https://github.com/glock45/iOS-Hierarchy-Viewer.git", :tag => "version_1_3" }
+  s.source       = { :git => "https://github.com/glock45/iOS-Hierarchy-Viewer.git", :tag => "1.3" }
   s.platform     = :ios
   s.source_files = 'iOSViewHierarchy/**/*.{h,m}'
   s.exclude_files = '**/*json*'

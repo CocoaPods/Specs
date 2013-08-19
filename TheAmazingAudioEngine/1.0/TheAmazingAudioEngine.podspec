@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint TheAmazingAudioEngine.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "TheAmazingAudioEngine"
   s.version      = "1.0"

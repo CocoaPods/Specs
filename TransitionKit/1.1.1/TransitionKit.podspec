@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'TransitionKit'
   s.version  = '1.1.1'
-  s.license  = 'Apache2'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'A block-based State Machine API for Objective-C.'
   s.homepage = 'https://github.com/blakewatters/TransitionKit'
   s.authors  = { 'Blake Watters' => 'blakewatters@gmail.com' }

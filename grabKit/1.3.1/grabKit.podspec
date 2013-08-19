@@ -27,12 +27,16 @@ Pod::Spec.new do |s|
   
   s.source_files = 'grabKit/grabKit/**/*.{h,m}'
 
+  s.resources = 'grabKit/grabKit/**/*.{xib}'
+
   s.dependency 'Facebook-iOS-SDK', '~> 3.2.0'
   s.dependency 'ISO8601DateFormatter', '~> 0.6'
   s.dependency 'MBProgressHUD', '~> 0.6'
   s.dependency 'NVUIGradientButton', '~> 1.3.0'
   s.dependency 'PSTCollectionView', '~> 0.0.1' 
   s.dependency 'objectiveflickr', '~> 2.0.2'
+
+  s.ios.frameworks = 'Accounts', 'AdSupport', 'AssetsLibrary', 'CFNetwork', 'QuartzCore', 'Security', 'Social', 'SystemConfiguration'
 
   s.subspec 'GData' do |gdata|
     gdata.dependency 'GData', '~> 0.0.1'  

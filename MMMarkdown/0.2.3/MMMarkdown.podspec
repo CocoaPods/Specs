@@ -32,7 +32,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
-  s.preserve_paths = 'lib/libMMMarkdown-iOS.a'
+  s.ios.preserve_paths = 'lib/libMMMarkdown-iOS.a'
+  s.osx.preserve_paths = 'lib/libMMMarkdown-Mac.a'
+  s.ios.library      = 'MMMarkdown-iOS'
+  s.osx.library      = 'MMMarkdown-Mac'
   s.source_files = 'include/**/*.h'
   s.requires_arc = true
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MMMarkdown/lib"' }
 end

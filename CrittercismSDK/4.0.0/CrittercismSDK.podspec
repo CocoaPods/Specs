@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
   s.author = { 'Crittercism' => 'support@crittercism.com' }
   s.source = { :http => 'https://app.crittercism.com/images/Crittercism_v4_0_0.zip' }
   s.platform = :ios
+  s.frameworks = 'SystemConfiguration'
   s.source_files = 'CrittercismSDK/*.h'
   s.preserve_paths = 'CrittercismSDK/libCrittercism_v4_0_0.a'
   s.library = 'Crittercism_v4_0_0'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CrittercismSDK/CrittercismSDK"' }
 end
-

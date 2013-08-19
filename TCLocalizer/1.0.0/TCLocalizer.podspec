@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                  = 'TCLocalizer'
   s.version               = '1.0.0'
-  s.license               = 'Apache 2.0'
+  s.license               = 'Apache License, Version 2.0'
   s.summary               = 'Easy runtime localisation so you do not have to maintain multiple XIBs.'
   s.homepage              = 'https://github.com/tcurdt/TCLocalizer'
   s.author                = { 'Torsten Curdt' => 'tcurdt@vafer.org' }

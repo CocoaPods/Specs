@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "NSHash adds hashing methods to NSString and NSData."
   s.homepage     = "https://github.com/jerolimov/NSHash"
   s.author       = "Christoph Jerolimov"
-  s.license      = "Apache License, Version 2.0, January 2004"
+  s.license      = "Apache License, Version 2.0"
 
   s.source       = { :git => "https://github.com/jerolimov/NSHash.git", :tag => s.version.to_s }
 
