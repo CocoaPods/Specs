@@ -5,8 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'AdColony SDK for the advertisement network.'
   s.homepage = 'http://www.adcolony.com'
   s.author   = { 'Flurry' => 'http://www.adcolony.com' }
-  s.source   = { :git => 'https://github.com/AdColony/AdColony-iOS-SDK.git', :commit => '724ab292e05cea5b118242184a9d3322eba87554' }
-  s.description = 'AdColony SDK for the advertisement network.'
+  s.source   = { :git => 'https://github.com/danielbuechele/AdColony-iOS-SDK.git', :tag => '2.0.1.33' }
   s.platform = :ios
   s.source_files = 'Library/*.h'
   s.preserve_paths = '**/*.a'
