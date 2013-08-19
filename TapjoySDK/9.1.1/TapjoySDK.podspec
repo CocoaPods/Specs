@@ -50,8 +50,10 @@ Pod::Spec.new do |s|
   s.public_header_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/**/*.h'
   s.preserve_paths = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework'
   s.vendored_frameworks = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework'
-  s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreTelephony', 'MediaPlayer'
-  s.weak_frameworks = 'AdSupport'  
+
+  s.framework = 'AdSupport', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'CoreMotion', 'CoreTelephony', 'EventKitUI', 'EventKit', 'Foundation', 'MapKit', 'MediaPlayer', 'MessageUI', 'MobileCoreServices', 'QuartzCore', 'StoreKit', 'SystemConfiguration', 'Twitter', 'UIKit'
+  s.libraries = 'sqlite3.0', 'xml2', 'z'
+  s.weak_frameworks =  'Social'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK/**"'}
   s.requires_arc = true
 end
