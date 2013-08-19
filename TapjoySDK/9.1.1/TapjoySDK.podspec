@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name = 'TapjoySDK'
   s.version = '9.1.1'
   s.license = { :type => 'Commercial', :text => <<-LICENSE
-
+    
     https://dashboard.tapjoy.com/sdk/license
-
+    
     Copyright © 2013 Tapjoy, Inc. All Rights Reserved
     TAPJOY SDK DOWNLOAD LICENSE AGREEMENT
 
@@ -43,9 +43,13 @@ Pod::Spec.new do |s|
   s.homepage = 'http://www.tapjoy.com/'
   s.author = { 'Tapjoy' => 'support@tapjoy.com' }
   s.source = { :http => 'https://s3.amazonaws.com/tapjoy/sdks/TapjoySDK_iOS_v9.1.1.zip' }
-  s.platform = :ios
-  s.resource  = "TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Resources/TapjoyResources.bundle"
-  s.source_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Headers/*.h'
+  s.platform = :ios  
+  
+  s.resource  = "TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Versions/A/Resources/TapjoyResources.bundle"  
+
+  s.source_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/Versions/A/Headers/*.h'
+  s.preserve_paths = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework/*'
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreTelephony', 'MediaPlayer'
-  s.weak_frameworks = 'AdSupport'
+  s.weak_frameworks = 'AdSupport'  
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.framework"'}
 end
