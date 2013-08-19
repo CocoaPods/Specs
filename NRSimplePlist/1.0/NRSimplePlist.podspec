@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = 'NRSimplePlist/*'
   s.framework    = 'Foundation'
   s.requires_arc = true
+
 end
