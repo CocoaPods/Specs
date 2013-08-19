@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'Google AdMob Ads SDK.'
   s.description = 'The Google AdMob Ads SDK allows developers to easily incorporate mobile-friendly text and image banners as well as rich, full-screen web apps known as interstitials.'
   s.homepage = 'https://github.com/patoroco/admob'
-  s.author = 'Google Inc.'
+  s.author = 'Google Inc. | maintained by @patoroco'
   s.license = {
     :type => 'commercial',
     :text => 'Copyright 2009 - 2013 Google, Inc. All rights reserved.'
