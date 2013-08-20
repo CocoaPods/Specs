@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "LPGoogleFunctions"
   s.version      = "1.0.0"
-  s.summary      = "LPGoogleFunctions is an iOS library that provides easy access to certain google Google API functions."
+  s.summary      = "LPGoogleFunctions is an iOS library that provides easy access to certain Google API functions."
   s.description  = <<-DESC
-                    LPGoogleFunctions is an iOS library that provides easy access to certain google Google API functions.
+                    LPGoogleFunctions is an iOS library that provides easy access to certain Google API functions.
                    DESC
   s.homepage     = "http://www.lukapenger.eu"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
