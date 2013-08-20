@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PonyDebuggerLogger"
   s.version      = "0.0.1"
-  s.summary      = "A short description of PonyDebuggerLogger."
+  s.summary      = "A bridge between CocoaLumberjack and PonyDebugger."
   s.homepage     = "https://github.com/mateuszmackowiak/PonyDebbugerLogger"
   s.license      = { :type => 'MIT (example)', :file => 'LICENSE.md' }
   s.author       = { "Mateusz Mackowiak" => "m@mateuszmackowiak.art.pl" }
