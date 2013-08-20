@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage       = "https://github.com/avos/avoscloud-sdk"
   s.license        = 'AVOS Inc. License'
   s.author         = { "Zeng Zhu" => "zzhu@avos.com" }
-  s.source         = { :git => "https://github.com/avos/avoscloud-sdk.git", :tag => "beta" }
+  s.source         = { :git => "https://github.com/avos/avoscloud-sdk.git", :tag => "1.0.0" }
   s.source_files   = 'iOS/beta/AVOSCloud.framework/Versions/A/Headers/*'
   s.preserve_paths = 'iOS/beta/AVOSCloud.framework/*'
   s.frameworks = 'AudioToolbox', 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'CoreLocation',  'CoreGraphics', 'Security', 'QuartzCore', 'AVOSCloud'
