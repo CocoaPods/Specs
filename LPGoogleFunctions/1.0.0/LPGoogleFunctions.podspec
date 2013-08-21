@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Luka Penger' => 'luka.penger@gmail.com' }
   s.source       = { :git => "https://github.com/luka1995/LPGoogleFunctions.git", :tag => s.version.to_s }
   s.platform     = :ios
-  s.source_files = 'LPGoogleFunctions/*.{h,m}'
+  s.source_files = '*.{h,m}'
   s.frameworks    = "CoreLocation","AVFoundation"
   s.library = "AFNetworking"
   s.requires_arc = true
