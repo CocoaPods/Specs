@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
 
   LICENSE
 }
-  s.summary = 'Publisher libraries allow you to display advertisements in your app (including the offerwall) and / or acquire new users from Tapjoy.'
+  s.summary = 'The Tapjoy SDK allows you to display advertisements in your app (including the offerwall) and / or acquire new users from Tapjoy.'
   s.homepage = 'http://www.tapjoy.com/'
   s.author = { 'Tapjoy' => 'support@tapjoy.com' }
   s.source = { :http => 'https://s3.amazonaws.com/tapjoy/sdks/TapjoySDK_iOS_v9.1.1.zip' }
@@ -45,6 +45,7 @@ Pod::Spec.new do |s|
   s.resource  = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/Versions/A/Resources/TapjoyResources.bundle'
   s.source_files = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/*'
-  s.framework    = 'AdSupport', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'CoreMotion', 'CoreTelephony', 'EvenKitUI', 'EventKit', 'Foundation', 'libsqlite3.0', 'libxml2', 'libz', 'MapKit', 'MediaPlayer', 'MessageUI', 'MobileCoreServices', 'QuartzCore', 'Social', 'StoreKit', 'SystemConfiguration', 'UIKit'
+  s.frameworks   = 'AdSupport', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'CoreMotion', 'CoreTelephony', 'EvenKitUI', 'EventKit', 'Foundation', 'MapKit', 'MediaPlayer', 'MessageUI', 'MobileCoreServices', 'QuartzCore', 'Social', 'StoreKit', 'SystemConfiguration', 'UIKit'
+  s.libraries = 'libsqlite3.0', 'libxml2', 'libz'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK_iOS_v9.1.1/Libraries/Tapjoy.embeddedframework/Tapjoy"'}
 end
