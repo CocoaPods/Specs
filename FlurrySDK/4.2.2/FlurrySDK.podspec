@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/arctouch-ericchamberlain/Flurry-iOS.git', :tag => '4.2.2' }
   s.description = 'FlurrySDK for analytics tracking and reporting.'
   s.platform = :ios
-  s.source_files = 'Flurry/**/*.h'
-  s.preserve_paths = 'Flurry/**/*.a'
-  s.library = 'Flurry_4.2.2'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/Flurry"' }
-  s.framework = 'SystemConfiguration', 'UIKit'
+  s.source_files = 'Flurry/**/*.h', 'FlurryAds/**/*.h'
+  s.library = ' Flurry_4.2.2','FlurryAds_4.2.2'
+  s.preserve_paths = 'Flurry/*.a', 'FlurryAds/*.a'
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/**"' }
+  s.framework = 'SystemConfiguration', 'UIKit','MediaPlayer'
 end
