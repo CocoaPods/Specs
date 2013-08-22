@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
   s.osx.frameworks = 'CoreServices'
   s.source_files = 'Classes/*.{h,m}', 'Utility/*.{h,m}', 'CoreData/Classes/*.{h,m}', 'Push/*.{h,m}'
-  s.dependency 'AFNetworking', '~> 1.1'
+  s.dependency 'AFNetworking', '1.1.0'
   s.frameworks = 'CoreData', 'CoreLocation', 'Security', 'SystemConfiguration'
   s.requires_arc = true
   s.documentation = {
