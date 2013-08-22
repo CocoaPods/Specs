@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Vkontakte-iOS-SDK-v2"
-  s.version      = "2.7.0"
+  s.version      = "2.7.5"
   s.summary      = "Powerful & flexible Vkontakte iOS SDK v2."
   s.homepage     = "https://github.com/AndrewShmig/Vkontakte-iOS-SDK-v2.0"
   s.license      = { :type => "MIT", :file => "Project/Vkontakte-iOS-SDK-v2.0/LICENSE.txt" }
