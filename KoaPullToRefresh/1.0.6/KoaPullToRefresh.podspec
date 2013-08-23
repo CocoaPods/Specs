@@ -20,8 +20,6 @@ Pod::Spec.new do |s|
   s.source_files = 'KoaPullToRefresh/*.{h,m}'
   s.public_header_files = 'KoaPullToRefresh/*.h'
   s.dependency 'FontAwesome+iOS'
-  s.ios.resources = "KoaPullToRefresh/Resources/**/*.ttf"
-  s.osx.resources = "KoaPullToRefresh/Resources/Fonts"
 
   s.preserve_paths  = 'Demo'
   s.requires_arc = true
