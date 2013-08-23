@@ -4,6 +4,8 @@ Pod::Spec.new do |s|
   s.summary      = "LPGoogleFunctions is an iOS library that provides easy access to certain Google API functions."
   s.description  = <<-DESC
                     LPGoogleFunctions is an iOS library that provides easy access to certain Google API functions.
+                    
+                    Created by Luka Penger
                    DESC
   s.homepage     = "http://www.lukapenger.eu"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
