@@ -5,10 +5,10 @@ Pod::Spec.new do |s|
   s.summary  = 'A generic and extendable ad-hoc networking framework for easy device discovery, capability checking and pattern based RPC communication.'
   s.homepage = 'http://www.threemf.com'
   s.authors  = {
-    'Martin Gratzer' => 'mgratzer@threemf.com'
+    'Martin Gratzer' => 'mgratzer@gmail.com'
   }
   s.source   = {
-    :git => 'https://github.com/mgratzer/threeMF.git',
+    :git => 'https://github.com/threeMF/threeMF.git',
     :tag => s.version.to_s
   }
   s.source_files = 'threeMF/**/*.{h,m,c}'

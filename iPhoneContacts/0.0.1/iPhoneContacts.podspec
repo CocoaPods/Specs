@@ -35,5 +35,6 @@ Pod::Spec.new do |s|
     :git => "https://github.com/davbeck/iPhoneContacts.git",
     :commit => "056a0045f3" 
   }
-  s.source_files    = './*.{h,m}'
+  s.source_files    = '*.{h,m}'
+  s.frameworks   = 'AddressBook', 'AddressBookUI'
 end

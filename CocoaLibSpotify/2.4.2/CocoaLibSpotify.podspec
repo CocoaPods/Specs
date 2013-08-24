@@ -8,17 +8,16 @@ Pod::Spec.new do |s|
   s.description  =  "CocoaLibSpotify is an Objective-C wrapper around our libspotify library. It provides easy access to libspotify's features in a friendly, KVC/O compliant Objective-C wrapper."
   s.source       =  { :git => 'https://github.com/spotify/cocoalibspotify.git', :tag => "2.4.2" }
   s.requires_arc =  true
-
-  s.source_files =  'common', 'iOS Library/View Controllers', 'libspotify-12.1.51-iOS-universal/libspotify.framework/Headers'
+  s.preserve_paths = 'libspotify-12.1.51-iOS-universal'
+  s.source_files =  'common', 'iOS Library/View Controllers', 'libspotify-12.1.51-iOS-universal/libspotify.framework/Versions/12.1.51/Headers'
   s.resource     =  'iOS Library/SPLoginResources.bundle'
   s.frameworks   =  'SystemConfiguration', 'CFNetwork', 'CoreAudio', 'AudioToolbox', 'AVFoundation', 'libspotify'
   s.library      =  'stdc++'
   s.xcconfig     =  { 'OTHER_LDFLAGS' => '-all_load', 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/CocoaLibSpotify/libspotify-12.1.51-iOS-universal' }
   s.platform     =  :ios
 
-  def s.post_install(target)
+  def s.pre_install(pod, target)
     # Note: Taken straight from the libspotify build script step
-    # TODO: All this should be put in a pre_install since it adds header files that need to get symlinked and added to the project file. In the meantime, pod install just needs to be run twice.
     system <<-CMD
 python -c "
 import socket
@@ -31,7 +30,7 @@ import commands
 
 libspotifyFileName = \\"libspotify-12.1.51-iOS-universal.zip\\"
 libspotifyRemoteLocation = \\"http://developer.spotify.com/download/libspotify/\\"
-projectDir = os.path.join(\\"#{config.project_pods_root}\\", \\"CocoaLibSpotify\\")
+projectDir = \\"#{pod.root}\\"
 libspotifyDirectoryDir = os.path.join(projectDir, \\"libspotify-12.1.51-iOS-universal\\")
 libspotifyZipDir = os.path.join(projectDir, libspotifyFileName)
 

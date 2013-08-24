@@ -7,9 +7,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/lukeredpath/LRResty.git', :tag => 'v0.11.0' }
   s.license      = 'MIT'
 
-  files = FileList['Classes/**/*.{h,m}']
-  files.exclude /NSData\+Base64/
-  s.source_files = files
+  s.source_files = 'Classes/**/*.{h,m}'
+  s.exclude_files = '**/*NSData+Base64*'
 
   s.dependency 'NSData+Base64', '~> 1.0'
 end

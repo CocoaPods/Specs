@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                       Visit http://code.google.com/p/libphonenumber/ for more information.
                    DESC
   s.homepage     = "https://github.com/me2day/libPhoneNumber-iOS"
-  s.license      = 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)'
+  s.license      = 'Apache License, Version 2.0'
   s.authors      = { "iziz" => "zen.isis@gmail.com", "hyukhur" => "hyukhur@gmail.com" }
   s.source       = { :git => "https://github.com/me2day/libPhoneNumber-iOS.git", :tag => "0.5.3" }
   s.platform     = :ios, '4.3'

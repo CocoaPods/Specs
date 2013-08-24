@@ -106,6 +106,13 @@ Pod::Spec.new do |s|
 			'boost/type_traits/**/*.hpp'
   end
 
+  s.subspec 'graph-includes' do |graph|
+  	graph.preserve_paths = 
+  			'boost/*.hpp',
+  			'boost/{algorithm,archive,bimap,bind,chrono,concept,config,container,date_time,detail,dynamic_bitset,exception,filesystem,format,function,functional,fusion,graph,integer,intrusive,io,iterator,math,move,mpi,mpl,multi_index,numeric,optional,parameter,pending,preprocessor,property_map,property_tree,proto,python,random,range,ratio,regex,serialization,smart_ptr,spirit,system,test,thread,tr1,tuple,type_traits,typeof,units,unordered,utility,variant,xpressive}/**/*.hpp',
+  			'boost/xpressive/**/*.ipp'
+  end
+
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/boost"' }
 
 end

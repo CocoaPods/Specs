@@ -13,10 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.5'
-
-  s.source_files = FileList.new('Source/MA*.{h,m}')\
-    .exclude('Source/main.m')
-
-  s.public_header_files = FileList.new('Source/MA*.h')\
-    .exclude('Source/MAZeroingWeakRefNativeZWRNotAllowedTable.h')
+  s.source_files = 'Source/MA*.{h,m}'
+  s.exclude_files = 'Source/main.m'
+  s.private_header_files = 'Source/MAZeroingWeakRefNativeZWRNotAllowedTable.h'
 end

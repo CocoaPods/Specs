@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
                    "4. A unified, high-level interface for asynchronous operations.\n"                     \
                    "5. A lovely API on top of KVO.\n"
 
-  files = FileList['ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}']
-  s.ios.source_files = files.dup.exclude(/NSButton/, /AppKit/)
-  s.osx.source_files = files.dup.exclude(/UIControl/, /UITextField/)
+  s.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/*.{h,m}'
+  s.ios.exclude_files = '**/*{NSButton,AppKit}*'
+  s.osx.exclude_files = '**/*{UIControl,UITextField}*'
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
   s.requires_arc = true
 end

@@ -5,13 +5,15 @@ Pod::Spec.new do |m|
 
   m.summary     = 'Open source alternative to MapKit.'
   m.description = 'Open source alternative to MapKit supporting custom tile sources, offline use, and complete cache control.'
-  m.homepage    = 'http://mapbox.com/mobile'
+  m.homepage    = 'http://mapbox.com/mapbox-ios-sdk'
   m.license     = 'BSD'
   m.author      = { 'MapBox' => 'ios@mapbox.com' }
+  m.screenshot  = 'https://raw.github.com/mapbox/mapbox-ios-sdk/packaging/screenshot.png'
 
   m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => m.version.to_s }
 
-  m.platform = :ios, '5.0'
+  m.platform              = :ios
+  m.ios.deployment_target = '5.0'
 
   m.source_files = 'Proj4/*.h', 'MapView/Map/*.{h,c,m}'
 
@@ -19,19 +21,16 @@ Pod::Spec.new do |m|
 
   m.prefix_header_file = 'MapView/MapView_Prefix.pch'
 
-  def m.post_install(target_installer)
-    puts "\nGenerating MapBox resources bundle\n".yellow if config.verbose?
-    Dir.chdir File.join(config.project_pods_root, 'MapBox') do
-      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../../Resources"
-      command << " 2>&1 > /dev/null" unless config.verbose?
+  m.pre_install do |pod, target_definition|
+    Dir.chdir(pod.root) do
+      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null"
       unless system(command)
         raise ::Pod::Informative, "Failed to generate MapBox resources bundle"
       end
     end
-    File.open(File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name), 'a') do |file|
-      file.puts "install_resource 'Resources/MapBox.bundle'"
-    end
   end
+
+  m.resource = 'Resources/MapBox.bundle'
 
   m.documentation = {
     :html => 'http://mapbox.com/mapbox-ios-sdk/api/',
@@ -69,15 +68,9 @@ Pod::Spec.new do |m|
     ]
   }
 
-  m.framework = 'CoreGraphics'
-  m.framework = 'CoreLocation'
-  m.framework = 'Foundation'
-  m.framework = 'QuartzCore'
-  m.framework = 'UIKit'
+  m.frameworks = 'CoreGraphics', 'CoreLocation', 'Foundation', 'QuartzCore', 'UIKit'
 
-  m.library = 'Proj4'
-  m.library = 'sqlite3'
-  m.library = 'z'
+  m.libraries = 'Proj4', 'sqlite3', 'z'
 
   m.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/MapBox/Proj4"' }
 
