@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name          = 'ShareKit'
   s.version       = '2.3.1'
   s.platform      = :ios, '5.0'
+  s.ios.deployment_target = '6.1'
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
@@ -20,13 +21,14 @@ Pod::Spec.new do |s|
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.dependency 'Evernote-SDK-iOS', "~> 1.2"
+    evernote.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+    evernote.dependency 'Evernote-SDK-iOS', '~> 1.3.0'
     evernote.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
-    facebook.dependency 'Facebook-iOS-SDK',"~> 3.5"
+    facebook.dependency 'Facebook-iOS-SDK',"~> 3.7"
     facebook.dependency 'ShareKit/Core'
   end
 
@@ -40,7 +42,7 @@ Pod::Spec.new do |s|
   s.subspec 'Foursquare' do |foursquare|
     foursquare.source_files = 'Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}'
     foursquare.framework = 'CoreLocation'
-    foursquare.dependency 'SBJson', "~> 3.2"
+    foursquare.dependency 'SBJson', '~> 3.2'
     foursquare.dependency 'ShareKit/Core'
   end
 
@@ -77,13 +79,18 @@ Pod::Spec.new do |s|
   s.subspec 'Twitter' do |twitter|
     twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
     twitter.framework = 'Twitter'
-    twitter.dependency 'JSONKit', "~> 1.4"
+    twitter.dependency 'JSONKit', '~> 1.5pre'
     twitter.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Vkontakte' do |vkontakte|
     vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
-    vkontakte.dependency 'JSONKit', "~> 1.4"
+    vkontakte.dependency 'JSONKit', '~> 1.5pre'
     vkontakte.dependency 'ShareKit/Core'
+  end
+
+  s.subspec 'Instagram' do |instagram|
+    instagram.source_files = 'Classes/ShareKit/Sharers/Services/Instagram/**/*.{h,m}'
+    instagram.dependency 'ShareKit/Core'
   end
 end
