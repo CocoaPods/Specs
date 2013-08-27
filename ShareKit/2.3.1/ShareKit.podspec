@@ -77,13 +77,13 @@ Pod::Spec.new do |s|
   s.subspec 'Twitter' do |twitter|
     twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
     twitter.framework = 'Twitter'
-    twitter.dependency 'JSONKit', '~> 1.5pre'
+    twitter.dependency 'JSONKit', '~> 1.4'
     twitter.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Vkontakte' do |vkontakte|
     vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
-    vkontakte.dependency 'JSONKit', '~> 1.5pre'
+    vkontakte.dependency 'JSONKit', '~> 1.4'
     vkontakte.dependency 'ShareKit/Core'
   end
 
