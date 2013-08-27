@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 	s.screenshots	= [ 'http://alobi.github.io/ALAlertBanner/screenshots/screenshot3.png',
 						'http://alobi.github.io/ALAlertBanner/screenshots/screenshot2.png' ]
 	s.source		= { :git => 'https://github.com/alobi/ALAlertBanner.git', :tag => s.version.to_s }
-	s.source_files	= 'ALAlertBanner'
+	s.source_files	= 'ALAlertBanner/*.{h,m}'
+	s.resources		= 'ALAlertBanner/Images/*.{png}'
 	s.frameworks	= 'QuartzCore'
 end
