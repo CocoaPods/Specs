@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name          = 'ShareKit'
   s.version       = '2.3.1'
   s.platform      = :ios, '5.0'
-  s.ios.deployment_target = '6.1'
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
@@ -21,8 +20,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-    evernote.dependency 'Evernote-SDK-iOS', '~> 1.3.0'
+    evernote.dependency 'Evernote-SDK-iOS', '~> 1.2.1'
     evernote.dependency 'ShareKit/Core'
   end
 
