@@ -31,5 +31,4 @@ Some categories and helper classes for easy and quicker development.
     sp.dependency "ETFramework/Core"
     sp.source_files = "ETFramework/UI/**/*.{h,m}"
   end
-
 end
