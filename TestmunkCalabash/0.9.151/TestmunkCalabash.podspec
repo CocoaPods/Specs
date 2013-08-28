@@ -13,7 +13,7 @@ this license.  You must not remove this notice, or any other, from
 this software.'
   }
   s.platform = :ios
-  s.summary  = 'Calabash is an automated testing technology for Android and iOS native and hybrid applications. This is the modified version being used by Testmunk.'
+  s.summary  = 'This is the modified version of Calabash being used by Testmunk.'
   s.homepage = 'https://github.com/calabash/calabash-ios'
   s.author   = { 'Karl Krukow' => 'karl.krukow@gmail.com', 'Mashhood Rastgar' => 'mashhood@testmunk.com' }
   s.source   = { :http => 'http://docs.testmunk.com/wp-content/uploads/2013/05/calabash.framework-0.9.151.zip'}
