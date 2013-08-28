@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = "PushAd.framework"
   s.source_files = 'PushAd.framework/Headers/MADManager.h'
   s.preserve_paths = 'PushAd.framework/*'
-  s.frameworks   = 'PushAd'
+  s.frameworks   = 'PushAd', 'AdSupport', 'MessageUI', 'CoreGraphics'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PushAd"' }
   s.requires_arc = true
 
