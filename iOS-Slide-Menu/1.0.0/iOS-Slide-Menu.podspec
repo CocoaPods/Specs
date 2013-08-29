@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
     s.version = '0.0.1'
     s.summary = 'A Slide Menu for iOS'
     s.homepage = 'https://github.com/aryaxt/iOS-Slide-Menu'
-    s.dependency 'WEPopover', '~> 1.0.0'
     s.license = {
       :type => 'MIT',
       :file => 'License.txt'
