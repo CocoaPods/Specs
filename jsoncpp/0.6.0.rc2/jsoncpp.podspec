@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "jsoncpp"
-  s.version      = "0.6.2.rc2"
+  s.version      = "0.6.0.rc2"
   s.summary      = "jsoncpp is an implementation of a JSON (http://json.org) reader and writer in C++."
   s.description  = <<-DESC
                      JSON (JavaScript Object Notation) is a lightweight data-interchange format.
