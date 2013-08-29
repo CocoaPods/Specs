@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/robbiehanson/XMPPFramework'
   s.author = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
   s.source = { :git => 'https://github.com/robbiehanson/XMPPFramework.git', :tag => '3.6.1' }
-  s.resources = [ 'Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel','Extensions/Roster/CoreDataStorage/XMPPRoster.xcdatamodel','Extensions/XEP-0045/CoreDataStorage/XMPPRoom.xcdatamodeld', 'Extensions/XEP-0045/CoreDataStorage/XMPPRoom.xcdatamodeld/*.xcdatamodel','Extensions/XEP-0045/HybridStorage/XMPPRoomHybrid.xcdatamodeld','Extensions/XEP-0045/HybridStorage/XMPPRoomHybrid.xcdatamodeld/*.xcdatamodel','Extensions/XEP-0054/CoreDataStorage/XMPPvCard.xcdatamodeld','Extensions/XEP-0054/CoreDataStorage/XMPPvCard.xcdatamodeld/*.xcdatamodel' ]
+  s.resources = [ '**/*.{xcdatamodel,xcdatamodeld}']
 
   s.description = 'XMPPFramework provides a core implementation of RFC-3920 (the xmpp standard), along with
                   the tools needed to read & write XML. It comes with multiple popular extensions (XEPs),
