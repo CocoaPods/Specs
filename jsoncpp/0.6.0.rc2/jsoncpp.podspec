@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://jsoncpp.sourceforge.net/"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Baptiste Lepilleur" => "blep@users.sourceforge.net" }
-  s.source       = { :svn => 'https://jsoncpp.svn.sourceforge.net/svnroot/jsoncpp/tags/jsoncpp/0.6.0-rc2/' }
+  s.source       = { :svn => 'https://svn.code.sf.net/p/jsoncpp/code/tags/jsoncpp/0.6.0-rc2/' }
   s.source_files = 'dist', 'dist/**/*.{h,cpp}'
   s.preserve_paths = "amalgamate.py", "include", "src"
   s.header_mappings_dir = 'dist'
