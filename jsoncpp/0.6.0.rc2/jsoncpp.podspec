@@ -14,20 +14,18 @@ Pod::Spec.new do |s|
   s.preserve_paths = "amalgamate.py", "include", "src"
   s.header_mappings_dir = 'dist'
 
-  def s.pre_install(pod, target_definition)
-    Dir.chdir(pod.root) do
-      # jsoncpp is designed to be "amalgamated" for deployment, but some of the
-      # paths in this version of amalagamate.py are incorrect, we need to fix
-      # them first:
-      `perl -pi -e 's/lib_json\\\\/lib_json\\//g' amalgamate.py`
+  s.prepare_command = <<-CMD
+    # jsoncpp is designed to be "amalgamated" for deployment, but some of the
+    # paths in this version of amalagamate.py are incorrect, we need to fix
+    # them first:
+    perl -pi -e 's/lib_json\\\\/lib_json\\//g' amalgamate.py
 
-      # Run amalgamate.py to combine the jsoncpp files and output them to the
-      # 'dist' directory:
-      `python amalgamate.py`
+    # Run amalgamate.py to combine the jsoncpp files and output them to the
+    # 'dist' directory:
+    python amalgamate.py
 
-      # The generated json.h does not have the 'JSON_IS_AMALGAMATION' define
-      # uncommented as it should be, lets do that now:
-      `perl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h`
-    end
-  end
+    # The generated json.h does not have the 'JSON_IS_AMALGAMATION' define
+    # uncommented as it should be, lets do that now:
+    perl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h
+  CMD
 end
