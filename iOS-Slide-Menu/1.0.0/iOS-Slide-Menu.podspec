@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'iOS-Slide-Menu'
-    s.version = '0.0.1'
+    s.version = '1.0.0'
     s.summary = 'A Slide Menu for iOS'
     s.homepage = 'https://github.com/aryaxt/iOS-Slide-Menu'
     s.license = {
