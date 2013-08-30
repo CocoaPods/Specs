@@ -13,6 +13,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://gokhanbarisaker@bitbucket.org/nomadcommerce/pushad-framework-ios.git", :tag => "v1.0.0-rc3" }
   s.preserve_paths = "PushAd.framework"
+  s.source_files = 'PushAd.framework/Headers/MADManager.h'
+  s.preserve_paths = 'PushAd.framework/*'
+  s.frameworks   = 'PushAd', 'AdSupport', 'MessageUI', 'CoreGraphics'
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PushAd"' }
   s.requires_arc = true
 
 end
