@@ -6,8 +6,6 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/triforksysadmin/BrightCenterSDK"
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
-
-
   s.author       = { "Tom van Zummeren" => "tom.vanzummeren@trifork.nl" }
 
   s.platform     = :ios, '5.0'
