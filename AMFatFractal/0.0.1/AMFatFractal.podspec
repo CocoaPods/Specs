@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/AndreMuis/AMFatFractal.git", :tag => "v0.0.1" }
-  s.source_files = 'AMFatFractal'
+  s.source_files = 'AMFatFractal', 'FFEF.framework/Headers'
   s.frameworks 	 = 'Foundation', 'FFEF' 
   
   s.requires_arc = true
