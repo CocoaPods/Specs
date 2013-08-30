@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.summary         = 'A Control Center-esque control with blurred background and toggle animations.'
   s.homepage        = 'https://github.com/rnystrom/RNFrostedSidebar'
   s.author          = { 'Ryan Nystrom' => 'rnystrom@whoisryannystrom.com'}
-  s.source          = { :git => 'https://github.com/rnystrom/RNFrostedMenu.git', :tag => '0.1.0' }
+  s.source          = { :git => 'https://github.com/rnystrom/RNFrostedSidebar.git', :tag => '0.1.0' }
 
   s.source_files    = 'RNFrostedSidebar.{h,m}'
 
