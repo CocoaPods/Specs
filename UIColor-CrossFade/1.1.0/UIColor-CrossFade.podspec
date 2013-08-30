@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Charles Powell' => 'https://github.com/cbpowell' }
   s.source   = { :git => 'https://github.com/cbpowell/UIColor-CrossFade.git', :tag => s.version.to_s }
   s.source_files = '*.{h,m}'
-  s.frameworks = 'QuarzCore'
+  s.frameworks = 'QuartzCore'
   s.requires_arc = true
 end
