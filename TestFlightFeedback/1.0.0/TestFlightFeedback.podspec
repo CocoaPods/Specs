@@ -8,25 +8,23 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.ios.deployment_target = '6.0'
+
+  s.source       = {
+      :git => "https://github.com/DZamataev/TestFlightFeedback.git",
+      :tag => s.version.to_s
+    }
   
   s.dependency 'TestFlightSDK', '~> 2.0.0'
 
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |c|
-    c.source       = {
-      :git => "https://github.com/DZamataev/TestFlightFeedback.git",
-      :tag => s.version.to_s
-    }
+    
     c.source_files = 'Core/Source/*'
     c.resources = 'Core/Resources/*'
   end
 
   s.subspec 'Demo' do |d|
-    d.source       = {
-      :git => "https://github.com/DZamataev/TestFlightFeedback.git",
-      :tag => s.version.to_s
-    }
     d.source_files = 'Demo/Source/*'
     d.resources = 'Demo/Resources/*'
     d.preserve_paths = "TestFlightFeedback.xcodeproj", "Podfile"
