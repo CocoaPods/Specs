@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "review-request"
+  s.name         = "Review-Request"
   s.version      = "1.0.0"
   s.summary      = "Remind users to rate your iOS app on the AppStore"
 
