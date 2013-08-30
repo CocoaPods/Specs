@@ -1,12 +1,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrightCenterSDK"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "SDK to integrate to the Bright Center backend for educational apps."
-
-  s.description  = <<-DESC
-                      SDK to integrate to the Bright Center backend for educational apps.
-                   DESC
 
   s.homepage     = "https://github.com/triforksysadmin/BrightCenterSDK"
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
@@ -14,10 +10,11 @@ Pod::Spec.new do |s|
 
   s.author       = { "Tom van Zummeren" => "tom.vanzummeren@trifork.nl" }
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '7.0'
+  s.ios.deployment_target = '5.0'
 
-  s.source       = { :git => "https://github.com/triforksysadmin/BrightCenterSDK.git", :tag => "1.0.2" }
-  s.ios.frameworks = 'CoreGraphics','CoreAnimation'
+  s.source       = { :git => "https://github.com/triforksysadmin/BrightCenterSDK.git", :tag => "1.0.3" }
+  s.ios.frameworks = 'CoreGraphics','QuartzCore'
 
   s.source_files  = 'BrightCenterSDK/Framework/**/*.{h,m}'
 
