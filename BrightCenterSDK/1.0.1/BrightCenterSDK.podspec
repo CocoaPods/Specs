@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BrightCenterSDK"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "SDK to integrate to the Bright Center backend for educational apps."
 
   s.description  = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source       = { :git => "https://github.com/triforksysadmin/BrightCenterSDK.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/triforksysadmin/BrightCenterSDK.git", :tag => "1.0.1" }
 
 
   s.source_files  = 'BrightCenterSDK/Framework/**/*.{h,m}'
