@@ -52,7 +52,7 @@ It provides smooth animations for item selection and dynamic content modificatio
 
   s.homepage     = "https://github.com/Viacheslav-Radchenko/TSUIKit"
   s.screenshots  = "https://github.com/Viacheslav-Radchenko/TSUIKit/blob/master/Screenshots/TSNavigationStripView_Screenshot1.jpg", "https://github.com/Viacheslav-Radchenko/TSUIKit/blob/master/Screenshots/TSTabView_Screenshot1.jpg", "https://github.com/Viacheslav-Radchenko/TSUIKit/blob/master/Screenshots/TSTableView_Screenshot4.png"
-  s.license      = { :type => 'MIT'}
+  s.license      = { :type => 'MIT', :file => 'Classes/LICENSE'}
   s.author       = { "Viacheslav-Radchenko" => "viacheslav.radchenko@gmail.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/Viacheslav-Radchenko/TSUIKit.git", :tag => "0.1" }
