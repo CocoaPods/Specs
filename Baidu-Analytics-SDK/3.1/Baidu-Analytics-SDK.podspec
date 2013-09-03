@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreLocation','libstdc++.dylib','CoreTelephony', 'SystemConfiguration','libz.dylib','Security'
   s.library = 'BaiduMobStat'
   
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Products/ios_api/Release-iphoneos' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Baidu-Analytics-SDK/Products/ios_api/Release-iphoneos' }
   s.dependency 'TouchJSON'
 end
 
