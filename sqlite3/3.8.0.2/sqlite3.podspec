@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.subspec 'fts' do |ss|
     ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS3_PARENTHESIS=1' }
   end
-  s.subspec 'unicode61' do |sss|
-    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4_UNICODE61=1' }`
+  s.subspec 'unicode61' do |ss|
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4_UNICODE61=1' }
   end
   s.subspec 'coldata' do |ss|
     ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_COLUMN_METADATA=1' }
