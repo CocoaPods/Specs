@@ -12,3 +12,4 @@ Pod::Spec.new do |s|
   s.platform            = :ios
   s.requires_arc        = true
 end
+
