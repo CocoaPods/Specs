@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
 
   # built with fts support
   s.subspec 'fts' do |ss|
-    ss.default_subspec = 'common'
-    ss.subspec 'common' do |sss|
+    ss.default_subspec = 'fcommon'
+    ss.subspec 'fcommon' do |sss|
       sss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS3_PARENTHESIS=1' }
     end
     ss.subspec 'unicode61' do |sss|
