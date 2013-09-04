@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HPGrowingTextView"
-  s.version      = "0.0.2"
+  s.version      = "0.0.1"
   s.summary      = "Multi-line/Autoresizing UITextView similar to SMS-app."
   s.description  = "An UITextView which grows/shrinks with the text and starts scrolling when the content reaches a certain number of lines. add placeholder support"
   s.homepage     = "https://github.com/HansPinckaers/GrowingTextView"
