@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
   s.preserve_paths = "Doxyfile"
   s.frameworks   = "Foundation"
   s.requires_arc = false
-  s.dependency   'sqlite3', '~> 3.7.17.0'
+  s.dependency   'sqlite3', '~> 3.8'
   s.dependency   'sqlite3/unlock_notify'
 end
