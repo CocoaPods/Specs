@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   sqlite_version_format = "%.1d%.2d%.2d%.2d" % s.version.to_s.split('.').push(0)
   s.source       = {:http => "http://www.sqlite.org/2013/sqlite-amalgamation-#{sqlite_version_format}.zip"}
-  s.preferred_dependency = 'common'
+  s.default_subspec = 'common'
 
   s.subspec 'common' do |ss|
     ss.source_files = "sqlite-amalgamation-#{sqlite_version_format}/sqlite3*.{h,c}"
@@ -17,9 +17,31 @@ Pod::Spec.new do |s|
   # built with fts support
   s.subspec 'fts' do |ss|
     ss.dependency 'sqlite3/common'
-    ss.prefix_header_contents = '''
-#define SQLITE_ENABLE_FTS4
-#define SQLITE_ENABLE_FTS3_PARENTHESIS
-'''
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS3_PARENTHESIS=1' }
+  end
+  s.subspec 'unicode61' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.dependency 'sqlite3/fts'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_FTS4_UNICODE61=1' }
+  end
+  s.subspec 'coldata' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_COLUMN_METADATA=1' }
+  end
+  s.subspec 'unlock_notify' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_UNLOCK_NOTIFY=1' }
+  end
+  s.subspec 'rtree' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_RTREE=1' }
+  end
+  s.subspec 'stat3' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_ENABLE_STAT3=1' }
+  end
+  s.subspec 'soundex' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_SOUNDEX=1' }
   end
 end
