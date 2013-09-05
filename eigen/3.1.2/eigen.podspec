@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary	= "Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
   s.homepage	= "http://eigen.tuxfamily.org/index.php?title=Main_Page"
   s.license	= { :type => "Mozilla Public License v2",
-		    :file => "COPYING.MPL2" }
+		    :file => "COPYING.README" }
   s.author	= "Benoît Jacob", "Gaël Guennebaud"
   s.source	= { :hg => "https://bitbucket.org/eigen/eigen", :revision => "3.1.2" }
 
@@ -13,9 +13,7 @@ Pod::Spec.new do |s|
 
   s.compiler_flags = '-DEIGEN_MPL2_ONLY'
 
-  s.header_mappings_dir = '.'
-
-  s.preserve_paths = './Eigen/**'
+  s.preserve_paths = 'Eigen/*', 'Eigen/**/*'
 
   s.dependency 'boost/numeric-includes'
   s.dependency 'boost/preprocessor-includes'

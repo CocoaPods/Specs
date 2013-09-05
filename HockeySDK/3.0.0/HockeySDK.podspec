@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/bitstadium/HockeySDK-iOS.git', :tag => '3.0.0' }
 
   s.description = 'HockeyApp is a server to distribute beta apps, collect crash reports and '                   \
-                  'communicate with your app users.'                 \
+                  'communicate with your app users.'                                                            \
                   'It improves the testing process dramatically and can be used for both beta '                 \
                   'and App Store builds. Only beta builds will notify users about a new version. '              \
                   'NOTE: If you want the framework to try again when a network is available, add a dependency ' \
                   'on Reachability and send a notification with the name `BITHockeyNetworkDidBecomeReachable` ' \
-                  'yourself when the network becomse reachable.'
+                  'yourself when the network becomes reachable.'
 
   s.source_files = 'Classes'
   s.requires_arc = true
@@ -23,17 +23,12 @@ Pod::Spec.new do |s|
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{$(inherited) BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
 
-  def s.post_install(target_installer)
-    puts "\nGenerating HockeySDK resources bundle\n".yellow if config.verbose?
-    Dir.chdir File.join(config.project_pods_root, 'HockeySDK/Support') do
-      command = "xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources"
-      command << " 2>&1 > /dev/null" unless config.verbose?
-      unless system(command)
+  s.resource = 'Resources/HockeySDKResources.bundle'
+  s.pre_install do |pod, target_definition|
+    Dir.chdir File.join(pod.root, 'Support') do
+      unless system("xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null")
         raise ::Pod::Informative, "Failed to generate HockeySDK resources bundle"
       end
-    end
-    File.open(File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name), 'a') do |file|
-      file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
     end
   end
 end

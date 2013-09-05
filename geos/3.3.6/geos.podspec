@@ -34,8 +34,8 @@ Pod::Spec.new do |s|
           contents = in_file.read
         end
       end
-      if (!pattern.nil?)
-        contents = contents.gsub(pattern, substs)
+      if (!pattern.nil? and !substs.nil?)
+        contents = contents.gsub(pattern) {|s| substs[s]}
       end
       h_file.puts contents
     end
@@ -99,7 +99,8 @@ CONFIG_H
   end
 
 #  s.source_files = FileList['src/**/*.{cpp,h}'].exclude(/tests/), 'include/**', 'capi/*.{cpp,h,in}'
-  s.source_files = FileList['src/**/*.cpp'].exclude(/tests/), 'capi/*.cpp'
+  s.source_files = 'src/**/*.cpp', 'capi/*.cpp'
+  s.exclude_files = '**/*tests*'
   s.preserve_paths = 'src/**/*.h', 'include/**/*.{h,inl,in}', 'capi/*.{h,in}'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }

@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "https://www.dropbox.com/static/developers/dropbox-osx-sdk-1.3.3.zip" }
   s.platform     = :osx
 
-  s.source_files = 'dropbox-osx-sdk-1.3.3/DropboxOSX.framework/Headers/DropboxSDK.h'
+  s.source_files = 'dropbox-osx-sdk-1.3.3/DropboxOSX.framework/Headers/*.h'
   s.preserve_paths = 'dropbox-osx-sdk-1.3.3/DropboxOSX.framework'
 
   s.license      = { :type => 'Copyright', :file => 'dropbox-osx-sdk-1.3.3/LICENSE' }

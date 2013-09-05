@@ -29,5 +29,4 @@ Pod::Spec.new do |s|
   s.osx.framework  =  'Foundation'
   s.library        =  'icucore'
   s.requires_arc   =  false
-  s.compiler_flags =  '-Wno-format'
 end

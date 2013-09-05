@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author = {'AdMob by Google' => 'support@admob.com'}
   s.source = {:git => 'https://github.com/iamdaiyuan/admob.git', :tag => '6.2.1'}
   s.homepage = 'https://developers.google.com/mobile-ads-sdk/download#downloadios'
-  s.source_files = FileList['libGoogleAdMobAds.a','*.h', 'Mediation/*.h']
+  s.source_files = 'libGoogleAdMobAds.a','*.h', 'Mediation/*.h'
   s.preserve_paths = 'Mediation', 'libGoogleAdMobAds.a'
   s.library = 'GoogleAdMobAds'
   s.frameworks = 'AudioToolbox', 'MessageUI', 'SystemConfiguration', 'CoreGraphics', 'AdSupport', 'StoreKit'

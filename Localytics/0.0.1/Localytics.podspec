@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Localytics"
   s.version      = "0.0.1"
-  s.summary      = "Localytics iOS SDK >2.14"
+  s.summary      = "Localytics iOS SDK >2.14."
   s.description  = <<-DESC
   Localytics is built for mobile & tablet apps. Integration is easy, takes just 10 minutes and requires only a few lines of code. A quick integration allows you to track all standard metrics such as platform, device type, sessions and unique users. Event and screen tracking are used to analyze conversion funnels, screen flows, feature usage, content access, advertising performance, etc. Full support for iOS, Android, BlackBerry, Windows Phone and HTML5 apps.
 

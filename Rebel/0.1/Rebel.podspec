@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/github/Rebel.git", :tag => s.version.to_s }
   s.frameworks   = 'QuartzCore', 'Cocoa'
   s.platform     = :osx, '10.7'
-  s.source_files = FileList['Rebel/*.{h,m}'].exclude(/NSColor\+RBLCGColorAdditions/)
+  s.source_files = 'Rebel/*.{h,m}'
+  s.exclude_files = '**/*NSColor+RBLCGColorAdditions*'
   s.requires_arc = true
   s.dependency 'libextobjc'
 

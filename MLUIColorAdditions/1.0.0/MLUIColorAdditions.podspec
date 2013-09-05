@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "MLUIColorAdditions"
   s.version      = "1.0.0"
-  s.summary      = "Additions for UIColor for easy handling with hex- and rgb-colors."
+  s.summary      = "!!!SWITCH TO HexColors!!! DEPRECATED!!! Additions for UIColor for easy handling with hex- and rgb-colors."
   s.homepage     = "https://github.com/mRs-/MLUIColorAdditions"
   s.license      = 'MIT'
   s.author       = { "Marius Landwehr" => "marius.landwehr@googlemail.com" }

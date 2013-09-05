@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.dependency 'SocketRocket'
-  s.compiler_flags = '-Wno-arc-performSelector-leaks', '-Wno-format'
 end

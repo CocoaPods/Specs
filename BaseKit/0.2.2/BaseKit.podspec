@@ -1,13 +1,12 @@
 Pod::Spec.new do |s|
   s.name     = 'BaseKit'
   s.version  = '0.2.2'
-  s.license  = 'Apache 2'
+  s.license  = "Apache License, Version 2.0"
   s.summary  = 'BaseKit is a set of IOS class to make your life easier.'
   s.homepage = 'https://github.com/brunow/BaseKit'
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
   s.source   = { :git => 'https://github.com/brunow/BaseKit.git', :tag => '0.2.2' }
 
-  s.description = 'BaseKit is a set of IOS class to make your life easier.'
   s.platform = :ios
 
 

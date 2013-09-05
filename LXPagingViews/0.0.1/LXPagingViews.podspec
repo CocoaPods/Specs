@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "LXPagingViews"
   s.version      = "0.0.1"
   s.summary      = "A small, efficient and flexible implementation for common paging scroll view patterns."
-  s.description  = "A small, efficient and flexible implementation for common paging scroll view patterns."
   s.homepage     = "https://github.com/lxcid/LXPagingViews"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Stan Chang Khin Boon" => "http://twitter.com/lxcid" }

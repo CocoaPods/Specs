@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "AFOAuth1Client"
   s.version      = "0.1.0"
-  s.summary      = "AFNetworking Extension for OAuth 1.0a Authentication"
+  s.summary      = "AFNetworking Extension for OAuth 1.0a Authentication."
   s.homepage     = "https://github.com/AFNetworking/AFOAuth1Client"
   s.license      = 'MIT'
   s.author       = { 'Mattt Thompson' => 'm@mattt.me' }

@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "DMLogFormatter"
   s.version      = "1.0.0"
   s.summary      = "A clean log formatter for CocoaLumberjack."
-  s.description  = "A clean log formatter for CocoaLumberjack."
   s.homepage     = "https://github.com/devmob-DE/CocoaLumberjack-DMLogFormatter"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }

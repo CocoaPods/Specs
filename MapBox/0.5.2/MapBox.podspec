@@ -26,7 +26,12 @@ Pod::Spec.new do |m|
         raise ::Pod::Informative, "Failed to generate MapBox resources bundle"
       end
     end
-    File.open(File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name), 'a') do |file|
+    if Version.new(Pod::VERSION) >= Version.new('0.17.0')
+      script_path = target_installer.copy_resources_script_path
+    else
+      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
+    end
+    File.open(script_path, 'a') do |file|
       file.puts "install_resource 'Resources/MapBox.bundle'"
     end
   end

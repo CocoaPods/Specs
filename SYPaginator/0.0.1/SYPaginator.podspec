@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.author       = { 'Sam Soffes' => 'sam@samsoff.es' }
   s.source       = { :git => 'https://github.com/Synthetic/SYPaginator.git', :commit => '912d541e10d11df6afd02af595667a212419cc19' }
   s.source_files = 'SYPaginator/*'
-  s.description  = 'Simple paging scroll view to make complicated tasks easier.'
   s.requires_arc = true
   s.resources    = 'Resources/*'
 end

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                     [TotallyLazy](http://code.google.com/p/totallylazy/).
                    DESC
   s.homepage     = "https://github.com/stuartervine/OCTotallyLazy"
-  s.license      = 'Apache 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = { "Stuart Ervine" => "spervine@gmail.com" }
   s.source       = { :git => "https://github.com/stuartervine/OCTotallyLazy.git", :commit => "139e91966e31b266b9da74d9315a099003d8251e" }
   s.platform     = :ios, '5.0'

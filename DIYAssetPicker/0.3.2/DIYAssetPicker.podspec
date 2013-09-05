@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'DIYAssetPicker'
   s.version  = '0.3.2'
-  s.license  = 'Apache 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'Drop-in UIImagePickerController replacement w/ landscape support.'
   s.homepage = 'https://github.com/dongle/AssetPicker'
   s.authors  = {'Jon Beilin' => 'jon@diy.org'}

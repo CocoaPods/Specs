@@ -2,7 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "CKCalendar"
   s.version      = "0.1.0"
   s.summary      = "A sleek, easily customized calendar control for iOS."
-  s.description  = "A sleek, easily customized calendar control for iOS."
   s.homepage     = "www.cozykozy.com"  
   s.license      = { :type => 'MIT', :text => <<-LICENSETEXT
 Copyright (c) 2012 Jason Kozemczak

@@ -5,12 +5,15 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/jspahrsummers/libextobjc"
   s.author       = { "Justin Spahr-Summers" => "jspahrsummers@github.com" }
   s.source       = { :git => "https://github.com/jspahrsummers/libextobjc.git", :tag => s.version.to_s }
-  s.source_files = "extobjc/metamacros.h", "extobjc/EXTRuntimeExtensions.{h,m}"
   s.requires_arc = true
 
-  # Provided as a convenience but not requiring all the subspecs because it would be rendundant
+  # Provided as a convenience but not requiring all the subspecs because it would be redundant
   s.subspec 'UmbrellaHeader' do |sp|
     sp.source_files = "extobjc/extobjc.h"
+  end
+
+  s.subspec 'RuntimeExtensions' do |sp|
+    sp.source_files = "extobjc/metamacros.h", "extobjc/EXTRuntimeExtensions.{h,m}"
   end
 
   # List obtained from extobjc/extobjc.h
@@ -50,6 +53,7 @@ Pod::Spec.new do |s|
     s.subspec name do |sp|
       sp.source_files = "extobjc/#{name}.{h,m}"
       deps = subspec_dependencies[name] || []
+      sp.dependency 'libextobjc/RuntimeExtensions'
       deps.each do |dep|
         sp.dependency dep
       end

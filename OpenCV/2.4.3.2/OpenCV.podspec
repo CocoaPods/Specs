@@ -11,9 +11,8 @@ Pod::Spec.new do |s|
     Q&A forum:   http://answers.opencv.org
     Dev zone:    http://code.opencv.org
 
-    Compilled framework for iOS v2.4.3.2
+    Compilled framework for iOS v2.4.3.2.
               DESC
-                  
   s.license      = { :type => 'BSD', :file => 'LICENSE',
     :text => <<-LICENSE
     IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
@@ -62,7 +61,7 @@ Pod::Spec.new do |s|
     :git => "https://github.com/Fl0p/OpenCV-iOS.git", 
     :tag => "2.4.3.2"
   }
-  s.source_files = 'opencv2.framework/Headers/**/*{.h,.hpp}'
+  s.source_files = 'opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}'
   s.header_mappings_dir = 'Headers'
   s.preserve_paths = 'opencv2.framework'
   s.platform     = :ios

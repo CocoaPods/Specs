@@ -26,7 +26,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   LICENSE
 		}
   s.author	= { "Frank Warmerdam" => "warmerdam@pobox.com" }
-  s.source	= { :http => "http://download.osgeo.org/shapelib/shapelib-1.3.0.zip" }
+  s.source	= { :http => "http://download.osgeo.org/shapelib/shapelib-1.3.0.tar.gz" }
 
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"

@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.authors      = { "Eduardo Pinho" => "eduardo.gurgel@codeminer42.com", "Codeminer42" => "contato@codeminer42.com" }
   s.source       = { :git => "https://github.com/edgurgel/CMNavBarNotificationView.git", :tag => "1.0.0" }
   s.platform     = :ios, '4.0'
-  s.source_files = './CMNavBarNotificationView/*.{h,m}','./OBGradientView/*.{h,m}'
+  s.source_files = 'CMNavBarNotificationView/*.{h,m}','OBGradientView/*.{h,m}'
   s.public_header_files = 'CMNavBarNotificationView/**/*.h'
 end

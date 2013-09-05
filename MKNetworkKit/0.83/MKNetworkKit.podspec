@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.author           =  { 'Mugunth Kumar' => 'mugunth@steinlogic.com' }
   s.source           =  { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.83' }
 
-  files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
-  s.ios.source_files =  files.dup.exclude(/NSAlert/)
-  s.osx.source_files =  files.dup.exclude(/UIAlertView/)
+  s.source_files     = 'MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}'
+  s.ios.exclude_files =  '**/*NSAlert*'
+  s.osx.exclude_files =  '**/*UIAlertView*'
   s.ios.frameworks   =  'CFNetwork', 'Security'
   s.osx.frameworks   =  'CoreServices', 'Security'
 
@@ -16,21 +16,8 @@ Pod::Spec.new do |s|
 
   s.prefix_header_contents = '#import "MKNetworkKit.h"'
 
-  def s.copy_header_mapping(from)
-    from.sub('MKNetworkKit/', '')
-  end
-
   s.dependency 'Reachability', '~> 3.0'
 
-  def s.post_install(target)
-    # Fix an import statement which is used inconsistently in MKNetworkKit
-    # TODO create a ticket for this upstream
-    header = (pod_destroot + 'MKNetworkKit/MKNetworkKit.h')
-    header_contents = header.read.sub('Reachability/Reachability.h', 'Reachability.h')
-    header.open('w') do |file|
-     file.puts(header_contents)
-    end
-  end
   s.license  = { :type => 'MIT',
                  :text => 'MKNetworkKit is licensed under MIT License
 Permission is hereby granted, free of charge, to any person obtaining a copy

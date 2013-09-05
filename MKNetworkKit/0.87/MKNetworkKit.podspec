@@ -6,19 +6,17 @@ Pod::Spec.new do |s|
   s.author           =  { 'Mugunth Kumar' => 'mugunth@steinlogic.com' }
   s.source           =  { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => '0.87' }
 
-  files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
-  s.ios.source_files =  files.dup.exclude(/NSAlert/)
-  s.osx.source_files =  files.dup.exclude(/UIAlertView/)
+  s.source_files     = 'MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}'
+  s.ios.exclude_files =  '**/*NSAlert*'
+  s.osx.exclude_files =  '**/*UIAlertView*'
   s.ios.frameworks   =  'CFNetwork', 'Security'
   s.osx.frameworks   =  'CoreServices', 'Security'
 
   s.requires_arc     =  true
 
-  def s.copy_header_mapping(from)
-    from.sub('MKNetworkKit/', '')
-  end
+  s.header_mappings_dir =  'MKNetworkKit/'
 
-  s.dependency 'Reachability', '~> 3.0'
+  s.dependency 'Reachability', '~> 3.1.0'
 
   s.license  = { :type => 'MIT',
                  :text => 'MKNetworkKit is licensed under MIT License
