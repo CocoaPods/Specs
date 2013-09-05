@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.license      =  {
   	:type	=> 'Commercial',
-    :text 	=> 'Copyright 2013 OpenX Technologies, Inc. All rights reserved.'
+    :text => 'Copyright 2013 OpenX Technologies, Inc. All rights reserved.'
   }
   s.source = {
   	:http => 'http://www.openx.com/downloads/sdks/OpenX_Mobile_SDK_iOS.zip'
