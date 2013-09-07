@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
   s.source       = { :git => "https://github.com/mysterioustrousers/MTTimer.git", :tag => "#{s.version}" }
   s.source_files = 'MTTimer/MTTimer.{h,m}'
-  s.framework    = 'Founation'
+  s.framework    = 'Foundation'
   s.requires_arc = true
 end
