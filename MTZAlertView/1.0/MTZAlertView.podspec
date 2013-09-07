@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Matt Zanchelli" => "matt@mdznr.com" }
   s.source       = { :git => "https://github.com/mdznr/Rewritten-APIs.git", :tag => "Release1.0" }
   s.platform     = :ios
-  s.source_files = 'MTZAlertView.{h,m}'
+  s.source_files = 'Rewritten APIs/MTZAlertView.{h,m}'
   s.frameworks  = 'UIKit'
   s.requires_arc = true
 end
