@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'WYPopoverController/*.{h,m}'
   s.requires_arc = true
-  s.frameworks   = 'QuartzCore', 'UIKit'
+  s.frameworks   = 'QuartzCore', 'UIKit', 'CoreGraphics'
 end
