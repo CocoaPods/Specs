@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.frameworks     = 'CoreGraphics','UIKit', 'Pinterest'
   s.platform       = :ios, '5.0'
   s.source_files   = 'PinItSDKiOS/Pinterest.embeddedframework/Pinterest.framework/Versions/A/Headers/*.h'
-  s.resources      = 'PinItSDKiOS/Pinterest.embeddedframework/Resources/PinterestSDKResources.bundle' , 'PinItSDKiOS/Pinterest.embeddedframework/Pinterest.framework/Resources/Info.plist'
+  s.resources      = 'PinItSDKiOS/Pinterest.embeddedframework/Pinterest.framework/Versions/A/Resources/PinterestSDKResources.bundle'
   s.xcconfig       =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pinterest-iOS/PinItSDKiOS/Pinterest.embeddedframework"' }
   s.preserve_paths =  'PinItSDKiOS/Pinterest.embeddedframework/Pinterest.framework'
 
