@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name         = "UIAlertViewBlocks"
-  s.version      = "0.0.3"
+  s.name         = "UIAlertView+Blocks"
+  s.version      = "0.6"
   s.summary      = "Category on UIAlertView to use inline block callbacks instead of delegate callbacks."
 
   s.description  = <<-DESC
@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
                    
                    DESC
                    
-  s.homepage     = "https://github.com/ryanmaxwell/UIAlertViewBlocks"
+  s.homepage     = "https://github.com/ryanmaxwell/UIAlertView-Blocks"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Ryan Maxwell" => "ryanm@xwell.co.nz" }
   s.platform     = :ios, '4.3'
-  s.source       = { :git => "https://github.com/ryanmaxwell/UIAlertViewBlocks.git", :tag => "0.0.3" }
-  s.source_files = '*.{h,m}'
+  s.source       = { :git => "https://github.com/ryanmaxwell/UIAlertView-Blocks.git", :tag => "0.6" }
+  s.source_files = 'UIAlertView+Blocks.{h,m}'
   s.requires_arc = true
 end
