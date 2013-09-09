@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/reednj/TDSemiModal.git", :commit => "26fd4e33e0645ce67f3d6a6d6ad44120f470481c" }
 
   s.source_files  = 'Source', 'Source/**/*.{h,m}'
-  s.exclude_files = 'Source/Exclude'
+  s.resources     = 'Source/**/**.xib'
 
   s.requires_arc = true
 
