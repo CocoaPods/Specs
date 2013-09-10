@@ -17,9 +17,12 @@ Pod::Spec.new do |s|
   s.framework  = 'Foundation'
   s.requires_arc = true
   
+  #Subspecs
+  s.default_subspec = 'Core'
+  
   s.subspec 'Core' do |core|
     core.source_files = 'STDebugKit/STDebugKit.*', 'STDebugKit/STDebugTool.*', 'STDebugKit/STDebugKitRootViewController.*', 'STDebugKit/STDebugKitModuleSlowAnimations.*', 'STDebugKit/STDebugKitModuleInfos.*', 'STDebugKit/STDebugKitModuleKill.*'
-    core.ios.frameworks = 'Foundation', 'UIKit'
+    core.ios.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
     core.prefix_header_contents = <<-PREFIX_HEADER
 #ifdef DEBUG
     #define STDebugKitModuleSlowAnimationsEnabled
@@ -28,8 +31,6 @@ Pod::Spec.new do |s|
     
     #define STDebugKitButtonSize 30
 	#define STDebugKitButtonColor [UIColor colorWithRed:0.751 green:0.843 blue:0.900 alpha:1.000]
-
-    #import "STDebugKit.h"
 #endif
 		PREFIX_HEADER
   end
@@ -43,6 +44,7 @@ Pod::Spec.new do |s|
 	#define MR_SHORTHAND
 	#import "CoreData+MagicalRecord.h"
 #endif
+
 #ifdef DEBUG
 	#define STDebugKitModuleCoreDataEnabled
 #endif
