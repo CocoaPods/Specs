@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
   def s.post_install(target)
-    puts <<-TEXT
+  s.prepare_cmd = <<-CMD
+    cat << _EOF_INFORMATIONAL_MSG_
       * Note for TextExpander 2.1+ *
 
       TextExpander 2.1+ now uses the iOS Reminders database to pass
@@ -20,6 +21,7 @@ Pod::Spec.new do |s|
       to allow your app to access Reminders.  You should consider adding a
       privacy purpose string to your Info.plist explaining this to
       your users.
-    TEXT
+    _EOF_INFORMATIONAL_MSG_
+    CMD
   end
 end
