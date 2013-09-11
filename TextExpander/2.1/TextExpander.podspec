@@ -11,10 +11,15 @@ Pod::Spec.new do |s|
   s.frameworks = 'AudioToolbox', 'EventKit'
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
-  s.post_install do |library_representation|
-    puts "TextExpander 2.1+ now uses the iOS Reminders database to pass"
-    puts "snippets to your apps.  You may want to consider adding a"
-    puts "privacy purpose string to your Info.plist explaining this to"
-    puts "your users."
+  def s.post_install(target)
+    puts <<-TEXT
+      * Note for TextExpander 2.1+ *
+
+      TextExpander 2.1+ now uses the iOS Reminders database to pass
+      snippets to your apps.  Therefore users will see an alert asking
+      to allow your app to access Reminders.  You should consider adding a
+      privacy purpose string to your Info.plist explaining this to
+      your users.
+    TEXT
   end
 end
