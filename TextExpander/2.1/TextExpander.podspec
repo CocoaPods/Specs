@@ -12,3 +12,10 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
 end
+
+spec.post_install do |library_representation|
+  puts "TextExpander 2.1+ now uses the iOS Reminders database to pass"
+  puts "snippets to your apps.  You may want to consider adding a"
+  puts "privacy purpose string to your Info.plist explaining this to"
+  puts "your users."
+end
