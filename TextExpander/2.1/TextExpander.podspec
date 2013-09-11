@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'AudioToolbox', 'EventKit'
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
-  def s.post_install(target)
   s.prepare_cmd = <<-CMD
     cat << _EOF_INFORMATIONAL_MSG_
       * Note for TextExpander 2.1+ *
