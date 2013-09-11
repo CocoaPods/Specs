@@ -21,6 +21,5 @@ Pod::Spec.new do |s|
       privacy purpose string to your Info.plist explaining this to
       your users.
     _EOF_INFORMATIONAL_MSG_
-    CMD
-  end
+  CMD
 end
