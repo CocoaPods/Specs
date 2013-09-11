@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TextExpander.framework/Versions/A/Headers/*.h'
   s.frameworks = 'AudioToolbox'
   s.preserve_paths = 'TextExpander.framework'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander/2.0', 'OTHER_LDFLAGS' => '-framework TextExpander' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
 end
