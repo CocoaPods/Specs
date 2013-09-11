@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'AudioToolbox', 'EventKit'
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
-  s.prepare_cmd = <<-CMD
+  s.prepare_command = <<-CMD
     echo "* Note for TextExpander 2.1+ *"
     echo ""
     echo "TextExpander 2.1+ now uses the iOS Reminders database to pass"
