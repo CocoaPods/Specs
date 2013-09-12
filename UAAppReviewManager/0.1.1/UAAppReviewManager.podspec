@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/UrbanApps/UAAppReviewManager.git", :tag => s.version.to_s }
   s.source_files          = "UAAppReviewManager.{h,m}"
   s.ios.resource_bundles  = { 'UAAppReviewManager-iOS' => ['Localization/*.lproj'] }
-  s.mac.resource_bundles  = { 'UAAppReviewManager-iOS' => ['Localization/*.lproj'] }
+  s.osx.resource_bundles  = { 'UAAppReviewManager-OSX' => ['Localization/*.lproj'] }
 end
