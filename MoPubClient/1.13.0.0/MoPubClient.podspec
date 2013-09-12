@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.preserve_paths = 'AdNetworkSupport'
   s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation'
-  s.preferred_dependency = 'Classes'
+  s.default_subspec = 'Classes'
 
   s.subspec 'iAdAdapter' do |ss|
     ss.source_files = 'AdNetworkSupport/iAd/*.*'
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Classes' do |ss|
-    ss.source_files = 'MoPubSDK/**/*.{h,m,xib}'
+    ss.source_files = 'MoPubSDK/**/*.{h,m}'
     ss.resources    = 'MoPubSDK/**/*.{png,bundle,xib,nib}'
   end
   
