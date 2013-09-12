@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
   
   s.subspec 'Core' do |core|
-    core.source_files = 'STDebugKit/STDebugKit.*', 'STDebugKit/STDebugTool.*', 'STDebugKit/STDebugKitRootViewController.*', 'STDebugKit/STDebugKitModuleSlowAnimations.*', 'STDebugKit/STDebugKitModuleInfos.*', 'STDebugKit/STDebugKitModuleKill.*'
+    core.source_files = 'STDebugKit/STDebugKit.*', 'STDebugKit/STDebugKit_private.h', 'STDebugKit/STDebugTool.*', 'STDebugKit/STDebugKitRootViewController.*', 'STDebugKit/STDebugKitModuleSlowAnimations.*', 'STDebugKit/STDebugKitModuleInfos.*', 'STDebugKit/STDebugKitModuleKill.*'
     core.ios.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
     core.prefix_header_contents = <<-PREFIX_HEADER
 #ifdef DEBUG
