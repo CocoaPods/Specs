@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/xelvenone/StaticDataTableViewController.git", :commit => "cf913ff5085b1ce5ea7375ada7863ef68ae3fe77" }
   s.source_files = '*.{h,m}'
   s.author       = { "Peter Paulis" => "peter@min60.com" }
+  s.requires_arc = true
 end
