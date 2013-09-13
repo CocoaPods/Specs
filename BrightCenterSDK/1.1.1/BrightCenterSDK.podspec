@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.source_files  = 'BrightCenterSDK/Framework/**/*.{h,m}'
 
   s.resources = "BrightCenterSDK/Resources/**/*.png"
-
   s.requires_arc = true
 
   s.dependency 'AFNetworking', '~> 1.3.2'
