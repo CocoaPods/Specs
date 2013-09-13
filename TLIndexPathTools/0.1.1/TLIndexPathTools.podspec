@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "tlindexpathtools.com"
   s.license      = { :type => "MIT" }
   s.author       = { "wtmoose" => "wtm@tractablelabs.com" }
-  s.source       = { :git => "https://github.com/wtmoose/TLIndexPathTools.git", :tag => '0.1.0' }
+  s.source       = { :git => "https://github.com/wtmoose/TLIndexPathTools.git", :tag => '0.1.1' }
   s.platform     = :ios, '6.0'
   s.ios.deployment_target = '6.0'
   s.source_files = 'TLIndexPathTools/**/*.{h,m}'
