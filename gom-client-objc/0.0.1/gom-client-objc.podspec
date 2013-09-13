@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   
-  s.source       = { :git => "https://github.com/artcom/gom-client-objc.git", :tag => '0.0.1' }
+  s.source       = { :git => "https://github.com/artcom/gom-client-objc.git", :tag => s.version.to_s }
   s.source_files  = 'gom-client-objc/gom-client/**/*.{h,m}'
   
   s.requires_arc = true
