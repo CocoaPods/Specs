@@ -1,15 +1,9 @@
-#
-# Be sure to run `pod spec lint ios-linechart.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "ios-linechart"
   s.version      = "1.0.0"
   s.summary      = "Interactive line charts / plots for the simplicity-loving iOS developer."
   s.homepage     = "https://github.com/mruegenberg/ios-linechart"
-  # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots  = "https://raw.github.com/mruegenberg/ios-linechart/master/doc/screenshot1.png", "https://raw.github.com/mruegenberg/ios-linechart/master/doc/screenshot2.png"
 
   s.license      =  { :type => 'MIT', :file => 'LICENSE' }
 
