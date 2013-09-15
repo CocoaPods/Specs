@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
 
   s.ios.deployment_target = '6.0'
-  s.source       = { :git => "https://github.com/imokhles/EGYWebViewController.git", :tag => "1.2" }
+  s.source       = { :git => "https://github.com/iMokhles/EGYWebViewController/", :tag => "1.2" }
   s.source_files  = "EGYWebViewController/*.{h,m}", "TUSafariActivity/*.{h,m}", "MLCruxActivity/*.{h,m}", "ARChromeActivity/*.{h,m}"
 
   s.resource  = "EGYWebViewController/EGYWebViewController.bundle"
