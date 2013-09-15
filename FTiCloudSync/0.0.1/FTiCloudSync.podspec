@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/futuretap/FTiCloudSync.git', :commit => 'f28114f9ecb838d5fa9076da19e4acf5846d67b3' }
   s.source_files  = 'FTiCloudSync/NSUserDefaults+iCloud.{h,m}', \
                     'FTiCloudSync/MethodSwizzling.{c,h}'
-  s.dependency = 'RegexKitLite'
+  s.dependencies = 'RegexKitLite'
 end
