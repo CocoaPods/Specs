@@ -8,10 +8,11 @@ Pod::Spec.new do |s|
   s.homepage              = "https://github.com/urbanapps/UAAppReviewManager"
   s.author                = { "Matt Coneybeare" => "coneybeare@urbanapps.com" }
   s.license               = 'MIT'
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '5.1'
   s.osx.deployment_target = '10.7'
   s.requires_arc          = true
-  s.frameworks            = 'CFNetwork', 'SystemConfiguration', 'StoreKit'
+  s.frameworks            = 'CFNetwork', 'SystemConfiguration'
+  s.weak_frameworks       = 'StoreKit'
   s.source                = { :git => "https://github.com/UrbanApps/UAAppReviewManager.git", :tag => s.version.to_s }
   s.source_files          = "UAAppReviewManager.{h,m}"
   s.ios.resource_bundles  = { 'UAAppReviewManager-iOS' => ['Localization/*.lproj'] }
