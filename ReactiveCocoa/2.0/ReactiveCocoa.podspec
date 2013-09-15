@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "ReactiveCocoa"
-  s.version      = "2.0.0"
+  s.version      = "2.0"
   s.summary      = "A framework for composing and transforming sequences of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
-  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => 'v2.0' }
+  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v#{s.version}" }
   s.license      = 'Simplified BSD License'
   s.description  = "ReactiveCocoa offers:\n"                                                               \
                    "1. The ability to compose operations on future data.\n"                                \
