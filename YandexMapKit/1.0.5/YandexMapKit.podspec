@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.resource   = 'YandexMapKit.bundle'
   s.frameworks = 'AudioToolbox', 'OpenAL', 'AVFoundation', 'CoreData', 'CoreLocation', 'CoreTelephony', 'QuartzCore', 'MessageUI', 'OpenGLES', 'Security', 'SystemConfiguration'
   s.libraries  = 'sqlite3', 'stdc++', 'xml2', 'z'
-  s.library  = 'YandexMapKit'
   s.preserve_paths = 'libYandexMapKit.a'
   s.xcconfig = { 
     'HEADER_SEARCH_PATHS'  => '"$(SDKROOT)/usr/include/libxml2"',
