@@ -21,5 +21,5 @@ contact me and we can work something out.
   s.source    = { :git => 'https://github.com/futuretap/FTiCloudSync.git', :commit => 'f28114f9ecb838d5fa9076da19e4acf5846d67b3' }
   s.source_files  = 'NSUserDefaults+iCloud.{h,m}', \
                     'MethodSwizzling.{c,h}'
-  s.dependencies = 'RegexKitLite'
+  s.dependency 'RegexKitLite'
 end
