@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name        = "HockeySDK"
+  s.name        = "HockeySDK-Mac"
   s.version     = "1.0.3"
   s.license     = {:type=>'MIT', :file=>'HockeySDK-Mac/LICENSE.txt'}
   s.platform    = :osx, '10.5'
