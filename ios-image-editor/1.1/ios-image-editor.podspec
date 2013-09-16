@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.summary      = "iOS View Controller for image cropping."
   s.homepage     = "https://github.com/heitorfr/ios-image-editor"
   s.author       = 'Heitor Ferreira'
-  s.source       = { :git => 'https://github.com/heitorfr/ios-image-editor', :tag => '1.1' }
+  s.source       = { :git => 'https://github.com/heitorfr/ios-image-editor.git', :tag => '1.1' }
   s.platform     = :ios
   s.requires_arc = false
-  s.source_files = '*.{h,m}'
+  s.source_files = 'ImageEditor/*.{h,m}'
   s.license      = {
     :type => 'MIT License',
     :text => <<-LICENSE
