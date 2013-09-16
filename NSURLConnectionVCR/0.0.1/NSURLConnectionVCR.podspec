@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NSURLConnectionVCR"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Record and replay NSURLConnection requests/responses in tests."
   s.homepage     = "https://bitbucket.org/martijnthe/nsurlconnectionvcr"
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   }
 
   s.authors       = { "Martijn Thé" => "post@martijnthe.nl" }
-  s.source        = { :git => "https://bitbucket.org/martijnthe/nsurlconnectionvcr.git", :commit => "ad597f7" }
+  s.source        = { :git => "https://bitbucket.org/martijnthe/nsurlconnectionvcr.git", :commit => "658b26f" }
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
