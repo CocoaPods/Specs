@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = 'MoPubClient'
-  s.version      = '1.13.0.0'
+  s.version      = '1.14.0.0'
   s.license      = { :type => 'New BSD' }
   s.platform     = :ios
   s.summary      = 'Client SDK for MoPub.'
   s.homepage     = 'http://www.mopub.com'
   s.author       = { 'MoPub' => 'http://www.mopub.com' }
-  s.source       = { :git => 'https://github.com/mopub/mopub-ios-sdk.git', :tag => '1.13.0.0' }
+  s.source       = { :git => 'https://github.com/mopub/mopub-ios-sdk.git', :tag => '1.14.0.0' }
   s.requires_arc = false
   s.preserve_paths = 'AdNetworkSupport'
   s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation', 'MediaPlayer'
