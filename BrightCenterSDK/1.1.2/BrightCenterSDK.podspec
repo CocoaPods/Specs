@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
   s.source       = { :git => "https://github.com/triforksysadmin/BrightCenterSDK.git", :tag => "1.1.2" }
+  
   s.ios.frameworks = 'CoreGraphics','QuartzCore'
 
   s.source_files  = 'BrightCenterSDK/Framework/**/*.{h,m}'
