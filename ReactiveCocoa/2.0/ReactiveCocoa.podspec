@@ -1,17 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "ReactiveCocoa"
   s.version      = "2.0"
-  s.summary      = "A framework for composing and transforming sequences of values."
+  s.summary      = "A framework for composing and transforming streams of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
   s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v#{s.version}" }
-  s.license      = 'Simplified BSD License'
-  s.description  = "ReactiveCocoa offers:\n"                                                               \
-                   "1. The ability to compose operations on future data.\n"                                \
-                   "2. An approach to minimizing state and mutability.\n"                                  \
-                   "3. A declarative way to define behaviors and the relationships between properties.\n"  \
-                   "4. A unified, high-level interface for asynchronous operations.\n"                     \
-                   "5. A lovely API on top of KVO."
+  s.license      = 'MIT'
+  s.description  = "ReactiveCocoa (RAC) is an Objective-C framework for Functional Reactive Programming. It provides APIs for composing and transforming streams of values."
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
@@ -19,7 +14,7 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
   
   s.prepare_command = <<-'END'
-  	find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
+    find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
   END
@@ -32,9 +27,10 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sp|
     sp.dependency 'ReactiveCocoa/no-arc'
     sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{h,m}'
+    sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
     sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
     sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText}*'
-    sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UIControl,UIGestureRecognizer,UIText,UISlider,UISwitch,UITableViewCell,UIStepper,UIDatePicker,UISegmentedControl}*'
+    sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UIControl,UIDatePicker,UIGestureRecognizer,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UIText}*'
     sp.header_dir = 'ReactiveCocoa'
   end
 
