@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 	s.author   		= { 'Indragie Karunaratne' => 'indragiek@gmail.com' }
 	s.source_files	= '*.{h,m}'
 	s.source   		= { :git => 'https://github.com/indragiek/INAppStoreWindow.git', :tag => 'v1.2' }
-	s.preserve_paths= 'SampleApp'
+
 	s.platform 		= :osx
 	s.requires_arc 	= true
 	s.license		= { :type => 'BSD', :text => 'INAppStoreWindow is licensed under the BSD license.'}
