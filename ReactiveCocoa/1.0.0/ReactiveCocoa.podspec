@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
   s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git", :tag => "v#{s.version}" }
-  s.license      = 'Simplified BSD License'
+  s.license      = 'MIT'
   s.description  = "ReactiveCocoa offers:\n"                                                               \
                    "1. The ability to compose operations on future data.\n"                                \
                    "2. An approach to minimizing state and mutability.\n"                                  \
