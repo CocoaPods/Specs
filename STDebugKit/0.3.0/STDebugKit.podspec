@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
     #define STDebugKitModuleKillOrder               4
     
     #define STDebugKitButtonSize 30
+    #define STDebugKitButtonPosition CGPointMake(1, 0.5)
 	#define STDebugKitButtonColor [UIColor colorWithRed:0.751 green:0.843 blue:0.900 alpha:1.000]
 	#define STDebugKitButtonBackgroundColor [UIColor whiteColor]
 #endif
