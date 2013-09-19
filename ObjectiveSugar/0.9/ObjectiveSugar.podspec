@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.authors      = [{ "Marin Usalj" => "mneorr@gmail.com" }, { "Neil Cowburn" => "git@neilcowburn.com" }]
   s.source       = { :git => "https://github.com/mneorr/ObjectiveSugar.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '4.0'
+  s.osx.deployment_target = '10.6'
 
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
 end
