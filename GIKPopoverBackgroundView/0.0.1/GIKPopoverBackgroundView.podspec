@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/GiK/GIKPopoverBackgroundView.git'
   s.author   = { 'Gordon Hughes' => 'gordon@geeksinkilts.com' }
   s.source   = { :git => 'https://github.com/GiK/GIKPopoverBackgroundView.git', :commit => "fd173a576ae2acc6643c5b3467262ef45ef2f051" }
+  s.resources = 'GIKPopoverBackgroundView-Example/Images/*.png'
   s.source_files = 'GIKPopoverBackgroundView/*.{h,m}'
   s.framework = 'QuartzCore'
   s.requires_arc = true
