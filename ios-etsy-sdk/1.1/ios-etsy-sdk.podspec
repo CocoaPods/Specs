@@ -7,9 +7,8 @@ Pod::Spec.new do |s|
   s.author       = { "Sean O Shea" => "oshea.ie@gmail.com" }
   s.source       = {
       :git => "https://github.com/seanoshea/ios-etsy-sdk.git",
-      :tag => "1.0"
+      :tag => "1.1"
   }
-  
   s.platform     = :ios, '7.0'
   s.source_files = 'ios-etsy-sdk'
   s.requires_arc = true
