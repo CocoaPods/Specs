@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, '5.0'
 
-  s.dependency 'AFNetworking', '>= 1.0'
+  s.dependency 'AFNetworking', '~> 1.3'
 end

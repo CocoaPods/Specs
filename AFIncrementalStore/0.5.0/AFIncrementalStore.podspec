@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency 'AFNetworking', '>= 1.0'
+  s.dependency 'AFNetworking', '~> 1.3.2'
   s.dependency 'InflectorKit'
   s.dependency 'TransformerKit'
 end
