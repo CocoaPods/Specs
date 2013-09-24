@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/icanzilb/MTLog.git", :tag => "#{s.version}" }
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '6.0'
 
   s.source_files = 'MTLog/**/*.{m,h}'
   s.public_header_files = 'MTLog/**/*.h'
