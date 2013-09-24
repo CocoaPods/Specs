@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/larcus94/LBActionSheet"
-  s.license      = { :type => 'MIT', :text => 'Permission is hereby granted, free of charge, to any person obtaining a copy
+  s.license      = { :type => 'MIT', :text => <<-LICENSE
+                                                Permission is hereby granted, free of charge, to any person obtaining a copy
                                                 of this software and associated documentation files (the "Software"), to deal
                                                 in the Software without restriction, including without limitation the rights
                                                 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -24,9 +25,11 @@ Pod::Spec.new do |s|
                                                 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
                                                 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
                                                 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                THE SOFTWARE.' }
+                                                THE SOFTWARE.
+                                              LICENSE
+                                              }
 
-  s.author       = { "Laurin Brandner" => "email@address.com" }
+  s.author       = "Laurin Brandner"
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/larcus94/LBActionSheet.git", :commit => "88bcd764f4285d700a150b62861e0a53542386dd" }
   s.source_files  = 'LBActionSheet'
