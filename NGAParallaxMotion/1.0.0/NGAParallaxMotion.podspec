@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/michaeljbishop/NGAParallaxMotion.git', :tag => '1.0.0' }
   s.homepage     =  'http://github.com/michaeljbishop/NGAParallaxMotion'
   s.platform     =  :ios, '7.0'
+  s.framework    = 'UIKit'
   s.source_files = 'Classes'
   s.requires_arc =  true
   s.ios.deployment_target = '7.0'
