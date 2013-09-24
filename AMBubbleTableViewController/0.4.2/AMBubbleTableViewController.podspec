@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "AMBubbleTableViewController"
   s.version      = "0.4.2"
-  s.summary      = "Simple implementation of a UITableView styled as chat bubbles. It provides different base styles and it's easily customizable"
+  s.summary      = "Simple implementation of a UITableView styled as chat bubbles. It provides different base styles and it's easily customizable."
   s.homepage     = "https://github.com/andreamazz/AMBubbleTableView"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Andrea Mazzini" => "andrea.mazzini@gmail.com" }
