@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'JPush'
-  s.version = '1.6.0'
+  s.version = '1.4.0'
   s.license = { :type => 'Copyright', :text => 'LICENSE Copyright 201 - 2012 JPush.cn, Inc. All rights reserved.' }
   s.summary = 'JPush SDK for iOS.'
   s.homepage = 'http://www.jpush.cn/'
