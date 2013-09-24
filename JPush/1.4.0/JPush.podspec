@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'JPush SDK for iOS.'
   s.homepage = 'http://www.jpush.cn/'
   s.author = { 'jpush' => 'support@jpush.cn'}
-  s.source = { :http => 'https://www.luochunhui.com/downloads/jpush.1.4.0.zip' }
+  s.source = { :http => 'http://www.luochunhui.com/downloads/jpush.1.4.0.zip' }
   s.description = 'UMeng analytics SDK.'
 
   s.platform = :ios
