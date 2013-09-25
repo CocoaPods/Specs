@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/alanzeino/AZColoredNavigationBar.git", :tag => "0.0.4" }
   s.source_files  = 'AZColoredNavigationBar'
   s.requires_arc = true
+  s.framework = 'QuartzCore'
 end
