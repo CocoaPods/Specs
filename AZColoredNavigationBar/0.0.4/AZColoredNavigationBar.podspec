@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Alan Zeino" => "alan.zeino@gmail.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/brianantonelli/AZColoredNavigationBar", :tag => "0.0.5" }
+  s.source       = { :git => "https://github.com/brianantonelli/AZColoredNavigationBar.git", :commit => "0320bb1aaff06b42485e45ed466788f8691cda90" }
   s.source_files  = 'AZColoredNavigationBar'
   s.requires_arc = true
   s.framework = 'QuartzCore'
