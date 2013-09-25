@@ -21,13 +21,6 @@ Pod::Spec.new do |s|
   s.preserve_paths = "Doxyfile"
   s.frameworks   = "Foundation"
   s.requires_arc = false
-  s.dependency   'sqlite3', '~> 3.7.17.0'
-  s.post_install do |library_representation|
-    library_representation.project.targets.each do |target|
-      next unless target.name == 'Pods-sqlite3'
-      target.build_configurations.each do |config|
-        (config.build_settings['OTHER_CFLAGS'] ||= "") << ' -DSQLITE_ENABLE_UNLOCK_NOTIFY'
-      end
-    end
-  end
+  s.dependency   'sqlite3', '~> 3.8.0.2'
+  s.dependency   'sqlite3/unlock_notify'
 end

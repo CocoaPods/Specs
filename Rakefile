@@ -135,7 +135,10 @@ PODS_ALLOWED_TO_FAIL = {
     'yajl',
   ],
 
-
+  "Github repositories should use `https` link." => [
+    'KeychainItemWrapper',
+    'KSPowerAssertion',
+  ],
 }
 
 
