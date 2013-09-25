@@ -10,14 +10,14 @@ Pod::Spec.new do |s|
   	:type	=> 'commercial',
     :text => 'Copyright 2013 OpenX Technologies, Inc. All rights reserved.'
   }
-  s.source = { :http => 'http://www.openx.com/downloads/sdks/OpenX_Mobile_SDK_iOS.zip' }
+  s.source = { :http => 'http://www.openx.com/downloads/sdks/archive/OpenX_Mobile_SDK_iOS_1.4.1.zip' }
   
   framework_path = 'OpenX_Mobile_SDK_iOS/SDK/OpenXMSDK.framework'
   
   s.source_files = "#{framework_path}/Versions/A/Headers/*.{h}"
-  s.resources = "#{framework_path}/Versions/A/Resources/*.{png,js,html,plist}"
+  s.resources = "#{framework_path}/Versions/A/Resources/*.{png,html,js}"
   
-  s.preserve_paths = framework_path
+  s.preserve_paths = "#{framework_path}"
   s.header_dir = 'OpenXMSDK'
   
   s.frameworks 	 = 'SystemConfiguration', 'AdSupport', 'CoreGraphics', 'CoreLocation', 'CoreTelephony', 'EventKit', 'EventKitUI', 'MapKit', 'MediaPlayer'
