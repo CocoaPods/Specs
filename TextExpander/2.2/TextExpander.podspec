@@ -18,7 +18,7 @@ privacy purpose string to your Info.plist explaining this to
 your users.
   DESC
   s.homepage = 'http://smilesoftware.com/sdk'
-  s.author = { 'SmileOnMyMac' => 'textexpander-touch@smilesoftware.com' }
+  s.author = { 'Smile Software' => 'textexpander-touch@smilesoftware.com' }
   s.source = { :git => "https://github.com/SmileSoftware/TextExpanderTouchSDK.git", :tag => "2.2" }
   s.platform = :ios, '5.1'
   s.source_files = 'TextExpander.framework/Versions/A/Headers/*.h'
