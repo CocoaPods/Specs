@@ -5,7 +5,6 @@ Pod::Spec.new do |s|
   s.homepage              = "https://github.com/kishikawakatsumi/SECoreTextView"
   s.license               = { :type => "MIT", :file => "LICENSE" }
   s.author                = { "kishikawakatsumi" => "kishikawakatsumi@mac.com" }
-  s.authors               = { "kishikawakatsumi" => "kishikawakatsumi@mac.com" }
   s.source                = { :git => "https://github.com/kishikawakatsumi/SECoreTextView.git", :tag => "v#{s.version}" }
   s.ios.deployment_target = "5.0"
   s.source_files          = "Lib/*"
