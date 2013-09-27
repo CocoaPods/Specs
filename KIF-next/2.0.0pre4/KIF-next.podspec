@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KIF-next"
   s.version      = "2.0.0pre4"
-  s.summary      = "UI acceptance testing in an OCUnit harness."
+  s.summary      = "DEPRECATED: Please use KIF."
   s.homepage     = "https://github.com/bnickel/KIF/"
   s.license      = 'Apache 2.0'
   s.authors      = 'Brian Nickel', 'Jim Puls', 'Eric Firestone', 'Michael Thole'

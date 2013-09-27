@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source_files =  'src/*.{h,m}', 'src/Base64/*.{h,m}', 'src/Cryptography/*.{h,m}'
   s.resources    =  'src/FacebookSDKResources.bundle', 'src/FBUserSettingsViewResources.bundle'
   s.header_dir   =  'FacebookSDK'
+  s.weak_frameworks = 'Accounts', 'AdSupport', 'Social', 'Security'
   s.framework = 'CoreLocation'
   # simulate the build rule that converts PNG files to objective-c classes in 3.6.0
   s.pre_install do |pod, target_definition|
