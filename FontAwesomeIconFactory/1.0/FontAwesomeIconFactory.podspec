@@ -47,7 +47,8 @@ Pod::Spec.new do |s|
   s.public_header_files = ['NIKFontAwesomeIconFactory*.h', 'NIKFontAwesomeIcon.h']
 
   s.resource  = 'Font-Awesome/font/FontAwesome.otf'
-  s.framework  = 'CoreText'
+  s.ios.frameworks = 'CoreText', 'CoreGraphics'
+  s.osx.frameworks = 'CoreText', 'CoreGraphics', 'ApplicationServices'
   s.requires_arc = true
 
 end
