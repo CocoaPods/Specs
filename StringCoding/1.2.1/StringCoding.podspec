@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'StringCoding'
   s.requires_arc = true
   s.ios.deployment_target = '4.3'
-  s.osx.deployment_target = '10.6'
+  s.osx.deployment_target = '10.6.8'
 end
