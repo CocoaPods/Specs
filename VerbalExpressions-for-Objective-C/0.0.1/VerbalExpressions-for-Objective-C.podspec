@@ -14,21 +14,12 @@ Pod::Spec.new do |s|
 
   s.license      = 'MIT'
 
-
-
-
   s.author       = { "Peter Hosey" => "" }
-
 
   s.ios.deployment_target = '6.1'
   s.osx.deployment_target = '10.7'
 
-
-
-  s.source       = { :git => "https://github.com/boredzo/VerbalExpressions-for-Objective-C.git", :tag => "v#{s.version}" }
-
-
-
+  s.source       = { :git => "https://github.com/boredzo/VerbalExpressions-for-Objective-C.git", :tag => "#{s.version}" }
 
   s.source_files  = 'VerbalExpressions', 'VerbalExpressions/**/'
 
