@@ -9,12 +9,4 @@ Pod::Spec.new do |s|
   s.platform	 = :ios, '5.0'
   s.source_files = 'GVPhotoBrowser/*.{h,m}'
   s.requires_arc = true
-  s.documentation = {
-    :appledoc => [
-      '--project-name', 'GVPhotoBrowser',
-      '--project-company', 'Gangverk',
-      '--company-id', 'is.gangverk',
-      '--no-repeat-first-par'
-    ]
-  }
 end
