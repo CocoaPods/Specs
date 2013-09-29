@@ -10,12 +10,12 @@ Pod::Spec.new do |s|
   s.source_files = 'OLImage.{h,m}', 'OLImageView.{h,m}'
   s.framework  = 'ImageIO', 'MobileCoreServices', 'QuartzCore'
   s.requires_arc = true
-    
+
   s.subspec 'AFNetworking' do |af|
     af.dependency 'AFNetworking'
     af.source_files = "Categories/AFImageRequestOperation+OLImage.{h,m}"
   end
-  
-  s.preferred_dependency = 'AFNetworking'
+
+  s.default_subspec = 'AFNetworking'
 
 end

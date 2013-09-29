@@ -20,14 +20,18 @@ Pod::Spec.new do |s|
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
 
   s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
-  s.osx.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'Cocoa'
+  s.osx.frameworks = 'Foundation', 'QuartzCore', 'ApplicationServices', 'Cocoa'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoaLayout/ReactiveCocoaLayout.h>
 #import <Archimedes/Archimedes.h>
-#import <CoreGraphics/CoreGraphics.h>
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+  #import <CoreGraphics/CoreGraphics.h>
+#elif TARGET_OS_MAC
+  #import <ApplicationServices/ApplicationServices.h>
+#endif
 #import <QuartzCore/QuartzCore.h>
 #endif
 EOS
