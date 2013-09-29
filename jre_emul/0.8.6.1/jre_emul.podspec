@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'jre' do |jre|
     jre.source_files = 'jre_emul/Classes/**/*.{m,mm}', 'jre_emul/apple_apsl/*.{h,m}', 'jre_emul/build_result/Classes/**/*.m'
-    # , 'dist/include/**/*.h'
     jre.exclude_files = 'jre_emul/Classes/*Test.{h,m}'
     jre.preserve_paths = 'dist/include/**/*.h'
     # Will cause "Cannot find interface declaration for NSobject" compile error.
