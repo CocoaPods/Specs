@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
 	s.requires_arc = true
 	s.ios.deployment_target = '6.1'
 	s.osx.deployment_target = '10.8'
-	s.platform = :osx, "10.8", :ios, "6.1"
 	s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
 	s.prepare_command = <<-CMD
