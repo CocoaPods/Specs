@@ -11,4 +11,4 @@ Pod::Spec.new do |s|
 
   s.platform = :ios, '5.0'
   s.frameworks = 'QuartzCore'
-endw
+end
