@@ -14,8 +14,6 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
   s.prepare_command = <<-'END'
-    /usr/sbin/dtrace -h -s ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.d -o ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.h;
-
     find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
@@ -28,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |sp|
     sp.dependency 'ReactiveCocoa/no-arc'
-    sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{h,m,d}'
+    sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{d,h,m}'
     sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
     sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
     sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText}*'
