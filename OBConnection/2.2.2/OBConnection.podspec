@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                     :tag => '2.2.2' }
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.ios.deployment_target = '5.0'
+  s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
   s.source_files = 'OBConnection/OB*.{h,m}'
   s.requires_arc = true
