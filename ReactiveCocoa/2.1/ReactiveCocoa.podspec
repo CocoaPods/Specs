@@ -13,9 +13,13 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
 
-  s.prepare_command = <<-CMD
-    /usr/sbin/dtrace -h -s ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.d -o ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.h
-  CMD
+  s.prepare_command = <<-'END'
+    /usr/sbin/dtrace -h -s ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.d -o ReactiveCocoaFramework/ReactiveCocoa/RACSignalProvider.h;
+
+    find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
+    find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
+    find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
+  END
 
   s.subspec 'no-arc' do |sp|
     sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
