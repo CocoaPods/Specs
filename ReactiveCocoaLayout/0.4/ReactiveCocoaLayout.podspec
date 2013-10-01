@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.source_files = 'ReactiveCocoaLayout/*.{h,m}'
   s.dependency 'Archimedes'
   s.dependency 'ReactiveCocoa', '2.0'
-  s.dependency 'libextobjc'
 
   s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
@@ -31,7 +30,6 @@ Pod::Spec.new do |s|
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
-#import <libextobjc/extobjc.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoaLayout/ReactiveCocoaLayout.h>
 #import <Archimedes/Archimedes.h>
