@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.subspec 'ASIWebPageRequest' do |ws|
     ws.source_files = 'Classes/ASIWebPageRequest/'
     ws.library      = 'xml2.2'
-    ws.xcconfig     = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+    ws.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   end
 
   s.subspec 'CloudFiles' do |cfs|
