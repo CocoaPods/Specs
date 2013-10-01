@@ -33,9 +33,4 @@ Pod::Spec.new do |s|
     sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UIControl,UIDatePicker,UIGestureRecognizer,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UIText}*'
     sp.header_dir = 'ReactiveCocoa'
   end
- 
-  s.subspec 'RACExtensions' do |sp|
-    sp.source_files = 'RACExtensions/*.{h,m}'
-    sp.dependency 'ReactiveCocoa/Core'
-  end
 end
