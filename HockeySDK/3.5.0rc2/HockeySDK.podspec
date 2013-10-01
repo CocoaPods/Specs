@@ -19,10 +19,9 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes'
   s.requires_arc = true
   s.preserve_paths = 'Resources', 'Support', 'Vendor'
-  s.frameworks   = 'CoreText', 'QuartzCore', 'SystemConfiguration', 'CrashReporter', 'CoreGraphics', 'UIKit'
+  s.frameworks   = 'CoreText', 'QuartzCore', 'SystemConfiguration', 'CrashReporter', 'CoreGraphics', 'UIKit', 'Security'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{$(inherited) BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
+s.resource_bundle = { 'HockeySDKResources' => ['Resources/*.png', 'Resources/*.lproj'] }
 
-  s.resource = 'Resources/HockeySDKResources.bundle'
-  s.prepare_command = 'xcodebuild -project Support/HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null'
 end
