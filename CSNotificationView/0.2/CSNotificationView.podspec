@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT License', :file => "LICENSE.md" }
   s.author       = 'Christian Schwarz'
   s.source       = { :git => 'https://github.com/problame/CSNotificationView.git', :tag => '0.2' }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.requires_arc = true
   s.source_files = 'CSNotificationView/*.*'
   s.resources = 'CSNotificationView/CSNotificationView.xcassets'
