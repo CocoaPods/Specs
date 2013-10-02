@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
 
-  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
   s.osx.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'Cocoa'
+  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__

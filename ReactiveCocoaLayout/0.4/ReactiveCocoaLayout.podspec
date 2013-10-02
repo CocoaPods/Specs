@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
 
-  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
   s.osx.frameworks = 'Foundation', 'QuartzCore', 'ApplicationServices', 'Cocoa'
+  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
 
   s.prepare_command = <<-'END'
     find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
