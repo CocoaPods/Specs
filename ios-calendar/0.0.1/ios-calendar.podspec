@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     "Yevhene Shemet" => "yevhene@gmail.com",
     "Roman Radar" => "antigluk@gmail.com"
   }
-  s.source       = { :git => "https://github.com/vgrichina/ios-calendar.git", :commit => "cce06f4ba1cf3eb6ce9a0b497efbce5aa9e43224" }
+  s.source       = { :git => "https://github.com/vgrichina/ios-calendar.git", :commit => "eacd38ccd90162534586a5184b261eea36c9319f" }
   s.platform     = :ios, '4.0'
   s.source_files = 'Calendar/**/*.{h,m}'
   s.requires_arc = false
