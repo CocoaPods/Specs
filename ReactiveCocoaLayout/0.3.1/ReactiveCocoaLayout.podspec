@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ReactiveCocoa/ReactiveCocoaLayout"
   s.author       = { "ReactiveCocoa" => "ReactiveCocoa" }
   s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoaLayout.git", :tag => "#{s.version}" }
-  s.license      = 'Simplified BSD License'
+  s.license      = 'MIT'
   s.description  = "ReactiveCocoaLayout is a framework for describing Cocoa and Cocoa Touch layouts in a reactive way, based on ReactiveCocoa."
 
   s.requires_arc = true
