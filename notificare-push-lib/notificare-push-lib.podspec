@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "notificare-push-lib"
-  s.version      = "0.9.19"
+  s.version      = "0.9.20"
   s.summary      = "Notificare Push Library for iOS apps"
   s.description  = <<-DESC
                    Notificare iOS Library implements the power of smart notifications provided by the Notificare platform in iOS applications.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   }
   s.author       = { "Notificare" => "support@notifica.re" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/Notificare/notificare-push-lib.git", :tag => "0.9.19" }
+  s.source       = { :git => "https://github.com/Notificare/notificare-push-lib.git", :tag => "0.9.20" }
   s.source_files  = 'Notificare/**/*.h'
   s.preserve_paths = 'libNotificarePushLib.a'
   s.resource  = "NotificareResources.bundle"
