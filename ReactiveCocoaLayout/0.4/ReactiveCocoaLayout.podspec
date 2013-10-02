@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ReactiveCocoaLayout/*.{h,m}'
   s.dependency 'Archimedes'
-  s.dependency 'ReactiveCocoa', '2.0'
+  s.dependency 'ReactiveCocoa', '~> 2.0'
 
   s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
