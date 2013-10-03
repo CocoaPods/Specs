@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   
   s.platform  = :osx, '10.8'
 
-  s.source    = { :http => 'http://parse-ios.s3.amazonaws.com/9edd9a2a46aed61f02ed9a0b83528d1e/parse-osx-library-1.2.15.zip' }
+  s.source    = { :http => "http://parse-ios.s3.amazonaws.com/9edd9a2a46aed61f02ed9a0b83528d1e/parse-osx-library-#{s.version}.zip" }
   s.framework = 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'QuartzCore', 'Security', 'SystemConfiguration'
   s.library   = 'z', 'sqlite3'
   

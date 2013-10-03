@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform      = :ios, '5.0'
   s.requires_arc  = true
   
-  s.source          = { :http => 'http://parse-ios.s3.amazonaws.com/9edd9a2a46aed61f02ed9a0b83528d1e/parse-library-1.2.15.zip' }
+  s.source          = { :http => "http://parse-ios.s3.amazonaws.com/9edd9a2a46aed61f02ed9a0b83528d1e/parse-library-#{s.version}.zip" }
   s.framework       = 'AudioToolbox', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'MobileCoreServices', 'QuartzCore', 'Security', 'StoreKit', 'SystemConfiguration'
   s.weak_frameworks = 'Accounts', 'AdSupport', 'Social'
   s.library         = 'z', 'sqlite3'
@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.preserve_paths      = "Parse.framework"  
   s.public_header_files = "Parse.framework/Headers/*.h"
   s.vendored_frameworks = "Parse.framework"
-
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Parse-iOS-SDK"' }
+  
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Parse-iOS-SDK"' }
   
   s.dependency 'Facebook-iOS-SDK', '~> 3.7'
 end
