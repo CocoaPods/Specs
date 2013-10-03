@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
   s.library   = 'z', 'sqlite3'
   
   s.preserve_paths      = "ParseOSX.framework"
-  s.public_header_files = "ParseOSX.framework/Headers/*.h"
+  s.public_header_files = "ParseOSX.framework/**/*.h"
   s.vendored_frameworks = "ParseOSX.framework"
-  
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Parse-OSX-SDK"' }
 end
