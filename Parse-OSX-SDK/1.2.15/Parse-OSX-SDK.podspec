@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   
   s.preserve_paths      = "ParseOSX.framework"
   s.public_header_files = "ParseOSX.framework/Headers/*.h"
+  s.vendored_frameworks = "ParseOSX.framework"
   
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Parse-OSX-SDK"' }
 end
