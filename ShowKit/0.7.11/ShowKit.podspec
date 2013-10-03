@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.author       = { "Anthony Kelani" => "anthony@showkit.com" }
-  s.source       = { :http => "http://s3.amazonaws.com/showkitweb/release/11/ShowKit-0.7.11.zip" }
+  s.source       = { :http => "http://s3.amazonaws.com/showkitweb/release/12/ShowKit-0.7.11.zip" }
 
   s.platform     = :ios, '5.0'
   s.source_files = 'ShowKit.framework/Versions/A/Headers/ShowKit.h'
