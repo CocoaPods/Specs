@@ -25,11 +25,5 @@ Pod::Spec.new do |s|
 
   s.frameworks    = 'Foundation', 'UIKit'
   s.weak_frameworks = 'AdSupport'
-
-
   s.requires_arc = false
-  s.xcconfig  =  {
-    'OTHER_LDFLAGS' => '-ObjC',
-    'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/Playnomics"'
-  }
 end
