@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.author       = { 'James Coleman' => 'jtc331@gmail.com' }
   s.requires_arc = true
   s.framework    = 'QuartzCore'
-  s.source       = { :git => 'https://github.com/jcoleman/JCNotificationBannerPresenter.git', :tag => '1.0.2' }
+  s.source       = { :git => 'https://github.com/jcoleman/JCNotificationBannerPresenter.git', :tag => '1.0.3' }
   s.source_files = 'Library/*.{h,m}'
 end
