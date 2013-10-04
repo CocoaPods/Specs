@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ricobeck/KFURLBar.git", :tag => s.version.to_s }
 
   s.platform         =  :osx, 10.7  
-  s.framework        =  'Foundation'
+  s.framework        =  'AppKit'
   s.requires_arc     =  true
 
   s.source_files = 'KFURLBar/Sources/**/*.{h,m}'
