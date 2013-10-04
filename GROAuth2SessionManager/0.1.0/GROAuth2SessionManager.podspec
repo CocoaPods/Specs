@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
   s.source_files = 'GROAuth2SessionManager'
   s.requires_arc = true
 
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.8'
 
-  s.dependency 'AFNetworking', '~>2.0'
+  s.dependency 'AFNetworking', '~> 2.0.0'
 
   s.ios.frameworks = 'Security'
 
