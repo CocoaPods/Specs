@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KFURLBar"
   s.version      = "0.1.0"
+  s.license          =  { :type => 'MIT', :file => 'LICENSE' }
   s.summary      = "KFURLBar is a NSView subview that mimics Safari's url bar with a progress background."
   
   s.homepage     = "https://pods.kf-interactive.com"
