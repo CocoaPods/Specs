@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "VKInputToolbar"
-  s.version      = "0.3"
+  s.version      = "0.3.1"
   s.platform = :ios , "5.0"
   s.ios.deployment_target = '5.0'
   s.summary      = "Messages style input toolbar for iOS."
