@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT License', :file => 'license' }
   s.author       = { "David Keegan" => "git@davidkeegan.com" }
   s.source       = { :git => "https://github.com/kgn/BBlock.git" ,:commit => 'd553796'}
-  s.platform     = :ios, '5.0'
-  s.source_files = '*'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
+  s.source_files = '*.{h,m}'
 end
