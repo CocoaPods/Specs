@@ -8,9 +8,10 @@ Pod::Spec.new do |s|
   s.authors      = { "Rico Becker" => "rico.becker@kf-interactive.com", "Gunnar Herzog" => "gunnar.herzog@kf-interactive.com" }  
   s.source       = { :git => "https://github.com/ricobeck/KFURLBar.git", :tag => s.version.to_s }
 
-  s.platform     = :osx
-  s.osx.deployment_target = '10.7'
-  
+  s.platform         =  :osx, 10.7  
+  s.framework        =  'Foundation'
+  s.requires_arc     =  true
+
   s.source_files = 'KFURLBar/Sources/**/*.{h,m}'
   s.requires_arc = true
 end
