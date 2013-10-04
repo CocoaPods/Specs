@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'CustomUINavigationController/**/*.{h,m}'
 
-  s.frameworks = 'QuartzCore.framework', 'CoreGraphics.framework'
+  s.frameworks = 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
 
 end

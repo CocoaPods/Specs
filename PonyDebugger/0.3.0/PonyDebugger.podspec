@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   
   s.dependency 'SocketRocket'
   # The readme says that it is needed but it lints without
-  s.frameworks   = 'CoreData'
+  s.frameworks   = 'CoreData', 'CoreGraphics'
 end

@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
     core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI,Reachability}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
-    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia"
+    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia", "Social"
     core.dependency 'SSKeychain', "0.2.1"
   end
 
@@ -62,6 +62,11 @@ Pod::Spec.new do |s|
   s.subspec 'Pinboard' do |pinboard|
     pinboard.source_files = 'Classes/ShareKit/Sharers/Services/Pinboard/**/*.{h,m}'
     pinboard.dependency 'ShareKit/Core'
+  end
+
+  s.subspec 'Readability' do |readability|
+    readability.source_files = 'Classes/ShareKit/Sharers/Services/Readability/**/*.{h,m}'
+    readability.dependency 'ShareKit/Core'
   end
 
   s.subspec 'ReadItLater' do |readitlater|
