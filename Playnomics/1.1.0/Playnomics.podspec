@@ -1,28 +1,26 @@
 Pod::Spec.new do |s|
-  s.name         = "Playnomics"
-  s.version      = "1.1.0"
-  s.summary      = "Playnomics SDK"
+  s.name         = 'Playnomics'
+  s.version      = '1.1.0'
+  s.summary      = 'Playnomics SDK'
 
-  s.description  = <<-DESC
-                  Playnomics helps publishers to leverage the power of predictive analytics with behavioral segmentation to fuel smart, targeted, and fully customizable in-game messages, paid-ads, and push notifications that result in increased player retention and revenue.
-                  DESC
+  s.description  = 'The Playnomics SDK allows developers to easily combine raw metric analytics, predictive analytics and complex segmentation to make smarter messaging decisions (push notifications and in-game messaging) that protect VIPs and monetize non-spenders.'
 
-  s.homepage     = "http://github.com/playnomics/playnomics-ios"
-  s.license      = { :type => 'MIT', :file => 'LICENSE.md' }
+  s.homepage     = 'https://github.com/playnomics/playnomics-ios'
+  s.license      = { :type => 'Apache 2.0', :file => 'LICENSE.md' }
 
   s.authors      = {
-    "Jared Jenkins" => "jared@playnomics.com",
-    "Shiraz Khan" => "shiraz@playnomics.com"
+    'Jared Jenkins' => 'jared@playnomics.com',
+    'Shiraz Khan' => 'shiraz@playnomics.com'
   }
   s.platform     = :ios, '5.0'
 
   s.source       = {
-    :git => "http://github.com/playnomics/playnomics-ios.git",
-    :tag => "v" + s.version.to_s
+    :git => 'https://github.com/playnomics/playnomics-ios.git',
+    :tag => 'v' + s.version.to_s
   }
 
-
-  s.source_files  = 'src/PlaynomicsSDK', 'src/PlaynomicsSDK/**/*.{h,m}'
+  s.source_files  = 'src/PlaynomicsSDK/*.{h,m}'
+  s.prefix_header_file = 'src/PlaynomicsSDK/PlaynomicsSDK-Prefix.pch'
   s.public_header_files = 'src/PlaynomicsSDK/Playnomics.h', 'src/PlaynomicsSDK/PNLogger.h'
 
   s.frameworks    = 'Foundation', 'UIKit'
