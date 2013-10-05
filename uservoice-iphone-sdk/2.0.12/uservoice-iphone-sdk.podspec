@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name          = "uservoice-iphone-sdk"
-  s.version       = "2.0.12"
+  s.version       = "2.0.13"
   s.summary       = "UserVoice iOS SDK for iPhone and iPad apps."
   s.description   = "UserVoice for iOS allows you to embed UserVoice directly in your iPhone or iPad app."
   s.homepage      = "http://www.uservoice.com/iphone"
   s.license       = { :type => 'Apache License, Version 2.0', :file => 'README.md' }
 
   s.author        = 'UserVoice'
-  s.source        = { :git => "https://github.com/uservoice/uservoice-iphone-sdk.git", :tag => "2.0.12" }
+  s.source        = { :git => "https://github.com/uservoice/uservoice-iphone-sdk.git", :tag => "2.0.13" }
 
   s.platform      = :ios
 
