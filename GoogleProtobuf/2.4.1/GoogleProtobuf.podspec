@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.license = { :type => 'BSD', :file => 'LICENSE'}
   s.source_files = 'config.h', 'google/**/*.{h,cc}'
   s.header_mappings_dir = './'
+  s.requires_arc = false
 end
