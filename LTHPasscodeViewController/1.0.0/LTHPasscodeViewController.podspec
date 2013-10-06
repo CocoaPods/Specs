@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   }
   s.source_files  = 'AddToYourProject', 'AddToYourProject/*.{h,m}'
   s.requires_arc = true
-  spec.frameworks = 'QuartzCore'
+  s.frameworks = 'QuartzCore'
 end
