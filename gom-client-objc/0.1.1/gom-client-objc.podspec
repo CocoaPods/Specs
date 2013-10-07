@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.authors      = { "Julian Krumow" => "julian.krumow@artcom.de" }
   
   s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
   
   s.source       = { :git => "https://github.com/artcom/gom-client-objc.git", :tag => s.version.to_s }
   s.source_files  = 'gom-client-objc/**/*.{h,m}'
