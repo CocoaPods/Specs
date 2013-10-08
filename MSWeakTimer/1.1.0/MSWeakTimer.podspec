@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Javier Soto" => "ios@javisoto.es" }
   
-  s.source       = { :git => "https://github.com/mindsnacks/MSWeakTimer.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/mindsnacks/MSWeakTimer.git", :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
   s.osx.deployment_target = '10.7'
   s.source_files = 'MSWeakTimer.{h,m}'
