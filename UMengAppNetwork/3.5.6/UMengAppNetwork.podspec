@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source_files      = '*/SDK/*.h'
   s.resources         = '*/SDK/UMUFP.bundle'
   s.preserve_paths    = '*/SDK/libUMAppNetwork_3.5.6.a'
-  s.library           = 'UMAppNetwork'
+  s.library           = 'UMAppNetwork_3.5.6'
   
   s.platform          = :ios, '4.3'
   s.requires_arc      = false
