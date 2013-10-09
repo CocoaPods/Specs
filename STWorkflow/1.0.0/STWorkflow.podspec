@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
   s.source_files = 'STWorkflow/*.{h,m}'
-  s.public_header_files = 'STWorkflow/STWorkflow.h', 'STWorkflow/STState.h', 'STWorkflow/STStateAction.h', 'STWorkflow/STStateDispatch.h', 'STWorkflow/STStateSimpleCondition.h', 'STWorkflow/STStateMultipleCondition.h', 'STWorkflow/STWorkflow+Debug.h'
+  s.public_header_files = 'STWorkflow/STWorkflow.h', 'STWorkflow/STState.h', 'STWorkflow/STStateAction.h', 'STWorkflow/STStateDispatch.h', 'STWorkflow/STStateSimpleCondition.h', 'STWorkflow/STStateMultipleCondition.h', 'STWorkflow/STStateFactory.h', 'STWorkflow/STWorkflow+Debug.h'
 
   s.framework  = 'Foundation'
   s.requires_arc = true
