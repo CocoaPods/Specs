@@ -3,8 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Fixes \"CoreDataGeneratedAccessors\" for ordered, to-many relationships."
   s.homepage     = "https://github.com/CFKevinRef/KCOrderedAccessorFix"
-  s.license      = 'Unlicense'
-  s.license      = { :type => 'MIT',
+  s.license      = { :type => 'Unlicense',
                      :text => <<-LICENSE
 This is free and unencumbered software released into the public domain.
 
