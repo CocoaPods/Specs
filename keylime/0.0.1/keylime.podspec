@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                    * Present a more consistent user interface.
                    * Save time!
                    DESC
-  s.homepage     = "http://jessecurry.github.com/keylime/"
+  s.homepage     = "https://github.com/jessecurry/keylime"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'jessecurry' => 'jesse@jessecurry.net' }
   s.platform     = :ios, '7.0'
