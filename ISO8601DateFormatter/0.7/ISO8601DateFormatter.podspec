@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "iso-8601-date-formatter"
+  s.name         = 'ISO8601DateFormatter'
   s.version      = "0.7"
 
   s.summary      = "A Cocoa NSFormatter subclass to convert dates to and from ISO-8601-formatted strings. Supports calendar, week, and ordinal formats."
