@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'NCMusicEngine/*.{h,m}', 'AFDownloadRequestOperation/*.{h,m}'
   s.public_header_files = 'NCMusicEngine/*.h', 'AFDownloadRequestOperation/*.h'
   s.requires_arc = true
-  s.dependency 'AFNetworking', '1.3.2'
+  s.dependency 'AFNetworking', '~> 1.1'
 end
