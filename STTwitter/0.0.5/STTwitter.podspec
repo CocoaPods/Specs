@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.license      = {
     :type => 'New BSD',
-    :file => 'LICENCE.txt
+    :file => 'LICENCE.txt'
   }
 
   s.homepage     = "https://github.com/nst/STTwitter/"
