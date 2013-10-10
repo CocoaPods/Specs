@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'TestmunkCalabash'
-  s.version  = '0.9.151'
+  s.version  = '0.9.160'
   s.license       = {
     :type => 'Eclipse Public License 1.0',
     :text => 'Calabash-ios Copyright (2012) Karl Krukow. All rights reserved.
