@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name     = 'TestFlightSDK-Beta'
-  s.version  = '2.1.1'
+  s.name     = 'TestFlightSDK'
+  s.version  = '2.1.1b'
   s.license      = {
     :type => 'Commercial',
     :text => <<-LICENSE
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'libTestFlight.a'
   s.library = 'TestFlight', 'z'
   s.framework = 'UIKit'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/TestFlightSDK-Beta"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/TestFlightSDK"' }
 end
