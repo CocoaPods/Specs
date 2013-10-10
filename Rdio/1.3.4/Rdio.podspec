@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Rdio" => "" }
   s.platform     = :ios
-  s.source = { :http => "https://s3.amazonaws.com/Rdio-Podspec/rdio-ios-1.3.4.tar.gz" }
+  s.source = { :http => "http://www.rdio.com/media/static/developer/ios/releases/rdio-ios-1.3.4.tar.gz" }
   s.source_files  = 'Rdio.framework/Headers/*.h'
   s.preserve_paths = "Rdio.framework/*"
   
