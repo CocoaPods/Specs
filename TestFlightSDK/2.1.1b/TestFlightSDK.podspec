@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name     = 'TestFlightSDK-Beta'
-  s.version  = '2.1.1'
+  s.name     = 'TestFlightSDK'
+  s.version  = '2.1.1b'
   s.license      = {
     :type => 'Commercial',
     :text => <<-LICENSE
