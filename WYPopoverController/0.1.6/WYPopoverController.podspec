@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Nicolas CHENG' => 'nicolas.cheng.dev@gmail.com' }
   
-  s.source       = { :git => 'https://github.com/nicolaschengdev/WYPopoverController.git', :tag => '0.1.6' }
+  s.source       = { :git => 'https://github.com/nicolaschengdev/WYPopoverController.git', :tag => s.version.to_s }
 
   s.source_files = 'WYPopoverController/*.{h,m}'
   s.requires_arc = true
