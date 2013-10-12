@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author        = { "Adam Kirk" => "atomkirk@gmail.com" }
   s.source        = { :git => "https://github.com/mysterioustrousers/MTPencil.git", :tag => "#{s.version}" }
   s.platform      = :ios, '6.0'
-  s.source_files  = 'MTPencil/MTPencil.{h,m}', 'MTPencil/MTPencilStep.{h,m}', 'MTPencil/MTPencilStep_Private.h', 'MTPencilEasingFunctions.{h,c}'
+  s.source_files  = 'MTPencil/MTPencil.{h,m}', 'MTPencil/MTPencilStep.{h,m}', 'MTPencil/MTPencilStep_Private.h', 'MTPencil/MTPencilEasingFunctions.{h,c}'
   s.public_header_files = 'MTPencil/MTPencil.h', 'MTPencil/MTPencilStep.h'
   s.framework     = 'CoreGraphics'
   s.requires_arc  = true
