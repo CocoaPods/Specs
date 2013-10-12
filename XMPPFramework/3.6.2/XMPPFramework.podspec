@@ -1,14 +1,15 @@
 Pod::Spec.new do |s|
   s.name = 'XMPPFramework'
   s.version = '3.6.2'
-  s.platform = :ios, '6.0'
   s.license = { :type => 'BSD', :file => 'copying.txt' }
   s.summary = 'An XMPP Framework in Objective-C for the Mac / iOS development community.'
   s.homepage = 'https://github.com/robbiehanson/XMPPFramework'
   s.author = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
-  s.source = { :git => 'https://github.com/robbiehanson/XMPPFramework.git', :tag => '3.6.2' }
+  s.source = { :git => 'https://github.com/robbiehanson/XMPPFramework.git', :tag => s.version.to_s }
   s.resources = [ '**/*.{xcdatamodel,xcdatamodeld}']
-
+  
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
+   
   s.description = 'XMPPFramework provides a core implementation of RFC-3920 (the xmpp standard), along with
                   the tools needed to read & write XML. It comes with multiple popular extensions (XEPs),
                   all built atop a modular architecture, allowing you to plug-in any code needed for the job.
@@ -16,6 +17,9 @@ Pod::Spec.new do |s|
                   this framework performs well regardless of whether it\'s being run on an old iPhone, or
                   on a 12-core Mac Pro. (And it won\'t block the main thread... at all).'
   s.requires_arc = true
+
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.8'
 
   # XMPPFramework.h is used internally in the framework to let modules know
   # what other optional modules are available. Since we don't know yet which
