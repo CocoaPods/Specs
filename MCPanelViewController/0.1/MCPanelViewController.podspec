@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.author   = { 'Matthew Cheok' => 'cheok.jz@gmail.com' }
   s.requires_arc = true
   s.source   = { :git => 'https://github.com/mehsome/MCPanelViewController.git', :branch => 'master', :tag => s.version.to_s }
-  s.source_files = 'MCPanelViewController/MCPanelViewController.{h,m}', 'MCPanelViewController/MCPanGestureRecognizer.{h,m}'
+  s.source_files = 'MCPanelViewController/MCPanelViewController.{h,m}', 'MCPanelViewController/MCPanGestureRecognizer.{h,m}', 'MCPanelViewController/UIImage+ImageEffects.{h,m}'
+  s.public_header_files = 'MCPanelViewController/MCPanelViewController.h'
 end
