@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'Classes/*.{h,m}', 'Categories/*.{h,m}', 'Vendor/**/*.{c,h,m}', 'Include/*.h'
   s.resources     = "Resources/*"
+  s.compiler_flags = '-Wno-undeclared-selector'
 
   s.frameworks    = 'QuartzCore', 'SystemConfiguration'
 
