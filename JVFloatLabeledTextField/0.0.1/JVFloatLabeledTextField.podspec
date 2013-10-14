@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "Jared Verdi" => "jared@jaredverdi.com" }
   s.source       = { :git => "https://github.com/jverdi/JVFloatLabeledTextField.git", :tag => "0.0.1" }
   s.platform     = :ios
-  s.source_files = 'JVFloatLabeledField/JVFloatLabeledField/*.{h,m}'
+  s.source_files = 'JVFloatLabeledTextField/JVFloatLabeledTextField/*.{h,m}'
   s.frameworks   = 'Foundation', 'UIKit'
   s.requires_arc = true
 end
