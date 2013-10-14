@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
   END
   
-  s.preferred_dependency = 'Core'
+  s.default_subspec = 'Core'
 
   s.subspec 'no-arc' do |sp|
     sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
