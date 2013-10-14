@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   }
   s.dependency 'ReactiveCocoa', '~>2.1.1'
   s.dependency 'libextobjc', '~>0.3'
-  s.dependency 'BZGMailgunEmailValidation', '~>1.0.1'
   s.requires_arc = true
   s.platform = :ios, '5.0'
   s.source_files = 'BZGFormViewController/*.{h,m}'
