@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name      = 'InAppSettingsKit'
   s.version   = '2.0'
-  s.platform  = :ios
+  s.platform  = :ios, '5.0'
   s.summary   = 'This iPhone framework allows settings to be in-app in ' \
                 'addition to being in the Settings app.'
   s.homepage  = 'https://github.com/futuretap/InAppSettingsKit'
