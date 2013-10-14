@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.name     = 'Parsimmon'
   s.version  = '0.1.0'
   s.license  = { :type => 'MIT' }
-  s.homepage = 'http://wwww.parsimmon.com'
+  s.homepage = 'http://www.parsimmon.com'
   s.summary  = 'Linguistics toolkit for iOS'
   s.requires_arc = true
 
