@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RXCollections"
-  s.version      = "1.0"
+  s.version      = "1.2.1"
   s.summary      = "map, filter, fold, and detect for Cocoa collections."
   s.homepage     = "https://github.com/robrix/RXCollections"
   s.license      = 'BSD'
