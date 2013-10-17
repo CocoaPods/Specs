@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version             = "0.0.1"
   s.summary             = "Native SQL Server client for iOS."
   s.description         = "An Objective-C wrapper around the open-source FreeTDS library."
-  s.homepage            = "http://htmlpreview.github.io/?https://github.com/martinrybak/SQLClient/blob/0.0.1/SQLClient/SQLClientDocs/html/index.html"
+  s.homepage            = "https://github.com/martinrybak/SQLClient.git"
   s.license             = 'MIT'
   s.author              = { "Martin Rybak" => "martin.rybak@gmail.com" }
   s.platform            = :ios, '6.0'
