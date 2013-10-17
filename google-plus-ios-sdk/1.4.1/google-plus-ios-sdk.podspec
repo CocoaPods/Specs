@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author         = 'Google Inc.'
   s.source         = { :http => "https://developers.google.com/+/mobile/ios/sdk/google-plus-ios-sdk-1.4.1.zip" }
   s.platform       = :ios
-  s.vendored_frameworks = 'GoogleOpenSource.framework', 'GooglePlus.framework'
+  s.vendored_frameworks = 'google-plus-ios-sdk-1.4.1/GoogleOpenSource.framework', 'google-plus-ios-sdk-1.4.1/GooglePlus.framework'
   s.resource       = 'google-plus-ios-sdk-1.4.1/GooglePlus.bundle'
   s.framework      = 'Security', 'SystemConfiguration', 'GoogleOpenSource', 'GooglePlus', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'MediaPlayer', 'UIKit'
 end
