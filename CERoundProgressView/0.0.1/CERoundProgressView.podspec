@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/Ceroce/CERoundProgressView"
-  s.license      = 'BSD'
+  s.license      = { :type => 'MIT', :file => 'README.markdown' }
   s.author       = { "Renaud Pradenc" => "info@renaudpradenc.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/Ceroce/CERoundProgressView.git", :commit => "8282b0ef0ea82d55a0040336a93a5e7904bf6666" }
