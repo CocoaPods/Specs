@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
 
   
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/twobitlabs/AnalyticsKit.git", :tag => s.version.to_s }
 
   s.subspec 'Core' do |core|
