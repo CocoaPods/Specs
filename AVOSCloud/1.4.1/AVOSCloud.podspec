@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.name           = "AVOSCloud"
   s.summary        = "AVOS Cloud iOS SDK for mobile backend."
   s.homepage       = "http://avoscloud.com"
-  s.license        = 'AVOS Inc. License'
+  s.license        = 'MIT'
   s.author         = { "Zeng Zhu" => "zzhu@avos.com" }
   s.requires_arc   = true
 
