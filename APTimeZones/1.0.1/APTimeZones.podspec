@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
     'Serg Krivoblotsky' => 'sergey@alterplay.com'
   }
   s.source = {
-    :git => 'git@github.com:Alterplay/APTimeZones.git'
+    :git => 'https://github.com/Alterplay/APTimeZones.git',
+    :tag => '1.0.1'
   }
   s.source_files = 'APTimeZones/*.{h,m}'
   s.requires_arc = true
