@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = {:type => 'Commercial', :text => ""}
   s.author       = { "Plivo" => "hello@plivo.com" }
   s.platform     = :ios, '6.0'
-  s.source       = { :http => "http://kam.labhijau.net/PlivoSDK-0.3.tar.bz2" }
+  s.source       = { :http => "https://s3.amazonaws.com/plivosdk/ios/PlivoSDK-0.3.tar.bz2" }
   s.source_files = 'Headers'
   s.preserve_paths = 'Libraries/*.a'
   s.library = 'PlivoEndpoint'
