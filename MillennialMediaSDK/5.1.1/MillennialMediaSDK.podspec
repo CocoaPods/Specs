@@ -11,7 +11,7 @@ The Millennial Media iOS SDK provides functionality for showing ads and monetizi
   s.platform = :ios, '5.0'
 
   s.source = { :http => 'http://mmedia.com/assets/sdk-download/ios_511_sdk.zip' }
-  s.source_files  = 'iOS_5.1.1_SDK/MMSDK/*.{h,m}',
+  s.source_files  = 'iOS_5.1.1_SDK/MMSDK/*.h'
   s.preserve_paths = 'iOS_5.1.1_SDK/MMSDK/libMMSDK_5.1.1.a'
   s.library         = 'MMSDK_5.1.1'
   s.frameworks      = 'AudioToolbox', 'AVFoundation', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'Foundation' , 'MediaPlayer', 'MobileCoreServices', 'QuartzCore', 'Security', 'SystemConfiguration', 'UIKit'
