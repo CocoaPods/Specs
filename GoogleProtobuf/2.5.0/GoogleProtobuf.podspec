@@ -6,8 +6,12 @@ Pod::Spec.new do |s|
         :type => 'BSD',
         :file => 'COPYING.txt'
     }
-    s.summary  = "Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler."
+    s.summary  = "Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data."
     s.description = <<-DESC
+        Protocol buffers are Google's language-neutral, platform-neutral, 
+        extensible mechanism for serializing structured data – think XML, but 
+        smaller, faster, and simpler.
+
         Produces a stand-alone build of the Google Protocol Buffer library for
         use in iOS applications built with Xcode 5 and iOS 7.  A copy of the
         protoc compiler is also built and placed in the Pods/GoogleProtobuf folder.
