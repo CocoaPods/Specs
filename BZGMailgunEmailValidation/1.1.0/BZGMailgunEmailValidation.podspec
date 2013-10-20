@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/benzguo/BZGMailgunEmailValidation'
   s.author   = { 'Ben Guo' => 'benzguo@gmail.com' }
   s.source   = { :git => 'https://github.com/benzguo/BZGMailgunEmailValidation.git', :tag => '1.1.0'}
-  s.platform = :ios
+  s.platform = :ios, "3.0"
+  s.platform = :osx
   s.source_files = 'BZGMailgunEmailValidator.{h,m}'
 end
