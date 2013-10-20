@@ -12,5 +12,4 @@ Pod::Spec.new do |s|
   s.preserve_paths      = "NewRelic_iOS_Agent_#{s.version}/*.framework"  
   s.public_header_files = "NewRelic_iOS_Agent_#{s.version}/NewRelicAgent.framework/**/*.h"
   s.vendored_frameworks = "NewRelic_iOS_Agent_#{s.version}/NewRelicAgent.framework"
-  s.documentation 		= { :appledoc => ['--company-id', 'com.newrelic'] }
 end

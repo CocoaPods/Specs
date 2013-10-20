@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
   s.platform     	= :ios, '5.0'
   s.source       	= { :git => "https://github.com/Morgan-Kennedy/MKParallaxView.git", :tag => "1.1.0" }
   s.source_files  	= 'MKParallaxView/**/*.{h,m}'
-  s.framework  		= 'CoreMotion.framework'
+  s.framework  		= 'CoreMotion'
   s.requires_arc 	= true
 end
