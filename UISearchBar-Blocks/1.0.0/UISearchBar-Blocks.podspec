@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.platform     = :ios
   s.author       = { "Haakon bogen" => "hakon.bogen@gmail.com" }
-  s.source       = { :git => "https://github.com/hakonbogen/UITextField-Blocks.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/hakonbogen/UISearchBar-Blocks.git", :tag => "1.0.0" }
   s.source_files = 'UISearchBar-Blocks/UISearchBar+Blocks.{h,m}'
 end
