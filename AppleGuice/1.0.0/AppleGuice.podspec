@@ -8,10 +8,9 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://github.com/tomersh/AppleGuice'
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author       = { 'Tomer Shiri' => 'appleguice@shiri.info' }
-  s.platform     = :ios
-  s.ios.deployment_target = "5.0"
+  s.platform = :ios
   s.source       = { :git => 'https://github.com/tomersh/AppleGuice.git', :tag => 'v1.0.0' }
-  s.source_files  = 'AppleGuice', 'Bootstrapper'
+  s.source_files  = 'AppleGuice'
   s.preserve_paths = 'Bootstrapper/*', 'AppleGuicePreCompileBinder/*'
   s.requires_arc = false
 end
