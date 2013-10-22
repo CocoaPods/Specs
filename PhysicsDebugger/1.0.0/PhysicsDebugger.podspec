@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source_files = 'PhysicsDebugger/YMCPhysicsDebugger'
   s.source_files = 'Classes', 'PhysicsDebugger/YMCPhysicsDebugger/*.{h,m}'
+  s.frameworks = 'SpriteKit'
   s.requires_arc = true
 end
