@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Karl Stenerud" => "kstenerud@gmail.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/kstenerud/KSCrash.git", :commit => "a231b0c821e478efe0aedfdb61fa2c2576d927a4" }
-  s.source_files = 'KSCrash/KSCrash/*.{h,m,mm,c}'
-  # s.public_header_files = 'Classes/**/*.h'
-  s.frameworks = 'Foundation', 'SystemConfiguration'
+  s.source_files = 'KSCrash/KSCrash/*.{h,m,mm,c}'  
+  s.frameworks = 'Foundation', 'SystemConfiguration', 'MessageUI'
+  s.libraries = 'c++', 'z'
 end
