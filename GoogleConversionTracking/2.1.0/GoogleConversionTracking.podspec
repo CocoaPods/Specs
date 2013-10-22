@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'GoogleConversionTracking'
-  s.version = '1.2.0'
+  s.version = '2.1.0'
   
   s.summary = 'Google Conversion Tracking SDK for iOS.'
   s.description = 'If you\'d like to know which of your keywords best leads to clicks and conversions, such as sales, AdWords Conversion Tracking can help you.'
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   }
   s.author = 'Google Inc.'
 
-  s.source = { :http => 'https://github.com/ArtFeel/GoogleConversionTracking.git', :tag => '1.2.0' }
+  s.source = { :http => 'https://github.com/ArtFeel/GoogleConversionTracking.git', :tag => '2.1.0' }
   s.platform = :ios
 
   s.preserve_paths = '*.a'
