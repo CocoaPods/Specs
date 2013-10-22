@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   }
   s.author = 'Google Inc.'
 
-  s.source = { :http => 'https://github.com/ArtFeel/GoogleConversionTracking.git', :tag => '2.1.0' }
+  s.source = { :git => 'https://github.com/ArtFeel/GoogleConversionTracking.git', :tag => '2.1.0' }
   s.platform = :ios
 
   s.preserve_paths = '*.a'
