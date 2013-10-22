@@ -17,12 +17,16 @@ Pod::Spec.new do |s|
                   'and performances!'
 
   s.requires_arc = true
-  s.source_files = 'SDWebImage/{NS,SD,UI}*.{h,m}'
-  s.framework = 'ImageIO'
+  s.preferred_dependency = 'Core'
 
-  # TODO currently CocoaPods always tries to install the subspec even if the dependency is on just 'SDWebImage'
+  s.subspec 'Core' do |core|
+    core.source_files = 'SDWebImage/{NS,SD,UI}*.{h,m}'
+    core.framework = 'ImageIO'
+  end
+  
   s.subspec 'MapKit' do |mk|
     mk.source_files = 'SDWebImage/MKAnnotationView+WebCache.*'
     mk.framework = 'MapKit'
+    mk.ios.dependency 'SDWebImage/Core'
   end
 end

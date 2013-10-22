@@ -23,13 +23,8 @@ Pod::Spec.new do |s|
 
   # use a custom built version of sqlite3, with FTS4 enabled
   s.subspec 'standalone' do |ss|
-    ss.dependency 'sqlite3'
+    ss.dependency 'sqlite3/fts'
     ss.dependency 'FMDB/common'
-    ss.prefix_header_contents = '''
-#define SQLITE_ENABLE_FTS4
-#define SQLITE_ENABLE_FTS3_PARENTHESIS
-#define SQLITE_THREADSAFE 1
-'''
   end
 
 end

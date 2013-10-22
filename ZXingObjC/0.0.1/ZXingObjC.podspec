@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   DESC
   s.homepage     = "https://github.com/TheLevelUp/ZXingObjC"
 
-  s.license      = { :type => 'Apache 2.0', :file => 'COPYING' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.author = 'See https://github.com/TheLevelUp/ZXingObjC/blob/master/AUTHORS'
 
   s.source       = { :git => "https://github.com/TheLevelUp/ZXingObjC.git", :commit => '9f4cb0ae92f57a3d0da8ede9571e8233b4b8dcea' }

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'GDataXML-HTML'
   s.version      = '0.0.1'
-  s.license      = 'Apache License 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.summary      = 'HTML/XML parser for the iOS System, based on Google\'s '   \
                    'GDataXML.'
   s.author       = { 'Simon Grätzer' => 'http://graetzer.org/' }

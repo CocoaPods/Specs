@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/youknowone/FoundationExtension"
   s.license      = "2-clause BSD"
   s.author       = { "Jeong YunWon" => "jeong@youknowone.org" }
-  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "pod-0.20" }
+  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "0.20" }
   s.dependency "cdebug", "~> 0.1"
 
   s.subspec "FoundationExtension" do |ss|

@@ -53,5 +53,5 @@ CONFIG_H
   end
 
   s.source_files = "proj/src/*.{c,h}"
-
+  s.exclude_files = "**/proj.c", "**/nad2bin.c", "**/multistresstest.c", "**/geod.c", "**/cs2cs.c"
 end

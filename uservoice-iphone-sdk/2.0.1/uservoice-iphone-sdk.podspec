@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://www.uservoice.com/iphone"
 
   s.license      = {
-    :type => 'Apache 2.0',
+    :type => 'Apache License, Version 2.0',
     :text => <<-LICENSE
               Copyright 2010 UserVoice Inc.
 

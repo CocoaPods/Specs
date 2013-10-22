@@ -37,8 +37,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'AttributedLabel' do |label|
     label.source_files = 'src/attributedlabel/src'
-    label.framework    = 'CoreText'
-    label.framework    = 'CoreGraphics'
+    label.frameworks    = 'CoreText', 'CoreGraphics'
     label.dependency 'Nimbus/Core'
   end
 

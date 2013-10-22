@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
                       While creating an app which needed simple twitter interactions i found that all of the exisiting libraries used OOB signon. I also found that all the libraries looked different to the facebook login method. What i have done is using the code from the facebook-ios-sdk built something that behaves the same as the facebook-ios-sdk without using OOB login for oAuth. 
 
-                      The license is Apache 2.0, as i copied a lot of code from the facebook-ios-sdk. All of the copied code is in TwitterDialog.h/.m
+                      The license is Apache License, Version 2.0, as i copied a lot of code from the facebook-ios-sdk. All of the copied code is in TwitterDialog.h/.m
 
                       I also copied alot of code from https://github.com/jaanus/PlainOAuth as the basis of this project. 
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/doubleencore/unoffical-twitter-sdk"
 
-  s.license      = 'Apache 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = "Double Encore"
   s.source       = { :git => "https://github.com/doubleencore/unoffical-twitter-sdk.git", :commit => "f72311762d14d7cfabea12a7f5070238dbcc5dc9" }
 

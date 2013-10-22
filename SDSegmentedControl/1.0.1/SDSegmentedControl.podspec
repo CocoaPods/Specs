@@ -1,6 +1,3 @@
-#
-# Be sure to run `pod spec lint SDSegmentedControl.podspec' to ensure this is a
-# valid spec.
 Pod::Spec.new do |s|
   s.name         = "SDSegmentedControl"
   s.version      = "1.0.1"

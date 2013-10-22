@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "jre_emul"
   s.version      = "0.7.2"
-  s.license      = { :type => 'Apache 2.0', :file => 'COPYING' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.summary      = "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library."
   s.homepage     = "https://code.google.com/p/j2objc/"
   s.author       = "Google Inc."

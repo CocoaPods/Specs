@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
                     Maintenance of ODIN is administered by an ODIN Working Group (http://www.odinmobile.org) comprised of industry developers and service providers.
                    DESC
   s.homepage     = "http://code.google.com/p/odinmobile/"
-  s.license      = { :type => 'Apache License 2.0' }
+  s.license      = { :type => 'Apache License, Version 2.0' }
   s.license      = {
     :type => 'APACHE',
     :text => <<-LICENSE

@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod spec lint NetworkKit.podspec` to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "NetworkKit"
   s.version      = "1.0.0"
@@ -19,7 +11,6 @@ Pod::Spec.new do |s|
   s.source_files = 'NetworkKit', 'NetworkKit/**/*.{h,m}'
   s.resource  = "NetworkKit/**/NetworkKitStubs.plist"
   s.frameworks = 'CFNetwork.framework', 'SystemConfiguration.framework'
- # s.requires_arc = true
 
   s.subspec 'arc' do |a|
     a.source_files = 'NetworkKit/**/NetworkKit.{h,m}'

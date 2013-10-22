@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author              =  { 'Francis Chong' => 'francis@ignition.hk' }
   s.source              =  { :git => 'https://github.com/siuying/UniversalDetector.git', :tag => '1.0.0', :submodules => true }
 
-  s.source_files        =  'UniversalDetector/*.{h,m}', 'external/uchardet/src/*.{cpp,h,tab}', 'external/uchardet/src/tools/*.cpp'
+  s.source_files        =  'UniversalDetector/*.{h,m}', 'external/uchardet/src/*.{cpp,h,tab}'
   s.public_header_files =  'UniversalDetector/*.h', 'external/uchardet/src/uchardet.h'
   s.library             =  'stdc++'
 

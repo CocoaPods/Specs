@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'GTMHTTPFetcher'
   s.version  = '0.0.1'
   s.license      = {
-    :type => 'Apache 2.0',
+    :type => 'Apache License, Version 2.0',
     :text => <<-LICENSE
                 Copyright (c) 2011 Google Inc.
 
