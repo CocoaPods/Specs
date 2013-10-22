@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
 
   s.frameworks     = 'HockeySDK'
   s.resources      = 'HockeySDK-Mac/HockeySDK.framework'
-  s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/HockeySDK/HockeySDK-Mac"' }
+  s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/HockeySDK-Mac/HockeySDK-Mac"', 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/HockeySDK-Mac/HockeySDK-Mac/HockeySDK-framework/Headers"' }
 end
