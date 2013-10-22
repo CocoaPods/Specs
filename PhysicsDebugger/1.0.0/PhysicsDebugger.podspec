@@ -6,10 +6,10 @@ Pod::Spec.new do |s|
   s.homepage     = "http://www.ymc.ch/en/category/mobile-en"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Thomas Zinnbauer" => "thomas.zinnbauer@ymc.ch" }
-  s.source       = { :git => "https://github.com/ymc-thzi/physicsDebugger.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/ymc-thzi/PhysicsDebugger.git", :tag => "1.0.0" }
   s.platform     = :ios, '7.0'
-  s.source_files = 'PhysicsDebugger/YMCPhysicsDebugger'
-  s.source_files = 'Classes', 'PhysicsDebugger/YMCPhysicsDebugger/*.{h,m}'
+  s.ios.deployment_target = "7.0"
+  s.source_files = 'PhysicsDebugger/YMCPhysicsDebugger/*.{h,m}'
   s.frameworks = 'SpriteKit'
   s.requires_arc = true
 end
