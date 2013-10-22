@@ -17,7 +17,7 @@ s.author = {
 
 s.source = {
     :git => 'https://github.com/saru2020/SARAddressBookBackup.git',
-    :tag => s.version.to_s
+    :tag => 1.0.0
   }
 
   s.source_files = 'SARAddressBookBackup/*.{h,m}'                                         # 5
