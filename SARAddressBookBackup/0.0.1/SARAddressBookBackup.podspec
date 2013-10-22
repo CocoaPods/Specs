@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SARAddressBookBackup"
-  s.version      = “1.0.0”
+  s.version      = '1.0.0'
   s.summary      = 'An iOS library to backup the device contacts as .vcf file'
   s.description = 'An iOS library to take Backup of the device contacts as .vcf file.'
 
@@ -20,6 +20,6 @@ s.source = {
     :tag => s.version.to_s
   }
 
-  s.source_files = 'Classes', 'External/**/*.{h,m}'                                         # 5
+  s.source_files = 'SARAddressBookBackup/*.{h,m}'                                         # 5
 
 end
