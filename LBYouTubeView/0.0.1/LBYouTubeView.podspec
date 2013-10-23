@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A UIView subclass that displays YouTube videos using a MPMoviePlayerController.'
   s.homepage = 'https://github.com/larcus94/LBYouTubeView'
   s.author = 'Laurin Brandner'
-  s.source   = { :git => 'https://github.com/larcus94/LBYouTubeView.git', :commit => '6940a4d1c21a0ba8b056a2077d7362035c7e088f' }
+  s.source   = { :git => 'https://github.com/larcus94/LBYouTubeView.git', :commit => 'dd4bcfc19c15b02b5b23bb4f8f03eccb6b8f4052' }
   s.source_files = 'LBYouTubeView/**/*.{h,m}'
   s.requires_arc = true
   s.preserve_paths = ['Sample']
