@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { "Paymill GmbH" => "support@paymill.de" }
   s.source       = { :git => "https://github.com/paymill/paymill-ios.git", :tag => "1.0.2" }
   s.platform     = :ios, '5.0'
-  s.source_files = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/Headers/*.h'
   s.public_header_files = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework'
   s.requires_arc = true	
