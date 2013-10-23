@@ -10,6 +10,8 @@ Pod::Spec.new do |podspec|
   podspec.source = { :git => 'https://github.com/railsware/BloodMagic.git', :tag => "#{podspec.version}" }
   podspec.requires_arc = true
 
+  podspec.libraries = 'c++'
+
   podspec.subspec 'Core' do |core|
     core.source_files = 'BloodMagic/Sources/Modules/Core/**/*.{h,m,mm}'
   end
@@ -25,8 +27,8 @@ Pod::Spec.new do |podspec|
   end
 
   podspec.xcconfig = {
-    'OTHER_LDFLAGS' => '-lstdc++',
-    'CLANG_CXX_LIBRARY' => 'libstdc++'
+    'OTHER_LDFLAGS' => '-lc++ -ObjC',
+    'CLANG_CXX_LIBRARY' => 'libc++'
   }
 
 end
