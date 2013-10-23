@@ -9,8 +9,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/Headers/*.h'
   s.public_header_files = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/Headers/*.h'
-  s.preserve_paths = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/PayMillSDK'
+  s.preserve_paths = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework'
   s.requires_arc = true	
+  s.vendored_frameworks = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework'
   s.framework =  'Security'
+  s.resources    = 'samples/vouchermill/PayMillSDK/PayMillSDK.bundle'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 end
