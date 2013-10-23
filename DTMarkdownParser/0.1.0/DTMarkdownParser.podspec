@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.source_files = 'Core/Source/*.{h,m}'
   spec.requires_arc = true
   spec.homepage     = 'https://github.com/Cocoanetics/DTMarkdownParser'
-  spec.summary      = 'Methods to allow using HTML code with CoreText.'
+  spec.summary      = 'An event-based parser for markdown document.'
   spec.author       = { 'Oliver Drobnik' => 'oliver@cocoanetics.com' }
 end
 
