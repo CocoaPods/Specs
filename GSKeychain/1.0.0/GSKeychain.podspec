@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform            = :ios, '5.1'
   s.source              = { :git => "https://github.com/goosoftware/GSKeychain.git", :tag => "1.0.0" }
   s.source_files        = 'GSKeychain/*.{h,m}'
+  s.framework           = 'Security'
   s.requires_arc        = true
 end
