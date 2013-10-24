@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "HOURecursiveDescription"
   s.version      = "0.0.2"
-  s.summary      = "[UIView recursiveDescription2] traces view-viewcontroller-tree with ivar name-matching, +[UIApplication recursiveDescription2] traces your entire keyWindow; improves [UIImage, UIImageView description]"
+  s.summary      = "[UIView recursiveDescription2] traces view & controller tree with ivar name-matching, try po [UIApplication recursiveDescription2]"
 
   s.homepage     = "https://github.com/hannesoid/HOURecursiveDescription"
   s.license      = s.license = {
