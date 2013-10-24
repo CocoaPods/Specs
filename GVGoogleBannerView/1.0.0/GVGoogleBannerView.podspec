@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "GVGoogleBannerView"
   s.version      = "1.0.0"
   s.summary      = "Google-AdMob-Ads-SDK banners in interface builder with handy delegate callbacks."
-  s.homepage     = "https://github.com/gangverk/AdMarvelContainer"
+  s.homepage     = "https://github.com/gangverk/GVGoogleBannerView"
   s.license      = 'MIT'
   s.author       = { "Kevin Renskers" => "info@mixedcase.nl" }
   s.source       = { :git => "https://github.com/gangverk/GVGoogleBannerView.git", :tag => s.version.to_s }
