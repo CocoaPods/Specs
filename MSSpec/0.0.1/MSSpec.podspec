@@ -28,23 +28,24 @@ A series of macros also make using Objection much easier:
   s.dependency 'Objection', '~> 1.2'
   s.dependency 'libextobjc', '~> 0.3'
 
-  s.subspec 'App' do |s|
-	  s.source_files  = 'MSSpec/Classes/App/*.{h,m}'
-	  s.public_header_files = 'MSSpec/Classes/MSInjection.h'
+  s.subspec 'App' do |app|
+	  app.source_files  = 'MSSpec/Classes/App/*.{h,m}'
+	  app.public_header_files = 'MSSpec/Classes/MSInjection.h'
   end
 
-  s.subspec 'Tests' do |s|
-    s.dependency 'Kiwi/XCTest', '~> 2.x'	 
-    s.dependency 'MSSpec/App'
+  s.subspec 'Tests' do |tests|
+	tests.dependency 'Kiwi/XCTest', '~> 2.x'	 
+	tests.dependency 'MSSpec/App'
 
-	s.framework = 'XCTest'
-	
-	s.source_files = 'MSSpec/Classes/Tests/*.{h,m}'
-	s.public_header_files = 'MSSpec/Classes/Tests/MSSpec.h'
+	tests.framework = 'XCTest'
 
-	s.prefix_header_contents = <<-EOS
+	tests.source_files = 'MSSpec/Classes/Tests/*.{h,m}'
+	tests.public_header_files = 'MSSpec/Classes/Tests/MSSpec.h'
+
+	tests.prefix_header_contents = <<-EOS
 #import <XCTest/XCTest.h>
 #import <MSSpec/MSSpec.h>
 EOS
   end
+
 end
