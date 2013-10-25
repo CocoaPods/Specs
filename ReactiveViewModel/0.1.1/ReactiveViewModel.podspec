@@ -13,7 +13,12 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.8'
   s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveViewModel.git", :tag => "#{s.version}" }
-  s.source_files = 'ReactiveViewModel/ReactiveViewModel.h', 'ReactiveViewModel/ReactiveViewModel.m'
+  s.source_files = 'ReactiveViewModel/*.{h,m}'
   s.requires_arc = true
   s.dependency   'ReactiveCocoa', '2.1.4'
+  s.prepare_command = <<-'END'
+    find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
+    find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
+    find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
+  END
 end
