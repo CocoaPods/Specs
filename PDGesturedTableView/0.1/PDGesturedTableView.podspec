@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.github.com/Dromaguirre/PDGesturedTableView/master/Screenshots/github-pdgesturedtableview-1.png"
   s.license      = 'Public Domain'
   s.author       = { "David Román" => "dromaguirre@gmail.com" }
-  s.platform     = :ios, '6.0'
+  s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/Dromaguirre/PDGesturedTableView.git", :tag => "0.1" }
   s.source_files = 'PDGesturedTableView.{h,m}'
   s.framework    = 'UIKit'
