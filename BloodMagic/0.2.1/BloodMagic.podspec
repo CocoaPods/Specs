@@ -13,16 +13,19 @@ Pod::Spec.new do |podspec|
 
   podspec.subspec 'Core' do |core|
     core.source_files = 'BloodMagic/Sources/Modules/Core/**/*.{h,m,mm}'
+    core.public_header_files = 'BloodMagic/Sources/Modules/Core/Public/**/*.h', 'BloodMagic/Sources/Modules/Core/Core.h'
     core.libraries = 'c++'
   end
 
   podspec.subspec 'Initializers' do |initializers|
     initializers.source_files = 'BloodMagic/Sources/Modules/Initializers/**/*.{h,m,mm}'
+    initializers.public_header_files = 'BloodMagic/Sources/Modules/Initializers/Public/**/*.h', 'BloodMagic/Sources/Modules/Initializers/Initializers.h'
     initializers.dependency 'BloodMagic/Core'
   end
 
   podspec.subspec 'Lazy' do |lazy|
     lazy.source_files = 'BloodMagic/Sources/Modules/Lazy/**/*.{h,m,mm}'
+    lazy.public_header_files = 'BloodMagic/Sources/Modules/Lazy/Public/**/*.h', 'BloodMagic/Sources/Modules/Lazy/Lazy*.h'
     lazy.dependency 'BloodMagic/Initializers'
   end
 
