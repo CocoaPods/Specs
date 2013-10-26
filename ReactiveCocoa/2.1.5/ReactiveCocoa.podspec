@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ReactiveCocoa"
-  s.version      = "2.1.3"
+  s.version      = "2.1.5"
   s.summary      = "A framework for composing and transforming streams of values."
   s.homepage     = "https://github.com/blog/1107-reactivecocoa-is-now-open-source"
   s.author       = { "Josh Abernathy" => "josh@github.com" }
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
     sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
     sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
     sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText}*'
-    sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionViewCell,UIControl,UIDatePicker,UIGestureRecognizer,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UIText}*'
+    sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionViewCell,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UIText}*'
     sp.header_dir = 'ReactiveCocoa'
   end
 end
