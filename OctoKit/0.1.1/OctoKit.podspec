@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "5.0"
   s.osx.deployment_target = "10.7"
  
-  s.dependency   "AFNetworking"
-  s.dependency   "ISO8601DateFormatter"
-  s.dependency   "Mantle"
-  s.dependency   "ReactiveCocoa"
-  s.dependency   'libextobjc/EXTKeyPathCoding'
+  s.dependency   "AFNetworking", "~> 1.3.3"
+  s.dependency   "ISO8601DateFormatter", "~> 0.7.0"
+  s.dependency   "Mantle", "~> 1.3.1"
+  s.dependency   "ReactiveCocoa", "~> 2.1.4"
+  s.dependency   "libextobjc/EXTKeyPathCoding", "~> 0.3.0"
 end
