@@ -77,6 +77,10 @@ Pod::Spec.new do |s|
           globalization.dependency 'Cordova/Base'
           globalization.dependency 'CordovaPlugin-globalization'
       end
+
+      p.subspec 'InAppBrowser' do |iab|
+          iab.dependency 'CordovaPlugin-inappbrowser'
+      end
       
       p.subspec 'MediaCapture' do |media_capture|
           media_capture.dependency 'Cordova/Base'
