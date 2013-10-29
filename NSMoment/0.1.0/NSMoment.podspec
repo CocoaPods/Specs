@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.authors      = { "Yannick Loriot" => "http://yannickloriot.com" }
   s.source       = { :git => "https://github.com/YannickL/NSMoment.git",
                      :tag => "0.1.0" }
-  s.source_files = 'NSMoment/**'
+  s.source_files = 'NSMoment/**/*.*’
   s.requires_arc = true
 end
