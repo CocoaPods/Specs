@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'default'
   # target Pods-GDRealtime need this
   s.header_mappings_dir = 'Classes/generated/include'
-#  s.resources = 'Resources/**'
+  # s.resources = 'Resources/**'
 
   s.subspec 'default' do |d|
     d.ios.source_files = 'Classes/ios'
@@ -34,8 +34,8 @@ Pod::Spec.new do |s|
     
     gen.subspec 'elemental' do |elemental|
       elemental.source_files = 'Classes/generated/elemental/**/*.m'
-      elemental.dependency 'jre_emul', '0.8.6.1'
-      elemental.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/jre_emul/dist/include"' }
+      elemental.dependency 'J2ObjC', '0.8.6.1'
+      elemental.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/J2ObjC/dist/include"' }
     end
 
     gen.subspec 'operation' do |operation|
