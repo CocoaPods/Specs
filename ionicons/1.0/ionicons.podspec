@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ionicons"
   s.version      = "1.0"
-  s.summary      = "ionicons-iOS allows you to easily use ionicons icons in native SDK iOS projects."
+  s.summary      = "ionicons-iOS allows you to easily use ionicons in your native SDK iOS projects."
   s.homepage     = "https://github.com/TapTemplate/ionicons-iOS"
   s.license      = { :type => 'MIT', :file => 'ionicons/LICENSE' }
   s.author       = { "David Sweetman" => "david@davidsweetman.com" }
