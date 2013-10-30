@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.framework    = 'XCTest'
 
   s.source_files = 'FBSnapshotTestCase.*', 'FBTestSnapshotController.*'
-  s.prefix_header_contents = <<-PREPROCESSOR
-    #define FB_REFERENCE_IMAGE_DIR = "$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages"
-  PREPROCESSOR
+
+  fb_def = 'FB_REFERENCE_IMAGE_DIR'
+  fb_val = '"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages"'
+  s.prefix_header_contents = "#define #{fb_def} = #{fb_val}"
 end
