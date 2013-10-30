@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Adrián González" => "bernardogzzf@gmail.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/IcaliaLabs/ILRemoteSearchBar.git", tag: '0.0.1' }
+  s.source       = { :git => "https://github.com/IcaliaLabs/ILRemoteSearchBar.git", :tag => '0.0.1' }
 
   s.source_files  = 'ILRemoteSearchBar/*.{h,m}'
   s.requires_arc = true
