@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/dhemery/igor"
   s.author = { "Dale Emery" => "dale@dhemery.com"}
 
-  s.source = { :git => "https://github.com/dhemery/igor.git", :tag => "0.5.0" }
+  s.source = { :git => "https://github.com/dhemery/igor.git", :tag => "igor-1.0" }
   s.platform = :ios, '6.0'
   s.source_files = 'igor/**/*.{h,m}'
   s.exclude_files = 'igor/engine/DEIgorSelfRegisteringSelectorEngine.m'
