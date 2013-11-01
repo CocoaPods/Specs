@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE'}
   s.author       = "Marin Todorov"
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/icanzilb/MTTestSemaphore.git", :commit => "802d2e677c7637be933e6510cde80127e3fc54d0" }
+  s.source       = { :git => "https://github.com/icanzilb/MTTestSemaphore.git", :commit => "9e461b9e1fe996015d71a0b99fc0578936284ba5" }
   s.source_files = 'MTTestSemaphore/MTTestSemaphor.{h,m}'
   s.requires_arc = true
 end
