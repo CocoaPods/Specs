@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     :commit => '024f760638cdce0a0211c833982ffd346e069fec',
     :submodules => 'true' 
   }
-  s.source_files = ['Modules/ITProgressIndicator/ITProgressIndicator/Classes/*{h,m}', 'Modules/NSBKeyframeAnimation/NSBKeyframeAnimation/Classes/NSBKeyframeAnimation/*{h,m}', 'ITPullToRefreshScrollView/Classes/*{h,m}']
+  s.source_files = ['Modules/ITProgressIndicator/ITProgressIndicator/Classes/*{h,m}', 'Modules/NSBKeyframeAnimation/NSBKeyframeAnimation/Classes/NSBKeyframeAnimation/**', 'ITPullToRefreshScrollView/Classes/*{h,m}']
   s.requires_arc = true
   s.homepage = 'https://github.com/iluuu1994/ITPullToRefreshScrollView'
 end
