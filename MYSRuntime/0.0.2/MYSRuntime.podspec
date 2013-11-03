@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Adam Kirk" => "adam@mysterioustrousers.com" }
   s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
+  s.osx.deployment_target = '10.6'
   s.source       = { :git => "https://github.com/mysterioustrousers/MYSRuntime.git", :tag => "#{s.version}" }
   s.source_files  = 'MYSRuntime/*.{h,m}'
   s.framework     = 'Foundation'
