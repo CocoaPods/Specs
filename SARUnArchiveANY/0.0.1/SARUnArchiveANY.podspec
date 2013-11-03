@@ -20,6 +20,8 @@ s.source = {
     :tag => s.version.to_s
   }
 
-  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp,c,mm}', 'Frameworks/*.framework'
+  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp,c,mm}'
+
+  s.vendored_frameworks = 'Unrar4iOS.framework'
 
 end
