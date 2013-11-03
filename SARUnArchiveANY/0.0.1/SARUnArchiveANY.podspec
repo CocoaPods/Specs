@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.license  = { :type => 'Custom', :text => 'Copyright (C) 2010 Apple Inc. All Rights Reserved.' }
 
-  s.platform     = :ios
+  s.platform     = :ios, '5.0'
 
 s.author = {
     'Saravanan' => 'saru2020@gmail.com'
@@ -20,6 +20,6 @@ s.source = {
     :tag => s.version.to_s
   }
 
-  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp}'                                         # 5
+  s.source_files = 'SARUnArchiveANY/*.{h,m,hpp}', 'External/**/*.{h,m,hpp,c,mm}', 'Frameworks/*.framework'
 
 end
