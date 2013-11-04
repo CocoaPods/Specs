@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'fontdiao/ios/FontDiao/*.{h,m}'
   s.resource  = 'fontdiao/ios/FontDiao/FDAssets/fontdiao.ttf'
   s.requires_arc = true
-  s.frameworks   = 'QuartzCore'
+  s.frameworks   = 'QuartzCore', 'UIKit', 'CoreGraphics'
 end
