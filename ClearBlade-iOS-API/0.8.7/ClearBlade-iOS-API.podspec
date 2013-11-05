@@ -1,5 +1,4 @@
-
-d::Spec.new do |s|
+Pod::Spec.new do |s|
 
   s.platform     = :osx
   s.platform     = :ios
