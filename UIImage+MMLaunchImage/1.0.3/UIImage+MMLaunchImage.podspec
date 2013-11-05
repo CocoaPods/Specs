@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UIImage+MMLaunchImage"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Returns the current launch image 'Default.png' for an iOS app, depending on OS version, device and orientation."
 
   s.description  = <<-DESC
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = 'Matt Mayer'
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/matthewmayer/MMLaunchImage.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/matthewmayer/MMLaunchImage.git", :tag => "1.0.3" }
   s.source_files  = '*.{h,m}'
   s.requires_arc = true
 
