@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "Vkontakte-iOS-SDK-LV"
+  s.name         = "Vkontakte-iOS-SDK-v2"
   s.version      = "3.2.1"
   s.summary      = "Powerful & flexible Vkontakte iOS SDK"
   s.homepage     = "https://github.com/AndrewShmig/Vkontakte-iOS-SDK-LV"
