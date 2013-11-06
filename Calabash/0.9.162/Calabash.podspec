@@ -22,7 +22,7 @@ this software.'
 			tar xzf data.tar.gz
 			unzip staticlib/calabash.framework.zip
                    CMD
-  s.preserve_paths = 'calabash.framework/'
+  s.preserve_paths = 'calabash.framework'
   s.source_files = 'calabash.framework/Versions/A/Headers/*'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Calabash/calabash.framework/calabash" -lstdc++' } 
   s.framework = 'CFNetwork'
