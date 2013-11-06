@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.source_files = 'MobPartneriOSPublisherSDK.framework/Versions/A/Headers/*.{h}'
   s.resources    = 'MobPartneriOSPublisherSDK.bundle'
   s.frameworks   = 'QuartzCore', 'CoreFoundation', 'UIKit', 'MobPartneriOSPublisherSDK'
+  s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/MobPartneriOSPublisherSDK/"' }
   s.requires_arc = true
   s.preserve_paths =  'MobPartneriOSPublisherSDK.framework', 'MobPartneriOSPublisherSDK.bundle'
 
