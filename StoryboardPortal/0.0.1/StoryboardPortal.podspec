@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Daniel Dyba" => "daniel.dyba@gmail.com" }
   s.platform     = :ios
-  s.source       = { :git => "http://github.com/pennymac/StoryboardPortal.git", :tag => "0.0.1" }
-  s.source_files  = 'StoryboardPortal/**/*.{h,m}'
-  s.framework  = 'UIKit'
+  s.source       = { git: "https://github.com/pennymac/StoryboardPortal.git", tag: "0.0.1" }
+  s.source_files = 'StoryboardPortal/**/*.{h,m}'
+  s.framework    = 'UIKit'
   s.requires_arc = true
 end
