@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'PNChartDemo/PNChart/*.{h,m}'
   s.public_header_files = 'PNChartDemo/PNChart/*.h'
-  s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation'
+  s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'QuartzCore'
   s.requires_arc = true
 end
