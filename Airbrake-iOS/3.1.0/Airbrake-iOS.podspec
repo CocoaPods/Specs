@@ -50,7 +50,6 @@ Pod::Spec.new do |s|
 
 LICENSE
 }  
-  s.platform     = :ios
   s.source       = { :git => "https://github.com/airbrake/airbrake-ios.git", :tag => "3.1.0" }
   s.source_files = 'Airbrake/{notifier,gcalertview}/*.{h,m}'
   s.resources    = "Airbrake/notifier/*.lproj"
