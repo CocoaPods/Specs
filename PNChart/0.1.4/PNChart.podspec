@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PNChart"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "A simple and beautiful chart lib with animation used in Piner for iOS"
 
   s.homepage     = "https://github.com/kevinzhow/PNChart"
@@ -17,5 +17,4 @@ Pod::Spec.new do |s|
   s.public_header_files = 'PNChartDemo/PNChart/*.h'
   s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'QuartzCore'
   s.requires_arc = true
-  s.prefix_header_contents = "#import <Foundation/Foundation.h>"
 end
