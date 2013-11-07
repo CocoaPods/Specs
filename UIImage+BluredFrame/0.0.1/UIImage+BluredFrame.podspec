@@ -10,13 +10,9 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/Adrian2112/UIImage-BluredFrame"
   s.license      = 'MIT'
-
   s.author       = { "Adrian Gonzalez" => "bernardogzzf@gmail.com" }
-
   s.platform     = :ios, '7.0'
-
   s.source       = { :git => "https://github.com/Adrian2112/UIImage-BluredFrame.git", :tag => "0.0.1" }
-
   s.source_files  = '*.{h,m}'
 
 end
