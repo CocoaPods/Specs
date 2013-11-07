@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'PNChartDemo/PNChart/*.h'
   s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'QuartzCore'
   s.requires_arc = true
+  s.prefix_header_contents = "#import <Foundation/Foundation.h>"
 end
