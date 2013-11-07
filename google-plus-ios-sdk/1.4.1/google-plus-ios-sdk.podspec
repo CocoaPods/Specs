@@ -11,10 +11,7 @@ Pod::Spec.new do |s|
   s.author         = 'Google Inc.'
   s.source         = { :http => "https://developers.google.com/+/mobile/ios/sdk/google-plus-ios-sdk-1.4.1.zip" }
   s.platform       = :ios
-  s.source_files = 'google-plus-ios-sdk-1.4.1/GoogleOpenSource.framework/Versions/A/Headers/*.h', 'google-plus-ios-sdk-1.4.1/GooglePlus.framework/Versions/A/Headers/*.h'
-  s.public_header_files = 'google-plus-ios-sdk-1.4.1/GoogleOpenSource.framework/Versions/A/Headers/GoogleOpenSource.h', 'google-plus-ios-sdk-1.4.1/GooglePlus.framework/Versions/A/Headers/GooglePlus.h'
-  s.preserve_paths = 'google-plus-ios-sdk-1.4.1/GoogleOpenSource.framework', 'google-plus-ios-sdk-1.4.1/GooglePlus.framework'
+  s.vendored_frameworks = 'google-plus-ios-sdk-1.4.1/GoogleOpenSource.framework', 'google-plus-ios-sdk-1.4.1/GooglePlus.framework'
   s.resource       = 'google-plus-ios-sdk-1.4.1/GooglePlus.bundle'
   s.framework      = 'Security', 'SystemConfiguration', 'GoogleOpenSource', 'GooglePlus', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'MediaPlayer', 'UIKit'
-  s.xcconfig       =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/google-plus-ios-sdk/google-plus-ios-sdk-1.4.1"' }
 end
