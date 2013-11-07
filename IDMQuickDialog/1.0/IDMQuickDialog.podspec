@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name          =  'IDMQuickDialog'
   s.summary       =  'Quick and easy dialog screens for iOS.'
   s.version       =  '1.0'
-  s.platform      =  :ios, '5.0'
+  s.platform      =  :ios, '7.0'
   s.license       =  'Apache License, Version 2.0'
   s.homepage      =  "https://github.com/ideaismobile/IDMQuickDialog"
   s.author        =  { "Ideais Mobile" => "mobile@ideais.com.br" }
