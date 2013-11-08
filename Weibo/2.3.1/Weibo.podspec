@@ -8,11 +8,6 @@ Pod::Spec.new do |s|
                        Copyright © 1996-2013 SINA Corporation, All Rights Reserverd.
                      LICENSE
   }
-  spec.license = { :type => 'MIT', :text => <<-LICENSE
-                   Copyright 2012
-                   Permission is granted to...
-                 LICENSE
-               }
   s.author       = { "mobileresearch" => "sdk4wb@sina.cn" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/mobileresearch/weibo_ios_sdk_sso-oauth.git",
