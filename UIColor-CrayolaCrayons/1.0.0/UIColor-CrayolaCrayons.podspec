@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "UIColor-CrayolaCrayons"
   s.version      = "1.0.0"
-  s.summary      = "OUIColor category for Crayola crayon colors"
+  s.summary      = "UIColor category for Crayola crayon colors"
 
   s.description  = <<-DESC
                    UIColot+Crayola
