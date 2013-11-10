@@ -11,5 +11,7 @@ Pod::Spec.new do |s|
   s.frameworks   = 'OpenGLES', 'QuartzCore'
   s.resources    = 'XBPageCurl/Resources/*.glsl'
   s.requires_arc = true
+  
+  s.ios.deployment_target = '5.0'
 
 end
