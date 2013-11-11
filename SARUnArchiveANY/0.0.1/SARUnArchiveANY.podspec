@@ -23,7 +23,7 @@ s.source = {
   s.source_files = 'SARUnArchiveANY/SARUnArchiveANY.{h,m}'
 
   s.subspec 'LZMASDK' do |ss|
-    ss.source_files = 'External/LZMASDK/*.{h,c}'
+    ss.source_files = 'External/LZMASDK/*.{h,c,m}', 'External/LZMASDK/Util/7z/*.{h,c}'
   end
 
   s.subspec 'Unrar' do |ss|
