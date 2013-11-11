@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/Alterplay/APTimeZones.git',
     :tag => '1.1'
   }
-  s.source_files = 'APTimeZones/*.{h,m}'
+  s.source_files = 'APTimeZones'
   s.requires_arc = true
   s.frameworks   = 'CoreLocation'
   s.resources = 'APTimeZones/timezonesDB.json'
