@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.frameworks =  'UIKit', 'Foundation', 'CoreGraphics', 'AddressBook', 'CoreData', 'QuartzCore', 'CoreLocation', 'MapKit', 'MediaPlayer', 'CoreFoundation', 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'Security', 'AdSupport'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '/usr/include/libxml2', 'OTHER_LDFLAGS' => '-ObjC -all_load -lxml2 -licucore -lz -weak_library /usr/lib/libstdc++.dylib' } 
-  
+
 
   s.dependency 'TouchXML'
   s.dependency 'RegexKitLite'
@@ -125,6 +125,19 @@ Pod::Spec.new do |s|
     al.dependency 'AppCoreKit/Location'
     al.dependency 'AppCoreKit/Mock'
     al.dependency 'AppCoreKit/UI'
+  end
+
+  s.preserve_path = "Documentation/CodeSnippets/*", "Documentation/File Templates/*"
+  
+  s.pre_install do |pod, target_definition|
+      `echo "Installing AppCoreKit Templates and Code Snipets"`
+      `sudo mkdir -p "$HOME/Library/Developer/Xcode/Templates/File Templates/"`
+      `sudo mkdir -p "$HOME/Library/Developer/Xcode/UserData/CodeSnippets/"`
+
+      Dir.chdir(pod.root){ 
+        `sudo cp -rf "Documentation/File Templates/" "$HOME/Library/Developer/Xcode/Templates/File Templates/"`
+        `sudo cp -rf "Documentation/CodeSnippets/" "$HOME/Library/Developer/Xcode/UserData/CodeSnippets/"`
+      }
   end
 
 end
