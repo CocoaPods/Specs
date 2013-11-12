@@ -44,6 +44,7 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-fno-objc-arc'
 
   s.weak_frameworks = 'AdSupport'
+  s.frameworks = 'SystemConfiguration'
   s.libraries   = 'z', 'sqlite3'
 
 end
