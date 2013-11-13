@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PayMillSDK'
-  s.version      = ‘1.0.3’
+  s.version      = '1.0.3'
   s.summary      = "PAYMILL iOS SDK enables processing of payments for iOS applications. Visit http://www.paymill.com for more information."
   s.homepage     = "https://www.paymill.com/en-gb/documentation-3/reference/mobile-sdk/"
   s.license      = 'Commercial, :file => License.md'
