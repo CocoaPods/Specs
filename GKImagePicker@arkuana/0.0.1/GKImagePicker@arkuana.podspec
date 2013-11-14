@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license        =  'MIT'
   s.platform       =  :ios, '7.0'
   s.summary        =  'Image Picker with support for custom crop areas.'
-  s.description    =  'A fork of GKImagePicker (0.0.1) updated for iOS 7, that also takes care of the default sources.'
+  s.description    =  'A fork of GKImagePicker (0.0.1) updated for iOS 7 that also takes care of the default sources.'
   s.homepage       =  'https://github.com/arkuana/AKImagePicker'
   s.author         =  { 'Georg Kitz' => 'info@aurora-apps.com', 'Ahmed Khalaf' => 'ahmed@arkuana.co' }
   s.source         =  { :git => 'https://github.com/arkuana/GKImagePicker.git', :tag => s.version.to_s }
