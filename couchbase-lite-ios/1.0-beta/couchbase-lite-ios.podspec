@@ -3,13 +3,13 @@ Pod::Spec.new do |s|
   s.version      = "1.0-beta"
   s.summary      = "Couchbase Lite is an embedded lightweight, document-oriented (NoSQL), syncable database engine."
   s.homepage     = "http://www.couchbase.com/communities/couchbase-lite"
-  s.license      = { :type => 'Apache License, Version 2.0' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE.txt' }
   s.author       = { "Jens Alfke" => "jens@couchbase.com" }
   s.platform     = :ios, '6.0'
   s.source       = { :http => "http://packages.couchbase.com/releases/couchbase-lite/ios/1.0-beta/couchbase-lite-community-ios_1.0-beta.zip" }
 
-  s.preserve_paths = "*.framework"
-  s.vendored_frameworks = "CouchbaseLite.framework"
+  s.preserve_paths = "*.framework", "LICENSE.txt"
+  s.vendored_frameworks = "CouchbaseLite.framework", "CouchbaseLiteListener.framework"
   s.public_header_files = "**/*.h"
   s.library   = 'sqlite3'
 
