@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Veelian/MINavigationController"
   s.license      = 'MIT'
   s.author       = { "WangLin" => "wanglin4ios@gmail.com" }
-  s.platform     = :ios, '6.1'
+  s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/Veelian/MINavigationController.git", :tag => "#{s.version}" }
   s.source_files  = '*.{h,m}'
   s.exclude_files = 'example'
