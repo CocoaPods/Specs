@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.github.com/MosheBerman/MBCalendarKit/master/screens/month.png", "https://raw.github.com/MosheBerman/MBCalendarKit/master/screens/week.png"
   s.author       = { "Moshe Berman" => "moshberm@gmail.com" }
   s.license 	 = 'MIT'
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/MosheBerman/MBCalendarKit.git", :tag => "1.0.1"} 
-  s.source_files  = 'Classes', 'MBCalendarKit/CalendarKit/*.{h,m}'
+  s.source_files  = 'Classes', 'MBCalendarKit/CalendarKit/**.{h,m}'
   s.frameworks = 'QuartzCore', 'AnotherFramework'
   s.requires_arc = true
 end

@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.framework  = 'CoreData'
   s.requires_arc = true
 
-  s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '4.0'
+  s.osx.deployment_target = '10.6'
 
   s.dependency 'ObjectiveSugar'
 end
