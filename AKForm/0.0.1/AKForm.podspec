@@ -29,6 +29,8 @@ Pod::Spec.new do |s|
  
   s.requires_arc = true
 
+  s.framework = 'QuartzCore'
+  
   s.dependency 'HexColors'
   s.dependency 'UIImage-Resize'
   s.dependency 'NSDate+Helper'
