@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
 
-  s.source_files = 'GoogleAnalytics/Library/*.h'
+  s.source_files = 'GoogleAnalytics/Library/*.h', 'GoogleTagManager/Library/*.h'
   s.preserve_paths = 'libGoogleAnalyticsServices.a'
 
   s.frameworks = 'CFNetwork', 'CoreData', 'SystemConfiguration'
