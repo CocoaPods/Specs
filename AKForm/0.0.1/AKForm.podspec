@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
  
   s.requires_arc = true
 
-  s.framework = 'QuartzCore'
+  s.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
   
   s.dependency 'HexColors'
   s.dependency 'UIImage-Resize'
