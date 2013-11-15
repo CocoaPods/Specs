@@ -16,7 +16,7 @@ s.source_files      = "UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/Header/*.h","UMSoci
 s.resources         = "UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/UMSocialSDKResourcesNew.bundle","UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/SocialSDKXib/*.xib","UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/{en,zh-Hans}.lproj"
 s.preserve_paths    = "UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/libUMSocial_Sdk_3.1.a","UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/libUMSocial_Sdk_Comment_3.1.a","UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/frameworks/Wechat/libWeChatSDK.a","UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/frameworks/TencentOpenAPI/TencentOpenAPI.framework"
 s.library           = "UMSocial_Sdk_3.1","UMSocial_Sdk_Comment_3.1","WeChatSDK","z","sqlite3","stdc++","iconv"
-s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/**",'FRAMEWORK_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/frameworks/TencentOpenAPI/"}
+s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UMengSocial/UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/**",'FRAMEWORK_SEARCH_PATHS' =>"$(PODS_ROOT)/UMengSocial/UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/frameworks/TencentOpenAPI/"}
 s.framework         = "SystemConfiguration","MobileCoreServices","TencentOpenAPI","CoreGraphics","CoreTelephony"
 s.platform          = :ios,'4.3'
 end
