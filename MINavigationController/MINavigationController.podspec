@@ -1,4 +1,5 @@
 Pod::Spec.new do |s|
+
   s.name         = "MINavigationController"
   s.version      = "0.1.0"
   s.summary   = "An UINaviagtionController subclass to easily implement *push* and *pop* actions with neat animation."
@@ -8,10 +9,11 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Veelian/MINavigationController"
   s.license      = 'MIT'
   s.author       = { "WangLin" => "wanglin4ios@gmail.com" }
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '6.1'
   s.source       = { :git => "https://github.com/Veelian/MINavigationController.git", :tag => "0.1.0" }
   s.source_files  = '*.{h,m}'
   s.exclude_files = 'example'
   s.requires_arc = true
   s.frameworks = 'QuartzCore'
+
 end
