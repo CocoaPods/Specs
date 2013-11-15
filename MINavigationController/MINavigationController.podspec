@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files  = '*.{h,m}'
   s.exclude_files = 'example'
   s.requires_arc = true
+  s.frameworks = 'QuartzCore'
 end
