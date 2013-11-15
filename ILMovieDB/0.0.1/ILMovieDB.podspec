@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/WatchApp/ILMovieDB'
   s.authors  = { 'Gustavo Leguizamon' => 'gustavo@irbislab.com' }
   s.source   = { :git => 'https://github.com/WatchApp/ILMovieDB.git', :tag => '0.0.1' }
-  s.source_files = 'ILMovieDB'
+  s.source_files = 'ILTMDb'
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 1.3.0'
 
