@@ -43,5 +43,5 @@ end
 #
 # Renaming the files mitigates this issue. If you need to use libextobjc in your projects, add the pod to your Podfile. **Do not use the bundled version of libextobjc that comes with ReactiveCocoa.**
 # 
-# For more information about this issue, please contact @tonyarnold or @swizzlr.
+# For more information about this issue, please contact @tonyarnold
 #=end=
