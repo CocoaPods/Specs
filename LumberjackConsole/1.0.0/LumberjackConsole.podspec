@@ -10,7 +10,8 @@ Pod::Spec.new do |s|
     s.license       = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
     s.author        = { "Ernesto Rivera" => "rivera.ernesto@gmail.com" }
     s.screenshots   = [ "http://ptez.github.io/LumberjackConsole/images/screenshot1.png",
-                        "http://ptez.github.io/LumberjackConsole/images/screenshot2.png" ]
+                        "http://ptez.github.io/LumberjackConsole/images/screenshot2.png",
+                        "http://ptez.github.io/LumberjackConsole/images/screenshot3.png" ]
     s.source        = { :git => "https://github.com/PTEz/LumberjackConsole.git", :tag => "#{s.version}" }
     
     s.platform      = :ios, '5.0'
