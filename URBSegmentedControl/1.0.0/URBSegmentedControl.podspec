@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
 		:tag	=> '1.0.0'
 	}
 	s.platform			= :ios, 5.0
-	s.license			= 'MIT'
+	s.license			= { :type => 'MIT', :file => 'LICENSE' }
 	s.requires_arc		= true
 	s.source_files		= '*.{h,m}'
-	s.frameworks		= 'CoreGraphics, QuartzCore'
+	s.frameworks		= 'CoreGraphics', 'QuartzCore'
 end
