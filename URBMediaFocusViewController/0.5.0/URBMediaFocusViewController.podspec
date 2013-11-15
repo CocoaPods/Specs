@@ -1,5 +1,4 @@
 Pod::Spec.new do |s|
-
 	s.name				= 'URBMediaFocusViewController'
 	s.version			= '0.5.0'
 	s.summary			= 'A view controller that focuses images to their full size with physics similar to Tweetbot 3.'
@@ -12,10 +11,9 @@ Pod::Spec.new do |s|
 		:git	=> 'https://github.com/u10int/URBMediaFocusViewController.git',
 		:tag	=> '0.5.0'
 	}
-	s.platform			= :ios, 7.0
+	s.platform			= :ios, '7.0'
 	s.license			= { :type => 'MIT', :file => 'LICENSE' }
 	s.requires_arc		= true
 	s.source_files		= 'URBMediaFocusViewController.{h,m}'
 	s.frameworks		= 'UIKit', 'Foundation', 'CoreGraphics'
-
 end
