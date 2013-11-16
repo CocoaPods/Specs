@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'URBMediaFocusViewController.{h,m}'
   s.requires_arc = true
   s.framework  = 'UIKit', 'Foundation', 'CoreGraphics'
+
   s.ios.deployment_target = '7.0'
 
   s.dependency 'UIView-JTViewToImage'
