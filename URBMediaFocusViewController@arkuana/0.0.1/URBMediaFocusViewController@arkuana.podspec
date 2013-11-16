@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "URBMediaFocusViewController@arkuana"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A view controller that presents your media front and center similar to how Tweetbot 3 does it."
 
   s.description  = <<-DESC
@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/arkuana/URBMediaFocusViewController.git", :tag => s.version.to_s }
   s.source_files  = 'URBMediaFocusViewController.{h,m}'
   s.requires_arc = true
-  s.frameworks  = 'UIKit', 'Foundation', 'CoreGraphics', 'QuartzCore'
+  s.framework  = 'UIKit', 'Foundation', 'CoreGraphics'
+  s.ios.deployment_target = '7.0'
 
   s.dependency 'UIView-JTViewToImage'
   s.dependency 'UIDevice-Hardware@arkuana'
