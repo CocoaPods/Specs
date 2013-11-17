@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name            = 'rkBLE'
   s.version         = '0.0.1'
-  s.platform        = :ios, '7.0'
+  s.platform        = :ios, '6.0'
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
 
   s.summary         = "BLE library for iOS. Absolutely easy to use"
