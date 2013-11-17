@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
                      :tag => s.version.to_s }
   s.requires_arc = true
 
-  s.source_files = ['YLMoment/*.{h,m}']
-  s.resource     = ['YLMoment/Localization/**']
+  s.source_files = ['NSMoment/*.{h,m}']
+  s.resource     = ['NSMoment/Localization/**']
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.8'
