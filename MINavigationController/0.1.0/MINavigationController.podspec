@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { "WangLin" => "wanglin4ios@gmail.com" }
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/Veelian/MINavigationController.git", :tag => "#{s.version}" }
-  s.source_files  = '*.{h,m}'
+  s.source_files  = 'MINavigationController/*.{h,m}'
   s.exclude_files = 'example'
   s.requires_arc = true
   s.frameworks = 'QuartzCore'
