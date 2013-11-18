@@ -12,7 +12,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/**/*.{h,m}'
 
-  s.resources = 'Resources/*', 'Graphics/*.png'
+  s.resources = 'Resources/*.{pdf}', 'Graphics/*.png'
+
+  s.exclude_files = 'Graphics/Default-568h@2x.png'
 
   s.requires_arc = true
 

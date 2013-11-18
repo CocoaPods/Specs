@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.source         = { :git => 'https://github.com/segmentio/chartbeat.git', :tag => '0.0.1' }
   s.source_files   = 'CBTracker.h'
-  s.preserve_paths = '*.a'
+  s.preserve_paths = 'libChartbeat-iOS-SDK.a'
   s.library        = 'Chartbeat-iOS-SDK'
   s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Chartbeat"' }
 end

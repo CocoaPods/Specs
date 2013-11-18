@@ -136,8 +136,8 @@ PODS_ALLOWED_TO_FAIL = {
   ],
 
   "Github repositories should use `https` link." => [
-    'KeychainItemWrapper',
-    'KSPowerAssertion',
+    'ARCHelper',
+    'ARCMacro',
   ],
 }
 
