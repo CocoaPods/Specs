@@ -41,6 +41,9 @@ Pod::Spec.new do |s|
   s.subspec 'NSURLSession' do |ss|
     ss.dependency 'AFNetworking/NSURLConnection'
 
+    ss.ios.deployment_target = '7.0'
+    s.osx.deployment_target = '10.9'
+
     ss.source_files = 'AFNetworking/AFURLSessionManager.{h,m}', 'AFNetworking/AFHTTPSessionManager.{h,m}'
   end
 
