@@ -8,7 +8,7 @@ DESC
   s.homepage = "https://github.com/chrismiles/EZForm"
   s.license = 'MIT'
   s.author = { "Chris Miles" => "miles.chris@gmail.com" }
-  s.source = { :git => "https://github.com/ehlersd/EZForm.git", :tag => "1.1.4" }
+  s.source = { :git => "https://github.com/chrismiles/EZForm.git", :tag => "1.1.4" }
   s.platform = :ios, '5.0'
   s.source_files = 'EZForm/EZForm/src'
   s.framework = 'UIKit'
