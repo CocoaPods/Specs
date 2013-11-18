@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { "mobileresearch" => "sdk4wb@sina.cn" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/mobileresearch/weibo_ios_sdk_sso-oauth.git",
-                     :commit => "b8ccd332b55fbd26588f0cf69f6ef5b89de5cf62" }
+                     :tag => "#{s.version}" }
   s.source_files  = "libWeiboSDK/*.{h,m}"
   s.resource_bundle    = { "Weibo" => "libWeiboSDK/WeiboSDK.bundle" }
   s.vendored_libraries = "libWeiboSDK/libWeiboSDK.a"
