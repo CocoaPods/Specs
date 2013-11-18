@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
         :git => 'https://github.com/xr1337/SpriteKit-Components.git',
         :tag => s.version.to_s
     }
+    s.frameworks = 'SpriteKit'
     s.source_files      = 'SpriteKit-Components/*.{m,h}'
     s.prefix_header_file = 'SpriteKit-Components/SpriteKit-Components-Prefix.pch'
     s.requires_arc      = true

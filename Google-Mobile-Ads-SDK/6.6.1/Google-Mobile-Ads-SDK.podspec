@@ -20,8 +20,9 @@ Pod::Spec.new do |s|
 
   s.source_files = "GoogleAdMobAdsSdkiOS-6.6.1/*.h", "GoogleAdMobAdsSdkiOS-6.6.1/Add-ons/Search/*.h", "GoogleAdMobAdsSdkiOS-6.6.1/Add-ons/Mediation/*.h", "GoogleAdMobAdsSdkiOS-6.6.1/Add-ons/DoubleClick/*.h"
   s.preserve_paths = "GoogleAdMobAdsSdkiOS-6.6.1"
-
-  s.frameworks = "AdSupport", "AudioToolbox", "AVFoundation", "CoreGraphics", "MessageUI", "StoreKit", "SystemConfiguration" 
+  
+  s.weak_framework = "AdSupport"
+  s.frameworks = "AudioToolbox", "AVFoundation", "CoreGraphics", "MessageUI", "StoreKit", "SystemConfiguration" 
   s.library = "GoogleAdMobAds"
   s.xcconfig = {
     "OTHER_LDFLAGS" => "-ObjC",
