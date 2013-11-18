@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'example'
   s.requires_arc = true
   s.frameworks = 'QuartzCore'
-
+  
 end
