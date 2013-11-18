@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'BLKFunctional'
-  s.version      =  '0.1.1'
+  s.version      =  '0.1.2'
   s.license      =  { :type => 'GNU', :file => 'LICENSE' }
   s.homepage     =  'http://github.com/olistaats/BLKFunctional'
   s.authors      =  { 'olistaats' => 'olambo@gmail.com' }
