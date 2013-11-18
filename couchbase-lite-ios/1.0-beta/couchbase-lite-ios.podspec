@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.preserve_paths = "*.framework", "LICENSE.txt"
   s.vendored_frameworks = "CouchbaseLite.framework", "CouchbaseLiteListener.framework"
   s.public_header_files = "**/*.h"
-  s.library   = 'sqlite3'
+  s.frameworks   = 'SystemConfiguration', 'CFNetwork', 'Security'
+  s.libraries    = 'sqlite3', 'z'
 
   s.description  = <<-DESC
   **Couchbase Lite** is an embedded lightweight, document-oriented (NoSQL), syncable database engine. 
