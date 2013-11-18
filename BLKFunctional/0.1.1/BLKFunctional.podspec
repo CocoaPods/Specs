@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         =  'BLKFunctional'
-  s.version      =  '0.1.0'
+  s.version      =  '0.1.1'
   s.license      =  { :type => 'GNU', :file => 'LICENSE' }
   s.homepage     =  'http://github.com/olistaats/BLKFunctional'
   s.authors      =  { 'olistaats' => 'olambo@gmail.com' }
-  s.source       =  { :git => 'https://github.com/olambo/BLKFunctional.git', :tag => s.version.to_s }
+  s.source       =  { :git => 'https://github.com/olistaats/BLKFunctional.git', :tag => s.version.to_s }
 
   s.requires_arc = true
   s.ios.deployment_target = '6.0'
