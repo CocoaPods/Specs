@@ -138,7 +138,6 @@ PODS_ALLOWED_TO_FAIL = {
   "Github repositories should use `https` link." => [
     'ARCHelper',
     'ARCMacro',
-    'UIView+FrameAdditions',
   ],
 }
 
