@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/kaneshin/KSCircularActivityView"
   s.author       = { "Shintaro Kaneko" => "kaneshin0120@gmail.com" }
   s.source       = { :git => "https://github.com/kaneshin/KSCircularActivityView.git", :tag => "0.1.0" }
-  s.source_files = 'KSCircularActivityView/KSCircularActivityView.h'
+  s.source_files = 'KSCircularActivityView/KSCircularActivityView.*'
   s.requires_arc = true
 end
