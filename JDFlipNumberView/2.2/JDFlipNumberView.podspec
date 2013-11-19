@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'FlipImageView' do |fiv|
-    fiv.source_files = 'JDFlipNumberView/JDFlipImageView.{h,m}','JDFlipNumberView/JDFlipNumberViewImageFactory.{h,m}', 'JDFlipNumberView/UIView+JDFlipImageView.h'
+    fiv.source_files = 'JDFlipNumberView/JDFlipImageView.{h,m}','JDFlipNumberView/JDFlipNumberViewImageFactory.{h,m}', 'JDFlipNumberView/UIView+JDFlipImageView.{h,m}'
     fiv.private_header_files = 'JDFlipNumberView/JDFlipNumberViewImageFactory.h'
   end
 
