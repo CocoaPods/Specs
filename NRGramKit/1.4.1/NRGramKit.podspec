@@ -1,0 +1,1 @@
+/Users/raul/Projects/NRGramKit/NRGramKit.podspec
