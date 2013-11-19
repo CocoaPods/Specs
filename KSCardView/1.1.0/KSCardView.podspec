@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/drumnkyle/KSCardView"
   s.license      = { :type => 'MIT', :file => 'license.txt' }
   s.author       = { "drumnkyle" => "kyledsherman@gmail.com" }
-  s.platform     = :ios
+  s.platform     = :ios, '6.0', '7.0'
   s.source       = { :git => "https://github.com/drumnkyle/KSCardView.git", :tag => '1.1.0' }
   s.source_files  = 'src/KSCardView.*'
-  s.requires_arc = true
+  s.requires_arc = true 
 end
