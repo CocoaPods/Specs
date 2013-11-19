@@ -24,57 +24,46 @@ Pod::Spec.new do |s|
   s.subspec 'Plugins' do |p|
       
       p.subspec 'Camera' do |camera|
-          camera.dependency 'Cordova/Base'
           camera.dependency 'CordovaPlugin-camera'
       end
       
       p.subspec 'Console' do |console|
-          console.dependency 'Cordova/Base'
           console.dependency 'CordovaPlugin-console'
       end
       
       p.subspec 'Contacts' do |contacts|
-          contacts.dependency 'Cordova/Base'
           contacts.dependency 'CordovaPlugin-contacts'
       end
       
       p.subspec 'DeviceMotion' do |device_motion|
-          device_motion.dependency 'Cordova/Base'
           device_motion.dependency 'CordovaPlugin-device-motion'
       end
       
       p.subspec 'DeviceOrientation' do |device_orientation|
-          device_orientation.dependency 'Cordova/Base'
           device_orientation.dependency 'CordovaPlugin-device-orientation'
       end
       
       p.subspec 'Device' do |device|
-          device.dependency 'Cordova/Base'
           device.dependency 'CordovaPlugin-device'
       end
       
       p.subspec 'Dialogs' do |dialogs|
-          dialogs.dependency 'Cordova/Base'
           dialogs.dependency 'CordovaPlugin-dialogs'
       end
       
       p.subspec 'FileTransfer' do |file_transfer|
-          file_transfer.dependency 'Cordova/Base'
           file_transfer.dependency 'CordovaPlugin-file-transfer'
       end
       
       p.subspec 'File' do |file|
-          file.dependency 'Cordova/Base'
           file.dependency 'CordovaPlugin-file'
       end
       
       p.subspec 'Geolocation' do |geolocation|
-          geolocation.dependency 'Cordova/Base'
           geolocation.dependency 'CordovaPlugin-geolocation'
       end
       
       p.subspec 'Globalization' do |globalization|
-          globalization.dependency 'Cordova/Base'
           globalization.dependency 'CordovaPlugin-globalization'
       end
 
@@ -83,32 +72,26 @@ Pod::Spec.new do |s|
       end
       
       p.subspec 'MediaCapture' do |media_capture|
-          media_capture.dependency 'Cordova/Base'
           media_capture.dependency 'CordovaPlugin-media-capture'
       end
       
       p.subspec 'Media' do |media|
-          media.dependency 'Cordova/Base'
           media.dependency 'CordovaPlugin-media'
       end
       
       p.subspec 'NetworkInformation' do |network_information|
-          network_information.dependency 'Cordova/Base'
           network_information.dependency 'CordovaPlugin-network-information'
       end
       
       p.subspec 'Splashscreen' do |splashscreen|
-          splashscreen.dependency 'Cordova/Base'
           splashscreen.dependency 'CordovaPlugin-splashscreen'
       end
       
       p.subspec 'BatteryStatus' do |battery_status|
-          battery_status.dependency 'Cordova/Base'
           battery_status.dependency 'CordovaPlugin-battery-status'
       end
       
       p.subspec 'Vibration' do |vibration|
-          vibration.dependency 'Cordova/Base'
           vibration.dependency 'CordovaPlugin-vibration'
       end
       

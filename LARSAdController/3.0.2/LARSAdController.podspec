@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'GoogleAds' do |g|
       g.source_files = 'Source/TOLAdAdapterGoogleAds.{h,m}'
-      g.dependency 'AdMob'
+      g.dependency 'Google-Mobile-Ads-SDK'
       g.dependency 'LARSAdController/Core'
       g.weak_frameworks = 'AdSupport'
       g.frameworks = 'AudioToolbox', 'MessageUI', 'SystemConfiguration', 'CoreGraphics', 'StoreKit'
