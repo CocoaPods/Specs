@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'zlib', :file => 'LICENCE.md' }
   s.author       = 'Borut Tomažin'
   s.platform     = :ios, '5.0'
-  s.source       = { :git => 'https://github.com/borut-t/BTSharingService.git', :tag => '1.1' }
+  s.source       = { :git => 'https://github.com/borut-t/BTSharingService.git', :tag => '1.0' }
   s.source_files = 'BTSharingService/BTSharingService.{h,m}'
   s.resources    = 'BTSharingService/BTSharingService.bundle'
   s.frameworks   = 'Twitter', 'MessageUI', 'Social'
