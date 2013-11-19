@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.ios.deployment_target = '6.1'
   s.osx.deployment_target = '10.8'
+  s.library      = 'sqlite3'
   s.author       = { "yaptv" => "robbiehanson@deusty.com" }
   s.source       = { :git => "https://github.com/yaptv/YapDatabase.git", :tag => s.version.to_s }
 
