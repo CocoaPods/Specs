@@ -6,8 +6,6 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author       = { "Luis Solano Bonet" => "contact@luissolano.com" }
-  # Specify the location from where the source should be retreived.
-  #
   s.source       = { :git => "https://github.com/luisobo/StateMachine.git", :tag => "0.1" }
 
   s.ios.deployment_target = '5.0'

@@ -13,11 +13,10 @@ s.license           = {
 s.author            = { "UMeng" => "support@umeng.com" }
 s.source            = { :http => "http://dev.umeng.com/files/download/UMSocial_Sdk_All_2.2.0.zip"}
 s.source_files      = "UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/Header/*.h","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/frameworks/*/*.{h,m}"
-s.resources         = "UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/UMSocialSDKResources.bundle","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/SocialSDKXib/*.xib"
+s.resources         = "UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/UMSocialSDKResourcesNew.bundle","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/SocialSDKXib/*.xib","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/{en,zh-Hans}.lproj"
 s.preserve_paths    = "UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/libUMSocial_Sdk_2.2.1.a","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/libUMSocial_Sdk_Comment_2.2.1.a","UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/frameworks/Wechat/libWeChatSDK_armv7_armv7s.a"
 s.library           = "UMSocial_Sdk_2.2.1","UMSocial_Sdk_Comment_2.2.1","WeChatSDK_armv7_armv7s","z"
 s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_2.2.1/UMSocial_Sdk_2.2.1/**"}
 s.framework         = "SystemConfiguration","MobileCoreServices"
 s.platform          = :ios,'4.3'
 end
-
