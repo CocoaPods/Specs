@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source          = { :git => 'https://github.com/MobileAppTracking/sdk-plugins.git', :tag => 'ios-sdk-version-2.6.1' }
   s.source_files    = 'ios-lib/*.h'
   s.preserve_paths  = 'ios-lib/*.a'
-  s.weak_frameworks = 'AdSupport'
-  s.framework       = 'CoreTelephony', 'MobileCoreServices', 'SystemConfiguration', 'UIKit'
+  s.xcconfig        =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MobileAppTracker/ios-lib"' }
+  s.weak_framework  = 'AdSupport'
+  s.frameworks      = 'CoreTelephony', 'MobileCoreServices', 'SystemConfiguration', 'UIKit'
 end
