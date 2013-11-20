@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 Pod::Spec.new do |s|
   s.name         = "BeeDebugger"
   s.version      = "0.1"

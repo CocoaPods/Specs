@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = "This keychain wrapper was originally created by Apple and modified to be ARC compatible."
   s.homepage     = "https://gist.github.com/3376201"
   s.author       = "David Hoerl"
-  s.source       = { :git => "git://gist.github.com/3376201.git", :commit => "446bd2a7b36f041ae775e6af4e7aed78398df902" }
+  s.source       = { :git => "https://gist.github.com/3376201.git", :commit => "446bd2a7b36f041ae775e6af4e7aed78398df902" }
   s.source_files = "KeychainItemWrapper.*"
   s.frameworks   = "Security"
   s.platform	 = :ios, "3.0"

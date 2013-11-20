@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
                    'TICoreDataSync/04*/SSZipArchive/Objective-Zip/*.{h,m}', 'TICoreDataSync/04*/SSZipArchive/minizip/*.{h,c}',
                    'TICoreDataSync/06*/{NS,TI}*.{h,m}'
   s.ios.source_files = 'TICoreDataSync/06*/UI*.{h,m}'
-  s.resources    = 'TICoreDataSync/05*/*.{plist,txt}'
+  s.resources    = 'TICoreDataSync/05*/*.{plist,txt}', 'TICoreDataSync/03*/*.{xcdatamodel,xcdatamodeld}'
   s.framework    = 'CoreData', 'Security', 'SystemConfiguration'
   s.library      = 'z'
   s.requires_arc = true
@@ -54,27 +54,4 @@ Pod::Spec.new do |s|
     #endif
   EOS
 
-  s.post_install do |library_representation|
-    config = s.config
-    pod_root = config.project_pods_root + 'TICoreDataSync/'
-    ['TICDSSyncChange.xcdatamodel', 'TICDSSyncChangeSet.xcdatamodeld'].each do |datamodelfile|
-      datamodel = File.basename(datamodelfile, ".*")
-      momext = File.extname(datamodelfile) == '.xcdatamodel' ? 'mom' : 'momd'
-      momd_relative = "TICoreDataSync/03 Internal Data Model/#{datamodel}.#{momext}"
-      momd_full = pod_root + momd_relative
-      unless momd_full.exist?
-        puts "\nCompiling #{datamodelfile} Core Data model\n".yellow if config.verbose?
-        model = pod_root + "TICoreDataSync/03 Internal Data Model/#{datamodelfile}"
-        command = "xcrun momc '#{model}' '#{momd_full}'"
-        command << " 2>&1 > /dev/null" unless config.verbose?
-        unless system(command)
-          raise ::Pod::Informative, "Failed to compile #{datamodelfile} Core Data model"
-        end
-      end
-
-      File.open(library_representation.copy_resources_script_path, 'a') do |file|
-        file.puts "install_resource 'TICoreDataSync/#{momd_relative}'"
-      end
-    end    
-  end
 end
