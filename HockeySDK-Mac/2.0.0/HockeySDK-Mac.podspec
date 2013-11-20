@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+od::Spec.new do |s|
   s.name        = "HockeySDK-Mac"
   s.version     = "2.0.0"
   s.license     = {:type=>'MIT', :file=>'HockeySDK-Mac/LICENSE.txt'}
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                   'and App Store builds. Only crash reporting is supported for OS X apps at'                   \
                   'the moment.'
 
-  s.source         = { :http => 'http://download.hockeyapp.net/sdk/mac/HockeySDK-Mac-2.0.0rc1.zip' }
+  s.source         = { :http => 'http://download.hockeyapp.net/sdk/mac/HockeySDK-Mac-2.0.0.zip' }
 
   s.public_header_files   = 'HockeySDK-Mac/HockeySDK.framework/Headers/*.h'
   s.preserve_paths = 'HockeySDK-Mac/HockeySDK.framework'
