@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name	= "ShapeKit"
-  s.version	= "0.9.1"
+  s.version	= "0.9.2"
   s.summary	= "ShapeKit is a iOS/OSX library that offers an Objective-C interface to the powerful GEOS library."
   s.description = "ShapeKit includes all the  OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced topology functions."
   s.homepage	= "https://github.com/andreacremaschi/ShapeKit"
@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
 
   s.framework = 'CoreLocation'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_CXX_LIBRARY' => 'libstdc++' }
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++', 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_CXX_LIBRARY' => 'libstdc++'  }
 
 end
