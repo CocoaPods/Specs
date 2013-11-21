@@ -11,9 +11,9 @@ Pod::Spec.new do |s|
 		:git	=> 'https://github.com/u10int/URBSegmentedControl.git',
 		:tag	=> '1.0.0'
 	}
-	s.platform			= :ios, 5.0
-	s.license			= 'MIT'
+	s.platform			= :ios, '5.0'
+	s.license			= { :type => 'MIT', :file => 'LICENSE' }
 	s.requires_arc		= true
-	s.source_files		= '*.{h,m}'
-	s.frameworks		= 'CoreGraphics, QuartzCore'
+	s.source_files		= 'URBSegmentedControl.{h,m}'
+	s.frameworks		= 'CoreGraphics', 'QuartzCore'
 end
