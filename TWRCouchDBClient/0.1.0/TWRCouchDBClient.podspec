@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "TWRCouchDBClient"
   s.version      = "0.1.0"
   s.summary      = "An `AFHTTPSessionManager` subclass for interacting with CouchDB databases"
-  s.homepage     = "http://www.twitcherapp.co.uk"
+  s.homepage     = "https://github.com/twitcher/TWRCouchDBClient.git"
   s.license      = 'MIT'
   s.author       = { "Alexander Edge" => "alexander.edge@twitcherapp.co.uk" }
   s.source       = { :git => "https://github.com/twitcher/TWRCouchDBClient.git", :tag => s.version.to_s }
