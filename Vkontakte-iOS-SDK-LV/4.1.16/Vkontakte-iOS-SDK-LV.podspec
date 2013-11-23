@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "5.0"
   s.source_files = "Project/Vkontakte-iOS-SDK-LV/**/*.{h,m}"
   s.requires_arc = true
-  s.ios.framework = "QuartzCore", "Foundation", "CoreGraphics", "UIKit"
+  s.ios.framework = "Foundation"
 end
