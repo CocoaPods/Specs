@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = "iOS/release-v#{s.version}/AVOSCloudUI.framework"
   s.public_header_files = "iOS/release-v#{s.version}/**/*.h"
 
-  s.resources      =  "iOS/release-v#{s.version}/AVOSCloudUI.framework/Versions/A/Resources/*"
+  s.resources      =  "iOS/release-v#{s.version}/AVOSCloudUI.framework/Versions/A/Resources/*.png","iOS/release-v#{s.version}/AVOSCloudUI.framework/Versions/A/Resources/*.lproj","iOS/release-v#{s.version}/AVOSCloudUI.framework/Versions/A/Resources/*.bundle"
   s.frameworks = 'AudioToolbox', 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'CoreLocation',  'CoreGraphics', 'Security', 'QuartzCore'
   s.libraries = 'icucore'
 
