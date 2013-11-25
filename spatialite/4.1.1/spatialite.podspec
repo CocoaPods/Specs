@@ -27,11 +27,19 @@ Pod::Spec.new do |s|
 
   s.default_subspec = 'standard'
 
+
+# here I am cheating with the configure script.
+# GEOS and PROJ.4 should be installed on the build system in order to use them, but we want to build them as static libraries and link against them 
+# directly in the development environment. So I'll tell him we are not going to use them and then manually undef the relevant flags in config.h 
+
 s.prepare_command = <<-CMD
-./configure
+./configure --enable-geos=no --enable-proj=no
+
 cat >> ./config.h <<CONFIG_H
 
 #define OMIT_FREEXL 1
+#undef OMIT_GEOS
+#undef OMIT_PROJ
 
 // this is disabled since something is going wrong while linking for i386 architecture
 #undef GEOS_ADVANCED
@@ -75,7 +83,7 @@ CMD
 
   s.libraries = "z", "iconv"
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_ENABLE_MODULES' => 'NO'  }
 
 
 end
