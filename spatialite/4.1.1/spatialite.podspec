@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
 
 s.prepare_command = <<-CMD
 ./configure --enable-geos=no --enable-proj=no --enable-freexl=no
-
+ 
 cat >> ./config.h <<CONFIG_H
 
 #undef OMIT_GEOS
