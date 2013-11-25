@@ -30,12 +30,14 @@ Pod::Spec.new do |s|
 s.prepare_command = <<-CMD
 ./configure
 cat >> ./config.h <<CONFIG_H
+
 #define OMIT_FREEXL 1
-#define OMIT_GEOS 1
-#define OMIT_PROJ 1
+
+// this is disabled since something is going wrong while linking for i386 architecture
+#undef GEOS_ADVANCED
+
 CONFIG_H
 CMD
-
 
   s.subspec 'core' do |ss|
     ss.dependency 'sqlite3'
