@@ -33,11 +33,10 @@ Pod::Spec.new do |s|
 # directly in the development environment. So I'll tell him we are not going to use them and then manually undef the relevant flags in config.h 
 
 s.prepare_command = <<-CMD
-./configure --enable-geos=no --enable-proj=no
+./configure --enable-geos=no --enable-proj=no --enable-freexl=no
 
 cat >> ./config.h <<CONFIG_H
 
-#define OMIT_FREEXL 1
 #undef OMIT_GEOS
 #undef OMIT_PROJ
 
