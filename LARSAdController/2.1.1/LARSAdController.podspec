@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'LARSAdController.{h,m}'
   s.license = 'MIT'
   s.frameworks = 'iAd'
-  s.dependency 'AdMob'
+  s.dependency 'Google-Mobile-Ads-SDK'
 end
