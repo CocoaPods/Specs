@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'Tesseract'
   s.version = '0.0.1'
   s.platform = :ios
-  s.summary = 'ORC lib for iOS.'
+  s.summary = 'OCR lib for iOS.'
   s.description = 'Tesseract and Leptonica libraries compiled for iOS.'
   s.homepage = 'https://github.com/ldiqual/tesseract-ios-lib'
   s.author = 'ldiqual'
