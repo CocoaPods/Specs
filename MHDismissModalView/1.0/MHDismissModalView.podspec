@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = ['MHDismissModalView/MHDismiss/']
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
+  
 end
