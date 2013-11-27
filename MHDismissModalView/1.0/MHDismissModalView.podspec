@@ -1,19 +1,18 @@
 Pod::Spec.new do |s|
   s.name         = 'MHDismissModalView'
-  s.version      = '1.0'
-  s.license      =  { :type => 'MIT', :file => 'LICENSE' }
+  s.version      = '1.2'
+  s.license      = 'MIT'
   s.homepage     = 'https://github.com/mariohahn/MHDismissModalView'
-  s.authors      =  'Mario Hahn' => 'mario_hahn@me.com'
-  s.summary      = 'automatically sets the background with a blur effect and you can dismiss all modal views with a gesture''
-
-# Source Info
-  s.platform     =  :ios, '7.0'
-  s.source       =  :git => 'https://github.com/mariohahn/MHDismissModalView.git', :tag => '1.1'
+  s.author = {
+    'Mario Hahn' => 'mario_hahn@me.com'
+  }
+  s.summary      = 'automatically sets the background with a blur effect and you can dismiss all modal views with a gesture'
+  s.platform     =  :ios
+  s.source = {
+    :git => 'https://github.com/mariohahn/MHDismissModalView.git',
+    :tag => 'v1.2'
+  }
   s.source_files = ['MHDismissModalView/MHDismiss/']
-
+  s.ios.deployment_target = '7.0'
   s.requires_arc = true
-  
-# Pod Dependencies
-  s.dependencies =	pod "MHDismissModalView"
-
 end
