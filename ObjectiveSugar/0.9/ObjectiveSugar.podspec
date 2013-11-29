@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   
   s.subspec 'Number' do |number|
-    evernote.source_files = 'Classes/NSNumber+ObjectiveSugar.{h,m}'
+    number.source_files = 'Classes/NSNumber+ObjectiveSugar.{h,m}'
   end
 end
