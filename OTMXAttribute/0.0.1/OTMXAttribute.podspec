@@ -6,5 +6,6 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/otium/OTMXAttribute'
   s.author       = { 'Otium' => 'otium.dev@gmail.com' }
   s.summary      = 'Objective-C wrapper around xattr'
+  s.requires_arc = true
   s.source_files = 'OTMXAttribute.{h,m}'
 end
