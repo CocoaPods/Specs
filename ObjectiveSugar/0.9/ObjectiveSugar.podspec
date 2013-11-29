@@ -12,4 +12,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
+  
+  s.subspec 'Number' do |number|
+    evernote.source_files = 'Classes/NSNumber+ObjectiveSugar.{h,m}'
+  end
 end
