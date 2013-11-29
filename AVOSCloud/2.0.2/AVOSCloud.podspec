@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.version        = "2.0.1"
+  s.version        = "2.0.2"
   s.source         = { :http => "https://download.avoscloud.com/sdk/iOS/release-v#{s.version}/AVOSCloud.framework.zip"}
 
 
