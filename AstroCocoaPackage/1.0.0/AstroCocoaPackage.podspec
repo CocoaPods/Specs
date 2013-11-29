@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "KPCAstroCocoaPackage"
+  s.name         = "AstroCocoaPackage"
   s.version      = "1.0.0"
   s.summary      = "Various Obj-C and Cocoa tools for astronomical computations, developed and used primarily for iObserve.app."
   s.description  = <<-DESC
