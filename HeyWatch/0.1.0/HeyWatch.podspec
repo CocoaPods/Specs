@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "heywatch-objc"
+  s.name         = "HeyWatch"
   s.version      = "0.1.0"
   s.summary      = "HeyWatch Objective-C client library"
   s.description  = <<-DESC
