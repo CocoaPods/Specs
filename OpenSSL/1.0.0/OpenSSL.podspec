@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "OpenSSL"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1e"
   s.summary      = "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in Mac OS and gone in iOS, this spec gives your project non-deprecated OpenSSL support."
   s.author       = "OpenSSL Project <openssl-dev@openssl.org>"
   
   s.homepage     = "http://www.openssl.org/"
   s.license      = 'BSD-style Open Source'
-  s.source       = { :http => "http://www.openssl.org/source/openssl-1.0.0a.tar.gz"}
+  s.source       = { :http => "https://www.openssl.org/source/openssl-1.0.1e.tar.gz"}
   s.requires_arc = false
   s.header_dir   = "openssl"
   s.xcconfig     = { 'HEADER_SEARCH_PATHS' => 'openssl openssl/include openssl/crypto'}
