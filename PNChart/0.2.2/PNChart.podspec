@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PNChart"
-  s.version      = "0.1.5"
+  s.version      = "0.2.2"
   s.summary      = "A simple and beautiful chart lib with animation used in Piner for iOS"
 
   s.homepage     = "https://github.com/kevinzhow/PNChart"
@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/kevinzhow/PNChart.git", :tag => s.version.to_s }
 
-  s.source_files = 'PNChartDemo/PNChart/*.{h,m}'
-  s.public_header_files = 'PNChartDemo/PNChart/*.h'
+  s.source_files = 'PNChartDemo/PNChart/**/*.{h,m}'
+  s.public_header_files = 'PNChartDemo/PNChart/**/*.h'
   s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'QuartzCore'
   s.requires_arc = true
 end
