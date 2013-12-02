@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/shjborage/SQAESDE.git", :tag => "v0.1" }
   s.source_files = '*.{h,m,mm}'
   s.requires_arc = false
-  s.framework    = 'libc++.dylib'
+  s.library      = 'c++'
 end
