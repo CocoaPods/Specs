@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     =  :ios
   s.source = {
     :git => 'https://github.com/mariohahn/MHDismissModalView.git',
-    :tag => 'v1.2'
+    :tag => 'v1.3'
   }
   s.source_files = ['MHDismissModalView/MHDismiss/']
   s.ios.deployment_target = '6.0'
