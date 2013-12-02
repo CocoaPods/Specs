@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   # s.frameworks = 'Security'
   # s.weak_frameworks = 'PassKit'
   s.libraries   = 'PayPalMPL', 'xml2', 'iconv', 'z'
-  s.xcconfig  =  {'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/PayPalMPL/#{file_name}/Library"}
+  s.xcconfig  =  {'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/PayPalMPL/#{internal_dir}/Library"}
   # s.requires_arc = true 
 
 end
