@@ -1,4 +1,3 @@
-require 'pry'
 Pod::Spec.new do |s|
   s.name         = "PayPalMPL"
   s.version      = "2.1.0"
