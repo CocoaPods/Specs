@@ -11,6 +11,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.0'
   s.source       = { :git => "https://github.com/shjborage/SQAESDE.git", :tag => "v0.1" }
   s.source_files = '*.{h,m}'
-  s.framework  	 = ''
   s.requires_arc = false
 end
