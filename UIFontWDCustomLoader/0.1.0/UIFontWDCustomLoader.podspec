@@ -5,7 +5,6 @@ Pod::Spec.new do |s|
   s.summary          = 'An iOS custom font loader'
   s.homepage         = 'https://github.com/daktales/UIFontWDCustomLoader'
   s.author           = { 'Walter Da Col' => 'walter.dacol@gmail.com' }
-  s.social_media_url = 'https://twitter.com/daktales'
   s.description      = <<-DESC
                           Allow developers to load custom fonts at runtime. No more plist and no more search for font postscript names.
                           Just drag & drop and use them.
