@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/jessbowers/Parse.git', :tag => "#{s.version}" }
   s.requires_arc = true
   s.frameworks = 'AudioToolbox', 'CFNetwork', 'CoreGraphics', 'CoreLocation', 'MobileCoreServices', 'QuartzCore', 'Security', 'StoreKit', 'SystemConfiguration'
+  s.library = 'z', 'sqlite3'
   s.vendored_frameworks = 'Parse.framework'
   s.dependency 'Facebook-iOS-SDK', '~> 3.9'
 end
