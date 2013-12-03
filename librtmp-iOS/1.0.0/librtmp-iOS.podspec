@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.vendored_libraries = 'lib/libcrypto.a', 'lib/libssl.a', 'lib/librtmp.a'
   s.preserve_paths = 'include/librtmp/*.h', 'include/openssl/*.h'
   s.libraries = 'ssl', 'crypto', 'rtmp'
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/include/**" }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/include/**", "LIB_SEARCH_PATHS" => "${PODS_ROOT}/#{s.name}/lib/**" }
 end
