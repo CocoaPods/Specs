@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
 
   s.name         = "SnappySlider"
   s.version      = "0.0.1"
+  s.platform     = :ios
   s.summary      = "A subclass of UISlider that snaps to pre-specified values, or detents."
 
   s.homepage     = "http://cocoacontrols.com/platforms/ios/controls/snappy-slider"
