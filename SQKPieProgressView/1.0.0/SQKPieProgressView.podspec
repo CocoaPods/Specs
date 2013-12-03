@@ -12,8 +12,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/squareware/SQKPieProgressView.git", :tag => "#{s.version}" }
 
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
-  s.exclude_files = 'Classes/Exclude'
+  s.requires_arc = true
 
   s.public_header_files   = 'Source/SQKPieProgressView.h'
   s.source_files      = 'Source/**/*{h,m}'
