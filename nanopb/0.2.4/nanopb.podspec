@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                   embedded systems with tight (2-10 kB ROM, <1 kB
                   RAM) memory constraints.
                   DESC
-  s.license = 'MIT'
+  s.license = 'zlib'
   s.authors = {
     "Petteri Aimonen" => "jpa@nanopb.mail.kapsi.fi",
   }
