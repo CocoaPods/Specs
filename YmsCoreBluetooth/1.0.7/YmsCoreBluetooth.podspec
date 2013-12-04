@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "YmsCoreBluetooth"
+  s.name         =  "YmsCoreBluetooth"
   s.version      = "1.07"
   s.summary      = "ObjectiveC Block-based API for Bluetooth LE communication."
 
