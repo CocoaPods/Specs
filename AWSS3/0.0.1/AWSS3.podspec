@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.source_files = ['AWSRuntime.framework/Versions/A/Headers/*.h', 'AWSS3.framework/Versions/A/Headers/*.h']
   s.requires_arc = false 
   s.frameworks = ['AWSS3', 'AWSRuntime']
-  s.xcconfig = { 'OTHER_LD_FLAGS' => '-framework AWSS3 -framework AWSRuntime' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/AWSS3"', 'OTHER_LD_FLAGS' => '-framework AWSS3 -framework AWSRuntime' }
   s.preserve_paths = ['AWSS3.framework', 'AWSRuntime.framework']
 
 end
+
