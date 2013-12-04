@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "MPMoviePlayerController-Subtitles"
+  s.name         = "MPMoviePlayerController Subtitles"
   s.version      = "1.0.0"
   s.summary      = "Easy way to show SRT files on MPMoviePlayerController"
 
