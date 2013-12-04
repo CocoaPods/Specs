@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.name         = "AWSS3"
   s.version      = "0.0.1"
   s.platform     = :ios, '6.0'
-  s.summary      = "iOS SDK for Amazon S3"
+  s.summary      = "iOS SDK for Amazon S3."
 
   s.description  = <<-DESC
-                   iOS SDK for Amazon S3
+                   iOS SDK for Amazon S3.
                    DESC
 
   s.homepage     = "https://github.com/FutureWorkshops/FWTPushNotifications"
