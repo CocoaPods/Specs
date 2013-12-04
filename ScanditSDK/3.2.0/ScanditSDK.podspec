@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.resources = 'ScanditSDK/*.{png,wav,lproj}' 
 
   s.preserve_paths = 'ScanditSDK/libscanditsdk-iphone-3.2.0.a'
-  s.library = 'scanditsdk','z', 'iconv', 'c++'
+  s.library = 'scanditsdk-iphone-3.2.0','z', 'iconv', 'c++'
   
   #s.ios.exclude_files = 'Classes/osx'
   #s.osx.exclude_files = 'Classes/ios'
