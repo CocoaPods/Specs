@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     			= "http://support.mobileapptracking.com/entries/23745301-iOS-SDK-v2-6-1"
   s.license      			= { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author       			= { "HasOffers Inc" => "support@mobileapptracking.com" }
-  s.source       			= { :git => "https://github.com/MobileAppTracking/sdk-plugins.git", :tag => "ios-sdk-version-#{spec.version}" }
+  s.source       			= { :git => "https://github.com/MobileAppTracking/sdk-plugins.git", :tag => "ios-sdk-version-#{s.version}" }
   s.platform        		= :ios
   s.ios.deployment_target 	= "4.3"
   s.source_files 			= 'ios-lib/*.h'
