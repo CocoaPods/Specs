@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
 
 
   s.license = {
-    type: 'commercial',
-    text: 'Copyright 2013 Cardflight, Inc. All rights reserved.'
+    :type => 'commercial',
+    :text => 'Copyright 2013 Cardflight, Inc. All rights reserved.'
   }
 
   s.author       = { "CardFlight" => "support@getcardflight.com" }
