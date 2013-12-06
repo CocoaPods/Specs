@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.platform     = :osx
   s.source       = { :git => 'https://github.com/shpakovski/MASPreferences.git', :tag => '1.1' }
   s.source_files  = '*.{h,m}'
+  s.resources    = '*.xib'
   s.exclude_files = 'README.md', 'LICENSE.md'
 end
