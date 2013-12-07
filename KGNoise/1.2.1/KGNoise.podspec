@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.2.1"
   s.summary      = "Cocoa noise drawing code + a ready to go noise view."
   s.homepage     = "https://github.com/kgn/KGNoise"
+  s.screenshots  = "https://raw.github.com/kgn/KGNoise/master/screenshot.jpg"
   s.license      = { :type => 'MIT', :file => 'license.txt' }
   s.author       = { "David Keegan" => "git@davidkeegan.com" }
   s.source       = { :git => "https://github.com/kgn/KGNoise.git", :tag => "1.2.1" }
