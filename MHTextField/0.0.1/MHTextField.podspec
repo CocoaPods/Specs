@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.source       = { :git => "https://github.com/mehfuzh/MHTextField.git", :tag => '0.0.1'}
   s.source_files  = 'MHTextField.{h,m}'
-  s.framework  = 'QuartzCore'
   s.requires_arc = true
 
 end
