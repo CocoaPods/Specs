@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "XCParameterizedTestCase"
   s.version      = "0.9.0"
-  s.summary      = "A convenience library for querying device and system information."
+  s.summary      = "Parameterized implementation of XCTestCase."
   s.homepage     = "https://github.com/michalkonturek/XCParameterizedTestCase"
   s.license      = 'MIT'
 
