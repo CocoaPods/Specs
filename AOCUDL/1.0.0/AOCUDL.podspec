@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.description  = "The purpose of AOCUDL is to provide a simple way to define custom literals for Objective-C. These are correctly typecast, extensible and flexible."
   
   s.homepage         = "http://www.dudas.co.uk/aocudl/"
-  s.social_media_url = "http://twitter.com/hypercrypt"
   
   s.license = { :type => 'MIT', :file => 'License.md' }
   s.author  = { "Klaus-Peter Dudas" => "klaus@hypercrypt.net" }
