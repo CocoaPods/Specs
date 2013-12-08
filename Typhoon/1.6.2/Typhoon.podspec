@@ -12,4 +12,5 @@ Pod::Spec.new do |spec|
 	spec.libraries    =  'z', 'xml2'
     spec.xcconfig     =  { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
     spec.requires_arc = true
+    spec.documentation_url = 'http://www.typhoonframework.org/docs/latest/api/'
 end 
