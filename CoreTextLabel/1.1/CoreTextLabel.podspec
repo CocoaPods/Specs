@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name           = 'CoreTextLabel'
   s.version        = '1.1'
   s.summary        = "Simple UILabel replacement to display NSAttributedString by HTML with custom font and color in iOS applications."
-  s.homepage       = "https://github.com/dkuhnke/CoreTextLabel"
+  s.homepage       = "https://github.com/appfarms/CoreTextLabel"
   s.author         = { 'Daniel Kuhnke' => 'd.kuhnke@appfarms.com' }
-  s.source         = { :git => 'https://github.com/dkuhnke/CoreTextLabel.git', :tag => '1.1' }
+  s.source         = { :git => 'https://github.com/appfarms/CoreTextLabel.git', :tag => '1.1' }
   s.platform       = :ios
   s.requires_arc   = true
   s.source_files   = '*.{h,m}'

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 Pod::Spec.new do |s|
   s.name         = "UDBarTrackballItem"
   s.version      = "1.0.0"

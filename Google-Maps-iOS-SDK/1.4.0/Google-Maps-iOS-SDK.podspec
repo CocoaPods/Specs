@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.source = { :http => 'https://dl.google.com/geosdk/GoogleMaps-iOS-1.4.0.zip', :flatten => true }
   s.platform = :ios
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '5.1'
 
   framework_path = 'GoogleMaps.framework'
 

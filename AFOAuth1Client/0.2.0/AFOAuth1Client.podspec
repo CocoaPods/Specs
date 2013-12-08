@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.osx.deployment_target = '10.7'
 
-  s.dependency 'AFNetworking', '>= 1.0'
+  s.dependency 'AFNetworking', '~> 1.3'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
