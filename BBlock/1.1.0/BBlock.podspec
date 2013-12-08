@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'BBlock.{h,m}'
-  s.osx.source_files = 'BBNSButton.{h,m}'
 
   s.subspec 'Foundation' do |ss|
     ss.source_files = 'Categories/Foundation/*.{h,m}'
