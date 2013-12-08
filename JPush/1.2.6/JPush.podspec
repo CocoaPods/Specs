@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.source_files = 'JPush-iOS-sdk-1.2.6/lib/*.h'
-  s.resource = 'JPush-iOS-sdk-1.2.6/lib/libPushSDK.a'
+  s.preserve_paths = 'JPush-iOS-sdk-1.2.6/lib/libPushSDK.a'
   
   s.library = 'PushSDK'
   s.framework = 'UIKit', 'CFNetwork', 'CoreFoundation', 'CoreTelephony', 'CoreGraphics', 'SystemConfiguration', 'Foundation'

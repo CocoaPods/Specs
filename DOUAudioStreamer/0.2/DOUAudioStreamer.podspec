@@ -1,20 +1,18 @@
-# vim: set ft=ruby fenc=utf-8 sw=2 ts=2 et:
-#
-#  DOUAudioStreamer - A Core Audio based streaming audio player for iOS/Mac:
-#
-#      http://github.com/douban/DOUAudioStreamer
-#
-#  Copyright 2013 Douban Inc.  All rights reserved.
-#
-#  Use and distribution licensed under the BSD license.  See
-#  the LICENSE file for full text.
-#
-#  Authors:
-#      Chongyu Zhu <lembacon@gmail.com>
-#
-#
-
 Pod::Spec.new do |s|
+  #  DOUAudioStreamer - A Core Audio based streaming audio player for iOS/Mac:
+  #
+  #      http://github.com/douban/DOUAudioStreamer
+  #
+  #  Copyright 2013 Douban Inc.  All rights reserved.
+  #
+  #  Use and distribution licensed under the BSD license.  See
+  #  the LICENSE file for full text.
+  #
+  #  Authors:
+  #      Chongyu Zhu <lembacon@gmail.com>
+  #
+  
+
   s.name = 'DOUAudioStreamer'
   s.version = '0.2'
   s.license = { :type => 'BSD', :file => 'LICENSE' }

@@ -7,16 +7,13 @@ Pod::Spec.new do |s|
   s.homepage     = "http://pyyaml.org/wiki/LibYAML"
   s.license      = 'MIT'
   s.author       = "Kirill Simonov"
-  s.source       = { :git => "https://github.com/yaml/libyaml.git", :tag => "0.1.4" }
+  s.source       = { :http => "http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz" }
 
   s.source_files = ['config.h', 'include/*.h', 'src/*.{c,h}']
   s.public_header_files = 'include/*.h'
   s.xcconfig = { 'OTHER_CFLAGS' => '-DHAVE_CONFIG_H' }
 
-  def s.pre_install (pod, target_definition)
-    Dir.chdir(pod.root) do
-      `./bootstrap 2>&1`
-      `./configure 2>&1`
-    end
-  end
+  s.prepare_command = <<-CMD
+    ./configure 2>&1
+  CMD
 end

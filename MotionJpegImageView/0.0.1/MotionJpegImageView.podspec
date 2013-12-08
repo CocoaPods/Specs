@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
                       3. The phone’s ability to process inbound packets and
                       rehydrate UIImage files from raw JPEG data.
                      DESC
-  s.homepage     = "http://thinkflood.com/support/redeye/software/open-source-software/motion-jpeg-image-view-ios/http://EXAMPLE/Motion-JPEG-Image-View-for-iOS"
+  s.homepage     = "http://thinkflood.com/support/redeye/software/open-source-software/motion-jpeg-image-view-ios/"
   s.license      = {
     :type => 'MIT',
     :text => <<-LICENSE

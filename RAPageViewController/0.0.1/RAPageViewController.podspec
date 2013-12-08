@@ -19,7 +19,7 @@ This project is in the public domain. You can use it and embed it in whatever ap
   s.author       = { "Evadne Wu" => "ev@radi.ws" }
   s.source       = { :git => "https://github.com/evadne/RAPageViewController.git", :commit => "6dec3737cd5be1e553b665e52ad111a294e5cddf" }
 
-  s.platform     = :ios, '6.0'
+  s.platform     = :ios, '5.0'
   s.source_files = 'RAPageViewController', 'RAPageViewController/**/*.{h,m}'
   s.requires_arc = true
 end
