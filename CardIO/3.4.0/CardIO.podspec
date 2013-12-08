@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://www.card.io'
   s.summary      = 'An easy to use credit card scanning tool.'
   s.author       = { 'CardIO' => 'support@paypal.com' }
-  s.source       = { :git => 'https://github.com/card-io/card.io-iOS-SDK.git', :tag => s.version.to_s }
+  s.source       = { :git => 'https://github.com/card-io/card.io-iOS-SDK.git', :tag => "v#{s.version}" }
   s.source_files = '**/*.h'
   s.preserve_paths = '**/*.a'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardIO/CardIO"' }
