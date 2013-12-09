@@ -29,6 +29,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'webp' do |w|
     w.header_dir   = 'webp'
-    w.source_files = 'src/webp/{decode,types,format_constants,mux_types}.h'
+    w.source_files = 'src/webp/{decode,encode,types,format_constants,mux_types}.h'
   end
 end
