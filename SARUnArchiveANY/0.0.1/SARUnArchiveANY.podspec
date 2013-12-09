@@ -15,7 +15,7 @@ s.author = {
     'Saravanan' => 'saru2020@gmail.com'
   }
 
-s.library   = 'libz.dylib'
+s.library   = 'libz'
 
 s.source = {
     :git => 'https://github.com/saru2020/SARUnArchiveANY.git',
