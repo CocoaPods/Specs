@@ -18,6 +18,7 @@ PODS_ALLOWED_TO_FAIL = {
     'ARCMacro',
     'AWSiOSSDK',
     'AZAppearanceKit',
+    'CardIO',
     'cocos2d',
     'CustomBadge',
     'DCIntrospect',
