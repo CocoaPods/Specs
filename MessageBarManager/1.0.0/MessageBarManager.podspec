@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
 	:tag => "v1.0.0"
   }
 
-  s.platform     = :ios, '6.1'
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}', 'Classes/Icons/*'
+  s.platform = :ios, '6.1'
+  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
+  s.resources = ["Classes/Icons/*.png"]
   s.requires_arc = true
 end
