@@ -15,6 +15,8 @@ s.author = {
     'Saravanan' => 'saru2020@gmail.com'
   }
 
+s.library   = 'libz'
+
 s.source = {
     :git => 'https://github.com/saru2020/SARUnArchiveANY.git',
     :tag => s.version.to_s
@@ -34,6 +36,6 @@ s.source = {
     ss.source_files = 'External/ZipArchive/*.{h,m}', 'External/ZipArchive/**/*.{h,c}'
   end
 
-  s.vendored_frameworks = 'Unrar4iOS.framework'
+  s.vendored_frameworks = 'Frameworks/Unrar4iOS.framework'
 
 end
