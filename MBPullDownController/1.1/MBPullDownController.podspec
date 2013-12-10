@@ -10,8 +10,9 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Matej Bukovinski' => 'matej@bukovinski.com' }
   s.source       = { :git => "https://github.com/matej/MBPullDownController.git", :tag => s.version.to_s }
-  s.platform     = :ios
   s.source_files = 'MBPullDownController/*.{h,m}'
   s.framework    = "QuartzCore"
+  s.platform     = :ios
   s.requires_arc = true
+  s.ios.deployment_target = '5.0'
 end
