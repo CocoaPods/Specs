@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'ARAnalytics'
-  s.version      =  '2.3.4'
+  s.version      =  '2.3.3'
   s.license      =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary      =  'Use multiple major analytics platforms with one clean API.'
   s.homepage     =  'http://github.com/orta/ARAnalytics'
