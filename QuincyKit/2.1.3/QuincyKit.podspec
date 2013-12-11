@@ -1,4 +1,3 @@
-# TODO For now we only support the iOS version. Need to work on supporting the Mac version too.
 Pod::Spec.new do |s|
   s.name     = 'QuincyKit'
   s.version  = '2.1.3'

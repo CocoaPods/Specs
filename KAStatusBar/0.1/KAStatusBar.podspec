@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KAStatusBar'
   s.version  = '0.1'
   s.platform = :ios
-  s.license  = {:type =>'Apache V2.0', :file =>'LICENSE'}
+  s.license  = {:type =>'Apache License, Version 2.0', :file =>'LICENSE'}
   s.summary  = 'Display unobstrusive alerts or indeterminate progress directly inside the status bar.'
   s.homepage = 'http://alexiscreuzot.com/KAStatusBar'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }

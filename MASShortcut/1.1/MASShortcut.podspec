@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://blog.shpakovski.com/2012/07/global-keyboard-shortcuts-in-cocoa.html"
   s.license      = 'BSD'
   s.author       = { "Vadim Shpakovski" => "vadim@shpakovski.com" }
-  s.source       = { :git => "https://github.com/shpakovski/MASShortcut.git", :commit => "3d4235f879e6f31b9bbcfb6b0fa2178de14d88aa" }
+  s.source       = { :git => "https://github.com/shpakovski/MASShortcut.git", :tag => "1.1" }
   s.platform     = :osx
   s.osx.deployment_target = '10.6'
   s.source_files = '*.{h,m}'

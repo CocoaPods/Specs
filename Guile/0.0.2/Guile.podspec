@@ -1,16 +1,10 @@
-#
-# Be sure to run `pod spec lint Guile.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = 'Guile'
   s.version      = '0.0.2'
   s.summary      = 'The Gilt User Interface Library for iOS.'
   s.homepage     = 'https://github.com/gilt/guile'
   # s.screenshots  = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license      = 'Apache 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Adam Kaplan' => 'akaplan@gilt.com', 'Gilt Mobile' => 'mobile@gilt.com' }
   s.source       = { :git => 'https://github.com/gilt/guile.git', :tag => "#{s.version}" }
 

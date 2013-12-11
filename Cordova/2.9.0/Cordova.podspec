@@ -15,8 +15,7 @@ Pod::Spec.new do |s|
   s.platform              = :ios, '5.0'
   s.requires_arc          = true
 
-  # TODO: Missing AddressBookUI here, but CocoaPods generates incorrect OTHER_LDFLAGS in Pods/Pods.xcconfig. Will analyse this soon..
   # OTHER_LDFLAGS = -ObjC UI -framework AVFoundation <- incorrect UI argument here!
 
-  s.frameworks = 'AddressBook', 'AudioToolbox', 'AVFoundation', 'CoreLocation', 'MediaPlayer', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreMedia', 'UIKit'
+  s.frameworks = 'AddressBook', 'AudioToolbox', 'AVFoundation', 'CoreLocation', 'MediaPlayer', 'QuartzCore', 'SystemConfiguration', 'MobileCoreServices', 'CoreMedia', 'UIKit', 'AddressBookUI', 'ImageIO', 'AssetsLibrary'
 end

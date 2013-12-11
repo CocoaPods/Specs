@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'iPhoneMK'
   s.version  = '1.2.1'
   s.license = {
-     :type => 'Apache License 2.0',
+     :type => 'Apache License, Version 2.0',
      :text => <<-LICENSE
        Copyright (c) 2009 Michael F. Kamprath
        michael@claireware.com

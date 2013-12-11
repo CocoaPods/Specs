@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ReactiveCocoa/ReactiveCocoaLayout"
   s.author       = { "ReactiveCocoa" => "ReactiveCocoa" }
   s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoaLayout.git", :tag => "#{s.version}" }
-  s.license      = 'Simplified BSD License'
+  s.license      = 'MIT'
   s.description  = "ReactiveCocoaLayout is a framework for describing Cocoa and Cocoa Touch layouts in a reactive way, based on ReactiveCocoa."
 
   s.requires_arc = true
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'UIKit'
   s.ios.exclude_files = 'ReactiveCocoaLayout/NSCell*.{h,m}', 'ReactiveCocoaLayout/NSControl*.{h,m}', 'ReactiveCocoaLayout/NSView*.{h,m}'
 
-  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
   s.osx.frameworks = 'Foundation', 'QuartzCore', 'CoreGraphics', 'Cocoa'
+  s.osx.exclude_files = 'ReactiveCocoaLayout/UIView*.{h,m}'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
