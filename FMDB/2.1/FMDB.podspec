@@ -27,4 +27,10 @@ Pod::Spec.new do |s|
     ss.dependency 'FMDB/common'
   end
 
+  # use SQLCipher and enable -DSQLITE_HAS_CODEC flag
+  s.subspec 'SQLCipher' do |ss|
+    ss.dependency 'SQLCipher'
+    ss.dependency 'FMDB/common'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DSQLITE_HAS_CODEC' }
+  end
 end

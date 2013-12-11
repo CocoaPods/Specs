@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author      =  { 'Ricardo Quesada' => 'ricardoquesada@gmail.com', 'Zynga Inc.' => 'https://zynga.com/' }
   s.source      =  {:git => 'https://github.com/cocos2d/cocos2d-iphone.git', :tag => 'release-2.1'}
 
-  s.source_files = 'cocos2d/**/*.{h,m,c}', 'external/kazmath/src/**/*.{c,h}', 'external/kazmath/include/**/*.{c,h}', 'external/libpng/*.{h,c}'
+  s.source_files = 'cocos2d/**/*.{h,m,mm,c}', 'external/kazmath/src/**/*.{c,h}', 'external/kazmath/include/**/*.{c,h}', 'external/libpng/*.{h,c}'
   s.exclude_files = 'external/libpng/pngtest.c', 'external/libpng/example.c'
 
   s.xcconfig   =  { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include"' }

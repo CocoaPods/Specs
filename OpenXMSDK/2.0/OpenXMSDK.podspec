@@ -11,7 +11,7 @@ Pod::Spec.new do |o|
     :text => 'Copyright 2013 OpenX Technologies, Inc. All rights reserved.'
   }
   o.source = { 
-    :http => 'http://www.openx.com/downloads/sdks/OpenX_Mobile_SDK_iOS.zip'
+    :http => 'http://i.cdn.openx.com/sdks/OpenX_Mobile_SDK_iOS.zip'
   }
   
   framework_path = 'OpenXMSDK.framework'

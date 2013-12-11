@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.prefix_header_contents = '#define ERROR_KIT 1'
   
-  default_subspec = 'Default'
+  s.default_subspec = 'Default'
 
   s.subspec 'Core' do |co|
     co.source_files = 'ErrorKit/Core'
