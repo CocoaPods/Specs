@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios, '5.0'
   s.source_files = 'Source/*.{h,m}'
-  s.public_header_files = 'Source/{MMProgressHUDOverlayView,MMProgressHUD,MMHud}.h'
+  s.public_header_files = 'Source/{MMProgressHUDOverlayView,MMProgressHUD,MMHud,MMProgressView-Protocol,MMRadialProgressView,MMLinearProgressView}.h'
   s.frameworks = 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
 end
