@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "nativeCSS"
+  s.name         = "NativeCSS"
   s.version      = "1.0.4"
   s.summary      = "Simplify your mobile development by styling native apps in CSS."
   #s.description  = <<-DESC                 DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source_files = 'NativeCSS/*.h'
   s.preserve_paths = 'NativeCSS/*.a'
   s.library = 'nativeCSS'
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/nativeCSS/NativeCSS"', 'OTHER_LDFLAGS' => '-lObjC' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/NativeCSS/NativeCSS"', 'OTHER_LDFLAGS' => '-lObjC' }
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'CoreImage', 'Accelerate'
 
 end
