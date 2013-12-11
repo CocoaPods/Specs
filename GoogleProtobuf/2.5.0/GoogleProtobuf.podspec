@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.platform = :ios, '7.0'
+    s.platform = :ios, '5.0'
     s.name     = 'GoogleProtobuf'
     s.version  = '2.5.0'
     s.license = {
@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
         smaller, faster, and simpler.
 
         Produces a stand-alone build of the Google Protocol Buffer library for
-        use in iOS applications built with Xcode 5 and iOS 7.  A copy of the
-        protoc compiler is also built and placed in the Pods/GoogleProtobuf folder.
-        It may be used in a custom build rule to generate C++ files based on the 
+        use in iOS applications. Xcode 5 is required to build protobuf from  source.
+        A copy of the protoc compiler is also built and placed in the Pods/GoogleProtobuf
+        folder. It may be used in a custom build rule to generate C++ files based on the 
         .proto files.
         DESC
     s.authors  = { 'Google' => 'protobuf@googlegroups.com' }
