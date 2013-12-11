@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version = "0.0.9"
   s.summary = "A forms library for iOS."
   s.homepage = "https://github.com/jasperblues/iBureaucrat"
-  s.license = { :type => 'Apache2', :file => 'LICENSE' }
+  s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author = { "Jasper Blues" => "jasper@appsquick.ly" }
   s.source = { :git => "https://github.com/jasperblues/iBureaucrat.git", :tag => "0.0.9" }
   s.platform = :ios, '5.0'

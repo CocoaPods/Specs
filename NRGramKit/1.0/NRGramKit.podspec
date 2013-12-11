@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint NRGramKit.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "NRGramKit"
   s.version      = "1.0"
@@ -15,14 +9,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
   s.source_files = 'NRGramKit/*.{h,m,pch}','NRGramKit/Model/*.{h,m}'
-  #s.exclude_files = 'NRGramKit/*.pch'
   s.prefix_header_file = 'NRGramKit/NRGramKit-Prefix.pch'
 
-
   s.frameworks = 'SystemConfiguration', 'CFNetwork','Security'
-
-  # If this Pod uses ARC, specify it like so.
-  #
   s.requires_arc = true
   s.dependency 'MKNetworkKit', '~> 0.87'
   s.dependency 'JSONKit','~>1.4'

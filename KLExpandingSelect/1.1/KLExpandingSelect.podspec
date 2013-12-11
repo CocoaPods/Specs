@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      	= "A UI Control based on Summly's expanding sharing control."
   s.description		= "Have a menu appear exposing beautiful and easy to access buttons to the user without removing them from where they want to be."
   s.homepage     	= "http://www.cocoacontrols.com/platforms/ios/controls/klexpandingselect"
-  s.license      	= 'Apache 2.0 License'
+  s.license      	= 'Apache License, Version 2.0'
   s.author       	= { "Kieran Lafferty" => "kieran.lafferty@gmail.com" }
   s.source       	= { :git => "https://github.com/KieranLafferty/KLExpandingSelect.git", :tag => "1.1" }
   s.source_files 	= 'Classes/*.{h,m}'

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KANibHelper'
   s.version  = '0.4'
   s.platform = :ios
-  s.license  = {:type =>'Apache V2.0', :file =>'LICENSE'}
+  s.license  = {:type =>'Apache License, Version 2.0', :file =>'LICENSE'}
   s.summary  = 'When you need to have two very distinct interfaces between 3.5 and 4 inches screens.'
   s.homepage = 'http://alexiscreuzot.com/KANibHelper'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }

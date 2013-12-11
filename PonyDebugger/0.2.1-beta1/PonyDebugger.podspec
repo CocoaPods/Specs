@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
   s.author       = 'Square'
   s.source       = { :git => 'https://github.com/square/PonyDebugger.git', :tag => 'v0.2.1-beta1' }
-  s.license      = 'Apache Licence, Version 2.0'
+  s.license      = 'Apache License, Version 2.0'
 
   # Platform setup
   s.requires_arc = true

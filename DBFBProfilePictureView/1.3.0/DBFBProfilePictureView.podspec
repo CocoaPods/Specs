@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.summary  = 'Improved Facebook profile picture view.'
   s.homepage = 'https://github.com/combinatorial/DBFBProfilePictureView'
-  s.license  = 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)'
+  s.license  = 'Apache License, Version 2.0'
   s.author   = { 'David Brittain' => 'combinatorial@gmail.com' }
   s.source   = { :git => 'https://github.com/combinatorial/DBFBProfilePictureView.git', :tag => '1.3.0' }
   s.requires_arc = true

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   name         = "SHOmniAuthTwitter"
-  url          = "https://github.com/seivan/#{name}"
+  url          = "https://github.com/SHOmniAuth/#{name}"
   git_url      = "#{url}.git"
   version      = "0.2.6"
   source_files = "#{name}/**/*.{h,m}"
@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
                     A strategy for authenticating with Twitter via SHOmniAuth.
                     Uses reverse authentication and ACAccountStore.
                    DESC
-  s.homepage     = "https://github.com/seivan/SHOmniAuthTwitter"
+  s.homepage     = "https://github.com/SHOmniAuth/SHOmniAuthTwitter"
 
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHOmniAuthTwitter.git", :tag => version }
+  s.source       = { :git => "https://github.com/SHOmniAuth/SHOmniAuthTwitter.git", :tag => version }
   s.platform     = :ios, '6.0'
   
   s.frameworks  = 'Social', 'Accounts'

@@ -3,7 +3,7 @@
 # LibComponentLogging auto-configuration for CocoaPods
 #
 #
-# Copyright (c) 2012 Arne Harren <ah@0xc0.de>
+# Copyright (c) 2012-2013 Arne Harren <ah@0xc0.de>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -37,9 +37,14 @@ class LibComponentLoggingPodsConfig
 
     # folders
     @lcl_core_root = @pods_config.project_pods_root + 'LibComponentLogging-Core'
-    @lcl_pods_root = @pods_config.project_pods_root + "LibComponentLogging-pods"
+    @lcl_pods_folder_name = 'LibComponentLogging-pods'
+    @lcl_pods_root = @pods_config.project_pods_root + @lcl_pods_folder_name
     @lcl_pods_template_copies_root = @lcl_pods_root + 'templates'
-    @lcl_user_root = @pods_config.project_pods_root + ".."
+    @lcl_pods_headers_root = @pods_config.project_pods_root + @pods_headers_name + @lcl_pods_folder_name
+    @pods_root_relative_from_lcl_pods_root = '../..'
+    @user_root_relative_from_pods_root = '..'
+    @user_root = @pods_config.project_pods_root + @user_root_relative_from_pods_root
+    @user_root_relative_from_lcl_pods_root = @pods_root_relative_from_lcl_pods_root + '/' + @user_root_relative_from_pods_root
 
     # suffixes
     @lcl_pods_config_suffix = ".pods.main"
@@ -63,9 +68,9 @@ class LibComponentLoggingPodsConfig
 
     # user configuration files
     @lcl_user_config_components_file_name = "lcl_config_components.h" + @lcl_user_config_suffix
-    @lcl_user_config_components_file = @lcl_user_root + @lcl_user_config_components_file_name
+    @lcl_user_config_components_file = @user_root + @lcl_user_config_components_file_name
     @lcl_user_config_extensions_file_name = "lcl_config_extensions.h" + @lcl_user_config_suffix
-    @lcl_user_config_extensions_file = @lcl_user_root + @lcl_user_config_extensions_file_name
+    @lcl_user_config_extensions_file = @user_root + @lcl_user_config_extensions_file_name
   end
 
   def configure
@@ -141,18 +146,23 @@ class LibComponentLoggingPodsConfig
 
     # create pods configuration files
     create_file(@lcl_pods_config_components_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_components_file_name, @lcl_pods_config_components_file_name)
     create_file(@lcl_pods_config_logger_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_logger_file_name, @lcl_pods_config_logger_file_name)
     create_file(@lcl_pods_config_extensions_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_extensions_file_name, @lcl_pods_config_extensions_file_name)
 
     # create user configuration files
     if !exists_file(@lcl_user_config_components_file)
       create_file(@lcl_user_config_components_file)
       note "Use '" + @lcl_user_config_components_file_name + "' to configure log components"
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + @lcl_user_config_components_file_name, @lcl_user_config_components_file_name)
     if !exists_file(@lcl_user_config_extensions_file)
       create_file(@lcl_user_config_extensions_file)
       note "Use '" + @lcl_user_config_extensions_file_name + "' to configure additional log extensions"
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + @lcl_user_config_extensions_file_name, @lcl_user_config_extensions_file_name)
 
     # add user configuration files to pods configuration files
     add_include(@lcl_pods_config_components_file, @lcl_user_config_components_file_name)
@@ -212,6 +222,14 @@ class LibComponentLoggingPodsConfig
   end
 
   protected
+  def link_file(folder, src_file, dst_file)
+    debug "Linking file '" + src_file.to_s + "' to '" + folder.to_s + "/" + dst_file.to_s + "'"
+    Dir.chdir(folder) do
+      FileUtils.ln_s(src_file, dst_file)
+    end
+  end
+
+  protected
   def add_suffix_to_includes(file, suffix)
     debug "Adding suffix '" + suffix + "' to includes in file '" + file.to_s + "'"
     text = File.read(file)
@@ -261,10 +279,10 @@ class LibComponentLoggingPodsConfig
     config_template_path = File.dirname(config_template_file_name)
     config_template_name = File.basename(config_template_file_name)
     config_name = config_template_name.gsub(/\.template/, '')
-    config_file = @lcl_user_root + config_name
+    config_file = @user_root + config_name
     if File.file? config_file
       if !equals_last_config_template_copy(config_template_file_name)
-        copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @lcl_user_root + (config_name + @lcl_tmp_file_suffix))
+        copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @user_root + (config_name + @lcl_tmp_file_suffix))
         note "Configuration file '" + config_name + "' already exists, please merge with '" + config_name + @lcl_tmp_file_suffix + "' manually"
         keep_last_config_template_copy(config_template_file_name)
       end
@@ -273,19 +291,20 @@ class LibComponentLoggingPodsConfig
       note "Configuration file '" + config_name + "' needs to be adapted before compiling your project"
       keep_last_config_template_copy(config_template_file_name)
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + config_name, config_name)
   end
 
   protected
   def add_config_components(config_components_file, components_file)
     # add the lcl_config_components*.h file
-    add_include(config_components_file, @pods_root_name + "/" + @pods_headers_name + "/" + components_file)
+    add_include(config_components_file, components_file)
   end
 
   protected
   def add_config_components_embedded(config_components_file, components_file, pod_name, embed_symbol)
     # add the lcl_config_components*.h file and define symbols for un-embedding
     add_code(config_components_file, "#define _" + embed_symbol + "lcl_component _lcl_component")
-    add_include(config_components_file, @pods_root_name + "/" + @pods_headers_name + "/" + components_file)
+    add_include(config_components_file, components_file)
     add_code(config_components_file, "#undef _" + embed_symbol + "lcl_component")
 
     # modify the lcl_embed_symbol.h,m files
@@ -434,8 +453,8 @@ LICENSE
   s.dependency 'LibComponentLogging-Core'
 
   # add include path for user configuration files
-  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/.." "${PODS_ROOT}/LibComponentLogging-pods"',
-                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.." "${PODS_ROOT}/LibComponentLogging-pods"' }
+  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/LibComponentLogging-pods"',
+                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/LibComponentLogging-pods"' }
 
   # add lcl_config to CocoaPods' config
   class << Config.instance

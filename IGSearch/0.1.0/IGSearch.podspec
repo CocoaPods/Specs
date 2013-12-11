@@ -6,11 +6,14 @@ Pod::Spec.new do |s|
   s.author = { "Francis Chong" => "francis@ignition.hk"}
 
   s.source = { :git => "https://github.com/siuying/IGSearch.git", :tag => "0.1.0" }
-  s.platform = :ios, '5.1'
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.8'
+
   s.source_files = 'IGSearch/Classes/*.{h,m}', 'vendor/sqlite3-fts-cjk/fts3/*.{h,m,c}'
   s.requires_arc = true
   s.license = {:type => 'MIT', :file => 'LICENSE.md' }
 
   s.dependency 'FMDB/standalone'
   s.dependency 'sqlite3'
+  s.dependency 'CocoaLumberjack'
 end

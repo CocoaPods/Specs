@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'GDataXML-HTML'
   s.version  = '1.1.0'
   s.license  = { 
-    :type => 'Apache 2.0',
+    :type => 'Apache License, Version 2.0',
     :text => 'Original GDataXML: Copyright (c) 2008 Google Inc
 
     Example project and HTML addons: Copyright (c) 2012 Simon Grätzer

@@ -1,4 +1,3 @@
-# TODO Add TBXML license
 Pod::Spec.new do |s|
   s.name         = "iOS-KML-Framework"
   s.version      = "0.0.1"
@@ -18,6 +17,7 @@ Pod::Spec.new do |s|
 
   s.framework  = 'UIKit'
 
+  # TODO Add TBXML license
   s.preserve_paths = 'TBXML-LICENSE'
 
   s.requires_arc = true

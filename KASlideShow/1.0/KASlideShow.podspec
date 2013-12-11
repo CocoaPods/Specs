@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'KASlideShow'
   s.version  = '1.0'
   s.platform = :ios
-  s.license  = {:type =>'Apache V2.0', :file =>'LICENSE'}
+  s.license  = {:type =>'Apache License, Version 2.0', :file =>'LICENSE'}
   s.summary  = 'Minimal slideshow for iOS. Support manual or automatic slideshow, with fade and slide transitions.'
   s.homepage = 'http://alexiscreuzot.com/KASlideShow'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }
