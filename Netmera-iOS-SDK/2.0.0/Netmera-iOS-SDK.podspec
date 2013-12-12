@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
 
 
   s.resources = "NetmeraSDK/Resources/*.{plist, xib, png, wav}"
-  s.preserve_paths = "NetmeraSDK/Netmera.framework", "NetmeraSDK/Resources/*"
+  s.preserve_paths = "NetmeraSDK/*"
 
 
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreLocation', 'MobileCoreServices', 'CFNetwork', 'CoreTelephony'
