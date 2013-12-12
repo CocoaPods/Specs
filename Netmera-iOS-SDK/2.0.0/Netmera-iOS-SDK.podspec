@@ -48,12 +48,13 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://netmera.com/netmera-resources/files/ios/netmera.framework-#{s.version}.zip" }
 
 
+  s.source_files = 'Netmera-iOS-SDK/**/*.{h,m}'
   s.public_header_files   = 'NetmeraSDK/Netmera.framework/**/*.h'
   s.vendored_frameworks   = 'NetmeraSDK/Netmera.framework'
 
 
-  s.resources = "NetmeraSDK/Resources/*.{plist, xib, png, wav}"
-  s.preserve_paths = "NetmeraSDK/*"
+  s.resources = "NetmeraSDK/Resources/*.{plist,xib,png,wav}"
+  s.preserve_paths = "*"
 
 
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreLocation', 'MobileCoreServices', 'CFNetwork', 'CoreTelephony'
