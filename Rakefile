@@ -64,7 +64,6 @@ PODS_ALLOWED_TO_FAIL = {
     'Google-API-Client',
     'iOS-KML-Framework',
     'KDXCollectionView',
-    'LibComponentLogging-pods',
     'MacMapKit',
     'MBPopoverBackgroundView',
     'MMPickerView',
