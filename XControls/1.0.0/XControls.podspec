@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation'
 
   s.source_files = 'XControls/*', 'XCVCells/*', 'XTVCells/*'
-  s.resources = ["DefaultImage.png", "Checked.png", "Unchecked.png"]
+  s.resources = ["XControls/*.png"]
 end
