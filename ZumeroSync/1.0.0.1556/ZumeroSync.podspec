@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ZumeroSync"
   s.version      = "1.0.0.1556"
-  s.summary      = "Objective C wrappers for Zumero for SQL Server (ZSS) sync operations."
+  s.summary      = "Use Zumero to sync SQL Server databases with local SQLite dbfiles."
   s.description  = <<-DESC
                     Includes all sync and quarantine functions of the Zumero API.
 
@@ -10,12 +10,8 @@ Pod::Spec.new do |s|
   s.homepage     = "http://zumero.com/dev-center/zss"
   s.license      = 'Apache'
   s.author       = { "Zumero LLC" => "support@zumero.com" }
-  s.social_media_url = 'https://twitter.com/zumero_uno'
   s.source       = { :git => "https://github.com/zumero/ZumeroSyncPod.git", :tag => s.version.to_s }
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
   s.default_subspec = 'SQLite'
