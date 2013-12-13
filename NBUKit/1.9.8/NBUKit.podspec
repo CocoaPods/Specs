@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
         si.source_files = 'Source/Image/*.{h,m}'
         si.resources    = 'Source/Image/*.{xib}'
         si.weak_frameworks = 'CoreImage'
-        si.dependency 'GPUImage',   '>= 0.1.0'
+        si.dependency 'GPUImage',   '>= 0.1.2'
     end
     
     s.subspec 'Assets' do |sa|
