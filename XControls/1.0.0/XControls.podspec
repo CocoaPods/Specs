@@ -13,7 +13,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
+  
+  s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation'
 
   s.source_files = 'XControls/*', 'XCVCells/*', 'XTVCells/*'
-  s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation'
+  s.resources = ["XControls/*.png"]
 end
