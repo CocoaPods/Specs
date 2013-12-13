@@ -46,19 +46,19 @@ Pod::Spec.new do |s|
 
   s.source       = { :http => "http://netmera.com/netmera-resources/files/ios/netmera.framework-#{s.version}.zip" }
 
-
-  s.public_header_files   = 'NetmeraSDK/Netmera.framework/**/*.h'
+  s.source_files = 'NetmeraSDK/Resources/*.{h,m}'
+  s.public_header_files   = 'NetmeraSDK/**/*.h'
   s.vendored_frameworks   = 'NetmeraSDK/Netmera.framework'
 
 
-  s.resources = "NetmeraSDK/Resources/*"
-  s.preserve_paths = "NetmeraSDK/Netmera.framework", "NetmeraSDK/Resources/*"
+  s.resources = "NetmeraSDK/Resources/*.{plist,xconfig,xib,wav}"
+  s.preserve_paths = "NetmeraSDK/*"
 
 
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreLocation', 'MobileCoreServices', 'CFNetwork', 'CoreTelephony'
   s.weak_frameworks   = 'QuartzCore', 'Security', 'AdSupport', 'Social', 'Accounts', 'Twitter'
-  s.libraries = 'xml2', 'sqlite3', 'z'
-
+  s.libraries   = 'xml2', 'sqlite3', 'z'
+  s.dependency 'Facebook-iOS-SDK', '3.2'
 
   s.requires_arc = true
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }

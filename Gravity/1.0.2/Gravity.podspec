@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.license  = 'MIT'
   s.summary  = 'A robust set of tools commonly used during iOS development.'
-  s.homepage = 'http://grantdavisintearctive.com'
+  s.homepage = 'https://github.com/gdavis/Gravity'
   s.author   = { 'Grant Davis' => 'grant@grantdavisinteractive.com' }
   s.source   = { :git => 'https://github.com/gdavis/Gravity.git', :tag => s.version.to_s }
 
