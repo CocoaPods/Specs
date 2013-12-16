@@ -60,21 +60,6 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "Comments placed at the top of the specification must be deleted." => [
-    'Google-API-Client',
-    'iOS-KML-Framework',
-    'KDXCollectionView',
-    'LibComponentLogging-pods',
-    'MacMapKit',
-    'MBPopoverBackgroundView',
-    'MMPickerView',
-    'NNNetwork',
-    'QuincyKit',
-    'SBTickerView',
-    'StateMachine-GCDThreadsafe',
-    'TumbleOn-Utils',
-  ],
-
   "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the `prepare_command` attributes." => [
     'AppPaoPaoSDK',
     'ARCHelper',
@@ -136,8 +121,8 @@ PODS_ALLOWED_TO_FAIL = {
   ],
 
   "Github repositories should use `https` link." => [
-    'KeychainItemWrapper',
-    'KSPowerAssertion',
+    'ARCHelper',
+    'ARCMacro',
   ],
 }
 

@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.subspec 'CSS' do |css|
     css.source_files = 'src/css/src'
     css.dependency 'Nimbus/Core'
-    css.dependency 'AFNetworking'
+    css.dependency 'AFNetworking', '~> 1.0'
   end
 
   s.subspec 'AttributedLabel' do |label|
@@ -61,6 +61,11 @@ Pod::Spec.new do |s|
   s.subspec 'Models' do |models|
     models.source_files = 'src/models/src'
     models.dependency 'Nimbus/Core'
+  end
+
+  s.subspec 'Collections' do |collections|
+    collections.source_files = 'src/collections/src'
+    collections.dependency 'Nimbus/Core'
   end
 
   s.subspec 'NetworkControllers' do |controllers|

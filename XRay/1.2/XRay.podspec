@@ -17,10 +17,11 @@ Pod::Spec.new do |s|
  
   s.platform     = :ios, '5.0'
  
-  s.source_files = 'XRay.framework/Versions/A/Headers/XRay.h'
-  s.preserve_paths = 'XRay.framework/*'
-  s.frameworks   = 'XRay', 'CFNetwork', 'QuartzCore'
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/XRay"' }
+  s.preserve_paths = 'XRay.framework'
+  s.public_header_files = 'XRay.framework/Versions/A/Headers/XRay.h'
+  s.vendored_frameworks = 'XRay.framework'
+
+  s.frameworks   = 'CFNetwork', 'QuartzCore'
   
   s.requires_arc = false
 end
