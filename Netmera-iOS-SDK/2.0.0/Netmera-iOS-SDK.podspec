@@ -52,7 +52,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks   = 'NetmeraSDK/Netmera.framework'
 
 
-  s.resources = "NetmeraSDK/Resources/*.{plist,xconfig,xib,wav}"
+  s.resources = "NetmeraSDK/Resources/*.{plist,xcconfig,xib,wav,png}"
   s.preserve_paths = "NetmeraSDK/*"
 
 
