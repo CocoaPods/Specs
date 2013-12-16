@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "ISNetwork"
   s.version      = "0.0.1"
   s.summary      = "minimal NSURLConnection wrapper (NSOperation-base)."
-  s.homepage     = "http://EXAMPLE/MyPod"
+  s.homepage     = "https://github.com/ishkawa/ISNetwork"
   s.author       = { "Yosuke Ishikawa" => "ishkawa73@gmail.com" }
   s.source       = { :git => "https://github.com/ishkawa/ISNetwork.git", :tag => "0.0.1" }
   s.platform     = :ios, '5.0'

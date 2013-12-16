@@ -14,19 +14,19 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
     core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI,Reachability}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
-    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia"
+    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia", "Social"
     core.dependency 'SSKeychain', "0.2.1"
   end
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.dependency 'Evernote-SDK-iOS', "~> 1.2"
+    evernote.dependency 'Evernote-SDK-iOS', '~> 1.2.1'
     evernote.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
-    facebook.dependency 'Facebook-iOS-SDK',"~> 3.5"
+    facebook.dependency 'Facebook-iOS-SDK',"~> 3.7"
     facebook.dependency 'ShareKit/Core'
   end
 
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   s.subspec 'Foursquare' do |foursquare|
     foursquare.source_files = 'Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}'
     foursquare.framework = 'CoreLocation'
-    foursquare.dependency 'SBJson', "~> 3.2"
+    foursquare.dependency 'SBJson', '~> 3.2'
     foursquare.dependency 'ShareKit/Core'
   end
 
@@ -64,9 +64,15 @@ Pod::Spec.new do |s|
     pinboard.dependency 'ShareKit/Core'
   end
 
-  s.subspec 'ReadItLater' do |readitlater|
-    readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
-    readitlater.dependency 'ShareKit/Core'
+  s.subspec 'Readability' do |readability|
+    readability.source_files = 'Classes/ShareKit/Sharers/Services/Readability/**/*.{h,m}'
+    readability.dependency 'ShareKit/Core'
+  end
+
+  s.subspec 'Pocket' do |pocket|
+    pocket.dependency 'PocketAPI',"~> 1.0"
+    pocket.source_files = 'Classes/ShareKit/Sharers/Services/Pocket/**/*.{h,m}'
+    pocket.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Tumblr' do |tumblr|
@@ -77,13 +83,18 @@ Pod::Spec.new do |s|
   s.subspec 'Twitter' do |twitter|
     twitter.source_files = 'Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}'
     twitter.framework = 'Twitter'
-    twitter.dependency 'JSONKit', "~> 1.4"
+    twitter.dependency 'JSONKit', '~> 1.4'
     twitter.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Vkontakte' do |vkontakte|
     vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
-    vkontakte.dependency 'JSONKit', "~> 1.4"
+    vkontakte.dependency 'JSONKit', '~> 1.4'
     vkontakte.dependency 'ShareKit/Core'
+  end
+
+  s.subspec 'Instagram' do |instagram|
+    instagram.source_files = 'Classes/ShareKit/Sharers/Services/Instagram/**/*.{h,m}'
+    instagram.dependency 'ShareKit/Core'
   end
 end

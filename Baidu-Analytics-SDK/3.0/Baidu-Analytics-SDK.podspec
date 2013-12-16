@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.source_files = 'ios_api/Release-iphoneos/*.h'
-  s.resource = 'ios_api/Release-iphoneos/*.a'
+  s.preserve_paths = 'ios_api/Release-iphoneos/*.a'
 
   s.frameworks = 'CoreLocation','libstdc++.dylib','CoreTelephony', 'SystemConfiguration','libz.dylib'
   s.library = 'BaiduMobStat'

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.platform = :ios
   s.source_files = 'Analytics_iOS_SDK_2.2.0.OpenUDID/UMAnalytics_Sdk_2.2.0.OpenUDID/*.h'
-  s.resource = 'Analytics_iOS_SDK_2.2.0.OpenUDID/UMAnalytics_Sdk_2.2.0.OpenUDID/*.a'
+  s.preserve_paths = 'Analytics_iOS_SDK_2.2.0.OpenUDID/UMAnalytics_Sdk_2.2.0.OpenUDID/*.a'
 
   s.library = 'z','MobClickLibrary'
   

@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version = '1.6.1'
   s.license = 'BSD'
   s.summary = 'A fast & simple, yet powerful & flexible logging framework for Mac and iOS.'
-  s.homepage = 'https://github.com/robbiehanson/CocoaLumberjack'
+  s.homepage = 'https://github.com/CocoaLumberjack/CocoaLumberjack'
   s.author = { 'Robbie Hanson' => 'robbiehanson@deusty.com' }
-  s.source = { :git => 'https://github.com/robbiehanson/CocoaLumberjack.git',
+  s.source = { :git => 'https://github.com/CocoaLumberjack/CocoaLumberjack.git',
                  :tag => '1.6.1' }
 
   s.description = 'It is similar in concept to other popular logging frameworks such as log4j, ' \
@@ -14,5 +14,7 @@ Pod::Spec.new do |s|
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
   s.requires_arc = true
+  s.ios.platform = :ios, '5.0'
+  s.osx.platform = :osx, '10.7'
   s.source_files = 'Lumberjack'
 end

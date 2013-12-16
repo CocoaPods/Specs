@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   }
   s.homepage    = 'http://subvertapps.com'
   s.license     = 'LICENSE'
-  s.source_files = 'CollapseClick/*.{h,m,xib}'
+  s.resources = 'CollapseClick/*.{xib}'
+  s.source_files = 'CollapseClick/*.{h,m}'
   s.platform = :ios, '5.0'
   s.requires_arc = true
 end

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/mopub/mopub-ios-sdk.git', :tag => '1.13.0.0' }
   s.requires_arc = false
   s.preserve_paths = 'AdNetworkSupport'
-  s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation'
+  s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation', 'MediaPlayer'
   s.preferred_dependency = 'Classes'
 
   s.subspec 'iAdAdapter' do |ss|
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Classes' do |ss|
-    ss.source_files = 'MoPubSDK/**/*.{h,m,xib}'
+    ss.source_files = 'MoPubSDK/**/*.{h,m}'
     ss.resources    = 'MoPubSDK/**/*.{png,bundle,xib,nib}'
   end
   

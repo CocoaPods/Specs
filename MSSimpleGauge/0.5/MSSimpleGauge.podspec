@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sabymike/MSSimpleGauge.git", :tag => "0.5" }
   s.platform     = :ios, '5.0'
   s.source_files = 'SimpleGauge/Gauges/*.{h,m}'
-  s.frameworks = 'QuarzCore', 'UIKit', 'CoreGraphics', 'Foundation'
+  s.frameworks = 'QuartzCore', 'UIKit', 'CoreGraphics', 'Foundation'
   s.requires_arc = true
 end

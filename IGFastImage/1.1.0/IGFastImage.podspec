@@ -9,6 +9,20 @@ Pod::Spec.new do |s|
   s.author = { "Francis Chong" => "francis@ignition.hk" }
   s.source = { :git => "https://github.com/siuying/IGFastImage.git", :tag => s.version.to_s }
   s.source_files = 'IGFastImage/FastImage/*.{h,m}'
+  s.ios.frameworks = 'SystemConfiguration', 'MobileCoreServices'
+  s.osx.frameworks = 'SystemConfiguration'
   s.requires_arc = true
-  s.dependency 'AFNetworking', '2.0.0-RC2'
+  s.prefix_header_contents = <<-EOS
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+#endif
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+  #import <MobileCoreServices/MobileCoreServices.h>
+#endif
+
+#import <SystemConfiguration/SystemConfiguration.h>
+  EOS
+
+  s.dependency 'AFNetworking/Core', '2.0.0-RC2'
 end
