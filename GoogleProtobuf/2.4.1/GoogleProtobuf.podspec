@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.platform = :ios, '7.0'
+  s.platform = :ios, '5.0'
   s.name     = 'GoogleProtobuf'
   s.version  = '2.4.1'
   s.summary  = 'Google Protocol Buffers serialization library'
