@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage      = "https://github.com/otaviocc/NHCalendarActivity"
   
   s.author        = { "Otavio Cordeiro" => "contact@otaviocc.com" }
-  s.source        = { :git => "https://github.com/otaviocc/NHCalendarActivity.git", :tag => s.version }
+  s.source        = { :git => "https://github.com/otaviocc/NHCalendarActivity.git", :tag => s.version.to_s }
   s.license       = { :type => 'MIT' }
   
   s.source_files  = 'NHCalendarActivity'
