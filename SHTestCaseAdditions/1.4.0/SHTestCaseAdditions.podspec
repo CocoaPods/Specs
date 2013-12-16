@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   name           = "SHTestCaseAdditions"
   url            = "https://github.com/seivan/#{name}"
   git_url        = "#{url}.git"
-  version        = "1.2.1"
+  version        = "1.4.0"
   source_files   = "#{name}/*.{h,m}"
   
   s.name         = name
