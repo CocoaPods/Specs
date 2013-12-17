@@ -13,6 +13,8 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://iFirmata.github.com"
 
+  s.screenshots  = "http://iFirmata.github.com/images/scanner.png", "http://iFirmata.github.com/images/detail.png", "http://iFirmata.github.com/images/pinmode.png", "http://iFirmata.github.com/images/digital.png", "http://iFirmata.github.com/images/servo.png", "http://iFirmata.github.com/images/i2c.png"
+
   s.license      = 'Apache 2.0'
 
   s.author       = { "Jacob Rosenthal" => "jakerosenthal@gmail.com" }
@@ -21,11 +23,9 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/iFirmata/iFirmata.git", :tag => s.version.to_s }
 
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
-
-  s.subspec 'OpenBLE' do |os|
-  end
+  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
 
   s.requires_arc = true
 
+  s.dependency 'OpenBLE'
 end
