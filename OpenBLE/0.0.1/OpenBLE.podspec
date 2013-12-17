@@ -27,5 +27,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
 
   s.framework  = 'CoreBluetooth'
+  
+  s.requires_arc = true
 
 end
