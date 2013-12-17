@@ -39,6 +39,7 @@ Pod::Spec.new do |s|
             make install
             sed -i .orig 's/tr1\\///g' config.h
             sed -i .orig 's/::tr1//g' config.h
+            perl -i.bak -pe '$_ = qq[#define google google_public\n\n$_] if $_ eq qq[#include <assert.h>\n]' src/google/protobuf/stubs/common.h
         ) | tee "/tmp/$(basename $0).$$.tmp"
     CMD
 
