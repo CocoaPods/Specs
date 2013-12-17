@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/iDay/DoubanActivity.git", :tag => "1.0.0" }
 
 
-  s.source_files  = 'DoubanActivity/**/*.{h,m}'
+  s.source_files  = 'DoubanActivity/*.{h,m}'
   s.resources = 'DoubanActivity/Resources/*.png'
   s.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'Security', 'CFNetwork', 'CoreGraphics'
   s.libraries = 'z', 'xml2'
