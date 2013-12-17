@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Weibo"
-  s.version      = "2.4.0"
+  s.version      = "2.4.1"
   s.summary      = "sina weibo sdk of sso and Oauth2.0."
   s.homepage     = "https://github.com/sinaweibosdk/weibo_ios_sdk"
   s.license      = { :type => "Commercial",
