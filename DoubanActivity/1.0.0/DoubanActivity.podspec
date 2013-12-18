@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
 
   s.source_files  = 'DoubanActivity/*.{h,m}'
-  s.resources = 'DoubanActivity/Resources/*.png'
+  s.resources = 'DoubanActivity/Resources/*.png', 'DoubanActivity/*.xib'
   s.frameworks = 'MobileCoreServices', 'SystemConfiguration', 'Security', 'CFNetwork', 'CoreGraphics'
   s.libraries = 'z', 'xml2'
 
