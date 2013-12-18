@@ -1,11 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "CardFlight"
-  s.version      = "1.0.2"
+  s.version      = "1.1.0"
   s.summary      = "CardFlight's iOS SDK Library"
   s.homepage     = "https://getcardflight.com"
-
-  # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-
 
   s.license = {
     :type => 'commercial',
@@ -14,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "CardFlight" => "support@getcardflight.com" }
   s.platform     = :ios, '4.0'
-  s.source       = { :git => "https://github.com/CardFlight/cardflight-ios.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/CardFlight/cardflight-ios.git", :tag => "1.1.0" }
 
   s.source_files  = '*.{h,m}'
   s.preserve_paths = 'libCardFlightLibrary.a'
@@ -25,6 +22,5 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardFlight"' }
-
 
 end
