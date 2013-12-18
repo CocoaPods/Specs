@@ -68,6 +68,8 @@ Pod::Spec.new do |m|
     ]
   }
 
+  m.documentation_url = 'https://www.mapbox.com/mapbox-ios-sdk/api/'
+
   m.frameworks = 'CoreGraphics', 'CoreLocation', 'Foundation', 'QuartzCore', 'UIKit'
 
   m.libraries = 'Proj4', 'sqlite3', 'z'
