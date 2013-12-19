@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PhysicsDebugger"
-  s.version      = "1.0.0"
+  s.version      = "1.0.2"
   s.summary      = "iOS 7 Sprite Kit PhysicsDebugger"
   s.description  = "Developing in iOS 7 Sprite Kit with physicsBodies is fun and easy. There are no debugging options for the physics engine. You will reach the point where you have to see the physicsBodies you created to expect their behaviour. Include this PhysicsDebugger files, make an init and a render call and all your physicsBodies will be displayed. The Debugger will draw the real physicsBody, not just the shape dimensions."
   s.homepage     = "http://www.ymc.ch/en/category/mobile-en"
