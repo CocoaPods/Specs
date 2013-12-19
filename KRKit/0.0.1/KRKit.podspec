@@ -18,9 +18,11 @@ An assortment of categories to make life easier.
 
   s.platform     = :ios
 
-  s.source       = { :git => "https://github.com/kylerobson/KRKit.git", :commit => "f3dd7c569de35f3017dd1416b86fdf8582911752" }
+  s.source       = { :git => "https://github.com/kylerobson/KRKit.git", :commit => "e635ba0fd1679742ab227ce70f3626d1dc80b246" }
   
   s.source_files  = 'KRKit/*.{h,m}'
   s.exclude_files = 'KRKit.xcodeproj/**'
+  
+  s.dependency 'GRMustache'
 
 end
