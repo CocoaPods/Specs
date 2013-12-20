@@ -11,6 +11,8 @@ A highly customizable drop-in replacement for UIActivityIndicatorView
   s.homepage     = "https://github.com/hezi/HZActivityIndicatorView"
   
   s.license      = 'BSD-new'
+
+  s.requires_arc = true
   
   s.author       = { "Hezi Cohen" => "" }
 
