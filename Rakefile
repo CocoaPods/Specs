@@ -204,22 +204,28 @@ end
 
 #-----------------------------------------------------------------------------#
 
-desc "Converts the specifications to yaml"
-task :convert_specs_to_yaml do
+desc "Converts the specifications to JSON"
+task :convert_specs_to_json do
   require 'cocoapods-core'
-  skipped_specs_count = 0
-  Dir.glob('**/*.podspec') do |spec_path|
-    spec = Pod::Spec.from_file(spec_path)
-    if spec.safe_to_hash?
-      spec_yaml_path = "#{spec_path}.yaml"
-      puts "#{spec_path} -> #{spec_yaml_path}"
-      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
-      File.delete(spec_path)
-    else
-      skipped_specs_count += 1
-    end
+
+  Dir.mkdir("Specs")
+  Dir.glob('*/') do |dir|
+    FileUtils.mv(dir, "Specs/#{dir}")
   end
-  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
+
+  # skipped_specs_count = 0
+  # Dir.glob('**/*.podspec') do |spec_path|
+  #   spec = Pod::Spec.from_file(spec_path)
+  #   if spec.safe_to_hash?
+  #     spec_json_path = "#{spec_path}.json"
+  #     puts "."
+  #     File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
+  #     File.delete(spec_path)
+  #   else
+  #     skipped_specs_count += 1
+  #   end
+  # end
+  # puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
 
 end
 
