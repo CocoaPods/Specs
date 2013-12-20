@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.description = 'The SessionM SDK provides the world\'s leading loyalty platform.'
   s.platform = :ios
   s.source_files = '**/API/*.h'
-  s.preserve_paths = 'libSessionM.1.9.2.a'
+  s.preserve_paths = '**/libSessionM.1.9.2.a'
   s.library = 'SessionM.1.9.2', 'z'
   s.frameworks = 'SystemConfiguration', 'UIKit', 'Security', 'CoreGraphics', 'EventKit', 'EventKitUI', 'AdSupport', 'CoreData', 'MediaPlayer', 'StoreKit'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionMSDK"' }
