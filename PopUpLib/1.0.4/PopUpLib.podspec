@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/canvaspop/canvaspop-ios-library.git',
     :tag => s.version.to_s
   }
-  s.frameworks = 'MobileCoreServices', 'CFNetwork', 'SystemConfiguration', 'libz.dylib'
+  s.frameworks = 'MobileCoreServices', 'CFNetwork', 'SystemConfiguration'
+  s.libraries = 'z'
   s.ios.vendored_frameworks = 'PopUpLib.framework'
   s.resources = 'PopUpLib.bundle'
 end
