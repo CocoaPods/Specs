@@ -208,25 +208,29 @@ desc "Converts the specifications to JSON"
 task :convert_specs_to_json do
   require 'cocoapods-core'
 
-  Dir.mkdir("Specs")
+  puts "Adopting Specs folder"
+  Dir.mkdir("Specs") unless File.exist?("Specs")
   Dir.glob('*/') do |dir|
-    FileUtils.mv(dir, "Specs/#{dir}")
+    unless dir == "Specs/"
+      FileUtils.mv(dir, "Specs/#{dir}")
+    end
   end
 
-  # skipped_specs_count = 0
-  # Dir.glob('**/*.podspec') do |spec_path|
-  #   spec = Pod::Spec.from_file(spec_path)
-  #   if spec.safe_to_hash?
-  #     spec_json_path = "#{spec_path}.json"
-  #     puts "."
-  #     File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
-  #     File.delete(spec_path)
-  #   else
-  #     skipped_specs_count += 1
-  #   end
-  # end
-  # puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
-
+  puts "Converting to JSON"
+  skipped_specs = []
+  Dir.glob('**/*.podspec') do |spec_path|
+    spec = Pod::Spec.from_file(spec_path)
+    if spec.safe_to_hash?
+      spec_json_path = "#{spec_path}.json"
+      print "."
+      File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
+      File.delete(spec_path)
+    else
+      skipped_specs << spec_path
+    end
+  end
+  puts yellow("\n\n[!] #{skipped_specs.count} weren't converted.")
+  puts "- #{skipped_specs.join("\n- ")}"
 end
 
 #-----------------------------------------------------------------------------#
