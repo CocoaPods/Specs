@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = '**/libSessionM.1.9.2.a'
   s.library = 'SessionM.1.9.2', 'z'
   s.frameworks = 'SystemConfiguration', 'UIKit', 'Security', 'CoreGraphics', 'EventKit', 'EventKitUI', 'AdSupport', 'CoreData', 'MediaPlayer', 'StoreKit'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionMSDK"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionM"' }
 end
