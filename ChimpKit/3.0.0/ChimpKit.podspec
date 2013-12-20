@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/mailchimp/ChimpKit3.git", :tag => "3.0.0" }
 
-  s.source_files  = 'ChimpKit3', 'Classes/**/*.{h,m,xib}'
+  s.source_files  = 'ChimpKit3', 'ChimpKit3/**/*.{h,m}'
+  s.resources = ['ChimpKit3/**/*.{xib}']
   s.requires_arc = true
 end
