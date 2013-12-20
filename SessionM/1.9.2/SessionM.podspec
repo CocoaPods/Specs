@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = '**/API/*.h'
   s.preserve_paths = '**/libSessionM.1.9.2.a'
-  s.library = 'SessionM.1.9.2', 'z'
+  s.vendored_library = '**/libSessionM.1.9.2.a'
   s.frameworks = 'SystemConfiguration', 'UIKit', 'Security', 'CoreGraphics', 'EventKit', 'EventKitUI', 'AdSupport', 'CoreData', 'MediaPlayer', 'StoreKit'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionM"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionM/**"' }
 end
