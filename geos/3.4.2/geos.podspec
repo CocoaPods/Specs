@@ -17,12 +17,12 @@ Pod::Spec.new do |s|
 
   s.prepare_command = <<-CMD
 
-    alias autoconf='xcrun autoconf'
-    alias autoheader='xcrun autoheader'
-    alias aclocal='xcrun aclocal'
-    alias automake='xcrun automake'
-    alias glibtool='xcrun glibtool'
-    alias glibtoolize='xcrun glibtoolize'
+    type -P autoconf &>/dev/null || alias autoconf 'xcrun autoconf'
+    type -P autoheader &>/dev/null || alias autoheader 'xcrun autoheader'
+    type -P aclocal &>/dev/null || alias aclocal 'xcrun aclocal'
+    type -P automake &>/dev/null || alias automake 'xcrun automake'
+    type -P glibtool &>/dev/null || alias glibtool 'xcrun glibtool'
+    type -P glibtoolize &>/dev/null || alias glibtoolize 'xcrun glibtoolize'
 
     sh autogen.sh
     ./configure
