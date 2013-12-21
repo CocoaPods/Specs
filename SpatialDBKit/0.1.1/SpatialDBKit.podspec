@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.dependency "spatialite"
   s.dependency "FMDB/common"
   s.dependency "ShapeKit"
+  s.requires_arc = true
 
   s.source_files = "SpatialDBKit/*.{h,m}"
 
