@@ -2,8 +2,8 @@ Pod::Spec.new do |s|
   s.name         = "GDJson"
   s.version      = "0.5.0"
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
-  s.summary      = "Minimalistic JSON library for Java/Javascript via GWT/Objective-C via J2ObjC"
-  s.homepage     = "https://github.com/goodow/realtime"
+  s.summary      = "Minimalistic JSON library for Java/Android/iOS/GWT/J2ObjC"
+  s.homepage     = "https://github.com/goodow/realtime-json"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
   s.source       = { :git => "https://github.com/goodow/realtime-json.git", :tag => "v#{s.version}" }
 
