@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => git_url, :tag => "v#{version}"}
   
 
-  s.ios.deployment_target = '7.0'
-  s.osx.deployment_target = '10.9'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
 
   s.source_files = source_files
   s.requires_arc = true
