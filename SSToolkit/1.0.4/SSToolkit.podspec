@@ -15,5 +15,23 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.preserve_paths = 'SSToolkit.xcodeproj', 'Resources'
   s.prefix_header_contents = '#ifdef __OBJC__', '#import "SSToolkitDefines.h"', '#endif'
-  s.resource_bundles = { 'SSToolkitResources' => ['Resources/*.lproj', 'Resources/Images/*.png'] }
+
+  def s.post_install(target_installer)
+    puts "\nGenerating SSToolkit resources bundle\n".yellow if config.verbose?
+    Dir.chdir File.join(config.project_pods_root, 'SSToolkit') do
+      command = "xcodebuild -project SSToolkit.xcodeproj -target SSToolkitResources CONFIGURATION_BUILD_DIR=./"
+      command << " 2>&1 > /dev/null" unless config.verbose?
+      unless system(command)
+        raise ::Pod::Informative, "Failed to generate SSToolkit resources bundle"
+      end
+    end
+    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
+      script_path = target_installer.copy_resources_script_path
+    else
+      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
+    end
+    File.open(script_path, 'a') do |file|
+      file.puts "install_resource 'SSToolkit/SSToolkitResources.bundle'"
+    end
+  end
 end
