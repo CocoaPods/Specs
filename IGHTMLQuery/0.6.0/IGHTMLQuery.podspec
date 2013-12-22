@@ -28,7 +28,7 @@ DESC
   s.default_subspec = 'Core'
 
   s.subspec "Core" do |sp|
-    sp.ios.deployment_target = '7.0'
+    sp.ios.deployment_target = '6.0'
     sp.osx.deployment_target = '10.8'
     sp.source_files  = 'IGHTMLQuery/Classes/**/*.{h,m}'
   end
