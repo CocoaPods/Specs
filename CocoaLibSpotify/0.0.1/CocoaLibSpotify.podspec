@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.xcconfig     =  { 'OTHER_LDFLAGS' => '-all_load', 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/CocoaLibSpotify/libspotify-12.1.45-iOS-universal' }
   s.platform     =  :ios
 
-  def s.post_install(target)
+  def s.pre_install(pod, target)
     # Note: Taken straight from the libspotify build script step
     # TODO: All this should be put in a pre_install since it adds header files that need to get symlinked and added to the project file. In the meantime, pod install just needs to be run twice.
     system <<-CMD
