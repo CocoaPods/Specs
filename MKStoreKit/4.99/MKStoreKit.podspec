@@ -12,17 +12,8 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/MugunthKumar/MKStoreKit.git', :tag => '4.99' }
   s.platform = :ios, '5.0'
   s.source_files = '*.{h,m}', 'Externals/*.{h,m}'
-  s.exclude_files = "VerificationController.{h,m}"
+  s.exclude_files = 'VerificationController.{h,m}'
   s.requires_arc = true
-
   s.frameworks = 'StoreKit', 'Security'
-
-  def s.post_install(target) 
-    puts <<-TEXT
-      * MKStoreKit note *
-          Don't forget to create and add MKStoreKitConfigs.plist file to you project.
-          You can find an example here: https://github.com/MugunthKumar/MKStoreKit/blob/22223c77962179497038322b94d01277506570cc/MKStoreKitConfigs.plist
-    TEXT
-  end
 end
 
