@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files   = '*.{h,mm}', 'Filters', 'Utilities'
   s.dependency     'Novocaine'
   s.platform       = :ios
+  s.ios.deployment_target = '5.0'
 end
