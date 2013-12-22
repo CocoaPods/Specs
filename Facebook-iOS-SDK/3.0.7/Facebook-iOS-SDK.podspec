@@ -12,10 +12,5 @@ Pod::Spec.new do |s|
   s.resource     =  'src/FacebookSDKResources.bundle'
   s.library      =  'sqlite3.0'
   s.header_dir   =  'FacebookSDK'
-
   s.dependency 'SBJson', '2.2.3'
-  def s.post_install(target)
-    # TODO: This should be put in a pre_install since it adds a header file that need to get symlinked and added to the project file. In the meantime, pod install just needs to be run twice.
-    File.open( config.project_pods_root + 'Facebook-iOS-SDK/src/FBSDKVersion-generated.h', "w" ) { |file| file.puts '#define FB_IOS_SDK_VERSION_STRING @"3.0.7"' }
-  end
 end
