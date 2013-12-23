@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   s.subspec 'Core' do |oa2|
-    oa2.source_files   = 'Source/*.{h,m}'
+    oa2.source_files   = 'Source/**.{h,m}'
     
     oa2.subspec 'Mac' do |mac|
       mac.osx.source_files = 'Source/Mac/**.{h,m}'
