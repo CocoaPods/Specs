@@ -5,12 +5,12 @@ Pod::Spec.new do |s|
   s.summary      = "Google Toolbox for Mac - OAuth 2 Controllers."
   s.description = "The Google Toolbox for Mac OAuth 2 Controllers make it easy for Cocoa applications "\
                   "to sign in to services using OAuth 2 for authentication and authorization."
-  s.homepage     = "http://code.google.com/p/gtm-oauth2"
+  s.homepage     = "https://code.google.com/p/gtm-oauth2"
   s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/google-api-objectivec-client' }
-  s.source       = { :svn => 'http://gtm-oauth2.googlecode.com/svn/trunk/', :revision => 'r118' }
+  s.source       = { :svn => 'https://gtm-oauth2.googlecode.com/svn/trunk/', :revision => 'r118' }
   s.requires_arc = false
+  s.dependency    'SBJson', '~> 3.2'
   s.dependency   'GTMHTTPFetcher'
-  s.dependency    'SBJson'
   s.frameworks = 'Security', 'SystemConfiguration'
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.6'
