@@ -40,9 +40,6 @@ cat >> ./config.h <<CONFIG_H
 #undef OMIT_GEOS
 #undef OMIT_PROJ
 
-// this is disabled since something is going wrong while linking for i386 architecture
-#undef GEOS_ADVANCED
-
 CONFIG_H
 CMD
 
