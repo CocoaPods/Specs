@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
 #import <SystemConfiguration/SystemConfiguration.h>
   EOS
 
-  s.dependency 'AFNetworking/Core', '2.0.0-RC3'
+  s.dependency 'AFNetworking/Core', '>= 2.0.0'
 end
