@@ -6,8 +6,9 @@ s.homepage      =   "https://github.com/JackTeam/XHTextField"
 s.license       =   "MIT"
 s.author        =   { "xhzengAIB" => "xhzengAIB@gmail.com" }
 s.source        =   { :git => "https://github.com/JackTeam/XHTextField", :tag => "v1.0" }
-s.frameworks   = 'Foundation', 'CoreGraphics', 'QuartzCore', 'UIKit'
+s.frameworks    =   'Foundation', 'CoreGraphics', 'QuartzCore', 'UIKit'
 s.platform      =   :ios, '5.0'
 s.source_files  =   'Source'
+s.resources     =   'Source/XHTextField.bundle' 
 s.requires_arc  =   true
 end
