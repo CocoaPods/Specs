@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "DerpKit"
   s.version      = "0.0.2"
   s.summary      = "DerpKit is a set of categories and classes that should've been included in Cocoa Touch."
-  s.homepage     = "http://github.com/amazingsyco/DerpKit"
+  s.homepage     = "http://github.com/stevestreza/DerpKit"
 
   s.license = { 
     :type => 'MIT', 
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   }
 
   s.author       = { "Steve Streza" => "stevestreza@gmail.com" }
-  s.source       = { :git => "https://github.com/amazingsyco/DerpKit.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/stevestreza/DerpKit.git", :tag => "0.0.2" }
 
   s.platform = :ios, "5.0"
   s.ios.frameworks = "Foundation", "UIKit"
