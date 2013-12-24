@@ -14,7 +14,7 @@ Marcus Zarra mentioned some of this in his Core Data book, but I found the libra
 
   s.requires_arc = false 
   
-  s.author       = { "Kyle Robson" => "" }
+  s.authors       = { "Marcus Zarra" => "", "Kyle Robson" => "kyledr@gmail.com" }
 
   s.platform     = :ios
 
