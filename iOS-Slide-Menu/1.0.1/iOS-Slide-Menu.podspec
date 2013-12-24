@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     }
     s.author = {'Aryan Gh' => 'https://github.com/aryaxt/iOS-Slide-Menu'}
     s.source = {:git => 'https://github.com/aryaxt/iOS-Slide-Menu.git', :tag => ‘1.0.1’}
-    s.platform = :ios, '6.0'
+    s.platform = :ios, '6.0' 
     s.source_files = 'SlideMenu/Source/*.{h,m}'
     s.resources = ['SlideMenu/Source/Assets/**/*']
     s.framework = 'Foundation', 'UIKit'
