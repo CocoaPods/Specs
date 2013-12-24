@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.author       = { "Segev Sherry" => "segevgold@gmail.com" }
   s.requires_arc     = true
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/sSegev/SSUIViewMiniMe.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/sSegev/SSUIViewMiniMe.git", :tag => "1.0.1" }
 
   s.source_files  = 'SSUIViewMiniMeDemo/SSUIViewMiniMe/SSUIViewMiniMe.{h,m}'
 
