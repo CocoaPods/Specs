@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MobPartneriOSPublisherSDK"
-  s.version      = “2.1.0”
+  s.version      = "2.1.0"
   s.summary      = "Mobpartner publisher is an advertising fmk of mobile applications."
   s.homepage     = "https://github.com/MobPartner/IOSPublisherSDK.git"
   s.license      = {
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     }
 
   s.author       = { "Fabien Leroi" => "fabien.leroi@mobpartner.com" }
-  s.source       = { :git => "https://github.com/MobPartner/IOSPublisherSDK.git", :tag => “2.1.0”}
+  s.source       = { :git => "https://github.com/MobPartner/IOSPublisherSDK.git", :tag => "2.1.0"}
   s.platform     = :ios, '5.0'
   s.source_files = 'MobPartneriOSPublisherSDK.framework/Versions/A/Headers/*.{h}'
   s.resources    = 'MobPartneriOSPublisherSDK.bundle'
