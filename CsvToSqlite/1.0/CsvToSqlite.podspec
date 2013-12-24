@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
     
   s.ios.dependency 'ESLocale', '~> 1.0.1'
   s.ios.dependency 'ObjcScopedGuard', '~> 1.0'
+  s.ios.dependency 'ESDatabaseWrapper', '~> 1.0'  
+
   s.ios.dependency 'FMDB', '~> 1.5'
 	
   s.ios.frameworks = 'Foundation'
