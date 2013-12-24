@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
-  pod_name  = "SPDY"
-  name       = "Cocoa#{pod_name}"
+  folder_name  = "SPDY"
+  name       = "Cocoa#{folder_name}"
   url            = "https://github.com/twitter/#{name}"
   git_url        = "#{url}.git"
   version        = "1.0.0"
-  source_files   = "#{pod_name}/**/*.{h,m}"
+  source_files   = "#{folder_name}/**/*.{h,m}"
 
   s.name         = name
   s.version      = version
@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => git_url, :tag => "v#{version}"}
   
 
-  s.ios.deployment_target = '7.0'
-  s.osx.deployment_target = '10.9'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
 
   s.source_files = source_files
   s.requires_arc = true
