@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.author   = { 'The Google Data APIs team' => 'https://code.google.com/p/google-api-objectivec-client' }
   s.source   = { :svn => 'https://gtm-http-fetcher.googlecode.com/svn/trunk', :revision => 'r134' }
   s.requires_arc = false
-  s.dependency    'SBJson'
+  s.dependency    'SBJson', '~> 3.2'
   s.ios.deployment_target = '3.0'
   s.osx.deployment_target = '10.6'
   s.ios.framework = 'UIKit'
