@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.ios.source_files = "ESDatabaseWrapper/**/*.{c,cpp,mm,h,m}"
   s.ios.prefix_header_file = 'ESDatabaseWrapper/ESDatabaseWrapper-Prefix.pch'
     
-  s.ios.dependency = 'FMDB', '~> 1.5'
+  s.ios.dependency 'FMDB', '~> 1.5'
 
   s.ios.frameworks = 'Foundation'
   s.ios.libraries = 'sqlite3', 'c++', 'stdc++'
