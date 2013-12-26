@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Takuya Matsuyama" => "nora@odoruinu.net" }
   s.source       = { :git => 'https://github.com/noradaiko/NRBlurryStepOutAnimatedTransitioning.git', :tag => s.version.to_s }
   s.ios.deployment_target = '7.0'
+  s.platform     = :ios, '7.0'
   s.source_files = '*.{h,m}'
   s.requires_arc = true
 end
