@@ -60,7 +60,7 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the `prepare_command` attributes." => [
+  "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
     'AppPaoPaoSDK',
     'ARCHelper',
     'ARCMacro',
