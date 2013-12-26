@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/deni2s/IBCustomFonts"
   s.license      = 'MIT'
-  s.author       = { "Dennis Fedotovs" => "deni2s@hc.lv" }
+  s.author       = { "Deniss Fedotovs" => "deni2s@hc.lv" }
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/deni2s/IBCustomFonts.git", :commit => "86f3a1d4905a4a27325fb7a93a9c91fc63f93b62"}
   s.source_files  = 'UIFont+IBCustomFonts.m'
