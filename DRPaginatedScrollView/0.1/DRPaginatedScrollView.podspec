@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "Implement a paginated scroll view really easily using blocks."
   s.homepage     = "https://github.com/Dromaguirre/DRPaginatedScrollView"
-  s.screenshots  = "https://raw.github.com/Dromaguirre/DRPaginatedScrollView/master/images/1.gif"
+  s.screenshots  = "https://raw.github.com/Dromaguirre/DRPaginatedScrollView/images/1.gif"
   s.license      = 'Public Domain'
   s.author       = { "David Román" => "dromaguirre@gmail.com" }
   s.platform     = :ios, '6.0'
