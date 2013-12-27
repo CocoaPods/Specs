@@ -56,10 +56,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.source       = { :git => 'https://github.com/epam/road-ios-framework.git', :tag => '1.2.0' }
 
   s.xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
-
-  s.subspec 'ROADGeneratedAttributes' do |gen|
-    gen.source_files = 'Framework/ROADGeneratedAttributes/**/*.{h,m}'
-  end
  
   s.subspec 'ROADCore' do |core|
     core.source_files = 'Framework/ROADCore/ROADCore/**/*.{h,m}'
