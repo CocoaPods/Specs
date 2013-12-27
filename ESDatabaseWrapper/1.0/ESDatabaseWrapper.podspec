@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Objective-C protocols for FMDB"
   s.description  = "A library that wraps FMDB into protocols. The database engine can be easily replaced."
   s.homepage     = "https://github.com/dodikk/ESDatabaseWrapper"
-  s.license      = {:type => 'BSD'}
+  s.license      = {:type => 'BSD', :file=>'LICENSE-BSD.txt'}
   s.source       = { :git => "https://github.com/dodikk/ESDatabaseWrapper.git", :tag => 'v1.0'}
   s.authors       =  {'Alexander Dodatko' => 'dodikk88.tutor@gmail.com'}
   
