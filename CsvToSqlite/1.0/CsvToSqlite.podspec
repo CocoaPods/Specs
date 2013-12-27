@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "An iOS library to import a CSV file to the SQLite table"
   s.description  = "An iOS library to import a CSV file to the SQLite table. "
   s.homepage     = "https://github.com/dodikk/CsvToSqlite"
-  s.license      = { :type => 'BSD' }
+  s.license      = { :type => 'BSD', :file => 'LICENSE-BSD.txt' }
   s.source       = { :git => "https://github.com/dodikk/CsvToSqlite.git", :tag => 'v1.0'}
   s.authors       =  {'Alexander Dodatko' => 'dodikk88.tutor@gmail.com'}
   
