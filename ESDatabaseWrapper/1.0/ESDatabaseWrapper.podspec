@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
   s.ios.platform          = :ios, '6.0'
   s.ios.deployment_target = '6.0'
-
+  s.ios.requires_arc = true
 
   s.ios.header_mappings_dir = 'ESDatabaseWrapper'
   s.ios.source_files = "ESDatabaseWrapper/**/*.{c,cpp,mm,h,m}"
