@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'NSArray+LongestCommonSubsequence'
-  s.version  = '1.0'
+  s.version  = '1.0.0'
   s.license  = 'MIT'
   s.summary  = 'A category on NSArray that finds the indexes of the longest common subsequence with another array.'
   s.homepage = 'https://github.com/khanlou/NSArray-LongestCommonSubsequence'
