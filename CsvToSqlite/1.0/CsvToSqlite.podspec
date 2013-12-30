@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.ios.dependency 'ObjcScopedGuard', '~> 1.0'
   s.ios.dependency 'ESDatabaseWrapper', '~> 1.0'  
 
-  s.ios.dependency 'FMDB', '~> 1.5'
+  s.ios.dependency 'FMDB', '~> 2.0'
 	
   s.ios.frameworks = 'Foundation'
   s.ios.libraries = 'sqlite3', 'c++', 'stdc++'
