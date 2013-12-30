@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "curve25519-donna"
-  s.version      = "0.2"
+  s.version      = "1.2.1"
   s.summary      = "Implementations of a fast Elliptic-curve Diffie-Hellman primitive"
   s.description  = <<-DESC
                    Curve25519 is a state-of-the-art Diffie-Hellman function suitable for a wide variety of applications.
