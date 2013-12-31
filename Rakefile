@@ -60,7 +60,7 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the `prepare_command` attributes." => [
+  "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
     'AppPaoPaoSDK',
     'ARCHelper',
     'ARCMacro',
@@ -204,23 +204,33 @@ end
 
 #-----------------------------------------------------------------------------#
 
-desc "Converts the specifications to yaml"
-task :convert_specs_to_yaml do
+desc "Converts the specifications to JSON"
+task :convert_specs_to_json do
   require 'cocoapods-core'
-  skipped_specs_count = 0
+
+  puts "Adopting Specs folder"
+  Dir.mkdir("Specs") unless File.exist?("Specs")
+  Dir.glob('*/') do |dir|
+    unless dir == "Specs/"
+      FileUtils.mv(dir, "Specs/#{dir}")
+    end
+  end
+
+  puts "Converting to JSON"
+  skipped_specs = []
   Dir.glob('**/*.podspec') do |spec_path|
     spec = Pod::Spec.from_file(spec_path)
     if spec.safe_to_hash?
-      spec_yaml_path = "#{spec_path}.yaml"
-      puts "#{spec_path} -> #{spec_yaml_path}"
-      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
+      spec_json_path = "#{spec_path}.json"
+      print "."
+      File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
       File.delete(spec_path)
     else
-      skipped_specs_count += 1
+      skipped_specs << spec_path
     end
   end
-  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
-
+  puts yellow("\n\n[!] #{skipped_specs.count} weren't converted.")
+  puts "- #{skipped_specs.join("\n- ")}"
 end
 
 #-----------------------------------------------------------------------------#
