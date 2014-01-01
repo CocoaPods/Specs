@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A library to check availability of various iOS features."
   s.description  = "A library to format strings in .NET style. It may be useful for localization and porting (rewriting) .NET applications to Objective-C"
   s.homepage     = "https://github.com/dodikk/iFeatureAvailability"
-  s.license      = { :type => 'BSD', :file => 'LICENSE-BSD.txt' }
+  s.license      = { :type => 'BSD', :file => 'LICENSE.txt' }
   s.source       = { :git => "https://github.com/dodikk/iFeatureAvailability.git", :tag => 'v1.0'}
   s.authors       =  {'Alexander Dodatko' => 'dodikk88.tutor@gmail.com'}
   
