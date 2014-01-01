@@ -11,14 +11,8 @@ Pod::Spec.new do |s|
 
   s.source = { :http => 'https://github.com/mgrebenets/shark2-iosx/releases/download/v2.3.4/Shark-SDK.tgz', :type => :tgz }
 
-  s.ios.preserve_paths = "Shark-iOS-SDK/Shark.framework/*"
-  s.osx.preserve_paths = "Shark-OSX-SDK/Shark.framework/*"
-
-  s.ios.source_files = 'Shark-iOS-SDK/Shark.framework/Versions/A/Headers/**/*.h'
-  s.osx.source_files = 'Shark-OSX-SDK/Shark.framework/Versions/A/Headers/**/*.h'
-
-  s.ios.frameworks = 'Shark'
-  s.osx.frameworks = 'Shark'
+  s.ios.vendored_frameworks = "Shark-iOS-SDK/Shark.framework"
+  s.osx.vendored_frameworks = "Shark-OSX-SDK/Shark.framework"
 
   s.ios.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Shark-SDK/Shark-iOS-SDK"' }
   s.osx.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Shark-SDK/Shark-OSX-SDK"' }
