@@ -14,9 +14,6 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = "Shark-iOS-SDK/Shark.framework"
   s.osx.vendored_frameworks = "Shark-OSX-SDK/Shark.framework"
 
-  s.ios.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Shark-SDK/Shark-iOS-SDK"' }
-  s.osx.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Shark-SDK/Shark-OSX-SDK"' }
-
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
 end
