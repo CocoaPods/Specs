@@ -69,9 +69,10 @@ Pod::Spec.new do |s|
     readability.dependency 'ShareKit/Core'
   end
 
-  s.subspec 'ReadItLater' do |readitlater|
-    readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
-    readitlater.dependency 'ShareKit/Core'
+  s.subspec 'Pocket' do |pocket|
+    pocket.dependency 'PocketAPI',"~> 1.0"
+    pocket.source_files = 'Classes/ShareKit/Sharers/Services/Pocket/**/*.{h,m}'
+    pocket.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Tumblr' do |tumblr|
