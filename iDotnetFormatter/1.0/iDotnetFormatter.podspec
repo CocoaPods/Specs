@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
 
 
-  s.ios.header_mappings_dir = 'ESDotnetFormatter/ESDotnetFormatter'
+  s.ios.header_mappings_dir = 'ESDotnetFormatter'
   s.ios.source_files = "ESDotnetFormatter/ESDotnetFormatter/**/*.{c,cpp,mm,h,m}"
   s.ios.prefix_header_file = 'ESDotnetFormatter/ESDotnetFormatter/ESDotnetFormatter-Prefix.pch'
     
