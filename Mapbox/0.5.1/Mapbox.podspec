@@ -1,42 +1,46 @@
 Pod::Spec.new do |m|
 
-  m.name    = 'MapBox'
-  m.version = '1.0.0'
+  m.name    = 'Mapbox'
+  m.version = '0.5.1'
 
   m.summary     = 'Open source alternative to MapKit.'
   m.description = 'Open source alternative to MapKit supporting custom tile sources, offline use, and complete cache control.'
-  m.homepage    = 'http://mapbox.com/mapbox-ios-sdk'
+  m.homepage    = 'http://mapbox.com/mobile'
   m.license     = 'BSD'
-  m.author      = { 'MapBox' => 'ios@mapbox.com' }
-  m.screenshot  = 'https://raw.github.com/mapbox/mapbox-ios-sdk/packaging/screenshot.png'
+  m.author      = { 'Mapbox' => 'ios@mapbox.com' }
 
-  m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => m.version.to_s }
+  m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => '0.5.1' }
 
-  m.platform              = :ios
-  m.ios.deployment_target = '5.0'
+  m.platform = :ios, '5.0'
 
   m.source_files = 'Proj4/*.h', 'MapView/Map/*.{h,c,m}'
 
-  m.requires_arc = true
-
   m.prefix_header_file = 'MapView/MapView_Prefix.pch'
 
-  m.pre_install do |pod, target_definition|
-    Dir.chdir(pod.root) do
-      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null"
+  def m.post_install(target_installer)
+    puts "\nGenerating Mapbox resources bundle\n".yellow if config.verbose?
+    Dir.chdir File.join(config.project_pods_root, 'Mapbox') do
+      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../../Resources"
+      command << " 2>&1 > /dev/null" unless config.verbose?
       unless system(command)
-        raise ::Pod::Informative, "Failed to generate MapBox resources bundle"
+        raise ::Pod::Informative, "Failed to generate Mapbox resources bundle"
       end
     end
+    if Version.new(Pod::VERSION) >= Version.new('0.17.0')
+      script_path = target_installer.copy_resources_script_path
+    else
+      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
+    end
+    File.open(script_path, 'a') do |file|
+      file.puts "install_resource 'Resources/MapBox.bundle'"
+    end
   end
-
-  m.resource = 'Resources/MapBox.bundle'
 
   m.documentation = {
     :html => 'http://mapbox.com/mapbox-ios-sdk/api/',
     :appledoc => [
-      '--project-company', 'MapBox',
-      '--docset-copyright', 'MapBox',
+      '--project-company', 'Mapbox',
+      '--docset-copyright', 'Mapbox',
       '--no-keep-undocumented-objects',
       '--no-keep-undocumented-members',
       '--ignore', '.c',
@@ -44,6 +48,7 @@ Pod::Spec.new do |m|
       '--ignore', 'Proj4',
       '--ignore', 'RMAttributionViewController.h',
       '--ignore', 'RMBingSource.h',
+      '--ignore', 'RMConfiguration.h',
       '--ignore', 'RMCoordinateGridSource.h',
       '--ignore', 'RMDBMapSource.h',
       '--ignore', 'RMFoundation.h',
@@ -68,18 +73,22 @@ Pod::Spec.new do |m|
     ]
   }
 
-  m.documentation_url = 'https://www.mapbox.com/mapbox-ios-sdk/api/'
+  m.framework = 'CoreGraphics'
+  m.framework = 'CoreLocation'
+  m.framework = 'Foundation'
+  m.framework = 'QuartzCore'
+  m.framework = 'UIKit'
 
-  m.frameworks = 'CoreGraphics', 'CoreLocation', 'Foundation', 'QuartzCore', 'UIKit'
+  m.library = 'Proj4'
+  m.library = 'sqlite3'
+  m.library = 'z'
 
-  m.libraries = 'Proj4', 'sqlite3', 'z'
-
-  m.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/MapBox/Proj4"' }
+  m.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/Mapbox/Proj4"' }
 
   m.preserve_paths = 'Proj4/libProj4.a', 'MapView/MapView.xcodeproj', 'MapView/Map/Resources'
 
   m.dependency 'FMDB', '2.0'
   m.dependency 'GRMustache', '5.4.3'
-  m.dependency 'SMCalloutView', '1.1'
+  m.dependency 'SMCalloutView', '1.0.1'
 
 end

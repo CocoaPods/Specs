@@ -1,15 +1,15 @@
 Pod::Spec.new do |m|
 
-  m.name    = 'MapBox'
-  m.version = '0.4.0'
+  m.name    = 'Mapbox'
+  m.version = '0.4.3'
 
   m.summary     = 'Open source alternative to MapKit.'
   m.description = 'Open source alternative to MapKit supporting custom tile sources, offline use, and complete cache control.'
   m.homepage    = 'http://mapbox.com/mobile'
   m.license     = 'BSD'
-  m.author      = { 'MapBox' => 'ios@mapbox.com' }
+  m.author      = { 'Mapbox' => 'ios@mapbox.com' }
 
-  m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => '0.4.0' }
+  m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => '0.4.3' }
 
   m.platform = :ios, '5.0'
 
@@ -21,8 +21,8 @@ Pod::Spec.new do |m|
   m.documentation = {
     :html => 'http://mapbox.com/mapbox-ios-sdk/api/',
     :appledoc => [
-      '--project-company', 'MapBox',
-      '--docset-copyright', 'MapBox',
+      '--project-company', 'Mapbox',
+      '--docset-copyright', 'Mapbox',
       '--no-keep-undocumented-objects',
       '--no-keep-undocumented-members',
       '--ignore', '.c',
