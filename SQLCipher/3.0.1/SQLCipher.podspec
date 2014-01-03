@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.homepage = 'http://sqlcipher.net'
   s.author       = 'Zetetic LLC'
   s.source   = { :git => 'https://github.com/sqlcipher/sqlcipher.git', :tag => 'v3.0.1' }
-  s.platform = :ios
   s.prepare_command = <<-CMD
     ./configure --enable-tempstore=yes --with-crypto-lib=commoncrypto CFLAGS="-DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2"
     make sqlite3.c
