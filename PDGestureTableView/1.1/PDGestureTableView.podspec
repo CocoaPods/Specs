@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name         = "PDGesturedTableView"
+  s.name         = "PDGestureTableView"
   s.version      = "1.1"
   s.summary      = "Great Mailbox-like UITableView subclass."
-  s.homepage     = "https://github.com/Dromaguirre/PDGesturedTableView"
+  s.homepage     = "https://github.com/Dromaguirre/PDGestureTableView"
   s.screenshots  = "https://raw.github.com/Dromaguirre/PDGesturedTableView/master/Screenshots/1.gif"
   s.license      = 'Public Domain'
   s.author       = { "David Román" => "dromaguirre@gmail.com" }
