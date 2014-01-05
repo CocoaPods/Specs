@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/dzenbot/UIPhotoPickerController.git", :tag => "v1.0.0" }
   s.source_files  = 'Classes', 'Source/**/*.{h,m}'
   s.requires_arc = true
-
+  s.framework  = 'ImageIO'
   s.dependency 'AFNetworking', '~> 1.3.3'
   s.dependency '500px-iOS-api', '~> 1.0.4'
   s.dependency 'FlickrKit', '~> 1.0.2'
