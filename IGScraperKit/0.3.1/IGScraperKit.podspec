@@ -44,6 +44,6 @@ DESC
     sp.dependency 'IGHTMLQuery/Ruby', '>= 0.6.5'
     sp.dependency 'JavaScriptCoreOpalAdditions', '>= 0.2.3'
     sp.source_files  = 'IGScraperKit/Classes/**/*.{h,m}'
-    sp.resources  = 'IGScraperKit/JavaScript/**/*.{js}'
+    sp.resources  = 'IGScraperKit/JavaScript/**/*.{js}', 'IGScraperKit/Ruby/**/*.{rb}'
   end
 end
