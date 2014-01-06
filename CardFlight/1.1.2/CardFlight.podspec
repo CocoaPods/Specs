@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files  = '*.{h,m}'
   s.preserve_paths = 'libCardFlightLibrary.a'
 
-  s.frameworks = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI', 'ExternalAccessory'
+  s.frameworks = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI'
   s.library = 'CardFlightLibrary'
   s.vendored_library = "libCardFlightLibrary"
 
