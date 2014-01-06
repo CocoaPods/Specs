@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Rex Finn' => 'rexcfinn@gmail.com' }
   s.platform     = :ios, '7.0'
   s.source       = { :git => 'https://github.com/rexfinn/RFMarkdownTextView.git', :tag => 'v1.1' }
-  s.source_files  = 'RFMarkdownTextView/*'
+  s.source_files  = 'RFMarkdownTextView/*.{h,m}', 'RFMarkdownTextView/Buttons/*.{h,m}'
   s.requires_arc = true
   s.dependency 'RFKeyboardToolbar', '~> 1.0'
 end
