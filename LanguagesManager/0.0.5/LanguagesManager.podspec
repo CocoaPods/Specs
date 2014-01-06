@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
         s.name         = 'LanguagesManager'
-        s.version = '0.0.4'
+        s.version = '0.0.5'
         s.requires_arc = true
         s.author = {
          'Morissard Jérome' => 'morissardj@gmail.com'
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
         s.homepage = 'https://github.com/leverdeterre/LanguagesManager'
         s.source = {
         :git => 'https://github.com/leverdeterre/LanguagesManager.git',
-        :tag => "0.0.4"
+        :tag => "0.0.5"
         }
         s.source_files = 'LanguagesManager/LanguagesManager/LanguagesManager/*'
 end
