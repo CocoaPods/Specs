@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.platform       = :ios
   s.vendored_frameworks = 'google-plus-ios-sdk-1.5.0/GoogleOpenSource.framework', 'google-plus-ios-sdk-1.5.0/GooglePlus.framework'
   s.resource       = 'google-plus-ios-sdk-1.5.0/GooglePlus.bundle'
-  s.framework      = 'Security', 'SystemConfiguration', 'GoogleOpenSource', 'GooglePlus', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'MediaPlayer', 'UIKit'
+  s.framework      = 'AddressBook', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'GoogleOpenSource', 'GooglePlus', 'MediaPlayer', 'Security', 'SystemConfiguration', 'UIKit'
 end
