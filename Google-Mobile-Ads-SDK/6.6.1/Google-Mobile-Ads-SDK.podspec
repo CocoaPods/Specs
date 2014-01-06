@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   s.library = "GoogleAdMobAds"
   s.xcconfig = {
     "OTHER_LDFLAGS" => "-ObjC",
-    "LIBRARY_SEARCH_PATHS" => '"$(SRCROOT)/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.6.1"'
+    "LIBRARY_SEARCH_PATHS" => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.6.1"'
   }
 end
