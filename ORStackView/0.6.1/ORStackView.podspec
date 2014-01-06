@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                     Vertically stack views using Auto Layout, also includes an 
                     order specific subclass that uses view tags for ordering.
                    DESC
-  s.homepage     = "https://github.com/orta/ORStackView"
+  s.homepage     = "http://github.com/orta/ORStackView"
   
   s.license      = 'MIT'
   s.author       = { "Orta Therox" => "orta.therox@gmail.com" }
