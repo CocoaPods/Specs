@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "Pushwoosh iOS SDK with ARC support"
   s.description  = <<-DESC
+				  Pushwoosh iOS SDK with ARC support. For seamless integration of PushWoosh with your iOS app. 
                    DESC
   s.homepage     = "https://github.com/shaders/pushwoosh-ios-arc-sdk"
   s.license      = 'MIT'
