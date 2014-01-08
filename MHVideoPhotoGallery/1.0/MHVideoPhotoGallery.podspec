@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/mariohahn/MHVideoPhotoGallery.git',
     :tag => 'v1.0'
   }
-  s.dependency 'SDWebImage', '~> 3.5.2'
-  s.source_files = ['MHVideoPhotoGallery/MMHVideoPhotoGallery/']
+  s.dependency "SDWebImage", "~> 3.5.2"
+  s.source_files = ['MHVideoPhotoGallery/MMHVideoPhotoGallery/**/*.{h,m}']
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
 end
