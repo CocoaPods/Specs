@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'CardIO'
-  s.version      = ‘3.4.3’
+  s.version      = '3.4.3'
   s.homepage     = 'https://www.card.io'
   s.summary      = 'An easy to use credit card scanning tool.'
   s.author       = { 'CardIO' => 'support@paypal.com' }
