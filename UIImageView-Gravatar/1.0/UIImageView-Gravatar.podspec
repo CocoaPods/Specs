@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "UIImageView+Gravatar"
+  s.name         = "UIImageView-Gravatar"
   s.version      = "1.0"
   s.summary      = "A simple and quickly put together UIImageView subclass for dealing with http://gravatar.com images."
   s.homepage     = "https://github.com/rexfinn/UIImageView-Gravatar"
