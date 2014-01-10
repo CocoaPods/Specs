@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/dzenbot/iOSBlocks.git", :tag => "v1.0.2" }
   s.source_files  = 'Classes', 'Source/**/*.{h,m}'
-  s.frameworks = 'MapKit', 'CoreLocation', 'MessageUI', 'MobileCoreServices', 'UIKit', 'CoreGraphics'
   s.requires_arc = true
+  s.frameworks = 'MapKit', 'CoreLocation', 'MessageUI', 'MobileCoreServices', 'UIKit', 'CoreGraphics'
 end
