@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files 		= 'ios-lib/*.h'
   s.preserve_paths  		= 'ios-lib/*.a'
   s.public_header_files 	= 'MobileAppTracker.h'
-  s.library			= 'MobileAppTracker-2.7’
+  s.library			= 'MobileAppTracker-2.7'
   s.xcconfig        		=  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MobileAppTracker/ios-lib"' }
   s.weak_framework  		= 'AdSupport'
   s.frameworks      		= 'CoreTelephony', 'MobileCoreServices', 'SystemConfiguration', 'UIKit'
