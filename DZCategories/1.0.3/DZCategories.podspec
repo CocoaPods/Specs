@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "DZCategories"
   s.version      = "1.0.3"
-  s.summary      = "Useful collection of Objective-C category classes."
+  s.summary      = "Useful collection of Cocoa class extensions."
   s.homepage     = "https://github.com/dzenbot/DZCategories"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Ignacio Romero Z." => "iromero@dzen.cl" }
