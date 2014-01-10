@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => 'https://github.com/iRareMedia/iCloudDocumentSync.git', :tag => 'v7.1' }
 
-  s.source_files = 'iCloud', 'iCloud/*.{h,m}'
   s.preserve_paths = 'iCloud.framework/*'
   s.frameworks   = 'UIKit', 'Foundation'
   s.vendored_frameworks = 'iCloud.framework'
