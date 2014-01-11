@@ -16,9 +16,23 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-D_SYSTEMCONFIGURATION_H -D__MOBILECORESERVICES__ -D__CORESERVICES__'
 
   s.prepare_command = <<-CMD
+
+    type -P autoconf &>/dev/null || alias autoconf 'xcrun autoconf'
+    type -P autoheader &>/dev/null || alias autoheader 'xcrun autoheader'
+    type -P aclocal &>/dev/null || alias aclocal 'xcrun aclocal'
+    type -P automake &>/dev/null || alias automake 'xcrun automake'
+    type -P glibtool &>/dev/null || alias glibtool 'xcrun glibtool'
+    type -P glibtoolize &>/dev/null || alias glibtoolize 'xcrun glibtoolize'
+
     sh autogen.sh
     ./configure
     ./tools/svn_repo_revision.sh
+
+    cat <<EOT >> include/geos/platform.h
+      #undef ISNAN
+      #define ISNAN(x) (std::isnan(x))
+    EOT
+
   CMD
 
   s.source_files = '*.h', 'src/**/*.cpp', 'capi/*.cpp'
