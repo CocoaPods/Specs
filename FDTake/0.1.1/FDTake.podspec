@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FDTake"
-  s.version      = "0.1"
+  s.version      = "0.1.1"
   s.summary      = "Easily take a photo or video or choose from library."
   s.homepage     = "https://github.com/fulldecent/FDTake"
   s.license      = 'MIT'
