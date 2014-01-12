@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'ResponseSerializer' do |ser|
     ser.source_files = 'Source/AFMMRecordResponseSerializer/*.{h,m}'
+  ser.dependency 'AFNetworking', '~>2.0'
   ser.dependency 'MMRecord/Core'
   end
   
