@@ -13,7 +13,7 @@ DESC
 
   s.author       = { "Francis Chong" => "francis@ignition.hk" }
 
-  s.source       = { :git => "https://github.com/siuying/JavaScriptCoreOpalAdditions.git", :tag => s.version.to_s, :vendor => true }
+  s.source       = { :git => "https://github.com/siuying/JavaScriptCoreOpalAdditions.git", :tag => s.version.to_s, :submodules => true }
 
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.9'
