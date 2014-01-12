@@ -40,6 +40,8 @@ Pod::Spec.new do |s|
     ser.source_files = 'Source/AFMMRecordResponseSerializer/*.{h,m}'
   ser.dependency 'AFNetworking', '~>2.0'
   ser.dependency 'MMRecord/Core'
+  ser.ios.deployment_target = '6.0'
+  ser.osx.deployment_target = '10.8'
   end
   
 end
