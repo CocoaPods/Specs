@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KKColorListPicker"
-  s.version      = "v0.2.1"
+  s.version      = "0.2.1"
   s.summary      = "Color list picker for iOS > 7.0 with Crayola colors."
   s.homepage     = "https://github.com/leoru/KKColorListPicker"
   s.license      = 'MIT'
