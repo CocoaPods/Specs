@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
   
   s.default_subspec = 'Core'
 
-  s.ios.deployment_target = '5.0'
+  s.ios.deployment_target = '6.0'
   s.ios.frameworks = 'CoreData'
 
-  s.osx.deployment_target = '10.7'
+  s.osx.deployment_target = '10.8'
   s.osx.frameworks = 'CoreData'
   
   s.subspec 'Core' do |core|
@@ -40,8 +40,6 @@ Pod::Spec.new do |s|
     ser.source_files = 'Source/AFMMRecordResponseSerializer/*.{h,m}'
     ser.dependency 'AFNetworking', '>= 2.0'
     ser.dependency 'MMRecord/Core'
-    ser.ios.deployment_target = '6.0'
-    ser.osx.deployment_target = '10.8'
   end
   
 end
