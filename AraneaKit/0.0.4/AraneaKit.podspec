@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'AraneaKit', 'AraneaKit/**/*.{h,m,c}'
-  s.public_header_files = 'AraneaKit/AraneaKit.h' 
+  s.public_header_files = 'AraneaKit/*.h' 
   s.frameworks = 'QuartzCore' 
 end
