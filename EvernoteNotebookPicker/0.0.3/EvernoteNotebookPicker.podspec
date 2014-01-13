@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author             = { "Steven Shen" => "sysheen@gmail.com" }
   s.social_media_url = "http://twitter.com/syshen"
-  s.platform     = :ios, '7.0'
-  s.ios.deployment_target = '7.0'
+  s.platform     = :ios, '6.0'
+  s.ios.deployment_target = '6.0'
   s.source       = { :git => "https://github.com/syshen/Evernote-Notebook-Picker.git", :tag => "0.0.3" }
   s.source_files  = 'Evernote Notebook Picker', 'Evernote Notebook Picker/*.{h,m}'
   s.public_header_files = 'Evernote Notebook Picker/ENNotebookPickerViewController.h'
