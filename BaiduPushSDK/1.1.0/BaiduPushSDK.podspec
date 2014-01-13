@@ -22,13 +22,13 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/liyoro/BaiduPushSDK.git", :tag => "1.1.0"  }
 
-  s.source_files  = 'BaiduPushSDK/BPush.h', 'BaiduPushSDK/opensource/*.{h,m}'
+  s.source_files  = 'BaiduPushSDK/*.{h,m}'
   s.preserve_paths = "BaiduPushSDK/libBPush.a"
   s.library   = 'BPush','z'
   s.framework = 'CFNetwork', 'CoreTelephony', 'SystemConfiguration'
   
   #s.requires_arc = true
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/BaiduPushSDK/**"' }
+  s.xcconfig      = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/BaiduPushSDK/**"'}
 
 end
