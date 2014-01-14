@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
 
 
-  s.source       = { :git => "https://github.com/zq54zquan/ELHeaderView.git"}
+  s.source       = { :git => "https://github.com/zq54zquan/ELHeaderView.git",:commit => 'a114f4c7d7ee29dd0a4e9fbed1a17df257e31328'}
 
   s.source_files  = 'NetEasyLikeNavigation/elNav/*.{h,m}'
   s.requires_arc = true
