@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "XHTumblrMenu"
-  s.version      = "v0.1.0"
+  s.version      = "0.1.0"
   s.summary      = "Tumblr iOS app like menu view completely created using core animation."
   s.homepage     = "https://github.com/JackTeam/XHTumblrMenu"
   s.license      = "MIT"
