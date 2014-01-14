@@ -29,6 +29,21 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.summary  = 'Chunk-based JSON parser for Objective-C.'
+  s.description  = <<-DESC
+    Using this library you can reduce the apparent latency for each
+    download/parse cycle of documents over a slow connection. You can start
+    parsing and feed chunks of the parsed document to your app before the entire
+    document is downloaded.
+
+    Feed the parser one or more chunks of UTF8-encoded data and it will call a
+    block you provide with each root-level document or array. Or, optionally,
+    for each top-level entry in each root-level array.
+
+    This pod is identical to SBJson4, except that can be installed alongside
+    SBJson v3.x. This is handy if you want to use version 4 but rely on a
+    library that depends on a previous version.
+  DESC
+
   s.homepage = 'http://sbjson.org'
   s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.0' }
