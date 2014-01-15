@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 	s.author = { "Zack Liston" => "zackmliston@gmail.com" }
 	s.source = { :git => "https://github.com/agilemd/ADFullScreenDetailView.git", :tag => "0.0.1" }
 	s.platform = :ios, '6.0'
-	s.source_files = 'ADFullScreenDetailView.h,m'
+	s.source_files = 'ADFullScreenDetailView'
 	s.exclude_files = 'ADFullScreenDetailViewDemo', 'ADFullScreenDetailViewTests'
 	s.framework = 'QuartzCore'
 	s.requires_arc = true
