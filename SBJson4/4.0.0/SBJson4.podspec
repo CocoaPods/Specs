@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'SBJson'
+  s.name     = 'SBJson4'
   s.version  = '4.0.0'
   s.license = { :type => 'BSD', :text => <<-LICENSE
     Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
@@ -39,13 +39,13 @@ Pod::Spec.new do |s|
     block you provide with each root-level document or array. Or, optionally,
     for each top-level entry in each root-level array.
 
-    This pod is identical to SBJson4, except that can be installed alongside
-    SBJson v3.x. This is handy if you want to use version 4 but rely on a
-    library that depends on a previous version.
+    This is identical to SBJson v4 except it can be installed alongside SBJson
+    v3.x. This is handy if you want to use version 4 but rely on a library that
+    depends on a previous version.
   DESC
 
   s.homepage = 'http://sbjson.org'
-  s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
+  s.authors  = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.0' }
 
   s.requires_arc = true
