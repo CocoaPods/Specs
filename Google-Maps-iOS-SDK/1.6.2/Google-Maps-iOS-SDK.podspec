@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   }
   s.author = 'Google Inc.'
 
-  s.source = { :http => 'https://dl.google.com/geosdk/GoogleMaps-iOS-1.7.0.zip', :flatten => true }
+  s.source = { :http => 'https://dl.google.com/geosdk/GoogleMaps-iOS-1.6.2.zip', :flatten => true }
   s.platform = :ios
   s.ios.deployment_target = '6.0'
 
