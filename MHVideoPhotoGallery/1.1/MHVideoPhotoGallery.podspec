@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/mariohahn/MHVideoPhotoGallery.git',
     :tag => 'v1.1'
   }
+  
   s.dependency "SDWebImage", "~> 3.5.2"
   s.resources = 'MHVideoPhotoGallery/MHVideoPhotoGallery/MHGalleryImages.bundle'
   s.frameworks = 'MessageUI','Social', 'ImageIO', 'QuartzCore', 'Accelerate','CoreMedia', 'AVFoundation','MediaPlayer'
