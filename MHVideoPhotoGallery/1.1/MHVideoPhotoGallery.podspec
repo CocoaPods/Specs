@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   }
   
   s.dependency "SDWebImage", "~> 3.5.2"
-  s.resources = "MHVideoPhotoGallery/MHVideoPhotoGallery/Images.bundle"
+  s.resources = "MHVideoPhotoGallery/MMHVideoPhotoGallery/Images.bundle"
 
   s.frameworks = 'MessageUI','Social', 'ImageIO', 'QuartzCore', 'Accelerate','CoreMedia', 'AVFoundation','MediaPlayer'
 
