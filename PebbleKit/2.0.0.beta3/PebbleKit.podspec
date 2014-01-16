@@ -19,37 +19,4 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'ExternalAccessory', 'CoreBluetooth', 'CoreMotion', 'MessageUI'
   s.libraries = 'z'
   s.requires_arc = true
-
-  s.post_install do |library_representation|
-    library = library_representation.library
-    proj_path = library.user_project_path
-    if proj_path
-      proj = Xcodeproj::Project.open(proj_path)
-      proj.targets.each do |target|
-        # Only attempt to modify the Info.plist of app targets:
-        if target.product_type == 'com.apple.product-type.application'
-          CoreUI.puts "Found app target: %s" % target
-          info_plists = target.build_configurations.inject([]) do |memo, item|
-            memo << item.build_settings['INFOPLIST_FILE']
-          end.uniq
-          info_plists = info_plists.map { |plist| File.join(File.dirname(proj_path), plist) }
-          info_plists.each do |plist|
-            EA_PROTOCOLS_KEY = 'UISupportedExternalAccessoryProtocols'
-            PEBBLE_PROTOCOL = 'com.getpebble.public'
-            PLISTBUDDY = '/usr/libexec/PlistBuddy'
-            # Dumb search for the existence of the protocol string:
-            output = `#{PLISTBUDDY} -c "Print :UISupportedExternalAccessoryProtocols" "#{plist}" 2>&1`
-            protocol_entry_exists = output.include? PEBBLE_PROTOCOL
-            if !protocol_entry_exists
-              CoreUI.puts "Adding '%s' protocol string to '%s'." % [PEBBLE_PROTOCOL, plist]
-              `#{PLISTBUDDY} -c "Add :UISupportedExternalAccessoryProtocols array" "#{plist}"`
-              `#{PLISTBUDDY} -c "Add :UISupportedExternalAccessoryProtocols: string #{PEBBLE_PROTOCOL}" "#{plist}"`
-            else
-              CoreUI.puts "Protocol string already present, not adding again."
-            end
-          end
-        end
-      end
-    end
-  end
 end
