@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
 
   s.ios.frameworks = 'Foundation'
 
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '5.0'
   s.requires_arc = true
 end
