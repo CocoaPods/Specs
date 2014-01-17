@@ -1,7 +1,10 @@
 Pod::Spec.new do |s|
   s.name     = 'EngineeringNotationFormatter'
   s.version  = '0.0.1'
-  s.license  = 'BSD'
+  s.license = { :type => 'BSD', :text => <<-LICENSE
+                   We jointly offer this code here with a unattributed BSD style license (see source files).
+                  LICENSE
+               }
   s.summary  = 'C-based Engineering Notation Formatter with a Objective-C wrapper.'
   s.homepage = 'https://github.com/olegam/EngineeringNotationFormatter'
   s.author   = { 'Ole Gammelgaard Poulsen' => 'ole@shape.dk' }
