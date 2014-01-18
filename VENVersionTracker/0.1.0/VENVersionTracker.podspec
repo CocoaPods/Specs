@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Chris Maddern" => "chris@venmo.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/venmo/VENVersionManager.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/venmo/VENVersionTracker.git", :tag => "v#{s.version}" }
   s.source_files = 'VENVersionTracker/**/*.{h,m}'
   s.requires_arc = true
 end
