@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
               COUNTLY MOBILE ANALYTICS COMMUNITY EDITION LICENSE
               --------------------------------------------------
 
-              Copyright (c) 2012, 2013 Countly
+              Copyright (c) 2012, 2014 Countly
 
               Permission is hereby granted, free of charge, to any person obtaining a copy
               of this software and associated documentation files (the "Software"), to deal
@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.8'
-  s.ios.weak_framework = 'CoreTelephony'
+  s.ios.weak_framework = 'CoreTelephony', 'CoreData'
 end
