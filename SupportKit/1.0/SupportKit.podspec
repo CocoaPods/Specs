@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage        = "http://supportkit.radialpoint.com/"
   s.license         = { :type => 'Commercial', :text => 'Radialpoint.  All rights reserved.' }
   s.author          = { "Radialpoint" => "Michael.Gozzo@radialpoint.com" }
-  s.source 	        = { :http => "https://github.com/radialpoint/SupportKit/raw/master/SupportKit.tar.gz" }
+  s.source 	        = { :http => "https://github.com/radialpoint/SupportKit/raw/v1.0/SupportKit.tar.gz" }
   s.source_files    = 'SupportKit.framework/Versions/A/Headers/SupportKit.h'
   s.resources       = 'SupportKit.bundle'
   s.preserve_paths  = 'SupportKit.framework/*'
