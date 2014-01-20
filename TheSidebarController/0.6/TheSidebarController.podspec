@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.ios.deployment_target = '7.0'
-  s.source_files = 'TheSidebarController/*.{h,m}', 'TheSidebarController/Animations/*.{h,m}'
   s.ios.frameworks = 'QuartzCore'
-  s.public_header_files = 'TheSidebarController/*.h'
+  s.source_files = 'TheSidebarController/*.{h,m}', 'TheSidebarController/**/*.{h,m}'
+  s.header_mappings_dir = '.'
+
 end
