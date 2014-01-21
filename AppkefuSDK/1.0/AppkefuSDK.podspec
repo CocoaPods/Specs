@@ -14,9 +14,11 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/passerbied/AppkefuSDK"
-  s.license      = {:type => 'Custom', :text => 'Copyright (C) 2014 i-chou All Rights Reserved.'}
+  s.license      = {:type => 'Copyright',:text => 'LICENSE  ©2013 appkefu All rights reserved.'}
   s.author       = { "i-chou" => "passer85@gmail.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/passerbied/AppkefuSDK.git", :tag => "1.0" }
   s.source_files  = 'AppKeFuLib', 'AppKeFuLib/**/*.{h,m}'
+  s.preserve_paths = "AppKeFuLib/libAppKeFuIMSDK.a"
+  s.xcconfig =  { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/AppKeFuLib/**"' }
 end
