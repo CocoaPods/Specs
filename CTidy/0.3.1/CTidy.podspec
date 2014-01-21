@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'CTidy/CTidy.{h,m}', 'libtidy/**/*.{c,h}'
   s.public_header_files = 'CTidy/CTidy.h', 'libtidy/**/*.h'
   s.requires_arc = true
+  s.xcconfig = { 'GCC_WARN_TYPECHECK_CALLS_TO_PRINTF' => 'NO', 'GCC_WARN_64_TO_32_BIT_CONVERSION' => 'NO' }
 end
