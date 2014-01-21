@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'UIControl-Notifications'
-  s.version  = '1.0.2'
+  s.version  = '1.0.3'
   s.platform = :ios
   s.summary  = 'Make your UIControls respond to notifications and blocks instead of the old fashioned target+selector approach'
   s.homepage = 'https://github.com/mergesort/UIControl-Notifications'
