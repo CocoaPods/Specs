@@ -7,8 +7,6 @@ Pod::Spec.new do |s|
   s.author       = "Google Inc."
   s.source       = { :git => "https://github.com/goodow/j2objc.git", :tag => "v#{s.version}-lib" }
 
-  # s.ios.deployment_target = "7.0"
-  # s.osx.deployment_target = '10.8'
   s.requires_arc = false
   s.default_subspec = 'lib/jre'
 
@@ -19,14 +17,15 @@ Pod::Spec.new do |s|
   CMD
   
   s.subspec 'lib' do |lib|
-    lib.frameworks = 'Foundation', 'ExceptionHandling', 'Security'
+    lib.frameworks = 'Security'
+    lib.osx.frameworks = 'ExceptionHandling'
     lib.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC/dist/lib"', \
       'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/J2ObjC/dist/include"' }
 
     lib.subspec 'jre' do |jre|
       jre.preserve_paths = 'dist'
-      jre.libraries = 'jre_emul'
-      # jre.xcconfig = { 'OTHER_LDFLAGS' => '-force_load ${PODS_ROOT}/J2ObjC/dist/lib/libjre_emul.a' }
+      jre.libraries = 'jre_emul', 'z'
+      jre.xcconfig = { 'OTHER_LDFLAGS' => '-force_load ${PODS_ROOT}/J2ObjC/dist/lib/libjre_emul.a' }
     end
 
     lib.subspec 'junit' do |junit|
