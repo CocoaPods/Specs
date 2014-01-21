@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   }
 
   s.authors      = { "Mirek Rusin" => "mirek@me.com", "Kirill Simonov" => "kiril" }
-  s.source       = { :git => "https://github.com/mirek/YAML.framework.git", :branch => "master" }
+  s.source       = { :git => "https://github.com/mirek/YAML.framework.git", :tag => 'v0.0.2' }
   s.source_files = 'YAMLSerialization.{h,m}', 'yaml-0.1.4/config.h'
   s.public_header_files = 'YAMLSerialization.h'
   s.requires_arc = false
