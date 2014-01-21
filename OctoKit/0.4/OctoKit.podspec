@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
  
   s.source       = { :git => "https://github.com/octokit/octokit.objc.git", :tag => "#{s.version}" }
   s.source_files = "OctoKit"
- 
+  s.requires_arc = true
+
   s.ios.deployment_target = "5.1"
   s.osx.deployment_target = "10.7"
  
