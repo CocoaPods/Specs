@@ -20,5 +20,4 @@ Pod::Spec.new do |s|
   s.ios.frameworks      = %w{MobileCoreServices CFNetwork Security}
   s.libraries           = "icucore"
   s.requires_arc = true
-  s.compiler_flags = '-all_load'
 end
