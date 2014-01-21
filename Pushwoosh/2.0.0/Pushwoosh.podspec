@@ -1,7 +1,3 @@
-#
-#  Be sure to run `pod spec lint Pushwoosh.podspec' to ensure this is a
-#
-
 Pod::Spec.new do |s|
 
   s.name         = "Pushwoosh"
@@ -16,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author       = { "Max Konev" => "max@pushwoosh.com" }
-  s.source       = { :git => "https://github.com/shaders/pushwoosh-ios-sdk.git", :tag => "2.0" }
+  s.source       = { :git => "https://github.com/shaders/pushwoosh-ios-sdk.git", :tag => "2.0.0" }
 
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.framework  = 'AdSupport', 'CoreLocation'
