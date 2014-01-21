@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jesseditson/PFTwitterSignOn.git', :tag => "0.1.0" }
 
   s.public_header_files = 'PFTwitterSignOn/*.h'
-  s.source_files = 'PFTwitterSignOn/PFTwitterSignOn.h'
+  s.source_files = 'PFTwitterSignOn/*.{h,m}'
 
   s.frameworks = 'Social', 'Accounts'
 

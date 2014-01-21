@@ -53,5 +53,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'src/main/objc'
-  s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer}.h'
+  s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer,StreamTokeniser}.h'
 end
