@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/passerbied/AppkefuSDK.git", :tag => "#{s.version}" }
   s.source_files  = 'AppKeFuLib', 'AppKeFuLib/**/*.{h,m}'
   s.vendored_libraries = "AppKeFuLib/libAppKeFuIMSDK.a"
-  s.resource_bundle = { "AppkefuSDK" => "AppKeFuLib/AppKeFuResources.bundle" }
+  s.resources = "AppKeFuLib/AppKeFuResources.bundle"
   s.xcconfig =  { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/AppKeFuLib/**"' }
 end
