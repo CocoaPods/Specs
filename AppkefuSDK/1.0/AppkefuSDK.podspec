@@ -18,9 +18,10 @@ Pod::Spec.new do |s|
   s.author       = { "i-chou" => "passer85@gmail.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/passerbied/AppkefuSDK.git", :tag => "#{s.version}" }
-  s.source_files  = 'AppKeFuLib', 'AppKeFuLib/**/*.{h,m,bundle}'
+  s.source_files  = 'AppKeFuLib', 'AppKeFuLib/**/*.{h,m}'
   s.vendored_libraries = "AppKeFuLib/libAppKeFuIMSDK.a"
   s.resources = "AppKeFuLib/AppKeFuResources.bundle"
   s.xcconfig =  { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/AppKeFuLib/**"' }
+  s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
 
 end
