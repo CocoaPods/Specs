@@ -12,18 +12,18 @@ Pod::Spec.new do |s|
   s.author       = 'Baidu Inc.'
   s.platform     = :ios
  
-  s.source       = { :git => "https://github.com/Tangdixi/Baidu_Map_iOS_SDK.git", :tag => "2.1.1" }
-  s.source_files  = 'Baidu_Map_iOS_SDK/inc/*.h'
+  s.source       = { :git => "https://github.com/Tangdixi/Baidu-Maps-iOS-SDK.git", :tag => "2.1.1" }
+  s.source_files  = 'Baidu-Maps-iOS-SDK/inc/*.h'
  
-  s.resource  = "Baidu_Map_iOS_SDK/mapapi.bundle"
+  s.resource  = "Baidu-Maps-iOS-SDK/mapapi.bundle"
  
-  s.preserve_paths = "Baidu_Map_iOS_SDK/libbaidumapapi.a"
+  s.preserve_paths = "Baidu-Maps-iOS-SDK/BaiduMapApi.a"
  
   s.framework  = 'CoreLocation','QuartzCore','OpenGLES','SystemConfiguration','CoreGraphics','Security' 
-  s.library   = 'libbaidumapapi'
+  s.library   = 'BaiduMapApi'
  
   s.requires_arc = true
  
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Baidu_Map_iOS_SDK/Baidu_Map_iOS_SDK' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Baidu-Maps-iOS-SDK/Baidu-Maps-iOS-SDK' }
 
 end
