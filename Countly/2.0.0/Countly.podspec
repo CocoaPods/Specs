@@ -32,9 +32,11 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/Countly/countly-sdk-ios'
   s.author  = {'Countly' => 'hello@count.ly'}
   s.source   = { :git => 'https://github.com/Countly/countly-sdk-ios.git', :tag => '2.0.0' }
+  s.resources = "*.xcdatamodeld"
   s.source_files = '*.{h,m}'
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.8'
   s.ios.weak_framework = 'CoreTelephony', 'CoreData'
 end
+
