@@ -7,7 +7,7 @@ Pod::Spec.new do |m|
   m.description = 'Open source alternative to MapKit supporting custom tile sources, offline use, and complete cache control.'
   m.homepage    = 'http://mapbox.com/mobile'
   m.license     = 'BSD'
-  m.author      = { 'Mapbox' => 'ios@mapbox.com' }
+  m.author      = { 'MapBox' => 'ios@mapbox.com' }
   m.screenshot  = 'https://raw.github.com/mapbox/mapbox-ios-sdk/packaging/screenshot.png'
 
   m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => m.version.to_s }
@@ -21,14 +21,9 @@ Pod::Spec.new do |m|
 
   m.prefix_header_file = 'MapView/MapView_Prefix.pch'
 
-  m.pre_install do |pod, target_definition|
-    Dir.chdir(pod.root) do
-      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null"
-      unless system(command)
-        raise ::Pod::Informative, "Failed to generate Mapbox resources bundle"
-      end
-    end
-  end
+  m.prepare_command = <<-CMD
+      xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null
+  CMD
 
   m.resource = 'Resources/Mapbox.bundle'
 
