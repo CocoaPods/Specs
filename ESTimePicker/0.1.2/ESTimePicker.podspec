@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
 	s.license     	= { :type => 'BSD', :file => 'LICENSE' }
 	s.homepage    	= "https://github.com/e-sites/ESTimePicker"
 	s.source   		= { :git => 'https://github.com/e-sites/ESTimePicker.git', :tag => s.version.to_s }	
+	s.screenshot  	= "https://raw.github.com/e-sites/ESTimePicker/master/Assets/example.gif"
 	s.source_files	= 'Classes'
  	s.requires_arc  = false
 	s.framework	 	= 'QuartzCore'	
