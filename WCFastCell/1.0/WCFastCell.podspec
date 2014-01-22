@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "WCFastCell"
-  s.version      = "1.0.0"
+  s.version      = "1.0"
   s.summary      = "A faster drop-in replacement for UITableViewCell. Seamless integration with nibs"
   s.description  = <<-DESC
                     WCFastCell automatically draws all UILabels and UIImageViews using Core Graphics providing a better performance on older devices.
