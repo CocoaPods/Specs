@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage    = 'http://www.empatika.com'
   s.author      = { 'Empatika' => 'http://www.empatika.com' }
   s.source      = { :git => 'https://github.com/Empatika/BeaconsTracker-SDK.git', 
-                    :tag => '#{s.version}' } 
+                    :tag => "#{s.version}" } 
   s.license     = { :type => 'Commercial', :text => 'To be annonced' }
   s.platform    = :ios, '7.0'
   s.source_files    = 'BeaconTracker/**/*.h'
