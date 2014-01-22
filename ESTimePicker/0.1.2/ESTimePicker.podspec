@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
 	s.version     	= "0.1.2"
 	s.platform    	= :ios, '6.0'
 	s.summary     	= "Simple time picker that looks and acts exactly like the time picker dialog in the Google Calendar app for Android"
+	
 	s.author      	= { "Bas van Kuijck" => "bas@e-sites.nl" }
 	s.license     	= { :type => 'BSD', :file => 'LICENSE' }
 	s.homepage    	= "https://github.com/e-sites/ESTimePicker"
