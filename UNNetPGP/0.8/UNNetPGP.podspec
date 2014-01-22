@@ -1,7 +1,3 @@
-# IMPORTANT
-# TO satisfy dependency add this line to you Podfile, just before netpgp:
-# pod 'OpenSSL', :podspec => 'https://raw.github.com/krzak/OpenSSL/master/OpenSSL.podspec'  
-
 Pod::Spec.new do |s|
   s.name     = 'UNNetPGP'
   s.version  = '0.8'
