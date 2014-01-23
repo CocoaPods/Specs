@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     :file => 'LICENSE'
   }
   s.summary = "Add Dropbox to your app with a few lines of code."
-  s.authors = ["Chris Varenhorst"]
+  s.authors = "Chris Varenhorst"
   s.homepage = "https://www.dropbox.com/developers/dropins"
 	s.platform = :ios
   s.requires_arc = true

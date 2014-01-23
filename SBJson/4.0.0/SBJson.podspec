@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'SBJson'
   s.version  = '4.0.0'
   s.license = { :type => 'BSD', :text => <<-LICENSE
-    Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
+    Copyright (C) 2007-2014 Stig Brautaset. All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are met:
@@ -50,5 +50,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
+
   s.source_files = 'src/main/objc'
+  s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer,StreamTokeniser}.h'
 end
