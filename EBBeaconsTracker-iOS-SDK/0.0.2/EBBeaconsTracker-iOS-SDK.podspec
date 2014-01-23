@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
                     :tag => "#{s.version}" } 
   s.license     = { :type => 'Commercial', :text => 'To be annonced' }
   s.platform    = :ios, '7.0'
-  s.source_files    = 'EBBeaconsTracker-iOS-SDK/BeaconTracker/**/*.h'
-  s.preserve_paths  = 'EBBeaconsTracker-iOS-SDK/BeaconTracker/**/*.a'
+  s.source_files    = 'BeaconTracker/**/*.h'
+  s.preserve_paths  = 'BeaconTracker/**/*.a'
   s.library       = 'EBBeaconsTracker'
   s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/EBBeaconsTracker-iOS-SDK/BeaconTracker"' }
   s.frameworks    = 'CoreLocation', 'CoreBluetooth'
