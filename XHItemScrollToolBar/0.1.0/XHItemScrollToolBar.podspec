@@ -1,6 +1,5 @@
 "
-s
-d::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name         = "XHItemScrollToolBar"
   s.version      = "0.1.0"
   s.summary      = "XHItemScrollToolBar is a TabBar or ItemBar for rolling, used for user category select."
