@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'EBBeaconsTracker-iOS-SDK'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.summary     = 'Yet another SDK.'
   s.homepage    = 'http://www.empatika.com'
   s.author      = { 'Empatika' => 'http://www.empatika.com' }
@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.preserve_paths  = 'EBBeaconsTracker-iOS-SDK/BeaconTracker/**/*.a'
   s.library       = 'EBBeaconsTracker'
   s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/EBBeaconsTracker-iOS-SDK/BeaconTracker"' }
-  s.frameworks    = 'CoreLocation'
+  s.frameworks    = 'CoreLocation', 'CoreBluetooth'
 end
