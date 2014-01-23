@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     'Ben Gordon' => 'brgordon@ua.edu'
   }
   s.source = {
-    :git => 'https://github.com/bennyguitar/Colours-for-iOS.git',
+    :git => 'https://github.com/bennyguitar/Colours.git',
     :tag => '3.0'
   }
   s.homepage    = 'http://subvertapps.com'
