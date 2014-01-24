@@ -7,10 +7,10 @@ Pod::Spec.new do |s|
   s.source      = { :git => 'https://github.com/Empatika/BeaconsTracker-SDK.git', 
                     :tag => "#{s.version}" } 
   s.license     = { :type => 'Commercial', :text => 'To be annonced' }
-  s.platform    = :ios, '7.0'
+  s.platform    = :ios
   s.source_files    = 'BeaconTracker/**/*.h'
   s.preserve_paths  = 'BeaconTracker/**/*.a'
   s.library       = 'EBBeaconsTracker'
-  s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/EBBeaconsTracker-iOS-SDK/BeaconTracker"' }
+  s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/EmpatikaBeacons/BeaconTracker"' }
   s.frameworks    = 'CoreLocation'
 end
