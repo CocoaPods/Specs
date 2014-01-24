@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/mapedd/Paczkomaty"
   s.screenshots  = "https://dl.dropboxusercontent.com/u/450887/paczkomaty.png"
 
-  s.license      = { :type => 'MIT'}
+  s.license      = 'MIT'
 
   s.authors          = { "Tomek Kuzma" => "mapedd@sezamkowa.net", "Creadhoc" => "email@address.com" }
   s.social_media_url = "http://twitter.com/mapedd"
