@@ -20,3 +20,4 @@ Pod::Spec.new do |s|
   s.libraries = 'z'
   s.requires_arc = true
 end
+
