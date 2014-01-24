@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.resources = "MHVideoPhotoGallery/MMHVideoPhotoGallery/**/*.{png}"
 
   s.source_files = ['MHVideoPhotoGallery/MMHVideoPhotoGallery/**/*.{h,m}']
+  
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
 end
