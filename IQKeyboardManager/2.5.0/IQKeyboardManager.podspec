@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Iftekhar Qurashi" => "hack.iftekhar@gmail.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/hackiftekhar/IQKeyboardManager", :tag => "2.5.0" }
+  s.source       = { :git => "https://github.com/hackiftekhar/IQKeyboardManager.git", :tag => "2.5.0" }
   s.source_files  = 'Classes', 'KeyboardTextFieldDemo/IQKeyBoardManager/*.{h,m}'
   s.resources = "KeyboardTextFieldDemo/IQKeyBoardManager/*.png"
   s.requires_arc = true
