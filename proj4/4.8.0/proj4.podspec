@@ -24,34 +24,12 @@ As of May 2008 PROJ.4 has become part of the  MetaCRS project, a confederation o
   s.ios.deployment_target = "4.0"
   s.osx.deployment_target = "10.6"
 
-  def s.pre_install(pod, target_definition)
-    proj_config = <<-CONFIG_H
-#define HAVE_DLFCN_H 1
-#define HAVE_INTTYPES_H 1
-#define HAVE_LIBM 1
-#define HAVE_MEMORY_H 1
-#define HAVE_STDINT_H 1
-#define HAVE_STDLIB_H 1
-#define HAVE_STRINGS_H 1
-#define HAVE_STRING_H 1
-#define HAVE_SYS_STAT_H 1
-#define HAVE_SYS_TYPES_H 1
-#define HAVE_UNISTD_H 1
-#define PACKAGE "proj"
-#define PACKAGE_BUGREPORT "warmerdam@pobox.com"
-#define PACKAGE_NAME "PROJ.4 Projections"
-#define PACKAGE_STRING "PROJ.4 Projections 4.8.0"
-#define PACKAGE_TARNAME "proj"
-#define PACKAGE_VERSION "4.8.0"
-#define STDC_HEADERS 1
-#define VERSION "4.8.0"
-CONFIG_H
-
-    File.open("#{pod.root}/proj/src/proj_config.h", "w") do |file|
-      file.puts proj_config
-    end
-  end
+  s.prepare_command = <<-CMD
+    cd proj
+    ./configure
+  CMD
 
   s.source_files = "proj/src/*.{c,h}"
   s.exclude_files = "**/proj.c", "**/nad2bin.c", "**/multistresstest.c", "**/geod.c", "**/cs2cs.c"
+
 end
