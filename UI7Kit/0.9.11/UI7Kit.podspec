@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   components = {
     'UI7ActionSheet'           => [%w(UI7ActionSheet.{h,m})           , [%w(UI7Kit/UI7Font), %w(UI7Kit/UI7Color)                                                            ], %w(QuartzCore)],
     'UI7AlertView'             => [%w(UI7AlertView.{h,m})             , [%w(UI7Kit/UI7Font), %w(UI7Kit/UI7Color), %w(UI7Kit/UI7Button)                                      ], %w(          )],
-    'UI7BarButtonItem'         => [%w(UI7BarButtonItem.{h,m})         , [%w(UI7Kit/UI7Font)                                                                                 ], %w(          )],
-    'UI7Button'                => [%w(UI7Button.{h,m})                , [%w(UI7Kit/UI7Font), %w(UI7Kit/UI7View), %w(UI7Kit/UI7BarButtonItem), %w(UIKitResources/UIButtonBar)], %w(QuartzCore)],
+    'UI7BarButtonItem'         => [%w(UI7BarButtonItem.{h,m})         , [%w(UI7Kit/UI7Font), %w(UIKitResources/UIButtonBar)                                                 ], %w(          )],
+    'UI7Button'                => [%w(UI7Button.{h,m})                , [%w(UI7Kit/UI7Font), %w(UI7Kit/UI7View), %w(UI7Kit/UI7BarButtonItem)], %w(QuartzCore)],
     'UI7Color'                 => [%w(UI7Color.{h,m})                 , [%w(UIKitResources/UIAccessoryButton)                                                               ], %w(          )],
     'UI7Font'                  => [%w(UI7Font.{h,m})                  , [                                                                                                   ], %w(          )],
     'UI7NavigationBar'         => [%w(UI7NavigationBar.{h,m})         , [%w(UI7Kit/UI7Font), %w(UI7Kit/UI7Color), %w(UI7Kit/UI7BarButtonItem)                               ], %w(          )],

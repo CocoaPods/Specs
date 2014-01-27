@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.platform    = :ios
-#  s.ios.deployment_target = "4.0"
+  s.ios.deployment_target = "5.0"
 #  s.osx.deployment_target = "10.6"
 
   s.source_files = 'ShapeKit/*.{m,mm,h}', 'proj4/*.{c,h}', 'geos/*.{cpp,h}'
@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
 
   s.framework = 'CoreLocation'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++', 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_CXX_LIBRARY' => 'libstdc++' }
 
 end

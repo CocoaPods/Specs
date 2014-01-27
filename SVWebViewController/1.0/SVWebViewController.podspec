@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      	= 'MIT'
   s.author       	= { 'Sam Vermette' => 'hello@samvermette.com' }
   s.source       	= { :git => 'https://github.com/samvermette/SVWebViewController.git', :tag => s.version.to_s }
-  s.platform     	= :ios, '7.0'
+  s.platform     	= :ios, '6.0'
   s.source_files 	= 'SVWebViewController/**/*.{h,m}'
   s.resources 		= 'SVWebViewController/**/*.{bundle,png}'
   s.requires_arc 	= true
