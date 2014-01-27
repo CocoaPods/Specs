@@ -20,4 +20,7 @@ Pod::Spec.new do |s|
   s.dependency   'SSKeychain', '= 1.2.0'
   s.dependency   'AFOAuth1Client', '~> 0.3.1'
   s.frameworks = 'Security','SystemConfiguration'
+  s.post_install do
+    puts "[!] XINGAPI pod is deprecated please use the XNGAPIClient pod instead"
+  end
 end

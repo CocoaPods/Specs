@@ -90,6 +90,7 @@ PODS_ALLOWED_TO_FAIL = {
     'TouchDB',
     'unoffical-twitter-sdk',
     'XingSDK',
+    'XINGAPI'
   ],
 
   "The pre install hook of the specification DSL has been deprecated, use the `resource_bundles` or the `prepare_command` attributes." => [
