@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "HarshitAlert"
+  s.name         = "AlertShortkut"
   s.version      = "1.0"
   s.summary      = "A custom Alert and Actionsheet with block implementation."
   s.homepage     = "http://twitter.com/daftaryharshit"
