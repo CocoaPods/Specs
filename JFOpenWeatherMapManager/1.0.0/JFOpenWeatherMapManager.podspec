@@ -1,4 +1,3 @@
-
 Pod::Spec.new do |s|
 
   s.name         = "JFOpenWeatherMapManager"
@@ -24,5 +23,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'AFNetworking'
   s.dependency 'APTimeZones'
+  s.requires_arc = true
+  s.frameworks   = 'CoreLocation'
 
 end
