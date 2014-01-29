@@ -23,7 +23,7 @@ DESC
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author             = { "Adam Waite" => "adam@adamjwaite.co.uk" }
-  s.social_media_url = "http://twitter.com/Adam Waite"
+  s.social_media_url = "http://twitter.com/AdamWaite"
 
   s.platform     = :ios
   s.platform     = :ios, '7.0'
