@@ -22,7 +22,7 @@ PMAudioRecorderViewController
 
   s.platform     = :ios, '6.0'
   s.requires_arc = true
-
+  s.frameworks = 'AVFoundation'
   s.source_files = 'AudioNoteRecorderViewController/Classes/*'
   s.resources = 'AudioNoteRecorderViewController/Images/*'
   s.dependency 'UIImage+BlurredFrame'
