@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   }
 
   s.source_files  = '*.{h,m}'
-  s.exclude_files = 'LetsMoveAppDelegate.{h,m}'
+  s.exclude_files = 'main.m', 'LetsMoveAppDelegate.{h,m}'
   s.public_header_files = 'PFMoveApplication.h'
 
   s.resources = '*.lproj'
