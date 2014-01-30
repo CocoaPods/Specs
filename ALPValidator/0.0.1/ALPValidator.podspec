@@ -28,7 +28,7 @@ DESC
   s.platform     = :ios
   s.platform     = :ios, '7.0'
 
-  s.source       = { :git => "https://github.com/adamwaite/ALPValidator.git", :commit => "f1ff31e4fae5b64101b405f1fd11f594dcd7c487" }
+  s.source       = { :git => "https://github.com/adamwaite/ALPValidator.git", :tag => "v0.0.1" }
   s.source_files  = 'ALPValidator', 'ALPValidator/**/*.{h,m}'
   s.public_header_files = 'ALPValidator/ALPValidator.h'
 
