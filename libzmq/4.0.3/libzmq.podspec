@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "ZeroMQ"
+  s.name         = "libzmq"
   s.version      = "4.0.3"
   s.summary      = "ZeroMQ is a high-performance asynchronous messaging library aimed at use in scalable distributed or concurrent applications."
   s.description  = <<-DESC
