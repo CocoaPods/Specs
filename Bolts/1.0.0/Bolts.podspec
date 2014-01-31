@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "BSD"
   s.authors      = { "Bryan Klimt" => "bklimt@fb.com", "David Poll" => "depoll@fb.com" }
   s.source       = { :git => "https://github.com/BoltsFramework/Bolts-iOS.git", :tag => s.version.to_s }
-  s.documentation_url = 'boltsframework.github.io/docs/ios/'
+  s.documentation_url = 'http://boltsframework.github.io/docs/ios/'
 
   s.requires_arc = true
 
