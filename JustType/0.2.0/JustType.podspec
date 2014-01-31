@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.screenshots  = "http://dl.dropboxusercontent.com/u/82016/justtype_1.png", "http://dl.dropboxusercontent.com/u/82016/justtype_2.png"
   s.license      = 'CC0 (Creative Commons)'
   s.author       = { "Alexander Koglin" => "tonqa@gmx.de" }
-  s.source       = { :git => "https://github.com/tonqa/justtype.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/tonqa/JustType.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '6.0'
