@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GHContextMenu"
-  s.version      = "0.0.1"
+  s.version      = "0.8"
   s.summary      = "Pinterest like context menu control for iOS"
 
   s.description  = <<-DESC
