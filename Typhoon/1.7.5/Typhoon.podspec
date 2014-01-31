@@ -14,7 +14,7 @@ Pod::Spec.new do |spec|
   spec.xcconfig = {'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'}
 
   spec.source_files = 'Source/**/*.{h,m}'
-  non_arc_files = 'Source/Factory/Internal/NSInvocation+TyphoonUtils.m'
+  non_arc_files = 'Source/Factory/Internal/NSInvocation+TyphoonUtils.{h,m}'
   spec.ios.exclude_files = 'Source/osx', non_arc_files
   spec.osx.exclude_files = 'Source/ios', non_arc_files
 
