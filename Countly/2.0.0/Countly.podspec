@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.author  = {'Countly' => 'hello@count.ly'}
   s.source   = { :git => 'https://github.com/Countly/countly-sdk-ios.git', :tag => '2.0.0' }
   s.source_files = '*.{h,m}'
+  s.resources = '*.{xcdatamodeld}'
   s.requires_arc = false
   s.platform     = :ios, '4.3'
   s.ios.weak_framework = 'CoreTelephony'
