@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AFWunderlist"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "AFWunderlist is a Wunderlist API wrapper for Objective-C"
 
   s.description  = "AFWunderlist is a full-feaured Wunderlist API wrapper for Objective-C"
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '6.0'
 
-  s.source       = { :git => "https://github.com/AlvaroFranco/AFWunderlist.git", :tag => "v1.0" }
+  s.source       = { :git => "https://github.com/AlvaroFranco/AFWunderlist.git", :tag => "v1.1" }
 
   s.source_files  = 'WLClient.{h,m}'
   s.exclude_files = 'LICENSE', 'README.md', 'AFWunderlist.podspec'
