@@ -26,43 +26,6 @@ Pod::Spec.new do |m|
   CMD
 
   m.resource = 'Resources/Mapbox.bundle'
-
-  m.documentation = {
-    :html => 'http://mapbox.com/mapbox-ios-sdk/api/',
-    :appledoc => [
-      '--project-company', 'Mapbox',
-      '--docset-copyright', 'Mapbox',
-      '--no-keep-undocumented-objects',
-      '--no-keep-undocumented-members',
-      '--ignore', '.c',
-      '--ignore', '.m',
-      '--ignore', 'Proj4',
-      '--ignore', 'RMAttributionViewController.h',
-      '--ignore', 'RMBingSource.h',
-      '--ignore', 'RMCoordinateGridSource.h',
-      '--ignore', 'RMDBMapSource.h',
-      '--ignore', 'RMFoundation.h',
-      '--ignore', 'RMFractalTileProjection.h',
-      '--ignore', 'RMGenericMapSource.h',
-      '--ignore', 'RMGlobalConstants.h',
-      '--ignore', 'RMLoadingTileView.h',
-      '--ignore', 'RMMapOverlayView.h',
-      '--ignore', 'RMMapQuestOpenAerialSource.h',
-      '--ignore', 'RMMapQuestOSMSource.h',
-      '--ignore', 'RMMapScrollView.h',
-      '--ignore', 'RMMapTiledLayerView.h',
-      '--ignore', 'RMNotifications.h',
-      '--ignore', 'RMOpenCycleMapSource.h',
-      '--ignore', 'RMOpenSeaMapLayer.h',
-      '--ignore', 'RMOpenSeaMapSource.h',
-      '--ignore', 'RMPixel.h',
-      '--ignore', 'RMProjection.h',
-      '--ignore', 'RMTile.h',
-      '--ignore', 'RMTileImage.h',
-      '--ignore', 'RMTileSourcesContainer.h',
-    ]
-  }
-
   m.documentation_url = 'https://www.mapbox.com/mapbox-ios-sdk/api/'
 
   m.frameworks = 'CoreGraphics', 'CoreLocation', 'Foundation', 'QuartzCore', 'UIKit'
