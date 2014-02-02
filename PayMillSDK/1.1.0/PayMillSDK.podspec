@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://www.paymill.com/en-gb/documentation-3/reference/mobile-sdk/"
   s.license      = 'Commercial, :file => License.md'
   s.author       = { "Paymill GmbH" => "support@paymill.de" }
-  s.source       = { :git => "https://github.com/paymill/paymill-ios.git", :tag => “1.1.0” }
+  s.source       = { :git => "https://github.com/paymill/paymill-ios.git", :tag => '1.1.0' }
   s.platform     = :ios, '6.1'
   s.public_header_files = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'samples/vouchermill/PayMillSDK/PayMillSDK.framework'
