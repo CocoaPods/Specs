@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name         = "CoreParse"
-  s.version      = "1.1"
+  s.name         = "CoreParse@siuying"
+  s.version      = "1.1.0.20140123"
   s.summary      = "Versioned fork of CoreParse."
   s.description  = <<-DESC
                       CoreParse
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.homepage       = "https://github.com/beelsebob/CoreParse"
   s.author         = 'Tom Davie'
   s.license        = 'MIT'
-  s.source         = { :git => "https://github.com/siuying/CoreParse.git", :tag => "1.1" }
+  s.source         = { :git => "https://github.com/siuying/CoreParse.git", :tag => "1.1.0.20140123" }
   s.source_files   = 'CoreParse', 'CoreParse/**/*.{h,m}'
   s.exclude_files  = 'CoreParse/CPSenTestKitAssertions.h'
   s.requires_arc   = false
