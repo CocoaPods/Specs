@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'DBCamera is a simple custom camera with AVFoundation'
   s.homepage = 'https://github.com/danielebogo/DBCamera'
   s.author = { 'Daniele Bogo' => 'daniele@paperstreetsoapdesign.com' }
-  s.source = { :git => 'git@github.com:danielebogo/DBCamera.git', :tag => '0.1' }
+  s.source = { :git => 'https://github.com/danielebogo/DBCamera.git', :tag => '0.1' }
   s.platform = :ios, '7.0'
   s.requires_arc = true
   
