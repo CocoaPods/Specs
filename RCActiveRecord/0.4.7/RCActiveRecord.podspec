@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = 'Ryan Copley'
   s.source       = { :git => "https://github.com/RyanCopley/RCActiveRecord.git", :commit => "6b587c2140b4dc0d79e6ec780df72691ba926256" }
-  s.source_files = 'RCActiveRecord.h,m', 'RCActiveRecordResultSet.h,m', 'RCCriteria.h,m'
+  s.source_files = 'RCActiveRecord.h','RCActiveRecord.m', 'RCActiveRecordResultSet.h', 'RCActiveRecordResultSet.h', 'RCCriteria.m', 'RCCriteria.h'
   s.requires_arc = true
   s.platform     = :ios
   s.framework    = 'sqlite3'
