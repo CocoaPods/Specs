@@ -1,8 +1,8 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DTMarkdownParser'
   spec.version      = '0.2.0'
-  spec.platform     = :ios, '4.3'
-  spec.platform     = :osx, '10.8'
+  spec.ios.deployment_target = '4.3'
+  spec.osx.deployment_target = '10.8'
   spec.license      = 'BSD'
   spec.source       = { :git => 'https://github.com/Cocoanetics/DTMarkdownParser.git', :tag => spec.version.to_s }
   spec.source_files = 'Core/Source/*.{h,m}'
