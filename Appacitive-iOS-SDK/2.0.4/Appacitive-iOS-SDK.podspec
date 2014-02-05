@@ -19,11 +19,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   s.author       = { "Kauserali" => "ali.hafizji@gmail.com" }
 
-  s.source       = { :https://github.com/appacitive/appacitive-ios-sdk.git",:tag => "v2.0.4" }
+  s.source       = { :git => "https://github.com/appacitive/appacitive-ios-sdk.git",:tag => "v2.0.4" }
 
   s.platform     = :ios, '5.1'
 
   s.source_files = 'Appacitive-iOS-SDK/**/*.{h,m}'
 
   s.requires_arc = true
+
 end
