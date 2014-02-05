@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'RestForIOS/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
-  s.framework  = 'CommonCrypto'
+  s.ios.library  = 'commonCrypto'
 end
