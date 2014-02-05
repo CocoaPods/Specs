@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "SunilSpaceo" => "sunil@spaceotechnologies.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => 'https://github.com/SunilSpaceo/SKInputClass.git', :tag => '1.2' }
+  s.source       = { :git => 'https://github.com/SunilSpaceo/SKInputClass.git', :tag => '1.3' }
   s.source_files  = 'SKInput/*.{h,m}'
   s.resources = "SKInput/*.png"
 end
