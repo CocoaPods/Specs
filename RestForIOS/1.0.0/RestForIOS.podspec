@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RestForIOS"
-  s.version      = "1.0"
+  s.version      = "1.0.0"
   s.summary      = "A simple, easy-to-use library of static functions for accessing RESTful APIs in iOS"
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.author       = { "Adeesha Ekanayake" => "adeeshaekanayake@gmail.com" }
 
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/adeeshaek/RestForIOS.git", :tag => "v1.0" }
+  s.source       = { :git => "https://github.com/adeeshaek/RestForIOS.git", :tag => "1.0.0" }
 
   s.source_files  = 'RestForIOS/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
