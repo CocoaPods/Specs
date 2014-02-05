@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://github.com/adeeshaek/RestForIOS"
 
-  s.license      = { :type => 'MIT', :file => '../LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Adeesha Ekanayake" => "adeeshaekanayake@gmail.com" }
 
   s.platform     = :ios
