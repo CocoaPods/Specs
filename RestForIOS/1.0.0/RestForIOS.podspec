@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://github.com/adeeshaek/RestForIOS"
 
-  s.license      = { :type => 'MIT', :file => '../LICENSE' }
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Adeesha Ekanayake" => "adeeshaekanayake@gmail.com" }
 
   s.platform     = :ios
@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'RestForIOS/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
-  s.framework  = 'CommonCrypto'
+  s.ios.library  = 'commonCrypto'
 end
