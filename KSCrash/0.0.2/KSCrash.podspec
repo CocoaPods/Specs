@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Karl Stenerud" => "kstenerud@gmail.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/kstenerud/KSCrash.git", :tag=>s.version.to_s }
-  s.frameworks = 'Foundation', 'SystemConfiguration', 'MessageUI'
+  s.frameworks = 'Foundation'
   s.libraries = 'c++', 'z'
     
   s.subspec 'Recording' do |recording|
@@ -17,23 +17,14 @@ Pod::Spec.new do |s|
 
   s.subspec 'Reporting' do |reporting|
     reporting.dependency 'KSCrash/Recording'
-    #reporting.source_files   = 'Source/KSCrash/Reporting/**/*.{h,m,mm,c,cpp}'
 
-    reporting.subspec 'Filters' do |filters|
-      #filters.source_files = 'Source/KSCrash/Reporting/Filters/**/*.{h,m,mm,c,cpp}'
-      
+    reporting.subspec 'Filters' do |filters|      
       filters.subspec 'Base' do |base|
         base.source_files = 'Source/KSCrash/Reporting/Filters/Tools/**/*.{h,m,mm,c,cpp}',
                             'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h',
                             'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.m'
       end
-      
-      filters.subspec 'Alert' do |alert|
-        alert.dependency 'KSCrash/Reporting/Filters/Base'
-        alert.source_files = 'Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.h',
-                             'Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.m'
-      end
-      
+
       filters.subspec 'Alert' do |alert|
         alert.dependency 'KSCrash/Reporting/Filters/Base'
         alert.source_files = 'Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.h',
@@ -78,11 +69,13 @@ Pod::Spec.new do |s|
     end
 
     reporting.subspec 'Tools' do |tools|
+      tools.frameworks = 'SystemConfiguration'
       tools.source_files = 'Source/KSCrash/Reporting/Tools/**/*.{h,m,mm,c,cpp}'
 
     end
 
     reporting.subspec 'Sinks' do |sinks|
+      sinks.frameworks = 'MessageUI'
       sinks.dependency 'KSCrash/Reporting/Filters'
       sinks.dependency 'KSCrash/Reporting/Tools'
       sinks.source_files = 'Source/KSCrash/Reporting/Sinks/**/*.{h,m,mm,c,cpp}'
