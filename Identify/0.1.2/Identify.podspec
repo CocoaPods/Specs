@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Identify"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Create compact, unique identifiers."
   s.homepage     = "https://github.com/weaver/Identify"
   s.license      = 'MIT'
