@@ -9,6 +9,6 @@ s.source       = { :git => "https://github.com/RyanCopley/RCActiveRecord.git", :
 s.source_files = "Classes/RC*.{h,m}"
 s.requires_arc = true
 s.platform     = :ios
-s.framework    = 'sqlite3'
+s.library    = 'sqlite3'
 s.dependency  'FMDB'
 end
