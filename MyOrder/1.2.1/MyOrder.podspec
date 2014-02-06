@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = "#{s.name}.framework"
   s.public_header_files = "#{s.name}.framework/**/*.h"
   s.vendored_frameworks = "#{s.name}.framework"
+  s.resources  = "#{s.name}.framework/**/#{s.name}.bundle"
   s.frameworks = 'Security'
   s.requires_arc = true
   s.dependency 'SVProgressHUD'
