@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MKMapView-Blocks"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "MKMapView category that adds blocks for all delegate methods"
   s.description  = <<-DESC
   Adds blocks to all MKMapView delegate methods with a simple and easy to use category, no subclassing. Also allows the use of delegate methods if no block is set for a particular method.
