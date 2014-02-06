@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/haaakon/MKMapView-Blocks"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors       = { "Haaakon Bogen" => "hakon.bogen@gmail.com" }
-  s.source       = { :git => "https://github.com/haaakon/MKMapView-Blocks.git", :tag => "0.2.0" }
+  s.source       = { :git => "https://github.com/haaakon/MKMapView-Blocks.git", :tag => "0.2.1" }
   s.platform     = :ios, '5.0'
   s.ios.deployment_target = '5.0'
   s.source_files = 'MKMapView-Blocks/*.{h,m}'
