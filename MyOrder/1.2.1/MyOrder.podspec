@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = "MyOrder B.V."
-  s.source       = { :git => "https://github.com/MyOrder/MyOrder-Payments-iOS-SDK.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/MyOrder/MyOrder-Payments-iOS-SDK.git", :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
   s.preserve_paths = "#{s.name}.framework"
   s.public_header_files = "#{s.name}.framework/**/*.h"
