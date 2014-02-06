@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MagicalRecord/**/*.{h,m}'
   s.framework    = 'CoreData'
   s.requires_arc = true
+  s.prefix_header_contents = '#import <CoreData/CoreData.h>', '#import "CoreData+MagicalRecord.h"'
 end
