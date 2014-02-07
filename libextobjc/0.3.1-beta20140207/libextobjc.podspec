@@ -4,8 +4,8 @@
 # * If you use this as the base for the next version, then return the git source to
 #   jspahrsummers canonical repo.
 # * This version is a snapshot after jspahrsummers removed experimental features in
-# * If someone requires broken or experimental featurse, there is a 'experimental'
-#   branch, which can be (somewhat manually) switched to
+# * If someone requires broken or experimental features, there is an 'experimental'
+#   branch, which can be switched to manually in the normal podfile specific way
 #
 # General
 # ---
@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.summary      = "A Cocoa library to extend the Objective-C programming language."
   s.homepage     = "https://github.com/jspahrsummers/libextobjc"
   s.author       = { "Justin Spahr-Summers" => "jspahrsummers@github.com" }
-  #s.source       = { :git => "https://github.com/jspahrsummers/libextobjc.git", :tag => s.version }
-  s.source       = { :git => "https://github.com/greymouser/libextobjc.git", :tag => "#{s.version}" }
+  #s.source       = { :git => "https://github.com/jspahrsummers/libextobjc.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/greymouser/libextobjc.git", :tag => s.version.to_s }
   s.requires_arc = true
 
   # Provided as a convenience but not requiring all the subspecs because it would be redundant
