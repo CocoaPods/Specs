@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+Pod::Spec.new do |s| 
   s.name         = "PathCover"
   s.version      = "0.1.0"
   s.summary      = "PathCover is pull down refresh and a parallax top view with real time blur effect to any UITableView, inspired by Path for iOS."
