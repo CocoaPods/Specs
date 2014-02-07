@@ -1,4 +1,3 @@
-"
 Pod::Spec.new do |s|
   s.name         = "PathCover"
   s.version      = "0.1.0"
