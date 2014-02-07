@@ -11,4 +11,16 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '6.0'
   spec.dependency 'RestKit' , '~> 0.22.0'
   spec.ios.frameworks = 'MobileCoreServices', 'SystemConfiguration'
+
+# Include dependencies to prevent AFNetworking warnings
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+  #import <SystemConfiguration/SystemConfiguration.h>
+  #import <MobileCoreServices/MobileCoreServices.h>
+  #import <Security/Security.h>
+#else
+  #import <SystemConfiguration/SystemConfiguration.h>
+  #import <CoreServices/CoreServices.h>
+  #import <Security/Security.h>
+#endif
+
 end
