@@ -12,5 +12,3 @@ Pod::Spec.new do |s|
   s.resources    = 'PathCover/Resources/*'
   s.requires_arc = true
 end
-
-
