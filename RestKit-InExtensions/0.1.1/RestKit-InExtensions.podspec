@@ -11,4 +11,6 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '6.0'
   spec.dependency 'RestKit' , '~> 0.22.0'
   spec.ios.frameworks = 'MobileCoreServices', 'SystemConfiguration'
+  spec.prefix_header_contents = '#import <MobileCoreServices/MobileCoreServices.h>', '#import <Security/Security.h>', '#import <SystemConfiguration/SystemConfiguration.h>'
+
 end
