@@ -24,4 +24,10 @@ DESC
   s.source_files  = 'JavaScriptCoreOpalAdditions/Classes/**/*.{h,m}'
 
   s.resources = 'javascripts/opal.js', 'javascripts/opal-parser.js'
+<<<<<<< HEAD
+=======
+
+  s.requires_arc = true
+
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 end
