@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Netmera" => "support@netmera.com" }
   s.social_media_url  = "https://twitter.com/Netmera";
-  s.documentation_url   = "http://netmera.com/netmera-resources/doc/ios/v_#{s.version}/index.html";
+  s.documentation_url   = "http://netmera.com/netmera-resources/doc/ios/v_2.1.1/index.html";
 
 
   s.platform     = :ios, '5.1'
@@ -47,13 +47,14 @@ Pod::Spec.new do |s|
 
   s.source       = { :http => "http://netmera.com/netmera-resources/files/ios/netmera.framework-#{s.version}.zip" }
 
-  s.source_files = 'NetmeraSDK/Resources/*.{h,m}'
-  s.public_header_files   = 'NetmeraSDK/**/*.h'
-  s.vendored_frameworks   = 'NetmeraSDK/Netmera.framework'
+
+  s.source_files = '**/NetmeraSDK/Resources/*.{h,m}'
+  s.public_header_files   = '**/NetmeraSDK/**/*.h'
+  s.vendored_frameworks   = '**/NetmeraSDK/Netmera.framework'
 
 
-  s.resources = "NetmeraSDK/Resources/*.{xcconfig,plist,xib,png,wav}"
-  s.preserve_paths = "NetmeraSDK/*"
+  s.resources = "**/NetmeraSDK/Resources/*.{xcconfig,plist,xib,png,wav}"
+  s.preserve_paths = "**/NetmeraSDK/*"
 
 
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreLocation', 'MobileCoreServices', 'CFNetwork', 'CoreTelephony'
