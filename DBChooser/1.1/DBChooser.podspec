@@ -10,11 +10,19 @@ Pod::Spec.new do |s|
     :file => 'LICENSE'
   }
   s.summary = "Add Dropbox to your app with a few lines of code."
+<<<<<<< HEAD
+  s.authors = ["Chris Varenhorst"]
+  s.homepage = "https://www.dropbox.com/developers/dropins"
+	s.platform = :ios
+  s.requires_arc = true
+  s.ios.deployment_target = '7.0'
+=======
   s.authors = "Chris Varenhorst"
   s.homepage = "https://www.dropbox.com/developers/dropins"
 	s.platform = :ios
   s.requires_arc = true
   s.ios.deployment_target = '6.0'
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 	s.frameworks = 'CoreFoundation', 'Foundation', 'UIKit'
   s.resource = "DBChooser.bundle"
   s.source_files = 'DBChooser/*.{h,m}', 'DBChooser/UI/*.{h,m}'

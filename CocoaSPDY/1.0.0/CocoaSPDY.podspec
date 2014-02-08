@@ -1,10 +1,19 @@
 Pod::Spec.new do |s|
+<<<<<<< HEAD
+  folder_name  = "SPDY"
+  name       = "Cocoa#{folder_name}"
+  url            = "https://github.com/twitter/#{name}"
+  git_url        = "#{url}.git"
+  version        = "1.0.0"
+  source_files   = "#{folder_name}/**/*.{h,m}"
+=======
   pod_name  = "SPDY"
   name       = "Cocoa#{pod_name}"
   url            = "https://github.com/twitter/#{name}"
   git_url        = "#{url}.git"
   version        = "1.0.0"
   source_files   = "#{pod_name}/**/*.{h,m}"
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 
   s.name         = name
   s.version      = version
@@ -28,6 +37,9 @@ Pod::Spec.new do |s|
 
   s.source_files = source_files
   s.requires_arc = true
+<<<<<<< HEAD
+=======
   s.frameworks = 'CFNetwork'
   s.libraries = 'z'
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 end

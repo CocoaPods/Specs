@@ -26,6 +26,9 @@ DESC
 
   s.resources = 'JavaScriptCoreOpalAdditions/Opal.bundle'
 
+<<<<<<< HEAD
+=======
   s.requires_arc = true
 
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 end

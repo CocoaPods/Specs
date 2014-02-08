@@ -2,7 +2,11 @@ Pod::Spec.new do |s|
   s.name     = 'SBJson4'
   s.version  = '4.0.0'
   s.license = { :type => 'BSD', :text => <<-LICENSE
+<<<<<<< HEAD
+    Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
+=======
     Copyright (C) 2007-2014 Stig Brautaset. All rights reserved.
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are met:
@@ -45,13 +49,21 @@ Pod::Spec.new do |s|
   DESC
 
   s.homepage = 'http://sbjson.org'
+<<<<<<< HEAD
+  s.authors  = { 'Stig Brautaset' => 'stig@brautaset.org' }
+=======
   s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.0' }
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
+<<<<<<< HEAD
+  s.source_files = 'src/main/objc'
+=======
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'src/main/objc'
   s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer,StreamTokeniser}.h'
+>>>>>>> 55b1560df628e79c7ec5beab1291449880314cc3
 end
