@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |cs|
-    cs.source_files = 'OMPromises/*.{h,m}'
+    cs.source_files = 'OMPromises/**.{h,m}'
     cs.public_header_files = 'OMPromises/{OMPromises,OMPromise,OMDeferred}.h'
   end
 
