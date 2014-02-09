@@ -5,14 +5,11 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                     Parses and compares strings that contain SemVer strings.
                    DESC
-  s.homepage     = "http://samuelwford.com/swfsemanticversiob"
+  s.homepage     = "http://samuelwford.com/swfsemanticversion/"
   s.license      = 'MIT'
   s.author       = { "Samuel Ford" => "samuel.ford@icloud.com" }
   s.source       = { :git => "https://github.com/samuelwford/SWFSemanticVersion.git", :tag => s.version.to_s }
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
   s.source_files = 'SWFSemanticVersion/SWFSemanticVersion.*'
