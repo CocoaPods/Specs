@@ -1,4 +1,5 @@
 Pod::Spec.new do |s|
+
   s.name         = 'MHVideoPhotoGallery'
   s.version      = '1.3'
   s.license      = 'MIT'
