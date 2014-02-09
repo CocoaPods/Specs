@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "UITableViewHelper"
+  s.name         = "FMConstraintSwitch"
   s.version      = "0.0.1"
   s.summary      = "Add the ability to configure different states for constraints from the interface builder and trigger them from code"
   s.homepage     = "https://github.com/fer662/FMConstraintSwitch"
