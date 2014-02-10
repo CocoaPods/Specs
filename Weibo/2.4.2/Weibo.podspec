@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.summary      = 'Sina Weibo iOS SDK.'
   s.platform     = :ios
   s.source       = { :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git',
-                     :tag => '#{s.version}' }
+                     :tag => "#{s.version}" }
   s.source_files  = 'libWeiboSDK/*.{h,m}'
   s.resource_bundle    = { 'Weibo' => 'libWeiboSDK/WeiboSDK.bundle' }
   s.vendored_libraries = 'libWeiboSDK/libWeiboSDK.a'
