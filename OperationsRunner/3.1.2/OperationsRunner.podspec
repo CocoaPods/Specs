@@ -8,11 +8,10 @@ Pod::Spec.new do |s|
   s.authors               = { 'David Hoerl' => 'david.hoerl+git@gmail.com' }
   s.summary               = 'Lightweight Framework For using NSURLSession'
   s.source                = { :git => 'https://github.com/dhoerl/FastEasyConcurrentWebFetches.git', :tag => s.version.to_s }
-  s.source_files          = 'WhatYouNeediOS7+/*.{h,m}'
-  s.framework             = 'OperationsRunner'
+  s.source_files          = 'WhatYouNeediOS7+/[OW]*.{h,m}'
   s.requires_arc          = true
-  #s.preserve_paths        = 'WhatYouNeediOS7+/Ref*.{h,m}'
-  s.exclude_files         = 'WhatYouNeediOS7+/Ref*.{h,m}', 'WhatYouNeediOS7+/UR*.{h,m}'
+  s.preserve_paths        = 'WhatYouNeediOS7+/Ref*.{h,m}', 'WhatYouNeediOS7+/UR*.{h,m}'
+  #s.exclude_files        = 'WhatYouNeediOS7+/Ref*.{h,m}', 'WhatYouNeediOS7+/UR*.{h,m}'
   s.description           = <<-DESC
 OperationsRunner makes adding network fetchers to a controlling class simple and painless.
 
@@ -29,3 +28,4 @@ Reasons to use this project:
 DESC
 
   end
+
