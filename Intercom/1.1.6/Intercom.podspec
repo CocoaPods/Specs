@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.source            = { :git => 'https://github.com/intercom/intercom-ios.git', :tag => s.version.to_s }
 
   s.platform          = :ios, '5.0'
-  s.source_files      = 'Intercom/*.{h,a}'
+  s.source_files      = 'Intercom/Intercom.h'
+  s.preserve_paths    = 'Intercom/libIntercom.a'
   s.requires_arc      = true
   
   s.frameworks        = 'Foundation', 'QuartzCore'
