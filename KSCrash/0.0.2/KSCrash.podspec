@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kstenerud/KSCrash.git", :tag=>s.version.to_s }
   s.frameworks = 'Foundation'
   s.libraries = 'c++', 'z'
-    
+  s.xcconfig = { 'GCC_ENABLE_CPP_EXCEPTIONS' => 'YES' }
+  
   s.subspec 'Recording' do |recording|
     recording.source_files   = 'Source/KSCrash/Recording/**/*.{h,m,mm,c,cpp}',
                                'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h' 
