@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'Miyagi', 'Miyagi/**/*.{h,m}'
 
-  s.public_header_files = 'Miyagi/Miyagi.h'
+  s.public_header_files = 'Miyagi/Miyagi.h,Miyagi/Categories/*.h'
 
   s.requires_arc = true
 
