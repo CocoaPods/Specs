@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'IVGResources/**/*{.h,.m}'
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics'
   s.requires_arc = true
+  s.dependency 'IVGUtils'
 end
