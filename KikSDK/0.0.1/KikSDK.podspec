@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://kik.com/dev/downloads/KikSDK_iOS.zip" }
   s.documentation_url = "http://kik.com/dev/docs/ios/index.html"
 
-  s.public_header_files = 'kik_apilib_iphone/kikapilib/*.h'
+  s.source_files = 'kik_apilib_iphone/kikapilib/*.h'
   s.vendored_libraries = 'kik_apilib_iphone/kikapilib/kikapilib.a'
   s.platform = :ios
 
