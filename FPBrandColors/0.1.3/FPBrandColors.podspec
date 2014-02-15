@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "FPBrandColors"
   s.version      = "0.1.3"
-  s.summary      = "A collection of major brand color codes"
+  s.summary      = "A collection of major brand color codes IOS And OSX"
   s.homepage     = "https://github.com/magtory/FPBrandColors"
   s.screenshots  = "https://raw.github.com/magtory/FPBrandColors/master/Screenshots/colorSC.PNG"
 
