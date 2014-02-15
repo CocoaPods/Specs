@@ -3,13 +3,11 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Components for transitioning between UICollectionView layouts."
   s.description  = <<-DESC
-					A basic `TLTransitionLayout` is provided with support for fine-grained
-					control of the destination `contentOffset`.
-					
-					A `transitionToCollectionViewLayout` animated, non-interactive transition
-					is provided (utilizing the interactive transitioning APIs) as a better
-					alternative to `setCollectionViewLayout` with support for duration,
-					30+ easing curves and fine grained control of the destination `contentOffset`.
+					TLLayoutTransitioning solves two problems with collection view layout transitions:
+
+					1. The stock `UICollectionViewLayoutTransition` does not handle the content offset well, often leaving cells where you don't want them. `TLTransitionLayout` provides elegant control of the content offset relative to a specified cell or cells with Minimal, Center, Top, Left, Bottom and Right placement options.
+
+					2. The `-[UICollectionView setCollectionViewLayout:animated:completion]` method of animating between layouts is flakey (cells jumping, etc.) and there are no animation options. TLLayoutTransitioning can animate between two layouts with duration, 30+ easing curves and content offset control. This is done by combining `UICollectionViewLayoutTransition` with an automated `CADisplayLink` progress driver.
 					
 					Check out the demos in the Examples workspace!
                     DESC
