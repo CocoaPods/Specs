@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'GrabAnalytics'
-  s.version  = '2.1.11'
+  s.version  = '2.1.12'
   s.license      = {
     :type => 'Commercial',
     :text => <<-LICENSE
