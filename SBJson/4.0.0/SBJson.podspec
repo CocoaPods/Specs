@@ -29,8 +29,6 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.summary  = 'Chunk-based JSON parser for Objective-C.'
-<<<<<<< HEAD
-=======
   s.description  = <<-DESC
     Using this library you can reduce the apparent latency for each
     download/parse cycle of documents over a slow connection. You can start
@@ -46,19 +44,14 @@ Pod::Spec.new do |s|
     library that depends on a previous version.
   DESC
 
->>>>>>> lastremote/master
   s.homepage = 'http://sbjson.org'
   s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.0' }
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
-<<<<<<< HEAD
-  s.source_files = 'src/main/objc'
-=======
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'src/main/objc'
   s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer,StreamTokeniser}.h'
->>>>>>> lastremote/master
 end
