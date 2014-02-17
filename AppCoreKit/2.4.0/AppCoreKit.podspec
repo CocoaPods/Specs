@@ -14,36 +14,41 @@ Pod::Spec.new do |s|
 
   s.default_subspec = 'All'
 
-  s.frameworks =  'UIKit', 'Foundation', 'CoreGraphics', 'AddressBook', 'CoreData', 'QuartzCore', 'CoreLocation', 'MapKit', 'MediaPlayer', 'CoreFoundation', 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'Security', 'AdSupport'
+  s.frameworks =  'UIKit', 'Foundation', 'CoreImage', 'CoreGraphics', 'AddressBook', 'CoreData', 'QuartzCore', 'CoreLocation', 'MapKit', 'MediaPlayer', 'CoreFoundation', 'CFNetwork', 'SystemConfiguration', 'MobileCoreServices', 'Security', 'AdSupport'
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '/usr/include/libxml2', 'OTHER_LDFLAGS' => '-ObjC -all_load -lxml2 -licucore -lz -weak_library /usr/lib/libstdc++.dylib' } 
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '/usr/include/libxml2', 'OTHER_LDFLAGS' => '-ObjC -all_load -lxml2 -licucore -lz -lc++ -weak_library /usr/lib/libstdc++.dylib' } 
 
 
   s.dependency 'TouchXML'
   s.dependency 'RegexKitLite'
-  s.dependency 'JSONKit'
+ # s.dependency 'JSONKit'
   s.dependency 'Reachability'
   s.dependency 'SVPullToRefresh'
   
   s.requires_arc = false
 
-  s.documentation = {
-  :appledoc => [
-    '--project-name',      'AppCoreKit',
-    '--project-company',   'Wherecloud Inc.',
-    '--docset-copyright',  'Wherecloud Inc.',
-    '--ignore',            '*.m,*.mm',
-    '--index-desc',        'Documentation/index.markdown', 
-    '--include',           'Documentation',
-    '--no-keep-undocumented-objects',
-    '--no-keep-undocumented-members',
-    ]}
+  #s.documentation = {
+  #:appledoc => [
+  #  '--project-name',      'AppCoreKit',
+  #  '--project-company',   'Wherecloud Inc.',
+  #  '--docset-copyright',  'Wherecloud Inc.',
+  #  '--ignore',            '*.m,*.mm',
+  #  '--index-desc',        'Documentation/index.markdown', 
+  #  '--include',           'Documentation',
+  #  '--no-keep-undocumented-objects',
+  #  '--no-keep-undocumented-members',
+  #  ]}
 
+  s.subspec 'JSONKit' do |f|    
+    f.source_files = 'Vendor/JSONKit.{h,m}'
+  end
 
   s.subspec 'Foundation' do |f|    
     f.source_files = 'Classes/Foundation/**/*.{h,m,mm}'
     f.private_header_files = 'Classes/Foundation/Private/**/*.{h}'
+    f.exclude_files = "Classes/Foundation/Public/TypeAhead/*.{h,m,mm}"
     f.resources = 'Resources/**/*'
+    f.dependency 'AppCoreKit/JSONKit'
   end
 
 

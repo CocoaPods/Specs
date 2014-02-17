@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
     :tag => "0.1"
   }
   s.platform = :ios, '6.0'
-  s.source_files = 'ASMediaFocusManager/*'
+  s.source_files = 'ASMediaFocusManager/*.{h,m}'
+  s.resources = 'ASMediaFocusManager/*.{xib}'
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   s.requires_arc = true
 end
