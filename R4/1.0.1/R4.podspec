@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
     }
     s.source_files      = 'R4/*.{pch,h,m,mm}'
     s.requires_arc      = true
+    s.libraries         = ["stdc++"]
     s.frameworks        = ["OpenGLES", "GLKit", "SpriteKit"]
     s.platform          = :ios
     s.ios.deployment_target = '6.0'
