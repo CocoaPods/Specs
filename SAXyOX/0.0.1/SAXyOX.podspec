@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "SAXy OX is full-featured XML and JSON marshalling framework for Objective-C."
   s.homepage     = "https://github.com/reaster/saxy"
   s.license      = {
-    :type => 'Apache v2.0',
+    :type => 'Apache License, Version 2.0',
     :text => <<-LICENSE
       Copyright (c) 2013 Outsource Cafe, Inc. All rights reserved.
 

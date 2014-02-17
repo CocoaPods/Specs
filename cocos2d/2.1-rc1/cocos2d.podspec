@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source      =  {:git => 'https://github.com/cocos2d/cocos2d-iphone.git', :tag => 'release-2.1-rc1'}
 
   s.source_files = [
-    'cocos2d/**/*.{h,m,c}',
+    'cocos2d/**/*.{h,m,mm,c}',
     'CocosDenshion/*.{h,m}',
     'external/libpng/*.{h,c}',
     'external/kazmath/src/**/*.{c,h}',

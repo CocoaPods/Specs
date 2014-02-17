@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.frameworks    = 'UIKit'
   s.source_files  = 'WTURLImageView/*.{h,m}'
 
-  s.dependency 'AFNetworking', '~>1.0'
-  s.dependency 'GVCache', '~>1.0'
-  s.dependency 'WTExtension/UIImage+WTExtension', '~>1.0.0'
+  s.dependency 'AFNetworking', '>=1.0'
+  s.dependency 'GVCache', '>=1.0'
+  s.dependency 'WTExtension/UIImage+WTExtension', '1.1.0'
 
 end

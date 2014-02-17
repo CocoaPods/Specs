@@ -1,4 +1,3 @@
-#
 Pod::Spec.new do |s|
   s.name          = "AVAnimator"
   s.version       = "2.0.0"

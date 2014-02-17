@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author = 'Brightcove Inc.'
 
   s.source_files = 'bc-ipad-iphone-kit-2/lib/usr/local/include/*.h', 'bc-ipad-iphone-kit-2/OAuthConsumer/*.h'
-  s.preserve_paths = 'bc-ipad-iphone-kit-2/lib/', 'bc-ipad-iphone-kit-2/OAuthConsumer/'
+  s.preserve_paths = 'bc-ipad-iphone-kit-2/OAuthConsumer/libOAuth.a','bc-ipad-iphone-kit-2/lib/libBrightcovePlayerKit.a','bc-ipad-iphone-kit-2/lib/libBrightcoveSharingKit.a','bc-ipad-iphone-kit-2/lib/','bc-ipad-iphone-kit-2/OAuthConsumer/'
   s.source = { :http => 'http://files.brightcove.com/bc-ipad-iphone-kit-2-3.zip' }
   s.resources = 'bc-ipad-iphone-kit-2/BCImages.bundle', 'bc-ipad-iphone-kit-2/strings'
 

@@ -23,7 +23,10 @@ Pod::Spec.new do |s|
     for ParseKit.
   }
 
-  s.source_files           =  'include/**/*.{h,m}', 'src/**/*.{h,m}, lib/MGTemplateEngine/*.{h,m}'
+  s.source_files           =  'include/**/*.{h,m}', 'src/**/*.{h,m}', 'lib/MGTemplateEngine/MGTemplate*.{h,m}', 
+                              'lib/MGTemplateEngine/ICUTemplateMatcher.{h,m}', 
+                              'lib/MGTemplateEngine/*DeepMutableCopy.{h,m}'
+  s.exclude_files          =  'src/PKSParserGenVisitor.{h,m}'
   s.ios.prefix_header_file =  'src/ParseKitMobile_Prefix.pch'
   s.osx.prefix_header_file =  'src/ParseKit_Prefix.pch'
   s.ios.frameworks         =  'Foundation'

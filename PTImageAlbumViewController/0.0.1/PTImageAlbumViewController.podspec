@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "\"Image Album\" — or \"Photo Album\" if you like that better — View( Controller) for all crazy iOS developers out there..."
   s.homepage     = "http://www.pittle.org/"
 
-  s.license      = 'Apache Licnese 2.0'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = { "Ali Servet Donmez" => "asd@pittle.org" }
 
   s.source       = { :git => "https://github.com/exalted/PTImageAlbumViewController.git", :commit => "02fbda6fe403899aa66142fe40a0f5a3f81dc975" }
