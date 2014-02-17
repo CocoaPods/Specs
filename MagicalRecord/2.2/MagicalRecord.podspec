@@ -5,15 +5,19 @@ Pod::Spec.new do |s|
   s.summary  = 'Super Awesome Easy Fetching for Core Data 1!!!11!!!!1!.'
   s.homepage = 'http://github.com/magicalpanda/MagicalRecord'
   s.author   = { 'Saul Mora' => 'saul@magicalpanda.com' }
-  s.source   = { :git => 'https://github.com/magicalpanda/MagicalRecord.git',:branch=>'develop', :tag => '2.2' }
+  s.source   = { :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => "#{s.version}" }
   s.description  = 'Handy fetching, threading and data import helpers to make Core Data a little easier to use.'
-  s.source_files = 'MagicalRecord/**/*.{h,m}'
   s.framework    = 'CoreData'
   s.requires_arc = true
-  s.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-#define MR_SHORTHAND
-#import "CoreData+MagicalRecord.h"
-#endif
-EOS
+  s.default_subspec = 'Core'
+
+  s.subspec "Core" do |sp|
+    sp.source_files = 'MagicalRecord/**/*.{h,m}'
+    sp.prefix_header_contents = '#import <CoreData/CoreData.h>', '#import "CoreData+MagicalRecord.h"'
+  end
+
+  s.subspec "Shorthand" do |sp|
+    sp.source_files = 'MagicalRecord/**/*.{h,m}'
+    sp.prefix_header_contents = '#define MR_SHORTHAND 0', '#import <CoreData/CoreData.h>', '#import "CoreData+MagicalRecord.h"'
+  end
 end

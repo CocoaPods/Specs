@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Mobclix SDK 6.1.3/Mobclix SDK/libMobclix.a'
   s.library        = 'Mobclix'
   s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '\'$(PODS_ROOT)/MobclixSDK/Mobclix SDK 6.1.3/Mobclix SDK\'' }
-  s.frameworks     = %w{ AddressBook AddressBookUI AdSupport AudioToolbox AVFoundation MediaPlayer MessageUI QuartzCore SystemConfiguration }
-  s.weak_frameworks = %w{ CoreMotion EventKit }
+  s.frameworks     = %w{ AddressBook AddressBookUI AudioToolbox AVFoundation MediaPlayer MessageUI QuartzCore SystemConfiguration }
+  s.weak_frameworks = %w{ CoreMotion EventKit AdSupport }
 end

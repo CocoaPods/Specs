@@ -19,9 +19,13 @@ Pod::Spec.new do |s|
   s.author       = { "Pixate" => "sales@pixate.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/Pixate/PixateFramework.git", :tag => s.version.to_s }
-  s.source_files = 'Framework/iOS/Pixate.framework/Versions/2.0/Headers/*.h'
+  s.source_files = 'Framework/iOS/Pixate.framework/Versions/2.0/Headers/*.h', 'Framework/iOS/Pixate.framework/Versions/2.0/PrivateHeaders/*.h'
   s.preserve_paths = "Framework/iOS/Pixate.framework"
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'Pixate'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pixate/Framework/iOS"', 'OTHER_LDFLAGS' => '-lObjC' }
   s.prepare_command = 'open "http://www.pixate.com/docs/framework/ios/latest/getting-started/index.html#app_setup" || true'
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> lastremote/master
