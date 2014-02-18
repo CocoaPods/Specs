@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.source_files                = 'ZXingObjC/**/*.{h,m}'
   s.requires_arc                = true
 
-  s.frameworks                  = 'ImageIO', 'CoreGraphics', 'CoreVideo', 'CoreMedia', 'QuartzCore', 'AVFoundation', 'AudioToolbox'
+  s.ios.frameworks              = 'ImageIO', 'CoreGraphics', 'CoreVideo', 'CoreMedia', 'QuartzCore', 'AVFoundation', 'AudioToolbox'
+  s.osx.frameworks              = 'CoreVideo', 'CoreMedia', 'QuartzCore', 'QTKit', 'ApplicationServices'
 end

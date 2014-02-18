@@ -7,9 +7,16 @@ Pod::Spec.new do |s|
   s.author       = { "Karl Stenerud" => "kstenerud@gmail.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/kstenerud/KSCrash.git", :tag=>s.version.to_s }
+<<<<<<< HEAD
   s.frameworks = 'Foundation', 'SystemConfiguration', 'MessageUI'
   s.libraries = 'c++', 'z'
     
+=======
+  s.frameworks = 'Foundation'
+  s.libraries = 'c++', 'z'
+  s.xcconfig = { 'GCC_ENABLE_CPP_EXCEPTIONS' => 'YES' }
+  
+>>>>>>> upstream/master
   s.subspec 'Recording' do |recording|
     recording.source_files   = 'Source/KSCrash/Recording/**/*.{h,m,mm,c,cpp}',
                                'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h' 
@@ -17,16 +24,22 @@ Pod::Spec.new do |s|
 
   s.subspec 'Reporting' do |reporting|
     reporting.dependency 'KSCrash/Recording'
+<<<<<<< HEAD
     #reporting.source_files   = 'Source/KSCrash/Reporting/**/*.{h,m,mm,c,cpp}'
 
     reporting.subspec 'Filters' do |filters|
       #filters.source_files = 'Source/KSCrash/Reporting/Filters/**/*.{h,m,mm,c,cpp}'
       
+=======
+
+    reporting.subspec 'Filters' do |filters|      
+>>>>>>> upstream/master
       filters.subspec 'Base' do |base|
         base.source_files = 'Source/KSCrash/Reporting/Filters/Tools/**/*.{h,m,mm,c,cpp}',
                             'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h',
                             'Source/KSCrash/Reporting/Filters/KSCrashReportFilter.m'
       end
+<<<<<<< HEAD
       
       filters.subspec 'Alert' do |alert|
         alert.dependency 'KSCrash/Reporting/Filters/Base'
@@ -34,6 +47,9 @@ Pod::Spec.new do |s|
                              'Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.m'
       end
       
+=======
+
+>>>>>>> upstream/master
       filters.subspec 'Alert' do |alert|
         alert.dependency 'KSCrash/Reporting/Filters/Base'
         alert.source_files = 'Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.h',
@@ -78,11 +94,19 @@ Pod::Spec.new do |s|
     end
 
     reporting.subspec 'Tools' do |tools|
+<<<<<<< HEAD
+=======
+      tools.frameworks = 'SystemConfiguration'
+>>>>>>> upstream/master
       tools.source_files = 'Source/KSCrash/Reporting/Tools/**/*.{h,m,mm,c,cpp}'
 
     end
 
     reporting.subspec 'Sinks' do |sinks|
+<<<<<<< HEAD
+=======
+      sinks.frameworks = 'MessageUI'
+>>>>>>> upstream/master
       sinks.dependency 'KSCrash/Reporting/Filters'
       sinks.dependency 'KSCrash/Reporting/Tools'
       sinks.source_files = 'Source/KSCrash/Reporting/Sinks/**/*.{h,m,mm,c,cpp}'
