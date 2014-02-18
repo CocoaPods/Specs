@@ -6,7 +6,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'WTFPL', :file => 'COPYING' }
   s.author       = { "Warren Moore" => "wm@warrenmoore.net" }
   s.source       = { :git => 'https://github.com/warrenm/AHEasing.git', :tag => '1.1' }  
-  s.platform     = :ios
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
   s.source_files = "AHEasing/easing.{h,c}", "AHEasing/CAKeyframeAnimation+AHEasing.{h,m}"
   s.public_header_files = "AHEasing/easing.h", "AHEasing/CAKeyframeAnimation+AHEasing.h"
   s.frameworks  = 'QuartzCore'

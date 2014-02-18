@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.resource      = 'Classes/ShareKit/ShareKit.bundle', 'Classes/ShareKit/Core/SHKSharers.plist'
     core.source_files  = 'Classes/ShareKit/{Configuration,Core,Customize UI,UI,Reachability}/**/*.{h,m,c}', 'Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}'
-    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia"
+    core.frameworks    = 'SystemConfiguration', 'Security', 'MessageUI', "AVFoundation", "MobileCoreServices", "CoreMedia", "Social"
     core.dependency 'SSKeychain', "0.2.1"
   end
 
@@ -64,9 +64,15 @@ Pod::Spec.new do |s|
     pinboard.dependency 'ShareKit/Core'
   end
 
-  s.subspec 'ReadItLater' do |readitlater|
-    readitlater.source_files = 'Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}'
-    readitlater.dependency 'ShareKit/Core'
+  s.subspec 'Readability' do |readability|
+    readability.source_files = 'Classes/ShareKit/Sharers/Services/Readability/**/*.{h,m}'
+    readability.dependency 'ShareKit/Core'
+  end
+
+  s.subspec 'Pocket' do |pocket|
+    pocket.dependency 'PocketAPI',"~> 1.0"
+    pocket.source_files = 'Classes/ShareKit/Sharers/Services/Pocket/**/*.{h,m}'
+    pocket.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Tumblr' do |tumblr|
