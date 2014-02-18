@@ -9,7 +9,11 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
 
   s.license  = { :type => 'Apache License, Version 2.0', :file => 'Licence.txt' }
+<<<<<<< HEAD
+  s.summary  = 'Objective-c wrapper of NetPGP for iOS'
+=======
   s.summary  = 'Objective-C OpenPGP framework built on foundation of NetPGP library'
+>>>>>>> upstream/master
   s.description = "NetPGP is a standards-compliant library and suite of utilities providing digital signature and verification functionality, as well as data encryption and decryption, using RSA and DSA/Elgamal keys."
   s.homepage = 'http://www.netpgp.com'
   s.authors  = { 'Marcin Krzyżanowski' => 'marcin.krzyzanowski@hakore.com', 'Nominet UK' => 'http://www.nic.uk' }
