@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Foursquare2/**/*.{h,m}'
   s.resources = 'Foursquare2/*.png', 'Foursquare2/**/*.{xib}'
   s.requires_arc = true
-  s.frameworks = 'Secturity', 'Foundation', 'UIKit'
+  s.frameworks = 'Security', 'Foundation', 'UIKit'
 end
