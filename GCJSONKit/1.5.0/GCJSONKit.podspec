@@ -37,4 +37,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'JSONKit.*'
   s.exclude_files = '*.podspec'
+  s.header_dir = 'JSONKit'
 end
