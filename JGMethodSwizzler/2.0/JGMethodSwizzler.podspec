@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Powerful and easy to use Objective-C swizzling API."
 
   s.description  = <<-DESC
-                   Powerful and easy to use Objective-C swizzling API.
+                   An easy to use Objective-C level API for swizzling class and instance methods, as well as swizzling instance methods on specific instances only.
                    DESC
 
   s.homepage     = "https://github.com/JonasGessner/JGMethodSwizzler"
