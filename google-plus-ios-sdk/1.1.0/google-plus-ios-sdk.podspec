@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version       = "1.1.0"
   s.summary       = "Google+ Platform for iOS."
   s.description   = "Create a more engaging experience and connect with more users by integrating social into your app. Extend your app in new and creative ways using these Google+ platform features."
-  s.homepage      = "https://developers.google.com/+/mobile/ios/"
+  s.homepage      = "https://developers.google.com/+/mobile/ios/getting-started"
   s.license       = {
     :type => 'Copyright',
     :text => 'Copyright 2012 Google Inc.'

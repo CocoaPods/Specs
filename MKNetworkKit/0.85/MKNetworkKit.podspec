@@ -6,19 +6,15 @@ Pod::Spec.new do |s|
   s.author           =  { 'Mugunth Kumar' => 'mugunth@steinlogic.com' }
   s.source           =  { :git => 'https://github.com/MugunthKumar/MKNetworkKit.git', :tag => 'v0.85' }
 
-  files = FileList['MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}']
-  s.ios.source_files =  files.dup.exclude(/NSAlert/)
-  s.osx.source_files =  files.dup.exclude(/UIAlertView/)
+  s.source_files     = 'MKNetworkKit/*.{h,m}', 'MKNetworkKit/Categories/*.{h,m}'
+  s.ios.exclude_files =  '**/*NSAlert*'
+  s.osx.exclude_files =  '**/*UIAlertView*'
   s.ios.frameworks   =  'CFNetwork', 'Security'
   s.osx.frameworks   =  'CoreServices', 'Security'
 
   s.requires_arc     =  true
 
-  #s.prefix_header_contents = '#import "MKNetworkKit.h"'
-
-  def s.copy_header_mapping(from)
-    from.sub('MKNetworkKit/', '')
-  end
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/MKNetworkKit/MKNetworkKit/"' }
 
   s.dependency 'Reachability', '~> 3.0'
 

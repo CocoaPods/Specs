@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ObjC-StatelyNotificationRobot"
   s.version      = "0.0.1"
-  s.summary      = "NSNotification wrapper that keeps track of state and notifies new observers of state immediately. "
+  s.summary      = "NSNotification wrapper that keeps track of state and notifies new observers of state immediately."
   s.homepage     = "http://brynbellomy.github.com/ObjC-StatelyNotificationRobot"
   s.license      = 'WTFPL'
 

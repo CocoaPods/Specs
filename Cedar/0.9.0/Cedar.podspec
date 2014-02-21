@@ -8,13 +8,12 @@ Pod::Spec.new do |s|
   s.license  = { :type => 'MIT', :file => 'MIT.LICENSE' }
   s.source   = { :git => 'https://github.com/pivotal/cedar.git', :tag => '0.9.0' }
 
-  files_pattern = 'Source/**/*.{h,m,mm}'
-
+  s.osx.deployment_target = '10.7'
   s.ios.deployment_target = '5.0'
+  s.source_files = 'Source/**/*.{h,m,mm}'
+  s.ios.exclude_files = '**/CDROTestRunner.m'
+  s.osx.exclude_files = '**/iPhone/**'
   s.ios.header_dir = 'Cedar-iOS'
-  s.ios.source_files = FileList[files_pattern].exclude(/CDROTestRunner.m$/)
-
-  s.osx.source_files = FileList[files_pattern].exclude(/iPhone/)
 
   # Versions of this pod >= 0.9.0 require C++11.
   #   https://github.com/pivotal/cedar/issues/47

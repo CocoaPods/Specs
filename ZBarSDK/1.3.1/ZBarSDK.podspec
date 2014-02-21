@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                    'image files and raw intensity sensors. It supports many popular symbologies (types of bar codes) including ' \
                    'EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code.'
 
-  s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
+  s.public_header_files = 'iphone/**/**/*.h', 'include/*.h'
 
   s.source_files = 'include/zbar.h', 'zbar/**/*.h', 'iphone/*.h', 'iphone/include/**/*.h',
                    'zbar/{config,decoder,error,image,img_scanner,refcnt,scanner,symbol}.c',
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                    'zbar/qrcode/*.c',
                    'iphone/*.m'
 
-  s.header_mappings_dir = 'zbar'
+  s.resources    = 'iphone/res/{zbar-*.png,zbar-help.html}'
 
   s.frameworks   = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore'
 
@@ -28,7 +28,9 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*]"        => 'ZBarReaderViewImpl_Simulator.m',
                  "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]" => 'ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m',
-                 "GCC_PREPROCESSOR_DEFINITIONS"                             => '$(inherited) NDEBUG=1' }
+                 "GCC_PREPROCESSOR_DEFINITIONS"                             => 'NDEBUG=1' }
 
   s.prefix_header_file = 'iphone/include/prefix.pch'
+
+  s.compiler_flags = '-w'
 end

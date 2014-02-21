@@ -8,10 +8,5 @@ Pod::Spec.new do |s|
   s.description     = 'SSZipArchive is a simple utility class for zipping and unzipping files on iOS and Mac.'
   s.source_files    = 'SSZipArchive.{h,m}', 'minizip'
   s.library         = 'z'
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }
-
-  # Maintain the dir structure for headers
-  def s.copy_header_mapping(from)
-    from
-  end
+  s.license         = { :type => 'MIT', :file => 'LICENSE' }
 end

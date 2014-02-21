@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Jim Dovey" => "jimdovey@mac.com" }
   s.source       = { :git => "https://github.com/EduPad/CommonCrypto.git", :tag => "1.0" }
-  s.source_files = 'NSData+CommonCrypto', '*.{h,m}'
+  s.source_files = 'NSData+CommonCrypto.{h,m}'
   s.public_header_files = '*.h'
 end

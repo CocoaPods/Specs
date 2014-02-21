@@ -7,13 +7,9 @@ Pod::Spec.new do |s|
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
   s.license  = { :type => 'MIT', :file => 'MIT.LICENSE' }
   s.source   = { :git => 'https://github.com/pivotal/cedar.git', :commit => '4a609a1f7317f29e390cc6b40ca1bf2e31f13cd6' }
-  
-  files_pattern = 'Source/**/*.{h,m,mm}'
-
+  s.source_files = 'Source/**/*.{h,m,mm}'
+  s.ios.exclude_files = '**/CDROTestRunner.m'
+  s.osx.exclude_files = '**/iPhone/**'
   s.ios.header_dir = 'Cedar-iOS'
-  s.ios.source_files = FileList[files_pattern].exclude(/CDROTestRunner.m$/)
-  
-  s.osx.source_files = FileList[files_pattern].exclude(/iPhone/)
-  
   s.library = 'stdc++'
 end

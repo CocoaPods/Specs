@@ -7,5 +7,4 @@ Pod::Spec.new do |s|
   s.author       = { "Tomek Cejner" => "tomek.cejner@gmail.com" }
   s.source       = { :git => "https://github.com/tomekc/Syringe.git", :tag => "0.9" }
   s.source_files = 'SyringeCore/*.{h,m}'
-  s.compiler_flags = '-Wno-deprecated-declarations'
 end

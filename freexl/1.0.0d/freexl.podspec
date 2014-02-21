@@ -4,9 +4,9 @@ Pod::Spec.new do |s|
   s.summary	= "FreeXL is an open source library to extract valid data from within an Excel (.xls) spreadsheet."
   s.homepage	= "https://www.gaia-gis.it/fossil/freexl/home"
   s.license	= { :type => "Mozilla Public License v1.1",
-		    :file => "freexl-1.0.0d/COPYING" }
+		    :file => "COPYING" }
   s.author	= { " Alessandro Furieri" => "a.furieri@lqt.it" }
-  s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/freexl-1.0.0d.tar.gz" }
+  s.source	= { :http => "http://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.0d.tar.gz" }
 
   s.ios.compiler_flags = '-U__APPLE__'
 
@@ -46,15 +46,15 @@ Pod::Spec.new do |s|
 #define TIME_WITH_SYS_TIME 1
 #define VERSION "1.0.0d"
 CONFIG_H
-    File.open("#{pod.root}/freexl-1.0.0d/headers/config.h", "w") do |file|
+    File.open("#{pod.root}/headers/config.h", "w") do |file|
       file.puts config
     end
   end
 
-  s.source_files = "freexl-1.0.0d/src/*.c", "freexl-1.0.0d/headers/*.h"
+  s.source_files = "src/*.c", "headers/*.h"
 
   s.libraries = 'iconv', 'charset'
 
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/freexl/freexl-1.0.0d/headers' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/freexl/headers' }
 
 end

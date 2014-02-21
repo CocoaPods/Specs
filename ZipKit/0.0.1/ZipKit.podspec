@@ -15,10 +15,9 @@ Pod::Spec.new do |s|
                   "X targets only), and clean interruption so archiving can be cancelled by the " \
                   "invoking object (e.g., a NSOperation or NSThread)."
 
-  files = FileList['**/*.{h,m}']
-  files.exclude(/Demo Projects/)
-  s.ios.source_files = files.dup.exclude(/GMAppleDouble/)
-  s.osx.source_files = files
+  s.source_files  = '**/*.{h,m}'
+  s.exclude_files = 'Demo Projects'
+  s.ios.exclude_files = 'GMAppleDouble'
 
   s.library = 'z'
   s.osx.framework = 'CoreServices'

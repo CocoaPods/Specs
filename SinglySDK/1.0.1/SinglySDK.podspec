@@ -11,20 +11,9 @@ Pod::Spec.new do |spec|
   }
   spec.source       = { :git => "https://github.com/Singly/iOS-SDK.git", :tag => "v1.0.1" }
   spec.platform     = :ios, "5.0"
-  spec.source_files = FileList.new("SinglySDK/SinglySDK/**/*.{h,m}") do |files|
-    files.exclude /SinglySharingViewController/
-    files.exclude /DEFacebook/
-    files.exclude /DERuledView/
-  end
-  spec.public_header_files = FileList.new("SinglySDK/SinglySDK/**/*.h") do |files|
-    files.exclude /\+Internal/
-    files.exclude /NSDictionary\+QueryString/
-    files.exclude /NSString\+URLEncoded/
-    files.exclude /NSURL\+AccessToken/
-    files.exclude /SinglyActivityIndicatorView/
-    files.exclude /SinglyKeychainItemWrapper/
-    files.exclude /UIViewController\+Modal/
-  end
+  spec.source_files = "SinglySDK/SinglySDK/**/*.{h,m}"
+  spec.exclude_files = '**/{SinglySharingViewController,DEFacebook,DERuledView}*'
+  spec.private_header_files = '**/*{+Internal,NSDictionary+QueryString,NSString+URLEncoded,NSURL+AccessToken,SinglyActivityIndicatorView,SinglyKeychainItemWrapper,UIViewController+Modal}*'
   spec.frameworks = 'Accounts', 'QuartzCore', 'Security'
   spec.requires_arc = true
   spec.preserve_paths = [

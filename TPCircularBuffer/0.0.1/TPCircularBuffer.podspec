@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.homepage           = 'https://github.com/michaeltyson/TPCircularBuffer'
   s.authors            = { 'Michael Tyson' => 'michael@atastypixel.com' }
   s.license            = { :type => 'MIT', :text => license }
-  s.source             = { :git => 'https://github.com/michaeltyson/TPCircularBuffer.git', :commit => 'f3d046f037ae2bba2b8ad3048fd126604b70d63d' }
+  s.source             = { :git => 'https://github.com/michaeltyson/TPCircularBuffer.git', :commit => 'd04b49d3723b92e5dda3d802a459abdd557efeff' }
   s.source_files       = 'TPCircularBuffer*.{c,h}'
   s.requires_arc       = false
   s.ios.frameworks     = %w{AudioToolbox}

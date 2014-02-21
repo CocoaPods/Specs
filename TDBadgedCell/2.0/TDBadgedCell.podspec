@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'TDBadgedCell'
   s.version  = '2.0'
+  s.license = { :type => 'Custom', :file => 'README.markdown' }
   s.summary  = 'UITableViewCell subclass that adds a "badgeString" property ' \
                'to table view cells.'
   s.homepage = 'https://github.com/tmdvs/TDBadgedCell'

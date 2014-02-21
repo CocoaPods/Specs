@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'UIKit' do |ss|
-    ss.source_files = FileList['lib/UIKit/*.{h,m}'].exclude(/TUIAccessibilityElement/)
+    ss.source_files = 'lib/UIKit/*.{h,m}'
+    ss.exclude_files = '**/*TUIAccessibilityElement*'
     ss.dependency 'TwUI/Support'
   end
 end

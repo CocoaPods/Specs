@@ -11,21 +11,16 @@ Pod::Spec.new do |s|
 
   # Airship ships both UA-prefixed ASI and SBJson, as well as un-prefixed
   # versions that are no longer used in the .xcodeproj.
-  files = FileList['Airship/**/*.{h,m,c}']
-  files.exclude(/\/asi-http-request\//)
-  files.exclude(/\/json-framework\//)
-  files.exclude(/\/google-toolbox-for-mac\//)
-  files.exclude(/\/ZipFile-OC\//)
-  files.exclude(/\/Reachability.*/)
-  s.source_files = files
+  s.source_files = 'Airship/**/*.{h,m,c}'
+  s.exclude_files = '**/{google-toolbox-for-mac,json-framework,asi-http-request}/**/*'
 
   s.dependency 'ZipArchive'
   s.dependency 'Reachability'
   s.dependency 'ASIHTTPRequest'
   s.dependency 'SBJson'
-  
+
   s.libraries    = 'z', 'sqlite3.0'
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
                    'Security', 'SystemConfiguration', 'UIKit', 'CoreTelephony',
-                   'StoreKit', 'CoreLocation', 'MapKit'
+                   'StoreKit', 'CoreLocation', 'MapKit', 'AudioToolbox', 'MessageUI'
 end

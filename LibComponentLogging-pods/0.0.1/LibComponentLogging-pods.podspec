@@ -1,27 +1,25 @@
+#LibComponentLogging auto-configuration for CocoaPods
 #
 #
-# LibComponentLogging auto-configuration for CocoaPods
+#Copyright (c) 2012-2013 Arne Harren <ah@0xc0.de>
 #
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
 #
-# Copyright (c) 2012 Arne Harren <ah@0xc0.de>
+#The above copyright notice and this permission notice shall be included in
+#all copies or substantial portions of the Software.
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#THE SOFTWARE.
 
 class LibComponentLoggingPodsConfig
 
@@ -29,7 +27,6 @@ class LibComponentLoggingPodsConfig
     # CocoaPods configuration data
     @pods_config = pods_config
     @pods_headers_name = "Headers"
-    @pods_buildheaders_name = "BuildHeaders"
     @pods_root_name = File.basename(@pods_config.project_pods_root)
 
     # status
@@ -38,11 +35,14 @@ class LibComponentLoggingPodsConfig
 
     # folders
     @lcl_core_root = @pods_config.project_pods_root + 'LibComponentLogging-Core'
-    @lcl_pods_root = @pods_config.project_pods_root + "LibComponentLogging-pods"
-    @lcl_pods_headers_root = @pods_config.project_pods_root + (@pods_headers_name + "/LibComponentLogging-pods")
-    @lcl_pods_buildheaders_root = @pods_config.project_pods_root + (@pods_buildheaders_name + "/LibComponentLogging-pods")
+    @lcl_pods_folder_name = 'LibComponentLogging-pods'
+    @lcl_pods_root = @pods_config.project_pods_root + @lcl_pods_folder_name
     @lcl_pods_template_copies_root = @lcl_pods_root + 'templates'
-    @lcl_user_root = @pods_config.project_pods_root + ".."
+    @lcl_pods_headers_root = @pods_config.project_pods_root + @pods_headers_name + @lcl_pods_folder_name
+    @pods_root_relative_from_lcl_pods_root = '../..'
+    @user_root_relative_from_pods_root = '..'
+    @user_root = @pods_config.project_pods_root + @user_root_relative_from_pods_root
+    @user_root_relative_from_lcl_pods_root = @pods_root_relative_from_lcl_pods_root + '/' + @user_root_relative_from_pods_root
 
     # suffixes
     @lcl_pods_config_suffix = ".pods.main"
@@ -64,19 +64,11 @@ class LibComponentLoggingPodsConfig
     @lcl_pods_config_logger_file = @lcl_pods_root + @lcl_pods_config_logger_file_name
     @lcl_pods_config_extensions_file = @lcl_pods_root + @lcl_pods_config_extensions_file_name
 
-    @lcl_pods_headers_config_components_file = @lcl_pods_headers_root + @lcl_pods_config_components_file_name
-    @lcl_pods_headers_config_logger_file = @lcl_pods_headers_root + @lcl_pods_config_logger_file_name
-    @lcl_pods_headers_config_extensions_file = @lcl_pods_headers_root + @lcl_pods_config_extensions_file_name
-
-    @lcl_pods_buildheaders_config_components_file = @lcl_pods_buildheaders_root + @lcl_pods_config_components_file_name
-    @lcl_pods_buildheaders_config_logger_file = @lcl_pods_buildheaders_root + @lcl_pods_config_logger_file_name
-    @lcl_pods_buildheaders_config_extensions_file = @lcl_pods_buildheaders_root + @lcl_pods_config_extensions_file_name
-
     # user configuration files
     @lcl_user_config_components_file_name = "lcl_config_components.h" + @lcl_user_config_suffix
-    @lcl_user_config_components_file = @lcl_user_root + @lcl_user_config_components_file_name
+    @lcl_user_config_components_file = @user_root + @lcl_user_config_components_file_name
     @lcl_user_config_extensions_file_name = "lcl_config_extensions.h" + @lcl_user_config_suffix
-    @lcl_user_config_extensions_file = @lcl_user_root + @lcl_user_config_extensions_file_name
+    @lcl_user_config_extensions_file = @user_root + @lcl_user_config_extensions_file_name
   end
 
   def configure
@@ -97,8 +89,6 @@ class LibComponentLoggingPodsConfig
 
     # create new logger configuration file
     create_file(@lcl_pods_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_headers_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_buildheaders_config_logger_file)
 
     # add given header file to logger configuration file
     add_include(@lcl_pods_config_logger_file, header)
@@ -140,15 +130,13 @@ class LibComponentLoggingPodsConfig
   def prepare_configure
     return if @configure_already_prepared
 
-    note "LibComponentLogging-pods is in beta state, see http://0xc0.de/LibComponentLogging#CocoaPods for details"
+    note "LibComponentLogging-pods is in an experimental state, see http://0xc0.de/LibComponentLogging#CocoaPods for details"
     if !exists_file(@lcl_pods_config_components_file) or is_verbose_mode()
       info "Creating LibComponentLogging configuration"
     end
 
     # create folders
     create_folder(@lcl_pods_root)
-    create_folder(@lcl_pods_headers_root)
-    create_folder(@lcl_pods_buildheaders_root)
 
     # rewrite includes in lcl.* core files to include *.podsconfig files instead of plain lcl config files
     add_suffix_to_includes(@lcl_core_header_file, @lcl_pods_config_suffix)
@@ -156,24 +144,23 @@ class LibComponentLoggingPodsConfig
 
     # create pods configuration files
     create_file(@lcl_pods_config_components_file)
-    link_file(@lcl_pods_config_components_file, @lcl_pods_headers_config_components_file)
-    link_file(@lcl_pods_config_components_file, @lcl_pods_buildheaders_config_components_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_components_file_name, @lcl_pods_config_components_file_name)
     create_file(@lcl_pods_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_headers_config_logger_file)
-    link_file(@lcl_pods_config_logger_file, @lcl_pods_buildheaders_config_logger_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_logger_file_name, @lcl_pods_config_logger_file_name)
     create_file(@lcl_pods_config_extensions_file)
-    link_file(@lcl_pods_config_extensions_file, @lcl_pods_headers_config_extensions_file)
-    link_file(@lcl_pods_config_extensions_file, @lcl_pods_buildheaders_config_extensions_file)
+    link_file(@lcl_pods_headers_root, @pods_root_relative_from_lcl_pods_root + '/' + @lcl_pods_folder_name + '/' + @lcl_pods_config_extensions_file_name, @lcl_pods_config_extensions_file_name)
 
     # create user configuration files
     if !exists_file(@lcl_user_config_components_file)
       create_file(@lcl_user_config_components_file)
       note "Use '" + @lcl_user_config_components_file_name + "' to configure log components"
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + @lcl_user_config_components_file_name, @lcl_user_config_components_file_name)
     if !exists_file(@lcl_user_config_extensions_file)
       create_file(@lcl_user_config_extensions_file)
       note "Use '" + @lcl_user_config_extensions_file_name + "' to configure additional log extensions"
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + @lcl_user_config_extensions_file_name, @lcl_user_config_extensions_file_name)
 
     # add user configuration files to pods configuration files
     add_include(@lcl_pods_config_components_file, @lcl_user_config_components_file_name)
@@ -233,10 +220,11 @@ class LibComponentLoggingPodsConfig
   end
 
   protected
-  def link_file(src_file, dst_file)
-    debug "Creating link '" + src_file.to_s + "' to '" + dst_file.to_s + "'"
-    FileUtils.rm(dst_file) if File.file? dst_file
-    FileUtils.ln_s(src_file, dst_file)
+  def link_file(folder, src_file, dst_file)
+    debug "Linking file '" + src_file.to_s + "' to '" + folder.to_s + "/" + dst_file.to_s + "'"
+    Dir.chdir(folder) do
+      FileUtils.ln_s(src_file, dst_file)
+    end
   end
 
   protected
@@ -289,10 +277,10 @@ class LibComponentLoggingPodsConfig
     config_template_path = File.dirname(config_template_file_name)
     config_template_name = File.basename(config_template_file_name)
     config_name = config_template_name.gsub(/\.template/, '')
-    config_file = @lcl_user_root + config_name
+    config_file = @user_root + config_name
     if File.file? config_file
       if !equals_last_config_template_copy(config_template_file_name)
-        copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @lcl_user_root + (config_name + @lcl_tmp_file_suffix))
+        copy_file(@pods_config.project_pods_root + config_template_path + config_template_name, @user_root + (config_name + @lcl_tmp_file_suffix))
         note "Configuration file '" + config_name + "' already exists, please merge with '" + config_name + @lcl_tmp_file_suffix + "' manually"
         keep_last_config_template_copy(config_template_file_name)
       end
@@ -301,19 +289,20 @@ class LibComponentLoggingPodsConfig
       note "Configuration file '" + config_name + "' needs to be adapted before compiling your project"
       keep_last_config_template_copy(config_template_file_name)
     end
+    link_file(@lcl_pods_headers_root, @user_root_relative_from_lcl_pods_root + '/' + config_name, config_name)
   end
 
   protected
   def add_config_components(config_components_file, components_file)
     # add the lcl_config_components*.h file
-    add_include(config_components_file, @pods_root_name + "/" + @pods_headers_name + "/" + components_file)
+    add_include(config_components_file, components_file)
   end
 
   protected
   def add_config_components_embedded(config_components_file, components_file, pod_name, embed_symbol)
     # add the lcl_config_components*.h file and define symbols for un-embedding
     add_code(config_components_file, "#define _" + embed_symbol + "lcl_component _lcl_component")
-    add_include(config_components_file, @pods_root_name + "/" + @pods_headers_name + "/" + components_file)
+    add_include(config_components_file, components_file)
     add_code(config_components_file, "#undef _" + embed_symbol + "lcl_component")
 
     # modify the lcl_embed_symbol.h,m files
@@ -425,7 +414,31 @@ Pod::Spec.new do |s|
 
   s.homepage     = 'http://0xc0.de/LibComponentLogging'
   s.author       = { 'Arne Harren' => 'ah@0xc0.de' }
-  s.license      = 'MIT'
+  s.license      = { :type => 'MIT',
+                     :text => <<-LICENSE
+
+Copyright (c) 2012 Arne Harren <ah@0xc0.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+LICENSE
+                   }
 
   s.summary      = 'LibComponentLogging auto-configuration for CocoaPods.'
   s.description  = 'LibComponentLogging-pods provides a configuration '        \
@@ -433,19 +446,19 @@ Pod::Spec.new do |s|
                    'automatically configures logging back-ends and '           \
                    'extensions based on your project\'s CocoaPods pod file.'
 
-  s.source_files = ''
+  s.source_files = 'lcl_pods.h'
 
   s.dependency 'LibComponentLogging-Core'
 
   # add include path for user configuration files
-  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/.."',
-                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/.."' }
+  s.xcconfig     = { 'PODS_PUBLIC_HEADERS_SEARCH_PATHS' => '"${PODS_ROOT}/LibComponentLogging-pods"',
+                     'PODS_BUILD_HEADERS_SEARCH_PATHS'  => '"${PODS_ROOT}/LibComponentLogging-pods"' }
 
   # add lcl_config to CocoaPods' config
-  class << config
+  class << Config.instance
     attr_accessor :lcl_config
   end
-  config.lcl_config = LibComponentLoggingPodsConfig.new(config)
+  Config.instance.lcl_config = LibComponentLoggingPodsConfig.new(Config.instance)
 
   # make sure that we have at least the default configuration
   def s.post_install(target)

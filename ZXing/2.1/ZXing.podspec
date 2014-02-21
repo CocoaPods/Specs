@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary                     = "Multi-format 1D/2D barcode image processing library."
   s.homepage                    = "http://code.google.com/p/zxing/"
   s.author                      = "ZXing team (http://code.google.com/p/zxing/people/list)"
-  s.license                     = { :type => 'Apache License 2.0', :file => 'COPYING' }
+  s.license                     = { :type => 'Apache License, Version 2.0', :file => 'COPYING' }
   s.source                      = { :svn => "http://zxing.googlecode.com/svn/", :tag => "2.1" }
 
   s.preserve_paths              = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h'
@@ -19,6 +19,12 @@ Pod::Spec.new do |s|
 #endif
 EOS
 
+  # ZXing won't compile in c++11 included in Xcode 5
+  s.xcconfig = {
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'c++98',
+    'CLANG_CXX_LIBRARY' => 'libstdc++'
+  }
+
   s.libraries                   = 'stdc++', 'iconv'
   s.frameworks                  = 'AddressBook', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'ImageIO'
 
@@ -26,8 +32,9 @@ EOS
     ios.platform                = :ios, '4.3'
     ios.ios.deployment_target   = '4.3'
 
-    ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
-    ios.compiler_flags          = '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
+    ios.preserve_paths          = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h'
+    ios.source_files            = 'cpp/core/src/zxing/**/*.cpp', 'objc/src/ZXing/*.{m,mm}', 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
+    ios.compiler_flags          = '-IZXing/cpp/core/src/ -IZXing/objc/src/', '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
 
 #   must use xcconfig additional to compiler_flag -I to make this header path also available for the including project
     ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/**' }

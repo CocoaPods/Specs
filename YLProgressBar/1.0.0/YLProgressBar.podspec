@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version   = '1.0.0'
   s.platform  = :ios
   s.license   = 'MIT'
-  s.summary   = 'Custom progress bar for iOS (4.0 or over) with an animated background'
+  s.summary   = 'Custom progress bar for iOS (4.0 or over) with an animated background.'
   s.homepage  = 'https://github.com/YannickL/YLProgressBar'
   s.authors   = { 'Yannick Loriot' => 'http://yannickloriot.com' }
   s.source    = { :git => 'https://github.com/YannickL/YLProgressBar.git',

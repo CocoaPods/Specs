@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'BSONCodec'
   s.version  = '0.0.1'
-  s.license  = { :file => 'LICENSE' }
+  s.license  = { :type => 'MIT', :file => 'LICENSE' }
   s.summary  = 'BSON Codec for Objective-C.'
   s.description = <<-DESC
 BSON, short for Binary JSON, is a binaryencoded serialization of JSONlike

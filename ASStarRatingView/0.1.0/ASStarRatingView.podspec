@@ -19,7 +19,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.homepage = 'https://github.com/yggg/ASStarRatingView.git'
   s.author   = { 'Sam Yang' => 'yanguango@gmail.com' }
   s.source   = { :git => 'https://github.com/yggg/ASStarRatingView.git', :tag => 'v0.1.0' }
-  s.description = "ASStarRatingView is a control to rating with stars, it is simple to use and configurable."
   s.platform = :ios
   s.source_files = 'ASStarRatingView/**/*.{h,m}'
   s.resources = "ASStarRatingView/stars/*.png"

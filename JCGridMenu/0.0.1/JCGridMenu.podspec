@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Core' do |sp|
-    s.source_files = 'Universal/**/*.{h,m}'
+    sp.source_files = 'Universal/**/*.{h,m}'
   end
 
   s.subspec 'Images' do |sp|

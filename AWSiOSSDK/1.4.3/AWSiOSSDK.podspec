@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         =  'AWSiOSSDK'
   s.version      =  '1.4.3'
-  s.license      =  'Apache 2.0'
+  s.license      =  'Apache License, Version 2.0'
   s.summary      =  'Amazon Web Services SDK for iOS.'
   s.homepage     =  'http://aws.amazon.com/sdkforios'
   s.author       =  { 'Amazon Web Services' => 'amazonwebservices' }
@@ -12,8 +12,10 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = 'src/include'
 
   s.prefix_header_contents = <<-PCH
+#ifdef __OBJC__
 #import "AmazonLogger.h"
 #import "AmazonErrorHandler.h"
+#endif
   PCH
 
   s.subspec 'Runtime' do |ss|

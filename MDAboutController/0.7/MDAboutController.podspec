@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.platform  = :ios
   s.summary   = 'Automatically populated about view controller for iOS apps!.'
-  s.homepage  = 'http://mochidev.com/'
-  s.author    = { 'Dimitri Bouniol' =>  'dimitri008@mac.com' }
+  s.homepage  = 'http://mochidev.com/open'
+  s.author    = { 'Dimitri Bouniol' =>  'dimitribouniol@mochidev.com' }
   s.source    = { :git => 'https://github.com/mochidev/MDAboutController.git',
                   :tag => '0.7' }
   s.source_files = 'Classes/*.{h,m}' 

@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/AlexDenisov/FontasticIcons'
   s.author   = { 'Alex Denisov' => '1101.debian@gmail.com' }
   s.source   = { :git => 'https://github.com/AlexDenisov/FontasticIcons.git',
-:tag => '0.1.0' }
-  s.description  = 'Objective-C wrapper for iconic fonts.'
+                 :tag => '0.1.0' }
   s.source_files = 'FontasticIcons/Sources/Classes/*.{h,m}'
   s.resources = 'FontasticIcons/Sources/Resources/Fonts/*'
   s.frameworks    = 'CoreText'

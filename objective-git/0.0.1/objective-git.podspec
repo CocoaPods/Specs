@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   s.subspec 'libgit' do |sp|
-    sp.source_files = FileList['libgit2/include/**/*.h'].exclude(/(inttypes|stdint)/)
+    sp.source_files = 'libgit2/include/**/*.h'
+    sp.exclude_files = '**/*{inttypes,stdint}*'
     sp.header_mappings_dir = 'libgit/include'
     sp.library =  'git2'
   end
