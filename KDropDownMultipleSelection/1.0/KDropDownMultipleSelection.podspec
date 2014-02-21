@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/kiran5232/KDropDownMultipleSelection.git", :tag => "1.0" }
 
-  s.source_files  = "KDropDownMultipleSelection", "KDropDownMultipleSelection/**/*.{h,m}"
+  s.source_files  = "kDropDown", "kDropDown/**/*.{h,m}"
   s.platform     = "ios"
   s.platform     = "ios", "6.0"
    s.framework  = "UIKit"
