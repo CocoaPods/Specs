@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'UIScreen+Info'
-  spec.version      = '1.0.2'
+  spec.version      = '1.0.3'
   spec.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   spec.homepage     = 'https://github.com/mergesort/UIScreen-Info'
   spec.author       =  { 'Joe Fabisevich' => 'github@fabisevi.ch' }
