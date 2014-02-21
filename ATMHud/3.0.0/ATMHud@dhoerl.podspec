@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name                  = 'ATMHud'
+  s.name                  = 'ATMHud@dhoerl'
   s.version               = '3.0.0'
   s.platform              = :ios
   s.ios.deployment_target = '7.0'
