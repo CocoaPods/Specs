@@ -19,27 +19,31 @@ Pod::Spec.new do |s|
     using multipart/form-data.
   }
 
-  s.source_files = 'Classes'
+  s.subspec 'Core' do |core|
+    core.source_files = 'Classes/*.{h,m}'
+    core.ios.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
+    core.ios.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
 
-  s.ios.dependency 'Reachability' #, '~> 2.0', '>= 2.0.4'
-  s.ios.frameworks   = 'MobileCoreServices', 'CFNetwork', 'CoreGraphics'
+    core.osx.exclude_files = '**/*ASIAuthenticationDialog*'
+    core.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
 
-  s.osx.exclude_files = '**/*ASIAuthenticationDialog*'
-  s.osx.frameworks   = 'SystemConfiguration', 'CoreServices'
-
-  s.library = 'z.1'
+    core.libraries = 'z.1'
+  end
 
   s.subspec 'ASIWebPageRequest' do |ws|
-    ws.source_files = 'Classes/ASIWebPageRequest/'
-    ws.library      = 'xml2.2'
+    ws.source_files = 'Classes/ASIWebPageRequest/*.{h,m}'
+    ws.libraries      = 'xml2.2'
     ws.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
+    ws.dependency 'ASIHTTPRequest/Core'
   end
 
   s.subspec 'CloudFiles' do |cfs|
-    cfs.source_files = 'Classes/CloudFiles/'
+    cfs.source_files = 'Classes/CloudFiles/*.{h,m}','Classes/S3/ASINSXMLParserCompat.h'
+    cfs.dependency 'ASIHTTPRequest/Core'
   end
 
   s.subspec 'S3' do |s3s|
-    s3s.source_files = 'Classes/S3/'
+    s3s.source_files = 'Classes/S3/*.{h,m}'
+    s3s.dependency 'ASIHTTPRequest/Core'
   end
 end
