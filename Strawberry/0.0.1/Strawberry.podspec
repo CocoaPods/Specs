@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     s.license  = { :type => "MIT", :file => "LICENSE.md" }
 
     s.homepage = "https://github.com/akashivskyy/strawberry"
-    s.source   = { :git => "https://github.com/akashivskyy/strawberry.git", :branch => "master", :submodules => true }
+    s.source   = { :git => "https://github.com/akashivskyy/strawberry.git", :commit => "e0c1d48", :submodules => true }
 
     s.requires_arc = true
 
