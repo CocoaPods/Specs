@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   }
   s.author       = { "Pixate" => "sales@pixate.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/Pixate/PixateFramework.git", :tag => s.version.to_s }
+  s.source       = { :http => "http://www.pixate.com/downloads/cocoapods/deprecated/PixateFramework_#{s.version}.zip" }
   s.source_files = 'Framework/iOS/Pixate.framework/Versions/2.0/Headers/*.h'
   s.preserve_paths = "Framework/iOS/Pixate.framework", "README.md"
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'Pixate'
