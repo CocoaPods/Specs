@@ -10,7 +10,4 @@ Pod::Spec.new do |s|
   s.frameworks   = 'XCTest'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(inherited)" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
   s.requires_arc = true
-  
-  s.ios.deployment_target = '7.0'
-  s.osx.deployment_target = '10.9'
 end
