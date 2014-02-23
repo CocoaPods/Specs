@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'TSAssetsPickerController'
   s.version      = '1.0.2'
-  s.license      =  {:type => 'MIT', :file => 'LICENSE'}
+  s.license      =  {:type => 'Apache', :file => 'LICENSE'}
   s.homepage     = 'https://github.com/tomkowz/TSAssetsPickerController'
   s.authors      =  {'Tomasz Szulc' => 'szulctomasz@me.com'}
   s.summary      = 'Custom ImagePickerController supports selecting multipler assets in one time.'
