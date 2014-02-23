@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
                         * __NSManagedObject+MDMCoreDataAdditions (iOS, OS X)__ - A category on managed objects that provides helper methods for eliminating boiler plate code.
                        DESC
-  s.homepage         = 'https://github.com/mmorey/MDMHPCoreData'
+  s.homepage         = 'https://github.com/mmorey/MDMCoreData'
   s.license          = 'MIT'
   s.author           = { 'Matthew Morey' => 'me@matthewmorey.com' }
   s.source           = { :git => 'https://github.com/mmorey/MDMCoreData.git', :tag => s.version.to_s }
