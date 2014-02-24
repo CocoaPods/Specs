@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = "FleksySDK"
+  s.name     = "Fleksy"
   s.version  = "1.0"
   s.summary  = "Fleksy Keyboard for iOS. The first 3rd-party keyboard for iOS."
   s.homepage = "http://fleksy.com/sdk"
