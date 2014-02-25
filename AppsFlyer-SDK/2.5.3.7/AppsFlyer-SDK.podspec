@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   DESC
   
   spec.source       = { :http => "http://support.appsflyer.com/attachments/token/3pbn9dptd5qv49g/?name=AF-iOS-SDK-v2.5.3.7.zip", :flatten => true }
-  spec.platform     = :ios
+  spec.platform     = :ios, '3.1'
   spec.requires_arc = true
   
   
