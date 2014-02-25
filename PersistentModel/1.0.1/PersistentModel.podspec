@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "PersistentModel"
-  s.version      = "1.0.0"
-  s.summary      = "Easy creation for persistent model for iOS and OS X."
+  s.version      = "1.0.1"
+  s.summary      = "Easy creation for key-value storage model for iOS and OS X."
 
   s.description  = <<-DESC
 				   PersistentModel uses the same concept of context and persistent store as CoreData does mixed with a NSCoding protocol to encode and decode model objects.
