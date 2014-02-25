@@ -17,7 +17,7 @@ DESC
   s.resources    = 'JavaScriptApp/JavaScriptConsoleWeb.bundle'
 
   s.ios.deployment_target = '7.0'
-
+  s.requires_arc = true
   s.framework    = 'JavaScriptCore'
 
   s.dependency 'CocoaHTTPServer', '~> 2.3'
