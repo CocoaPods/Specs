@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AMP-SDK-2.22.0.bin/*.h'
   s.preserve_paths = 'AMP-SDK-2.22.0.bin/libLocalyticsAMP.a'
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Localytics-AMP"' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Localytics-AMP/AMP-SDK-2.22.0.bin"' }
 
   s.weak_frameworks = 'AdSupport'
   s.frameworks = 'SystemConfiguration'
