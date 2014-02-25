@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
 
-  s.source       = { :git => "https://bitbucket.org/variabletech/node-obj-c-framework-releases.git", :tag => "3.5.6" }
+  s.source       = { :git => "https://bitbucket.org/variabletech/node-obj-c-framework-releases.git", :tag => "3.5.7" }
 
   s.ios.source_files = 'Node_iOS.framework/Versions/A/Headers/*.h'
   s.osx.source_files = 'Node_Mac.framework/Versions/A/Headers/*.{h}'
