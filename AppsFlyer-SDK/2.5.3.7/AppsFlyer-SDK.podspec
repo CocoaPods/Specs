@@ -19,7 +19,6 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, '3.1'
   spec.requires_arc = true
   
-  
   spec.source_files = 'AppsFlyerTracker.h'
   spec.vendored_libraries = 'libAppsFlyerLib.a' 
   spec.preserve_path = 'libAppsFlyerLib.a'
