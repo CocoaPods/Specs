@@ -39,13 +39,8 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/Localytics-iOS-Client-latest.source.zip" }
   s.platform     = :ios, '5.1.1'
 
-  s.requires_arc = true
-  s.source_files = '*.{h,m}'
-
-  s.subspec 'no-arc' do |sp|
-    sp.source_files = 'LocalyticsDatabase.m, LocalyticsSession.m and LocalyticsUploader.m'
-    sp.requires_arc = false
-  end
+  s.requires_arc = false
+  s.source_files = '**/*.{h,m}'
 
   s.weak_frameworks = 'AdSupport'
   s.libraries   = 'z', 'sqlite3'
