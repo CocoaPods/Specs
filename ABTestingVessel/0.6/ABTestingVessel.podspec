@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     Copyright 2013 - 2014 Zubhium, Inc. All rights reserved.
   LICENSE
   }
-
+  s.documentation_url = 'http://docs.vessel.io'
   s.author             = { "vesselio" => "founders@vessel.io" }
   s.social_media_url = "http://twitter.com/vesselio"
 
