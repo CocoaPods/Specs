@@ -61,6 +61,7 @@ Pod::Spec.new do |s|
   s.weak_frameworks   = 'QuartzCore', 'Security', 'AdSupport', 'Social', 'Accounts', 'Twitter'
   s.libraries   = 'xml2', 'sqlite3', 'z'
   s.dependency 'Facebook-iOS-SDK', '3.2'
+  s.dependency 'PLCrashReporter', '~> 1.2-rc4'
 
   s.requires_arc = true
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
