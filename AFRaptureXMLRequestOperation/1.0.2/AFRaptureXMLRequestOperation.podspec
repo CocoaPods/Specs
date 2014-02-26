@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.dependency       'AFNetworking', '~> 1.2.1'
   s.dependency       'RaptureXML', '~> 1.0.1'
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
