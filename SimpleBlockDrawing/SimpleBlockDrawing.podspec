@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.author             = { "Marc Hervera" => "mhergon@gmail.com" }
   s.platform     = :ios, '6.0'
   s.ios.deployment_target = '6.0'
-  s.source       = { :git => "https://github.com/mhergon/SimpleBlockDrawing.git", :commit => "07371fa1b973f0693495e5e42c1451c14f2de7bd" }
+  s.source       = { :git => "https://github.com/mhergon/SimpleBlockDrawing.git", :commit => "4bf7026a1a6edc9d1600d8299d69f47abb8ccfd9" }
   s.source_files  = 'UIView+DrawBlock.h', 'UIView+DrawBlock.m'
 end
