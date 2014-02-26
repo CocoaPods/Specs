@@ -22,15 +22,14 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://bitbucket.org/variabletech/node-obj-c-framework-releases.git", :tag => "3.5.7" }
 
   s.ios.source_files = 'Node_iOS.framework/Versions/A/Headers/*.h'
-  s.osx.source_files = 'Node_Mac.framework/Versions/A/Headers/*.{h}'
+  s.osx.source_files = 'Node_OSX.framework/Versions/A/Headers/*.{h}'
   
   s.ios.preserve_paths = 'Node_iOS.framework/*', 'Node_iOS.framework'
-  s.osx.preserve_paths = 'Node_Mac.framework/*', 'Node_Mac.framework'
+  s.osx.preserve_paths = 'Node_OSX.framework/*', 'Node_OSX.framework'
 
-  s.osx.frameworks = 'Node_Mac', 'IOBluetooth', 'CoreData', 'GLKit', 'Accelerate'
   s.ios.frameworks = 'Node_iOS', 'CoreBluetooth', 'CoreData', 'SystemConfiguration', 'CoreLocation', 'Adsupport', 'GLKit', 'Accelerate'
-
   s.ios.libraries = 'z'
+  s.osx.frameworks = 'Node_OSX', 'IOBluetooth', 'CoreData', 'GLKit', 'Accelerate'
 
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Node"' }
 
