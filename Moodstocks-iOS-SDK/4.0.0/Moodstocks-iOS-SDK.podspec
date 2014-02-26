@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source         = { :http => "https://moodstocks.com/static/releases/#{package}.zip" }
   s.source_files   = "#{package}/Moodstocks.framework/Headers/*"
   s.preserve_paths = "#{package}/Moodstocks.framework/*"
-  s.frameworks     = 'AVFoundation', 'QuartzCore', 'CoreVideo', 'CoreMedia'
+  s.frameworks     = 'AVFoundation', 'QuartzCore', 'CoreVideo', 'CoreMedia', 'Moodstocks'
   s.xcconfig       = {
     'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)/Moodstocks-iOS-SDK/#{package}/\"",
     'OTHER_LDFLAGS' => '-ObjC'
