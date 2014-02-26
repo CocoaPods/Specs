@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Kevin Renskers" => "info@mixedcase.nl" }
   s.source       = { :git => "https://github.com/gangverk/RemoteConfig.git", :tag => s.version.to_s }
-  s.ios.deployment_target = '4.0'
+  s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'RemoteConfig/*.{h,m}'
   s.requires_arc = true
