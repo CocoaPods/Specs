@@ -23,6 +23,5 @@ Pod::Spec.new do |s|
     s.subspec 'Core' do |ss|
         ss.source_files  = 'Source/**/*.{h,m}'
         ss.exclude_files = 'Source/**/*Test.{h,m}'
-        ss.prefix_header_file  = 'Source/AGGeometryKit-Prefix.pch'    
     end    
 end
