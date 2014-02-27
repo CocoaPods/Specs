@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Facila'
   s.public_header_files = 'Facila/**/*.h'
+  s.platform = 'ios'
 end
