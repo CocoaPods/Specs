@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Base32hex"
   s.version      = "1.1.0"
-  s.summary      = "A native iOS SDK that scans & parses physical credentials, and interfaces with the ID.me platform."
+  s.summary      = "An implementation of RFC2938/Base32hex encoder and decoder in Objective-C."
   s.homepage     = "https://github.com/IDme/Base32hex-RFC2938-Standard"
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/IDme/Base32hex-RFC2938-Standard.git", :tag => "1.1.0" }
