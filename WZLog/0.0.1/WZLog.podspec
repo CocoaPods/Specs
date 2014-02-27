@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "王中周" => "wzzvictory_tjsd@163.com" }
   s.source           = { :git => "https://github.com/wangzz/WZLog.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/NAME'
+  s.social_media_url = 'http://weibo.com/foogry'
 
   s.platform     = :ios, '5.0'
   # s.ios.deployment_target = '5.0'
