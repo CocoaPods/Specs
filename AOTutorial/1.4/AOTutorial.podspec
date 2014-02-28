@@ -21,7 +21,7 @@ Integrated with action buttons - a Dismiss button or a Signup/login button to li
   s.author       = { "Loïc Griffié" => "lgriffie@appsido.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/Appsido/AOTutorial.git", :tag => "1.4" }
-  s.source_files  = 'src'
+  s.source_files = 'src/*.{h,m,xib}'
   s.requires_arc = true
 
 end
