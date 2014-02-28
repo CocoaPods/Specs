@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = 'A native iOS SDK that scans & parses physical credentials, and interfaces with the ID.me platform.'
   s.homepage     = 'https://github.com/IDme/ID.me-Verify-SDK-iOS'
   s.platform     = :ios, '7.0'
-  s.ios.frameworks = 'AssetsLibrary', 'QuartzCore', 'MobileCoreServices', 'CoreGraphics'
+  s.ios.frameworks = 'AssetsLibrary', 'QuartzCore', 'MobileCoreServices', 'CoreGraphics', 'AVFoundation', 'CoreMedia', 'CoreVideo'
   s.source       = { :git => "https://github.com/IDme/ID.me-Verify-SDK-iOS.git", :tag => "2.0.0" }
   s.public_header_files = 'ID.me Verify SDK/include/IDmeVerify/*.h'
   s.source_files = 'ID.me Verify SDK/include/IDmeVerify/*.h'
