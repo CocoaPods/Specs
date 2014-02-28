@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'JFFileManager'
-  spec.version      = '1.0.1'
+  spec.version      = '1.0.2'
   spec.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
   spec.homepage     = 'https://github.com/mergesort/JFFileManager'
   spec.author       =  { 'Joe Fabisevich' => 'github@fabisevi.ch' }
