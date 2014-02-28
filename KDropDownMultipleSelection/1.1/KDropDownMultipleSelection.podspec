@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
  s.license      = { :type =>"MIT", :file => "LICENCE" }
 
-  s.author             = { "kiran5232" => "email@address.com" }
+  s.author             = { "kiran5232" => "kiran.spaceo@gmail.com" }
 
   s.source       = { :git => "https://github.com/kiran5232/KDropDownMultipleSelection.git", :tag => "1.1" }
 
