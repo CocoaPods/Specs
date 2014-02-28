@@ -7,14 +7,10 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'AssetsLibrary', 'QuartzCore', 'MobileCoreServices', 'CoreGraphics', 'AVFoundation', 'CoreMedia', 'CoreVideo'
   s.source       = { :git => "https://github.com/IDme/ID.me-Verify-SDK-iOS.git", :tag => "2.0.0" }
   s.public_header_files = 'ID.me Verify SDK/include/IDmeVerify/*.h'
-  s.source_files = 'ID.me Verify SDK/include/IDmeVerify/IDmeVerify.h'
+  s.source_files = 'ID.me Verify SDK/include/IDmeVerify/*.{h,m}'
   s.vendored_libraries = 'ID.me Verify SDK/*'
   s.requires_arc = true
   s.dependency 'AFNetworking'
-  
-  s.subspec 'IDmeVerifySampleApp' do |idmeVerifySampleApp|
-    idmeVerifySampleApp = 'IDmeVerifySampleApp/*.{xcodeproj}', 'IDmeVerifySampleApp/IDmeVerifySampleApp/*'
-  end
 
   s.author       = { 'Arthur Ariel Sabintsev' => 'arthur@sabintsev.com' }
   s.license      = {
