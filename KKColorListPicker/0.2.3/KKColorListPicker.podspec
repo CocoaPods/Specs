@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KKColorListPicker"
   s.version      = "0.2.3"
-  s.summary      = "Color list picker for iOS > 7.0 with Crayola colors."
+  s.summary      = "Color list picker for iOS > 7.0 with Crayola colors"
   s.homepage     = "https://github.com/leoru/KKColorListPicker"
   s.license      = 'MIT'
   s.author       = { "leoru" => "kirillkunst@gmail.com" }
