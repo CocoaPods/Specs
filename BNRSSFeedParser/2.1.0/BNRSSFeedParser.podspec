@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
 
   s.source       = { :git => "https://github.com/Bitnock/BNRSSFeedParser.git", :tag => "2.1.0" }
-  s.source_files = '*.{h,m}'
+  s.source_files = '**/*.{h,m}' 
   s.requires_arc = true
 
 end
