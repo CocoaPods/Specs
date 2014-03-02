@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
     :tag => "0.1.1"
   }
   s.source_files  = 'MVFollow/*.{h,m}'
-  s.frameworks = 'Social', 'Account'
+  s.frameworks = 'Social', 'Accounts'
   s.requires_arc = true
 end
