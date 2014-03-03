@@ -1,15 +1,15 @@
 Pod::Spec.new do |s|
   s.name         = "socket.IO"
-  s.version      = "0.4.1"
+  s.version      = "0.5"
   s.summary      = "socket.io v0.7.2+ for iOS devices."
   s.description  = <<-DESC
-    Interface to communicate between Objective C and Socket.IO with the help of websockets. It's based on fpotter's socketio-cocoa and uses other libraries/classes like SocketRocket, json-framework (optional) and jsonkit (optional).
+    Interface to communicate between Objective C and Socket.IO with the help of websockets. It's based on fpotter's socketio-cocoa and uses square's SocketRocket.
                    DESC
   s.homepage     = "https://github.com/pkyeck/socket.IO-objc"
   s.license      = 'MIT'
 
   s.author       = { "Philipp Kyeck" => "philipp@beta-interactive.de" }
-  s.source       = { :git => "https://github.com/pkyeck/socket.IO-objc.git", :tag => '0.4.1' }
+  s.source       = { :git => "https://github.com/pkyeck/socket.IO-objc.git", :tag => '0.5' }
 
   s.source_files = '*.{h,m}'
 
