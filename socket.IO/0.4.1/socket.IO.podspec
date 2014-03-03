@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}'
 
   s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.8'
   s.requires_arc = true
 
   s.dependency 'SocketRocket', '~> 0.2'
