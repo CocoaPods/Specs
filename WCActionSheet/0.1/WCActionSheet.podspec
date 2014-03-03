@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author             = { "Wojtek Czekalski" => "me@wczekalski.com" }
   s.social_media_url = "http://twitter.com/wczekalski"
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/wczekalski/WCActionSheet.git", :commit => "37ef379dd2b61d6fd55451361d289678551831a9" }
+  s.source       = { :git => "https://github.com/wczekalski/WCActionSheet.git", :tag => "0.1" }
   s.source_files  = 'WCActionSheet/WCActionSheet.{h,m}', 'WCActionSheet/UIImage+ImageEffects.{h,m}'
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   s.requires_arc = true
