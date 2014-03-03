@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A circular progress view, perfect for displaying progress or statistics.'
   s.homepage = 'http://alexiscreuzot.com/KAProgressLabel'
   s.author   = { 'Alexis Creuzot' => 'alexis.creuzot@gmail.com' }
-  s.source   = { :git => 'https://github.com/kirualex/KAProgressLabel',
+  s.source   = { :git => 'https://github.com/kirualex/KAProgressLabel.git',
                   :tag => '1.1'}
 
   s.description = 'Minimal circular progress view (subclass of UILabel) for iOS. Display progress or statistics very easily, animated or not.'
