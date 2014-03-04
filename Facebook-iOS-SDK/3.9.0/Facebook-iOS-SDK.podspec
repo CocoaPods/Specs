@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.header_dir   =  'FacebookSDK'
   s.weak_frameworks = 'Accounts', 'AdSupport', 'Social', 'Security'
   s.framework = 'CoreLocation'
-  s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
+  s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|/usr/bin/python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
 end

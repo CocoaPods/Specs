@@ -7,7 +7,7 @@ Pod::Spec.new do |f|
   f.description = 'A UIWindow subclass that gives you automatic presentation mode in your iOS app.'
   f.homepage    = 'http://github.com/mapbox/Fingertips'
   f.license     = 'BSD'
-  f.author      = { 'MapBox' => 'ios@mapbox.com' }
+  f.author      = { 'Mapbox' => 'mobile@mapbox.com' }
 
   f.source = { :git => 'https://github.com/mapbox/Fingertips.git', :tag => f.version.to_s }
 
@@ -19,8 +19,8 @@ Pod::Spec.new do |f|
 
   f.documentation = {
     :appledoc => [
-      '--project-company', 'MapBox',
-      '--docset-copyright', 'MapBox',
+      '--project-company', 'Mapbox',
+      '--docset-copyright', 'Mapbox',
       '--no-keep-undocumented-objects',
       '--no-keep-undocumented-members',
       '--ignore', '.m',

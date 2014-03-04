@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.ios.source_files = 'GBDeviceInfo/*_iOS.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h'
   s.osx.source_files = 'GBDeviceInfo/*_OSX.{h,m}', 'GBDeviceInfo/GBDeviceInfo.h'
   s.requires_arc = true
-  s.platform     = :ios, '5.0'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.6'
 end

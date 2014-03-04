@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.requires_arc = true
   s.source_files = 'OMGFramework', 'OMGFramework/**/*.{h,m}'
-  s.dependency 'FDStatusBarNotifierView', '~> 0.1.0'
+  s.dependency 'FDStatusBarNotifierView', '0.1.0'
   s.dependency 'CocoaLumberjack', '~> 1.6'
 end
