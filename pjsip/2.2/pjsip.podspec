@@ -73,7 +73,7 @@ LICENSE
       'HEADER_SEARCH_PATHS'  => '$(PODS_ROOT)/pjsip/pjproject-2.2/pjmedia/include',
       'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/pjsip/pjproject-2.2/pjmedia/lib'
     }
-    pjmedia.frameworks = 'AudioToolbox'
+    pjmedia.frameworks = 'AudioToolbox', 'AVFoundation'
   end
 
   s.subspec 'third_party' do |third_party|
