@@ -32,8 +32,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
-  s.ios.preserve_paths = 'lib/libMMMarkdown-iOS.a'
-  s.osx.preserve_paths = 'lib/libMMMarkdown-Mac.a'
   s.ios.library      = 'MMMarkdown-iOS'
   s.osx.library      = 'MMMarkdown-Mac'
   s.source_files = 'Source/*.h'
