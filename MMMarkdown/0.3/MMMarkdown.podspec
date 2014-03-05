@@ -32,8 +32,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
-  s.ios.library      = 'MMMarkdown-iOS'
-  s.osx.library      = 'MMMarkdown-Mac'
-  s.source_files = 'Source/*.h'
+  s.source_files = 'Source/**/*.{h,m}'
   s.requires_arc = true
 end
