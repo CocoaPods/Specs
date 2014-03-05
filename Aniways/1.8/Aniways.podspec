@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.license       = { :type => 'Commercial', :text => 'See http://www.aniways.com' }
   s.author        = { 'Aniways' => 'support@aniways.com' }
   
-   s.platform     = :ios, '6.1'
+   s.platform     = :ios, '5.1'
 
   s.source = { :git => 'https://github.com/aniways/aniways-pod.git', :tag => "1.8"}
   
