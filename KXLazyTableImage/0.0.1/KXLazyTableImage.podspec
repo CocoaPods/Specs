@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KXLazyTableImage"
-  s.version      = "1.0.0"
+  s.version      = "0.0.1"
   s.summary      = "A small library for asychronous image dowonloading to UITableViewCell"
   s.description  = <<-DESC
                    A small library for asychronous image dowonloading to UITableViewCell
