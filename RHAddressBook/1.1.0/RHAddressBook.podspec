@@ -1,21 +1,18 @@
 Pod::Spec.new do |s|
-  s.name         = "RHAdditions"
-  s.version      = "1.3.0"
-  s.homepage     = "https://github.com/heardrwt/RHAdditions"
-  s.summary      = "Various Objective-C categories and additions that have served me well over the years. Hopefully then can serve you too!"
+  s.name         = 'RHAddressBook'
+  s.version      = '1.1.0'
+  s.homepage     = 'https://github.com/heardrwt/RHAddressBook'
+  s.summary      = 'A Cocoa / Objective-C library for interfacing with the iOS AddressBook. Also adds geocoding support.'
   s.author       = 'Richard Heard'
-  s.source       = { :git => 'https://github.com/heardrwt/RHAdditions.git', :tag => s.version.to_s}
-  s.requires_arc = true
-  s.ios.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,RHMushParser,UI}*.{h,m}'
-  s.ios.frameworks   = 'UIKit'
-  s.ios.deployment_target = '5.0'
-  s.osx.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,NSBundle,NSImage,NSImageView,NSTextField,NSView,NSWindow,RHGetBSDProcessList,RHDraggableImageView,RHMushParser}*.{h,m}'
-  s.osx.frameworks   = 'Foundation', 'Cocoa', 'Carbon', 'ServiceManagement'
-  s.osx.deployment_target = '10.7'
+  s.source       = { :git => 'https://github.com/heardrwt/RHAddressBook.git', :tag => s.version.to_s}
+  s.source_files = 'RHAddressBook/*.{h,m}'
+  s.prefix_header_file = 'RHAddressBook/RHAddressBook-Prefix.pch'
+  s.frameworks   = 'AddressBook', 'CoreLocation', 'AddressBookUI'
+  s.platform     = :ios
   s.license      = {
      :type => 'Modified BSD',
      :text => <<-LICENSE
-              Copyright (c) 2011-2013 Richard Heard. All rights reserved.
+              Copyright (c) 2011-2014 Richard Heard. All rights reserved.
 
               Redistribution and use in source and binary forms, with or without
               modification, are permitted provided that the following conditions
@@ -40,5 +37,4 @@ Pod::Spec.new do |s|
               THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      LICENSE
   }
-
 end
