@@ -36,6 +36,6 @@ Pod::Spec.new do |s|
   s.osx.preserve_paths = 'lib/libMMMarkdown-Mac.a'
   s.ios.library      = 'MMMarkdown-iOS'
   s.osx.library      = 'MMMarkdown-Mac'
-  s.source_files = 'include/**/*.h'
+  s.source_files = 'Source/*.h'
   s.requires_arc = true
 end
