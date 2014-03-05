@@ -17,7 +17,7 @@ sender APIs to enable your iOS app to send content to a large display.
   s.homepage = 'https://developers.google.com/cast/'
   s.author = 'Google, Inc.'
   s.source = { :http => 'https://developers.google.com/cast/downloads/GoogleCastFramework-2.0-Release.zip' }
-  s.platform = :ios, '6.0'
+  s.platform = :ios
   s.source_files = 'GoogleCastFramework-2.0-Release/GoogleCast.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'GoogleCastFramework-2.0-Release/GoogleCast.framework'
   s.frameworks = 'GoogleCast'
