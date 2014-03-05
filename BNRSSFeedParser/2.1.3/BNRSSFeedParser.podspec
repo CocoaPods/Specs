@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BNRSSFeedParser"
-  s.version      = "2.1.2"
+  s.version      = "2.1.3"
   s.summary      = "Simple RSS and podcast parsing in Objective-C"
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
 
-  s.source       = { :git => "https://github.com/Bitnock/BNRSSFeedParser.git", :tag => "2.1.2" }
+  s.source       = { :git => "https://github.com/Bitnock/BNRSSFeedParser.git", :tag => "2.1.3" }
   s.source_files = '**/*.{h,m}'
   s.requires_arc = true
 
