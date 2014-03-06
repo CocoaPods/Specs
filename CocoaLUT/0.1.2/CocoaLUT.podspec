@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.1.2"
   s.summary      = "LUT (3D lookup tables) for Cocoa applications."
   s.homepage     = "http://github.com/wilg/CocoaLUT"
-  s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license      = 'MIT'
   s.author       = { "Wil Gieseler" => "wil@wilgieseler.com" }
   s.source       = { :git => "https://github.com/wilg/CocoaLUT.git", :tag => s.version.to_s }
