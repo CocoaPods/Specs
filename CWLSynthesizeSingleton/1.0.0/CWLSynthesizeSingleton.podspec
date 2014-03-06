@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
                  LICENSE
                  	}
   s.source       = { :git => 'https://github.com/incbee/CWLSynthesizeSingleton.git', :tag => s.version.to_s }
-  s.platform     = :ios, '4.3'
   s.source_files = 'CWLSynthesizeSingleton.h'
   s.requires_arc = false
 end
