@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/questbeat/QBPopupMenu.git"
   s.license      = 'MIT'
   s.author       = { "questbeat" => "questbeat@gmail.com" }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/questbeat/QBPopupMenu.git", :tag => "v2.0" }
   s.source_files = 'QBPopupMenu', 'QBPopupMenu/**/*.{h,m}'
   s.requires_arc = true
