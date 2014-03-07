@@ -44,5 +44,6 @@ Pod::Spec.new do |s|
 
   s.libraries   = 'xml2', 'c++', 'icucore', 'z'
   s.requires_arc = true
+  s.resource_bundle = { 'MTDirectionsKit' => 'Resources/MTDirectionsKit.bundle' }
 
 end
