@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.author             = { "Deep Patel" => "deepp@umich.edu" }
   s.social_media_url = "http://facebook.com/potlee"
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/potlee/TaggableTextView.git", tag: '0.8.1'}
+  s.source       = { :git => "https://github.com/potlee/TaggableTextView.git", :tag => '0.8.1'}
   s.source_files  = '*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
