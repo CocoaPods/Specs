@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
               COUNTLY MOBILE ANALYTICS COMMUNITY EDITION LICENSE
               --------------------------------------------------
 
-              Copyright (c) 2012, 2013 Countly
+              Copyright (c) 2012, 2014 Countly
 
               Permission is hereby granted, free of charge, to any person obtaining a copy
               of this software and associated documentation files (the "Software"), to deal
@@ -28,13 +28,14 @@ Pod::Spec.new do |s|
               THE SOFTWARE.
     LICENSE
   }
-  s.summary  = 'Countly is an innovative, real-time, open source mobile analytics application.'
+  s.summary  = 'Countly is an innovative, real-time, open source mobile analytics platform.'
   s.homepage = 'https://github.com/Countly/countly-sdk-ios'
   s.author  = {'Countly' => 'hello@count.ly'}
   s.source   = { :git => 'https://github.com/Countly/countly-sdk-ios.git', :tag => '2.0.0' }
   s.source_files = '*.{h,m}'
   s.resources = '*.{xcdatamodeld}'
   s.requires_arc = false
-  s.platform     = :ios, '4.3'
-  s.ios.weak_framework = 'CoreTelephony'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.8'
+  s.ios.weak_framework = 'CoreTelephony', 'CoreData'
 end

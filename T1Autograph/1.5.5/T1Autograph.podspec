@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/tenonedesign/T1Autograph.git", :tag => s.version.to_s }
   s.resources = "Images/*.png"
-  s.source_files = '*.{h,m,a}'
+  s.source_files = '*.{h,m}'
+  s.preserve_paths = 'libT1Autograph.a'
   s.framework  = 'Foundation'
   s.library   = 'T1Autograph'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/T1Autograph' }
