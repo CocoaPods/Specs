@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'PivotalCoreKit'
   s.version  = '0.0.3'
-  s.license  = { :type => 'MIT' }
+  s.license  = { :type => 'MIT', :file => 'LICENSE.markdown' }
   s.summary  = 'Shared library and test code for iOS projects.'
   s.homepage = 'https://github.com/pivotal/PivotalCoreKit'
   s.author   = { 'Pivotal Labs' => 'http://pivotallabs.com' }
-  s.source   = { :git => 'https://github.com/pivotal/PivotalCoreKit.git' }
+  s.source   = { :git => 'https://github.com/pivotal/PivotalCoreKit.git', :tag => 'v0.0.3' }
   s.platform = :ios, '5.0'
 
   s.default_subspec = 'Core'
@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
 
     f.subspec 'SpecHelper' do |spec_helper|
       spec_helper.subspec 'Extensions' do |ext|
-        ext.source_files = 'Foundation/SpecHelper/Extensions/*.{h,m}'
+        ext.source_files = ['Foundation/Core/Extensions/NSObject+MethodRedirection.h', 'Foundation/SpecHelper/Helpers/PCKConnectionBlockDelegate.h', 'Foundation/SpecHelper/Helpers/PCKConnectionDelegateWrapper.h', 'Foundation/SpecHelper/Fakes/PSHKFakeHTTPURLResponse.h', 'Foundation/SpecHelper/Fakes/FakeOperationQueue.h', 'Foundation/SpecHelper/Extensions/*.{h,m}']
       end
 
       spec_helper.subspec 'Fixtures' do |fix|
@@ -52,7 +52,7 @@ Pod::Spec.new do |s|
       end
 
       spec_helper.subspec 'Helpers' do |help|
-        help.source_files = 'Foundation/SpecHelper/Helpers/*.{h,m}'
+        help.source_files = ['Foundation/SpecHelper/Extensions/NSURLConnection+Spec.h', 'Foundation/SpecHelper/Helpers/*.{h,m}']
       end
 
       spec_helper.subspec 'Fakes' do |fake|
