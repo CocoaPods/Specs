@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "GitHub" => "support@github.com" }
 
-  s.source       = { :git => "https://github.com/github/Mantle.git", :tag => "1.4.1" }
+  s.source       = { :git => "https://github.com/MantleFramework/Mantle.git", :tag => "1.4.1" }
   s.source_files = 'Mantle'
   s.framework    = 'Foundation'
 
