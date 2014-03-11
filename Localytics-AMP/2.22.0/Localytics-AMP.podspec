@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     :file => 'AMP-SDK-2.22.0.bin/LICENSE'
   }
   s.author       = 'Char Software, Inc. d/b/a Localytics'
-  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/AMP-SDK-latest.bin.zip" }
+  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/AMP-SDK-2.22.0.bin.zip" }
   s.platform     = :ios, '5.1.1'
 
   s.source_files = 'AMP-SDK-2.22.0.bin/*.h'

@@ -7,15 +7,15 @@ Pod::Spec.new do |s|
 
   s.license      = {
     :type => 'Copyright',
-    :file => 'LICENSE'
+    :file => 'AMP-SDK-2.21.0.bin/LICENSE'
   }
   s.author       = 'Char Software, Inc. d/b/a Localytics'
-  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/AMP-SDK-latest.bin.zip" }
+  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/AMP-SDK-2.21.0.bin.zip" }
   s.platform     = :ios, '5.1.1'
 
-  s.source_files = '*.h'
-  s.preserve_paths = 'libLocalyticsAMP.a'
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Localytics-AMP"' }
+  s.source_files = 'AMP-SDK-2.21.0.bin/*.h'
+  s.preserve_paths = 'AMP-SDK-2.21.0.bin/libLocalyticsAMP.a'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Localytics-AMP/AMP-SDK-2.21.0.bin"' }
 
   s.weak_frameworks = 'AdSupport'
   s.frameworks = 'SystemConfiguration'
