@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files = 'cocos2d/**/*.{h,m,mm,c}', 'external/kazmath/src/**/*.{c,h}', 'external/kazmath/include/**/*.{c,h}', 'external/libpng/*.{h,c}'
   s.exclude_files = 'external/libpng/pngtest.c', 'external/libpng/example.c'
 
-  s.xcconfig   =  { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include"' }
+  s.xcconfig   =  { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include/**"' }
   s.frameworks =  ["OpenGLES", "QuartzCore", "GameKit", "CoreText"]
   s.library    =  'z'
 
