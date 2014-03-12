@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                        SSStackedPageView uses a scroll view to manage through your large list of views. By either selecting or dragging the view up, you divide the stack and highlight that view. Each view is customized to the length of the SSStackedPageView. For efficiency, I make use of a reusable array of pages so that scrolling is fast and beautiful.
 
                        DESC
-  s.homepage         = "http://ios-coder.com"
+  s.homepage         = "http://ios-coder.com/projects"
   s.screenshots      = "https://github.com/PlenipotentSS/SSStackedPageView/blob/master/screenshot1.png", "https://github.com/PlenipotentSS/SSStackedPageView/blob/master/screenshot2.png"
   s.license          = 'MIT'
   s.author           = { "PlenipotentSS" => "stevensonhoyt@icloud.com" }
