@@ -17,26 +17,32 @@ Pod::Spec.new do |s|
   s.default_subspec = "Core"
 
   s.subspec "Core" do |sp|
-    sp.source_files = 'quickdialog', '*.{h,m}'
+    sp.source_files = 'quickdialog/*.{h,m}', 'QuickDialogDelegate.h', 'QDateInlineTableViewCell.{h,m}'
   end
 
   s.subspec "Extras" do |sp|
-    sp.source_files = 'extras', '*.{h,m}'
+    sp.dependency 'QuickDialog/Core'
+    sp.source_files = 'extras/*.{h,m}'
   end
 
   s.subspec "QPicker" do |sp|
+    sp.dependency 'QuickDialog/Core'
     sp.source_files = 'extras/QPicker*.{h,m}'
   end
   s.subspec "QMail" do |sp|
+    sp.dependency 'QuickDialog/Core'
     sp.source_files = 'extras/QMail*.{h,m}'
   end
   s.subspec "QMap" do |sp|
+    sp.dependency 'QuickDialog/Core'
     sp.source_files = 'extras/QMap*.{h,m}'
   end
   s.subspec "QWeb" do |sp|
+    sp.dependency 'QuickDialog/Core'
     sp.source_files = 'extras/QWeb*.{h,m}'
   end
   s.subspec "QColor" do |sp|
+  	sp.dependency 'QuickDialog/Core'
     sp.source_files = 'extras/QColor*.{h,m}', 'extras/UIColor*.{h,m}'
   end
 
