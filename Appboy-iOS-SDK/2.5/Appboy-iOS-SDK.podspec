@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     aks.exclude_files = 'AppboyKit/**/*.txt'
     aks.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Appboy-iOS-SDK/AppboyKit"', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Appboy-iOS-SDK/AppboyKit"' }
     aks.library = 'AppboyKitLibrary'
-    aks.resource_bundle = {'AppboyKit.framework' => ['AppboyKit/AppboyKit.framework'], 'LanguageBundle' => ['AppboyKit/*.lproj/*.strings']}
+    aks.resource_bundle = {'AppboyKit.framework' => ['AppboyKit/AppboyKit.framework'], 'LanguageBundle' => ['AppboyKit/*.lproj']}
     aks.preserve_paths = 'AppboyKit/**/*.*'
     aks.vendored_libraries = 'AppboyKit/libAppboyKitLibrary.a'
     aks.dependency 'Facebook-iOS-SDK'
