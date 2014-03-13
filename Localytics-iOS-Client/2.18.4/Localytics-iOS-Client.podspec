@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Localytics-iOS-Client"
-  s.version      = "2.17.0"
+  s.version      = "2.18.4"
   s.summary      = "Localytics iOS SDK."
   s.description  = <<-DESC
   Localytics is built for mobile & tablet apps. Integration is easy, takes just 10 minutes and requires only a few lines of code. A quick integration allows you to track all standard metrics such as platform, device type, sessions and unique users. Event and screen tracking are used to analyze conversion funnels, screen flows, feature usage, content access, advertising performance, etc. Full support for iOS, Android, BlackBerry, Windows Phone and HTML5 apps.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
-      Copyright (c) 2009, Char Software, Inc. d/b/a Localytics
+      Copyright (c) 2013, Char Software, Inc. d/b/a Localytics
       All rights reserved.
 
       Redistribution and use in source and binary forms, with or without
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = 'Char Software, Inc. d/b/a Localytics'
-  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/Localytics-iOS-Client-2.17.0.source.zip" }
+  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/Localytics-iOS-Client-2.18.4.source.zip" }
   s.platform     = :ios, '4.0'
 
   s.source_files = '*.{h,m}'
