@@ -33,6 +33,11 @@ Pod::Spec.new do |s|
                     iOS and Mac OS X.
                   DESC
 
+# Platform
+
+  s.ios.deployment_target = '3.0'
+  s.osx.deployment_target = '10.6'
+
 # Build settings
 
   s.dependency 'SBJson', '~> 3.2'
