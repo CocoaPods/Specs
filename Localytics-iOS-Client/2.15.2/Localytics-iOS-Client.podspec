@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/Localytics-iOS-Client-2.15.2.source.zip" }
   s.platform     = :ios, '4.0'
 
-  s.source_files = '*.{h,m}'
+  s.source_files = '**/*.{h,m}'
   s.requires_arc = false
   s.compiler_flags = '-fno-objc-arc'
 
