@@ -20,8 +20,6 @@ Pod::Spec.new do |s|
 	s.osx.deployment_target = '10.8'
 	s.requires_arc = true
 
-
-
 	s.source_files = 'lang/c/src/**/*.{h,c}'
 	s.header_mappings_dir = 'lang/c/src'
 	s.exclude_files = "lang/c/src/schema_specific.c"
