@@ -20,9 +20,18 @@ Pod::Spec.new do |s|
 	s.osx.deployment_target = '10.8'
 	s.requires_arc = true
 
+
+
 	s.source_files = 'lang/c/src/**/*.{h,c}'
 	s.header_mappings_dir = 'lang/c/src'
 	s.exclude_files = "lang/c/src/schema_specific.c"
+
+	s.prefix_header_contents = <<-PREFIX_HEADER
+								#if __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ < 1050 
+									#define AVRO_NON_ATOMIC_REFCOUNT"
+								#endif
+
+								PREFIX_HEADER
 
 	s.dependency 'Jansson', '~> 2.5'
 end
