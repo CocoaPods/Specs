@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.author        = { "Jobin Kurian" => "ti.jobinkurian@gmail.com" }
   s.platform      = :ios, '5.0'
   s.requires_arc  = true
-  s.source        = { :git => "https://github.com/icodebuster/JKNullReplacer", :tag => "1.0.0" }
+  s.source        = { :git => "https://github.com/icodebuster/JKNullReplacer.git", :tag => "1.0.0" }
   s.source_files  = 'JKNullReplacer', 'JKNullReplacer/**/*.{h,m}'
 end
