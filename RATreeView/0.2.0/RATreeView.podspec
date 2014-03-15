@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source       = {:git => 'https://github.com/Augustyniak/RATreeView.git', :tag => '0.2.0' }
   s.platform     = :ios, '5.0'
   s.source_files = 'RATreeView'
-  s.public_header_files = 'RATreeView/RATreeView.h', 'RATreeView/RATreeNodeInfo.h'
+  s.public_header_files = 'RATreeView/*.{h,m}'
   s.requires_arc = true
 end
