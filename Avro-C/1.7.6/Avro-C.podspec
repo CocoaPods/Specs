@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
 	s.prefix_header_contents = <<-PREFIX_HEADER
 								#if __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ < 1050 
-									#define AVRO_NON_ATOMIC_REFCOUNT"
+									#define AVRO_NON_ATOMIC_REFCOUNT 
 								#endif
 
 								PREFIX_HEADER
