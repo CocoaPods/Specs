@@ -35,7 +35,7 @@ DESC
 
   s.source       = { :git => "https://github.com/adamwaite/ALPValidator.git", :tag => "v0.0.3" }
   s.source_files  = 'ALPValidator', 'ALPValidator/**/*.{h,m}'
-  s.public_header_files = 'ALPValidator/ALPValidator.h'
+  s.public_header_files = 'ALPValidator/ALPValidator.h', 'ALPValidator/UIControl+ALPValidator.h'
 
   s.requires_arc = true
 
