@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
     s.prepare_command = <<-CMD
         (
             ./configure --prefix=$PWD
-            make
+            make -j4
             make check
             make install
             sed -i .orig 's/tr1\\///g' config.h
