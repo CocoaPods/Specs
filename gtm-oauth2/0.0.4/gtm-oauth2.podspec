@@ -39,6 +39,7 @@ Pod::Spec.new do |s|
 # Build settings
 
   s.dependency 'GTMHTTPFetcher', '~> 0.0.1'
+  s.dependency 'SBJson', '~> 3.2'
   s.requires_arc = false
   s.frameworks   = 'Security', 'SystemConfiguration'
 
