@@ -1,62 +1,58 @@
-# A repository of CocoaPods specifications.
+![CocoaPods Logo](https://raw.github.com/CocoaPods/shared_resources/master/assets/cocoapods-banner-readme.png)
 
-[![Build Status](http://img.shields.io/travis/CocoaPods/Specs/master.svg)](http://travis-ci.org/CocoaPods/Specs)
+### CocoaPods: The Objective-C dependency manager
 
-This repository contains specifications of open-source Objective-C libraries, which are used by [CocoaPods](https://github.com/CocoaPods/CocoaPods) to manage library dependencies for your Xcode project.
+[![Build Status](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg)](https://travis-ci.org/CocoaPods/CocoaPods)
+[![Gem Version](http://img.shields.io/gem/v/cocoapods.svg)](http://badge.fury.io/rb/cocoapods)
+[![Code Climate](http://img.shields.io/codeclimate/github/CocoaPods/CocoaPods.svg)](https://codeclimate.com/github/CocoaPods/CocoaPods)
 
+CocoaPods manages dependencies for your Xcode projects.
 
-## Creating specifications
+You specify the dependencies for your project in one easy text file. CocoaPods
+resolves dependencies between libraries, fetches source code for the
+dependencies, and creates and maintains an Xcode workspace to build your
+project.
 
-First of all, you need to install the tools.
+Ultimately, the goal is to improve discoverability of, and engagement in, third
+party open-source libraries, by creating a more centralized ecosystem.
 
-```console
-$ [sudo] gem install cocoapods
-```
-
-Then you can have the CocoaPods `pod` command create a stub specification:
-
-```console
-$ pod spec create Bananas
-$ pod spec create https://github.com/Bananas/Bananas # For libraries hosted on GitHub
-```
-
-Now edit the stub specification following the explanations therein contained. This file is a [Ruby](http://www.ruby-lang.org/) source file.
-
-```console
-$ vim Bananas.podspec
-```
-
-You can verify the specification file with the lint command. This command checks for common errors and whether the pod builds on the platforms that it supports.
-
-```console
-$ pod spec lint Bananas.podspec --verbose
-```
-
-Once you have created a working specification create a pull request.
-
-### Namespacing
-
-A specification file has to be namespaced by the library’s name and the version for which the specification is meant. For instance, the directory for a library named ‘Bananas’ with version ‘1.2.3’ should be:
-
-    $ mkdir -p Bananas/1.2.3
-    $ cd Bananas/1.2.3
-
-### Versioning
-
-CocoaPods uses a versioning scheme known as [Semantic Versioning](http://semver.org/). See this [example](https://github.com/CocoaPods/Specs/wiki/Cross-dependencies-resolution-example) for more info on why this scheme is used.
-
-If the library, that you are creating a specification for, does not yet have any tagged versions in its repo, then it’s best to start with the lowest version ‘0.0.1’, which will ensure that once the author does add tagged versions they will be equal or higher than ‘0.0.1’. It is _your_ responsibility to ask the author of the library to tag versions, luckily we have [a template](https://github.com/CocoaPods/Specs/wiki/%22Please-add-semantic-version-tags%22-issue-template) for this.
-
-## Check the entire repo
-
-You can also verify the entire set by running the rake task.
-
-    $ rake lint
-
-_(Note: this is run on every commit by [Travis](http://travis-ci.org/#!/CocoaPods/Specs))_
-
-## License
-
-These specifications and CocoaPods are available under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+Installing and updating CocoaPods is very easy. Don't miss the [Installation
+guide](http://guides.cocoapods.org/using/getting-started.html#installation) and the
+[Getting started guide](http://guides.cocoapods.org/using/getting-started.html).
 
 
+## Sponsors
+
+Lovingly sponsored by [Fingertips](http://www.fngtps.com),
+[Hipbyte](http://www.hipbyte.com), [Artsy](http://artsy.net) and
+[Sauspiel](https://www.sauspiel.de).
+
+## Collaborate
+
+All CocoaPods development happens on GitHub, contributions make good karma and
+we welcome with joy new contributors.
+
+## Links
+
+| Link | Description |
+| :----- | :------ |
+[CocoaPods.org](http://cocoapods.org/) | Homepage and search for Pods.
+[@CocoaPods](http://twitter.com/CocoaPods) | Follow CocoaPods on Twitter to stay up to date.
+[Blog](http://blog.cocoapods.org) | The CocoaPods blog.
+[Mailing List](http://groups.google.com/group/cocoapods) | Feel free to ask any kind of question.
+[Documentation](http://docs.cocoapods.org) | Everything you want to know about CocoaPods.
+[Changelog](https://github.com/CocoaPods/CocoaPods/blob/master/CHANGELOG.md) | See the changes introduced by each CocoaPods version.
+[New Pods RSS](http://feeds.cocoapods.org/new-pods.rss) | Don't miss any new Pod.
+
+## Projects
+
+CocoaPods is composed by the following projects:
+
+| Status | Project | Description | Info |
+| :----- | :------ | :--- | :--- |
+| [![Build Status](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg)](http://travis-ci.org/CocoaPods/CocoaPods) | [CocoaPods](https://github.com/CocoaPods/CocoaPods) | The CocoaPods command line tool. | [docs](http://docs.cocoapods.org/cocoapods)
+| [![Build Status](http://img.shields.io/travis/CocoaPods/Core/master.svg)](http://travis-ci.org/CocoaPods/Core) | [CocoaPods Core](https://github.com/CocoaPods/Core) | Support for working with specifications and podfiles. | [docs](http://docs.cocoapods.org/cocoapods_core)
+| [![Build Status](http://img.shields.io/travis/CocoaPods/cocoapods-downloader/master.svg)](http://travis-ci.org/CocoaPods/cocoapods-downloader) |[CocoaPods Downloader](https://github.com/CocoaPods/cocoapods-downloader) |  Downloaders for various source types. |  [docs](http://docs.cocoapods.org/cocoapods_downloader/index.html)
+| [![Build Status](http://img.shields.io/travis/CocoaPods/Xcodeproj/master.svg)](https://travis-ci.org/CocoaPods/Xcodeproj) | [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) | Create and modify Xcode projects from Ruby. |  [docs](http://docs.cocoapods.org/xcodeproj/index.html)
+| [![Build Status](http://img.shields.io/travis/CocoaPods/CLAide/master.svg)](https://travis-ci.org/CocoaPods/CLAide) | [CLAide](https://github.com/CocoaPods/CLAide) | A small command-line interface framework.  | [docs](http://docs.cocoapods.org/claide/index.html)
+| [![Build Status](http://img.shields.io/travis/CocoaPods/Specs/master.svg)](http://travis-ci.org/CocoaPods/Specs) | [Master Repo ](https://github.com/CocoaPods/Specs) | Master repository of specifications. | [guide](http://docs.cocoapods.org/guides/contributing_to_the_master_repo.html)
