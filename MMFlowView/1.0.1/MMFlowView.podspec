@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                        features drag&drop und quicklook preview. Its makes use of CoreAnimation to provide smooth and fast animations.
                        DESC
   s.homepage         = "https://github.com/mmllr/MMFlowView"
-  s.screenshots      = "https://github.com/mmllr/MMFlowView.git/Resources/FlowView.png"
+  s.screenshots      = "https://raw.github.com/mmllr/MMFlowView/master/Resources/FlowView.png"
   s.license          = 'MIT'
   s.author           = { "Markus Mueller" => "mmlr@gmx.net" }
   s.source           = { :git => "https://github.com/mmllr/MMFlowView.git", :tag => s.version.to_s }
