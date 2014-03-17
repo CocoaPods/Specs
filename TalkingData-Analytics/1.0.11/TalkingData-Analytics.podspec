@@ -10,5 +10,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'TalkingData_iOS_1.0.11/*.h'
   s.preserve_paths = 'TalkingData_iOS_1.0.11/*.a'
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/TalkingData-Analytics/TalkingData_iOS_SDK_1.0.11' }
+  s.library   = 'TalkingData'
+  s.framework = 'CoreTelephony'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/TalkingData-Analytics/**' }
 end

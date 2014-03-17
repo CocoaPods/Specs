@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage       = "https://developers.moodstocks.com/"
   s.license        = { :type => 'Copyright', :file => 'LICENSE' }
   s.author         = 'Moodstocks'
-  s.source         = { :http => 'https://developers.moodstocks.com/dls/moodstocks-ios-sdk-3.7.zip' }
+  s.source         = { :http => 'https://moodstocks.com/static/releases/moodstocks-ios-sdk-3.7.zip' }
   s.platform       = :ios
   s.frameworks     = 'AVFoundation', 'CoreVideo', 'CoreMedia', 'QuartzCore'
   s.preserve_paths = 'libmoodstocks-sdk.a'

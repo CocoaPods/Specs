@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "KSURLComponents"
   s.version      = "1.0.2"
-  s.summary      = "Class for easy construction and editing of URLs."
+  s.summary      = "A clone of `NSURLComponents` for Cocoa releases older than iOS 7."
   s.homepage     = "https://github.com/karelia/KSFileUtilities"
   s.license      = 'MIT'
   s.author       = { "Mike Abdullah" => "me@mikeabdullah.net" }

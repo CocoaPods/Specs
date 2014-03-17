@@ -8,10 +8,8 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/lloyd/yajl.git', :tag => '2.0.1' }
   s.source_files = 'src/*.{h,c}', 'build/yajl-2.0.1/include/yajl'
   s.preserve_paths = '**/*'
-  s.pre_install do |pod, target_defintion|
-    Dir.chdir(pod.root) do
-      system('./configure')
-      system('mv COPYING LICENSE')
-    end
-  end
+  s.prepare_command = <<-CMD
+                        ./configure
+                        mv COPYING LICENSE
+                    CMD
 end
