@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'BSD2', :file => 'LICENSE.txt' }
   s.author       = { "Peter Snyder" => "snyderp@gmail.com" }
   s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/snyderp/PESGraph.git", :tag => "v0.2" }
+  s.source       = { :git => "https://github.com/snyderp/PESGraph.git", :tag => "v0.2.0" }
   s.source_files = 'PESGraph', 'PESGraph/*.{h,m}'
   s.framework    = 'Foundation'
   s.requires_arc = true
