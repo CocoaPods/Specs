@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.1"
   s.summary          = "A number of view effects based on observing the content offset of a scrollview.."
   s.description      = <<-DESC
-                       SYNScrollViewObserverEffects is a collection of effects that can be easily added to view controllers containging
+                       SYNScrollViewObserverEffects is a collection of effects that can be easily added to view controllers containing
                        scroll views to provide some nice visual effects.
 
                        Note: Most of the effects are compatible with iOS 6.0 but not all.  The blur effect in particular requires 7.0.
