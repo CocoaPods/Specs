@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                       SMReactiveRestKit brings all the power of RestKit into ReactiveCocoa world. It wraps RKObjectManager into a signal that can be subscribed to.
                       DESC
-  s.homepage         = "http://www.stefanomondino.com"
+  s.homepage         = "https://github.com/stefanomondino/SMReactiveRestKit"
   s.license          = 'MIT'
   s.author           = { "Stefano Mondino" => "stefano.mondino.dev@gmail.com" }
   s.source           = { :git => "https://github.com/stefanomondino/SMReactiveRestKit.git", :tag => s.version.to_s }
