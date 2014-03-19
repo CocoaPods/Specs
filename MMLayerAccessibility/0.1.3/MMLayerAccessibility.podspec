@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
   s.exclude_files = 'Classes/**/*Spec.{h,m}'
-  s.public_header_files = 'Classes/CALayer+NSAccessibility.h'
+  s.public_header_files = 'Classes/osx/CALayer+NSAccessibility.h'
   s.frameworks = 'QuartzCore'
 end
