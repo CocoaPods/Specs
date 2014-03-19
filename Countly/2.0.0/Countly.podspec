@@ -28,14 +28,27 @@ Pod::Spec.new do |s|
               THE SOFTWARE.
     LICENSE
   }
+<<<<<<< HEAD
+  s.summary  = 'Countly is an innovative, real-time, open source mobile analytics application.'
+  s.homepage = 'https://github.com/Countly/countly-sdk-ios'
+  s.author  = {'Countly' => 'hello@count.ly'}
+  s.source   = { :git => 'https://github.com/Countly/countly-sdk-ios.git', :tag => '2.0.0' }
+  s.resources = "*.xcdatamodeld"
+  s.source_files = '*.{h,m}'
+=======
   s.summary  = 'Countly is an innovative, real-time, open source mobile analytics platform.'
   s.homepage = 'https://github.com/Countly/countly-sdk-ios'
   s.author  = {'Countly' => 'hello@count.ly'}
   s.source   = { :git => 'https://github.com/Countly/countly-sdk-ios.git', :tag => '2.0.0' }
   s.source_files = '*.{h,m}'
   s.resources = '*.{xcdatamodeld}'
+>>>>>>> upstream/master
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.8'
   s.ios.weak_framework = 'CoreTelephony', 'CoreData'
 end
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/master
