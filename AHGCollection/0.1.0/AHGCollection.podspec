@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/andrewg95'
 
   s.source       = { :git => 'https://github.com/newyankeecodeshop/AHGCollection.git', :tag => s.version.to_s }
-  s.source_files  = 'AHGCollection'
+  s.source_files  = 'AHGCollection/*.{h,m}'
 
   s.requires_arc = true
 end
