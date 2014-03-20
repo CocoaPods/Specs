@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         	= "SHModelObject"
-  s.version      	= "1.0.2"
+  s.version      	= "1.0.4"
   s.summary      	= "`SHModelObject` a utility class that reads NSDictionary and populates the instance variables and properties automatically."
 
   s.description  	= <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.author       	= { "Shan Ul Haq" => "g@grevolution.me" }
 
   s.platform     	= :ios
-  s.source       	= { :git => "https://github.com/grevolution/SHModelObject.git", :tag => "1.0.2" }
+  s.source       	= { :git => "https://github.com/grevolution/SHModelObject.git", :tag => "1.0.4" }
 
   s.requires_arc	= true
   s.source_files  	= 'SHModelObject/SHModelObject/*.{h,m}'

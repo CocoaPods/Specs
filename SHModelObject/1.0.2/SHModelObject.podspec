@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source       	= { :git => "https://github.com/grevolution/SHModelObject.git", :tag => "1.0.2" }
 
   s.requires_arc	= true
-  s.source_files  	= 'SHModelObject/SHModelObject/*.{h,m}'
+  s.source_files  	= 'SHModalObject/SHModalObject/*.{h,m}'
   s.exclude_files 	= 'Classes/Exclude'
 
 end
