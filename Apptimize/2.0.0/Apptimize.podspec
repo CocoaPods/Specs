@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.platform       = :ios, '5.1'
   s.source_files   = '**/*.h'
   s.frameworks     = 'Apptimize', 'Security', 'Foundation', 'CFNetwork', 'UIKit', 'CoreGraphics'
-  s.xcconfig       = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Apptimize/#{versioned_dir}"' }
+  s.xcconfig       = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)/Apptimize/#{versioned_dir}\"" }
   s.vendored_frameworks = "#{versioned_dir}/Apptimize.framework"
   s.compiler_flags = '-ObjC'
   s.requires_arc   = true
