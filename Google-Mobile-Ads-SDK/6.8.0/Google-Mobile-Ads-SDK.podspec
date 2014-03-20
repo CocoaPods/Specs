@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.vendored_libraries = "GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a"
   
   s.weak_framework = "AdSupport"
-  s.frameworks = "AudioToolbox", "AVFoundation", "CoreGraphics", "MessageUI", "StoreKit", "SystemConfiguration" 
+  s.frameworks = "AudioToolbox", "AVFoundation", "CoreGraphics", "MessageUI", "StoreKit", "SystemConfiguration", "CoreTelephony" 
   s.xcconfig = {
     "OTHER_LDFLAGS" => "-ObjC"
   }
