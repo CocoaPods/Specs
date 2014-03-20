@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
   s.exclude_files = 'Classes/**/*Spec.{h,m}'
-  s.public_header_files = 'Classes/MMFlowView.h'
+  s.public_header_files = 'Classes/osx/MMFlowView.h'
   s.frameworks = 'Quartz', 'QuartzCore', 'QTKit'
   s.dependency 'MMLayerAccessibility', '~> 0.1'
 end
