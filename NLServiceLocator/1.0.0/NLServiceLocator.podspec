@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.license      = 'MIT'
-  s.homepage = https://github.com/nikita-leonov/NLServiceLocator
+  s.homepage = "https://github.com/nikita-leonov/NLServiceLocator"
   s.author             = { "Nikita Leonov" => "nikita.leonov@gmail.com" }
   s.social_media_url = "http://twitter.com/leonovco"
 
