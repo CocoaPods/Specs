@@ -13,18 +13,13 @@ Pod::Spec.new do |s|
   s.author           = { "Linxiangyu" => "lxyweb@gmail.com" }
   s.source           = { :http => 'http://api.amap.com/Public/down/AMap_iOS_API_Lib_V2.1.3.zip' }
 
-  # s.platform     = :ios, '4.3'
 
   s.requires_arc = true
 
   s.vendored_frameworks = "AMap_iOS_API_Lib_V2.1.3/2D/MAMapKit.framework"
 
-  #s.source_files = 'AMap_iOS_API_Lib_V2.1.3/3D/MAMapKit.framework/Versions/2.1.3/Headers/*.h'
-  s.resources = "AMap_iOS_API_Lib_V2.1.3/3D/MAMapKit.framework/Versions/2.1.3/Resources/AMap.bundle"
-  #s.library = 'AMap_iOS_API_Lib_V2.1.3/3D/MAMapKit.framework/Versions/2.1.3/MAMapKit'
-  # s.ios.exclude_files = 'Classes/osx'
-  # s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
+  s.resources = "AMap_iOS_API_Lib_V2.1.3/2D/MAMapKit.framework/Versions/2.1.3/Resources/AMap.bundle"
+
   s.frameworks = 'QuartzCore', 'CoreLocation' , 'SystemConfiguration' , 'CoreTelephony', 'OpenGLES',  'Security'
   s.libraries = 'stdc++.6.0.9','z'
 
