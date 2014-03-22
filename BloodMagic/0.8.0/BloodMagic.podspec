@@ -1,6 +1,6 @@
 Pod::Spec.new do |podspec|
   podspec.name = 'BloodMagic'
-  podspec.version = '0.7.5'
+  podspec.version = '0.8.0'
   podspec.ios.deployment_target = '5.0'
   podspec.osx.deployment_target = '10.7'
   podspec.license = { :type => 'MIT' }
