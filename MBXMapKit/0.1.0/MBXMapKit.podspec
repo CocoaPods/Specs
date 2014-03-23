@@ -7,7 +7,7 @@ Pod::Spec.new do |m|
   m.description = 'One-line MapBox integration with MapKit on iOS and OS X for custom map styles and complete cache control.'
   m.homepage    = 'http://mapbox.com/mbxmapkit'
   m.license     = 'BSD'
-  m.author      = { 'MapBox' => 'ios@mapbox.com' }
+  m.author      = { 'MapBox' => 'mobile@mapbox.com' }
 
   m.source = { :git => 'https://github.com/mapbox/mbxmapkit.git', :tag => m.version.to_s }
 
@@ -26,6 +26,8 @@ Pod::Spec.new do |m|
       '--ignore', '.m',
     ]
   }
+
+  m.documentation_url = 'https://www.mapbox.com/mbxmapkit/api/'
 
   m.framework = 'MapKit'
 
