@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'XNGAPIClientTester'
   s.version = '0.0.2'
+  s.social_media_url = 'https://twitter.com/xingdevs'
   s.license = 'MIT'
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
