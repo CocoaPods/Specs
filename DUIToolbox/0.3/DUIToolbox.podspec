@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name         = "DUIToolbox"
   s.version      = "0.3"
   s.summary      = "The DUIToolbox is a mini library of classes useful for iOS UIKit developers."
-  s.homepage     = "https://github.com/czechboy0/DUIToolbox"
+  s.homepage     = "http://honzadvorsky.com/duitoolbox-open-source/"
   s.license      = 'MIT'
-  s.author       = { "Honza Dvorsky" => "http://honzadvorsky.com" }
+  s.author       = { "Honza Dvorsky" => "http://honzadvorsky.com/duitoolbox-open-source/" }
   s.source       = { :git => "https://github.com/czechboy0/DUIToolbox.git", :tag => s.version.to_s }
   s.social_media_url = "http://twitter.com/czechboy0"
 
