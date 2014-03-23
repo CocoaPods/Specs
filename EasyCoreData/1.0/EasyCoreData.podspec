@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source       = { :git => "https://github.com/tomvanzummeren/BrightCenterSDK.git", :tag => "1.0" }
+  s.source       = { :git => "https://github.com/tomvanzummeren/EasyCoredata.git", :tag => "1.0" }
   s.ios.frameworks = 'CoreData'
 
   s.source_files  = 'EasyCoreData/Framework/**/*.{h,m}'
