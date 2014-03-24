@@ -34,7 +34,7 @@ EOS
 
     ios.preserve_paths          = 'cpp/core/src/zxing/**/*.h', 'objc/src/ZXing/*.h', 'cpp/core/src/bigint/*.hh'
     ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{h,m,mm}'
-    ios.compiler_flags          = '-IZXing/cpp/core/src/ -IZXing/objc/src/', '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
+    ios.compiler_flags          = '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
     # There are two MultiFormatReader.h files, it appears this one is unused
     ios.exclude_files           = 'iphone/ZXingWidget/Classes/MultiFormatReader.h'
 
