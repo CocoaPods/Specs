@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license          = 'Apache'
   s.author           = { "Julien Ducret" => "brocoo@gmail.com" }
   s.source           = { :git => "https://github.com/brocoo/BRFlabbyTable.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/NAME'
+  s.social_media_url = 'https://twitter.com/jbrocoo'
 
   s.platform     = :ios, '6.1'
   s.requires_arc = true
