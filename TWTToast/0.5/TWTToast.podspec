@@ -22,12 +22,7 @@ Pod::Spec.new do |s|
     end
 
     ss.subspec 'KVO' do |sss|
-      sss.dependency 'TWTToast/Foundation/MethodSignatureEquality'
       sss.source_files = "Foundation/KVO/*.{h,m}"
-    end
-
-    ss.subspec 'MethodSignatureEquality' do |sss|
-      sss.source_files = "Foundation/Method Signature Equality/*.{h,m}"
     end
 
     ss.subspec 'SubclassResponsibility' do |sss|
