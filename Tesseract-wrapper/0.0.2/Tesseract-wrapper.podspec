@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Tesseract-wrapper'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.platform = :ios
   s.summary = 'Obj-C wrapper for Tesseract lib.'
   s.description = 'Tesseract-ios is an Objective-C wrapper for Tesseract OCR.'
