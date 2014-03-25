@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   s.subspec 'BSON' do |sp|
     sp.source_files = 'BSON'
     sp.private_header_files = 'BSON/BSON_Helper.h', 'BSON/BSON_PrivateInterfaces.h'
+    sp.dependency 'ObjCMongoDB/OrderedDictionary', "~> #{s.version}"
   end
 
   s.subspec 'Mongo' do |sp|
