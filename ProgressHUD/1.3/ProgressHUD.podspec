@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = 'Related Code'
   s.platform     = :ios, '7.0'
-  s.source       = { :git => 'https://github.com/relatedcode/ProgressHUD.git', :tag => '1.3' }
+  s.source       = { :git => 'https://github.com/relatedcode/ProgressHUD.git', :tag => 'v1.3' }
   s.source_files = 'ProgressHUD/ProgressHUD.{h,m}'
   s.resource     = 'ProgressHUD/ProgressHUD.bundle'
   s.requires_arc = true
