@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/naoty/NTYSmartTextView"
   s.license          = "MIT"
   s.author           = { "Naoto Kaneko" => "naoty.k@gmail.com" }
-  s.source           = { git: "https://github.com/naoty/NTYSmartTextView.git", tag: s.version.to_s }
+  s.source           = { :git => "https://github.com/naoty/NTYSmartTextView.git", :tag => s.version.to_s }
   s.social_media_url = "https://twitter.com/naoty_k"
 
   s.platform     = :osx
