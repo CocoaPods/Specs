@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
   url            = "https://github.com/seivan/#{name}"
   git_url        = "#{url}.git"
   version        = "1.2.1"
-  source_files   = "#{name}/**/*.{h,m}"
+  source_files   = "#{name}/*.{h,m}"
   
   s.name         = name
   s.version      = version
-  s.summary      = "Prefixed category on SenTestCase and XCTestCase to help with asynchronous callbacks."
+  s.summary      = "Prefixed category on SenTestCase and XCTestCase to help with asynchronous callbacks. SenTestKit: SHTestCaseAdditions/SenTestCase"
   s.description  = <<-DESC
   
   SHTestCaseAdditions contains asynchronous helpers (as a prefixed category) to write tests in SentTest and/or XCTest for delayed callbacks, 
@@ -27,10 +27,17 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => git_url, :tag => version}
   
-  #s.weak_frameworks = ["XCTest", "SenTestingKit"]
-  s.frameworks    = ["SenTestingKit"]
+  frameworks = ['XCTest', 'SenTestingKit']
+  
+  s.default_subspec = frameworks.first
 
-  s.source_files = source_files
+  frameworks.each do |framework|
+    s.subspec framework do |x|
+      x.frameworks    = [framework]
+      x.source_files = [source_files, "#{name}/#{framework}/*.{h,m}"]
+    end
+  end
+
   s.requires_arc = true
 
 

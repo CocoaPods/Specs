@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.framework    = 'XCTest'
 
-  s.source_files = 'FBSnapshotTestCase.*', 'FBTestSnapshotController.*'
+  s.source_files = 'FBSnapshotTestCase.{h,m}', 'FBTestSnapshotController.{h,m}'
 
   fb_def = 'FB_REFERENCE_IMAGE_DIR'
   fb_val = '"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages"'

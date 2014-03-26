@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
-
+  
+#  See the comment at the end of this file for more information about this prepare_command.
   s.prepare_command = <<-'END'
     find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
@@ -34,3 +35,13 @@ Pod::Spec.new do |s|
     sp.header_dir = 'ReactiveCocoa'
   end
 end
+
+#=begin=
+# The 'prepare_command' for this spec prefixes all filenames in the `libextobjc` library with 'RAC'.
+# 
+# This is necessary as libextobjc and it's headers are included in the ReactiveCocoa library with a prefix of `rac_` on all methods. libextobjc is also included in other libraries — such as Mantle — in headers with the same filenames, but with a prefix of `mtl_` on all methods. Importing the libextobjc headers can import either of these, leading to 'missing' methods (triply so if you add the actual libextobjc pod to your Podfile). 
+#
+# Renaming the files mitigates this issue. If you need to use libextobjc in your projects, add the pod to your Podfile. **Do not use the bundled version of libextobjc that comes with ReactiveCocoa.**
+# 
+# For more information about this issue, please contact @tonyarnold
+#=end=

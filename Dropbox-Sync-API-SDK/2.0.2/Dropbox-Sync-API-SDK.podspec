@@ -8,11 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "https://dl.dropboxusercontent.com/s/bq1764wzfhlfeqt/dropbox-ios-sync-sdk-2.0.2.zip" }
   s.platform     = :ios
   
-  s.source_files = 'dropbox-ios-sync-sdk-2.0.2/Dropbox.framework/Headers/*.h'
-  s.preserve_paths = "dropbox-ios-sync-sdk-2.0.2/Dropbox.framework"
-  
   s.frameworks = 'CFNetwork', 'Security', 'SystemConfiguration', 'QuartzCore'
+  s.vendored_frameworks = 'dropbox-ios-sync-sdk-2.0.2/Dropbox.framework'  
   s.library   = 'c++'
-  s.resources = 'dropbox-ios-sync-sdk-2.0.2/Dropbox.framework'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.2"' }
 end

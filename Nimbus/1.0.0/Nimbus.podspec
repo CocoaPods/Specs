@@ -63,6 +63,11 @@ Pod::Spec.new do |s|
     models.dependency 'Nimbus/Core'
   end
 
+  s.subspec 'Collections' do |collections|
+    collections.source_files = 'src/collections/src'
+    collections.dependency 'Nimbus/Core'
+  end
+
   s.subspec 'NetworkControllers' do |controllers|
     controllers.source_files = 'src/networkcontrollers/src'
     controllers.dependency 'Nimbus/Core'

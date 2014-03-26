@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s
     }
   s.source_files = 'Source/*.{h,m}'
-  s.frameworks   = 'Foundation', 'XCTest'
+  s.frameworks   = 'Foundation', 'SenTestingKit'
   s.requires_arc = true
 end

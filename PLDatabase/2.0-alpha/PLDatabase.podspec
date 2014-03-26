@@ -13,14 +13,31 @@ Pod::Spec.new do |s|
   s.license      = "BSD"
   s.author       = { "Landon Fuller" => "landon.j.fuller@gmail.com", "Chris Campbell" => "chriscampbell@gmail.com", "Nick Barkas" => "nick.barkas@gmail.com" }
   s.source       = { :svn => "http://pldatabase.googlecode.com/svn/trunk/" }
-  s.compiler_flags = '-DSQLITE_ENABLE_UNLOCK_NOTIFY', '-DPL_DB_PRIVATE=1'
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
-  s.source_files = 'Classes', 'Other Sources'
-  s.exclude_files = 'Classes/**/*Tests{.h,.m}'
-  s.preserve_paths = "Doxyfile"
-  s.frameworks   = "Foundation"
-  s.requires_arc = false
-  s.dependency   'sqlite3', '~> 3.8.0.2'
-  s.dependency   'sqlite3/unlock_notify'
+  
+  s.default_subspec = 'standard'
+
+  s.subspec 'common' do |ss|
+    ss.compiler_flags = '-DSQLITE_ENABLE_UNLOCK_NOTIFY', '-DPL_DB_PRIVATE=1'
+    ss.source_files = 'Classes', 'Other Sources'
+    ss.exclude_files = 'Classes/**/*Tests{.h,.m}'
+    ss.preserve_paths = "Doxyfile"
+    ss.frameworks   = "Foundation"
+    ss.requires_arc = false
+  end
+
+  # use a standard version of sqlite3
+  s.subspec 'standard' do |ss|
+    
+    ss.dependency   'sqlite3', '~> 3.8.0.2'
+    ss.dependency   'sqlite3/unlock_notify'
+    ss.dependency   'PLDatabase/common'
+  end
+  
+  # use SQLCipher
+  s.subspec 'sqlcipher' do |ss|
+    ss.dependency   'SQLCipher/unlock_notify'
+    ss.dependency   'PLDatabase/common'
+  end
 end
