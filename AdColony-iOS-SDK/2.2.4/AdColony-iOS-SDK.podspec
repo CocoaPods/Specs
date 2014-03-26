@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.description = 'AdColony delivers high-definition Instant-Play video ads that can be displayed anywhere within your application. AdColony also contains V4VC, a secure system for rewarding users of your app with virtual currency upon the completion of video plays.'
   s.homepage = 'http://adcolony.com/'
   s.author   = { 'AdColony support' => 'support@adcolony.com' }
-  s.source   = { :git => 'https://github.com/AdColony/AdColony-iOS-SDK.git', :commit => '45db4' }
+  s.source   = { :git => 'https://github.com/AdColony/AdColony-iOS-SDK.git', , :tag => '2.2.4' }
 
   s.requires_arc = true
   s.public_header_files = 'AdColony.framework/**/*.h'
