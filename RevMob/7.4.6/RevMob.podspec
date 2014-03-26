@@ -12,8 +12,10 @@ Pod::Spec.new do |s|
   s.author       = { "RevMob SDK" => "sdk@revmob.com" }
   s.source       = { :git => "https://github.com/RevMob/sdk-ios-cocoapods.git", :tag => s.version.to_s }
   s.platform     = :ios, '4.3'
-  s.preserve_paths = 'RevMobAds.framework'
-  s.frameworks = 'SystemConfiguration', 'StoreKit', 'AdSupport', 'RevMobAds'
+  s.source_files = 'RevMobAds.framework/Versions/A/Headers/*.h'
+  s.frameworks = 'SystemConfiguration', 'StoreKit', 'AdSupport'
+  s.ios.vendored_frameworks = 'RevMobAds.framework'
   s.weak_frameworks = 'AdSupport', 'StoreKit'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/RevMob"' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited)', 'OTHER_LDFLAGS' => '-framework RevMobAds' }
+  s.preserve_paths = 'RevMobAds.framework'
 end

@@ -14,8 +14,10 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '7.0'
   
-  s.source_files = ['Overshare Kit/*.{h,m}', 'Dependencies/GooglePlus-SDK/*']
-  s.resources    = ['Overshare Kit/Images/*', 'Overshare Kit/*.xib']
+  s.source_files = ['Overshare Kit/*.{h,m}']
+  s.resources    = ['Overshare Kit/Images/*', 'Overshare Kit/*.xib', 'Dependencies/GooglePlus-SDK/GooglePlus.bundle']
+
+  s.ios.vendored_frameworks = 'Dependencies/GooglePlus-SDK/GooglePlus.framework', 'Dependencies/GooglePlus-SDK/GoogleOpenSource.framework'
   
   s.dependency 'ADNLogin'
   s.dependency 'PocketAPI'
