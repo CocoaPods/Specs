@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.summary  = 'KahunaSDK for tracking analytics for use in the Kahuna Engagement Engine.'
   s.homepage = 'http://www.usekahuna.com'
   s.author   = { 'Kahuna' => 'developer@usekahuna.com' }
-  s.source   = { :http => 'https://www.usekahuna.com/sdk/iOS/359/kahuna_iossdk_359.zip' }
+  s.source   = { :http => 'https://www.usekahuna.com/sdk/iOS/390/kahuna_iossdk_390.zip' }
   s.platform = :ios
   s.source_files = 'Kahuna/*.h'
   s.preserve_paths = 'Kahuna/libkahuna.a'
