@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { 
                      :git => "https://github.com/KiranPanesar/MXLMediaView.git",
-                     :tag => "v1.1"
+                     :tag => "v1.1.0"
                    }
 
   s.source_files  = 'Classes', 'MXLMediaView/**/*.{h,m}'
