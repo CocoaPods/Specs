@@ -31,7 +31,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   s.source_files  = 'Classes/*'
 
-  s.frameworks = 'Foundation, QuartzCore'
+  s.frameworks = 'Foundation', 'QuartzCore'
 
   s.requires_arc = true
 end
