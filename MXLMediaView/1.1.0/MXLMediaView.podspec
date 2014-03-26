@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "This is a class designed to show an image or video, and blur & shrink the background. Similar to the Facebook app."
 
   s.description  = <<-DESC
-                   MXLMediaView was created for our own apps at MobileX Labs. I wanted to implement the 'display style' that a lot of other apps are using nowadays when the background blurs and shrinks (Facebook, TweetBot, etc). But I wanted my own little twist. I decided to take advantage of the nifty UIKit Dynamics library added in iOS 7 to have the media drop and bounce onto the screen.
+                   MXLMediaView was created for our own apps at MobileX Labs. I wanted to implement the 'display style' that a lot of other apps are using nowadays when the background blurs and shrinks (Facebook, TweetBot, etc). But I wanted my own little twist. I decided to take advantage of the nifty UIKit Dynamics library added in iOS 7 to have the media drop and bounce onto the screen. 
                    DESC
 
   s.homepage     = "https://github.com/KiranPanesar/MXLMediaView"
