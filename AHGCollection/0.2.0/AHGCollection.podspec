@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AHGCollection"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "We put the 'fun' back in functional programming with Cocoa collections"
   s.description  = <<-DESC
                    # Purpose #
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/andrewg95'
 
   s.source       = { :git => 'https://github.com/newyankeecodeshop/AHGCollection.git', :tag => s.version.to_s }
-  s.source_files  = 'AHGCollection/*.{h,m}'
+  s.source_files = 'Classes/*.{h,m}'
 
   s.requires_arc = true
 end
