@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Aniways"
-  s.version      = "2.0.6"
+  s.version      = "1.8"
   s.summary      = "Beautiful messaging monetization."
 
   s.description  = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   
    s.platform     = :ios, '5.1'
 
-  s.source = { :git => 'https://github.com/aniways/aniways-pod.git', :tag => "2.0.6"}
+  s.source = { :git => 'https://github.com/aniways/aniways-pod.git', :tag => "1.8"}
   
   s.resource = ['Resources/*.png', 'Resources/*.plist', 'Resources/*.m4a']
 
