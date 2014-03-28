@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                        `NSManagedObjectContext` on a private thread, one main `NSManagedObjectContext` on
                        the main thread, and one background `NSManagedObjectContext` on a background thread.
                        DESC
-  s.homepage         = "http://www.tablelistapp.com/"
+  s.homepage         = "https://github.com/tablelist/TLDataManager"
   s.license          = 'MIT'
   s.author           = { "Andrew Barba" => "andrew@tablelistapp.com" }
   s.source           = { :git => "https://github.com/tablelist/TLDataManager.git", :tag => s.version.to_s }
