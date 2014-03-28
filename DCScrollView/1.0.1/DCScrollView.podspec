@@ -5,10 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/hirohisa/DCScrollView"
   s.license      = {
                      :type => 'MIT',
-                     :text => <<-LICENSE
-                        The MIT License (MIT)
-                        Copyright (c) 2013 Hirohisa Kawasaki
-                                LICENSE
+                     :file => 'LICENSE'
                    }
   s.author       = {
                       "Hirohisa Kawasaki" => "hirohisa.kawasaki@gmail.com"
