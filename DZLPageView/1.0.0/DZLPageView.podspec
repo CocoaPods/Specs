@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "DZLPageView.h"
+  s.name         = "DZLPageView"
   s.version      = "1.0.0"
   s.summary      = "An infinite looping page view"
   s.homepage     = "https://github.com/samdods/DZLPageView"
