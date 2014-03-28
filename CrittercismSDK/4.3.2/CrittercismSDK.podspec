@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files = 'CrittercismSDK/*.h'
   s.resource = 'CrittercismSDK/dsym_upload.sh'
   s.preserve_paths = 'CrittercismSDK/libCrittercism_v4_3_2.a'
-  s.library = 'Crittercism_v4_3_2'
+  s.library = 'libCrittercism_v4_3_2'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CrittercismSDK/CrittercismSDK"' }
   s.framework = 'SystemConfiguration'
 end
