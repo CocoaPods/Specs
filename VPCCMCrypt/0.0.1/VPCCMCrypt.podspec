@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'lib', 'lib/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
+  s.platform = :ios
 end
