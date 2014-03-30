@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                        Extends expecta to include matchers for testing that sets or arrays contain
                        objects of an expected class.
                        DESC
-  s.homepage         = "http://github.com/orta/Expecta+ContainerClasses"
+  s.homepage         = "http://github.com/orta/Expecta-ContainerClasses"
   s.license          = 'MIT'
   s.author           = { "Orta" => "orta.therox@gmail.com" }
   s.source           = { :git => "https://github.com/orta/Expecta-ContainerClasses.git", :tag => s.version.to_s }
