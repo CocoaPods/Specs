@@ -38,7 +38,8 @@ Pod::Spec.new do |s|
   s.source   = { :http => 'http://www.appsee.com/sdk/appsee_ios_2.08_opengl.zip' }
   s.platform = :ios, 5.0
   s.requires_arc = true
-  s.frameworks     = 'Appsee', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore', 'SystemConfiguration'
+  s.frameworks     = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore', 'SystemConfiguration'
+  s.vendored_frameworks = 'Appsee/Appsee.framework'
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/AppseeGL/Appsee"' }
   s.preserve_paths = 'Appsee/Appsee.framework'
   s.source_files   = 'Appsee/Appsee.framework/Versions/A/Headers/*.{h}'
