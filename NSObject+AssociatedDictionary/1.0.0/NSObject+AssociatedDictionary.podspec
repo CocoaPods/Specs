@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'NSObject+AssociatedDictionary'
-  s.version      = '1.0.0'
+  s.version      = '1.0'
   s.license      =  'MIT'
   s.homepage     = 'https://github.com/markiv/NSObject-AssociatedDictionary'
   s.authors      = {'Vikram Kriplaney' => 'vikram@iphonso.com'}
