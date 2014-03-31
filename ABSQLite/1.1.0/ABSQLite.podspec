@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
   s.license            = { :type => 'MIT', :file => 'LICENSE' }
   s.author             = { "Aaron L. Bratcher" => "aaronbratcher1@gmail.com" }
   s.social_media_url   = "http://twitter.com/AaronLBratcher"
-  s.source             = { :git => "https://github.com/AaronBratcher/ABSQLite.git", :tag => 'v1.1.0' }
+  s.source             = { :git => "https://github.com/AaronBratcher/ABSQLite.git", :tag => '1.1.0' }
   s.source_files       = 'Classes/**/*.{h,m}'
-  s.library            = 'libsqlite3'
+  s.library            = 'sqlite3'
   s.requires_arc = true
 
 end
