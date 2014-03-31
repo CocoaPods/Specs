@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "couchbase-lite-ios"
-  s.version      = "1.0-beta3.1.64-bit"
+  s.version      = "1.0-beta3.1-64bit"
   s.summary      = "Couchbase Lite is an embedded lightweight, document-oriented (NoSQL), syncable database engine."
   s.homepage     = "http://www.couchbase.com/communities/couchbase-lite"
   s.license      = { :type => 'Apache License, Version 2.0', :file => 'cblite_ios_1.0-38/LICENSE.txt' }
