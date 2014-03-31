@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/AaronLBratcher"
   s.source             = { :git => "https://github.com/AaronBratcher/ABSQLite.git", :tag => 'v1.1.0' }
   s.source_files       = 'Classes/**/*.{h,m}'
-  s.library            = 'sqlite3'
+  s.library            = 'libsqlite3'
   s.requires_arc = true
 
 end
