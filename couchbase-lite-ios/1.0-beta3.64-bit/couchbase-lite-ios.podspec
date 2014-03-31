@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "couchbase-lite-ios"
-  s.version      = "1.0-beta3.64-bit"
+  s.version      = "1.0-beta3.1.64-bit"
   s.summary      = "Couchbase Lite is an embedded lightweight, document-oriented (NoSQL), syncable database engine."
   s.homepage     = "http://www.couchbase.com/communities/couchbase-lite"
-  s.license      = { :type => 'Apache License, Version 2.0', :file => 'LICENSE.txt' }
+  s.license      = { :type => 'Apache License, Version 2.0', :file => 'cblite_ios_1.0-38/LICENSE.txt' }
   s.author       = { "Jens Alfke" => "jens@couchbase.com" }
   s.platform     = :ios, '6.0'
-  s.source       = { :http => "http://packages.couchbase.com/releases/couchbase-lite/ios/1.0-beta/couchbase-lite-community-ios_1.0-beta3.zip" }
+  s.source       = { :http => "http://packages.couchbase.com/releases/couchbase-lite/ios/1.0-beta/couchbase-lite-community-ios_1.0-beta3.1.zip" }
 
-  s.preserve_paths = "*.framework", "LICENSE.txt"
-  # NOTE: CouchbaseLiteListener.64bit.framework is currently missing from couchbase-lite-community-ios_1.0-beta3.zip
-  #s.vendored_frameworks = "CouchbaseLite.64bit.framework", "CouchbaseLiteListener.64bit.framework"
-  s.vendored_frameworks = "CouchbaseLite.64bit.framework"
+  s.preserve_paths = "cblite_ios_1.0-38/64-bit/*.framework", "cblite_ios_1.0-38/LICENSE.txt"
+  # NOTE: 64-bit CouchbaseLiteListener.framework is currently missing from couchbase-lite-community-ios_1.0-beta3.1.zip
+  #s.vendored_frameworks = "cblite_ios_1.0-38/64-bit/CouchbaseLite.framework", "cblite_ios_1.0-38/64-bit/CouchbaseLiteListener.framework"
+  s.vendored_frameworks = "cblite_ios_1.0-38/64-bit/CouchbaseLite.framework"
   s.public_header_files = "**/*.h"
   s.frameworks   = 'SystemConfiguration', 'CFNetwork', 'Security'
   s.libraries    = 'sqlite3', 'z'
