@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  =  'cocos2d for iPhone is a framework for building 2D games, demos, and other graphical/interactive applications for iPod Touch, iPhone, iPad and Mac. It is based on the cocos2d design but instead of using python it, uses Objective-C.'
   s.homepage     =  'http://www.cocos2d-iphone.org'
   s.author       =  { 'Ricardo Quesada' => 'ricardoquesada@gmail.com', 'Zynga Inc.' => 'https://zynga.com/' }
-  s.source       =  {:git => 'https://github.com/cocos2d-classic/cocos2d-iphone.git', :commit => '7ee5b9abf645c32379a45317986a308204277bb1'}
+  s.source       =  {:git => 'https://github.com/cocos2d/cocos2d-iphone.git', :commit => '7ee5b9abf645c32379a45317986a308204277bb1'}
   s.preferred_dependency = 'cocos2d'
 
   s.subspec 'cocos2d' do |cc|
