@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     }
     s.source            = {
         :git => 'https://github.com/alvaromb/AMBCircularButton.git',
-        :tag => '0.0.1'
+        :tag => '0.0.2'
     }
     s.source_files      = 'AMBCircularButton/*.{m,h}'
     s.requires_arc      = true
