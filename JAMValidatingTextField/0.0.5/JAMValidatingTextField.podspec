@@ -20,7 +20,7 @@ The visual feedback by default shows an invalid text field with a red outline an
 
   s.ios.deployment_target = '6.0'
 
-  s.source       = { :git => "https://github.com/jmenter/JAMValidatingTextField.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/jmenter/JAMValidatingTextField.git", :tag => s.version.to_s }
 
   s.source_files  = 'Classes', '*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
