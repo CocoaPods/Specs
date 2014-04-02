@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.2.0"
   s.summary      = "Quick parameter setting with storyboard segues"
   s.description  =  "Quick parameter setting with storyboard segues. Description and documentation is currently WIP"
-  s.homepage     = "http://www.stefanomondino.com"
+  s.homepage     = "https://github.com/stefanomondino/SMQuickSegue"
   s.license      = 'MIT'
   s.author       = { "Stefano Mondino" => "stefano.mondino.dev@gmail.com" }
    s.source   = { :git => 'https://github.com/stefanomondino/SMQuickSegue.git', :tag => '0.2.0' }

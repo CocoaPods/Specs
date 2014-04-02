@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         	= "SHPieChartView"
   s.version      	= "1.0.2"
-  s.summary      	= "`SHModalObject` a reusable UIView subclass to create Pie Charts"
+  s.summary      	= "`SHPieChartView` a reusable UIView subclass to create Pie Charts"
 
   s.description  	= <<-DESC
-                   `SHModalObject` is a reusable UIView subclass to create Pie Charts
+                   `SHPieChartView` is a reusable UIView subclass to create Pie Charts
                    DESC
 
   s.homepage     	= "https://github.com/grevolution/SHPieChartView"
