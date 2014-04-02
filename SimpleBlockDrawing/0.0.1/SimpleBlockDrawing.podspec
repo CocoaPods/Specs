@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "SimpleBlockDrawing"
-  s.version      = "0.1.0"
+  s.version      = "0.0.1"
   s.summary      = "Category for drawing on UIView with a simplest way"
 
   s.description  = <<-DESC
-                   Category for drawing on UIView with a simplest way
+                   Category for drawing on UIView with a simplest way.
                    DESC
 
   s.homepage     = "https://github.com/mhergon/SimpleBlockDrawing"
@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.source       = { :git => "https://github.com/mhergon/SimpleBlockDrawing.git", :commit => "ba95f4a27dcd911a4e52ca94f23e151ca41f13dd" }
   s.source_files  = 'UIView+DrawBlock.h', 'UIView+DrawBlock.m'
+  s.requires_arc     = true
 end
