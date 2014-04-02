@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
                     }
   s.source_files  = 'MPMoviePlayerController+Subtitles.h', 'MPMoviePlayerController+Subtitles.m'
   s.exclude_files = 'Example/*', 'Others/*'
+  s.requires_arc  = true
 end
