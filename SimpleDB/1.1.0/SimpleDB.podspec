@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source             = { :git => "https://github.com/AaronBratcher/SimpleDB.git", :tag => 'v1.1.0' }
   s.requires_arc = true
   s.source_files = 'SimpleDB_Classes'
-  s.dependency 'ABSQLite', '~> 1.1'
+  s.dependency 'ABSQLite', '~> 1.2'
   
 end
