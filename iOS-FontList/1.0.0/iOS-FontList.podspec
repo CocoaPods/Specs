@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '6.0'
 
-  s.public_header_files = 'HYFontList.h'
-  s.source_files = 'HYFontList.m'
+  s.public_header_files = 'iOS-FontList/HYFontList.h'
+  s.source_files = 'HYFontList.{m,h}'
   
 end
