@@ -31,6 +31,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/BaiduMapsSDK' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/BaiduMapsSDK"' }
 
 end
