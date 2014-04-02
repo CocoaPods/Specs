@@ -14,8 +14,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/siuying/IGTidy.git", :tag => s.version.to_s, :submodules => true }
   s.social_media_url = 'https://twitter.com/siuying'
   s.requires_arc = true
-
-  s.public_header_files = 'vendor/tidy-html5/include/*.h'
+  s.public_header_files = 'Classes/*.h'
   s.source_files = 'Classes', 'vendor/tidy-html5/src/*.{h,c}', 'vendor/tidy-html5/include/*.h'
 
 end
