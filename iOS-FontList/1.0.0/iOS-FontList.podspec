@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version  = '1.0.0'
   s.license  = 'MIT'
   s.summary  = 'A bare bone implementation of a pull to refresh for you to subclass.'
-  s.homepage = 'https://github.com/cheunghy/KYRefreshControl'
+  s.homepage = 'https://github.com/cheunghy/iOS-FontList'
   s.authors  = { 'Zhang Kai Yu' => 'yeannylam@gmail.com' }
   s.source   = { :git => 'https://github.com/cheunghy/iOS-FontList.git', :tag => "1.0.0", :submodules => true }
   s.requires_arc = true
