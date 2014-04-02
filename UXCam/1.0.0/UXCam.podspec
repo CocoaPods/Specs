@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = {
     :type => 'Commercial',
     :text => <<-LICENSE
-                Copyright (c) 2013, UXCam LTD.
+                Copyright (c) 2013-2014, UXCam LTD.
                 All rights reserved.
     LICENSE
   }
@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
   s.homepage = 'https://www.uxcam.com'
   s.author   = { 'UXCam' => 'admin@uxcam.com' }
   s.social_media_url = "http://www.twitter.com/uxcam"
-  s.source   = { :http => 'http://dashboard.uxcam.com/uploads/sdk/ios/1396434684/UXCam.zip' }
+  s.source   = { :http => 'http://dashboard.uxcam.com/uploads/sdk/ios/1396441725/UXCam_iOS_v1.0.0.zip' }
   s.platform = :ios, 5.0
   s.requires_arc = true
 
   s.source_files   = 'UXCam/UXCam.framework/Versions/1.0/Headers/*.{h}'  
   s.preserve_paths = 'UXCam/UXCam.framework'
 
-  s.frameworks     = 'UXCam', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'CoreMotion', 'QuartzCore', 'SystemConfiguration'
+  s.frameworks     = 'UXCam', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'QuartzCore', 'SystemConfiguration'
 
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/UXCam/UXCam"' }
 
