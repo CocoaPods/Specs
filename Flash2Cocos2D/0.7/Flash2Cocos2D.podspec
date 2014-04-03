@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'FlashToCocosARC', 'FlashToCocosARC/*.{h,m}'
   s.requires_arc = true
-  s.dependency 'cocos2d', '2.0'
+  s.dependency 'cocos2d', '3.0'
   s.dependency 'TBXMLPivotalForks', '0.0.1'
 end
