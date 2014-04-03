@@ -29,6 +29,7 @@ EOS
 
   s.ios.platform                = :ios, '4.3'
   s.ios.deployment_target       = '4.3'
+  s.ios.requires_arc            = false
   s.ios.preserve_paths          = 'iphone/ZXingWidget/Classes/**/*.{h}'
   s.ios.source_files            = 'iphone/ZXingWidget/Classes/**/*.{m,mm}'
   s.ios.compiler_flags          = '-IZXing/cpp/core/src/zxing/', '-IZXing/iphone/ZXingWidget/Classes/'
@@ -37,8 +38,5 @@ EOS
   #  must use xcconfig additional to compiler_flag -I to make this header path also available for the including project
   s.ios.xcconfig                = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/**' }
   s.ios.frameworks              = 'AddressBookUI', 'QuartzCore'
-
-  # Keep an 'ios' subspec for backward compatibility with old Podfiles
-  s.subspec 'ios'
 
 end
