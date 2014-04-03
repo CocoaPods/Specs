@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     }
         
   s.ios.deployment_target = '7.0'
-    
+  s.requires_arc = true  
   s.default_subspec = 'core'
 
   s.subspec 'core' do |c|
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
     d.requires_arc = true
     d.source_files = 'demo/source/*'
     d.resources = 'demo/resources/*'
-    d.preserve_paths = "CustomNavbarBackButton.xcodeproj", "Podfile"
+    d.preserve_paths = "CustomNavbarBackButton.xcodeproj"
     d.dependency 'DKNavbarBackButton/core'
   end
 
