@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
 
   s.framework = 'CoreLocation'
 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++' }
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -lstdc++', 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 
 end

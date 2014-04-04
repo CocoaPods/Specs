@@ -1,12 +1,10 @@
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-
 Pod::Spec.new do |s|
   s.name         = "SHRequest"
   s.version      = "0.1.0"
-  s.summary      = "OAuth Signed requests following an acount protocol and looks like SLRequest."
+  s.summary      = "OAuth Signed requests following an account protocol and looks like SLRequest."
   s.description  = <<-DESC
                     Pass in an SHAccount (or anything that follows the account protocol)
-                    and do signed requests. Same API sa SLRequest.
+                    and do signed requests. Same API as SLRequest.
                    DESC
   s.homepage     = "https://github.com/seivan/SHRequest"
   s.source       = { :git => "https://github.com/seivan/SHRequest.git", :tag => s.version.to_s }

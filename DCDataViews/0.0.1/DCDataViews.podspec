@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/daltoniam/DCDataViews.git", :tag => "0.0.1" }
   s.ios.deployment_target = '5.0'
   s.source_files = '*.{h,m}'
-  s.framework = 'Quartz'
+  s.framework = 'CoreGraphics'
   s.requires_arc = true
 end

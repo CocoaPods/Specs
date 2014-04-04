@@ -7,12 +7,12 @@ Pod::Spec.new do |s|
                     A strategy for authenticating with LinkedIn via SHOmniAuth.
                     Uses SHAccountStore.
                    DESC
-  s.homepage     = "https://github.com/seivan/SHOmniAuthLinkedIn"
+  s.homepage     = "https://github.com/SHOmniAuth/SHOmniAuthLinkedIn"
 
   s.license      = {:type => 'MIT' } 
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => "https://github.com/seivan/SHOmniAuthLinkedIn.git", :tag => s.version.to_s}
+  s.source       = { :git => "https://github.com/SHOmniAuth/SHOmniAuthLinkedIn.git", :tag => s.version.to_s}
   s.platform     = :ios, '5.0'
 
   s.source_files = 'SHOmniAuthLinkedIn/**/*.{h,m}'

@@ -1,4 +1,3 @@
-#
 Pod::Spec.new do |s|
   s.name         = 'AngleGradientLayer'
   s.version      = '1.1.0'

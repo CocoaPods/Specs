@@ -1,4 +1,3 @@
-# Be sure to run `pod spec lint BMExtendablePageController.podspec' to ensure this is a
 Pod::Spec.new do |s|
   s.name         = "BMExtendablePageController"
   s.version      = "0.1.0"

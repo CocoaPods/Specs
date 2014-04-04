@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = '1.0'
   s.summary = 'View selection engine used in Frank.'
   s.homepage = 'https://github.com/testingwithfrank/Shelley'
-  s.license = 'Apache2'
+  s.license = 'Apache License, Version 2.0'
   s.authors = {
     'Pete Hodgson' => 'github@thepete.net'
   }

@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
 
-  def s.pre_install(pod, target_definition)
-    expat_config = <<-CONFIG_H
+  s.prepare_command = <<-CMD
+cat >lib/expat_config.h <<CONFIG_H
 #define BYTEORDER 1234
 #define HAVE_BCOPY 1
 #define HAVE_DLFCN_H 1
@@ -42,11 +42,7 @@ Pod::Spec.new do |s|
 #define XML_DTD 1
 #define XML_NS 1
 CONFIG_H
-
-    File.open("#{pod.root}/expat_config.h", "w") do |file|
-      file.puts expat_config
-    end
-  end
+CMD
 
   s.source_files = 'lib/*.{h,c}'
 

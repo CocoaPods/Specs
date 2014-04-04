@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 		      Algolia Search Offline enables developers to quickly deliver Google-like instant search inside their apps, with features like type ahead search, typo-tolerance, instant visual feedback and geosearch.
                      DESC
   s.homepage     = 'http://www.algolia.com'
-  s.author = { 'Parse' => 'support@algolia.com' }
+  s.author = { 'Algolia' => 'support@algolia.com' }
   s.source         = { :http => 'http://www.algolia.com/download/AlgoliaSearchOffline-OSX-SDK-2.0.0.tgz' }
   s.source_files = 'AlgoliaSearch.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'AlgoliaSearch.framework'

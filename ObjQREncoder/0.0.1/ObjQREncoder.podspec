@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Objective C QR Encoder."
   s.homepage     = "https://github.com/jverkoey/ObjQREncoder"
-  s.license        = { :type => 'Apache Licence, Version 2.0', :text => '
+  s.license        = { :type => 'Apache License, Version 2.0', :text => '
                       Licensed under the Apache License, Version 2.0 (the "License");
                       you may not use this file except in compliance with the License.
                       You may obtain a copy of the License at

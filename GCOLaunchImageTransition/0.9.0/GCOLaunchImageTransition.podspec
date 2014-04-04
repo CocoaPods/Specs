@@ -1,7 +1,3 @@
-#
-# Be sure to run `pod spec lint GCOLaunchImageTransition.podspec' to ensure this is a
-# valid spec.
-#
 Pod::Spec.new do |s|
   s.name         = "GCOLaunchImageTransition"
   s.version      = "0.9.0"

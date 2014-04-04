@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/ccgus/fmdb.git',
                  :tag => 'v2.1' }
 
-  s.preferred_dependency = 'standard'
+  s.default_subspec = 'standard'
 
   s.subspec 'common' do |ss|
     ss.source_files = 'src/FM*.{h,m}'
@@ -23,13 +23,14 @@ Pod::Spec.new do |s|
 
   # use a custom built version of sqlite3, with FTS4 enabled
   s.subspec 'standalone' do |ss|
-    ss.dependency 'sqlite3'
+    ss.dependency 'sqlite3/fts'
     ss.dependency 'FMDB/common'
-    ss.prefix_header_contents = '''
-#define SQLITE_ENABLE_FTS4
-#define SQLITE_ENABLE_FTS3_PARENTHESIS
-#define SQLITE_THREADSAFE 1
-'''
   end
 
+  # use SQLCipher and enable -DSQLITE_HAS_CODEC flag
+  s.subspec 'SQLCipher' do |ss|
+    ss.dependency 'SQLCipher'
+    ss.dependency 'FMDB/common'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DSQLITE_HAS_CODEC' }
+  end
 end

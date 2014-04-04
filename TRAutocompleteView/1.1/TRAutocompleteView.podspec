@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.frameworks = 'CoreLocation'
-  s.dependency 'AFNetworking', '~> 1.1.0'
+  s.dependency 'AFNetworking', '~> 1.3.0'
 end

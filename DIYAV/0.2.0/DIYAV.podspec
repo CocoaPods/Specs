@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'DIYAV'
   s.version  = '0.2.0'
-  s.license  = 'Apache 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'A “keep it simple, stupid” approach to handling photo and video capture with AVFoundation.'
   s.homepage = 'https://github.com/diy/av'
   s.authors  = {'Andrew Sliwinski' => 'andrew@diy.org', 'Jon Beilin' => 'jon@diy.org'}
