@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '5.0'
 
-  s.summary  = 'SCPageViewController is a container controller which allows you to paginate other view controllers and build custom transitions between them.'
+  s.summary  = 'SCPageViewController is a container controller which allows you to paginate other view controllers and build custom transitions.'
   s.description = <<-DESC
                   SCPageViewController is a container controller which allows you to paginate other view controllers and build custom transitions between them while providing correct physics and appearance calls.
                   DESC
