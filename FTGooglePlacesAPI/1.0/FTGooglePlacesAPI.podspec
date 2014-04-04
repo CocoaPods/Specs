@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   						 "Lukas Kukacka" => "opensource@lukaskukacka.com" }
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/FuerteInternational/FTGooglePlacesAPI.git",
-  					 :tag => "v1.0" }
+  					 :tag => s.version.to_s }
   s.source_files = 'FTGooglePlacesAPI/*.{h,m}'
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 2.2.0'
