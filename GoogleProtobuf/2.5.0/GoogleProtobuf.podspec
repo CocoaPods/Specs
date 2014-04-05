@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
     s.requires_arc = false
     s.prepare_command = <<-CMD
         (
-            ./configure --prefix=$PWD
+            ./configure --prefix="$PWD"
             make -j4
             make check
             make install
