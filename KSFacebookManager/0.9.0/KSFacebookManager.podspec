@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kaneshin/KSFacebookManager.git", :tag => "0.9.0" }
   s.source_files = 'KSFacebookManager/*'
   s.requires_arc = true
+  s.dependency  'Facebook-iOS-SDK', '~> 3.13.0'
 end
 
