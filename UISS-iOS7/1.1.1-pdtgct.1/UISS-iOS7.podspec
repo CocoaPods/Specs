@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
-  s.name     = 'UISS'
+  s.name     = 'UISS-iOS7'
   s.version  = '1.1.1-pdtgct.1'
 
   s.platform = :ios, '7.0'
   
   s.license  = 'MIT'
   s.summary  = 'UIKit Style Sheets.'
-  s.homepage = 'https://github.com/robertwijas/UISS'
+  s.homepage = 'https://github.com/pdtgct/UISS'
   s.author   = { 'Robert Wijas' => 'https://robertwijas.com' }
   s.description = 'UISS stands for UIKit Style Sheets. UISS is an iOS library that provides you with a convenient way to define the style of your application. UISS is built on top of UIKit UIAppearance proxies.  This version is compatible with iOS 7'  
 
