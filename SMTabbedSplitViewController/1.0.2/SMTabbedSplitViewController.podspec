@@ -26,5 +26,5 @@ Main features:
   s.source       = { :git => "https://github.com/sergik-ru/SMTabbedSplitViewController.git", :tag => '1.0.2' }
 
   s.source_files  = 'SMTabbedSplitViewController', 'SMTabbedSplitViewController/**/*.{h,m}'
-
+  s.requires_arc = true
 end
