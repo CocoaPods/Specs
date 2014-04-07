@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.resources = "src/KKPasscodeLock.bundle"
 
   s.frameworks = 'QuartzCore', 'AudioToolbox', 'Security'
+  s.requires_arc = false
 end

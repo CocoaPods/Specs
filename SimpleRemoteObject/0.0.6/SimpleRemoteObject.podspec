@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.1'
   s.source_files = 'SimpleRemoteObject/classes/**/*.{h,m}'
   s.dependency 'AFNetworking', '>= 1.0.0'
+  s.requires_arc = false
 end

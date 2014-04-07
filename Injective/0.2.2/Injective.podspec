@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Vladimir Pouzanov' => 'farcaller@gmail.com' }
   s.source   = { :git => 'https://github.com/farcaller/Injective.git', :tag => '0.2.2' }
   s.source_files = 'Injective/Classes/*.{h,m}', 'Injective/Headers/*.{h,m}'
+  s.requires_arc = false
 end

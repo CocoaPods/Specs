@@ -15,4 +15,5 @@ EOS
   s.header_dir   = 'Sqlite3'
   s.library   = 'sqlite3'
   s.dependency 'cdebug'
+  s.requires_arc = false
 end

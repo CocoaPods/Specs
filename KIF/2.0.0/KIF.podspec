@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h', 'Additions/**/*-KIFAdditions.h'
   s.frameworks  = 'SenTestingKit', 'CoreGraphics'
   s.prefix_header_contents = '#import <CoreGraphics/CoreGraphics.h>'
+  s.requires_arc = false
 end

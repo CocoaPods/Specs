@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = "Fountain/FN*.{h,m}", "Fountain/Fountain*.{h,m}", "Fountain/FastFountainParser.{h,m}", "RegexKitLite/*.{h,m}"
   s.frameworks = 'cocoa'
   s.libraries = 'icucore'
+  s.requires_arc = false
 end

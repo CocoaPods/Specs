@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
                  :commit => '262a1defc6da77636cfa86fae316163f752d3d19' }
 
   s.source_files = 'TLSignals/*.{h,m, mm}'
+  s.requires_arc = false
 end

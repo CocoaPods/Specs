@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/jessedc/JCPriorityQueue.git', :commit => 'e5c0f5ed03b802064ac8d27d85e996aebb01e3bf' }
   s.source_files = 'JCPriorityQueue/*.{h,m}'
+  s.requires_arc = false
 end

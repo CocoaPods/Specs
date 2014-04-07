@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.frameworks    = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation',
 		    'CoreGraphics', 'SystemConfiguration', 'AdSupport'
   s.dependency 'TouchJSON', '~> 1.0'
+  s.requires_arc = false
 end

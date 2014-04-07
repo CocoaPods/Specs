@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'EGO*/*.{h,m}'
 
   s.dependency 'EGOCache'
+  s.requires_arc = false
 end

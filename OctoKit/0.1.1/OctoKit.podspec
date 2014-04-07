@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.dependency   "Mantle", "~> 1.3.1"
   s.dependency   "ReactiveCocoa", "~> 2.1.4"
   s.dependency   "libextobjc/EXTKeyPathCoding", "~> 0.3.0"
+  s.requires_arc = false
 end

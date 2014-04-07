@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/keroxp/KXLazyTableImage.git", :tag => "0.0.1" }
   s.source_files  = 'KXLazyTableImage', 'KXLazyTableImage/*.{h,m}'
   s.dependency 'AFNetworking', '~> 2.0.0'
+  s.requires_arc = false
 end

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'MobileCoreServices', 'Security', 'SystemConfiguration', 'CoreData', 'Bestly'
   s.compiler_flags = '-ObjC'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Bestly"' }
+  s.requires_arc = false
 end

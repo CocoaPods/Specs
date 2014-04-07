@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
     'HEADER_SEARCH_PATHS'  => '"$(SDKROOT)/usr/include/libxml2"',
     'LIBRARY_SEARCH_PATHS' => ENV['YANDEX_DEV'] ? "\"#{ENV['BINBUILDS_FOLDER']}/yandex-mapkit-ios\"" : "\"$(PODS_ROOT)/YandexMapKit\""
   }
+  s.requires_arc = false
 end

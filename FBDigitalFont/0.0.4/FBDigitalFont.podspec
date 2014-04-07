@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/lyokato/FBDigitalFont.git", :tag => "0.0.4" }
   s.source_files  = "FBDigitalFont/Classes/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
+  s.requires_arc = false
 end

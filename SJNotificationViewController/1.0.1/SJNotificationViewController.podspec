@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.framework = 'QuartzCore'
   s.platform = :ios
   s.source_files = 'SJNotificationViewController{.h,.m,.xib}'
+  s.requires_arc = false
 end

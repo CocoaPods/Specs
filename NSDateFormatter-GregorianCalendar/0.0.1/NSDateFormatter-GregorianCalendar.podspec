@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       = { "akuraru" => "akuraru+bb@gmail.com" }
   s.source       = { :git => "https://github.com/akuraru/NSDateFormatter-GregorianCalendar.git", :tag => "0.0.1" }
   s.source_files  = 'NSDateFormatter-GregorianCalendar/*.{h,m}'
+  s.requires_arc = false
 end

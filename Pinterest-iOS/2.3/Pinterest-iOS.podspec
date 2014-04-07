@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.xcconfig       =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pinterest-iOS/PinItSDKiOS/Pinterest.embeddedframework"' }
   s.preserve_paths =  'PinItSDKiOS/Pinterest.embeddedframework/Pinterest.framework'
 
+  s.requires_arc = false
 end

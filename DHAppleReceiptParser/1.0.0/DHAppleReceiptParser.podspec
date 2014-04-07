@@ -22,4 +22,5 @@ https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreRec
   s.public_header_files = "DHAppStoreReceipt.h"
   s.dependency "OpenSSL", "~> 1.0"
 
+  s.requires_arc = false
 end

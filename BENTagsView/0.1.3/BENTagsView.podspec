@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/benpackard/BENTagsView.git", :tag => "0.1.3" }
   s.source_files  = 'BENTagsView/*.{h,m}'
  
+  s.requires_arc = false
 end

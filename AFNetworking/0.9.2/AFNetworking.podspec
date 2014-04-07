@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AFNetworking'
 
   s.framework = 'SystemConfiguration'
+  s.requires_arc = false
 end

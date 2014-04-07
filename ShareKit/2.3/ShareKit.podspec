@@ -86,4 +86,5 @@ Pod::Spec.new do |s|
     vkontakte.dependency 'JSONKit', "~> 1.4"
     vkontakte.dependency 'ShareKit/Core'
   end
+  s.requires_arc = false
 end

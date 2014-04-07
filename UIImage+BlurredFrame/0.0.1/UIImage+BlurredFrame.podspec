@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Adrian2112/UIImage-BlurredFrame.git", :tag => "0.0.1" }
   s.source_files  = '*.{h,m}'
 
+  s.requires_arc = false
 end

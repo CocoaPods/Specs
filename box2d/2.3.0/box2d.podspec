@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       =  {:svn => 'http://box2d.googlecode.com/svn/trunk/Box2D', :revision => '249' }
   s.source_files =  'Box2D/**/*.{h,cpp}'
   s.header_mappings_dir = 'Box2D'
+  s.requires_arc = false
 end

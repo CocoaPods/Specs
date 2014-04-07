@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/satyso/SYClassConverter.git", :tag => "0.0.1" }
   s.source_files  = 'ClassConverter/ClassConverter/**/*.{h,m}'
+  s.requires_arc = false
 end

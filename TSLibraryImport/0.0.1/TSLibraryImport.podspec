@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/tapsquare/TSLibraryImport.git', :commit => '0eb4fdeb5e21f5d41d8cc336e70c797ebf076b2f' }
 
   s.source_files = 'Classes/TSLibraryImport.{h,m}'
+  s.requires_arc = false
 end

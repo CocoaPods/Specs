@@ -14,4 +14,5 @@ ACDCryptsyAPI provides a very simple interface into the [Cryptsy API](https://ww
   s.source       = { :git => "https://github.com/AltCoinDev/ACDCryptsyAPI.git", :tag => s.version.to_s }
   s.source_files  = 'ACDCryptsyAPI/*'
   s.dependency 'AFNetworking', '~> 2.0'
+  s.requires_arc = false
 end

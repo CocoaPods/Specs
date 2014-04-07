@@ -37,4 +37,5 @@ Pod::Spec.new do |s|
   s.source_files = 'KVPasscodeViewController.{h,m}'
   s.resources = 'KVPasscodeViewController.xib'
   s.frameworks = ['AudioToolbox', 'QuartzCore']
+  s.requires_arc = false
 end

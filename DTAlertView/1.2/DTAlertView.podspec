@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/Darktt/DTAlertView.git", :tag => "1.2" }
   s.source_files  = 'DTAlertView'
+  s.requires_arc = false
 end

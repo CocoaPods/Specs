@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
     ss.source_files = 'icu/**/*.h'
   end
   # s.xcconfig      =  { 'HEADER_SEARCH_PATHS' => "$(PODS_ROOT)/Headers/Fragaria/icu/" }
+  s.requires_arc = false
 end

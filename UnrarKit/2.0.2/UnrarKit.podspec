@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
                       "OTHER_CPLUSPLUSFLAGS" => "$(inherited) -DSILENT -DRARDLL $(OTHER_CFLAGS)" }
   s.ios.deployment_target = "5.0"
   s.osx.deployment_target = "10.7"
+  s.requires_arc = false
 end

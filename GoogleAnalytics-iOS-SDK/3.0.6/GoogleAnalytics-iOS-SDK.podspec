@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK"',
                    'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz' }
+  s.requires_arc = false
 end

@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'OpenUDID'
   s.dependency 'FMDB'
   s.dependency 'TouchXML'
+  s.requires_arc = false
 end

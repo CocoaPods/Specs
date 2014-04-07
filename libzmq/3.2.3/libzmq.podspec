@@ -24,4 +24,5 @@ CMD
    s.xcconfig        =  { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/zeromq/src/.libs' }
    s.preserve_paths  = 'src/.libs/libzmq.a','include/*.h'
    s.libraries       = 'zmq','stdc++'
+  s.requires_arc = false
 end

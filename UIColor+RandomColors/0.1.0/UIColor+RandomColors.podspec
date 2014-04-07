@@ -20,4 +20,5 @@ Future potential ideas that would be great to branch from this and submit a pull
   s.platform     = :ios
   s.source       = { :git => "https://github.com/karlbecker/UIColor-RandomColors.git", :tag => "0.1.0" }
   s.source_files  = 'Categories', 'Categories/**/*.{h,m}'
+  s.requires_arc = false
 end

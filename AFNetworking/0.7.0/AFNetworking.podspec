@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
 
   s.library = 'z'
   s.dependency 'JSONKit'
+  s.requires_arc = false
 end

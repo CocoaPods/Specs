@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.version = '0.0.1'
   s.source = { :git => 'https://github.com/hoteltonight/moriarty.git', :commit => '4464f747c28b37c6ef1bf6f2a1dd28e0642467ad' }
   s.source_files = 'UIView+Position.{h,m}'
+  s.requires_arc = false
 end

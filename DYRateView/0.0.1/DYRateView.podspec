@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'DYRateView/DYRateView/DYRateView.{h,m}'
   s.resources = "DYRateView/Resources/*.png"
+  s.requires_arc = false
 end

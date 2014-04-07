@@ -25,4 +25,5 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   s.platform     = :osx
   s.source_files = 'Classes/PX*.{h,m}'
 
+  s.requires_arc = false
 end

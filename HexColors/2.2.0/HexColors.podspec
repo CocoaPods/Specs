@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'Classes/HexColor.{h,m}'
+  s.requires_arc = false
 end

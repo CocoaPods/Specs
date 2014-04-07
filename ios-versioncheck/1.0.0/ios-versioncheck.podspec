@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'DLVersionCheck.{h,m}'
 
   s.frameworks = 'CoreFoundation', 'UIKit'
+  s.requires_arc = false
 end

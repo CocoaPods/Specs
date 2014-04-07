@@ -79,4 +79,5 @@ echo "246a247,251
 > 
 " | patch include/gtest/internal/gtest-port.h
 CMD
+  s.requires_arc = false
 end

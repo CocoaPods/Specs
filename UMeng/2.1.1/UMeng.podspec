@@ -20,4 +20,5 @@ LICENSE
 
   s.library = 'MobClickLibrary', 'z'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/UMeng/Analytics_iOS_SDK_2.1.1.OpenUDID"' }
+  s.requires_arc = false
 end

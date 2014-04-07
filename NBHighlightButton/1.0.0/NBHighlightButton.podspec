@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'src', 'src/**/*.{h,m}'
 
+  s.requires_arc = false
 end

@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Authors'
   s.libraries = 'z'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/libgit2/include' }
+  s.requires_arc = false
 end

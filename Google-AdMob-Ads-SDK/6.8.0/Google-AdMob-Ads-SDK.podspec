@@ -21,4 +21,5 @@ LICENSE
   s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport}
   s.library = 'GoogleAdMobAds'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0"' }
+  s.requires_arc = false
 end

@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
     ss.compiler_flags = '-DSQLITE_HAS_CODEC', '-DSQLITE_TEMP_STORE=2', '-DSQLITE_THREADSAFE', '-DSQLCIPHER_CRYPTO_CC', '-DSQLITE_ENABLE_UNLOCK_NOTIFY'
     ss.source_files = 'sqlite3.c', 'sqlite3.h'
   end
+  s.requires_arc = false
 end

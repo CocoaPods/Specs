@@ -67,4 +67,5 @@ CMD
   s.source_files = 'src/*.{h,c}'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/wbxml/src' }
   s.dependency 'expat'
+  s.requires_arc = false
 end

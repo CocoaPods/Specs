@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/wordpress-mobile/EmailChecker.git", :tag => "0.1" }
   s.source_files = 'ios/EmailChecker/**/*.{h,mm}', 'common/**/*.{h,cpp}'
 
+  s.requires_arc = false
 end

@@ -80,5 +80,6 @@ Pod::Spec.new do |s|
   s.subspec 'Testing' do |ts|
     ts.source_files = 'Code/Testing'
   end
+  s.requires_arc = false
 end
 

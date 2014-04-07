@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.author       = { "Matt Coneybeare" => "coneybeare@urbanapps.com" }
   s.source       = { :git => "https://github.com/urbanapps/UALogger.git", :tag => s.version.to_s }
   s.source_files  = 'UALogger.h', 'UALogger.m'
+  s.requires_arc = false
 end

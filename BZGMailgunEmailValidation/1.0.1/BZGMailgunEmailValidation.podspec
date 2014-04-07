@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/benzguo/BZGMailgunEmailValidation.git', :tag => '1.0.1'}
   s.platform = :ios
   s.source_files = 'BZGMailgunEmailValidator.{h,m}'
+  s.requires_arc = false
 end

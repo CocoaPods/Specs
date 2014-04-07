@@ -28,4 +28,5 @@ Pod::Spec.new do |s|
     sp.source_files = 'SDWebImage/MKAnnotationView+WebCache.*'
     sp.framework    = 'MapKit'
   end
+  s.requires_arc = false
 end

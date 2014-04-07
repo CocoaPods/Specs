@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'QuartzCore', 'CoreGraphics'
 
   s.prefix_header_file = 'Other Sources/SSToolkit_Prefix.pch'
+  s.requires_arc = false
 end

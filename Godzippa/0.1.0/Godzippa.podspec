@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'NSData+Godzippa.{h,m}'
   
   s.library = 'z'
+  s.requires_arc = false
 end

@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
 
   
   s.framework = 'CoreText'
+  s.requires_arc = false
 end

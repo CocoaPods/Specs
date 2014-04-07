@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
 '''
 
   s.header_mappings_dir = 'cocos2d'
+  s.requires_arc = false
 end

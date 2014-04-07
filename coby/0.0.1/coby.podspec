@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
 LICENSE
   }
   s.source_files = "*.{h,m}"
+  s.requires_arc = false
 end

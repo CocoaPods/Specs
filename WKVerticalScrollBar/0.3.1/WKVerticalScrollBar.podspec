@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'WKVerticalScrollBar/WKVerticalScrollBar.{h,m}'
   
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = false
 end

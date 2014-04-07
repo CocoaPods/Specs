@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'SCSlidingViewController', 'SCSlidingViewController/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
 
+  s.requires_arc = false
 end

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
 
 
   s.dependency 'SBJson', '2.2.3'
+  s.requires_arc = false
 end

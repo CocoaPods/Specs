@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author   = { 'kissmetrics' => 'support@kissmetrics.com' }
   s.source   = { :git => 'https://github.com/kissmetrics/KISSmetrics-iOS-Mac-OS-X-Library.git', :tag => 'v1.2.0' }
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end
