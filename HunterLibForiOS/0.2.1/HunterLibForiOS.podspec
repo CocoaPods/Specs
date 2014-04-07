@@ -6,10 +6,6 @@ Pod::Spec.new do |s|
   s.version      = "0.2.1"
   s.summary      = "HunterLibForiOS is an Objective-C library for iOS developers."
 
-  s.description  = <<-DESC
-	HunterLibForiOS is an Objective-C library for iOS developers.
-                  DESC
-
   s.homepage     = "https://github.com/xutengfei/HunterLibForiOS"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 

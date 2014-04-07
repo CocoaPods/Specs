@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "NBVariableTargetAreaButton"
   s.version      = "1.0.0"
   s.summary      = "Button that can detect taps a certain range outside of itself, useful for small buttons."
-  s.description  = <<-DESC
-                   Button that can detect taps a certain range outside of itself, useful for small buttons.
-                   DESC
   s.homepage     = "https://github.com/needbee/nbvariabletargetareabutton"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Josh Justice" => "josh@need-bee.com" }

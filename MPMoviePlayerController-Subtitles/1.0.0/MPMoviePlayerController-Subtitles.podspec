@@ -3,9 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Easy way to show SRT files on MPMoviePlayerController"
 
-  s.description  = <<-DESC
-                   Easy way to show SRT files on MPMoviePlayerController
-                   DESC
   s.homepage     = "https://github.com/mhergon/MPMoviePlayerController-Subtitles"
   s.screenshots  = "https://raw.github.com/mhergon/MPMoviePlayerController-Subtitles/master/Others/screenshot.png"
   s.license      = 'MIT (LICENSE)'

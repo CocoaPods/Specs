@@ -6,10 +6,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Allows changing the background color of the button when highlighted (i.e. touch down)"
 
-  s.description  = <<-DESC
-                   Allows changing the background color of the button when highlighted (i.e. touch down)
-                   DESC
-
   s.homepage     = "https://github.com/needbee/nbhighlightbutton"
   # s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
 

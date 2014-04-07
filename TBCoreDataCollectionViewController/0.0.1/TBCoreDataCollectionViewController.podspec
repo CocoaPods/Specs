@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "A CoreData backed CollectionViewController subclass"
 
-  s.description  = <<-DESC
-                   A CoreData backed CollectionViewController subclass
-                   DESC
-
   s.homepage     = "https://github.com/tasboa/TBCoreDataCollectionViewController"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors          = { "Tasboa" => "github@tasboa.com", "Vasco d'Orey" => "vasco.orey@gmail.com" }

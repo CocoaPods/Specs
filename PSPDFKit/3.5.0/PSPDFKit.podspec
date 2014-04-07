@@ -6,9 +6,6 @@ Pod::Spec.new do |s|
   s.author       = { "PSPDFKit GmbH" => "support@pspdfkit.com" }
   s.summary      = "The leading framework for displaying and annotating PDFs in your iOS apps."
 
-  s.description  = <<-DESC
-                   The leading framework for displaying and annotating PDFs in your iOS apps.
-                   DESC
   s.screenshots  = "http://pspdfkit.com/images/frontpage/heroshot_pspdfkit_ipadmini.jpg", "http://pspdfkit.com/images/frontpage/heroshot_pspdfkit_iphone5.png"
 
   s.platform     = :ios, '6.0'

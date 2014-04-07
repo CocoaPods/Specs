@@ -5,10 +5,6 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "A polymorpohic collection class for objc."
 
-  s.description  = <<-DESC
-                    A polymorpohic collection class for objc.
-                   DESC
-
   s.homepage     = "https://github.com/keroxp/KXCollection"
   s.license      = 'MIT'
 

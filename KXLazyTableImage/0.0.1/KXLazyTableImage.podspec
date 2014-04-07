@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "KXLazyTableImage"
   s.version      = "0.0.1"
   s.summary      = "A small library for asychronous image dowonloading to UITableViewCell"
-  s.description  = <<-DESC
-                   A small library for asychronous image dowonloading to UITableViewCell
-                   DESC
   s.homepage     = "https://github.com/keroxp/KXLazyTableImage"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author             = { "Yusuke Sakurai" => "kerokerokerop@gmail.com" }

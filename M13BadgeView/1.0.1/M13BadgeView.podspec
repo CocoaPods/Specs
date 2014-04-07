@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.1"
   s.summary      = "A customizable implementation of badges for UIViews."
 
-  s.description  = <<-DESC
-                   A customizable implementation of badges for UIViews.
-                   DESC
-
   s.homepage     = "https://github.com/Marxon13/M13BadgeView"
   s.license      = {:type => 'MIT',
                     :text => <<-LICENSE
