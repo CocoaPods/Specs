@@ -18,7 +18,6 @@ LICENSE
   s.source_files = 'Analytics_iOS_SDK_2.1.1.OpenUDID/*.h'
   s.preserve_paths = 'Analytics_iOS_SDK_2.1.1.OpenUDID'
 
-  s.framework = %w{libz.dylib}
-  s.library = 'MobClickLibrary'
+  s.library = 'MobClickLibrary', 'z'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/UMeng/Analytics_iOS_SDK_2.1.1.OpenUDID"' }
 end
