@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'
   s.source       = { :git => "https://github.com/dzenbot/DZNWebViewController.git", :tag => "v2.0" }
-  s.source_files  = 'Classes', 'Source/Classes/**/*.{h,m}'
+  s.source_files  = 'Classes', 'Source/Classes/**/*.*'
   s.resources     = 'Resources', 'Source/Resources/**/*.*'
   s.ios.framework = 'UIKit'
   s.dependency 'NJKWebViewProgress', '~> 0.2'
