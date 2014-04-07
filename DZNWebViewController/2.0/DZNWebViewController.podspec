@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/dzenbot/DZNWebViewController.git", :tag => "v2.0" }
   s.source_files  = 'Classes', 'Source/Classes/**/*.{h,m}'
   s.resources     = 'Resources', 'Source/Resources/**/*.*'
-  s.resources     = 'Scripts', 'Source/Scripts/**/*.*'
   s.ios.framework = 'UIKit'
   s.dependency 'NJKWebViewProgress', '~> 0.2'
   s.requires_arc = true
