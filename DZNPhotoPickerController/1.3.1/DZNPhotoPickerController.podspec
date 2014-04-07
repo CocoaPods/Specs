@@ -12,9 +12,8 @@ Pod::Spec.new do |s|
   s.source       	= { :git => "https://github.com/dzenbot/UIPhotoPickerController.git", :tag => "v1.3.1" }
   s.source_files  = 'Classes', 'Source/Classes/**/*.{h,m}'
   s.resources     = 'Resources', 'Source/Resources/**/*.*'
-  s.ios.framework	= 'MobileCoreServices'
   s.requires_arc 	= true
-
+  s.prefix_header_contents = '#import <MobileCoreServices/MobileCoreServices.h>', '#import <SystemConfiguration/SystemConfiguration.h>'
   s.dependency 'AFNetworking', '~> 1.3.3'
   s.dependency 'SDWebImage', '~> 3.5.4'
 end
