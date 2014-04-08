@@ -15,7 +15,7 @@ LICENSE
   s.source = { :http => "http://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip" }
   s.platform = :ios
 
-  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h'
+  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a'
   s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.8.0'
 
   s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport}
