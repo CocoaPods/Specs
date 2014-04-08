@@ -1,0 +1,47 @@
+<!--
+     Copyright 2014 Google Inc. All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    body { margin: 0; }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+    var player;
+    YT.ready(function() {
+      player = new YT.Player('player', %@);
+      window.location.href = 'ytplayer://onYouTubeIframeAPIReady';
+    });
+    function onReady(event) {
+        window.location.href = 'ytplayer://onReady?data=' + event.data;
+    }
+    function onStateChange(event) {
+        window.location.href = 'ytplayer://onStateChange?data=' + event.data;
+    }
+
+    function onPlaybackQualityChange(event) {
+        window.location.href = 'ytplayer://onPlaybackQualityChange?data=' + event.data;
+    }
+    function onPlayerError(event) {
+        window.location.href = 'ytplayer://onError?data=' + event.data;
+    }
+    </script>
+</body>
+</html>
