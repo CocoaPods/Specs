@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     :text => 'Copyright (c) Daum Communications. All rights reserved.'
   }
   s.author         = 'Daum Communications.'
-  s.source         = { :http => "http://dna.daum.net/examples/oauth2/ios/DaumOAuthSDKiOS-1.0.0.zip" }
+  s.source         = { :http => "http://dna.daum.net/examples/login/ios/latest.zip" }
   s.platform       = :ios
   s.vendored_frameworks = 'DaumOAuthSDK.framework'
   s.framework      = 'Foundation', 'CoreGraphics', 'UIKit', 'DaumOAuthSDK', 'MobileCoreServices', 'SystemConfiguration'
