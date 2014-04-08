@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "GameThrive"
+  s.name             = "GameThrivePushNotifications"
   s.version          = "1.0.0"
   s.summary          = "GameThrive push notification libary for mobile games."
   s.homepage         = "https://gamethrive.com"
