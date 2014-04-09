@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'libChartbeat-iOS-SDK.a'
   s.library        = 'Chartbeat-iOS-SDK'
   s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Chartbeat"' }
+  s.requires_arc = false
 end

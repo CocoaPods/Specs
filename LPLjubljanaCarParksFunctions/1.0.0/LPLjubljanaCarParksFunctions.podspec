@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "LPLjubljanaCarParksFunctions"
   s.version      = "1.0.0"
   s.summary      = "LPLjubljanaCarParksFunctions is an iOS library that provides easy access to car parks in Ljubljana."
-  s.description  = <<-DESC
-                    LPLjubljanaCarParksFunctions is an iOS library that provides easy access to car parks in Ljubljana
-                   DESC
   s.homepage     = "http://www.lukapenger.eu"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Luka Penger' => 'luka.penger@gmail.com' }

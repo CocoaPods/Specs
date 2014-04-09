@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.license     = 'License.md'
   s.source_files = '*.{h,m}'
   s.ios.deployment_target = '5.0'
+  s.requires_arc = false
 end

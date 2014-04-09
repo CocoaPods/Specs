@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'amalgamated/jsonlite/*.{h,c}', 'objc/*.{h,m}'
   s.public_header_files = "amalgamated/*.h", "objc/*.h"
   s.framework  = 'Foundation'
+  s.requires_arc = false
 end

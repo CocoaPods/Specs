@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nilsou/NHSlidingController.git", :tag => "0.1.0" }
   s.platform     = :ios, '5.0'
   s.source_files = 'NHSlidingController/*.{h,m}'
+  s.requires_arc = false
 end

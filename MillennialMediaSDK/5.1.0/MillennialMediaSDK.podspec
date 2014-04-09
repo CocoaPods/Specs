@@ -18,4 +18,5 @@ The Millennial Media iOS SDK provides functionality for showing ads and monetizi
   s.weak_frameworks = 'AdSupport', 'Accounts', 'PassKit', 'Social', 'StoreKit'
   s.xcconfig        =  { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/MillennialMediaSDK/iOS_5.1.0_SDK/MMSDK/' }
 
+  s.requires_arc = false
 end

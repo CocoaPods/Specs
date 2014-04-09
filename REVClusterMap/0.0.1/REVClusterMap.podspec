@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'REVClusterMap/REVClusterMap/*.{h,m}'
   s.resources = "REVClusterMap/Recources/assets/*.png"
   s.frameworks = 'MapKit'
+  s.requires_arc = false
 end

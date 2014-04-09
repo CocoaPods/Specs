@@ -47,4 +47,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'OCDSpec2', 'OCDSpec2/**/*.{h,m,}'
 #  s.resources = ""
   s.exclude_files = 'OCDSpec2/Exclude'
+  s.requires_arc = false
 end

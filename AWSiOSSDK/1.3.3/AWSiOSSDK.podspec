@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
       ss.dependency 'AWSiOSSDK/Runtime'
     end
   end
+  s.requires_arc = false
 end

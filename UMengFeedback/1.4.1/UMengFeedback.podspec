@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.library   = 'UMFeedback'
   
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/UMengFeedback/**"' }
+  s.requires_arc = false
 end

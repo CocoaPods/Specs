@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
     dependency = 'NSString+XMLEntities'
     dependency = 'NSDate+InternetDateTime'
   end
+  s.requires_arc = false
 end

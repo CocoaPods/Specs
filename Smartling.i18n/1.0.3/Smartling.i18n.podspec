@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = 'Pavel Ivashkov'
   s.source       = { :git => 'https://github.com/Smartling/ios-i18n.git', :tag => "v#{s.version}" }
   s.source_files = 'Smartling.i18n/Smartling.i18n/*.{h,m,c}' 
+  s.requires_arc = false
 end

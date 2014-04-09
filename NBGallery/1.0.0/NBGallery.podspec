@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/needbee/nbgallery.git", :tag => "1.0.0" }
   s.source_files  = 'src', 'src/**/*.{h,m}'
+  s.requires_arc = false
 end

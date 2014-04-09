@@ -28,4 +28,5 @@ Pod::Spec.new do |s|
     d.dependency 'DKNavbarBackButton/core'
   end
 
+  s.requires_arc = false
 end

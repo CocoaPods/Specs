@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'include/*.h'
 
+  s.requires_arc = false
 end

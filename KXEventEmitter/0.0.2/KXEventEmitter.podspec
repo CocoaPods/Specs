@@ -5,10 +5,6 @@ Pod::Spec.new do |s|
   s.version      = "0.0.2"
   s.summary      = "A event emitter for objc internally using NSNotificationCenter."
 
-  s.description  = <<-DESC
-                    A event emitter for objc internally using NSNotificationCenter.
-                   DESC
-
   s.homepage     = "https://github.com/keroxp/KXEventEmitter"
   s.license      = 'MIT'
 
@@ -23,4 +19,5 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Classes/**/*.h'
 
+  s.requires_arc = false
 end

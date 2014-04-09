@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libz' }
 
   s.dependency 'BeeFramework'
+  s.requires_arc = false
 end

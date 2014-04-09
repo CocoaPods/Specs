@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'DCRoundSwitch/*'
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = false
 end

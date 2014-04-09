@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source_files = 'Classes', 'Classes/iOS'
 
+  s.requires_arc = false
 end

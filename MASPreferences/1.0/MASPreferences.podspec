@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}'
   s.resources    = '*.xib'
   s.preserve_paths = 'README.md'
+  s.requires_arc = false
 end

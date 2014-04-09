@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreGraphics', 'QuartzCore', 'SystemConfiguration', 'MediaPlayer', 'MapKit', 'CoreLocation', 'CFNetwork', 'MessageUI', 'EventKit'
   s.libraries = 'z', 'CaulyAds'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/CaulySDK/library' }
+  s.requires_arc = false
 end

@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Jasper Blues' => 'jasper.blues@me.com' }
   s.source   = { :git => 'https://github.com/typhoon-framework/OCLogTemplate.git', :tag => 'v1.0'}
   s.source_files = 'OCLogTemplate.h'
+  s.requires_arc = false
 end

@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.library    =  'z'
 
   s.header_mappings_dir = 'cocos2d'
+  s.requires_arc = false
 end

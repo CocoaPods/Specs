@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.subspec 'JSON' do |ss|
     ss.source_files = 'YYHRequest/Classes/YYHJSONRequest/**/*.{h,m}', 'YYHRequest/Classes/YYHRequest/**/*.{h,m}'
   end
+  s.requires_arc = false
 end

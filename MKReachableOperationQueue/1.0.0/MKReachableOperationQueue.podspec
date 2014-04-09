@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
 
    s.framework  = 'SystemConfiguration'
 
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       = { "Mike Enriquez" => "mike@enriquez.me" }
   s.source       = { :git => "https://github.com/enriquez/ECPhoneNumberFormatter.git", :tag => s.version.to_s }
   s.source_files  = 'ECPhoneNumberFormatter'
+  s.requires_arc = false
 end

@@ -106,4 +106,5 @@ Pod::Spec.new do |s|
     end
     all.dependency 'UI7Kit/UI7Switch/SevenSwitch'
   end
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ioscodesnippet/UIView-JTViewToImage.git", :tag => s.version.to_s }
   s.source_files  = 'Classes/*.{h,m}'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.requires_arc = false
 end

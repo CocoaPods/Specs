@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { "Tomek Cejner" => "tomek.cejner@gmail.com" }
   s.source       = { :git => "https://github.com/tomekc/Syringe.git", :tag => "0.9" }
   s.source_files = 'SyringeCore/*.{h,m}'
+  s.requires_arc = false
 end

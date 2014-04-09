@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/danielamitay/DALinedTextView.git", :commit => 'b41e8be3af948d9b9e44027b0f9189e644a6459b' }
   s.source_files = 'DALinedTextView', 'DALinedTextView/**/*.{h,m}'
   s.framework    = 'Foundation', 'UIKit'
+  s.requires_arc = false
 end

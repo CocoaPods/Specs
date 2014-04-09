@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ignazioc/JSONKit-NoWarning.git', :tag => "1.1", :commit => "35360aeb577f58a49cdf4ce58dbf286e2fab39e0" }
 
   s.source_files   = 'JSONKit.*'
+  s.requires_arc = false
 end

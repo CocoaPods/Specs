@@ -18,4 +18,5 @@ LICENSE
   s.preserve_path = 'Liftoff/libLiftoff.a'
   s.library = 'Liftoff'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/liftoff-ios-sdk/Liftoff"'}
+  s.requires_arc = false
 end

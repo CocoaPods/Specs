@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tmtk75/TMKDesignCheatSheet.git", :tag => "0.0.1" }
   s.source_files  = 'TMKDesignCheatSheet', 'TMKDesignCheatSheet/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
+  s.requires_arc = false
 end

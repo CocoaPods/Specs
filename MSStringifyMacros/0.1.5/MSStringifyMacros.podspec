@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
     ss.source_files = 'MSStringifyMacros_UserDefaults.h'
   end
 
+  s.requires_arc = false
 end

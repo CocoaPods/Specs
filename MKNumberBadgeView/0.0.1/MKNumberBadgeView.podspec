@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/monospacecollective/MKNumberBadgeView.git', :commit => '4ffd4eb5e2551c848025dabe6bcfc7172ad29041' }
   s.source_files = 'MKNumberBadgeView.{h,m}'
   s.platform     = :ios
+  s.requires_arc = false
 end

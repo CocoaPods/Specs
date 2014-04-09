@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.frameworks   =  'SystemConfiguration'
   s.platform     =  :osx
   s.source_files =  'Mixpanel/**/*.{h,m}'
+  s.requires_arc = false
 end

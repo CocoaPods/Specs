@@ -9,4 +9,5 @@ and caching them."
   s.source       = { :git => "https://github.com/markofjohnson/HJCache.git", :commit => "d8ed3070e8620ca2e6d9935a5d874bf6780bd087" }
   s.platform     = :ios
   s.source_files = 'HJCacheClasses/*.{h,m}'
+  s.requires_arc = false
 end

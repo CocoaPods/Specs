@@ -31,4 +31,5 @@ LICENSE
 
   s.ios.deployment_target = '5.0'
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

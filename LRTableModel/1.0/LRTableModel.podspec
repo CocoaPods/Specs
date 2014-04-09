@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/lukeredpath/LRTableModel.git', :tag => 'v1.0' }
   s.source_files = 'Classes'
 
+  s.requires_arc = false
 end

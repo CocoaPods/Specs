@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'MurmurHash', 'murmurhashforios/murmurhashforios/*.{h,mm}'
 
+  s.requires_arc = false
 end

@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/bkenny/BKECircularProgressView.git", :tag => "0.1" }
   s.source_files  = 'BKECircularProgressView/*.{h,m}'
+  s.requires_arc = false
 end

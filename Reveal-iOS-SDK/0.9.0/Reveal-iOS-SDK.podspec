@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks     = 'CoreGraphics', 'CFNetwork', 'QuartzCore', 'Reveal'
   s.compiler_flags = '-ObjC'
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Reveal-iOS-SDK/Reveal-Framework-0.9.0"' }
+  s.requires_arc = false
 end

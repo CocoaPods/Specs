@@ -7,4 +7,5 @@ Pod::Spec.new do |spec|
     spec.author   = { 'Joel Lopes Da Silva' => 'joel@lopes-da-silva.com' }
     spec.source   = { :git => 'https://github.com/JoeKun/FileMD5Hash.git', :tag => '2.0.0' }
     spec.source_files = 'Library/*.{h,m}'
+  spec.requires_arc = false
 end

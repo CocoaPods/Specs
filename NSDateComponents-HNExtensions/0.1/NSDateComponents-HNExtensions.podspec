@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'NSDateComponents+HNExtensions.{h,m}'
   s.resources = 'Localizations/**'
+  s.requires_arc = false
 end

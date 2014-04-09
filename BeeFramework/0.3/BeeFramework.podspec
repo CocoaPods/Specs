@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'SFHFKeychainUtils'
   s.dependency 'FMDB'
   s.dependency 'TouchXML'
+  s.requires_arc = false
 end

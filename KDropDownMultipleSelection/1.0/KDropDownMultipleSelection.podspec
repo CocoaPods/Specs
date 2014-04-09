@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.platform     = "ios", "6.0"
   s.framework    = "UIKit"
 
+  s.requires_arc = false
 end

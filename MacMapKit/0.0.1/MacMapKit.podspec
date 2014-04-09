@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
   #  "MapKit/#{from.basename}"
   #end
   
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/nicklockwood/iVersion.git', :tag => '1.9.8' }
   s.source_files = 'iVersion/iVersion.{h,m}'
   s.resources    = 'iVersion/iVersion.bundle'
+  s.requires_arc = false
 end

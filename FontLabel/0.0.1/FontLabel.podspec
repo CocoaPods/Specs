@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/JPluto/FontLabel.git', :commit => "339cf005252935173c5be7ccd4a82e6811b792e3"}
   s.source_files = 'FontLabel/Classes/FontLabel/*.{h,m}'
 
+  s.requires_arc = false
 end

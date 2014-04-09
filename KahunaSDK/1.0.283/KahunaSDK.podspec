@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.library = 'Kahuna', 'z'
   s.framework = 'SystemConfiguration'
   s.xcconfig  = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/KahunaSDK"' }
+  s.requires_arc = false
 end

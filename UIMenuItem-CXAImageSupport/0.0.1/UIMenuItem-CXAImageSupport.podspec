@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.3'
   s.source_files = 'UIMenuItem+CXAImageSupport.{h,m}'
   s.framework  = 'UIKit'
+  s.requires_arc = false
 end

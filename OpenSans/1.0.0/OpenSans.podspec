@@ -13,5 +13,6 @@ Pod::Spec.new do |spec|
   spec.source_files = 'UIFont+OpenSans.{h,m}'
   spec.resource_bundle = { 'OpenSans' => 'Fonts/*.ttf' }
   spec.frameworks = 'UIKit', 'CoreText'
+  spec.requires_arc = false
 end
 

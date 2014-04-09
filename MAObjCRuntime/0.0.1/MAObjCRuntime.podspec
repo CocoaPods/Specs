@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.author       = { "Mike Ash" => "mike@mikeash.com" }
   s.source       = { :git => "https://github.com/mikeash/MAObjCRuntime.git", :commit => "750d4e8ded732dda422cbf0d2edc5a9a21d01a34" }
   s.source_files = 'MARTNSObject.{h,m}', 'RT*.{h,m}'
+  s.requires_arc = false
 end

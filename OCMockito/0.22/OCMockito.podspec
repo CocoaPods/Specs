@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = "Examples", "Documentation", "Source/Tests", "Source/TestSupport"
   s.ios.library = 'stdc++'
   s.dependency 'OCHamcrest', '~> 1.7'
+  s.requires_arc = false
 end

@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'SystemConfiguration'
   s.weak_frameworks = 'AdSupport'
+  s.requires_arc = false
 end

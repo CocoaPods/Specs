@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'KSSHA1Stream.{h,m}'
   s.framework    = 'Security'
+  s.requires_arc = false
 end

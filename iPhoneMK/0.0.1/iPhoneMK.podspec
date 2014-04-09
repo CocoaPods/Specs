@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.frameworks   = ['QuartzCore', 'AVFoundation']
   s.source_files = 'TableViewCells/**/*.{h,m}', 'Views/**/*.{h,m}'
+  s.requires_arc = false
 end

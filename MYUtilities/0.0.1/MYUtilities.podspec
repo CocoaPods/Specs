@@ -42,4 +42,5 @@ Pod::Spec.new do |s|
   s.source_files = "{#{sources}}.{h,m}",
                    'vendor/google-toolbox-for-mac/*.{h,m}'
   s.library = 'z'
+  s.requires_arc = false
 end

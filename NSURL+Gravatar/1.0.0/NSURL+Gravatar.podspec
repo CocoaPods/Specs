@@ -20,4 +20,5 @@ NSURL+Gravatar is a `NSURL` category to generate Gravatar URLs.
   s.author       = { "Bart van Zon" => "bartvanzon@gmail.com" }
   s.source       = { :git => "https://github.com/bartj3/NSURL-Gravatar.git", :tag => "1.0.0" }
   s.source_files = 'NSURL+Gravatar.h', 'NSURL+Gravatar.m'
+  s.requires_arc = false
 end

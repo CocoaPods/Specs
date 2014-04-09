@@ -19,5 +19,6 @@ s.library           = "UMSocial_Sdk_2.1.3","UMSocial_Sdk_Comment_2.1.3","WeChatS
 s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_2.1.3/UMSocial_Sdk_2.1.3/**"}
 s.framework         = "SystemConfiguration","MobileCoreServices"
 s.platform          = :ios,'4.3'
+  s.requires_arc = false
 end
 

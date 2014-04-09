@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'Pixate'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pixate/Framework/iOS"', 'OTHER_LDFLAGS' => '-lObjC' }
   s.prepare_command = 'open "http://cdn.pixate.com/docs/framework/ios/2.0/getting-started/index.html#app_setup"'
+  s.requires_arc = false
 end

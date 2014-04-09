@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files = 'CAAnimationBlocks/CAAnimation+Blocks.{h,m}'
   s.framework  = 'QuartzCore'
+  s.requires_arc = false
 end

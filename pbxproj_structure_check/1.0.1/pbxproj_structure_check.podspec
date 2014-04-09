@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.author       = { "Kamil Borzym" => "kamil.borzym@gmail.com" }
   s.source       = { :git => "https://github.com/kam800/pbxproj_structure_check.git", :tag => "1.0.1" }
   s.preserve_path = "pbxproj_structure_check.rb"
+  s.requires_arc = false
 end

@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ZXingObjC', 'ZXingObjC/**/*.{h,m}'
   
   s.frameworks = 'AVFoundation', 'CoreGraphics', 'CoreVideo', 'ImageIO'
+  s.requires_arc = false
 end

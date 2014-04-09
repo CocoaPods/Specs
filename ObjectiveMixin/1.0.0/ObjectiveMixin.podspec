@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/vl4dimir/ObjectiveMixin.git', :tag => '1.0.0' }
   s.source_files = 'ObjectiveMixin/*.{h,m}'
 
+  s.requires_arc = false
 end
