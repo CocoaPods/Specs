@@ -4,6 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = 'Qiniu Resource Storage SDK for iOS'
   s.homepage     = 'https://github.com/qiniu/ios-sdk'
   s.author       = 'Qiniu => sdk@qiniu.com'
+  s.documentation_url = 'developer.qiniu.com/docs/v6/sdk/ios-sdk.html'
   s.source       = {:git => 'https://github.com/qiniu/ios-sdk.git', :tag => 'v6.2.2'}
 
   s.ios.deployment_target = '6.0'
