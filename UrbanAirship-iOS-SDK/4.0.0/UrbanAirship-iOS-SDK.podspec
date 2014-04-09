@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author          = { 'Urban Airship' => 'support@urbanairship.com' }
   s.source          = { :git => 'https://github.com/urbanairship/ios-library.git', :tag => s.version.to_s }
   s.source_files    = 'Airship/**/*.{h,m,c}'
-  s.resources       = 'Airship/**/*.{xib,jpg,png,bundle,js}'
+  s.resources       = 'Airship/**/*.{xib,jpg,png,bundle}'
   s.prepare_command = 'cd Airship/Common/JS/ && xxd -i UANativeBridge.js UANativeBridge.c'
   s.requires_arc    = true
   s.libraries       = 'z', 'sqlite3'
