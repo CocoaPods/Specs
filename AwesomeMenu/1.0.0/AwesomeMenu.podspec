@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'AwesomeMenu/AwesomeMenu/*.{h,m}'
   s.resources    = "AwesomeMenu/Images/*.png"
+  s.requires_arc = false
 end

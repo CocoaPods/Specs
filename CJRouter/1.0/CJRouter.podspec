@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'CJRouter'
 
   s.platform     = :ios, '4.0'
+  s.requires_arc = false
 end

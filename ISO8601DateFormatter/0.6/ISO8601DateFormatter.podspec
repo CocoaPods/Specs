@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/boredzo/iso-8601-date-formatter.git', :tag => '0.6' }
 
   s.source_files = 'ISO8601DateFormatter.{h,m}'
+  s.requires_arc = false
 end

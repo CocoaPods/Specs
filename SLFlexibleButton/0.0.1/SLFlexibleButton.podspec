@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/shuoli84/SLFlexibleButton.git', :tag => 'v0.0.1lw' }
   s.source_files     = 'FlexibleButton/SLFlexibleButton.{h,m}'
   s.dependency         'UIGlossyButton'
+  s.requires_arc = false
 end

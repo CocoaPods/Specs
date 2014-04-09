@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   s.subspec 'TableAlertView' do |table|
     table.source_files = "BlockAlertsDemo/ToAddToYourProjects/BlockTableAlertView.{h,m}"
   end
+  s.requires_arc = false
 end
 

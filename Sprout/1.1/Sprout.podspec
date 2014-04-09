@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "Sprout"
   s.version      = "1.1"
   s.summary      = "Used to bootstrap the CocoaLumberjack logging framework."
-  s.description  = <<-DESC
-		Used to bootstrap the CocoaLumberjack logging framework.
-    DESC
   s.homepage     = "https://github.com/levigroker/Sprout"
   s.license      = 'Creative Commons Attribution 3.0 Unported License'
   s.author       = { "Levi Brown" => "levigroker@gmail.com" }

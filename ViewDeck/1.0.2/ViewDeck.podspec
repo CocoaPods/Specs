@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
                   :tag => '1.0.2'}
   s.source_files  = 'ViewDeck/*.{h,m}'
   s.frameworks    = 'QuartzCore'
+  s.requires_arc = false
 end

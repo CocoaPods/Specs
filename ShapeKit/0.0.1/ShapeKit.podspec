@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.library      = 'stdc++'
 
 #  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/headers' }
+  s.requires_arc = false
 end

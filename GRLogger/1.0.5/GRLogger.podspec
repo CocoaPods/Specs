@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/ankyhe/GRLogger.git", :tag => "1.0.5" }
   s.source_files  = 'GRLogger/GRLogger.h', 'GRLogger/GRLogger.m'
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'libintl.{h,m}'
   s.preserve_paths = 'bin/po_to_strings.rb'
+  s.requires_arc = false
 end

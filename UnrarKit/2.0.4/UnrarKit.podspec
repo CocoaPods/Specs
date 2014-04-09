@@ -66,4 +66,5 @@ Pod::Spec.new do |s|
                      "Libraries/unrar/uowners.cpp"
   s.xcconfig = { "OTHER_CFLAGS" => "$(inherited) -Wno-return-type -Wno-logical-op-parentheses -Wno-conversion -Wno-parentheses -Wno-unused-function -Wno-unused-variable -Wno-switch",
                  "OTHER_CPLUSPLUSFLAGS" => "$(inherited) -DSILENT -DRARDLL $(OTHER_CFLAGS)" }
+  s.requires_arc = false
 end

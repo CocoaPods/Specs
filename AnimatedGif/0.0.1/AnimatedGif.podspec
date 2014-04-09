@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
                      :commit => "e8570f52b2b9671a3031ca02d5f4c27901649e9d" }
   s.platform     = :ios, '5.0'
   s.source_files = 'Classes/AnimatedGif.{h,m}'
+  s.requires_arc = false
 end

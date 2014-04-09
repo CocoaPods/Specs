@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Distributables/*.framework'
   s.public_header_files = 'Distributables/StarIO.framework/**/*.h'
   s.vendored_frameworks = 'Distributables/StarIO.framework'
+  s.requires_arc = false
 end

@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.resource              = "HockeySDK-Mac/HockeySDK.framework"
   s.xcconfig              = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
 
+  s.requires_arc = false
 end

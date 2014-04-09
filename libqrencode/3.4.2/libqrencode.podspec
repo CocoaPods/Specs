@@ -142,4 +142,5 @@ CMD
 #define HAVE_CONFIG_H 1
 EOS
   
+  s.requires_arc = false
 end

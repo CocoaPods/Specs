@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.dependency 'Ejecta', '1.2'
   s.source_files = 'EvalJS/Classes'
+  s.requires_arc = false
 end

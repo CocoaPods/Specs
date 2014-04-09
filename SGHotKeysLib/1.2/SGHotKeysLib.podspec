@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SGHotKeysLib'
   s.framework = 'Carbon'
 
+  s.requires_arc = false
 end

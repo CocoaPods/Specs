@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
 
   s.source_files = 'iOS/**/*.{h,m}', 'Common/**/*.{h,m}'
+  s.requires_arc = false
 end

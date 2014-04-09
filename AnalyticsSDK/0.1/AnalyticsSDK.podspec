@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
 
  s.dependency 'UMeng-Analytics',         '~> 2.2.0'
  s.dependency 'GoogleAnalytics-iOS-SDK', '~> 3.0.2'
+  s.requires_arc = false
 end

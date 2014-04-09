@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.resources = 'BridgeSupport'
   s.framework = 'SystemConfiguration'
 
+  s.requires_arc = false
 end

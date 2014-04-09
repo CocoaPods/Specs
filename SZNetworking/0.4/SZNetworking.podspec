@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.dependency     'OAuthCore'
   s.source       = { :git => "https://github.com/socialize/socialize-networking.git", :tag => "0.4" }
   s.source_files = 'Classes', 'SZNetworking/**/*.{h,m}'
+  s.requires_arc = false
  end

@@ -50,4 +50,5 @@ Pod::Spec.new do |s|
     sb.source_files = 'MessageUI/*.{h,m}', 'MessageUI/Classes/*.{h,m}'
     sb.header_dir   = 'MessageUI'
   end
+  s.requires_arc = false
 end

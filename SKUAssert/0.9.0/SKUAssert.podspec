@@ -22,5 +22,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/skue/SKUAssert.git", :tag => "0.9.0" }
   s.source_files  = 'SKUAssert.h'
   s.exclude_files = 'Tests'
+  s.requires_arc = false
 end
 

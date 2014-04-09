@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/pandamonia/A2StoryboardSegueContext.git', :tag => 'v1.0.1' }
   s.platform = :ios
   s.source_files = 'A2StoryboardSegueContext.{h,m}'
+  s.requires_arc = false
 end

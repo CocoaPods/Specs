@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files = 'NullSafe/NullSafe.{h,m}'
   # s.requires_arc = true
+  s.requires_arc = false
 end

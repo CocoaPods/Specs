@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.source = { :git => 'https://github.com/SunilSpaceo/ScrollAnimationDemo.git', :tag => '1.0.0' }
   s.source_files = 'SKAnimateScroll/*.{h,m}'
+  s.requires_arc = false
 end

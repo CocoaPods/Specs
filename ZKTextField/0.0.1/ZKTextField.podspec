@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 	s.source_files = 'src'
 
 	s.platform 		 = :osx
+  s.requires_arc = false
 end

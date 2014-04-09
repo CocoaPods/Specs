@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { "Florian Sager" => "sager@agitos.de" }
   s.source       = { :git => "https://github.com/jeff7091/registered-domain-libs.git", :tag => s.version.to_s }
   s.source_files = 'C/dkim-regdom.{h,c}', 'C/tld-canon.h'
+  s.requires_arc = false
 end

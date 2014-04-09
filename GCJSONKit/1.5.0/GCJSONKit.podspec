@@ -26,15 +26,10 @@ Pod::Spec.new do |s|
   LICENSE
   }
   s.summary  = 'GC\'s fork of a Very High Performance Objective-C JSON Library.'
-
-  s.description  = <<-DESC
-                   TODO: JSONKit does *not* support GC, we need to specify that.
-                   DESC
-
   s.homepage = 'https://github.com/gamechanger/JSONKit'
   s.author   = 'John Engelhart'
+  s.requires_arc = false
   s.source   = { :git => 'https://github.com/gamechanger/JSONKit.git', :tag => '1.5.0' }
-
   s.source_files = 'JSONKit.*'
   s.exclude_files = '*.podspec'
   s.header_dir = 'JSONKit'

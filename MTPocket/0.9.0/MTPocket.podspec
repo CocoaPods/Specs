@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.dependency 'XMLDictionary', '~> 2.0.0'
   s.dependency 'MTJSONUtils', '~> 0.1.0'
   s.dependency 'Base64'
+  s.requires_arc = false
 end

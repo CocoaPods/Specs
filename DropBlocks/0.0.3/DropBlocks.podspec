@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/natep/DropBlocks.git', :tag => '0.0.3' }
   s.source_files = 'DropBlocks/Classes'
   s.dependency     'Dropbox-iOS-SDK'
+  s.requires_arc = false
 end

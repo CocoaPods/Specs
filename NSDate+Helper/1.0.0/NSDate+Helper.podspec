@@ -37,4 +37,5 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.' }
     :tag => s.version.to_s
     }
   s.source_files = 'NSDate+Helper.{h,m}'
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'OpenGLES', 'QuartzCore'
   s.resources    = 'XBPageCurl/Resources/*.glsl'
 
+  s.requires_arc = false
 end

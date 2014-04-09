@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.description  = 'The iPhone needs a better way to make HTTP requests, specifically calls to REST web services. Seriously mixes Blocks with NSURLConnection & NSOperationQueue to do just that. It also will automatically parse the JSON response into a dictionary if the response headers are set correctly.'
   s.platform     = :ios
   s.source_files = 'Classes', 'src/**/*.{h,m,c}'
+  s.requires_arc = false
 end

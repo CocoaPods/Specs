@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.source_files =  '*.{h,m}'
   s.platform     = :ios, '5.0'
+  s.requires_arc = false
 end

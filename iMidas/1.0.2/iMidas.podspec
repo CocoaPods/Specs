@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   s.frameworks          = 'StoreKit', 'MobileCoreServices', 'SystemConfiguration', 'CFNetwork', 'CoreGraphics'
   s.resource            = "iMidas/ap_user_config.xml"
   s.preserve_paths      = "iMidas/*.*"
+  s.requires_arc = false
 end

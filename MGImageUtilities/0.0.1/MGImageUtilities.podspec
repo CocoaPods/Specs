@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mattgemmell/MGImageUtilities.git", :commit => "2903a9a2993684ea001b06c61cba2a51faf631d6" }
   s.platform     = :ios
   s.source_files = 'Classes/UIImage*.{h,m}'
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'CameraPlusIntegration/CameraPlusIntegrationAPI.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'CameraPlusIntegration/CameraPlusIntegrationAPI.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/CameraPlusIntegration/CameraPlusIntegration', 'OTHER_LDFLAGS' => '-framework CameraPlusIntegrationAPI' }
+  s.requires_arc = false
 end

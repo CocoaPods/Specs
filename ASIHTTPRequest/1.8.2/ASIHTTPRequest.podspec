@@ -50,4 +50,5 @@ Pod::Spec.new do |s|
     s3s.source_files = 'Classes/S3/*.{h,m}'
     s3s.dependency 'ASIHTTPRequest/Core'
   end
+  s.requires_arc = false
 end

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'RateStars/UIImageView*.{h,m}', 'RateStars/RSTapRateView.{h,m}'
   s.resources = 'RateStars/images/*.png'
+  s.requires_arc = false
 end

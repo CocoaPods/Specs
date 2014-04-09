@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '3.0'
   s.source_files = 'InfColorPicker'
   s.resources    = "InfColorPicker/*.xib"
+  s.requires_arc = false
 end

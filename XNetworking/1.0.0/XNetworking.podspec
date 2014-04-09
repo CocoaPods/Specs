@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "XNetworking"
   s.version      = "1.0.0"
   s.summary      = "iOS networking operations."
-  s.description  = <<-DESC
-                    iOS networking operations.
-                   DESC
   s.homepage     = "https://github.com/timonroe/XNetworking"
   s.license      = 'MIT'
   s.author       = { "Tim Monroe" => "timonroe12@gmail.com" }

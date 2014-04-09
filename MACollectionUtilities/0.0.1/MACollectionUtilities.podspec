@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files = 'MACollectionUtilities.{h,m}'
   s.public_header_files = '*.h'
+  s.requires_arc = false
 end

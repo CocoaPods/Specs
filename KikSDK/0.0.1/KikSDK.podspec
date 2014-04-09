@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.vendored_libraries = 'kik_apilib_iphone/kikapilib/kikapilib.a'
   s.platform = :ios
 
+  s.requires_arc = false
 end

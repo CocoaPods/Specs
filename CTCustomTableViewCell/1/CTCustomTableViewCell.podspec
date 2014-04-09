@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/stefankendall/CustomTableViewCell.git', :tag => '1' }
   s.source_files = 'CustomTableViewCell'
   s.platform     = :ios, '5.0'
+  s.requires_arc = false
 end

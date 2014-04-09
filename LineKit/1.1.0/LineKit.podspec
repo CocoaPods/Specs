@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'LineKit/*.{h,m}'
 
   s.social_media_url = "https://twitter.com/dlackty"
+  s.requires_arc = false
 end

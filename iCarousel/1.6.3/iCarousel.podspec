@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source_files = 'iCarousel'
   s.frameworks   = 'QuartzCore'
   s.license      = { :type => 'zlib', :file => 'LICENCE.md' }
+  s.requires_arc = false
 end

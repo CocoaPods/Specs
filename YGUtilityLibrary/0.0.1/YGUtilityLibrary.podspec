@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name             = "YGUtilityLibrary"
   s.version          = "0.0.1"
   s.summary          = "YGUtilityLibrary includes many useful classes and categories"
-  s.description      = <<-DESC
-                       YGUtilityLibrary includes many useful classes and categories
-                       DESC
   s.homepage         = "https://github.com/vfa-huynq/YGUtilityLibrary"
   s.license          = 'MIT'
   s.author           = { "vfa-huynq" => "huynq@vitalify.asia" }

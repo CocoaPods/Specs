@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'A2DynamicDelegate.{h,m}', 'A2BlockDelegate.{h,m}', 'A2BlockClosure.{h,m}'
 
   s.dependency   'libffi'
+  s.requires_arc = false
 end

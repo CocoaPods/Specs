@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'AlgoliaSearch'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/AlgoliaSearchOffline-iOS-SDK"', 'OTHER_LDFLAGS' => '-lstdc++' }
   s.ios.deployment_target = '4.3'
+  s.requires_arc = false
 end

@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.subspec 'Cryptography' do |ss|
     ss.dependency 'TransformerKit/Core'
     ss.source_files = 'TransformerKit/TTTCryptographyTransformers.{h,m}'
-    ss.frameworks = "CommonCrypto"
+    ss.osx.frameworks = "CommonCrypto"
   end
 
   s.subspec 'Date' do |ss|

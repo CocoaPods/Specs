@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files    = 'US2FormValidationFramework/source/**/*.{h,m}'
   s.resources       = 'US2FormValidationFramework/US2Localizable/*'
   s.preserve_paths  = 'Documentation', 'US2FormValidationFrameworkSample', 'US2FormValidationFramework/tests', 'US2FormValidationFramework/documentation', 'US2FormValidationFramework/US2FormValidationFramework.xcodeproj'
+  s.requires_arc = false
 end

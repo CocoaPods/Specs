@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/acerbetti/ACEToolKit.git', :tag => 'v0.0.4' }
   s.source_files = 'ACEToolKit/*.{h,m}'
   s.platform     = :ios
+  s.requires_arc = false
 end

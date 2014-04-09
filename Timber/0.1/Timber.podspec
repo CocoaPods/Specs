@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   
   s.source_files  = 'Timber/Classes/CBTimber/*.{h,m}'
 
+  s.requires_arc = false
 end

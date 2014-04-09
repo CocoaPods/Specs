@@ -4,9 +4,6 @@ Pod::Spec.new do |s|
   s.version      = '1.0.1'
   s.summary      = 'Simple, zoom, dynamic and charts with ranges for iOS'
 
-  s.description  = <<-DESC
-  Simple, zoom, dynamic and charts with ranges for iOS
-                   DESC
   s.license      = {:type => 'Apache'}
   s.authors      = {'FlowForwarding' => 'idyl@tut.by'}
   s.homepage     = 'https://github.com/FlowForwarding/dynamiccharts'

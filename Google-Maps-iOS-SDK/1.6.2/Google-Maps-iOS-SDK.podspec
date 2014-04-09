@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
   s.libraries = 'icucore', 'c++', 'z'
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Maps-iOS-SDK"' }
+  s.requires_arc = false
 end

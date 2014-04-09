@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenIDFA"'}
 
+  s.requires_arc = false
 end

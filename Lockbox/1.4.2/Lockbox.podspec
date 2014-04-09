@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'Lockbox.{h,m}'
   s.frameworks = 'Security'
+  s.requires_arc = false
 end

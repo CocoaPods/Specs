@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ESAdjustableLabel/UILabel+ESAdjustableLabel.{h,m}'
 
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.source_files = 'KYArcTab/*.{h,m}'
   s.framework  = 'QuartzCore'
+  s.requires_arc = false
 end

@@ -19,4 +19,5 @@ LICENSE
   s.preserve_path = 'libGoogleAnalyticsServices.a'
   s.library = 'GoogleAnalyticsServices'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleTagManager"'}
+  s.requires_arc = false
 end

@@ -60,4 +60,5 @@ Pod::Spec.new do |s|
     ss.header_dir          = '../wand'
     ss.libraries           = 'MagickWand'
   end
+  s.requires_arc = false
 end

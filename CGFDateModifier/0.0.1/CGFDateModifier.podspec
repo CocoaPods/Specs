@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/codegefluester/CGFDateModifier.git", :tag => "0.0.1" }
   s.source_files  = '*.{h,m}'
   s.exclude_files = 'Sample/*'
+  s.requires_arc = false
 end

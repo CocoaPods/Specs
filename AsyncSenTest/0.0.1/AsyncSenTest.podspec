@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   s.frameworks   = 'SenTestingKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
+  s.requires_arc = false
 end

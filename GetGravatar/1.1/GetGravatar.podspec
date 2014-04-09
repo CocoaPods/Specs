@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Raquel Galan' => 'iprayforwaves@gmail.com' }
   s.source   = { :git => 'https://github.com/iprayforwaves/GetGravatar.git', :tag => '1.1' }
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end
