@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Dal Rupnik" => "legoless@gmail.com" }
   s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/Legoless/Haystack.git", :tag => "0.4.9" }
+  s.source       = { :git => "https://github.com/Legoless/Haystack.git", :tag => "0.4.0" }
 
   s.frameworks   = 'CoreText' 
   s.source_files = 'SDK/**/*.{h,m}'
