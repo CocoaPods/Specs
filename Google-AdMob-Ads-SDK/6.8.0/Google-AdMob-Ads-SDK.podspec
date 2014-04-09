@@ -18,7 +18,7 @@ LICENSE
   s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a'
   s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.8.0'
 
-  s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport}
+  s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport StoreKit}
   s.library = 'GoogleAdMobAds'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0"' }
   s.requires_arc = false
