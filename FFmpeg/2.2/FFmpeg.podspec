@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   
   s.license      = { :type => 'LGPLv2.1+', :file => 'COPYING.LGPLv2.1' }
   s.author       = { "Chris Ballinger" => "chris@chatsecure.org" } # Podspec maintainer
+  s.requires_arc = false
   
   s.platform     = :ios
 
