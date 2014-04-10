@@ -15,10 +15,11 @@ Pod::Spec.new do |s|
     sp.preserve_paths      = 'SailThruSDK/README', 'SailThruSDK/ios7/libSailthru.a'
 	sp.ios.vendored_library = 'SailThruSDK/ios7/libSailthru.a'
     sp.library             = 'Sailthru'
-    sp.xcconfig            = { 'LIBRARY_SEARCH_PATHS' => '$(SRC_ROOT)/Pods/Sailthru_SDK_iOS/SailThruSDK/ios7' }
+    sp.xcconfig            = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Sailthru_SDK_iOS/SailThruSDK/ios7' }
     sp.frameworks          = 'Foundation'
     sp.platform              = :ios
     sp.ios.deployment_target = '7.0'
+    sp.requires_arc          = true
   end
 
   s.subspec 'ios6' do |sp|
@@ -26,10 +27,11 @@ Pod::Spec.new do |s|
     sp.preserve_paths      = 'SailThruSDK/README', 'SailThruSDK/ios6/libSailthru.a'
 	sp.ios.vendored_library = 'SailThruSDK/ios6/libSailthru.a'
     sp.library             = 'Sailthru'
-    sp.xcconfig            = { 'LIBRARY_SEARCH_PATHS' => '$(SRC_ROOT)/Pods/Sailthru_SDK_iOS/SailThruSDK/ios6' }
+    sp.xcconfig            = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Sailthru_SDK_iOS/SailThruSDK/ios6' }
     sp.frameworks          = 'Foundation'
     sp.platform              = :ios
     sp.ios.deployment_target = '6.0'
+    sp.requires_arc          = true
   end
   s.description           = <<-DESC
 The SailthruSDK is provided to current Sailthru, Inc clients who have an iOS App. Clients
