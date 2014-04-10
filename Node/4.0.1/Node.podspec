@@ -27,9 +27,9 @@ Pod::Spec.new do |s|
   s.ios.preserve_paths = 'Node_iOS.framework/*', 'Node_iOS.framework'
   s.osx.preserve_paths = 'Node_OSX.framework/*', 'Node_OSX.framework'
 
-  s.ios.frameworks = 'Node_iOS', 'CoreBluetooth', 'CoreLocation', 'GLKit', 'Accelerate'
+  s.ios.frameworks = 'Node_iOS', 'CoreBluetooth', 'CoreLocation', 'GLKit', 'Accelerate', 'SystemConfiguration'
   s.ios.libraries = 'z', 'sqlite3'
-  s.osx.frameworks = 'Node_OSX', 'IOBluetooth', 'GLKit', 'Accelerate'
+  s.osx.frameworks = 'Node_OSX', 'IOBluetooth', 'GLKit', 'Accelerate', 'SystemConfiguration'
   s.osx.libraries = 'sqlite3'
 
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Node"' }
