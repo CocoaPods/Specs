@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   	:git => 'https://github.com/Busta117/NSDate-Match.git', 
 	:tag => s.version.to_s 
 	}
-  s.ios.deployment_target = '5.0'
   s.source_files = 'NSDate+match/*.{h,m}'
   s.requires_arc = true
 end
