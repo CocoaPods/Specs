@@ -11,11 +11,11 @@ Pod::Spec.new do |s|
                     The search field fires the delegate method after the user stops writing for an specified time interval.
                    DESC
 
-  s.homepage     = "https://github.com/IcaliaLabs/ILRemoteSearchBar"
+  s.homepage     = "https://github.com/Adrian2112/ILRemoteSearchBar"
   s.license      = 'MIT'
   s.author       = { "Adrián González" => "bernardogzzf@gmail.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/IcaliaLabs/ILRemoteSearchBar.git", :tag => '0.0.2' }
+  s.source       = { :git => "https://github.com/Adrian2112/ILRemoteSearchBar.git", :tag => '0.0.2' }
 
   s.source_files  = 'ILRemoteSearchBar/*.{h,m}'
   s.requires_arc = true
