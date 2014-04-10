@@ -1,13 +1,14 @@
 Pod::Spec.new do |s|
   s.name = 'liftoff-ios-sdk'
   s.version = '1.0.1'
-  s.summary = 'Liftoff iOS SDK.'
-  s.description = 'Performance advertising SDK.'
+  s.summary = 'DEPRECATED: Please use the official Liftoff pod instead'
+  s.description = 'Developers should use the official Liftoff pod instead.'
   s.homepage = 'http://liftoff.io'
   s.license = {
     :type => 'Copyright',
     :text => <<-LICENSE
-Copyright 2013 Liftoff. All rights reserved.
+Copyright Liftoff 2013
+Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
 LICENSE
   }
 
