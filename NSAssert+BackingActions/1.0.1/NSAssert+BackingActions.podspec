@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 
     s.source       = { :git => 'https://github.com/insanehunter/NSAssert-BackingActions.git', :tag => '1.0.1' }
     s.source_files = 'NSAssert+BackingActions.h'
+  s.requires_arc = false
 end

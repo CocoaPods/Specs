@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'ctemplate'
   s.dependency 'icu4c'
   s.dependency 'tidy-html5'
+  s.requires_arc = false
 end

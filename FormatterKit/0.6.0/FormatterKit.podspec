@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TTTArrayFormatter/*.{h,m}', 'TTTHoursOfOperation/*.{h,m}',
                    'TTTLocationFormatter/*.{h,m}', 'TTTOrdinalNumberFormatter/*.{h,m}',
                    'TTTTimeIntervalFormatter/*.{h,m}', 'TTTURLRequestFormatter/*.{h,m}'
+  s.requires_arc = false
 end

@@ -22,5 +22,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation'
 
+  s.requires_arc = false
 end
 

@@ -116,4 +116,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/boost"' }
 
+  s.requires_arc = false
 end

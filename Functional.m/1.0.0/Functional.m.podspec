@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/leuchtetgruen/Functional.m.git", :tag => "1.0.0" }
   s.source_files = '*.{h,m}'
   s.public_header_files = '*.h'
+  s.requires_arc = false
 end

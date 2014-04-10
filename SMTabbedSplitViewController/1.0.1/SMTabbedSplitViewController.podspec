@@ -27,4 +27,5 @@ Main features:
 
   s.source_files  = 'SMTabbedSplitViewController', 'SMTabbedSplitViewController/**/*.{h,m}'
 
+  s.requires_arc = false
 end

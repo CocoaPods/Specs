@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.pre_install do |pod, target_definition|
     Dir.chdir(pod.root){ `find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh` }
   end
+  s.requires_arc = false
 end

@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.frameworks   = ['WebKit']
   s.resource     = ['ACEView/Dependencies/ace/src/*.js', 'ACEView/HTML/index.html']
   s.source_files = 'ACEView/**/*.{h,m}'
+  s.requires_arc = false
 end

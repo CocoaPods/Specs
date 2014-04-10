@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "A customizable checkbox for iOS that mimics the checkbox found on OS X, and Safari."
 
-  s.description  = <<-DESC
-                   A customizable checkbox for iOS that mimics the checkbox found on OS X, and Safari.
-                   DESC
-
   s.homepage     = "https://github.com/Marxon13/M13Checkbox"
   s.license      = {:type => 'MIT',
                     :text => <<-LICENSE

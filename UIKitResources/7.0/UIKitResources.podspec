@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
       ss.resources = resources
     end
   end
+  s.requires_arc = false
 end

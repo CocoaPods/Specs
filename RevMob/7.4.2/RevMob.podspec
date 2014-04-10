@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'SystemConfiguration', 'StoreKit', 'AdSupport', 'RevMobAds'
   s.weak_frameworks = 'AdSupport', 'StoreKit'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/RevMob"' }
+  s.requires_arc = false
 end

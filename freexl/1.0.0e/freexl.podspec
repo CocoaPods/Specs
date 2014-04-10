@@ -57,4 +57,5 @@ CONFIG_H
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/freexl/headers' }
 
+  s.requires_arc = false
 end

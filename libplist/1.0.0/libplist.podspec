@@ -15,5 +15,6 @@ Pod::Spec.new do |s|
  s.library = 'xml2'
  s.preserve_paths = 'include/plist/*.*'
  s.xcconfig = {"HEADER_SEARCH_PATHS" => '"$(SDKROOT)/usr/include/libxml2" "${PODS_ROOT}/libplist/include/"'}
+  s.requires_arc = false
 end
 

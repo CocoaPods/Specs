@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = "WebViewJavascriptBridge/WebViewJavascriptBridge.{h,m}"
   s.framework    = "UIKit"
   s.dependency     "JSONKit"
+  s.requires_arc = false
 end

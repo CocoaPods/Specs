@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TDBadgedCell (xcode project)/TDBadgedCell.{h,m}'
 
   s.frameworks = 'QuartzCore'
+  s.requires_arc = false
 end

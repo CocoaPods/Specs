@@ -40,4 +40,5 @@ Pod::Spec.new do |s|
     ss.dependency   'SQLCipher/unlock_notify'
     ss.dependency   'PLDatabase/common'
   end
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'CrittercismSDK-crashonly/libCrittercismCrashOnly_v3_3_4.a'
   s.library = 'CrittercismCrashOnly_v3_3_4'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CrittercismSDK/CrittercismSDK-crashonly"' }
+  s.requires_arc = false
 end

@@ -88,4 +88,5 @@ LICENSE
 
   s.xcconfig = {'GCC_PREPROCESSOR_DEFINITIONS' => 'PJ_AUTOCONF=1' }
 
+  s.requires_arc = false
 end

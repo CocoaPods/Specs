@@ -18,4 +18,5 @@ s.dependency 'libplist'
 s.dependency 'usbmuxd'
 s.xcconfig = {"GCC_PREPROCESSOR_DEFINITIONS" => 'HAVE_OPENSSL HAVE_VASPRINTF HAVE_ASPRINTF HAVE_STPCPY', "HEADER_SEARCH_PATHS" => '"${PODS_ROOT}/libplist/include/" "${PODS_ROOT}/libimobiledevice/" "${PODS_ROOT}/libimobiledevice/include/"'}
 
+  s.requires_arc = false
 end

@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { 'Hatsuki Hirabayashi' => 'info@fallabs.com', 'Mikio Hirabayashi' => 'info@fallabs.com' }
   s.source       = { :http => 'http://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz' }
   s.source_files = 'kc{util,thread,file,compress,compare,map,regex,db,plantdb,protodb,stashdb,cachedb,hashdb,dirdb,textdb,polydb,dbext,langc}.{cc,h}', 'kccommon.h', 'myconf.h'
+  s.requires_arc = false
 end

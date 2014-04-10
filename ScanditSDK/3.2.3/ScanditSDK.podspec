@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
   # s.dependency 'JSONKit', '~> 1.4'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/ScanditSDK/ScanditSDK"' }
 
+  s.requires_arc = false
 end

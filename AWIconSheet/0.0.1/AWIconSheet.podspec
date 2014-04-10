@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "AWIconSheet"
   s.version      = "0.0.1"
   s.summary      = "iOS 6 share style actionsheet."
-  s.description  = <<-DESC
-                   iOS 6 share style actionsheet.
-                  DESC
   s.homepage     = "https://github.com/appwilldev/AWIconSheet"
   s.license      = { :type => 'MIT', :file => 'README.md' }
   s.author       = { "Appwill" => "" }

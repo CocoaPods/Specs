@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/muukii0803/CPKenburnsView.git", :tag => "0.2.0" }
   s.source_files  = 'CPKenburnsView', 'CPKenburnsView/*.{h,m}'
+  s.requires_arc = false
 end

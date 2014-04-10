@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'FontasticIcons/Sources/Classes/*.{h,m}'
   s.resources = 'FontasticIcons/Sources/Resources/Fonts/*'
   s.frameworks    = 'CoreText'
+  s.requires_arc = false
 end

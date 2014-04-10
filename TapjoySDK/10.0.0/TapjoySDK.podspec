@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.libraries = 'sqlite3.0', 'xml2', 'z'
   s.weak_framework = 'AdSupport', 'CoreTelephony', 'Social', 'StoreKit', 'Twitter'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/TapjoySDK/**"'}
+  s.requires_arc = false
 end

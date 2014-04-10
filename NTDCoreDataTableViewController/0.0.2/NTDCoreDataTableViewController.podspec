@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/NicholasTD07/NTDCoreDataTableViewController.git", :tag => "0.0.2" }
   s.source_files  = 'NTDCoreDataTableViewController/*.{h,m}'
   s.frameworks = 'CoreData', 'UIKit'
+  s.requires_arc = false
 end

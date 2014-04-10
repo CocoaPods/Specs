@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.public_header_files = %w(HBHandlebars.h runtime/HBTemplate.h runtime/HBExecutionContext.h context/HBDataContext.h context/HBHandlebarsKVCValidation.h helpers/HBHelper.h helpers/HBHelperRegistry.h helpers/HBHelperCallingInfo.h helpers/HBHelperUtils.h partials/HBPartial.h partials/HBPartialRegistry.h errorHandling/HBErrorHandling.h).map{|f| "handlebars-objc/#{f}"}
   s.header_dir = "HBHandlebars"
 
+  s.requires_arc = false
 end

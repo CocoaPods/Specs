@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/RestKit/XML-to-NSDictionary.git', :tag => '0.0.2' }
 
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

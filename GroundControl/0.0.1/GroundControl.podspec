@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/mattt/GroundControl.git', :tag => '0.0.1' }
   s.source_files = 'GroundControl'
   s.dependency 'AFNetworking', '>= 0.9' 
+  s.requires_arc = false
 end

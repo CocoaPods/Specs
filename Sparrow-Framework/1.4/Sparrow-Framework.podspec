@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files =  'sparrow/src/Classes/*.{h,m}'
   s.frameworks   =  'OpenGLES', 'OpenAL', 'QuartzCore', 'AudioToolbox', 'AVFoundation'
   s.library      =  'z'
+  s.requires_arc = false
 end

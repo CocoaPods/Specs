@@ -57,4 +57,5 @@ Pod::Spec.new do |s|
     ga.dependency 'AnalyticsKit/Core'
   end
   
+  s.requires_arc = false
 end

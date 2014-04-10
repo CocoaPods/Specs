@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'LKBadgeView.{h,m}' 
   s.frameworks = 'UIKit'
 
+  s.requires_arc = false
 end

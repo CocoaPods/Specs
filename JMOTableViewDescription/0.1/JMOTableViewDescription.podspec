@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/leverdeterre/JMOTableViewDescription.git", :tag => "0.1" }
   s.source_files  = 'Classes', 'TableViewDescription/JMOTableViewDescription/*.{h,m}'
   s.framework  = 'UIKit'
+  s.requires_arc = false
 end

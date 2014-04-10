@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
 #define SQLITE_ENABLE_FTS3_PARENTHESIS
 '''
   end
+  s.requires_arc = false
 end

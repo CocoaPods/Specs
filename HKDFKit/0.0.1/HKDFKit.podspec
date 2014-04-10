@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Simple TextSecure HKDF utility with Objective-C interface."
 
-  s.description  = <<-DESC
-                   Simple TextSecure HKDF utility with Objective-C interface.
-                   DESC
-
   s.homepage     = "https://github.com/FredericJacobs/HKDFKit"
   s.license      = {:type => 'GNU GENERAL PUBLIC LICENSE V2', :file => 'LICENSE'}
   s.author             = { "Frederic Jacobs" => "github@fredericjacobs.com" }

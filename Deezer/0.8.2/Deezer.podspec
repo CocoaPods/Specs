@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Deezer"', 'ARCHS' => 'armv7', 'ONLY_ACTIVE_ARCH' => 'NO' }
 
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/questbeat/QBFlatButton.git', :tag => 'v1.0' }
   s.platform     = :ios
   s.source_files = 'QBFlatButton/Classes/*.{h,m}'
+  s.requires_arc = false
 end

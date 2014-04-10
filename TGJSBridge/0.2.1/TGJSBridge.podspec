@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TGJSBridge/*.{h,m}'
   s.resource  = "TGJSBridge/TGJSBridge.bundle"
   s.dependency 'JSONKit', '~> 1.4'
+  s.requires_arc = false
 end

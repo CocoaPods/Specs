@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.homepage     = 'http://www.objection-framework.org'
   s.source_files = 'Source'
   s.license      = "https://github.com/atomicobject/objection/blob/master/LICENSE"
+  s.requires_arc = false
 end

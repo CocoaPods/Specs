@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
       )
   end
 
+  s.requires_arc = false
 end

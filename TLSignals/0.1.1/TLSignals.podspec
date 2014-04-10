@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 		 :tag => '0.1.1' }
 
   s.source_files = 'TLSignals/*.{h,m, mm, cpp}'
+  s.requires_arc = false
 end

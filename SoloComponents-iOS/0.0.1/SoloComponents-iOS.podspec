@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/andreyvit/SoloComponents-iOS.git',
                   :commit => '52b181733e043dda121817e6ea1c5f4a146985ef' }
   s.source_files = '**/*.{h,m}'
+  s.requires_arc = false
 end

@@ -22,4 +22,5 @@ s.source = {
 
   s.source_files = 'SARAddressBookBackup/*.{h,m}'                                         # 5
 
+  s.requires_arc = false
 end

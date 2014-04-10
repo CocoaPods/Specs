@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/luisespinoza/LEColorPicker"
   s.license      = { :type => 'MIT', :file => "LICENSE.markdown"}
   s.author       = { "Luis Enrique Espinoza Severino" => "luis.espinoza.severino@gmail.com" }
-  s.source       = { :git => "https://github.com/luisespinoza/LEColorPicker.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/luisespinoza/LEColorPicker.git", :tag => "1.0.3" }
   s.platform     = :ios
   s.source_files = 'LEColorPicker'
   s.requires_arc = true

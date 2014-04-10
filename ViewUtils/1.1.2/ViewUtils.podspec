@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/nicklockwood/ViewUtils.git', :tag => '1.1.2' }
   s.source_files = 'ViewUtils'
   s.ios.deployment_target = '4.3'
+  s.requires_arc = false
 end

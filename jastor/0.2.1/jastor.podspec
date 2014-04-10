@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { "Elad Ossadon" => "elad@ossadon.com" }
   s.source       = { :git => "https://github.com/elado/jastor.git", :tag => "0.2.1" }
   s.source_files = 'jastor/jastor/*.{h,m}'
+  s.requires_arc = false
 end

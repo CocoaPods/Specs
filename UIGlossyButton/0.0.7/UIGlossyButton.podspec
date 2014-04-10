@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   	l.source_files  = 'UIGlossyButton/UIView+LayerEffects.{h,m}'
   end
 
+  s.requires_arc = false
 end

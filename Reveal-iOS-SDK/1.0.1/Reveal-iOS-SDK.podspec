@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = "Reveal-Framework-#{s.version}/Reveal.framework"
   s.compiler_flags = '-ObjC'
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => "'${PODS_ROOT}/Reveal-iOS-SDK/Reveal-Framework-#{s.version}'" }
+  s.requires_arc = false
 end

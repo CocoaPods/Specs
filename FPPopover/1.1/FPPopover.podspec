@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/50pixels/FPPopover.git', :tag => '1.1' }
   s.source_files =  '*.{h,m}'
   s.frameworks   =  'QuartzCore', 'UIKit'
+  s.requires_arc = false
 end

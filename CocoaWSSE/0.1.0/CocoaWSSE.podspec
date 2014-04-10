@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/laiso/CocoaWSSE.git", :tag => "v#{s.version}" }
   s.source_files  = 'CocoaWSSE/**/*.{h,m}'
   s.dependency 'CocoaSecurity'
+  s.requires_arc = false
 end

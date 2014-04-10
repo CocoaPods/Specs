@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :commit => '8348517b0670abc52636f3a1c9778d338ccad989' }
 
   s.source_files = 'Source'
+  s.requires_arc = false
 end

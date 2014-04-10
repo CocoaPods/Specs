@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/IcaliaLabs/UIImage-ImageCompress.git", :tag => "0.0.1" }
   s.source_files  = '*.{h,m}'
+  s.requires_arc = false
 end

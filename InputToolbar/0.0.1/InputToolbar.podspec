@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'UIInputToolbarSample/Classes/UIInputToolbar'
   s.resources = "UIInputToolbarSample/Resources/*.png"
+  s.requires_arc = false
 end

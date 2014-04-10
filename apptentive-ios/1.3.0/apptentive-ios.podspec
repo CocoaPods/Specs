@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks     = 'CoreGraphics', 'Foundation', 'QuartzCore', 'SystemConfiguration', 'UIKit', 'CoreData', 'CoreText', 'Accelerate', 'AssetsLibrary'
   s.weak_frameworks = 'StoreKit', 'CoreTelephony'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/apptentive-ios"' }
+  s.requires_arc = false
 end
