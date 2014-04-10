@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
 
   s.source_files = 'AnalyticsSDK/*.{h,m}', 'AnalyticsSDK/**/*.{h,m}'
-
- s.dependency 'UMeng-Analytics',         '~> 2.2.0'
+  s.requires_arc = 'true'
+ s.dependency 'UMengAnalytics',         '~> 2.2.1'
  s.dependency 'GoogleAnalytics-iOS-SDK', '~> 3.0.2'
 end
