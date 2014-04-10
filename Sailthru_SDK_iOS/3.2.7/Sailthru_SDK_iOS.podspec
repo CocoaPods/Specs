@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
     sp.frameworks          = 'Foundation'
     sp.platform              = :ios
     sp.ios.deployment_target = '7.0'
+    sp.requires_arc          = true
   end
 
   s.subspec 'ios6' do |sp|
@@ -30,6 +31,7 @@ Pod::Spec.new do |s|
     sp.frameworks          = 'Foundation'
     sp.platform              = :ios
     sp.ios.deployment_target = '6.0'
+    sp.requires_arc          = true
   end
   s.description           = <<-DESC
 The SailthruSDK is provided to current Sailthru, Inc clients who have an iOS App. Clients
