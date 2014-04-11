@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
   s.source           = { :http => "https://developers.google.com/games/services/downloads/GooglePlayGames.v#{s.version}.zip" }
   s.platform = :ios
 
-  s.vendored_frameworks = "GooglePlayGames.v#{s.version}/GooglePlayGames.framework"
-  s.source_files = "GooglePlayGames.v#{s.version}/GooglePlayGames.framework/Versions/A/Headers/*.h"
-  s.resource = "GooglePlayGames.v2.0.0/GooglePlayGames.bundle"
+  s.vendored_frameworks = "GooglePlayGames.framework"
+  s.source_files = "GooglePlayGames.framework/Versions/A/Headers/*.h"
+  s.resource = "GooglePlayGames.bundle"
 
   s.frameworks = 'AddressBook', 'AssetsLibrary', 'CoreData', 'CoreLocation', 'CoreMotion', 'CoreText', 'MediaPlayer', 'QuartzCore', 'Security', 'SystemConfiguration'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lc++' }
