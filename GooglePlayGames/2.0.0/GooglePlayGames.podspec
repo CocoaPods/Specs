@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.vendored_frameworks = "GooglePlayGames.v#{s.version}/GooglePlayGames.framework"
   s.source_files = "GooglePlayGames.v#{s.version}/GooglePlayGames.framework/Versions/A/Headers/*.h"
-  s.resource = "GooglePlayGames.v#{s.version}/GooglePlayGames.bundle"
+  s.resource = "GooglePlayGames.v2.0.0/GooglePlayGames.bundle"
 
   s.frameworks = 'AddressBook', 'AssetsLibrary', 'CoreData', 'CoreLocation', 'CoreMotion', 'CoreText', 'MediaPlayer', 'QuartzCore', 'Security', 'SystemConfiguration'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lc++' }
