@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "AFNetworking-MUJSONResponseSerializer"
+  s.name         = "AFNetworking-MUResponseSerializer"
   s.version      = "1.0.0"
   s.summary      = "Automatically serialize JSON response to your object model. It also works with NSManagedObjects"
 
