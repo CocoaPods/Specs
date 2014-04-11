@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
                   DESC
   s.homepage = 'https://github.com/stefanceriu/SCPageViewController'
   s.author   = { 'Stefan Ceriu' => 'stefan.ceriu@yahoo.com' }
+  s.social_media_url = 'https://twitter.com/stefanceriu'
   s.source   = { :git => 'https://github.com/stefanceriu/SCPageViewController.git', :tag => "v#{s.version}" }
   s.license      = { :type => 'MIT License', :file => 'LICENSE' }
   s.source_files = 'SCPageViewController/*', 'SCPageViewController/Layouters/*'
