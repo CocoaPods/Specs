@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.homepage        = 'https://github.com/mps/MPSHorizontalMenu'
   s.source          = { :git => 'https://github.com/mps/MPSHorizontalMenu.git', :tag => "v#{s.version}" }
   s.source_files    = 'MPSHorizontalMenu'
-  s.frameworks      = 'UIKit, QuartzCore'
+  s.frameworks      = 'UIKit', 'QuartzCore'
 end
