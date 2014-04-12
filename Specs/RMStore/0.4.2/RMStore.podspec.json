@@ -1,0 +1,87 @@
+{
+  "name": "RMStore",
+  "version": "0.4.2",
+  "license": "Apache 2.0",
+  "summary": "A lightweight iOS framework for In-App Purchases.",
+  "homepage": "https://github.com/robotmedia/RMStore",
+  "authors": "Hermes Pique",
+  "source": {
+    "git": "https://github.com/robotmedia/RMStore.git",
+    "tag": "v0.4.2"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "frameworks": "StoreKit",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "RMStore/*.{h,m}"
+    },
+    {
+      "name": "KeychainPersistence",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": "RMStore/Optional/RMStoreKeychainPersistence.{h,m}",
+      "frameworks": "Security"
+    },
+    {
+      "name": "OpenSSL",
+      "preserve_paths": [
+        "RMStore/Optional/openssl-1.0.1e/include/openssl/*.h",
+        "RMStore/Optional/openssl-1.0.1e/include/LICENSE"
+      ],
+      "vendored_libraries": [
+        "RMStore/Optional/openssl-1.0.1e/lib/libcrypto.a",
+        "RMStore/Optional/openssl-1.0.1e/lib/libssl.a"
+      ],
+      "libraries": [
+        "ssl",
+        "crypto"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/RMStore/RMStore/Optional/openssl-1.0.1e/include/**"
+      }
+    },
+    {
+      "name": "NSUserDefaultsPersistence",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": [
+        "RMStore/Optional/RMStoreUserDefaultsPersistence.{h,m}",
+        "RMStore/Optional/RMStoreTransaction.{h,m}"
+      ]
+    },
+    {
+      "name": "AppReceiptVerificator",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": [
+        "RMStore/Optional/RMStoreAppReceiptVerificator.{h,m}",
+        "RMStore/Optional/RMAppReceipt.{h,m}"
+      ]
+    },
+    {
+      "name": "TransactionReceiptVerificator",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": "RMStore/Optional/RMStoreTransactionReceiptVerificator.{h,m}"
+    }
+  ]
+}

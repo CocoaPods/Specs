@@ -1,0 +1,104 @@
+{
+  "name": "BloodMagic",
+  "version": "0.7.4",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "license": {
+    "type": "MIT"
+  },
+  "summary": "BloodMagic provides kind of custom property attributes",
+  "homepage": "https://github.com/railsware/BloodMagic",
+  "authors": {
+    "Alex Denisov": "1101.debian@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/railsware/BloodMagic.git",
+    "tag": "0.7.4"
+  },
+  "requires_arc": true,
+  "header_mappings_dir": ".",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-lc++ -ObjC",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BloodMagic/Sources/Modules/Core/**/*.{h,m,mm}",
+        "BloodMagic/Core.h"
+      ],
+      "public_header_files": [
+        "BloodMagic/Sources/Modules/Core/Public/**/*.h",
+        "BloodMagic/Core.h"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Initializers",
+      "source_files": [
+        "BloodMagic/Sources/Modules/Initializers/**/*.{h,m,mm}",
+        "BloodMagic/Initializers.h"
+      ],
+      "public_header_files": [
+        "BloodMagic/Sources/Modules/Initializers/Public/**/*.h",
+        "BloodMagic/Initializers.h"
+      ],
+      "dependencies": {
+        "BloodMagic/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lazy",
+      "source_files": [
+        "BloodMagic/Sources/Modules/Lazy/**/*.{h,m,mm}",
+        "BloodMagic/Lazy*.h"
+      ],
+      "public_header_files": [
+        "BloodMagic/Sources/Modules/Lazy/Public/**/*.h",
+        "BloodMagic/Lazy*.h"
+      ],
+      "dependencies": {
+        "BloodMagic/Initializers": [
+
+        ]
+      }
+    },
+    {
+      "name": "Partial",
+      "source_files": [
+        "BloodMagic/Sources/Modules/Partial/**/*.{h,m,mm}",
+        "BloodMagic/Partial.h"
+      ],
+      "public_header_files": [
+        "BloodMagic/Sources/Modules/Partial/Public/**/*.h",
+        "BloodMagic/Partial.h"
+      ],
+      "dependencies": {
+        "BloodMagic/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Final",
+      "source_files": [
+        "BloodMagic/Sources/Modules/Final/**/*.{h,m,mm}",
+        "BloodMagic/Final.h"
+      ],
+      "public_header_files": [
+        "BloodMagic/Sources/Modules/Final/Public/**/*.h",
+        "BloodMagic/Final.h"
+      ],
+      "dependencies": {
+        "BloodMagic/Core": [
+
+        ]
+      }
+    }
+  ]
+}
