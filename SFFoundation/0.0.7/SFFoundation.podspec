@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.platform                 = :ios
   spec.license                  = { :type => 'Apache', :file => 'LICENSE' }
   spec.ios.deployment_target 	= "5.0"
-  spec.osx.deployment_target    = "10.6"
+  spec.osx.deployment_target    = "10.7"
   spec.authors                  = { "Yang Zexin" => "yangzexin2011@gmail.com" }
   spec.homepage                 = "https://github.com/yangzexin/SFLibraries"
   spec.source                   = { :git => "#{spec.homepage}.git", :tag => "#{spec.version}" }
