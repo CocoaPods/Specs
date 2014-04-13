@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.platform  = :ios, 7.0
   s.version   = '1.0.0'
   s.summary   = 'Some categories on UIColor to deal with hex values or css strings. Supports both ways conversion.'
-  s.homepage  = 'https://github.com/Inferis/UIColor+Hex'
+  s.homepage  = 'https://github.com/Inferis/UIColor-Hex'
   s.license   = { :type => 'MIT', :file => 'LICENSE' }
   s.author    = { 'Tom Adriaenssen' =>  'http://inferis.org/' }
   s.source    = { :git => 'https://github.com/Inferis/UIColor-Hex.git',
