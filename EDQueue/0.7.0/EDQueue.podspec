@@ -12,3 +12,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'FMDB', '~> 2.0'
 end
+
+ 
