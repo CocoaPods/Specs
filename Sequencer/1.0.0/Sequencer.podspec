@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'Sequencer/*'
   s.license 	 = 'MIT'
+  s.requires_arc = false
 end

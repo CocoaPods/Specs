@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/slembcke/Chipmunk-Physics.git", :tag => "Chipmunk-6.1.3" }
   s.source_files = 'src/**/*.{h,c}', 'include/chipmunk/**/*.{h,c}'
   s.header_mappings_dir = 'src'
+  s.requires_arc = false
 end

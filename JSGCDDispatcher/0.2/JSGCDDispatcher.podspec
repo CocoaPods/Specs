@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/dewind/JSGCDDispatcher'
   s.source_files = 'JSGCDDispatcher'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'BlockAlertsDemo/ToAddToYourProjects', 'BlockAlertsDemo/ProjectSpecific/BlockUI.h'
   s.resources = "BlockAlertsDemo/images/ActionSheet/*.png", "BlockAlertsDemo/images/AlertView/*.png"
 
+  s.requires_arc = false
 end

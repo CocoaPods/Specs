@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.description = 'Facebook (iOS App) inspired custom ViewControllerContainer that enables to have a ViewController on top of another.'
   s.platform  = :ios
   s.framework = 'CoreGraphics'
+  s.requires_arc = false
 end

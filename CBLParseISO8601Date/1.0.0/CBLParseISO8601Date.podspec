@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.author       = { "Jens Alfke" => "http://jens.mooseyard.com/" }
   s.source       = { :git => "https://github.com/GateGuru/CBLParseISO8601Date.git", :tag => "1.0.0" }
   s.source_files = 'Code'
+  s.requires_arc = false
 end

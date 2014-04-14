@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
 
     ss.dependency 'CTidy', '~> 0.3.1'
   end
+  s.requires_arc = false
 end

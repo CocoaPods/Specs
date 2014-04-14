@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'SDWebImage', '~> 3.5'
   s.dependency 'MBProgressHUD'
   s.dependency 'DACircularProgress'
+  s.requires_arc = false
 end

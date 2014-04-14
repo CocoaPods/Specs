@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 
   s.source   = { :git => 'https://github.com/pandamonia/A2DynamicDelegate.git', :tag => 'v1.0.1' }
   s.source_files = 'A2DynamicDelegate.{h,m}', 'A2BlockDelegate.{h,m}'
+  s.requires_arc = false
 end

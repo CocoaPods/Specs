@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'ViewUtils/ViewUtils.{h,m}'
   s.framework    = 'QuartzCore'
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes', 'Additions'
   s.public_header_files = 'Classes/**/*.h'
   s.frameworks  = 'SenTestingKit', 'CoreGraphics'
+  s.requires_arc = false
 end

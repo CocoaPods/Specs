@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
                  :commit => '06acabc4acfbb1af6ef46d48e806158b553405b8' }
   s.source_files = '*.{h,m}'
   s.dependency 'AFNetworking', '~>1.0'
+  s.requires_arc = false
 end

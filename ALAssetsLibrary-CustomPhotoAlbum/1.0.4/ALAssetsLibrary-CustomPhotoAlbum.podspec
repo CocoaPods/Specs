@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'ALAssetsLibrary-CustomPhotoAlbum/*.{h,m}'
   s.frameworks   = 'AssetsLibrary'
+  s.requires_arc = false
 end

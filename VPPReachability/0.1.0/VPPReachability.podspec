@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/vicpenap/VPPReachability.git', :tag => '0.1.0' }
   s.source_files = 'VPPReachability/'
   s.frameworks = 'SystemConfiguration'
+  s.requires_arc = false
 end

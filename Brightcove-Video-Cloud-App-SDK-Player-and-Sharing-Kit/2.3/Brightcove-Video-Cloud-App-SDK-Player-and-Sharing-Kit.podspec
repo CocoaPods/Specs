@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   }
 
   s.dependency 'Brightcove-Video-Cloud-App-SDK-MediaAPI', '2.3'
+  s.requires_arc = false
 end

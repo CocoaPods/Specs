@@ -36,4 +36,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}'
 
   s.frameworks = 'UIKit', 'CoreImage'
+  s.requires_arc = false
 end

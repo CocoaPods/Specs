@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SSZipArchive.{h,m}', 'minizip/*.{h,c}'
   s.header_dir = 'minizip'
   s.library      = 'z'
+  s.requires_arc = false
 end

@@ -61,4 +61,5 @@ Pod::Spec.new do |s|
       ss.library             =  'z'
     end
   end
+  s.requires_arc = false
 end

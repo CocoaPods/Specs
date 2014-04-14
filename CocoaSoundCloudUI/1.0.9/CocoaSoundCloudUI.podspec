@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'CocoaSoundCloudAPI', '~> 1.0.2'
   s.dependency 'OHAttributedLabel'
+  s.requires_arc = false
 end

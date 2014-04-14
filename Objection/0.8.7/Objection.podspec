@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/atomicobject/objection.git', :tag => '0.8.7' }
   s.homepage     = 'http://www.objection-framework.org'
   s.source_files = 'Source'
+  s.requires_arc = false
 end

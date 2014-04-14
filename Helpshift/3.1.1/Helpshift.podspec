@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.frameworks          = 'CoreGraphics', 'QuartzCore', 'CoreText', 'SystemConfiguration', 'CoreTelephony', 'Foundation', 'UIKit'
   s.libraries           = 'sqlite3.0', 'z', 'Helpshift'
   s.xcconfig            = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Helpshift/helpshift-ios-3.1.1"'}
+  s.requires_arc = false
 end

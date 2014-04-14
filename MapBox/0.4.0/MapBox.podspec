@@ -75,4 +75,5 @@ Pod::Spec.new do |m|
     p.exclude_files = 'Proj4/**/*nad2nad*'
   end
 
+  m.requires_arc = false
 end

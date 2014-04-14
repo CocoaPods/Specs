@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/pivotalforks/TBXML.git", :commit => "d6ab8acd51" }
   s.source_files = 'TBXML-Code/*.{h,m}' , 'TBXML-Headers/*.{h,m}'
   s.library = 'z'
+  s.requires_arc = false
 end

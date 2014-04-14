@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
                         ./configure
                         mv COPYING LICENSE
                     CMD
+  s.requires_arc = false
 end

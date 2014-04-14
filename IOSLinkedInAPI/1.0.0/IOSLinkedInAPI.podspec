@@ -8,9 +8,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jeyben/IOSLinkedInAPI.git', :tag => '1.0.0' }
   s.source_files = 'IOSLinkedInAPI'
   s.requires_arc = true
-
   s.platform     = :ios, '5.0'
-
-  s.dependency 'AFNetworking', '~> 1.2.1'
-
+  s.dependency 'AFNetworking', '~> 1.3.3'
 end

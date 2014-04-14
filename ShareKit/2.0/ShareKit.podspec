@@ -72,4 +72,5 @@ Pod::Spec.new do |s|
     vkontakte.source_files = 'Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}'
     vkontakte.dependency 'JSONKit'
   end
+  s.requires_arc = false
 end

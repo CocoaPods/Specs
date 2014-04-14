@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'admsAppLibrary.a'
   s.library        = 'admsAppLibrary'
   s.xcconfig       = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Omniture"' }
+  s.requires_arc = false
 end

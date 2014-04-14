@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'Kontagent', 'SystemConfiguration', 'AdSupport', 'CoreTelephony', 'CoreData'
   s.library      = 'z'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Kontagent"'}
+  s.requires_arc = false
 end

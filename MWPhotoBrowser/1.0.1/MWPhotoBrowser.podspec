@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'SDWebImage','<3.0.0'
   s.dependency 'MBProgressHUD'
+  s.requires_arc = false
 end

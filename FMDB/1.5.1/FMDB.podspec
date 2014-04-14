@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/FM*.*'
   s.library = 'sqlite3'
+  s.requires_arc = false
 end

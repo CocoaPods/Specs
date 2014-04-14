@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'ASIHTTPRequest'
   s.dependency 'TouchJSON'
+  s.requires_arc = false
 end

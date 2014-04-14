@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/markrickert/UIWebView-RemoveShadow.git", :tag => "0.0.1" }
   s.platform     = :ios
   s.source_files = 'UIWebView+RemoveShadow.{h,m}'
+  s.requires_arc = false
 end

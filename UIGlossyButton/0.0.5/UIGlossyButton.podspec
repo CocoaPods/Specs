@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'UIGlossyButton/UIGlossyButton.{h,m}', 'UIGlossyButton/UIView+LayerEffects.{h,m}'
 
   s.frameworks    = 'UIKit', 'QuartzCore'
+  s.requires_arc = false
 end

@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
                    'with minimal code changes.'
   s.source_files = 'iCarousel'
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = false
 end

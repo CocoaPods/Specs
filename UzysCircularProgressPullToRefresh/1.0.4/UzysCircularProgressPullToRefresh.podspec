@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/uzysjung/UzysCircularProgressPullToRefresh.git", :tag => "1.0.4" }
   s.requires_arc = true
   s.source_files = 'UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library'
+  s.resources = ["UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library/*.png"]
   s.public_header_files = 'UzysCircularProgressPullToRefresh/UzysCircularProgressPullToRefresh/Library/*.h'
   s.ios.deployment_target = "6.1"
 

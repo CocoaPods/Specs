@@ -27,4 +27,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.platform      = :ios
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.frameworks    = 'UIKit'
+  s.requires_arc = false
 end

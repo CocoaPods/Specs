@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.source_files = 'SVStatusHUD/SVStatusHUD.{m,h}'
+  s.requires_arc = false
 end

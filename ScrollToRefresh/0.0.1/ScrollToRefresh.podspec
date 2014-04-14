@@ -36,4 +36,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ScrollToRefresh/src/*.{h,m}'
 
   s.framework  = 'QuartzCore', 'Cocoa'
+  s.requires_arc = false
 end

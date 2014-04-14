@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'pinview'
   s.resources = "pinview/*.{png,xib}"
 
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'src/Quayboard/*.{h,m}'
   s.public_header_files = 'src/Quayboard/*.h'
   s.resources = 'src/QuayboardResources/Resources/*.png'
+  s.requires_arc = false
 end

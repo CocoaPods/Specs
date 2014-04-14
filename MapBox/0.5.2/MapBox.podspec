@@ -91,4 +91,5 @@ Pod::Spec.new do |m|
   m.dependency 'GRMustache', '5.4.3'
   m.dependency 'SMCalloutView', '1.0.1'
 
+  m.requires_arc = false
 end
