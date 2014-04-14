@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/expensivegasprices/BZObjectStore'
   s.author   = { "BONZOO LLC" => "expensivegasprices@gmail.com" }
   s.source   = { :git => 'https://github.com/expensivegasprices/BZObjectStore.git', :tag => s.version.to_s }
-  s.platform :ios, '5.1'
+  s.platform = :ios, '5.1'
   s.requires_arc = true
   s.source_files = 'BZObjectStore/BZObjectStore/*.{h,m}'
 
