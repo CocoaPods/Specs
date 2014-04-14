@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = 'ImageMagick'
-  s.version        = '6.8.1-0'
+  s.version        = '6.8.8-9'
   s.platform       = :ios
   s.summary        = 'Convert, Edit and Compose Images'
   s.homepage       = 'http://www.imagemagick.org/'
