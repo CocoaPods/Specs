@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'NSURLImage and images downloader'
   s.homepage = 'https://github.com/quaddef/QDImageView'
   s.authors  = 'quaddef'
+  s.social_media_url = 'https://twitter.com/quaddef'
   s.source   = { :git => 'https://github.com/quaddef/QDImageView.git', :tag => '0.0.1' }
   s.source_files = 'Classes/*.{h,m}'
   s.requires_arc = true
