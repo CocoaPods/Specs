@@ -207,6 +207,7 @@ end
 desc "Converts the specifications to JSON"
 task :convert_specs_to_json do
   require 'cocoapods-core'
+  require 'json'
 
   puts "Adopting Specs folder"
   Dir.mkdir("Specs") unless File.exist?("Specs")
@@ -223,7 +224,7 @@ task :convert_specs_to_json do
     if spec.safe_to_hash?
       spec_json_path = "#{spec_path}.json"
       print "."
-      File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
+      File.open(spec_json_path, 'w') { |file| file.write(JSON.pretty_generate(spec)) }
       File.delete(spec_path)
     else
       skipped_specs << spec_path
