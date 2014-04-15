@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1"
   s.summary          = "With this UICollectionViewFlowLayout subclass, your UICollectionView looks like a UITableView if you are using cells with dynamic heights."
   s.homepage         = "https://github.com/yoeriboven/TopAlignedCollectionViewLayout"
+  s.screenshot       = "https://camo.githubusercontent.com/c92629aa56e010c7ccdd114629f5d0d96b5ffa82/687474703a2f2f6935382e74696e797069632e636f6d2f31337a6d68796f2e676966"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Yoeri Boven" => "yoeriboven@msn.com" }
   s.social_media_url = "http://twitter.com/yoeriboven"
