@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
                        Button with round border and animation just like those in AppStore app
                        DESC
   s.homepage         = "https://github.com/yhpark/YHRoundBorderedButton"
+  s.screenshots      = "https://raw.githubusercontent.com/yhpark/YHRoundBorderedButton/master/Example/demo.gif"
   s.license          = 'MIT'
   s.author           = { "Yeonghoon Park" => "me@yhpark.co" }
   s.source           = { :git => "https://github.com/yhpark/YHRoundBorderedButton.git", :tag => s.version.to_s }
