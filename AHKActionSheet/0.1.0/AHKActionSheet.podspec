@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "An alternative to the UIActionSheet with a block-based API and a modern, customizable look."
   s.homepage         = "https://github.com/fastred/AHKActionSheet"
+  s.screenshots      = "https://raw.githubusercontent.com/fastred/AHKActionSheet/master/example.gif"
   s.license          = 'MIT'
   s.author           = { "Arkadiusz Holko" => "fastred@fastred.org" }
   s.source           = { :git => "https://github.com/fastred/AHKActionSheet.git", :tag => s.version.to_s }
