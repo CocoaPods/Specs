@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'AssetsLibrary', 'MobileCoreServices'
   s.requires_arc = true
 
-  s.dependency 'Cordova', '>= 3.0.0'
+  s.dependency 'Cordova', '>= 3.0.0', '<= 3.4.0'
 end
