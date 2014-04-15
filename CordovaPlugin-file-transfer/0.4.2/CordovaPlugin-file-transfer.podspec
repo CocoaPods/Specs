@@ -23,4 +23,8 @@ Pod::Spec.new do |s|
 
   s.dependency 'Cordova', '>= 3.0.0', '<= 3.4.0'
   s.dependency 'CordovaPlugin-file', '>= 1.0.1'
+
+  # TODO remove this as of 0.4.3 once https://github.com/apache/cordova-plugin-file-transfer/pull/18
+  #      has been pulled into the master branch and tagged
+  s.xcconfig = { 'GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS' => 'NO' }
 end
