@@ -5,11 +5,11 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
 				UAFilterableResultsController provides the following:
 
-				* A `NSMutableArray` based data source that you can manipulate.
-				* A `UITableViewDataSource` implementation.
-				* A `UICollectionViewDataSource` implementation.
-				* Support for applying `NSPredicate`-based filters on top of your data.
-				* All changes are computed and your delegate informed (like `NSFetchedResultsController`) so they can be animated.
+				* A NSMutableArray based data source that you can manipulate.
+				* A UITableViewDataSource implementation.
+				* A UICollectionViewDataSource implementation.
+				* Support for applying NSPredicate-based filters on top of your data.
+				* All changes are computed and your delegate informed (like NSFetchedResultsController) so they can be animated.
 					DESC
   s.homepage     = "https://github.com/unsignedapps/UAFilterableResultsController"
   s.license      = 'MIT'
