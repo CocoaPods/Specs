@@ -22,5 +22,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency 'Cordova', '>= 3.0.0', '<= 3.4.0'
-  s.dependency 'Cordova/Plugins/File', '>= 1.0.1'
+  s.dependency 'CordovaPlugin-file', '>= 1.0.1'
 end
