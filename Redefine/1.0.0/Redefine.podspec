@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = "Daniel Alves"
   s.ios.deployment_target = "5.0"
   s.osx.deployment_target = "10.6"
-  s.source       = { :git => "https://github.com/danielalves/redefine.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/danielalves/redefine.git", :tag => "1.0.0" }
   s.source_files  = "Redefine"
   s.requires_arc = true
 end
