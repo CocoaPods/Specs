@@ -15,18 +15,18 @@ Pod::Spec.new do |s|
   
   s.default_subspec = 'Core'
 
-  s.subspec 'Core' do |s|
-    s.requires_arc = true
-    s.source_files = 'Core/Source/*'
-    s.resources = 'Core/Resources/*'
+  s.subspec 'Core' do |c|
+    c.requires_arc = true
+    c.source_files = 'Core/Source/*'
+    c.resources = 'Core/Resources/*'
   end
 
-  s.subspec 'Demo' do |s|
-    s.requires_arc = true
-    s.source_files = 'Demo/WabblyDemo/Source/*'
-    s.resources = 'Demo/WabblyDemo/Resources/*'
-    s.preserve_paths = "Demo/WabblyDemo.xcodeproj", "Demo/Podfile"
-    s.dependency 'Wabbly/Core'
+  s.subspec 'Demo' do |d|
+    d.requires_arc = true
+    d.source_files = 'Demo/WabblyDemo/Source/*'
+    d.resources = 'Demo/WabblyDemo/Resources/*'
+    d.preserve_paths = "Demo/WabblyDemo.xcodeproj", "Demo/Podfile"
+    d.dependency 'Wabbly/Core'
   end
 
 end
