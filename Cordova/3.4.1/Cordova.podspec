@@ -14,11 +14,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'AVFoundation', 'CoreLocation', 'MobileCoreServices', 'AssetsLibrary'
 
-  s.default_subspec = 'Base'
-
-  s.subspec 'Base' do |b|
-      b.source_files      = 'CordovaLib/Classes/*.{h,m}'
-      b.preserve_paths    = 'CordovaLib/cordova.js', 'CordovaLib/VERSION'
-  end
-
+  s.source_files      = 'CordovaLib/Classes/*.{h,m}'
+  s.preserve_paths    = 'CordovaLib/cordova.js', 'CordovaLib/VERSION'
 end
