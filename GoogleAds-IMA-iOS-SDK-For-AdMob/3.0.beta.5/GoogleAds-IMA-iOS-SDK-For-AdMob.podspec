@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name         = "GoogleAds-IMA-iOS-SDK"
+  s.name         = "GoogleAds-IMA-iOS-SDK-For-AdMob"
   s.version      = "3.0.beta.5"
-  s.summary      = "Google Ads IMA SDK for iOS 5.0+."
+  s.summary      = "Google Ads IMA SDK for iOS 5.0+ and AdMob."
   s.description  = <<-DESC
       The IMA iOS SDK v3 allows native application developers to request and track VAST ads in the iOS (5.0+) environment. For a more detailed list of the video ad features supported by each of the IMA SDKs, refer to [Video features and SDK versions](https://support.google.com/dfp_premium/bin/answer.py?hl=en&answer=2446163). For general compatibility information, see the [Compatibility](https://developers.google.com/interactive-media-ads/docs/compatibility) page. The v3 IMA iOS SDK supports the same [video containers and codecs](https://developers.google.com/interactive-media-ads/docs/compatibility#codecs) as v1.
 
@@ -27,11 +27,11 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.source = { :http => "https://dl.google.com/in-stream/google_sdk/ios/beta/googleimasdk3-ios-3.0.b5.zip", :flatten => true }
   s.source_files  = '*.h'
-  s.preserve_paths = 'libGoogleIMA3.a'
+  s.preserve_paths = 'libGoogleIMA3ForAdMob.a'
   s.libraries = 'GoogleIMA3'
-  # If you are using the AdMob SDK along with the IMA SDK, you'll need to use
-  # the "GoogleAds-IMA-iOS-SDK-For-AdMob" pod.
-  s.exclude_files = 'libGoogleIMA3ForAdMob.a'
+  # If you are not using the AdMob SDK along with the IMA SDK, you'll need to
+  # use the "GoogleAds-IMA-iOS-SDK" pod.
+  s.exclude_files = 'libGoogleIMA3.a'
   s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CoreFoundation', 'CoreGraphics', 'CoreMedia', 'MessageUI', 'QuartzCore', 'SystemConfiguration', 'UIKit'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAds-IMA-iOS-SDK/"' }
   s.requires_arc = false
