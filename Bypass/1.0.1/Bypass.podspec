@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '6.0'
   s.ios.frameworks = 'Foundation', 'UIKit', 'QuartzCore', 'CoreGraphics', 'CoreText'
   s.ios.requires_arc = true
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-lstdc++' }
   s.compiler_flags = '-stdlib=libc++'
   s.source = {
     :git => 'https://github.com/Uncodin/bypass-ios.git',
