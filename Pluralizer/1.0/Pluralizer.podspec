@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.author             = { "Elliot Chance" => "elliotchance@gmail.com" }
   s.source       = { :git => "https://github.com/elliotchance/Pluralizer.git", :tag => "1.0" }
   s.source_files  = 'Pluralizer/*.{h,m}'
+  s.requires_arc = false
 end
