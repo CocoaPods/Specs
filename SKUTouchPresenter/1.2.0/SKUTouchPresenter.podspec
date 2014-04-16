@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
   s.source_files  = 'SKUTouchPresenter.{h,m}'
   s.exclude_files = 'SampleApplication'
   s.framework  = 'QuartzCore'
+  s.requires_arc = false
 end
 

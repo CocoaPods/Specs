@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.platform         =  :osx
   s.framework        =  'CoreLocation'
   s.resources        =  'Classes-MacOSX/UI/*.xib'
+  s.requires_arc = false
 end
 

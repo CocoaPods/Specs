@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.header_dir = 'minizip'
   s.preserve_paths = 'minizip'
   s.library = 'z'
+  s.requires_arc = false
 end

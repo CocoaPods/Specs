@@ -56,4 +56,5 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   # s.exclude_files =  '**/*try.*'
 	s.compiler_flags =  '-DNATIVE_LITTLE_ENDIAN=1'
 
+  s.requires_arc = false
  end

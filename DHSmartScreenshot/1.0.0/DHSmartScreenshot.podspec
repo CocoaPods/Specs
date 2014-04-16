@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/davidman/DHSmartScreenshot.git", :tag => 'v1.0.0' }
   
   s.source_files  = 'Classes/*.{h,m}'
+  s.requires_arc = false
 end

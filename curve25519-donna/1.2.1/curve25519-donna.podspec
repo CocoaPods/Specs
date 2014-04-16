@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.author       = 'Dan Bernstein'
   s.source       = { :git => "https://github.com/agl/curve25519-donna.git", :tag => "1.2.1" }
   s.source_files  = 'curve25519-donna.c'
+  s.requires_arc = false
 end

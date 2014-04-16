@@ -8,7 +8,8 @@ Pod::Spec.new do |s|
   s.authors   = {
     'Zynga, Inc.' => 'http://code.zynga.com'
   }
-  s.source   = { :git => 'https://github.com/zynga/FontLabel.git', :commit => "2fe3721146b9607a1154823fc98c4cb003551557"}
+  s.source   = { :git => 'https://github.com/JPluto/FontLabel.git', :commit => "339cf005252935173c5be7ccd4a82e6811b792e3"}
   s.source_files = 'FontLabel/Classes/FontLabel/*.{h,m}'
 
+  s.requires_arc = false
 end

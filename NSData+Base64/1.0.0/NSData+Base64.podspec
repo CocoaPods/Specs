@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
                 TXT
                }
 
+  s.requires_arc = false
 end

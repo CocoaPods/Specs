@@ -33,4 +33,5 @@ Pod::Spec.new do |s|
   s.libraries = 'z','sqlite3'
 
   s.dependency 'JSONKit', '~> 1.4'
+  s.requires_arc = false
 end

@@ -14,4 +14,5 @@ A horizontally scrolling image picker, similar to the one found in iOS 7's Photo
   s.exclude_files = 'Classes/Exclude'
   s.public_header_files = 'Classes/**/*.h'
   s.resources = "Images/*.png"
+  s.requires_arc = false
 end

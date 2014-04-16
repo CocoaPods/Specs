@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'AdSupport'
   s.libraries = 'PocketChangeSDK'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PocketChangeSDK/pocketchange-ios-sdk-1.1.0/PocketChangeSDK"' }
+  s.requires_arc = false
 end

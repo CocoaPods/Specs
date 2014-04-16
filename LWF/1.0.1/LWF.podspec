@@ -39,4 +39,5 @@ Pod::Spec.new do |s|
     lua.source_files = 'cplusplus/binding/lua/*.{cpp,h}', 'cplusplus/supports/luna-gen/*.{cpp,h}'
     lua.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'LWF_USE_LUA' }
   end
+  s.requires_arc = false
 end

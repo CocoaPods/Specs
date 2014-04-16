@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
 
   s.resources = "EGOPhotoViewer/Resources/*.png"
   s.dependency 'EGOImageLoading', '~> 0.0.1'
+  s.requires_arc = false
 end

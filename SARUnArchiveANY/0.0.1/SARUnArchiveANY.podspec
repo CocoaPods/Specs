@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
     ss.source_files = 'External/ZipArchive/*.{h,m}', 'External/ZipArchive/**/*.{h,c}'
   end
   s.vendored_frameworks = 'Frameworks/Unrar4iOS.framework'
+  s.requires_arc = false
 end

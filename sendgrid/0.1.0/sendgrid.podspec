@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'Classes/Exclude'
   s.dependency 'AFNetworking', '~> 2.0'
 
+  s.requires_arc = false
 end

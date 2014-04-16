@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
 
   s.resource     = 'client/iOS/Hockey.bundle'
   s.frameworks   = 'QuartzCore', 'SystemConfiguration'
+  s.requires_arc = false
 end

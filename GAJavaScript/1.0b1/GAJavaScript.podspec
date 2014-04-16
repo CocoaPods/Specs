@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes'
   s.resource     = "ga-js-runtime.js"
 
+  s.requires_arc = false
 end

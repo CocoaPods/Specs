@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'objc'
 
+  s.requires_arc = false
 end

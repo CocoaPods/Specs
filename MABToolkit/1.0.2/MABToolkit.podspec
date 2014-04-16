@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform = :osx
   s.source_files = '*.{h,m}'
   s.frameworks = 'SystemConfiguration', 'IOKit'
+  s.requires_arc = false
 end

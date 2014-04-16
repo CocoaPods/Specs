@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.library   = 'MobileAdSDK'
   s.frameworks = 'SystemConfiguration', 'CoreGraphics', 'CoreTelephony'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/AdPostSDK' }
+  s.requires_arc = false
 end

@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "LOLProgressOverlayView"
   s.version      = "0.1.0"
   s.summary      = "UIButton / UIView category that add a progress indicator overlay simply with single line of code."
-  s.description  = <<-DESC
-                    UIButton / UIView category that add a progress indicator overlay simply with single line of code.
-                   DESC
   s.homepage     = "https://github.com/DJBen/LOLProgressOverlayView"
   s.screenshots  = "https://raw.github.com/DJBen/LOLProgressOverlayView/master/LOLProgressOverlayViewExample.png"
   s.license      = 'MIT'

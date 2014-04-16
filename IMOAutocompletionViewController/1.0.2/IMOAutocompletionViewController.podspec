@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.source       = { :git => "https://github.com/fredericcormier/IMOAutocompletionViewController.git", :tag => '1.0.2' }
   s.source_files = 'IMOAutocompletionViewControllerDEMO/IMOAutocompletionViewControllerDEMO/IMOAutocompletionViewController/*.{h,m}'
+  s.requires_arc = false
 end

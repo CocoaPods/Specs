@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/nicklockwood/iRate.git', :tag => '1.5.2' }
   s.source_files =  'iRate/iRate.{h,m}'
   s.resources    =  'iRate/iRate.bundle'
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/NachoSoto/NSBKeyframeAnimation.git", :commit => "6956b1d7b44244f83a9d75b75c722ab1bcf72a0e" }
   s.source_files = 'NSBKeyframeAnimation/Classes/NSBKeyframeAnimation'
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = false
 end

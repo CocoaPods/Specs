@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "SJODataKit"
   s.version      = "0.2"
   s.summary      = "Lightweight Core Data helper to reduce boilerplate code."
-  s.description  = <<-DESC
-                  Lightweight Core Data helper to reduce boilerplate code.
-                  DESC
   s.homepage     = "https://github.com/blork/SJODataKit"
   s.license      = 'MIT'
   s.author       = { "Sam Oakley" => "sam@blork.co.uk" }

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.frameworks   =  'CoreTelephony', 'SystemConfiguration'
   s.platform     =  :ios
   s.source_files =  'Mixpanel/**/*.{h,m}'
+  s.requires_arc = false
 end

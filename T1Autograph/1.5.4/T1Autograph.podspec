@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.framework  = 'Foundation'
   s.library   = 'T1Autograph'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/T1Autograph' }
+  s.requires_arc = false
 end

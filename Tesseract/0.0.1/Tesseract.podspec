@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.library = 'lept', 'tesseract_all'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Tesseract/lib"', 'OTHER_LDFLAGS' => '-lstdc++'}
 
+  s.requires_arc = false
 end

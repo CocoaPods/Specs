@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { 'Mattt Thompson' => 'm@mattt.me' }
   s.summary      = 'NSLocalizedString with a Count Argument.'
   s.source_files = 'TTTLocalizedPluralString.{h,m}'
+  s.requires_arc = false
 end

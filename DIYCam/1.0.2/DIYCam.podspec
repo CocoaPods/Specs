@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'DIYCam'
 
   s.framework = 'UIKit', 'AssetsLibrary', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'MobileCoreServices', 'QuartzCore'
+  s.requires_arc = false
 end

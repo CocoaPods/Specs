@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.library               = 'MobileAppTracker-3.0.4'
   s.xcconfig              =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MobileAppTracker"' }
   s.frameworks            = 'CoreTelephony', 'MobileCoreServices', 'SystemConfiguration', 'UIKit', 'iAd'
+  s.requires_arc = false
 end

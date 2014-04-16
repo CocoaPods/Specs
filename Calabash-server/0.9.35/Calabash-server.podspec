@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = '.'
   s.frameworks     = 'CFNetwork'
   s.xcconfig       = { 'OTHER_LINKER_FLAGS' => '-force_load "$(PODS_ROOT)/Calabash-server/calabash.framework/calabash" -lstdc++' }
+  s.requires_arc = false
 end

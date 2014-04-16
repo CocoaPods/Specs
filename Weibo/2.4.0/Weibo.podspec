@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files  = "libWeiboSDK/*.{h,m}"
   s.resource_bundle    = { "Weibo" => "libWeiboSDK/WeiboSDK.bundle" }
   s.vendored_libraries = "libWeiboSDK/libWeiboSDK.a"
+  s.requires_arc = false
 end

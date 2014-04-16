@@ -38,4 +38,5 @@ Pod::Spec.new do |s|
   s.resources = "TimerScroller/*.png"
 
   s.framework = 'QuartzCore'
+  s.requires_arc = false
 end

@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.dependency 'freexl'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/headers' }
+  s.requires_arc = false
 end

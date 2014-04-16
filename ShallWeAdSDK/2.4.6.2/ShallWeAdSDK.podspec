@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.library = 'ShallWeAD_IOSSDK'
   s.frameworks = 'CoreLocation', 'CoreTelephony', 'CoreGraphics'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/ShallWeAdSDK' }
+  s.requires_arc = false
 end

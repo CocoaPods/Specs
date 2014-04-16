@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.library   = 'MobClickLibrary','z'
   
   s.xcconfig      = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/UMengAnalytics/**"'}
+  s.requires_arc = false
 end

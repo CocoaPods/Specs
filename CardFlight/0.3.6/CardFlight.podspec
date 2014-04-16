@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/CardFlight/cardflight-ios.git', :tag => '0.3.6' }
   s.source_files  = '*.{h,m,a}'
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI'
+  s.requires_arc = false
 end

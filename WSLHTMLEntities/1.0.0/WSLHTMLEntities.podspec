@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sdarlington/WSLHTMLEntities.git", :tag => "1.0.0" }
   s.source_files  = 'WSLHTMLEntities/WSLHTMLEntit*.{h,m,lm}', 'WSLHTMLEntities.h'
   s.public_header_files = 'WSLHTMLEntities.h'
+  s.requires_arc = false
 end

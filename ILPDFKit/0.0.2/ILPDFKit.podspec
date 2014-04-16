@@ -30,4 +30,5 @@ s.source_files  = "ILPDFKit/*.{h,m}"
 s.resource  = "ILPDFKit/Resources/parse.html"
 s.frameworks = "QuartzCore", "UIKit"
 
+  s.requires_arc = false
 end

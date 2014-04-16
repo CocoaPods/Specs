@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source_files  =  'CFLocation/*.{h,m,a,txt}'
   s.framework    = 'CoreLocation'
   s.dependency     'SBJson'
+  s.requires_arc = false
 end

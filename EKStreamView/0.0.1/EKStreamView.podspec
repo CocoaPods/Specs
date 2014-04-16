@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ekohe/EKStreamView.git", :commit => '60db6d20ab540f832d391b0f51a0b49d31e0ee22' }
   s.platform     = :ios
   s.source_files = 'EKStreamView.h', 'EKStreamView.m'
+  s.requires_arc = false
 end

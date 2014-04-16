@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
     :tag => '0.1'
   }
   s.source_files = 'UIFont-DynamicFontControl/*.{h,m}'
+  s.requires_arc = false
 end

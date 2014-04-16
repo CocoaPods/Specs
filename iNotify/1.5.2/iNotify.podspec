@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/nicklockwood/iNotify.git', :tag => '1.5.2' }
   s.source_files =  'iNotify/iNotify.{h,m}'
   s.resources    =  'iNotify/iNotify.bundle'
+  s.requires_arc = false
 end

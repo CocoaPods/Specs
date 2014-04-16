@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform 		= :ios
   s.source_files 	= 'OAuthCore.{h,m}', 'OAuth+Additions.{h,m}'
   s.dependency 		'NSData+Base64'
+  s.requires_arc = false
 end

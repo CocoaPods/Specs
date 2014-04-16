@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
     cd.source_files =  'CocosDenshion/CocosDenshion/*.{h,m}'
     cd.frameworks   =  ["AVFoundation", "OpenAL", "CoreFoundation", "AudioToolbox", "Foundation"]
   end
+  s.requires_arc = false
 end

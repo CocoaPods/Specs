@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'Classes/QRCodeGenerator.{h,m}', 'libqrencode/*.{h,c}'
   s.public_header_files = 'Classes/QRCodeGenerator.h'
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.private_header_files = 'src/classes/*_private.h'
   s.framework = 'Foundation'
   s.dependency 'JRSwizzle', '~> 1.0'
+  s.requires_arc = false
 end

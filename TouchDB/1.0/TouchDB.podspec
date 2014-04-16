@@ -74,4 +74,5 @@ Pod::Spec.new do |s|
 
   s.framework = 'SystemConfiguration'
   s.library   = 'sqlite3'
+  s.requires_arc = false
 end

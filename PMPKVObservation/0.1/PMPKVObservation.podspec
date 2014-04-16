@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Mark Aufflick' => 'mark@aufflick.com' }
   s.source   = { :git => 'https://github.com/aufflick/PMPKVObservation.git', :tag => '0.1' }
   s.source_files = 'PMPKVObservation.{h,m}'
+  s.requires_arc = false
 end

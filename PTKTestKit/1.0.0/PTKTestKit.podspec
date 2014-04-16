@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 
   s.framework             = 'SenTestingKit'
   s.source_files          = 'PTKTestKit/*.{h,m}'
+  s.requires_arc = false
 end

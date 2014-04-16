@@ -38,4 +38,5 @@ Additionally (and tagged separately) there is a branch which has (some) fixes fo
     end
 
   end
+  s.requires_arc = false
 end

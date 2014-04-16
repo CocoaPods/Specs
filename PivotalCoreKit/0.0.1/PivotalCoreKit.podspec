@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
     spec_helper.dependency 'Cedar'
   end
   
+  s.requires_arc = false
 end

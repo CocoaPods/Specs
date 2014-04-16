@@ -28,6 +28,8 @@ Pod::Spec.new do |s|
     ./configure
     ./tools/svn_repo_revision.sh
 
+    sed -i "" "s/\\/\\* #undef HAVE_INT64_T_64 \\*\\//#define HAVE_INT64_T_64 1/" include/geos/platform.h
+
     cat <<EOT >> include/geos/platform.h
       #undef ISNAN
       #define ISNAN(x) (std::isnan(x))
@@ -41,4 +43,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'src/**/*.h', 'include/**/*.{h,inl,in}', 'capi/*.{h,in}'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_CXX_LIBRARY' => 'libstdc++'}
+  s.requires_arc = false
 end

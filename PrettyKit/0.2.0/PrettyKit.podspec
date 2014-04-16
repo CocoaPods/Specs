@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'PrettyKit', 'PrettyKit/Cells'
   s.frameworks = 'UIKit', 'QuartzCore', 'CoreGraphics'
+  s.requires_arc = false
 end

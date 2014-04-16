@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
     cell_mapping.dependency 'BaseKit/Core'
     cell_mapping.dependency 'BaseKit/View'
   end
+  s.requires_arc = false
 end

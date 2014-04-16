@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
     ss.dependency 'FMDB/common'
   end
 
+  s.requires_arc = false
 end

@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.frameworks  = %w{ AudioToolbox AVFoundation CoreTelephony MessageUI MediaPlayer Security SystemConfiguration StoreKit }
   s.weak_frameworks = %w{ AdSupport }
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/InMobiSDK/InMobi-iOS-SDK-4.1.0/Libs' }
+  s.requires_arc = false
 end

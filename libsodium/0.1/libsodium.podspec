@@ -24,4 +24,5 @@ LICENSE
 
   s.source_files = 'src/libsodium/**/*.{c,h,data}'
   s.exclude_files = '**/*try.*', '**/*version.*'
+  s.requires_arc = false
  end

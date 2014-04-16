@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SESpringBoardDemo/SESpringBoard'
   s.resources = "SESpringBoardDemo/SESpringBoard/*.png"
+  s.requires_arc = false
 end

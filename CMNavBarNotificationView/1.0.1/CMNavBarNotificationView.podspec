@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '4.0'
   s.source_files = 'CMNavBarNotificationView/*.{h,m}','OBGradientView/*.{h,m}'
   s.public_header_files = 'CMNavBarNotificationView/**/*.h'
+  s.requires_arc = false
 end
