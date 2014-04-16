@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.framework = 'FacebookSDK'
   s.header_dir = 'FacebookSDK'
   s.preserve_paths = 'FacebookSDK.framework'
-s.dependency 'Facebook-iOS-SDK'
+  s.dependency 'Facebook-iOS-SDK'
 
   s.xcconfig = {'FRAMEWORK_SEARCH_PATHS' => '"$RTFacebookAlbum/FacebookSDK"'}
   # s.ios.exclude_files = 'Classes'
