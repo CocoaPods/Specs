@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/mattt/TransformerKit'
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/mattt/TransformerKit.git', :tag => '0.4.0' }
-  s.source_files = 'TransformerKit'
+  s.source_files = 'TransformerKit/TransformerKit.h'
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
