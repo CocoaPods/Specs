@@ -4,11 +4,11 @@ Pod::Spec.new do |s|
 	s.version = '2.2.3'
 	s.summary = 'muParser is an extensible high performance math expression parser library'
 	s.homepage = 'http://muparser.beltoforion.de/'
-	s.license = { type: 'MIT', file: 'muparser_v2_2_3/License.txt' }
+	s.license = { :type => 'MIT', :file => 'muparser_v2_2_3/License.txt' }
 	s.author = { 'Ingo Berg' => 'webmaster@beltoforion.de' }
 
 	# source
-	s.source = { http: 'http://sourceforge.net/projects/muparser/files/muparser/Version%202.2.3/muparser_v2_2_3.zip' }
+	s.source = { :http => 'http://sourceforge.net/projects/muparser/files/muparser/Version%202.2.3/muparser_v2_2_3.zip' }
 
 	# project setup
 	s.requires_arc = false
