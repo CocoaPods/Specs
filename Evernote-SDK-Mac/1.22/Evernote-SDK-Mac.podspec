@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author   = 'Evernote'
   s.source   = { :git => 'https://github.com/evernote/evernote-sdk-mac.git', :commit => "2dc7d3dae864c93952ebc008f987fb219e27883f" }
   s.source_files = 'src/**/*.{h,m}'
+  s.requires_arc = false
 end

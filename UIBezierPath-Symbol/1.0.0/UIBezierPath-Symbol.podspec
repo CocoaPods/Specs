@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Kjuly/UIBezierPath-Symbol.git", :tag => "1.0.0" }
   s.platform     = :ios
   s.source_files = 'UIBezierPath-Symbol/*.{h,m}'
+  s.requires_arc = false
 end

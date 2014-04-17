@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Mike Enriquez' => 'mike@enriquez.me' }
   s.source   = { :git => 'https://github.com/edgecase/PhoneNumberFormatter.git', :tag => '0.1.0' }
   s.source_files = 'ext/PhoneNumberFormatter/**/*.{h,m}'
+  s.requires_arc = false
 end

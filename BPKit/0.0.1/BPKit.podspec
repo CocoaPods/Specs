@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/ios/*.{h,m}'
   s.platform     = :ios, '5.0'
   s.frameworks = 'UIKit', 'Foundation'
+  s.requires_arc = false
 end

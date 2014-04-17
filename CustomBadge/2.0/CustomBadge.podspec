@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/ckteebe/CustomBadge.git', :commit => '3e6eed7bdb3e5faa02f79a9d81b0b11316d44a2e' }
   s.platform = :ios
   s.source_files = 'Classes/CustomBadge.{h,m}'
+  s.requires_arc = false
 end

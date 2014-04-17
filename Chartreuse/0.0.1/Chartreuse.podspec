@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       = "Dain Kaplan"
   s.source       = { :git => "https://github.com/dainkaplan/Chartreuse.git", :commit => "9040253737cc580f54b52f347dfcab75fe59b544" }
   s.source_files = 'PieChartViewExample/Classes/PieChartView.{h,m}'
+  s.requires_arc = false
 end

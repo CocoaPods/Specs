@@ -465,4 +465,5 @@ LICENSE
     config.lcl_config.configure()
   end
 
+  s.requires_arc = false
 end

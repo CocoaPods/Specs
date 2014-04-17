@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
     json.source_files    = 'NyaruDB/NyaruDB/External/JSONKit/*.{h,m}'
     json.requires_arc    = false
   end
+  s.requires_arc = false
 end

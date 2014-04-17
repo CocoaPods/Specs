@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
     sp.prefix_header_contents = ''
   end
 
+  s.requires_arc = false
 end

@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Copyright', :file => 'dropbox-ios-sdk-1.3.7/LICENSE' }
   s.frameworks = 'Security', 'QuartzCore', 'DropboxSDK'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-iOS-SDK/dropbox-ios-sdk-1.3.7"' }
+  s.requires_arc = false
 end

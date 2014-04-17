@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'DCIntrospect'
   s.frameworks   = 'QuartzCore'
   s.compiler_flags = '-DDEBUG=1'
+  s.requires_arc = false
 end

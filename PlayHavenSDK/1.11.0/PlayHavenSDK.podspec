@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Cache', 'src', 'WaterWorks', 'JSON', 'OpenUDID'
 
   s.frameworks = 'SystemConfiguration', 'CFNetwork', 'StoreKit', 'CoreGraphics', 'QuartzCore'
+  s.requires_arc = false
 end

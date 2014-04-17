@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.license   = { :type => 'MIT', :file => 'README.md' }
   s.source_files = 'KSSHA1Stream.{h,m}'
   s.framework    = 'Security'
+  s.requires_arc = false
 end

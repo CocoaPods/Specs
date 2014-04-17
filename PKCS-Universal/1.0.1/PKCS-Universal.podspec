@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/hohl/PKCS-Universal.git', :tag => 'pod-1.0.1' }
   s.source_files = 'Classes/'
   s.library      = 'commonCrypto'
+  s.requires_arc = false
 end

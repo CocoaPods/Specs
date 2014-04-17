@@ -33,4 +33,5 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.' }
   s.author       = { 'Billy Gray' => 'wgray@zetetic.net' }
   s.source       = { :git => 'https://github.com/billymeltdown/nsdate-helper.git', :commit => '74b7c4979631cae13eeff9cde2d9f5d1ee0c02f0' }
   s.source_files = 'NSDate+Helper.{h,m}'
+  s.requires_arc = false
 end

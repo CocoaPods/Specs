@@ -106,4 +106,5 @@ CONFIG_H
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
 
+  s.requires_arc = false
 end

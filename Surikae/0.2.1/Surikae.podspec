@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'surikae'
   s.framework = 'Foundation'
+  s.requires_arc = false
 end

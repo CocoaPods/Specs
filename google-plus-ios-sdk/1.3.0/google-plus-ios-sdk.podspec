@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.resource       = 'google-plus-ios-sdk-1.3.0/GooglePlus.bundle'
   s.framework      = 'Security', 'SystemConfiguration', 'GoogleOpenSource', 'GooglePlus'
   s.xcconfig       =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/google-plus-ios-sdk/google-plus-ios-sdk-1.3.0"' }
+  s.requires_arc = false
 end

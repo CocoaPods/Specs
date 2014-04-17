@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AURosetteView/RosetteView/*.{h,m}'
   s.resources = 'Resources/Bundle.bundle'
 
+  s.requires_arc = false
 end

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit', 'CFNetwork', 'CoreFoundation', 'CoreTelephony', 'CoreGraphics', 'SystemConfiguration', 'Foundation'
   
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/JPush/lib' }
+  s.requires_arc = false
 end

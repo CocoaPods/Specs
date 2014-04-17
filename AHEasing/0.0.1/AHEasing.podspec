@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "AHEasing/easing.{h,c}", "AHEasing/CAKeyframeAnimation+AHEasing.{h,m}"
   s.public_header_files = "AHEasing/easing.h", "AHEasing/CAKeyframeAnimation+AHEasing.h"
+  s.requires_arc = false
 end

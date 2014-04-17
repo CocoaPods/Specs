@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.xcconfig      =  { 'HEADER_SEARCH_PATHS' => "$(PODS_ROOT)/Clutch/" }
   s.source_files = 'Clutch'
 
+  s.requires_arc = false
 end

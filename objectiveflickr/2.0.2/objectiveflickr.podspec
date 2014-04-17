@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
   s.resources = 'BridgeSupport'
   s.frameworks = 'SystemConfiguration', 'CFNetwork'
 
+  s.requires_arc = false
 end

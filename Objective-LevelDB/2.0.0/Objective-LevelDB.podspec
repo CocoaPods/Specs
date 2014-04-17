@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Classes/*.{h,m,mm}'
   s.dependency 'Objective-LevelDB/leveldb'
+  s.requires_arc = false
 end

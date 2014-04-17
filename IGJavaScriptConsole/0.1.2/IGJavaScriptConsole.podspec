@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.1.2"
   s.summary      = "Ruby REPL for your Objective-C apps."
 
-  s.description  = <<-DESC
-Ruby REPL for your Objective-C apps.
-DESC
-
   s.homepage     = "https://github.com/siuying/IGJavaScriptConsole"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
@@ -17,6 +13,7 @@ DESC
   s.resources    = 'JavaScriptApp/JavaScriptConsoleWeb.bundle'
 
   s.ios.deployment_target = '7.0'
+  s.requires_arc = true
 
   s.framework    = 'JavaScriptCore'
 

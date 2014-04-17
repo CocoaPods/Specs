@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'US2FormValidationFramework/source/**/*.{h,m}'
   s.resource     = 'US2FormValidationFramework/source/Localization.bundle'
 
+  s.requires_arc = false
 end

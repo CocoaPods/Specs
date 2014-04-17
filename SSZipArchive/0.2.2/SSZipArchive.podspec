@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files    = 'SSZipArchive.{h,m}', 'minizip'
   s.library         = 'z'
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
+  s.requires_arc = false
 end

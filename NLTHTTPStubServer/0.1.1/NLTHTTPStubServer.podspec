@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'NLTHTTPStubServer/**/*.{h,m}'
 
   s.dependency 'CocoaHTTPServer', '2.2.1' 
+  s.requires_arc = false
 end

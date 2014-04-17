@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Classes/*.{h,m}'
 
+  s.requires_arc = false
 end

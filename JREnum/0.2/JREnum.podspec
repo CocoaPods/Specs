@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/rentzsch/JREnum.git', :tag => '0.2' }
   s.description = 'JREnum is a macro that automates creation of functions that blast enums from boring primitive compile-time-land to the fun-filled party environment of runtime.'
   s.source_files = '*.h'
+  s.requires_arc = false
 end

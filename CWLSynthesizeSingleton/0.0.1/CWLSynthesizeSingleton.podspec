@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/incbee/CWLSynthesizeSingleton.git", :commit => "3efe9a7edd210435a6ed2b71d9aa29bc3de382b0" }
   s.platform     = :ios
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

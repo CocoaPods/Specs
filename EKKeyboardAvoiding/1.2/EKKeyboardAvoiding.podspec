@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kirpichenko/EKKeyboardAvoiding.git", :tag => "1.2" }
   s.platform     = :ios, '5.0'
   s.source_files = 'EKKeyboardAvoiding/*.{h,m}'
+  s.requires_arc = false
 end
 

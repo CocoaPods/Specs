@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files   = 'InnerBand/**/*.{h,m}'
   s.platform       = :ios
   s.framework      = 'QuartzCore', 'CoreData', 'CoreText', 'CoreGraphics', 'UIKit'
+  s.requires_arc = false
 end

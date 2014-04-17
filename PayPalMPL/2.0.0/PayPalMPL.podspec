@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.libraries   = 'PayPalMPL', 'xml2', 'iconv', 'z'
   s.xcconfig  =  {'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/PayPalMPL/#{file_name}/Library"}
   # s.requires_arc = true
+  s.requires_arc = false
 end

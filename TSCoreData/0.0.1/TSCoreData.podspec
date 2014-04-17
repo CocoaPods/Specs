@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/laptobbe/TSCoreData.git", :tag => "0.0.1" }
   s.source_files  = 'TSCoreData/Core Data/*.{h,m}'
 
+  s.requires_arc = false
 end

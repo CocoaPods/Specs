@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = '**/RegexKitLite.{h,m}'
 
   s.library = 'icucore'
+  s.requires_arc = false
 end

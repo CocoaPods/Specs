@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/yaakaito/NSMutableArrayRearrangingExtensions.git", :tag => "0.0.1" }
   s.source_files = 'NSMutableArrayRearrangingExtensions/*.{h,m}'
   s.public_header_files = 'NSMutableArrayRearrangingExtensions/NSMutableArray+Rearranging.h'
+  s.requires_arc = false
 end

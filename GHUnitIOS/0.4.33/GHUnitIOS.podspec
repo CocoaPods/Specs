@@ -11,5 +11,6 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.framework = 'CoreLocation'
 
+  s.requires_arc = false
 end
 

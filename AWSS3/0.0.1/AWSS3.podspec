@@ -6,10 +6,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.summary      = "iOS SDK for Amazon S3."
 
-  s.description  = <<-DESC
-                   iOS SDK for Amazon S3.
-                   DESC
-
   s.homepage     = "https://github.com/FutureWorkshops/FWTPushNotifications"
   s.license      = { :type => 'Apache License', :file => 'LICENSE' }
   s.author       = { "Kamil Kocemba" => "kamil@futureworkshops.com" }

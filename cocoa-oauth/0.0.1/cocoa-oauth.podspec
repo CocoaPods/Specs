@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'GCOAuth.{h,m}'
   s.dependency 'NSData+Base64', '~> 1.0'
+  s.requires_arc = false
 end

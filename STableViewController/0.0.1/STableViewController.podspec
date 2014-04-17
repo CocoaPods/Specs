@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/shiki/STableViewController.git", :commit => "abdce84f329c3949cdd7e2b779726aa70c65ee19" }
   s.platform     = :ios
   s.source_files = 'STableViewController'
+  s.requires_arc = false
 end

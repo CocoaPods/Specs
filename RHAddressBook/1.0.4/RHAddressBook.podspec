@@ -37,4 +37,5 @@ Pod::Spec.new do |s|
               THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      LICENSE
   }
+  s.requires_arc = false
 end

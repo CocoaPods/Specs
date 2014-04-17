@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'JSProgressHUD/*.{h,m}'
   s.resources    = 'JSProgressHUD/JSProgressHUD.bundle'
 
+  s.requires_arc = false
 end

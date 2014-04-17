@@ -48,4 +48,5 @@ Pod::Spec.new do |s|
                   OTHER DEALINGS IN THE SOFTWARE.
                 TXT
   }
+  s.requires_arc = false
 end

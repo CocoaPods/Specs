@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'JSONKit'
   s.dependency 'ISO8601DateFormatter', '>= 0.6'
+  s.requires_arc = false
 end

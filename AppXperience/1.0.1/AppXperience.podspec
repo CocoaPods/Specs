@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
   s.dependency 'MKNetworkKit', '~> 0.85'
   s.dependency 'SDWebImage', '~> 3.1'
   
+  s.requires_arc = false
 end

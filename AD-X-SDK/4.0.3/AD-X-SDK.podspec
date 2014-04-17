@@ -15,8 +15,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '5.0'
 
-  s.source_files = '*.[hm]'
+  s.source_files = '*/*.[hm]'
 
   s.frameworks = 'SystemConfiguration'
   s.weak_frameworks = 'AdSupport'
+  s.requires_arc = false
 end

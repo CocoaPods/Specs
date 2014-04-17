@@ -28,4 +28,5 @@ Pod::Spec.new do |s|
   s.frameworks   = ['AVFoundation', 'QuartzCore', 'Social']
   s.source_files = '{TableViewCells,Views}/**/*.{h,m}'
   s.resources = '{TableViewCells,Views}/**/*.png'
+  s.requires_arc = false
 end

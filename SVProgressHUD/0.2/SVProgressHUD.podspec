@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SVProgressHUD/*.{h,m}'
 
   s.resources    = 'SVProgressHUD/SVProgressHUD.bundle'
+  s.requires_arc = false
 end
 

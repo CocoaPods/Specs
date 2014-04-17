@@ -14,11 +14,12 @@ Pod::Spec.new do |s|
   s.homepage            = "http://proximitykit.com/"
   s.license             = { :type => 'Commercial', :text => 'See http://radiusnetworks.com/terms_of_service.html' }
   s.author              = { "Radius Networks" => "support@radiusnetworks.com" }
-  s.platform            = :ios, '7.0'
+  s.platform            = :ios
   s.source              = { :http => "http://s3.proximitykit.com/ProximityKit-v0.2.6.zip" }
   s.preserve_paths      = 'ProximityKit.framework'
   s.source_files        = 'ProximityKit.framework/**/*.h'
   s.frameworks          = 'ProximityKit', 'Foundation', 'CoreLocation'
   s.xcconfig            = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ProximityKit"' }
+  s.requires_arc = false
 end
 

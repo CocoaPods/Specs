@@ -117,4 +117,5 @@ Pod::Spec.new do |s|
     all.dependency 'UI7Kit/UI7Switch/SevenSwitch'
     all.dependency 'UI7Kit/UI7PopoverController'
   end
+  s.requires_arc = false
 end

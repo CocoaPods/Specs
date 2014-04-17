@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
 #include <UIKitExtension/UIKitExtension.h>
 #include <UI7Kit/UI7Kit.h>
     '
+  s.requires_arc = false
 end

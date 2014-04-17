@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'REKit', 'REKit/**/*.{h,m}'
   s.osx.deployment_target = '10.7'
   s.ios.deployment_target = '5.0'
+  s.requires_arc = false
 end

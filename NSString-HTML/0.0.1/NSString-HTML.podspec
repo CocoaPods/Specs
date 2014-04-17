@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
 
     LICENSE
   }
+  s.requires_arc = false
 end

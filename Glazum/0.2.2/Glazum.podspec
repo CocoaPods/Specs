@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Glazum.framework/*'
   s.frameworks   = 'Glazum', 'UIKit', 'CoreGraphics'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Glazum"' }
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.author       = { "Steffen Nissen" => "sn@leenissen.dk" }
   s.source       = { :git => "http://git.code.sf.net/p/fann/code", :tag => "2.2.0" }
   s.source_files = 'src', 'src/**/*.{h,c}'
+  s.requires_arc = false
 end

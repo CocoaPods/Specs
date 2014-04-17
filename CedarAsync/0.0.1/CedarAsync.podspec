@@ -37,4 +37,5 @@ it succeeds or times out.
     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++0x',
     'CLANG_CXX_LIBRARY' => 'libc++'
   }
+  s.requires_arc = false
 end

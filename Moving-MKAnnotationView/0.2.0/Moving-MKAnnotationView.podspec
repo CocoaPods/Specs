@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/100grams/Moving-MKAnnotationView'
   s.license      = { :type => 'MIT', :file => 'README.markdown' }
   s.platform     = :ios
+  s.requires_arc = false
 end

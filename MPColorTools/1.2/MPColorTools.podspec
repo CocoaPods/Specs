@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source         = { :git => 'https://github.com/marzapower/MPColorTools.git', :tag => '1.2' }
   s.source_files   = 'MPColorTools/**/*.{h,m}'
   s.platform       = :ios
+  s.requires_arc = false
 end

@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   }
   s.platform     = :ios
   s.source_files = 'JKSegueActionViewController/*.{h,m}'
-  s.documentation = { :appledoc => ['--no-repeat-first-par'] }
+  s.requires_arc = false
 end

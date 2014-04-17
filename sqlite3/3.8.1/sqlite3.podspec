@@ -44,4 +44,5 @@ Pod::Spec.new do |s|
     ss.dependency 'sqlite3/common'
     ss.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'SQLITE_SOUNDEX=1' }
   end
+  s.requires_arc = false
 end
