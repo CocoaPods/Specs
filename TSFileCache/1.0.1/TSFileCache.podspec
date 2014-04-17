@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tomkowz/TSFileCache.git", :tag => "1.0.1" }
 
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
+  s.requires_arc = true
 
 end
