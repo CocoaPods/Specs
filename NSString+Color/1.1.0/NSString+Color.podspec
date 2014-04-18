@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "nicolasgoutaland" => "nicolas.goutaland@gmail.com" }
   s.source       = { :git => "https://github.com/nicolasgoutaland/NSString-Color.git", :tag => "1.1.0" }
+  s.screenshot   = 'https://raw.github.com/nicolasgoutaland/NSString-Color/master/Assets/NSString+Colors.gif'  
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
