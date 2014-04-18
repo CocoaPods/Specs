@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = 'RPSlidingMenu/*.{h,m}'
   s.license      = 'MIT'
   s.platform     = :ios, '6.0'
+  s.requires_arc = false
 end
