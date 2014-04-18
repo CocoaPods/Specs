@@ -4,6 +4,8 @@ Pod::Spec.new do |s|
   s.summary      = "Jawbone's iOS-based charting library for both line and bar graphs."
   s.homepage     = "https://github.com/Jawbone/JBChartView"
 
+  s.screenshot   = "https://raw.github.com/Jawbone/JBChartView/master/Screenshots/main.png"
+
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
   s.author       = { "Terry Worona" => "tworona@jawbone.com" }
   s.source       = { 
