@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
                 'Morissard Jérome' => 'morissardj@gmail.com'
         }
         s.ios.deployment_target = '5.0'
-        s.osx.deployment_target = '10.6'
         s.summary = 'iAppInfos allows an access to important App informations : version, model, Mobile provisionning infos'
         s.license      = { :type => 'MIT' }
         s.homepage = 'https://github.com/leverdeterre/iAppInfos'
@@ -15,5 +14,5 @@ Pod::Spec.new do |s|
         :tag => "0.0.7"
         }
         s.source_files = 'iAppInfos/iAppInfos/iAppInfos/*'
-	s.frameworks    = 'CoreTelephony'
+	s.frameworks    = 'CoreTelephony', 'UIKit'
 end
