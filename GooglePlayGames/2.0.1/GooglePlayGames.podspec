@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'AddressBook', 'AssetsLibrary', 'CoreData', 'CoreLocation', 'CoreMotion', 'CoreText', 'MediaPlayer', 'QuartzCore', 'Security', 'SystemConfiguration'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lc++' }
-  s.dependency 'google-plus-ios-sdk', '~> 1.5.0'
+  s.dependency 'google-plus-ios-sdk', '~> 1.5.1'
   s.requires_arc = true
 end
