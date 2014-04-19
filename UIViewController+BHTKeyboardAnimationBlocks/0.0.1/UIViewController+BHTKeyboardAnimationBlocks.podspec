@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform              = :ios
   s.ios.deployment_target = '7.0'
   s.requires_arc          = true
-  s.license               = { :type => 'MIT', :file => 'LICENSE' 
+  s.license               = { :type => 'MIT', :file => 'LICENSE' }
 
 end
 
