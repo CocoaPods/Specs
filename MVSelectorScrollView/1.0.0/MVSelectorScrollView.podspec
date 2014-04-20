@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source       = { :git => "https://github.com/bizz84/MVSelectorScrollView.git", :commit => "5c3df8284d7f41091dc6806625b56a48a00c9d53" }
+  s.source       = { :git => "https://github.com/bizz84/MVSelectorScrollView.git", :tag => '1.0.0' }
 
   s.source_files  = 'MVSelectorScrollView', 'MVSelectorScrollView/**/*.{h,m}'
 
