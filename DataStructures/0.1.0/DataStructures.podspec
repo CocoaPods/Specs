@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/VoyaGenius/DataStructures"
   s.license          = 'MIT'
   s.author           = { "Harish Kashyap" => "harish.k.kashyap@gmail.com" }
-  s.source           = { :git => "https://github.com/voyagenius/DataStructures.git", :tag => "0.1.0" }
+  s.source           = { :git => "https://github.com/VoyaGenius/DataStructures.git", :tag => "0.1.0" }
   s.social_media_url = 'https://twitter.com/voyagenius'
 
   # s.platform     = :ios, '7.0'
