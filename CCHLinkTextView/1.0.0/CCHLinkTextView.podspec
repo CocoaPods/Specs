@@ -4,6 +4,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'UITextView subclass with tappable links.'
   s.homepage = 'https://github.com/choefele/CCHLinkTextView'
+  s.screenshot = 'https://raw.githubusercontent.com/choefele/CCHLinkTextView/master/CCHLinkTextView.gif'
   s.authors  = { 'Claus Höfele' => 'claus@claushoefele.com' }
   s.social_media_url = 'https://twitter.com/claushoefele'
   s.source   = { :git => 'https://github.com/choefele/CCHLinkTextView.git', :tag => s.version.to_s }
