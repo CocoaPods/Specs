@@ -2,14 +2,14 @@ Pod::Spec.new do |s|
   s.name             = "DataStructures"
   s.version          = "0.1.0"
   s.summary          = "Basic Implementation of DataStructures."
-  s.description      = <<
+  s.description      = <<-DESC
                        Contains Implementation of following type of DataStructures:
 
                        * Linked List
                        * Double Linked List
 		       * Binary Tree
 		       * Factory method to generate various nodes.
-                       >>
+                       DESC
   s.homepage         = "https://github.com/VoyaGenius/DataStructures"
   s.license          = 'MIT'
   s.author           = { "Harish Kashyap" => "harish.k.kashyap@gmail.com" }
