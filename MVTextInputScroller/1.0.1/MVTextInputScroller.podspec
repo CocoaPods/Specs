@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'MVTextInputsScroller/*.{h,m}'
 
+  s.screenshots  = ["https://github.com/bizz84/MVTextInputScroller/raw/master/Screenshots/iPhonePortrait.png", "https://github.com/bizz84/MVTextInputScroller/raw/master/Screenshots/iPhoneLandscape.png"]
+
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
 
   s.requires_arc = true
