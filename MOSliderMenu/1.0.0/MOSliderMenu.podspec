@@ -4,11 +4,8 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "A snapseed like image adjustment menu"
 
-  s.description  = <<-DESC
-                   It is a menu with the same look as snapseed image adjustment menu.
-                   DESC
+  s.description  = "It is a menu with the same look as snapseed image adjustment menu."
   s.homepage     = "https://github.com/xmkevin/MOSliderMenu"
-  s.screenshots  = "https://github.com/xmkevin/MOSliderMenu/blob/master/Resources/screenshot.png"
   s.license      = 'MIT'
   s.author       = { "xmkevin" => "gaoyq@live.cn" }
   s.platform     = :ios, '7.0'
