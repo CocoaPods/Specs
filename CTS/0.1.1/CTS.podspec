@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
 
                        DESC
   s.homepage         = "http://github.com/osu-app-club/CTS"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "cvanderschuere" => "cdvconcepts@gmail.com" }
   s.source           = { 

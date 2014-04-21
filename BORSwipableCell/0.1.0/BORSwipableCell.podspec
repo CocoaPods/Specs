@@ -4,7 +4,6 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "UITableViewCell and UIView that support swipe to reveal left and right hidden views"
   s.homepage         = "https://github.com/BohdanOrlov/BORSwipableCell"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "BohdanOrlov" => "Bohdan.Orlov@gmail.com" }
   s.source           = { :git => "https://github.com/BohdanOrlov/BORSwipableCell.git", :tag => s.version.to_s }

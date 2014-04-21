@@ -9,7 +9,10 @@ Pod::Spec.new do |s|
                        Note: Most of the effects are compatible with iOS 6.0 but not all.  The blur effect in particular requires 7.0.
                        DESC
   s.homepage         = "http://github.com/samus/SYNScrollViewObserverEffects"
-  s.screenshots      = "github.com/samus/SYNScrollViewObserverEffects/blob/develop/Readme_Images/parallaxdemo1.png", "github.com/samus/SYNScrollViewObserverEffects/blob/develop/Readme_Images/parallaxdemo2.png"
+  s.screenshots      = [
+    "https://raw.githubusercontent.com/samus/SYNScrollViewObserverEffects/#{s.version}/Readme_Images/parallaxdemo1.png",
+    "https://raw.githubusercontent.com/samus/SYNScrollViewObserverEffects/#{s.version}/Readme_Images/parallaxdemo2.png",
+  ]
   s.license          = 'MIT'
   s.author           = { "Sam Corder" => "sam.corder@gmail.com" }
   s.source           = { :git => "https://github.com/samus/SYNScrollViewObserverEffects.git", :tag => s.version.to_s }
