@@ -45,8 +45,11 @@ Pod::Spec.new do |s|
   DESC
 
   s.homepage = 'http://sbjson.org'
-  s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.1' }
+
+  s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
+  s.social_media_url   = "http://twitter.com/stigbra"
+
 
   s.requires_arc = true
   s.ios.deployment_target = '5.0'
