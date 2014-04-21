@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 										 LICENSE
 	}
   s.author       = { "The Lua team" => "team@lua.org" }
-  s.source       = { :git => "https://github.com/qmx/lua.git", :tag => "5.2.1" }
+  s.source       = { :http => "http://www.lua.org/ftp/lua-#{s.version}.tar.gz" }
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'src/'
