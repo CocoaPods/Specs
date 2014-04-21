@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Baidu Maps SDK for iOS'
   s.homepage = 'http://developer.baidu.com/map/sdk-ios.htm'
   s.author   = { 'tiandabao' => 'baorsmile@gmail.com' }
-  s.source   = { :git => 'https://github.com/tiandabao/BaiduMaps-iOS-SDK.git', :tag => 0.0.1 }
+  s.source   = { :git => 'https://github.com/tiandabao/BaiduMaps-iOS-SDK.git' }
   s.platform = :ios  
   s.source_files = 'Classes/*.h'
   s.resources = "*.bundle"
