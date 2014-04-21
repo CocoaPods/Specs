@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "lua"
-  s.version      = "5.2.1"
+  s.version      = "5.2.3"
   s.summary      = "The lua language (for embedding)."
   s.homepage     = "https://github.com/qmx/lua"
   s.license      = { :type => "MIT",
@@ -18,5 +18,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.ios.deployment_target = '4.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'src/'
+  s.exclude_files = 'src/lua.c', 'src/luac.c'
   s.requires_arc = false
 end
