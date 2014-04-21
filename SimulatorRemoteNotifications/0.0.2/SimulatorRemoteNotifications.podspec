@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license = { :type => 'BSD', :file => 'LICENSE' }
   s.summary = "Library to send (fake) remote notifications to the iOS simulator"
   s.homepage = "https://github.com/acoomans/SimulatorRemoteNotifications"
-  s.screenshots = "s3.amazonaws.com/cocoacontrols_production/uploads/control_image/image/85/original.png"
+  s.screenshots = "http://s3.amazonaws.com/cocoacontrols_production/uploads/control_image/image/85/original.png"
 
   s.requires_arc = true
   s.platform = :ios

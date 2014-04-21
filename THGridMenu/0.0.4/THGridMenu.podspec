@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 			*Note: Currently, THMenuGrid is meant to be contained inside of a navigation controller. You might have to modify to use in a standalone view or a tab controller.*
                     DESC
   s.homepage     = "https://github.com/troyharris/THGridMenu"
-  s.screenshots  = "loneyeti.com/github-images/THGridMenu1.png", "loneyeti.com/github-images/THGridMenu1.png"
+  s.screenshots  = "http://loneyeti.com/github-images/THGridMenu1.png", "http://loneyeti.com/github-images/THGridMenu1.png"
   s.license      = 'MIT'
   s.author       = { "Troy Harris" => "troy.harris@djt-tech.com" }
   s.source       = { :git => "https://github.com/troyharris/THGridMenu.git", :tag => "0.0.4" }

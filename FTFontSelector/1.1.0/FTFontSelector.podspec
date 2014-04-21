@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { 'Eloy Durán' => 'eloy.de.enige@gmail.com' }
   s.homepage     = 'https://github.com/Fingertips/FTFontSelector'
-  s.screenshots  = 'raw.github.com/Fingertips/FTFontSelector/master/Project/Screenshots/iPhone%20Font%20Families.png',
-                   'raw.github.com/Fingertips/FTFontSelector/master/Project/Screenshots/iPhone%20Font%20Family%20Members.png',
-                   'raw.github.com/Fingertips/FTFontSelector/master/Project/Screenshots/iPad%20Font%20Families%20Small.png',
-                   'raw.github.com/Fingertips/FTFontSelector/master/Project/Screenshots/iPad%20Font%20Family%20Members%20Small.png'
+  s.screenshots  = "https://raw.github.com/Fingertips/FTFontSelector/#{s.version}/Project/Screenshots/iPhone%20Font%20Families.png",
+                   "https://raw.github.com/Fingertips/FTFontSelector/#{s.version}/Project/Screenshots/iPhone%20Font%20Family%20Members.png",
+                   "https://raw.github.com/Fingertips/FTFontSelector/#{s.version}/Project/Screenshots/iPad%20Font%20Families%20Small.png",
+                   "https://raw.github.com/Fingertips/FTFontSelector/#{s.version}/Project/Screenshots/iPad%20Font%20Family%20Members%20Small.png",
   s.source       = { :git => 'https://github.com/Fingertips/FTFontSelector.git', :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
   s.requires_arc = true

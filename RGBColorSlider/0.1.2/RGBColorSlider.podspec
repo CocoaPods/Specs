@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version          = "0.1.2"
   s.summary          = "A simple way to add dynamic, RGB color sliders to an iOS application."
   s.homepage         = "https://github.com/eappel/RGBColorSlider"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Eric Appel" => "ema77@cornell.edu" }
   s.source           = { 
