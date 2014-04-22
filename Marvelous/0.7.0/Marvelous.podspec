@@ -52,7 +52,7 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target = "10.8"
   spec.source = { :git => "https://github.com/rock-n-code/Marvelous.git", :tag => "0.7.0" }
   spec.source_files  = "Marvelous/Marvelous.h"
-  spec.public_header_files = public_header_files
+  spec.public_header_files = public_headers
   spec.framework  = "Foundation"
   spec.requires_arc = true
 end
