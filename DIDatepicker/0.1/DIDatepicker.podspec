@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = "Yet another datepicker for iOS"
   s.homepage     = "https://github.com/noxt/DIDatepicker"
-  s.screenshots  = "https://github.com/noxt/DIDatepicker/blob/master/screenshots/screenshot.png"
+  s.screenshots  = "https://raw.githubusercontent.com/noxt/DIDatepicker/master/screenshots/screenshot.png"
   s.license      = 'MIT'
   s.author       = { "Ivanenko Dmitry" => "id.noxt@gmail.com" }
   s.platform     = :ios, '5.0'
