@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                    have to.
                    DESC
   s.homepage = 'http://sbjson.org'
-  s.source   = { :git => 'https://github.com/stig/json-framework.git', :commit => '8348517b0670abc52636f3a1c9778d338ccad989' }
+  s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v2.2.3' }
 
   s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
   s.social_media_url   = "http://twitter.com/stigbra"
