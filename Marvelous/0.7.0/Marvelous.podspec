@@ -1,41 +1,25 @@
-public_headers = []
-public_files = %w(
-  RCMarvelAPI
-  RCCharacterFilter
-  RCComicsFilter
-  RCCreatorFilter
-  RCEventFilter
-  RCSeriesFilter
-  RCStoryFilter
-  RCQueryInfoObject
-  RCCharacterObject
-  RCComicsObject
-  RCCreatorObject
-  RCEventObject
-  RCSeriesObject
-  RCStoryObject
-  RCListObject
-  RCImageObject
-  RCComicPriceObject
-  RCComicDateObject
-  RCTextObject
-  RCSummaryObject
-  RCURLObject
-  RCObject
-  RCObjectProtocol
-  RCBlocks
-  RCAPITypes
-  RCOrderByTypeCodes
-  RCIssueFormatCodes
-  RCIssueTypeCodes
-  RCFrequencyTypeCodes
-  RCDateDescriptorCodes
-  RCImageAspectRatioCodes
-  RCImageSizeCodes
-  RCBooleanValueCodes
+private_headers = []
+private_files = %w(
+  RCOperation
+  RCAPIOperation
+  RCDataContainerObject
+  RCDataWrapperObject
+  RCOperationErrorCodes
+  RCStatusCodes
+  RCOperationErrors
+  RCRequestKeys
+  RCResponseKeys
+  RCOrderByTypes
+  RCIssueFormats
+  RCIssueTypes
+  RCFrequencyTypes
+  RCImageAspectRatios
+  RCImageSizes
+  RCDateDescriptors
+  RCBooleanValues
 )
 
-public_files.each { |file| public_headers << "Marvelous/" + file + ".h" }
+private_files.each { |file| private_headers << "Marvelous/#{file}.h" }
 
 Pod::Spec.new do |spec|
   spec.name = "Marvelous"
@@ -52,7 +36,7 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target = "10.8"
   spec.source = { :git => "https://github.com/rock-n-code/Marvelous.git", :tag => "0.7.0" }
   spec.source_files  = "Marvelous/Marvelous.h"
-  spec.public_header_files = public_headers
+  spec.private_header_files = private_headers
   spec.framework  = "Foundation"
   spec.requires_arc = true
 end
