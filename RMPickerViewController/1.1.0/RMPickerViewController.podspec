@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.1.0"
   s.summary      = "This is an iOS control for selecting something using UIPickerView in a UIActionSheet like fashion"
   s.homepage     = "https://github.com/CooperRS/RMPickerViewController"
-  s.screenshots  = "http://cooperrs.github.io/RMPickerViewController/Images/Screen1.png", "http://cooperrs.github.io/RMPickerViewController/Images/Screen2.png"
+  s.screenshots  = "http://cooperrs.github.io/RMPickerViewController/images/Screen1.png", "http://cooperrs.github.io/RMPickerViewController/images/Screen2.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "CooperRS" => "rm@cooperrs.de" }
   s.source       = { :git => "https://github.com/CooperRS/RMPickerViewController.git", :tag => "1.1.0" }
