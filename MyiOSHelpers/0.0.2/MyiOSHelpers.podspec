@@ -77,13 +77,13 @@ Pod::Spec.new do |spec|
 			third_party.subspec "MongoDB" do |mongo|
 				mongo.source_files = 'MyiOSHelpers/Logic/ThirdPartyHelpers/Mongo/*.{h,m}'
 				mongo.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping'
-				mongo.ios.dependency 'NSObject-ObjectMap', '~> 2.2'
+				mongo.ios.dependency 'NSObject-ObjectMap', '~>2.2'
 			end
 			
 			third_party.subspec "KeyValueObjectMapping" do |kvom|
 				kvom.source_files = 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping/*.{h,m}'
 				kvom.ios.dependency 'DCKeyValueObjectMapping', '~>1.4.0'
-                kvom.ios.dependency 'NSObject-ObjectMap', '~> 2.1'
+                kvom.ios.dependency 'NSObject-ObjectMap', '~>2.1'
             end
             
             third_party.subspec "CocoaLumberjack" do |lumberjack|
@@ -98,7 +98,7 @@ Pod::Spec.new do |spec|
 				twilio.source_files = 'MyiOSHelpers/Logic/ThirdPartyHelpers/Twilio/*.{h,m}'
 				twilio.prefix_header_contents = '#import "TwilioClient.h"'
 				twilio.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack'
-				twilio.dependency 'TwilioSDK', '1.1.3'
+				twilio.dependency 'TwilioSDK'
 			end
 		end
 	end
@@ -142,8 +142,8 @@ Pod::Spec.new do |spec|
             end
             
             screens.subspec "ModelObjectTableViewControllerBase" do |modeltable|
+            	modeltable.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping'
                 modeltable.ios.dependency 'MyiOSHelpers/View/Screens/TableViewControllerBase'
-                modeltable.ios.dependency 'MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping'
 				modeltable.source_files = 'MyiOSHelpers/View/Screens/ModelObjectTableViewControllerBase/*.{h,m}'
             end
             
