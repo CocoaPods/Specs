@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TWTValidation"
-  s.version      = "0.1"
+  s.version      = "0.1.1"
 
   s.summary      = "A Cocoa framework for validating objects and their properties declaratively."
   s.description  = <<-DESC
