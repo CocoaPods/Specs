@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/larryryu/LSSwipeToDeleteCollectionViewController.git"
   s.license      = 'MIT'
   s.author       = { "Lukman Sanusi" => "larryryu@gmail.com" }
-  s.source       = { :git => "https://github.com/larryryu/LSSwipeToDeleteCollectionViewController.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/larryryu/LSSwipeToDeleteCollectionViewController", :tag => s.version.to_s }
 
   s.platform     = :ios, '6.0'
   s.requires_arc = true
