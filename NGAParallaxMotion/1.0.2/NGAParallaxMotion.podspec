@@ -10,5 +10,8 @@ Pod::Spec.new do |s|
   s.framework    = 'UIKit'
   s.source_files = 'Classes'
   s.requires_arc =  true
-  s.screenshots  = "img/off", "img/on"
+  s.screenshots  = [
+    "https://raw.githubusercontent.com/michaeljbishop/NGAParallaxMotion/#{s.version}/img/off.jpg",
+    "https://raw.githubusercontent.com/michaeljbishop/NGAParallaxMotion/#{s.version}/img/on.jpg",
+  ]
 end

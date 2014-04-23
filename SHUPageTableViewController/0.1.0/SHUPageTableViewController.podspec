@@ -4,7 +4,6 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "SHUPageTableViewController subclass of UITableViewController"
   s.homepage         = "https://github.com/sergdort/SHUPageTableViewController"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Sergey Shulga" => "sergdort@gmail.com" }
 

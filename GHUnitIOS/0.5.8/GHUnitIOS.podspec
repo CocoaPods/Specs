@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '4.3'
   s.ios.frameworks = 'QuartzCore'
   s.requires_arc = true
-  
+  s.deprecated_in_favor_of = 'GHUnit'
   s.prepare_command = "echo 'GHUnitIOS is deprecated - Please switch to GHUnit to stay up to date.'"
 
 end

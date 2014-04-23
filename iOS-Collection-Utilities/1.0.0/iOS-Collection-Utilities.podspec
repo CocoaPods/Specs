@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "iOS Collection Utilities extend NSArray and NSDictionary functionality via categories."
   s.homepage         = "https://itunes.apple.com/us/artist/norman-basham/id364295191?ign-mpt=uo%3D4"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Norman Basham" => "https://itunes.apple.com/us/artist/norman-basham/id364295191?ign-mpt=uo%3D4" }
   s.source           = { :git => "https://github.com/nbasham/iOS-Collection-Utilities.git", :tag => s.version.to_s }

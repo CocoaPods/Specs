@@ -4,7 +4,6 @@ Pod::Spec.new do |s|
   s.summary          = "Baidu InHouse Library"
   s.description      = "Bingo is a inhouse library current only avaiable for Baidu Inc, We may release it when it grow stable. Please be patient~"
   s.homepage         = "http://www.baidu.com/"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "neolcs" => "pinmountain@gmail.com" }
   s.source           = { :git => "https://github.com/neolcs/bingo.git", :tag => s.version.to_s }
