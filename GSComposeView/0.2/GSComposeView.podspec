@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author             = { "GaSa Media" => "gasamedia@gmail.com" }
   s.social_media_url = "https://twitter.com/gasamedia"
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/GaSaMedia/GSProgressHUD.git", :tag => "0.2" }
+  s.source       = { :git => "https://github.com/GaSaMedia/GSComposeView.git", :tag => "0.2" }
   s.source_files  = 'GSComposeView', 'GSComposeView/GSComposeView.{h,m}'
   s.requires_arc = true
 end
