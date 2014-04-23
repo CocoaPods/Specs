@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.description  = "AFWeather is a Objective-C wrapper for weather forecast that supports 5 services"
 
-  s.homepage     = "http://www.alvarofranco.me"
+  s.homepage     = "https://github.com/AlvaroFranco/AFWeather"
 
   s.license      = 'MIT'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
