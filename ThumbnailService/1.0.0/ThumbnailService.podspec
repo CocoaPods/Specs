@@ -17,3 +17,4 @@ Pod::Spec.new do |spec|
   
   spec.homepage = 'https://github.com/alexgarbarev/ThumbnailService'
 end 
+  
