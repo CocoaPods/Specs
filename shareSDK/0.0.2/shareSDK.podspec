@@ -12,10 +12,16 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://www.sharesdk.com"
   s.license      = "MIT"
-  s.authors      = { "Grant Brooks" => "grant@sharesdk.com", "jessecurry" => "jesse@jessecurry.net" }
+  s.authors      = {
+    "Grant Brooks" => "grant@sharesdk.com",
+    "jessecurry" => "jesse@jessecurry.net"
+  }
 
   s.platform     = :ios, "6.0"
-  s.source       = { git: "git@github.com:shareSDK/sharesdk-lib-ios.git", tag: "0.0.2" }
+  s.source       = {
+    :git => "https://github.com/shareSDK/sharesdk-lib-ios.git",
+    :tag => "0.0.2"
+  }
 
   s.source_files  = "sharesdk-lib/*.{h,m}"
   s.exclude_files = "sharesdk-lib/sharesdk-lib-Prefix.pch"
