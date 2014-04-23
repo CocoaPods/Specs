@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   	s.platform     = :ios, '6.0'
 
-  	s.source       = { :git => "https://github.com/josipbernat/JBMessage.git", :commit => "105c0e3c36d38d9f06c17b2a7a8cdfda46c25b27", :tag => s.version.to_s }
+  	s.source       = { :git => "https://github.com/josipbernat/JBMessage.git", :commit => "eb306419adf82d89ae255d8460a271a693e880bb", :tag => s.version.to_s }
 
   	s.source_files  = 'JBMessage/JBMessage/**/*.{h,m}'
 
