@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'ThumbnailService'
-  spec.version = '1.0.0'
+  spec.version = '1.0.1'
   spec.license = 'MIT'
   
   spec.summary = 'Generate thumbnail/preview from any resource (Video, PDF, ALAsset, Huge Picture, WebPage, custom) with efficient and cached way.'
