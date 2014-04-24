@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/shaps"
   s.platform     = :ios
   s.platform     = :ios, "6.0"
-  s.source       = { :git => "https://gist.github.com/11265418.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://gist.github.com/11272653.git", :tag => s.version.to_s }
   s.source_files  = "Classes", "*.{h,m}"
   s.requires_arc = true
 end
