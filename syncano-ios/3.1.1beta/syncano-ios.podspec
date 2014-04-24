@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source       = { :git => "git@github.com:Syncano/syncano-ios.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/Syncano/syncano-ios.git", :tag => s.version.to_s }
   s.prefix_header_contents = "#import \"syncano-ios-library-Prefix.pch\""
   s.header_dir   =  'Syncano'
   s.source_files = 'Syncano/**/*.{h,m,pch}', 'syncano-ios-library/**/*.{h,m,pch}'
