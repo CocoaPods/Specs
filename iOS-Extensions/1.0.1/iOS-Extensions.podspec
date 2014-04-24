@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "iOS-Extensions"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "iOS Extensions that make life easier :)."
   s.homepage     = "https://github.com/mglagola/iOS-Extensions"
   s.license      = { :type => 'MIT', :file => 'License.txt' }
