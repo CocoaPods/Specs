@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author       = "hellozimi"
   s.source       = {
     :git => "https://github.com/hellozimi/HCYoutubeParser.git",
-    :tag => "0.0.2"
+    :commit => "c385eb7b7447dd1e9b944889251ce3b57bd5f465"             
   }
 
   s.platform     = :ios
