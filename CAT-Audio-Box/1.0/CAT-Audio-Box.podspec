@@ -23,7 +23,9 @@ Pod::Spec.new do |s|
 
 DESC
 
-  s.license            = 'CATAudioBox Copyright (C) 2013-2014 Carl Taylor
+  s.license =  { :type => 'MIT', :text => <<-LICENSE 
+
+Copyright (C) 2013-2014 Carl Taylor
 
 TAAE Copyright (C) 2012-2014 A Tasty Pixel
 
@@ -33,7 +35,13 @@ Permission is granted to anyone to use this software for any purpose, including 
 
 The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
 Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
-This notice may not be removed or altered from any source distribution.'
+This notice may not be removed or altered from any source distribution.
+
+LICENSE
+
+}
+
+
 
   s.homepage           = "https://github.com/carltaylor43/CAT-Audio-Box"
   s.author             = { "Carl Taylor" => "carltaylor43uk@gmail.com" }
