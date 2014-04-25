@@ -20,12 +20,9 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/_SelfStudio'
 
   s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  
   s.requires_arc = true
 
-  s.source_files = 'Classes/*.{h,m}'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.source_files = '*.{h,m}'
+
 end
