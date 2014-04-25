@@ -1,1 +1,0 @@
-../../TDBWalkthrough/Interfaces/TDBSimpleWhite.h
