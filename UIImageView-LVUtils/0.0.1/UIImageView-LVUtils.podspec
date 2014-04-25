@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "UIImageView-LVUtils"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Utils For UIImageView."
   s.description      = <<-DESC
                        Utils For UIImageView
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
                        * Don't worry about the indent, we strip it!
                        DESC
   s.homepage         = "https://github.com/CodeEagle/UiimageView-LVUtils"
-  s.license          = {:type => 'BSD',:file => 'LICENSE'}
+  s.license          = 'BSD'
   s.author           = { "Lincoln.Law" => "stasura@hotmail.com" }
   s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s}
   s.social_media_url = 'https://twitter.com/_SelfStudio'
