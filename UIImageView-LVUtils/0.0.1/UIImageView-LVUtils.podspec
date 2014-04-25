@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
                        * Don't worry about the indent, we strip it!
                        DESC
   s.homepage         = "https://github.com/CodeEagle/UiimageView-LVUtils"
-  s.license          = 'WTFPL'
+  s.license          = {:type => 'BSD',:file => 'LICENSE'}
   s.author           = { "Lincoln.Law" => "stasura@hotmail.com" }
   s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_SelfStudio'
@@ -24,10 +24,7 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
-  s.source_files = 'Classes'
-
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
+  s.source_files = 'Classes/*'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   # s.dependency 'JSONKit', '~> 1.4'
