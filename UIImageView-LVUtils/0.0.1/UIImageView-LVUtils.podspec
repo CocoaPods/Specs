@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/CodeEagle/UiimageView-LVUtils"
   s.license          = {:type => 'BSD',:file => 'LICENSE'}
   s.author           = { "Lincoln.Law" => "stasura@hotmail.com" }
-  s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s ,:commit => "afd9ea25c65f6cedc62f33a3f326b0d50b2b4972"}
   s.social_media_url = 'https://twitter.com/_SelfStudio'
 
   s.platform     = :ios, '5.0'
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
-  s.source_files = 'Classes/*'
+  s.source_files = 'Classes/*.{h,m}'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   # s.dependency 'JSONKit', '~> 1.4'
