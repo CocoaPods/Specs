@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "AFOAuth1"
   s.version      = "0.0.1"
   s.summary      = "OAuth1 based on AFNetworking 2.2.0."
-  s.description  = <<-DESC
-                   OAuth1 based on AFNetworking 2.2.0.
-                   DESC
   s.homepage     = "https://github.com/wssand44/AFOAuth1"
   s.license      = 'MIT'
   s.author             = { "Song.Wang" => "wangsong44@msn.cn" }

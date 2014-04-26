@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.framework    = 'AdSupport', 'SystemConfiguration'
   s.source_files = 'AdjustIo/*.{h,m}', 'AdjustIo/AIAdditions/*.{h,m}'
   s.requires_arc = true
-  
+  s.deprecated_in_favor_of = 'Adjust'
   s.prepare_command = "echo 'AdjustIO is deprecated - Please switch to Adjust to stay up to date.'"
 end

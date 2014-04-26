@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/auser/novocaine.git', :tag => '0.0.1' }
   s.source_files =  'Novocaine'
   s.frameworks   =  'AudioToolbox', 'Accelerate'
+  s.requires_arc = false
 end

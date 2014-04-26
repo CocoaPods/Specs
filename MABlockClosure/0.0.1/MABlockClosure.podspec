@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/mikeash/MABlockClosure.git', :commit => '5148a8f383e2eb796bb5316b4d06361a54958234' }
   s.source_files = 'MABlockClosure.{h,m}'
   s.dependency 'libffi'
+  s.requires_arc = false
 end

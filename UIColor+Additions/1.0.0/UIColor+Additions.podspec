@@ -4,10 +4,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Basic additions to make UIColor more flexible."
 
-  s.description  = <<-DESC
-                   Basic additions to make UIColor more flexible.
-                   DESC
-
   s.homepage     = "https://github.com/vilanovi/UIColor-Additions"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author             = { "Joan Martin" => "vilanovi@gmail.com" }

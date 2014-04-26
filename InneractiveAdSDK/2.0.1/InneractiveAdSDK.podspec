@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
     
     d.frameworks      = %w{ iAd }
   end
+  s.requires_arc = false
 end

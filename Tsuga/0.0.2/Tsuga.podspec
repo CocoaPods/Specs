@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.dependency     'Cedar', '~> 0.9' 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
+  s.requires_arc = false
 end

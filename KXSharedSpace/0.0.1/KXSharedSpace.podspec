@@ -5,10 +5,6 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "A name based shared data space."
 
-  s.description  = <<-DESC
-                    A name based shared data space.
-                   DESC
-
   s.homepage     = "https://github.com/keroxp/KXSharedSpace"
   s.license      = 'MIT'
 
@@ -23,4 +19,5 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Classes/**/*.h'
 
+  s.requires_arc = false
 end

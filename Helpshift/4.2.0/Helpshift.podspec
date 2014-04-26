@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.libraries           = 'sqlite3.0', 'z', 'Helpshift'
   s.xcconfig            = {'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Helpshift/helpshift-ios-4.2.0"'}
   s.documentation_url   = 'http://developers.helpshift.com/ios/'
+  s.requires_arc = false
 end

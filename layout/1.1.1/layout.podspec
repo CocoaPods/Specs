@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/huangbaoyu/layout.git", :tag => "1.1.1" }
   s.source_files  = 'layout', 'layout/*.{h,m}'
   s.exclude_files = 'layoutExample'
+  s.requires_arc = false
 end

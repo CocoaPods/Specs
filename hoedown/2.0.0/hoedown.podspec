@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
 
   s.source       =  { :git => "https://github.com/hoedown/hoedown.git", :tag => "2.0.0" }
   s.source_files = 'src/*.{h,c,m}'
+  s.requires_arc = false
 end

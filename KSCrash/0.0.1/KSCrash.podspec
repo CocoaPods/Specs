@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'KSCrash/KSCrash/*.{h,m,mm,c}'  
   s.frameworks = 'Foundation', 'SystemConfiguration', 'MessageUI'
   s.libraries = 'c++', 'z'
+  s.requires_arc = false
 end

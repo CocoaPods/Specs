@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CFNetwork', 'SystemConfiguration'
   s.resource     = 'Appirater.bundle'
   s.license       = { :type => 'MIT', :text => 'Copyright 2012. Arash Payan. This library is distributed under the terms of the MIT/X11.' }
+  s.requires_arc = false
 end

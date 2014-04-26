@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files = "OHAlertView.{h,m}"
   s.public_header_files = "OHAlertView.h"
   s.frameworks = 'Foundation', 'UIKit'
+  s.requires_arc = false
 end

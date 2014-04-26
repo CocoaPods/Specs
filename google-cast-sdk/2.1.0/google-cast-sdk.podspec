@@ -22,4 +22,5 @@ sender APIs to enable your iOS app to send content to a large display.
   s.preserve_paths = 'GoogleCastFramework-2.1.0-Release/GoogleCast.framework'
   s.frameworks = 'GoogleCast'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/google-cast-sdk/GoogleCastFramework-2.1.0-Release', 'OTHER_LDFLAGS' => '-framework GoogleCast' }
+  s.requires_arc = false
 end

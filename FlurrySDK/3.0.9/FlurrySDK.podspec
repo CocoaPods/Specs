@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = '**/*.a'
   s.library = 'FlurryAnalytics'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/FlurryAnalytics"' }
+  s.requires_arc = false
 end

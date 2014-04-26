@@ -32,4 +32,5 @@ As of May 2008 PROJ.4 has become part of the  MetaCRS project, a confederation o
   s.source_files = "proj/src/*.{c,h}"
   s.exclude_files = "**/proj.c", "**/nad2bin.c", "**/multistresstest.c", "**/geod.c", "**/cs2cs.c"
 
+  s.requires_arc = false
 end

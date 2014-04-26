@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
                   'LOG_EXPR(x) is the work of Vincent Gable.'
 
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

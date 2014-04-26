@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
 
   s.preserve_paths = 'Opentok.framework'
 
+  s.requires_arc = false
 end

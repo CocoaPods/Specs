@@ -46,4 +46,5 @@ Copyright (C) 2009-2010 Bradley Clayton. All rights reserved.
   s.platform     = :ios, '4.0'
   s.source_files = 'SQLayout/*'
   s.framework  	 = 'CoreGraphics'
+  s.requires_arc = false
 end

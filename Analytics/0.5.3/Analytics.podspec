@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig       = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Analytics/Analytics.framework"' }
 
+  s.requires_arc = false
 end

@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
   s.libraries = 'BrightcoveMediaAPI'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Brightcove-Video-Cloud-App-SDK-MediaAPI/bc-media-api-2/lib/"' }
+  s.requires_arc = false
 end

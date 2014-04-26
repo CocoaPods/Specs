@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nbasham/iOS-UserPreferences.git", :tag => '1.0.0'}
   s.source_files = "iOS-UserPreferences/UserPreferences.**"
   s.platform     = :ios
+  s.requires_arc = false
 end

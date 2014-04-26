@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/MA*.{h,m}'
   s.exclude_files = 'Source/main.m'
   s.private_header_files = 'Source/MAZeroingWeakRefNativeZWRNotAllowedTable.h'
+  s.requires_arc = false
 end

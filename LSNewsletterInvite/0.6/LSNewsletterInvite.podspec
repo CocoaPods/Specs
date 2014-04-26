@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.dependency 'ChimpKit', '~> 3.0.2'
   s.dependency 'SVProgressHUD', '~> 1.0'
   
+  s.requires_arc = false
 end

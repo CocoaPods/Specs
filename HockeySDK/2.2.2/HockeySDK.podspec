@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.resources    = 'Resources/Hockey.bundle', 'Resources/Quincy.bundle'
   s.frameworks   = 'QuartzCore', 'SystemConfiguration', 'CrashReporter'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"' }
+  s.requires_arc = false
 end

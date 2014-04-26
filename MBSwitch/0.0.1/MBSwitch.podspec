@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.public_header_files = "MBSwitch/*.h"
   s.header_dir = "MBSwitch"
   s.framework = 'QuartzCore'
+  s.requires_arc = false
 end

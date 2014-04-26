@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Accounts', 'Twitter'
 
   s.dependency 'unoffical-twitter-sdk', '0.0.1'
+  s.requires_arc = false
 end

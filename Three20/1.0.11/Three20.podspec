@@ -275,4 +275,5 @@ Pod::Spec.new do |s|
       xs.dependency 'Three20/Network'
     end
   end
+  s.requires_arc = false
 end

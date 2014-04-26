@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
     ss.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/FlurryAds"' }
     ss.dependency 'FlurrySDK/FlurrySDK'
   end
+  s.requires_arc = false
 end

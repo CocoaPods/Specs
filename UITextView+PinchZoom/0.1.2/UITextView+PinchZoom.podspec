@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/cfr/UITextView-PinchZoom.git", :tag => "0.1.2" }
   s.platform     = :ios, '4.3'
   s.source_files = 'UITextView+PinchZoom.{h, m}'
+  s.requires_arc = false
 end

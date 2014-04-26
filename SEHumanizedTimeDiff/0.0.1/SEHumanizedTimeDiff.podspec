@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.resources = 'SEHumanizedTime/{en,de,ja,tr,zh-Hans}.lproj'
 
   s.frameworks = 'Foundation'
+  s.requires_arc = false
 end

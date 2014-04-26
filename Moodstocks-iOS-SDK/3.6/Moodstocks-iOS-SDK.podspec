@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files   = 'moodstocks_sdk.h', 'Obj-C/*.{h,m}'
   s.library        = 'moodstocks-sdk'
   s.xcconfig       =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Moodstocks-iOS-SDK"'}
+  s.requires_arc = false
 end

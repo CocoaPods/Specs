@@ -82,4 +82,5 @@ file are licensed as follows:
   s.public_header_files = "#{s.name}.framework/**/*.h"
   s.vendored_frameworks = "#{s.name}.framework"
   s.preserve_paths      = "#{s.name}.framework"
+  s.requires_arc = false
 end

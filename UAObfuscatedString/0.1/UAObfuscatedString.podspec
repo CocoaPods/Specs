@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.author       = { "Matt Coneybeare" => "coneybeare@urbanapps.com" }
   s.source       = { :git => "#{s.homepage}.git", :tag => s.version.to_s }
   s.source_files  = "NSString+UAObfuscatedString.[h|m]"
+  s.requires_arc = false
 end

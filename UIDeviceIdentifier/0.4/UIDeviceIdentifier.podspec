@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'Classes', 'UIDeviceIdentifier/**/*.{h,m}'
   s.public_header_files = 'UIDeviceIdentifier/**/*.h'
+  s.requires_arc = false
 end
 

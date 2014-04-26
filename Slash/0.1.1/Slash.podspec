@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
     ss.source_files = 'Slash/SLSTagParser.m', 'Slash/SLSTagLexer.gen.m', 'Slash/SLSTagParser.gen.m', 'Slash/*.h'
     ss.requires_arc = false
   end
+  s.requires_arc = false
 end

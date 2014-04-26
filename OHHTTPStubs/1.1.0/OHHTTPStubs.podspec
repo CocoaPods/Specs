@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/AliSoftware/OHHTTPStubs.git", :tag => "1.1.0" }
   s.source_files = "OHHTTPStubs"
   s.public_header_files = "OHHTTPStubs/*.h"
+  s.requires_arc = false
 end

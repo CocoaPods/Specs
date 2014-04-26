@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'teTouchSDK/TextExpander.framework'
   s.frameworks = 'AudioToolbox'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander/teTouchSDK', 'OTHER_LDFLAGS' => '-framework TextExpander' }
+  s.requires_arc = false
 end

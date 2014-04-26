@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
       'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/PlivoSDK/Libraries',
       'OTHER_LD_FLAGS' => '$(inherited) -ObjC -all_load'
       }
+  s.requires_arc = false
 end

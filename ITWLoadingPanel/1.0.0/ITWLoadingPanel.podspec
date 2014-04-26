@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ITWLoadingPanel/*.{h,m}'
   s.resources = 'ITWLoadingPanel/*.{xib}'
 
+  s.requires_arc = false
 end

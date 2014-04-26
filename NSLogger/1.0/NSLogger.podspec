@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CFNetwork', 'SystemConfiguration'
 
 
+  s.requires_arc = false
 end

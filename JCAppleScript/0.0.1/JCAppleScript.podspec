@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 	s.platform = :osx
 	s.source_files = 'JC*.{h,m}'
 
+  s.requires_arc = false
 end

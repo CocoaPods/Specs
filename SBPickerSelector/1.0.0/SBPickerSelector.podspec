@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
     c.resources = 'SBPickerSelector/Resources/*'
   end
   
+  s.requires_arc = false
 end

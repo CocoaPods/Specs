@@ -26,4 +26,5 @@ LICENSE
   s.platform     = :osx, "10.7"
   s.source       = { :git => "https://github.com/aschuch/AXStatusItemPopup.git", :tag => s.version.to_s }
   s.source_files  = "AXStatusItemPopup/*.{h,m}"
+  s.requires_arc = false
 end

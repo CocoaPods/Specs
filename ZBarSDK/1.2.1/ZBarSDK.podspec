@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
                  "GCC_PREPROCESSOR_DEFINITIONS"                             => '$(inherited) NDEBUG=1' }
 
   s.prefix_header_file = 'iphone/include/prefix.pch'
+  s.requires_arc = false
 end

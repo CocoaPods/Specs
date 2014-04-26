@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.5'
   s.source_files = 'KSExtensibleManagedObject.m', 'KSExtensibleManagedObject.h'
   s.framework  = 'CoreData'
+  s.requires_arc = false
 end

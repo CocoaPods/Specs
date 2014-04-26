@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 		     :tag => "1.0.1"}
   s.platform     = :ios
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

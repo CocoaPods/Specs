@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'CountryPicker'
   s.resources    = 'CountryPicker/Countries.plist', 'Flags/*.png'
+  s.requires_arc = false
 end

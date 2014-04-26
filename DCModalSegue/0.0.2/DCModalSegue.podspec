@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source_files = 'DCModalSegue/*.{h,m}' 
   s.frameworks   = "QuartzCore"
+  s.requires_arc = false
 end

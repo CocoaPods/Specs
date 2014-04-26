@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'DIYAssetPicker/*.{h,m,png}'
   s.framework = 'UIKit', 'AssetsLibrary', 'Foundation', 'CoreGraphics'
+  s.requires_arc = false
 end

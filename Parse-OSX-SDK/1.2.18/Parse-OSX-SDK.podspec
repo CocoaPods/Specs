@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.preserve_paths      = "ParseOSX.framework"
   s.public_header_files = "ParseOSX.framework/**/*.h"
   s.vendored_frameworks = "ParseOSX.framework"
+  s.requires_arc = false
 end

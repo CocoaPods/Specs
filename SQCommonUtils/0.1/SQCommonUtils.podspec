@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "SQCommonUtils"
   s.version      = "0.1"
   s.summary      = "Common Utils SDK for ObjC project."
-  s.description  = <<-DESC
-                   Common Utils SDK for ObjC project.
-                   DESC
   s.homepage     = "https://github.com/shjborage/SQCommonUtils"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { "shjborage" => "shjborage@gmail.com"}

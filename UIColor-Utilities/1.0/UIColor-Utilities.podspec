@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/fcanas/uicolor-utilities.git", :tag => "1.0" }
   s.platform     = :ios
   s.source_files = 'Classes', '*.{h,m}'
+  s.requires_arc = false
 end

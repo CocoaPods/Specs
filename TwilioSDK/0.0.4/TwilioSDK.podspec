@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
                   'OTHER_LD_FLAGS' => '$(inherited) -ObjC'
                 }
   s.resources = ["**/Resources/*.*"]
+  s.requires_arc = false
 end

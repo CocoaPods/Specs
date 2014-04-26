@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.authors      = { 'Luke Redpath' => 'luke@lukeredpath.co.uk' }
   s.source       = { :git => 'https://github.com/lukeredpath/LRMocky.git', :tag => 'v0.9.0' }
   s.source_files = 'Classes', 'Classes/LRMocky', 'Vendor'
+  s.requires_arc = false
 end

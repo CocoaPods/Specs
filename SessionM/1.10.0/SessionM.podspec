@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.vendored_library = '**/libSessionM.1.10.0.a'
   s.frameworks = 'SystemConfiguration', 'UIKit', 'Security', 'CoreGraphics', 'EventKit', 'EventKitUI', 'AdSupport', 'CoreData', 'MediaPlayer', 'StoreKit'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/SessionM/**"' }
+  s.requires_arc = false
 end

@@ -47,4 +47,5 @@ CMD
   s.source_files = 'lib/*.{h,c}'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/expat' }
+  s.requires_arc = false
 end

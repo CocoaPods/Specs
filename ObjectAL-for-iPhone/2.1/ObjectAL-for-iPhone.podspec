@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ObjectAL/ObjectAL/**/*.{h,m,c}'
 
   s.frameworks = 'OpenAL', 'AudioToolbox', 'AVFoundation'
+  s.requires_arc = false
 end

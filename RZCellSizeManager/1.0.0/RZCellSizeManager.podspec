@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Raizlabs/RZCellSizeManager.git", :tag => "1.0.0" }
 
   s.source_files  = 'RZCellSizeManager/*.{h,m}'
+  s.requires_arc = false
 end

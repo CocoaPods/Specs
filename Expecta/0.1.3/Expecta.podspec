@@ -23,5 +23,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
 
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+  s.requires_arc = false
 end
 

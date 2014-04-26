@@ -70,5 +70,6 @@ Pod::Spec.new do |s|
     ss.requires_arc = false
   end
 
+  s.requires_arc = false
 end
 

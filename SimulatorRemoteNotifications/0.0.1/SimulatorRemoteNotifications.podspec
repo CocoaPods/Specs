@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source = { :git => "https://github.com/acoomans/SimulatorRemoteNotifications.git", :commit => "f9be17cfcbe516806f3976f2592abcad1a55ef72" }
   s.source_files = 'SimulatorRemoteNotifications/**/*.{h,m}'
+  s.requires_arc = false
 end

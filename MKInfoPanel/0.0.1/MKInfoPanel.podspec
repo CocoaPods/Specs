@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.resources = 'MKInfoBundle/*.{png,xib}'
   s.platform = :ios
   s.source_files = 'MKInfoBundle/*.{h,m}'
+  s.requires_arc = false
 end

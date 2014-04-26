@@ -24,5 +24,6 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(DEVELOPER_FRAMEWORKS_DIR)"',
                  'LD_RUNPATH_SEARCH_PATHS' => '"$(DEVELOPER_FRAMEWORKS_DIR)"' }
+  s.requires_arc = false
 end
 

@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ADTransitionController/**/*.{h,m}'
   s.exclude_files = 'TransitionDemo/**/*.{h,m}'
   s.frameworks = 'QuartzCore'
+  s.requires_arc = false
 end

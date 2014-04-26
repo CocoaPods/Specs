@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "XControls"
   s.version      = "1.0.0"
   s.summary      = "Controls for rapid iOS UI development."
-  s.description  = <<-DESC
-                    Controls for rapid iOS UI development.
-                   DESC
   s.homepage     = "https://github.com/timonroe/XControls"
   s.license      = 'MIT'
   s.author       = { "Tim Monroe" => "timonroe12@gmail.com" }

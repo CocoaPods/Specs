@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/thisandagain/storage.git', :tag => 'v0.1.4' }
   s.platform = :ios
   s.source_files = 'EDStorage'
+  s.requires_arc = false
 end

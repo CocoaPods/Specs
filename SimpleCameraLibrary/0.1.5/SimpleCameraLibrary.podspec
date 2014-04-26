@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "SimpleCameraLibrary"
   s.version      = "0.1.5"
   s.summary      = "The SCLSimpCamController is intended to be used as a simpler version of UIImagePickerViewController."
-  s.description  = <<-DESC
-   		   The SCLSimpCamController is intended to be used as a simpler version of UIImagePickerViewController.
-                   DESC
   s.homepage     = 'http://www.jera.com.br'
   s.license      = 'MIT'
   s.author       = { "" => "mnmaraes@gmail.com" }

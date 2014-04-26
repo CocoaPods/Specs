@@ -76,4 +76,5 @@ Pod::Spec.new do |s|
     tf.dependency 'AnalyticsKit/Core'
   end
 
+  s.requires_arc = false
 end

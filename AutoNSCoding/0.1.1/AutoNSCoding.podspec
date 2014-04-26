@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '2.0'
   s.source       = { :git => "https://github.com/shjborage/AutoNSCoding.git", :tag => "v0.1.1" }
   s.source_files  = '*.{h,m}'
+  s.requires_arc = false
 end

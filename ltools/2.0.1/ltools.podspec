@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src'
   s.preserve_paths = 'bin'
+  s.requires_arc = false
 end

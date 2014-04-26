@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'BlocksKit'
   s.dependency 'A2DynamicDelegate'
   s.ios.frameworks = 'MessageUI'
+  s.requires_arc = false
 end

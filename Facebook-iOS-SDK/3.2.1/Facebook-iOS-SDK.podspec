@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.header_dir   =  'FacebookSDK'
   s.weak_frameworks = 'Accounts', 'AdSupport', 'Social'
   s.framework = 'CoreLocation'
+  s.requires_arc = false
 end

@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
     ss.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited) AGWW_SHORTHAND' }
   end
 
+  s.requires_arc = false
 end

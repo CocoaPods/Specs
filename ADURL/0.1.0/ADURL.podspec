@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s }
 
   s.source_files  = 'ADURL/**/*.{h,m}'
+  s.requires_arc = false
 end

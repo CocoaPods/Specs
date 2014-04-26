@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/bennyguitar/libHN.git", :tag => "1.1.1" }
   s.source_files  = 'libHN\ Classes/*.{h,m}'
   s.public_header_files = 'libHN\ Classes/*.h'
+  s.requires_arc = false
 end

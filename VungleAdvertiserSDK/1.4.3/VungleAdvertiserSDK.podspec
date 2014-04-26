@@ -50,4 +50,5 @@ Pod::Spec.new do |s|
   s.framework = 'AVFoundation','CFNetwork','CoreGraphics','AudioToolbox','CoreMedia','Foundation','MediaPlayer','QuartzCore','SystemConfiguration','UIKit','AdSupport','StoreKit','CoreLocation'
   
 
+  s.requires_arc = false
 end

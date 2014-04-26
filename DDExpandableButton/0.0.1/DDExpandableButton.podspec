@@ -8,4 +8,5 @@ Pod::Spec.new do|s|
 	s.source={:git=>'https://github.com/ddebin/DDExpandableButton.git',:commit=>'9046184de675799655274c571b5c82d2ba826eff'}
 	s.source_files='DDExpandableButton/*{.h,.m}'
 	s.platform = :ios
+  s.requires_arc = false
 end

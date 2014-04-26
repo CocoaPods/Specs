@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.frameworks   =  'QuartzCore'
 
   s.dependency 'SBJson'
+  s.requires_arc = false
 end

@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.author       = { "Ian G" => "yo.ian.g@gmail.com" }
   s.source       = { :git => "https://github.com/yoiang/TypeForKey.git", :tag => "0.1" }
   s.source_files  = 'TypeForKey/*.{h,m}'
+  s.requires_arc = false
 end

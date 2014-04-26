@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.frameworks     = 'QuartzCore', 'SystemConfiguration', 'CrashReporter'
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"' }
   s.preserve_paths = 'Vendor/CrashReporter.framework'
+  s.requires_arc = false
 end

@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
     sp.dependency 'BeeFramework/JSONKit'
   end
   
+  s.requires_arc = false
 end

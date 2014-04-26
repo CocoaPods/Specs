@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.xcconfig        		=  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/MobileAppTracker/ios-lib"' }
   s.weak_framework  		= 'AdSupport'
   s.frameworks      		= 'CoreTelephony', 'MobileCoreServices', 'SystemConfiguration', 'UIKit'
+  s.requires_arc = false
 end

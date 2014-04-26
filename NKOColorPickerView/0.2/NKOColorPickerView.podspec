@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "NKOColorPickerView"
   s.version      = "0.2"
   s.summary      = "A block based and easy to use Color Picker View for iOS."
-  s.description  = <<-DESC
-                   A block based and easy to use Color Picker View for iOS.
-                   DESC
   s.homepage     = "https://github.com/FWCarlos/NKO-Color-Picker-View-iOS"
   s.license      = {
 		:type => 'MIT',

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'CCNode+SFGestureRecognizers', 'CCNode+SFGestureRecognizers/**/*.{h,m}'
   s.dependency 'cocos2d', '~> 2.0'
+  s.requires_arc = false
 end

@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.exclude_files = '**/*json*'
   # s.preserve_paths = "AUTHORS.txt"
   s.dependency 'JSONKit'
+  s.requires_arc = false
 end

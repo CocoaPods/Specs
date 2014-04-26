@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.libraries = %w{ z xml2 }
   s.frameworks  = %w{ SystemConfiguration MobileCoreServices CFNetwork UIKit Foundation CoreGraphics MediaPlayer QuartzCore }
   s.weak_frameworks = %w{ AdSupport }
+  s.requires_arc = false
 end

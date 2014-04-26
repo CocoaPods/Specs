@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation', 'Security'
   s.dependency 'cocoa-oauth', '~> 0.0.1'
   s.dependency 'SSKeychain', '~> 0.1.2'
+  s.requires_arc = false
 end

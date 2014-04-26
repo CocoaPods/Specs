@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
       raise "[!] Failed pre install hook" unless $?.to_i == 0
     end
   end
+  s.requires_arc = false
 end

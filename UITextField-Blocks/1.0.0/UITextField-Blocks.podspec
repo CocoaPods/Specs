@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       = { "Haakon bogen" => "hakon.bogen@gmail.com" }
   s.source       = { :git => "https://github.com/haaakon/UITextField-Blocks.git", :tag => "1.0.0" }
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

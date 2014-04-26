@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'SBJson'
   s.dependency 'SFHFKeychainUtils'
+  s.requires_arc = false
 end

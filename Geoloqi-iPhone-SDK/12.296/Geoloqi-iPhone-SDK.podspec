@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.libraries   = 'sqlite3', 'Geoloqi-$(CONFIGURATION)'
   s.dependency 'JSONKit', '~> 1.4'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Geoloqi-iPhone-SDK/GeoloqiSDK' }
+  s.requires_arc = false
 end

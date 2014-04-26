@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jamztang/JTObjectMapping.git', :tag => s.version.to_s }
   s.platform = :ios
   s.source_files = 'JTObjectMapping/Source/*.{h,m}'
+  s.requires_arc = false
 end

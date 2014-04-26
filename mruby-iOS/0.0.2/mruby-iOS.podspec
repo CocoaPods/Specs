@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = framework_path
   s.frameworks     = 'MRuby'
   s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/mruby-iOS' }
+  s.requires_arc = false
 end

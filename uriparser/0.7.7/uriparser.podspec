@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = "uriparser-#{s.version}/src/*.{h,c}", "uriparser-#{s.version}/include/uriparser/*.h"
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/uriparser/include' }
+  s.requires_arc = false
 end

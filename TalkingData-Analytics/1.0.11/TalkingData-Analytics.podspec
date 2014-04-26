@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.library   = 'TalkingData'
   s.framework = 'CoreTelephony'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/TalkingData-Analytics/**' }
+  s.requires_arc = false
 end

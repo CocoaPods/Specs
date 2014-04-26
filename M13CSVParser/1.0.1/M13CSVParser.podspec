@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.1"
   s.summary      = "A set of classes to read and write character separated value files and strings."
 
-  s.description  = <<-DESC
-                   A set of classes to read and write character separated value files and strings.
-                   DESC
-
   s.homepage     = "https://github.com/Marxon13/M13CSVParser"
   s.license      = {:type => 'MIT',
                     :text => <<-LICENSE

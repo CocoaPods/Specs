@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/crashlytics/secureudid.git', :tag => 'v1.1' }
   s.platform = :ios
   s.source_files = 'SecureUDID.{h,m}'
+  s.requires_arc = false
 end

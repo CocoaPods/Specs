@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = "google-plus-ios-sdk-#{s.version}/{GoogleOpenSource,GooglePlus}.framework/Versions/A/Headers/*.h"
   s.resource       = 'google-plus-ios-sdk-1.5.0/GooglePlus.bundle'
   s.framework      = 'AddressBook', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'GoogleOpenSource', 'GooglePlus', 'MediaPlayer', 'Security', 'SystemConfiguration', 'UIKit'
+  s.requires_arc = false
 end

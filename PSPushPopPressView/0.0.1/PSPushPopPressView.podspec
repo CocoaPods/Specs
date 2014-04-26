@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'PSPushPopPressView.{h,m}'
   s.framework = 'UIKit' , 'QuartzCore'
 
+  s.requires_arc = false
 end

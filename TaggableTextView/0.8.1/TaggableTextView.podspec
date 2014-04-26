@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.8.1"
   s.summary      = "Customizable UITextView subclass that supports tagging"
 
-  s.description  = <<-DESC
-                    Customizable UITextView subclass that supports tagging
-                    DESC
-
   s.homepage     = "https://github.com/potlee/TaggableTextView"
   s.license      = { :type => 'Apache License, Version 2.0', :text => <<-LICENSE
     Licensed under the Apache License, Version 2.0 (the "License");

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'Classes/Exclude'
   s.dependency 'MBProgressHUD', '~> 0.8'
 
+  s.requires_arc = false
 end

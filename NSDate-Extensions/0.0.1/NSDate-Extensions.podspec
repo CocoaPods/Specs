@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'NSDate-Utilities.{h,m}' , 'TimeFormatters.{h,m}'
   s.framework = 'Foundation'
 
+  s.requires_arc = false
 end

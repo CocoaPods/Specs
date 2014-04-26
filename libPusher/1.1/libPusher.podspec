@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   
   s.dependency "JSONKit", "1.4"
   s.dependency 'CocoaAsyncSocket', '0.0.1'
+  s.requires_arc = false
 end

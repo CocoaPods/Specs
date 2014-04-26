@@ -121,4 +121,5 @@ Pod::Spec.new do |s|
   # This will give us all possible subspecs that do not clash with NAME.
   s.default_subspec = 'no_clash_HockeyApp'
 
+  s.requires_arc = false
 end

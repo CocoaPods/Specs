@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'DebugKit', 'DebugKit/**/*.{h,m}'
   s.public_header_files = 'DebugKit/**/*.h'
 
+  s.requires_arc = false
 end

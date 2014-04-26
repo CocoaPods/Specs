@@ -17,4 +17,5 @@ it has issues.
   s.source   = { :git => 'https://github.com/msgpack/msgpack-objectivec.git',
                  :tag => '1.0.0' }
   s.source_files = '*.{h,m}', 'msgpack_src/*.{c,h}', 'msgpack_src/msgpack/*.h'
+  s.requires_arc = false
 end

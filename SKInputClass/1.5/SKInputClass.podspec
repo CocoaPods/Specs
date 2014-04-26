@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/SunilSpaceo/SKInputClass.git', :tag => '1.5' }
   s.source_files  = 'SKInput/*.{h,m}'
   s.resources = "SKInput/*.png"
+  s.requires_arc = false
 end

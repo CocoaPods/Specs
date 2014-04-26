@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.frameworks = 'iAd'
   s.dependency 'Google-Mobile-Ads-SDK'
+  s.requires_arc = false
 end

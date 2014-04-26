@@ -40,4 +40,5 @@ Pod::Spec.new do |s|
       ss.dependency 'AWSiOSSDK/DynamoDB'
     end
   end
+  s.requires_arc = false
 end

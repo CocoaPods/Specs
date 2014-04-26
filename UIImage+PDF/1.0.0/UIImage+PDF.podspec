@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'UIImage+PDF/*.{h,m}'
 
   s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit'
   s.license   = { :type => 'Permissive', :text => 'Copyright 2011 Steinlogic. All rights reserved. Created by Mugunth on 09/05/11.' }
 
+  s.requires_arc = false
 end

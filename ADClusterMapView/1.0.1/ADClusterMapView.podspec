@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'ADClusterMapView/**/*.{h,m}'
   s.frameworks = 'MapKit', 'CoreLocation'
+  s.requires_arc = false
 end

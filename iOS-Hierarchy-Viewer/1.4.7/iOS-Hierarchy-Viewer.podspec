@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'iOSViewHierarchy/**/*.{h,m}'
   s.exclude_files = '**/*json*'
   # s.preserve_paths = "AUTHORS.txt"
+  s.requires_arc = false
 end

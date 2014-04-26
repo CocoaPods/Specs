@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
   s.frameworks      = s.name
   s.xcconfig        = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/%s/"' % s.name }
   s.preserve_paths  = '%s.framework' % s.name
+  s.requires_arc = false
 end

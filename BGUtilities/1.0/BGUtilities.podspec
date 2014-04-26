@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.license     = 'LICENSE'
   s.source_files = 'Classes/*.{h,m}'
   s.platform = :ios
+  s.requires_arc = false
 end

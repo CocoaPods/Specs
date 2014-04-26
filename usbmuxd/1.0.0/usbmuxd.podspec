@@ -22,5 +22,6 @@ LICENSE
  s.dependency 'libplist'
  s.public_header_files = 'libusbmuxd/usbmuxd.h'
  s.xcconfig = {"GCC_PREPROCESSOR_DEFINITIONS" => 'HAVE_PLIST',  "HEADER_SEARCH_PATHS" => '"${PODS_ROOT}/libplist/include/"'}
+  s.requires_arc = false
 end
 

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.resource = 'Resources/*.{png}'
   s.license      = 'MIT'
 
+  s.requires_arc = false
 end

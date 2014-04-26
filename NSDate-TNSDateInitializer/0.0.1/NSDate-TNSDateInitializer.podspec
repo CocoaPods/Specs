@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "NSDate-TNSDateInitializer"
   s.version      = "0.0.1"
   s.summary      = "NSDate category adding useful initializer"
-  s.description  = <<-DESC
-                   NSDate category adding useful initializer
-                   DESC
   s.homepage     = "https://github.com/takuji31/NSDate-TNSDateInitializer"
   s.license      = 'MIT'
   s.author             = { "Takuji Nishibayashi" => "takuji31@gmail.com" }

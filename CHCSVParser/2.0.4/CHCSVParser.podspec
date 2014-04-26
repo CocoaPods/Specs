@@ -7,4 +7,5 @@ Pod::Spec.new do |spec|
     spec.version      = '2.0.4'
     spec.source       = { :git => 'https://github.com/davedelong/CHCSVParser.git', :tag => '2.0.4' }
     spec.source_files = 'CHCSVParser/CHCSVParser.{h,m}'
+  spec.requires_arc = false
 end

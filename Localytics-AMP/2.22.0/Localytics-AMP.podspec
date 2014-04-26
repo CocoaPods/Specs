@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'AdSupport'
   s.frameworks = 'SystemConfiguration'
   s.libraries   = 'LocalyticsAMP', 'z', 'sqlite3'
+  s.requires_arc = false
 end

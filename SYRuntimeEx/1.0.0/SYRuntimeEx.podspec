@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/satyso/Runtime_Ex.git", :tag => "1.0.0" }
   s.source_files  = 'RuntimeEx/*.{h,m}'
+  s.requires_arc = false
 end

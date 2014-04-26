@@ -56,4 +56,5 @@ And used under this <a href="http://www.iconfinder.com/iconsets/Hand_Drawn_Web_I
   s.source       = { :git => "https://github.com/esttorhe/crash-report-assert.git", :tag => s.version.to_s }
   s.platform     = :ios, '5.0'
   s.source_files = 'CrashReportAssert/'
+  s.requires_arc = false
 end

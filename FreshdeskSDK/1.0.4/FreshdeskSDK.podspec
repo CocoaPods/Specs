@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.dependency 'JSONKit'
   s.resources      =  'FreshdeskSDK-iosuniversal/FreshdeskSDKResources.bundle'
   s.xcconfig       = {'LIBRARY_SEARCH_PATHS' => ' "${PODS_ROOT}/FreshdeskSDK/FreshdeskSDK-Cocoapods/" '}
+  s.requires_arc = false
 end

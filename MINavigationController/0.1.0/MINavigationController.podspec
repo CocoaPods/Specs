@@ -3,9 +3,6 @@ Pod::Spec.new do |s|
   s.name         = "MINavigationController"
   s.version      = "0.1.0"
   s.summary   = "An UINaviagtionController subclass to easily implement *push* and *pop* actions with neat animation."
-  s.description  = <<-DESC
-                   An UINaviagtionController subclass to easily implement *push* and *pop* actions with neat animation.
-                   DESC
   s.homepage     = "https://github.com/Veelian/MINavigationController"
   s.license      = 'MIT'
   s.author       = { "WangLin" => "wanglin4ios@gmail.com" }

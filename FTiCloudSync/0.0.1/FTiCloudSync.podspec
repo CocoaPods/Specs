@@ -22,4 +22,5 @@ contact me and we can work something out.
   s.source_files  = 'NSUserDefaults+iCloud.{h,m}', \
                     'MethodSwizzling.{c,h}'
   s.dependency 'RegexKitLite'
+  s.requires_arc = false
 end

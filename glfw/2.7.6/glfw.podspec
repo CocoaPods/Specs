@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'include/**/*.h'
   s.header_mappings_dir = 'include'
   s.frameworks = 'IOKit', 'OpenGL', 'Cocoa'
+  s.requires_arc = false
 end

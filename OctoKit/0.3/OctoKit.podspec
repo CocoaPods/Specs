@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency   "ISO8601DateFormatter", "~> 0.7.0"
   s.dependency   "Mantle", "~> 1.3.1"
   s.dependency   "ReactiveCocoa", "~> 2.1.4"
+  s.requires_arc = false
 end

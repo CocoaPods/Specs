@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jverkoey/sockit.git', :commit=>"9b8bdb107dfd3ae9e3c749da0a62e6de9765ac9f"}
   s.source_files = '*.{h,m}'
 
+  s.requires_arc = false
 end

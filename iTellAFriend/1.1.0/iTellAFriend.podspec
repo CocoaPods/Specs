@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'MessageUI'
 
+  s.requires_arc = false
 end

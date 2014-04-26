@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "A CocoaLumberjack log formatter for pretty class information output."
 
-  s.description  = <<-DESC
-                   A CocoaLumberjack log formatter for pretty class information output.
-                   DESC
-
   s.homepage     = "https://github.com/premosystems/LumberjackPrettyClassInformation"
 
 

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.author       = { 'Michael Hohl' => 'me@michaelhohl.net' }
   s.source       = { :git => 'https://github.com/hohl/PKCS-Universal.git', :tag => 'pod-1.0.2' }
   s.source_files = 'Classes/'
+  s.requires_arc = false
 end

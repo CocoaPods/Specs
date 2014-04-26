@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/ustwo/US2FormValidator.git', :tag => '1.0.5' }
   s.source_files = 'US2FormValidationFramework/source/**/*.{h,m}'
   s.resource     = 'US2FormValidationFramework/source/Localization.bundle'
+  s.requires_arc = false
 end

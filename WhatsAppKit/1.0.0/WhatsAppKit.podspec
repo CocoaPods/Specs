@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/fawkeswei/WhatsAppKit.git", :tag =>  "1.0.0"}
   s.platform     = :ios, '5.0'
   s.source_files = 'WhatsAppKit/*.{h,m}'
+  s.requires_arc = false
 end

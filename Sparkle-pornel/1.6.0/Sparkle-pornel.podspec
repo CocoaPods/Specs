@@ -40,4 +40,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Sparkle-pornel"' }
 
+  s.requires_arc = false
 end

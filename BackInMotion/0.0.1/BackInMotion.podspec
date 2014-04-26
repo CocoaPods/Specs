@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'BackInMotion/Classes/*.{h,m}'
 
   s.xcconfig = { 'OTHER_LDLAGS' => '-lstdc++ -licucore -lc++ -lc++abi' }
+  s.requires_arc = false
 end

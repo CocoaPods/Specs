@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/amplitude/Amplitude-iOS.git", :tag => "v2.0.0" }
   s.platform     = :ios, '5.0'
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

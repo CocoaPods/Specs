@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
     'discount/generate.c', 'discount/markdown.{h,c}', 'discount/mkdir.{c,h}', 'discount/cstring.h',
     'discount/amalloc.{h,c}', 'discount/mkdio.{h,c}', 'GHMarkdownParser/**/*.{h,m}'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load', 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/GHMarkdownParser/discount"' }
+  s.requires_arc = false
 end

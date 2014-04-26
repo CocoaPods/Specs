@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'iFuga/iFuga'
   s.frameworks   = 'QuartzCore'
   
+  s.requires_arc = false
 end

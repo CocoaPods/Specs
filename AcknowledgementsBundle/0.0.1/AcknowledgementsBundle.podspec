@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source_files    = 'Dummy.h'
   s.resource_bundle = { 'Settings' => ['*.plist', '../Pods-acknowledgements.plist'] }
 
+  s.requires_arc = false
 end

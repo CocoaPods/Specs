@@ -25,4 +25,5 @@ Apphance is a registered trademark of uTest. Other company and product names men
   s.public_header_files = 'Apphance-Production.framework/Versions/A/Headers/*'
   s.vendored_frameworks = 'Apphance-Production.framework'
 
+  s.requires_arc = false
 end

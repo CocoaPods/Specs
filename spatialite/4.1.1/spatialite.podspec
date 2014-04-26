@@ -85,4 +85,5 @@ CMD
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi', 'CLANG_ENABLE_MODULES' => 'NO'  }
 
 
+  s.requires_arc = false
 end

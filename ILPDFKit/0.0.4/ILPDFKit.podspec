@@ -29,4 +29,5 @@ s.source  = { :git => "https://github.com/iwelabs/ILPDFKit.git", :tag => "0.0.4"
 s.source_files  = "ILPDFKit/ILPDFKit/*.{h,m}"
 s.frameworks = "QuartzCore", "UIKit"
 
+  s.requires_arc = false
 end

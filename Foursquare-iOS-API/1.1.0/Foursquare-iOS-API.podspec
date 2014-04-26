@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.prefix_header_contents = "#import <MobileCoreServices/MobileCoreServices.h>"
   s.dependency 'JSONKit', '~> 1.4'
   s.xcconfig = { 'OTHER_CFLAGS' => '-DBZ_USE_JSONKIT=1' }
+  s.requires_arc = false
 end
