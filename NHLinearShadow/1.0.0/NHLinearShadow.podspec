@@ -9,8 +9,8 @@
   s.author       = { "Nathan Hegedus" => "nathan.hegedus@hotmail.com" }
 
   s.source       = { :git => "https://github.com/nthegedus/NHLinearShadow.git", :tag => "1.0.0" }
-  s.source_files = 'Example/NHLinearShadow/UIImageView+NHLinearShadow/*.{h,m}'
-
+  s.source_files = 'UIImageView+NHLinearShadow/*.{h,m}'
+  
   s.platform     = :ios
   
   s.requires_arc = true
