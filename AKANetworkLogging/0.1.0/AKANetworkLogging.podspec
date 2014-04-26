@@ -1,4 +1,4 @@
-# Run 'pod lib lint AKANetworkingLogging.podspec' to validate
+# Run 'pod lib lint AKANetworkLogging.podspec' to validate
 Pod::Spec.new do |s|
   s.name             = "AKANetworkLogging"
   s.version          = "0.1.0"
