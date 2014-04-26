@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "NGGraphView"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A simple graph view for iOS."
   s.description      = <<-DESC
                        NGGraphView allows you to show how data changes over time using a graph.
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
   s.ios.deployment_target = '5.0'
-  s.osx.deployment_target = '10.7'
+  #s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
   s.source_files = 'Classes/ios/NGGraphView.h', 'Classes/ios/NGGraphView.m', 'Classes/ios/NGDataPoint.h', 'Classes/ios/NGDataPoint.m'
