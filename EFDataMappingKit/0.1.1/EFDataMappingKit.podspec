@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EFDataMappingKit"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "EFDataMappingKit maps data such as those coming from JSON onto an instance using mappings"
   s.description  = "EFDataMappingKit maps data such as those coming from JSON onto an instance using mappings. The mappings are also used to simplify implementing the NSCoding protocol for a class, and to create a dictionary representation of an instance."
   s.homepage     = "https://github.com/Egeniq/EFDataMappingKit"
