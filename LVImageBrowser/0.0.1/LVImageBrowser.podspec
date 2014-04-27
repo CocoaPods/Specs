@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/CodeEagle/LVImageBrowser"
   s.license          = 'MIT'
   s.author           = { "CodeEagle" => "stasura@hotmail.com" }
-  s.source           = { :git => "https://github.com/CodeEagle/LVImageBrowser.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/CodeEagle/LVImageBrowser.git", :tag => s.version.to_s ,:commit=>69e9d43096a1293d315be14096d833d5ab46d982}
   s.social_media_url = 'https://twitter.com/_SelfStudio'
   s.platform     = :ios , 6.0
   s.ios.deployment_target = '6.0'
