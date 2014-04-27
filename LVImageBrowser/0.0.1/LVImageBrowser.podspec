@@ -4,9 +4,6 @@ Pod::Spec.new do |s|
   s.summary          = "LVImageBrowser: Image Gallery with Network"
   s.description      = <<-DESC
                        LVImageBrowser: Image Gallery with Network
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
                        DESC
   s.homepage         = "https://github.com/CodeEagle/LVImageBrowser"
   s.license          = 'MIT'
