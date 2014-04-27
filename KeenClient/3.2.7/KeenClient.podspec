@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source_files = 'KeenClient'
 
   s.ios.frameworks = 'CoreLocation'
+  s.library = 'sqlite3'
 end
