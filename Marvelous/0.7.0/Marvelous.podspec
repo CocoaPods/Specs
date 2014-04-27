@@ -26,7 +26,9 @@ Pod::Spec.new do |spec|
   spec.version = "0.7.0"
   spec.summary = "An unofficial native interface to the Marvel Comics API for iOS and OSX."
   spec.description = <<-DESC
-    **Marvelous** is an unofficial native interface to the [Marvel Comics](http://marvel.com) API for both iOS and OSX platforms. It is built on top of the [Foundation framework](https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/objc_classic/_index.html) and it uses the high-level operation and networking abstractions built into the Cocoa framework. The design of this interface aims to be easy-to-use in your projects and semantically related to the API.
+    **Marvelous** is an unofficial native interface to the [Marvel Comics](http://marvel.com) API for both iOS and OSX platforms.
+    It is built on top of the [Foundation framework](https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/objc_classic/_index.html) and it uses the high-level operation and networking abstractions built into the Cocoa framework. 
+    The design of this interface aims to be easy-to-use in your projects and semantically related to the API.
   DESC
   spec.homepage = "https://github.com/rock-n-code/Marvelous"
   spec.license = { :type => "MIT", :file => "LICENSE" }

@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.summary = 'A delightful Promises implementation for iOS.'
   s.requires_arc = true
+  s.compiler_flags = '-fmodules'
 
   s.homepage = 'http://promisekit.org'
   s.social_media_url = 'https://twitter.com/mxcl'
