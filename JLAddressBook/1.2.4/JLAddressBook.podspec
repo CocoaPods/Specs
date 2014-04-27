@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/jlaws/JLAddressBook"
   s.license          = 'MIT'
   s.author           = { "Joe Laws" => "joe.laws@gmail.com" }
-  s.source           = { :git => "https://github.com/jlaws/JLAddressBook.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/jlaws/JLAddressBook.git", :tag => "1.2.4" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.source_files = 'JLAddressBook'
