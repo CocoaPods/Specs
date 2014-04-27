@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/AliSoftware/UIImage-Resize"
   s.license          = 'MIT'
   s.author           = { "AliSoftware" => "olivier.halligon+ae@gmail.com" }
-  s.source           = { :git => "git@github.com:eimantas/ASImageResize.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/eimantas/ASImageResize.git", :tag => s.version.to_s }
   s.social_media_url = 'http://www.foodreporter.net'
 
   s.platform     = :ios, '7.0'
