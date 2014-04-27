@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "UIImageView-LVUtils"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Utils For UIImageView."
   s.description      = <<-DESC
                        Utils For UIImageView
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/CodeEagle/UiimageView-LVUtils"
   s.license          = 'BSD'
   s.author           = { "Lincoln.Law" => "stasura@hotmail.com" }
-  s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s,:commit=>"06fc1b8b6d9e731464a4b4c8688e42fcd19bf636"}
+  s.source           = { :git => "https://github.com/CodeEagle/UiimageView-LVUtils.git", :tag => s.version.to_s,:commit=>"31a9cb3c2cc2ed4f62381f4baa0f0aa673dfffe2"}
   s.social_media_url = 'https://twitter.com/_SelfStudio'
 
   s.platform     = :ios, '5.0'
