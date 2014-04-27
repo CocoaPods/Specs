@@ -3,9 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.3.2"
   s.summary      = "Simple to use month & year picker view"
   s.homepage     = "https://github.com/rolandleth/LTHMonthYearPickerView"
-  s.screenshots  = 
-      "http://rolandleth.com/assets/monthyearpickerview/Screenshot.png", 
-
+  s.screenshot  = "http://rolandleth.com/assets/monthyearpickerview/Screenshot.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { "Roland Leth" => "roland@rolandleth.com" }
   s.platform     = :ios, '6.0'
