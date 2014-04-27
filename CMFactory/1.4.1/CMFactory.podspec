@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Lucas Medeiros" => "lucastoc@gmail.com" }
 
-  s.source       = { :git => "https://github.com/lucasmedeirosleite/CMFactory.git", :tag s.version.to_s }
+  s.source       = { :git => "https://github.com/lucasmedeirosleite/CMFactory.git", :tag => s.version.to_s }
 
   s.requires_arc = true
 
