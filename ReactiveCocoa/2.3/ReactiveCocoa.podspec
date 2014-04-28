@@ -33,4 +33,14 @@ Pod::Spec.new do |s|
     sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText}*'
     sp.header_dir = 'ReactiveCocoa'
   end
+
+  s.subspec 'Basic' do |sp|
+    sp.dependency 'ReactiveCocoa/no-arc'
+    sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{d,h,m}'
+    sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
+    sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
+    sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UITextField,UIText}*'
+    sp.osx.exclude_files = '**/*{AppKit,NSControl,NSText,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UITextField,UIText}*'
+    sp.header_dir = 'ReactiveCocoa'
+  end
 end
