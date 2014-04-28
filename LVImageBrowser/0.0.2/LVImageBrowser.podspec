@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LVImageBrowser"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "LVImageBrowser: Image Gallery with Network"
   s.description      = <<-DESC
                        LVImageBrowser: Image Gallery with Network. By Lve
