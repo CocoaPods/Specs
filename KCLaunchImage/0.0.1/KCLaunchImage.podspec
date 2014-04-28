@@ -5,7 +5,7 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
-  s.name             = "KCLaunchImageViewController"
+  s.name             = "KCLaunchImage"
   s.version          = "0.0.1"
   s.summary          = "FakeZhiHuDailyLaunchTransition."
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "kavichen" => "chen1qi2wei3@gmail.com" }
-  s.source           = { :git => "https://github.com/kavichen/Fake-ZhiHu-Daily-LaunchImage-Transition.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/kavichen/KCLaunchImage.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/EXAMPLE'
 
   s.platform     = :ios, '7.0'
