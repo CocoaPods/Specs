@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "XHNewsFramewrok"
+  s.name         = "XHNewsFramework"
   s.version      = "0.1.0"
   s.summary      = "XHNewsFramework is a fast integration and development of the framework of news app, base on Netease App build."
   s.homepage     = "https://github.com/JackTeam/XHNewsFramework"
