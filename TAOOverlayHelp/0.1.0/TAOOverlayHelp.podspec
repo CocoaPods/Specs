@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Classes'
-  
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'QuartzCore'
+  s.source_files = "Classes/*.{h,m}"
+  s.public_header_files = 'Classes/TAOOverlayHelp.h'
+  s.frameworks = 'QuartzCore'
 end
