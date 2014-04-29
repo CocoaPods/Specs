@@ -12,35 +12,34 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.compiler_flags = '-DOS_OBJECT_USE_OBJC=0'
-
+ 
   s.prepare_command = <<-'END'
     find . \( -regex '.*EXT.*\.[mh]$' -o -regex '.*metamacros\.[mh]$' \) -execdir mv {} RAC{} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@"(EXT.*|metamacros)\.h"@"RAC\1.h"@' {} \;
     find . -regex '.*\.[hm]' -exec sed -i '' -E 's@<ReactiveCocoa/(EXT.*)\.h>@<ReactiveCocoa/RAC\1.h>@' {} \;
   END
-
+ 
+  s.default_subspec = 'UI'
+ 
   s.subspec 'no-arc' do |sp|
     sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
     sp.requires_arc = false
   end
-
+ 
   s.subspec 'Core' do |sp|
     sp.dependency 'ReactiveCocoa/no-arc'
     sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{d,h,m}'
     sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
-    sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
-    sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText}*'
-    sp.osx.exclude_files = '**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText}*'
+    sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*{RACObjCRuntime,AppKit,NSControl,NSText,NSTable,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText}*'
     sp.header_dir = 'ReactiveCocoa'
   end
-
-  s.subspec 'Basic' do |sp|
-    sp.dependency 'ReactiveCocoa/no-arc'
-    sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*.{d,h,m}'
-    sp.private_header_files = '**/*Private.h', '**/*EXTRuntimeExtensions.h'
-    sp.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.{h,m}'
-    sp.ios.exclude_files = '**/*{AppKit,NSControl,NSText,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UITextField,UIText}*'
-    sp.osx.exclude_files = '**/*{AppKit,NSControl,NSText,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UITextField,UIText}*'
+ 
+  s.subspec 'UI' do |sp|
+    sp.dependency 'ReactiveCocoa/Core'
+    sp.source_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*{AppKit,NSControl,NSText,NSTable,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText}*'
+    sp.osx.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText}*.{d,h,m}'
+    sp.ios.exclude_files = 'ReactiveCocoaFramework/ReactiveCocoa/**/*{AppKit,NSControl,NSText,NSTable}*.{d,h,m}'
     sp.header_dir = 'ReactiveCocoa'
   end
+ 
 end
