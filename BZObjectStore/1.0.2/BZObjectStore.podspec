@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/expensivegasprices/BZObjectStore.git', :tag => s.version.to_s }
   s.platform = :ios, '5.0'
   s.requires_arc = true
-  s.source_files = 'BZObjectStore/*/*.{h,m}'
+  s.source_files = 'BZObjectStore/**/*.{h,m}'
 
   s.subspec 'Core' do |cs|
     cs.dependency 'FMDB'
