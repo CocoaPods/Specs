@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      	= "A photo search/picker for iOS using popular providers like 500px, Flickr, Intagram, Google Images, etc."
   s.description  	= "This framework tries to mimic as close as possible the native UIImagePickerController API for iOS7, in terms of features, appearance and behaviour."
   s.homepage   		= "https://github.com/dzenbot/DZNPhotoPickerController"
-  s.screenshots 	= "https://dl.dropboxusercontent.com/u/2452151/Permalink/DZNPhotoPickerController.png"
+  s.screenshots 	= "https://dl.dropboxusercontent.com/u/2452151/Permalink/DZNPhotoPickerController_screenshots.png"
   s.license     	= { :type => 'MIT', :file => 'LICENSE' }
   s.author       	= { "Ignacio Romero Z." => "iromero@dzen.cl" }
   s.platform    	= :ios, '7.0'
