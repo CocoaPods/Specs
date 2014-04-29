@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'Automatically sign AFNetworking api requests with SHA-256 hash signature and timestamp'
   s.homepage = 'https://github.com/aporat/AFSignedHTTPRequestOperationManager'
   s.author   = { 'Adar Porat' => 'http://github.com/aporat' }
-  s.source   = { :git => 'https://github.com/aporat/AFSignedHTTPRequestOperationManager.git', :tag => 'v1.0' }
+  s.source   = { :git => 'https://github.com/aporat/AFSignedHTTPRequestOperationManager.git', :tag => "#{s.version}" }
   
   s.platform = :ios, '6.0'
   s.requires_arc = true
