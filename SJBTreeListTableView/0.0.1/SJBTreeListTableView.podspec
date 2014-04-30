@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = "SJBTreeListTableView/SJBBaseTreeListViewController.{h,m}"
   s.resources = "SJBTreeListTableView/*.png"
   s.requires_arc = true
+  s.framework = 'UIKit'
 end
