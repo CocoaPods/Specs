@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "TutorialKit"
-  s.version          = "0.1.1"
+  s.version          = "0.1.3"
   s.summary          = "In-app tutorials, tips, intros and walk-throughs."
   s.homepage         = " http://lostinthepines.github.io/TutorialKit"
   #s.screenshots      = "inthepin.es/", "www.example.com/screenshots_2"
