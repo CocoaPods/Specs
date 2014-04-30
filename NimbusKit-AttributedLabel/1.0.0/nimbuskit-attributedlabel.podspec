@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "NimbusKit Attributed Label"
+  s.name         = "NimbusKit-AttributedLabel"
   s.version      = "1.0.0"
   s.license      =  { :type => 'BSD' }
   s.summary      = "UILabel subsitute with Core Text rendering, link detection, and inline images."
