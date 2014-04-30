@@ -1,10 +1,3 @@
-#
-# Be sure to run `pod lib lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "GA-iOS-SDK-new"
   s.version          = "1.0.1"
@@ -20,7 +13,7 @@ Pod::Spec.new do |s|
   s.resources = "Library/ios\ #{s.version}/GAResources.bundle"
   s.frameworks = 'CoreData', 'Foundation', 'SystemConfiguration','UIKit','Security'
   s.weak_frameworks = 'AdSupport'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => "'$(PODS_ROOT)/#{s.name}'" }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => "$(PODS_ROOT)/#{s.name}" }
 
   s.platform = :ios, '5.0'
   s.requires_arc = true
