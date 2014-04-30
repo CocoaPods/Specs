@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source_files = 'MZFormSheetController/*.{h,m}'
   s.requires_arc = true
 
-  s.dependency 'MZAppearance', '~> 1.1.2'
+  s.dependency 'MZAppearance', '~> 1.1.3'
 
   s.platform = :ios, '5.0'
   s.frameworks = 'QuartzCore', 'Accelerate'
