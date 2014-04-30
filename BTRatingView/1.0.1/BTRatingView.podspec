@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.1"
   s.summary      = "Simple 5 star rating view."
   s.homepage     = "https://github.com/borut-t/BTRatingView"
-  s.screenshots  = "https://raw.github.com/borut-t/BTButton/master/Screenshots/app.png"
+  s.screenshots  = "https://github.com/borut-t/BTRatingView/raw/master/Screenshots/app.png"
   s.license      = { :type => 'zlib', :file => 'LICENCE.md' }
   s.author       = { "Borut Tomažin" => "borut.tomazin@icloud.com" }
   s.platform     = :ios, '5.0'
