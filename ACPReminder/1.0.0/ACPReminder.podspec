@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'ACPReminder'
   s.version      = '1.0.0'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.homepage     = 'http://www.antoniocasero.me'
+  s.homepage     = 'https://github.com/antoniocasero/ACPReminder'
   s.authors      =  {'Antonio Casero' => 'anto.casero@gmail.com'}
   s.summary      = 'ACPReminder provides automatic local notificacions, in order to marketing your app or explaining use cases to user.'
 
