@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   	:git => 'https://github.com/Busta117/SBSearchBar.git', 
 	:tag => s.version.to_s 
 	}
-  s.ios.deployment_target = ‘6.0’
+  s.ios.deployment_target = '6.0'
   s.source_files = 'SBSearchBar/*.{h,m}'
   s.requires_arc = true
 end
