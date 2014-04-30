@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "NimbusKit Basics"
+  s.name         = "NimbusKit-Basics"
   s.version      = "1.2.0"
   s.license      =  { :type => 'BSD' }
   s.summary      = "One file, plenty of basics."
