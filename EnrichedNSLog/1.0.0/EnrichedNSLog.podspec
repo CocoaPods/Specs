@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/Tintenklecks/ExtendNSLog"
-  s.screenshots  = "https://raw.githubusercontent.com/Tintenklecks/ExtendNSLog/master/ExtendNSLog.png", "https://raw.githubusercontent.com/Tintenklecks/ExtendNSLog/master/ExtendNSLog2.png"
+  s.screenshots  = ["https://raw.githubusercontent.com/Tintenklecks/ExtendNSLog/master/ExtendNSLog.png", "https://raw.githubusercontent.com/Tintenklecks/ExtendNSLog/master/ExtendNSLog2.png"]
 
 
    s.license      = { :type => 'MIT', :file => 'MITLicense' }
