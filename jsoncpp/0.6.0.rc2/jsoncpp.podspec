@@ -28,4 +28,5 @@ Pod::Spec.new do |s|
     # uncommented as it should be, lets do that now:
     perl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h
   CMD
+  s.requires_arc = false
 end

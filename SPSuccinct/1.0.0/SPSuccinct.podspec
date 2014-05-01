@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.description = 'Macros for "POD" literals, KVO tools, and SPDepends.'
 
   s.source_files = 'SPSuccinct/SP*.{h,m}'
+  s.requires_arc = false
 end

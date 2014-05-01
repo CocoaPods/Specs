@@ -30,4 +30,5 @@ s.source_files  = "ILPDFKit/*.{h,m}"
 s.resource  = "ILPDFKit/Resources/javascript-runtime.html"
 s.frameworks = "QuartzCore", "UIKit"
 
+  s.requires_arc = false
 end

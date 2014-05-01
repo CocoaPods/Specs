@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'CIALBrowser/**/*.{h,m}'
   s.resources = "CIALBrowser/*.bundle"
   s.frameworks = 'MessageUI'
+  s.requires_arc = false
 end

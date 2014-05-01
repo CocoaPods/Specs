@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/acerbetti/ACEAutocompleteBar.git', :tag => 'v1.0.0' }
   s.platform     = :ios, '4.0'
   s.source_files = 'ACEAutocompleteBar/*.{h,m}'
+  s.requires_arc = false
 end

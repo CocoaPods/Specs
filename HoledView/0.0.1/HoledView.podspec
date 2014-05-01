@@ -27,4 +27,5 @@ This project allows you to create a simple and small `UIView`with some 'holes' :
 
 
 
+  s.requires_arc = false
 end

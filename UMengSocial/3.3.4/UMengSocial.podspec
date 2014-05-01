@@ -26,4 +26,5 @@ s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/umeng_
 'FRAMEWORK_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/umeng_ios_social_sdk_3.3.4_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/"}
 s.framework         = "SystemConfiguration","MobileCoreServices","TencentOpenAPI","CoreGraphics","CoreTelephony"
 s.platform          = :ios,'4.3'
+  s.requires_arc = false
 end

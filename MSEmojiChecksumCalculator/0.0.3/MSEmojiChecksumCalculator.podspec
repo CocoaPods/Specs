@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source_files  = "MSEmojiChecksumCalculator.{h,m}"
   s.public_header_files = "MSEmojiChecksumCalculator.h"
   s.frameworks = 'Foundation', 'CommonCrypto'
+  s.requires_arc = false
 end

@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SSCheckBoxView/SSCheckBoxView', 'SSCheckBoxView/SSCheckBoxView/Helpers'
   s.resources = "SSCheckBoxView/SSCheckBoxView/Graphics/*.png"
 
+  s.requires_arc = false
 end

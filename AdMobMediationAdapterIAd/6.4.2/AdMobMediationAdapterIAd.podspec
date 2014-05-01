@@ -20,4 +20,5 @@ LICENSE
   s.library = 'AdapterIAd'
   s.framework = 'iAd'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/AdMobMediationAdapterIAd/"'}
+  s.requires_arc = false
 end

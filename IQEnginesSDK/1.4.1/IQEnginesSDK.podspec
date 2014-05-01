@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'AVFoundation', 'CoreLocation', 'CoreMedia', 'CoreVideo', 'QuartzCore'
   s.libraries  = 'iconv', 'stdc++', 'IQEnginesLocal'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/IQEnginesSDK/IQEnginesSDK/Local"' }
+  s.requires_arc = false
 end

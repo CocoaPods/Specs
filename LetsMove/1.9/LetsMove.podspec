@@ -3,9 +3,6 @@ Pod::Spec.new do |s|
   s.name         = "LetsMove"
   s.version      = "1.9"
   s.summary      = "Move a running Mac application to the /Applications directory."
-  s.description  = <<-DESC
-                   Move a running Mac application to the /Applications directory.
-                   DESC
   s.homepage     = "https://github.com/potionfactory/LetsMove/"
   s.license      = 'Public Domain'
   s.author       = { "Andy Kim" => "andy@potionfactory.com" }

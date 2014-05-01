@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.resource  = 'data/hanja/*.txt'
   s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS' => 'LIBHANGUL_DEFAULT_HANJA_DIC=\"@loader_path/../Resources/hanja.txt\"' }
 
+  s.requires_arc = false
 end

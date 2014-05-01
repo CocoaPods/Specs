@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = "UIView+FrameAdditions.*"
   s.platform     = :ios, "4.0"
   s.license      = "Public Domain"
+  s.requires_arc = false
 end

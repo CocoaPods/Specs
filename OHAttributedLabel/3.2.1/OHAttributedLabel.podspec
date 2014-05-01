@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'OHAttributedLabel/**/*.{h,m}'
   s.framework = 'CoreText'
+  s.requires_arc = false
 end

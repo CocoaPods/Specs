@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author   = { 'Olivier Poitrey' => 'rs@dailymotion.com' }
   s.source   = { :git => 'https://github.com/rs/SDURLCache.git', :tag => '1.3' }
   s.source_files = 'SDURLCache.h', 'SDURLCache.m', 'SDCachedURLResponse.h', 'SDCachedURLResponse.m'
+  s.requires_arc = false
 end

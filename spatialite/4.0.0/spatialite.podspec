@@ -87,4 +87,5 @@ CONFIG_H
   s.dependency 'freexl'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src/headers' }
+  s.requires_arc = false
 end

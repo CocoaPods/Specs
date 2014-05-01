@@ -20,4 +20,5 @@ A significant burden on performance for graphics-rich applications like Path is 
 
   s.source_files  = 'FastImageCache'
 
+  s.requires_arc = false
 end

@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/Antol/APAutocompleteTextField.git", :tag => "1.0.0" }
   s.source_files  = 'APAutocompleteTextField.{h,m}'
+  s.requires_arc = false
 end

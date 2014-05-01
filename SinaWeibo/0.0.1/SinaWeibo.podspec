@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source_files = 'sinaweibo_ios_sdk&demo/sinaweibo_ios_sdk/SinaWeibo/*.{h,m}'
   s.resources = "sinaweibo_ios_sdk&demo/sinaweibo_ios_sdk/SinaWeibo/SinaWeibo.bundle"
   s.dependency 'JSONKit'
+  s.requires_arc = false
 end

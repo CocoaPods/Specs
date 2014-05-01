@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.exclude_files = '**/*NSData+Base64*'
 
   s.dependency 'NSData+Base64', '~> 1.0'
+  s.requires_arc = false
 end

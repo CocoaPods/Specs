@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.author       = { "Ernesto García" => "", "Paul Schlyter" => "pausch@stjarnhimlen.se" }
   s.source       = { :git => "https://github.com/erndev/EDSunriseSet.git", :tag => s.version.to_s }
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
                      :commit => "e98b48415bf69737d6643cd2f01db05568178140" }
   s.source_files = '*.{h,m}'
   s.platform = :osx
+  s.requires_arc = false
 end

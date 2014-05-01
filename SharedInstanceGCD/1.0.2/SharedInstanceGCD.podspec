@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/timshadel/SharedInstanceGCD.git", :tag => s.version.to_s }
   s.source_files = 'SharedInstanceGCD.h'
   s.public_header_files = 'SharedInstanceGCD.h'
+  s.requires_arc = false
 end

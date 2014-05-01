@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.resources = 'MoPubSDK/**/*.{png,xib}'
   s.frameworks    = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation', 'CoreGraphics', 'SystemConfiguration', 'AdSupport', 'CoreTelephony', 'QuartzCore'
   s.dependency 'TouchJSON', '~> 1.0'
+  s.requires_arc = false
 end

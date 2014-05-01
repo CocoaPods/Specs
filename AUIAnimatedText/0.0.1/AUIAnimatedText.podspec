@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'AUIAnimatedText/AUIAnimatedText/AUIAnimatableLabel.{h,m}', 'AUIAnimatedText/AUIAnimatedText/UIFont+CoreTextExtensions.{h,m}'
   s.framework = 'CoreText', 'QuartzCore', 'CoreGraphics', 'UIKit'
+  s.requires_arc = false
 end

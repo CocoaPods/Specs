@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '4.3'
 
+  s.requires_arc = false
 end

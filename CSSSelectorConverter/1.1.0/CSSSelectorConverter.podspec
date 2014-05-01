@@ -33,4 +33,5 @@ Pod::Spec.new do |s|
     ss.exclude_files       = 'vendor/CoreParse/CoreParse/CPSenTestKitAssertions.h'
     ss.requires_arc        = false
   end
+  s.requires_arc = false
 end

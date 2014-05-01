@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source_files = 'src/Classes/*.{h,m}', 'src/Classes/QREncoder/*.{h,m}'
   s.public_header_files = 'src/Classes/QREncoder/*.h'
   s.framework  = 'CoreGraphics'
+  s.requires_arc = false
 end

@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'SMGridView/source/*.{h,m}'
   s.frameworks = 'QuartzCore', 'UIKit', 'Foundation', 'CoreGraphics'
+  s.requires_arc = false
 end
 

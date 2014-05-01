@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.exclude_files    = "HighlightedWebView/DHAppDelegate.h", "HighlightedWebView/DHAppDelegate.m", "HighlightedWebView/main.m"
 
   s.frameworks       = "Foundation", "Cocoa"
+  s.requires_arc = false
 end

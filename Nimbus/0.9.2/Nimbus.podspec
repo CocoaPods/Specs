@@ -79,4 +79,5 @@ Pod::Spec.new do |s|
     web_controller.source_files = 'src/webcontroller/src'
     web_controller.resource     = 'src/webcontroller/resources/NimbusWebController.bundle'
   end
+  s.requires_arc = false
 end

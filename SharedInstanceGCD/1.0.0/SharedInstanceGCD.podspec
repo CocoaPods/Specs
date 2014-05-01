@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'SharedInstanceGCD.h'
   s.public_header_files = 'SharedInstanceGCD.h'
+  s.requires_arc = false
 end

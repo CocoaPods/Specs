@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.prepare_command = <<-CMD
     open "http://cdn.pixate.com/docs/engine/ios/2.0RC2/getting-started.html#app_setup"
   CMD
+  s.requires_arc = false
 end

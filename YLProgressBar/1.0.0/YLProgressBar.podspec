@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/YannickL/YLProgressBar.git',
                   :tag => '1.0.0' }
   s.source_files = ['YLProgressBar/YLProgressBar.{h,m}', 'YLProgressBar/ARCMacro.h']
+  s.requires_arc = false
 end

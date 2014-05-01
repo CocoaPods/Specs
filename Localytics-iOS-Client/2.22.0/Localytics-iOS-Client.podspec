@@ -36,13 +36,15 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = 'Char Software, Inc. d/b/a Localytics'
-  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/Localytics-iOS-Client-latest.source.zip" }
-  s.platform     = :ios, '5.1.1'
+  s.source       = { :http => "http://downloads.localytics.com/SDKs/iOS/archive/Localytics-iOS-Client-2.22.0.source.zip" }
+  s.platform     = :ios, '4.0'
 
-  s.requires_arc = false
   s.source_files = '**/*.{h,m}'
+  s.requires_arc = false
+  s.compiler_flags = '-fno-objc-arc'
 
   s.weak_frameworks = 'AdSupport'
+  s.frameworks = 'SystemConfiguration'
   s.libraries   = 'z', 'sqlite3'
 
 end

@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'CoreFoundation', 'CoreData'
 
+  s.requires_arc = false
 end

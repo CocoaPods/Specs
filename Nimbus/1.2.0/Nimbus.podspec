@@ -3,7 +3,9 @@ Pod::Spec.new do |s|
   s.version  = '1.2.0'
   s.license  = 'Apache License, Version 2.0'
   s.summary  = 'An iOS framework whose growth is bounded by O(documentation).'
-  s.homepage = 'http://docs.nimbuskit.info/index.html'
+  s.homepage = 'http://nimbuskit.info'
+  s.documentation_url = 'http://latest.docs.nimbuskit.info'
+  
   s.author   = { 'Jeff Verkoeyen'    => 'jverkoey@gmail.com',
                  'Bubnov Slavik'     => 'bubnovslavik@gmail.com',
                  'Roger Chapman'     => 'rogchap@gmail.com',

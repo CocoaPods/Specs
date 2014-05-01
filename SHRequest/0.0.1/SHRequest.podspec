@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'SHOmniAuth', '~>0.0.1'
   s.dependency 'OAuthCore', '~>0.0.1'
+  s.requires_arc = false
 end

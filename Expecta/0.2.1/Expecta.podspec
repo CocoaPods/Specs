@@ -19,5 +19,6 @@ Pod::Spec.new do |s|
   s.source_files = 'src/**/*.{h,m}'
 
   s.frameworks = 'Foundation'
+  s.requires_arc = false
 end
 

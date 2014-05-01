@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'IAPAdapter'
   s.platform     = :ios, '7.0'
   s.dependency 'IAPManager', '~> 0.2.2'
+  s.requires_arc = false
 end

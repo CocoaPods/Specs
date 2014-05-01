@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'CFNetwork', 'Security', 'SystemConfiguration', 'QuartzCore'
   s.vendored_frameworks = 'dropbox-ios-sync-sdk-2.1.0/Dropbox.framework'  
   s.library   = 'c++'
+  s.requires_arc = false
 end

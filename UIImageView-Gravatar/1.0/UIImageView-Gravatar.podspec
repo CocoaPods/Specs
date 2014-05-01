@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/rexfinn/UIImageView-Gravatar.git", :tag => "v1.0" }
   s.source_files  = 'UIImageView+Gravatar/*.{h,m}'
   s.dependency 'SDWebImage', '~> 3.5'
+  s.requires_arc = false
 end

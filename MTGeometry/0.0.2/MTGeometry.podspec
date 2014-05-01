@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mysterioustrousers/MTGeometry.git", :tag => "0.0.2" }
   s.source_files = 'MTGeometry/*.{h,c}'
   s.framework    = 'CoreGraphics'
+  s.requires_arc = false
 end

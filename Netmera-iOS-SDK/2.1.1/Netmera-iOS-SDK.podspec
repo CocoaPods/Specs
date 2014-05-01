@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Netmera" => "support@netmera.com" }
   s.social_media_url  = "https://twitter.com/Netmera";
-  s.documentation_url   = "http://netmera.com/netmera-resources/doc/ios/v_2.1.1/index.html";
+  s.documentation_url   = "http://netmera.com/netmera-resources/doc/ios/v_#{s.version}/index.html";
 
 
   s.platform     = :ios, '5.1'
@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
   s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreLocation', 'MobileCoreServices', 'CFNetwork', 'CoreTelephony'
   s.weak_frameworks   = 'QuartzCore', 'Security', 'AdSupport', 'Social', 'Accounts', 'Twitter'
   s.libraries   = 'xml2', 'sqlite3', 'z'
-  s.dependency 'Facebook-iOS-SDK', '3.2'
+  s.dependency 'Facebook-iOS-SDK', '~> 3.2'
   s.dependency 'PLCrashReporter', '~> 1.2-rc4'
 
   s.requires_arc = true

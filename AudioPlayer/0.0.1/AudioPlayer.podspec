@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m,mm}'
   s.framework = 'AudioToolbox'
 
+  s.requires_arc = false
 end

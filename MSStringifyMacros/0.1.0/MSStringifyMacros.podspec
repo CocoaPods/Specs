@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
     ss.source_files = 'MSStringifyMacros_Archiving.h'
   end
 
+  s.requires_arc = false
 end

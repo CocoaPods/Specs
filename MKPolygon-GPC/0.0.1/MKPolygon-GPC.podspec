@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MKPolygon-GPC-Example/MKPolygon-GPC/MKPolygon+GPC.*', 'MKPolygon-GPC-Example/MKPolygon-GPC/gpc232/gpc.*'
   s.frameworks   = 'MapKit'
   
+  s.requires_arc = false
 end

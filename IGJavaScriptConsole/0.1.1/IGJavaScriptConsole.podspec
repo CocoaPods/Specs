@@ -3,10 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "0.1.1"
   s.summary      = "Ruby REPL for your Objective-C apps."
 
-  s.description  = <<-DESC
-Ruby REPL for your Objective-C apps.
-DESC
-
   s.homepage     = "https://github.com/siuying/IGJavaScriptConsole"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }

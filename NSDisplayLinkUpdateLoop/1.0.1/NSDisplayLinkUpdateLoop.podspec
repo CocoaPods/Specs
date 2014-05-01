@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'NSDisplayLinkUpdateLoop', 'NSDisplayLinkUpdateLoop/**/*.{h,m}'
   s.exclude_files = 'NSDisplayLinkUpdateLoopDemo'
+  s.requires_arc = false
 end

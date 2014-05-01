@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = '*.{h,m}'
   s.dependency 'Google-Mobile-Ads-SDK'
+  s.requires_arc = false
 end

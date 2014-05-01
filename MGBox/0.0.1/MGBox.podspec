@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files =  'MGBox Demo/MGBox'
   s.description  =  'A UITableView replacement with simplified API. Designed for rapid table creation with minimal code, easy customisation, attractive default styling, and with most common design patterns automated without need for fidgety UIView tweaking.'
   s.platform     =  :ios#, '5.0'
+  s.requires_arc = false
 end

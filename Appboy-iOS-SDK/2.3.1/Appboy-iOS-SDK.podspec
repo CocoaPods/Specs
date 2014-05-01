@@ -47,4 +47,5 @@ Pod::Spec.new do |s|
     akwfss.vendored_libraries = 'AppboyKitWithoutFacebookSupport/libAppboyKitLibrary.a'
   end
 
+  s.requires_arc = false
 end

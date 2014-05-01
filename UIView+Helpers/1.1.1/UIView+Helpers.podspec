@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.prefix_header_contents = "#import <QuartzCore/QuartzCore.h>"
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

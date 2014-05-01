@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'NSLogger'
   s.dependency 'CocoaLumberjack'
+  s.requires_arc = false
 end

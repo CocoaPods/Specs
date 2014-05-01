@@ -21,4 +21,5 @@ LICENSE
   s.platform     = :ios
 
   s.source_files = 'TMQuiltView/TMQuiltView/*.{h,m}'
+  s.requires_arc = false
 end

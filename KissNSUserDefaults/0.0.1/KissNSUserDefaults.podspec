@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/cxa/KissNSUserDefaults.git", :commit => "51caad112118fca6ae8eb1416d0c67b07e70a792" }
   s.platform     = :ios, '4.3'
   s.source_files = 'NSUserDefaults+KissNSUserDefaults.{h,m}'
+  s.requires_arc = false
 end

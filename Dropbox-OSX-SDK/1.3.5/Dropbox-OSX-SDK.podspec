@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Security', 'QuartzCore', 'DropboxOSX'
   s.resources = 'dropbox-osx-sdk-1.3.5/DropboxOSX.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-OSX-SDK/dropbox-osx-sdk-1.3.5"' }
+  s.requires_arc = false
 end

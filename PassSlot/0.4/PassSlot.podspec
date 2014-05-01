@@ -18,4 +18,5 @@ It combines a Cloud Service that distributes, manages and signs your passes with
   s.preserve_paths = "sdk/PassSlot.framework"
   s.frameworks = 'PassSlot', 'PassKit', 'CFNetwork', 'Security', 'SystemConfiguration'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PassSlot/sdk"' }
+  s.requires_arc = false
 end

@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.subspec 'GSFancyText' do |sp|
     sp.source_files = 'GSFancyText/src'
   end
+  s.requires_arc = false
 end

@@ -132,4 +132,5 @@ CONFIG_H
 
 
 
+  s.requires_arc = false
 end

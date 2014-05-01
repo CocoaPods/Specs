@@ -4,7 +4,10 @@ Pod::Spec.new do |s|
   s.license = { :type => 'BSD', :file => 'LICENSE' }
   s.summary = "Library to send mock remote notifications to the iOS simulator"
   s.homepage = "https://github.com/acoomans/SimulatorRemoteNotifications"
-  s.screenshots = [ "Screenshots/screenshot01.png", "Screenshots/screenshot02.png" ]
+  s.screenshots = [
+    "https://raw.githubusercontent.com/acoomans/SimulatorRemoteNotifications/#{s.version}/Screenshots/screenshot01.png",
+    "https://raw.githubusercontent.com/acoomans/SimulatorRemoteNotifications/#{s.version}/Screenshots/screenshot02.png",
+  ]
 
   s.requires_arc = true
   s.platform = :ios

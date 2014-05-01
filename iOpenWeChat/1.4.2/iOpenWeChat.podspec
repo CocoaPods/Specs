@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.source              = { :git => "https://github.com/yirenjun/iOpenWeChat.git", :tag => "v#{s.version.to_s}" }
   s.source_files        = 'SDKExport/*.{h,m}'
   s.vendored_libraries  = 'SDKExport/libWeChatSDK.a'
+  s.requires_arc = false
 end

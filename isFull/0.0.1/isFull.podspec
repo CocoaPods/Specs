@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
 	:tag => '0.0.1' 
   }
   s.source_files = 'isFull/*.{h,m}'
+  s.requires_arc = false
 end

@@ -33,4 +33,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   s.source_files = "*.{c,h}"
 
+  s.requires_arc = false
 end

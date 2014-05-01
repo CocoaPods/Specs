@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.resources = 'AlgoliaSearch.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/AlgoliaSearchOffline-OSX-SDK"' }
   s.osx.deployment_target = '10.7'
+  s.requires_arc = false
 end

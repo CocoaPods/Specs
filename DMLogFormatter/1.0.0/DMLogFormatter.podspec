@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{m,h}'
 
   s.dependency 'CocoaLumberjack', '~> 1.3'
+  s.requires_arc = false
 end

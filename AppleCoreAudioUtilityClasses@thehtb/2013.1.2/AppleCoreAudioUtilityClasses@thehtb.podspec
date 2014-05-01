@@ -36,4 +36,5 @@ The "CoreAudio" folder contains the Public Utility sources (PublicUtility folder
     end
 
   end
+  s.requires_arc = false
 end

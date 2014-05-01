@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.framework = 'Foundation'
   s.dependency 'JRSwizzle', '~> 1.0'
+  s.requires_arc = false
 end

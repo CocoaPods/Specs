@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'OHAttributedLabel/**/*.{h,m}'
   s.framework = 'CoreText'
   s.prefix_header_contents = "#define OHATTRIBUTEDLABEL_DEDICATED_PROJECT"
+  s.requires_arc = false
 end

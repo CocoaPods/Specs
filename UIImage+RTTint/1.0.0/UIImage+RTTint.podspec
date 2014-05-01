@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.license      = {:type => 'MIT', :file => 'LICENSE'}
   s.platform     = :ios, '6.0'
   s.source_files = 'UIImage+RTTint.{m,h}'
+  s.requires_arc = false
 end

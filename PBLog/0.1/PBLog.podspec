@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'PBLogExample/'
   s.exclude_files = 'webserver.py'
   s.exclude_files = 'README.md'
+  s.requires_arc = false
 end

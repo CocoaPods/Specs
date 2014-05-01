@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.xcconfig     = {  'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) RUN_KIF_TESTS=1' }
   s.framework   = 'CoreGraphics'
   s.prefix_header_contents = '#import <CoreGraphics/CoreGraphics.h>'
+  s.requires_arc = false
 end

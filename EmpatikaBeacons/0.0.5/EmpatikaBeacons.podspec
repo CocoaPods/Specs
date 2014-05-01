@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.library       = 'EBBeaconsTracker'
   s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/EmpatikaBeacons/BeaconTracker"' }
   s.frameworks    = 'CoreLocation', 'CoreBluetooth'
+  s.requires_arc = false
 end

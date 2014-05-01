@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   s.platform       = :ios
   s.vendored_frameworks = 'DaumOAuthSDK.framework'
   s.framework      = 'Foundation', 'CoreGraphics', 'UIKit', 'DaumOAuthSDK', 'MobileCoreServices', 'SystemConfiguration'
+  s.requires_arc = false
 end
 

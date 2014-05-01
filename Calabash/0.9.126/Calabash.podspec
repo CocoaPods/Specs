@@ -21,4 +21,5 @@ this software.'
   s.source_files = 'calabash.framework/Versions/A/Headers/*'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Calabash/calabash.framework/calabash" -lstdc++' } 
   s.framework = 'CFNetwork'
+  s.requires_arc = false
 end

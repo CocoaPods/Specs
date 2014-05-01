@@ -53,4 +53,5 @@ This will launch the App Store and open the page about your app.  However, you c
   s.source_files  = '', '*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
 
+  s.requires_arc = false
 end

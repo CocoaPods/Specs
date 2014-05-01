@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/henrinormak/UIColor-HNExtensions.git", :tag => "0.1" }
   s.source_files  = 'UIColor+HNExtensions.{h,m}'
+  s.requires_arc = false
 end

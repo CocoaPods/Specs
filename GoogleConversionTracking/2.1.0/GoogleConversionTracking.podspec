@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
 
   s.library = 'GoogleConversionTracking'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleConversionTracking"' }
+  s.requires_arc = false
 end

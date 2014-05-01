@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source    = { :git => 'https://github.com/MugunthKumar/MKiCloudSync.git',
                   :commit => '9e57c89c773566cb7522e8269f3a973c84231acd' }
   s.source_files  = '*.{h,m}'
+  s.requires_arc = false
 end

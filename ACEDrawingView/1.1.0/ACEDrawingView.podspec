@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/acerbetti/ACEDrawingView.git', :tag => 'v1.1.0' }
   s.platform     = :ios, '4.0'
   s.source_files = 'ACEDrawingView/*.{h,m}'
+  s.requires_arc = false
 end

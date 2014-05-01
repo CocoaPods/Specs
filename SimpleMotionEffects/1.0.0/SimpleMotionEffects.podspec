@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/jaydee3/SimpleMotionEffects.git", :tag => "#{s.version}" }
   s.source_files  = 'Classes', 'SimpleMotionEffects/**/*.{h,m}'
 
+  s.requires_arc = false
 end

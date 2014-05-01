@@ -90,4 +90,5 @@ Pod::Spec.new do |s|
     installations.source_files = 'Source/KSCrash/Installations/**/*.{h,m,mm,c,cpp}'
   end
 
+  s.requires_arc = false
 end

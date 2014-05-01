@@ -33,5 +33,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'UIImage+GIF.{h,m}'
   s.framework    = 'ImageIO'
+  s.requires_arc = false
 end
 

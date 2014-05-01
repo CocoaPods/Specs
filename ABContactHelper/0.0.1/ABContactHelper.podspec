@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'ABContact.{h,m}', 'ABGroup.{h,m}', 'ABContactsHelper.{h,m}'
   s.frameworks = 'AddressBook', 'AddressBookUI'
+  s.requires_arc = false
 end

@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.source_files        = 'ProximityKit.framework/**/*.h'
   s.frameworks          = 'ProximityKit', 'Foundation', 'CoreLocation'
   s.xcconfig            = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ProximityKit"' }
+  s.requires_arc = false
 end
 

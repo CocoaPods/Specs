@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/matehat/Snappy-ObjC.git', :tag => 'v1.1.0', :submodules => true }
   s.source_files =  'snappy-c/snappy.{h,c}', 'snappy-c/compat.h', 'snappy-c/snappy-int.h', 'Classes/*.{h,m}'
   s.xcconfig = { 'CC'  => 'clang', 'CXX' => 'clang++' }
+  s.requires_arc = false
 end

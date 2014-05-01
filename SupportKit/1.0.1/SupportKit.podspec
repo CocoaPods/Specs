@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.frameworks      = 'SupportKit', 'CoreText', 'AdSupport', 'SystemConfiguration', 'CoreTelephony', 'Foundation', 'CoreGraphics', 'UIKit', 'Security'
   s.libraries       = 'xml2'
   s.xcconfig        = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/SupportKit"' }
+  s.requires_arc = false
 end

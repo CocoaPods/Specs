@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
     w.header_dir   = 'webp'
     w.source_files = 'src/webp/{decode,encode,types,format_constants,mux_types}.h'
   end
+  s.requires_arc = false
 end

@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.libraries = 'InMobiAdNetwork-3.6.5', 'InMobiCommons-3.6.5'
   s.frameworks  = 'AdSupport', 'CoreTelephony', 'AVFoundation', 'MediaPlayer', 'Security', 'SystemConfiguration', 'MessageUI', 'Foundation', 'UIKit', 'CoreGraphics'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/InMobiSDK' }
+  s.requires_arc = false
 end

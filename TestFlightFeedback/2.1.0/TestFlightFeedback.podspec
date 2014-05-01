@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
     d.dependency 'TestFlightFeedback/Core'
   end
 
+  s.requires_arc = false
 end

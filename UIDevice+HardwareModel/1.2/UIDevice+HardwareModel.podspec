@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tecentmoon/UIDevice-HardwareModel.git", :tag => "1.2" }
   s.source_files  = '*.{h,m}'
 
+  s.requires_arc = false
 end

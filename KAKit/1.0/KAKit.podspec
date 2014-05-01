@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.license             = { 
     :type => 'MIT', 
     :file => 'LICENSE' }
+  s.requires_arc = false
 end

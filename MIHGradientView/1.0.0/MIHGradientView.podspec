@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/hohl/MIHGradientView.git', :tag => 'pod-1.0.0' }
   s.source_files = 'Classes'
   s.framework    = 'QuartzCore'
+  s.requires_arc = false
 end

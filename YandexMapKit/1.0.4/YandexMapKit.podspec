@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'libYandexMapKit.a'
   s.xcconfig     = { 'HEADER_SEARCH_PATHS'  => '"$(SDKROOT)/usr/include/libxml2"',
                      'LIBRARY_SEARCH_PATHS' => '"$(SRCROOT)/Pods/YandexMapKit"' }
+  s.requires_arc = false
 end

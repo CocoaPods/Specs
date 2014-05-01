@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     =  :ios
   s.source       =  { :git => 'https://github.com/nicklockwood/WebContentView.git', :tag => '1.1' }
   s.source_files =  'WebContentView/WebContentView.{h,m}'
+  s.requires_arc = false
 end

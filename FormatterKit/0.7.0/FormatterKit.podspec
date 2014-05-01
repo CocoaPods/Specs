@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
                    'TTTLocationFormatter/*.{h,m}', 'TTTOrdinalNumberFormatter/*.{h,m}',
                    'TTTTimeIntervalFormatter/*.{h,m}', 'TTTUnitOfInformationFormatter/*.{h,m}',
                    'TTTURLRequestFormatter/*.{h,m}'
+  s.requires_arc = false
 end

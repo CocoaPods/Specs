@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
+  s.requires_arc = false
 end

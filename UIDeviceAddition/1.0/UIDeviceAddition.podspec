@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.source       = { :git => 'https://github.com/gekitz/UIDevice-with-UniqueIdentifier-for-iOS-5.git', :tag => 'v1.0' }
   s.source_files = 'Classes/*.{h,m}'
+  s.requires_arc = false
 end
