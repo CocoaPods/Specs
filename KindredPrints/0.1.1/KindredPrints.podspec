@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://www.facebook.com/KindredPrints'
 
   s.platform     = :ios, '6.0'
+  s.requires_arc = true
 
   s.source_files = 'KindredPrints-iOS-SDK/*/*'
   s.resources = "KindredPrints-iOS-SDK/*/*.{xib,png}"
