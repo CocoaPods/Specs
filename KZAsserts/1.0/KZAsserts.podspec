@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://merowing.info"
   s.license          = 'MIT'
   s.author           = { "Krzysztof Zablocki" => "krzysztof.zablocki@me.com" }
-  s.source           = { :git => "git@github.com:krzysztofzablocki/KZAsserts.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/krzysztofzablocki/KZAsserts.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/merowing_'
 
   s.platform     = :ios, '4.0'
