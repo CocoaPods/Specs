@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Kamil Burczyk" => "kamil.burczyk@gmail.com" }
   s.social_media_url   = "http://twitter.com/KamilBurczyk"
+  s.screenshots = [ "https://raw.githubusercontent.com/burczyk/Camouflage/master/assets/IMG_0071.png",
+  					"https://raw.githubusercontent.com/burczyk/Camouflage/master/assets/hexfiend.png" ]
   s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/burczyk/Camouflage.git", :tag => "1.0.0" }
   s.source_files  = "Camouflage", "Camouflage/**/*.{h,m,c}"
