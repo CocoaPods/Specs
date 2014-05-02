@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = 10.6
   
   s.vendored_frameworks   = "HockeySDK-Mac/HockeySDK.framework"
-  s.public_header_files   = "HockeySDK-Mac/HockeySDK.framework/Headers/*.h*"
+  s.public_header_files   = "HockeySDK-Mac/HockeySDK.framework/Versions/A/Headers/*.h"
   s.resource              = "HockeySDK-Mac/HockeySDK.framework"
   s.xcconfig              = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
 
