@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = 'Computes the bounding coordinates of all points on the surface '\
                    'of a sphere that have a great circle distance to the given point.'
   s.homepage     = "https://github.com/podkovyrin/JPMBoundingCoordinates"
-  s.license      = { :type => "MIT", :file => "LICENSE.txt" }
+  s.license      = 'MIT'
   s.author       = { "Andrew Podkovyrin" => "podkovyin@gmail.com" }
   s.source       = { :git => "https://github.com/podkovyrin/JPMBoundingCoordinates.git", :tag => s.version.to_s }
   s.platform     = :ios, '4.3'
