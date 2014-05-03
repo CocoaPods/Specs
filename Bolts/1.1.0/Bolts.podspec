@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.documentation_url = 'http://boltsframework.github.io/docs/ios/'
 
   s.requires_arc = true
-
+  s.platform = :ios, '5.0'
+  s.ios.deployment_target = '5.0'
   s.source_files = 'Bolts'
-
   s.public_header_files = 'Bolts/**/*.h'
 end

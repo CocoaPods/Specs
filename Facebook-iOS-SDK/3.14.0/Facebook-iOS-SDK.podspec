@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name         =  'Facebook-iOS-SDK'
-  s.version      =  '3.14'
-  s.platform     =  :ios
+  s.version      =  '3.14.0'
+  s.platform     =  :ios, '5.0'
+  s.ios.deployment_target = 5.0
   s.license      =  'Apache License, Version 2.0'
   s.summary      =  'The iOS SDK provides Facebook Platform support for iOS apps.'
   s.description  =  'The Facebook SDK for iOS enables you to access the Facebook Platform APIs including the Graph API, FQL, and Dialogs.'
