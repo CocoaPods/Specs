@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source = { git: 'https://github.com/devmode/dm-foundation.git', tag: spec.version }
+  spec.source = { :git => 'https://github.com/devmode/dm-foundation.git', :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
