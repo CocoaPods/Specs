@@ -7,9 +7,12 @@ Pod::Spec.new do |s|
   s.homepage          = 'https://github.com/gali8/Tesseract-OCR-iOS'
   s.documentation_url = 'https://github.com/gali8/Tesseract-OCR-iOS/blob/master/README.md'
 
-  s.license           = 'MIT'
+  s.license           = {
+        :type => 'MIT'
+    }
+
   s.author            = { 'Daniele Galiotto' => 'genius@g8production.com' }
-  s.source            = { :git => 'https://github.com/gali8/Tesseract-OCR-iOS', :branch => "master" }
+  s.source            = { :git => 'https://github.com/gali8/Tesseract-OCR-iOS.git', :tag => s.version.to_s }
 
   s.platform          = :ios, '5.0'
   s.source_files      = 'Classes'
