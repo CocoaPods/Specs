@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source = { git: 'https://github.com/devmode/dm-splitview.git', tag: spec.version }
+  spec.source = { :git => 'https://github.com/devmode/dm-splitview.git', :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
