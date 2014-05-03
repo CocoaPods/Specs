@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.9.0"
   s.summary          = "Display messages in a notification-like way"
   s.homepage         = "https://github.com/MagicDealers/MDCustomNotificationsManager"
-  s.screenshots      = "http://s14.postimg.org/lm77zk38f/MDCNM.gif"
+  s.screenshots      = "http://s14.postimg.org/ydle62d0f/MDCNM.gif"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Jorge Pardo" => "JorgePardoPeset@gmail.com" }
   s.source           = { :git => "https://github.com/MagicDealers/MDCustomNotificationsManager.git", :tag => s.version.to_s }
