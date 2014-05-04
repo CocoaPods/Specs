@@ -28,7 +28,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.frameworks 	= 'UIKit','Foundation','SystemConfiguration','CoreTelephony','CoreGraphics'
-    core.weak_framework	= 'AdSupport'
     core.libraries 		= 'z','sqlite3'
     core.source_files 	= 'Quantcast-iOS-Measurement/*.{h,m,mm,c,cpp}'
     core.requires_arc 	= true
@@ -62,6 +61,12 @@ Pod::Spec.new do |s|
     
     networks.source_files 	= 'Quantcast-iOS-Measurement/Optional/QuantcastMeasurement+Networks.{h,m}'
     networks.requires_arc 	= true
-  end  	
+  end 
+  
+  s.subspec 'advertising' do |advertising|
+    advertising.dependency 'Quantcast-Measure/Core'
+
+    advertising.weak_framework	= 'AdSupport' 
+  end  	 	
   
 end
