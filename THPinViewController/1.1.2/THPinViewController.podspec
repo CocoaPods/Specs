@@ -8,11 +8,14 @@ Pod::Spec.new do |s|
 				   * Buttons can show numbers and letters or only numbers
 				   * Background and tint colors as well as text and color of the prompt can be customized
                    DESC
-  s.homepage     =  'https://github.com/antiraum/THPinViewController'
+  s.homepage     = 'https://github.com/antiraum/THPinViewController'
   s.license      = 'MIT'
   s.author       = { "Thomas Heß" => "mail@thomashess.name" }
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/antiraum/THPinViewController.git", :tag => "1.1.2" }
-  s.source_files  = 'THPinViewController'
+  s.source_files = 'THPinViewController'
   s.requires_arc = true
+  s.screenshots = [ "https://raw.githubusercontent.com/antiraum/THPinViewController/master/THPinViewController_iphone_4inch.png",
+                    "https://raw.githubusercontent.com/antiraum/THPinViewController/master/THPinViewController_iphone_3-5inch.png",
+                    "https://raw.githubusercontent.com/antiraum/THPinViewController/master/THPinViewController_ipad.png" ]
 end
