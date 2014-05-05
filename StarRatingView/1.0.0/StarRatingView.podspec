@@ -10,5 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/liaojinxing/StarRatingView.git", :tag => "1.0.0" }
   s.source_files  = 'StarRatingView/Source/View/**/*.{h,m}'
   s.requires_arc       = true
+  s.screenshots = [ "https://raw.githubusercontent.com/liaojinxing/StarRatingView/master/ScreenShot/rating1.png",
+                    "https://raw.githubusercontent.com/liaojinxing/StarRatingView/master/ScreenShot/rating2.png" ]
 
 end
