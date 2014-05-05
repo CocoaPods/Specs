@@ -3,7 +3,6 @@ Pod::Spec.new do |s|
   s.version      = "3.0.5"
   s.summary      = "Keyboard TextField Manager"
   s.homepage     = "https://github.com/hackiftekhar/IQKeyboardManager"
-  s.screenshots  = "https://github.com/hackiftekhar/IQKeyboardManager/blob/master/KeyboardTextFieldDemo/Screenshot/IQKeyboardManagerScreenshot.png"
   s.license      = 'MIT'
   s.author       = { "Iftekhar Qurashi" => "hack.iftekhar@gmail.com" }
   s.platform     = :ios, '5.0'
