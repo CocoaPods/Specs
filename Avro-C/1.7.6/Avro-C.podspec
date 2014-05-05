@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
 	s.name             = "Avro-C"
 	s.version          = "1.7.6"
-	s.summary          = "Apache Avro™ is a data serialization system."
+	s.summary          = "Apache Avro is a data serialization system."
 	s.description      = <<-DESC
-						 Apache Avro™ is a data serialization system.
+						 Apache Avro is a data serialization system.
 						 
 						 Avro-C provides:
 						 
