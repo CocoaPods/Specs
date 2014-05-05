@@ -38,6 +38,14 @@ Pod::Spec.new do |s|
     mkdir -p "${CURRENTPATH}/lib"
     mkdir -p "${CURRENTPATH}/openssl"
 
+
+    hash=$(cat file.tgz | openssl dgst -sha1 | sed 's/^.* //')
+
+    if [ "$hash" != "b28b3bcb1dc3ee7b55024c9f795be60eb3183e3c" ]; then
+      echo "OpenSSL downloaded doesn't seem valid"
+      exit 1;
+    fi
+
     tar -xzf file.tgz
 
     cd openssl-${VERSION}
