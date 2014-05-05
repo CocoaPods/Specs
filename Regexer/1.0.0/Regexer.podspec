@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://github.com/fortinmike/Regexer"
   s.license          = 'MIT'
   s.author           = { "Michaël Fortin" => "fortinmike@irradiated.net" }
-  s.source           = { :git => "git@github.com:fortinmike/Regexer.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/fortinmike/Regexer.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/IrradiatedApps'
 
   s.ios.deployment_target = '5.0'
