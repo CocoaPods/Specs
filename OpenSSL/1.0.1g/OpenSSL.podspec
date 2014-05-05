@@ -15,7 +15,25 @@ Pod::Spec.new do |s|
     CURRENTPATH=`pwd`
     ARCHS="i386 armv7 armv7s"
     DEVELOPER=`xcode-select -print-path`
-    
+    #
+    # if [ ! -d "$DEVELOPER" ]; then
+    #   echo "xcode path is not set correctly $DEVELOPER does not exist (most likely because of xcode > 4.3)"
+    #   echo "run"
+    #   echo "sudo xcode-select -switch <xcode path>"
+    #   echo "for default installation:"
+    #   echo "sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer"
+    #   exit 1
+    # fi
+    #
+    # set -e
+    # if [ ! -e openssl-${VERSION}.tar.gz ]; then
+    # 	echo "Downloading openssl-${VERSION}.tar.gz"
+    #     curl -O http://www.openssl.org/source/openssl-${VERSION}.tar.gz
+    # else
+    # 	echo "Using openssl-${VERSION}.tar.gz"
+    # fi
+    #
+
     mkdir -p "${CURRENTPATH}/bin"
     mkdir -p "${CURRENTPATH}/lib"
     mkdir -p "${CURRENTPATH}/openssl"
@@ -75,7 +93,7 @@ Pod::Spec.new do |s|
 
   s.header_dir   = "openssl"
   s.source_files = "include/openssl/*.h"
-  s.library	    = 'crypto', 'ssl'
+  s.library	 = 'crypto', 'ssl'
   s.xcconfig     = {'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenSSL/lib"'}
-
+  s.requires_arc = false
 end
