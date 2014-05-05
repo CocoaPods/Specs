@@ -15,4 +15,6 @@ Pod::Spec.new do |s|
   s.source_files  = 'src'
   s.public_header_files = 'src/{NimbusKitAttributedLabel,NIAttributedLabel}.h'
   s.frameworks = 'CoreText', 'CoreGraphics', 'QuartzCore'
+  s.screenshots = [ "https://raw.githubusercontent.com/NimbusKit/attributedlabel/master/docs/gfx/NIAttributedLabelExample1.png",
+                     "https://raw.githubusercontent.com/NimbusKit/attributedlabel/master/docs/gfx/NIAttributedLabel_inlineimages.png" ]
 end
