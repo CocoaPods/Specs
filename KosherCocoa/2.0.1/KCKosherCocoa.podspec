@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "KCKosherCocoa"
+  s.name         = "KosherCocoa"
   s.version      = "2.0.2"
   s.summary      = "An open source zmanim library for iOS and OS X."
   s.description  = <<-DESC
