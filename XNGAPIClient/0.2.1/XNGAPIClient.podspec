@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |sp|
-    s.source_files = 'XNGAPIClient/*.{h,m}'
-    s.dependency   'AFNetworking','~> 1.3.0'
-    s.dependency   'SSKeychain', '= 1.2.0'
-    s.dependency   'AFOAuth1Client', '= 0.3.1'
-    s.frameworks = 'Security','SystemConfiguration'
+    sp.source_files = 'XNGAPIClient/*.{h,m}'
+    sp.dependency   'AFNetworking','~> 1.3.0'
+    sp.dependency   'SSKeychain', '= 1.2.0'
+    sp.dependency   'AFOAuth1Client', '= 0.3.1'
+    sp.frameworks = 'Security','SystemConfiguration'
   end
 
   s.subspec 'NSDictionary-Typecheck' do |sp|
-    s.source_files = 'XNGAPIClient/NSDictionary+Typecheck.{h,m}'
+    sp.source_files = 'XNGAPIClient/NSDictionary+Typecheck.{h,m}'
   end
 end
