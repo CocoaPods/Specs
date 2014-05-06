@@ -16,6 +16,7 @@ typically arise in table view delegate/datasource handling.
 
 RMSTableViews provides extensive support for form-like table views such 
 as those used for in-app settings and in data-editing views.
+
                    DESC
 
   s.homepage     = "https://github.com/RoleModel/RMSTableViews"
