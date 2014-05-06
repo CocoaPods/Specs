@@ -5,7 +5,6 @@ Pod::Spec.new do |s|
   s.description  = "This is very easy interaction trasitioion library. This is the OSS that provide interacition transition like FlipBoard."
   s.homepage     = "https://github.com/nishimao/MAOFlipViewController"
   s.license      = "MIT"
-  s.author             = { "Mao Nishi" => "nishi.nds@gmail.com" }
   s.authors            = { "Mao Nishi" => "nishi.nds@gmail.com" }
   s.social_media_url   = "http://twitter.com/mao_nishi"
   s.platform     = :ios, "7.0"
