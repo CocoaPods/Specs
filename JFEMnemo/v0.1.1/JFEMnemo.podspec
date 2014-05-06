@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
   s.source       = {
     :git => "https://github.com/jfreyre/JFEMnemo.git",
     :branch => 'master',
-    :tag => '0.1.1'}
+    :tag => s.version.to_s
+  }
   s.source_files  = 'JFEMnemo/*.{h,m}'
   s.requires_arc = true
 
