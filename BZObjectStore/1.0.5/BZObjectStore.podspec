@@ -19,11 +19,13 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Parse' do |ps|
+    ps.dependency 'BZObjectStore/Core'
+    ps.dependency 'BZRuntime'
     ps.dependency 'FMDB'
     ps.dependency 'Parse'
     ps.framework    = 'Parse'
     ps.ios.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Parse"' }
-    ps.source_files = 'BZObjectStore/BZObjectStore/**/*.{h,m}','BZObjectStore/BZObjectStoreParse/*.{h,m}'
+    ps.source_files = 'BZObjectStore/BZObjectStoreParse/*.{h,m}'
   end
 
 end
