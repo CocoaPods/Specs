@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "5.0"
 
   s.source       = { :git => "https://github.com/Blue-Rocket/BREnvironment.git", :tag => "1.0.0" }
-  s.source_files  = "BREnvironment/*.h"
+  s.source_files  = "BREnvironment/*.{h,m}"
 
   s.framework  = "Foundation"
 
