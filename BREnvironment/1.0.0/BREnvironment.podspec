@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.prepare_command = <<-CMD
-                    echo <<EOF
+                    cat <<EOF
                     You need to add a "Run Script" build phase to any target in your project that
                     relies on using a LocalEnvironment.plist file. An example script is:
 
