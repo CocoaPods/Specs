@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.screenshots      = "https://raw.githubusercontent.com/barbosa/GBFlatButton/master/screenshot.png"
   s.license          = 'MIT'
   s.author           = "Gustavo Barbosa"
+  s.social_media_url = 'https://twitter.com/gustavocsb'
   s.source           = { :git => "https://github.com/barbosa/GBFlatButton.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '5.0'

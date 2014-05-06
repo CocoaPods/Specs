@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   }
 
   s.platform = :osx
-  s.source = { :http => "https://github.com/pornel/Sparkle/releases/download/#{s.version}/Sparkle#{s.version}.tar.bz2" }
+  s.source = { :http => "https://github.com/pornel/Sparkle/releases/download/#{s.version}/Sparkle-#{s.version}.tar.bz2" }
 
   s.public_header_files = 'Sparkle.framework/Headers/*.h'
   s.vendored_framework = 'Sparkle.framework'

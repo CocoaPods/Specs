@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source_files =  'src/*.{h,m}', 'src/Base64/*.{h,m}', 'src/Cryptography/*.{h,m}', 'src/Ads/*.{h,m}', 'src/Core/*.{h,m}', 'src/DeviceAPI/*.{h,m}', 'src/Legacy/*.{h,m}', 'src/Login/*.{h,m}', 'src/Network/*.{h,m}', 'src/UI/*.{h,m}', 'src/Insights/*.{h,m}'
   s.resources    =  'src/FBUserSettingsViewResources.bundle'
   s.header_dir   =  'FacebookSDK'
-  s.weak_frameworks = 'Accounts', 'AdSupport', 'Social', 'Security'
+  s.weak_frameworks = 'Accounts', 'Social', 'Security'
   s.framework = 'CoreLocation'
   s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
   s.requires_arc = false

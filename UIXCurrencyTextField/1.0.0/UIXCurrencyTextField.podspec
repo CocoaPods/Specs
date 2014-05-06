@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   spec.summary          = "An ATM like currency entry view"
-  spec.screenshots      = "www.umbrightconsulting.com/cocoapods/uixcurrencytextfield/screenshot1.png"
+  spec.screenshots      = "http://www.umbrightconsulting.com/cocoapods/uixcurrencytextfield/screenshot1.png"
 
   spec.platform     = :ios, '7.0'
   spec.ios.deployment_target = '7.0'
