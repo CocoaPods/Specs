@@ -26,7 +26,7 @@ all copies or substantial portions of the Software.
   s.source            = { :git => 'https://github.com/gali8/Tesseract-OCR-iOS.git', :tag => s.version.to_s }
 
   s.platform          = :ios, '5.0'
-  s.source_files      = 'TesseractOCR/*.{m,h,mm,a}', 'TesseractOCR/**/*.{m,h,mm,a}'
+  s.source_files      = 'TesseractOCR/*.{h,a}', 'TesseractOCR/**/*.{h,a}'
   s.requires_arc      = true
   
   s.frameworks              = 'UIKit', 'Foundation'
