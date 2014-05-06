@@ -1,11 +1,3 @@
-#
-#  Be sure to run `pod spec lint mopub-ios-sdk.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
-
 Pod::Spec.new do |s|
 
   s.name         = "mopub-ios-sdk"
@@ -51,7 +43,7 @@ Pod::Spec.new do |s|
     end
   end
 
-  s.subspec 'Full-SDK' do |ss|
+  s.subspec 'Bundle-SDK' do |ss|
     ss.dependency 'mopub-ios-sdk/iAd'
     ss.dependency 'mopub-ios-sdk/Millennial'
     ss.dependency 'mopub-ios-sdk/AdMob'
@@ -73,6 +65,36 @@ Pod::Spec.new do |s|
     ss.source_files = 'AdNetworkSupport/Millennial/*.*'
     ss.dependency 'MillennialMediaSDK', '~> 5.1.1'
     ss.dependency 'mopub-ios-sdk/MoPubSDK'
+  end
+
+    s.subspec 'Chartboost' do |ss|
+    ss.source_files = 'AdNetworkSupport/Chartboost/*.*'
+    ss.dependency 'ChartboostSDK', '~> 4.1.0'
+    ss.dependency 'MoPubClient/Classes'
+  end
+
+  s.subspec 'Greystripe' do |ss|
+    ss.source_files = 'AdNetworkSupport/Greystripe/*.*'
+    ss.dependency 'GreystripeSDK', '~> 4.2.3'
+    ss.dependency 'MoPubClient/Classes'
+  end
+
+  s.subspec 'InMobi' do |ss|
+    ss.source_files = 'AdNetworkSupport/InMobi/*.*'
+    ss.dependency 'InMobiSDK', '~> 4.1.0'
+    ss.dependency 'MoPubClient/Classes'
+  end
+
+  s.subspec 'Vungle' do |ss|
+    ss.source_files = 'AdNetworkSupport/Vungle/*.*'
+    ss.dependency 'VungleAdvertiserSDK', '~> 1.4.3'
+    ss.dependency 'MoPubClient/Classes'
+  end
+
+  s.subspec 'AdColony' do |ss|
+    ss.source_files = 'AdNetworkSupport/AdColony/*.*'
+    ss.dependency 'AdColony', '~> 2.2.4'
+    ss.dependency 'MoPubClient/Classes'
   end
 
 end
