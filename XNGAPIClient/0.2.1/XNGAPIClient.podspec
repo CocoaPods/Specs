@@ -12,11 +12,19 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/xing/XNGAPIClient.git',
     :tag => s.version.to_s
   }
-  s.source_files = 'XNGAPIClient/*.{h,m}'
   s.requires_arc = true
   s.homepage = 'https://www.xing.com'
-  s.dependency   'AFNetworking','~> 1.3.0'
-  s.dependency   'SSKeychain', '= 1.2.0'
-  s.dependency   'AFOAuth1Client', '= 0.3.1'
-  s.frameworks = 'Security','SystemConfiguration'
+  s.default_subspec = 'Core'
+
+  s.subspec 'Core' do |sp|
+    s.source_files = 'XNGAPIClient/*.{h,m}'
+    s.dependency   'AFNetworking','~> 1.3.0'
+    s.dependency   'SSKeychain', '= 1.2.0'
+    s.dependency   'AFOAuth1Client', '= 0.3.1'
+    s.frameworks = 'Security','SystemConfiguration'
+  end
+
+  s.subspec 'NSDictionary-Typecheck' do |sp|
+    s.source_files = 'XNGAPIClient/NSDictionary+Typecheck.{h,m}'
+  end
 end
