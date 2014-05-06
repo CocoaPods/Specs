@@ -1,43 +1,25 @@
 Pod::Spec.new do |s|
-  s.name         = "OpenSSL"
-  s.version      = "1.0.1"
-  s.summary      = "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in Mac OS and gone in iOS, this spec gives your project non-deprecated OpenSSL support."
-  s.author       = "OpenSSL Project <openssl-dev@openssl.org>"
+  s.name            = "OpenSSL"
+  s.version         = "1.0.1"
+  s.summary         = "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in Mac OS and gone in iOS, this spec gives your project non-deprecated OpenSSL support."
+  s.author          = "OpenSSL Project <openssl-dev@openssl.org>"
 
-  s.homepage     = "http://www.openssl.org/"
-  s.license      = 'BSD-style Open Source'
-  s.source       = { :http => "https://www.openssl.org/source/openssl-1.0.1g.tar.gz"}
-  s.preserve_paths = "file.tgz", "lib/*","include/*", "include/**/*.h", "crypto/*.h", "crypto/**/*.h", "e_os.h", "e_os2.h", "ssl/*.h", "ssl/**/*.h", "MacOS/*.h"
+  s.homepage        = "http://www.openssl.org/"
+  s.license         = 'BSD-style Open Source'
+  s.source          = { :http => "https://www.openssl.org/source/openssl-1.0.1g.tar.gz"}
+  s.preserve_paths  = "file.tgz", "lib/*","include/*", "include/**/*.h", "crypto/*.h", "crypto/**/*.h", "e_os.h", "e_os2.h", "ssl/*.h", "ssl/**/*.h", "MacOS/*.h"
   s.prepare_command = <<-CMD
+
     VERSION="1.0.1g"
     SDKVERSION=`/usr/bin/xcodebuild -version -sdk 2> /dev/null | grep SDKVersion | tail -n 1 |  awk '{ print $2 }'`
 
     CURRENTPATH=`pwd`
-    ARCHS="i386 armv7 armv7s"
+    ARCHS="i386 armv7 armv7s arm64"
     DEVELOPER=`xcode-select -print-path`
-    #
-    # if [ ! -d "$DEVELOPER" ]; then
-    #   echo "xcode path is not set correctly $DEVELOPER does not exist (most likely because of xcode > 4.3)"
-    #   echo "run"
-    #   echo "sudo xcode-select -switch <xcode path>"
-    #   echo "for default installation:"
-    #   echo "sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer"
-    #   exit 1
-    # fi
-    #
-    # set -e
-    # if [ ! -e openssl-${VERSION}.tar.gz ]; then
-    # 	echo "Downloading openssl-${VERSION}.tar.gz"
-    #     curl -O http://www.openssl.org/source/openssl-${VERSION}.tar.gz
-    # else
-    # 	echo "Using openssl-${VERSION}.tar.gz"
-    # fi
-    #
 
     mkdir -p "${CURRENTPATH}/bin"
     mkdir -p "${CURRENTPATH}/lib"
     mkdir -p "${CURRENTPATH}/openssl"
-
 
     hash=$(cat file.tgz | openssl dgst -sha1 | sed 's/^.* //')
 
@@ -80,20 +62,22 @@ Pod::Spec.new do |s|
 
 
     echo "Build library..."
-    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libssl.a  ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libssl.a -output ${CURRENTPATH}/lib/libssl.a
-    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libcrypto.a -output ${CURRENTPATH}/lib/libcrypto.a
+    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libssl.a  ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib/libssl.a -output ${CURRENTPATH}/lib/libssl.a
+    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib/libcrypto.a -output ${CURRENTPATH}/lib/libcrypto.a
 
     echo "Building done."
     echo "Cleaning up..."
     rm -rf ${CURRENTPATH}/openssl-${VERSION}
     rm -R ${CURRENTPATH}/bin
-    rm -f ${CURRENTPATH}/file.tgz
+    rm -rf file.tgz
     echo "Done."
   CMD
 
   s.header_dir   = "openssl"
+  s.platform     = :ios
   s.source_files = "include/openssl/*.h"
-  s.library	 = 'crypto', 'ssl'
+  s.library	    = 'crypto', 'ssl'
   s.xcconfig     = {'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenSSL/lib"'}
   s.requires_arc = false
+
 end
