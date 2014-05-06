@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JFEMnemo"
-  s.version      = "0.1"
+  s.version      = "0.1.1"
   s.summary      = "JFEMnemo is an iOS version of the ruby gem rufus-mnemo."
 
   s.description  = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source       = {
     :git => "https://github.com/jfreyre/JFEMnemo.git",
     :branch => 'master',
-    :tag => '0.1'}
+    :tag => '0.1.1'}
   s.source_files  = 'JFEMnemo/*.{h,m}'
   s.requires_arc = true
 
