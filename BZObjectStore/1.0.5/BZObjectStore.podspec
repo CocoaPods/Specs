@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '5.0'
   s.requires_arc = true
 
-  s.default_subspec = 'BZObjectStore/Core'
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |cs|
     cs.dependency 'FMDB'
