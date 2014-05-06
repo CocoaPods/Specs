@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
     d.requires_arc = true
     d.source_files = 'Demo/RKXMLDictionarySerializationDemo/Source/*'
     d.resources = 'Demo/RKXMLDictionarySerializationDemo/Resources/*'
-    d.preserve_paths = "Demo/RKXMLDictionarySerializationDemo.xcodeproj", "Podfile"
+    d.preserve_paths = "Demo/RKXMLDictionarySerializationDemo.xcodeproj", "Demo/Podfile"
     d.dependency 'RKXMLDictionarySerialization/Core'
   end
 end
