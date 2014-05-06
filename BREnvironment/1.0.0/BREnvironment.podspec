@@ -25,4 +25,21 @@ Pod::Spec.new do |s|
   s.framework  = "Foundation"
 
   s.requires_arc = true
+
+  s.prepare_command = <<-CMD
+                    echo <<EOF
+                    You need to add a "Run Script" build phase to any target in your project that
+                    relies on using a LocalEnvironment.plist file. An example script is:
+
+                    filePath=${SRCROOT}/PathToYourOwn/LocalEnvironment.plist
+                    if [ -e "$filePath" ]; then
+                        cp "$filePath" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/"
+                        echo $filePath copied to ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}
+                    else
+                        echo $filePath not found.
+                    fi
+
+                    Just change the filePath to match the path to the file you want to use.
+                    EOF
+                    CMD
 end
