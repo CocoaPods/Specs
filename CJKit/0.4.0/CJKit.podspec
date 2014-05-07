@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
   s.default_subspec      = "base"
 
   s.subspec "base" do |ss|
-    ss.source_files = "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Request/*.{h,m}", "CJAPIClient/Categories/CJModel+{Following,Distance}.{h,m}", "CJAPICLient/Categories/NSDate+StringParsing.{h,m}", "CJAPIClient/Serializers/*.{h,m}"
+    ss.source_files = "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Request/*.{h,m}", "CJAPIClient/Categories/CJModel+{Following,Distance,Images}.{h,m}", "CJAPICLient/Categories/NSDate+StringParsing.{h,m}", "CJAPIClient/Serializers/*.{h,m}"
   end
 
   s.subspec "PromiseKit" do |ss|
     ss.dependency "PromiseKit/base"
-    ss.source_files = "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Request/*.{h,m}", "CJAPIClient/Categories/CJModel+{Following,Distance}.{h,m}", "CJAPICLient/Categories/NSDate+StringParsing.{h,m}", "CJAPIClient/Serializers/*.{h,m}", "CJAPIClient/Categories/CJAPIRequest+PromiseKit.{h,m}", "CJAPIClient/Categories/CJEngine+PromiseKit.{h,m}"
+    ss.source_files = "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Engine/*.{h,m}", "CJAPICLient/Models/*.{h,m}", "CJAPICLient/Request/*.{h,m}", "CJAPIClient/Categories/CJModel+{Following,Distance,Images}.{h,m}", "CJAPICLient/Categories/NSDate+StringParsing.{h,m}", "CJAPIClient/Serializers/*.{h,m}", "CJAPIClient/Categories/CJAPIRequest+PromiseKit.{h,m}", "CJAPIClient/Categories/CJEngine+PromiseKit.{h,m}"
   end
 
   s.public_header_files  = "CJAPIClient/**/*.h"
