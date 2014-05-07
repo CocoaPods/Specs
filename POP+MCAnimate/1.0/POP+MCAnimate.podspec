@@ -22,12 +22,21 @@ Pod::Spec.new do |s|
     ss.public_header_files = ''
   end
 
-  s.subspec 'Animations' do |ss|
-    ss.source_files = 'POP+MCAnimate/Animations/*.{h,m}'
+  s.subspec 'Velocity' do |ss|
+    ss.dependency 'POP+MCAnimate/Internal'
+    ss.source_files = 'POP+MCAnimate/Velocity/*.{h,m}'
   end
 
   s.subspec 'Group' do |ss|
     ss.source_files = 'POP+MCAnimate/Group/*.{h,m}'
+  end
+
+  s.subspec 'Animations' do |ss|
+    ss.dependency 'POP+MCAnimate/Internal'
+    ss.dependency 'POP+MCAnimate/Velocity'
+    ss.dependency 'POP+MCAnimate/Group'
+    ss.dependency 'POP+MCAnimate/Shorthand'
+    ss.source_files = 'POP+MCAnimate/Animations/*.{h,m}'
   end
 
   s.subspec 'Shorthand' do |ss|
