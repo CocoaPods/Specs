@@ -24,12 +24,13 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "5.0"
 
 
-  s.source       = { :git => "https://github.com/mtonio91/AMSmoothAlert.git", :commit => "9e4f39db448a64ef734422167f2e055c3272ce3a" }
+  s.source       = { :git => "https://github.com/mtonio91/AMSmoothAlert.git", :commit => "4be518322318ebdfbe320c1bfd4f5ef5317f61ff" }
 
 
 
 
   s.source_files  = "AMSmoothAlert", "AMSmoothAlert/*.{h,m}"
+  s.resources    = 'AMSmoothAlert/assets/*.png'
 
 
 
