@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source_files = 'CleanTableViewDataSourceLib'
   s.frameworks   = 'Foundation'
   s.requires_arc = true
+  s.platform     = :ios
   s.social_media_url   = "https://twitter.com/ltanphat"
 end
