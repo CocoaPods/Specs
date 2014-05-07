@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AMSmoothAlert"
-  s.version      = "1.0"
+  s.version      = "0.0.2"
   s.summary      = "Cool AlertView by Antoine Marliac"
 
   s.description  = <<-DESC
