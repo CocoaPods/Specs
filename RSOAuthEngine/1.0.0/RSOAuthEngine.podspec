@@ -31,5 +31,5 @@ THE SOFTWARE.
 
   s.requires_arc = true
   s.prefix_header_contents = '#import "MKNetworkKit.h"'
-  s.dependency 'MKNetworkKit', '0.85'
+  s.dependency 'MKNetworkKit', '0.87'
 end
