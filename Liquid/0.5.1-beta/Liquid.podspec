@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Liquid"
-  s.version          = "0.5.0-beta"
+  s.version          = "0.5.1-beta"
   s.summary          = "Liquid is a platform that enables publishers to dynamically serve their applications based on user profiling, activity and context."
   s.homepage         = "https://lqd.io/"
   s.screenshots      = "https://lqd.io/assets/landingpage/showcase-2e7c1840b26c10d302cf0686674e318e.png"
