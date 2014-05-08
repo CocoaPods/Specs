@@ -9,13 +9,16 @@ Pod::Spec.new do |s|
   s.authors      = { "Alex Novosad" => "alexn@substantial.com" }
   s.social_media_url   = "http://twitter.com/substantial"
   s.description  = <<-DESC
-                   Provides a UI as well as hooks for you to create your own UI 
-                   to let people select which apps to use for various actions. 
+                   Choosy lets you write short, app-agnostic code to execute external actions 
+                   such as showing Twitter profiles, opening web links, displaying directions, 
+                   composing an email message, etc. 
 
-                   Lists of various URL schemes supported by apps are currently stored in JSON files on Github, 
-                   feel free to submit a pull request with your own app's info.
+                   Your users will love being able to jump from one favorite app to another, 
+                   and your app will stand out for them as the one that gives them the freedom of choice. 
                    DESC
-  #s.screenshots  = [ "https://flic.kr/p/mWUFgv", "https://flic.kr/p/mWUvX2" ]
+  s.screenshots  = [ "https://farm6.staticflickr.com/5321/14140880604_b6427c5e1e_z.jpg", 
+  "https://farm3.staticflickr.com/2917/13953998699_e588c9929f_z.jpg", 
+  "https://farm6.staticflickr.com/5463/14140880564_003f814e4c_z.jpg" ]
   
   s.platform     = :ios, "7.0"
 
