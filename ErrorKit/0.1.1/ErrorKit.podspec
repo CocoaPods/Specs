@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'AdMob' do |ad|
     ad.source_files = 'ErrorKit/AdMob'
-    ad.dependency 'AdMob', '< 6.6'
+    ad.dependency 'Google-AdMob-Ads-SDK', '~> 6.8.0'
     ad.dependency 'ErrorKit/Core'
     ad.prefix_header_contents = '#define ERROR_KIT_ADMOB 1'
   end
