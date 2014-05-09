@@ -1,8 +1,7 @@
-Pod::Spec.new do |s|
-
-  s.name         = "Baidu-Maps-iOS-SDK"
-  s.version      = "2.2.1"
-  s.summary      = "Baidu Maps SDK for iOS"
+Pod::Spec.new do |s| 
+  s.name = "Baidu-Maps-iOS-SDK" 
+  s.version = "2.2.1" 
+  s.summary = "Baidu Maps SDK for iOS"
 
   s.description  = <<-DESC
 		   Baidu Maps iOS SDK is a set of APIs, base on iOS 4.3 or later. 
@@ -23,13 +22,17 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source       = { 
-	:git => "https://github.com/Tangdixi/Baidu-Maps-iOS-SDK.git", 
-	:tag => "v2.2.1"
+	:http => "http://developer.baidu.com/map/static/doc/BaiduMap_iOSSDK_v2.2.1_All.zip" 
   }
 
-  s.source_files  = 'Classes/*.h'
+  s.prepare_command = <<-CMD
+			unzip BaiduMap_iOSSDK_v2.2.1_All/BaiduMap_iOSSDK_v2.2.1_Lib.zip 
+			lipo -create BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphoneos/libbaidumapapi.a BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphonesimulator/libbaidumapapi.a -output libBaiduMapAPI.a
+		      CMD
 
-  s.resource  = "*.bundle"
+  s.source_files  = 'BaiduMap_iOSSDK_v2.2.1_Lib/inc/*.h'
+
+  s.resource  = "BaiduMap_iOSSDK_v2.2.1_Lib/*.bundle"
 
   s.preserve_paths = "*.a"
 
