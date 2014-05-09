@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'MobileDeepLinking-iOS', 'MobileDeepLinking-iOS/**/*.{h,m}'
   s.exclude_files = 'MobileDeepLinking-iOS/Exclude'
   s.prefix_header_file = 'MobileDeepLinking-iOS/MobileDeepLinking-Prefix.pch'
+  s.requires_arc = true
   s.homepage     = "https://github.com/mobiledeeplinking/mobiledeeplinking-ios"
   s.description  = <<-DESC
                    This project is the iOS library component of the MobileDeepLinking specification, the industry standard for mobile application deeplinking. This specification and accompanying libraries simplify and reduce implementation of deep links as well as provide flexible and powerful features for routing to custom behavior.

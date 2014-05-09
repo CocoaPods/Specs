@@ -6,10 +6,10 @@ Pod::Spec.new do |s|
   s.author       = 'Richard Heard'
   s.source       = { :git => 'https://github.com/heardrwt/RHAdditions.git', :tag => s.version.to_s}
   s.requires_arc = true
-  s.ios.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,UI}*.{h,m}'
+  s.ios.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,RHMushParser,UI}*.{h,m}'
   s.ios.frameworks   = 'UIKit'
   s.ios.deployment_target = '5.0'
-  s.osx.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,NSBundle,NSImage,NSImageView,NSTextField,NSView,NSWindow,RHGetBSDProcessList,RHDraggableImageView}*.{h,m}'
+  s.osx.source_files = 'RHAdditions/{RHAdditions,RHARCSupport,RHLoggingSupport,NSArray,NSDate,NSDictionary,NSJSONSerialization,NSObject,NSString,NSThread,NSUserDefaults,RHGoogleURLShortener,RHProgressiveURLConnection,RHWeakSelectorForwarder,RHWeakValue,NSBundle,NSImage,NSImageView,NSTextField,NSView,NSWindow,RHGetBSDProcessList,RHDraggableImageView,RHMushParser}*.{h,m}'
   s.osx.frameworks   = 'Foundation', 'Cocoa', 'Carbon', 'ServiceManagement'
   s.osx.deployment_target = '10.7'
   s.license      = {

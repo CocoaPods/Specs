@@ -8,9 +8,21 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/AntonPalich/Flurry.git', :tag => '4.3.2' }
   s.description = 'FlurrySDK for analytics tracking and reporting.'
   s.platform = :ios
-  s.source_files   = 'Flurry/**/*.h'
-  s.preserve_paths = 'Flurry/**/*.a'
-  s.library    = 'Flurry_4.3.2'
-  s.xcconfig   =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/Flurry"' }
   s.frameworks = 'SystemConfiguration', 'UIKit', 'Security', 'CoreGraphics'
+  s.default_subspec = 'FlurrySDK'
+
+  s.subspec 'FlurrySDK' do |ss|
+    ss.source_files = 'Flurry/**/*.h'
+    ss.preserve_paths = 'Flurry/**/*.a'
+    ss.library = 'Flurry_4.3.2'
+    ss.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/Flurry"' }
+  end
+
+  s.subspec 'FlurryAds' do |ss|
+    ss.source_files = 'FlurryAds/**/*.h'
+    ss.preserve_paths = 'FlurryAds/**/*.a'
+    ss.library = 'FlurryAds_4.3.2'
+    ss.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/FlurrySDK/FlurryAds"' }
+    ss.dependency 'FlurrySDK/FlurrySDK'
+  end
 end

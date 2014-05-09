@@ -103,7 +103,8 @@ Pod::Spec.new do |s|
 			'boost/detail/limits.hpp',
 			'boost/mpl/**/*.hpp',
 			'boost/type_traits.hpp',
-			'boost/type_traits/**/*.hpp'
+			'boost/type_traits/**/*.hpp',
+			'boost/accumulators/**/*.hpp'
   end
 
   s.subspec 'graph-includes' do |graph|

@@ -9,9 +9,10 @@ Pod::Spec.new do |s|
     :text => 'Copyright 2013 Google Inc.'
   }
   s.author         = 'Google Inc.'
-  s.source         = { :http => "https://developers.google.com/+/mobile/ios/sdk/google-plus-ios-sdk-1.5.0.zip" }
+  s.source         = { :http => "https://developers.google.com/+/mobile/ios/sdk/google-plus-ios-sdk-#{s.version}.zip" }
   s.platform       = :ios
-  s.vendored_frameworks = 'google-plus-ios-sdk-1.5.0/GoogleOpenSource.framework', 'google-plus-ios-sdk-1.5.0/GooglePlus.framework'
+  s.vendored_frameworks = "google-plus-ios-sdk-#{s.version}/GoogleOpenSource.framework", "google-plus-ios-sdk-#{s.version}/GooglePlus.framework"
+  s.source_files = "google-plus-ios-sdk-#{s.version}/{GoogleOpenSource,GooglePlus}.framework/Versions/A/Headers/*.h"
   s.resource       = 'google-plus-ios-sdk-1.5.0/GooglePlus.bundle'
   s.framework      = 'AddressBook', 'AssetsLibrary', 'Foundation', 'CoreLocation', 'CoreMotion', 'CoreGraphics', 'CoreText', 'GoogleOpenSource', 'GooglePlus', 'MediaPlayer', 'Security', 'SystemConfiguration', 'UIKit'
 end

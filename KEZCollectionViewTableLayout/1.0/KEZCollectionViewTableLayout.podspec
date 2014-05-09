@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/ketzusaka/KEZCollectionViewTableLayout.git', :tag => "v1.0" }
   s.source_files = 'Sources'
   s.ios.deployment_target = '7.0'
+  s.requires_arc = true
 end

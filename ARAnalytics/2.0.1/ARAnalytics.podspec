@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   testflight_sdk = { :spec_name => "TestFlight",       :dependency => ["TestFlightSDK", "BPXLUUIDHandler"] }
   mixpanel       = { :spec_name => "Mixpanel",         :dependency => "Mixpanel" }
-  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics" }
+  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics-iOS-Client" }
   flurry         = { :spec_name => "Flurry",           :dependency => "FlurrySDK" }
   google         = { :spec_name => "GoogleAnalytics",  :dependency => "GoogleAnalytics-iOS-SDK", :has_extension => true }
   kissmetrics    = { :spec_name => "KISSmetrics",      :dependency => "KISSmetrics" }

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   testflight_sdk = { :spec_name => "TestFlight",       :dependency => "TestFlightSDK",            :import_file => "TestFlight" }
   mixpanel       = { :spec_name => "Mixpanel",         :dependency => "Mixpanel",                 :import_file => "Mixpanel" }
-  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics",               :import_file => "LocalyticsSession" }
+  localytics     = { :spec_name => "Localytics",       :dependency => "Localytics-iOS-Client",    :import_file => "LocalyticsSession" }
   flurry         = { :spec_name => "Flurry",           :dependency => "FlurrySDK",                :import_file => "Flurry" }
   google         = { :spec_name => "GoogleAnalytics",  :dependency => "GoogleAnalytics-iOS-SDK",  :import_file => "GAI" }
   kissmetrics    = { :spec_name => "KISSmetrics",      :dependency => "KISSmetrics",              :import_file => "KISSMetricsAPI" }
