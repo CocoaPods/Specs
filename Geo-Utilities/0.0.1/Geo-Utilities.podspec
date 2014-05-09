@@ -1,17 +1,12 @@
 Pod::Spec.new do |s|
-  s.name           = 'NSString-HTML'
-  s.version        = '0.0.1'
-  s.summary        = "Decode and encode HTML character entities."
-  s.homepage       = "https://github.com/Koolistov/NSString-HTML"
-  s.author         = { "Johan Kool" => "johan@koolistov.net" }
-  s.source         = { :git => 'https://github.com/Koolistov/NSString-HTML.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '4.3.5'
-  s.osx.deployment_target = '10.6'
-  s.source_files   = '*.{h,m}'
+  s.name         = "Geo-Utilities"
+  s.version      = "0.0.1"
+  s.summary      = "Some generic utilities for CoreLocation"
+  s.homepage     = "https://github.com/Koolistov/Geo-Utilities"
   s.license      = {
     :type => 'MIT',
     :text => <<-LICENSE
-    Copyright 2009-2011 Koolistov Pte Ltd. All rights reserved.
+    Copyright 2010-2011 Koolistov Pte Ltd. All rights reserved.
 
     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
     - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -20,5 +15,11 @@ Pod::Spec.new do |s|
 
     LICENSE
   }
+  s.author       = { "Johan Kool" => "johan@koolistov.net" }
+  s.platform     = :ios
+  s.ios.deployment_target = "5.0"
+  s.source       = { :git => "https://github.com/Koolistov/Geo-Utilities.git", :tag => s.version.to_s }
+  s.public_header_files = '*.h'
+  s.source_files = '*.{h,m}'
   s.requires_arc = false
 end
