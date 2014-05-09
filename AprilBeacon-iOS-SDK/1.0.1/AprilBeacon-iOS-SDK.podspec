@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "AprilBeacon-iOS-SDK"
+  s.name         = "AprilSDK"
   s.version      = “1.0.1”
   s.summary      = "AprilBeacon SDK for iOS, use this library communicate with beacons."
   s.homepage     = "https://github.com/AprilBrother/AprilBeacon-iOS-SDK"
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'AprilSDK/libAprilBeaconSDK.a'
   s.vendored_libraries = 'AprilSDK/libAprilBeaconSDK.a'
   s.requires_arc = true
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AprilBeacon-iOS-SDK' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AprilSDK' }
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
