@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files  =  "Source/**/*.{h,m}"
   s.frameworks = "CoreGraphics", "UIKit" ,"Foundation"
   s.requires_arc = true
+  s.screenshots = ["https://raw.githubusercontent.com/sk344208651/CSChartsView/master/Image/IMG_0470.PNG","https://raw.githubusercontent.com/sk344208651/CSChartsView/master/Image/IMG_0473.PNG","https://raw.githubusercontent.com/sk344208651/CSChartsView/master/Image/IMG_0478.PNG","https://raw.githubusercontent.com/sk344208651/CSChartsView/master/Image/IMG_0479.PNG","https://raw.githubusercontent.com/sk344208651/CSChartsView/master/Image/IMG_0480.PNG"]
 end
