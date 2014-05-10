@@ -12,10 +12,10 @@ Copyright 2009 - 2012 Google, Inc. All rights reserved.
 LICENSE
   }
   s.author = 'Google Inc.'
-  s.source = { :http => "http://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip" }
+  s.source = { :http => "https://github.com/mrketchup/Podspec-Zips/raw/master/Google-AdMob-Ads-SDK/6.8.0/Google-AdMob-Ads-SDK.zip" }
   s.platform = :ios
 
-  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a'
+  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h'
   s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.8.0'
 
   s.framework = %w{AVFoundation AudioToolbox CoreTelephony MessageUI SystemConfiguration CoreGraphics AdSupport StoreKit}
