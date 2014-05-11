@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                    - Compatibility for iOS6, iOS7
                    DESC
   s.homepage     = "https://github.com/akiroom/AXRatingView"
-  s.screenshots  = "raw.github.com/akiroom/AXRatingView/master/AXRatingViewDemo/Screenshot.png"
+  s.screenshots  = "https://raw.github.com/akiroom/AXRatingView/master/AXRatingViewDemo/Screenshot.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Hiroki Akiyama" => "aki-hiroki@nifty.com" }
   s.platform     = :ios
