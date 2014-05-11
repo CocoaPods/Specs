@@ -8,4 +8,5 @@ Pod::Spec.new do |spec|
   spec.source           = { :git => 'https://github.com/filipstefansson/UITintedButton.git', :tag => '1.0' }
   spec.source_files     = 'UIButton+tintImage.{h,m}'
   spec.requires_arc     = true
+  spec.platform            = :ios
 end
