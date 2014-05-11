@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/freak4pc/UIView-Positioning.git", :tag => "v1.0.1" }
 
-  s.source_files  = 'UIView+Positioning.**'
+  s.source_files  = 'UIView+Positioning.{h,m}'
 
   s.requires_arc  = true
 end
