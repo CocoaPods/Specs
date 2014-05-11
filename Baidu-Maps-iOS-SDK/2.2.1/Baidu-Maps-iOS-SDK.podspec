@@ -10,10 +10,6 @@ Pod::Spec.new do |s|
 		   , path planning, map anotation, offline maps, location and powerful
 		   LBS feature.  
 			
-		   Because the Baidu-Maps-iOS-SDK is implemented by Objective-C++, So you 
-		   have to make sure that you at least have a file with .mm suffix in your
-		   project. Or you can change your project's "Compile source" to "Objective-C++"
-
                    DESC
 
   s.homepage     = "http://developer.baidu.com/map/sdk-ios.htm"
