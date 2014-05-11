@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 
   s.prepare_command = <<-CMD
 			unzip BaiduMap_iOSSDK_v2.2.1_All/BaiduMap_iOSSDK_v2.2.1_Lib.zip 
-			lipo -create BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphoneos/libbaidumapapi.a BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphonesimulator/libbaidumapapi.a -output libBaiduMapAPI.a
+			lipo -create BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphoneos/libbaidumapapi.a BaiduMap_iOSSDK_v2.2.1_Lib/libs/Release-iphonesimulator/libbaidumapapi.a -output libBaiduMapApi.a
 		      CMD
 
   s.source_files  = 'BaiduMap_iOSSDK_v2.2.1_Lib/inc/*.h'
@@ -44,11 +44,15 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'CoreLocation','QuartzCore','OpenGLES','SystemConfiguration','CoreGraphics','Security'
 
-  s.library   = 'BaiduMapApi'
+  s.libraries   = 'BaiduMapApi','stdc++'
 
   s.requires_arc = true
 
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Baidu-Maps-iOS-SDK' }
+  s.xcconfig = { 
+		'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/Baidu-Maps-iOS-SDK', 
+		'ONLY_ACTIVE_ARCH' => 'NO',
+		'VALID_ARCHS' => 'armv7 armv7s',
+  }
 
 end
 
