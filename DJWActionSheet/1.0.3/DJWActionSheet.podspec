@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                     A replacement for UIActionSheet in the style of TweetBot, using a modern, block-based API.
                    DESC
 
-  s.homepage     = "http://danwilliams.co/"
+  s.homepage     = "http://github.com/danwilliams64/DJWActionSheet"
   s.license      = { :type => 'MIT'}
   s.author             = { "Dan Williams" => "dan@danwilliams.co" }
   s.social_media_url   = "http://twitter.com/danielwilliams"
