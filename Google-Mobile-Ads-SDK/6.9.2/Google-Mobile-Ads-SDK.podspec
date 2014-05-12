@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Google-Mobile-Ads-SDK"
-  s.version = "6.9.1"
+  s.version = "6.9.2"
   s.summary = "Monetize your mobile applications with Google ads"
   s.description = <<-DESC
     The Google Mobile Ads SDK is the latest generation in Google mobile advertising
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
   s.platform = :ios, "4.3"
   s.source = { :http => "http://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip" }
 
-  s.source_files = "GoogleAdMobAdsSdkiOS-6.8.0/*.h", "GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/Search/*.h", "GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/Mediation/*.h", "GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h"
-  s.preserve_paths = "GoogleAdMobAdsSdkiOS-6.8.0"
-  s.vendored_libraries = "GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a"
+  s.source_files = "GoogleAdMobAdsSdkiOS-6.9.2/*.h", "GoogleAdMobAdsSdkiOS-6.9.2/Add-ons/Search/*.h", "GoogleMobileAdsSdkiOS-6.9.2/Add-ons/Mediation/*.h", "GoogleMobileAdsSdkiOS-6.9.2/Add-ons/DoubleClick/*.h"
+  s.preserve_paths = "GoogleMobileAdsSdkiOS-6.9.2"
+  s.vendored_libraries = "GoogleMobileAdsSdkiOS-6.9.2/libGoogleAdMobAds.a"
   
   s.weak_framework = "AdSupport"
   s.frameworks = "AudioToolbox", "AVFoundation", "CoreGraphics", "MessageUI", "StoreKit", "SystemConfiguration", "CoreTelephony" 
