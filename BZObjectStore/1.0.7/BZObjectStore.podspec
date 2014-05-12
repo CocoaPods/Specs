@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'ActiveRecord' do |ps|
     ps.dependency 'BZObjectStore/Core'
-    ps.source_files = 'BZObjectStore/BZObjectStoreActiveRecord/*.{h,m}'
+    ps.source_files = 'BZObjectStore/BZActiveRecord/*.{h,m}'
   end
 
 end
