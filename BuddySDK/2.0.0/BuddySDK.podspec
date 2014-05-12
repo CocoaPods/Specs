@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary             = 'iOS SDK for the Buddy Platform.'
   s.homepage            = 'http://www.buddy.com'
   s.authors             = { 'Erik Kerber' => 'erik@buddy.com' }
-  s.source              = { :git => 'https://github.com/BuddyPlatform/Buddy-iOS-SDK-V2.git', :tag => 'v2.0.0' }
+  s.source              = { :git => 'https://github.com/BuddyPlatform/Buddy-iOS-SDK.git', :tag => 'v2.0.0' }
   s.source_files        = 'Src/Lib/BuddySDK/*.{h,m}', 'Src/Lib/BuddySDK/{BaseObjects,BPObjects,BPCollections,Service,Categories}/*.{h,m}', 'Src/Lib/BuddySDK/Vendor/{JAGPropertyConverter,ObjectiveSugar,AFNetworking}/**/*.{h,m}'
   s.public_header_files = 'Src/Lib/BuddySDK/*.h', 'Src/Lib/BuddySDK/{BaseObjects,BPObjects,BPCollections,Categories,Service}/*.{h}'
   s.platform            = :ios, '7.0'
