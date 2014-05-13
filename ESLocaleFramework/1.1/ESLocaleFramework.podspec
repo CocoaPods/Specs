@@ -18,11 +18,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'ESLocale.framework'
 
 
-  s.ios.header_mappings_dir = 'ESLocale'
-  s.ios.source_files = "ESLocale/**/*.{c,cpp,mm,h,m}"
-  s.ios.prefix_header_file = 'ESLocale/ESLocale-Prefix.pch'
-  
-
   s.ios.frameworks = 'Foundation'
   s.ios.libraries = 'sqlite3', 'c++', 'stdc++'
 end
