@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
-  s.name             = "PS-Print-SDK"
+  s.name             = "Kite-Print-SDK"
   s.version          = "1.0.0"
   s.summary          = "Easily add print on demand functionality to your app. Print magnets, photo prints, postcards, polaroids, A4, etc."
   s.description      = <<-DESC
                         # iOS Print SDK
-                        The Ps Print SDK makes it easy to add print on demand functionality to your app.
+                        The Kite Print SDK makes it easy to add print on demand functionality to your app.
 
                         Harness our worldwide print and distribution network. We'll take care of all the tricky printing and postage stuff for you!
 
-                        To get started, you will need to have a free Ps Print Studio developer account. Go to [developer.psilov.eu](https://developer.psilov.eu) to sign up for free.
+                        To get started, you will need to have a free Kite developer account. Go to [kite.ly](https://kite.ly) to sign up for free.
 
                         ## Products
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
                         ## Features
                         - Print a wide variety of [products](#products) on demand
-                        - Dynamic control over the pricing of products in you app pricing using our web [Developer Dashboard](https://developer.psilov.eu)
+                        - Dynamic control over the pricing of products in you app pricing using our web [Developer Dashboard](https://www.kite.ly)
                         - Revenue & order volume analytics available in the web dashboard
                         - Review, refund or reprint any order within the web dashboard
                         - Localized currency support
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
                         - No server infrastructure required. We can handle everything for you from processing payments to printing & postage
                         - Your branding not ours. You can create your own custom checkout & payment UI or customize ours
                        DESC
-  s.homepage         = "https://github.com/OceanLabs/PS-SDK-iOS"
+  s.homepage         = "https://github.com/OceanLabs/iOS-Print-SDK"
   s.license          = 'MIT'
   s.author           = { "Deon Botha" => "deon@oceanlabs.co" }
   s.source           = { :git => "https://github.com/OceanLabs/iOS-Print-SDK.git", :tag => s.version.to_s }
@@ -41,10 +41,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = ['PSPrintSDK/OL*.{h,m}', 'PSPrintSDK/CardIO*.h']
-  s.resources = ['PSPrintSDK/PSPrintSDK.xcassets']
+  s.resources = ['PSPrintSDK/KitePrintSDK.xcassets']
 
   s.dependency 'SDWebImage'
   s.dependency 'SVProgressHUD'
   s.dependency 'AFNetworking', '~> 2.0.3'
   s.dependency 'PayPal-iOS-SDK', '~> 1.4.4'
+  s.dependency 'UICKeyChainStore', '~> 1.0.4'
 end
