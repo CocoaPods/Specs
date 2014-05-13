@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "CSNRequestModificationProtocol"
   s.version      = "0.0.1"
-  s.summary      = "CSNRequestModificationProtocol provides chance to modify Request in 'URL Loading System'. It means you can change request even if UIWebView's."
+  s.summary      = "It provides chance to modify Request in 'URL Loading System'. It means you can change request even if UIWebView's."
   s.homepage     = "https://github.com/griffin-stewie/CSNRequestModificationProtocol"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "griffin-stewie" => "panterathefamilyguy@gmail.com" }
