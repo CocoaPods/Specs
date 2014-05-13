@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AnalyticsKit"
-  s.version      = "1.2"
+  s.version      = "1.2.1"
 
   s.summary      = "Analytics framework for iOS"
 
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'AdjustIO' do |a|
     a.source_files = 'Providers/AdjustIO/AnalyticsKitAdjustIOProvider.{h,m}'
-    a.dependency 'AdjustIO', '2.1.0'
+    a.dependency 'Adjust', '~> 3.2.1'
     a.dependency 'AnalyticsKit/Core'  
   end
 
@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'NewRelic' do |nr|
     nr.source_files = 'Providers/New Relic/AnalyticsKitNewRelicProvider.{h,m}'
-    nr.dependency 'NewRelicAgent'
+    nr.dependency 'NewRelicAgent', '~>3.289'
     nr.dependency 'AnalyticsKit/Core'
     nr.platform     = :ios, '5.0'
   end
