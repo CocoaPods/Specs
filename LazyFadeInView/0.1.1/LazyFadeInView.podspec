@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.frameworks   = 'Foundation', 'CoreGraphics', 'UIKit'
   s.platform     = :ios, '6.0'
   s.source_files = 'LazyFadeInView/LazyFadeInView/*.{h,m}'
-  s.screenshot   = "https://www.dropbox.com/s/lz9kl5oagkqbwf4/LazyFadeInView.png"
+  s.screenshot   = "https://raw.githubusercontent.com/itouch2/itouch2.github.io/master/media/image/LazyFadeInView.png"
   s.requires_arc = true
 end
