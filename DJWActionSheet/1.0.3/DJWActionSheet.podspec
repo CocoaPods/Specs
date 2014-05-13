@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://github.com/danwilliams64/DJWActionSheet"
+  s.screenshot   = "https://raw.githubusercontent.com/danwilliams64/danwilliams64.github.io/master/images/iOS%20Simulator%20Screen%20shot%2013%20May%202014%2018.18.48.png"
   s.license      = { :type => 'MIT'}
   s.author             = { "Dan Williams" => "dan@danwilliams.co" }
   s.social_media_url   = "http://twitter.com/danielwilliams"
