@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.subspec 'All' do |ss|
     ss.source_files = 'TMCategories/TMCategories.h'
     ss.ios.dependency 'TMCategories/UIKit'
-    ss.ios.dependency 'TMCategories/Foundation'\
+    ss.ios.dependency 'TMCategories/Foundation'
   end
   
   s.subspec 'Foundation' do |ss|
