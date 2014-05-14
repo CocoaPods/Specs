@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/idamediafoundry/Reliant'
   s.license      = 'MIT'
   s.authors      = { 'iDA MediaFoundry' => 'info@ida-mediafoundry.be', 'Mike Seghers' => 'mike@oakcs.be' }
-  s.source       = { :git => 'https://github.com/idamediafoundry/Reliant.git', :tag => '1.0.0' }
+  s.source       = { :git => 'https://github.com/idamediafoundry/Reliant.git', :tag => '1.1.0' }
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.ios.source_files = 'Reliant/*.{h,m}', 'Reliant/iOS/*.{h,m}'
