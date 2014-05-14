@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/orta/ARAnalytics.git', :tag => s.version.to_s }
   s.ios.deployment_target = "6.0"
   s.osx.deployment_target = "10.7"
+  s.social_media_url = "https://twitter.com/orta"
   s.requires_arc =  true
   s.summary      =  'Using subspecs you can define your analytics provider with the same API on iOS and OS X.'
   # s.description is at the bottom as it is partially generated.
