@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/itouch2/LazyFadeInView"
   s.license      = "MIT"
   s.authors      = { "tuyou" => "yoututouch@gmail.com", "xinjixjz" => "xinjixjz@gmail.com"}
-  s.source       = { :git => "https://github.com/itouch2/LazyFadeInView.git", :tag => "v0.1.0" }
+  s.source       = { :git => "https://github.com/itouch2/LazyFadeInView.git", :tag => "v0.1.1" }
   s.frameworks   = 'Foundation', 'CoreGraphics', 'UIKit'
   s.platform     = :ios, '6.0'
   s.source_files = 'LazyFadeInView/LazyFadeInView/*.{h,m}'
