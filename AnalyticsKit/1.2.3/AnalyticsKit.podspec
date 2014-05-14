@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AnalyticsKit"
-  s.version      = "1.2.2"
+  s.version      = "1.2.3"
 
   s.summary      = "Analytics framework for iOS"
 
@@ -65,11 +65,11 @@ Pod::Spec.new do |s|
     nr.platform     = :ios, '5.0'
   end
   
-  s.subspec 'Parse' do |p|
-    p.source_files = 'Providers/Parse/AnalyticsKitParseProvider.{h,m}'
-    p.dependency 'Parse-iOS-SDK'
-    p.dependency 'AnalyticsKit/Core'
-  end
+  # s.subspec 'Parse' do |p|
+  #   p.source_files = 'Providers/Parse/AnalyticsKitParseProvider.{h,m}'
+  #   p.dependency 'Parse-iOS-SDK'
+  #   p.dependency 'AnalyticsKit/Core'
+  # end
   
   s.subspec 'TestFlight' do |tf|
     tf.source_files = 'Providers/TestFlight/AnalyticsKitTestFlightProvider.{h,m}'
