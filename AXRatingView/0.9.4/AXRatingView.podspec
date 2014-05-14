@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                    - It is easy to Get/Set.
                    DESC
   s.homepage     = "https://github.com/akiroom/AXRatingView"
-  s.screenshots  = "raw.github.com/akiroom/AXRatingView/master/AXRatingViewDemo/Screenshot.png"
+  s.screenshots  = "https://raw.github.com/akiroom/AXRatingView/#{s.version}/AXRatingViewDemo/Screenshot.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Hiroki Akiyama" => "aki-hiroki@nifty.com" }
   s.platform     = :ios

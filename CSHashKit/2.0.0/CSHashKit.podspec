@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Calogero Sanfilippo" => "sanfilippo.calogero@gmail.com" }
 
-  s.source       = { :git => "https://fripp@bitbucket.org/fripp/cshashkit.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://bitbucket.org/fripp/cshashkit.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '5.0'
 

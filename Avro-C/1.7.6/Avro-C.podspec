@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
 	s.name             = "Avro-C"
 	s.version          = "1.7.6"
-	s.summary          = "Apache Avro™ is a data serialization system."
+	s.summary          = "Apache Avro is a data serialization system."
 	s.description      = <<-DESC
-						 Apache Avro™ is a data serialization system.
+						 Apache Avro is a data serialization system.
 						 
 						 Avro-C provides:
 						 
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
 	s.prefix_header_contents = <<-PREFIX_HEADER
 								#if __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ < 1050 
-									#define AVRO_NON_ATOMIC_REFCOUNT"
+									#define AVRO_NON_ATOMIC_REFCOUNT 1
 								#endif
 
 								PREFIX_HEADER

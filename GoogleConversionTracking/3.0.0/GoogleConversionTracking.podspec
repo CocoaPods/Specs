@@ -28,6 +28,8 @@ Pod::Spec.new do |s|
 
   s.preserve_paths = '*.a'
   s.source_files = '*.h', 'Deprecated/*.h', 'DoubleClick/*.h'
+  
+  s.framework = 'AdSupport'
 
   s.library = 'GoogleConversionTracking'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleConversionTracking"' }

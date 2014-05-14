@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'libGoogleIMA3.a'
   s.libraries = 'GoogleIMA3'
   # If you are using the AdMob SDK along with the IMA SDK, you'll need to use
-  # the "..ForAdMob.a" library instead of the default version.
+  # the "GoogleAds-IMA-iOS-SDK-For-AdMob" pod.
   s.exclude_files = 'libGoogleIMA3ForAdMob.a'
   s.frameworks = 'AdSupport', 'AudioToolbox', 'AVFoundation', 'CoreFoundation', 'CoreGraphics', 'CoreMedia', 'MessageUI', 'QuartzCore', 'SystemConfiguration', 'UIKit'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAds-IMA-iOS-SDK/"' }

@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   }
   s.author = { 'ImageMagick Studio LLC' => 'http://www.imagemagick.org/script/contact.php' }
 
-  s.source = { :http => 'http://www.imagemagick.org/download/iOS/iOSMagick-6.8.1-0-libs.zip' }
+  s.source = { :http => 'http://www.imagemagick.org/download/iOS/legacy/iOSMagick-6.8.1-0-libs.zip' }
   s.preserve_paths = "include/**/*.h", "*.a"
   s.xcconfig = {
     'OTHER_LDFLAGS' => '-Dmacintosh=1',

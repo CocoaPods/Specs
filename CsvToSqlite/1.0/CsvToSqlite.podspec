@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.ios.requires_arc = true
 
   s.ios.header_mappings_dir = 'CsvToSqlite'
-  s.ios.source_files = "CsvToSqlite/**/*.{c,cpp,mm,h,m}"
+  s.ios.source_files = "CsvToSqlite/**/*.{c,cpp,mm,h,m,hpp}"
   s.ios.prefix_header_file = 'CsvToSqlite/CsvToSqlite-Prefix.pch'
     
   s.ios.dependency 'ESLocale', '~> 1.0.1'

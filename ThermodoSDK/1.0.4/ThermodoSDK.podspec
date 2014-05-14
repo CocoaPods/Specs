@@ -1,3 +1,4 @@
+# coding: utf-8
 Pod::Spec.new do |s|
   s.name                = "ThermodoSDK"
   s.version             = "1.0.4"
@@ -19,6 +20,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'ThermodoSDK/ThermodoSDK.framework'
   s.preserve_paths      = 'ThermodoSDK/ThermodoSDK.framework/*'
   s.xcconfig            = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ThermodoSDK"' }
-  s.frameworks          = [ 'AVFoundation', 'AudioToolbox', 'CoreAudio' ]
+  s.frameworks          = [ 'AVFoundation', 'CoreAudio', 'AudioToolbox', 'MediaPlayer' ]
   s.requires_arc        = true
 end
