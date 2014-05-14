@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'JavaScriptCore', 'Splitforce'
 
-  s.xcconfig  =  { 'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)\\Splitforce\"" }
+  s.xcconfig  =  { 'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)/Splitforce\"" }
   s.requires_arc = false
 end
