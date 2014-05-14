@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A customizable implementation of badges for UIViews."
 
   s.description  = <<-DESC
-                   A customizable implementation of badges for UIViews.
+                   A customizable implementation of badges for UIViews. Works on any UIView. It animates, and can control its own layout.
                    DESC
 
   s.homepage     = "https://github.com/Marxon13/M13BadgeView"
