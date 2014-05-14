@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
+  s.libraries = 'c++'
+
   s.dependency 'AFNetworking', '~> 1.3'
   s.dependency 'AFOAuth2Client', '~> 0.1'
   s.dependency 'CocoaLumberjack', '~> 1.0'
