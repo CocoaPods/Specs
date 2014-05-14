@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version          = "1.0"
   s.summary          = "In-app customer support framework"
   s.description      = 'See helpstack.io for more details'
-  s.homepage         = "http://helpstack.io"
+  s.homepage         = "https://github.com/happyfoxinc/helpstack"
   s.social_media_url = "https://twitter.com/helpstacksdk"
   s.license          = 'MIT'
   s.author           = { "HappyFox" => "ios@happyfox.com" }
