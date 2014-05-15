@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license      = 'Creative Commons Attribution 3.0 Unported License'
   s.author       = { "Levi Brown" => "levigroker@gmail.com" }
   s.social_media_url = 'https://twitter.com/levigroker'
-  s.source       = { :git => "https://github.com/levigroker/GRKBlurView.git", :tag => "1.1" }
+  s.source       = { :git => "https://github.com/levigroker/GRKBlurView.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'
   s.source_files = 'GRKBlurView/**/*.{h,m}'
