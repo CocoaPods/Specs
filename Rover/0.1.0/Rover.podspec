@@ -6,19 +6,20 @@ Pod::Spec.new do |s|
   s.author       = { " Rover Labs Inc" => "sean@roverlabs.co" }
   s.platform     = :ios 
   s.source       = { :git => "https://github.com/Rover-Labs/RoverPOD.git", :tag => "0.1.0" }
-  s.source_files =  'RoverSDK/Headers/*.h'
-  s.preserve_paths = 'RoverSDK/libRover.a'
-  s.vendored_libraries = 'RoverSDK/libRover.a'
+  s.source_files =  'Rover/Headers/*.h'
+  s.preserve_paths = 'Rover/libRover.a'
+  s.vendored_libraries = 'Rover/libRover.a'
   s.ios.deployment_target = '7.0'
   s.frameworks = 'UIKit', 'Foundation', 'SystemConfiguration', 'MobileCoreServices', 'CoreLocation'
   s.requires_arc = true
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/RoverSDK"',
-                   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Headers/RoverSDK"' }
+  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Rover"',
+                   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Headers"' }
 
   s.dependency 'MZFormSheetController'
-  s.dependency 'TTTAttributedLabel'
-  s.dependency 'CocoaLumberjack' 
   s.dependency 'AFNetworking'
+  s.dependency 'TTTAttributedLabel'
+  s.dependency  'CocoaLumberjack'
+  s.dependency  'Tweaks'
   
   s.license      = {
     :type => 'Copyright',
