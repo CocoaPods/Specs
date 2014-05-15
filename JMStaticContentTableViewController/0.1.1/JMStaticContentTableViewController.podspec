@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.authors   = { 'Jake Marsh' => 'jake@deallocatedobjects.com' }
   s.source   = { :git => 'https://github.com/jakemarsh/JMStaticContentTableViewController.git', :tag => '0.1.1' }
 
-  s.platform  = :ios
+  s.platform = :ios, '5.0'
   s.requires_arc = true
   
   s.license   = {

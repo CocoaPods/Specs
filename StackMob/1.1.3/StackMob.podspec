@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'StackMob'
   s.version  = '1.1.3'
-  s.license  = 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = "StackMob's SDK for accessing the StackMob Services on iOS."
   s.homepage = 'http://stackmob.com'
   s.author   = { 'StackMob' => 'info@stackmob.com' }

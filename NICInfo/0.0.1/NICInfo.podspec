@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :hg => 'https://bitbucket.org/kenial/nicinfo', :commit => 'b10d1e35cf0f' }
   s.platform     = :ios, '4.3'
   s.source_files = 'src/NICInfo/NICInfo Classes/*.{h,m}'
+  s.requires_arc = false
 end

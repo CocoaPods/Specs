@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   
   s.frameworks = 'Security', 'SystemConfiguration', 'DailymotionSDK'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dailymotion-SDK"' }
+  s.requires_arc = false
 end

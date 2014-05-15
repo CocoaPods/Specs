@@ -1,6 +1,6 @@
 # A repository of CocoaPods specifications.
 
-[![Build Status](https://secure.travis-ci.org/CocoaPods/Specs.png?branch=master)](http://travis-ci.org/CocoaPods/Specs)
+[![Build Status](http://img.shields.io/travis/CocoaPods/Specs/master.svg)](http://travis-ci.org/CocoaPods/Specs)
 
 This repository contains specifications of open-source Objective-C libraries, which are used by [CocoaPods](https://github.com/CocoaPods/CocoaPods) to manage library dependencies for your Xcode project.
 
@@ -32,15 +32,7 @@ You can verify the specification file with the lint command. This command checks
 $ pod spec lint Bananas.podspec --verbose
 ```
 
-Once you have created a working specification create a pull request. Once accepted, you will receive push access to this repo. Feel free to push updates, specs for other libraries you use, and participate in other tickets.
-
-If you have push access you can publish all the podspecs in a working directory.
-
-```console
-$ pod setup --push # Run only once
-$ pod push master
-```
-
+Once you have created a working specification create a pull request.
 
 ### Namespacing
 

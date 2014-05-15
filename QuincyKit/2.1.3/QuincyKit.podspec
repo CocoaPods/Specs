@@ -1,4 +1,3 @@
-# TODO For now we only support the iOS version. Need to work on supporting the Mac version too.
 Pod::Spec.new do |s|
   s.name     = 'QuincyKit'
   s.version  = '2.1.3'
@@ -15,4 +14,5 @@ Pod::Spec.new do |s|
 
   s.frameworks   = 'SystemConfiguration', 'CrashReporter'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/QuincyKit/client/iOS"' }
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
 	s.source   		= { :git => 'https://github.com/indragiek/INKeychainAccess.git', :tag => 'v1.0' }
 	s.license		= 'BSD'
 	s.framework		= 'Security'
+  s.requires_arc = false
 end

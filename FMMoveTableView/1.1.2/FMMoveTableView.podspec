@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod spec lint FMMoveTableView.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "FMMoveTableView"
   s.version      = "1.1.2"
@@ -38,4 +30,5 @@ Pod::Spec.new do |s|
   s.source_files = 'FMFramework', 'FMFramework/**/*.{h,m}'
 
   s.public_header_files = 'FMFramework/**/*.h'
+  s.requires_arc = false
 end

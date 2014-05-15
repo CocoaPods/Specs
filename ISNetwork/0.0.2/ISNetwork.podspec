@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "ISNetwork"
   s.version      = "0.0.2"
   s.summary      = "minimal NSURLConnection wrapper (NSOperation-based)."
-  s.homepage     = "http://EXAMPLE/MyPod"
+  s.homepage     = "https://github.com/ishkawa/ISNetwork"
   s.author       = { "Yosuke Ishikawa" => "ishkawa73@gmail.com" }
   s.source       = { :git => "https://github.com/ishkawa/ISNetwork.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.0'
@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     LICENSE
   }
+  s.requires_arc = false
 end

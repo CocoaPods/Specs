@@ -27,12 +27,9 @@ PODS_ALLOWED_TO_FAIL = {
     'EGOTableViewPullRefresh',
     'Evernote-SDK-Mac',
     'Flash2Cocos2D',
-    'GHUnitIOS',
-    'GHUnitOSX',
     'GMGridView',
     'IBAForms',
     'iOSInstalledApps',
-    'iPhoneMK',
     'JASidePanels',
     'JBKenBurnsView',
     'JSONKit',
@@ -42,11 +39,9 @@ PODS_ALLOWED_TO_FAIL = {
     'libgit2',
     'MACalendarUI',
     'MAKVONotificationCenter',
-    'MASShortcut',
     'MGSplitViewController',
     'MPFlipViewController',
     'NSLogger-CocoaLumberjack-connector',
-    'OCMock',
     'ODRefreshControl',
     'OHAttributedLabel',
     'pubnub-api',
@@ -56,7 +51,6 @@ PODS_ALLOWED_TO_FAIL = {
     'SocketRocket',
     'SPTabBarController',
     'StackMob',
-    'SYCache',
     'TBXML',
     'Three20Lite',
     'TwUI',
@@ -66,10 +60,70 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
-  "The version should be included in the Git tag." => [
-    'iOS-Hierarchy-Viewer',
+  "The post install hook has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
+    'AppPaoPaoSDK',
+    'ARCHelper',
+    'ARCMacro',
+    'CocoaLibSpotify',
+    'CoconutKit',
+    'DTCoreText',
+    'Facebook-iOS-SDK',
+    'GrannySmith',
+    'HockeySDK',
+    'LibComponentLogging-Core',
+    'LibComponentLogging-Crashlytics',
+    'LibComponentLogging-LogFile',
+    'LibComponentLogging-NSLog',
+    'LibComponentLogging-NSLogger',
+    'LibComponentLogging-pods',
+    'LibComponentLogging-qlog',
+    'LibComponentLogging-SystemLog',
+    'LibComponentLogging-UserDefaults',
+    'MagicalRecord',
+    'MapBox',
+    'MKStoreKit',
+    'PLDatabase',
+    'QuickDialog',
+    'SSToolkit',
+    'SYCache',
+    'TICoreDataSync',
+    'TouchDB',
+    'unoffical-twitter-sdk',
+    'XingSDK',
   ],
 
+  "The pre install hook has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
+    'ARAnalytics',
+    'CocoaLibSpotify',
+    'CoconutKit',
+    'CorePlot',
+    'ctemplate',
+    'DTCoreText',
+    'expat',
+    'Facebook-iOS-SDK',
+    'freexl',
+    'geos',
+    'HockeySDK',
+    'icu4c',
+    'jsoncpp',
+    'lambert-objc',
+    'LevelDB-ObjC',
+    'libetpan',
+    'libsasl2',
+    'LibYAML',
+    'MapBox',
+    'proj4',
+    'ReactiveCocoa',
+    'SinglySDK',
+    'spatialite',
+    'Three20',
+    'yajl',
+  ],
+
+  "Github repositories should use `https` link." => [
+    'ARCHelper',
+    'ARCMacro',
+  ],
 }
 
 
@@ -150,23 +204,34 @@ end
 
 #-----------------------------------------------------------------------------#
 
-desc "Converts the specifications to yaml"
-task :convert_specs_to_yaml do
+desc "Converts the specifications to JSON"
+task :convert_specs_to_json do
   require 'cocoapods-core'
-  skipped_specs_count = 0
+  require 'json'
+
+  puts "Adopting Specs folder"
+  Dir.mkdir("Specs") unless File.exist?("Specs")
+  Dir.glob('*/') do |dir|
+    unless dir == "Specs/"
+      FileUtils.mv(dir, "Specs/#{dir}")
+    end
+  end
+
+  puts "Converting to JSON"
+  skipped_specs = []
   Dir.glob('**/*.podspec') do |spec_path|
     spec = Pod::Spec.from_file(spec_path)
     if spec.safe_to_hash?
-      spec_yaml_path = "#{spec_path}.yaml"
-      puts "#{spec_path} -> #{spec_yaml_path}"
-      File.open(spec_yaml_path, 'w') { |file| file.write(spec.to_yaml) }
+      spec_json_path = "#{spec_path}.json"
+      print "."
+      File.open(spec_json_path, 'w') { |file| file.write(JSON.pretty_generate(spec)) }
       File.delete(spec_path)
     else
-      skipped_specs_count += 1
+      skipped_specs << spec_path
     end
   end
-  puts yellow("\n [!] #{skipped_specs_count} weren't converted.")
-
+  puts yellow("\n\n[!] #{skipped_specs.count} weren't converted.")
+  puts "- #{skipped_specs.join("\n- ")}"
 end
 
 #-----------------------------------------------------------------------------#
@@ -179,11 +244,13 @@ task :default => :validate
 # @return [Bool] If the spec can be accepted
 #
 def check_if_can_be_accepted(spec, spec_path)
-  # previous_spec_contents = previous_version_of_spec(spec_path)
-  acceptor = Pod::Source::Acceptor.new('.')
-  errors = acceptor.analyze(spec)
+  previous_spec_contents = previous_version_of_spec(spec_path)
+  if previous_spec_contents
+    previous_spec = Pod::Specification.from_string(previous_spec_contents, spec_path)
+  end
+  errors = Pod::Source::Acceptor.new('.').analyze(spec, previous_spec)
   errors.each do |error|
-    puts red("- #{error}")
+    puts red("    - ERROR | #{error}")
   end
   errors.count.zero?
 end
@@ -250,7 +317,8 @@ end
 #         commit.
 #
 def previous_version_of_spec(spec_path)
-  `git show HEAD~1:#{spec_path}`
+  contents = `git show HEAD~1:#{spec_path} 2>/dev/null`
+  contents if $?.to_i.zero?
 end
 
 # group UI helpers

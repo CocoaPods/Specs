@@ -30,4 +30,5 @@ LICENSE
 
   s.library   = 'z'
 
+  s.requires_arc = false
 end

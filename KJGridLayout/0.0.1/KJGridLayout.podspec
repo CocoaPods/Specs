@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kristopherjohnson/KJGridLayout.git", :commit => "4d988ff375bf78cee9c1e7b47e38c5b36fb99ca4" }
   s.platform     = :ios, '4.3'
   s.source_files = 'KJGridLayout/*.{h,m}'
+  s.requires_arc = false
 end

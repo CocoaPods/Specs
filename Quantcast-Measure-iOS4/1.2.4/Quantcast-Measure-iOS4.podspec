@@ -37,4 +37,5 @@ Pod::Spec.new do |s|
   
   s.prefix_header_contents = "#define QCMEASUREMENT_ENABLE_JSONKIT 1"
   
+  s.requires_arc = false
 end

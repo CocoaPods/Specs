@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   end
 
   s.license = {
-    :type => 'Apache License 2.0',
+    :type => 'Apache License, Version 2.0',
     :text => <<-LICENSE
       Copyright (c) 2010 Google Inc.
 

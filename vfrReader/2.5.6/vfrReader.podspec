@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'ImageIO', 'MessageUI', 'QuartzCore'
 
+  s.requires_arc = false
 end

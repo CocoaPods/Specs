@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc     =  true
 
-  #s.prefix_header_contents = '#import "MKNetworkKit.h"'
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/MKNetworkKit/MKNetworkKit/"' }
 
   s.dependency 'Reachability', '~> 3.0'
 

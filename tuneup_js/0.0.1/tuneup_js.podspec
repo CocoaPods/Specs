@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   # s.platform = :osx # UIAutomation isn't yet on OS X
 
   s.preserve_paths = '*.js'
+  s.requires_arc = false
 end

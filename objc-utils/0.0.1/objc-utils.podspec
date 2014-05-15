@@ -45,4 +45,5 @@ Pod::Spec.new do |s|
   s.subspec 'Util' do |sp|
     sp.source_files = 'Util/**/*.{h,m,c}'
   end
+  s.requires_arc = false
 end

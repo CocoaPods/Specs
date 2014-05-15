@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
                  :commit        => '580747fc57bdd5139de94fca25e8fe95e2dfd908' }
 
   s.source_files = 'Classes/MGSplit{ViewController,DividerView,CornersView}.*'
+  s.requires_arc = false
 end

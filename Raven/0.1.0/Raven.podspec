@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/getsentry/raven-objc.git", :tag => "0.1.0" }
   s.platform     = :ios
   s.source_files = ['Raven']
+  s.requires_arc = false
 end

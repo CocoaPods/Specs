@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices',
                    'Security', 'SystemConfiguration', 'UIKit', 'CoreTelephony',
                    'StoreKit', 'CoreLocation', 'MapKit', 'AudioToolbox', 'MessageUI'
+  s.requires_arc = false
 end

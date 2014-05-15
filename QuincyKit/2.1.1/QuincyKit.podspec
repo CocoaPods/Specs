@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.resource     =  'client/iOS/Quincy.bundle'
   s.frameworks   =  'SystemConfiguration', 'CrashReporter'
   s.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/QuincyKit/client/iOS"' }
+  s.requires_arc = false
 end

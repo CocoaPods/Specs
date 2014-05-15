@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/kstenerud/KSReachability.git", :tag => "1.1" }
   s.source_files          = 'KSReachability/KSReachability'
   s.frameworks            = 'Foundation', 'SystemConfiguration'
+  s.requires_arc = false
 end

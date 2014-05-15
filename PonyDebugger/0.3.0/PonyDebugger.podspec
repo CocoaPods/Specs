@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
   s.author       = 'Square'
   s.source       = { :git => 'https://github.com/square/PonyDebugger.git', :tag => 'v0.3.0' }
-  s.license      = 'Apache Licence, Version 2.0'
+  s.license      = 'Apache License, Version 2.0'
 
   # Platform setup
   s.requires_arc = true
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   
   s.dependency 'SocketRocket'
   # The readme says that it is needed but it lints without
-  s.frameworks   = 'CoreData'
+  s.frameworks   = 'CoreData', 'CoreGraphics'
 end

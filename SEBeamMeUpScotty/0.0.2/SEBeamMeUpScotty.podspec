@@ -1,8 +1,3 @@
-#
-# SEBeamMeUpScotty
-# CocoaPods podspec
-#
-
 Pod::Spec.new do |s|
   s.platform     = :ios, '5.1'
   s.name         = 'SEBeamMeUpScotty'

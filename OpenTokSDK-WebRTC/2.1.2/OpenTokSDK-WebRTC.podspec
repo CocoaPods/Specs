@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Opentok.framework/Versions/A/Headers/*.h'
   s.resources    = 'Opentok.framework/Versions/A/Resources/opentok.bundle'
 
-  s.frameworks = 'Opentok',
+  s.frameworks = 'Opentok', 'UIKit', 
                  'CoreMedia', 'CoreVideo', 'CoreAudio', 'CoreTelephony',
                  'CFNetwork', 'AVFoundation', 'SystemConfiguration', 'Security',
                  'QuartzCore', 'AudioToolbox', 'OpenGLES', 'MobileCoreServices'
@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
 
   s.preserve_paths = 'Opentok.framework'
 
+  s.requires_arc = false
 end

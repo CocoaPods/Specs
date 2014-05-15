@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                     `NSFetchRequest` and `NSFetchedResultsController`.
                    DESC
   s.homepage     = "https://github.com/peymano/DVCoreDataFinders"
-  s.license      = "Apache 2.0"
+  s.license      = "Apache License, Version 2.0"
   s.author       = { "Peyman Oreizy" => "peymano@dynamicvariable.com" }
   s.source       = { :git => "https://github.com/peymano/DVCoreDataFinders.git", :tag => "0.2" }
   s.source_files = 'DVCoreDataFinders'

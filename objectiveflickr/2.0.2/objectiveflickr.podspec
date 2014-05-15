@@ -23,9 +23,9 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/lukhnos/objectiveflickr/'
   s.author   = { 'Lukhnos D. Liu' => 'lukhnos@lukhnos.org' }
   s.source   = { :git => 'https://github.com/lukhnos/objectiveflickr.git', :tag => '2.0.2' }
-  s.platform = :ios  
   s.source_files = 'Source/*.{h,m}' , 'LFWebAPIKit/*.{h,m}'
   s.resources = 'BridgeSupport'
   s.frameworks = 'SystemConfiguration', 'CFNetwork'
 
+  s.requires_arc = false
 end

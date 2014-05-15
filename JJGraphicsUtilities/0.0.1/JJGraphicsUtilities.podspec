@@ -11,5 +11,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.5'
   s.source_files = 'Classes/*.{h,m}'
   s.frameworks   = 'QuartzCore', 'CoreGraphics', 'UIKit'
+  s.requires_arc = false
 end
 

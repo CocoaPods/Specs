@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
     ss.exclude_files = '**/*TUIAccessibilityElement*'
     ss.dependency 'TwUI/Support'
   end
+  s.requires_arc = false
 end

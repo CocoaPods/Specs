@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files = 'Objective-Zip/*.{m,h}', 'MiniZip/*.{h,c}'
   s.library   = 'z'
+  s.requires_arc = false
 end

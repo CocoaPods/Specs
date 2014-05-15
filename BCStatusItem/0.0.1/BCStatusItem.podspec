@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/jfro/BCStatusItem.git", :commit => "161e84e9c46b392cd594a1e39a3602a1f3d5d0e8" }
   s.platform     = :osx
   s.source_files = 'BCStatusItem'
+  s.requires_arc = false
 end

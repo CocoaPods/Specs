@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.frameworks = "NewRelicAgent", "CoreTelephony", "SystemConfiguration"
   s.library = "z"
   s.xcconfig  =  { "FRAMEWORK_SEARCH_PATHS" => '"$(PODS_ROOT)/NewRelicAgent/NewRelic_iOS_Agent_1.300"' }
+  s.requires_arc = false
 end

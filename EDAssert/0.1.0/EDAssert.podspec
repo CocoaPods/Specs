@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.dependency 'OCHamcrest'
   s.framework = 'SenTestingKit'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
+  s.requires_arc = false
  end

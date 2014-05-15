@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/youknowone/FoundationExtension"
   s.license      = "2-clause BSD"
   s.author       = { "Jeong YunWon" => "jeong@youknowone.org" }
-  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "pod-0.14" }
+  s.source       = { :git => "https://github.com/youknowone/FoundationExtension.git", :tag => "0.14" }
   s.dependency "cdebug", "~> 0.1"
 
   s.subspec "FoundationExtension" do |ss|
@@ -41,4 +41,5 @@ Pod::Spec.new do |s|
     ss.xcconfig = { "GCC_PREFIX_HEADER" => "UIKitExtension/UIKitExtension-Prefix.pch" }
     ss.dependency "FoundationExtension/FoundationExtension"
   end
+  s.requires_arc = false
 end

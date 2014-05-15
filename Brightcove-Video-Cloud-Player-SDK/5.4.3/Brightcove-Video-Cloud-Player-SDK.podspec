@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'AVFoundation', 'CoreMedia', 'MediaPlayer'
   s.libraries = 'BCiOSSDK'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Brightcove-Video-Cloud-Player-SDK/Libraries"' }
+  s.requires_arc = false
 end

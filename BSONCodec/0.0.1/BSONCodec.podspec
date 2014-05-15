@@ -13,4 +13,5 @@ other documents and arrays.
   s.source   = { :git    => 'https://github.com/martinkou/bson-objc.git',
                  :commit => '38ab9edcabec805a2a2f57bbee1540824138e3d5' }
   s.source_files = 'BSONCodec.{h,m}'
+  s.requires_arc = false
 end

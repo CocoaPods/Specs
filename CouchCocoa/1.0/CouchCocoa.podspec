@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Couch', 'Model', 'REST', 'UI/iOS'
   s.compiler_flags = '-DCOUCHCOCOA_IMPL'
   s.dependency 'JSONKit', '~> 1.4'
+  s.requires_arc = false
 end

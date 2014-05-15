@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'JSONKit'
   s.dependency "AFNetworking", "~> 0.9.0"
+  s.requires_arc = false
 end

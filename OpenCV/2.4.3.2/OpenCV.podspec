@@ -61,11 +61,12 @@ Pod::Spec.new do |s|
     :git => "https://github.com/Fl0p/OpenCV-iOS.git", 
     :tag => "2.4.3.2"
   }
-  s.source_files = 'opencv2.framework/Headers/**/*{.h,.hpp}'
+  s.source_files = 'opencv2.framework/Versions/A/Headers/**/*{.h,.hpp}'
   s.header_mappings_dir = 'Headers'
   s.preserve_paths = 'opencv2.framework'
   s.platform     = :ios
   s.libraries    = 'c++', 'stdc++'  
   s.frameworks = 'Accelerate', 'AssetsLibrary', 'AVFoundation', 'CoreGraphics', 'CoreImage', 'CoreMedia', 'CoreVideo', 'Foundation', 'opencv2', 'QuartzCore', 'UIKit'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/OpenCV' }
+  s.requires_arc = false
 end

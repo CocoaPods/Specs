@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
       `make PLATFORM=IOS CC=clang CXX=clang++ libleveldb.a`
     end
   end
+  s.requires_arc = false
 end

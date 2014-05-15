@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.name = 'IBAForms'
   s.platform = :ios
   s.framework = 'CoreData'
+  s.requires_arc = false
 end

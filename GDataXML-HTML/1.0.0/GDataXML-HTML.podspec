@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'GDataXML-HTML'
   s.version  = '1.0.0'
-  s.license  = 'Apache License 2.0'
+  s.license  = 'Apache License, Version 2.0'
   s.summary  = 'An XML/HTML Parser for iOS and OSX, based on Google\'s GDataXML.'
   s.homepage = 'https://github.com/graetzer/GDataXML-HTML'
   s.author   = { 'Simon Grätzer' => 'simon@graetzer.org' }
@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.libraries = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 
+  s.requires_arc = false
 end

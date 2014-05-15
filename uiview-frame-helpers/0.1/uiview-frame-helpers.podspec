@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '3.0'
   s.source_files = 'UIView+CBFrameHelpers*'
   s.framework  = 'UIKit'
+  s.requires_arc = false
 end

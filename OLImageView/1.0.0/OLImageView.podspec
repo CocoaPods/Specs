@@ -16,6 +16,5 @@ Pod::Spec.new do |s|
     af.source_files = "Categories/AFImageRequestOperation+OLImage.{h,m}"
   end
   
-  s.preferred_dependency = 'AFNetworking'
-
+  s.default_subspec = 'AFNetworking'
 end

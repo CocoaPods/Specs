@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'vendor'
 
   s.framework    = 'QuartzCore'
+  s.requires_arc = false
 end

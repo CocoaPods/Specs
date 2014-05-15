@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform      = :ios
   s.source        = { :git => 'https://github.com/waterlou/UIGlossyButton.git', :tag => 'v0.0.3' }
   s.source_files  = 'UIGlossyButton/UIGlossyButton.{h,m}', 'UIGlossyButton/UIView+LayerEffects.{h,m}'
+  s.requires_arc = false
 end

@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod spec lint MRCEnumerable.podspec' to ensure this is a
-# valid spec.
-#
-# Remove all comments before submitting the spec. Optional attributes are commented.
-#
-# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
-#
 Pod::Spec.new do |s|
   s.name         = "MRCEnumerable"
   s.version      = "0.0.1"
@@ -18,4 +10,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

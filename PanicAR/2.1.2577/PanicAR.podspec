@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.xcconfig        = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PanicAR/Framework"', 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/"' }
   s.preserve_paths  = 'Framework/PanicARKit.framework', 'Framework/PanicARKitResources.bundle'
   s.resources       = 'Framework/PanicARKitResources.bundle'
+  s.requires_arc = false
 end

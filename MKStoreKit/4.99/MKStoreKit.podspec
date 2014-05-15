@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/MugunthKumar/MKStoreKit.git', :tag => '4.99' }
   s.platform = :ios, '5.0'
   s.source_files = '*.{h,m}', 'Externals/*.{h,m}'
+  s.exclude_files = "VerificationController.{h,m}"
   s.requires_arc = true
 
   s.frameworks = 'StoreKit', 'Security'

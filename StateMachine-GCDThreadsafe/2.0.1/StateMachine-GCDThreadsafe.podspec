@@ -1,8 +1,3 @@
-#
-# StateMachine-GCDThreadsafe
-# CocoaPods podspec
-#
-
 Pod::Spec.new do |s|
     s.platform     = :ios, "5.1"
     s.name         = "StateMachine-GCDThreadsafe"
@@ -11,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage     = "https://github.com/brynbellomy/StateMachine-GCDThreadsafe"
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-    s.authors      = [ { "Luis Solano Bonet" => "contact@luissolano.com" }, { "bryn austin bellomy" => "bryn@signals.io" } ]
+    s.authors      = { "Luis Solano Bonet" => "contact@luissolano.com", "bryn austin bellomy" => "bryn@signals.io" }
     s.source       = { :git => "https://github.com/brynbellomy/StateMachine-GCDThreadsafe.git", :tag => "v#{s.version}" }
 
     s.source_files = 'StateMachine/**/*.{h,m}'

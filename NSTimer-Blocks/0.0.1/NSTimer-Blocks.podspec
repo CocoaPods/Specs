@@ -20,4 +20,5 @@ DESC
   s.source_files = '*.{h,m}'
 
   s.public_header_files = '*.h'
+  s.requires_arc = false
 end

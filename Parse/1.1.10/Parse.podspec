@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.weak_frameworks='AdSupport','Social', 'Accounts'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Parse"' }
   s.library = 'z', 'sqlite3'
+  s.requires_arc = false
 end

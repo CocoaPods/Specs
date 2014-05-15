@@ -23,22 +23,12 @@ Pod::Spec.new do |s|
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{$(inherited) BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
 
-  def s.post_install(target_installer)
-    puts "\nGenerating HockeySDK resources bundle\n".yellow if config.verbose?
-    Dir.chdir File.join(config.project_pods_root, 'HockeySDK/Support') do
-      command = "xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources"
-      command << " 2>&1 > /dev/null" unless config.verbose?
-      unless system(command)
+  s.resource = 'Resources/HockeySDKResources.bundle'
+  s.pre_install do |pod, target_definition|
+    Dir.chdir File.join(pod.root, 'Support') do
+      unless system("xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null")
         raise ::Pod::Informative, "Failed to generate HockeySDK resources bundle"
       end
-    end
-    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      script_path = target_installer.copy_resources_script_path
-    else
-      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
-    end
-    File.open(script_path, 'a') do |file|
-      file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
     end
   end
 end

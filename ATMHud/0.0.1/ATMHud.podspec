@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.resources    =  '11-x.png', '19-check.png', 'pop.wav'
   s.frameworks   =  'QuartzCore', 'AudioToolbox'
   s.license      =  'BSD'
+  s.requires_arc = false
 end

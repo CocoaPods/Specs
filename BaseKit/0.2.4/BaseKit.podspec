@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name     = 'BaseKit'
   s.version  = '0.2.4'
-  s.license  = 'Apache 2'
+  s.license  = "Apache License, Version 2.0"
   s.summary  = 'BaseKit is a set of IOS class to make your life easier.'
   s.homepage = 'https://github.com/brunow/BaseKit'
   s.author   = { 'Bruno Wernimont' => 'bruno.wernimont+github@gmail.com' }
@@ -45,4 +45,5 @@ Pod::Spec.new do |s|
     form_mapping.dependency 'BWLongTextViewController'
     form_mapping.dependency 'ActionSheetPicker2'
   end
+  s.requires_arc = false
 end

@@ -22,4 +22,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.platform = :ios
   s.source_files = 'ASStarRatingView/**/*.{h,m}'
   s.resources = "ASStarRatingView/stars/*.png"
+  s.requires_arc = false
 end

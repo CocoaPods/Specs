@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
 
   s.resources = "Images", "Images/**/*.png"
 
+  s.requires_arc = false
 end

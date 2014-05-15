@@ -27,8 +27,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'AttributedLabel' do |label|
     label.source_files = 'src/attributedlabel/src'
-    label.framework    = 'CoreText'
-    label.framework    = 'CoreGraphics'
+    label.frameworks    = 'CoreText', 'CoreGraphics'
   end
 
   s.subspec 'Interapp' do |interapp|
@@ -80,4 +79,5 @@ Pod::Spec.new do |s|
     web_controller.source_files = 'src/webcontroller/src'
     web_controller.resource     = 'src/webcontroller/resources/NimbusWebController.bundle'
   end
+  s.requires_arc = false
 end

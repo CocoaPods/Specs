@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/*.{h,m}'
 
   s.framework  = 'CoreGraphics'
+  s.requires_arc = false
 end

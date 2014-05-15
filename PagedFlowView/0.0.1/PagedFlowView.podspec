@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'PagedFlowView/PagedFlowView.{h,m}'
 
   s.frameworks = 'UIKit', 'Foundation'
+  s.requires_arc = false
 end

@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
   s.library   = 'GoogleAnalytics', 'sqlite3'
   
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/Library"' }
+  s.requires_arc = false
 end
