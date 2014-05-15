@@ -18,9 +18,9 @@ Pod::Spec.new do |spec|
   spec.ios.frameworks = "UIKit", "MobileCoreServices"
   spec.osx.frameworks = "AppKit", "QuickLook"
   
-  spec.source_files = "MERThumbnailKit", "MERThumbnailKitFramework"
+  spec.source_files = "MERThumbnailKit", "MERThumbnailKitFramework", "MERThumbnailKit/Private"
   spec.ios.exclude_files = "MERThumbnailKitFramework"
-  spec.osx.exclude_files = "MERThumbnailKit/UI*"
+  spec.osx.exclude_files = "MERThumbnailKit/UI*", "MERThumbnailKit/Private/UI*"
   spec.private_header_files = "MERThumbnailKit/Private"
   spec.resource_bundles = {"MERThumbnailKitResources" => ["MERThumbnailKitResources/*.plist", "MERThumbnailKitResources/*.js"]}
 end
