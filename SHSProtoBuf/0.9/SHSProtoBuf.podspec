@@ -23,12 +23,14 @@ Pod::Spec.new do |s|
      LICENSE
   }
    
-  s.author       = { "Shatunov Sergey" => "sshatunov@yandex.ru" }
-  s.author       = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
-  s.author       = "David Bonnefoy"
-  s.author       = { "Ragy Eleish" => "ragy@regwez.com" }
-  s.author       = { "Jon Parise" => "jon@booyah.com" }
-  s.authors      = "Kenton Varda", "Sanjay Ghemawat", "Jeff Dean"
+  s.authors      = { "Shatunov Sergey" => "sshatunov@yandex.ru",
+                     "Alexey Khokhlov" => "alexeyxo@gmail.com",
+                     "David Bonnefoy" => nil,
+                     "Ragy Eleish" => "ragy@regwez.com",
+                     "Jon Parise" => "jon@booyah.com", 
+                     "Kenton Varda" => nil,
+                     "Sanjay Ghemawat" => nil,
+                     "Jeff Dean" => nil }
   
   s.source       = { :git => "https://github.com/Serheo/protobuf-objc.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
