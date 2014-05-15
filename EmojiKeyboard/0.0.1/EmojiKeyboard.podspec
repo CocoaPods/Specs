@@ -23,4 +23,6 @@ Currently the keyboard only contains the emojis that can anyways be accessed on 
   s.requires_arc = false
   s.dependency 'DDPageControl', '~> 0.1'
 
+  s.deprecated_in_favor_of = 'AGEmojiKeyboard'
+
 end
