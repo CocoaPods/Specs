@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://www.roverlabs.co"
   s.author       = { " Rover Labs Inc" => "sean@roverlabs.co" }
   s.platform     = :ios 
-  s.source       = { :git => "https://github.com/Rover-Labs/RoverPOD.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/Rover-Labs/Rover-iOS.git", :tag => "0.1.0" }
   s.source_files =  'Rover/Headers/*.h'
   s.preserve_paths = 'Rover/libRover.a'
   s.vendored_libraries = 'Rover/libRover.a'
