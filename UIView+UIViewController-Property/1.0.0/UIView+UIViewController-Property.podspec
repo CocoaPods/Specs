@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'UIView+UIViewController-Property'
-  s.version      = '1.0'
+  s.version      = '1.0.0'
   s.license      = 'MIT'
   s.homepage     = 'http://www.IBMobile.de'
   s.authors      = { "Ingo" => "ib@cephei.com" }
