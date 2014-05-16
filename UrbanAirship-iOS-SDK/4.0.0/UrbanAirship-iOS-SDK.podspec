@@ -18,4 +18,6 @@ Pod::Spec.new do |s|
   s.libraries       = 'z', 'sqlite3'
   s.frameworks      = 'CFNetwork', 'CoreGraphics', 'Foundation', 'MobileCoreServices', 'Security', 'SystemConfiguration', 'UIKit', 'CoreTelephony', 'CoreLocation'
   s.platform        = :ios, '5.1.1'
+  s.compiler_flags  = '$(inherited)', '-DUADEBUG' , '-D_UA_VERSION=\"4.0.0\"'
+  s.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DUADEBUG -D_UA_VERSION=\"4.0.0\"' }
 end
