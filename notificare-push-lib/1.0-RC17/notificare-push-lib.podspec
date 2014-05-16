@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Notificare/notificare-push-lib.git", :tag => "1.0-RC17" }
   s.source_files  = 'Notificare/**/*.h'
   s.preserve_paths = 'libNotificarePushLib.a'
-  s.resource  = "NotificareResources.bundle"
+  s.resource  = "DefaultTheme.bundle"
   s.libraries = 'NotificarePushLib', 'icucore'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/notificare-push-lib"' }
   s.frameworks = 'CoreLocation', 'MobileCoreServices', 'MessageUI', 'PassKit', 'MapKit', 'SystemConfiguration', 'Security', 'CFNetwork'
