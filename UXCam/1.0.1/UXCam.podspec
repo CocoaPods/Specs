@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://www.uxcam.com'
   s.author   = { 'UXCam' => 'admin@uxcam.com' }
   s.social_media_url = "http://www.twitter.com/uxcam"
-  s.source   = { :http => 'http://dashboard.uxcam.com/uploads/sdk/ios/1397229731/UXCam_iOS_V1.0.1.zip' }
+  s.source   = { :http => 'http://dashboard.uxcam.com/uploads/sdk/ios/UXCam_iOS_V1.0.2.zip' }
   s.platform = :ios, 6.0
   s.requires_arc = true
 
