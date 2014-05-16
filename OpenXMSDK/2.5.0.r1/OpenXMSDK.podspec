@@ -7,6 +7,7 @@ Pod::Spec.new do |spec|
   spec.description  =  'The OpenX SDK for iOS allows a user of the OpenX Ad Server to incorporate ads into their iOS applications.'
   spec.homepage     =  'http://www.openx.com'
   spec.author       =  'OpenX Technologies, Inc. | maintained by @lawrenceleach'
+  spec.documentation_url = 'docs.openx.com/sdk/#ios_sdk.html'
   spec.license      =  {
   	:type	=> 'commercial',
     :text => 'Copyright 2014 OpenX Technologies, Inc. All rights reserved.'
@@ -15,13 +16,17 @@ Pod::Spec.new do |spec|
     :http => 'http://i.cdn.openx.com/sdks/OpenX_Mobile_SDK_iOS.zip'
   }
   
+  # LIBRARY LOCATIONS
   spec.source_files = "OpenX_Mobile_SDK_iOS/SDK/Headers/*.h"
+  spec.public_header_files = "OpenX_Mobile_SDK_iOS/SDK/Headers/*.h"
   spec.preserve_paths = "OpenX_Mobile_SDK_iOS/SDK/libOpenXMSDK.a"
-  spec.resources = "OpenX_Mobile_SDK_iOS/SDK/OpenXMSDKResources.bundle"
+  spec.ios.vendored_library = "OpenX_Mobile_SDK_iOS/SDK/libOpenXMSDK.a"
+  spec.resource = "OpenX_Mobile_SDK_iOS/SDK/OpenXMSDKResources.bundle"
   
-  # arc
+  # ARC
   spec.requires_arc = false
   
+  # FRAMEWORKS & XCODE CONFIG
   spec.frameworks 	 = 'SystemConfiguration', 'AdSupport', 'CoreGraphics', 'CoreLocation', 'CoreTelephony', 'EventKit', 'EventKitUI', 'MapKit', 'MediaPlayer'
-  spec.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenXMSDK"', 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/OpenXMSDK' }
+  spec.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OpenXMSDK"', 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/OpenXMSDK', 'OTHER_LDFLAGS' => '-lObjC'}
 end
