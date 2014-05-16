@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'MVModalTransition/*.{h,m}'
 
+  s.screenshots  = ["https://github.com/bizz84/MVModalTransitions/raw/master/Screenshots/ModalPortrait.png"]
+
   s.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
 
   s.dependency  'Masonry', '~> 0.4.0'
