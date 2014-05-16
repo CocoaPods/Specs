@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://www.openssl.org/"
   s.license	     = { :type => 'OpenSSL (OpenSSL/SSLeay)', :file => 'LICENSE.txt' }
   s.source       = { :git => "https://github.com/krzak/OpenSSL.git", :tag => "#{s.version}" }
+  s.deprecated_in_favor_of 'OpenSSL'
 
   s.authors       =  {'Mark J. Cox' => 'mark@openssl.org',
                      'Ralf S. Engelschall' => 'rse@openssl.org',
