@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/uzysjung/UzysSlideMenu.git", :tag => "1.1.0" }
   s.requires_arc = false
   s.source_files = 'UzysSlideMenu/Library'
+  s.resources = ["UzysSlideMenu/Library/*.xib"]
   s.public_header_files = 'UzysSlideMenu/Library/*.h'
   s.ios.frameworks = 'QuartzCore'
 
