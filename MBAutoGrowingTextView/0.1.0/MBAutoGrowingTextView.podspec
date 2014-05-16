@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/MatejBalantic/MBAutoGrowingTextView"
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author             = { "Matej Balantič" => "matej@balantic.si" }
+  s.screenshots = [ 	"https://raw.githubusercontent.com/MatejBalantic/MBDocs/master/MBAutoGrowingTextView/animated.gif"]
   s.social_media_url = "http://twitter.com/skavt"
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/MatejBalantic/MBAutoGrowingTextView.git", :tag => "0.1.0" }
