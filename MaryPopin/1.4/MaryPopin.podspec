@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
                     On iOS 7, it can use motion effects and UIKit Dynamics for even better looking popins.
                    DESC
 
+  s.screenshot = "https://raw.githubusercontent.com/Backelite/MaryPopin/master/MaryPopin.gif"
   s.homepage     = "https://github.com/Backelite/MaryPopin"
   s.social_media_url = 'https://twitter.com/AgenceBackelite'
   s.license      = 'MIT'
