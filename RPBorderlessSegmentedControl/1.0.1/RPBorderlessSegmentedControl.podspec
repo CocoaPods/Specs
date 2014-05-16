@@ -8,8 +8,7 @@ Pod::Spec.new do |s|
   s.author           = { "Brandon Evans" => "brandon.evans@robotsandpencils.com" }
   s.source           = { :git => "https://github.com/RobotsAndPencils/RPBorderlessSegmentedControl.git", :tag => s.version.to_s }
 
-  s.platform     = :osx, '10.9'
-  s.osx.deployment_target = '10.9'
+  s.platform     = :osx, '10.8'
   s.requires_arc = true
 
   s.source_files = 'Classes', 'Categories'
