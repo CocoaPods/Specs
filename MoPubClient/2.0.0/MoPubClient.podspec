@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/mopub/mopub-ios-sdk.git', :tag => '2.0.0' }
   s.requires_arc = false
   s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation', 'MediaPlayer'
-  s.deprecated_for = 'mopub-ios-sdk'
+  s.deprecated_in_favor_of = 'mopub-ios-sdk'
   s.default_subspec = 'Classes'
 
   s.subspec 'iAdAdapter' do |ss|
