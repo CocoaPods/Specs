@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
                        http://walkingsmarts.com/camelcasing-and-underscoring-strings-in-objectivec/
                        provided the basis for our code.
                        DESC
-  s.homepage         = "http://socialtables.com"
+  s.homepage         = "https://github.com/socialtables/NSString-STUnderCase"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Rami Chowdhury" => "rami.chowdhury@gmail.com", "Social Tables" => "product@socialtables.com" }
