@@ -10,4 +10,5 @@ Pod::Spec.new do |spec|
 	spec.requires_arc = true
 	spec.platform = :ios, '6.0'
 	spec.ios.deployment_target = '6.0'
+	spec.screenshot = 'http://f.cl.ly/items/2z1K192Q1d1X2J0s2I1D/Image%202014-05-16%20at%2011.24.18%20pm.png'
 end
