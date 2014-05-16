@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/mopub/mopub-ios-sdk.git", :tag => "2.1.0" }
   s.frameworks = "CoreGraphics", "CoreLocation", "CoreTelephony", "EventKit", "EventKitUI", "Foundation", "MediaPlayer", "QuartzCore", "SystemConfiguration", "UIKit"
   s.weak_frameworks = "AdSupport", "StoreKit"
-  s.public_header_files = "MoPubSDK/*.h", "MoPubSDK/Native Ads/*.h"
   s.requires_arc = false
   s.default_subspec = 'MoPubSDK'
 
@@ -65,12 +64,6 @@ Pod::Spec.new do |s|
   s.subspec 'Greystripe' do |ss|
     ss.source_files = 'AdNetworkSupport/Greystripe/*.{h,m}'
     ss.dependency 'GreystripeSDK', '~> 4.2.3'
-    ss.dependency 'mopub-ios-sdk/MoPubSDK'
-  end
-
-  s.subspec 'Vungle' do |ss|
-    ss.source_files = 'AdNetworkSupport/Vungle/*.{h,m}'
-    ss.dependency 'VungleAdvertiserSDK', '~> 2.0.1'
     ss.dependency 'mopub-ios-sdk/MoPubSDK'
   end
 
