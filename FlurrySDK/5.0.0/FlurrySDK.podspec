@@ -6,14 +6,15 @@ Pod::Spec.new do |s|
   s.name     = 'FlurrySDK'
   s.version  = '5.0.0'
   s.license  = { :type => 'Commercial', :text => license }
-  s.summary  = 'FlurrySDK for analytics tracking and reporting. Also Ads included'
+  s.summary  = 'Flurry SDK for analytics tracking and reporting. FlurryAds SDK also included.'
   s.homepage = 'http://www.flurry.com'
   s.author   = { 'Flurry' => 'http://www.flurry.com' }
   s.source   = { :git => 'https://github.com/AntonPalich/Flurry.git', :tag => "#{s.version}" }
-  s.description = 'FlurrySDK for analytics tracking and reporting. Also Ads included'
+  s.description = 'Written by Flurry SDKs (static libs) for analytics tracking and reporting. Also Ads included'
   s.platform = :ios
   s.default_subspec = 'FlurrySDK'
-
+  s.requires_arc = false
+  
   s.subspec 'FlurrySDK' do |ss|
     ss.source_files = 'Flurry/**/*.h'
     ss.preserve_paths = 'Flurry/**/*.a'
