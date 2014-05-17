@@ -4,11 +4,13 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'New BSD', :file => 'LICENSE' }
   s.platform     = :ios, '5.0'
   s.summary      = 'Client SDK for MoPub.'
+  s.description  = 'This is an unofficial podspec for the MoPub iOS SDK.'
   s.homepage     = 'http://www.mopub.com'
   s.author       = { 'MoPub' => 'http://www.mopub.com' }
   s.source       = { :git => 'https://github.com/mopub/mopub-ios-sdk.git', :tag => '2.0.0' }
   s.requires_arc = false
   s.frameworks   = 'UIKit', 'Foundation', 'StoreKit', 'CoreLocation', 'MediaPlayer'
+  s.deprecated_in_favor_of = 'mopub-ios-sdk'
   s.default_subspec = 'Classes'
 
   s.subspec 'iAdAdapter' do |ss|
