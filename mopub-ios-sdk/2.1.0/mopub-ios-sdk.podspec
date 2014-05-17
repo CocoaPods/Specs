@@ -26,21 +26,24 @@ Pod::Spec.new do |s|
   s.subspec 'MoPubSDK' do |ss|
     ss.source_files = 'MoPubSDK/*.{h,m}'
     ss.resources    = 'MoPubSDK/**/*.{png,bundle,xib,nib}'
-    ss.dependency 'mopub-ios-sdk/MoPubSDK/Internal'
-    ss.dependency 'mopub-ios-sdk/MoPubSDK/Native Ads'
+    ss.dependency 'mopub-ios-sdk/MoPubSDK Internal'
+    ss.dependency 'mopub-ios-sdk/Native Ads'
+  end
 
-    ss.subspec 'Internal' do |sss|
-      sss.source_files = 'MoPubSDK/Internal/**/*.{h,m}'
-    end
+  s.subspec 'MoPubSDK Internal' do |ss|
+    ss.source_files = 'MoPubSDK/Internal/**/*.{h,m}'
+    ss.dependency 'mopub-ios-sdk/MoPubSDK'
+  end
 
-    ss.subspec 'Native Ads' do |sss|
-      sss.source_files = 'MoPubSDK/Native Ads/*.{h,m}'
-      sss.dependency 'mopub-ios-sdk/MoPubSDK/Native Ads/Native Ads Internal'
+  s.subspec 'Native Ads' do |ss|
+    ss.source_files = 'MoPubSDK/Native Ads/*.{h,m}'
+    ss.dependency 'mopub-ios-sdk/MoPubSDK'
+    ss.dependency 'mopub-ios-sdk/Native Ads Internal'
+  end
 
-      sss.subspec 'Native Ads Internal' do |ssss|
-        ssss.source_files = 'MoPubSDK/Native Ads/Internal/**/*.{h,m}'
-      end
-    end
+  s.subspec 'Native Ads Internal' do |ss|
+    ss.source_files = 'MoPubSDK/Native Ads/Internal/**/*.{h,m}'
+    ss.dependency 'mopub-ios-sdk/Native Ads'
   end
 
   s.subspec 'iAd' do |ss|
