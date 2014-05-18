@@ -97,4 +97,6 @@ LICENSE
 
   s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics', 'MapKit', 'CoreLocation', 'AddressBook', ''
   s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z'
+
+  s.ios.dependency 'SitecoreSDKCoreFramework', '~2.0'
 end
