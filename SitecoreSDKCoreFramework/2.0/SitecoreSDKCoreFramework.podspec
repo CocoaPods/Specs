@@ -74,8 +74,8 @@ LICENSE
   s.source       = { :http => "https://github.com/Sitecore/sitecore-ios-sdk/releases/download/v2.0/SitecoreMobileSDK.framework.zip" }
   s.author       =  'Sitecore Corporation'
   
-  s.ios.platform          = :ios, '7.0'
-  s.ios.deployment_target = '7.0'
+  s.ios.platform          = :ios
+  s.ios.deployment_target = '6.0'
   s.ios.requires_arc = true  
 
 
