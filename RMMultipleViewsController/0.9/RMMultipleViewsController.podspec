@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/CooperRS/RMMultipleViewsController"
   s.screenshots  = "http://cooperrs.github.io/RMMultipleViewsController/Images/Screen1.png", "http://cooperrs.github.io/RMMultipleViewsController/Images/Screen2.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.author       = { "CooperRS" => "CooperRS@yasit.net" }
+  s.author       = { "Roland Moers" => "snippets@cooperrs.de" }
   s.source       = { :git => "https://github.com/CooperRS/RMMultipleViewsController.git", :tag => "0.9" }
   s.source_files = 'RMMultipleViewsController/*'
   s.platform     = :ios, '7.0'

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/CooperRS/RMDateSelectionViewController"
   s.screenshots  = "http://cooperrs.github.io/RMDateSelectionViewController/Images/Screen-Portrait.png", "http://cooperrs.github.io/RMDateSelectionViewController/Images/Screen-Landscape.png", "http://cooperrs.github.io/RMDateSelectionViewController/Images/Screen-Portrait-Black.png"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.author       = { "CooperRS" => "CooperRS@yasit.net" }
+  s.author       = { "Roland Moers" => "snippets@cooperrs.de" }
   s.source       = { :git => "https://github.com/CooperRS/RMDateSelectionViewController.git", :tag => "0.9.1" }
   s.source_files = 'RMDateSelectionViewController/*'
   s.resources    = 'RMDateSelectionViewController/*.lproj'
