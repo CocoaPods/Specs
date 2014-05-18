@@ -14,9 +14,4 @@ Pod::Spec.new do |s|
   s.public_header_files = "core/include/**/*.h"
 
   s.requires_arc = false
-  s.xcconfig = {
-    # Use GNU C++ standard
-    'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++0x',
-    'CLANG_CXX_LIBRARY' => 'libstdc++',
-  }
 end
