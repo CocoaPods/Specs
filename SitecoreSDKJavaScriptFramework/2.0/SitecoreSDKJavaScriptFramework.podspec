@@ -102,8 +102,9 @@ LICENSE
   s.vendored_frameworks = 'SitecoreMobileUI.framework'
 
 
-  s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics', 'MapKit', 'CoreLocation', 'AddressBook', ''
-  s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z'
+  s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics', 'MapKit', 'CoreLocation', 'AddressBook', 'AddressBookUI', 'Social', 'MessageUI', 'EventKit', 'EventKitUI', 'CoreLocation', 'CoreMotion', 'MapKit', 'CoreAudio', 'AudioToolbox', 'CoreVideo', 'CoreMedia'
+  s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z', 'iconv'
+
 
   s.ios.dependency 'SitecoreSDKCoreFramework', '2.0'
   s.ios.dependency 'SitecoreSDKUIFramework'  , '2.0'
