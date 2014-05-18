@@ -8,11 +8,10 @@ Pod::Spec.new do |s|
   s.author      = { "Zhang Yungui" => "rhcad@hotmail.com" }
   s.social_media_url    = "http://weibo.com/rhcad"
 
-  s.platform    = :ios, "6.0"
+  s.platform    = :ios, "5.0"
   s.source      = { :git => "https://github.com/touchvg/TouchVG.git", :tag => "v1.1.10" }
-  s.source_files  = "ios", "ios/**/*.{h,m,mm}"
-  s.exclude_files = "ios/TouchVG"
-  s.public_header_files = "ios/include/*.h"
+  s.ios.source_files    = 'ios/include/*.h', 'ios/src/*.{h,m,mm}'
+  s.public_header_files = 'ios/include/*.h'
   s.frameworks = "UIKit", "QuartzCore", "CoreGraphics", "Foundation"
 
   s.requires_arc = true
@@ -21,5 +20,6 @@ Pod::Spec.new do |s|
     'CLANG_CXX_LIBRARY' => 'libstdc++',
     "HEADER_SEARCH_PATHS" => '$(PODS_ROOT)/Headers/TouchVGCore'
   }
+  s.resource = 'ios/TouchVG.bundle'
   s.dependency "TouchVGCore", "~> 0.29"
 end
