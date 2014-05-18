@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Jeroen Trappers" => "jeroen.trappers@gmail.com" }
   s.platform     = :ios, '5.0'
-  s.source       = { :git => "https://github.com/rudensm/LocalizationPOC.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/jeroentrappers/LocalizationPOC.git", :branch => "master" }
   s.source_files  = 'LocalizationPOC/LocalizationSystem.{h,m}'
   s.requires_arc = true
   s.deprecated_in_favor_of = 'LocalizationSystem'
