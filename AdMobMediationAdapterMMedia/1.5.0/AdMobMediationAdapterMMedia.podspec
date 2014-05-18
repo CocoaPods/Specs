@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   }
   s.homepage = 'http://www.millennialmedia.com/'
 
-  s.author = { "Millennial Media" }
+  s.author = "Millennial Media"
 
   s.platform = :ios, '5.0'
   s.preserve_paths = 'libAdapterMillennial.a'

@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   }
   s.homepage = 'http://www.inmobi.com/'
 
-  s.author = { "InMobi" }
+  s.author = "InMobi"
 
   s.platform = :ios, '5.0'
   s.preserve_paths = 'libAdapterInMobi.a'
