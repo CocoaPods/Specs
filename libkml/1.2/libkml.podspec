@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.dependency 'uriparser'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/libkml/src $(PODS_ROOT)/libkml/third_party/boost_1_34_1 $(PODS_ROOT)/libkml/third_party/zlib-1.2.3 $(PODS_ROOT)/libkml/third_party/zlib-1.2.3/contrib' }
+  s.requires_arc = false
 end

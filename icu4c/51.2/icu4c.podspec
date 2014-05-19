@@ -19,27 +19,69 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
 
-  s.pre_install do |pod, lib|
-    if (pod.root + 'source/configure').exist?
-      Dir.chdir(pod.root.to_s + "/source") do
-        `sed 's/#ifdef DEBUG$/#ifdef DEBUG_ICU/' < i18n/rbnf.cpp > i18n/rbnf.cpp.tmp`
-        `mv i18n/rbnf.cpp.tmp i18n/rbnf.cpp`
-        toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-        cflags = ""
-        cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
-        ldflags = "-lstdc++ -stdlib=libstdc++"
-        `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
-        `cd common ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-        `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-        `cd io ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-        `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-        `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/Headers/icu4c"`
-        `cd common ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-        `cd i18n ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-        `cd io ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-        `cd layout ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-        `cd layoutex ; make install-headers includedir="#{lib.sandbox_dir}/BuildHeaders/icu4c"`
-      end
-    end
-  end
+  s.prepare_command = <<-CMD
+    cd source
+    CURRENTPATH=`pwd`
+    TOOLCHAIN="`xcode-select -p`/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+    CXXFLAGS="-stdlib=libstdc++ -std=gnu++11"
+    LDFLAGS="-lstdc++ -stdlib=libstdc++"
+    CXXFLAGS="$CXXFLAGS" CC="$TOOLCHAIN/clang" CXX="$TOOLCHAIN/clang++" LDFLAGS="$LDFLAGS" ./configure
+    DIR=$CURRENTPATH
+
+    cd common ; make install-headers includedir="$DIR/Headers/icu4c" ; cd ..
+    cd i18n ; make install-headers includedir="$DIR/Headers/icu4c" ; cd ..
+    cd io ; make install-headers includedir="$DIR/Headers/icu4c" ; cd ..
+    cd layout ; make install-headers includedir="$DIR/Headers/icu4c" ; cd ..
+    cd layoutex ; make install-headers includedir="$DIR/Headers/icu4c" ; cd ..
+
+    cd common ; make install-headers includedir="$DIR/BuildHeaders/icu4c" ; cd ..
+    cd i18n ; make install-headers includedir="$DIR/BuildHeaders/icu4c" ; cd ..
+    cd io ; make install-headers includedir="$DIR/BuildHeaders/icu4c" ; cd ..
+    cd layout ; make install-headers includedir="$DIR/BuildHeaders/icu4c" ; cd ..
+    cd layoutex ; make install-headers includedir="$DIR/BuildHeaders/icu4c" ; cd ..
+    cd ..
+
+    find . -type f | LC_CTYPE=C xargs sed -i '' 's/include "unicode\\//include "/g'
+    find . -type f | LC_CTYPE=C xargs sed -i '' 's/include "layout\\//include "/g'
+
+    echo "
+--- a/source/common/ubidi.c
++++ b/source/common/ubidi.c
+1200c1200
+<     Point point;
+---
+>     struct ICU4CPoint point;
+--- a/source/common/ubidiimp.h
++++ b/source/common/ubidiimp.h
+176c176
+< typedef struct Point {
+---
+> typedef struct ICU4CPoint {
+186c186
+<     Point *points;          /* pointer to array of points */
+---
+>     struct ICU4CPoint *points;          /* pointer to array of points */
+--- a/source/common/ubidiln.c
++++ b/source/common/ubidiln.c
+689c689
+<         Point *point, *start=pBiDi->insertPoints.points,
+---
+>         struct ICU4CPoint *point, *start=pBiDi->insertPoints.points,
+--- a/source/i18n/rbnf.cpp
++++ b/source/i18n/rbnf.cpp
+34c34
+< #ifdef DEBUG
+---
+> #ifdef DEBUG_ICU
+327c327
+< #ifdef DEBUG
+---
+> #ifdef DEBUG_ICU
+554c554
+< #ifdef DEBUG
+---
+> #ifdef DEBUG_ICU" | patch -p1
+CMD
+  s.requires_arc = false
 end
+

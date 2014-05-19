@@ -1,6 +1,6 @@
 # A repository of CocoaPods specifications.
 
-[![Build Status](https://secure.travis-ci.org/CocoaPods/Specs.png?branch=master)](http://travis-ci.org/CocoaPods/Specs)
+[![Build Status](http://img.shields.io/travis/CocoaPods/Specs/master.svg)](http://travis-ci.org/CocoaPods/Specs)
 
 This repository contains specifications of open-source Objective-C libraries, which are used by [CocoaPods](https://github.com/CocoaPods/CocoaPods) to manage library dependencies for your Xcode project.
 

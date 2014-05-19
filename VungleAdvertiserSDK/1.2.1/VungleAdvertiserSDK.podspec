@@ -46,4 +46,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'vungle/lib/vunglepub/bin/libvunglepub.a'
   s.library = 'vunglepub'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/VungleAdvertiserSDK/vungle/lib/vunglepub/bin/"' }
+  s.requires_arc = false
 end

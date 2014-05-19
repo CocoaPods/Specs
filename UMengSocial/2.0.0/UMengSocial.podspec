@@ -24,5 +24,6 @@ Pod::Spec.new do |s|
   
   s.framework         = "SystemConfiguration","MobileCoreServices"
   s.platform          = :ios,'4.3'
+  s.requires_arc = false
 end
 

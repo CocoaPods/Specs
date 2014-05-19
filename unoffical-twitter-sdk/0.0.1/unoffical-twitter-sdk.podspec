@@ -34,12 +34,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'SBJson'
 
-  def s.post_install(target)
-    old_header = File.read( config.project_pods_root + 'unoffical-twitter-sdk/unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h' )
-        
-    File.open( config.project_pods_root + 'unoffical-twitter-sdk/unoffical-twitter-sdk/OAuth/OAuthConsumerCredentials.h', "w+" ) do |file|
-      file.puts old_header.gsub("#error", "//#error")
-    end
-  end
-
+  s.requires_arc = false
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'VLMHarlemShake/*.{h,m}'
   s.resource  = "VLMHarlemShake/HarlemShake.mp3"
   s.framework  = 'QuartzCore', 'AVFoundation'
+  s.requires_arc = false
 end

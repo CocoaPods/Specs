@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target =  '10.6'
   s.source_files          =  'BaseModel'
   s.preserve_paths        =  "RELEASE NOTES.md"
+  s.requires_arc = false
 end

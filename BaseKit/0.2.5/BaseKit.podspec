@@ -45,4 +45,5 @@ Pod::Spec.new do |s|
     form_mapping.dependency 'BWLongTextViewController'
     form_mapping.dependency 'ActionSheetPicker2'
   end
+  s.requires_arc = false
 end

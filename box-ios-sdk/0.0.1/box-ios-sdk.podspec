@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/SDKFiles/**/*.{h,m}'
   s.framework    = 'Security'
   s.license      = 'Commercial'
+  s.requires_arc = false
 end

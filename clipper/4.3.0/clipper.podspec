@@ -21,4 +21,5 @@ The clipping code is based on the Vatti clipping algorithm, and out performs oth
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/clipper/"' }
 
+  s.requires_arc = false
 end

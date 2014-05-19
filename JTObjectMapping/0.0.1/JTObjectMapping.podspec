@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
                  :commit => '7aaba18ee646e7ba7226ed53021a84ada93d71b7' }
 
   s.source_files = 'JTObjectMapping/Source/*.{h,m}'
+  s.requires_arc = false
 end

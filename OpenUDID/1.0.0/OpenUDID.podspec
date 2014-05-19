@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
                    distribution.
                  TXT
                  }
+  s.requires_arc = false
 end

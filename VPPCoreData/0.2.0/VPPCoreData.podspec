@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.description = 'VPPCoreData is a Core Data wrapper with Active Record support that simplifies the task of managing data with Core Data framework. This library offers an automatic setup of Core Data and a set of methods to set and retrieve data, both in foreground and background.'
   s.source_files = 'VPPCoreData', 'VPPCoreData/Categories'
   s.framework = 'CoreData'
+  s.requires_arc = false
 end

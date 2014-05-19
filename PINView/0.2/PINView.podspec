@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.resources = "pinview/*.{png,xib}"
 
   s.frameworks = "AudioToolbox"
+  s.requires_arc = false
 end

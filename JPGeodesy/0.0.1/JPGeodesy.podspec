@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       = { "BJ Basañes" => "shikishiji@gmail.com", "Juan Pablo Ortiz Arechiga" => "pablasso@gmail.com" }
   s.source       = { :git => "https://github.com/pablasso/JPGeodesy.git", :tag => "0.0.1" }
   s.source_files = 'JPGeodesy'
+  s.requires_arc = false
 end

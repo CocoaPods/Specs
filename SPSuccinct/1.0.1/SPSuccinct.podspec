@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.description = 'Making ObjC succinct: KVO tools including SPDepends, and macros for "POD" literals.'
 
   s.source_files = 'SPSuccinct/SP*.{h,m}'
+  s.requires_arc = false
 end

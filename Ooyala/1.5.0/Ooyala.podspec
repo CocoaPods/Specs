@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'OoyalaSDK-iOS/libOoyalaSDK.a'
   s.source_files = 'OoyalaSDK-iOS/Headers/*.h'
   s.libraries    = 'c++', 'xml2', 'OoyalaSDK'
+  s.requires_arc = false
 end
 

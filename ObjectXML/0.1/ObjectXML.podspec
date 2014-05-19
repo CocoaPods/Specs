@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'ObjectXML/*.h'
   s.library   = 'xml2'
   s.dependency 'cdebug', '~> 0.1'
+  s.requires_arc = false
 end

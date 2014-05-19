@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/ccgus/fmdb.git',
                  :tag => 'v2.0' }
 
-  s.preferred_dependency = 'standard'
+  s.default_subspec = 'standard'
 
   s.subspec 'common' do |ss|
     ss.source_files = 'src/FM*.{h,m}'
@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
     ss.dependency 'FMDB/common'
   end
 
+  s.requires_arc = false
 end

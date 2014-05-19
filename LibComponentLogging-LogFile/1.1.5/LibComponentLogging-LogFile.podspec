@@ -19,27 +19,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'LibComponentLogging-Core', '>= 1.1.6'
 
-  def s.post_install(target)
-    if not (config.respond_to? :lcl_config and config.lcl_config) then
-      # LibComponentLogging-pods configuration is not available
-      Dir.chdir(config.project_pods_root + 'LibComponentLogging-LogFile/') do
-        system('sed \'s/<UniquePrefix>/MyApp/g\' LCLLogFileConfig.template.h > LCLLogFileConfig.h')
-      end
-      Dir.chdir(config.project_pods_root + 'Headers/LibComponentLogging-LogFile/') do
-        FileUtils.ln_sf('../../LibComponentLogging-LogFile/LCLLogFileConfig.h', 'LCLLogFileConfig.h')
-      end
-      Dir.chdir(config.project_pods_root + 'BuildHeaders/LibComponentLogging-LogFile/') do
-        FileUtils.ln_sf('../../LibComponentLogging-LogFile/LCLLogFileConfig.h', 'LCLLogFileConfig.h')
-      end
-      return
-    end
+  s.requires_arc = false
 
-    config.lcl_config.configure_logger(
-        :name     => 'LogFile',
-        :header   => 'LCLLogFile.h',
-        :template => 'LibComponentLogging-LogFile/LCLLogFileConfig.template.h',
-        :modify   => [ 'LibComponentLogging-LogFile/LCLLogFile.m' ]
-      )
-  end
-
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

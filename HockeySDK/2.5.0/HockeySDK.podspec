@@ -23,22 +23,5 @@ Pod::Spec.new do |s|
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{$(inherited) BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
 
-  def s.post_install(target_installer)
-    puts "\nGenerating HockeySDK resources bundle\n".yellow if config.verbose?
-    Dir.chdir File.join(config.project_pods_root, 'HockeySDK/Support') do
-      command = "xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources"
-      command << " 2>&1 > /dev/null" unless config.verbose?
-      unless system(command)
-        raise ::Pod::Informative, "Failed to generate HockeySDK resources bundle"
-      end
-    end
-    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      script_path = target_installer.copy_resources_script_path
-    else
-      script_path = File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name)
-    end
-    File.open(script_path, 'a') do |file|
-      file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
-    end
-  end
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}'
   s.framework    = 'QuartzCore'
   s.resources    = '*.png'
+  s.requires_arc = false
 end

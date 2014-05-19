@@ -21,15 +21,6 @@ Pod::Spec.new do |m|
 
   m.prefix_header_file = 'MapView/MapView_Prefix.pch'
 
-  m.pre_install do |pod, target_definition|
-    Dir.chdir(pod.root) do
-      command = "xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null"
-      unless system(command)
-        raise ::Pod::Informative, "Failed to generate MapBox resources bundle"
-      end
-    end
-  end
-
   m.resource = 'Resources/MapBox.bundle'
 
   m.documentation = {
@@ -68,6 +59,8 @@ Pod::Spec.new do |m|
     ]
   }
 
+  m.documentation_url = 'https://www.mapbox.com/mapbox-ios-sdk/api/'
+
   m.frameworks = 'CoreGraphics', 'CoreLocation', 'Foundation', 'QuartzCore', 'UIKit'
 
   m.libraries = 'Proj4', 'sqlite3', 'z'
@@ -80,4 +73,5 @@ Pod::Spec.new do |m|
   m.dependency 'GRMustache', '5.4.3'
   m.dependency 'SMCalloutView', '1.1'
 
+  m.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

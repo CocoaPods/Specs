@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
                  :commit => '8b7c7ecfc8fad396b6547ad3fef085713644f794' }
 
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

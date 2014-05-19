@@ -39,4 +39,5 @@ Pod::Spec.new do |s|
   }
   s.platform     = :osx
   s.source_files = 'Sample/Sample/ANSegmentedControl/*.{h,m}'
+  s.requires_arc = false
 end

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.library   = 'c++'
   s.resources = 'dropbox-ios-sync-sdk-2.0.0-b6/Dropbox.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Dropbox-Sync-API-SDK/dropbox-ios-sync-sdk-2.0.0-b6"' }
+  s.requires_arc = false
 end

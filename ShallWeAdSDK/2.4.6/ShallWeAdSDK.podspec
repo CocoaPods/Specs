@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.source_files = '*.{h,m}', 'ShallWeAD_IOSSDK.Framework/Headers/ShallWeAD.h'
   s.preserve_paths = '*.a'
   s.frameworks = 'CoreLocation', 'CoreTelephony', 'CoreGraphics'
+  s.requires_arc = false
 end

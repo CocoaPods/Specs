@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                       'UIImagePickerController.'
   s.homepage       =  'https://github.com/gekitz/GKImagePicker'
   s.author         =  { 'Georg Kitz' => 'info@aurora-apps.com' }
-  s.source         =  { :git => 'https://github.com/gekitz/GKImagePicker.git', :commit => 'e1d527aedc832f5837da80cf228cc68aecf5045b' }
+  s.source         =  { :git => 'https://github.com/gekitz/GKImagePicker.git', :commit => '01847cdec21f870b7cdadfae51342990e2a238df' }
   s.resources      =  'GKImages/*.png'
   s.source_files   =  'GKClasses/*.{h,m}'
   s.preserve_paths =  'GKClasses', 'GKImages'

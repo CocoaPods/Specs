@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.libraries = 'crypto', 'sqlcipher'
   s.xcconfig     =  { 'OTHER_CFLAGS' => '$(inherited) -DSQLITE_HAS_CODEC', 'LIBRARY_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/SQLCipher"' }
   s.platform = :ios
+  s.requires_arc = false
 end

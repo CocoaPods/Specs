@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/*.{h,m}' 
   s.resources = 'Images/*.png' 
   s.frameworks = 'UIKit' , 'MessageUI'
+  s.requires_arc = false
 end

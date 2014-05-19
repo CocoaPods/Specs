@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.xcconfig = {
     'USE_HEADERMAP' => 'NO',
   }
+  s.requires_arc = false
 end

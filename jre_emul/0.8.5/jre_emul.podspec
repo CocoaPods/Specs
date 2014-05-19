@@ -25,4 +25,5 @@ Pod::Spec.new do |s|
     junit.dependency 'jre_emul/jre'
   end
 
+  s.requires_arc = false
 end

@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
                   ' with iTunes file sharing support. This code uses the BSD kqueue API and should work on OSX as well as iOS.'
 
   s.source_files = 'DirectoryWatchdog/lib/*.{h,m}'
+  s.requires_arc = false
 end

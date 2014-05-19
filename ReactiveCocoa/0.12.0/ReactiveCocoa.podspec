@@ -30,11 +30,5 @@ Pod::Spec.new do |s|
     sp.dependency 'ReactiveCocoa/Core'
   end
 
-  def s.pre_install (pod, _)
-    header = pod.root + 'ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h'
-    contents = header.read
-    contents = contents.gsub('ReactiveCocoa/libextobjc/extobjc/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
-    contents = contents.gsub('ReactiveCocoa/EXTKeyPathCoding.h', 'EXTKeyPathCoding.h')
-    File.open(header, 'w') { |file| file.puts(contents) }
-  end
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

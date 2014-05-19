@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
                       SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.     
 LICENSE
    }
+  s.requires_arc = false
 end

@@ -52,4 +52,5 @@ Pod::Spec.new do |s|
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'SystemConfiguration', 'CoreTelephony', 'MediaPlayer'
   s.weak_frameworks = 'AdSupport'  
   s.xcconfig     = { 'OTHER_LDFLAGS' => '-ObjC -force_load "$(PODS_ROOT)/TapjoyPublisherSDK/TapjoyPublisherSDK_iOS_v9.0.4/TapjoyPublisherLibrary/TapjoyPublisherLibrary.a"'}
+  s.requires_arc = false
 end

@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.dependency   'gtm-oauth', '= 0.0.1'
   s.dependency   'SFHFKeychainUtils', '= 0.0.1'
   s.frameworks = 'Security','SystemConfiguration'
+  s.deprecated_in_favor_of = "XNGAPIClient"
 end

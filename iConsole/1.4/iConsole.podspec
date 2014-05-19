@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source_files = 'iConsole', 'GTM'
+  s.requires_arc = false
 end

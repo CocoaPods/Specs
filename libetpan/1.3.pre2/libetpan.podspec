@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
     cd build-mac
     SRCROOT=true sh update.sh
   CMD
+  s.requires_arc = false
 end

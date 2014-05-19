@@ -33,4 +33,5 @@ Pod::Spec.new do |s|
   s.prefix_header_file = 'iphone/include/prefix.pch'
 
   s.compiler_flags = '-w'
+  s.requires_arc = false
 end

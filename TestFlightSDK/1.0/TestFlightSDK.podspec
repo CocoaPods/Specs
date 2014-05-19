@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.library = 'TestFlight', 'z'
   s.framework = 'UIKit'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/TestFlightSDK"' }
+  s.requires_arc = false
 end

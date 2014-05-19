@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.frameworks = "CoreText", "Foundation", "UIKit"
 
   s.dependency 'boost/string_algorithms-includes'
+  s.requires_arc = false
 end

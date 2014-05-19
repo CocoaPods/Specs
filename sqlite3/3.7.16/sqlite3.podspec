@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source       = {:http => "http://www.sqlite.org/2013/sqlite-amalgamation-#{sqlite_version_format}.zip"}
   s.source_files = "sqlite-amalgamation-#{sqlite_version_format}/sqlite3*.{h,c}"
 
+  s.requires_arc = false
 end

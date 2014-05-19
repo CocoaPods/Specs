@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'The Objective-C block utilities you always wish you had.'
   s.homepage = 'https://github.com/zwaldowski/BlocksKit'
-  s.author   = { 'Zachary Waldowski' => 'zwaldowski@gmail.com'}
+  s.author   = { 'Zachary Waldowski' => 'zach@waldowski.me' }
   s.source   = { :git => 'https://github.com/zwaldowski/BlocksKit.git', :tag => 'v0.9.5' }
 
   s.source_files = 'BlocksKit'

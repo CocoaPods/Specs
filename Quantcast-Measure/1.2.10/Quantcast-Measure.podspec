@@ -57,4 +57,5 @@ Pod::Spec.new do |s|
     periodicals.requires_arc 	= false
   end
   
+  s.requires_arc = false
 end

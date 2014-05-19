@@ -24,4 +24,5 @@ THIS SOFTWARE IS PROVIDED BY TOM IRVING "AS IS" AND ANY EXPRESS OR IMPLIED WARRA
   s.source       = { :git => "https://github.com/thermogl/TITokenField.git", :tag => "0.9.0" }
   s.platform     = :ios
   s.source_files = 'Classes', '*.{h,m}'
+  s.requires_arc = false
 end

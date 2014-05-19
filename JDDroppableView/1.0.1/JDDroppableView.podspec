@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   
   s.platform     = :ios, '3.0'
   
+  s.requires_arc = false
 end

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files        = 'Omazing/**/*.{h,m}'
   s.public_header_files = 'Omazing/*.h'
   s.preserve_paths      = 'Omazing'
+  s.requires_arc = false
 end

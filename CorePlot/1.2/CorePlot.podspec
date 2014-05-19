@@ -3,12 +3,12 @@ Pod::Spec.new do |s|
   s.version  = '1.2'
   s.license  = 'BSD'
   s.summary  = 'Cocoa plotting framework for Mac OS X and iOS.'
-  s.homepage = 'http://code.google.com/p/core-plot/'
+  s.homepage = 'https://github.com/core-plot'
   s.authors  = { 'Drew McCormack' => 'drewmccormack@mac.com',
                  'Brad Larson'    => 'larson@sunsetlakesoftware.com',
                  'Eric Skroch'    => 'eskroch@mac.com',
                  'Barry Wark'     => 'barrywark@gmail.com' }
-  s.source   = { :hg  => 'http://code.google.com/p/core-plot', :revision => 'release_1.2' }
+  s.source   = { :http => 'https://github.com/core-plot/core-plot/releases/download/release_1.2/CorePlot_1.2.zip' }
 
   s.description = 'Core Plot is a plotting framework for OS X and iOS. It provides 2D visualization ' \
                   'of data, and is tightly integrated with Apple technologies like Core Animation, ' \
@@ -21,7 +21,9 @@ Pod::Spec.new do |s|
 
   s.framework   = 'QuartzCore'
 
-  s.pre_install do |pod, target_definition|
-    Dir.chdir(pod.root) {`/usr/sbin/dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h`}
-  end
+  s.prepare_command = <<-CMD
+    mv -v CorePlot_1.2/Source/framework .
+    mv -v CorePlot_1.2/Source/License.txt .
+    dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h
+  CMD
 end

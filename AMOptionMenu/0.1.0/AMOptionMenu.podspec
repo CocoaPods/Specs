@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files          = 'AMOptionMenu'
   s.frameworks            = 'Foundation', 'Cocoa', 'AppKit'
+  s.requires_arc = false
 end

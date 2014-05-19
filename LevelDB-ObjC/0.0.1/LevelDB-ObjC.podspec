@@ -18,10 +18,7 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/LevelDB-ObjC/leveldb-library"', 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/LevelDB-ObjC/leveldb-library/include"' }
 
-  def s.pre_install(pod, target_definition)
-    Dir.chdir(pod.root + 'leveldb-library') do
-      # build static library
-      `make PLATFORM=IOS CC=clang CXX=clang++ libleveldb.a`
-    end
-  end
+  s.requires_arc = false
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

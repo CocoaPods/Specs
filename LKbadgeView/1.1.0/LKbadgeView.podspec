@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'LKBadgeView.{h,m}' 
   s.frameworks = 'UIKit'
   s.license = { :type => 'MIT', :file => 'README.md' }
+  s.requires_arc = false
 end

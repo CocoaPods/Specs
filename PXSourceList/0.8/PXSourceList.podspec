@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Perspx/PXSourceList.git", :tag => "v0.8" }
   s.platform     = :osx, '10.5'
   s.source_files = 'Classes'
+  s.requires_arc = false
 end

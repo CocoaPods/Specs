@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.author       = '10gen, Inc.'
   s.license      = 'Apache'
   s.homepage     = "http://www.mongodb.org/"
-  s.source       = { :git => 'https://github.com/mongodb/mongo-c-driver.git',
+  s.source       = { :git => 'https://github.com/mongodb/mongo-c-driver-legacy.git',
                      :tag => "v#{s.version}" }
   s.summary      = "C driver for MongoDB."
   s.source_files = 'src'

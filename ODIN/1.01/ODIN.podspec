@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   s.source       = { :svn => 'http://odinmobile.googlecode.com/svn/Sample Code/iOS/', :tag => '1.01' }
   s.platform     = :ios, '4.3'
   s.source_files = '*.{h,m}'
+  s.requires_arc = false
 end

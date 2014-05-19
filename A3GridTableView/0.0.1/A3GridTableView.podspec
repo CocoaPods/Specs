@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/allaboutapps/A3GridTableView.git", :commit => "329bc6bc17b7a538f7c01e5ea3e8140f7c8b7821" }
   s.platform     = :ios
   s.source_files = 'A3GridTableView'
+  s.requires_arc = false
 end

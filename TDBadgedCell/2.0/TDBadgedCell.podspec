@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
 
 
   s.frameworks = 'QuartzCore'
+  s.requires_arc = false
 end

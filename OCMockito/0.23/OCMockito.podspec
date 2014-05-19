@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jonreid/OCMockito.git', :tag => 'V0.23' }
   s.source_files = 'Source/OCMockito/OCMockito.h', 'Source/OCMockito/**/*.{h,m,mm}'
   s.dependency 'OCHamcrest'
+  s.requires_arc = false
 end

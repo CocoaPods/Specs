@@ -41,4 +41,5 @@ Pod::Spec.new do |s|
     ss.xcconfig = { "GCC_PREFIX_HEADER" => "UIKitExtension/UIKitExtension-Prefix.pch" }
     ss.dependency "FoundationExtension/FoundationExtension"
   end
+  s.requires_arc = false
 end

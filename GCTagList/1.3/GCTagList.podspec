@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'GCTagList/classes/GCTagList.{h,m}'
   s.resource     = "GCTagList/assets/CGTagList.bundle"
   s.framework    = 'QuartzCore'
+  s.requires_arc = false
 end

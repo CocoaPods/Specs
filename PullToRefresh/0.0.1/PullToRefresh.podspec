@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/PullRefreshTableViewController.*'
   s.framework    = 'QuartzCore'
   s.resource     = 'arrow.png'
+  s.requires_arc = false
 end
