@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "SitecoreSDKCoreFramework"
+  s.name         = "SitecoreItemsBrowserFramework"
   s.version      = "1.0"
   s.summary      = "GUI controls for viewing the Sitecore content tree or some its branches as a hierarchy."
 
@@ -101,5 +101,5 @@ LICENSE
   s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics'
   s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z'
 
-  s.dependency = 'SitecoreSDKCoreFramework', '2.0'
+  s.dependency 'SitecoreSDKCoreFramework', '2.0'
 end
