@@ -93,9 +93,9 @@ LICENSE
   s.ios.requires_arc = true  
 
 
-  s.ios.preserve_paths = 'SitecoreMobileSDK.framework'
-  s.public_header_files = 'SitecoreMobileSDK.framework/Headers/**/*.{h,hpp}'
-  s.vendored_frameworks = 'SitecoreMobileSDK.framework'
+  s.ios.preserve_paths = 'SitecoreItemsBrowser.framework'
+  s.public_header_files = 'SitecoreItemsBrowser.framework/Headers/**/*.{h,hpp}'
+  s.vendored_frameworks = 'SitecoreItemsBrowser.framework'
 
 
   s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics'
