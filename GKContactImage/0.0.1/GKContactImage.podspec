@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/gekitz/GKContactImage"
+  s.screenshot   = "https://raw.githubusercontent.com/gekitz/GKContactImage/master/Files/screen.png"
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
