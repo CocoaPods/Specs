@@ -1,66 +1,4 @@
-overrides = Module.new do  
-  require 'set'
-  
-  def pattern_list(patterns)
-    if patterns.is_a?(Array) && (!defined?(Rake) || !patterns.is_a?(Rake::FileList))
-      patterns
-    else
-      [patterns]
-    end
-  end
-  
-  # Give the spec the possibility to define the list of private headers.
-  # They will go in a 'private' sub directory
-  def private_header_files=(patterns)
-    @private_header_files = self.pattern_list(patterns)
-    @private_headers_set = nil
-  end
-  attr_reader :private_header_files
-  
-  # Returns all private header files of this pod
-  # but relative to the project pods root.
-  #
-  # If the pattern is the path to a directory, the pattern will
-  # automatically glob for header files.
-  def expanded_private_header_files(pod_root)
-    files = []
-    (@private_header_files ||= []).each do |pattern|
-      pattern = pod_root + pattern
-      pattern = pattern + '*.h' if pattern.directory?
-      Pathname.glob(pattern).each do |file|
-        files << file.relative_path_from(pod_root)
-      end
-    end
-    files
-  end
-  
-  # CocoaPods < 0.17 for moving private header files to a 'private' sub directory
-  def copy_header_mapping(from)
-    @private_headers_set ||= Set.new expanded_private_header_files(pod_destroot)
-    @private_headers_set.include?(from) ? File.join("private", from.basename) : from.basename
-  end
-  
-  # CocoaPods >= 0.17 for moving private header to a 'private' sub directory
-  def self.extended(o)
-    if o.class.instance_method(:pre_install).arity == 0
-      o.pre_install do |pod, target_definition|
-        files = o.expanded_private_header_files(pod.root)
-        Dir.chdir(pod.root) do
-          header_dir = o.attributes_hash['header_dir'] || pod.name
-          private_headers_dest = File.join('src', header_dir, 'Headers', 'private')
-          FileUtils.mkdir_p(private_headers_dest)
-          files.each do |file|
-            FileUtils.mv file, private_headers_dest
-          end
-        end
-      end
-    end
-  end
-
-end
-
 Pod::Spec.new do |s|
-  s.extend(overrides)
   s.name     = 'Three20'
   s.version  = '1.0.11'
   s.summary  = 'Three20 is an Objective-C library for iPhone developers.'
@@ -148,7 +86,6 @@ Pod::Spec.new do |s|
 
   # Full name: Three20/Core
   s.subspec 'Core' do |cs|
-    cs.extend(overrides)
     cs.source_files = 'src/Three20Core/{Sources,Headers}/**/*.{h,m}'
     cs.private_header_files = 'src/Three20Core/Headers/TTExtensionInfoPrivate.h'
     cs.header_dir = 'Three20Core'
@@ -157,7 +94,6 @@ Pod::Spec.new do |s|
   
   # Full name: Three20/Network
   s.subspec 'Network' do |ns|
-    ns.extend(overrides)
     ns.source_files = 'src/Three20Network/{Sources,Headers}/**/*.{h,m}'
     ns.private_header_files = 'src/Three20Network/Headers/{TTRequestLoader,TTURLRequestQueueInternal}.h'
     ns.header_dir = 'Three20Network'
@@ -167,7 +103,6 @@ Pod::Spec.new do |s|
   
   # Full name: Three20/Style
   s.subspec 'Style' do |ss|
-    ss.extend(overrides)
     ss.source_files = 'src/Three20Style/{Sources,Headers}/**/*.{h,m}'
     ss.private_header_files = 'src/Three20Style/Headers/{TTShapeInternal,TTStyledNodeInternal,TTStyleInternal}.h'
     ss.header_dir = 'Three20Style'
@@ -178,7 +113,6 @@ Pod::Spec.new do |s|
   
   # Full name: Three20/UICommon
   s.subspec 'UICommon' do |ucs|
-    ucs.extend(overrides)
     ucs.source_files = source_files = 'src/Three20UICommon/{Sources,Headers}/**/*.{h,m}'
     ucs.private_header_files = 'src/Three20UICommon/Headers/UIViewControllerGarbageCollection.h'
     ucs.header_dir = 'Three20UICommon'
@@ -189,7 +123,6 @@ Pod::Spec.new do |s|
   
   # Full name: Three20/UINavigator
   s.subspec 'UINavigator' do |uns|
-    uns.extend(overrides)
     uns.source_files = 'src/Three20UINavigator/{Sources,Headers}/**/*.{h,m}'
     uns.private_header_files = 'src/Three20UINavigator/Headers/{TTBaseNavigatorInternal,TTURLArguments,' \
                                'TTURLArgumentType,TTURLLiteral,TTURLPatternInternal,TTURLPatternText,' \
@@ -202,7 +135,6 @@ Pod::Spec.new do |s|
 
   # Full name: Three20/UI
   s.subspec 'UI' do |us|
-    us.extend(overrides)
     us.source_files = 'src/Three20UI/{Sources,Headers}/**/*.{h,m}'
     us.private_header_files = 'src/Three20UI/Headers/{TTButtonContent,TTImageLayer,TTImageViewInternal,' \
                               'TTLauncherHighlightView,TTLauncherScrollView,TTNavigatorWindow,' \
@@ -221,7 +153,6 @@ Pod::Spec.new do |s|
   s.subspec 'ext' do |ext|
     # Full name: Three20/ext/CSSStyle
     ext.subspec 'CSSStyle' do |css|
-      css.extend(overrides)
       css.source_files = 'src/extThree20CSSStyle/{Sources,Headers,ThirdPart}/*.{h,m}'
       css.private_header_files = 'src/extThree20CSSStyle/Headers/CssTokens.h'
       css.header_dir = 'extThree20CSSStyle'
@@ -234,7 +165,6 @@ Pod::Spec.new do |s|
 
     # Full name: Three20/ext/JSON
     ext.subspec 'JSON' do |js|
-      js.extend(overrides)
       js.source_files = 'src/extThree20JSON/{Source,Headers}/**/*.{h,m}'
       js.header_dir = 'extThree20JSON'
       js.header_mappings_dir = 'src/extThree20JSON/Headers'
@@ -245,7 +175,6 @@ Pod::Spec.new do |s|
     # Full name: Three20/ext/SBJSON
     # This extension cannot be used with Three20/ext/YAJL
     ext.subspec 'SBJSON' do |sbs|
-      sbs.extend(overrides)
       sbs.source_files = 'src/extThree20JSON/Vendors/JSON/*.{h,m}'
       sbs.header_dir = 'extThree20JSON'
       sbs.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) EXTJSON_SBJSON' }
@@ -255,7 +184,6 @@ Pod::Spec.new do |s|
     # Full name: Three20/ext/YAJL
     # This extension cannot be used with Three20/ext/SBJSON
     ext.subspec 'YAJL' do |ys|
-      ys.extend(overrides)
       ys.source_files = 'src/extThree20JSON/Vendors/YAJL/*.{h,m}', 
                         'src/extThree20JSON/Vendors/YAJL/{GHKit,GTM}/*.{h,m}',
                         'src/extThree20JSON/Vendors/YAJL/yajl/src/**/*.{h,c}'
@@ -268,7 +196,6 @@ Pod::Spec.new do |s|
 
     # Full name: Three20/ext/XML
     ext.subspec 'XML' do |xs|
-      xs.extend(overrides)
       xs.source_files = 'src/extThree20XML/{Source,Headers}/*.{h,m}'
       xs.header_dir = 'extThree20XML'
       xs.dependency 'Three20/Core'
@@ -276,4 +203,6 @@ Pod::Spec.new do |s|
     end
   end
   s.requires_arc = false
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

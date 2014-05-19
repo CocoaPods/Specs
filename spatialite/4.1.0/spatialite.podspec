@@ -123,14 +123,11 @@ CONFIG_H
   s.libraries = "z", "iconv"
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi' }
-  
-  def s.pre_install(pod, target_definition)
-    File.open("#{pod.root}/src/config.h", "w") do |file|
-      file.puts $platform_config
-    end
-  end
+
 
 
 
   s.requires_arc = false
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

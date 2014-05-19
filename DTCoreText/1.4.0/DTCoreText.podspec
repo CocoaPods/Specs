@@ -15,11 +15,6 @@ Pod::Spec.new do |spec|
   spec.library      = 'xml2'
   spec.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
   spec.prefix_header_contents = '#import <CoreText/CoreText.h>'
-  def spec.post_install(target)
-    Dir.chdir(config.project_pods_root + 'DTCoreText/Core/Source/') do
-      Dir.glob('*.css') do |css_file|
-        system '/usr/bin/xxd', '-i', css_file, css_file + '.c'
-      end
-    end
-  end
+
+  spec.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

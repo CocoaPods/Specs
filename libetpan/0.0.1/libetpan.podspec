@@ -12,11 +12,7 @@ Pod::Spec.new do |s|
   # TODO this lib is supported also on ios but the hook needs to be adjusted
   s.platform = :osx
 
-  def s.pre_install (pod, _)
-    Dir.chdir(pod.root + 'build-mac') do
-      `SRCROOT='true' sh update.sh`
-      raise "[!] Failed pre install hook" unless $?.to_i == 0
-    end
-  end
   s.requires_arc = false
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end
