@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint qiniu_upload.podspec' to ensure this is a
+#  Be sure to run `pod spec lint QiniuUpload.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,12 +15,12 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "qiniu_upload"
+  s.name         = "QiniuUpload"
   s.version      = "0.1"
   s.summary      = "支持批量上传的七牛上传sdk，慢慢会加入支持服务器回调服务器参数设置等功能，＝ ＝po主更新可能慢~"
 
   s.description  = <<-DESC
-                   A longer description of qiniu_upload in Markdown format.
+                   A longer description of QiniuUpload in Markdown format.
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
