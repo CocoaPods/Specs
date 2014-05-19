@@ -7,9 +7,10 @@ Pod::Spec.new do |spec|
   spec.source           =  {:git => 'https://github.com/geoffmacd/ImgurSession.git', :tag => 'V1.0'}
   spec.source_files     = 'ImgurSession/**/*.{h,m}'
   spec.author              = { "Geoff MacDonald" => "gmacdonald@pivotallabs.com" }
-  spec.framework        = 'SystemConfiguration'
+  spec.framework        = 'Foundation'
   spec.dependency 'AFNetworking'
-  spec.osx.deployment_target = "10.8"
+  spec.ios.deployment_target = '7.0'
+  spec.osx.deployment_target = "10.9"
   spec.requires_arc     = true
 
   spec.prefix_header_contents = <<-EOS
