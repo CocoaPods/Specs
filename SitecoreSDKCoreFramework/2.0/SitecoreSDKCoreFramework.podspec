@@ -2,7 +2,20 @@ Pod::Spec.new do |s|
   s.name         = "SitecoreSDKCoreFramework"
   s.version      = "2.0"
   s.summary      = "Sitecore Mobile SDK is a framework for building iOS applications that use and serve content from the Sitecore CMS."
-  s.description  = "The core library contains the API to perform the CRUD operations on Sitecore Items."
+
+
+  descriptionText = <<-DESCRIPTION
+The core library contains the API to perform the CRUD operations on Sitecore Items. It is a set of core classes that interact with the Sitecore Item Web Api service.
+It contains the API for :
+
+* Authentication
+* CRUD operations on items
+* Access item fields and properties
+* Upload media items
+* Getting html rendering of an item
+
+DESCRIPTION
+  s.description  = descriptionText
   s.homepage     = "https://github.com/Sitecore/sitecore-ios-sdk"
 
 
