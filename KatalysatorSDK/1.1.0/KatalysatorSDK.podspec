@@ -132,8 +132,9 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.frameworks = "KatalysatorSDK", "CoreLocation", "CoreBluetooth"
-
+  s.frameworks = "CoreLocation", "CoreBluetooth"
+  s.ios.vendored_frameworks = 'KatalysatorSDK.framework'
+  
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
 
