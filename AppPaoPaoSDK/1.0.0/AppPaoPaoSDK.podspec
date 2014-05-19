@@ -18,29 +18,5 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
 
-  def s.post_install(target)
-    if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-      sandbox_root = target.sandbox_dir
-    else
-      sandbox_root = config.project_pods_root
-    end
-
-    Dir.chdir File.join(sandbox_root, 'AppPaoPaoSDK') do
-      command = "xcodebuild -project AppPaoPao.xcodeproj -target AppPaoPaoResources CONFIGURATION_BUILD_DIR=../Resources"
-      command << " 2>&1 > /dev/null"
-      unless system(command)
-        raise ::Pod::Informative, "Failed to generate AppPaoPao resources bundle"
-      end
-
-      if Version.new(Pod::VERSION) >= Version.new('0.16.999')
-        script_path = target.copy_resources_script_path
-      else
-        script_path = File.join(config.project_pods_root, target.target_definition.copy_resources_script_name)
-      end
-
-      File.open(script_path, 'a') do |file|
-        file.puts "install_resource 'Resources/AppPaoPaoResources.bundle'"
-      end
-    end
-  end
+  s.prepare_command = 'echo "This Pod relies on the removed `pre_install` or `post_install` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end
