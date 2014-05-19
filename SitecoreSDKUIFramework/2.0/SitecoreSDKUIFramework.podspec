@@ -1,20 +1,18 @@
 Pod::Spec.new do |s|
-  s.name         = "SitecoreSDKCoreFramework"
+  s.name         = "SitecoreSDKUIFramework"
   s.version      = "2.0"
   s.summary      = "Sitecore Mobile SDK is a framework for building iOS applications that use and serve content from the Sitecore CMS."
 
 
   descriptionText = <<-DESCRIPTION
-The core library contains the API to perform the CRUD operations on Sitecore Items. It is a set of core classes that interact with the Sitecore Item Web Api service.
-It contains the API for :
+The sitecore SDK UI library contains some UI controls and utilities integrated with the core library. The features are : 
 
-* Authentication
-* CRUD operations on items
-* Access item fields and properties
-* Upload media items
-* Getting html rendering of an item
+* SDWebImage-like category integrated with SitecoreMobileSDK core framework
+* MapKit wrapper that adds pathfinding support for iOS 6.0
+* ZXing integration for QR Code scanning 
 
 DESCRIPTION
+
   s.description  = descriptionText
   s.homepage     = "https://github.com/Sitecore/sitecore-ios-sdk"
 
@@ -84,7 +82,7 @@ the Software, your license to the Software ends automatically.
 LICENSE
   s.license      = { :type => 'Sitecore Shared Source License', :text => licenseText }
 
-  s.source       = { :http => "https://github.com/Sitecore/sitecore-ios-sdk/releases/download/v2.0/SitecoreMobileSDK.framework.zip" }
+  s.source       = { :http => "https://github.com/Sitecore/sitecore-ios-sdk/releases/download/v2.0/SitecoreMobileUI.framework.zip" }
   s.author       =  'Sitecore Corporation'
   
   s.ios.platform          = :ios
@@ -92,11 +90,13 @@ LICENSE
   s.ios.requires_arc = true  
 
 
-  s.ios.preserve_paths = 'SitecoreMobileSDK.framework'
-  s.public_header_files = 'SitecoreMobileSDK.framework/Headers/**/*.{h,hpp}'
-  s.vendored_frameworks = 'SitecoreMobileSDK.framework'
+  s.ios.preserve_paths = 'SitecoreMobileUI.framework'
+  s.public_header_files = 'SitecoreMobileUI.framework/Headers/**/*.{h,hpp}'
+  s.vendored_frameworks = 'SitecoreMobileUI.framework'
 
 
-  s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics'
-  s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z'
+  s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics', 'MapKit', 'CoreLocation', 'AddressBook', 'AddressBookUI'
+  s.ios.libraries = 'sqlite3', 'c++', 'stdc++', 'xml', 'z', 'iconv'
+
+  s.ios.dependency 'SitecoreSDKCoreFramework', '2.0'
 end
