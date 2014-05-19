@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/karelia/BSManagedDocument.git", :tag => "v0.3" }
   s.platform     = :osx, '10.6'
   s.source_files = 'BSManagedDocument.h', 'BSManagedDocument.m'
+  s.requires_arc = false
 end

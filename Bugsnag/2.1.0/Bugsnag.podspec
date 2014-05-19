@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   # Finally, specify any Pods that this Pod depends on.
   #
   # s.dependency 'JSONKit', '~> 1.4'
+  s.requires_arc = false
 end

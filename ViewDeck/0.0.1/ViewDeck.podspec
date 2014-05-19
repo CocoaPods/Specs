@@ -22,4 +22,5 @@ Pod::Spec.new do |s|
                   :commit => '271e337152312bcaca37204c3ab54a3c564afc58'}
   s.source_files  = 'ViewDeck/*.{h,m}'
   s.frameworks   = 'QuartzCore'
+  s.requires_arc = false
 end

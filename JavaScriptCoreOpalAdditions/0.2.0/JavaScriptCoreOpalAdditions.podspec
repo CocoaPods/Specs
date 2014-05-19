@@ -23,6 +23,11 @@ DESC
 
   s.resources = 'javascripts/opal.js', 'javascripts/opal-parser.js'
 
+<<<<<<< HEAD
+=======
+  s.requires_arc = true
+
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   # build opal
   s.prepare_command = <<-CMD
     bundle install

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '4.3'
   s.osx.deployment_target = '10.6'
   s.source_files = 'HRCoder'
+  s.requires_arc = false
 end

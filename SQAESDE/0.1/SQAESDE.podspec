@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name         = "SQAESDE"
   s.version      = "0.1"
   s.summary      = "Safe&Quick AES256 Encrypt and Decrypt"
-  s.description  = <<-DESC
-                   Safe&Quick AES256 Encrypt and Decrypt
-                   DESC
   s.homepage     = "https://github.com/shjborage/SQAESDE"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { "shjborage" => "shjborage@gmail.com"}

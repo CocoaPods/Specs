@@ -8,7 +8,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/aporat/KKProgressToolbar.git", :commit => "e6ccc4b1c8faba6fb2996f03d954026c3eea8f74" }
   s.platform     = :ios, '5.0'
   s.source_files = 'KKProgressToolbar'
-  s.screenshots  = [ "screenshots/ipad-1.png",
-                     "screenshots/iphone-1.png" ]
+  s.screenshots  = [
+    "https://raw.githubusercontent.com/aporat/KKProgressToolbar/#{s.version}/screenshots/ipad-1.png",
+    "https://raw.githubusercontent.com/aporat/KKProgressToolbar/#{s.version}/screenshots/iphone-1.png",
+  ]
   s.requires_arc = true
 end

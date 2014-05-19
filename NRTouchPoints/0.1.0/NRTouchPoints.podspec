@@ -6,7 +6,12 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Natan Rolnik" => "natanrolnik@gmail.com" }
   s.source       = { :git => "https://github.com/natanrolnik/NRTouchPoints.git", :tag => "0.1.0"}
+<<<<<<< HEAD
 
+=======
+  s.social_media_url = 'https://twitter.com/natanrolnik'
+  
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   s.platform     = :ios, '6.0'
   s.ios.deployment_target = '6.0'
   s.requires_arc = true

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/nicklockwood/StandardPaths.git', :tag => '1.5.1'}
   s.source_files =  'StandardPaths/*.{h,m}'
   s.license      = { :type => 'Zlib License', :file => 'LICENCE.md' }
+  s.requires_arc = false
 end

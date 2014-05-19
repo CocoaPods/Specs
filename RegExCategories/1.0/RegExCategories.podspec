@@ -30,4 +30,8 @@ DESC
   s.osx.deployment_target = '10.6'
 
   s.source_files  = '*.{h,m}'
+<<<<<<< HEAD
+=======
+  s.requires_arc = true;
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

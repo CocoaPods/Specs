@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 1.3'
   s.compiler_flags = '-ObjC'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Bestly/bestly-sdk-ios-1.0.1"' }
+  s.requires_arc = false
 end

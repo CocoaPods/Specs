@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.ios.deployment_target = '4.3'
   s.source_files = 'UIScrollView+ContentAccessors/UIScrollView+ContentAccessors.{h,m}'
+  s.requires_arc = false
 end

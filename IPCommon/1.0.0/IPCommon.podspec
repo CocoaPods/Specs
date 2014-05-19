@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   }
   s.source_files = 'IPCommon/**/*.{h,m}'
   s.preserve_paths = 'IPCommon/**/*'
+  s.requires_arc = false
 end
 

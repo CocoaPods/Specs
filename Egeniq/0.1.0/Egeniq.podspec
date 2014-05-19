@@ -48,4 +48,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'CoreText', 'UIKit', 'QuartzCore', 'CoreData', 'Foundation', 'SystemConfiguration'
 
+  s.requires_arc = false
 end

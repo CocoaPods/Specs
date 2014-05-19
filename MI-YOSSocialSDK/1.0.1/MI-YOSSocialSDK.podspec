@@ -20,7 +20,11 @@ Pod::Spec.new do |s|
   # s.license      = { :type => 'MIT', :file => 'FILE_LICENSE' }
 
   # s.author       = { "Muhammad Ishaq" => "ishaq@kahaf.com" }
+<<<<<<< HEAD
   s.authors      = { "Zach Graves" => "zagraves@gmail.com", "Dustin Whittle" => "dustin.whittle@gmail.com", "Chirag Shah" => "chiragshah1@gmail.com", "Json Harwig" => "jason@pinepointsoftware.com", "Muhammad Ishaq" => "ishaq@kahaf.com" }
+=======
+  s.authors      = { "Dustin Whittle" => "dustin.whittle@gmail.com", "Chirag Shah" => "chiragshah1@gmail.com", "Json Harwig" => "jason@pinepointsoftware.com", "Muhammad Ishaq" => "ishaq@kahaf.com" }
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   # s.author       = 'Muhammad Ishaq', 'other author'
 
   # s.platform     = :ios

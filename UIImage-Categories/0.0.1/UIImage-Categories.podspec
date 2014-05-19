@@ -23,4 +23,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.source_files = '*.{h,m}'
   s.frameworks = 'UIKit', 'Foundation'
+  s.requires_arc = false
 end

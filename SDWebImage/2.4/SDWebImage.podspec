@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
 
   s.source = { :git => 'https://github.com/rs/SDWebImage.git', :tag => '2.4' }
   s.source_files = '*.[mh]'
+  s.requires_arc = false
 end

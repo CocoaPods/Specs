@@ -47,4 +47,5 @@ Pod::Spec.new do |s|
   s.source_files = 'TapjoyAdvertiserSDK_iOS_v9.0.4/TapjoyAdvertiserLibrary/*.h'
   s.preserve_paths = 'TapjoyAdvertiserSDK_iOS_v9.0.4/TapjoyAdvertiserLibrary/TapjoyAdvertiserLibrary.a'
   s.xcconfig = { 'OTHER_LDFLAGS' => '"$(PODS_ROOT)/TapjoyAdvertiserSDK/TapjoyAdvertiserSDK_iOS_v9.0.4/TapjoyAdvertiserLibrary/TapjoyAdvertiserLibrary.a"' }  
+  s.requires_arc = false
 end

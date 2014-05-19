@@ -14,4 +14,8 @@ Pod::Spec.new do |s|
                       'QuartzCore', 'CFNetwork', 'AdSupport', 'CoreTelephony', 'Security', 'CoreGraphics'
   s.libraries       = 'sqlite3', 'z'
   s.xcconfig        = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Analytics"' }
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

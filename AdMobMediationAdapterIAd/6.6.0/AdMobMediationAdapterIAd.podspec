@@ -19,4 +19,5 @@ LICENSE
   s.dependency 'Google-Mobile-Ads-SDK' # This library is useless unless Google AdMob SDK is available.
   s.library = 'AdapterIAd'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC', 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/AdMobMediationAdapterIAd/"'}
+  s.requires_arc = false
 end

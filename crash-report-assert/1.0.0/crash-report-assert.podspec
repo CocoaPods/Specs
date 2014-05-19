@@ -57,4 +57,5 @@ And used under this <a href="http://www.iconfinder.com/iconsets/Hand_Drawn_Web_I
   s.platform     = :ios, '5.0'
   s.source_files = 'CrashReportAssert/'
   s.dependency 'CocoaLumberjack', '~> 1.6.2'
+  s.requires_arc = false
 end

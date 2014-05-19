@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreMedia', 'CoreVideo', 'MessageUI', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'UIKit'
   s.libraries = 'stdc++', 'xml2', 'PayPalMobile'  
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' , 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PayPal-iOS-SDK/PayPalMobile/"' }
+  s.requires_arc = false
 end

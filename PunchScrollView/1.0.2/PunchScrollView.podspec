@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.source_files = 'PunchScrollView.{h,m}'
 
+  s.requires_arc = false
 end

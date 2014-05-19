@@ -26,4 +26,5 @@ The tests are in `NSDate+RelativeTimeTests.m` and require Kiwi to run.
   s.source       = { :git => "https://github.com/bartj3/NSDate-RelativeTime.git", :tag => "1.0.1" }
   s.source_files = 'NSDate+RelativeTime.h', 'NSDate+RelativeTime.m'
   s.resources    = 'NSDate+RelativeTime.bundle'
+  s.requires_arc = false
 end

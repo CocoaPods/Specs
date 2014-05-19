@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/thisandagain/conduit.git', :tag => 'v0.2.2' }
   s.platform = :ios
   s.source_files = 'DIYConduit'
+  s.requires_arc = false
 end

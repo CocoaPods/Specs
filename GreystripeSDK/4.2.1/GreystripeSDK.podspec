@@ -19,4 +19,5 @@ http://www.apache.org/licenses/LICENSE-2.0.html
   s.frameworks = 'AddressBook', 'AddressBookUI', 'CoreGraphics', 'CoreLocation', 'EventKit', 'EventKitUI', 'MessageUI', 'MobileCoreServices', 'QuartzCore', 'SystemConfiguration', 'UIKit'
   s.weak_frameworks = 'AdSupport', 'Accounts', 'PassKit', 'Social', 'StoreKit', 'Twitter'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GreystripeSDK/GreystripeSDK"' }
+  s.requires_arc = false
 end

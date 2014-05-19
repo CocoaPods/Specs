@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
   s.source       = { :git => "https://github.com/jverkoey/fmemopen.git", :commit => "44f91decc1ff211c2f810dba91f381b7f325ddbb" }
   s.source_files  = '*.{c,h}'
+  s.requires_arc = false
 end

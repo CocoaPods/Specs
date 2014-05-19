@@ -25,4 +25,5 @@ your users.
   s.frameworks = 'AudioToolbox', 'EventKit'
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
+  s.requires_arc = false
 end

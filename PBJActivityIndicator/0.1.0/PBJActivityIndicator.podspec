@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/piemonte/PBJActivityIndicator.git", :tag => "v0.1.0" }
   s.platform     = :ios, '6.0'
   s.source_files = 'Source'
+  s.requires_arc = false
 end

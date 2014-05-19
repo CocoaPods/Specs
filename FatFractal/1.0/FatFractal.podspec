@@ -19,4 +19,5 @@ lists and objects.
   s.source_files = 'FFEF.framework/Versions/A/Headers/*.h'
   s.preserve_paths = 'FFEF.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/FatFractal', 'OTHER_LDFLAGS' => '-framework FFEF' }
+  s.requires_arc = false
 end

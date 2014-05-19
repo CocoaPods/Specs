@@ -33,4 +33,5 @@ Pod::Spec.new do |s|
   end
 
   s.default_subspec = 'Core+SBJson'
+  s.requires_arc = false
 end

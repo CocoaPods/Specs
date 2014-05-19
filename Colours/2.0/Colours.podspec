@@ -6,11 +6,12 @@ Pod::Spec.new do |s|
     'Ben Gordon' => 'brgordon@ua.edu'
   }
   s.source = {
-    :git => 'https://github.com/bennyguitar/Colours-for-iOS.git',
+    :git => 'https://github.com/bennyguitar/Colours.git',
     :tag => 'v2.0'
   }
   s.homepage    = 'http://subvertapps.com'
   s.license     = 'LICENSE'
   s.source_files = '*.{h,m}'
   s.platform = :ios
+  s.requires_arc = false
 end

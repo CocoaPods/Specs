@@ -18,4 +18,5 @@ LICENSE
   s.preserve_path = 'Library/libTagManager.a'
   s.library = 'TagManager'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' , 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleTagManager/Library"'}
+  s.requires_arc = false
 end

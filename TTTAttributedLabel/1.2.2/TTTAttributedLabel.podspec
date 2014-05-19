@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.frameworks = 'CoreText'
   s.source_files = 'TTTAttributedLabel.{h,m}'
+  s.requires_arc = false
 end

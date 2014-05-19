@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'CoreGraphics'
   s.library   = 'eposprint', 'z'
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/epsonPrintSDK"' }
+  s.requires_arc = false
 end

@@ -12,4 +12,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/wpsteak/PWAlignView.git", :tag => "1.0.0" }
   s.source_files  = 'PWAlignView/*.{h,m}'
 
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

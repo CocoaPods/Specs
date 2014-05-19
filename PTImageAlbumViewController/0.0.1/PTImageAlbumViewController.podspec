@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.framework  = 'ImageIO'
 
   s.dependency 'Nimbus'
+  s.requires_arc = false
 end

@@ -68,4 +68,5 @@ Pod::Spec.new do |s|
     networks.requires_arc 	= false
   end  	
 
+  s.requires_arc = false
 end

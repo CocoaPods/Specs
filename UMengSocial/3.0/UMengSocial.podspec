@@ -19,4 +19,5 @@ s.library           = "UMSocial_Sdk_3.0","UMSocial_Sdk_Comment_3.0","WeChatSDK",
 s.xcconfig          = {'LIBRARY_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_3.0/UMSocial_Sdk_3.0/**",'FRAMEWORK_SEARCH_PATHS' =>"$(PODS_ROOT)/UmengSocial/UMSocial_Sdk_All_3.0/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI/"}
 s.framework         = "SystemConfiguration","MobileCoreServices","TencentOpenAPI","CoreGraphics","CoreTelephony"
 s.platform          = :ios,'4.3'
+  s.requires_arc = false
 end

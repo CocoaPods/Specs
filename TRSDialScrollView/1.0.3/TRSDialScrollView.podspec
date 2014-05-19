@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.3"
   s.summary      = "TRSDialScrollView is a customizable UIScrollView for use as a dial control."
   s.homepage     = "https://github.com/kevinkirkup/TRSDialScrollView"
-  s.screenshots  = "github.com/kevinkirkup/TRSDialScrollView/blob/master/images/TRSDialScrollView.png"
+  s.screenshots  = "https://raw.githubusercontent.com/kevinkirkup/TRSDialScrollView/#{s.version}/images/TRSDialScrollView.png"
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 

@@ -97,4 +97,5 @@ Pod::Spec.new do |s|
     instagram.source_files = 'Classes/ShareKit/Sharers/Services/Instagram/**/*.{h,m}'
     instagram.dependency 'ShareKit/Core'
   end
+  s.requires_arc = false
 end

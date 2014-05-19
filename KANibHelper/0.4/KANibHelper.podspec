@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'KANibHelper/*.{h,m}'
   s.framework    = 'Foundation', 'UIKit'
+  s.requires_arc = false
 end

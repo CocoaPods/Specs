@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'UIFont+IBCustomFonts.m'
 
 
+  s.requires_arc = false
 end

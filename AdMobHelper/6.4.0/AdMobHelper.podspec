@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/youknowone/AdMobHelper.git", :tag => "6.4.0" }
   s.platform     = :ios
   s.source_files = '*.{h,m}'
-  s.dependency 'AdMob'
+  s.dependency 'Google-Mobile-Ads-SDK'
+  s.requires_arc = false
 end

@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   }
   s.source_files = '*.{h,m}'
   s.homepage = 'https://github.com/ColinEberhardt/LinqToObjectiveC'
+  s.requires_arc = false
 end

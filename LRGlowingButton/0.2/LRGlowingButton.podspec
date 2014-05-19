@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/lightroomapps/LRGlowingButton.git", :tag => "0.2" }
     s.source_files = 'LRGlowingButton.{h,m}'
     s.framework    = 'QuartzCore'
+  s.requires_arc = false
 end

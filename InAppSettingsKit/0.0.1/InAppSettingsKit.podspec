@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.resources     = 'InAppSettingsKit/Xibs/*.*'
   s.source_files  = 'InAppSettingsKit/**/*.{h,m}'
 
+  s.requires_arc = false
 end

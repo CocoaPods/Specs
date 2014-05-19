@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.source_files = "OHActionSheet/*.{m,h}"
   s.public_header_files = "OHActionSheet/*.h"
   s.frameworks = 'Foundation', 'UIKit'
+  s.requires_arc = false
 end

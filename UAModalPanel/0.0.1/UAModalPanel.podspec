@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.framework = 'UIKit' , 'QuartzCore'
 
 
+  s.requires_arc = false
 end

@@ -57,5 +57,6 @@ LICENSE
   s.libraries    = 'xml2'
   s.dependency   'KissXML'
   s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
+  s.requires_arc = false
 end
 

@@ -14,4 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.source       = { :git => "https://github.com/Antol/APPaginalTableView.git", :tag => "1.0.0" }
   s.source_files  = 'APPaginalTableViewComponents/**/*.{h,m}'
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'boost/preprocessor-includes'
 
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/eigen"' }
+  s.requires_arc = false
 end

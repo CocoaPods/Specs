@@ -15,4 +15,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.osx.frameworks      = %w{CFNetwork Security}
   s.libraries           = "icucore"
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Accounts'
   s.dependency 'Facebook-iOS-SDK', '~> 3.1'
+  s.requires_arc = false
 end

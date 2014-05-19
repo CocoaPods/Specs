@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source_files  = 'JFELocationManager/*.{h,m}'
 
   s.framework  = 'CoreLocation'
+  s.requires_arc = false
 end

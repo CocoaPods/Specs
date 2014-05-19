@@ -11,4 +11,5 @@ And you are done."
   s.platform     = :ios, '5.0'
   s.source_files = 'PPTopMostController-Files'
   s.exclude_files = 'PPTopMostController'
+  s.requires_arc = false
 end

@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'CMPopTipView/*.{h,m}'
   s.framework = 'UIKit'
+  s.requires_arc = false
 end

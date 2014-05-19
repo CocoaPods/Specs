@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/jacksonh/libais.git", :tag => s.version.to_s }
   s.source_files  = '*.cpp', '*.h'
   s.exclude_files = 'ais1_2_3_unittest.cpp', 'ais8_001_22_unittest.cpp', 'ais8_200_10_unittest.cpp', 'test_libais.cpp', 'ais_py.cpp'
+  s.requires_arc = false
 end
 

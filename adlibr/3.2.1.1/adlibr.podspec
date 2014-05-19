@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
   s.dependency 'CaulySDK'
   s.dependency 'InMobiSDK'
   s.dependency 'ShallWeAdSDK'
+  s.requires_arc = false
 end

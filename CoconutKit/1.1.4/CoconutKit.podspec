@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.xcconfig =  { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/CoconutKit', 'OTHER_LDFLAGS' => '-framework CoconutKit' }
 
   s.frameworks = 'CoreData', 'MessageUI', 'QuartzCore'
+  s.requires_arc = false
 end

@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/layervault/LVDebounce.git", :tag => "0.0.3" }
   s.source_files = '*.{h,m}'
   s.framework    = 'Foundation'
+  s.requires_arc = false
 end

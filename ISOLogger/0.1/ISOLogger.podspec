@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/funroll/ISOLogger.git", :tag => "0.1" }
   s.source_files  = '*.{h,m}'
 
+  s.requires_arc = false
 end

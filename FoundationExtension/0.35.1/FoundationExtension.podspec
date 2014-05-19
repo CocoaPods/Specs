@@ -50,4 +50,5 @@ Pod::Spec.new do |s|
     '
     ss.dependency "FoundationExtension/FoundationExtension"
   end
+  s.requires_arc = false
 end

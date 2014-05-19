@@ -14,4 +14,8 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/ChartboostSDK/Chartboost"' }
   s.weak_frameworks = 'AdSupport'
   s.frameworks = 'QuartzCore', 'SystemConfiguration', 'CoreGraphics', 'StoreKit'
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

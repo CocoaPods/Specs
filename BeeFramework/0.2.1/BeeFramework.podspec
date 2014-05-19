@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'Reachability'
   s.dependency 'SFHFKeychainUtils'
   s.dependency 'FMDB'
+  s.requires_arc = false
 end

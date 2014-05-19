@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/booyah/protobuf-objc.git', :commit => '9eb586b2178163c2fdbdfce772a48731e5884905' }
   s.source_files = 'src/runtime/Classes/*.{h,m}'
   s.xcconfig = { 'WARNING_CFLAGS' => '-Wno-missing-prototypes -Wno-format' }
+  s.requires_arc = false
 end

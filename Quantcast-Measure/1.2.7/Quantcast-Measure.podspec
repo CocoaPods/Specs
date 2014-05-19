@@ -34,4 +34,5 @@ Pod::Spec.new do |s|
 
   s.libraries = 'z','sqlite3'
 
+  s.requires_arc = false
 end

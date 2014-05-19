@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.prepare_command = <<-CMD
     ./configure 2>&1
   CMD
+  s.requires_arc = false
 end

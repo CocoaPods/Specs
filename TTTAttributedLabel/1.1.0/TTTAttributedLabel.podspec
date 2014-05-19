@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
                   "range for a URL, address, phone number, or event."
 
   s.source_files = 'TTTAttributedLabel.{h,m}'
+  s.requires_arc = false
 end

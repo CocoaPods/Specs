@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/claaslange/iOS7Colors.git", :tag => "1.0.0" }
   s.source_files  = 'iOS7Colors/UIColor+iOS7Colors.*'
 
+  s.requires_arc = false
 end

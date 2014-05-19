@@ -28,5 +28,6 @@ Pod::Spec.new do |s|
     nonarc.dependency 'FastElegantDelegation/ARC'
   end
 
+  s.requires_arc = false
 end
 

@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SVPullToRefresh/*.{h,m}'
 
   s.resources    = 'SVPullToRefresh/SVPullToRefresh.bundle'
+  s.requires_arc = false
 end
 

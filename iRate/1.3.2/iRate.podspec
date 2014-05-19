@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.author       =  'Nick Lockwood'
   s.source       =  { :git => 'https://github.com/nicklockwood/iRate.git', :tag => '1.3.2' }
   s.source_files =  'iRate/iRate.{h,m}'
+  s.requires_arc = false
 end

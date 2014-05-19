@@ -14,4 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'SDKExport/*.h'
   s.vendored_libraries = 'SDKExport/libWeChatSDK.a'
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

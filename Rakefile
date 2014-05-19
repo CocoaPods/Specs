@@ -60,7 +60,11 @@ PODS_ALLOWED_TO_FAIL = {
     'vfrReader',
   ],
 
+<<<<<<< HEAD
   "The post install hook of the specification DSL has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
+=======
+  "The post install hook has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
     'AppPaoPaoSDK',
     'ARCHelper',
     'ARCMacro',
@@ -92,7 +96,7 @@ PODS_ALLOWED_TO_FAIL = {
     'XingSDK',
   ],
 
-  "The pre install hook of the specification DSL has been deprecated, use the `resource_bundles` or the `prepare_command` attributes." => [
+  "The pre install hook has been deprecated, use the `resource_bundles` or the  `prepare_command` attributes." => [
     'ARAnalytics',
     'CocoaLibSpotify',
     'CoconutKit',
@@ -207,6 +211,10 @@ end
 desc "Converts the specifications to JSON"
 task :convert_specs_to_json do
   require 'cocoapods-core'
+<<<<<<< HEAD
+=======
+  require 'json'
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 
   puts "Adopting Specs folder"
   Dir.mkdir("Specs") unless File.exist?("Specs")
@@ -223,7 +231,11 @@ task :convert_specs_to_json do
     if spec.safe_to_hash?
       spec_json_path = "#{spec_path}.json"
       print "."
+<<<<<<< HEAD
       File.open(spec_json_path, 'w') { |file| file.write(spec.to_json) }
+=======
+      File.open(spec_json_path, 'w') { |file| file.write(JSON.pretty_generate(spec)) }
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
       File.delete(spec_path)
     else
       skipped_specs << spec_path

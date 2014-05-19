@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Source/OCMock/*.[mh]'
   s.license = 'https://github.com/erikdoe/ocmock/blob/master/Source/License.txt'
+  s.requires_arc = false
 end

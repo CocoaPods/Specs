@@ -9,10 +9,13 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 1.3'
   s.frameworks   = ['MobileCoreServices', 'SystemConfiguration']
 
+<<<<<<< HEAD
   s.description  = <<-DESC
                    Utility classes to integrate with FWTPushNotificationServer gem.
                    DESC
 
+=======
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   s.homepage     = "https://github.com/FutureWorkshops/FWTPushNotifications"
   s.license      = { :type => 'Apache License Version 2.0', :file => 'LICENSE' }
   s.author       = { "Kamil Kocemba" => "kamil@futureworkshops.com" }

@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'NXOAuth2Client', '1.2.1'
   s.license = 'Apache License, Version 2.0'
+  s.requires_arc = false
 end

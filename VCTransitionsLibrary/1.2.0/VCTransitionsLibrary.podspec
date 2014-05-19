@@ -15,4 +15,8 @@ Pod::Spec.new do |s|
   }
   s.source_files = 'AnimationControllers/*.{h,m}', 'InteractionControllers/*.{h,m}' 
   s.homepage = 'https://github.com/ColinEberhardt/VCTransitionsLibrary'
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

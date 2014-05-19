@@ -47,4 +47,8 @@ Pod::Spec.new do |s|
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreVideo', 'CoreMedia', 'SystemConfiguration', 'MediaPlayer', 'QuartzCore', 'LookBack'
 
   s.xcconfig  =  { 'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)/Lookback/lookback-#{s.version}\"" }
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

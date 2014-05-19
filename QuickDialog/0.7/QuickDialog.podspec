@@ -16,11 +16,4 @@ Pod::Spec.new do |s|
   s.source_files = 'quickdialog', '*.{h,m}'  
   s.requires_arc = true
   s.frameworks   = 'MapKit', 'CoreLocation'
-
-  def s.post_install(target)
-    prefix_header = config.project_pods_root + target.prefix_header_filename
-    prefix_header.open('a') do |file|
-      file.puts(%{#ifdef __OBJC__\n#import "QuickDialog.h"\n#endif})
-    end
-  end
 end

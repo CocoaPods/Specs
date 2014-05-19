@@ -15,4 +15,8 @@ Pod::Spec.new do |s|
   s.author       = { 'HIRANO Satoshi' => 'happy.hirano@gmail.com' }
   s.source       = { :git => 'https://gist.github.com/2823399.git', :commit => 'cdad0eb4e923c1767ef1cc901a221c59aef45f72' }
   s.source_files = 'ARCMacro.h'
+<<<<<<< HEAD
+=======
+  s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

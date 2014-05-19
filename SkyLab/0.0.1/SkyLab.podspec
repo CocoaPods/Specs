@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
   s.source   = { :git => 'https://github.com/mattt/SkyLab.git', :tag => '0.0.1' }
   s.source_files = 'SkyLab/*.{h,m}'
+  s.requires_arc = false
 end
