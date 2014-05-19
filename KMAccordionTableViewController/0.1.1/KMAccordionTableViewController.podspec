@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source_files     = "KMAccordionTableViewController/Classes", "KMAccordionTableViewController/Classes/**/*.{h,m}"
   s.exclude_files    = "KMAccordionTableViewController/Classes/ViewController/MyViewController*.{h,m}"
   s.resources        = "KMAccordionTableViewController/**/*.{xib,png,nib}"
-  spec.screenshot    = "http://dl.dropbox.com/u/378729/MBProgressHUD/1.png"
+  s.screenshot       = "http://dl.dropbox.com/u/378729/MBProgressHUD/1.png"
 
   s.requires_arc     = true
 
