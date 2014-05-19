@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'Foundation'
   s.ios.libraries  = 'c++', 'stdc++'
 
-  s.ios.dependency 'JFFUtils', '0.3'
+  s.ios.dependency 'iAsyncLiteUtils', '0.3'
 end
