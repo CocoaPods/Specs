@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name         = "iAsyncLiteScheduler"
+  s.name         = "iAsyncLiteTimer"
   s.version      = "0.3"
   s.summary      = "iAsync - A better dispathc_async(). Functional programming extensions for Objective-C."
-  s.description  = "iAsyncLiteScheduler framework contains Timer wrapper classes that are integrated with the iAsyncLiteScheduler framework."
+  s.description  = "iAsyncLiteTimer framework contains Timer wrapper classes that are integrated with the iAsyncLiteScheduler framework."
   s.homepage     = "https://github.com/iAsync/iAsyncLite"
   s.license      = { :type => 'BSD', :file => 'JFFScheduler.framework/Resources/LICENSE' }
   s.source       = { :http => "https://github.com/iAsync/iAsyncLite/releases/download/v0.3/JFFScheduler.framework.zip" }
