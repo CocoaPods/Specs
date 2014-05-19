@@ -97,9 +97,9 @@ LICENSE
   s.ios.requires_arc = true  
 
 
-  s.ios.preserve_paths = 'SitecoreMobileUI.framework'
-  s.public_header_files = 'SitecoreMobileUI.framework/Headers/**/*.{h,hpp}'
-  s.vendored_frameworks = 'SitecoreMobileUI.framework'
+  s.ios.preserve_paths = 'SitecoreMobileJavaScript.framework'
+  s.public_header_files = 'SitecoreMobileJavaScript.framework/Headers/**/*.{h,hpp}'
+  s.vendored_frameworks = 'SitecoreMobileJavaScript.framework'
 
 
   s.ios.frameworks = 'Foundation', 'UIKit', 'CFNetwork', 'CoreGraphics', 'MapKit', 'CoreLocation', 'AddressBook', 'AddressBookUI', 'Social', 'MessageUI', 'EventKit', 'EventKitUI', 'CoreLocation', 'CoreMotion', 'MapKit', 'CoreAudio', 'AudioToolbox', 'CoreVideo', 'CoreMedia'
