@@ -16,13 +16,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.frameworks = 'StoreKit', 'Security'
-
-  def s.post_install(target) 
-    puts <<-TEXT
-      * MKStoreKit note *
-          Don't forget to create and add MKStoreKitConfigs.plist file to you project.
-          You can find an example here: https://github.com/MugunthKumar/MKStoreKit/blob/22223c77962179497038322b94d01277506570cc/MKStoreKitConfigs.plist
-    TEXT
-  end
 end
 

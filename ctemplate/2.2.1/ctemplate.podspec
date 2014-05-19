@@ -18,18 +18,6 @@ Pod::Spec.new do |s|
     'USE_HEADERMAP' => 'NO',
   }
 
-  s.pre_install do |pod, lib|
-    if (pod.root + 'configure').exist?
-      Dir.chdir(pod.root) do
-        toolchain = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-        cflags = ""
-        cxxflags = "#{cflags} -stdlib=libstdc++ -std=gnu++11"
-        ldflags = "-lstdc++ -stdlib=libstdc++"
-        `CFLAGS="#{cflags}" CXXFLAGS="#{cxxflags}" CC="#{toolchain}/clang" CXX="#{toolchain}/clang++" LDFLAGS="#{ldflags}" ./configure`
-        `make src/htmlparser/htmlparser_fsm.h`
-        `make src/htmlparser/jsparser_fsm.h`
-      end
-    end
-  end
   s.requires_arc = false
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

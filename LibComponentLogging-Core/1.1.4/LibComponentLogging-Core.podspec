@@ -19,14 +19,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'lcl*.{h,m}'
 
-  def s.post_install(target)
-    if not (config.respond_to? :lcl_config and config.lcl_config) then
-      # LibComponentLogging-pods configuration is not available
-      puts '[!] LibComponentLogging-Core needs to be configured. '             \
-           'See http://0xc0.de/LibComponentLogging#CocoaPods for details.'
-      return
-    end
-  end
-
   s.requires_arc = false
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

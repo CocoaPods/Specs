@@ -23,15 +23,6 @@ Pod::Spec.new do |s|
     sp.dependency 'libextobjc/EXTKeyPathCoding', '~> 0.2.5'
     sp.dependency 'libextobjc/EXTConcreteProtocol', '~> 0.2.5'
     sp.dependency 'libextobjc/EXTScope', '~> 0.2.5'
-
-    sp.pre_install do |pod, _|
-      pod.source_files.each { |source|
-        contents = source.read
-        if contents.gsub!(%r{\bReactiveCocoa/(?:\w+/)*(EXT\w+|metamacros)\.h\b}, '\1.h')
-          File.open(source, 'w') { |file| file.puts(contents) }
-        end
-      }
-    end
   end
 
   s.subspec 'RACExtensions' do |sp|
@@ -39,4 +30,6 @@ Pod::Spec.new do |s|
     sp.ios.exclude_files = '**/*{NSTask}*'
     sp.dependency 'ReactiveCocoa/Core'
   end
+
+  s.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end

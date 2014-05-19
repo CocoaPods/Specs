@@ -21,9 +21,6 @@ Pod::Spec.new do |spec|
     "SinglySDK/SinglySDK/Resources"
   ]
   spec.resource = "SinglySDK/SinglySDK/Resources/SinglySDK.bundle"
-  def spec.pre_install(pod, target_definition)
-    Dir.chdir(pod.root) do
-      `xcodebuild -project SinglySDK/SinglySDK.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=SinglySDK/Resources`
-    end
-  end
+
+  spec.prepare_command = 'echo "This Pod relies on the removed \`pre_install\` or \`post_install\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details." && exit 1'
 end
