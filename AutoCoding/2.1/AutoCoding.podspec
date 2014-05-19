@@ -9,5 +9,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '4.3'
   s.osx.deployment_target = '10.6'
   s.source_files = 'AutoCoding'
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

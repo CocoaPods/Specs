@@ -17,6 +17,9 @@ Pod::Spec.new do |s|
  THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+<<<<<<< HEAD
+ SOFTWARE.'
+=======
  SOFTWARE.
 
 Raygun4iOS makes use of the following libraries:
@@ -74,6 +77,7 @@ file are licensed as follows:
     KIND, either express or implied. See the License for the
     specific language governing permissions and limitations
     under the License.'
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   }
   s.author              = { 'Martin Holman' => 'martin@raygun.io' }
   s.source              = { :http => "https://s3.amazonaws.com/data.raygun.io/providers/raygun4ios/#{s.version}.zip" }
@@ -82,5 +86,8 @@ file are licensed as follows:
   s.public_header_files = "#{s.name}.framework/**/*.h"
   s.vendored_frameworks = "#{s.name}.framework"
   s.preserve_paths      = "#{s.name}.framework"
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

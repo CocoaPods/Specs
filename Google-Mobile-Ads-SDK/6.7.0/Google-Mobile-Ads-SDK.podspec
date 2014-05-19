@@ -28,5 +28,8 @@ Pod::Spec.new do |s|
     "OTHER_LDFLAGS" => "-ObjC",
     "LIBRARY_SEARCH_PATHS" => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0"'
   }
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

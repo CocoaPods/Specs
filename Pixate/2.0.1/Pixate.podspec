@@ -1,7 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "Pixate"
   s.version      = "2.0.1"
+<<<<<<< HEAD
+  s.summary      = "Style your iOS app with CSS, using 100% native code and no webviews."
+=======
   s.summary      = "DEPRECATED: Please use 'PixateFreestyle' pod."
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   s.description  = <<-DESC
                    Pixate is an iOS framework that allows you to style your application using stylesheets and a CSS-like syntax. Pixate lets you build  beautiful applications with less code and more flexibility by using familiar CSS markup to style native controls and components. Free up your team to focus on creating amazing user experiences throughout the design and development cycle.
                    DESC
@@ -18,11 +22,20 @@ Pod::Spec.new do |s|
   }
   s.author       = { "Pixate" => "sales@pixate.com" }
   s.platform     = :ios, '5.0'
+<<<<<<< HEAD
+  s.source       = { :git => "https://github.com/Pixate/PixateFramework.git", :tag => s.version.to_s }
+  s.source_files = 'Framework/iOS/Pixate.framework/Versions/2.0/Headers/*.h'
+=======
   s.source       = { :http => "http://www.pixate.com/downloads/cocoapods/deprecated/PixateFramework_#{s.version}.zip" }
   s.source_files = 'Framework/iOS/Pixate.framework/Versions/2.0/Headers/*.h', 'Framework/iOS/Pixate.framework/Versions/2.0/PrivateHeaders/*.h'
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   s.preserve_paths = "Framework/iOS/Pixate.framework"
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'Pixate'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Pixate/Framework/iOS"', 'OTHER_LDFLAGS' => '-lObjC' }
   s.prepare_command = 'open "http://www.pixate.com/docs/framework/ios/latest/getting-started/index.html#app_setup" || true'
+<<<<<<< HEAD
+end
+=======
   s.requires_arc = false
 end
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b

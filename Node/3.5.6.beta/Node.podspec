@@ -7,10 +7,17 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    The NODE Objective-C framework allows you to develop custom iOS and Mac OSX applications using NODE+, a wireless modular sensor system made by Variable Inc.
 
+<<<<<<< HEAD
+                   More details can be found at http://www.variableinc.com/
+                   DESC
+
+  s.homepage     = "http://www.variableinc.com"
+=======
                    More details can be found at http://variableinc.com/
                    DESC
 
   s.homepage     = "http://variableinc.com"
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 
   s.license      = 'BSD 2-Clause'
 

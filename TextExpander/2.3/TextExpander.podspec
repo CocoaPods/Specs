@@ -34,5 +34,8 @@ When upgrading your apps, please make sure to follow these steps:
   s.frameworks = 'AudioToolbox', 'EventKit'
   s.preserve_paths = 'TextExpander.framework'
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TextExpander', 'OTHER_LDFLAGS' => '-framework TextExpander' }
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

@@ -2,7 +2,11 @@ Pod::Spec.new do |s|
   s.name     = 'SBJson'
   s.version  = '4.0.0'
   s.license = { :type => 'BSD', :text => <<-LICENSE
+<<<<<<< HEAD
+    Copyright (C) 2007-2013 Stig Brautaset. All rights reserved.
+=======
     Copyright (C) 2007-2014 Stig Brautaset. All rights reserved.
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are met:
@@ -29,6 +33,15 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.summary  = 'Chunk-based JSON parser for Objective-C.'
+<<<<<<< HEAD
+  s.homepage = 'http://sbjson.org'
+  s.author   = { 'Stig Brautaset' => 'stig@brautaset.org' }
+  s.source   = { :git => 'https://github.com/stig/json-framework.git', :tag => 'v4.0.0' }
+
+  s.requires_arc = true
+  s.ios.deployment_target = '5.0'
+  s.source_files = 'src/main/objc'
+=======
   s.description  = <<-DESC
     Using this library you can reduce the apparent latency for each
     download/parse cycle of documents over a slow connection. You can start
@@ -56,4 +69,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/main/objc'
   s.public_header_files = 'src/main/objc/SBJson4{,Parser,StreamParser,StreamWriter,Writer,StreamTokeniser}.h'
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

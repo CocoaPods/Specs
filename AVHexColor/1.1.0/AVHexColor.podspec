@@ -16,5 +16,8 @@ Pod::Spec.new do |s|
   s.author       = 'Angelo'
   s.source       = { :git => 'https://github.com/anjerodesu/AVHexColor.git', :commit => '9a610eea8cdd826e7fd1711b459ac71d43d93079', :tag => '1.1.0' }
   s.source_files  = 'AVHexColor.{h,m}'
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

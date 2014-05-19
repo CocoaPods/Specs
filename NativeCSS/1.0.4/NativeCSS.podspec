@@ -20,5 +20,8 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/NativeCSS/NativeCSS"', 'OTHER_LDFLAGS' => '-lObjC' }
   s.frameworks = 'CoreText', 'QuartzCore', 'UIKit', 'CoreGraphics', 'CoreImage', 'Accelerate'
 
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

@@ -14,5 +14,8 @@ Pod::Spec.new do |s|
   s.weak_frameworks = 'Accounts', 'AdSupport', 'Social', 'Security'
   s.framework = 'CoreLocation'
   s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|python scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh"
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

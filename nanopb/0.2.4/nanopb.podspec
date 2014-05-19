@@ -33,5 +33,8 @@ Pod::Spec.new do |s|
     d.source_files = ['pb.h', 'pb_decode.h', 'pb_decode.c']
   end
 
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

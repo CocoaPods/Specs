@@ -40,5 +40,8 @@ Pod::Spec.new do |s|
   s.author       = { "Nick Lockwood" => "http://charcoaldesign.co.uk" }
   s.source       = { :git => "https://gist.github.com/1563325.git", :commit => "a344e8dcda7739a9ad6b5ca768b68cbfd8e0d721" }
   s.source_files = 'ARCHelper.h'
+<<<<<<< HEAD
+=======
   s.requires_arc = false
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
 end

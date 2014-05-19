@@ -6,7 +6,11 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/nerdishbynature/#{s.name}"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Piet Brauer" => "piet@nerdishbynature.com" }
+<<<<<<< HEAD
+  s.source       = { :git => "#{s.homepage}.git", :tag => "0.0.1" }
+=======
   s.source       = { :git => "https://github.com/nerdishbynature/NBNPhotoChooser.git", :tag => "0.0.1" }
+>>>>>>> ca6e4d84f0b8f003b9e97d7b65545c598bc1409b
   s.source_files = 'Classes', 'Classes/**/*.{h,m}'
   s.requires_arc = true
 end
