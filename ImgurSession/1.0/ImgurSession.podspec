@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.summary          = 'Imgur API for Objective C'
   spec.source           =  {:git => 'https://github.com/geoffmacd/ImgurSession.git', :tag => 'v1.0'}
   spec.source_files     = 'ImgurSession/**/*.{h,m}'
-  s.author              = { "geoffmacd" => "gmacdonald@pivotallabs.com" }
+  s.author              = { "Geoff MacDonald" => "gmacdonald@pivotallabs.com" }
   spec.framework        = 'SystemConfiguration'
     spec.dependency 'AFNetworking'
     spec.osx.deployment_target = "10.8"
