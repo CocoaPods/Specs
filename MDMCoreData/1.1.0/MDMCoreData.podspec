@@ -46,6 +46,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'NSManagedObject+MDMCoreDataAdditions' do |ss|
+    ss.source_files = 'Classes/NSManagedObject+MDMCoreDataAdditions/NSManagedObject+MDMCoreDataAdditions.{h,m}'
     ss.dependency 'MDMCoreData/MDMCoreDataCore'
     ss.requires_arc = true
   end
