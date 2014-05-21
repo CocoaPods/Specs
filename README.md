@@ -1,7 +1,5 @@
 # The CocoaPods Master Repo
 
-[![Build Status](https://img.shields.io/travis/CocoaPods/Specs/master.svg?style=flat)](https://travis-ci.org/CocoaPods/Specs)
-
 This repository contains the public [CocoaPods](https://github.com/CocoaPods/CocoaPods) specifications.
 
 ## Links
