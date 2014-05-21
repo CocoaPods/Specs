@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.authors      = { "xhzengAIB" => "xhzengAIB@gmail.com" }
   s.source       = { :git => "https://github.com/xhzengAIB/MessageDisplayKit.git", :tag => "v0.2" }
-  s.frameworks   = 'Foundation', 'CoreGraphics', 'UIKit', 'MobileCoreServices', 'AVFoundation', 'CoreLocation', 'MediaPlayer'
+  s.frameworks   = 'Foundation', 'CoreGraphics', 'UIKit', 'MobileCoreServices', 'AVFoundation', 'CoreLocation', 'MediaPlayer', 'CoreMedia', 'CoreText', 'AudioTollbox'
   s.platform     = :ios, '6.0'
   s.source_files = 'MessageDisplayKit/Classes/**/*.{h,m}'
   s.resources    = 'MessageDisplayKit/Resources/*'
