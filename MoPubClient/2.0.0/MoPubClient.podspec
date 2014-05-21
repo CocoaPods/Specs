@@ -21,13 +21,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'AdMobAdapter' do |ss|
     ss.source_files = 'AdNetworkSupport/GoogleAdMob/*.{h,m}'
-    ss.dependency 'Google-AdMob-Ads-SDK'
+    ss.dependency 'Google-AdMob-Ads-SDK', '6.8.0'
     ss.dependency 'MoPubClient/Classes'
   end
 
   s.subspec 'MillenialAdapter' do |ss|
     ss.source_files = 'AdNetworkSupport/Millennial/*.{h,m}'
-    ss.dependency 'MillennialMediaSDK'
+    ss.dependency 'MillennialMediaSDK', '5.1.1'
     ss.dependency 'MoPubClient/Classes'
   end
 
