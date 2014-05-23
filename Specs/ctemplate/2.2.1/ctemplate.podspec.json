@@ -31,5 +31,5 @@
     "USE_HEADERMAP": "NO"
   },
   "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  "prepare_command": "TOOLCHAIN=\"`xcode-select -p`/Toolchains/XcodeDefault.xctoolchain/usr/bin\"\nexport CXXFLAGS=\"-stdlib=libstdc++ -std=gnu++11\"\nexport LDFLAGS=\"-lstdc++ -stdlib=libstdc++\"\nexport CC=${TOOLCHAIN}/clang\nexport CXX=${TOOLCHAIN}/clang++\n./configure && make src/htmlparser/htmlparser_fsm.h && make src/htmlparser/jsparser_fsm.h"
 }
