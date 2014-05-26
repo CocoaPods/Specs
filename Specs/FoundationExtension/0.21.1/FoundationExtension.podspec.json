@@ -1,0 +1,60 @@
+{
+  "name": "FoundationExtension",
+  "version": "0.21.1",
+  "summary": "Foundation/UIKit extension kit. It is category based and looks familiar to Foundation/UIKit. It includes many common snippets as shortcut.",
+  "description": "                    This library includes small Foundation/Cocoa/UIKit extensions. This library does not includes high-level data structure, algorithm or frameworks, but collection of code snippets.\n                    * Many common snippets in a method call.\n                    * Looks like native foundation methods - It follows Apple Coding Guideline and Foundation naming convention.\n                    See document on [Github] (http://youknowone.github.com/FoundationExtension)\n\n                    Try FoundationExtension for Foundation extensions.\n                    For iOS, UIKitExtension is available too.\n",
+  "homepage": "https://github.com/youknowone/FoundationExtension",
+  "license": "2-clause BSD",
+  "authors": {
+    "Jeong YunWon": "jeong@youknowone.org"
+  },
+  "source": {
+    "git": "https://github.com/youknowone/FoundationExtension.git",
+    "tag": "0.21.1"
+  },
+  "dependencies": {
+    "cdebug": [
+      "~> 0.1"
+    ]
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "FoundationExtension",
+      "source_files": "FoundationExtension",
+      "public_header_files": "FoundationExtension/*.h",
+      "prefix_header_contents": "\n#include <cdebug/debug.h>\n#include <FoundationExtension/FoundationExtension.h>\n    "
+    },
+    {
+      "name": "CocoaExtension",
+      "platforms": {
+        "osx": null
+      },
+      "source_files": "CocoaExtension",
+      "public_header_files": "CocoaExtension/*.h",
+      "header_dir": "CocoaExtension",
+      "frameworks": "Cocoa",
+      "prefix_header_contents": "\n#include <cdebug/debug.h>\n#include <CocoaExtension/CocoaExtension.h>\n    ",
+      "dependencies": {
+        "FoundationExtension/FoundationExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKitExtension",
+      "platforms": {
+        "ios": null
+      },
+      "source_files": "UIKitExtension",
+      "public_header_files": "UIKitExtension/*.h",
+      "header_dir": "UIKitExtension",
+      "prefix_header_contents": "\n#include <cdebug/debug.h>\n#include <UIKitExtension/UIKitExtension.h>\n    ",
+      "dependencies": {
+        "FoundationExtension/FoundationExtension": [
+
+        ]
+      }
+    }
+  ]
+}

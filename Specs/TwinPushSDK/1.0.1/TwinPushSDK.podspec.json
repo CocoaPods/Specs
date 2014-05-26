@@ -1,0 +1,50 @@
+{
+  "libraries": "z",
+  "prefix_header_contents": "    #import <Foundation/Foundation.h>\n\n    #define TCLog(...) do {} while (0)\n    #define TCAssert(_condition_, ...) do {} while (0)\n    #define TCAssertNilOrConformsToProtocol(OBJ,PROT) do {} while (0)\n    #define TCAssertNilOrIsKindOfClass(OBJ,CLASS) do {} while (0)\n    #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)\n    #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)\n    #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)\n    #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)\n    #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)\n    #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)\n\n    #define LOCALIZATION_TABLE @\"TwinPushSDK\"\n",
+  "name": "TwinPushSDK",
+  "homepage": "http://twinpush.com",
+  "source_files": "TwinPushSDK/**/*.{h,m}",
+  "requires_arc": true,
+  "exclude_files": [
+    "TwinPushSDK/Frameworks/ASIHTTP/*.{h,m}",
+    "TwinPushSDK/Frameworks/JSONKit/*.{h,m}",
+    "TwinPushSDK/Frameworks/OpenUDID/*.{h,m}"
+  ],
+  "license": {
+    "file": "LICENSE",
+    "type": "MIT"
+  },
+  "authors": {
+    "TwinCoders": "info@twincoders.com"
+  },
+  "source": {
+    "tag": "v1.0.1",
+    "git": "https://github.com/TwinPush/ios-sdk.git"
+  },
+  "public_header_files": [
+    "TwinPushSDK/Classes/**/*.h",
+    "TwinPushSDK/ViewControllers/**/*.h"
+  ],
+  "frameworks": [
+    "MobileCoreServices",
+    "CFNetwork",
+    "SystemConfiguration",
+    "CoreLocation"
+  ],
+  "version": "1.0.1",
+  "summary": "TwinPush SDK is the official open source SDK for the TwinPush iOS and Android notification platform",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": [
+        "TwinPushSDK/Frameworks/ASIHTTP/*.{h,m}",
+        "TwinPushSDK/Frameworks/JSONKit/*.{h,m}",
+        "TwinPushSDK/Frameworks/OpenUDID/*.{h,m}"
+      ]
+    }
+  ]
+}

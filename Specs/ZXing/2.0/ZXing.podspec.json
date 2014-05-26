@@ -1,0 +1,59 @@
+{
+  "name": "ZXing",
+  "version": "2.0",
+  "summary": "Multi-format 1D/2D barcode image processing library.",
+  "homepage": "http://code.google.com/p/zxing/",
+  "authors": "ZXing team (http://code.google.com/p/zxing/people/list)",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "source": {
+    "svn": "http://zxing.googlecode.com/svn/",
+    "tag": "2.0"
+  },
+  "preserve_paths": [
+    "cpp/core/src/zxing/**/*.h",
+    "objc/src/ZXing/*.h"
+  ],
+  "source_files": [
+    "cpp/core/src/zxing/**/*.cpp",
+    "objc/src/ZXing/*.{m,mm}"
+  ],
+  "compiler_flags": "-IZXing/cpp/core/src/ -IZXing/objc/src/",
+  "requires_arc": false,
+  "prefix_header_contents": "#ifdef __OBJC__\n  #import <ImageIO/CGImageSource.h>\n#endif\n",
+  "libraries": [
+    "stdc++",
+    "iconv"
+  ],
+  "frameworks": [
+    "AddressBook",
+    "AudioToolbox",
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreMedia",
+    "CoreVideo",
+    "ImageIO"
+  ],
+  "subspecs": [
+    {
+      "name": "ios",
+      "platforms": {
+        "ios": "4.3"
+      },
+      "source_files": "iphone/ZXingWidget/Classes/**/*.{h,m,mm}",
+      "compiler_flags": [
+        "-IZXing/cpp/core/src/zxing/",
+        "-IZXing/iphone/ZXingWidget/Classes/"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/ZXing/cpp/core/src/ ${PODS_ROOT}/ZXing/iphone/ZXingWidget/Classes/**"
+      },
+      "frameworks": [
+        "AddressBookUI",
+        "QuartzCore"
+      ]
+    }
+  ]
+}
