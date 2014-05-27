@@ -1,0 +1,56 @@
+{
+  "name": "URLMock",
+  "version": "1.1.2",
+  "summary": "A Cocoa framework for mocking and stubbing URL requests and responses.",
+  "description": "                   URLMock is an Objective-C framework for mocking and stubbing URL requests and\n                   responses. It works with APIs built on the Foundation NSURL loading\n                   system—NSURLConnection and AFNetworking, for example—without any changes to\n                   your code.\n",
+  "authors": {
+    "Two Toasters": "general@twotoasters.com"
+  },
+  "homepage": "https://github.com/twotoasters/URLMock",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/twotoasters/URLMock.git",
+    "tag": "1.1.2"
+  },
+  "source_files": [
+    "URLMock/URLMock.h",
+    "URLMock/Mock Messages/UMKMockHTTPMessage.{h,m}",
+    "URLMock/Mock Messages/UMKMockHTTPRequest.{h,m}",
+    "URLMock/Mock Messages/UMKMockHTTPResponder.{h,m}",
+    "URLMock/Mock URL Protocol/UMKMockURLProtocol+UMKHTTPConvenienceMethods.{h,m}",
+    "URLMock/Mock URL Protocol/UMKMockURLProtocol.{h,m}",
+    "URLMock/Utilities/UMKMessageCountingProxy.{h,m}"
+  ],
+  "subspecs": [
+    {
+      "name": "TestHelpers",
+      "requires_arc": true,
+      "source_files": [
+        "URLMock/Utilities/UMKTestUtilities.{h,m}",
+        "URLMock/Utilities/UMKErrorUtilities.{h,m}",
+        "URLMock/Categories/NSURL+UMKQueryParameters.{h,m}",
+        "URLMock/Categories/NSDictionary+UMKURLEncoding.{h,m}",
+        "URLMock/Utilities/UMKParameterPair.{h,m}",
+        "URLMock/Utilities/UMKURLEncodedParameterStringParser.{h,m}"
+      ]
+    },
+    {
+      "name": "SubclassResponsibility",
+      "requires_arc": true,
+      "dependencies": {
+        "URLMock/TestHelpers": [
+
+        ]
+      },
+      "source_files": "URLMock/Categories/NSException+UMKSubclassResponsibility.{h,m}"
+    }
+  ]
+}
