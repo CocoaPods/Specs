@@ -1,0 +1,18 @@
+{
+  "name": "NSError+Exception",
+  "version": "1.0",
+  "summary": "A handy wrapper for throwing NSErrors as NSExceptions",
+  "description": "                       A handy wrapper for throwing NSErrors as NSExceptions (if you're into that kind of thing)\n\n                       Suppose you have the following code:\n\n                           NSError *error;\n                           BOOL success = [[NSFileManager defaultManager] moveItemAtPath:@\"/start\"\n                                                                                  toPath:@\"/end\"\n                                                                                   error:&error];\n\n                       And error is non-nil but most of your logic deals with NSExceptions rather than NSErrors.\n                       Rather than having a corner case where you need to pass in NSErrors, you can simply throw the NSError\n\n                           if (!success) {\n                               [error throw];\n                           }\n\n                       Your code will either crash or be handled by your @try/@catch/@finally block.\n\n                       The logic used is along the lines of:\n\n                           @throw [NSException exceptionWithName:@\"NSError\" reason:self.debugDescription userInfo:@{ @\"NSError\" : self }];\n\n                       You can provide a more informative exception name by sending the - (void)throwWithName:(NSString*)name message instead.\n\n                       NSException/NSError information:\n\n                       http://nshipster.com/nserror/\n\n                       http://club15cc.com/code/objective-c/dispelling-nsexception-myths-in-ios-can-we-use-try-catch-finally\n\n                       https://developer.apple.com/library/mac/documentation/cocoa/reference/foundation/Classes/NSException_Class/Reference/Reference.html\n\n                       https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html\n\n",
+  "homepage": "https://github.com/maxcabral/NSError-Exception",
+  "license": "MIT",
+  "authors": {
+    "Maxwell Cabral": "max@maxcabral.com"
+  },
+  "source": {
+    "git": "https://github.com/maxcabral/NSError-Exception.git",
+    "tag": "1.0"
+  },
+  "requires_arc": true,
+  "source_files": "NSError+Exception.{h,m}",
+  "frameworks": "Foundation"
+}

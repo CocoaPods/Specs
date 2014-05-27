@@ -1,0 +1,56 @@
+{
+  "name": "STDebugKit",
+  "version": "0.1.0",
+  "summary": "Offer access to several debug tools from everywhere.",
+  "description": "                    STDebugKit Allow you to debug your app, even from a device !\n                    From every screen you'll have access to a little debug button that could open a debug center.\n                    In that center you'll find global tools and context sensitive tools.\n",
+  "homepage": "https://github.com/iSofTom/STDebugKit",
+  "license": "MIT",
+  "authors": {
+    "iSofTom": "thomas@isoftom.com"
+  },
+  "source": {
+    "git": "https://github.com/iSofTom/STDebugKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source_files": "STDebugKit/*.{h,m}",
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "STDebugKit/STDebugKit.*",
+        "STDebugKit/STDebugTool.*",
+        "STDebugKit/STDebugKitRootViewController.*",
+        "STDebugKit/STDebugKitModuleSlowAnimations.*",
+        "STDebugKit/STDebugKitModuleInfos.*",
+        "STDebugKit/STDebugKitModuleKill.*"
+      ],
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit"
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "STDebugKit/Core": [
+
+        ],
+        "MagicalRecord": [
+          "~> 2.1"
+        ]
+      },
+      "source_files": "STDebugKit/STDebugKitModuleCoreData.*",
+      "prefix_header_contents": "#ifdef __OBJC__\n\t#define MR_SHORTHAND\n\t#import \"CoreData+MagicalRecord.h\"\n\t#define NFServiceMagicalRecord\n#endif\n",
+      "ios": {
+        "frameworks": "CoreData"
+      }
+    }
+  ]
+}
