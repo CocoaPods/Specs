@@ -1,0 +1,43 @@
+{
+  "name": "JIRAConnect",
+  "version": "1.2.1",
+  "summary": "Provide the following functionality: Crash Reporting and 2-way Feedback communication.",
+  "homepage": "http://atlassian.com/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "text": "\t\t\t\t\t\t\tCopyright 2011-2012 Atlassian Software.\n\t\t\t\t\t\t\tLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use these files except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.\n\t\t\t\t\t\t\tUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tThird party Package - License - Copyright / Creator\n\t\t\t\t\t\t\tplcrashreporter MIT Copyright (c) 2008-2009 Plausible Labs Cooperative, Inc.\n\t\t\t\t\t\t\tcrash-reporter Copyright (c) 2009 Andreas Linde & Kent Sutherland.\n\t\t\t\t\t\t\tUIImageCategories Created by Trevor Harmon.\n\t\t\t\t\t\t\tFMDB MIT Copyright (c) 2008 Flying Meat Inc.\n"
+  },
+  "authors": {
+    "Nick Pellow": "npellow@atlassian.com",
+    "Shihab Hamid": "shamid@atlassian.com"
+  },
+  "source": {
+    "hg": "https://bitbucket.org/atlassian/jiraconnect-ios",
+    "revision": "1.2.1"
+  },
+  "platforms": {
+    "ios": "4.0"
+  },
+  "source_files": "JIRAConnect/JMCClasses/{Core,Base}/**/*.{h,m}",
+  "resources": "JIRAConnect/JMCClasses/{Core,Base,Resources}/**/*.{xib,png,strings}",
+  "preserve_paths": "JIRAConnect/JMCClasses/Libraries/CrashReporter.framework",
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/JIRAConnect/JIRAConnect/JMCClasses/Libraries\""
+  },
+  "frameworks": [
+    "CrashReporter",
+    "CFNetwork",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreLocation"
+  ],
+  "libraries": "sqlite3",
+  "requires_arc": false,
+  "dependencies": {
+    "Reachability": [
+      ">= 2.0.4"
+    ]
+  }
+}
