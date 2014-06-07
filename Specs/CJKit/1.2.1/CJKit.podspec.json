@@ -1,0 +1,75 @@
+{
+  "name": "CJKit",
+  "version": "1.2.1",
+  "summary": "An Objective-C wrapper for the ClubJudge API",
+  "homepage": "https://github.com/clubjudge/objc-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bruno Abrantes": "bruno.abrantes@clubjudge.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/clubjudge/objc-sdk.git",
+    "tag": "1.2.1"
+  },
+  "default_subspecs": "base",
+  "public_header_files": "Classes/**/*.h",
+  "frameworks": "CoreLocation",
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+      "~> 2.2"
+    ],
+    "ObjectiveSugar": [
+
+    ],
+    "BAPersistentOperationQueue": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "base",
+      "source_files": [
+        "Classes/Engine/*.{h,m}",
+        "Classes/Models/*.{h,m}",
+        "Classes/Engine/*.{h,m}",
+        "Classes/Models/*.{h,m}",
+        "Classes/Request/*.{h,m}",
+        "Classes/Categories/CJModel+{Following,Distance,Images}.{h,m}",
+        "Classes/Categories/NSDate+StringParsing.{h,m}",
+        "Classes/Serializers/*.{h,m}",
+        "Classes/Controllers/CJPersistentQueueController.{h,m}"
+      ]
+    },
+    {
+      "name": "PromiseKit",
+      "dependencies": {
+        "PromiseKit/base": [
+
+        ],
+        "CJKit/base": [
+
+        ]
+      },
+      "source_files": [
+        "Classes/Categories/CJAPIRequest+PromiseKit.{h,m}",
+        "Classes/Categories/CJEngine+PromiseKit.{h,m}"
+      ]
+    },
+    {
+      "name": "BAPersistentOperationQueue",
+      "dependencies": {
+        "CJKit/base": [
+
+        ]
+      },
+      "source_files": "Classes/Categories/CJEngine+CJPersistentQueueController.{h,m}"
+    }
+  ]
+}
