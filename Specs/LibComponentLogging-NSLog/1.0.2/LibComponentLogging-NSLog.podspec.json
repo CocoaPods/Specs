@@ -12,12 +12,17 @@
   "license": "MIT",
   "summary": "LibComponentLogging logging back-end which redirects logging to NSLog.",
   "description": "LibComponentLogging-NSLog is a very simple logging back-end for LibComponentLogging which redirects log messages to NSLog, but adds information about the log level, the log component, and the log statement's location (file name and line number).",
-  "source_files": "LCLNSLog*.{h,m}",
+  "prepare_command": "echo '{\"name\": \"NSLog\", \"type\": \"logger\", \"main_header\": \"LCLNSLog.h\"}' > pod.lcl_configure",
+  "source_files": [
+    "LCLNSLog*.{h,m}"
+  ],
+  "preserve_paths": [
+    "*.lcl_configure"
+  ],
+  "requires_arc": false,
   "dependencies": {
     "LibComponentLogging-Core": [
       ">= 1.1.4"
     ]
-  },
-  "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  }
 }
