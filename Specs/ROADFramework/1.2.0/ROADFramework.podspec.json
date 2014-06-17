@@ -1,0 +1,125 @@
+{
+  "name": "ROADFramework",
+  "version": "1.2.0",
+  "summary": "ROAD iOS Framework",
+  "description": "                   ROAD Framework is a collection of libraries, tools and guidelines to handle common routines like web services integration, serialization, logging and others. As result ROAD accelerates development, streamline support and maintenance, enforce best practices as well as remove technology entropy and fragmentation. Framework architecture allows to use libraries in application independently as well as all together to benefit from capabilities of each other.\n",
+  "homepage": "https://github.com/epam/road-ios-framework",
+  "license": "ROAD Framework\n\nCopyright (c) 2013, EPAM Systems, Inc.\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, \nare permitted provided that the following conditions are met:\n\n* Redistributions of source code must retain the above copyright notice, \n  this list of conditions and the following disclaimer.\n* Redistributions in binary form must reproduce the above copyright notice, \n  this list of conditions and the following disclaimer in the documentation \n  and/or other materials provided with the distribution.\n* Neither the name of the EPAM Systems, Inc. nor the names of its contributors \n  may be used to endorse or promote products derived from this software without specific prior written permission.\n  \nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, \nINCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE \nARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, \nINCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE \nGOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY \nTHEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING \nIN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n---\nProgrammatically retrieving IP Address of iPhone (http://blog.zachwaugh.com/post/309927273/programmatically-retrieving-ip-address-of-iphone)\n\nLicensed under the MIT license.\n\nCopyright (c) 2009 Zach Waugh\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n  ",
+  "authors": {
+    "EPAM Systems, Inc": "SupportROAD@epam.com"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/epam/road-ios-framework.git",
+    "tag": "1.2.0"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-all_load"
+  },
+  "subspecs": [
+    {
+      "name": "ROADCore",
+      "source_files": "Framework/ROADCore/ROADCore/**/*.{h,m}",
+      "public_header_files": "Framework/ROADCore/ROADCore/**/*.h",
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADObservation",
+      "source_files": "Framework/ROADObservation/ROADObservation/**/*.{h,m}",
+      "public_header_files": "Framework/ROADObservation/ROADObservation/**/*.h",
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADServices",
+      "source_files": "Framework/ROADServices/ROADServices/**/*.{h,m}",
+      "public_header_files": "Framework/ROADServices/ROADServices/**/*.h",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ]
+      },
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADLogger",
+      "source_files": "Framework/ROADLogger/ROADLogger/**/*.{h,m}",
+      "public_header_files": "Framework/ROADLogger/ROADLogger/**/*.h",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ],
+        "ROADFramework/ROADServices": [
+
+        ],
+        "ROADFramework/ROADObservation": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "CoreGraphics",
+          "CoreFoundation"
+        ]
+      },
+      "libraries": "z",
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADSerialization",
+      "source_files": "Framework/ROADSerialization/ROADSerialization/**/*.{h,m}",
+      "public_header_files": "Framework/ROADSerialization/ROADSerialization/**/*.h",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ],
+        "ROADFramework/ROADServices": [
+
+        ],
+        "ROADFramework/ROADLogger": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "CoreFoundation"
+      },
+      "libraries": [
+        "xml2",
+        "z"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(SDKROOT)/usr/include/libxml2\""
+      },
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADWebService",
+      "source_files": "Framework/ROADWebService/ROADWebService/**/*.{h,m}",
+      "public_header_files": "Framework/ROADWebService/ROADWebService/**/*.h",
+      "resources": "Framework/ROADWebService/ROADWebService/Caching/*.{xcdatamodeld,xcdatamodel}",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ],
+        "ROADFramework/ROADSerialization": [
+
+        ],
+        "ROADFramework/ROADServices": [
+
+        ],
+        "ROADFramework/ROADLogger": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "CoreFoundation",
+          "CFNetwork"
+        ]
+      },
+      "header_dir": "ROAD"
+    }
+  ]
+}
