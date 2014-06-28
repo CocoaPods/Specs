@@ -1,0 +1,32 @@
+{
+  "name": "jsoncpp",
+  "version": "0.6.0-rc2",
+  "summary": "jsoncpp is an implementation of a JSON (http://json.org) reader and writer in C++.",
+  "homepage": "http://jsoncpp.sourceforge.net/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Baptiste Lepilleur": "blep@users.sourceforge.net"
+  },
+  "source": {
+    "svn": "https://svn.code.sf.net/p/jsoncpp/code/tags/jsoncpp/0.6.0-rc2/"
+  },
+  "requires_arc": false,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source_files": [
+    "dist",
+    "dist/**/*.{h,cpp}"
+  ],
+  "preserve_paths": [
+    "amalgamate.py",
+    "include",
+    "src"
+  ],
+  "header_mappings_dir": "dist",
+  "prepare_command": "\t\t# jsoncpp is designed to be 'amalgamated' for deployment, but some of the\n\t\t# paths in this version of amalagamate.py are incorrect, we need to fix\n\t\t# them first:\n\t\tperl -pi -e 's/lib_json\\\\/lib_json\\//g' amalgamate.py\n\n\t\t# Run amalgamate.py to combine the jsoncpp files and output them to the\n\t\t# 'dist' directory:\n\t\tpython amalgamate.py\n\n\t\t# The generated json.h does not have the 'JSON_IS_AMALGAMATION' define\n\t\t# uncommented as it should be, lets do that now:\n\t\tperl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h\n"
+}
