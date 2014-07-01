@@ -1,0 +1,34 @@
+{
+  "name": "AdMobMediationAdapterMMedia",
+  "version": "1.6.0",
+  "source": {
+    "http": "http://docs.millennialmedia.com/iOS-SDK/MillennialiOSAdMobAdapter1.6.0.zip",
+    "flatten": true
+  },
+  "summary": "AdMob Mediation Adapter for Millenia Media Network.",
+  "description": "By default mediation adapters are not included into iOS AdMob SDK. Each mediation network other than AdMob requries additional library component. This is Millenia Media mediation adapter library from Millenia Media.",
+  "license": {
+    "type": "Copyright",
+    "text": "                ©2014 Millennial Media. All rights reserved.\n"
+  },
+  "homepage": "http://www.millennialmedia.com/",
+  "authors": "Millennial Media",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "preserve_paths": "libAdapterMillennial.a",
+  "dependencies": {
+    "Google-Mobile-Ads-SDK": [
+
+    ],
+    "MillennialMediaSDK": [
+
+    ]
+  },
+  "libraries": "AdapterMillennial",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/AdMobMediationAdapterMMedia/\""
+  },
+  "requires_arc": false
+}
