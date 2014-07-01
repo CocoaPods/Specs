@@ -1,0 +1,65 @@
+{
+  "name": "ReactiveNetworking",
+  "version": "1.3.1",
+  "license": "MIT",
+  "summary": "Mixes the great AFNetworking with ReactiveCocoa.",
+  "homepage": "https://github.com/plu/ReactiveNetworking",
+  "authors": {
+    "Johannes Plunien": "plu@pqpq.de"
+  },
+  "social_media_url": "https://twitter.com/plutooth",
+  "source": {
+    "git": "https://github.com/plu/ReactiveNetworking.git",
+    "tag": "1.3.1",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "default_subspecs": "Core",
+  "prefix_header_contents": "#if __IPHONE_OS_VERSION_MIN_REQUIRED\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <MobileCoreServices/MobileCoreServices.h>\n  #import <Security/Security.h>\n#else\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <CoreServices/CoreServices.h>\n  #import <Security/Security.h>\n#endif\n",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ReactiveNetworking/*.{h,m}",
+      "dependencies": {
+        "ReactiveNetworking/Dependencies": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dependencies",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 1.0"
+        ],
+        "Mantle": [
+          "~> 1.0"
+        ],
+        "ReactiveCocoa": [
+          "~> 2.0"
+        ],
+        "ReactiveCocoa/UI": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "Testing",
+      "dependencies": {
+        "Expecta": [
+          "~> 0.3"
+        ],
+        "OHHTTPStubs": [
+          "~> 3.1"
+        ],
+        "Specta": [
+          "~> 0.2"
+        ]
+      }
+    }
+  ]
+}

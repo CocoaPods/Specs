@@ -12,7 +12,15 @@
   "license": "MIT",
   "summary": "Logging library which provides log levels, log components, and pluggable logging back-ends.",
   "description": "LibComponentLogging is a small logging library for Objective-C on Mac OS X and iOS which provides log levels, log components, and pluggable logging back-ends, e.g. writing log messages to a file, or sending them to the system log.",
-  "source_files": "lcl*.{h,m}",
+  "prepare_command": "echo '{\"name\": \"Core\", \"type\": \"core\", \"main_header\": \"lcl.h\"}' > pod.lcl_configure",
+  "source_files": [
+    "lcl*.{h,m}"
+  ],
+  "preserve_paths": [
+    "*.lcl_configure"
+  ],
   "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/..\""
+  }
 }
