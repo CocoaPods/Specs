@@ -39,6 +39,6 @@ Pod::Spec.new do |s|
   s.platform = :ios, 5.0
   s.requires_arc = true
   s.frameworks     = 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'QuartzCore', 'SystemConfiguration'
+  s.public_header_files = 'Appsee/Appsee.framework/Versions/A/Headers/*.h*'
   s.vendored_frameworks = 'Appsee/Appsee.framework'
-  s.source_files   = 'Appsee/Appsee.framework/Versions/A/Headers/*.{h}'  
 end
