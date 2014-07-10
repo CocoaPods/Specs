@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     :text => 'Copyright 2014 Google Inc.'
   }
   s.author           = 'Google Inc.'
-  s.source           = { :http => "https://developers.google.com/games/services/downloads/GooglePlayGames.v#{s.version}.zip" }
+  s.source           = { :http => "https://developers.google.com/games/services/downloads/GooglePlayGames-iOS-SDK.v#{s.version}.zip" }
   s.platform = :ios
 
   s.vendored_frameworks = "GooglePlayGames.framework"
@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'AddressBook', 'AssetsLibrary', 'CoreData', 'CoreLocation', 'CoreMotion', 'CoreText', 'MediaPlayer', 'QuartzCore', 'Security', 'SystemConfiguration', 'CoreTelephony'
   s.library = 'libc++.dylib', 'libz.dylib'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lc++' }
-  s.dependency 'google-plus-ios-sdk', '~> 1.7'
+  s.dependency 'google-plus-ios-sdk', '>= 1.5'
   s.requires_arc = true
 end
