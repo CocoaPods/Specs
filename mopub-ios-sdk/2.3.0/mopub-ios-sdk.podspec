@@ -70,10 +70,4 @@ Pod::Spec.new do |s|
     ss.dependency 'mopub-ios-sdk/MoPubSDK'
   end
 
-  s.subspec 'Vungle' do |ss|
-    ss.source_files = 'AdNetworkSupport/Vungle/*.{h,m}'
-    ss.dependency 'VungleAdvertiserSDK', '~> 2.0.1'
-    ss.dependency 'mopub-ios-sdk/MoPubSDK'
-  end
-
 end
