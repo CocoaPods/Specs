@@ -1,24 +1,24 @@
 {
-  "name": "mopub-ios-sdk",
-  "version": "2.1.0",
-  "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and native ads.",
-  "description": "                    MoPub is a hosted ad serving solution built specifically for mobile publishers.\n                    Grow your mobile advertising business with powerful ad management, optimization \n                    and reporting capabilities, and earn revenue by connecting to the world's largest \n                    mobile ad exchange. \n\n                    To learn more or sign up for an account, go to http://www.mopub.com. \n",
-  "homepage": "https://github.com/mopub/mopub-ios-sdk",
+  "social_media_url": "http://twitter.com/mopub",
   "license": {
-    "type": "New BSD",
-    "file": "LICENSE"
+    "file": "LICENSE",
+    "type": "New BSD"
   },
+  "weak_frameworks": [
+    "AdSupport",
+    "StoreKit"
+  ],
+  "description": "                    MoPub is a hosted ad serving solution built specifically for mobile publishers.\n                    Grow your mobile advertising business with powerful ad management, optimization \n                    and reporting capabilities, and earn revenue by connecting to the world's largest \n                    mobile ad exchange. \n\n                    To learn more or sign up for an account, go to http://www.mopub.com. \n",
   "authors": {
     "MoPub": "support@mopub.com"
   },
-  "social_media_url": "http://twitter.com/mopub",
+  "name": "mopub-ios-sdk",
+  "homepage": "https://github.com/mopub/mopub-ios-sdk",
+  "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and NativeAds.",
   "platforms": {
     "ios": "5.0"
   },
-  "source": {
-    "git": "https://github.com/mopub/mopub-ios-sdk.git",
-    "tag": "2.1.0"
-  },
+  "default_subspecs": "MoPubSDK",
   "frameworks": [
     "CoreGraphics",
     "CoreLocation",
@@ -31,113 +31,101 @@
     "SystemConfiguration",
     "UIKit"
   ],
-  "weak_frameworks": [
-    "AdSupport",
-    "StoreKit"
-  ],
+  "source": {
+    "git": "https://github.com/mopub/mopub-ios-sdk.git",
+    "tag": "2.3.0"
+  },
   "requires_arc": false,
-  "default_subspec": "MoPubSDK",
+  "version": "2.3.0",
   "subspecs": [
     {
+      "dependencies": {
+        "mopub-ios-sdk/NativeAds": [
+
+        ],
+        "mopub-ios-sdk/Internal": [
+
+        ]
+      },
       "name": "MoPubSDK",
-      "source_files": "MoPubSDK/*.{h,m}",
       "resources": "MoPubSDK/**/*.{png,bundle,xib,nib}",
-      "dependencies": {
-        "mopub-ios-sdk/MoPubSDK Internal": [
-
-        ],
-        "mopub-ios-sdk/Native Ads": [
-
-        ]
-      }
+      "source_files": "MoPubSDK/*.{h,m}"
     },
     {
-      "name": "MoPubSDK Internal",
-      "source_files": "MoPubSDK/Internal/**/*.{h,m}",
-      "dependencies": {
-        "mopub-ios-sdk/MoPubSDK": [
-
-        ]
-      }
-    },
-    {
-      "name": "Native Ads",
-      "source_files": "MoPubSDK/Native Ads/*.{h,m}",
-      "dependencies": {
-        "mopub-ios-sdk/MoPubSDK": [
-
-        ],
-        "mopub-ios-sdk/Native Ads Internal": [
-
-        ]
-      }
-    },
-    {
-      "name": "Native Ads Internal",
-      "source_files": "MoPubSDK/Native Ads/Internal/**/*.{h,m}",
-      "dependencies": {
-        "mopub-ios-sdk/Native Ads": [
-
-        ]
-      }
-    },
-    {
-      "name": "iAd",
-      "source_files": "AdNetworkSupport/iAd/*.{h,m}",
       "dependencies": {
         "mopub-ios-sdk/MoPubSDK": [
 
         ]
       },
-      "frameworks": "iAd"
+      "name": "Internal",
+      "source_files": "MoPubSDK/Internal/**/*.{h,m}"
     },
     {
-      "name": "AdMob",
-      "source_files": "AdNetworkSupport/GoogleAdMob/*.{h,m}",
+      "dependencies": {
+        "mopub-ios-sdk/NativeAds": [
+
+        ],
+        "mopub-ios-sdk/MoPubSDK": [
+
+        ]
+      },
+      "name": "NativeAds",
+      "source_files": "MoPubSDK/NativeAds/*.{h,m}"
+    },
+    {
+      "dependencies": {
+        "mopub-ios-sdk/NativeAds": [
+
+        ]
+      },
+      "name": "NativeAds",
+      "source_files": "MoPubSDK/NativeAds/Internal/**/*.{h,m}"
+    },
+    {
+      "dependencies": {
+        "mopub-ios-sdk/MoPubSDK": [
+
+        ]
+      },
+      "name": "iAd",
+      "frameworks": "iAd",
+      "source_files": "AdNetworkSupport/iAd/*.{h,m}"
+    },
+    {
       "dependencies": {
         "Google-Mobile-Ads-SDK": [
-          "~> 6.6.1"
+          "~> 6.9.3"
         ],
         "mopub-ios-sdk/MoPubSDK": [
 
         ]
-      }
+      },
+      "name": "AdMob",
+      "source_files": "AdNetworkSupport/GoogleAdMob/*.{h,m}"
     },
     {
-      "name": "Chartboost",
-      "source_files": "AdNetworkSupport/Chartboost/*.{h,m}",
       "dependencies": {
+        "mopub-ios-sdk/MoPubSDK": [
+
+        ],
         "ChartboostSDK": [
           "~> 4.1.0"
-        ],
-        "mopub-ios-sdk/MoPubSDK": [
-
         ]
-      }
+      },
+      "name": "Chartboost",
+      "source_files": "AdNetworkSupport/Chartboost/*.{h,m}"
     },
     {
-      "name": "Greystripe",
-      "source_files": "AdNetworkSupport/Greystripe/*.{h,m}",
       "dependencies": {
-        "GreystripeSDK": [
-          "~> 4.2.3"
-        ],
         "mopub-ios-sdk/MoPubSDK": [
 
-        ]
-      }
-    },
-    {
-      "name": "AdColony",
-      "source_files": "AdNetworkSupport/AdColony/*.{h,m}",
-      "dependencies": {
+        ],
         "AdColony": [
           "~> 2.2.4"
-        ],
-        "mopub-ios-sdk/MoPubSDK": [
-
         ]
-      }
+      },
+      "name": "AdColony",
+      "source_files": "AdNetworkSupport/AdColony/*.{h,m}"
     }
   ]
 }
