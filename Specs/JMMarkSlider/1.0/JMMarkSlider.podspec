@@ -8,7 +8,7 @@ Fully customizable slider that allows you to set marks on it. You can set the co
 DESC
 
   s.homepage     = "https://github.com/joamafer/JMMarkSlider.git"
-  # s.screenshots  = "http://desarrolloios.es/wp-content/uploads/2014/07/JMMarkSlider.png"
+  s.screenshots  = "http://desarrolloios.es/wp-content/uploads/2014/07/JMMarkSlider.png"
 
  s.license      = "MIT"
 
