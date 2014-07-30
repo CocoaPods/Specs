@@ -12,10 +12,8 @@ Pod::Spec.new do |s|
 * Using strong AES 356-bit encryption
 
 -------------------------------------
-####Benefit: 
+####Features: 
 ##### * Secure user data just by one line of code.
-##### * Support obfuscating your key in binary source
-##### * Able to save data without encryption
 ###### * Enable to handle exceptional case via built-in NOTIFICATION
 ###### * Enable using standardUserDefaults as well as securedUserDefaults parallelly
 
