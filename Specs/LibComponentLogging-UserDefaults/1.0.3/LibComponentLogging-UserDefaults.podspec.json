@@ -12,12 +12,20 @@
   "license": "MIT",
   "summary": "A LibComponentLogging extension which stores/restores log level settings to/from the user defaults.",
   "description": "LibComponentLogging-UserDefaults is an extension for LibComponentLogging which stores/restores log level settings to/from the user defaults.",
-  "source_files": "LCLUserDefaults*.{h,m}",
+  "prepare_command": "echo '{\"name\": \"UserDefaults\", \"type\": \"extension\", \"main_header\": \"LCLUserDefaults.h\", \"config_template\": \"LCLUserDefaultsConfig.template.h\"}' > pod.lcl_configure",
+  "source_files": [
+    "LCLUserDefaults*.{h,m}"
+  ],
+  "preserve_paths": [
+    "*.lcl_configure"
+  ],
+  "requires_arc": false,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/..\""
+  },
   "dependencies": {
     "LibComponentLogging-Core": [
       ">= 1.1.6"
     ]
-  },
-  "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  }
 }

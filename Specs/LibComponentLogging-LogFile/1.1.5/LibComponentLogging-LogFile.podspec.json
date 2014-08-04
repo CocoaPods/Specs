@@ -12,12 +12,20 @@
   "license": "MIT",
   "summary": "LibComponentLogging logging back-end which writes log messages to an application-specific log file.",
   "description": "LibComponentLogging-LogFile is a logging back-end for LibComponentLogging which writes log messages to an application-specific log file.",
-  "source_files": "LCLLogFile*.{h,m}",
+  "prepare_command": "echo '{\"name\": \"LogFile\", \"type\": \"logger\", \"main_header\": \"LCLLogFile.h\", \"config_template\": \"LCLLogFileConfig.template.h\"}' > pod.lcl_configure",
+  "source_files": [
+    "LCLLogFile*.{h,m}"
+  ],
+  "preserve_paths": [
+    "*.lcl_configure"
+  ],
+  "requires_arc": false,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/..\""
+  },
   "dependencies": {
     "LibComponentLogging-Core": [
       ">= 1.1.6"
     ]
-  },
-  "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  }
 }
