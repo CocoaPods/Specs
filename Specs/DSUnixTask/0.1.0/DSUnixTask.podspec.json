@@ -1,0 +1,57 @@
+{
+  "name": "DSUnixTask",
+  "version": "0.1.0",
+  "summary": "Launch and interact with awesome looking UNIX tasks.",
+  "description": "                      DSUnixTask is a library for Mac OS X which allows to launch and interact with awesome looking UNIX tasks.\n\n                      Features:\n\n                      - Simple interface based on blocks.\n                      - Process standard output and standard error in real-time.\n                      - Easily send messages to standard input.\n                      - Execute tasks either as sub-processes or through an XPC service.\n                      - Execute throughout the user shell.\n                      - Logging.\n",
+  "homepage": "https://github.com/Discontinuity-srl/DSUnixTask",
+  "license": "MIT",
+  "authors": {
+    "Fabio Pelosin": "fabiopelosin@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Discontinuity-srl/DSUnixTask.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/Core/DSUnixTaskInterfaces.h",
+      "subspecs": [
+        {
+          "name": "TaskManagers",
+          "source_files": "Classes/Core/TaskManagers/*.{h,m}"
+        },
+        {
+          "name": "TaskRunner",
+          "source_files": "Classes/Core/TaskRunner/*.{h,m}"
+        },
+        {
+          "name": "Tasks",
+          "source_files": "Classes/Core/Tasks/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "XPCClient",
+      "source_files": "Classes/XPCClient/*.{h,m}",
+      "dependencies": {
+        "DSUnixTask/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XPCService",
+      "source_files": "Classes/XPCService/*.{h,m}",
+      "dependencies": {
+        "DSUnixTask/Core/TaskRunner": [
+
+        ]
+      }
+    }
+  ]
+}

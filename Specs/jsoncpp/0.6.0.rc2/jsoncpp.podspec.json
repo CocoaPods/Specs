@@ -1,0 +1,29 @@
+{
+  "name": "jsoncpp",
+  "version": "0.6.0.rc2",
+  "summary": "jsoncpp is an implementation of a JSON (http://json.org) reader and writer in C++.",
+  "description": "                     JSON (JavaScript Object Notation) is a lightweight data-interchange format.\n                     It is easy for humans to read and write. It is easy for machines to parse and generate.\n",
+  "homepage": "http://jsoncpp.sourceforge.net/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Baptiste Lepilleur": "blep@users.sourceforge.net"
+  },
+  "source": {
+    "svn": "https://svn.code.sf.net/p/jsoncpp/code/tags/jsoncpp/0.6.0-rc2/"
+  },
+  "source_files": [
+    "dist",
+    "dist/**/*.{h,cpp}"
+  ],
+  "preserve_paths": [
+    "amalgamate.py",
+    "include",
+    "src"
+  ],
+  "header_mappings_dir": "dist",
+  "prepare_command": "    # jsoncpp is designed to be \"amalgamated\" for deployment, but some of the\n    # paths in this version of amalagamate.py are incorrect, we need to fix\n    # them first:\n    perl -pi -e 's/lib_json\\\\/lib_json\\//g' amalgamate.py\n\n    # Run amalgamate.py to combine the jsoncpp files and output them to the\n    # 'dist' directory:\n    python amalgamate.py\n\n    # The generated json.h does not have the 'JSON_IS_AMALGAMATION' define\n    # uncommented as it should be, lets do that now:\n    perl -pi -e 's/^.+(#\\s*define\\s+JSON_IS_AMALGAMATION)/$1/g' dist/json/json.h\n",
+  "requires_arc": false
+}

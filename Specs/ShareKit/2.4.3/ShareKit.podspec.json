@@ -1,0 +1,311 @@
+{
+  "name": "ShareKit",
+  "version": "2.4.3",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "summary": "Drop in sharing features for all iPhone and iPad apps.",
+  "homepage": "http://getsharekit.com/",
+  "authors": "ShareKit Community",
+  "source": {
+    "git": "https://github.com/ShareKit/ShareKit.git",
+    "tag": "2.4.3"
+  },
+  "requires_arc": true,
+  "license": {
+    "type": "MIT",
+    "text": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "resources": [
+        "Classes/ShareKit/ShareKit.bundle",
+        "Classes/ShareKit/Core/SHKSharers.plist"
+      ],
+      "source_files": [
+        "Classes/ShareKit/{Configuration,Core,UI}/**/*.{h,m,c}",
+        "Classes/ShareKit/Sharers/Actions/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "Classes/ShareKit/Core/Helpers/OAuth/**/*.{h,m}",
+        "Classes/ShareKit/Core/Categories/GTMNSString+HTML.m"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "Security",
+        "MessageUI",
+        "AVFoundation",
+        "MobileCoreServices",
+        "CoreMedia",
+        "Social"
+      ],
+      "dependencies": {
+        "SSKeychain": [
+          "~> 0.2.1"
+        ],
+        "SSToolkit": [
+          "~> 1.0.4"
+        ],
+        "ShareKit/Reachability": [
+
+        ],
+        "ShareKit/NoARC": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoARC",
+      "requires_arc": false,
+      "source_files": [
+        "Classes/ShareKit/Core/Helpers/OAuth/**/*.{h,m}",
+        "Classes/ShareKit/Core/Categories/GTMNSString+HTML.m"
+      ]
+    },
+    {
+      "name": "Reachability",
+      "source_files": "Classes/ShareKit/Reachability/**/*.{h,m}",
+      "requires_arc": false
+    },
+    {
+      "name": "Evernote",
+      "source_files": "Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}",
+      "dependencies": {
+        "Evernote-SDK-iOS": [
+          "~> 1.3.0"
+        ],
+        "ShareKit/Core": [
+
+        ]
+      },
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "Facebook",
+      "source_files": "Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}",
+      "dependencies": {
+        "Facebook-iOS-SDK": [
+          "~> 3.8"
+        ],
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Flickr",
+      "source_files": "Classes/ShareKit/Sharers/Services/Flickr/SHK*.{h,m}",
+      "frameworks": [
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "dependencies": {
+        "objectiveflickr": [
+          "~> 2.0"
+        ],
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Foursquare",
+      "source_files": "Classes/ShareKit/Sharers/Services/FoursquareV2/**/*.{h,m}",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Delicious",
+      "source_files": "Classes/ShareKit/Sharers/Services/Delicious/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Hatena",
+      "source_files": "Classes/ShareKit/Sharers/Services/Hatena/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Kippt",
+      "source_files": "Classes/ShareKit/Sharers/Services/Kippt/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Plurk",
+      "source_files": "Classes/ShareKit/Sharers/Services/Plurk/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Pocket",
+      "source_files": "Classes/ShareKit/Sharers/Services/Pocket/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ],
+        "PocketAPI": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "Diigo",
+      "source_files": "Classes/ShareKit/Sharers/Services/Diigo/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dropbox",
+      "source_files": "Classes/ShareKit/Sharers/Services/Dropbox/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ],
+        "Dropbox-iOS-SDK": [
+          "~> 1.3"
+        ]
+      }
+    },
+    {
+      "name": "Instapaper",
+      "source_files": "Classes/ShareKit/Sharers/Services/Instapaper/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "source_files": "Classes/ShareKit/Sharers/Services/LinkedIn/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Pinboard",
+      "source_files": "Classes/ShareKit/Sharers/Services/Pinboard/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Readability",
+      "source_files": "Classes/ShareKit/Sharers/Services/Readability/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ReadItLater",
+      "source_files": "Classes/ShareKit/Sharers/Services/Read It Later/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tumblr",
+      "source_files": "Classes/ShareKit/Sharers/Services/Tumblr/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "Classes/ShareKit/Sharers/Services/Twitter/**/*.{h,m}",
+      "frameworks": [
+        "Twitter",
+        "Social"
+      ],
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SinaWeibo",
+      "source_files": "Classes/ShareKit/Sharers/Services/Sina Weibo/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      },
+      "frameworks": "Social"
+    },
+    {
+      "name": "Vkontakte",
+      "source_files": "Classes/ShareKit/Sharers/Services/Vkontakte/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Instagram",
+      "source_files": "Classes/ShareKit/Sharers/Services/Instagram/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "YouTube",
+      "source_files": "Classes/ShareKit/Sharers/Services/YouTube/**/*.{h,m}",
+      "dependencies": {
+        "ShareKit/Core": [
+
+        ],
+        "Google-API-Client/Services/YouTube": [
+
+        ],
+        "Google-API-Client/Common": [
+
+        ],
+        "Google-API-Client/Objects": [
+
+        ],
+        "Google-API-Client/Utilities": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "ImageMagick",
+  "version": "6.8.8-9",
+  "platforms": {
+    "ios": null
+  },
+  "summary": "Convert, Edit and Compose Images",
+  "homepage": "http://www.imagemagick.org/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "text": "      Copyright 1999-2013 ImageMagick Studio LLC, a non-profit organization\n      dedicated to making software imaging solutions freely available.\n\n      You may obtain a copy of the License at\n      http://www.imagemagick.org/script/license.php\n\n      Unless required by applicable law or agreed to in writing, software\n      distributed under the License is distributed on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n      See the License for the specific language governing permissions and\n      limitations under the License.\n"
+  },
+  "authors": {
+    "ImageMagick Studio LLC": "http://www.imagemagick.org/script/contact.php"
+  },
+  "source": {
+    "http": "http://www.imagemagick.org/download/iOS/iOSMagick-6.8.8-9-libs.zip"
+  },
+  "preserve_paths": [
+    "include/**/*.h",
+    "*.a"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-Dmacintosh=1",
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/ImageMagick\""
+  },
+  "source_files": "include/magick/*.h",
+  "header_dir": "../magick",
+  "libraries": [
+    "xml2",
+    "MagickCore",
+    "z",
+    "bz2"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "jpeg",
+      "source_files": "include/jpeg/*.h",
+      "header_mappings_dir": "include/jpeg",
+      "header_dir": "../jpeg",
+      "libraries": "jpeg"
+    },
+    {
+      "name": "png",
+      "source_files": "include/png/*.h",
+      "header_mappings_dir": "include/png",
+      "header_dir": "../png",
+      "libraries": "png"
+    },
+    {
+      "name": "tiff",
+      "source_files": "include/tiff/*.h",
+      "header_mappings_dir": "include/tiff",
+      "header_dir": "../tiff",
+      "libraries": "tiff"
+    },
+    {
+      "name": "wand",
+      "source_files": "include/wand/*.h",
+      "header_mappings_dir": "include/wand",
+      "header_dir": "../wand",
+      "libraries": "MagickWand"
+    }
+  ]
+}

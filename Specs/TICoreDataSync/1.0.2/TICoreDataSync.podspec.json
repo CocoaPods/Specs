@@ -1,0 +1,73 @@
+{
+  "name": "TICoreDataSync",
+  "version": "1.0.2",
+  "summary": "Automatic synchronization for Core Data Apps, between any combination of Mac OS X and iOS.",
+  "homepage": "http://nothirst.github.com/TICoreDataSync",
+  "license": {
+    "type": "MIT",
+    "text": "                    Copyright (c) 2013 No Thirst Software (http://nothirst.com/)\n\n                    Permission is hereby granted, free of charge, to any person obtaining a copy\n                    of this software and associated documentation files (the \"Software\"), to deal\n                    in the Software without restriction, including without limitation the rights\n                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n                    copies of the Software, and to permit persons to whom the Software is\n                    furnished to do so, subject to the following conditions:\n\n                    The above copyright notice and this permission notice shall be included in\n                    all copies or substantial portions of the Software.\n\n                    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n                    THE SOFTWARE.\n"
+  },
+  "authors": {
+    "Tim Isted": "git@timisted.com",
+    "Michael Fey": "michael@fruitstandsoftware.com",
+    "Kevin Hoctor": "kevin@nothirst.com",
+    "Christian Beer": "christian.beer@chbeer.de",
+    "Tony Arnold": "tony@thecocoabots.com",
+    "Danny Greg": "danny@dannygreg.com"
+  },
+  "platforms": {
+    "ios": "5.1",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/nothirst/TICoreDataSync.git",
+    "tag": "1.0.2",
+    "submodules": true
+  },
+  "source_files": [
+    "TICoreDataSync/0[1235]*/**/*.{h,m}",
+    "TICoreDataSync/TICoreDataSync.h",
+    "TICoreDataSync/04*/*.{h,m}",
+    "TICoreDataSync/04*/FZACryptor/*.{h,m}",
+    "TICoreDataSync/04*/SSZipArchive/*.{h,m}",
+    "TICoreDataSync/04*/SSZipArchive/Objective-Zip/*.{h,m}",
+    "TICoreDataSync/04*/SSZipArchive/minizip/*.{h,c}",
+    "TICoreDataSync/06*/{NS,TI}*.{h,m}"
+  ],
+  "ios": {
+    "source_files": "TICoreDataSync/06*/UI*.{h,m}",
+    "dependencies": {
+      "Dropbox-iOS-SDK": [
+        "~> 1.3.3"
+      ]
+    }
+  },
+  "resources": [
+    "TICoreDataSync/05*/*.{plist,txt}",
+    "TICoreDataSync/03*/*.{xcdatamodel,xcdatamodeld}"
+  ],
+  "frameworks": [
+    "CoreData",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": "z",
+  "requires_arc": true,
+  "osx": {
+    "dependencies": {
+      "Dropbox-OSX-SDK": [
+        "~> 1.3.3"
+      ]
+    }
+  },
+  "preserve_paths": [
+    "Submodules",
+    "TICoreDataSync/03 Internal Data Model/TICDSSyncChange.xcdatamodel",
+    "TICoreDataSync/03 Internal Data Model/TICDSSyncChangeSet.xcdatamodeld"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/TICoreDataSync/**\"",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "prefix_header_contents": "    #ifdef __OBJC__\n      #import <CoreData/CoreData.h>\n    #endif\n"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "BBHTTP",
+  "version": "0.9.7",
+  "summary": "A modern HTTP client framework for iOS/OSX built on top of libcurl.",
+  "homepage": "https://github.com/brunodecarvalho/BBHTTP",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bruno de Carvalho": "bruno@biasedbit.com"
+  },
+  "source": {
+    "git": "https://github.com/brunodecarvalho/BBHTTP.git",
+    "tag": "0.9.7"
+  },
+  "requires_arc": true,
+  "source_files": "BBHTTP/**/*.{h,m}",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "preserve_paths": "External/libcurl.iOS",
+    "frameworks": [
+      "MobileCoreServices",
+      "Security",
+      "UIKit"
+    ],
+    "libraries": [
+      "z",
+      "curl.iOS.dev"
+    ],
+    "xcconfig": {
+      "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/BBHTTP/External/libcurl.iOS\"",
+      "LIBRARY_SEARCH_PATHS": "\"${PODS_ROOT}/BBHTTP/External/libcurl.iOS\""
+    }
+  },
+  "osx": {
+    "preserve_paths": "External/libcurl.OSX",
+    "frameworks": [
+      "Security",
+      "CoreServices",
+      "AppKit"
+    ],
+    "libraries": [
+      "z",
+      "curl.OSX"
+    ],
+    "xcconfig": {
+      "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/BBHTTP/External/libcurl.OSX\"",
+      "LIBRARY_SEARCH_PATHS": "\"${PODS_ROOT}/BBHTTP/External/libcurl.OSX\""
+    }
+  },
+  "prefix_header_contents": "#import <Availability.h>\n\n#if __IPHONE_OS_VERSION_MIN_REQUIRED\n    #import <MobileCoreServices/MobileCoreServices.h>\n#else\n    #import <CoreServices/CoreServices.h>\n#endif\n"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "RMSHostSelector",
+  "version": "1.0.4",
+  "summary": "Helper class for selecting server hosts in iOS apps",
+  "description": "RMSHostSelector\n===============\n\nManages server selection for iOS apps\n\nUse `RMSHostSelector` to allow user-selection of a server host\nwhen testing/debugging iOS apps. Host choices are defined\nin a Hosts.plist file that you add to your app's resources.\nEach host is defined as a key/value pair (i.e. production => myserver.com)\n\nRelease builds should not permit user-selection of a back-end server.\nFor these builds, preference is given to the `production` key\nin the Hosts.plist file. All other keys will be stripped out\nof the bundled Hosts.plist file and the user will not be prompted\nfor server selection. The special handling is performed by the\n`host_selector_build_phase.sh` that must be added as a \"Run Script\"\nbuild phase in order to take effect.\n\nA key other than `production` can be coerced by defining the\n`RMS_HOST_KEY` preprocessor macro. The value\nspecified by this key must be quoted and must match one of the\nkeys in the Hosts.plist file.\n\nNon-release builds can also make use of the `RMS_HOST_KEY` override. \nFor non-release builds where `RMS_HOST_KEY` is defined, the Hosts.plist \nfile is left in tact, but user-selection of the host is circumvented.\n",
+  "homepage": "https://github.com/RoleModel/RMSHostSelector",
+  "license": "MIT",
+  "authors": {
+    "Tony Ingraldi": "tony.ingraldi@rolemodelsoftware.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/RoleModel/RMSHostSelector.git",
+    "tag": "1.0.4"
+  },
+  "source_files": "Source",
+  "resources": [
+    "Resources/*"
+  ],
+  "requires_arc": true
+}

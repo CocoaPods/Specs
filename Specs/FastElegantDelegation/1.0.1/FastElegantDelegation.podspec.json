@@ -1,0 +1,55 @@
+{
+  "name": "FastElegantDelegation",
+  "version": "1.0.1",
+  "summary": "Objective-C library for delegate multicasting and friendly single delegation.",
+  "homepage": "https://github.com/rabovik/FastElegantDelegation",
+  "license": "MIT",
+  "authors": {
+    "Yan Rabovik": "yan@rabovik.ru"
+  },
+  "source": {
+    "git": "https://github.com/rabovik/FastElegantDelegation.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "dependencies": {
+    "MAObjCRuntime": [
+
+    ]
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "ARC",
+      "source_files": "FEDelegation/ARC",
+      "public_header_files": "FEDelegation/ARC",
+      "requires_arc": true,
+      "dependencies": {
+        "FastElegantDelegation/nonARC": [
+
+        ]
+      },
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++0x",
+        "CLANG_CXX_LIBRARY": "libc++"
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "nonARC",
+      "source_files": [
+        "FEDelegation/nonARC",
+        "FEDelegation/FEDelegation.h"
+      ],
+      "public_header_files": "FEDelegation/FEDelegation.h",
+      "requires_arc": false,
+      "dependencies": {
+        "FastElegantDelegation/ARC": [
+
+        ]
+      }
+    }
+  ]
+}

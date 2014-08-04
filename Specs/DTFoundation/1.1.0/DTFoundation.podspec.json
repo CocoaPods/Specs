@@ -1,0 +1,96 @@
+{
+  "name": "DTFoundation",
+  "version": "1.1.0",
+  "summary": "Standard toolset classes and categories.",
+  "homepage": "https://github.com/Cocoanetics/DTFoundation",
+  "authors": {
+    "Oliver Drobnik": "oliver@drobnik.com"
+  },
+  "source": {
+    "git": "https://github.com/Cocoanetics/DTFoundation.git",
+    "tag": "1.1.0"
+  },
+  "license": "BSD",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "4.3",
+        "osx": "10.6"
+      },
+      "source_files": "Core/Source/*.{h,m}"
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "4.3"
+      },
+      "dependencies": {
+        "DTFoundation/Core": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "QuartzCore",
+        "source_files": "Core/Source/iOS/*.{h,m}"
+      }
+    },
+    {
+      "name": "AppKit",
+      "platforms": {
+        "osx": "10.6"
+      },
+      "dependencies": {
+        "DTFoundation/Core": [
+
+        ]
+      },
+      "osx": {
+        "source_files": "Core/Source/OSX/*.{h,m}"
+      }
+    },
+    {
+      "name": "DTHMLParser",
+      "platforms": {
+        "ios": "4.3"
+      },
+      "dependencies": {
+        "DTFoundation/Core": [
+
+        ]
+      },
+      "source_files": "Core/Source/DTHTMLParser/*.{h,m}",
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "DTZipArchive",
+      "platforms": {
+        "ios": "4.3"
+      },
+      "source_files": "Core/Source/DTZipArchive/*.{h,m}",
+      "libraries": "z",
+      "subspecs": [
+        {
+          "name": "Minizip",
+          "source_files": "Core/Source/Externals/minizip/*.{h,c}"
+        }
+      ]
+    },
+    {
+      "name": "DTUTI",
+      "platforms": {
+        "ios": "4.3"
+      },
+      "ios": {
+        "frameworks": [
+          "MobileCoreServices"
+        ]
+      },
+      "source_files": "Core/Source/DTUTI/*.{h,m}"
+    }
+  ]
+}

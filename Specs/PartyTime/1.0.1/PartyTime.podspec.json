@@ -1,0 +1,27 @@
+{
+  "name": "PartyTime",
+  "version": "1.0.1",
+  "summary": "A light wrapper around MultiPeer connectivity framework which allows apps to quickly connect people without invitations.",
+  "description": "                   This is a light wrapper around the MultiPeer connectivity framework which quickly connects devices without having to send or receive invites. Here's the quick setup:\n\n Each device calls:\n \n    PLPartyTime *partyTime = [[PLPartyTime alloc] initWithServiceType@\"MyApp\"];\n    partyTime.delegate = self;\n    [partyTime joinParty];\n\n Each device will get a callback when anyone connects or disconnects. Note that any device which joins the party with this service type will automatically join without sending or receiving invitations.\n\n    - (void)partyTime:(PLPartyTime *)partyTime peer:(MCPeerID *)peer changedState:(MCSessionState)state currentPeers:(NSArray *)currentPeers;\n \n Then, anytime you want to send data, you can call a method to send to all connected users (peers) or an array of select peers.\n\n    - (BOOL)sendData:(NSData *)data withMode:(MCSessionSendDataMode)mode error:(NSError **)error;\n    - (BOOL)sendData:(NSData *)data toPeers:(NSArray *)peerIDs withMode:(MCSessionSendDataMode)mode error:(NSError **)error;\n\n The clients receiving data get the callback:\n\n    - (void)partyTime:(PLPartyTime *)partyTime didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID;\n\n And that's it.\n There are a few more features of this library, but I'll let you read through the documentation to find those specifically. \n",
+  "homepage": "https://github.com/plivesey/PLPartyTime",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Peter Livesey": "plivesey453@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/plivesey/PLPartyTime.git",
+    "tag": "1.0.1"
+  },
+  "frameworks": "MultipeerConnectivity",
+  "source_files": [
+    "PLPartyTime",
+    "MultipeerConnectivity"
+  ],
+  "requires_arc": true
+}
