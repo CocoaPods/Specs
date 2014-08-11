@@ -1,0 +1,36 @@
+{
+  "name": "icu4c",
+  "version": "51.2",
+  "summary": "International Components for Unicode.",
+  "homepage": "http://icu-project.org/",
+  "license": {
+    "type": "BSD",
+    "file": "license.html"
+  },
+  "authors": "IBM",
+  "source": {
+    "http": "http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz"
+  },
+  "source_files": [
+    "source/common/**/*.{c,h,cpp}",
+    "source/i18n/**/*.{c,h,cpp}",
+    "source/io/**/*.{c,h,cpp}",
+    "source/layout/**/*.{c,h,cpp}",
+    "source/layoutex/**/*.{c,h,cpp}",
+    "source/config.h",
+    "source/stubdata/**/*.{c,h,cpp}",
+    "source/tools/tzcode/tzfile.h"
+  ],
+  "compiler_flags": "-DU_COMMON_IMPLEMENTATION -DU_I18N_IMPLEMENTATION -DU_IO_IMPLEMENTATION",
+  "public_header_files": [
+    "**/ucnv.h",
+    "**/tzfile.h"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++0x",
+    "CLANG_CXX_LIBRARY": "libstdc++",
+    "USE_HEADERMAP": "NO"
+  },
+  "prepare_command": "    cd source\n    CURRENTPATH=`pwd`\n    TOOLCHAIN=\"`xcode-select -p`/Toolchains/XcodeDefault.xctoolchain/usr/bin\"\n    CXXFLAGS=\"-stdlib=libstdc++ -std=gnu++11\"\n    LDFLAGS=\"-lstdc++ -stdlib=libstdc++\"\n    CXXFLAGS=\"$CXXFLAGS\" CC=\"$TOOLCHAIN/clang\" CXX=\"$TOOLCHAIN/clang++\" LDFLAGS=\"$LDFLAGS\" ./configure\n    DIR=$CURRENTPATH\n\n    cd common ; make install-headers includedir=\"$DIR/Headers/icu4c\" ; cd ..\n    cd i18n ; make install-headers includedir=\"$DIR/Headers/icu4c\" ; cd ..\n    cd io ; make install-headers includedir=\"$DIR/Headers/icu4c\" ; cd ..\n    cd layout ; make install-headers includedir=\"$DIR/Headers/icu4c\" ; cd ..\n    cd layoutex ; make install-headers includedir=\"$DIR/Headers/icu4c\" ; cd ..\n\n    cd common ; make install-headers includedir=\"$DIR/BuildHeaders/icu4c\" ; cd ..\n    cd i18n ; make install-headers includedir=\"$DIR/BuildHeaders/icu4c\" ; cd ..\n    cd io ; make install-headers includedir=\"$DIR/BuildHeaders/icu4c\" ; cd ..\n    cd layout ; make install-headers includedir=\"$DIR/BuildHeaders/icu4c\" ; cd ..\n    cd layoutex ; make install-headers includedir=\"$DIR/BuildHeaders/icu4c\" ; cd ..\n    cd ..\n\n    find . -type f | LC_CTYPE=C xargs sed -i '' 's/include \"unicode\\//include \"/g'\n    find . -type f | LC_CTYPE=C xargs sed -i '' 's/include \"layout\\//include \"/g'\n\n    echo \"\n--- a/source/common/ubidi.c\n+++ b/source/common/ubidi.c\n1200c1200\n<     Point point;\n---\n>     struct ICU4CPoint point;\n--- a/source/common/ubidiimp.h\n+++ b/source/common/ubidiimp.h\n176c176\n< typedef struct Point {\n---\n> typedef struct ICU4CPoint {\n186c186\n<     Point *points;          /* pointer to array of points */\n---\n>     struct ICU4CPoint *points;          /* pointer to array of points */\n--- a/source/common/ubidiln.c\n+++ b/source/common/ubidiln.c\n689c689\n<         Point *point, *start=pBiDi->insertPoints.points,\n---\n>         struct ICU4CPoint *point, *start=pBiDi->insertPoints.points,\n--- a/source/i18n/rbnf.cpp\n+++ b/source/i18n/rbnf.cpp\n34c34\n< #ifdef DEBUG\n---\n> #ifdef DEBUG_ICU\n327c327\n< #ifdef DEBUG\n---\n> #ifdef DEBUG_ICU\n554c554\n< #ifdef DEBUG\n---\n> #ifdef DEBUG_ICU\" | patch -p1\n",
+  "requires_arc": false
+}
