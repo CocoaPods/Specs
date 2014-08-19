@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { "UzysJung" => "uzysjung@gmail.com" }
 
   s.homepage     = "https://github.com/uzysjung/UzysAssetsPickerController"
-  s.license     = { :type => "MIT", :file => "LICENSE" }
+  s.license     = { :type => "MIT", :file => "../../LICENSE" }
   
   s.platform     = :ios , '7.0'
   s.source       = { :git => "https://github.com/uzysjung/UzysAssetsPickerController.git", :tag => "0.9.0" }
