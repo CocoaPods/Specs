@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "http://s3.amazonaws.com/showkitweb/release/22/ShowKit-1.0.29.zip" }
 
   s.platform     = :ios, '6.0'
-  s.source_files = 'ShowKit.framework/Versions/A/Headers/ShowKit.h'
+  s.source_files = 'ShowKit.framework/Versions/A/Headers/ShowKit.h', 'ShowKit.framework/Versions/A/Headers/SHKSupportViewController.h'
   s.preserve_paths = 'ShowKit.framework/*'
 
   s.frameworks = 'OpenGLES', 'AVFoundation', 'QuartzCore', 'CFNetwork', 'CoreVideo', 'CoreGraphics', 'CoreMedia', 'AudioToolbox', 'SystemConfiguration', 'ShowKit'
