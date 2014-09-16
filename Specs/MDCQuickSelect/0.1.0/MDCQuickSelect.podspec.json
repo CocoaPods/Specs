@@ -1,0 +1,24 @@
+{
+  "name": "MDCQuickSelect",
+  "version": "0.1.0",
+  "summary": "Categories to quickly select the \"n-th most\" element, or the \"n most\" elements in an array.",
+  "description": "                   Categories to quickly select the \"n-th most\" element, or the \"n most\"\n                   elements (unsorted) in an array.\n\n                   For example, if you need to find the tenth smallest number in an array of 100,000:\n\n                   ```objc\n                   #import <MDCQuickSelect/MDCQuickSelect.h>\n\n                   // 79% faster than sorting the numbers and accessing -objectAtIndex:10\n                   NSNumber *tenth = [numbers mdc_objectAtIndex:10\n                                       inSortedArrayUsingComparator:^NSComparisonResult(NSNumber *left, NSNumber *right) {\n                                           return [left compare: right];\n                                       }];\n                   ```\n\n                   Or to find the ten smallest numbers in an array of 100,000:\n\n                   ```objc\n                   // 71% faster than sorting the numbers and accessing -subarrayWithRange:NSMakeRange(0, 10)\n                   [numbers mdc_subarrayWithRange:NSMakeRange(0, 10)\n                    inSortedArrayUsingComparator:^NSComparisonResult(NSNumber *left, NSNumber *right){\n                                                     return [left.numberOfFriends compare:right.numberOfFriends];\n                                                 }];\n                   ```\n\n                   The improved performance is achieved by using the quickselect algorithm, developed by\n                   Tony Hoare, inventor of quicksort.\n\n                   Performance is infinitesimally worse when array size is less than 150 elements. For arrays\n                   larger than 150 elements, MDCQuickSelect outperforms the naive approach, sometimes by vast margins.\n                   Run the benchmarking tests and see for yourself!\n",
+  "homepage": "https://github.com/modocache/MDCQuickSelect",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "modocache": "modocache@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/modocache",
+  "source": {
+    "git": "https://github.com/modocache/MDCQuickSelect.git",
+    "tag": "v0.1.0"
+  },
+  "source_files": "MDCQuickSelect/**/*.{h,m}",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-all_load"
+  },
+  "requires_arc": true
+}

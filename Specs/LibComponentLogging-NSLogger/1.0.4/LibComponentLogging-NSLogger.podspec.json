@@ -12,15 +12,23 @@
   "license": "MIT",
   "summary": "LibComponentLogging logging back-end for Florent Pillet's NSLogger client.",
   "description": "LibComponentLogging-NSLogger is a logging back-end for LibComponentLogging which integrates the logging client from Florent Pillet's NSLogger project. See http://github.com/fpillet/NSLogger for details about NSLogger.",
-  "source_files": "LCLNSLogger*.{h,m}",
+  "prepare_command": "echo '{\"name\": \"NSLogger\", \"type\": \"logger\", \"main_header\": \"LCLNSLogger.h\", \"config_template\": \"LCLNSLoggerConfig.template.h\"}' > pod.lcl_configure",
+  "source_files": [
+    "LCLNSLogger*.{h,m}"
+  ],
+  "preserve_paths": [
+    "*.lcl_configure"
+  ],
+  "requires_arc": false,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/..\""
+  },
   "dependencies": {
     "LibComponentLogging-Core": [
       ">= 1.1.6"
     ],
     "NSLogger": [
-
+      ">= 1.2"
     ]
-  },
-  "requires_arc": false,
-  "prepare_command": "echo \"This Pod relies on the removed \\`pre_install\\` or \\`post_install\\` hooks and therefore will no longer continue to work. Please try updating to the latest version of this Pod or updating the Pod specification. See http://blog.cocoapods.org/CocoaPods-Trunk/ for more details.\" && exit 1"
+  }
 }
