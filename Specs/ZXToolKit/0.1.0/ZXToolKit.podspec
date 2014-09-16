@@ -10,7 +10,7 @@ s.summary      = 'Tool class which commonly used in the development of iOS'
 s.description  = 'ZXToolKit is a tool class kit which commonly used in the development of iOS,Make development more convenient'
 s.platform     = :ios
 s.ios.deployment_target = '4.3'
- s.source           = { :git => "git@github.com:zixun/ZXToolKit.gitt", :tag =>  '0.1.0' }
+ s.source           = { :git => "git@github.com:zixun/ZXToolKit.git", :tag =>  '0.1.0' }
 s.source_files = 'ZXToolKit/*.{h,m}'
 
 s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
