@@ -1,0 +1,28 @@
+{
+  "name": "libsasl2",
+  "version": "2.1.26",
+  "summary": "Cyrus SASL Library.",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": "Carnegie Mellon University",
+  "homepage": "http://asg.web.cmu.edu/sasl/sasl-implementations.html",
+  "source": {
+    "http": "http://ftp.andrew.cmu.edu/pub/cyrus-mail/cyrus-sasl-2.1.25.tar.gz"
+  },
+  "header_dir": "sasl",
+  "source_files": [
+    "lib/*.{h,c}",
+    "plugins/{anonymouspec.c,anonymous_init.c,cram.c,crammd5_init.c,login.c,login_init.c,plain.c,plain_init.c,plugin_common.c,plugin_common.h,digestmd5.c,digestmd5.h}",
+    "include/*.h",
+    "config.h"
+  ],
+  "exclude_files": "lib/{getaddrinfo.c,getnameinfo.c,windlopen.c}",
+  "public_header_files": "include/*.h",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO"
+  },
+  "requires_arc": false,
+  "prepare_command": "        if [ -e 'configure' ]\n        then\n          ./configure --disable-gssapi\n          sed 's/WITH_DES/WITHOUT_DES/' < config.h > config.h.new \n          mv config.h.new config.h \n        fi\n"
+}

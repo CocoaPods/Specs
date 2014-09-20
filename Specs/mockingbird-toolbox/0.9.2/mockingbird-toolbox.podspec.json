@@ -1,0 +1,402 @@
+{
+  "name": "mockingbird-toolbox",
+  "version": "0.9.2",
+  "summary": "Mockingbird Toolbox: General-purpose utilities for iOS apps. The core module in the Mockingbird open-source project from Gilt Groupe.",
+  "homepage": "https://github.com/gilt/mockingbird-toolbox",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Evan Coyne Maloney": "emaloney@gilt.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/gilt/mockingbird-toolbox.git",
+    "tag": "0.9.2"
+  },
+  "subspecs": [
+    {
+      "name": "BatteryMonitor",
+      "dependencies": {
+        "mockingbird-toolbox/Events": [
+
+        ],
+        "mockingbird-toolbox/ServiceManager": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Battery/*.{h,m}",
+      "public_header_files": "Code/Battery/*.h"
+    },
+    {
+      "name": "ThreadsafeCache",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Caching/MBThreadsafeCache*.{h,m}",
+      "public_header_files": "Code/Caching/MBThreadsafeCache*.h"
+    },
+    {
+      "name": "FilesystemCache",
+      "dependencies": {
+        "mockingbird-toolbox/ThreadsafeCache": [
+
+        ],
+        "mockingbird-toolbox/FilesystemOperations": [
+
+        ],
+        "mockingbird-toolbox/MessageDigest-NSString": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": [
+        "Code/Caching/MBFilesystemCache*.{h,m}",
+        "Code/Caching/MBCacheOperations.{h,m}"
+      ],
+      "public_header_files": [
+        "Code/Caching/MBFilesystemCache*.h",
+        "Code/Caching/MBCacheOperations.h"
+      ]
+    },
+    {
+      "name": "MBToolbox-NSError",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Error/*.{h,m}",
+      "public_header_files": "Code/Error/*.h"
+    },
+    {
+      "name": "Events",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Events/*.{h,m}",
+      "public_header_files": "Code/Events/*.h"
+    },
+    {
+      "name": "FieldListFormatter",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Formatting/MBFieldListFormatter.{h,m}",
+      "public_header_files": "Code/Formatting/MBFieldListFormatter.h"
+    },
+    {
+      "name": "FormattedDescriptionObject",
+      "dependencies": {
+        "mockingbird-toolbox/FieldListFormatter": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Formatting/MBFormattedDescriptionObject.{h,m}",
+      "public_header_files": "Code/Formatting/MBFormattedDescriptionObject.h"
+    },
+    {
+      "name": "BitmapPixelPlane",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Graphics/MBBitmapPixelPlane.{h,m}",
+      "public_header_files": "Code/Graphics/MBBitmapPixelPlane.h"
+    },
+    {
+      "name": "ColorTools",
+      "source_files": "Code/Graphics/MBColorTools.h",
+      "public_header_files": "Code/Graphics/MBColorTools.h"
+    },
+    {
+      "name": "RoundedRectTools",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Graphics/MBRoundedRectTools.{h,m}",
+      "public_header_files": "Code/Graphics/MBRoundedRectTools.h"
+    },
+    {
+      "name": "MBToolbox-UIColor",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Strings/UIColor+MBToolbox.{h,m}",
+      "public_header_files": "Code/Strings/UIColor+MBToolbox.h"
+    },
+    {
+      "name": "ImageScaling-UIImage",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Strings/UIImage+MBImageScaling.{h,m}",
+      "public_header_files": "Code/Strings/UIImage+MBImageScaling.h"
+    },
+    {
+      "name": "SnapshotImage-UIView",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Strings/UIView+MBSnapshotImage.{h,m}",
+      "public_header_files": "Code/Strings/UIView+MBSnapshotImage.h"
+    },
+    {
+      "name": "MessageDigest",
+      "dependencies": {
+        "mockingbird-toolbox/MBToolbox-NSError": [
+
+        ]
+      },
+      "requires_arc": true,
+      "frameworks": "Security",
+      "source_files": "Code/MessageDigest/MBMessageDigest.{h,m}",
+      "public_header_files": "Code/MessageDigest/MBMessageDigest.h"
+    },
+    {
+      "name": "MessageDigest-NSString",
+      "dependencies": {
+        "mockingbird-toolbox/MessageDigest": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/MessageDigest/NSString+MBMessageDigest.{h,m}",
+      "public_header_files": "Code/MessageDigest/NSString+MBMessageDigest.h"
+    },
+    {
+      "name": "MessageDigest-NSData",
+      "dependencies": {
+        "mockingbird-toolbox/MessageDigest": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/MessageDigest/NSData+MBMessageDigest.{h,m}",
+      "public_header_files": "Code/MessageDigest/NSData+MBMessageDigest.h"
+    },
+    {
+      "name": "MessageDigest-Extensions",
+      "dependencies": {
+        "mockingbird-toolbox/MessageDigest-NSString": [
+
+        ],
+        "mockingbird-toolbox/MessageDigest-NSData": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Module",
+      "dependencies": {
+        "mockingbird-toolbox/Singleton": [
+
+        ],
+        "mockingbird-toolbox/Indentation-NSString": [
+
+        ],
+        "mockingbird-toolbox/ThreadLocalStorage": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Module/*.{h,m}",
+      "public_header_files": "Code/Module/*.h"
+    },
+    {
+      "name": "NetworkIndicator",
+      "dependencies": {
+        "mockingbird-toolbox/Events": [
+
+        ],
+        "mockingbird-toolbox/Singleton": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Network/MBNetworkIndicator.{h,m}",
+      "public_header_files": "Code/Network/MBNetworkIndicator.h"
+    },
+    {
+      "name": "NetworkMonitor",
+      "dependencies": {
+        "mockingbird-toolbox/Events": [
+
+        ],
+        "mockingbird-toolbox/ServiceManager": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Network/MBNetworkMonitor.{h,m}",
+      "public_header_files": "Code/Network/MBNetworkMonitor.h"
+    },
+    {
+      "name": "OperationQueue",
+      "dependencies": {
+        "mockingbird-toolbox/MBToolbox-NSError": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Operations/MBOperationQueue.{h,m}",
+      "public_header_files": "Code/Operations/MBOperationQueue.h"
+    },
+    {
+      "name": "FilesystemOperations",
+      "dependencies": {
+        "mockingbird-toolbox/OperationQueue": [
+
+        ],
+        "mockingbird-toolbox/Singleton": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Operations/MBFilesystemOperations.{h,m}",
+      "public_header_files": "Code/Operations/MBFilesystemOperations.h"
+    },
+    {
+      "name": "RegexCache",
+      "dependencies": {
+        "mockingbird-toolbox/ThreadsafeCache": [
+
+        ],
+        "mockingbird-toolbox/Singleton": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Regex/MBRegexCache.{h,m}",
+      "public_header_files": "Code/Regex/MBRegexCache.h"
+    },
+    {
+      "name": "Regex-NSString",
+      "dependencies": {
+        "mockingbird-toolbox/RegexCache": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Regex/NSString+MBRegex.{h,m}",
+      "public_header_files": "Code/Regex/NSString+MBRegex.h"
+    },
+    {
+      "name": "ServiceManager",
+      "dependencies": {
+        "mockingbird-toolbox/Singleton": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Services/*.{h,m}",
+      "public_header_files": "Code/Services/*.h"
+    },
+    {
+      "name": "Singleton",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Singleton/MBSingleton.h",
+      "public_header_files": "Code/Singleton/MBSingleton.h"
+    },
+    {
+      "name": "StringFunctions",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Strings/MBStringFunctions.h",
+      "public_header_files": "Code/Strings/MBStringFunctions.h"
+    },
+    {
+      "name": "Indentation-NSString",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Strings/NSString+MBIndentation.{h,m}",
+      "public_header_files": "Code/Strings/NSString+MBIndentation.h"
+    },
+    {
+      "name": "ThreadLocalStorage",
+      "dependencies": {
+        "mockingbird-toolbox/Common": [
+
+        ]
+      },
+      "requires_arc": true,
+      "source_files": "Code/Threads/MBThreadLocalStorage.{h,m}",
+      "public_header_files": "Code/Threads/MBThreadLocalStorage.h"
+    },
+    {
+      "name": "Assert",
+      "source_files": "Code/Common/MBAssert.h",
+      "public_header_files": "Code/Common/MBAssert.h"
+    },
+    {
+      "name": "Debug",
+      "source_files": "Code/Common/MBDebug.h",
+      "public_header_files": "Code/Common/MBDebug.h"
+    },
+    {
+      "name": "Runtime",
+      "source_files": "Code/Common/MBRuntime.h",
+      "public_header_files": "Code/Common/MBRuntime.h"
+    },
+    {
+      "name": "Common",
+      "dependencies": {
+        "mockingbird-toolbox/Assert": [
+
+        ],
+        "mockingbird-toolbox/Debug": [
+
+        ],
+        "mockingbird-toolbox/Runtime": [
+
+        ]
+      },
+      "source_files": "Code/Mockingbird-Toolbox.h",
+      "public_header_files": "Code/Mockingbird-Toolbox.h"
+    }
+  ]
+}
