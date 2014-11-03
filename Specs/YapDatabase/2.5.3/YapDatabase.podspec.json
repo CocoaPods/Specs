@@ -1,0 +1,61 @@
+{
+  "name": "YapDatabase",
+  "version": "2.5.3",
+  "summary": "A key/value store built atop sqlite for iOS & Mac.",
+  "homepage": "https://github.com/yaptv/YapDatabase",
+  "license": "MIT",
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "authors": {
+    "Robbie Hanson": "robbiehanson@deusty.com"
+  },
+  "source": {
+    "git": "https://github.com/yaptv/YapDatabase.git",
+    "tag": "2.5.3"
+  },
+  "default_subspecs": "standard",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": "YapDatabase/**/*.{h,m,mm}",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-weak_library /usr/lib/libc++.dylib"
+      },
+      "private_header_files": "YapDatabase/**/Internal/*.h",
+      "dependencies": {
+        "CocoaLumberjack": [
+          "~> 1"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "standard",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "YapDatabase/common": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher/fts": [
+
+        ],
+        "YapDatabase/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC"
+      },
+      "requires_arc": true
+    }
+  ]
+}
