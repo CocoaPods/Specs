@@ -1,0 +1,65 @@
+{
+  "name": "SFFoundation",
+  "version": "1.0.0",
+  "summary": "A few toolkit",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yang Zexin": "yangzexin2011@gmail.com"
+  },
+  "homepage": "https://github.com/yangzexin/SFLibraries",
+  "source": {
+    "git": "https://github.com/yangzexin/SFLibraries.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "MRC",
+      "source_files": [
+        "SFFoundation/Vendor/XML-to-NSDictionary/*.{h,m}",
+        "SFFoundation/SFFoundation/SFObjcProperty.{h,m}",
+        "SFFoundation/SFFoundation/SFRuntimeUtils.{h,m}"
+      ],
+      "requires_arc": false
+    },
+    {
+      "name": "ARC",
+      "dependencies": {
+        "SFFoundation/MRC": [
+
+        ]
+      },
+      "source_files": "SFFoundation/**/*.{h,m}",
+      "exclude_files": [
+        "SFFoundation/Vendor/XML-to-NSDictionary/*.{h,m}",
+        "SFFoundation/SFFoundation/SFObjcProperty.{h,m}",
+        "SFFoundation/SFFoundation/SFRuntimeUtils.{h,m}"
+      ],
+      "requires_arc": true
+    },
+    {
+      "name": "iOSKit",
+      "dependencies": {
+        "SFFoundation/ARC": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreText",
+        "QuartzCore"
+      ],
+      "source_files": "SFiOSKit/**/*.{h,m}",
+      "osx": {
+        "exclude_files": "SFiOSKit/**/*.{h,m}"
+      },
+      "requires_arc": true
+    }
+  ]
+}
