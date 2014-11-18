@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "JEUtility"
-  s.version          = "1.0.2"
-  s.summary          = "A marquee view used on iOS."
+  s.version          = "1.0.4"
+  s.summary          = "Some commonly used methods"
   s.description      = <<-DESC
                        It is a marquee view used on iOS, which implement by Objective-C.
                        DESC
@@ -17,12 +17,12 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
-  s.source_files = 'JEUtility/*.h'
-  s.resources = 'JEUtility/UtilityKit.framework'
+  s.source_files = 'JEUtility/*.{h,m}'
+  s.resources = 'JEUtility/UtilityTools.pch'
 
   # s.ios.exclude_files = 'Classes/osx'
   # s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
-  s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit', 'UtilityKit'
+  s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
 
 end
