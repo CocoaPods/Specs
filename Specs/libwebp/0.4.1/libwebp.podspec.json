@@ -16,14 +16,49 @@
   "requires_arc": false,
   "subspecs": [
     {
-      "name": "dec",
-      "source_files": "src/dec/*.{h,c}",
+      "name": "webp",
+      "header_dir": "webp",
+      "source_files": "src/webp/*.h"
+    },
+    {
+      "name": "core",
+      "source_files": [
+        "src/utils/*.{h,c}", 
+        "src/dsp/*.{h,c}", 
+        "src/enc/*.{h,c}", 
+        "src/dec/*.{h,c}"
+      ],
       "dependencies": {
-        "libwebp/utils": [
+        "libwebp/webp": [
+        ]
+      }
+    },
+    {
+      "name": "utils",
+      "dependencies": {
+        "libwebp/core": [
+        ]
+      }
+    },
+    {
+      "name": "dsp",
+      "dependencies": {
+        "libwebp/core": [
+        ]
+      }
+    },
+    {
+      "name": "enc",
+      "dependencies": {
+        "libwebp/core": [
 
-        ],
-        "libwebp/enc": [
-
+        ]
+      }
+    },
+    {
+      "name": "dec",
+      "dependencies": {
+        "libwebp/core": [
         ]
       }
     },
@@ -31,31 +66,7 @@
       "name": "demux",
       "source_files": "src/demux/*.{h,c}",
       "dependencies": {
-        "libwebp/utils": [
-
-        ]
-      }
-    },
-    {
-      "name": "dsp",
-      "source_files": "src/dsp/*.{h,c}",
-      "dependencies": {
-        "libwebp/utils": [
-
-        ],
-        "libwebp/enc": [
-
-        ],
-        "libwebp/dec": [
-
-        ]
-      }
-    },
-    {
-      "name": "enc",
-      "source_files": "src/enc/*.{h,c}",
-      "dependencies": {
-        "libwebp/utils": [
+        "libwebp/core": [
 
         ]
       }
@@ -64,27 +75,9 @@
       "name": "mux",
       "source_files": "src/mux/*.{h,c}",
       "dependencies": {
-        "libwebp/utils": [
-
+        "libwebp/core": [
         ]
       }
-    },
-    {
-      "name": "utils",
-      "source_files": "src/utils/*.{h,c}",
-      "dependencies": {
-        "libwebp/webp": [
-
-        ],
-        "libwebp/dsp": [
-
-        ]
-      }
-    },
-    {
-      "name": "webp",
-      "header_dir": "webp",
-      "source_files": "src/webp/*.h"
     }
   ]
 }
