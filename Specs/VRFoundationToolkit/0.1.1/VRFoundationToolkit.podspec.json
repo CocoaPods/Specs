@@ -1,0 +1,63 @@
+{
+  "name": "VRFoundationToolkit",
+  "version": "0.1.1",
+  "summary": "Extends NSFoundation with categories, macros & classes. Effective Obj-C developer's mini-toolkit)",
+  "description": "                       Extends NSFoundation with categories, macros & classes.\n\n                       ## Categories\n                       * __NSArray+VRArgument__ - sequentially passes each element of array to provided selector of target object or class.\n                       * __NSArray+VRCheckMembers__ - checks if all members of array are of specified class.\n                       * __NSBundle+VRDisplayName__ - obtains localized display name of bundle with fallback to non-nil string precompiler constant if name is not accessible.\n                       * __NSDate+VRDurations__ - calculates how much days, hours, minutes between two dates. Returns end of day. Compare two dates by specified NSCalendarUnit units. Return NSDateComponents for specified NSCalendarUnit units. Returns default NSCalendar.\n                       * __NSFileManager+VRDocumentsDirectory__ - quick access for Documents directory and Temporary directory paths. Random file names generation. etc.\n                       * __NSMutableDictionary+VRExchangeKeys__ - exchanges keys in dictionary.\n                       * __NSObject+VRPropertiesProcessing__ - process object properties with blocks. Hash, equality & encode/decode by properties for any object.\n                       * __NSObject+VRProtocolConformation__ - checks if object/class responds to all selectors required by protocol. Useful as precondition check of object in delegate setter.\n                       * __NSString+VRmd5__ - MD5 hash on string.\n                       * __NSTimer+VRWithBlock__ - timer that executes block instead of selector.\n\n                       ## Macros\n                       * __VREnumXXX__ - generates enums with utility functions. NSStringFromXXX returns enum constant by value. isValidXXX checks range of enum value.\n                       * __VRLOGxxx__ - multilevel logging & assertion macros. Could be connected to preferable logging system. VRPRECONDITIONxxx macros to implement light design by contract.\n                       * __VRKeyName__ - stringifyes expression to key for `-[NSCoder encodeObject:withKey:]`. Useful to make names via help of XCode autocompletion.\n                       * __VRSingleton__ - return singleton.\n                       * __VROBJCTYPExxx__ - returns Objective-C type string representation of the passed variable (or type). VRIS_TYPE_EQUAL_TO_TYPE(V1, V2) compares Objective-C types of two passed values/types.                       \n                       \n                       ## Classes\n                       * __VRURLConnectionChecker__ - checks if default site or specified URL is accessible with completion and error blocks.\n                       \n                       ## Functions\n                       * __NSComparisonInvertedResult__ - inverts the comparison result.\n                       * __VRCanPerform__ - checks if object conforms to protocol & responds to selector. Usefull for precondition check in delegate setters.\n",
+  "homepage": "https://github.com/IvanRublev/VRFoundationToolkit",
+  "license": "MIT",
+  "authors": {
+    "Ivan Rublev": "ivan@ivanrublev.me"
+  },
+  "source": {
+    "git": "https://github.com/IvanRublev/VRFoundationToolkit.git",
+    "tag": "0.1.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "source_files": "VRFoundationToolkit",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "libextobjc": [
+      "~> 0.4"
+    ],
+    "MAObjCRuntime": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "LogAndPreconditionCheck",
+      "source_files": "VRFoundationToolkit/LogAndPreconditionCheck/*.{h,m}"
+    },
+    {
+      "name": "PropertiesProcessing",
+      "source_files": "VRFoundationToolkit/NSObject+VRPropertiesProcessing/*.{h,m}",
+      "dependencies": {
+        "VRFoundationToolkit/LogAndPreconditionCheck": [
+
+        ]
+      }
+    },
+    {
+      "name": "ConnectionChecker",
+      "source_files": "VRFoundationToolkit/VRURLConnectionChecker/*.{h,m}",
+      "dependencies": {
+        "VRFoundationToolkit/LogAndPreconditionCheck": [
+
+        ]
+      }
+    },
+    {
+      "name": "NSArray+VRArgument",
+      "source_files": "VRFoundationToolkit/NSArray+VRArgument/*.{h,m}",
+      "dependencies": {
+        "VRFoundationToolkit/LogAndPreconditionCheck": [
+
+        ]
+      }
+    }
+  ]
+}
