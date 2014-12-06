@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.name         = "AFNetworking-MUResponseSerializer"
   s.version      = "1.0.0"
-  s.summary      = "Automatically serialize JSON response to your object model. It also works with NSManagedObjects."
+  s.summary      = "Automatically serialize JSON response to your object model. It also works with NSManagedObjects"
 
   s.homepage     = "https://github.com/Ulianko/AFNetworking-MUResponseSerializer"
 
@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
   s.source_files     = 'Classes/*.{h,m}'
   s.requires_arc     = true
 
-  s.dependency  'AFNetworking'
+  s.dependency  'AFNetworking", "~> 2.0'
   s.dependency  'NSObject-MUJSONMapping'
-
+  s.dependency  'Groot'
 
 end
