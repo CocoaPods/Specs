@@ -1,0 +1,82 @@
+{
+  "name": "BeeFramework",
+  "version": "0.5.2",
+  "summary": "Bee Framework is a rapid developemnt framework for iOS.",
+  "description": "    Bee Framework is a MVC Framework to develop iOS application. \n    It has pretty clear hieracy and signal based mechanism, also with cache and asynchonized networking methods in it.\n",
+  "homepage": "http://bee-framework.com",
+  "license": "MIT",
+  "platforms": {
+    "ios": null
+  },
+  "authors": {
+    "gavinkwoe": "gavinkwoe@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/stcui/BeeFramework.git",
+    "tag": "0.5.2"
+  },
+  "frameworks": [
+    "CoreMedia",
+    "CoreVideo",
+    "AVFoundation",
+    "Security",
+    "SystemConfiguration",
+    "QuartzCore",
+    "MobileCoreServices",
+    "CFNetwork"
+  ],
+  "vendored_libraries": "services/**/*.a",
+  "libraries": [
+    "z",
+    "xml2",
+    "sqlite3"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "JSONKit",
+      "source_files": "framework/vendor/JSONKit/JSONKit.{h,m}",
+      "requires_arc": false
+    },
+    {
+      "name": "Core",
+      "resources": "services/**/*.{xml, bundle}",
+      "source_files": [
+        "framework/**/*.{h,m,mm}",
+        "services/**/*.{h,m,mm}",
+        "framework/vendor/*.{h,m}"
+      ],
+      "exclude_files": "framework/vendor/{ASI,ZipArchive,FMDB,JSONKit,OpenUDID,Reachability,TouchXML}/**/*",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libz, $(SDKROOT)/usr/include/libxml2",
+        "CLANG_CXX_LANGUAGE_STANDARD": "gnu++0x",
+        "CLANG_CXX_LIBRARY": "libstdc++",
+        "CLANG_WARN_DIRECT_OBJC_ISA_USAGE": "YES"
+      },
+      "requires_arc": false,
+      "dependencies": {
+        "ASIHTTPRequest": [
+
+        ],
+        "Reachability": [
+
+        ],
+        "OpenUDID": [
+
+        ],
+        "ZipArchive": [
+
+        ],
+        "FMDB": [
+
+        ],
+        "TouchXML": [
+
+        ],
+        "BeeFramework/JSONKit": [
+
+        ]
+      }
+    }
+  ]
+}

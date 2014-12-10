@@ -1,0 +1,40 @@
+{
+  "name": "CorePlot",
+  "version": "1.5.1",
+  "license": "BSD",
+  "summary": "Cocoa plotting framework for Mac OS X and iOS.",
+  "homepage": "https://github.com/core-plot",
+  "social_media_url": "https://twitter.com/CorePlot",
+  "authors": {
+    "Drew McCormack": "drewmccormack@mac.com",
+    "Brad Larson": "larson@sunsetlakesoftware.com",
+    "Eric Skroch": "eskroch@mac.com",
+    "Barry Wark": "barrywark@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/core-plot/core-plot.git",
+    "tag": "release_1.5.1"
+  },
+  "description": "Core Plot is a plotting framework for OS X and iOS. It provides 2D visualization of data, and is tightly integrated with Apple technologies like Core Animation, Core Data, and Cocoa Bindings.",
+  "platforms": {
+    "ios": "3.1.3",
+    "osx": "10.5"
+  },
+  "source_files": "framework/Source/*.{h,m}",
+  "exclude_files": "**/*{TestCase,Tests}.{h,m}",
+  "ios": {
+    "source_files": [
+      "framework/CorePlot-CocoaTouch.h",
+      "framework/iPhoneOnly/*.{h,m}"
+    ]
+  },
+  "osx": {
+    "source_files": [
+      "framework/CorePlot.h",
+      "framework/MacOnly/*.{h,m}"
+    ]
+  },
+  "frameworks": "QuartzCore",
+  "prepare_command": "    dtrace -h -s framework/TestResources/CorePlotProbes.d -o framework/Source/CorePlotProbes.h\n",
+  "requires_arc": false
+}

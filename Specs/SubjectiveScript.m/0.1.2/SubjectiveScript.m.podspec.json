@@ -1,0 +1,27 @@
+{
+  "name": "SubjectiveScript.m",
+  "version": "0.1.2",
+  "summary": "Subjective-Script makes Objective-C more scripty!",
+  "description": "                      Subjective-Script makes Objective-C more scripty!\n\n                      My language of preference is CoffeeScript and whenever I develop in Objective-C, I find myself often having to look up [NSSomething reallyLongFunctionName:YES withAVerboseParameterName:YES and:[NSSomethingElse whichAddsMoreBrackets]] and it isn't very enjoyable or speedy!\n\n                      While I was porting a test for [_.m](https://github.com/kmalakoff/_.m) from the original [Underscore.js](http://underscorejs.org/) that was easy to read:\n\n                      ```JavaScript\n                      var people = [{name : 'curly', age : 50}, {name : 'moe', age : 30}];\n                      people = _.sortBy(people, function(person){ return person.age; });\n                      equal(_.pluck(people, 'name').join(', '), 'moe, curly', 'stooges sorted by age');\n                      ```\n\n                      It looked like this in Objective-C:\n\n                      ```\n                      NSArray *people = [NSArray arrayWithObjects:\n                        [NSDictionary dictionaryWithObjectsAndKeys: @\"moe\", @\"name\", [NSNumber numberWithInt:30], @\"age\", nil],\n                        [NSDictionary dictionaryWithObjectsAndKeys: @\"curly\", @\"name\", [NSNumber numberWithInt:50], @\"age\", nil],\n                        nil];\n\n                      STAssertEqualObjects([_.pluck(people, @\"name\") componentsJoinedByString:@\", \"],\n                                           @\"moe, curly\",\n                                           @\"stooges sorted by age\");\n                      ```\n\n                      The keys were in the wrong order, there was too much typing involved, and it became unreadable. So I wrote [Subjective-Script](https://github.com/kmalakoff/SubjectiveScript.m) and ported [QUnit.m](https://github.com/kmalakoff/QUnit.m) to end up with this:\n\n                      ```\n                      A* people = AO(OKV({@\"name\", @\"curly\"}, {@\"age\", N.I(50)}), OKV({@\"name\", @\"moe\"}, {@\"age\", N.I(30)}));\n                      people = _.sortBy(people, ^(O* person){ return person.get(@\"age\"); });\n                      equal(_.pluck(people, @\"name\").join(@\", \"), @\"moe, curly\", @\"stooges sorted by age\");\n                      ```\n\n                      Much better! And best of all, I can reuse my knowledge of JavaScript for function names so I can stop looking things up and get stuff done!\n",
+  "homepage": "https://github.com/kmalakoff/SubjectiveScript.m",
+  "license": "MIT",
+  "authors": {
+    "Kevin Malakoff": "kmalakoff@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/kmalakoff/SubjectiveScript.m.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "source_files": "Classes",
+  "public_header_files": "Classes/**/*.h",
+  "dependencies": {
+    "QUnit.m": [
+      "~> 0.1.2"
+    ]
+  }
+}

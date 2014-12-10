@@ -1,0 +1,31 @@
+{
+  "name": "libwbxml",
+  "version": "0.11.2",
+  "summary": "libwbxml is a WBXML parser library written in C.",
+  "homepage": "http://libwbxml.opensync.org/",
+  "license": {
+    "type": "LGPL",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Aymerick Jehanne": "aymerick@jehanne.org"
+  },
+  "source": {
+    "http": "http://sourceforge.net/projects/libwbxml/files/libwbxml/0.11.2/libwbxml-0.11.2.tar.gz"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source_files": "src/*.{h,c}",
+  "prepare_command": "cat >src/wbxml_config.h <<CONFIG_H\n#ifndef WBXML_CONFIG_H\n#define WBXML_CONFIG_H\n#define WBXML_LIB_VERSION \"0.11.2\"\n#define WBXML_ENCODER_USE_STRTBL\n#define WBXML_SUPPORT_WML\n#define WBXML_SUPPORT_WTA\n#define WBXML_SUPPORT_SI\n#define WBXML_SUPPORT_SL\n#define WBXML_SUPPORT_CO\n#define WBXML_SUPPORT_PROV\n#define WBXML_SUPPORT_EMN\n#define WBXML_SUPPORT_DRMREL\n#define WBXML_SUPPORT_OTA_SETTINGS\n#define WBXML_SUPPORT_SYNCML\n#define WBXML_SUPPORT_WV\n#define WBXML_SUPPORT_AIRSYNC\n#define WBXML_SUPPORT_CONML\n#endif\nCONFIG_H\ncat >src/wbxml_config_internals.h <<CONFIG_INTERNALS_H\n#ifndef WBXML_CONFIG_INTERNALS_H\n#define WBXML_CONFIG_INTERNALS_H\n#include \"wbxml_config.h\"\n#define HAVE_DLFCN_H 1\n#define HAVE_EXPAT 1\n#define HAVE_ICONV 1\n#define HAVE_INTTYPES_H 1\n#define HAVE_LIMITS_H 1\n#define HAVE_MEMORY_H 1\n#define HAVE_STDINT_H 1\n#define HAVE_STDLIB_H 1\n#define HAVE_STRINGS_H 1\n#define HAVE_STRING_H 1\n#define HAVE_SYS_STAT_H 1\n#define HAVE_SYS_TYPES_H 1\n#define HAVE_UNISTD_H 1\n#define PACKAGE \"libwbxml\"\n#define PACKAGE_BUGREPORT \"opensync-users@lists.sf.net\"\n#define PACKAGE_NAME \"libwbxml\"\n#define PACKAGE_STRING \"libwbxml 0.11.2\"\n#define PACKAGE_TARNAME \"libwbxml\"\n#define PACKAGE_VERSION \"0.11.2\"\n#define STDC_HEADERS 1\n#define VERSION \"0.11.2\"\n#if defined(HAVE_EXPAT)\n#include <expat.h>\n#endif\n#if defined(HAVE_ICONV)\n#include <iconv.h>\n#endif\n#endif\nCONFIG_INTERNALS_H\n",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/wbxml/src"
+  },
+  "dependencies": {
+    "expat": [
+
+    ]
+  },
+  "requires_arc": false
+}

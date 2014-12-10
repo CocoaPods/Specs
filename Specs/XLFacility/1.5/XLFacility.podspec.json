@@ -1,0 +1,88 @@
+{
+  "name": "XLFacility",
+  "version": "1.5",
+  "authors": {
+    "Pierre-Olivier Latour": "info@pol-online.net"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/swisspol/XLFacility",
+  "summary": "Elegant and extensive logging facility for OS X & iOS (includes database, Telnet and HTTP servers)",
+  "source": {
+    "git": "https://github.com/swisspol/XLFacility.git",
+    "tag": "1.5"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "XLFacility/Core/*.{h,m}",
+      "private_header_files": "XLFacility/Core/*Private.h",
+      "requires_arc": true
+    },
+    {
+      "name": "GCDNetworking",
+      "source_files": "GCDTelnetServer/GCDNetworking/GCDNetworking/*.{h,m}",
+      "private_header_files": "GCDTelnetServer/GCDNetworking/GCDNetworking/*Private.h",
+      "requires_arc": true,
+      "ios": {
+        "frameworks": "CFNetwork"
+      }
+    },
+    {
+      "name": "GCDTelnetServer",
+      "dependencies": {
+        "XLFacility/GCDNetworking": [
+
+        ]
+      },
+      "source_files": "GCDTelnetServer/GCDTelnetServer/*.{h,m}",
+      "private_header_files": "GCDTelnetServer/GCDTelnetServer/*Private.h",
+      "requires_arc": true,
+      "ios": {
+        "frameworks": "CFNetwork"
+      }
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "XLFacility/Core": [
+
+        ],
+        "XLFacility/GCDTelnetServer": [
+
+        ]
+      },
+      "source_files": "XLFacility/Extensions/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "osx": {
+        "libraries": "sqlite3"
+      }
+    },
+    {
+      "name": "UserInterface",
+      "dependencies": {
+        "XLFacility/Core": [
+
+        ]
+      },
+      "source_files": "XLFacility/UserInterface/*.{h,m}",
+      "ios": {
+        "exclude_files": "XLFacility/UserInterface/XLAppKitOverlayLogger.{h,m}"
+      },
+      "osx": {
+        "exclude_files": "XLFacility/UserInterface/XLUIKitOverlayLogger.{h,m}"
+      },
+      "requires_arc": true
+    }
+  ]
+}

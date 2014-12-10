@@ -1,0 +1,66 @@
+{
+  "name": "Fancy-iOS",
+  "version": "0.7.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "https://github.com/fcy/fancy-ios",
+  "authors": {
+    "Felipe Cypriano": "felipe@cypriano.me"
+  },
+  "summary": "A useful library of reusable code for iOS developers.",
+  "source": {
+    "git": "https://github.com/fcy/fancy-ios.git",
+    "tag": "v0.7.2"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": "Foundation",
+      "source_files": "src/core/*.{h,m}"
+    },
+    {
+      "name": "QuartzCore",
+      "dependencies": {
+        "Fancy-iOS/Core": [
+
+        ]
+      },
+      "frameworks": "QuartzCore",
+      "source_files": "src/quartz-core/*.{h,m}"
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "Fancy-iOS/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "frameworks": "CoreGraphics",
+          "source_files": "src/ui/*.{h,m}"
+        },
+        {
+          "name": "AutoLayout",
+          "source_files": "src/ui/auto-layout/*.{h,m}"
+        },
+        {
+          "name": "RangeSlider",
+          "source_files": "src/ui/range-slider/*.{h,m}",
+          "dependencies": {
+            "Fancy-iOS/UI/Core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

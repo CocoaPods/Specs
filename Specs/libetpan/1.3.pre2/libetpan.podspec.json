@@ -1,0 +1,41 @@
+{
+  "name": "libetpan",
+  "version": "1.3.pre2",
+  "summary": "Mail Framework for C Language.",
+  "homepage": "https://github.com/dinhviethoa/libetpan",
+  "license": {
+    "type": "BSD",
+    "file": "COPYRIGHT"
+  },
+  "authors": "Hoà V. DINH",
+  "source": {
+    "git": "https://github.com/dinhviethoa/libetpan.git",
+    "tag": "1.3.pre2"
+  },
+  "source_files": [
+    "*.h",
+    "include/**/*.{h}",
+    "src/data-types/**/*.{h,c}",
+    "src/driver/**/*.{h,c}",
+    "src/engine/**/*.{h,c}",
+    "src/low-level/**/*.{h,c}",
+    "src/main/**/*.{h,c}"
+  ],
+  "compiler_flags": "-DHAVE_CONFIG_H=1 -DHAVE_CFNETWORK=1 -DLIBETPAN_IOS_DISABLE_SSL=1",
+  "dependencies": {
+    "libsasl2": [
+
+    ]
+  },
+  "public_header_files": "include/libetpan/*.h",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO"
+  },
+  "libraries": "iconv",
+  "frameworks": [
+    "Security",
+    "CFNetwork"
+  ],
+  "prepare_command": "    cd build-mac\n    SRCROOT=true sh update.sh\n",
+  "requires_arc": false
+}

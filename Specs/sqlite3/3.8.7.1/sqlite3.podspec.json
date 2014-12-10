@@ -1,0 +1,114 @@
+{
+  "name": "sqlite3",
+  "version": "3.8.7.1",
+  "summary": "SQLite is an embedded SQL database engine.",
+  "homepage": "http://www.sqlite.org",
+  "license": "Public Domain",
+  "authors": {
+    "D. Richard Hipp": "drh@hwaci.com"
+  },
+  "source": {
+    "http": "http://www.sqlite.org/2014/sqlite-amalgamation-3080701.zip"
+  },
+  "default_subspecs": "common",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": [
+        "sqlite-amalgamation-3080701/sqlite*.{h,c}"
+      ]
+    },
+    {
+      "name": "fts",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1"
+      }
+    },
+    {
+      "name": "unicode61",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ],
+        "sqlite3/fts": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_FTS4_UNICODE61=1"
+      }
+    },
+    {
+      "name": "coldata",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_COLUMN_METADATA=1"
+      }
+    },
+    {
+      "name": "unlock_notify",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_UNLOCK_NOTIFY=1"
+      }
+    },
+    {
+      "name": "rtree",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_RTREE=1"
+      }
+    },
+    {
+      "name": "stat3",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_STAT3=1"
+      }
+    },
+    {
+      "name": "stat4",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_STAT4=1"
+      }
+    },
+    {
+      "name": "soundex",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_SOUNDEX=1"
+      }
+    }
+  ]
+}

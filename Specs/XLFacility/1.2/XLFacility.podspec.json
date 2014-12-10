@@ -1,0 +1,63 @@
+{
+  "name": "XLFacility",
+  "version": "1.2",
+  "authors": {
+    "Pierre-Olivier Latour": "info@pol-online.net"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/swisspol/XLFacility",
+  "summary": "Elegant and extensive logging facility for OS X & iOS (includes database, Telnet and HTTP servers)",
+  "source": {
+    "git": "https://github.com/swisspol/XLFacility.git",
+    "tag": "1.2"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "XLFacility/Core/*.{h,m}",
+      "private_header_files": "XLFacility/Core/XLPrivate.h",
+      "requires_arc": true
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "XLFacility/Core": [
+
+        ]
+      },
+      "source_files": "XLFacility/Extensions/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "sqlite3",
+        "frameworks": "CFNetwork"
+      },
+      "osx": {
+        "libraries": "sqlite3"
+      }
+    },
+    {
+      "name": "UserInterface",
+      "dependencies": {
+        "XLFacility/Core": [
+
+        ]
+      },
+      "source_files": "XLFacility/UserInterface/*.{h,m}",
+      "ios": {
+        "exclude_files": "XLFacility/UserInterface/XLAppKitOverlayLogger.{h,m}"
+      },
+      "osx": {
+        "exclude_files": "XLFacility/UserInterface/XLUIKitOverlayLogger.{h,m}"
+      },
+      "requires_arc": true
+    }
+  ]
+}

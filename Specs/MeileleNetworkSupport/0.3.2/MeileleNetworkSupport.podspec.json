@@ -1,0 +1,81 @@
+{
+  "name": "MeileleNetworkSupport",
+  "version": "0.3.2",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "license": "MIT",
+  "summary": "A delightful iOS networking framework with AFNetWorking ",
+  "homepage": "https://github.com/louis-cai/MeileleNetworkSupport",
+  "authors": {
+    "louis cai": "louis.cai.cn@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/louis-cai/MeileleNetworkSupport.git",
+    "tag": "0.3.2"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "requires_arc": true,
+  "resource_bundles": {
+    "MeileleNetworkSupport": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Classes/Core/*.{h,m}",
+        "Pod/Classes/MeileleNetworkSupport.h"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.4.1"
+        ]
+      }
+    },
+    {
+      "name": "RAC",
+      "source_files": "Pod/Classes/RAC/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MNS_RAC=1"
+      },
+      "dependencies": {
+        "MeileleNetworkSupport/Core": [
+
+        ],
+        "ReactiveCocoa": [
+          "~> 2.3.1"
+        ],
+        "AFNetworking": [
+          "~> 2.4.1"
+        ],
+        "AFNetworking-RACExtensions": [
+          "~> 0.1.4"
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "source_files": "Pod/Classes/Logger/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MNS_LOG=1"
+      },
+      "dependencies": {
+        "MeileleNetworkSupport/Core": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.4.1"
+        ],
+        "AFNetworkActivityLogger": [
+          "~> 2.0.3"
+        ]
+      }
+    }
+  ]
+}

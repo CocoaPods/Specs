@@ -1,0 +1,84 @@
+{
+  "name": "SCNetworkReachability",
+  "version": "2.0.0",
+  "summary": "Flexible network reachability with blocks for iOS and OS X.",
+  "homepage": "https://github.com/belkevich/reachability-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Alexey Belkevich": "belkevich.alexey@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/belkevich/reachability-ios.git",
+    "tag": "2.0.0"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/P*/*.{h,m}",
+      "dependencies": {
+        "macros_blocks": [
+          "0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Multithreading",
+      "dependencies": {
+        "SCNetworkReachability/Core": [
+
+        ]
+      },
+      "source_files": "Classes/Subspecs/Multithreading/*.{h,m}"
+    },
+    {
+      "name": "Shared",
+      "dependencies": {
+        "SCNetworkReachability/Core": [
+
+        ],
+        "ABMultiton": [
+          "~> 2.0"
+        ]
+      },
+      "source_files": "Classes/Subspecs/Shared/*.{h,m}"
+    },
+    {
+      "name": "Compatibility",
+      "dependencies": {
+        "SCNetworkReachability/Core": [
+
+        ]
+      },
+      "source_files": "Classes/Subspecs/Compatibility/*.{h,m}"
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "SCNetworkReachability/Core": [
+
+        ],
+        "SCNetworkReachability/Shared": [
+
+        ],
+        "SCNetworkReachability/Multithreading": [
+
+        ],
+        "SCNetworkReachability/Compatibility": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "KFData",
+  "version": "1.0.0-RC1",
+  "license": "BSD",
+  "summary": "Lightweight Core Data wrapper.",
+  "homepage": "https://github.com/kylef/KFData",
+  "authors": {
+    "Kyle Fuller": "inbox@kylefuller.co.uk"
+  },
+  "source": {
+    "git": "https://github.com/kylef/KFData.git",
+    "tag": "1.0.0-RC1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "osx": "10.7",
+    "ios": "5.0"
+  },
+  "default_subspecs": "Essentials",
+  "subspecs": [
+    {
+      "name": "Core",
+      "header_dir": "KFData",
+      "ios": {
+        "frameworks": "CoreData",
+        "source_files": [
+          "KFData/KFData.h",
+          "KFData/Core/*.{h,m}"
+        ]
+      },
+      "osx": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Core/*.{h,m}"
+      }
+    },
+    {
+      "name": "Store",
+      "header_dir": "KFData",
+      "ios": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Store/*.{h,m}",
+        "public_header_files": "KFData/Store/KFDataStore.h",
+        "private_header_files": "KFData/Store/KFDataStoreInternal.h"
+      },
+      "osx": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Store/*.{h,m}",
+        "public_header_files": "KFData/Store/KFDataStore.h",
+        "private_header_files": "KFData/Store/KFDataStoreInternal.h"
+      }
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "KFData/Core": [
+
+        ],
+        "KFData/Store": [
+
+        ]
+      },
+      "header_dir": "KFData",
+      "platforms": {
+        "ios": null
+      },
+      "ios": {
+        "frameworks": "UIKit",
+        "source_files": "KFData/UI/*.{h,m}"
+      }
+    },
+    {
+      "name": "Essentials",
+      "dependencies": {
+        "KFData/Core": [
+
+        ],
+        "KFData/Store": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "KFData/UI": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Compatibility",
+      "dependencies": {
+        "KFData/Core": [
+
+        ]
+      },
+      "header_dir": "KFData/Compatibility",
+      "source_files": "KFData/Compatibility/*.{h,m}"
+    }
+  ]
+}

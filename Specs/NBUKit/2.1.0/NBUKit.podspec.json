@@ -1,0 +1,103 @@
+{
+  "name": "NBUKit",
+  "version": "2.1.0",
+  "summary": "UIKit and NSFoundation convenience categories and subclasses.",
+  "homepage": "http://cyberagent.github.io/iOS-NBUKit/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CyberAgent Inc.": "",
+    "Ernesto Rivera": "rivera_ernesto@cyberagent.co.jp"
+  },
+  "source": {
+    "git": "https://github.com/CyberAgent/iOS-NBUKit.git",
+    "tag": "2.1.0"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "preserve_paths": [
+    "README.md",
+    "NOTICE"
+  ],
+  "dependencies": {
+    "NBUCore": [
+      ">= 2.0.0"
+    ],
+    "Lockbox": [
+      ">= 1.4.6"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "Source/*.{h,m}"
+    },
+    {
+      "name": "Additions",
+      "source_files": "Source/Additions/*.{h,m}",
+      "dependencies": {
+        "NBUKit/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Source/UI/*.{h,m}",
+      "resource_bundles": {
+        "NBUKit": [
+          "Resources/*.{png,lproj}",
+          "Source/UI/*.{xib}"
+        ]
+      },
+      "frameworks": "MessageUI",
+      "dependencies": {
+        "NBUKit/Additions": [
+
+        ],
+        "NBUKit/Library/NBUCompatibility": [
+
+        ],
+        "NBUKit/Library/RestKit Support": [
+
+        ],
+        "MotionOrientation@PTEz": [
+          ">= 1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Library",
+      "dependencies": {
+        "NBUKit/Base": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "NBUCompatibility",
+          "source_files": "Library/NBUCompatibility/*.{h,m}",
+          "dependencies": {
+            "NBUKit/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "RestKit Support",
+          "requires_arc": false,
+          "source_files": "Library/RestKit Support/*.{h,m}",
+          "frameworks": "MobileCoreServices",
+          "preserve_paths": [
+            "README.*",
+            "LICENSE"
+          ]
+        }
+      ]
+    }
+  ]
+}

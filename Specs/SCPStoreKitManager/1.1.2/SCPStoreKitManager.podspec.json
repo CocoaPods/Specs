@@ -1,0 +1,48 @@
+{
+  "name": "SCPStoreKitManager",
+  "platforms": {
+    "ios": null
+  },
+  "version": "1.1.2",
+  "summary": "Block based store kit manager for In-App Purchase on iOS7 & iOS8 with receipt validation.",
+  "description": "                       Block based store kit manager for In-App Purchase for iOS7 & iOS8 with receipt validation. Please note that you must have iTunes Connect set up correctly with some IAPs already. The example App has no visual feed back to the user but you can follow it's progress via the console. The app can only work on a iDevice and can not be ran in a simulator.\n",
+  "homepage": "https://github.com/steprescott/SCPStoreKitManager",
+  "license": "MIT",
+  "authors": {
+    "Ste Prescott": "github@ste.me"
+  },
+  "source": {
+    "git": "https://github.com/steprescott/SCPStoreKitManager.git",
+    "tag": "1.1.2"
+  },
+  "social_media_url": "https://twitter.com/ste_prescott",
+  "requires_arc": true,
+  "frameworks": "StoreKit",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Classes/SCPStoreKitManager.{h,m}",
+        "Classes/Categories/NSError+SCPStoreKitManager.{h,m}"
+      ]
+    },
+    {
+      "name": "SCPStoreKitReceiptValidator",
+      "dependencies": {
+        "SCPStoreKitManager/Core": [
+
+        ],
+        "OpenSSL": [
+          "~> 1.0.0"
+        ]
+      },
+      "source_files": "Classes/SCPStoreKitReceiptValidator/**/*.{h,m}",
+      "resource_bundles": {
+        "SCPStoreKitReceiptValidatorResources": [
+          "Classes/SCPStoreKitReceiptValidator/**/*.{cer}"
+        ]
+      }
+    }
+  ]
+}
