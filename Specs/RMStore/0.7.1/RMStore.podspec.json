@@ -1,0 +1,74 @@
+{
+  "name": "RMStore",
+  "version": "0.7.1",
+  "license": "Apache 2.0",
+  "summary": "A lightweight iOS library for In-App Purchases that adds blocks and notifications to StoreKit, plus verification, persistence and downloads.",
+  "homepage": "https://github.com/robotmedia/RMStore",
+  "authors": "Hermes Pique",
+  "social_media_url": "https://twitter.com/hpique",
+  "source": {
+    "git": "https://github.com/robotmedia/RMStore.git",
+    "tag": "v0.7.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": "StoreKit",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "RMStore/*.{h,m}"
+    },
+    {
+      "name": "KeychainPersistence",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": "RMStore/Optional/RMStoreKeychainPersistence.{h,m}",
+      "frameworks": "Security"
+    },
+    {
+      "name": "NSUserDefaultsPersistence",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": [
+        "RMStore/Optional/RMStoreUserDefaultsPersistence.{h,m}",
+        "RMStore/Optional/RMStoreTransaction.{h,m}"
+      ]
+    },
+    {
+      "name": "AppReceiptVerificator",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ],
+        "OpenSSL": [
+          "~> 1.0.1"
+        ]
+      },
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": [
+        "RMStore/Optional/RMStoreAppReceiptVerificator.{h,m}",
+        "RMStore/Optional/RMAppReceipt.{h,m}"
+      ]
+    },
+    {
+      "name": "TransactionReceiptVerificator",
+      "dependencies": {
+        "RMStore/Core": [
+
+        ]
+      },
+      "source_files": "RMStore/Optional/RMStoreTransactionReceiptVerificator.{h,m}"
+    }
+  ]
+}

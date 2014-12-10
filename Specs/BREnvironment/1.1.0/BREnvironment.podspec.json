@@ -1,0 +1,22 @@
+{
+  "name": "BREnvironment",
+  "version": "1.1.0",
+  "summary": "A little Objective-C helper class for supporting different deployment environments during development.",
+  "description": "                   Provides an easy way to define *environment* settings in a\n                   **Environment.plist** file. For example you might define a\n                   *baseURL* as `http://my.awesome.service` for some web service your\n                   app communicates with. During development you might want to have\n                   the app use a *test* server, however, so **BREnvironment** \n                   supports a **LocalEnvironment.plist** file where you can override\n                   that *baseURL* setting to `http://my.crashful.service`.\n",
+  "homepage": "https://github.com/Blue-Rocket/BREnvironment",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Matt Magoffin": "git+matt@msqr.us"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/Blue-Rocket/BREnvironment.git",
+    "tag": "1.1.0"
+  },
+  "source_files": "BREnvironment/*.{h,m}",
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "prepare_command": "                    cat <<EOF\n                    You need to add a \"Run Script\" build phase to any target in your project that\n                    relies on using a LocalEnvironment.plist file. An example script is:\n\n                    filePath=${SRCROOT}/PathToYourOwn/LocalEnvironment.plist\n                    if [ -e \"$filePath\" ]; then\n                        cp \"$filePath\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n                        echo $filePath copied to ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\n                    else\n                        echo $filePath not found.\n                    fi\n\n                    Just change the filePath to match the path to the file you want to use.\n                    EOF\n"
+}

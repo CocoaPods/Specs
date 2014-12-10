@@ -16,26 +16,46 @@
   "platforms": {
     "ios": "5.0"
   },
-  "source_files": [
-    "GoogleAnalytics/Library/*.h",
-    "GoogleTagManager/Library/*.h"
-  ],
-  "preserve_paths": "libGoogleAnalyticsServices.a",
-  "frameworks": [
-    "Foundation",
-    "UIKit",
-    "CFNetwork",
-    "CoreData",
-    "SystemConfiguration"
-  ],
-  "libraries": [
-    "GoogleAnalyticsServices",
-    "z",
-    "sqlite3"
-  ],
-  "xcconfig": {
-    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK\"",
-    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libz"
-  },
-  "requires_arc": true
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "GoogleAnalytics/Library/*.h",
+        "GoogleTagManager/Library/*.h"
+      ],
+      "preserve_paths": "libGoogleAnalyticsServices.a",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "CFNetwork",
+        "CoreData",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "GoogleAnalyticsServices",
+        "z",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK\"",
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libz"
+      }
+    },
+    {
+      "name": "IDFA",
+      "preserve_paths": "libAdIdAccess.a",
+      "weak_frameworks": [
+        "AdSupport"
+      ],
+      "libraries": [
+        "AdIdAccess"
+      ],
+      "dependencies": {
+        "GoogleAnalytics-iOS-SDK/Core": [
+        ]
+      }
+    }
+  ]
 }
