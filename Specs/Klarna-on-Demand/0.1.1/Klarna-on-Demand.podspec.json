@@ -1,0 +1,42 @@
+{
+  "name": "Klarna-on-Demand",
+  "version": "0.1.1",
+  "summary": "SDK for Klarna's on-demand purchase service.",
+  "description": "                          Klarna on-demand allows you to integrate Klarna's payment solution in mobile apps that offer on demand services.\n                          It's a perfect fit for apps selling concert tickets, taxi rides, food pick-ups, etc.\n",
+  "homepage": "https://github.com/klarna/klarna-on-demand-ios",
+  "screenshots": "https://raw.githubusercontent.com/klarna/klarna-on-demand-ios/master/screenshot.png",
+  "license": "Apache 2.0",
+  "authors": {
+    "Klarna InDeX Team": "index.e@klarna.com"
+  },
+  "source": {
+    "git": "https://github.com/klarna/klarna-on-demand-ios.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "KlarnaOnDemand/**/*.{m,h}",
+  "resource_bundles": {
+    "KOD": "KlarnaOnDemand/KOD.bundle/*.lproj"
+  },
+  "default_subspecs": [
+    "Crypto",
+    "JockeyJS"
+  ],
+  "subspecs": [
+    {
+      "name": "Crypto",
+      "source_files": "3rdParty/Crypto/**/*.{m,h}",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "prefix_header_contents": "\n      #ifdef __OBJC__\n        #import <Foundation/Foundation.h>\n        #import \"BDError.h\"\n        #import \"BDLog.h\"\n      #endif\n    "
+    },
+    {
+      "name": "JockeyJS",
+      "source_files": "3rdParty/JockeyJS/*.{m,h}"
+    }
+  ]
+}
