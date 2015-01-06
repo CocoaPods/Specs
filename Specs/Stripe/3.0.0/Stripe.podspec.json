@@ -1,0 +1,58 @@
+{
+  "name": "Stripe",
+  "version": "3.0.0",
+  "summary": "Stripe is a web-based API for accepting payments online.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://stripe.com/docs/mobile/ios",
+  "authors": {
+    "Jack Flintermann": "jack@stripe.com",
+    "Stripe": "support+github@stripe.com"
+  },
+  "source": {
+    "git": "https://github.com/stripe/stripe-ios.git",
+    "tag": "v3.0.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "Security"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Stripe/*.{h,m}",
+      "public_header_files": "Stripe/*.h",
+      "exclude_files": "Stripe/ApplePay/*"
+    },
+    {
+      "name": "Card",
+      "source_files": [
+        "Stripe/STPCard.h",
+        "Stripe/STPCard.m",
+        "Stripe/StripeError.h",
+        "Stripe/StripeError.m"
+      ]
+    },
+    {
+      "name": "ApplePay",
+      "dependencies": {
+        "Stripe/Core": [
+
+        ]
+      },
+      "source_files": "Stripe/ApplePay/*",
+      "prefix_header_contents": "#define STRIPE_ENABLE_APPLEPAY YES",
+      "weak_frameworks": [
+        "PassKit",
+        "AddressBook"
+      ]
+    }
+  ]
+}
