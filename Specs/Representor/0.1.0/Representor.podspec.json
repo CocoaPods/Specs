@@ -1,0 +1,73 @@
+{
+  "name": "Representor",
+  "version": "0.1.0",
+  "summary": "A canonical resource object interface in Swift.",
+  "homepage": "https://github.com/the-hypermedia-project/representor-swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kyle Fuller": "inbox@kylefuller.co.uk"
+  },
+  "social_media_url": "http://twitter.com/kylefuller",
+  "source": {
+    "git": "https://github.com/the-hypermedia-project/representor-swift.git",
+    "tag": "0.1.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Representor/*.{swift,h}"
+    },
+    {
+      "name": "Builder",
+      "dependencies": {
+        "Representor/Core": [
+
+        ]
+      },
+      "source_files": "Representor/Builder/*.swift"
+    },
+    {
+      "name": "Adapter",
+      "subspecs": [
+        {
+          "name": "Response",
+          "dependencies": {
+            "Representor/Adapter/HAL": [
+
+            ],
+            "Representor/Adapter/Siren": [
+
+            ]
+          },
+          "source_files": "Representor/Adapters/NSHTTPURLResponseAdapter.swift"
+        },
+        {
+          "name": "HAL",
+          "dependencies": {
+            "Representor/Core": [
+
+            ]
+          },
+          "source_files": "Representor/Adapters/HALAdapter.swift"
+        },
+        {
+          "name": "Siren",
+          "dependencies": {
+            "Representor/Core": [
+
+            ]
+          },
+          "source_files": "Representor/Adapters/SirenAdapter.swift"
+        }
+      ]
+    }
+  ]
+}
