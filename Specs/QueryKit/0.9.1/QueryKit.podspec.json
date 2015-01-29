@@ -1,0 +1,123 @@
+{
+  "name": "QueryKit",
+  "version": "0.9.1",
+  "summary": "A simple CoreData query language for Swift.",
+  "homepage": "http://querykit.org/",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kyle Fuller": "inbox@kylefuller.co.uk"
+  },
+  "social_media_url": "http://twitter.com/kylefuller",
+  "source": {
+    "git": "https://github.com/QueryKit/QueryKit.git",
+    "tag": "0.9.1"
+  },
+  "source_files": "QueryKit/QueryKit.h",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "subspecs": [
+    {
+      "name": "ObjectiveC",
+      "dependencies": {
+        "QueryKit/Attribute/ObjectiveC": [
+
+        ],
+        "QueryKit/QuerySet/ObjectiveC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "QueryKit/Attribute/Swift": [
+
+        ],
+        "QueryKit/QuerySet/Swift": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9"
+      }
+    },
+    {
+      "name": "Attribute",
+      "subspecs": [
+        {
+          "name": "ObjectiveC",
+          "source_files": "QueryKit/ObjectiveC/QKAttribute.{h,m}"
+        },
+        {
+          "name": "Swift",
+          "dependencies": {
+            "QueryKit/QuerySet/Swift": [
+
+            ]
+          },
+          "source_files": "QueryKit/{Attribute,Expression,Predicate}.swift",
+          "platforms": {
+            "ios": "8.0",
+            "osx": "10.9"
+          }
+        },
+        {
+          "name": "Bridge",
+          "dependencies": {
+            "QueryKit/Attribute/Swift": [
+
+            ],
+            "QueryKit/Attribute/ObjectiveC": [
+
+            ]
+          },
+          "source_files": "QueryKit/ObjectiveC/QKAttribute.swift",
+          "platforms": {
+            "ios": "8.0",
+            "osx": "10.9"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QuerySet",
+      "subspecs": [
+        {
+          "name": "ObjectiveC",
+          "source_files": "QueryKit/ObjectiveC/QKQuerySet.{h,m}"
+        },
+        {
+          "name": "Swift",
+          "source_files": "QueryKit/QuerySet.swift",
+          "platforms": {
+            "ios": "8.0",
+            "osx": "10.9"
+          }
+        },
+        {
+          "name": "Bridge",
+          "dependencies": {
+            "QueryKit/QuerySet/Swift": [
+
+            ],
+            "QueryKit/QuerySet/ObjectiveC": [
+
+            ]
+          },
+          "source_files": "QueryKit/ObjectiveC/QKQuerySet.swift",
+          "platforms": {
+            "ios": "8.0",
+            "osx": "10.9"
+          }
+        }
+      ]
+    }
+  ]
+}
