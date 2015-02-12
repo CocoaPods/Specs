@@ -1,0 +1,80 @@
+{
+  "name": "ETA-SDK",
+  "version": "2.3.0",
+  "summary": "eTilbudsavis iOS SDK.",
+  "description": "                     An SDK that makes it easy to talk to the eTilbudsavis API.\n                     Also allows you to easily embed catalogs and shopping lists in your own iOS app.\n",
+  "homepage": "http://engineering.etilbudsavis.dk/native-ios-eta-sdk/",
+  "license": "MIT",
+  "authors": {
+    "Laurie Hufford": "lh@etilbudsavis.dk"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/eTilbudsavis/native-ios-eta-sdk.git",
+    "tag": "v2.3.0"
+  },
+  "subspecs": [
+    {
+      "name": "API",
+      "source_files": [
+        "ETA-SDK/ETA.{h,m}",
+        "ETA-SDK/API/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.2.0"
+        ],
+        "Mantle": [
+          "~> 1.4.1"
+        ],
+        "MAKVONotificationCenter": [
+          "~> 0.0.2"
+        ],
+        "CocoaLumberjack": [
+          "~> 1.9.0"
+        ]
+      },
+      "frameworks": [
+        "CoreLocation",
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "CatalogReader",
+      "source_files": "ETA-SDK/CatalogReader/**/*.{h,m}",
+      "dependencies": {
+        "ETA-SDK/API": [
+
+        ],
+        "Verso": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "ListManager",
+      "source_files": "ETA-SDK/ListManager/*.{h,m}",
+      "dependencies": {
+        "ETA-SDK/API": [
+
+        ],
+        "FMDB": [
+          "~> 2.2.0"
+        ]
+      }
+    },
+    {
+      "name": "WebCatalogView",
+      "source_files": "ETA-SDK/WebCatalogView/*.{h,m}",
+      "dependencies": {
+        "ETA-SDK/API": [
+
+        ]
+      }
+    }
+  ]
+}
