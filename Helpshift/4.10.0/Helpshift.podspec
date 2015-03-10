@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license             = { :type => 'Commercial', :text => 'See http://www.helpshift.com/terms/' }
   s.homepage            = 'http://www.helpshift.com/'
   s.author              = { 'Helpshift' => 'support@helpshift.com' }
-  s.source              = { :http => 'https://d3e51fp79zp4el.cloudfront.net/library/ios/v4.9/helpshift-sdk-ios-v4.10.0.zip' }
+  s.source              = { :http => 'https://d3e51fp79zp4el.cloudfront.net/library/ios/v4.10/helpshift-sdk-ios-v4.10.0.zip' }
   s.platform            = :ios, '6.0'
   s.source_files        = 'helpshift-sdk-ios-v4.10.0/Helpshift.h'
   s.resources           = 'helpshift-sdk-ios-v4.10.0/HSResources/*.png'
