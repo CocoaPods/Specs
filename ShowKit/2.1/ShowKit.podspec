@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ShowKit.framework/Versions/A/Headers/ShowKit.h', 'ShowKit.framework/Versions/A/Headers/SHKSupportViewController.h'
   s.preserve_paths = 'ShowKit.framework/*'
 
-  s.frameworks = 'VideoToolbox', 'CoreImage' 'OpenGLES', 'AVFoundation', 'QuartzCore', 'CFNetwork', 'CoreVideo', 'CoreGraphics', 'CoreMedia', 'AudioToolbox', 'SystemConfiguration', 'ShowKit'
+  s.frameworks = 'VideoToolbox', 'CoreImage', 'OpenGLES', 'AVFoundation', 'QuartzCore', 'CFNetwork', 'CoreVideo', 'CoreGraphics', 'CoreMedia', 'AudioToolbox', 'SystemConfiguration', 'ShowKit'
   s.libraries = 'resolv', 'z'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/ShowKit"', 'OTHER_LDFLAGS' => '-lc++' }
 
