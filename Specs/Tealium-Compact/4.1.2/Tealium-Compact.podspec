@@ -8,5 +8,5 @@ Pod::Spec.new do |spec|
   spec.preserve_paths   = 'TealiumCompact/TealiumLibrary.framework'
   spec.source_files     = 'TealiumCompact/TealiumLibrary.framework/Versions/A/Headers/*.h'
   spec.frameworks       = 'TealiumLibrary', 'SystemConfiguration', 'CoreGraphics', 'UIKit'
-  spec.xcconfig         =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Tealium-Compact/Tealium-Compact"' }
+  spec.xcconfig         =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Tealium-Compact/TealiumCompact"' }
 end
