@@ -1,0 +1,80 @@
+{
+  "name": "ProductLayerSDK",
+  "version": "0.4.1",
+  "summary": "The ultimate product information API, enabling a new breed of product-centric apps.",
+  "homepage": "https://github.com/ProductLayer/ProductLayer-SDK-for-iOS",
+  "authors": {
+    "Oliver Drobnik": "oliver@ProductLayer.com"
+  },
+  "documentation_url": "https://developer.productlayer.com/documentation/sdk/",
+  "social_media_url": "https://twitter.com/ProductLayer",
+  "source": {
+    "git": "https://github.com/ProductLayer/ProductLayer-SDK-for-iOS.git",
+    "tag": "0.4.1"
+  },
+  "license": "BSD",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.8"
+      },
+      "dependencies": {
+        "DTFoundation/Core": [
+          "~>1.7.4"
+        ],
+        "DTKeychain": [
+          "~>1.0.0"
+        ],
+        "ProductLayerSDK/PLYEntities": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "DTFoundation/UIKit": [
+            "~>1.7.4"
+          ]
+        }
+      },
+      "source_files": "Core/Source/*.{h,m}"
+    },
+    {
+      "name": "PLYEntities",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.8"
+      },
+      "source_files": "Core/Source/PLYEntities/*.{h,m}"
+    },
+    {
+      "name": "iOS",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "Core/Source/iOS/*.{h,m}",
+      "frameworks": "AVFoundation",
+      "ios": {
+        "dependencies": {
+          "ProductLayerSDK/Core": [
+
+          ],
+          "DTFoundation/UIKit_BlocksAdditions": [
+
+          ]
+        },
+        "resource_bundles": {
+          "ProductLayerSDK": [
+            "Core/Resources/*"
+          ]
+        }
+      }
+    }
+  ]
+}
