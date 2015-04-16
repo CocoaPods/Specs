@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
   spec.name         = 'EaseMobSDKFull'
   spec.version      = '2.1.4.1'
   spec.license      = 'MIT'
-  spec.summary      = 'An Objective-C client for IM service'
+  spec.summary      = 'An Objective-C client for IM service and Real-time voice'
   spec.homepage     = 'https://github.com/dujiepeng/EaseMobSDKFull'
   spec.author       = {'EaseMob Inc.' => 'admin@easemob.com'}
   spec.source       =  {:git => 'https://github.com/dujiepeng/EaseMobSDKFull.git', :tag => spec.version.to_s }
