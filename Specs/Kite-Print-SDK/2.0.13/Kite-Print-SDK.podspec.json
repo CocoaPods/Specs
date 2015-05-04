@@ -1,0 +1,84 @@
+{
+  "name": "Kite-Print-SDK",
+  "version": "2.0.13",
+  "license": {
+    "type": "MIT",
+    "file": "Kite SDK/LICENSE"
+  },
+  "homepage": "https://github.com/OceanLabs/iOS-Print-SDK",
+  "authors": {
+    "Deon Botha": "deon@oceanlabs.co"
+  },
+  "summary": "Add physical print functionality in minutes! Print magnets, photo prints, postcards, polaroids, posters, stickers, canvas', phone cases, etc",
+  "source": {
+    "git": "https://github.com/OceanLabs/iOS-Print-SDK.git",
+    "tag": "2.0.13"
+  },
+  "source_files": [
+    "Kite SDK/PSPrintSDK/OL*.{h,m}",
+    "Kite SDK/PSPrintSDK/CardIO*.h",
+    "Kite SDK/PSPrintSDK/RMImageCropper/*.{h,m}",
+    "Kite SDK/PSPrintSDK/Categories/*.{h,m}"
+  ],
+  "resources": [
+    "Kite SDK/PSPrintSDK/KitePrintSDK.xcassets",
+    "Kite SDK/*.lproj",
+    "Kite SDK/PSPrintSDK/OLKiteStoryboard.storyboard"
+  ],
+  "dependencies": {
+    "SDWebImage": [
+
+    ],
+    "SVProgressHUD": [
+
+    ],
+    "AFNetworking": [
+      "2.5.0"
+    ],
+    "UICKeyChainStore": [
+      "~> 2.0.4"
+    ],
+    "LXReorderableCollectionViewFlowLayout": [
+
+    ],
+    "CTAssetsPickerController": [
+
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "social_media_url": "https://twitter.com/dbotha",
+  "default_subspecs": "Lite",
+  "subspecs": [
+    {
+      "name": "Lite"
+    },
+    {
+      "name": "PayPal",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_PAYPAL"
+      },
+      "dependencies": {
+        "PayPal-iOS-SDK": [
+          "~> 2.4.2"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_APPLE_PAY"
+      },
+      "dependencies": {
+        "Stripe": [
+          "2.2.0"
+        ],
+        "Stripe/ApplePay": [
+
+        ]
+      }
+    }
+  ]
+}

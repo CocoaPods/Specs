@@ -1,0 +1,65 @@
+{
+  "name": "IGScraperKit",
+  "version": "0.4.0",
+  "summary": "Create dynamic web scraper in Objective-C or Ruby.",
+  "description": "Create dynamic web scraper in Objective-C or Ruby. You can define recipes in Ruby, load and modify them in runtime.\n",
+  "homepage": "https://github.com/siuying/IGScraperKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Francis Chong": "francis@ignition.hk"
+  },
+  "source": {
+    "git": "https://github.com/siuying/IGScraperKit.git",
+    "tag": "0.4.0"
+  },
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      },
+      "dependencies": {
+        "IGHTMLQuery": [
+          ">= 0.8.3"
+        ]
+      },
+      "source_files": "IGScraperKit/Classes/**/*.{h,m}",
+      "exclude_files": "IGScraperKit/Classes/IGRecipeRegistry.{h,m}"
+    },
+    {
+      "name": "Scripting",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      },
+      "prefix_header_contents": "#define IGSCRAPERKIT_ENABLE_SCRIPTING",
+      "dependencies": {
+        "IGHTMLQuery/Ruby": [
+          ">= 0.8.3"
+        ],
+        "JavaScriptCoreOpalAdditions": [
+          ">= 0.2.4"
+        ]
+      },
+      "source_files": "IGScraperKit/Classes/**/*.{h,m}",
+      "resources": [
+        "IGScraperKit/JavaScript/**/*.{js}",
+        "IGScraperKit/Ruby/**/*.{rb}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "NBClient",
+  "version": "1.0.2",
+  "license": "MIT",
+  "summary": "An iOS client to the NationBuilder API.",
+  "homepage": "https://github.com/3dna/nationbuilder-ios",
+  "authors": {
+    "Peng Wang": "peng@nationbuilder.com"
+  },
+  "source": {
+    "git": "https://github.com/3dna/nationbuilder-ios.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "NBClient/Locale": [
+
+        ]
+      },
+      "frameworks": "Security",
+      "source_files": "NBClient/NBClient/*.{h,m}",
+      "exclude_files": "NBClient/UI",
+      "private_header_files": "NBClient/NBClient/*_Internal.h"
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "NBClient/Core": [
+
+        ]
+      },
+      "frameworks": "UIKit",
+      "source_files": "NBClient/NBClient/UI/*.{h,m}",
+      "private_header_files": "NBClient/NBClient/UI/*_Internal.h",
+      "resources": [
+        "NBClient/NBClient/UI/*.xib",
+        "NBClient/NBClient/UI/NBClient_UI.xcassets",
+        "NBClient/NBClient/UI/pe-icon-7-stroke.ttf"
+      ]
+    },
+    {
+      "name": "Locale",
+      "default_subspecs": "en",
+      "subspecs": [
+        {
+          "name": "All",
+          "preserve_paths": "NBClient/NBClient/*.lproj",
+          "resources": "NBClient/NBClient/*.lproj"
+        },
+        {
+          "name": "en",
+          "preserve_paths": "NBClient/NBClient/en.lproj",
+          "resources": "NBClient/NBClient/en.lproj"
+        }
+      ]
+    }
+  ]
+}

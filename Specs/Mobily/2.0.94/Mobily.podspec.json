@@ -1,0 +1,92 @@
+{
+  "name": "Mobily",
+  "version": "2.0.94",
+  "summary": "Mobily framework for iOS",
+  "homepage": "https://github.com/fgengine/mobily-ios/tree/v2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Username": "fgengine@gmail.com"
+  },
+  "platforms": {
+    "ios": 7.0
+  },
+  "source": {
+    "git": "https://github.com/fgengine/mobily-ios.git",
+    "branch": "v2",
+    "tag": "2.0.94"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Development",
+      "dependencies": {
+        "Mobily/CocoaPods": [
+
+        ],
+        "Mobily/Core": [
+
+        ],
+        "Mobily/Social": [
+
+        ]
+      }
+    },
+    {
+      "name": "CocoaPods",
+      "public_header_files": "Classes/CocoaPods/**/*.h",
+      "source_files": "Classes/CocoaPods/**/*.{h,m}"
+    },
+    {
+      "name": "Core",
+      "public_header_files": "Classes/Core/**/*.h",
+      "source_files": "Classes/Core/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "MOBILY_POD_CORE"
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics",
+        "UIKit",
+        "AVFoundation",
+        "CoreLocation"
+      ],
+      "dependencies": {
+        "Mobily/CocoaPods": [
+
+        ]
+      }
+    },
+    {
+      "name": "Social",
+      "public_header_files": "Classes/Social/**/*.h",
+      "source_files": "Classes/Social/**/*.{h,m}",
+      "resources": "Classes/Social/Twitter/Frameworks/TwitterKitResources.bundle",
+      "vendored_frameworks": [
+        "Classes/Social/Facebook/Frameworks/FacebookSDK.framework",
+        "Classes/Social/Facebook/Frameworks/FBAudienceNetwork.bundle",
+        "Classes/Social/Twitter/Frameworks/TwitterKit.framework"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "MOBILY_POD_SOCIAL"
+      },
+      "frameworks": [
+        "CoreData",
+        "Accounts",
+        "Social",
+        "TwitterKit"
+      ],
+      "dependencies": {
+        "Mobily/Core": [
+
+        ],
+        "VK-ios-sdk": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "name": "GustyLib",
+  "version": "1.0.1",
+  "summary": "A Cocoa Touch static library to help you develop high quality iOS apps faster.",
+  "homepage": "https://github.com/marcelo-schroeder/GustyLib",
+  "license": "Apache-2.0",
+  "authors": {
+    "Marcelo Schroeder": "marcelo.schroeder@infoaccent.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/marcelo-schroeder/GustyLib.git",
+    "tag": "v1.0.1"
+  },
+  "default_subspecs": "CoreUI",
+  "subspecs": [
+    {
+      "name": "Foundation",
+      "source_files": "GustyLib/GustyLib/Foundation/classes/**/*.{h,m}"
+    },
+    {
+      "name": "CoreUI",
+      "source_files": "GustyLib/GustyLib/CoreUI/classes/**/*.{h,m}",
+      "resources": "GustyLib/GustyLib/CoreUI/resources/**/*.*",
+      "dependencies": {
+        "GustyLib/Foundation": [
+
+        ],
+        "ODRefreshControl": [
+          "1.1.0"
+        ]
+      }
+    },
+    {
+      "name": "GoogleMobileAdsSupport",
+      "source_files": "GustyLib/GustyLib/GoogleMobileAdsSupport/classes/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IFA_AVAILABLE_GoogleMobileAdsSupport=1"
+      },
+      "dependencies": {
+        "GustyLib/CoreUI": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 6"
+        ]
+      }
+    },
+    {
+      "name": "FlurrySupport",
+      "source_files": "GustyLib/GustyLib/FlurrySupport/classes/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IFA_AVAILABLE_FlurrySupport=1"
+      },
+      "dependencies": {
+        "GustyLib/CoreUI": [
+
+        ],
+        "FlurrySDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Html",
+      "source_files": "GustyLib/GustyLib/Html/classes/**/*.{h,m}",
+      "resources": "GustyLib/GustyLib/Html/resources/**/*.*",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IFA_AVAILABLE_Html=1"
+      },
+      "dependencies": {
+        "GustyLib/CoreUI": [
+
+        ],
+        "DTFoundation": [
+          "1.7.2"
+        ],
+        "MWFeedParser": [
+          "1.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Help",
+      "source_files": "GustyLib/GustyLib/Help/classes/**/*.{h,m}",
+      "resources": "GustyLib/GustyLib/Help/resources/**/*.*",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IFA_AVAILABLE_Help=1"
+      },
+      "dependencies": {
+        "GustyLib/CoreUI": [
+
+        ],
+        "GustyLib/Html": [
+
+        ]
+      }
+    }
+  ]
+}

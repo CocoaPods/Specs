@@ -1,0 +1,34 @@
+{
+  "name": "snappy-library",
+  "version": "1.1.2",
+  "license": "New BSD",
+  "summary": "A fast compressor/decompressor",
+  "description": "Snappy is a compression/decompression library. It does not aim for maximum compression, or compatibility with any other compression library; instead, it aims for very high speeds and reasonable compression",
+  "homepage": "https://github.com/google/snappy",
+  "authors": "Google Inc.",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/russellhancox/snappy.git",
+    "tag": "1.1.2"
+  },
+  "prepare_command": "    cp snappy-stubs-public.h.in snappy-stubs-public.h\n\n    sed -i '' 's/@ac_cv_have_stdint_h@/1/g' snappy-stubs-public.h\n    sed -i '' 's/@ac_cv_have_stddef_h@/1/g' snappy-stubs-public.h\n    sed -i '' 's/@ac_cv_have_sys_uio_h@/1/g' snappy-stubs-public.h\n\n    major=$(echo 1.1.2 | cut -d. -f1)\n    minor=$(echo 1.1.2 | cut -d. -f2)\n    patch=$(echo 1.1.2 | cut -d. -f3)\n\n    sed -i '' \"s/@SNAPPY_MAJOR@/$major/g\" snappy-stubs-public.h\n    sed -i '' \"s/@SNAPPY_MINOR@/$minor/g\" snappy-stubs-public.h\n    sed -i '' \"s/@SNAPPY_PATCHLEVEL@/$patch/g\" snappy-stubs-public.h\n",
+  "source_files": [
+    "*.cc",
+    "*.h"
+  ],
+  "public_header_files": [
+    "snappy.h",
+    "snappy-sinksource.h",
+    "snappy-stubs-public.h",
+    "snappy-c.h"
+  ],
+  "exclude_files": [
+    "*-test.*",
+    "*_unittest.cc",
+    "m4",
+    "testdata"
+  ]
+}

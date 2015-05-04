@@ -1,0 +1,44 @@
+{
+  "name": "GCDTelnetServer",
+  "version": "1.1.2",
+  "authors": {
+    "Pierre-Olivier Latour": "info@pol-online.net"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/swisspol/GCDTelnetServer",
+  "summary": "Drop-in embedded Telnet server for iOS and OS X apps",
+  "source": {
+    "git": "https://github.com/swisspol/GCDTelnetServer.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "source_files": "GCDTelnetServer/*.{h,m}",
+  "private_header_files": "GCDTelnetServer/*Private.h",
+  "subspecs": [
+    {
+      "name": "GCDNetworking",
+      "source_files": "GCDNetworking/GCDNetworking/*.{h,m}",
+      "private_header_files": "GCDNetworking/GCDNetworking/*Private.h",
+      "requires_arc": true,
+      "ios": {
+        "frameworks": "CFNetwork"
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "GCDTelnetServer/GCDNetworking": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Navigator",
+  "version": "0.3.6",
+  "summary": "Router for iOS view navigation & animation",
+  "description": "                   Navigator is a router for tracking application state and transitioning between views. It provides default \n                   implementations for managing UINavigationController's stack and displaying views modally, and it provides \n                   extension points for custom navigation hierarchies and animations.\n",
+  "homepage": "http://github.com/derkis/Navigator",
+  "authors": {
+    "Ty Cobb": "ty.cobb.m@gmail.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "License.txt"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/derkis/Navigator.git",
+    "tag": "v0.3.6"
+  },
+  "dependencies": {
+    "YOLOKit": [
+      "~> 11"
+    ]
+  },
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "YOLO_LAST=1 YOLO_SKIP=1 YOLO_SNIP=1 YOLO_SPLIT=1 YOLO_JOIN=1 YOLO_EXTEND=1 YOLO_SELECT=1 YOLO_MAP=1 YOLO_FIND=1 YOLO_CONCAT=1 YOLO_UNIQ=1 YOLO_ARRAY=1 YOLO_DICT=1 YOLO_FIRST=1 YOLO_INJECT=1 YOLO_FLATTEN=1"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Navigator/*.{h,m}",
+        "Navigator/Router/*.{h,m}",
+        "Navigator/Routes/*.{h,m}",
+        "Navigator/Transitions/*.{h,m}",
+        "Navigator/Updates/*.{h,m}",
+        "Navigator/Shared/*.{h,m}"
+      ],
+      "public_header_files": [
+        "Navigator/*.h",
+        "Navigator/Router/*.h",
+        "Navigator/Routes/*.h",
+        "Navigator/Transitions/*.h",
+        "Navigator/Updates/*.h",
+        "Navigator/Shared/*.h"
+      ]
+    },
+    {
+      "name": "View",
+      "dependencies": {
+        "Navigator/Core": [
+
+        ]
+      },
+      "source_files": "Navigator/View/*.{h,m}",
+      "public_header_files": "Navigator/View/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "NAVIGATOR_VIEW"
+      }
+    }
+  ]
+}
