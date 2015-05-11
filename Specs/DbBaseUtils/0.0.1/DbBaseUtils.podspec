@@ -1,8 +1,8 @@
 {
-    "name": "SudoBaseUtils",
+    "name": "DbBaseUtils",
     "version": "0.0.1",
     "summary": "Platform-specific utility classes, used by DbObjects",
-    "homepage": "https://github.com/johnqh/SudoBaseUtils",
+    "homepage": "https://github.com/johnqh/DbBaseUtils",
     "license": {
         "type": "MIT",
         "file": "LICENSE"
@@ -11,7 +11,7 @@
         "John Huang": "johnqh@yahoo.com"
     },
     "source": {
-        "git": "https://github.com/johnqh/SudoBaseUtils.git",
+        "git": "https://github.com/johnqh/DbBaseUtils.git",
         "tag": "0.0.1",
         "branch": "master"
     },
