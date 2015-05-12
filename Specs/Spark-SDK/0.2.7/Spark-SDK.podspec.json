@@ -1,0 +1,54 @@
+{
+  "name": "Spark-SDK",
+  "version": "0.2.7",
+  "summary": "Spark iOS Cloud SDK for interacting with Spark powered connected products via Spark Cloud",
+  "description": "                        Spark iOS Cloud SDK Cocoapod library\n                        The Spark iOS Cloud SDK enables iOS apps to interact with Spark-powered connected products via the Spark Cloud.\n                        Library will allow you to easily manage active user sessions to Spark cloud, query for device info,\n                        read and write data to/from Spark Core/Photon devices and (via exposed variables and functions)\n                        publish and subscribe events to/from the cloud or to/from devices (coming soon).\n",
+  "homepage": "https://github.com/spark/spark-sdk-ios",
+  "license": "LGPL v3",
+  "authors": {
+    "Spark": "ido@spark.io"
+  },
+  "source": {
+    "git": "https://github.com/spark/Spark-SDK-ios.git",
+    "tag": "0.2.7"
+  },
+  "social_media_url": "https://twitter.com/spark_io",
+  "platforms": {
+    "ios": "7.1"
+  },
+  "requires_arc": true,
+  "public_header_files": "Pod/Classes/*.h",
+  "source_files": "Pod/Classes/Spark-SDK.h",
+  "resource_bundles": {
+    "Spark-SDK": [
+      "Pod/Assets/*.*"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Helpers",
+      "source_files": [
+        "Pod/Classes/Helpers/KeychainItemWrapper.{h,m}",
+        "Pod/Classes/Reachability.{h,m}"
+      ],
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "Security"
+        ]
+      }
+    },
+    {
+      "name": "SDK",
+      "source_files": "Pod/Classes/SDK/Spark*.{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "Spark-SDK/Helpers": [
+
+        ]
+      }
+    }
+  ]
+}
