@@ -1,0 +1,81 @@
+{
+  "name": "TMTumblrSDK",
+  "version": "2.1.3",
+  "summary": "An unopinionated and flexible library for easily integrating Tumblr data into your iOS or OS X application.",
+  "authors": {
+    "Bryan Irace": "bryan@tumblr.com"
+  },
+  "homepage": "http://tumblr.github.com/TMTumblrSDK",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/tumblr/TMTumblrSDK.git",
+    "tag": "2.1.3"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "frameworks": "Foundation",
+  "ios": {
+    "weak_frameworks": "UIKit"
+  },
+  "osx": {
+    "weak_frameworks": "AppKit"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TMTumblrSDK/Core",
+      "dependencies": {
+        "Spectacles": [
+          "~> 1.0"
+        ]
+      },
+      "resources": "TMTumblrSDK.podspec.json"
+    },
+    {
+      "name": "Activity",
+      "platforms": {
+        "ios": "5.0"
+      },
+      "source_files": "TMTumblrSDK/Activity",
+      "resources": "TMTumblrSDK/Activity/*.{png}"
+    },
+    {
+      "name": "APIClient",
+      "source_files": "TMTumblrSDK/APIClient",
+      "dependencies": {
+        "JXHTTP": [
+          "~> 2.0.1"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Authentication",
+          "source_files": "TMTumblrSDK/Authentication",
+          "dependencies": {
+            "TMTumblrSDK/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppClient",
+      "platforms": {
+        "ios": "5.0"
+      },
+      "source_files": "TMTumblrSDK/AppClient",
+      "dependencies": {
+        "TMTumblrSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
