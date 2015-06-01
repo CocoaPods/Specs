@@ -1,0 +1,72 @@
+{
+  "name": "mopub-ios-sdk",
+  "version": "3.8.0",
+  "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and native ads.",
+  "description": "                    MoPub is a hosted ad serving solution built specifically for mobile publishers.\n                    Grow your mobile advertising business with powerful ad management, optimization \n                    and reporting capabilities, and earn revenue by connecting to the world's largest \n                    mobile ad exchange. \n\n                    To learn more or sign up for an account, go to http://www.mopub.com. \n",
+  "homepage": "https://github.com/mopub/mopub-ios-sdk",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MoPub": "support@mopub.com"
+  },
+  "social_media_url": "http://twitter.com/mopub",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/mopub/mopub-ios-sdk.git",
+    "tag": "3.8.0"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreTelephony",
+    "EventKit",
+    "EventKitUI",
+    "Foundation",
+    "MediaPlayer",
+    "QuartzCore",
+    "SystemConfiguration",
+    "UIKit"
+  ],
+  "weak_frameworks": [
+    "AdSupport",
+    "StoreKit"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "MoPubSDK",
+  "subspecs": [
+    {
+      "name": "MoPubSDK",
+      "source_files": "MoPubSDK/**/*.{h,m}",
+      "resources": "MoPubSDK/**/*.{png,bundle,xib,nib}"
+    },
+    {
+      "name": "iAd",
+      "source_files": "AdNetworkSupport/iAd/*.{h,m}",
+      "dependencies": {
+        "mopub-ios-sdk/MoPubSDK": [
+
+        ]
+      },
+      "frameworks": "iAd"
+    },
+    {
+      "name": "AdMob",
+      "source_files": "AdNetworkSupport/GoogleAdMob/*.{h,m}",
+      "dependencies": {
+        "mopub-ios-sdk/MoPubSDK": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.1.0"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-7.1.0\""
+      }
+    }
+  ]
+}
