@@ -1,0 +1,53 @@
+{
+  "name": "google-cast-remote-display-sdk",
+  "version": "2.7.0",
+  "license": {
+    "type": "Commercial",
+    "text": "https://developers.google.com/terms/"
+  },
+  "summary": "Framework for using a Google Cast device as a external screen",
+  "description": "Google Cast Remote Display is a technology that allows content rendered on a sender device to be displayed on a large screen connected to a Google Cast device. This is particularly suitable to games who want to build a second screen experience for the living room, but also for applications with complex visuals that cannot be produced by a Google Cast device.",
+  "homepage": "https://developers.google.com/cast/",
+  "authors": "Google, Inc.",
+  "source": {
+    "http": "https://redirector.gvt1.com/edgedl/chromecast/sdk-remotedisplay/ios/GoogleCastRemoteDisplaySDK-2.7.0-Release-ios-default.zip"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "Accelerate",
+    "AudioToolbox",
+    "CoreMedia",
+    "CoreVideo",
+    "GoogleCast",
+    "GoogleCastRemoteDisplay",
+    "OpenGLES",
+    "QuartzCore"
+  ],
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "weak_frameworks": [
+    "Metal"
+  ],
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/google-cast-remote-display-sdk/GoogleCastRemoteDisplaySDK-2.7.0-Release",
+    "OTHER_LDFLAGS": "-framework GoogleCastRemoteDisplay"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GoogleCastRemoteDisplaySDK-2.7.0-Release/GoogleCastRemoteDisplay.framework/Versions/A/Headers/*.h",
+      "preserve_paths": "GoogleCastRemoteDisplaySDK-2.7.0-Release/GoogleCastRemoteDisplay.framework",
+      "dependencies": {
+        "google-cast-sdk": [
+          "~> 2.7.0"
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
