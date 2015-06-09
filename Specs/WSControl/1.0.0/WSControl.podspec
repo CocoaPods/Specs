@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'WSControl'
   s.version  = '1.0.0'
   s.license  = 'MIT'
-  s.summary  = 'Encapsulated UIButton/UIAlertView/UIActionSheet with Block.'
+  s.summary  = 'Encapsulated UIButton/UIAlertView/UIActionSheet/UISegmentedControl with Block.'
   s.homepage = 'https://github.com/Shunzi007/WSControl'
   s.social_media_url = 'http://weibo.com/2834854683/profile'
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
