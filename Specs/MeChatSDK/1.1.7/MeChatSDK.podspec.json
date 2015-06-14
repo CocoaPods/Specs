@@ -1,0 +1,51 @@
+{
+  "name": "MeChatSDK",
+  "version": "1.1.7",
+  "summary": "根据美洽官方提供的SDK，制作成支持CocoaPods的方式",
+  "homepage": "http://meiqia.com/",
+  "description": "                   美洽iOS SDK.\n\n                   * 美洽，连接你和你的顾客\n                   * 实时在线的客户服务工具，可通过移动 App，手机网站，桌面网站，微信，微博，二维码等方式接入。\n                   * 美洽从你的顾客出发，以他们为中心设计出了全新的在线客服沟通方式。\n                   * 基于不同的出发点，我们与传统的客服方式相比，有巨大的先进性。\n",
+  "license": "COMMERCIAL",
+  "authors": {
+    "meiqia": "team@meiqia.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/yaobida/mechat-ios.git",
+    "tag": "1.1.7"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Dep2ndLib",
+    "SDK"
+  ],
+  "subspecs": [
+    {
+      "name": "Dep2ndLib",
+      "source_files": "MeChatSDK/libopencore/*.h",
+      "public_header_files": "MeChatSDK/libopencore/*.h",
+      "vendored_libraries": "MeChatSDK/libopencore/*.a"
+    },
+    {
+      "name": "SDK",
+      "source_files": "MeChatSDK/*.h",
+      "public_header_files": "MeChatSDK/*.h",
+      "vendored_libraries": "MeChatSDK/*.a",
+      "resources": "MeChatSDK/*.bundle",
+      "frameworks": [
+        "Accelerate",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AVFoundation",
+        "AudioToolbox"
+      ],
+      "libraries": "sqlite3",
+      "dependencies": {
+        "MeChatSDK/Dep2ndLib": [
+
+        ]
+      }
+    }
+  ]
+}
