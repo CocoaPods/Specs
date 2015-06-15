@@ -77,7 +77,7 @@ s.source       = { :git => "https://github.com/ShiYongjieGitHub/PodsTest003.git"
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = "PodsTest0031/AdrXMLToDictionaryParser.{h,m}"
+s.source_files  = "PodsTest0031/SYJXMLToDictionaryParser.{h,m}"
 s.exclude_files = "Classes/Exclude"
 
 # s.public_header_files = "Classes/**/*.h"
