@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PodTest1618"
-  s.version          = "0.1.0"
+  s.version          = "0.4.0"
   s.summary          = "壮壮测试用"
   s.description      = "壮壮的测试，你可千万别用"
   s.homepage         = "https://github.com/noai966669/testForCocoPod"
