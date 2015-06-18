@@ -1,0 +1,76 @@
+{
+  "name": "SKTiledMap",
+  "version": "1.0.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/wbcyclist/SKTiledMap",
+  "authors": {
+    "Jasio Woo": "wbcyclist@gmail.com"
+  },
+  "summary": "A TMX Tilemap Framework For SpriteKit. Supporting iOS and OS X",
+  "source": {
+    "git": "https://github.com/wbcyclist/SKTiledMap.git",
+    "tag": "1.0.0"
+  },
+  "screenshots": [
+    "https://raw.githubusercontent.com/wbcyclist/SKTiledMap/master/Screenshot/SKTiledMap-Mac.jpg"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "public_header_files": "Framework/*.h",
+  "source_files": "Framework/SKTiledMap.h",
+  "subspecs": [
+    {
+      "name": "External",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "SpriteKit"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "AppKit",
+          "SpriteKit"
+        ]
+      },
+      "libraries": "z",
+      "public_header_files": "Framework/External/*.h",
+      "source_files": "Framework/External/**/*.{h,m}"
+    },
+    {
+      "name": "Model",
+      "dependencies": {
+        "SKTiledMap/External": [
+
+        ],
+        "Ono": [
+
+        ]
+      },
+      "public_header_files": "Framework/Model/*.h",
+      "private_header_files": "Framework/Classes/SKMapRenderer.h",
+      "source_files": [
+        "Framework/Model/**/*.{h,m}",
+        "Framework/Classes/SKMapRenderer.h"
+      ]
+    },
+    {
+      "name": "SpriteKitNode",
+      "dependencies": {
+        "SKTiledMap/Model": [
+
+        ]
+      },
+      "source_files": [
+        "Framework/SpriteKitNode/**/*.{h,m}",
+        "Framework/Classes/**/*.{h,m}"
+      ]
+    }
+  ]
+}
