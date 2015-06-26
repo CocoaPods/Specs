@@ -1,0 +1,70 @@
+{
+  "name": "ResourceManager",
+  "version": "1.3.0",
+  "summary": "Synchronize your application resources from dropbox to the app and experience dynamic reload on simulator and devices.",
+  "homepage": "https://github.com/smorel/ResourceManager",
+  "license": {
+    "type": "Apache Licence 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Sebastien Morel": "morel.sebastien@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/smorel/ResourceManager.git",
+    "tag": "v1.3.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "description": "ResourceManager allows you to synchronize your resource in the app running on a device or emulator while your editing them on your Mac. Whether it is an image, a sound, a nib, an AppCoreKit stylesheet or layout and even string files, the ResourceManager let your see the changes youre making in your assets live on your devices. Connect several devices with different form factor or idiom simultaneously with one or several resource managers. This is useful when youre working in team and want to get your UI up-to-date while other are working on it. Or only connect your Mac with your devices if you dont trust your colleagues Its up to you!",
+  "frameworks": [
+    "Security",
+    "QuartzCore"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-ObjC -all_load -weak_library /usr/lib/libstdc++.dylib"
+  },
+  "dependencies": {
+    "AppPeerIOS": [
+
+    ]
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Default",
+      "source_files": "ResourceManager/Classes/**/*.{h,m,mm}",
+      "private_header_files": "ResourceManager/Classes/Private/**/*.{h}",
+      "requires_arc": true,
+      "exclude_files": [
+        "ResourceManager/Classes/ResourceManager.h",
+        "ResourceManager/Classes/Public/UIImage+ResourceManager.m",
+        "ResourceManager/Classes/Public/UIImage+ResourceManager.h"
+      ]
+    },
+    {
+      "name": "NoArc",
+      "source_files": [
+        "ResourceManager/Classes/Public/UIImage+ResourceManager.m",
+        "ResourceManager/Classes/Public/UIImage+ResourceManager.h"
+      ],
+      "requires_arc": false,
+      "dependencies": {
+        "ResourceManager/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "source_files": "ResourceManager/Classes/ResourceManager.h",
+      "dependencies": {
+        "ResourceManager/NoArc": [
+
+        ]
+      }
+    }
+  ]
+}
