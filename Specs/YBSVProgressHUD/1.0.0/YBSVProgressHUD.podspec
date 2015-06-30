@@ -14,4 +14,5 @@ s.source       = { :git => "https://github.com/kekeYe/YBSVProgressHUD.git", :tag
 s.source_files  = 'YBSVProgressHUD', 'YBSVProgressHUD/**/*.{h,m}'
 s.frameworks   = 'QuartzCore', 'Security', 'CoreGraphics', 'AudioToolbox'
 s.requires_arc = true
+
 end
