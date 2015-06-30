@@ -1,10 +1,8 @@
 
-
-
 Pod::Spec.new do |s|
 s.name         = "YBSVProgressHUD"
 s.version      = "1.0"
-s.summary      = "YBSVProgressHUD is NULL I want to learn cocoapods"
+s.summary      = "YBSVProgressHUD is NULL I want to learn cocoapods Thank you"
 s.description  = <<-DESC
                share client include sina weibo ,tencent weibo, renren
                DESC
