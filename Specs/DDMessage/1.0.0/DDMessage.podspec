@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "DDMessage"
   s.version          = "1.0.0"
-  s.summary          = "A message UI library based on JSQMessages."
+  s.summary          = "A message UI library "
   s.description      = <<-DESC
                        It is a message UI library used on iOS,which implement by objective-c
                        DESC
@@ -21,6 +21,5 @@ Pod::Spec.new do |s|
   # s.ios.exclude_files = 'Classes/osx'
   # s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
-  s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
 
 end
