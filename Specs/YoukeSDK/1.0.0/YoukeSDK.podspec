@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "YoukeSDK"
-  s.version          = "1.0.0"
+  s.version          = "0.0.1"
   s.summary          = "YoukeSDK帮助你的APP快速构建客服系统。"
   s.homepage         = "https://github.com/jxd001/YoukeSDK"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/NAME'
 
   s.platform     = :ios, '7.0'
-  # s.ios.deployment_target = '5.0'
+  # s.ios.deployment_target = '7.0'
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
