@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/randomprocess/SUIToolKit'
   s.author       = { 'suio~' => 'randomprocess@qq.com' }
-  s.source       = { :git => 'https://github.com/randomprocess/SUIToo9999lKit.git',
+  s.source       = { :git => 'https://github.com/randomprocess/SUIToolKit.git',
                      :tag => s.version.to_s }
 
   s.requires_arc = true
