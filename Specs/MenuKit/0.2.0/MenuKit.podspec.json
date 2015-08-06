@@ -1,0 +1,114 @@
+{
+  "name": "MenuKit",
+  "version": "0.2.0",
+  "summary": "Objective-C menu and order framework optimized for encoding into barcodes.",
+  "description": "This project provides an implementation of a menu domain model and menu\nordering framework that is designed with encoding orders into 2D barcodes.",
+  "homepage": "https://github.com/Blue-Rocket/BRMenu",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Matt Magoffin": "matt@bluerocket.us"
+  },
+  "platforms": {
+    "ios": "8.4"
+  },
+  "source": {
+    "git": "https://github.com/Blue-Rocket/BRMenu.git",
+    "tag": "0.2.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Menu/Code/Core.h",
+        "Menu/Code/Core"
+      ],
+      "header_dir": "Core",
+      "dependencies": {
+        "BRCocoaLumberjack": [
+          "~> 1.9"
+        ]
+      },
+      "resource_bundles": {
+        "BRMenu": "Menu/Resources/Core/**"
+      }
+    },
+    {
+      "name": "RestKit",
+      "source_files": [
+        "Menu/Code/RestKit.h",
+        "Menu/Code/RestKit"
+      ],
+      "header_dir": "RestKit",
+      "dependencies": {
+        "MenuKit/Core": [
+
+        ],
+        "RestKit/ObjectMapping": [
+          "~> 0.24"
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking",
+      "source_files": [
+        "Menu/Code/AFNetworking.h",
+        "Menu/Code/AFNetworking"
+      ],
+      "header_dir": "AFNetworking",
+      "dependencies": {
+        "MenuKit/RestKit": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.5"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": [
+        "Menu/Code/UI.h",
+        "Menu/Code/UI"
+      ],
+      "header_dir": "UI",
+      "dependencies": {
+        "MenuKit/Core": [
+
+        ],
+        "BRPDFImage": [
+          "~> 1.0"
+        ],
+        "Masonry": [
+          "~> 0.6"
+        ]
+      },
+      "resource_bundles": {
+        "BRMenuUI": "Menu/Resources/UI/**/*.{storyboard,lproj,pdf}"
+      }
+    },
+    {
+      "name": "UI-RestKit",
+      "source_files": [
+        "Menu/Code/UI-RestKit.h",
+        "Menu/Code/UI-RestKit"
+      ],
+      "header_dir": "UI-RestKit",
+      "dependencies": {
+        "MenuKit/UI": [
+
+        ],
+        "MAObjCRuntime": [
+          "~> 0.0.1"
+        ],
+        "RestKit/ObjectMapping": [
+          "~> 0.24"
+        ]
+      }
+    }
+  ]
+}
