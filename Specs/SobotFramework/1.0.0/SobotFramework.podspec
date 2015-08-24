@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/zhichisobot/SobotFramework"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { 'zhangxy' => 'ios_dev@163.com' }
+  s.author           = { 'zhangxy' => 'ios_dev@sobot.com' }
   s.source           = { :git => "https://github.com/zhichisobot/SobotFramework.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/NAME'
 
