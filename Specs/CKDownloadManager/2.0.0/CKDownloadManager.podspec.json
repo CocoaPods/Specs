@@ -1,0 +1,116 @@
+{
+  "name": "CKDownloadManager",
+  "version": "2.0.0",
+  "summary": "A Download manager surport resum download. You only implement the delegate.It is simple to use.",
+  "description": "CKDownloadManager is a download framework.There are more features compare other download Framekwork.",
+  "homepage": "https://github.com/kaich/CKDownloadManager",
+  "license": "MIT",
+  "authors": {
+    "kaich": "chengkai1853@163.com"
+  },
+  "source": {
+    "git": "https://github.com/kaich/CKDownloadManager.git",
+    "tag": "2.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "CKDownloadManager": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "default_subspecs": [
+    "Core",
+    "DownloadViewController",
+    "Extension/ASIHTTPRequestAdaptor"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Classes/Core/*.{h,m}",
+        "Pod/Classes/Component/*.{h,m}"
+      ],
+      "libraries": "sqlite3.0",
+      "dependencies": {
+        "LKDBHelper": [
+
+        ],
+        "Reachability": [
+
+        ],
+        "DTAlertView": [
+
+        ]
+      }
+    },
+    {
+      "name": "DownloadViewController",
+      "source_files": [
+        "Pod/Classes/DownloadViewController/*.{h,m}",
+        "Pod/Classes/Util/*.{h,m}"
+      ],
+      "dependencies": {
+        "CKDownloadManager/Core": [
+
+        ],
+        "CKDownloadManager/Extension/FileModel": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "dependencies": {
+        "CKDownloadManager/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ASIHTTPRequestAdaptor",
+          "source_files": "Pod/Classes/Extension/ASIHTTPRequestAdaptor/*.{h,m}",
+          "dependencies": {
+            "ASIHTTPRequest": [
+
+            ]
+          }
+        },
+        {
+          "name": "FileModel",
+          "source_files": "Pod/Classes/Extension/FileModel/*.{h,m}"
+        },
+        {
+          "name": "HTTPServer",
+          "source_files": "Pod/Classes/Extension/HTTPServer/*.{h,m}",
+          "dependencies": {
+            "CocoaHTTPServer": [
+
+            ]
+          }
+        },
+        {
+          "name": "Nearby",
+          "source_files": "Pod/Classes/Extension/Nearby/*.{h,m}",
+          "dependencies": {
+            "CKDownloadManager/Extension/FileModel": [
+
+            ],
+            "CocoaHTTPServer": [
+
+            ]
+          }
+        },
+        {
+          "name": "Others",
+          "source_files": "Pod/Classes/Extension/Others/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
