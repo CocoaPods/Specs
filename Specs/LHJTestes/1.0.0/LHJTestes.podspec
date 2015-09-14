@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "LHJTestes"
   s.version      = "0.0.1"
-  s.summary      = "A short description of LHJTestes."
+  s.summary      = "this is a test ,please let pass it."
 
   s.description  = <<-DESC
                    A longer description of LHJTestes in Markdown format.
