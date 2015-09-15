@@ -1,0 +1,52 @@
+{
+  "name": "IMFData",
+  "version": "1.1.0",
+  "summary": "IMFData allows security integration between IMFCore and Cloudant Toolkit.",
+  "description": "                   IMFData is for security integration between MobileFirst Cloud Services and Cloudant.\n",
+  "homepage": "https://www.ng.bluemix.net/docs/",
+  "license": "IBM",
+  "authors": {
+    "IBM MobileFirst platform for iOS.": "mobilsdk@us.ibm.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "source": {
+    "git": "https://hub.jazz.net/git/imfsdk/imf-ios-sdk.git",
+    "tag": "1.1.0"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "CloudantToolkit": [
+          "~> 1.1.0"
+        ],
+        "IMFCore": [
+          "~> 1.0.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/IMFData.framework"
+    },
+    {
+      "name": "SQLCipher",
+      "frameworks": "SystemConfiguration",
+      "vendored_frameworks": "Frameworks/IMFData.framework",
+      "dependencies": {
+        "CloudantToolkit/SQLCipher": [
+          "~> 1.1.0"
+        ],
+        "IMFCore": [
+          "~> 1.0.0"
+        ]
+      }
+    }
+  ]
+}

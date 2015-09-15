@@ -1,0 +1,113 @@
+{
+  "name": "Pegas",
+  "summary": "Social API for Facebook, Twitter, GooglePlus, Vkontakte, Odnoklassniki: login, fetch user profile, friends, invite friend, etc.",
+  "version": "0.1.0",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "http://caiguda.com",
+  "authors": "Caiguda Software Studio",
+  "source": {
+    "git": "https://Malaar@bitbucket.org/caiguda/pegas.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "CaigudaKit": [
+
+        ]
+      },
+      "source_files": "Pegas/Core/**/*.{h,m}",
+      "resources": "Pegas/**/*.{jpeg,png,xib,nib,txt}"
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "Pegas/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 4.4.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 4.4.0"
+        ],
+        "FBSDKShareKit": [
+          "~> 4.4.0"
+        ]
+      },
+      "source_files": "Pegas/Facebook/**/*.{h,m}"
+    },
+    {
+      "name": "Twitter",
+      "dependencies": {
+        "Pegas/Core": [
+
+        ],
+        "STTwitter": [
+
+        ]
+      },
+      "source_files": "Pegas/Twitter/**/*.{h,m}"
+    },
+    {
+      "name": "Vkontakte",
+      "dependencies": {
+        "Pegas/Core": [
+
+        ],
+        "VK-ios-sdk": [
+
+        ]
+      },
+      "source_files": "Pegas/Vkontakte/**/*.{h,m}"
+    },
+    {
+      "name": "GooglePlus",
+      "dependencies": {
+        "Pegas/Core": [
+
+        ]
+      },
+      "source_files": "Pegas/GooglePlus/**/*.{h,m}",
+      "vendored_frameworks": [
+        "Pegas/GooglePlus/Frameworks/GooglePlus.framework",
+        "Pegas/GooglePlus/Frameworks/GoogleOpenSource.framework"
+      ],
+      "resources": "Pegas/GooglePlus/Frameworks/GooglePlus.bundle",
+      "frameworks": [
+        "AssetsLibrary",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreText",
+        "MediaPlayer",
+        "Security",
+        "SystemConfiguration",
+        "AddressBook"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/Pegas/GooglePlus/Frameworks/GoogleOpenSource.framework/Versions/A/Headers\""
+      }
+    },
+    {
+      "name": "Odnoklassniki",
+      "dependencies": {
+        "Pegas/Core": [
+
+        ],
+        "odnoklassniki_ios_sdk": [
+
+        ]
+      },
+      "source_files": "Pegas/Odnoklassniki/**/*.{h,m}"
+    }
+  ]
+}

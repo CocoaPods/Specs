@@ -1,0 +1,135 @@
+{
+  "name": "Overcoat",
+  "version": "3.0.0",
+  "license": "MIT",
+  "summary": "Overcoat is a small but powerful library that makes creating REST clients simple and fun.",
+  "homepage": "https://github.com/overcoat/Overcoat",
+  "authors": {
+    "Guillermo Gonzalez": "gonzalezreal@icloud.com",
+    "sodastsai": "sodas@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/overcoat/Overcoat.git",
+    "tag": "3.0.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.5"
+        ],
+        "Mantle": [
+          "<= 3.0"
+        ]
+      },
+      "public_header_files": "Overcoat/Core/*.h",
+      "private_header_files": "Overcoat/Core/*_Internal.h",
+      "source_files": "Overcoat/Core/*.{h,m}",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "CoreData",
+      "default_subspecs": "Mantle2",
+      "subspecs": [
+        {
+          "name": "Mantle2",
+          "dependencies": {
+            "Overcoat/Core": [
+
+            ],
+            "Mantle": [
+              "~> 2"
+            ],
+            "MTLManagedObjectAdapter": [
+
+            ],
+            "MTLManagedObjectAdapter/extobjc": [
+
+            ]
+          },
+          "public_header_files": "Overcoat/CoreData/*.h",
+          "private_header_files": "Overcoat/CoreData/*_Internal.h",
+          "source_files": "Overcoat/CoreData/*.{h,m}",
+          "frameworks": "CoreData",
+          "xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+          }
+        },
+        {
+          "name": "Mantle1",
+          "dependencies": {
+            "Overcoat/Core": [
+
+            ],
+            "Mantle": [
+              "~> 1"
+            ]
+          },
+          "public_header_files": "Overcoat/CoreData/*.h",
+          "private_header_files": "Overcoat/CoreData/*_Internal.h",
+          "source_files": "Overcoat/CoreData/*.{h,m}",
+          "frameworks": "CoreData",
+          "xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ]
+      },
+      "public_header_files": "Overcoat/Social/*.h",
+      "source_files": "Overcoat/Social/*.{h,m}",
+      "frameworks": [
+        "Accounts",
+        "Social"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_SOCIAL=1"
+      }
+    },
+    {
+      "name": "PromiseKit",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "PromiseKit/Promise": [
+          "~>1.2"
+        ]
+      },
+      "public_header_files": "PromiseKit+Overcoat/*.h",
+      "source_files": "PromiseKit+Overcoat",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_PROMISE_KIT=1"
+      }
+    },
+    {
+      "name": "ReactiveCocoa",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "ReactiveCocoa": [
+          "~>2.4"
+        ]
+      },
+      "public_header_files": "ReactiveCocoa+Overcoat/*.h",
+      "source_files": "ReactiveCocoa+Overcoat",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_REACTIVE_COCOA=1"
+      }
+    }
+  ]
+}
