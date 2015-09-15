@@ -1,0 +1,26 @@
+{
+  "name": "ARSPopover",
+  "version": "2.0.0",
+  "summary": "Universal popover for iPhone and iPad.",
+  "description": "# ARSPopover\nUniversal popover for iPhone and iPad that you can use in your projects. No custom drawing, no custom elements - everything is purely native.\n\n|           iPhone             |           iPad           |\n| ---------------------------- | ------------------------ |\n| ![ARSPopover-iPhone][iPhone] | ![ARSPopover-iPad][iPad] |\n\n[iPhone]: http://git.arsenkin.com/ARSPopover-iPhone.gif\n[iPad]: http://git.arsenkin.com/ARSPopover-iPad.gif\n\n## Installation\n\n### CocoaPods\nTo install with [CocoaPods](http://cocoapods.org/), copy and paste this in your *.pod* file:\n\n    platform :ios, '8.0'\n    pod 'ARSPopover', '~> 2.0'\n\n### Non-CocoaPods way\nYou can always to do the old way - just drag the source files into your projects and you are good to go.\n\n    ## Usage\n    Sample usage of the ARSPopover might look like this:\n\n    ``` objective-c\n    - (IBAction)showPopoverWithWebView:(id)sender {\n        ARSPopover *popoverController = [ARSPopover new];\n        popoverController.sourceView = self.buttonWithWebView;\n        popoverController.sourceRect = CGRectMake(CGRectGetMidX(self.buttonWithWebView.bounds), CGRectGetMaxY(self.buttonWithWebView.bounds), 0, 0);\n        popoverController.contentSize = CGSizeMake(400, 600);\n        popoverController.arrowDirection = UIPopoverArrowDirectionUp;\n\n        [self presentViewController:popoverController animated:YES completion:^{\n            [popoverController insertContentIntoPopover:^(ARSPopover *popover, CGSize popoverPresentedSize, CGFloat popoverArrowHeight) {\n                CGFloat originX = 0;\n                CGFloat originY = 0;\n                CGFloat width = popoverPresentedSize.width;\n                CGFloat height = popoverPresentedSize.height - popoverArrowHeight;\n\n                CGRect frame = CGRectMake(originX, originY, width, height);\n                UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];\n                webView.scalesPageToFit = YES;\n                [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@\"http://google.com\"]]];\n                [popover.view addSubview:webView];\n            }];\n        }];\n    }\n    ```\n    ### Required properties' configurations\n\n    In order to get a working popover, you need to specify next properties:\n\n    * `popoverController.sourceView` - The view containing the anchor rectangle for the popover.\n\n    ``` objective-c\n    popoverController.sourceView = self.buttonWithWebView;\n    ```\n\n    * `popoverController.sourceRect` - The rectangle in the specified view in which to anchor the popover.\n\n    ``` objective-c\n    popoverController.sourceRect = CGRectMake(CGRectGetMidX(self.buttonWithWebView.bounds), CGRectGetMaxY(self.buttonWithWebView.bounds), 0, 0);\n    ```\n\n    * `popoverController.contentSize` - The preferred size for the popover’s view.\n\n    ``` objective-c\n    popoverController.contentSize = CGSizeMake(400, 600);\n    ```\n\n    * And the last, most important thing - you have to call method `insertContentIntoPopover` and pass a block of code, which should add subviews to popover's view you wish to see.\n\n    _Be sure to call this method only after you have presented popup. Otherwise you might get wrong size in popoverPresentedSize._\n\n    ``` objective-c\n    [popoverController insertContentIntoPopover:^(ARSPopover *popover, CGSize popoverPresentedSize, CGFloat popoverArrowHeight) {\n        CGFloat originX = 0;\n        CGFloat originY = 0;\n        CGFloat width = popoverPresentedSize.width;\n        CGFloat height = popoverPresentedSize.height - popoverArrowHeight;\n\n        CGRect frame = CGRectMake(originX, originY, width, height);\n        UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];\n        webView.scalesPageToFit = YES;\n        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@\"http://google.com\"]]];\n        [popover.view addSubview:webView];\n    }];\n    ```\n\n## License\nARSPopover is released under the [MIT license](http://opensource.org/licenses/MIT). See LICENSE for details.",
+  "homepage": "https://github.com/soberman/ARSPopover",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yarik Arsenkin": "info@arsenkin.com"
+  },
+  "social_media_url": "http://twitter.com/Soberman777",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/soberman/ARSPopover.git",
+    "tag": "2.0.0"
+  },
+  "source_files": "Source/ARSPopover.{h,m}",
+  "exclude_files": "Demo/*",
+  "public_header_files": "Source/ARSPopover.h",
+  "requires_arc": true
+}
