@@ -1,0 +1,24 @@
+{
+  "name": "DWUWebView",
+  "version": "1.0.0",
+  "summary": "A WKWebView wrapper that serves as a drop-in replacement for the legacy UIWebView.",
+  "description": "#DWUWebView\n\nA **WKWebView** wrapper that serves as a drop-in replacement for the legacy **UIWebView**.\n\n\n#Why WKWebView?\n\nFacebook migrated from UIWebView to WKWebView and reported [a significant reduction of OOMs][fb_blog] due to the fact that WKWebView now renders web pages in separate processes out of the app.\n\nBesides, WKWebView is [so much faster][performance_blog] than UIWebView that your web development co-workers might burst into tears.\n\n#Installation\n\nStep 1: Drag [DWUWebView.h][h_file] and [DWUWebView.m][m_file] into your project.\n\nStep 2: There's no step 2.\n\nOr, if you are using CocoaPods, add the following requirement into your Podfile:\n\n`pod 'DWUWebView'`\n\n#Accurate Loading Progress\n\nIf you are using that popular JavaScript trick to simulate the web page loading progress, DWUWebView will likely break it (see *Known Issues* below). However, thanks to the new APIs brought by WKWebView, you can now have much more accurate loading progress callbacks.\n\nSee `DWUWebViewProgressDelegate` in [DWUWebView.h][h_file] for more details. It's a delegation style API and is really easy to use.\n\n\n#Known Issues\n\nDue to WKWebView's implementation details, you can find a list of unsupported APIs in [DWUWebView.h][h_file].\n\nBesides, due to an architectural change that forces WKWebView to process JavaScript injection on an asynchronous basis. The `stringByEvaluatingJavaScriptFromString:` API will always return a garbage value. So do not use its return value.\n\n\n\n[h_file]: ./DWUWebView.h\n[m_file]: ./DWUWebView.m\n[fb_blog]: https://code.facebook.com/posts/1146930688654547/reducing-fooms-in-the-facebook-ios-app/\n[performance_blog]: http://blog.initlabs.com/post/100113463211/wkwebview-vs-uiwebview",
+  "homepage": "https://github.com/diwu/DWUWebView",
+  "license": "MIT",
+  "authors": {
+    "Di Wu": "diwup@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/diwu/DWUWebView.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "*.{h,m}",
+  "frameworks": [
+    "UIKit",
+    "WebKit"
+  ]
+}
