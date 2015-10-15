@@ -1,0 +1,185 @@
+{
+  "name": "Google",
+  "version": "1.1.1",
+  "summary": "Google APIs for iOS",
+  "description": "Simplify your iOS development, grow your user base, and monetize more effectively with Google services.",
+  "homepage": "https://developers.google.com/ios",
+  "license": {
+    "text": "Copyright 2015 Google Inc.",
+    "type": "Copyright"
+  },
+  "authors": "Google Inc.",
+  "source": {
+    "http": "http://www.gstatic.com/cpdc/4f65507804e63240-Google-1.1.1.tar.gz"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "header_dir": "Google",
+  "preserve_paths": "Samples/*",
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": [
+        "Libraries/libGGLCore.a"
+      ],
+      "public_header_files": [
+        "Headers/GGLCore/Public/*.h",
+        "Headers/ModuleHeaders/*.h"
+      ],
+      "preserve_paths": [
+        "Headers/module.modulemap"
+      ],
+      "source_files": [
+        "Headers/GGLCore/Public/*.h",
+        "Headers/ModuleHeaders/*.h"
+      ],
+      "libraries": [
+        "sqlite3"
+      ],
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -force_load '$(PODS_ROOT)/GoogleUtilities/Libraries/libGTM_NSData+zlib.a'",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/Google/Headers"
+      },
+      "frameworks": [
+        "AddressBook",
+        "AssetsLibrary",
+        "CoreFoundation",
+        "CoreLocation",
+        "CoreMotion",
+        "MessageUI",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "GoogleUtilities": [
+          "~> 1.1"
+        ],
+        "GoogleNetworkingUtilities": [
+          "~> 1.0"
+        ],
+        "GoogleInterchangeUtilities": [
+          "~> 1.0"
+        ],
+        "GoogleSymbolUtilities": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "vendored_libraries": [
+        "Libraries/libGGLAnalytics.a"
+      ],
+      "public_header_files": "Headers/GGLAnalytics/Public/*.h",
+      "source_files": "Headers/GGLAnalytics/Public/*.h",
+      "frameworks": [
+
+      ],
+      "libraries": [
+        "sqlite3"
+      ],
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GoogleAnalytics": [
+          "~> 3.12"
+        ]
+      }
+    },
+    {
+      "name": "AdMob",
+      "vendored_libraries": [
+        "Libraries/libGGLAdMob.a"
+      ],
+      "public_header_files": "Headers/GGLAdMob/Public/*.h",
+      "source_files": "Headers/GGLAdMob/Public/*.h",
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GoogleMobileAds": [
+          "~> 7.3"
+        ]
+      }
+    },
+    {
+      "name": "SignIn",
+      "vendored_libraries": [
+        "Libraries/libGGLSignIn.a"
+      ],
+      "public_header_files": "Headers/GGLSignIn/Public/*.h",
+      "source_files": "Headers/GGLSignIn/Public/*.h",
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "AppInvite",
+      "vendored_libraries": [
+        "Libraries/libGGLAppInvite.a"
+      ],
+      "public_header_files": "Headers/GGLAppInvite/Public/*.h",
+      "source_files": "Headers/GGLAppInvite/Public/*.h",
+      "frameworks": [
+        "AddressBook",
+        "AssetsLibrary",
+        "CoreFoundation",
+        "CoreLocation",
+        "CoreMotion",
+        "MessageUI",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+
+      ],
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "Google/SignIn": [
+
+        ],
+        "AppInvites": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "CloudMessaging",
+      "vendored_libraries": [
+        "Libraries/libGGLCloudMessaging.a"
+      ],
+      "public_header_files": "Headers/GGLCloudMessaging/Public/*.h",
+      "source_files": "Headers/GGLCloudMessaging/Public/*.h",
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GGLInstanceID": [
+          "~> 1.0"
+        ],
+        "GoogleCloudMessaging": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "InstanceID",
+      "dependencies": {
+        "GGLInstanceID": [
+          "~> 1.0"
+        ]
+      }
+    }
+  ]
+}
