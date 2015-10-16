@@ -1,0 +1,54 @@
+{
+  "name": "IMFDataLocal",
+  "version": "1.2.0",
+  "deprecated": true,
+  "deprecated_in_favor_of": "CDTDatastore",
+  "summary": "Deprecated: IMFData allows interaction between MobileFirst Platform and Cloudant Toolkit.",
+  "description": "                   IMFData is deprecated.  Migrate applications to CDTDatastore.  See https://github.com/cloudant/CDTDatastore.\n",
+  "homepage": "http://www.ibm.com/mobilefirst",
+  "license": "IBM",
+  "authors": {
+    "IBM MobileFirst platform for iOS.": "mobilsdk@us.ibm.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "source": {
+    "git": "https://hub.jazz.net/git/imflocalsdk/imf-ios-sdk.git",
+    "tag": "1.2.0"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "CloudantToolkitLocal": [
+          "~> 1.2.0"
+        ],
+        "IBMMobileFirstPlatformFoundation": [
+          "~> 7.1.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/IMFData.framework"
+    },
+    {
+      "name": "SQLCipher",
+      "frameworks": "SystemConfiguration",
+      "vendored_frameworks": "Frameworks/IMFData.framework",
+      "dependencies": {
+        "CloudantToolkitLocal/SQLCipher": [
+          "~> 1.2.0"
+        ],
+        "IBMMobileFirstPlatformFoundation": [
+          "~> 7.1.0"
+        ]
+      }
+    }
+  ]
+}
