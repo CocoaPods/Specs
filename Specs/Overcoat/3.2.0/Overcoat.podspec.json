@@ -1,0 +1,296 @@
+{
+  "name": "Overcoat",
+  "version": "3.2.0",
+  "cocoapods_version": ">= 0.38",
+  "license": "MIT",
+  "summary": "Overcoat is a small but powerful library that makes creating REST clients simple and fun.",
+  "homepage": "https://github.com/overcoat/Overcoat",
+  "authors": {
+    "Guillermo Gonzalez": "gonzalezreal@icloud.com",
+    "sodastsai": "sodas@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/overcoat/Overcoat.git",
+    "tag": "3.2.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": [
+    "NSURLConnection",
+    "NSURLSession"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "Mantle": [
+
+        ],
+        "AFNetworking/Serialization": [
+
+        ]
+      },
+      "source_files": "sources/Core/*.{h,m}",
+      "private_header_files": "sources/Core/*_Internal.h",
+      "exclude_files": "sources/Core/OVCHTTP{RequestOperation,Session}Manager.{h,m}"
+    },
+    {
+      "name": "NSURLConnection",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "AFNetworking/NSURLConnection": [
+
+        ]
+      },
+      "source_files": "sources/Core/OVCHTTPRequestOperationManager.{h,m}",
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_URL_CONNECTION=1"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_URL_CONNECTION=1"
+      }
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "AFNetworking/NSURLSession": [
+
+        ]
+      },
+      "source_files": "sources/Core/OVCHTTPSessionManager.{h,m}",
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_URL_SESSION=1"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_URL_SESSION=1"
+      }
+    },
+    {
+      "name": "CoreData",
+      "default_subspecs": "Mantle2",
+      "subspecs": [
+        {
+          "name": "Mantle2",
+          "default_subspecs": [
+            "NSURLConnection",
+            "NSURLSession"
+          ],
+          "subspecs": [
+            {
+              "name": "Core",
+              "dependencies": {
+                "Overcoat/Core": [
+
+                ],
+                "Mantle": [
+                  "~> 2"
+                ],
+                "MTLManagedObjectAdapter": [
+                  "> 1.0"
+                ]
+              },
+              "frameworks": "CoreData",
+              "source_files": "sources/CoreData/*.{h,m}",
+              "private_header_files": "sources/CoreData/*_Internal.h",
+              "exclude_files": "sources/CoreData/OVCManagedHTTP{RequestOperation,Session}Manager.{h,m}",
+              "user_target_xcconfig": {
+                "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+              },
+              "pod_target_xcconfig": {
+                "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+              }
+            },
+            {
+              "name": "NSURLConnection",
+              "dependencies": {
+                "Overcoat/NSURLConnection": [
+
+                ],
+                "Overcoat/CoreData/Mantle2/Core": [
+
+                ]
+              },
+              "source_files": "sources/CoreData/OVCManagedHTTPRequestOperationManager.{h,m}"
+            },
+            {
+              "name": "NSURLSession",
+              "dependencies": {
+                "Overcoat/NSURLSession": [
+
+                ],
+                "Overcoat/CoreData/Mantle2/Core": [
+
+                ]
+              },
+              "source_files": "sources/CoreData/OVCManagedHTTPSessionManager.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "Mantle1",
+          "default_subspecs": [
+            "NSURLConnection",
+            "NSURLSession"
+          ],
+          "subspecs": [
+            {
+              "name": "Core",
+              "dependencies": {
+                "Overcoat/Core": [
+
+                ],
+                "Mantle": [
+                  "~> 1"
+                ]
+              },
+              "frameworks": "CoreData",
+              "source_files": "sources/CoreData/*.{h,m}",
+              "private_header_files": "sources/CoreData/*_Internal.h",
+              "exclude_files": "sources/CoreData/OVCManagedHTTP{RequestOperation,Session}Manager.{h,m}",
+              "user_target_xcconfig": {
+                "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+              },
+              "pod_target_xcconfig": {
+                "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_COREDATA=1"
+              }
+            },
+            {
+              "name": "NSURLConnection",
+              "dependencies": {
+                "Overcoat/NSURLConnection": [
+
+                ],
+                "Overcoat/CoreData/Mantle1/Core": [
+
+                ]
+              },
+              "source_files": "sources/CoreData/OVCManagedHTTPRequestOperationManager.{h,m}"
+            },
+            {
+              "name": "NSURLSession",
+              "dependencies": {
+                "Overcoat/NSURLSession": [
+
+                ],
+                "Overcoat/CoreData/Mantle1/Core": [
+
+                ]
+              },
+              "source_files": "sources/CoreData/OVCManagedHTTPSessionManager.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "AFNetworking/Serialization": [
+
+        ]
+      },
+      "public_header_files": "sources/Social/*.h",
+      "source_files": "sources/Social/*.{h,m}",
+      "frameworks": [
+        "Accounts",
+        "Social"
+      ],
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_SOCIAL=1"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_SOCIAL=1"
+      }
+    },
+    {
+      "name": "PromiseKit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9"
+      },
+      "dependencies": {
+        "PromiseKit/CorePromise": [
+          "> 2"
+        ]
+      },
+      "source_files": "sources/PromiseKit/PromiseKit+Overcoat.h",
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_PROMISE_KIT=1"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_PROMISE_KIT=1"
+      },
+      "default_subspecs": [
+        "NSURLConnection",
+        "NSURLSession"
+      ],
+      "subspecs": [
+        {
+          "name": "NSURLConnection",
+          "dependencies": {
+            "Overcoat/NSURLConnection": [
+
+            ]
+          },
+          "source_files": "sources/PromiseKit/OVCHTTPRequestOperationManager+PromiseKit.{h,m}"
+        },
+        {
+          "name": "NSURLSession",
+          "dependencies": {
+            "Overcoat/NSURLSession": [
+
+            ]
+          },
+          "source_files": "sources/PromiseKit/OVCHTTPSessionManager+PromiseKit.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "ReactiveCocoa",
+      "dependencies": {
+        "ReactiveCocoa": [
+          "~> 2.4"
+        ]
+      },
+      "source_files": "sources/ReactiveCocoa/ReactiveCocoa+Overcoat.h",
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_REACTIVE_COCOA=1"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OVERCOAT_SUPPORT_REACTIVE_COCOA=1"
+      },
+      "default_subspecs": [
+        "NSURLConnection",
+        "NSURLSession"
+      ],
+      "subspecs": [
+        {
+          "name": "NSURLConnection",
+          "dependencies": {
+            "Overcoat/NSURLConnection": [
+
+            ]
+          },
+          "source_files": "sources/ReactiveCocoa/OVCHTTPRequestOperationManager+ReactiveCocoa.{h,m}"
+        },
+        {
+          "name": "NSURLSession",
+          "dependencies": {
+            "Overcoat/NSURLSession": [
+
+            ]
+          },
+          "source_files": "sources/ReactiveCocoa/OVCHTTPSessionManager+ReactiveCocoa.{h,m}"
+        }
+      ]
+    }
+  ]
+}

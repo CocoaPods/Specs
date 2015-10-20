@@ -1,0 +1,26 @@
+{
+  "name": "ARSPopover",
+  "version": "1.0.0",
+  "summary": "Universal popover for iPhone and iPad.",
+  "description": "# ARSPopover\nUniversal popover for iPhone and iPad that you can use in your projects. No custom drawing, no custom elements - everything is purely native.\n\n|           iPhone             |           iPad           |\n| ---------------------------- | ------------------------ |\n| ![ARSPopover-iPhone][iPhone] | ![ARSPopover-iPad][iPad] |\n\n[iPhone]: http://git.arsenkin.com/ARSPopover-iPhone.gif\n[iPad]: http://git.arsenkin.com/ARSPopover-iPad.gif\n\n## Installation\n\n### CocoaPods\nTo install with [CocoaPods](http://cocoapods.org/), copy and paste this in your *.pod* file:\n\n    platform :ios, '8.0'\n    pod 'ARSPopover', '~> 1.0'\n\n### Non-CocoaPods way\nYou can always to do the old way - just drag the source files into your projects and you are good to go.\n\n## Usage\nSample usage of the ARSPopover might look like this:\n\n``` objective-c\n- (IBAction)showPopoverWithWebView:(id)sender {\n    ARSPopover *popoverController = [ARSPopover new];\n    popoverController.sourceView = self.buttonWithWebView;\n    popoverController.sourceRect = CGRectMake(CGRectGetMidX(self.buttonWithWebView.bounds), CGRectGetMaxY(self.buttonWithWebView.bounds), 0, 0);\n    popoverController.contentSize = CGSizeMake(400, 600);\n    popoverController.arrowDirection = UIPopoverArrowDirectionUp;\n\n    [popoverController insertContentIntoPopover:^(ARSPopover *popover) {\n        UIWebView *webView = [[UIWebView alloc] initWithFrame:popoverController.view.frame];\n        webView.scalesPageToFit = YES;\n        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@\"http://google.com\"]]];\n        [popover.view addSubview:webView];\n    }];\n\n    [self presentViewController:popoverController animated:YES completion:nil];\n}\n```\n### Required properties' configurations\n\nIn order to get a working popover, you need to specify next properties:\n\n* `popoverController.sourceView` - The view containing the anchor rectangle for the popover.\n\n``` objective-c\npopoverController.sourceView = self.buttonWithWebView;\n```\n\n* `popoverController.sourceRect` - The rectangle in the specified view in which to anchor the popover.\n\n``` objective-c\npopoverController.sourceRect = CGRectMake(CGRectGetMidX(self.buttonWithWebView.bounds), CGRectGetMaxY(self.buttonWithWebView.bounds), 0, 0);\n```\n\n* `popoverController.contentSize` - The preferred size for the popover’s view.\n\n``` objective-c\npopoverController.contentSize = CGSizeMake(400, 600);\n```\n\n* And the last, most important thing - you have to call method `insertContentIntoPopover` and pass a block of code, which should add subviews to popover's view you wish to see.\n\n``` objective-c\n[popoverController insertContentIntoPopover:^(ARSPopover *popover) {\n    UIWebView *webView = [[UIWebView alloc] initWithFrame:popoverController.view.frame];\n    webView.scalesPageToFit = YES;\n    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@\"http://google.com\"]]];\n    [popover.view addSubview:webView];\n}];\n```\n\n## License\nARSPopover is released under the [MIT license](http://opensource.org/licenses/MIT). See LICENSE for details.",
+  "homepage": "https://github.com/soberman/ARSPopover",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yarik Arsenkin": "info@arsenkin.com"
+  },
+  "social_media_url": "http://twitter.com/Soberman777",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/soberman/ARSPopover.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "Source/ARSPopover.{h,m}",
+  "exclude_files": "Demo/*",
+  "public_header_files": "Source/ARSPopover.h",
+  "requires_arc": true
+}

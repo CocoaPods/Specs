@@ -1,0 +1,119 @@
+{
+  "name": "UrbanAirship-iOS-SDK",
+  "documentation_url": "http://docs.urbanairship.com/reference/libraries/ios/6.3.0/",
+  "version": "6.3.0",
+  "license": "BSD",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "summary": "A simple way to integrate Urban Airship services into your iOS applications.",
+  "homepage": "https://github.com/urbanairship/ua-ios-pod",
+  "authors": {
+    "Urban Airship": "support@urbanairship.com"
+  },
+  "source": {
+    "git": "https://github.com/urbanairship/ua-ios-pod.git",
+    "tag": "6.3.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Airship/AirshipLib.h",
+        "Airship/{Common,External,Inbox,Push}/**/*.h"
+      ],
+      "vendored_libraries": [
+        "Airship/**.a"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "CoreGraphics",
+        "Foundation",
+        "MobileCoreServices",
+        "Security",
+        "SystemConfiguration",
+        "UIKit",
+        "CoreTelephony",
+        "CoreLocation",
+        "PassKit"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "CommonUI",
+      "dependencies": {
+        "UrbanAirship-iOS-SDK/Core": [
+
+        ]
+      },
+      "source_files": "Airship/UI/Default/Common/**/*.{h,m}",
+      "resources": [
+        "Airship/UI/Default/Common/Resources/*.lproj"
+      ]
+    },
+    {
+      "name": "PushUI",
+      "dependencies": {
+        "UrbanAirship-iOS-SDK/Core": [
+
+        ],
+        "UrbanAirship-iOS-SDK/CommonUI": [
+
+        ]
+      },
+      "source_files": "Airship/UI/Default/Push/Classes/Shared/*.{h,m}",
+      "frameworks": [
+        "MapKit",
+        "MessageUI",
+        "AudioToolbox"
+      ],
+      "resources": [
+        "Airship/UI/Default/Push/Resources/**/**/**.{xib,jpg,js,png}",
+        "Airship/UI/Default/Push/Resources/*.lproj"
+      ]
+    },
+    {
+      "name": "InboxUI",
+      "dependencies": {
+        "UrbanAirship-iOS-SDK/Core": [
+
+        ],
+        "UrbanAirship-iOS-SDK/CommonUI": [
+
+        ]
+      },
+      "source_files": "Airship/UI/Default/Inbox/Classes/Shared/*.{h,m}",
+      "resources": [
+        "Airship/UI/Default/Inbox/Resources/**/**/**.{xib,jpg,js,png}",
+        "Airship/UI/Default/Inbox/Resources/*.lproj"
+      ]
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "UrbanAirship-iOS-SDK/Core": [
+
+        ],
+        "UrbanAirship-iOS-SDK/CommonUI": [
+
+        ],
+        "UrbanAirship-iOS-SDK/PushUI": [
+
+        ],
+        "UrbanAirship-iOS-SDK/InboxUI": [
+
+        ]
+      }
+    }
+  ]
+}

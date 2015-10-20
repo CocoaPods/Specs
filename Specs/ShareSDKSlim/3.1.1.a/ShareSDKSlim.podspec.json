@@ -1,0 +1,132 @@
+{
+  "name": "ShareSDKSlim",
+  "version": "3.1.1.a",
+  "summary": "ShareSDK is a SNS share kit.",
+  "homepage": "https://github.com/CodeEagle/ShareSDKSlim",
+  "authors": {
+    "CodeEagle": "lvevsany@163.com"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "                   Copyright © 2012-2015 mob All Rights Reserved 掌淘网络 版权所有\n"
+  },
+  "source": {
+    "git": "https://github.com/CodeEagle/ShareSDKSlim.git",
+    "tag": "3.1.1.a"
+  },
+  "platforms": {
+    "ios": "5.1.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Normal",
+  "subspecs": [
+    {
+      "name": "SinaWeibo",
+      "requires_arc": true,
+      "dependencies": {
+        "ShareSDKSlim/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "ImageIO",
+        "ADSupport"
+      ],
+      "source_files": "libraries/extends/SinaWeiboSDK/*.h",
+      "vendored_libraries": "libraries/extends/SinaWeiboSDK/libWeiboSDK.a",
+      "resources": "libraries/extends/SinaWeiboSDK/WeiboSDK.bundle"
+    },
+    {
+      "name": "WeChat",
+      "requires_arc": true,
+      "dependencies": {
+        "ShareSDKSlim/Core": [
+
+        ]
+      },
+      "source_files": [
+        "libraries/extends/WeChatSDK/WXApi.h",
+        "libraries/extends/WeChatSDK/WXApiObject.h"
+      ],
+      "vendored_libraries": "libraries/extends/WeChatSDK/libWeChatSDK.a"
+    },
+    {
+      "name": "QQConnect",
+      "requires_arc": true,
+      "dependencies": {
+        "ShareSDKSlim/Core": [
+
+        ]
+      },
+      "frameworks": "Security",
+      "libraries": [
+        "stdc++",
+        "sqlite3"
+      ],
+      "vendored_frameworks": "libraries/extends/QQSDK/TencentOpenAPI.framework",
+      "resources": "libraries/extends/QQSDK/TencentOpenApi_IOS_Bundle.bundle"
+    },
+    {
+      "name": "Normal",
+      "requires_arc": true,
+      "dependencies": {
+        "ShareSDKSlim/SinaWeibo": [
+
+        ],
+        "ShareSDKSlim/WeChat": [
+
+        ],
+        "ShareSDKSlim/QQConnect": [
+
+        ],
+        "ShareSDKSlim/UI/Flat": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "frameworks": [
+        "SystemConfiguration",
+        "QuartzCore",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "icucore",
+        "z.1.2.5"
+      ],
+      "vendored_frameworks": [
+        "libraries/ShareSDK.framework",
+        "libraries/MOBFoundation.framework",
+        "libraries/ShareSDKConnector.framework",
+        "libraries/ShareSDKExtension.framework"
+      ],
+      "resources": [
+        "libraries/ShareSDK.bundle"
+      ]
+    },
+    {
+      "name": "UI",
+      "requires_arc": true,
+      "default_subspecs": "Full",
+      "subspecs": [
+        {
+          "name": "Full",
+          "requires_arc": true,
+          "dependencies": {
+            "ShareSDKSlim/UI/Flat": [
+
+            ]
+          }
+        },
+        {
+          "name": "Flat",
+          "requires_arc": true,
+          "vendored_frameworks": "libraries/ShareSDKUI.framework",
+          "resources": "libraries/ShareSDKUI.bundle"
+        }
+      ]
+    }
+  ]
+}
