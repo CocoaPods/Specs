@@ -1,0 +1,25 @@
+{
+  "name": "TXViewKeyboardResizer",
+  "version": "1.0.3",
+  "summary": "UIView+KeyboardResizer category to allow the target view to resize itself according to UIKeyboardView size",
+  "description": "# TXViewKeyboardResizer\n\nIt automatically resizes you UIView when keyboard appears.\n\nIt can be used with any kind of UIViews.\n\nIf your view extends a UIScrollView, you need to adjust your UIScrollView.contentSize.\n\n## Usage\n\nFirst, choose the UIView that is going to be resized when keyboards appears.\n\n![Controller](https://github.com/rtoshiro/TXViewKeyboardResizer/blob/master/readme/01.png)\n\nThen, you need to check your Autolayout configuration or Autoresize values.\n\nHere, i am going to use Autoresize as it is a little bit easier in that case.\n\n![Autoresize](https://github.com/rtoshiro/TXViewKeyboardResizer/blob/master/readme/02.png)\n\nWith autoresize configured, when UIView resizes, our UITextField is positioned automaticaly.\n\nNow we can call startKeyboardResizerObserver(WithDelegate:) inside our UIViewController:\n\n```\n- (void)viewDidLoad\n{\n[super viewDidLoad];\n\n[self.scrollView startKeyboardResizerObserverWithDelegate:self];\n}\n```\nWe must remember stop observing when we are done with keyboard:\n\n```\n- (void)viewWillDisappear:(BOOL)animated\n{\n[super viewWillDisappear:animated];\n\n[self.scrollView stopKeyboardResizerObserver];\n}\n```\n\n## Delegate\n\nAnd then, you can adjust your view per need:\n\n```\n- (void)viewWillResize:(UIView *)view;\n- (void)viewDidResize:(UIView *)view;\n- (void)viewDidTap:(UIView *)view;\n```\n\nWe can close the keyboard, for example:\n\n```\n- (void)viewDidTap:(UIView *)view\n{\nfor (UIView *subview in self.scrollView.subviews)\n{\nif ([subview isMemberOfClass:[UITextField class]])\n[((UITextField *)subview) resignFirstResponder];\n}\n}\n```\n\n![Resize](https://github.com/rtoshiro/TXViewKeyboardResizer/blob/master/readme/01.gif)\n\n\n\n## Requirements\n\niOS 6.+\n\n## Installation\n\nTXViewKeyboardResizer is available through [CocoaPods](http://cocoapods.org). To install\nit, simply add the following line to your Podfile:\n\n```ruby\npod \"TXViewKeyboardResizer\"\n```\n\n## License\n\nTXViewKeyboardResizer is available under the MIT license. See the LICENSE file for more info.",
+  "homepage": "https://github.com/rtoshiro/TXViewKeyboardResizer",
+  "license": "MIT",
+  "authors": {
+    "rtoshiro": "rtoshiro@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/rtoshiro/TXViewKeyboardResizer.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "TXViewKeyboardResizer": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
