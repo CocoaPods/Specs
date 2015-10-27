@@ -1,0 +1,96 @@
+{
+  "name": "PicoKit",
+  "version": "0.7.2",
+  "summary": "A light Web Service client framework targeting iOS platform.",
+  "homepage": "https://github.com/maxep/PicoKit",
+  "authors": {
+    "William Yang": "http://bulldog2011.github.io/",
+    "Maxime Epain": "http://maxep.github.io/"
+  },
+  "social_media_url": "https://twitter.com/MaximeEpain",
+  "source": {
+    "git": "https://github.com/maxep/PicoKit.git",
+    "tag": "v0.7.2"
+  },
+  "license": "MIT",
+  "default_subspecs": "WebService",
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Core",
+        "Pod/Core/Converter",
+        "Pod/Core/Cache",
+        "Pod/Core/Schema",
+        "Pod/Core/XMLSupport"
+      ],
+      "dependencies": {
+        "PicoKit/XMLWriter": [
+
+        ],
+        "PicoKit/OrderedDictionary": [
+
+        ],
+        "GDataXML-HTML": [
+          "~> 1.3.0"
+        ]
+      }
+    },
+    {
+      "name": "WebService",
+      "source_files": "Pod/WebService",
+      "dependencies": {
+        "PicoKit/Soap": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.6.0"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "CFNetwork",
+          "MobileCoreServices",
+          "SystemConfiguration"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "CoreServices",
+          "SystemConfiguration"
+        ]
+      },
+      "prefix_header_contents": "#import <Availability.h>\n#if __IPHONE_OS_VERSION_MIN_REQUIRED\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <MobileCoreServices/MobileCoreServices.h>\n#else\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <CoreServices/CoreServices.h>\n#endif"
+    },
+    {
+      "name": "Soap",
+      "source_files": [
+        "Pod/SOAP",
+        "Pod/SOAP/SOAP11",
+        "Pod/SOAP/SOAP12"
+      ],
+      "dependencies": {
+        "PicoKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XMLWriter",
+      "source_files": "Pod/XMLWriter"
+    },
+    {
+      "name": "OrderedDictionary",
+      "source_files": "Pod/OrderedDictionary"
+    }
+  ]
+}
