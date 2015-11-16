@@ -1,0 +1,110 @@
+{
+  "name": "TableService",
+  "version": "0.3.4",
+  "summary": "A service through which view models may be registered for table view cells.",
+  "description": "The TableService allows users to register models for table view cells.\nWith Swift 2 and Xcode 7 it will be updated to include a new, unified TableViewDataSource protocol\nwhich conforms to both UITableViewDelegate and UITableViewDataSource and performs much of the\nredundant work for you.",
+  "homepage": "https://github.com/AttilaTheFun/TableService",
+  "license": "MIT",
+  "authors": {
+    "Logan Shire": "logan.shire@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/AttilaTheFun/TableService.git",
+    "tag": "0.3.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "API",
+      "dependencies": {
+        "SwiftToolKit": [
+          "~>0.2.4"
+        ],
+        "ServiceRegistry/API": [
+          "~>0.3.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Plain",
+          "source_files": "Pod/API/Plain/*.swift"
+        },
+        {
+          "name": "ModelService",
+          "dependencies": {
+            "ModelService/API": [
+              "0.3.1"
+            ],
+            "TableService/API/Plain": [
+
+            ]
+          },
+          "source_files": "Pod/API/ModelService/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Implementation",
+      "subspecs": [
+        {
+          "name": "Plain",
+          "dependencies": {
+            "TableService/API/Plain": [
+
+            ]
+          },
+          "source_files": "Pod/Implementation/Plain/*.swift"
+        },
+        {
+          "name": "ModelService",
+          "dependencies": {
+            "TableService/API/ModelService": [
+
+            ]
+          },
+          "source_files": "Pod/Implementation/ModelService/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Plugins",
+      "dependencies": {
+        "TableService/API": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "TextCell",
+          "source_files": "Pod/Plugins/TextCell/*.swift"
+        },
+        {
+          "name": "ImageCell",
+          "source_files": "Pod/Plugins/ImageCell/*.swift"
+        },
+        {
+          "name": "ImageTextCell",
+          "source_files": "Pod/Plugins/ImageTextCell/*.swift"
+        },
+        {
+          "name": "ImageTextDetailCell",
+          "source_files": "Pod/Plugins/ImageTextDetailCell/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "dependencies": {
+        "ServiceRegistry": [
+          "~>0.3.0"
+        ],
+        "ModelService": [
+          "~>0.3.1"
+        ]
+      }
+    }
+  ]
+}
