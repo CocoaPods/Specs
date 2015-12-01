@@ -1,0 +1,62 @@
+{
+  "name": "TraceLog",
+  "version": "0.4.5",
+  "summary": "Dead Simple: logging the way it's meant to be!",
+  "description": "TraceLog is a configurable debug logging system.  It is unique in that it's configured\nafter compilation in the runtime environment. It reads environment variables from the\nprocess context to set log levels. This allows each developer to configure log output\nper session based on the debugging needs of that session.\n\nWhen compiled in a RELEASE build, TraceLog is compiled out and has no overhead in\nthe application.\n\nLog output can be configured globally using the LOG_ALL environment variable,\nby TAG name using the LOG_TAG_<TAGNAME> environment variable pattern,\nand/or by a TAG prefix by using the LOG_PREFIX_<TAGPREFIX> environment\nvariable pattern.\n\nPlease see README.md for more details and examples.",
+  "license": "Apache License, Version 2.0",
+  "homepage": "https://github.com/tonystone/tracelog",
+  "authors": {
+    "Tony Stone": "https://github.com/tonystone"
+  },
+  "source": {
+    "git": "https://github.com/tonystone/tracelog.git",
+    "tag": "0.4.5"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "ObjC",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "TraceLog/Core/*.h",
+        "TraceLog/Internal/*.h"
+      ],
+      "source_files": "TraceLog/Core/**/*.{h,m}"
+    },
+    {
+      "name": "ObjC",
+      "public_header_files": "TraceLog/ObjC/TraceLog.h",
+      "source_files": "TraceLog/ObjC/TraceLog.h",
+      "dependencies": {
+        "TraceLog/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.10",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "source_files": "TraceLog/Swift/*.swift",
+      "preserve_paths": "TraceLog/Swift/*.swift",
+      "dependencies": {
+        "TraceLog/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS[config=Debug]": "$(inherited) -D COCOAPODS -DDEBUG"
+      }
+    }
+  ]
+}
