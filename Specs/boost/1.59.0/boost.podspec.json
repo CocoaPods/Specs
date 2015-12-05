@@ -1,0 +1,99 @@
+{
+  "name": "boost",
+  "version": "1.59.0",
+  "summary": "Boost provides free peer-reviewed portable C++ source libraries.",
+  "homepage": "http://www.boost.org",
+  "license": {
+    "type": "Boost Software License",
+    "file": "LICENSE_1_0.txt"
+  },
+  "authors": "Rene Rivera",
+  "source": {
+    "http": "http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz"
+  },
+  "platforms": {
+    "ios": "4.0",
+    "osx": "10.6"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/boost\""
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "string_algorithms-includes",
+      "preserve_paths": [
+        "boost/*.h",
+        "boost/predef/**/*.h",
+        "boost/*.hpp",
+        "boost/algorithm/*.hpp",
+        "boost/algorithm/**/*.hpp",
+        "boost/config/**/*.hpp",
+        "boost/core/*.hpp",
+        "boost/range/**/*.hpp",
+        "boost/bind/**/*.hpp",
+        "boost/detail/**/*.hpp",
+        "boost/exception/**/*.hpp",
+        "boost/function/**/*.hpp",
+        "boost/concept/**/*hpp",
+        "boost/utility/**/*.hpp",
+        "boost/type_traits/**/*.hpp",
+        "boost/mpl/**/*.hpp",
+        "boost/preprocessor/**/*.hpp",
+        "boost/iterator/**/*.hpp"
+      ]
+    },
+    {
+      "name": "shared_ptr-includes",
+      "preserve_paths": [
+        "boost/*.h",
+        "boost/predef/**/*.h",
+        "boost/*.hpp",
+        "boost/config/**/*.hpp",
+        "boost/core/*.hpp",
+        "boost/exception/detail/attribute_noreturn.hpp",
+        "boost/exception/exception.hpp",
+        "boost/detail/*.hpp",
+        "boost/smart_ptr/*.hpp",
+        "boost/smart_ptr/**/*.hpp"
+      ]
+    },
+    {
+      "name": "pointer_cast-includes",
+      "preserve_paths": "boost/pointer_cast.hpp"
+    },
+    {
+      "name": "numeric-includes",
+      "preserve_paths": "boost/numeric/**/*.hpp"
+    },
+    {
+      "name": "preprocessor-includes",
+      "preserve_paths": "boost/preprocessor/**/*.hpp"
+    },
+    {
+      "name": "math-includes",
+      "preserve_paths": [
+        "boost/*.h",
+        "boost/predef/**/*.h",
+        "boost/*.hpp",
+        "boost/math/**/*.hpp",
+        "boost/config/**/*.hpp",
+        "boost/detail/*.hpp",
+        "boost/utility/*.hpp",
+        "boost/mpl/**/*.hpp",
+        "boost/type_traits/**/*.hpp",
+        "boost/accumulators/**/*.hpp"
+      ]
+    },
+    {
+      "name": "graph-includes",
+      "preserve_paths": [
+        "boost/*.h",
+        "boost/predef/**/*.h",
+        "boost/*.hpp",
+        "boost/{algorithm,accumulators,circular_buffer,archive,bimap,bind,chrono,concept,config,container,date_time,detail,dynamic_bitset,exception,filesystem,format,function,functional,fusion,graph,integer,intrusive,io,iterator,math,move,mpi,mpl,multi_index,numeric,optional,parameter,pending,preprocessor,property_map,property_tree,proto,python,random,range,ratio,regex,serialization,smart_ptr,spirit,system,test,thread,tr1,tuple,type_traits,typeof,units,unordered,utility,variant,xpressive}/**/*.hpp",
+        "boost/xpressive/**/*.ipp"
+      ]
+    }
+  ]
+}
