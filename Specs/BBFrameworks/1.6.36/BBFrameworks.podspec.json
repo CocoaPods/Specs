@@ -1,0 +1,428 @@
+{
+  "name": "BBFrameworks",
+  "version": "1.6.36",
+  "authors": {
+    "William Towe": "will@bionbilateral.com",
+    "Jason Anderson": "jason@bionbilateral.com",
+    "Norm Barnard": "norm@bionbilateral.com"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "license.txt"
+  },
+  "homepage": "https://github.com/BionBilateral/BBFrameworks",
+  "source": {
+    "git": "https://github.com/BionBilateral/BBFrameworks.git",
+    "tag": "1.6.36"
+  },
+  "summary": "Repository for common iOS/OSX categories, classes, and functions.",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "BBCore",
+    "BBFoundation",
+    "BBBlocks",
+    "BBKit"
+  ],
+  "subspecs": [
+    {
+      "name": "BBCore",
+      "source_files": "BBFrameworks",
+      "frameworks": "Foundation",
+      "ios": {
+        "resource_bundles": {
+          "BBFrameworksResources": [
+            "BBFrameworksResources/*.xib",
+            "BBFrameworksResources/*.png",
+            "BBFrameworksResources/*.lproj"
+          ]
+        }
+      }
+    },
+    {
+      "name": "BBFoundation",
+      "dependencies": {
+        "BBFrameworks/BBCore": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBFoundation"
+    },
+    {
+      "name": "BBKeychain",
+      "dependencies": {
+        "BBFrameworks/BBCore": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBKeychain",
+      "frameworks": "Security"
+    },
+    {
+      "name": "BBBlocks",
+      "dependencies": {
+        "BBFrameworks/BBCore": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBBlocks"
+    },
+    {
+      "name": "BBKeyValueObserving",
+      "dependencies": {
+        "BBFrameworks/BBCore": [
+
+        ]
+      },
+      "source_files": [
+        "BBFrameworks/BBKeyValueObserving",
+        "BBFrameworks/BBKeyValueObserving/Private"
+      ],
+      "private_header_files": "BBFrameworks/BBKeyValueObserving/Private/*.h"
+    },
+    {
+      "name": "BBCoreData",
+      "dependencies": {
+        "BBFrameworks/BBFoundation": [
+
+        ]
+      },
+      "source_files": [
+        "BBFrameworks/BBCoreData",
+        "BBFrameworks/BBCoreData/Private"
+      ],
+      "private_header_files": "BBFrameworks/BBCoreData/Private/*.h",
+      "ios": {
+        "frameworks": [
+          "CoreData",
+          "UIKit"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "CoreData",
+          "AppKit"
+        ]
+      }
+    },
+    {
+      "name": "BBKit",
+      "dependencies": {
+        "BBFrameworks/BBFoundation": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBKit",
+      "ios": {
+        "source_files": [
+          "BBFrameworks/BBKit/iOS",
+          "BBFrameworks/BBKit/iOS/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBKit/iOS/Private/*.h",
+        "frameworks": [
+          "UIKit",
+          "Accelerate",
+          "AVFoundation",
+          "CoreImage"
+        ]
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBKit/OSX",
+        "frameworks": [
+          "AppKit",
+          "Accelerate",
+          "AVFoundation"
+        ]
+      }
+    },
+    {
+      "name": "BBAddressBook",
+      "dependencies": {
+        "BBFrameworks/BBBlocks": [
+
+        ],
+        "BBFrameworks/BBKit": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "BBFrameworks/BBAddressBook",
+        "frameworks": "AddressBook"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBAddressBook/BBAddressBook.h"
+      }
+    },
+    {
+      "name": "BBThumbnail",
+      "dependencies": {
+        "BBFrameworks/BBKit": [
+
+        ]
+      },
+      "source_files": [
+        "BBFrameworks/BBThumbnail",
+        "BBFrameworks/BBThumbnail/Private"
+      ],
+      "ios": {
+        "source_files": [
+          "BBFrameworks/BBThumbnail/iOS",
+          "BBFrameworks/BBThumbnail/iOS/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBThumbnail/iOS/Private/*.h",
+        "frameworks": "MobileCoreServices"
+      },
+      "osx": {
+        "source_files": [
+          "BBFrameworks/BBThumbnail/OSX",
+          "BBFrameworks/BBThumbnail/OSX/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBThumbnail/OSX/Private/*.h",
+        "frameworks": "QuickLook"
+      },
+      "private_header_files": "BBFrameworks/BBThumbnail/Private/*.h",
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "BBReactiveThumbnail",
+      "dependencies": {
+        "ReactiveCocoa": [
+          "~> 2.5"
+        ],
+        "BBFrameworks/BBThumbnail": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBReactiveThumbnail"
+    },
+    {
+      "name": "BBMediaPicker",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "ReactiveViewModel": [
+            "~> 0.3"
+          ],
+          "BBFrameworks/BBKit": [
+
+          ],
+          "BBFrameworks/BBBlocks": [
+
+          ]
+        },
+        "source_files": [
+          "BBFrameworks/BBMediaPicker",
+          "BBFrameworks/BBMediaPicker/Photos",
+          "BBFrameworks/BBMediaPicker/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBMediaPicker/Private/*.h",
+        "frameworks": "Photos"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBMediaPicker/BBMediaPicker.h"
+      }
+    },
+    {
+      "name": "BBMediaPicker-AssetsLibrary",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "ReactiveViewModel": [
+            "~> 0.3"
+          ],
+          "BBFrameworks/BBKit": [
+
+          ],
+          "BBFrameworks/BBBlocks": [
+
+          ]
+        },
+        "source_files": [
+          "BBFrameworks/BBMediaPicker",
+          "BBFrameworks/BBMediaPicker/Private",
+          "BBFrameworks/BBMediaPicker/Private/ALAssetsLibrary"
+        ],
+        "private_header_files": [
+          "BBFrameworks/BBMediaPicker/Private/*.h",
+          "BBFrameworks/BBMediaPicker/Private/ALAssetsLibrary/*.h"
+        ],
+        "frameworks": "AssetsLibrary",
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "BB_MEDIA_PICKER_USE_PHOTOS_FRAMEWORK=0"
+        }
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBMediaPicker/BBMediaPicker.h"
+      }
+    },
+    {
+      "name": "BBMediaViewer",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "ReactiveViewModel": [
+            "~> 0.3"
+          ],
+          "BBFrameworks/BBBlocks": [
+
+          ],
+          "BBFrameworks/BBKit": [
+
+          ],
+          "BBFrameworks/BBThumbnail": [
+
+          ]
+        },
+        "source_files": [
+          "BBFrameworks/BBMediaViewer",
+          "BBFrameworks/BBMediaViewer/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBMediaViewer/Private/*.h"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBMediaViewer/BBMediaViewer.h"
+      }
+    },
+    {
+      "name": "BBMediaPlayer",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "ReactiveViewModel": [
+            "~> 0.3"
+          ],
+          "BBFrameworks/BBBlocks": [
+
+          ],
+          "BBFrameworks/BBKit": [
+
+          ]
+        },
+        "source_files": [
+          "BBFrameworks/BBMediaPlayer",
+          "BBFrameworks/BBMediaPlayer/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBMediaPlayer/Private/*.h",
+        "frameworks": "AVFoundation"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBMediaPlayer/BBMediaPlayer.h"
+      }
+    },
+    {
+      "name": "BBWebKit",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "TUSafariActivity": [
+            "~> 1.0.0"
+          ],
+          "ARChromeActivity": [
+            "~> 1.0.0"
+          ],
+          "BBFrameworks/BBKit": [
+
+          ]
+        },
+        "source_files": [
+          "BBFrameworks/BBWebKit",
+          "BBFrameworks/BBWebKit/Private"
+        ],
+        "private_header_files": "BBFrameworks/BBWebKit/Private/*.h",
+        "frameworks": "WebKit"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBWebKit/BBWebKit.h"
+      }
+    },
+    {
+      "name": "BBTooltip",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~> 2.5"
+          ],
+          "BBFrameworks/BBKit": [
+
+          ]
+        },
+        "source_files": "BBFrameworks/BBTooltip"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBTooltip/BBTooltip.h"
+      }
+    },
+    {
+      "name": "BBValidation",
+      "ios": {
+        "dependencies": {
+          "BBFrameworks/BBTooltip": [
+
+          ]
+        },
+        "source_files": "BBFrameworks/BBValidation"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBValidation/BBValidation.h"
+      }
+    },
+    {
+      "name": "BBToken",
+      "ios": {
+        "source_files": "BBFrameworks/BBToken",
+        "dependencies": {
+          "BBFrameworks/BBKit": [
+
+          ]
+        },
+        "frameworks": "MobileCoreServices"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBToken/BBToken.h"
+      }
+    },
+    {
+      "name": "BBForm",
+      "ios": {
+        "dependencies": {
+          "BBFrameworks/BBFoundation": [
+
+          ],
+          "BBFrameworks/BBKit": [
+
+          ],
+          "BBFrameworks/BBBlocks": [
+
+          ]
+        },
+        "source_files": "BBFrameworks/BBForm"
+      },
+      "osx": {
+        "source_files": "BBFrameworks/BBForm/BBForm.h"
+      }
+    },
+    {
+      "name": "BBReachability",
+      "dependencies": {
+        "BBFrameworks/BBFoundation": [
+
+        ]
+      },
+      "source_files": "BBFrameworks/BBReachability",
+      "frameworks": "SystemConfiguration"
+    }
+  ]
+}
