@@ -1,0 +1,39 @@
+{
+  "name": "CryptoppECC-CHeader",
+  "version": "1.0.4",
+  "summary": "CryptoppECC-Encryption/Decryption using ECC(Elliptic curve cryptography)",
+  "description": "CryptoppECC-Encryption/Decryption using ECC(Elliptic curve cryptography)\n*Contains functions for encryption,decryption using ECC and verify a signed certificate using ECDSA.\n\n*Using https://groups.google.com/forum/#!topic/cryptopp-users/LvIfAP4llx4 made a patch for compatibility with Bouncy Castle.\n\n*Also took help from https://github.com/3ign0n/CryptoPP-for-iOS for calculating Hash.",
+  "homepage": "https://github.com/zsoltbalint/CryptoppECC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Zsolt Balint": "bzsolt@inpossoft.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.10"
+  },
+  "osx": {
+    "xcconfig": {
+      "OTHER_LDFLAGS": "-lc++"
+    },
+    "vendored_libraries": "CryptoppECC/CryptoppLibrary/bin/macosx/libcryptopp.a"
+  },
+  "prepare_command": "sh CryptoppECC/CryptoppLibrary/builder.sh",
+  "source": {
+    "git": "https://github.com/zsoltbalint/CryptoppECC.git",
+    "tag": "1.0.1"
+  },
+  "source_files": [
+    "CryptoppECC/CryptoppLibrary/*.h",
+    "CryptoppECC/CryptoppWrapper/*.{h,mm}"
+  ],
+  "public_header_files": "CryptoppECC/CryptoppWrapper/*.h",
+  "ios": {
+    "vendored_libraries": "CryptoppECC/CryptoppLibrary/bin/ios/libcryptopp.a"
+  },
+  "prefix_header_file": "CryptoppECC/cryptodemolib.pch",
+  "requires_arc": true
+}
