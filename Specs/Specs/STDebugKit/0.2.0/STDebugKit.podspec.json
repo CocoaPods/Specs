@@ -1,0 +1,61 @@
+{
+  "name": "STDebugKit",
+  "version": "0.2.0",
+  "summary": "Offer access to several debug tools within your app, such as CoreData browsing.",
+  "description": "                    STDebugKit Allow you to debug your app, even from a device !\n                    From every screen you'll have access to a little debug button that could open a debug center.\n                    In that center you'll find global tools and context sensitive tools.\n",
+  "homepage": "https://github.com/iSofTom/STDebugKit",
+  "license": "MIT",
+  "authors": {
+    "iSofTom": "thomas@isoftom.com"
+  },
+  "source": {
+    "git": "https://github.com/iSofTom/STDebugKit.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "STDebugKit/STDebugKit.*",
+        "STDebugKit/STDebugKit_private.h",
+        "STDebugKit/STDebugTool.*",
+        "STDebugKit/STDebugKitRootViewController.*",
+        "STDebugKit/STDebugKitModuleSlowAnimations.*",
+        "STDebugKit/STDebugKitModuleInfos.*",
+        "STDebugKit/STDebugKitModuleKill.*"
+      ],
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "QuartzCore"
+        ]
+      },
+      "prefix_header_contents": "#ifdef DEBUG\n    #define STDebugKitModuleSlowAnimationsEnabled\n    #define STDebugKitModuleInfosEnabled\n    #define STDebugKitModuleKillEnabled\n    \n    #define STDebugKitModuleSlowAnimationsOrder     2\n    #define STDebugKitModuleInfosOrder              3\n    #define STDebugKitModuleKillOrder               4\n    \n    #define STDebugKitButtonSize 30\n\t#define STDebugKitButtonColor [UIColor colorWithRed:0.751 green:0.843 blue:0.900 alpha:1.000]\n\t#define STDebugKitButtonBackgroundColor [UIColor whiteColor]\n#endif\n"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "STDebugKit/Core": [
+
+        ],
+        "MagicalRecord": [
+          "~> 2.1"
+        ]
+      },
+      "source_files": "STDebugKit/STDebugKitModuleCoreData.*",
+      "prefix_header_contents": "#ifdef __OBJC__\n\t#define MR_SHORTHAND\n\t#import \"CoreData+MagicalRecord.h\"\n#endif\n\n#ifdef DEBUG\n\t#define STDebugKitModuleCoreDataEnabled\n\t#define STDebugKitModuleCoreDataOrder           1\n#endif\n",
+      "ios": {
+        "frameworks": "CoreData"
+      }
+    }
+  ]
+}

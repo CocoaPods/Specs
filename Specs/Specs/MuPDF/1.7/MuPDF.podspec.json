@@ -1,0 +1,44 @@
+{
+  "name": "MuPDF",
+  "version": "1.7",
+  "summary": "A lightweight PDF and XPS viewer.",
+  "description": "                       MuPDF is a small, fast, and yet complete PDF viewer. \n                       It supports PDF 1.7 with transparency, encryption, \n                       hyperlinks, annotations, searching and more. It also\n                       reads XPS and OpenXPS documents.\n",
+  "homepage": "http://www.mupdf.com/",
+  "license": {
+    "type": "Affero GNU GPL v3",
+    "file": "COPYING"
+  },
+  "authors": "Artifex Software Inc",
+  "source": {
+    "git": "https://github.com/ArtifexSoftware/mupdf.git",
+    "tag": "1.7"
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "requires_arc": false,
+  "source_files": [
+    "platform/ios/Classes/**/*.[mh]",
+    "platform/ios/common.[mh]"
+  ],
+  "resources": [
+    "platform/ios/*.png",
+    "platform/android/res/drawable-ldpi/*.png"
+  ],
+  "public_header_files": [
+    "platform/ios/Classes/**/*.h",
+    "platform/ios/common.h"
+  ],
+  "preserve_paths": [
+    "include/*",
+    "include/**/*"
+  ],
+  "prepare_command": "      # I tried --depth 1 here but it failed with git error \"fatal: reference is not a tree:\"\n      git submodule update --init\n      cd platform/ios\n      \n      # build the various .a files\n      # release armv7 + arm64\n      xcodebuild -scheme MuPDF -configuration Release CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO\n      # release i386 + x86_64\n      xcodebuild -scheme MuPDF -configuration Release -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO\n      \n      # combine into fat libraries\n      cd ../../build/\n      for i in curl freetype jbig2dec jpeg mujs mupdf openjpeg z; do\n          LIB=lib${i}.a\n          lipo -create -output $LIB release-ios-i386-x86_64/$LIB release-ios-armv7-arm64/$LIB\n      done\n",
+  "vendored_libraries": "build/*.a",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Target Support Files/Pods\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/MuPDF/include\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  }
+}

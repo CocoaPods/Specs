@@ -1,0 +1,114 @@
+{
+  "name": "NBUKit",
+  "version": "1.9.6",
+  "platforms": {
+    "ios": null
+  },
+  "summary": "Customizable image editing, filters, camera, picker and other UIKit subclasses.",
+  "homepage": "http://cyberagent.github.io/iOS-NBUKit/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CyberAgent Inc.": "",
+    "Ernesto Rivera": "rivera_ernesto@cyberagent.co.jp"
+  },
+  "screenshots": [
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Camera1.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Camera2.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Assets1.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Assets2.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Edit2.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Edit3.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Gallery1.png",
+    "https://raw.github.com/wiki/CyberAgent/iOS-NBUKit/Picker1.png"
+  ],
+  "source": {
+    "git": "https://github.com/CyberAgent/iOS-NBUKit.git",
+    "tag": "1.9.6"
+  },
+  "source_files": "Source/*.{h,m}",
+  "preserve_paths": [
+    "README.*",
+    "NOTICE"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "NBUCore": [
+      "~> 1.9.6"
+    ]
+  },
+  "resources": "NBUKitResources.bundle",
+  "subspecs": [
+    {
+      "name": "UI",
+      "source_files": "Source/UI/*.{h,m}",
+      "resources": "Source/UI/*.{xib}",
+      "frameworks": "MessageUI"
+    },
+    {
+      "name": "Image",
+      "source_files": "Source/Image/*.{h,m}",
+      "resources": "Source/Image/*.{xib}",
+      "weak_frameworks": "CoreImage",
+      "dependencies": {
+        "GPUImage": [
+          ">= 0.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Assets",
+      "source_files": "Source/Assets/*.{h,m}",
+      "resources": "Source/Assets/*.{xib}",
+      "frameworks": [
+        "AssetsLibrary",
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "Picker",
+      "source_files": "Source/Picker/*.{h,m}",
+      "resources": "Source/Picker/*.{xib}"
+    },
+    {
+      "name": "Resources"
+    },
+    {
+      "name": "Library",
+      "subspecs": [
+        {
+          "name": "NBUCompatibility",
+          "source_files": "Library/NBUCompatibility/*.{h,m}"
+        },
+        {
+          "name": "RestKit Support",
+          "requires_arc": false,
+          "source_files": "Library/RestKit Support/*.{h,m}",
+          "frameworks": "MobileCoreServices",
+          "preserve_paths": [
+            "README.*",
+            "LICENSE"
+          ]
+        },
+        {
+          "name": "RBVolumeButtons",
+          "requires_arc": false,
+          "source_files": "Library/RBVolumeButtons/*.{h,m}",
+          "frameworks": [
+            "MediaPlayer",
+            "AudioToolbox"
+          ]
+        },
+        {
+          "name": "MotionOrientation",
+          "requires_arc": false,
+          "source_files": "Library/MotionOrientation/*.{h,m}",
+          "frameworks": "CoreMotion",
+          "preserve_paths": "README.*"
+        }
+      ]
+    }
+  ]
+}

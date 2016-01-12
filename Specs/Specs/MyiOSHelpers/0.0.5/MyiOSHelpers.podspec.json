@@ -1,0 +1,234 @@
+{
+  "name": "MyiOSHelpers",
+  "version": "0.0.5",
+  "homepage": "http://github.com/premosystems/MyiOSHelpers",
+  "authors": {
+    "Vincil Bishop": "vincil.bishop@vbishop.com"
+  },
+  "license": "MIT",
+  "summary": "A collection of often used but time consuming to recreate logic for iOS.",
+  "source": {
+    "git": "https://github.com/premosystems/MyiOSHelpers.git",
+    "tag": "0.0.5"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "resources": "MyiOSHelpers.podspec",
+  "source_files": "MyiOSHelpers/*.{h,m}",
+  "dependencies": {
+    "DateTools": [
+      "~>1.3.0"
+    ],
+    "MTDates": [
+      "~>0.12.0"
+    ],
+    "Underscore.m": [
+      "~>0.2.1"
+    ]
+  },
+  "prefix_header_contents": [
+    "#import \"Underscore.h\"",
+    "#ifndef _",
+    "#define _ Underscore",
+    "#endif",
+    "#import \"DateTools.h\"",
+    "#ifndef MTDATES_NO_PREFIX",
+    "#define MTDATES_NO_PREFIX 1",
+    "#endif",
+    "#import \"NSDate+MTDates.h\""
+  ],
+  "subspecs": [
+    {
+      "name": "Logic",
+      "source_files": "MyiOSHelpers/Logic/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Apple",
+          "source_files": "MyiOSHelpers/Logic/Apple/*.h",
+          "subspecs": [
+            {
+              "name": "CoreLocation",
+              "source_files": "MyiOSHelpers/Logic/Apple/CoreLocation/*.{h,m}",
+              "ios": {
+                "frameworks": "CoreLocation",
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Categories": [
+
+                  ],
+                  "MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack": [
+
+                  ],
+                  "NSTimer-Blocks": [
+                    "~>0.0.1"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "CoreBluetooth",
+              "source_files": "MyiOSHelpers/Logic/Apple/CoreBluetooth/*.{h,m}",
+              "ios": {
+                "frameworks": "CoreBluetooth",
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Categories": [
+
+                  ],
+                  "MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack": [
+
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Blocks",
+          "source_files": "MyiOSHelpers/Logic/Blocks/*.h"
+        },
+        {
+          "name": "Categories",
+          "source_files": "MyiOSHelpers/Logic/Categories/*.{h,m}",
+          "dependencies": {
+            "NSDate+Helper": [
+              "~>0.0.1"
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "NSData",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSData/*.{h,m}"
+            },
+            {
+              "name": "NSDate",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSDate/*.{h,m}"
+            },
+            {
+              "name": "NSDictionary",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSDictionary/*.{h,m}"
+            },
+            {
+              "name": "NSError",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSError/*.{h,m}"
+            },
+            {
+              "name": "NSNull",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSNull/*.{h,m}"
+            },
+            {
+              "name": "NSOperationQueue",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSOperationQueue/*.{h,m}"
+            },
+            {
+              "name": "NSRunLoop",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSRunLoop/*.{h,m}"
+            },
+            {
+              "name": "NSString",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSString/*.{h,m}"
+            },
+            {
+              "name": "UIApplication",
+              "source_files": "MyiOSHelpers/Logic/Categories/UIApplication/*.{h,m}"
+            },
+            {
+              "name": "UIDevice",
+              "source_files": "MyiOSHelpers/Logic/Categories/UIDevice/*.{h,m}"
+            },
+            {
+              "name": "NSObject",
+              "source_files": "MyiOSHelpers/Logic/Categories/NSObject/*.{h,m}",
+              "dependencies": {
+                "MyiOSHelpers/Logic/Categories/NSDictionary": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ThirdPartyHelpers",
+          "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/*.h",
+          "subspecs": [
+            {
+              "name": "KeyValueObjectMapping",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "DCKeyValueObjectMapping": [
+                    "~>1.4.0"
+                  ],
+                  "NSObject-ObjectMap": [
+                    "~>2.1"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "MongoDB",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/Mongo/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping": [
+
+                  ],
+                  "NSObject-ObjectMap": [
+                    "~>2.2"
+                  ],
+                  "Underscore.m": [
+                    "~>0.2.1"
+                  ]
+                }
+              },
+              "prefix_header_contents": [
+                "#import \"Underscore.h\"",
+                "#ifndef _",
+                "#define _ Underscore",
+                "#endif"
+              ]
+            },
+            {
+              "name": "CocoaLumberjack",
+              "ios": {
+                "dependencies": {
+                  "LumberjackPrettyClassInformation": [
+                    "~>1.0.0"
+                  ],
+                  "CocoaLumberjack": [
+
+                  ]
+                }
+              },
+              "prefix_header_contents": [
+                "#import \"Lumberjack-Default-Log-Level.h\"",
+                "#import \"PrettyClassInformationLogFormatter.h\""
+              ],
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack/*.{h,m}"
+            },
+            {
+              "name": "ReactiveCocoa",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/ReactiveCocoa/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "ReactiveCocoa": [
+                    "~>2.3"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

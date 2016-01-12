@@ -1,0 +1,37 @@
+{
+  "name": "libcyassl",
+  "version": "3.2.0",
+  "summary": "The CyaSSL embedded SSL library is a lightweight SSL/TLS library written in ANSI C.",
+  "description": "                       The CyaSSL embedded SSL library is a lightweight SSL/TLS library written in ANSI C and targeted for embedded, RTOS, and resource-constrained environments - primarily because of its small size, speed, and feature set.  It is commonly used in standard operating environments as well because of its royalty-free pricing and excellent cross platform support.  CyaSSL supports industry standards up to the current TLS 1.2 and DTLS 1.2 levels, is up to 20 times smaller than OpenSSL, and offers progressive ciphers such as HC-128, RABBIT, NTRU, and SHA-3.  User benchmarking and feedback reports dramatically better performance when using CyaSSL over OpenSSL.\n",
+  "homepage": "http://www.yassl.com/yaSSL/Products-cyassl.html",
+  "license": {
+    "type": "GPL",
+    "file": "COPYING"
+  },
+  "authors": {
+    "wolfSSL": "info@wolfssl.com"
+  },
+  "source": {
+    "git": "https://github.com/cyassl/cyassl.git",
+    "tag": "v3.2.0"
+  },
+  "requires_arc": false,
+  "prepare_command": "                      sed -i '' 's/\\/* #define IPHONE *\\//#define IPHONE/g' ./cyassl/ctaocrypt/settings.h\n",
+  "compiler_flags": [
+    "-w",
+    "-O3"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/libcyassl/cyassl/ctaocrypt/\" \"${PODS_ROOT}/libcyassl/cyassl/\" \"${PODS_ROOT}/libcyassl/\"",
+    "GCC_PRECOMPILE_PREFIX_HEADER": "No"
+  },
+  "source_files": [
+    "src/*.c",
+    "ctaocrypt/src/*.c",
+    "cyassl/ctaocrypt/*.h",
+    "cyassl/*.h"
+  ],
+  "header_mappings_dir": "cyassl",
+  "public_header_files": "cyassl/*.h",
+  "private_header_files": "cyassl/ctaocrypt/*.h"
+}

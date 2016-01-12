@@ -1,0 +1,23 @@
+{
+  "name": "BlockTableView",
+  "version": "0.1",
+  "summary": "single line UITableView creation in Swift with power of the closures",
+  "description": "  BlockTableView-Swift\n  ====================\n\n  single line UITableView creation in Swift with power of the closures\n\n  Usage\n  -----\n\n  Copy & paste `BlockTableView.swift` into your project. <br>\n\n  let table = BlockTableView (frame: self.view.frame,\n  numberOfRowsInSection: { (section) -> Int in\n    return dataSource.count\n  },\n  cellForRowAtIndexPath: { (tableView, indexPath) -> UITableViewCell in\n    var cell = UITableViewCell (style: .Default, reuseIdentifier: \"Identifer\")\n\n    let current = dataSource[indexPath.row]\n    cell.textLabel.text = current\n\n    return cell\n  },\n  didSelectRowAtIndexPath: { (tableView, indexPath) -> () in\n    let selected = dataSource[indexPath.row]\n    println(\"(selected) selected\")\n\n    tableView.deselectRowAtIndexPath(indexPath, animated: true)\n  }\n  )\n\n\n  Initilizers\n  --------------\n\n  convenience init(frame: CGRect,\n  numberOfRowsInSection   : (section: Int) -> Int,\n  cellForRowAtIndexPath   : (tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell,\n  didSelectRowAtIndexPath : (tableView: UITableView, indexPath: NSIndexPath) -> ())\n\n  convenience init(frame: CGRect,\n  numberOfSections        : Int,\n  titleForHeaderInSection : (section: Int) -> String,\n  numberOfRowsInSection   : (section: Int) -> Int,\n  cellForRowAtIndexPath   : (tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell,\n  didSelectRowAtIndexPath : (tableView: UITableView, indexPath: NSIndexPath) -> ())\n\n  convenience init(frame: CGRect,\n  registeredCells         : [String: AnyClass],\n  numberOfRowsInSection   : (section: Int) -> Int,\n  cellForRowAtIndexPath   : (tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell,\n  didSelectRowAtIndexPath : (tableView: UITableView, indexPath: NSIndexPath) -> ())\n\n  init(frame: CGRect,\n  registeredCells         : [String: AnyClass]?,\n  numberOfSections        : Int?,\n  titleForHeaderInSection : ((section: Int) -> String)?,\n  numberOfRowsInSection   : (section: Int) -> Int,\n  cellForRowAtIndexPath   : (tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell,\n  didSelectRowAtIndexPath : (tableView: UITableView, indexPath: NSIndexPath) -> ())\n\n\n  * You can easily add more initilizers with more `UITableViewDelegate`/`UITableViewDataSource` methods\n\n\n  Search Bar\n  ----------\n\n  Search bar implementation never been easier\n\n  func addSearchBar (searchResultTableView tableView: BlockTableView,  didSearch: (String)->())\n\n  Just create another `BlockTableView` for displaying results and implement the filtering or searching function in didSearch, like\n\n  var filtered: [String]! // search result dataSource\n\n  table.addSearchBar(searchResultTableView:\n  BlockTableView (frame: self.view.frame,\n  numberOfRowsInSection: { (section) -> Int in\n    return filtered.count\n  },\n  cellForRowAtIndexPath: { (tableView, indexPath) -> UITableViewCell in\n    var cell = tableView.dequeueReusableCellWithIdentifier(\"Cell\", forIndexPath: indexPath) as UITableViewCell\n    cell.textLabel?.text = filtered[indexPath.row]\n    return cell\n  },\n  didSelectRowAtIndexPath: { (tableView, indexPath) -> () in\n    return\n  }\n  ), didSearch: { searchText in\n    filtered = filter (dataSource) { $0.rangeOfString(searchText) != nil }\n  }\n  )\n\n",
+  "homepage": "https://github.com/cemolcay/BlockTableView-Swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Cem Olcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/BlockTableView-Swift.git",
+    "tag": "v0.1"
+  },
+  "source_files": "BlockTableView-Swift/BlockTableView.swift",
+  "requires_arc": true
+}

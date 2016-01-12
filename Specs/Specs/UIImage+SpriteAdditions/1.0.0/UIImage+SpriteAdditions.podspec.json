@@ -1,0 +1,29 @@
+{
+  "name": "UIImage+SpriteAdditions",
+  "version": "1.0.0",
+  "summary": "Useful UIImage category for handling sprite sheets.",
+  "description": "                   UIImage Sprite Additions\n=============\n\nUseful UIImage category for handling sprite sheets. This add-on smoothes the way of extracting images from a sprite sheet (texture atlas).\n\nThis can be useful in UIImageView animations where animationImages array has to be filled with a set of images representing frames. UIImage-Sprite category makes this process trivial by introducing two methods:\n\n\t-(NSArray *)spritesWithSpriteSheetImage:(UIImage *)image spriteSize:(CGSize)size;\n\t-(NSArray *)spritesWithSpriteSheetImage:(UIImage *)image inRange:(NSRange)range spriteSize:(CGSize)size;\n\nHow to\n=======\n\nThere are two methods in UIImage+Sprite category. First one:\n\n\t-(NSArray *)spritesWithSpriteSheetImage:(UIImage *)image spriteSize:(CGSize)size;\n\nThe method returns an array with UIImages. Original sprite sheet (image) is sliced into smaller chunks, each of the specified size. \n\nSecond method is very similar:\n\n\t-(NSArray *)spritesWithSpriteSheetImage:(UIImage *)image inRange:(NSRange)range spriteSize:(CGSize)size;\n\nThis method does exactly the same thing as the latter. However, this time we can specify the range of the chunks we want to get.\n\nNote that for performance reasons you should not fire these methods every time you want to get the array of animation frames. You should rather fire it once and store the output array somewhere. This is because the Core Graphics image manipulation operations (especially on large images) are not so fast and your application may slow down.\n\nI wrote this add-on to facilitate the setup of short animations using UIImageView. For more complex animations I recommend using OpenGLES. \n \nDemo\n=======\n\nSpriteAnimationDemo project presents the usage of the UIImage+Sprite methods. The example shows how to create an animated UIImageView. This cool explosion sprite sheet which I included in the demo can be found at http://gushh.net/blog/free-game-sprites-explosion-3/. I added some numbers to this image to make testing and debugging easier.\n",
+  "homepage": "http://github.com/r3econ/UIImage-Sprite-Additions",
+  "screenshots": "http://dl.dropbox.com/u/7121070/github/UIImage-Sprite-Additions/1.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rafał Sroka": "rafal.sroka.it@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/r3econ",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/r3econ/UIImage-Sprite-Additions.git",
+    "tag": "1.0.0"
+  },
+  "source_files": [
+    "Classes/*.{h,m}",
+    "SpriteAnimationDemo/**/*.{h,m}"
+  ],
+  "frameworks": "CoreGraphics",
+  "requires_arc": true
+}

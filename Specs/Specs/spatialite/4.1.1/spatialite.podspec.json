@@ -1,0 +1,103 @@
+{
+  "name": "spatialite",
+  "version": "4.1.1",
+  "summary": "SpatiaLite is an open source library intended to extend the SQLite core to support fully fledged Spatial SQL capabilities.",
+  "homepage": "https://www.gaia-gis.it/fossil/libspatialite/home",
+  "license": {
+    "type": "Mozilla Public License v1.1",
+    "file": "COPYING"
+  },
+  "authors": {
+    " Alessandro Furieri": "a.furieri@lqt.it"
+  },
+  "source": {
+    "http": "http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.1.1.tar.gz"
+  },
+  "compiler_flags": "-DHAVE_CONFIG_H",
+  "ios": {
+    "compiler_flags": "-U__APPLE__"
+  },
+  "platforms": {
+    "ios": "4.0",
+    "osx": "10.6"
+  },
+  "source_files": [
+    "*.h",
+    "src/{gaiaaux,gaiageo}/gg_*.c",
+    "src/{dxf,gaiaexif,geopackage,md5,shapefiles,spatialite,srsinit,versioninfo,virtualtext,wfs}/*.c"
+  ],
+  "preserve_paths": [
+    "src/**/*.h",
+    "src/**/*.c"
+  ],
+  "public_header_files": "src/headers/**/*.h",
+  "private_header_files": "src/headers/spatialite_private.h",
+  "header_mappings_dir": "src/headers/",
+  "default_subspecs": [
+    "standard"
+  ],
+  "prepare_command": "./configure --enable-geos=no --enable-proj=no --enable-freexl=no\n \ncat >> ./config.h <<CONFIG_H\n\n#undef OMIT_GEOS\n#undef OMIT_PROJ\n\n// this is disabled since something is going wrong while linking for i386 architecture\n#undef GEOS_ADVANCED\n\nCONFIG_H\n",
+  "libraries": [
+    "z",
+    "iconv"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/spatialite/src ${PODS_ROOT}/spatialite/src/headers ${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi",
+    "CLANG_ENABLE_MODULES": "NO"
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "core",
+      "dependencies": {
+        "sqlite3": [
+
+        ]
+      }
+    },
+    {
+      "name": "geos",
+      "dependencies": {
+        "spatialite/core": [
+
+        ],
+        "geos": [
+
+        ]
+      }
+    },
+    {
+      "name": "proj4",
+      "dependencies": {
+        "spatialite/core": [
+
+        ],
+        "proj4": [
+
+        ]
+      }
+    },
+    {
+      "name": "freexl",
+      "dependencies": {
+        "spatialite/core": [
+
+        ],
+        "freexl": [
+
+        ]
+      }
+    },
+    {
+      "name": "standard",
+      "dependencies": {
+        "spatialite/proj4": [
+
+        ],
+        "spatialite/geos": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "KIF",
+  "version": "3.0.4",
+  "summary": "Keep It Functional - iOS UI acceptance testing in an XCUnit harness.",
+  "homepage": "https://github.com/kif-framework/KIF/",
+  "license": "Apache 2.0",
+  "authors": [
+    "Eric Firestone",
+    "Jim Puls",
+    "Brian Nickel"
+  ],
+  "source": {
+    "git": "https://github.com/kif-framework/KIF.git",
+    "tag": "v3.0.4"
+  },
+  "platforms": {
+    "ios": "5.1"
+  },
+  "frameworks": "CoreGraphics",
+  "default_subspecs": [
+    "XCTest"
+  ],
+  "requires_arc": true,
+  "prefix_header_contents": "#import <CoreGraphics/CoreGraphics.h>",
+  "subspecs": [
+    {
+      "name": "XCTest",
+      "source_files": [
+        "Classes",
+        "Additions"
+      ],
+      "exclude_files": "Additions/SenTestCase-KIFAdditions.{h,m}",
+      "public_header_files": [
+        "Classes/**/*.h",
+        "Additions/**/*-KIFAdditions.h"
+      ],
+      "frameworks": "XCTest",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DKIF_XCTEST"
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "OCUnit",
+      "source_files": [
+        "Classes",
+        "Additions"
+      ],
+      "exclude_files": "Additions/XCTestCase-KIFAdditions.{h,m}",
+      "public_header_files": [
+        "Classes/**/*.h",
+        "Additions/**/*-KIFAdditions.h"
+      ],
+      "frameworks": "SenTestingKit",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DKIF_SENTEST"
+      },
+      "requires_arc": true
+    }
+  ]
+}

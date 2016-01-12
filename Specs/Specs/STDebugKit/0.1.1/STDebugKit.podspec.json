@@ -1,0 +1,60 @@
+{
+  "name": "STDebugKit",
+  "version": "0.1.1",
+  "summary": "Offer access to several debug tools from everywhere.",
+  "description": "                    STDebugKit Allow you to debug your app, even from a device !\n                    From every screen you'll have access to a little debug button that could open a debug center.\n                    In that center you'll find global tools and context sensitive tools.\n",
+  "homepage": "https://github.com/iSofTom/STDebugKit",
+  "license": "MIT",
+  "authors": {
+    "iSofTom": "thomas@isoftom.com"
+  },
+  "source": {
+    "git": "https://github.com/iSofTom/STDebugKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "STDebugKit/STDebugKit.*",
+        "STDebugKit/STDebugTool.*",
+        "STDebugKit/STDebugKitRootViewController.*",
+        "STDebugKit/STDebugKitModuleSlowAnimations.*",
+        "STDebugKit/STDebugKitModuleInfos.*",
+        "STDebugKit/STDebugKitModuleKill.*"
+      ],
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "QuartzCore"
+        ]
+      },
+      "prefix_header_contents": "#ifdef DEBUG\n    #define STDebugKitModuleSlowAnimationsEnabled\n    #define STDebugKitModuleInfosEnabled\n    #define STDebugKitModuleKillEnabled\n    \n    #define STDebugKitButtonSize 30\n\t#define STDebugKitButtonColor [UIColor colorWithRed:0.751 green:0.843 blue:0.900 alpha:1.000]\n#endif\n"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "STDebugKit/Core": [
+
+        ],
+        "MagicalRecord": [
+          "~> 2.1"
+        ]
+      },
+      "source_files": "STDebugKit/STDebugKitModuleCoreData.*",
+      "prefix_header_contents": "#ifdef __OBJC__\n\t#define MR_SHORTHAND\n\t#import \"CoreData+MagicalRecord.h\"\n#endif\n\n#ifdef DEBUG\n\t#define STDebugKitModuleCoreDataEnabled\n#endif\n",
+      "ios": {
+        "frameworks": "CoreData"
+      }
+    }
+  ]
+}

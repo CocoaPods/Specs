@@ -1,0 +1,31 @@
+{
+  "name": "URLTransaction",
+  "version": "1.0",
+  "authors": {
+    "DanKalinin": "daniil5511@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DanKalinin/URLTransaction",
+  "source": {
+    "git": "https://github.com/DanKalinin/URLTransaction.git",
+    "tag": "1.0"
+  },
+  "summary": "Simple, but powerful iOS networking framework.",
+  "description": "URLTransaction library provides a convenient API to send single HTTP requests, group them into transactions and send them asynchronously. If one request in transaction fails - entire transaction fails.\nFeatures:\n* Convenient pattern to construct request using factory methods which allows to hold initialization and response mapping code in single class.\n* Requests can be sent immediately after creation or added into transaction for sending them asynchronously.\n* Request and transaction objects have three completion blocks which allows to handle responses in try-catch-finally manner:\n* * success - called when response HTTP status code is 200.\n* * failure - called either when HTTP status code of response is other than 200, network problems occured or request timeout expired.\n* * completion - called anyway to notify that request is completed. Can be used to hide activity indicator or clean some allocated resources.\n* Every completion block receives the current request object itself as parameter, thus source request can be processed within block without capturing and creating an external weak request pointer.\n* URLRequest has an error property which can be accessed in failure block to determine the failure reason.\n* Possibility of specifying a dispatch queue where completion blocks should be executed. This is usefull when comletion blocks are used for mapping response to Core Data entities or for any other expensive operation.\n* After completion of asynchronous transaction, request completion blocks will be called in same order they were added into transaction. Finally, transaction completion blocks will be called. Request completion blocks can be used to map response body to Core Data entity. Transaction completion blocks can be used to establish relationships between mapped entities and save the context.",
+  "screenshots": [
+    "https://dl.dropboxusercontent.com/s/rw0khcvk6npwp6i/1.PNG",
+    "https://dl.dropboxusercontent.com/s/og1cq3g6zz9mdhe/2.PNG",
+    "https://dl.dropboxusercontent.com/s/zyrjkd1z0fokt9c/3.PNG",
+    "https://dl.dropboxusercontent.com/s/lrfpl9rdvl71sog/4.PNG",
+    "https://dl.dropboxusercontent.com/s/2obdv918rn4qfpc/5.PNG",
+    "https://dl.dropboxusercontent.com/s/yta4z5pb34uh594/6.PNG",
+    "https://dl.dropboxusercontent.com/s/khjfqt40hcxwmr1/7.PNG"
+  ],
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "frameworks": "UIKit",
+  "source_files": "Pod/Classes/**/*.{h,m}",
+  "public_header_files": "Pod/Classes/**/*.h"
+}

@@ -1,0 +1,61 @@
+{
+  "name": "MapBox",
+  "version": "1.1.0",
+  "deprecated_in_favor_of": "Mapbox-iOS-SDK",
+  "summary": "Open source alternative to MapKit.",
+  "description": "Open source alternative to MapKit supporting custom tile sources, offline use, and complete cache control.",
+  "homepage": "http://mapbox.com/mobile",
+  "license": "BSD",
+  "authors": {
+    "MapBox": "ios@mapbox.com"
+  },
+  "screenshots": "https://raw.github.com/mapbox/mapbox-ios-sdk/packaging/screenshot.png",
+  "source": {
+    "git": "https://github.com/mapbox/mapbox-ios-sdk.git",
+    "tag": "1.1.0"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source_files": [
+    "Proj4/*.h",
+    "MapView/Map/*.{h,c,m}"
+  ],
+  "requires_arc": true,
+  "prefix_header_file": "MapView/MapView_Prefix.pch",
+  "prepare_command": "      xcodebuild -project MapView/MapView.xcodeproj -target Resources CONFIGURATION_BUILD_DIR=../Resources 2>&1 > /dev/null\n",
+  "resources": "Resources/Mapbox.bundle",
+  "documentation_url": "https://www.mapbox.com/mapbox-ios-sdk/api/",
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "Foundation",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "libraries": [
+    "Proj4",
+    "sqlite3",
+    "z"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "LIBRARY_SEARCH_PATHS": "\"${PODS_ROOT}/Mapbox/Proj4\""
+  },
+  "preserve_paths": [
+    "Proj4/libProj4.a",
+    "MapView/MapView.xcodeproj",
+    "MapView/Map/Resources"
+  ],
+  "dependencies": {
+    "FMDB": [
+      "2.0"
+    ],
+    "GRMustache": [
+      "6.8.3"
+    ],
+    "SMCalloutView": [
+      "1.1"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "TLLayoutTransitioning",
+  "version": "1.0.0",
+  "summary": "Enhanced transitioning between UICollectionView layouts in iOS.",
+  "description": "                    TLLayoutTransitioning provides a `TLLayoutTransition` transition layout subclass and a `UICollectionView+TLTransitioning` category that combine to solve a few problems with collection view layout transitioning:\n\n                    1. `UICollectionViewLayoutTransition` does not handle content offset well, often leaving cells where you don't want them. `TLTransitionLayout` provides elegant control of content offset with Minimal, Visible, Center, Top, Left, Bottom or Right placement options relative to one or more index paths.\n\n                    2. `UICollectionViewLayoutTransition` does not support supplementary views. `TLTransitionLayout` provides support for any supplementary view kinds specified in the initializer.\n\n                    3. `-[UICollectionView setCollectionViewLayout:animated:completion]` has [serious known bugs][3] in iOS7 and does not provide any animation options. TLLayoutTransitioning provides a robust alternative to this API with support for animation duration, 30+ easing curves and content offset control. This is done by using `CADisplayLink` to drive an interactive `TLTransitionLayout` as a non-interactive animation.\n\n                    Check out the demos in the Examples workspace!\n                    \n                    Changes in 1.0.0\n                    * Support for supplementary views\n                    * Fine-tune `toContentOffset` even further with additional configuration options:\n                        * `placementAnchor` a relative anchor point for the placement calculation\n                        * `placementInset` an inset of the collection view frame for the placement calculation\n                        * `toSize` the expected final collection view size (allows for transitioning to a different size)\n                        * `toContentInset` the expected final content inset (allows for transitioning to a different inset)\n                    * New Visible placement option: like Minimal, but ensures content visibility\n                    * Ability to cancel the transition in place. Can be used to react smoothly to user input\n                      or screen rotation while the transition is in flight.\n                    * Linear `transitionTime` property added to `TLTransitionLayout` for fine-tuning\n                      transition of elements, such as those that need to follow a different easing curve,\n                      delayed transition start, or different transition duration\n                    * New function `TLConvertTimespace` for transitioning elements with simulated delay\n                      and duration relative to the overall transition progress\n                    * New function `TLRelativePointInRect` for calculating a relative point for a given\n                      rect and point. Useful for the new `placementAnchor` option.\n                    * Several bug fixes.\n",
+  "homepage": "https://github.com/wtmoose/TLLayoutTransitioning",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "wtmoose": "wtm@tractablelabs.com"
+  },
+  "source": {
+    "git": "https://github.com/wtmoose/TLLayoutTransitioning.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "TLLayoutTransitioning/**/*.{h,m,c}",
+  "dependencies": {
+    "AHEasing": [
+
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "QuartzCore",
+    "Foundation"
+  ],
+  "requires_arc": true
+}

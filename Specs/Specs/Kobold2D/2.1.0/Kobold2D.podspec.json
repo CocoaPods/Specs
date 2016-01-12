@@ -1,0 +1,95 @@
+{
+  "name": "Kobold2D",
+  "version": "2.1.0",
+  "summary": "An extended and improved version of the popular Cocos2D for iPhone game engine.",
+  "homepage": "http://www.kobold2d.com/display/KKSITE/Home",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE-Kobold2D.txt"
+  },
+  "authors": {
+    "Steffen Itterheim": "steffen@learn-cocos2d.com"
+  },
+  "source": {
+    "git": "https://github.com/devknoll/Kobold2D.git",
+    "tag": "2.1.0"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source_files": [
+    "kobold2d",
+    "kobold2d/**/*.{h,m,mm,c,cpp}"
+  ],
+  "frameworks": [
+    "iAd"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "bitarray_c",
+      "source_files": "libs/bitarray_c"
+    },
+    {
+      "name": "box2d",
+      "source_files": "libs/Box2D/Box2D/**/*.{h,m,mm,c,cpp}",
+      "header_mappings_dir": "libs/Box2D/Box2D",
+      "header_dir": "../Box2D"
+    },
+    {
+      "name": "VTPG",
+      "source_files": "libs/VTPG/**/*.{h,m,mm,c,cpp}",
+      "exclude_files": "libs/VTPG/Mac OS X/",
+      "header_mappings_dir": "libs/VTPG",
+      "header_dir": "../VTPG"
+    },
+    {
+      "name": "lua",
+      "source_files": "libs/lua/src/**/*.{h,m,mm,c,cpp}",
+      "header_mappings_dir": "libs/lua/src",
+      "header_dir": "../lua"
+    },
+    {
+      "name": "cocos2d-iphone",
+      "subspecs": [
+        {
+          "name": "CocosDenshion",
+          "source_files": "libs/cocos2d-iphone/CocosDenshion/*.{h,m,mm,c,cpp}",
+          "header_mappings_dir": "libs/cocos2d-iphone/CocosDenshion/",
+          "header_dir": "../CocosDenshion"
+        },
+        {
+          "name": "libpng",
+          "source_files": "libs/cocos2d-iphone/external/libpng/*.{h,m,mm,c,cpp}",
+          "exclude_files": [
+            "libs/cocos2d-iphone/external/libpng/pngtest.c",
+            "libs/cocos2d-iphone/external/libpng/example.c"
+          ],
+          "header_mappings_dir": "libs/cocos2d-iphone/external/libpng/",
+          "header_dir": "../libpng"
+        },
+        {
+          "name": "kazmath",
+          "source_files": "libs/cocos2d-iphone/external/kazmath/{src,include}/**/*.{h,m,mm,c,cpp}",
+          "header_mappings_dir": "libs/cocos2d-iphone/external/kazmath/include/kazmath",
+          "header_dir": "../kazmath"
+        },
+        {
+          "name": "cocos2d",
+          "source_files": "libs/cocos2d-iphone/cocos2d/**/*.{h,m,mm,c,cpp}",
+          "header_mappings_dir": "libs/cocos2d-iphone/cocos2d/",
+          "header_dir": "../cocos2d",
+          "frameworks": [
+            "OpenGLES",
+            "OpenAL",
+            "AVFoundation",
+            "AudioToolbox",
+            "QuartzCore",
+            "GameKit"
+          ],
+          "libraries": "z"
+        }
+      ]
+    }
+  ]
+}

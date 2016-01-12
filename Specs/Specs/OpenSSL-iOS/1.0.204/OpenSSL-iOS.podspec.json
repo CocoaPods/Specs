@@ -1,0 +1,51 @@
+{
+  "name": "OpenSSL-iOS",
+  "version": "1.0.204",
+  "summary": "OpenSSL is an SSL/TLS and Crypto toolkit.",
+  "description": "                        The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS) protocols as well as a full-strength general purpose cryptography library.\n",
+  "homepage": "https://www.openssl.org",
+  "documentation_url": "https://www.openssl.org/docs/",
+  "authors": {
+    "The OpenSSL Project": "openssl-dev@openssl.org"
+  },
+  "source": {
+    "git": "https://github.com/Frugghi/openssl.git",
+    "tag": "1.0.204"
+  },
+  "license": {
+    "type": "OpenSSL (OpenSSL/SSLeay)",
+    "file": "LICENSE"
+  },
+  "module_name": "OpenSSL",
+  "module_map": "module.modulemap",
+  "default_subspecs": "Framework",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": false,
+  "header_dir": "openssl",
+  "public_header_files": "openssl/*.h",
+  "preserve_paths": [
+    "libcrypto.a",
+    "libssl.a"
+  ],
+  "prepare_command": "    ARCHS=\"i386 x86_64 armv7 armv7s arm64\"\n\n    BASEPATH=\"${PWD}\"\n    BUILDDIR=\"${TMPDIR}OpenSSL\"\n    SRCDIR=\"${BUILDDIR}/src\"\n\n    SDK_VERSION=`xcrun --sdk iphoneos --show-sdk-version`\n    CLANG=`xcrun --find clang`\n    DEVELOPER=`xcode-select --print-path`\n\n    rm -rf \"${BUILDDIR}\"\n    mkdir -p \"${SRCDIR}\"\n    cp -R \"${BASEPATH}/.\" \"${SRCDIR}\"\n    cd \"${SRCDIR}\"\n\n    for ARCH in ${ARCHS}\n    do\n      if [ \"${ARCH}\" == \"i386\" -o \"${ARCH}\" == \"x86_64\" ];\n      then\n        PLATFORM=\"iPhoneSimulator\"\n      else\n        sed -ie \"s!static volatile sig_atomic_t intr_signal;!static volatile intr_signal;!\" \"${SRCDIR}/crypto/ui/ui_openssl.c\"\n        PLATFORM=\"iPhoneOS\"\n      fi\n\n      CONF=\"no-asm\"\n\n      if [ \"${ARCH}\" == \"arm64\" -o \"${ARCH}\" == \"x86_64\" ];\n      then\n        HOST=\"BSD-generic64\"\n        CONF=\"${CONF} enable-ec_nistp_64_gcc_128\"\n      else\n        HOST=\"BSD-generic32\"\n      fi\n\n      OPENSSLDIR=\"${BUILDDIR}/${PLATFORM}${SDK_VERSION}-${ARCH}\"\n\n      LIPO_LIBSSL=\"${LIPO_LIBSSL} ${OPENSSLDIR}/lib/libssl.a\"\n      LIPO_LIBCRYPTO=\"${LIPO_LIBCRYPTO} ${OPENSSLDIR}/lib/libcrypto.a\"\n\n      rm -rf \"${OPENSSLDIR}\"\n      mkdir -p \"${OPENSSLDIR}\"\n\n      LOG=\"${OPENSSLDIR}/build.log\"\n\n      export DEVROOT=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n      export SDKROOT=\"${DEVROOT}/SDKs/${PLATFORM}${SDK_VERSION}.sdk\"\n      export CC=\"${CLANG}\"\n\n      ./Configure ${HOST} ${CONF} --openssldir=\"${OPENSSLDIR}\" > \"${LOG}\" 2>&1\n\n      sed -ie \"s!^CFLAG=!CFLAG=-isysroot ${SDKROOT} -arch ${ARCH} -mios-version-min=7.0 !\" \"Makefile\"\n\n      make >> \"${LOG}\" 2>&1\n      make all install_sw >> \"${LOG}\" 2>&1\n      make clean >> \"${LOG}\" 2>&1\n    done\n\n    rm -f \"${BASEPATH}/libssl.a\"\n    rm -f \"${BASEPATH}/libcrypto.a\"\n    lipo -create ${LIPO_LIBSSL}    -output \"${BASEPATH}/libssl.a\"\n    lipo -create ${LIPO_LIBCRYPTO} -output \"${BASEPATH}/libcrypto.a\"\n\n    cp -RL \"${SRCDIR}/include/.\" \"${BASEPATH}/\"\n\n    cd \"${BASEPATH}\"\n    rm -rf \"${BUILDDIR}\"\n\n    MODULE=\"module.modulemap\"\n    BEFORE_HEADERS=\"rc2.h rc4.h\"\n    AFTER_HEADERS=\"dtls1.h\"\n    EXCLUDE_HEADERS=\"${BEFORE_HEADERS} ${AFTER_HEADERS}\"\n\n    function print_submodule {\n        echo -e \"    explicit module $(basename $1 | cut -d\".\" -f1) {\n        header \\\"$1\\\"\n    }\n\"\n    }\n\n    echo \"module OpenSSL {\" > $MODULE\n\n    for HEADER in openssl/*.h; do\n        if [[ $BEFORE_HEADERS =~ $(basename $HEADER) ]]; then\n          print_submodule $HEADER >> $MODULE\n        fi\n    done\n\n    for HEADER in openssl/*.h; do\n        if [[ ! $EXCLUDE_HEADERS =~ $(basename $HEADER) ]]; then\n          print_submodule $HEADER >> $MODULE\n        fi\n    done\n\n    for HEADER in openssl/*.h; do\n        if [[ $AFTER_HEADERS =~ $(basename $HEADER) ]]; then\n          print_submodule $HEADER >> $MODULE\n        fi\n    done\n\n    echo -e \"    link \\\"ssl\\\"\n    link \\\"crypto\\\"\n}\" >> $MODULE\n",
+  "subspecs": [
+    {
+      "name": "Static",
+      "source_files": "openssl/*.h",
+      "vendored_libraries": [
+        "libcrypto.a",
+        "libssl.a"
+      ]
+    },
+    {
+      "name": "Framework",
+      "source_files": "openssl/*.h",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/OpenSSL-iOS",
+        "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/OpenSSL-iOS"
+      }
+    }
+  ]
+}

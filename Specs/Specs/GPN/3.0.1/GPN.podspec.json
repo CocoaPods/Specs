@@ -1,0 +1,55 @@
+{
+  "name": "GPN",
+  "version": "3.0.1",
+  "summary": "GameHouse Promotion Network SDK.",
+  "description": "                       The GameHouse Promotion Network lets you drive app installs with intelligence and control. You can participate in GPN by integrating this open source SDK into your iOS apps. Also available for Android.\n",
+  "homepage": "http://partners.gamehouse.com/app-promotion-and-app-monetization/",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "GameHouse": "gpn-support@realnetworks.com"
+  },
+  "source": {
+    "git": "https://github.com/gamehouse/gpn-cocoa-pod.git",
+    "tag": "3.0.1"
+  },
+  "social_media_url": "https://twitter.com/ghpartners",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "public_header_files": "Pod/Classes/*.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "SystemConfiguration",
+    "CFNetwork",
+    "Security",
+    "CoreTelephony"
+  ],
+  "weak_frameworks": [
+    "StoreKit",
+    "AdSupport"
+  ],
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "Pod/Classes/External/GoogleToolboxforMac/**/*.{h,m,mm}",
+      "requires_arc": false,
+      "compiler_flags": "-fno-objc-arc"
+    },
+    {
+      "name": "arc",
+      "source_files": [
+        "Pod/Classes/*.{h,m}",
+        "Pod/Classes/Implementation/**/*.{h,m,mm}",
+        "Pod/Classes/RemoteMonitor/**/*.{h,m,mm}"
+      ],
+      "dependencies": {
+        "GPN/no-arc": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "urlHandler",
+  "version": "0.1.0",
+  "summary": "Easy way to work with NSURL in Objective-C.",
+  "description": "                       #urlHandler\n==========\n\nEasy way to work with NSURL in Objective-C \n\nHow to use :\n\ninitCache in AppDelegate didFinishLaunchingWithOptions \n```objective-c\n[[UrlHandler sharedInstance] initCache];\n```\n\n\nBasic URL request .\n```objective-c\n[[UrlHandler sharedInstance] basicURL:@\"http://google.com\" :^(NSError *error, id returnObject) {\n    if(error != (NSError*)[NSNull null] && ![returnObject isEqualToString:@\"notReachable\"]){\n        NSLog(@\"returnObject : %@\",returnObject);\n    }else{\n        NSLog(@\"error : %@\",error);\n    }\n}];\n```\n\n\nDownload File with progress .\n```objective-c\n[[UrlHandler sharedInstance] downloadFileWithURL:@\"http://www.socialtalent.co/wp-content/uploads/blog-content/so-logo.png\" withName:@\"logo.png\" progressBlock:^(float pre) {\n    NSLog(@\"progress :%f\",pre);\n} completionBlock:^(NSError *error, id returnObject) {\n    NSLog(@\"error : %@:%@\",error,returnObject);\n}];\n```\n\nMultiple File Downloader with progress .\n```objective-c\nNSArray *array = @[@\"http://wfiles.brothersoft.com/a/awesome-ice-block_178817-1920x1080.jpg\",\n                   @\"http://www.hitswallpapers.com/wp-content/uploads/2014/07/awesome-city-wallpapers-1920x1080-2.jpg\",\n                   @\"http://awesomewallpaper.files.wordpress.com/2011/09/splendorous1920x1080.jpg\",\n                   ];\n[[UrlHandler sharedInstance] downloadListOfListWithArray:array progressBlock:^(float pre, int current) {\n    NSLog(@\"progress :%f:%d\",pre,current);\n} completionBlock:^(NSError *error, id returnObject, int currentObj) {\n    NSLog(@\"error : %@:%@:%d\",error,returnObject,currentObj);\n}];\n```\n\nForm Request .\n```objective-c\nNSDictionary *dic = @{\n    @\"name\":@\"awesome\",\n    @\"email\":@\"awesome@cool.awesome\"\n};\n[[UrlHandler sharedInstance] basicFormURL:@\"http://10.0.1.5/testPost.php\" :@\"POST\" :dic :^(NSError *error, id returnObject) {\n    if(error != (NSError*)[NSNull null] && ![returnObject isEqualToString:@\"notReachable\"]){\n        NSLog(@\"returnObject : %@\",returnObject);\n    }else{\n        NSLog(@\"error : %@\",error);\n    }\n}];\n```\n",
+  "homepage": "http://github.com/rahulsend89/urlHandler",
+  "license": "MIT",
+  "authors": {
+    "Rahul Malik": "rahul.send89@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/rahulsend89/urlHandler.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "urlHandler/UrlHandler.{h,m}",
+  "dependencies": {
+    "Reachability": [
+
+    ]
+  }
+}

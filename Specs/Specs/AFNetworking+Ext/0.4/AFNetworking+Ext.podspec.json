@@ -1,0 +1,98 @@
+{
+  "name": "AFNetworking+Ext",
+  "version": "0.4",
+  "summary": "AFNetworking的封装, 并提供一个 UIImageView+DYLoading  cache in fileSystem",
+  "homepage": "https://github.com/junhaiyang/AFNetworkingExt",
+  "license": "MIT",
+  "authors": {
+    "yangjunhai": "junhaiyang@gmail.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/junhaiyang/AFNetworkingExt.git",
+    "tag": "0.4"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "AFNetworkActivityLogger": [
+
+    ],
+    "AFgzipRequestSerializer": [
+
+    ],
+    "AFOnoResponseSerializer": [
+
+    ],
+    "Godzippa": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "Ext/*.{h,m,mm}",
+      "dependencies": {
+        "AFNetworking+Ext/AFCustomRequestOperation": [
+
+        ],
+        "AFNetworking+Ext/AFDownloadRequestOperation": [
+
+        ],
+        "AFNetworking+Ext/AFTextResponseSerializer": [
+
+        ]
+      }
+    },
+    {
+      "name": "AFCustomRequestOperation",
+      "source_files": "AFCustomRequestOperation/*.{h,m,mm}"
+    },
+    {
+      "name": "AFDownloadRequestOperation",
+      "dependencies": {
+        "AFNetworking+Ext/AFCustomRequestOperation": [
+
+        ]
+      },
+      "source_files": "AFDownloadRequestOperation/*.{h,m,mm}"
+    },
+    {
+      "name": "AFTextResponseSerializer",
+      "source_files": "AFTextResponseSerializer/*.{h,m,mm}"
+    },
+    {
+      "name": "example",
+      "dependencies": {
+        "AFNetworking+Ext/Base": [
+
+        ]
+      },
+      "source_files": "*.{h,m,mm}"
+    },
+    {
+      "name": "UIKit",
+      "subspecs": [
+        {
+          "name": "UIImageView+DYLoading",
+          "dependencies": {
+            "AFNetworking+Ext/AFDownloadRequestOperation": [
+
+            ],
+            "AFNetworking+Ext/Base": [
+
+            ],
+            "MYSCategoryProperties": [
+
+            ]
+          },
+          "source_files": "UIKit/UIImageView+DYLoading/*.{h,m,mm}"
+        }
+      ]
+    }
+  ]
+}

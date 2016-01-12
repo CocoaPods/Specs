@@ -1,0 +1,93 @@
+{
+  "name": "Overcoat",
+  "version": "2.1.1",
+  "license": "MIT",
+  "summary": "Overcoat is a small but powerful library that makes creating REST clients simple and fun.",
+  "homepage": "https://github.com/gonzalezreal/Overcoat",
+  "authors": {
+    "Guillermo Gonzalez": "gonzalezreal@icloud.com"
+  },
+  "social_media_url": "https://twitter.com/gonzalezreal",
+  "source": {
+    "git": "https://github.com/gonzalezreal/Overcoat.git",
+    "tag": "2.1.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "default_subspecs": "NSURLSession",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.5"
+        ],
+        "Mantle": [
+          "~> 1.5"
+        ]
+      },
+      "public_header_files": "Overcoat/*.h",
+      "source_files": [
+        "Overcoat/Overcoat.h",
+        "Overcoat/OVCResponse.{h,m}",
+        "Overcoat/NSError+OVCResponse.{h,m}",
+        "Overcoat/OVCURLMatcher.{h,m}",
+        "Overcoat/OVC{ModelResponse,SocialRequest}Serializer.{h,m}",
+        "Overcoat/OVCManagedStore.{h,m}",
+        "Overcoat/OVCHTTPRequestOperationManager.{h,m}",
+        "Overcoat/OVCManagedObjectSerializingContainer.h",
+        "Overcoat/NSDictionary+Overcoat.{h,m}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "Accounts",
+        "Social",
+        "CoreData"
+      ]
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ]
+      },
+      "source_files": "Overcoat/OVCHTTPSessionManager.{h,m}"
+    },
+    {
+      "name": "PromiseKit",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "Overcoat/NSURLSession": [
+
+        ],
+        "PromiseKit": [
+          "~>1.2"
+        ]
+      },
+      "public_header_files": "PromiseKit+Overcoat/*.h",
+      "source_files": "PromiseKit+Overcoat"
+    },
+    {
+      "name": "ReactiveCocoa",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "Overcoat/NSURLSession": [
+
+        ],
+        "ReactiveCocoa": [
+          "~>2.4"
+        ]
+      },
+      "public_header_files": "ReactiveCocoa+Overcoat/*.h",
+      "source_files": "ReactiveCocoa+Overcoat"
+    }
+  ]
+}

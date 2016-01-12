@@ -1,0 +1,48 @@
+{
+  "name": "Promissum",
+  "version": "0.2.1",
+  "license": "MIT",
+  "summary": "A promises library written in Swift featuring combinators like map, flatMap, whenAll, whenAny.",
+  "description": "Promissum is a promise library written in Swift. It features some known functions from Function Programming like, `map` and `flatMap`.\n\nIt has useful combinators for working with promises like; `whenAll` for doing something when multiple promises complete, and `whenAny` for doing something when a single one of a list of promises completes. As well as their binary counterparts: `whenBoth` and `whenEither`.\n\nPromissum really shines when used to combine asynchronous operations from different libraries. There are currently some basic extensions to UIKit, Alamofire and CoreDataKit, and contributions for extensions to other libraries are very welcome.\n",
+  "authors": {
+    "Tom Lokhorst": "tom@lokhorst.eu"
+  },
+  "social_media_url": "https://twitter.com/tomlokhorst",
+  "homepage": "https://github.com/tomlokhorst/Promissum",
+  "source": {
+    "git": "https://github.com/tomlokhorst/Promissum.git",
+    "tag": "0.2.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "src/Promissum"
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "extensions/PromissumExtensions/Alamofire+Promise.swift",
+      "dependencies": {
+        "Promissum/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 1.1.0"
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "extensions/PromissumExtensions/UIKit+Promise.swift",
+      "dependencies": {
+        "Promissum/Core": [
+
+        ]
+      }
+    }
+  ]
+}

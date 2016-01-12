@@ -1,0 +1,40 @@
+{
+  "name": "GoogleProtobuf",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "version": "2.6.1",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING.txt"
+  },
+  "summary": "Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.",
+  "description": "        Protocol buffers are Google's language-neutral, platform-neutral, \n        extensible mechanism for serializing structured data – think XML, but \n        smaller, faster, and simpler.\n\n        Produces a stand-alone build of the Google Protocol Buffer library for\n        use in iOS applications. Xcode 5 is required to build protobuf from  source.\n        A copy of the protoc compiler is also built and placed in the Pods/GoogleProtobuf\n        folder. It may be used in a custom build rule to generate C++ files based on the \n        .proto files.\n",
+  "authors": {
+    "Google": "protobuf@googlegroups.com"
+  },
+  "source": {
+    "http": "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz"
+  },
+  "homepage": "https://developers.google.com/protocol-buffers/",
+  "source_files": [
+    "config.h",
+    "src/google/protobuf/**/*.{h,cc}"
+  ],
+  "compiler_flags": "-D_THREAD_SAFE",
+  "exclude_files": [
+    "src/**/compiler/cpp/**",
+    "src/**/compiler/python/**",
+    "src/**/compiler/java/**",
+    "src/**/compiler/**",
+    "src/**/*unittest*",
+    "src/**/*test_util*"
+  ],
+  "header_mappings_dir": "src",
+  "preserve_paths": [
+    "bin",
+    "lib"
+  ],
+  "requires_arc": false,
+  "prepare_command": "        (\n            ./configure --prefix=\"$PWD\"\n            make -j4\n            make check\n            make install\n            sed -i .orig 's/tr1\\///g' config.h\n            sed -i .orig 's/::tr1//g' config.h\n            perl -i.bak -pe '$_ = qq[#elif defined(__aarch64__)\n#define GOOGLE_PROTOBUF_ARCH_ARM 1\n#define GOOGLE_PROTOBUF_ARCH_64_BIT 1\n$_] if $_ eq qq[#elif defined(__MIPSEL__)\n]' src/google/protobuf/stubs/platform_macros.h\n            perl -i.bak -pe '$_ = qq[#define google google_public\n\n$_] if $_ eq qq[#include <assert.h>\n]' src/google/protobuf/stubs/common.h\n        ) | tee \"/tmp/$(basename $0).$$.tmp\"\n"
+}

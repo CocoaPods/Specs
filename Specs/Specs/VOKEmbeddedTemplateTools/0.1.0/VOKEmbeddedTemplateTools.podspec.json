@@ -1,0 +1,49 @@
+{
+  "name": "VOKEmbeddedTemplateTools",
+  "version": "0.1.0",
+  "summary": "Handle a zip file of mustache templates embedded into the Mach-O executable.",
+  "description": "                            Includes:\n                            - a category on NSData for getting data embedded into the Mach-O executable (embedding done via \"Other Linker Flags\" `-sectcreate __TEXT __your_name \"some_file_name\"`)\n                            - a category on [ZipZap](https://github.com/pixelglow/zipzap)'s `ZZArchive` to load an archive from data embedded into the Mach-O executable\n                            - a [GRMustache](https://github.com/groue/GRMustache) `GRMustacheTemplateRepository` subclass that loads its templates from a `ZZArchive`\n\n                            ***NOTE:*** The Mach-O executable embedded data reading doesn't seem to compile when pods are set to use frameworks.\n",
+  "homepage": "https://github.com/vokal/VOKEmbeddedTemplateTools",
+  "license": "MIT",
+  "authors": {
+    "Isaac Greenspan": "isaac.greenspan@vokal.io"
+  },
+  "source": {
+    "git": "https://github.com/vokal/VOKEmbeddedTemplateTools.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "NSData+VOKMachOEmbedded",
+      "source_files": "Pod/NSData+VOKMachOEmbedded.{h,m}"
+    },
+    {
+      "name": "ZZArchive+VOKMachOEmbedded",
+      "source_files": "Pod/ZZArchive+VOKMachOEmbedded.{h,m}",
+      "dependencies": {
+        "VOKEmbeddedTemplateTools/NSData+VOKMachOEmbedded": [
+
+        ],
+        "zipzap": [
+          "~> 8.0.3"
+        ]
+      }
+    },
+    {
+      "name": "VOKZZArchiveTemplateRepository",
+      "source_files": "Pod/VOKZZArchiveTemplateRepository.{h,m}",
+      "dependencies": {
+        "zipzap": [
+          "~> 8.0.3"
+        ],
+        "GRMustache": [
+          "~> 7.3.0"
+        ]
+      }
+    }
+  ]
+}

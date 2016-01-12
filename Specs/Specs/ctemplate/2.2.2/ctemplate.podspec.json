@@ -1,0 +1,35 @@
+{
+  "name": "ctemplate",
+  "version": "2.2.2",
+  "source": {
+    "git": "https://github.com/dinhviethoa/ctemplate.git",
+    "tag": "2.2.2"
+  },
+  "summary": "Powerful but simple template language for C++.",
+  "homepage": "https://code.google.com/p/ctemplate/",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": "google-ctemplate@googlegroups.com",
+  "header_dir": "ctemplate",
+  "source_files": "src/**/*.{c,h,cc}",
+  "exclude_files": [
+    "src/tests/**/*",
+    "src/windows/**/*"
+  ],
+  "compiler_flags": "\"-I${PODS_ROOT}/ctemplate/src\"",
+  "public_header_files": [
+    "**/template.h",
+    "**/template_*.h",
+    "**/per_expand_data.h",
+    "**/str_ref.h"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++0x",
+    "CLANG_CXX_LIBRARY": "libstdc++",
+    "USE_HEADERMAP": "NO"
+  },
+  "requires_arc": false,
+  "prepare_command": "TOOLCHAIN=\"`xcode-select -p`/Toolchains/XcodeDefault.xctoolchain/usr/bin\"\nexport CXXFLAGS=\"-stdlib=libstdc++ -std=gnu++11\"\nexport LDFLAGS=\"-lstdc++ -stdlib=libstdc++\"\nexport CC=${TOOLCHAIN}/clang\nexport CXX=${TOOLCHAIN}/clang++\n./configure && make src/htmlparser/htmlparser_fsm.h && make src/htmlparser/jsparser_fsm.h"
+}

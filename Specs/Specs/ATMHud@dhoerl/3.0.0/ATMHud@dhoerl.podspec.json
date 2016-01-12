@@ -1,0 +1,58 @@
+{
+  "name": "ATMHud@dhoerl",
+  "version": "3.0.0",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "license": "BSD",
+  "summary": "Full featured and flexible HUD framework.",
+  "homepage": "https://github.com/dhoerl/ATMHud",
+  "authors": {
+    "Marcel Müller": "pool@atomton.net",
+    "David Hoerl": "david.hoerl+git@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dhoerl/ATMHud.git",
+    "tag": "3.0.0"
+  },
+  "requires_arc": true,
+  "screenshots": [
+    "https://github.com/dhoerl/ScreenShots/BasicFunctions.png",
+    "https://github.com/dhoerl/ScreenShots/AdvancedFunctions.png",
+    "https://github.com/dhoerl/ScreenShots/SimpleCaption.png",
+    "https://github.com/dhoerl/ScreenShots/Caption+Activity.png",
+    "https://github.com/dhoerl/ScreenShots/JustSpinner.png",
+    "https://github.com/dhoerl/ScreenShots/Caption+ProgressBar.png",
+    "https://github.com/dhoerl/ScreenShots/Caption+ProgressBar_FixedSize"
+  ],
+  "default_subspecs": [
+    "Core"
+  ],
+  "description": "ATMHud offers a versatile and full featured HUD for yuour iOS projects. You can use either a traditional protocol based delegate or a block based one. A Demo app shows how to use most of the feature set and both delegates. You can set any of a caption, two types of progress indicators, and an image to the HUD, which resizes as needed. You can control where the progress indicator goes (top/bot/left/right), the view grayness and cover view's grayness/opacity. If you're showing the HUD with the keyboard up (for example), you can move the HUD's center.\n\nUsage:\n    // Keep a strong ivar reference to it (ie, \"ATMHud *hud\")\n\thud = [ATMHud new]; // using the block delegate\n\t[hud setCaption:@\"Caption and an activity indicator.\"];\n\t[hud setActivity:YES];\n\thud.blockDelegate = ....; // see demo project\n\t[hud showInView:self.view];\n\t...\n\t[hud hide];\n\t//the block delegate can release the hud and nil the ivar (see Demo app)\n\n",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ATM*.{h,m}",
+      "exclude_files": "ATMSoundFX.{h,m}",
+      "resources": [
+        "11-x.png",
+        "19-check.png"
+      ],
+      "frameworks": "QuartzCore"
+    },
+    {
+      "name": "WithSound",
+      "source_files": "ATM*.{h,m}",
+      "resources": [
+        "11-x.png",
+        "19-check.png",
+        "pop.wav"
+      ],
+      "frameworks": [
+        "QuartzCore",
+        "AudioToolbox"
+      ],
+      "compiler_flags": "-DATM_SOUND"
+    }
+  ]
+}

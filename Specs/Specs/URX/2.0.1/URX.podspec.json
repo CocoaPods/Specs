@@ -1,0 +1,53 @@
+{
+  "name": "URX",
+  "version": "2.0.1",
+  "summary": "URX iOS SDK.",
+  "authors": "URX",
+  "homepage": "https://github.com/URXtech/urx-sdk-ios",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/URXtech/urx-sdk-ios.git",
+    "tag": "v2.0.1"
+  },
+  "frameworks": [
+    "StoreKit",
+    "CoreLocation",
+    "UIKit",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "OTHER_CFLAGS": "-IURX"
+  },
+  "subspecs": [
+    {
+      "name": "Search",
+      "source_files": "URXSearch/**/*.{c,h,m}",
+      "public_header_files": "URXSearch/**/*.h"
+    },
+    {
+      "name": "Widgets",
+      "source_files": "URXWidgets/**/*.{c,h,m}",
+      "public_header_files": "URXWidgets/**/*.h",
+      "dependencies": {
+        "URX/Search": [
+
+        ]
+      },
+      "resource_bundles": {
+        "URXWidgetsResources": [
+          "URXWidgetsResources/URXListenButtonSearchViewController.xib",
+          "URXWidgetsResources/URXSearchResultGenericTableViewCell.xib",
+          "URXWidgetsResources/search-result-main-image@2x.png"
+        ]
+      }
+    }
+  ]
+}

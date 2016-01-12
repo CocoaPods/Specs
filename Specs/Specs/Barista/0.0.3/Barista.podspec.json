@@ -1,0 +1,111 @@
+{
+  "name": "Barista",
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.7"
+  },
+  "version": "0.0.3",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "homepage": "https://github.com/stevestreza/Barista",
+  "authors": {
+    "Steve Streza": "steve@mustacheware.com"
+  },
+  "summary": "A modular, embeddable web server for Objective-C.",
+  "source": {
+    "git": "https://github.com/stevestreza/Barista.git",
+    "tag": "v0.0.3"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "CocoaAsyncSocket": [
+      "~> 7.0"
+    ],
+    "JLRoutes": [
+      "~> 1.4"
+    ]
+  },
+  "source_files": [
+    "Barista/*.h",
+    "Barista/Core/*.{h,m}"
+  ],
+  "frameworks": [
+    "Foundation",
+    "Security"
+  ],
+  "subspecs": [
+    {
+      "name": "Core"
+    },
+    {
+      "name": "Middleware",
+      "dependencies": {
+        "Barista/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "BodyParsing",
+          "source_files": "Barista/Middleware/Body Parsing/*.{h,m}"
+        },
+        {
+          "name": "Cookies",
+          "source_files": "Barista/Middleware/Cookies/*.{h,m}"
+        },
+        {
+          "name": "Compression",
+          "source_files": [
+            "Barista/Middleware/Compression/*.{h,m}",
+            "Barista/Categories/NSData+BaristaExtensions.{h,m}"
+          ],
+          "libraries": "z"
+        },
+        {
+          "name": "Files",
+          "ios": {
+            "frameworks": "MobileCoreServices"
+          },
+          "source_files": "Barista/Middleware/Files/*.{h,m}"
+        },
+        {
+          "name": "Router",
+          "source_files": "Barista/Middleware/Router/*.{h,m}"
+        },
+        {
+          "name": "Sessions",
+          "source_files": "Barista/Middleware/Sessions/*.{h,m}"
+        },
+        {
+          "name": "Authentication",
+          "subspecs": [
+            {
+              "name": "Basic",
+              "source_files": [
+                "Barista/Middleware/Authentication/Basic/*.{h,m}",
+                "Barista/Categories/NSData+Base64.{h,m}"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Templates",
+          "source_files": "Barista/Middleware/Templates/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Mustache",
+              "dependencies": {
+                "GRMustache": [
+                  "~> 6.4.1"
+                ]
+              },
+              "source_files": "Barista/Middleware/Templates/Mustache/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

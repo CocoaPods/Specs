@@ -1,0 +1,133 @@
+{
+  "name": "Braintree",
+  "version": "4.1.0",
+  "summary": "Braintree v.zero: A modern foundation for accepting payments",
+  "description": "Braintree is a full-stack payments platform for developers\n\nThis CocoaPod will help you accept payments in your iOS app.\n\nCheck out our development portal at https://developers.braintreepayments.com.",
+  "homepage": "https://www.braintreepayments.com/v.zero",
+  "documentation_url": "https://developers.braintreepayments.com/ios/start/hello-client",
+  "screenshots": "https://raw.githubusercontent.com/braintree/braintree_ios/master/screenshot.png",
+  "license": "MIT",
+  "authors": {
+    "Braintree": "code@getbraintree.com"
+  },
+  "source": {
+    "git": "https://github.com/braintree/braintree_ios.git",
+    "tag": "4.1.0"
+  },
+  "social_media_url": "https://twitter.com/braintree",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "compiler_flags": "-Wall -Werror -Wextra",
+  "default_subspecs": [
+    "Core",
+    "Card",
+    "PayPal",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "BraintreeCore/**/*.{h,m}",
+      "public_header_files": "BraintreeCore/Public/*.h",
+      "frameworks": "AddressBook",
+      "weak_frameworks": "Contacts"
+    },
+    {
+      "name": "Apple-Pay",
+      "source_files": "BraintreeApplePay/**/*.{h,m}",
+      "public_header_files": "BraintreeApplePay/Public/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      },
+      "frameworks": "PassKit"
+    },
+    {
+      "name": "Card",
+      "source_files": "BraintreeCard/**/*.{h,m}",
+      "public_header_files": "BraintreeCard/Public/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DataCollector",
+      "source_files": "BraintreeDataCollector/**/*.{h,m}",
+      "public_header_files": "BraintreeDataCollector/Public/*.h",
+      "vendored_libraries": "BraintreeDataCollector/Kount/libDeviceCollectorLibrary.a"
+    },
+    {
+      "name": "PayPal",
+      "source_files": "BraintreePayPal/**/*.{h,m}",
+      "public_header_files": "BraintreePayPal/Public/**/*.h",
+      "frameworks": [
+        "CoreLocation",
+        "MessageUI",
+        "SystemConfiguration"
+      ],
+      "vendored_libraries": "BraintreePayPal/PayPalOneTouchCore/libPayPalOneTouchCore.a",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -lc++"
+      },
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Venmo",
+      "source_files": "BraintreeVenmo/**/*.{h,m}",
+      "public_header_files": "BraintreeVenmo/Public/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "BraintreeUI/**/*.{h,m}",
+      "public_header_files": "BraintreeUI/Public/*.h",
+      "frameworks": "UIKit",
+      "resource_bundles": {
+        "Braintree-UI-Localization": [
+          "BraintreeUI/Localization/*.lproj"
+        ],
+        "Braintree-Drop-In-Localization": [
+          "BraintreeUI/Drop-In/Localization/*.lproj"
+        ]
+      },
+      "dependencies": {
+        "Braintree/Core": [
+
+        ],
+        "Braintree/Card": [
+
+        ]
+      }
+    },
+    {
+      "name": "3D-Secure",
+      "source_files": "Braintree3DSecure/**/*.{h,m}",
+      "public_header_files": "Braintree3DSecure/Public/*.h",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ],
+        "Braintree/Card": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Braintree-3D-Secure-Localization": "Braintree3DSecure/Localization/*.lproj"
+      }
+    }
+  ]
+}

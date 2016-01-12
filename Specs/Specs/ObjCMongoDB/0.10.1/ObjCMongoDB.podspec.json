@@ -1,0 +1,59 @@
+{
+  "name": "ObjCMongoDB",
+  "version": "0.10.1",
+  "summary": "Mac OS and iOS library for MongoDB and BSON.",
+  "description": "                   Mac OS and iOS library for MongoDB and BSON.\n                    - Simple BSON encoding and decoding, using dictionaries.\n                    - Built-in support for arrays, dictionaries, embedded objects, strings, numbers, dates, object IDs, and the miscellaneous MongoDB types.\n                    - More complex encoding and decoding based on NSCoder's keyed coding scheme. A robust delegate interface lets you implement encoding and decoding entirely outside the model classes if necessary.\n                    - Automatically encodes and decodes Core Data entities. Using the coder's delegate interface you can customize the default behavior, or simply implement alternate behavior it in the entity class.\n                    - Aims to feel Cocoa-like, not Mongo-like. For example, method names in MongoKeyedPredicate and MongoUpdateRequest are natural in Cocoa, though they don't conform to the underlying Mongo keywords.\n",
+  "homepage": "https://github.com/paulmelnikow/ObjCMongoDB",
+  "license": "Apache",
+  "authors": {
+    "Paul Melnikow": "github@paulmelnikow.com"
+  },
+  "source": {
+    "git": "https://github.com/paulmelnikow/ObjCMongoDB.git",
+    "tag": "v0.10.1"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.6"
+  },
+  "requires_arc": false,
+  "dependencies": {
+    "mongo-c-driver": [
+      "~> 0.8.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "BSON",
+      "source_files": "BSON",
+      "private_header_files": [
+        "BSON/BSON_Helper.h",
+        "BSON/BSON_PrivateInterfaces.h"
+      ]
+    },
+    {
+      "name": "Mongo",
+      "source_files": "Mongo",
+      "private_header_files": [
+        "Mongo/Mongo_Helper.h",
+        "Mongo/Mongo_PrivateInterfaces.h"
+      ],
+      "dependencies": {
+        "ObjCMongoDB/BSON": [
+          "~> 0.10.1"
+        ],
+        "ObjCMongoDB/OrderedDictionary": [
+          "~> 0.10.1"
+        ]
+      }
+    },
+    {
+      "name": "OrderedDictionary",
+      "source_files": "OrderedDictionary",
+      "license": {
+        "type": "MIT",
+        "file": "OrderedDictionary/OrderedDictionary.h"
+      }
+    }
+  ]
+}

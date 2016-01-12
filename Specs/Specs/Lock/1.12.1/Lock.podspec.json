@@ -1,0 +1,254 @@
+{
+  "name": "Lock",
+  "version": "1.12.1",
+  "summary": "A library that uses Auth0 for Authentication with Native Look & Feel",
+  "description": "[![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)\n\nAuth0 is a SaaS that helps you with Authentication and Authorization. You can use Social Providers (Like Facebook, Google, Twitter, etc.), Enterprise Providers (Active Directory, LDap, Windows Azure AD, SAML, etc.) and a Username/Password store which can be saved either by us or by you. We have SDKs for the most common platforms (Ruby, Node, iOS, Angular, etc.) so that with a couple lines of code, you can get the Authentication for your app implemented. Let us worry about Authentication so that you can focus on the core of your business.\n",
+  "homepage": "https://github.com/auth0/Lock.iOS-OSX",
+  "license": "MIT",
+  "authors": [
+    {
+      "Auth0": "support@auth0.com"
+    },
+    {
+      "Hernan Zalazar": "hernan@auth0.com"
+    },
+    {
+      "Martin Gontovnikas": "gonto@auth0.com"
+    }
+  ],
+  "source": {
+    "git": "https://github.com/auth0/Lock.iOS-OSX.git",
+    "tag": "1.12.1"
+  },
+  "social_media_url": "https://twitter.com/auth0",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "libextobjc": [
+      "~> 0.4"
+    ],
+    "CocoaLumberjack": [
+      "~> 2.0.0-rc"
+    ]
+  },
+  "default_subspecs": [
+    "UI",
+    "Core"
+  ],
+  "prefix_header_contents": "    #import \"A0Logging.h\"\n    #define A0LocalizedString(key) NSLocalizedStringFromTable(key, @\"Lock\", nil)\n",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "Pod/Classes/Core/*.h",
+        "Pod/Classes/Lock.h"
+      ],
+      "private_header_files": [
+        "Pod/Classes/Core/Private/*.h"
+      ],
+      "source_files": [
+        "Pod/Classes/Core/*.{h,m}",
+        "Pod/Classes/Core/Private/*.{h,m}",
+        "Pod/Classes/Lock.h"
+      ],
+      "ios": {
+        "public_header_files": [
+          "Pod/Classes/Core/iOS/*.h",
+          "Pod/Classes/Provider/*.h"
+        ],
+        "source_files": [
+          "Pod/Classes/Core/iOS/*.{h,m}",
+          "Pod/Classes/Provider/*.{h,m}"
+        ]
+      },
+      "osx": {
+        "public_header_files": [
+          "Pod/Classes/Core/OSX/*.h"
+        ],
+        "source_files": [
+          "Pod/Classes/Core/OSX/*.{h,m}"
+        ]
+      },
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.5"
+        ],
+        "ISO8601DateFormatter": [
+          "~> 0.7"
+        ]
+      }
+    },
+    {
+      "name": "ReactiveCore",
+      "public_header_files": [
+        "Pod/Classes/ReactiveCore/*.h"
+      ],
+      "source_files": [
+        "Pod/Classes/ReactiveCore/*.{h,m}"
+      ],
+      "dependencies": {
+        "ReactiveCocoa": [
+          "~> 2.3"
+        ],
+        "Lock/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/UI/*.h",
+      "private_header_files": [
+        "Pod/Classes/UI/Private/*.h",
+        "Pod/Classes/Utils/*.h"
+      ],
+      "source_files": [
+        "Pod/Classes/{UI,Utils}/*.{h,m}",
+        "Pod/Classes/UI/Private/*.{h,m}"
+      ],
+      "dependencies": {
+        "Lock/Core": [
+
+        ]
+      },
+      "resources": "Pod/Assets/UI/*.xib",
+      "resource_bundles": {
+        "Auth0": [
+          "Pod/Assets/UI/Images/*.png",
+          "Pod/Assets/UI/*.plist",
+          "Pod/Assets/UI/*.ttf"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/Provider/Facebook/*.h",
+      "source_files": "Pod/Classes/Provider/Facebook/*.{h,m}",
+      "dependencies": {
+        "Lock/Core": [
+
+        ],
+        "Facebook-iOS-SDK": [
+          "~> 3.15"
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/Twitter/*.h",
+      "source_files": "Pod/Classes/Provider/Twitter/*.{h,m}",
+      "dependencies": {
+        "Lock/Core": [
+
+        ],
+        "BDBOAuth1Manager": [
+          "~> 1.5.0"
+        ],
+        "TWReverseAuth": [
+          "~> 0.1.0"
+        ],
+        "PSAlertView": [
+          "~> 2.0"
+        ]
+      },
+      "frameworks": [
+        "Social",
+        "Accounts",
+        "Twitter"
+      ]
+    },
+    {
+      "name": "GooglePlus",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/Provider/GooglePlus/*.h",
+      "source_files": "Pod/Classes/Provider/GooglePlus/*.{h,m}",
+      "dependencies": {
+        "Lock/Core": [
+
+        ],
+        "googleplus-ios-sdk": [
+          "~> 1.7.1"
+        ]
+      }
+    },
+    {
+      "name": "TouchID",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/TouchID/*.h",
+      "source_files": "Pod/Classes/TouchID/*.{h,m}",
+      "resources": "Pod/Assets/TouchID/*.xib",
+      "dependencies": {
+        "Lock/UI": [
+
+        ],
+        "SimpleKeychain": [
+          "~> 0.2"
+        ],
+        "TouchIDAuth": [
+          "~> 0.1"
+        ]
+      },
+      "resource_bundles": {
+        "Auth0.TouchID": [
+          "Pod/Assets/TouchID/Images/*.png"
+        ]
+      }
+    },
+    {
+      "name": "SMS",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/SMS/*.h",
+      "private_header_files": "Pod/Classes/SMS/Private/*.h",
+      "source_files": [
+        "Pod/Classes/SMS/*.{h,m}",
+        "Pod/Classes/SMS/Private/*.{h,m}"
+      ],
+      "resources": "Pod/Assets/SMS/*.xib",
+      "dependencies": {
+        "Lock/UI": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Auth0.SMS": [
+          "Pod/Assets/SMS/*.plist",
+          "Pod/Assets/SMS/Images/*.png"
+        ]
+      }
+    },
+    {
+      "name": "1Password",
+      "platforms": {
+        "ios": null
+      },
+      "public_header_files": "Pod/Classes/1Password/*.h",
+      "source_files": "Pod/Classes/1Password/*.{h,m}",
+      "dependencies": {
+        "1PasswordExtension": [
+          "~> 1.2"
+        ],
+        "Lock/Core": [
+
+        ]
+      }
+    }
+  ]
+}

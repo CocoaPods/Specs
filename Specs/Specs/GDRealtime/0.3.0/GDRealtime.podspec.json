@@ -1,0 +1,116 @@
+{
+  "name": "GDRealtime",
+  "version": "0.3.0",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "COPYING"
+  },
+  "summary": "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative apps via the use of operational transforms.",
+  "homepage": "https://github.com/goodow/realtime",
+  "authors": {
+    "Larry Tin": "dev@goodow.com"
+  },
+  "source": {
+    "git": "https://github.com/goodow/GDRealtime.git",
+    "tag": "v0.3.0"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "default"
+  ],
+  "header_mappings_dir": "Classes/generated/include",
+  "subspecs": [
+    {
+      "name": "default",
+      "ios": {
+        "source_files": "Classes/ios"
+      },
+      "dependencies": {
+        "GDRealtime/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "common",
+      "source_files": "Classes/common",
+      "dependencies": {
+        "Google-Diff-Match-Patch": [
+          "~> 0.0.1"
+        ],
+        "GTMHTTPFetcher": [
+          "~> 0.0.1"
+        ],
+        "GDRealtime/generated": [
+
+        ]
+      },
+      "header_mappings_dir": "Classes/generated/include"
+    },
+    {
+      "name": "generated",
+      "source_files": "Classes/generated/include/**/*.h",
+      "subspecs": [
+        {
+          "name": "elemental",
+          "source_files": "Classes/generated/elemental/**/*.m",
+          "dependencies": {
+            "J2ObjC": [
+              "0.8.6.1"
+            ]
+          },
+          "xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC/dist/include\""
+          }
+        },
+        {
+          "name": "operation",
+          "source_files": "Classes/generated/operation/**/*.m",
+          "dependencies": {
+            "GDRealtime/generated/elemental": [
+
+            ]
+          }
+        },
+        {
+          "name": "channel",
+          "source_files": "Classes/generated/channel/**/*.m",
+          "dependencies": {
+            "GDRealtime/generated/operation": [
+
+            ]
+          }
+        },
+        {
+          "name": "api",
+          "source_files": "Classes/generated/api/**/*.m",
+          "dependencies": {
+            "GDRealtime/generated/channel": [
+
+            ]
+          }
+        },
+        {
+          "name": "services",
+          "source_files": "Classes/generated/services/**/*.{h,m}",
+          "exclude_files": "Classes/generated/services/**/*_Sources.m",
+          "dependencies": {
+            "Google-API-Client/Common": [
+
+            ],
+            "Google-API-Client/Objects": [
+
+            ],
+            "Google-API-Client/Utilities": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

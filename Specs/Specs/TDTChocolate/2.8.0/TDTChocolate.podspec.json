@@ -1,0 +1,50 @@
+{
+  "name": "TDTChocolate",
+  "version": "2.8.0",
+  "summary": "Library containing additions to Cocoa and Cocoa Touch",
+  "homepage": "https://github.com/talk-to/Chocolate",
+  "authors": "Talk.to",
+  "license": "BSD",
+  "source": {
+    "git": "https://github.com/talk-to/Chocolate.git",
+    "tag": "2.8.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "header_mappings_dir": "TDTChocolate",
+  "subspecs": [
+    {
+      "name": "FoundationAdditions",
+      "source_files": [
+        "TDTChocolate/FoundationAdditions/*.{h,m}",
+        "TDTChocolate/TDTFoundationAdditions.h"
+      ]
+    },
+    {
+      "name": "TestingAdditions",
+      "source_files": [
+        "TDTChocolate/TestingAdditions/*.{h,m}",
+        "TDTChocolate/TDTTestingAdditions.h"
+      ]
+    },
+    {
+      "name": "CoreDataAdditions",
+      "dependencies": {
+        "TDTChocolate/FoundationAdditions": [
+
+        ]
+      },
+      "source_files": [
+        "TDTChocolate/CoreDataAdditions/*.{h,m}",
+        "TDTChocolate/TDTCoreDataAdditions.h"
+      ],
+      "frameworks": "CoreData",
+      "osx": {
+        "exclude_files": "TDTChocolate/CoreDataAdditions/NSFetchedResultsController+TDTAdditions.{h,m}"
+      }
+    }
+  ]
+}

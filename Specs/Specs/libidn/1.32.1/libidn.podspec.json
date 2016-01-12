@@ -1,0 +1,51 @@
+{
+  "name": "libidn",
+  "version": "1.32.1",
+  "summary": "Encode/decode i18n domains using Stringprep, Punycode and IDNA.",
+  "description": "GNU Libidn is a fully documented implementation of the Stringprep, Punycode and IDNA specifications. Libidn's purpose is to encode and decode internationalized domain names. The native C, C# and Java libraries are available under the GNU Lesser General Public License version 2.1 or later.\n\nThe library contains a generic Stringprep implementation. Profiles for Nameprep, iSCSI, SASL, XMPP and Kerberos V5 are included. Punycode and ASCII Compatible Encoding (ACE) via IDNA are supported. A mechanism to define Top-Level Domain (TLD) specific validation tables, and to compare strings against those tables, is included. Default tables for some TLDs are also included.\n\nThe Stringprep API consists of two main functions, one for converting data from the system's native representation into UTF-8, and one function to perform the Stringprep processing. Adding a new Stringprep profile for your application within the API is straightforward. The Punycode API consists of one encoding function and one decoding function. The IDNA API consists of the ToASCII and ToUnicode functions, as well as an high-level interface for converting entire domain names to and from the ACE encoded form. The TLD API consists of one set of functions to extract the TLD name from a domain string, one set of functions to locate the proper TLD table to use based on the TLD name, and core functions to validate a string against a TLD table, and some utility wrappers to perform all the steps in one call.\n\nThe library is used by, e.g., GNU SASL and Shishi to process user names and passwords. Libidn can be built into GNU Libc to enable a new system-wide getaddrinfo flag for IDN processing.\n\nLibidn is developed for the GNU/Linux system, but runs on over 20 Unix platforms (including Solaris, IRIX, AIX, and Tru64) and Windows. The library is written in C and (parts of) the API is also accessible from C++, Emacs Lisp, Python and Java. A native Java and C# port is included.\n\nAlso included is a command line tool, several self tests, code examples, and more, all licensed under the GNU General Public License version 3.0 or later.",
+  "homepage": "https://github.com/chrisballinger/libidn-podspec",
+  "license": {
+    "type": "LGPL",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Simon Josefsson": "simon@josefsson.org",
+    "Chris Ballinger (podspec maintainer)": "chrisballinger@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/jas4711",
+  "source": {
+    "git": "https://github.com/chrisballinger/libidn.git",
+    "tag": "1.32.1"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "lib/**/*.{c,h}",
+    "config.h",
+    "build-aux/snippet/unused-parameter.h"
+  ],
+  "public_header_files": [
+    "lib/idn-int.h",
+    "lib/idna.h",
+    "lib/pr29.h",
+    "lib/punycode.h",
+    "lib/stringprep.h",
+    "lib/tld.h"
+  ],
+  "exclude_files": [
+    "lib/idn-free.{c,h}",
+    "lib/gltests"
+  ],
+  "compiler_flags": [
+    "-DHAVE_CONFIG_H",
+    "-DLIBIDN_BUILDING",
+    "-DLOCALEDIR=\\\"/usr/share/locale\\\""
+  ],
+  "libraries": "iconv",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${SRCROOT} ${SRCROOT}/lib ${SRCROOT}/lib/gl"
+  }
+}

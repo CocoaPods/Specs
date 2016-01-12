@@ -1,0 +1,77 @@
+{
+  "name": "Objective-LevelDB",
+  "version": "2.0.1",
+  "license": "MIT",
+  "summary": "A feature-complete wrapper for LevelDB in Objective-C.",
+  "description": "This is a feature-complete wrapper for Google's LevelDB. LevelDB is a fast key-value store written by Google.",
+  "homepage": "https://github.com/matehat/Objective-LevelDB",
+  "authors": [
+    "Michael Hoisie",
+    "Mathieu D'Amours"
+  ],
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/matehat/Objective-LevelDB.git",
+    "tag": "v2.0.1",
+    "submodules": true
+  },
+  "source_files": "Classes/*.{h,m,mm}",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "leveldb",
+      "source_files": [
+        "leveldb-library/include/leveldb/*",
+        "leveldb-library/db/builder.cc",
+        "leveldb-library/db/c.cc",
+        "leveldb-library/db/db_impl.cc",
+        "leveldb-library/db/db_iter.cc",
+        "leveldb-library/db/dbformat.cc",
+        "leveldb-library/db/filename.cc",
+        "leveldb-library/db/log_reader.cc",
+        "leveldb-library/db/log_writer.cc",
+        "leveldb-library/db/memtable.cc",
+        "leveldb-library/db/repair.cc",
+        "leveldb-library/db/table_cache.cc",
+        "leveldb-library/db/version_edit.cc",
+        "leveldb-library/db/version_set.cc",
+        "leveldb-library/db/write_batch.cc",
+        "leveldb-library/table/block.cc",
+        "leveldb-library/table/block_builder.cc",
+        "leveldb-library/table/filter_block.cc",
+        "leveldb-library/table/format.cc",
+        "leveldb-library/table/iterator.cc",
+        "leveldb-library/table/merger.cc",
+        "leveldb-library/table/table.cc",
+        "leveldb-library/table/table_builder.cc",
+        "leveldb-library/table/two_level_iterator.cc",
+        "leveldb-library/util/arena.cc",
+        "leveldb-library/util/bloom.cc",
+        "leveldb-library/util/cache.cc",
+        "leveldb-library/util/coding.cc",
+        "leveldb-library/util/comparator.cc",
+        "leveldb-library/util/crc32c.cc",
+        "leveldb-library/util/env.cc",
+        "leveldb-library/util/env_posix.cc",
+        "leveldb-library/util/filter_policy.cc",
+        "leveldb-library/util/hash.cc",
+        "leveldb-library/util/histogram.cc",
+        "leveldb-library/util/logging.cc",
+        "leveldb-library/util/options.cc",
+        "leveldb-library/util/status.cc",
+        "leveldb-library/port/port_posix.cc"
+      ],
+      "header_dir": "leveldb",
+      "preserve_paths": "leveldb-library",
+      "xcconfig": {
+        "CC": "clang",
+        "CXX": "clang++",
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/Objective-LevelDB/leveldb-library\"",
+        "GCC_PREPROCESSOR_DEFINITIONS": "LEVELDB_PLATFORM_POSIX=1 OS_MACOSX=1"
+      }
+    }
+  ]
+}

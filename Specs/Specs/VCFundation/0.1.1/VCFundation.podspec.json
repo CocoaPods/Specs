@@ -1,0 +1,87 @@
+{
+  "name": "VCFundation",
+  "version": "0.1.1",
+  "summary": "some common features for vcolco",
+  "description": "                       For work in some common features , abstracted some basic modules , reduce repetitive tasks , thereby improving efficiency.\n",
+  "homepage": "https://bitbucket.org/vcolco/vcfoundation",
+  "license": "MIT",
+  "authors": {
+    "zhangzhonging": "cq_zhangzhongming@163.com"
+  },
+  "source": {
+    "git": "https://zhangzhongming_@bitbucket.org/vcolco/vcfoundation.git",
+    "tag": "v0.1.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "VCBase64",
+      "source_files": "Pod/Classes/GTMBase64/**/*",
+      "public_header_files": "Pod/Classes/GTMBase64/**/*.h",
+      "requires_arc": false
+    },
+    {
+      "name": "VCExceptionUpdateHandle",
+      "source_files": "Pod/Classes/UpdateException/**/*",
+      "public_header_files": "Pod/Classes/UpdateException/**/*.h",
+      "requires_arc": false,
+      "dependencies": {
+        "VCFundation/Service": [
+
+        ]
+      }
+    },
+    {
+      "name": "CommonTools",
+      "source_files": "Pod/Classes/CommonTools/**/*",
+      "public_header_files": "Pod/Classes/CommonTools/**/*.h",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreText",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "VCFundation/KeyChain": [
+
+        ],
+        "VCFundation/VCBase64": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetWorkEngine",
+      "source_files": "Pod/Classes/NetworkEngine/**/*",
+      "public_header_files": "Pod/Classes/NetworkEngine/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.5.4"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Pod/Classes/Core/**/*",
+      "public_header_files": "Pod/Classes/Core/**/*.h",
+      "dependencies": {
+        "VCFundation/NetWorkEngine": [
+
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "source_files": "Pod/Classes/Service/**/*",
+      "public_header_files": "Pod/Classes/Service/**/*.h"
+    },
+    {
+      "name": "KeyChain",
+      "source_files": "Pod/Classes/KeyChain/**/*",
+      "public_header_files": "Pod/Classes/KeyChain/**/*.h"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "ISAppearance",
+  "version": "0.1.2",
+  "license": "MIT",
+  "summary": "Appearance library.",
+  "authors": "Yaroslav Ponomarenko",
+  "source": {
+    "git": "https://github.com/InSightMobile/ISAppearance.git",
+    "tag": "0.1.2"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "ValueConverters"
+  ],
+  "homepage": "https://github.com/InSightMobile/ISAppearance",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "public_header_files": [
+    "ISAppearance/Core/ISAppearance.h",
+    "ISAppearance/Core/ISAValueConverter.h"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ISAppearance/Core/*.{h,m}",
+      "dependencies": {
+        "ISAppearance/ISYAML": [
+
+        ]
+      }
+    },
+    {
+      "name": "CodeGeneration",
+      "source_files": "ISAppearance/CodeGeneration/*.{h,m}",
+      "dependencies": {
+        "ISAppearance/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "\n    #if TARGET_IPHONE_SIMULATOR\n\t\t#define ISA_CODE_GENERATION 1\n\t\t#endif"
+    },
+    {
+      "name": "ValueConverters",
+      "source_files": "ISAppearance/ValueConverters/*.{h,m}",
+      "dependencies": {
+        "ISAppearance/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Categories",
+      "source_files": "ISAppearance/Categories/*.{h,m}",
+      "dependencies": {
+        "ISAppearance/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ISYAML",
+      "source_files": "ISYAML/*.{h,m}",
+      "dependencies": {
+        "LibYAML": [
+          "~> 0.1.4"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "JobKit",
+  "version": "0.9.0",
+  "summary": "Pesistent job queueing for iOS.",
+  "description": "                       Pesistent job queueing for iOS. Backed by Realm buy you can roll your own.\n",
+  "homepage": "https://github.com/cristianbica/JobKit",
+  "license": "MIT",
+  "authors": {
+    "Cristian Bica": "cristian.bica@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/cristianbica/JobKit.git",
+    "tag": "0.9.0"
+  },
+  "social_media_url": "https://twitter.com/cristianbica",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "All",
+      "source_files": "JobKit/**/*.{h,m}",
+      "public_header_files": "JobKit/**/*.h",
+      "resources": "JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}",
+      "dependencies": {
+        "Realm": [
+
+        ]
+      },
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "Core",
+      "source_files": "JobKit/{Core,Jobs,Worker}/*.{h,m}"
+    },
+    {
+      "name": "Realm",
+      "source_files": "JobKit/Adapters/RealmAdapter/*.{h,m}",
+      "dependencies": {
+        "Realm": [
+
+        ],
+        "JobKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Memory",
+      "source_files": "JobKit/Adapters/MemoryAdapter/*.{h,m}",
+      "dependencies": {
+        "JobKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "resources": "JobKit/Adapters/CoreDataAdapter/*.{xcdatamodeld,xcdatamodel}",
+      "source_files": "JobKit/Adapters/CoreDataAdapter/*.{h,m}",
+      "frameworks": "CoreData",
+      "dependencies": {
+        "JobKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Headers",
+      "source_files": "JobKit/**/*.h",
+      "public_header_files": "JobKit/**/*.h"
+    }
+  ]
+}

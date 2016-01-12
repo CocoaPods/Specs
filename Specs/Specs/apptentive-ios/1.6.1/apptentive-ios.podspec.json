@@ -1,0 +1,60 @@
+{
+  "name": "apptentive-ios",
+  "version": "1.6.1",
+  "license": "BSD",
+  "summary": "Apptentive Customer Communications SDK.",
+  "homepage": "https://www.apptentive.com/",
+  "authors": {
+    "Andrew Wooster": "andrew@apptentive.com",
+    "Peter Kamb": "peter@apptentive.com"
+  },
+  "source": {
+    "git": "https://github.com/apptentive/apptentive-ios.git",
+    "tag": "v1.6.1"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source_files": [
+    "ApptentiveConnect/source/**/*.{h,m}",
+    "ApptentiveConnect/ext/**/*.{h,m}"
+  ],
+  "exclude_files": "ApptentiveConnect/ext/PrefixedTTTAttributedLabel/**/*.*",
+  "requires_arc": false,
+  "frameworks": [
+    "Accelerate",
+    "AssetsLibrary",
+    "CoreGraphics",
+    "Foundation",
+    "QuartzCore",
+    "SystemConfiguration",
+    "UIKit",
+    "CoreData",
+    "CoreText"
+  ],
+  "resource_bundles": {
+    "ApptentiveResources": [
+      "ApptentiveConnect/source/Model/*.xcdatamodeld",
+      "ApptentiveConnect/xibs/**/*.*",
+      "ApptentiveConnect/resources/localization/*.lproj",
+      "ApptentiveConnect/art/generated/**/*.*",
+      "ApptentiveConnect/resources/CocoaPodsResources/Info.plist"
+    ]
+  },
+  "weak_frameworks": [
+    "StoreKit",
+    "CoreTelephony"
+  ],
+  "prefix_header_contents": "#import \"ATLog.h\"",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "TTTATTRIBUTEDLABEL_PREFIX=AT AT_LOGGING_LEVEL_ERROR=1"
+  },
+  "subspecs": [
+    {
+      "name": "arc-files",
+      "requires_arc": true,
+      "source_files": "ApptentiveConnect/ext/PrefixedTTTAttributedLabel/TTTAttributedLabel/*.{h,m}",
+      "prefix_header_contents": ""
+    }
+  ]
+}

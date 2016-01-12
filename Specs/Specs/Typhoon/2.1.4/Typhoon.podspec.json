@@ -1,0 +1,160 @@
+{
+  "name": "Typhoon",
+  "version": "2.1.4",
+  "license": "Apache2.0",
+  "summary": "A dependency injection container for Objective-C. Light-weight, yet flexible and full-featured.",
+  "homepage": "http://www.typhoonframework.org",
+  "authors": {
+    "Jasper Blues, Robert Gilliam, Daniel Rodríguez, Erik Sundin, Aleksey Garbarev & Contributors": "info@typhoonframework.org"
+  },
+  "source": {
+    "git": "https://github.com/appsquickly/Typhoon.git",
+    "tag": "2.1.4",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "documentation_url": "http://www.typhoonframework.org/docs/latest/api/",
+  "requires_arc": true,
+  "source_files": "Source/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Definition",
+      "source_files": "Source/Definition/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Method",
+          "source_files": "Source/Definition/Method/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Internal",
+              "source_files": "Source/Definition/Method/Internal/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "Injections",
+          "source_files": "Source/Definition/Injections/*.{h,m}"
+        },
+        {
+          "name": "Internal",
+          "source_files": "Source/Definition/Internal/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Factory",
+      "source_files": "Source/Factory/*.{h,m}",
+      "dependencies": {
+        "Typhoon/Definition": [
+
+        ],
+        "Typhoon/Utils": [
+
+        ],
+        "Typhoon/no-arc": [
+
+        ],
+        "Typhoon/Configuration": [
+
+        ],
+        "Typhoon/TypeConversion": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Block",
+          "source_files": "Source/Factory/Block/*.{h,m}"
+        },
+        {
+          "name": "Hooks",
+          "source_files": "Source/Factory/Hooks/*.{h,m}"
+        },
+        {
+          "name": "Internal",
+          "source_files": "Source/Factory/Internal/*.{h,m}",
+          "exclude_files": "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}"
+        },
+        {
+          "name": "Pool",
+          "source_files": "Source/Factory/Pool/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Configuration",
+      "source_files": "Source/Configuration/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "DefinitionOptionConfiguration",
+          "source_files": "Source/Configuration/DefinitionOptionConfiguration/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Factory",
+              "source_files": "Source/Configuration/DefinitionOptionConfiguration/Factory/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "ConfigPostProcessor",
+          "source_files": "Source/Configuration/ConfigPostProcessor/**/*.{h,m}"
+        },
+        {
+          "name": "Resource",
+          "source_files": "Source/Configuration/Resource/*.{h,m}"
+        },
+        {
+          "name": "Startup",
+          "source_files": "Source/Configuration/Startup/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "ios",
+      "platforms": {
+        "ios": "5.0"
+      },
+      "source_files": "Source/ios/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Configuration",
+          "source_files": "Source/ios/Configuration/**/*.{h,m}"
+        },
+        {
+          "name": "Storyboard",
+          "source_files": "Source/ios/Storyboard/**/*.{h,m}"
+        },
+        {
+          "name": "TypeConversion",
+          "source_files": "Source/ios/TypeConversion/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "TypeConversion",
+      "source_files": "Source/TypeConversion/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Converters",
+          "source_files": "Source/TypeConversion/Converters/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Utils",
+      "source_files": "Source/{Utils,Vendor}/**/*.{h,m}"
+    },
+    {
+      "name": "Test",
+      "source_files": "Source/Test/**/*.{h,m}"
+    },
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}"
+    }
+  ]
+}

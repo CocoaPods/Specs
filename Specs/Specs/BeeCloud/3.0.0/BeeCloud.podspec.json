@@ -1,0 +1,75 @@
+{
+  "name": "BeeCloud",
+  "version": "3.0.0",
+  "summary": "BeeCloud云服务 致力加速App开发",
+  "homepage": "http://beecloud.cn",
+  "license": "MIT",
+  "authors": {
+    "LacusRInz": "zhihaoq@beecloud.cn"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/beecloud/beecloud-ios.git",
+    "tag": "v3.0.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "BCPaySDK/**/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.5.4"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "External/AlipaySDK.framework",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "vendored_libraries": "External/libWeChatSDK.a",
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_libraries": "External/libUPPayPlugin.a",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    }
+  ]
+}

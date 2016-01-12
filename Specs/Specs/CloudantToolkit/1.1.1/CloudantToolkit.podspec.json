@@ -1,0 +1,46 @@
+{
+  "name": "CloudantToolkit",
+  "version": "1.1.1",
+  "summary": "Cloudant Toolkit allows interaction with both local and remote datastores.",
+  "description": "                   Cloudant Toolkit is for interacting with both local and remote Cloudant datastores\n                   using a single API. Interaction can be using objects or documents. Querying\n                   utilizes CloudantQuery functionality for both remote and local datastores.\n",
+  "homepage": "https://www.ng.bluemix.net/docs/",
+  "license": "IBM",
+  "authors": {
+    "Cloudant, Inc.": "support@cloudant.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "source": {
+    "git": "https://hub.jazz.net/git/imfsdk/imf-ios-sdk.git",
+    "tag": "1.1.1"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "CDTDatastore": [
+          "~> 0.18.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/CloudantToolkit.framework"
+    },
+    {
+      "name": "SQLCipher",
+      "frameworks": "SystemConfiguration",
+      "vendored_frameworks": "Frameworks/CloudantToolkit.framework",
+      "dependencies": {
+        "CDTDatastore/SQLCipher": [
+          "~> 0.18.0"
+        ]
+      }
+    }
+  ]
+}

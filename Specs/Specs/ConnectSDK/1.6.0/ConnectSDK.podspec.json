@@ -1,0 +1,80 @@
+{
+  "name": "ConnectSDK",
+  "version": "1.6.0",
+  "summary": "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms.",
+  "description": "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms. Because most TV platforms support a variety of protocols, Connect SDK integrates and abstracts the discovery and connectivity between all supported protocols.\n\nTo discover supported platforms and protocols, Connect SDK uses SSDP to discover services such as DIAL, DLNA, UDAP, and Roku's External Control Guide (ECG). Connect SDK also supports ZeroConf to discover devices such as Chromecast and Apple TV. Even while supporting multiple discovery protocols, Connect SDK is able to generate one unified list of discovered devices from the same network.\n\nTo communicate with discovered devices, Connect SDK integrates support for protocols such as DLNA, DIAL, SSAP, ECG, AirPlay, Chromecast, UDAP, and webOS second screen protocol. Connect SDK intelligently picks which protocol to use depending on the feature being used.\n\nFor example, when connecting to a 2013 LG Smart TV, Connect SDK uses DLNA for media playback, DIAL for YouTube launching, and UDAP for system controls. On Roku, media playback and system controls are made available through ECG, and YouTube launching through DIAL. On Chromecast, media playback occurs through the Cast protocol and YouTube is launched via DIAL.\n\nTo support the aforementioned use case without Connect SDK, a developer would need to implement DIAL, ECG, Chromecast, and DLNA in their app. With Connect SDK, discovering the three devices is handled for you. Furthermore, the method calls between each protocol is abstracted. That means you can use one method call to beam a video to Roku, 3 generations of LG Smart TVs, Apple TV, and Chromecast.",
+  "homepage": "http://www.connectsdk.com/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Connect SDK": "support@connectsdk.com"
+  },
+  "social_media_url": "http://twitter.com/ConnectSDK",
+  "platforms": {
+    "ios": "7.1"
+  },
+  "source": {
+    "git": "https://github.com/ConnectSDK/Connect-SDK-iOS.git",
+    "tag": "1.6.0",
+    "submodules": true
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "requires_arc": true,
+  "libraries": [
+    "z",
+    "icucore"
+  ],
+  "prefix_header_contents": "//\n//  Prefix header\n//\n//  The contents of this file are implicitly included at the beginning of every source file.\n//\n//  Copyright (c) 2015 LG Electronics.\n//\n//  Licensed under the Apache License, Version 2.0 (the \"License\");\n//  you may not use this file except in compliance with the License.\n//  You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n//  Unless required by applicable law or agreed to in writing, software\n//  distributed under the License is distributed on an \"AS IS\" BASIS,\n//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n//  See the License for the specific language governing permissions and\n//  limitations under the License.\n//\n\n#define CONNECT_SDK_VERSION @\"1.6.0\"\n\n// Uncomment this line to enable SDK logging\n//#define CONNECT_SDK_ENABLE_LOG\n\n#ifndef kConnectSDKWirelessSSIDChanged\n#define kConnectSDKWirelessSSIDChanged @\"Connect_SDK_Wireless_SSID_Changed\"\n#endif\n\n#ifdef CONNECT_SDK_ENABLE_LOG\n    // credit: http://stackoverflow.com/a/969291/2715\n    #ifdef DEBUG\n    #   define DLog(fmt, ...) NSLog((@\"%s [Line %d] \" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\n    #else\n    #   define DLog(...)\n    #endif\n#else\n    #   define DLog(...)\n#endif",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ConnectSDKDefaultPlatforms.h",
+        "core/**/*.{h,m}"
+      ],
+      "exclude_files": [
+        "core/Frameworks/asi-http-request/External/Reachability/*.{h,m}",
+        "core/Frameworks/asi-http-request/Classes/*.{h,m}",
+        "core/ConnectSDK*Tests/**/*"
+      ],
+      "private_header_files": "core/**/*_Private.h",
+      "requires_arc": true,
+      "dependencies": {
+        "ConnectSDK/no-arc": [
+
+        ]
+      }
+    },
+    {
+      "name": "no-arc",
+      "source_files": [
+        "core/Frameworks/asi-http-request/External/Reachability/*.{h,m}",
+        "core/Frameworks/asi-http-request/Classes/*.{h,m}"
+      ],
+      "requires_arc": false,
+      "compiler_flags": "-w"
+    },
+    {
+      "name": "GoogleCast",
+      "dependencies": {
+        "ConnectSDK/Core": [
+
+        ],
+        "google-cast-sdk": [
+          "2.7.1"
+        ]
+      },
+      "source_files": "modules/google-cast/**/*.{h,m}",
+      "exclude_files": "modules/google-cast/*Tests/**/*",
+      "private_header_files": "modules/google-cast/**/*_Private.h",
+      "frameworks": "GoogleCast",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-2.7.1-Release"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "cslim",
+  "version": "1.0.0",
+  "summary": "An implementation of FitNesse SliM for C and Objective-C",
+  "homepage": "https://github.com/dougbradbury/cslim",
+  "license": {
+    "type": "EPL",
+    "file": "LICENSE"
+  },
+  "authors": [
+    "Robert Martin",
+    "James Grenning",
+    "Doug Bradbury",
+    "Eric Myer"
+  ],
+  "source": {
+    "git": "https://github.com/paulstringer/cslim.git",
+    "tag": "v1.0.0"
+  },
+  "source_files": [
+    "include/Com/*.h",
+    "include/CSlim/*.h",
+    "include/ExecutorObjectiveC/*.h",
+    "src/Com/*",
+    "src/CSlim/*",
+    "src/ExecutorObjectiveC/*",
+    "fixtures/Main.c"
+  ],
+  "exclude_files": [
+    "src/ExecutorObjectiveC/OCSReturnValue.m",
+    "include/ExecutorObjectiveC/OCSReturnValue.h"
+  ],
+  "private_header_files": "**/*.h",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": [
+        "src/ExecutorObjectiveC/OCSReturnValue.m",
+        "include/ExecutorObjectiveC/OCSReturnValue.h"
+      ],
+      "compiler_flags": "-fno-objc-arc",
+      "private_header_files": "**/*.h",
+      "prefix_header_contents": ""
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "name": "CBDCoreDataToolKit",
+  "version": "3.2.0",
+  "summary": "Cloning, replacing, importing with CoreData",
+  "description": "                  Cloning, replacing, importing with CoreData\n\n                  * cloning a NSManagedObject from a NSManagedObjectContext (MOC) to another\n                  * replacing a NSManagedObject by another\n                  * importing objects from a MOC to another MOC\n                  * wrapping methods for fetching objects. These methods don't create the MOC, the NSManagedObjectModel, etc. So, they are fully working with NSPersistentDocument\n",
+  "authors": {
+    "Colas": "colas.bardavid@gmail.com"
+  },
+  "homepage": "https://github.com/colasjojo/CBDCoreDataToolKit",
+  "license": {
+    "type": "MIT"
+  },
+  "source": {
+    "git": "https://github.com/colasjojo/CBDCoreDataToolKit.git",
+    "tag": "3.2.0"
+  },
+  "source_files": "Classes/CBDCoreDataToolKit.h",
+  "prefix_header_contents": "#define TODO(args...)",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "frameworks": "CoreData",
+  "subspecs": [
+    {
+      "name": "Importing",
+      "source_files": "Classes/Importing/*.{h,m}",
+      "dependencies": {
+        "CBDCoreDataToolKit/ActiveRecord": [
+
+        ],
+        "CBDCoreDataToolKit/Classical_cloning": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "CBDCoreDataDiscriminator",
+          "dependencies": {
+            "CBDCoreDataToolKit/Misc": [
+
+            ],
+            "CBDCoreDataToolKit/Importing/CBDCoreDataDecision": [
+
+            ]
+          },
+          "source_files": "Classes/Importing/CBDCoreDataDiscriminator/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "CBDCoreDataDiscriminatorHint",
+              "source_files": "Classes/Importing/CBDCoreDataDiscriminator/CBDCoreDataDiscriminatorHint/**/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "CBDCoreDataDecision",
+          "dependencies": {
+            "CBDCoreDataToolKit/Misc": [
+
+            ]
+          },
+          "source_files": "Classes/Importing/CBDCoreDataDecision/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Classical_cloning",
+      "source_files": "Classes/Cloning/**/*.{h,m}"
+    },
+    {
+      "name": "Enhanced_Cloning",
+      "dependencies": {
+        "CBDCoreDataToolKit/Importing/CBDCoreDataDecision": [
+
+        ]
+      },
+      "source_files": "Classes/Enhanced Cloning/**/*.{h,m}"
+    },
+    {
+      "name": "Replacing",
+      "dependencies": {
+        "CBDCoreDataToolKit/Misc": [
+
+        ]
+      },
+      "source_files": "Classes/Replacing/**/*.{h,m}"
+    },
+    {
+      "name": "ActiveRecord",
+      "source_files": "Classes/ActiveRecord/**/*.{h,m}"
+    },
+    {
+      "name": "ConnectedEntities",
+      "source_files": "Classes/ConnectedEntities/**/*.{h,m}"
+    },
+    {
+      "name": "Misc",
+      "source_files": "Classes/Misc/**/*.{h,m}"
+    }
+  ]
+}

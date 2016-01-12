@@ -1,0 +1,60 @@
+{
+  "name": "Swig",
+  "version": "0.1.5",
+  "summary": "PJSIP Wrapper for ios",
+  "description": "                       Simplifing the use of pjsip on ios\n",
+  "homepage": "https://github.com/petester42/swig",
+  "license": "MIT",
+  "authors": {
+    "Pierre-Marc Airoldi": "pierremarcairoldi@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/petester42/swig.git",
+    "tag": "0.1.5"
+  },
+  "social_media_url": "https://twitter.com/petester42",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "resources": [
+    "Pod/Assets/*",
+    "Pod/SoundSwitch/*.caf"
+  ],
+  "source_files": [
+    "Pod/Classes/**/*{h,m}",
+    "Pod/SoundSwitch/*{h,m}"
+  ],
+  "preserve_paths": [
+    "Pod/Classes/**/*{h,m}",
+    "Pod/SoundSwitch/*{h,m}"
+  ],
+  "dependencies": {
+    "AFNetworking/Reachability": [
+      "~> 2.3"
+    ],
+    "libextobjc": [
+      "~> 0.4"
+    ],
+    "pjsip-ios": [
+      "~> 0.1"
+    ],
+    "CocoaLumberjack": [
+      "2.0.0-beta"
+    ]
+  },
+  "prefix_header_contents": [
+    "#import <libextobjc/extobjc.h>",
+    "#import <CocoaLumberjack/CocoaLumberjack.h>",
+    "#ifdef DEBUG",
+    "static const int ddLogLevel = LOG_LEVEL_VERBOSE;",
+    "#else",
+    "static const int ddLogLevel = LOG_LEVEL_OFF;",
+    "#endif"
+  ],
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "PJ_AUTOCONF=1",
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/pjsip-ios/Pod/pjsip-include",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/pjsip-ios/Pod/pjsip-lib"
+  }
+}

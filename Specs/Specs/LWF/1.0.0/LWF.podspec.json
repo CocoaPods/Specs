@@ -1,0 +1,81 @@
+{
+  "name": "LWF",
+  "version": "1.0.0",
+  "summary": "Lightweight SWF",
+  "description": "                   LWF is an animation engine which can play animation data converted from FLASH contents in HTML5, Unity, Cocos2d-x, iOS UIKit, and more. LWF is designed to make game development easy and fun.\n",
+  "homepage": "http://gree.github.io/lwf/",
+  "screenshots": [
+    "http://gree.github.io/lwf/images/LWF-logo.png",
+    "http://forum.unity3d.com/attachment.php?attachmentid=40904&d=1353390787"
+  ],
+  "license": {
+    "type": "zlib",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kazuki Sakamoto": "sakamoto@splhack.org"
+  },
+  "source": {
+    "git": "https://github.com/gree/lwf.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++0x",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "libraries": "c++",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "cplusplus/core/*.{cpp,h}",
+        "cplusplus/supports/lzma/*.{c,h}"
+      ],
+      "public_header_files": "cplusplus/core/*.h"
+    },
+    {
+      "name": "UIKit",
+      "dependencies": {
+        "LWF/Core": [
+
+        ]
+      },
+      "source_files": "cplusplus/uikit/*.{m,mm,h}",
+      "public_header_files": "cplusplus/uikit/*.h",
+      "requires_arc": true
+    },
+    {
+      "name": "Cocos2d-x",
+      "dependencies": {
+        "LWF/Core": [
+
+        ]
+      },
+      "source_files": "cplusplus/cocos2dx/*.{cpp,h}",
+      "public_header_files": "cplusplus/cocos2dx/*.h"
+    },
+    {
+      "name": "Lua",
+      "dependencies": {
+        "LWF/Core": [
+
+        ]
+      },
+      "source_files": [
+        "cplusplus/binding/lua/*.{cpp,h}",
+        "cplusplus/supports/luna-gen/*.{cpp,h}"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "LWF_USE_LUA"
+      }
+    }
+  ]
+}

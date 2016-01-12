@@ -1,0 +1,61 @@
+{
+  "name": "google-cast-sdk",
+  "version": "2.10.0",
+  "license": {
+    "type": "Commercial",
+    "text": "https://developers.google.com/terms/"
+  },
+  "summary": "Framework for casting content to Google Cast devices",
+  "description": "Google Cast is a screen-sharing technology that lets a user send and\\ncontrol content like video from a small computing device like a phone,\\ntablet, or laptop to a large display device like a television.\\n\\nA sender application running on the sender device uses the Google Cast\\nAPI appropriate to its operating system to discover and transmit to the\\nreceiver application running on the receiver device. You can use the\\nsender APIs to enable your iOS app to send content to a large display.\\n",
+  "homepage": "https://developers.google.com/cast/",
+  "authors": "Google, Inc.",
+  "source": {
+    "http": "https://redirector.gvt1.com/edgedl/chromecast/sdk/ios/GoogleCastSDK-2.10.0-Release-ios-default-External.zip"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "Accelerate",
+    "AudioToolbox",
+    "AVFoundation",
+    "CFNetwork",
+    "CoreBluetooth",
+    "CoreText",
+    "MediaPlayer",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "xcconfig": {
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GoogleCastSDK-2.10.0-Release/GoogleCast.framework/Versions/A/Headers/*.h",
+      "preserve_paths": "GoogleCastSDK-2.10.0-Release/GoogleCast.framework",
+      "requires_arc": true,
+      "vendored_frameworks": [
+        "GoogleCastSDK-2.10.0-Release/GoogleCast.framework"
+      ],
+      "libraries": [
+        "c++"
+      ],
+      "resources": [
+        "GoogleCastSDK-2.10.0-Release/GoogleCast.framework/GoogleCastResources.bundle"
+      ]
+    },
+    {
+      "name": "Assets",
+      "dependencies": {
+        "google-cast-sdk/Core": [
+
+        ]
+      },
+      "resource_bundles": {
+        "CastFrameworkAssets": [
+          "GoogleCastSDK-2.10.0-Release/CastFrameworkAssets.xcassets"
+        ]
+      }
+    }
+  ]
+}

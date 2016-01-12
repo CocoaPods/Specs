@@ -1,0 +1,120 @@
+{
+  "name": "GDRealtime",
+  "version": "0.0.1",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "summary": "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative apps via the use of operational transforms.",
+  "homepage": "https://github.com/goodow/realtime",
+  "authors": {
+    "Larry Tin": "dev@goodow.com"
+  },
+  "source": {
+    "git": "https://github.com/goodow/GDRealtime.git",
+    "tag": "v0.0.1"
+  },
+  "default_subspecs": [
+    "default"
+  ],
+  "header_mappings_dir": "Classes/generated/include",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "default",
+      "ios": {
+        "source_files": "Classes/ios"
+      },
+      "dependencies": {
+        "jre_emul": [
+          "~> 0.7.2"
+        ],
+        "GDRealtime/common": [
+
+        ],
+        "GDRealtime/generated/services": [
+
+        ]
+      }
+    },
+    {
+      "name": "common",
+      "source_files": [
+        "Classes/common",
+        "Classes/generated/include/**/*.h"
+      ],
+      "dependencies": {
+        "Google-Diff-Match-Patch": [
+          "~> 0.0.1"
+        ],
+        "GTMHTTPFetcher": [
+          "~> 0.0.1"
+        ],
+        "GDRealtime/generated/channel": [
+
+        ]
+      }
+    },
+    {
+      "name": "generated",
+      "subspecs": [
+        {
+          "name": "elemental",
+          "source_files": "Classes/generated/elemental/**/*.m",
+          "requires_arc": false
+        },
+        {
+          "name": "model",
+          "source_files": "Classes/generated/model/**/*.m",
+          "subspecs": [
+            {
+              "name": "op",
+              "source_files": "Classes/generated/operation/**/*.m",
+              "requires_arc": false,
+              "dependencies": {
+                "GDRealtime/generated/elemental": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "channel",
+          "source_files": "Classes/generated/channel/**/*.m",
+          "dependencies": {
+            "GDRealtime/generated/model": [
+
+            ]
+          }
+        },
+        {
+          "name": "services",
+          "source_files": "Classes/generated/services/**/*.{h,m}",
+          "dependencies": {
+            "Google-API-Client/Common": [
+
+            ],
+            "Google-API-Client/Objects": [
+
+            ],
+            "Google-API-Client/Utilities": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "dependencies": {
+        "GDRealtime/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/jre_emul/dist/include\" \"${PODS_ROOT}/jre_emul/jre_emul/icu4c/i18n/include\" \"${PODS_ROOT}/jre_emul/jre_emul/icu4c/common\""
+      }
+    }
+  ]
+}

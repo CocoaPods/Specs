@@ -1,0 +1,101 @@
+{
+  "name": "Braintree",
+  "version": "3.2.0",
+  "summary": "Braintree v.zero SDK. Accept payments in your app",
+  "description": "                       Braintree is a full-stack payments platform for developers\n\n                       This CocoaPod will help you accept credit card and PayPal payments in your iOS app.\n\n                       Check out our development portal at https://developers.braintreepayments.com.\n",
+  "homepage": "https://www.braintreepayments.com/v.zero",
+  "screenshots": "https://raw.githubusercontent.com/braintree/braintree_ios/master/screenshot.png",
+  "license": "MIT",
+  "authors": {
+    "Braintree": "code@getbraintree.com"
+  },
+  "source": {
+    "git": "https://github.com/braintree/braintree_ios.git",
+    "tag": "3.2.0"
+  },
+  "social_media_url": "https://twitter.com/braintree",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Braintree/*.{m,h}",
+  "compiler_flags": "-Wall -Werror -Wextra",
+  "xcconfig": {
+    "GCC_TREAT_WARNINGS_AS_ERRORS": "YES"
+  },
+  "default_subspecs": [
+    "Drop-In",
+    "API",
+    "PayPal",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Drop-In",
+      "source_files": "Braintree/Drop-In/**/*.{h,m}",
+      "public_header_files": "Braintree/Drop-In/Public/*.h",
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/PayPal": [
+
+        ],
+        "Braintree/UI": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Braintree-Drop-In-Localization": "Braintree/Drop-In/Braintree-Drop-In/Localization/*.lproj"
+      }
+    },
+    {
+      "name": "API",
+      "source_files": "Braintree/API/Braintree-API/**/*.{h,m}",
+      "public_header_files": "Braintree/API/Braintree-API/Public/*.h"
+    },
+    {
+      "name": "PayPal",
+      "source_files": "Braintree/PayPal/Braintree-PayPal/**/*.{h,m}",
+      "public_header_files": "Braintree/PayPal/Braintree-PayPal/**/*.h",
+      "frameworks": [
+        "AVFoundation",
+        "CoreLocation",
+        "MessageUI",
+        "SystemConfiguration"
+      ],
+      "vendored_libraries": "Braintree/PayPal/Braintree-PayPal/PayPalMobileSDK/libPayPalMobile.a",
+      "xcconfig": {
+        "GCC_TREAT_WARNINGS_AS_ERRORS": "YES",
+        "OTHER_LDFLAGS": "-ObjC -lc++"
+      },
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Braintree/UI/Braintree-Payments-UI/**/*.{h,m}",
+      "public_header_files": "Braintree/UI/Braintree-Payments-UI/**/*.h",
+      "compiler_flags": "-Wall -Wextra",
+      "frameworks": "UIKit",
+      "resource_bundles": {
+        "Braintree-UI-Localization": "Braintree/UI/Braintree-Payments-UI/Localization/*.lproj"
+      }
+    },
+    {
+      "name": "Data",
+      "source_files": "Braintree/Data/Braintree-Data/**/*.{h,m}",
+      "vendored_libraries": "Braintree/Data/Braintree-Data/libDeviceCollectorLibrary.a",
+      "frameworks": [
+        "UIKit",
+        "SystemConfiguration"
+      ]
+    }
+  ]
+}

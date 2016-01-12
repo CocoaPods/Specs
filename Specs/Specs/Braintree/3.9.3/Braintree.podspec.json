@@ -1,0 +1,199 @@
+{
+  "name": "Braintree",
+  "version": "3.9.3",
+  "summary": "Braintree v.zero: A modern foundation for accepting payments",
+  "description": "Braintree is a full-stack payments platform for developers\n\nThis CocoaPod will help you accept payments in your iOS app.\n\nCheck out our development portal at https://developers.braintreepayments.com.",
+  "homepage": "https://www.braintreepayments.com/v.zero",
+  "documentation_url": "https://developers.braintreepayments.com/ios/start/hello-client",
+  "screenshots": "https://raw.githubusercontent.com/braintree/braintree_ios/master/screenshot.png",
+  "license": "MIT",
+  "authors": {
+    "Braintree": "code@getbraintree.com"
+  },
+  "source": {
+    "git": "https://github.com/braintree/braintree_ios.git",
+    "tag": "3.9.3"
+  },
+  "social_media_url": "https://twitter.com/braintree",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Braintree/*.{m,h}",
+  "compiler_flags": "-Wall -Werror -Wextra",
+  "default_subspecs": [
+    "Drop-In",
+    "API",
+    "PayPal",
+    "Venmo",
+    "Coinbase",
+    "UI",
+    "Payments"
+  ],
+  "subspecs": [
+    {
+      "name": "Apple-Pay",
+      "dependencies": {
+        "Braintree/Payments": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "BT_ENABLE_APPLE_PAY=1"
+      },
+      "frameworks": "PassKit"
+    },
+    {
+      "name": "Drop-In",
+      "source_files": "Braintree/Drop-In/**/*.{h,m}",
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/PayPal": [
+
+        ],
+        "Braintree/UI": [
+
+        ],
+        "Braintree/Venmo": [
+
+        ],
+        "Braintree/Coinbase": [
+
+        ],
+        "Braintree/Payments": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Braintree-Drop-In-Localization": "Braintree/Drop-In/Localization/*.lproj"
+      }
+    },
+    {
+      "name": "API",
+      "source_files": "Braintree/API/**/*.{h,m}",
+      "public_header_files": "Braintree/API/@Public/*.h",
+      "weak_frameworks": "PassKit",
+      "frameworks": "AddressBook"
+    },
+    {
+      "name": "PayPal",
+      "source_files": "Braintree/PayPal/**/*.{h,m}",
+      "public_header_files": "Braintree/PayPal/@Public/**/*.h",
+      "frameworks": [
+        "Accelerate",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreMedia",
+        "AudioToolbox",
+        "MessageUI",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ],
+      "vendored_libraries": "Braintree/PayPal/mSDK/libPayPalMobile-BT.a",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -lc++"
+      },
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Venmo",
+      "source_files": "Braintree/Venmo/**/*.{h,m}",
+      "compiler_flags": "-Wall -Wextra",
+      "dependencies": {
+        "Braintree/API": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Braintree/UI/**/*.{h,m}",
+      "compiler_flags": "-Wall -Wextra",
+      "frameworks": "UIKit",
+      "resource_bundles": {
+        "Braintree-UI-Localization": "Braintree/UI/Localization/*.lproj"
+      },
+      "dependencies": {
+        "Braintree/API": [
+
+        ]
+      }
+    },
+    {
+      "name": "Data",
+      "source_files": "Braintree/Data/**/*.{h,m}",
+      "vendored_libraries": "Braintree/Data/libDeviceCollectorLibrary.a",
+      "frameworks": [
+        "UIKit",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "Braintree/PayPal": [
+
+        ],
+        "Braintree/API": [
+
+        ]
+      }
+    },
+    {
+      "name": "Payments",
+      "source_files": "Braintree/Payments/**/*.{h,m}",
+      "public_header_files": "Braintree/Payments/@Public/*.h",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/PayPal": [
+
+        ],
+        "Braintree/Venmo": [
+
+        ],
+        "Braintree/Coinbase": [
+
+        ]
+      }
+    },
+    {
+      "name": "3D-Secure",
+      "source_files": "Braintree/3D-Secure/**/*.{h,m}",
+      "public_header_files": "Braintree/3D-Secure/@Public/*.h",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "Braintree/API": [
+
+        ],
+        "Braintree/UI": [
+
+        ],
+        "Braintree/Payments": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Braintree-3D-Secure-Localization": "Braintree/3D-Secure/Localization/*.lproj"
+      }
+    },
+    {
+      "name": "Coinbase",
+      "source_files": "Braintree/Coinbase/**/*.{h,m}",
+      "public_header_files": "Braintree/Coinbase/@Public/*.h",
+      "dependencies": {
+        "Braintree/API": [
+
+        ]
+      }
+    }
+  ]
+}

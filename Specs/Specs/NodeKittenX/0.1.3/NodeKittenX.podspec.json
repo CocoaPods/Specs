@@ -1,0 +1,58 @@
+{
+  "name": "NodeKittenX",
+  "version": "0.1.3",
+  "summary": "experimental GL(es) framework written in c++11",
+  "homepage": "https://github.com/structuresound/NodeKittenX",
+  "license": "MIT",
+  "authors": {
+    "structuresound": "leif@structuresound.com"
+  },
+  "source": {
+    "git": "https://github.com/structuresound/NodeKittenX.git",
+    "tag": "0.1.3"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.9"
+  },
+  "source_files": [
+    "blocks/leif/NodeKittenX/*.{h}",
+    "blocks/leif/NodeKittenX/Platform/Cocoa/*.{h,mm,cpp}",
+    "blocks/leif/NodeKittenX/Event/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/Node/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/Shader/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/Texture/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/Types/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/Utils/*.{h,cpp}",
+    "blocks/leif/NodeKittenX/View/NKView.{h,cpp}",
+    "blocks/leif/NodeKittenX/Examples/*.{h,cpp}"
+  ],
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "osx": {
+    "frameworks": "AppKit"
+  },
+  "resources": "blocks/leif/NodeKittenX/Examples/Assets/*.{png,jpg}",
+  "requires_arc": true,
+  "xcconfig": {
+    "CLANG_CXX_LIBRARY": "libc++",
+    "GCC_OPTIMIZATION_LEVEL": "3"
+  },
+  "subspecs": [
+    {
+      "name": "picojpeg",
+      "source_files": "deps/leif/picojpeg/*.{h,c,cpp}"
+    },
+    {
+      "name": "png",
+      "source_files": "deps/leif/png/*.{h,c}",
+      "subspecs": [
+        {
+          "name": "zlib",
+          "source_files": "deps/leif/zlib/*.{h,c}"
+        }
+      ]
+    }
+  ]
+}
