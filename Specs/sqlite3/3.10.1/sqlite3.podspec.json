@@ -1,0 +1,184 @@
+{
+  "name": "sqlite3",
+  "version": "3.10.1",
+  "license": {
+    "type": "Public Domain",
+    "text": "      All of the code and documentation in SQLite has been dedicated to the public domain by the authors.\n      All code authors, and representatives of the companies they work for, have signed affidavits dedicating their contributions to the public domain and originals of those signed affidavits are stored in a firesafe at the main offices of Hwaci.\n      Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original SQLite code, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.\n"
+  },
+  "summary": "SQLite is an embedded SQL database engine",
+  "documentation_url": "https://sqlite.org/docs.html",
+  "homepage": "https://github.com/clemensg/sqlite3pod",
+  "authors": {
+    "Clemens Gruber": "clemensgru@gmail.com"
+  },
+  "source": {
+    "http": "https://www.sqlite.org/2016/sqlite-amalgamation-3100100.zip"
+  },
+  "requires_arc": false,
+  "default_subspecs": "common",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  },
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": "sqlite-amalgamation-3100100/sqlite*.{h,c}",
+      "osx": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "$(inherited) -DHAVE_USLEEP=1"
+        }
+      },
+      "ios": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "$(inherited) -DHAVE_USLEEP=1 -DSQLITE_ENABLE_LOCKING_STYLE=0"
+        }
+      }
+    },
+    {
+      "name": "api_armor",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_API_ARMOR=1"
+      }
+    },
+    {
+      "name": "coldata",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_COLUMN_METADATA=1"
+      }
+    },
+    {
+      "name": "fts",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1"
+      }
+    },
+    {
+      "name": "fts5",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_FTS5=1"
+      }
+    },
+    {
+      "name": "json1",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_JSON1=1"
+      }
+    },
+    {
+      "name": "rbu",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_RBU=1"
+      }
+    },
+    {
+      "name": "rtree",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_RTREE=1"
+      }
+    },
+    {
+      "name": "snapshot",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_SNAPSHOT=1"
+      }
+    },
+    {
+      "name": "soundex",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_SOUNDEX=1"
+      }
+    },
+    {
+      "name": "stat3",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_STAT3=1"
+      }
+    },
+    {
+      "name": "stat4",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_STAT4=1"
+      }
+    },
+    {
+      "name": "unicode61",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ],
+        "sqlite3/fts": [
+
+        ]
+      }
+    },
+    {
+      "name": "unlock_notify",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_ENABLE_UNLOCK_NOTIFY=1"
+      }
+    }
+  ]
+}
