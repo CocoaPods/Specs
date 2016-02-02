@@ -1,0 +1,56 @@
+{
+  "name": "PINRemoteImage",
+  "version": "1.2.3",
+  "summary": "A thread safe, performant, feature rich image fetcher",
+  "homepage": "https://github.com/pinterest/PINRemoteImage",
+  "license": "Apache 2.0",
+  "authors": {
+    "Garrett Moon": "garrett@pinterest.com"
+  },
+  "source": {
+    "git": "https://github.com/pinterest/PINRemoteImage.git",
+    "tag": "1.2.3"
+  },
+  "social_media_url": "https://twitter.com/garrettmoon",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "FLAnimatedImage",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/Classes/**/*.{h,m}",
+      "exclude_files": [
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.h",
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.m"
+      ],
+      "public_header_files": "Pod/Classes/**/*.h",
+      "frameworks": [
+        "UIKit",
+        "ImageIO",
+        "Accelerate"
+      ],
+      "dependencies": {
+        "PINCache": [
+          ">=2.1"
+        ]
+      }
+    },
+    {
+      "name": "FLAnimatedImage",
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ],
+        "FLAnimatedImage": [
+          ">= 1.0"
+        ]
+      },
+      "source_files": [
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.h",
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.m"
+      ]
+    }
+  ]
+}
