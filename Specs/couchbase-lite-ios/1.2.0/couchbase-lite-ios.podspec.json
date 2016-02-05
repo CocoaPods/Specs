@@ -1,0 +1,57 @@
+{
+  "name": "couchbase-lite-ios",
+  "version": "1.2.0",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "http://mobile.couchbase.com",
+  "summary": "An embedded syncable NoSQL database for iOS apps.",
+  "authors": "Couchbase",
+  "source": {
+    "http": "http://packages.couchbase.com/releases/couchbase-lite/ios/1.2.0/couchbase-lite-ios-community_1.2.0-112.zip"
+  },
+  "preserve_paths": "LICENSE.txt",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": "z",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "SQLite",
+  "subspecs": [
+    {
+      "name": "SQLite",
+      "libraries": "sqlite3",
+      "preserve_paths": "CouchbaseLite.framework",
+      "vendored_frameworks": "CouchbaseLite.framework"
+    },
+    {
+      "name": "SQLCipher",
+      "vendored_libraries": "Extras/libsqlcipher.a",
+      "preserve_paths": "CouchbaseLite.framework",
+      "vendored_frameworks": "CouchbaseLite.framework"
+    },
+    {
+      "name": "ForestDB",
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ],
+      "vendored_libraries": "Extras/libCBLForestDBStorage.a",
+      "preserve_paths": "CouchbaseLite.framework",
+      "vendored_frameworks": "CouchbaseLite.framework"
+    },
+    {
+      "name": "Listener",
+      "preserve_paths": "CouchbaseLiteListener.framework",
+      "vendored_frameworks": "CouchbaseLiteListener.framework"
+    }
+  ]
+}
