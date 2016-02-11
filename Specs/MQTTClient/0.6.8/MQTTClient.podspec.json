@@ -1,0 +1,58 @@
+{
+  "name": "MQTTClient",
+  "version": "0.6.8",
+  "summary": "iOS, OSX and tvOS native ObjectiveC MQTT Client Framework",
+  "homepage": "https://github.com/ckrey/MQTT-Client-Framework",
+  "license": {
+    "type": "EPLv1",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Christoph Krey": "krey.christoph@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ckrey/MQTT-Client-Framework.git",
+    "tag": "0.6.8",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.1",
+    "osx": "10.10",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Core",
+  "compiler_flags": "-DLUMBERJACK",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "MQTTClient/MQTTClient",
+        "MQTTClient/MQTTClient/*.{h,m}"
+      ],
+      "dependencies": {
+        "CocoaLumberjack": [
+
+        ]
+      }
+    },
+    {
+      "name": "Websocket",
+      "platforms": {
+        "ios": "6.1",
+        "osx": "10.10"
+      },
+      "source_files": "MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}",
+      "dependencies": {
+        "SocketRocket": [
+
+        ],
+        "MQTTClient/Core": [
+
+        ]
+      },
+      "requires_arc": true,
+      "libraries": "icucore"
+    }
+  ]
+}
