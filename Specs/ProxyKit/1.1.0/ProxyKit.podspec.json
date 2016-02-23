@@ -1,0 +1,70 @@
+{
+  "name": "ProxyKit",
+  "version": "1.1.0",
+  "summary": "SOCKS proxy server and socket client built upon GCDAsyncSocket.",
+  "homepage": "https://github.com/chrisballinger/ProxyKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Chris Ballinger": "chrisballinger@gmail.com"
+  },
+  "social_media_url": "https://github.com/chrisballinger",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/chrisballinger/ProxyKit.git",
+    "tag": "1.1.0"
+  },
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "common",
+      "dependencies": {
+        "CocoaAsyncSocket": [
+          "~> 7.4"
+        ],
+        "CocoaLumberjack": [
+          "~> 2.2"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Server",
+      "source_files": "ProxyKit/Server/*.{h,m}",
+      "dependencies": {
+        "ProxyKit/common": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Client",
+      "source_files": "ProxyKit/Client/*.{h,m}",
+      "dependencies": {
+        "ProxyKit/common": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "standard",
+      "dependencies": {
+        "ProxyKit/Client": [
+
+        ],
+        "ProxyKit/Server": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
