@@ -1,0 +1,28 @@
+{
+  "name": "ARSLineProgress",
+  "version": "1.1.1",
+  "summary": "iOS progress bar, replacement for the default activity indicator.",
+  "description": "![ARSLineProgress](http://git.arsenkin.com/ARSLineProgress/ARSLineProgress.png)\n\n# ARSLineProgress\niOS progress bar as a replacement for iOS activity indicator. This progress HUD will add some nice style touch to your application. Moreover, you can customize this progress loader through customization structure.\n\n|                Infinite               |               Success               |              Fail             |          No State Animation      |\n| ------------------------------------- | ----------------------------------- | ----------------------------- | -------------------------------- |\n| ![ARSLineProgress Infinite][Infinite] | ![ARSLineProgress Success][Success] | ![ARSLineProgress Fail][Fail] | ![ARSLineProgress NoState][NoState] |\n\n[Infinite]: http://git.arsenkin.com/ARSLineProgress/ARSLineProgress_infinite.gif\n[Success]: http://git.arsenkin.com/ARSLineProgress/ARSLineProgress_progress_with_success.gif\n[Fail]: http://git.arsenkin.com/ARSLineProgress/ARSLineProgress_progress_with_fail.gif\n[NoState]: http://git.arsenkin.com/ARSLineProgress/ARSLineProgress_without_final_animation.gif\n\n## Installation\n\n### Carthage\nTo install with [Carthage](https://github.com/Carthage/Carthage), simply specify this on your `Cartfile`:\n\n    github \"soberman/ARSLineProgress\" >= 1.0\n\nIn case you don't Carthage installed yet, you could do this with [Homebrew](http://brew.sh/):\n\n``` Bash\n$ brew update\n$ brew install carthage\n```\n\nI would also advise to refer to this section of the Carthage description, for when [you're building for iOS, tvOS or WatchOS](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos)\n\n### CocoaPods\nTo install with [CocoaPods](http://cocoapods.org/), copy and paste this in your *Podfile* file:\n\n    use_frameworks!\n    platform :ios, '8.0'\n    pod 'ARSLineProgress', '~> 1.0'\n\n### Rookie way\nYou can always to do the old way - just drag the source file into your projects and you are good to go.\n\n## Usage\nARSLineProgress makes it easy to use it - you have `ARSLineProgress` class, that offer you a wide range of class methods to show progress loader.\n\n###### Showing\nYou can show progress indicator in two modes: infinite and progress.\nInfinite progress will be shown until you hide it.\n``` Swift\nclass func show()\nclass func showWithPresentCompetionBlock(block: () -> Void)\nclass func showOnView(view: UIView)\nclass func showOnView(view: UIView, completionBlock: () -> Void)\n\nclass func hide()\nclass func hideWithCompletionBlock(block: () -> Void)\n```\n\nProgress indicator will be shown until the `NSProgress` object has the `fractionCompleted` value `1.0` or in case you have passed raw value - `100.0`.\n\n``` Swift\nclass func showWithProgressObject(progress: NSProgress)\nclass func showWithProgressObject(progress: NSProgress, completionBlock: (() -> Void)?)\nclass func showWithProgressObject(progress: NSProgress, onView: UIView)\nclass func showWithProgressObject(progress: NSProgress, onView: UIView, completionBlock: (() -> Void)?)\n\n// Updating progress in case you are using on of the methods above:\nclass func updateWithProgress(value: CGFloat)\n\n// initialValue should be from 0 to 100 in these methods\nclass func showWithProgress(initialValue value: CGFloat)\nclass func showWithProgress(initialValue value: CGFloat, completionBlock: (() -> Void)?)\nclass func showWithProgress(initialValue value: CGFloat, onView: UIView)\nclass func showWithProgress(initialValue value: CGFloat, onView: UIView, completionBlock: (() -> Void)?)\n```\n\nYou are able to show just the 'success' checkmark or fail with these methods:\n``` Swift\nstatic func showSuccess()\nstatic func showFail()\n```\n\n###### Hiding\nHiding progressHUD is can be similar to what you have done so far with the infinite loader, or you could use these dedicated methods:\n\n``` Swift\nclass func cancelPorgressWithFailAnimation(showFail: Bool)\nclass func cancelPorgressWithFailAnimation(showFail: Bool, completionBlock: (() -> Void)?)\n```\n\n## Customization\nYou can customize progressHUD through the `ARSLineProgressConfiguration` structure, that offers you a wide range of customization. Any changes are going to be visible only if you have set them before showing preloader, otherwise they are going to be visible during your next show of preloader.\n\nOnce you changed your mind and you want to restore ARSLineProgressConfiguration to its default parameters - use `static func restoreDefaults()` method.\n\n## Other\nARSLineProgress automatically responds to orientation changes, so it always going to be centered on the screen.\n\n## License\nARSLineProgress is released under the [MIT license](http://opensource.org/licenses/MIT). See LICENSE for details.",
+  "homepage": "https://github.com/soberman/ARSLineProgress",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yarik Arsenkin": "info@arsenkin.com"
+  },
+  "social_media_url": "http://twitter.com/Soberman777",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/soberman/ARSLineProgress.git",
+    "tag": "1.1.1"
+  },
+  "source_files": "Source/ARSLineProgress.swift",
+  "exclude_files": [
+    "Demo/*",
+    "Carthage/*"
+  ],
+  "requires_arc": true
+}
