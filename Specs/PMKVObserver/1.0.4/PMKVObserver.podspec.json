@@ -1,0 +1,40 @@
+{
+  "name": "PMKVObserver",
+  "version": "1.0.4",
+  "summary": "Modern thread-safe and type-safe key-value observing for Swift and Objective-C.",
+  "description": "PMKVObserver provides a safe block-based wrapper around Key-Value Observing, with APIs for both Obj-C and Swift. Features include:\n\n* Thread-safety. Observers can be registered on a different thread than KVO notifications are sent on, and can be cancelled on yet another thread. An observer can even be cancelled from two thread simultaneously.\n* Automatic unregistering when the observed object deallocates.\n* Support for providing an observing object that is given to the block, and automatic unregistering when this observing object deallocates. This lets you call methods on `self` without retaining it or dealing with a weak reference.\n* Thread-safety for the automatic deallocation. This protects against receiving messages on another thread while the object is deallocating.\n* First-class support for both Obj-C and Swift, including strong typing in the Swift API.",
+  "homepage": "https://github.com/postmates/PMKVObserver",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE-MIT"
+  },
+  "authors": {
+    "Kevin Ballard": "kevin.ballard@postmates.com"
+  },
+  "source": {
+    "git": "https://github.com/postmates/PMKVObserver.git",
+    "tag": "v1.0.4"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "ObjC",
+      "source_files": "PMKVObserver/**/*.{h,m}"
+    },
+    {
+      "name": "Swift",
+      "source_files": "PMKVObserver/**/*.{swift}",
+      "dependencies": {
+        "PMKVObserver/ObjC": [
+
+        ]
+      }
+    }
+  ]
+}
