@@ -1,0 +1,54 @@
+{
+  "name": "SoapWebService",
+  "version": "1.0.4",
+  "summary": "The Web service calls on SoapUtility based on the package for iOS.",
+  "homepage": "https://github.com/webbabyking/SoapWebService",
+  "license": "MIT",
+  "authors": {
+    "wangjie": "wangjie@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/webbabyking/SoapWebService.git",
+    "tag": "1.0.4"
+  },
+  "default_subspecs": "SoapWebService",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "SoapUtility",
+      "source_files": "SoapWebService/SoapUtility/*.{h,m}",
+      "public_header_files": "SoapWebService/SoapUtility/Soap.h",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit"
+        ]
+      },
+      "dependencies": {
+        "KissXML": [
+          "~> 5.0.3"
+        ]
+      },
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "SoapWebService",
+      "source_files": "SoapWebService/*.{h,m}",
+      "public_header_files": "SoapWebService/SoapWebService.h",
+      "ios": {
+        "frameworks": "Foundation"
+      },
+      "dependencies": {
+        "SoapWebService/SoapUtility": [
+
+        ]
+      }
+    }
+  ]
+}
