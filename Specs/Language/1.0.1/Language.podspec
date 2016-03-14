@@ -38,7 +38,7 @@ s.homepage     = "https://github.com/whde/WhdeLocalized"
 #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
 #
 
-s.license      = "MIT (example)"
+s.license      = 'MIT'
 # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -118,6 +118,7 @@ s.source_files  = "Language", "Language/Language/Language/*.{h,m}"
 
 # s.framework  = "SomeFramework"
 # s.frameworks = "SomeFramework", "AnotherFramework"
+s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
 
 # s.library   = "iconv"
 # s.libraries = "iconv", "xml2"
