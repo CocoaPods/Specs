@@ -1,0 +1,20 @@
+{
+  "name": "TVOSSlideViewController",
+  "version": "0.5",
+  "summary": "Container view controller with left and right drawer controlling by pan gesture for tvOS.",
+  "description": "TVOSSlideViewController\n===\n\nContainer view controller with left and right drawer controlling by pan gesture for tvOS.\ninspired by the [zova](http://get.zova.com/) tvos app.\n\nFeatures\n----\n\n* Optional left and/or right drawers.\n* Customisable slide range.\n* Customisable trashold for select state.\n* Storyboard support.\n* Autolayout support.\n* Setup trough the code without storyboard.\n* Shrinks content\n\nDemo\n----\n\n#### `shrinks = false`\n\n![alt tag](https://raw.githubusercontent.com/movielala/TVOSSlideViewController/master/demo.gif)\n\n#### `shrinks = true`\n\n![alt tag](https://raw.githubusercontent.com/movielala/TVOSSlideViewController/master/shrink.gif)\n\nInstall\n----\n\n#### CocoaPods\n\n``` ruby\npod 'TVOSSlideViewController'\n```\n\nUsage\n----\n\n#### Storyboard\n\n* You need to subclass `TVOSSlideViewController` and set your view controller instantce's class to your subclass in IB.\n* Customise `TVOSSlideViewController`s `@IBInspectable` properties in interface builder without touching code\n* call `setup(contentViewController:)` function in your subclass for setup content view.\n* You can inject whatever you want as content.\n\n#### Code\n\nDifferent from storyboard implementation, you can initilze `TVOSSlideViewController` directly with:\n\n``` swift\npublic init(contentViewController: UIViewController, leftView: UIView?, rightView: UIView?)\n```\n\nTVOSSlideViewControllerDelegate\n----\n\n* This is the control protocol of `TVOSSlideViewConroller`.\n* Events like didSelect, didUpdate, didCancel could be handled by implementing this delegate.\n* `amount: CGFlaot` returns the drawers visibility range between 0-1 for easier drawer animation implementation.\n\n``` swift\n@objc public protocol TVOSSlideViewControllerDelegate {\noptional func slideViewControllerDidBeginUpdateLeftDrawer(slideViewController: TVOSSlideViewController)\noptional func slideViewControllerDidBeginUpdateRightDrawer(slideViewController: TVOSSlideViewController)\noptional func slideViewControllerDidUpdateLeftDrawer(slideViewController: TVOSSlideViewController, amount: CGFloat)\noptional func slideViewControllerDidUpdateRightDrawer(slideViewController: TVOSSlideViewController, amount: CGFloat)\noptional func slideViewControllerDidEndUpdateLeftDrawer(slideViewController: TVOSSlideViewController, amount: CGFloat)\noptional func slideViewControllerDidEndUpdateRightDrawer(slideViewController: TVOSSlideViewController, amount: CGFloat)\noptional func slideViewControllerDidSelectLeftDrawer(slideViewController: TVOSSlideViewController)\noptional func slideViewControllerDidSelectRightDrawer(slideViewController: TVOSSlideViewController)\n}\n```",
+  "homepage": "https://github.com/movielala/TVOSSlideViewController",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/movielala/TVOSSlideViewController.git",
+    "tag": "v0.5"
+  },
+  "source_files": "TVOSSlideViewController/TVOSSlideViewController",
+  "requires_arc": true
+}
