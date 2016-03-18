@@ -1,0 +1,54 @@
+{
+  "name": "google-cast-remote-display-sdk",
+  "version": "2.10.4",
+  "license": {
+    "type": "Commercial",
+    "text": "https://developers.google.com/terms/"
+  },
+  "summary": "Framework for using a Google Cast device as a external screen",
+  "description": "Google Cast Remote Display is a technology that allows content rendered on a sender device to be displayed on a large screen connected to a Google Cast device. This is particularly suitable to games who want to build a second screen experience for the living room, but also for applications with complex visuals that cannot be produced by a Google Cast device. Your use of Google Cast Remote Display SDK is subject to, and by using or downloading any of the related files you agree to comply with, the Google APIs Terms of Service (https://developers.google.com/terms/) and the Google Cast SDK Additional Developer Terms of Service (https://developers.google.com/cast/docs/terms/).",
+  "homepage": "https://developers.google.com/cast/",
+  "authors": "Google, Inc.",
+  "source": {
+    "http": "https://redirector.gvt1.com/edgedl/chromecast/sdk-remotedisplay/ios/GoogleCastRemoteDisplaySDK-2.10.4-Release-ios-default.zip"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "Accelerate",
+    "AudioToolbox",
+    "CoreMedia",
+    "CoreVideo",
+    "GoogleCast",
+    "GoogleCastRemoteDisplay",
+    "MediaToolbox",
+    "OpenGLES",
+    "QuartzCore"
+  ],
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "weak_frameworks": [
+    "Metal"
+  ],
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/google-cast-remote-display-sdk/GoogleCastRemoteDisplaySDK-2.10.4-Release",
+    "OTHER_LDFLAGS": "-framework GoogleCastRemoteDisplay"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GoogleCastRemoteDisplaySDK-2.10.4-Release/GoogleCastRemoteDisplay.framework/Versions/A/Headers/*.h",
+      "preserve_paths": "GoogleCastRemoteDisplaySDK-2.10.4-Release/GoogleCastRemoteDisplay.framework",
+      "dependencies": {
+        "google-cast-sdk": [
+          "~> 2.10.4"
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
