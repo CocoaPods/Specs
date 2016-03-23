@@ -1,0 +1,29 @@
+{
+  "name": "RxDataSources",
+  "version": "0.6.2",
+  "summary": "This is a collection of reactive data sources for UITableView and UICollectionView.",
+  "description": "This is a collection of reactive data sources for UITableView and UICollectionView.\n\nIt enables creation of animated data sources for table an collection views in just a couple of lines of code.\n\n```swift\nlet data: Obserable<Section> = ...\n\nlet dataSource = RxTableViewSectionedAnimatedDataSource<Section>()\ndataSource.cellFactory = { (tv, ip, i) in\n    let cell =tv.dequeueReusableCellWithIdentifier(\"Cell\") ?? UITableViewCell(style:.Default, reuseIdentifier: \"Cell\")\n    cell.textLabel!.text = \"(i)\"\n    return cell\n}\n\n// animated\ndata\n   .bindTo(animatedTableView.rx_itemsAnimatedWithDataSource(dataSource))\n   .addDisposableTo(disposeBag)\n\n// normal reload\ndata\n   .bindTo(tableView.rx_itemsWithDataSource(dataSource))\n   .addDisposableTo(disposeBag)\n```",
+  "homepage": "https://github.com/ReactiveX/RxSwift",
+  "license": "MIT",
+  "authors": {
+    "Krunoslav Zaher": "krunoslav.zaher@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/RxSwiftCommunity/RxDataSources.git",
+    "tag": "0.6.2"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "source_files": "Sources/**/*.swift",
+  "dependencies": {
+    "RxSwift": [
+      "~> 2.2"
+    ],
+    "RxCocoa": [
+      "~> 2.2"
+    ]
+  }
+}
