@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BRUIRepeat"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "A short description of BRUIRepeat."
 
   # This description is used to generate tags and improve search results.
@@ -79,8 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/burning-git/BRUIControlRepeat.git", :tag => "1.0" }
-
+  s.source       = { :git => "https://github.com/burning-git/BRUIControlRepeat.git", :tag => "1.0.1" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
@@ -89,8 +88,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "BRUIRepeat/*"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "BRUIRepeat/*","BRUIRepeat/**/*.{h,m}"
+  s.exclude_files = "BRUIControlRepeat"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -117,7 +116,7 @@ Pod::Spec.new do |s|
 
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
-
+  s.frameworks = "Foundation", "UIKit"
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
 
