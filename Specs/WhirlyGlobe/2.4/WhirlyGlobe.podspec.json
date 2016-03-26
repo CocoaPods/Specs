@@ -1,0 +1,188 @@
+{
+  "name": "WhirlyGlobe",
+  "version": "2.4",
+  "summary": "WhirlyGlobe-Maply: Geospatial visualization for iOS and Android.",
+  "description": "WhirlyGlobe-Maply is a high performance geospatial display toolkit for iOS and Android.\nThe iOS version supports big, complex apps like Dark Sky and National Geographic World Atlas,\namong others.  Even so, it's easy to get started on your own project.",
+  "homepage": "https://github.com/mousebird/WhirlyGlobe",
+  "screenshots": [
+    "http://mousebird.github.io/WhirlyGlobe/images/carousel/home/mapandglobe.jpg",
+    "http://mousebird.github.io/WhirlyGlobe/images/carousel/home/mtrainier.jpg"
+  ],
+  "license": "Apache 2.0",
+  "authors": {
+    "Steve Gifford": "contact@mousebirdconsulting.com"
+  },
+  "social_media_url": "https://twitter.com/@mousebirdc",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/mousebird/WhirlyGlobe.git",
+    "tag": "v2.4"
+  },
+  "compiler_flags": [
+    "-D__USE_SDL_GLES__",
+    "-D__IPHONEOS__ -DSQLITE_OPEN_READONLY"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/boost\" \"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\""
+  },
+  "default_subspecs": "MaplyComponent",
+  "subspecs": [
+    {
+      "name": "glues-wg",
+      "source_files": "WhirlyGlobeSrc/local_libs/glues/**/*.{c,h}",
+      "preserve_paths": "WhirlyGlobeSrc/local_libs/glues/**/*.i",
+      "private_header_files": "WhirlyGlobeSrc/local_libs/glues/**/*.h",
+      "exclude_files": [
+        "WhirlyGlobeSrc/local_libs/glues/source/libnurbs/nurbtess/{glimports,mystdio,mystdlib}.h",
+        "WhirlyGlobeSrc/local_libs/glues/source/glu.h"
+      ]
+    },
+    {
+      "name": "shapefile",
+      "source_files": "WhirlyGlobeSrc/local_libs/shapefile/**/*.{c,h}",
+      "private_header_files": "WhirlyGlobeSrc/local_libs/shapefile/**/*.h"
+    },
+    {
+      "name": "kissxml",
+      "source_files": "WhirlyGlobeSrc/local_libs/KissXML/**/*.{h,m}",
+      "private_header_files": "WhirlyGlobeSrc/local_libs/KissXML/**/*.h",
+      "libraries": "xml2"
+    },
+    {
+      "name": "aaplus",
+      "source_files": "WhirlyGlobeSrc/local_libs/aaplus/**/*.{h,cpp}",
+      "private_header_files": "WhirlyGlobeSrc/local_libs/aaplus/**/*.h"
+    },
+    {
+      "name": "octencoding",
+      "source_files": "WhirlyGlobeSrc/local_libs/octencoding/**/*.h",
+      "private_header_files": "WhirlyGlobeSrc/local_libs/octencoding/**/*.h"
+    },
+    {
+      "name": "Lib-Headers",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h",
+      "public_header_files": "WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h",
+      "private_header_files": "WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h",
+      "dependencies": {
+        "boost/string_algorithms-includes": [
+          "<= 1.51.0"
+        ],
+        "boost/shared_ptr-includes": [
+          "<= 1.51.0"
+        ],
+        "boost/pointer_cast-includes": [
+          "<= 1.51.0"
+        ],
+        "boost/math-includes": [
+          "<= 1.51.0"
+        ],
+        "boost/graph-includes": [
+          "<= 1.51.0"
+        ],
+        "eigen": [
+          "~> 3.2.4"
+        ]
+      }
+    },
+    {
+      "name": "Lib",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeLib/src/*.{mm,m}",
+      "dependencies": {
+        "WhirlyGlobe/Lib-Headers": [
+
+        ],
+        "WhirlyGlobe/glues-wg": [
+
+        ],
+        "WhirlyGlobe/octencoding": [
+
+        ],
+        "proj4": [
+          "~> 4.8.0"
+        ],
+        "WhirlyGlobe/shapefile": [
+
+        ],
+        "clipper": [
+          "~> 6.1.3a"
+        ],
+        "libjson": [
+          "~> 7.6.0"
+        ],
+        "tinyxml": [
+          "~> 2.1.0"
+        ]
+      },
+      "libraries": [
+        "c++",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "UIKit",
+        "OpenGLES"
+      ]
+    },
+    {
+      "name": "MaplyComponent-Headers",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/**/*.h",
+      "public_header_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/*.h",
+      "private_header_files": [
+        "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/{MaplyComponent,WhirlyGlobeComponent}.h",
+        "WhirlyGlobeSrc/local_libs/**"
+      ],
+      "dependencies": {
+        "WhirlyGlobe/Lib-Headers": [
+
+        ]
+      }
+    },
+    {
+      "name": "Headers",
+      "dependencies": {
+        "WhirlyGlobe/MaplyComponent-Headers": [
+
+        ]
+      }
+    },
+    {
+      "name": "MaplyComponent",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/src/*.{mm,m,cpp}",
+      "dependencies": {
+        "WhirlyGlobe/aaplus": [
+
+        ],
+        "WhirlyGlobe/Lib": [
+
+        ],
+        "WhirlyGlobe/MaplyComponent-Headers": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.4.0"
+        ],
+        "WhirlyGlobe/kissxml": [
+
+        ],
+        "SMCalloutView": [
+
+        ],
+        "FMDB": [
+
+        ]
+      },
+      "libraries": [
+        "z",
+        "xml2"
+      ],
+      "frameworks": [
+        "CoreLocation",
+        "MobileCoreServices",
+        "SystemConfiguration",
+        "CFNetwork"
+      ]
+    }
+  ]
+}
