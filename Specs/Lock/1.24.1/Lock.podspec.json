@@ -1,0 +1,209 @@
+{
+  "name": "Lock",
+  "version": "1.24.1",
+  "summary": "A library that uses Auth0 for Authentication with Native Look & Feel",
+  "description": "[![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)\n\nAuth0 is a SaaS that helps you with Authentication and Authorization. You can use Social Providers (Like Facebook, Google, Twitter, etc.), Enterprise Providers (Active Directory, LDap, Windows Azure AD, SAML, etc.) and a Username/Password store which can be saved either by us or by you. We have SDKs for the most common platforms (Ruby, Node, iOS, Angular, etc.) so that with a couple lines of code, you can get the Authentication for your app implemented. Let us worry about Authentication so that you can focus on the core of your business.",
+  "homepage": "https://github.com/auth0/Lock.iOS-OSX",
+  "license": "MIT",
+  "authors": [
+    {
+      "Auth0": "support@auth0.com"
+    },
+    {
+      "Hernan Zalazar": "hernan@auth0.com"
+    },
+    {
+      "Martin Gontovnikas": "gonto@auth0.com"
+    }
+  ],
+  "source": {
+    "git": "https://github.com/auth0/Lock.iOS-OSX.git",
+    "tag": "1.24.1"
+  },
+  "social_media_url": "https://twitter.com/auth0",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "CocoaLumberjack": [
+      "~> 2.0"
+    ]
+  },
+  "default_subspecs": [
+    "UI",
+    "Core",
+    "WebView"
+  ],
+  "prefix_header_contents": "#define A0CurrentLockVersion @\"1.24.1\"",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "Lock/Core/*.h",
+        "CocoaPods/Lock.h"
+      ],
+      "private_header_files": [
+        "Lock/Core/Private/*.h"
+      ],
+      "source_files": [
+        "Lock/Core/*.{h,m}",
+        "Lock/Core/Private/*.{h,m}",
+        "CocoaPods/Lock.h"
+      ],
+      "ios": {
+        "public_header_files": [
+          "Lock/Core/iOS/*.h",
+          "Lock/Provider/*.h"
+        ],
+        "source_files": [
+          "Lock/Core/iOS/*.{h,m}",
+          "Lock/Provider/*.{h,m}",
+          "Lock/Provider/Private/*.{h,m}"
+        ]
+      },
+      "osx": {
+        "public_header_files": [
+          "Lock/Core/OSX/*.h"
+        ],
+        "source_files": [
+          "Lock/Core/OSX/*.{h,m}"
+        ]
+      },
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.0"
+        ]
+      }
+    },
+    {
+      "name": "CoreUI",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/CoreUI/*.h",
+      "source_files": [
+        "Lock/CoreUI/*.{h,m}"
+      ],
+      "dependencies": {
+        "Lock/Core": [
+
+        ],
+        "Masonry": [
+          "~> 0.6"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/UI/*.h",
+      "private_header_files": [
+        "Lock/UI/Private/*.h",
+        "Lock/Utils/*.h"
+      ],
+      "source_files": [
+        "Lock/{UI,Utils}/*.{h,m}",
+        "Lock/UI/Private/*.{h,m}"
+      ],
+      "dependencies": {
+        "Lock/CoreUI": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Auth0": [
+          "Auth0/Images/*.png",
+          "Auth0/Social/*.png",
+          "Auth0/*.plist"
+        ]
+      }
+    },
+    {
+      "name": "TouchID",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/TouchID/*.h",
+      "private_header_files": "Lock/TouchID/Private/*.h",
+      "source_files": "Lock/TouchID/**/*.{h,m}",
+      "dependencies": {
+        "Lock/UI": [
+
+        ],
+        "SimpleKeychain": [
+          "~> 0.2"
+        ],
+        "TouchIDAuth": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "SMS",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/SMS/*.h",
+      "private_header_files": "Lock/SMS/Private/*.h",
+      "source_files": [
+        "Lock/SMS/*.{h,m}",
+        "Lock/SMS/Private/*.{h,m}"
+      ],
+      "dependencies": {
+        "Lock/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Email",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/Email/*.h",
+      "private_header_files": "Lock/Email/Private/*.h",
+      "source_files": [
+        "Lock/Email/*.{h,m}",
+        "Lock/Email/Private/*.{h,m}"
+      ],
+      "dependencies": {
+        "Lock/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Safari",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/Safari/*.h",
+      "source_files": "Lock/Safari/*.{h,m}",
+      "dependencies": {
+        "Lock/CoreUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebView",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "public_header_files": "Lock/WebView/*.h",
+      "source_files": "Lock/WebView/*.{h,m}",
+      "dependencies": {
+        "Lock/CoreUI": [
+
+        ]
+      },
+      "frameworks": [
+        "WebKit"
+      ]
+    }
+  ]
+}
