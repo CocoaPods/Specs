@@ -1,0 +1,87 @@
+{
+  "name": "CGYPay",
+  "version": "1.1.6",
+  "summary": "CGYPay SDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/Chakery/CGYPay",
+  "authors": {
+    "chakery": "striveordeath@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/Chakery/CGYPay.git",
+    "tag": "1.1.6"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CGYPay/Classes/CGYPayCore",
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "AliPay",
+      "source_files": [
+        "CGYPay/Classes/AlipaySDk",
+        "CGYPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/*"
+      ],
+      "vendored_frameworks": "CGYPay/Classes/AlipaySDk/AlipaySDK.framework",
+      "public_header_files": "CGYPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/**/*.h",
+      "frameworks": [
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "CGYPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WxPay",
+      "source_files": "CGYPay/Classes/WxSDK",
+      "vendored_libraries": "CGYPay/Classes/WxSDK/*.a",
+      "public_header_files": "CGYPay/Classes/WxSDK/*.h",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "CGYPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "CGYPay/Classes/UPPaySDK",
+      "vendored_libraries": "CGYPay/Classes/UPPaySDK/*.a",
+      "public_header_files": "CGYPay/Classes/UPPaySDK/*.h",
+      "dependencies": {
+        "CGYPay/Core": [
+
+        ]
+      }
+    }
+  ]
+}
