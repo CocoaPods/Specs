@@ -1,0 +1,229 @@
+{
+  "name": "MyiOSViewHelpers",
+  "version": "0.1.0",
+  "homepage": "http://github.com/premosystems/MyiOSViewHelpers",
+  "authors": {
+    "Vincil Bishop": "vincil.bishop@vbishop.com"
+  },
+  "license": "MIT",
+  "summary": "A collection of often used but time consuming to recreate view logic for iOS.",
+  "source": {
+    "git": "https://github.com/premosystems/MyiOSViewHelpers.git",
+    "tag": "0.1.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "resources": "MyiOSViewHelpers.podspec",
+  "prefix_header_contents": [
+    "#import \"UIStoryboard+KPAConvenience.h\"",
+    "#import \"UIAlertView+Blocks.h\"",
+    "#import \"EDColor.h\""
+  ],
+  "ios": {
+    "dependencies": {
+      "KPAStoryboardConvenience": [
+        "~>1.0.1"
+      ],
+      "UIAlertView+Blocks": [
+        "~>0.8"
+      ],
+      "EDColor": [
+        "~>0.4.0"
+      ]
+    }
+  },
+  "source_files": "MyiOSViewHelpers/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Categories",
+      "source_files": "MyiOSViewHelpers/Categories/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "UIView",
+          "source_files": "MyiOSViewHelpers/Categories/UIView/*.{h,m}"
+        },
+        {
+          "name": "UIImage",
+          "source_files": "MyiOSViewHelpers/Categories/UIImage/*.{h,m}",
+          "resources": "MyiOSViewHelpers/Categories/UIImage/*.png"
+        },
+        {
+          "name": "UIImageView",
+          "source_files": "MyiOSViewHelpers/Categories/UIImageView/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MyiOSViewHelpers/Categories/UIImage": [
+                "0.1.0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Screens",
+      "source_files": "MyiOSViewHelpers/Screens/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Drawers",
+          "prefix_header_contents": [
+            "#import \"MMDrawerController.h\"",
+            "#import \"MMDrawerBarButtonItem.h\"",
+            "#import \"UIViewController+MMDrawerController.h\"",
+            "#import \"UIStoryboard+KPAConvenience.h\""
+          ],
+          "source_files": "MyiOSViewHelpers/Screens/Drawers/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MMDrawerController": [
+                "~> 0.5.2"
+              ],
+              "KPAStoryboardConvenience": [
+                "~>1.0.1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "ImagePicker",
+          "source_files": "MyiOSViewHelpers/Screens/ImagePicker/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "UIActionSheet+Blocks": [
+
+              ],
+              "MyiOSHelpers/Logic/Categories": [
+                "~>0.1.0"
+              ]
+            }
+          }
+        },
+        {
+          "name": "FormViewController",
+          "prefix_header_contents": [
+            "#import \"MyiOSLogicCategories.h\"",
+            "#import \"MyiOSLogicBlocks.h\"",
+            "#import \"UIAlertView+Blocks.h\"",
+            "#import \"Underscore.h\"",
+            "#ifndef _",
+            "#define _ Underscore",
+            "#endif"
+          ],
+          "source_files": "MyiOSViewHelpers/Screens/FormViewController/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "UIAlertView+Blocks": [
+                "~>0.8"
+              ],
+              "TPKeyboardAvoiding": [
+                "~>1.2.3"
+              ],
+              "US2FormValidator": [
+                "~> 1.1.2"
+              ],
+              "ALPValidator": [
+                "~> 0.0.3"
+              ],
+              "CWStatusBarNotification": [
+                "~> 2.1.1"
+              ],
+              "APLKeyboardControls": [
+                "~>0.1.2"
+              ],
+              "ASCFlatUIColor": [
+                "~>0.1.0"
+              ],
+              "MyiOSHelpers/Logic/Blocks": [
+                "~>0.1.0"
+              ],
+              "MyiOSHelpers/Logic/Categories": [
+                "~>0.1.0"
+              ],
+              "MyiOSViewHelpers/Categories": [
+                "0.1.0"
+              ],
+              "Underscore.m": [
+                "~>0.2.1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "LoginViewController",
+          "source_files": "MyiOSViewHelpers/Screens/LoginViewController/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MyiOSViewHelpers/Screens/FormViewController": [
+                "0.1.0"
+              ],
+              "MBProgressHUD": [
+                "~>0.8"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PickerView",
+          "source_files": "MyiOSViewHelpers/Screens/PickerView/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MyiOSHelpers/Logic/Blocks": [
+                "~>0.1.0"
+              ],
+              "RMDateSelectionViewController": [
+                "~>1.2.1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "TableViewControllerBase",
+          "source_files": "MyiOSViewHelpers/Screens/TableViewControllerBase/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "DZNEmptyDataSet": [
+                "~>1.3.1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "ModelObjectTableViewControllerBase",
+          "source_files": "MyiOSViewHelpers/Screens/ModelObjectTableViewControllerBase/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping": [
+
+              ],
+              "MyiOSViewHelpers/Screens/FormViewController": [
+                "0.1.0"
+              ],
+              "MyiOSViewHelpers/Screens/TableViewControllerBase": [
+                "0.1.0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ThirdPartyHelpers",
+      "source_files": "MyiOSViewHelpers/ThirdPartyHelpers/*.h",
+      "subspecs": [
+        {
+          "name": "MBProgressHUD",
+          "source_files": "MyiOSViewHelpers/ThirdPartyHelpers/MBProgressHUD/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MBProgressHUD": [
+                "~>0.8"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

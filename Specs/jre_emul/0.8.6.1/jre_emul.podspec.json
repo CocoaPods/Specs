@@ -1,0 +1,52 @@
+{
+  "name": "jre_emul",
+  "version": "0.8.6.1",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "summary": "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library.",
+  "homepage": "https://code.google.com/p/j2objc/",
+  "authors": "Google Inc.",
+  "source": {
+    "git": "https://github.com/goodow/j2objc.git",
+    "tag": "v0.8.6.1"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "requires_arc": false,
+  "default_subspecs": [
+    "jre"
+  ],
+  "subspecs": [
+    {
+      "name": "jre",
+      "source_files": [
+        "jre_emul/Classes/**/*.{m,mm}",
+        "jre_emul/apple_apsl/*.{h,m}",
+        "jre_emul/build_result/Classes/**/*.m"
+      ],
+      "exclude_files": "jre_emul/Classes/*Test.{h,m}",
+      "preserve_paths": "dist/include/**/*.h",
+      "xcconfig": {
+        "GCC_WARN_MISSING_PARENTHESES": "NO",
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/jre_emul/dist/include\""
+      }
+    },
+    {
+      "name": "junit",
+      "source_files": [
+        "junit/src/main/native/junit/**/*.m",
+        "junit/build_result/junit/**/*.m",
+        "junit/build_result/org/**/*.m"
+      ],
+      "dependencies": {
+        "jre_emul/jre": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ApIdleManager",
+  "version": "0.0.1",
+  "summary": "APIdleManager is a iOS custom class that allows developers to set-up a custom idle timeout without subclassing UIApplication",
+  "description": "                       # APIdleManager\n\n                      ## Installation\n\n                      APIdleManager is available through [CocoaPods](http://cocoapods.org). To install\n                      it, simply add the following line to your Podfile:\n\n                          pod \"APIdleManager\"\n\n                      ### Example Setup\n\n                      1. Clone the repo or install using cocoapods. If cloning, you'll need APIdleManager.h/.m\n                      2. Make sure to call `[APIdleManager sharedInstance].onTimeout = ^(void){ //Timeout implementation goes here };` to not only instaniate the idle manager, but to implement any functionality that is necessary for when the application times out.\n                      3. Make sure that `kMaxIdleTimeSeconds` is set to how many seconds until you want the application to run its timeout functionality. Its located in the APIdleManager.h and its defaulted to 60.0 seconds.\n                      4. Now that your idle manager is allocated and ready to go, so now we're going to dig into how to reset the timer and making sure your app will still timeout in the background.\n\n                      ### Example Idle Managing\n\n                      - To intercept any touches within a view controller and reset the timer, override the `-(UIResponder *)nextResponder` method (if you haven't already) and replace it with:\n\n                          -(UIResponder *)nextResponder\n                          {\n                              [[APIdleManager sharedInstance] didReceiveInput];\n                              //Any other previous functionality you had\n                          \n                              return [super nextResponder];\n                          }\n                          \n                      _NOTE: `-(UIResponder *)nextResponder` should be overriden in each view controller that needs to reset the idle timer_\n\n                      - If your application goes into the background and the user re-opens the application, make sure that you call `[[RTLIdleManager sharedInstance] checkAndReset]` on open to check if the alloted idle time has passed. The best place to call this method is in the `- (void)applicationDidBecomeActive:(UIApplication *)application` in the App Delegate.\n\n                      All of these examples can be found in the sample application. Enjoy. (:\n\n                      ## License\n\n                      APIdleManager is available under the MIT license. See the LICENSE file for more info.\n",
+  "homepage": "https://github.com/MitchellMalleo/APIdleManager",
+  "license": "MIT",
+  "authors": {
+    "Mitch Malleo": "mitchellmalleo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/MitchellMalleo/APIdleManager.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes",
+  "resource_bundles": {
+    "APIdleManager": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

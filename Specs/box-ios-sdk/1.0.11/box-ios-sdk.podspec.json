@@ -1,0 +1,69 @@
+{
+  "name": "box-ios-sdk",
+  "version": "1.0.11",
+  "summary": "iOS SDK for the Box API",
+  "homepage": "https://github.com/box/box-ios-sdk",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Box",
+  "source": {
+    "git": "https://github.com/box/box-ios-sdk.git",
+    "tag": "v1.0.11"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "ios": {
+    "source_files": [
+      "BoxContentSDK/BoxContentSDK/*.{h,m}",
+      "BoxContentSDK/BoxContentSDK/**/*.{h,m}"
+    ],
+    "exclude_files": [
+      "BoxContentSDK/BoxContentSDK/External/ISO8601DateFormatter/BOXISO8601DateFormatter.{h,m}",
+      "BoxContentSDK/BoxContentSDK/External/KeychainItemWrapper/BOXKeychainItemWrapper.{h,m}"
+    ],
+    "public_header_files": [
+      "BoxContentSDK/BoxContentSDK/*.h",
+      "BoxContentSDK/BoxContentSDK/**/*.h"
+    ],
+    "frameworks": [
+      "Security",
+      "QuartzCore",
+      "AssetsLibrary"
+    ],
+    "header_dir": "BoxContentSDK"
+  },
+  "resource_bundles": {
+    "BoxContentSDKResources": [
+      "BoxContentSDK/BoxContentSDKResources/Assets/*.*",
+      "BoxContentSDK/BoxContentSDKResources/Icons/*.*",
+      "BoxContentSDK/BoxContentSDKResources/*.lproj"
+    ]
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load"
+  },
+  "module_name": "BoxContentSDK",
+  "subspecs": [
+    {
+      "name": "logger",
+      "source_files": "BoxContentSDK/BoxContentSDK/BOXLog.h"
+    },
+    {
+      "name": "no-arc",
+      "dependencies": {
+        "box-ios-sdk/logger": [
+
+        ]
+      },
+      "source_files": [
+        "BoxContentSDK/BoxContentSDK/External/ISO8601DateFormatter/BOXISO8601DateFormatter.{h,m}",
+        "BoxContentSDK/BoxContentSDK/External/KeychainItemWrapper/BOXKeychainItemWrapper.{h,m}"
+      ],
+      "requires_arc": false
+    }
+  ]
+}

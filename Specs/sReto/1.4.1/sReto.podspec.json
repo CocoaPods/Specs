@@ -1,0 +1,91 @@
+{
+  "name": "sReto",
+  "version": "1.4.1",
+  "summary": "P2P Framework for realtime collaboration in Swift with independent modules for WLAN, Bluetooth and Remote support",
+  "homepage": "https://github.com/ls1intum/sReto",
+  "license": "MIT",
+  "authors": {
+    "Chair for Applied Software Engineering": "ios@in.tum.de"
+  },
+  "social_media_url": "https://twitter.com/ls1intum",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/ls1intum/sReto.git",
+    "tag": "1.4.1"
+  },
+  "default_subspecs": "WlanModule",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/sReto/Core/**/*.swift"
+    },
+    {
+      "name": "Bonjour",
+      "source_files": "Source/sReto/Modules/Bonjour/**/*.swift",
+      "dependencies": {
+        "sReto/Core": [
+
+        ],
+        "CocoaAsyncSocket": [
+          "7.4.2"
+        ]
+      }
+    },
+    {
+      "name": "WlanModule",
+      "source_files": "Source/sReto/Modules/WlanModule/*.swift",
+      "dependencies": {
+        "sReto/Bonjour": [
+
+        ]
+      }
+    },
+    {
+      "name": "BluetoothModule",
+      "source_files": "Source/sReto/Modules/BluetoothModule/*.swift",
+      "dependencies": {
+        "sReto/Bonjour": [
+
+        ],
+        "sReto/no-arc": [
+
+        ]
+      }
+    },
+    {
+      "name": "RemoteModule",
+      "source_files": "Source/sReto/Modules/RemoteModule/**/*.swift",
+      "dependencies": {
+        "sReto/Core": [
+
+        ],
+        "SocketRocket": [
+          "0.4.2"
+        ]
+      }
+    },
+    {
+      "name": "AllModules",
+      "dependencies": {
+        "sReto/RemoteModule": [
+
+        ],
+        "sReto/WlanModule": [
+
+        ],
+        "sReto/BluetoothModule": [
+
+        ]
+      }
+    },
+    {
+      "name": "no-arc",
+      "source_files": "Source/sReto/Modules/BluetoothModule/DNSSD/*",
+      "requires_arc": false
+    }
+  ]
+}

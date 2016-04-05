@@ -1,0 +1,98 @@
+{
+  "name": "gRPC",
+  "version": "0.5.1",
+  "summary": "gRPC client library for iOS/OSX",
+  "homepage": "http://www.grpc.io",
+  "license": "New BSD",
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "git": "https://github.com/grpc/grpc.git",
+    "tag": "release-0_9_1-objectivec-0.5.1"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "prepare_command": "    DIR_TIME=\"grpc/support\"\n    BAD_TIME=\"$DIR_TIME/time.h\"\n    GOOD_TIME=\"$DIR_TIME/grpc_time.h\"\n    grep -rl \"$BAD_TIME\" include/grpc src/core | xargs sed -i '' -e s@$BAD_TIME@$GOOD_TIME@g\n    if [ -f \"include/$BAD_TIME\" ];\n    then\n      mv -f \"include/$BAD_TIME\" \"include/$GOOD_TIME\"\n    fi\n\n    DIR_STRING=\"src/core/support\"\n    BAD_STRING=\"$DIR_STRING/string.h\"\n    GOOD_STRING=\"$DIR_STRING/grpc_string.h\"\n    grep -rl \"$BAD_STRING\" include/grpc src/core | xargs sed -i '' -e s@$BAD_STRING@$GOOD_STRING@g\n    if [ -f \"$BAD_STRING\" ];\n    then\n      mv -f \"$BAD_STRING\" \"$GOOD_STRING\"\n    fi\n",
+  "subspecs": [
+    {
+      "name": "RxLibrary",
+      "source_files": [
+        "src/objective-c/RxLibrary/*.{h,m}",
+        "src/objective-c/RxLibrary/transformations/*.{h,m}",
+        "src/objective-c/RxLibrary/private/*.{h,m}"
+      ],
+      "private_header_files": "src/objective-c/RxLibrary/private/*.h"
+    },
+    {
+      "name": "C-Core",
+      "source_files": [
+        "src/core/**/*.{h,c}",
+        "include/grpc/*.h",
+        "include/grpc/**/*.h"
+      ],
+      "private_header_files": "src/core/**/*.h",
+      "header_mappings_dir": ".",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Headers/Private/gRPC\" \"$(PODS_ROOT)/Headers/Private/gRPC/include\""
+      },
+      "compiler_flags": [
+        "-GCC_WARN_INHIBIT_ALL_WARNINGS",
+        "-w"
+      ],
+      "requires_arc": false,
+      "libraries": "z",
+      "dependencies": {
+        "OpenSSL": [
+          "~> 1.0.200"
+        ]
+      }
+    },
+    {
+      "name": "GRPCClient",
+      "source_files": [
+        "src/objective-c/GRPCClient/*.{h,m}",
+        "src/objective-c/GRPCClient/private/*.{h,m}"
+      ],
+      "private_header_files": "src/objective-c/GRPCClient/private/*.h",
+      "compiler_flags": [
+        "-GCC_WARN_INHIBIT_ALL_WARNINGS",
+        "-w"
+      ],
+      "dependencies": {
+        "gRPC/C-Core": [
+
+        ],
+        "gRPC/RxLibrary": [
+
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Headers/Public/gRPC/include\""
+      },
+      "resource_bundles": {
+        "gRPC": [
+          "etc/roots.pem"
+        ]
+      }
+    },
+    {
+      "name": "ProtoRPC",
+      "source_files": "src/objective-c/ProtoRPC/*.{h,m}",
+      "dependencies": {
+        "gRPC/GRPCClient": [
+
+        ],
+        "gRPC/RxLibrary": [
+
+        ],
+        "Protobuf": [
+          "~> 3.0.0-alpha-3"
+        ]
+      }
+    }
+  ]
+}

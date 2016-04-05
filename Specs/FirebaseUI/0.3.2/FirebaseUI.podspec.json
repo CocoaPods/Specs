@@ -1,0 +1,125 @@
+{
+  "name": "FirebaseUI",
+  "version": "0.3.2",
+  "summary": "UI binding libraries for Firebase.",
+  "homepage": "https://github.com/firebase/FirebaseUI-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Firebase": "support@firebase.com"
+  },
+  "social_media_url": "https://twitter.com/firebase",
+  "source": {
+    "git": "https://github.com/firebase/FirebaseUI-iOS.git",
+    "tag": "v0.3.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "dependencies": {
+    "Firebase": [
+      "~>2.2"
+    ]
+  },
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Firebase\""
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Auth"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "FirebaseUI/{Core,Util}/**/*.{h,m}"
+    },
+    {
+      "name": "Auth",
+      "dependencies": {
+        "FirebaseUI/Facebook": [
+
+        ],
+        "FirebaseUI/Google": [
+
+        ],
+        "FirebaseUI/Twitter": [
+
+        ],
+        "FirebaseUI/Password": [
+
+        ]
+      }
+    },
+    {
+      "name": "AuthHelper",
+      "source_files": "FirebaseUI/Auth/**/{FirebaseAppDelegate,FirebaseLoginViewController,FirebaseAuthConstants,FirebaseAuthDelegate,FirebaseAuthProvider,FirebaseLoginButton}.{h,m}",
+      "resources": "FirebaseUI/Auth/Resources/*"
+    },
+    {
+      "name": "Facebook",
+      "source_files": "FirebaseUI/Auth/**/FirebaseFacebookAuthProvider.{h,m}",
+      "dependencies": {
+        "FirebaseUI/AuthHelper": [
+
+        ],
+        "FBSDKCoreKit": [
+
+        ],
+        "FBSDKLoginKit": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DFIREBASEUI_ENABLE_FACEBOOK_AUTH=1"
+      }
+    },
+    {
+      "name": "Google",
+      "source_files": "FirebaseUI/Auth/**/FirebaseGoogleAuthProvider.{h,m}",
+      "dependencies": {
+        "FirebaseUI/AuthHelper": [
+
+        ],
+        "Google/SignIn": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DFIREBASEUI_ENABLE_GOOGLE_AUTH=1 -DLOCAL_BUILD=0"
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "FirebaseUI/Auth/**/{FirebaseTwitterAuthProvider,TwitterAuthDelegate}.{h,m}",
+      "dependencies": {
+        "FirebaseUI/AuthHelper": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "Accounts"
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DFIREBASEUI_ENABLE_TWITTER_AUTH=1"
+      }
+    },
+    {
+      "name": "Password",
+      "source_files": "FirebaseUI/Auth/**/FirebasePasswordAuthProvider.{h,m}",
+      "dependencies": {
+        "FirebaseUI/AuthHelper": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DFIREBASEUI_ENABLE_PASSWORD_AUTH=1"
+      }
+    }
+  ]
+}

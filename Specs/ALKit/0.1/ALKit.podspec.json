@@ -1,0 +1,23 @@
+{
+  "name": "ALKit",
+  "version": "0.1",
+  "summary": "Easy to use AutoLayout wrapper around `NSLayoutConstraints`.",
+  "description": "ALKit\n===\n\nEasy to use AutoLayout wrapper around `NSLayoutConstraints`.\n\nInstall\n----\n\n#### Cocoapods\n\n``` ruby\n!use_frameworks\npod 'ALKit'\n```\n\n### Manual\n\nCopy the `ALKit` folder into your project\n\nDocumentation\n----\n\n### Init\n\nInitialzes autolayout ready views.\n\n\n``` swift\nconvenience init (withAutolayout: Bool) {\nself.init(frame: CGRect.zero)\ntranslatesAutoresizingMaskIntoConstraints = false\n}\n```\n\n``` swift\nclass func AutoLayout() -> UIView {\nlet view = UIView(frame: CGRect.zero)\nview.translatesAutoresizingMaskIntoConstraints = false\nreturn view\n}\n```\n\n### Wraper\n\nThe main function of all kit.\nWraps `addConstraint:` method of autolayout.\n\n``` swift\nfunc pin(\ninView inView: UIView? = nil,\nedge: NSLayoutAttribute,\ntoEdge: NSLayoutAttribute,\nofView: UIView?,\nwithInset: CGFloat = 0) {\nlet view = inView ?? ofView ?? self\nview.addConstraint(NSLayoutConstraint(\nitem: self,\nattribute: edge,\nrelatedBy: .Equal,\ntoItem: ofView,\nattribute: toEdge,\nmultiplier: 1,\nconstant: withInset))\n}\n```\n\n### Pin\n\nPins the same edges.\n\n``` swift\nfunc pinRight(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)\n```\n\n``` swift\nfunc pinLeft(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)\n```\n\n``` swift\nfunc pinTop(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)\n```\n\n``` swift\nfunc pinBottom(inView inView: UIView? = nil, toView: UIView, withInset: CGFloat = 0)\n```\n\n### Pin To\n\nPins the opposite edeges.\n\n``` swift\nfunc pinToRight(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)\n```\n\n``` swift\nfunc pinToLeft(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)\n```\n\n``` swift\nfunc pinToTop(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)\n```\n\n``` swift\nfunc pinToBottom(inView inView: UIView? = nil, toView: UIView, withOffset: CGFloat = 0)\n```\n\n### Fill\n\nFills in view horizontally, vertically or both.\n\n``` swift\nfunc fill(toView view: UIView, withInset: UIEdgeInsets = UIEdgeInsetsZero)\n```\n\n``` swift\nfunc fillHorizontal(toView view: UIView, withInset: CGFloat = 0)\n```\n\n``` swift\nfunc fillVertical(toView view: UIView, withInset: CGFloat = 0)\n```\n\n### Size\n\nSets the size by width, height or both.\n\n``` swift\nfunc pinSize(width width: CGFloat, height: CGFloat)\n```\n\n``` swift\nfunc pinWidht(width: CGFloat)\n```\n\n``` swift\nfunc pinHeight(height: CGFloat)\n```\n\n### Center\n\nCenters horizontally, vertically or both.\n\n``` swift\nfunc pinCenter(toView view: UIView)\n```\n\n``` swift\nfunc pinCenterX(toView view: UIView)\n```\n\n``` swift\nfunc pinCenterY(toView view: UIView)\n```",
+  "homepage": "https://github.com/cemolcay/ALKit",
+  "license": {
+    "type": "MIT",
+    "file": "ALKit/LICENSE"
+  },
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/ALKit.git",
+    "tag": "v0.1"
+  },
+  "source_files": "ALKit/ALKit/*.swift",
+  "requires_arc": true
+}

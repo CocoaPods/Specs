@@ -1,0 +1,124 @@
+{
+  "name": "ParsePushService",
+  "version": "0.2.0",
+  "summary": "A dependency-injectable service for handling push notifications with the Parse REST API.",
+  "description": "A dependency-injectable service for handling push notifications with the Parse REST API.\nRequires the API Service.",
+  "homepage": "https://github.com/AttilaTheFun/ParseService",
+  "license": "MIT",
+  "authors": {
+    "Logan Shire": "logan.shire@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/AttilaTheFun/ParseService.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "PromiseKit": [
+      "~>3.0"
+    ],
+    "SwiftToolKit": [
+      "~>0.2.4"
+    ],
+    "ServiceRegistry/API": [
+      "~>0.3.1"
+    ],
+    "ParseUtils": [
+      "~>0.2.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Models",
+      "source_files": "Pod/Push/Models/*.swift"
+    },
+    {
+      "name": "API",
+      "dependencies": {
+        "ParseUserService/Models": [
+          "~>0.2.0"
+        ],
+        "ParsePushService/Models": [
+          "~>0.2.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Base",
+          "source_files": "Pod/Push/API/Base/*.swift"
+        },
+        {
+          "name": "Registration",
+          "dependencies": {
+            "ParsePushService/API/Base": [
+              "~>0.2.0"
+            ]
+          },
+          "source_files": "Pod/Push/API/Registration/*.swift"
+        },
+        {
+          "name": "Handling",
+          "dependencies": {
+            "ParsePushService/API/Base": [
+              "~>0.2.0"
+            ]
+          },
+          "source_files": "Pod/Push/API/Handling/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Implementation",
+      "dependencies": {
+        "APIService/API": [
+          "~>0.3.1"
+        ],
+        "ParseUserService/API": [
+          "~>0.2.0"
+        ],
+        "ParseUserService/Models": [
+          "~>0.2.0"
+        ],
+        "ParsePushService/API": [
+          "~>0.2.0"
+        ],
+        "ParsePushService/Models": [
+          "~>0.2.0"
+        ],
+        "ParseCreateService/API": [
+          "~>0.2.0"
+        ],
+        "ParseReadService/API": [
+          "~>0.2.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Base",
+          "source_files": "Pod/Push/Implementation/Base/*.swift"
+        },
+        {
+          "name": "Registration",
+          "dependencies": {
+            "ParsePushService/Implementation/Base": [
+              "~>0.2.0"
+            ]
+          },
+          "source_files": "Pod/Push/Implementation/Registration/*.swift"
+        },
+        {
+          "name": "Handling",
+          "dependencies": {
+            "ParsePushService/Implementation/Base": [
+              "~>0.2.0"
+            ]
+          },
+          "source_files": "Pod/Push/Implementation/Handling/*.swift"
+        }
+      ]
+    }
+  ]
+}

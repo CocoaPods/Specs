@@ -1,0 +1,72 @@
+{
+  "name": "PaperTrailLumberjack",
+  "version": "0.1.4",
+  "summary": "A CocoaLumberjack logger to post logs to papertrailapp.com",
+  "description": "A CocoaLumberjack logger to post log messages to papertrailapp.com. Currently, only posts via unsecured UDP sockets.",
+  "homepage": "http://bitbucket.org/rmonkey/papertraillumberjack",
+  "license": "MIT",
+  "authors": {
+    "George Malayil Philip": "george.malayil@roguemonkey.in"
+  },
+  "source": {
+    "git": "https://bitbucket.org/rmonkey/papertraillumberjack.git",
+    "tag": "0.1.4"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7"
+  },
+  "default_subspecs": "Default",
+  "public_header_files": [
+    "Classes/RMPaperTrailLumberjack.h",
+    "Classes/RMPaperTrailLogger.h"
+  ],
+  "ios": {
+    "resource_bundles": {
+      "PaperTrailLumberjack": "Assets/*"
+    }
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/*.{h,m}",
+      "dependencies": {
+        "CocoaLumberjack": [
+          "~> 2.2"
+        ],
+        "CocoaAsyncSocket": [
+          "~> 7.4"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/CocoaLumberjack"
+      }
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "PaperTrailLumberjack/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "platforms": {
+        "osx": "10.10"
+      },
+      "dependencies": {
+        "PaperTrailLumberjack/Core": [
+
+        ],
+        "CocoaLumberjack/Swift": [
+          "~> 2.2"
+        ],
+        "CocoaAsyncSocket": [
+          "~> 7.4"
+        ]
+      }
+    }
+  ]
+}

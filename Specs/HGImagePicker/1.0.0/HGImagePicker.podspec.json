@@ -1,0 +1,53 @@
+{
+  "name": "HGImagePicker",
+  "version": "1.0.0",
+  "summary": "An image picker similar to Apples picker in the messages app.",
+  "description": "                       Ever wonted an image picker that allows you to easily add images from the Camera roll, Camera and Photo library\n                       then you need not look any further.\n\n                       HGImagepicker combines a list of recent pictures with CTAssetsPickerController and Apples UIImagePickerController\n                       to mimic the same behaviour of the Messages app.\n\n                       ![Initial Screen](https://github.com/sadiq81/HGImagePicker/Example/Screen1.png)\n                       ![Image source picker](https://github.com/sadiq81/HGImagePicker/Example/Screen2.png)\n                       ![Photo gallery using CTAssetsPickerController](https://github.com/sadiq81/HGImagePicker/Example/Screen3.png)\n\n                       Example:\n\n                       <h1>Display HGImagePickerController<h1>\n                       ```Objective-C\n                       HGImagePickerController *imagePickerController = [HGImagePickerController controllerWithDelegate:self];\n                       imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;\n                       imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;\n                       [self presentViewController:imagePickerController animated:true completion:nil];\n                       ```\n\n                       <h1>Delegate callback when the user confirms the choice of images<h1>\n                       ```Objective-C\n                       - (void)HGImagePickerControllerDidConfirm:(HGImagePickerController *)controller pictures:(NSArray *)pictures {\n                           @weakify(self)\n                           [controller dismissViewControllerAnimated:true completion:^{\n                               @strongify(self)\n                               [self.slideShow setImages:[[NSMutableArray alloc] initWithArray:pictures]];\n                               [self.slideShow start];\n                           }];\n                       }\n                       ```\n                       <h1>Delegate callback when the user cancels<h1>\n                       ```Objective-C\n                       - (void)HGImagePickerControllerDidCancel:(HGImagePickerController *)controller {\n                           @weakify(self)\n                           [controller dismissViewControllerAnimated:true completion:^{\n                               @strongify(self)\n                               UIAlertController *errorController = [UIAlertController alertControllerWithTitle:@\"Cancelled\" message:@\"User cancelled image picking\" preferredStyle:UIAlertControllerStyleAlert];\n                               [errorController addAction:[UIAlertAction actionWithTitle:@\"OK\" style:UIAlertActionStyleCancel handler:nil]];\n                               [self presentViewController:errorController animated:true completion:nil];\n\n                           }];\n                       }\n                       ```\n\n                       Thanks to the creators of AsyncImageView, CTAssetsPickerController, MSSPopMasonry, ALActionBlocks, LinqToObjectiveC, ReactiveCocoa\n\n",
+  "homepage": "https://github.com/sadiq81/HGImagePicker",
+  "license": "MIT",
+  "authors": {
+    "Tommy Sadiq Hinrichsen": "tommy.lynge@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/sadiq81/HGImagePicker.git",
+    "tag": "1.0.0"
+  },
+  "social_media_url": "https://twitter.com/sadiq81",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "HGImagePicker": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "AssetsLibrary"
+  ],
+  "dependencies": {
+    "AsyncImageView": [
+      "~> 1.5.1"
+    ],
+    "CTAssetsPickerController": [
+      "~> 2.9.3"
+    ],
+    "pop": [
+      "~> 1.0"
+    ],
+    "MSSPopMasonry": [
+      "~> 0.0.1"
+    ],
+    "ALActionBlocks": [
+      "~> 1.0.3"
+    ],
+    "LinqToObjectiveC": [
+      "~> 2.0.0"
+    ],
+    "ReactiveCocoa": [
+      "~> 2.4.7"
+    ]
+  }
+}

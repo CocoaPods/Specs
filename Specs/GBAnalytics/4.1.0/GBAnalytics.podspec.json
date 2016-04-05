@@ -1,0 +1,190 @@
+{
+  "name": "GBAnalytics",
+  "version": "4.1.0",
+  "summary": "Abstracts away different analytics networks and provides a unified simple interface.",
+  "homepage": "https://github.com/lmirosevic/GBAnalytics",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Luka Mirosevic": "luka@goonbee.com"
+  },
+  "source": {
+    "git": "https://github.com/lmirosevic/GBAnalytics.git",
+    "tag": "4.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GBAnalytics/*.{h,m}",
+      "public_header_files": "GBAnalytics/*.h"
+    },
+    {
+      "name": "GoogleAnalytics",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_GoogleAnalytics.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_GoogleAnalytics.h",
+      "dependencies": {
+        "GoogleAnalytics": [
+          "~> 3.0"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_GOOGLEANALYTICS"
+      }
+    },
+    {
+      "name": "Flurry",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Flurry.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Flurry.h",
+      "dependencies": {
+        "Flurry-iOS-SDK": [
+          "~> 7.3"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_FLURRY"
+      }
+    },
+    {
+      "name": "Crashlytics",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Crashlytics.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Crashlytics.h",
+      "dependencies": {
+        "Crashlytics": [
+          "~> 3.3"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_CRASHLYTICS"
+      }
+    },
+    {
+      "name": "Answers",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Answers.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Answers.h",
+      "dependencies": {
+        "GBAnalytics/Crashlytics": [
+
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_ANSWERS"
+      }
+    },
+    {
+      "name": "Tapstream",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Tapstream.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Tapstream.h",
+      "dependencies": {
+        "Tapstream": [
+          "~> 2.6"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_TAPSTREAM"
+      }
+    },
+    {
+      "name": "Facebook",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Facebook.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Facebook.h",
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "~> 4.6"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_FACEBOOK"
+      }
+    },
+    {
+      "name": "Mixpanel",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Mixpanel.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Mixpanel.h",
+      "dependencies": {
+        "Mixpanel": [
+          "~> 2.3"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_MIXPANEL"
+      }
+    },
+    {
+      "name": "Parse",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Parse.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Parse.h",
+      "dependencies": {
+        "Parse": [
+          "~> 1.6"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_PARSE"
+      }
+    },
+    {
+      "name": "Localytics",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Localytics.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Localytics.h",
+      "dependencies": {
+        "Localytics": [
+          "~> 3.0"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_LOCALYTICS"
+      }
+    },
+    {
+      "name": "Amplitude",
+      "source_files": "GBAnalytics/Modules/GBAnalyticsModule_Amplitude.{h,m}",
+      "public_header_files": "GBAnalytics/Modules/GBAnalyticsModule_Amplitude.h",
+      "dependencies": {
+        "Amplitude-iOS": [
+          "~> 3.2"
+        ],
+        "GBAnalytics/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DGBANALYTICS_AMPLITUDE"
+      }
+    }
+  ]
+}

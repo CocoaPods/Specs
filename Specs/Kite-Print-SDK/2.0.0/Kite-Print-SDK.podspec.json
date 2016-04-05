@@ -1,0 +1,78 @@
+{
+  "name": "Kite-Print-SDK",
+  "version": "2.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/OceanLabs/iOS-Print-SDK",
+  "authors": {
+    "Deon Botha": "deon@oceanlabs.co"
+  },
+  "summary": "Easily add print on demand functionality to your app. Print magnets, photo prints, postcards, polaroids, A4, posters, stickers, etc.",
+  "source": {
+    "git": "https://github.com/OceanLabs/iOS-Print-SDK.git",
+    "tag": "2.0.0"
+  },
+  "source_files": [
+    "PSPrintSDK/OL*.{h,m}",
+    "PSPrintSDK/CardIO*.h",
+    "PSPrintSDK/RMImageCropper/*.{h,m}",
+    "PSPrintSDK/Categories/*.{h,m}"
+  ],
+  "resources": [
+    "PSPrintSDK/KitePrintSDK.xcassets",
+    "*.lproj",
+    "PSPrintSDK/OLKiteStoryboard.storyboard"
+  ],
+  "dependencies": {
+    "SDWebImage": [
+
+    ],
+    "SVProgressHUD": [
+
+    ],
+    "AFNetworking": [
+      "2.5.0"
+    ],
+    "UICKeyChainStore": [
+      "~> 1.0.4"
+    ],
+    "LXReorderableCollectionViewFlowLayout": [
+
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "social_media_url": "https://twitter.com/dbotha",
+  "default_subspecs": "Lite",
+  "subspecs": [
+    {
+      "name": "Lite"
+    },
+    {
+      "name": "PayPal",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_PAYPAL"
+      },
+      "dependencies": {
+        "PayPal-iOS-SDK": [
+          "~> 2.4.2"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_APPLE_PAY"
+      },
+      "dependencies": {
+        "Stripe": [
+          "2.2.0"
+        ],
+        "Stripe/ApplePay": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "name": "mParticle-Apple-SDK",
+  "version": "5.5.0",
+  "summary": "mParticle Apple SDK.",
+  "description": "Hello! This is the unified mParticle Apple SDK. It currently supports iOS and tvOS, however we plan to continue adding\nsupport for more platforms in the future. Since 2013 we have been working tirelessly on developing each component of our platform.\nWe could not be more excited to be able to share it with you.\n\nYour job is to build an awesome app experience that consumers love. You also need several tools and services to make data-driven decisions.\nLike most app owners, you end up implementing and maintaining numerous SDKs ranging from analytics, attribution, push notification, remarketing,\nmonetization, etc. But embedding multiple 3rd party libraries creates a number of unintended consequences and hidden costs. From not being\nable to move as fast as you want, to bloating and destabilizing your app, to losing control and ownership of your 1st party data.\n\nmParticle solves all these problems with one lightweight SDK. Implement new partners without changing code or waiting for app store approval.\nImprove stability and security within your app. We enable our clients to spend more time innovating and less time integrating.",
+  "homepage": "http://www.mparticle.com",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mParticle": "support@mparticle.com"
+  },
+  "source": {
+    "git": "https://github.com/mParticle/mparticle-apple-sdk.git",
+    "tag": "5.5.0"
+  },
+  "documentation_url": "http://docs.mparticle.com",
+  "social_media_url": "https://twitter.com/mparticles",
+  "requires_arc": true,
+  "default_subspecs": "mParticle",
+  "module_name": "mParticle_Apple_SDK",
+  "prefix_header_contents": "#ifndef TARGET_OS_IOS\n    #define TARGET_OS_IOS TARGET_OS_IPHONE\n#endif\n\n#ifndef TARGET_OS_WATCH\n    #define TARGET_OS_WATCH 0\n#endif\n\n#ifndef TARGET_OS_TV\n    #define TARGET_OS_TV 0\n#endif",
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core-SDK",
+      "public_header_files": [
+        "mParticle-Apple-SDK/mParticle.h",
+        "mParticle-Apple-SDK/MPEnums.h",
+        "mParticle-Apple-SDK/MPUserSegments.h",
+        "mParticle-Apple-SDK/Event/MPEvent.h",
+        "mParticle-Apple-SDK/Ecommerce/MPCommerce.h",
+        "mParticle-Apple-SDK/Ecommerce/MPCommerceEvent.h",
+        "mParticle-Apple-SDK/Ecommerce/MPCart.h",
+        "mParticle-Apple-SDK/Ecommerce/MPProduct.h",
+        "mParticle-Apple-SDK/Ecommerce/MPPromotion.h",
+        "mParticle-Apple-SDK/Ecommerce/MPTransactionAttributes.h",
+        "mParticle-Apple-SDK/Ecommerce/MPBags.h",
+        "mParticle-Apple-SDK/Kits/MPKitProtocol.h",
+        "mParticle-Apple-SDK/Kits/MPKitRegister.h"
+      ],
+      "preserve_paths": [
+        "mParticle-Apple-SDK",
+        "mParticle-Apple-SDK/**",
+        "mParticle-Apple-SDK/**/*"
+      ],
+      "source_files": "mParticle-Apple-SDK/**/*",
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ],
+      "ios": {
+        "frameworks": [
+          "Accounts",
+          "CoreGraphics",
+          "CoreLocation",
+          "CoreTelephony",
+          "Foundation",
+          "Security",
+          "Social",
+          "SystemConfiguration",
+          "UIKit"
+        ],
+        "weak_frameworks": [
+          "AdSupport",
+          "iAd"
+        ]
+      },
+      "tvos": {
+        "frameworks": [
+          "CoreGraphics",
+          "Foundation",
+          "Security",
+          "SystemConfiguration",
+          "UIKit"
+        ],
+        "weak_frameworks": "AdSupport"
+      }
+    },
+    {
+      "name": "Adjust",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Adjust": [
+            "~> 4.3"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_ADJUST 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Appboy",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Appboy-iOS-SDK": [
+            "~> 2.19"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_APPBOY 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "AppsFlyer-SDK": [
+            "~> 4.3"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_APPSFLYER 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "BranchMetrics",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Branch": [
+            "~> 0.11"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_BRANCHMETRICS 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "comScore",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "ComScore-iOS": [
+            "3.1510.23"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_COMSCORE 1",
+        "frameworks": [
+          "AVFoundation",
+          "CoreMedia",
+          "MediaPlayer"
+        ]
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Crittercism",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "CrittercismSDK": [
+            "5.4.0"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_CRITTERCISM 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Flurry",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Flurry-iOS-SDK/FlurrySDK": [
+
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_FLURRY 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Kahuna",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Kahuna": [
+            "~> 2.3"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_KAHUNA 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Kochava",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Kochava": [
+
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_KOCHAVA 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Localytics",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "Localytics": [
+            "~> 3.5"
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_LOCALYTICS 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Tune",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_TUNE 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Wootric",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "WootricSDK": [
+
+          ]
+        },
+        "prefix_header_contents": "#define MP_KIT_WOOTRIC 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "mParticle",
+      "dependencies": {
+        "mParticle-Apple-SDK/Core-SDK": [
+
+        ]
+      },
+      "prefix_header_contents": "#define MP_KIT_MPARTICLE 1"
+    },
+    {
+      "name": "CrashReporter",
+      "ios": {
+        "dependencies": {
+          "mParticle-Apple-SDK/Core-SDK": [
+
+          ],
+          "mParticle-Apple-SDK/mParticle": [
+
+          ],
+          "mParticle-CrashReporter": [
+            "~> 1.2"
+          ]
+        },
+        "prefix_header_contents": "#define MP_CRASH_REPORTER 1"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    }
+  ]
+}

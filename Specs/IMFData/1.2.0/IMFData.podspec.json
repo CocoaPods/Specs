@@ -1,0 +1,54 @@
+{
+  "name": "IMFData",
+  "version": "1.2.0",
+  "deprecated": true,
+  "deprecated_in_favor_of": "CDTDatastore",
+  "summary": "Deprecated: IMFData allows security integration between IMFCore and Cloudant Toolkit.",
+  "description": "                   IMFData is deprecated.  Migrate applications to CDTDatastore.  See https://github.com/cloudant/CDTDatastore.\n",
+  "homepage": "https://www.ng.bluemix.net/docs/",
+  "license": "IBM",
+  "authors": {
+    "IBM MobileFirst platform for iOS.": "mobilsdk@us.ibm.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "source": {
+    "git": "https://hub.jazz.net/git/imfsdk/imf-ios-sdk.git",
+    "tag": "1.2.0"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "CloudantToolkit": [
+          "~> 1.2.0"
+        ],
+        "IMFCore": [
+          "~> 1.0.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/IMFData.framework"
+    },
+    {
+      "name": "SQLCipher",
+      "frameworks": "SystemConfiguration",
+      "vendored_frameworks": "Frameworks/IMFData.framework",
+      "dependencies": {
+        "CloudantToolkit/SQLCipher": [
+          "~> 1.2.0"
+        ],
+        "IMFCore": [
+          "~> 1.0.0"
+        ]
+      }
+    }
+  ]
+}

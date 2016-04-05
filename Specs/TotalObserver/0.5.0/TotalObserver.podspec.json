@@ -1,0 +1,119 @@
+{
+  "name": "TotalObserver",
+  "version": "0.5.0",
+  "summary": "Simplified Objective-C blocks API for NSNotifications, KVO, and more.",
+  "description": "A simplified Objective-C API for using NSNotifications and KVO with consistent terminology and useful convenience features.\nUses blocks exclusively, but unlike NSNotification's blocks API, allows manual removal without requiring storage of an observation object.\nSupports automatic removal when either observer or observee is deallocated, and an easy shorthand header when imported lets you omit method prefixes.\nExtensible to other styles of observers, an included example is a wrapper for UIControl event actions.",
+  "homepage": "https://github.com/jpmhouston/TotalObserver",
+  "license": "MIT",
+  "authors": {
+    "Pierre Houston": "jpmhouston@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jpmhouston/TotalObserver.git",
+    "tag": "0.5.0"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": "Foundation"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": [
+          "Source/*.{h,m}",
+          "Source/KVO/*.{h,m}",
+          "Source/Notifications/*.{h,m}",
+          "Source/AppGroups/*.{h,m}",
+          "Source/UIControl/*.{h,m}"
+        ],
+        "public_header_files": [
+          "Source/TotalObserver.h",
+          "Source/TOObservation.h",
+          "Source/KVO/*.h",
+          "Source/Notifications/*.h",
+          "Source/AppGroups/*.h",
+          "Source/UIControl/*.h"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Source/*.{h,m}",
+          "Source/KVO/*.{h,m}",
+          "Source/Notifications/*.{h,m}",
+          "Source/AppGroups/*.{h,m}"
+        ],
+        "public_header_files": [
+          "Source/TotalObserver.h",
+          "Source/TOObservation.h",
+          "Source/KVO/*.h",
+          "Source/Notifications/*.h",
+          "Source/AppGroups/*.h"
+        ]
+      },
+      "private_header_files": [
+        "Source/TOObservation+Private.h",
+        "Source/AppGroups/TOAppGroupNotificationManager.h"
+      ],
+      "exclude_files": [
+        "Source/*Shorthand.{h,m}",
+        "Source/ShorthandAutosetup.h",
+        "Source/KVO/*Shorthand.h",
+        "Source/Notifications/*Shorthand.h",
+        "Source/AppGroups/*Shorthand.h",
+        "Source/UIControl/*Shorthand.h"
+      ]
+    },
+    {
+      "name": "Shorthand",
+      "dependencies": {
+        "TotalObserver/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": [
+          "Source/*Shorthand.{h,m}",
+          "Source/ShorthandAutosetup.h",
+          "Source/KVO/*Shorthand.h",
+          "Source/Notifications/*Shorthand.h",
+          "Source/AppGroups/*Shorthand.h",
+          "Source/UIControl/*Shorthand.h"
+        ],
+        "public_header_files": [
+          "Source/*Shorthand.h",
+          "Source/KVO/*Shorthand.h",
+          "Source/Notifications/*Shorthand.h",
+          "Source/AppGroups/*Shorthand.h",
+          "Source/UIControl/*Shorthand.h"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Source/*Shorthand.{h,m}",
+          "Source/ShorthandAutosetup.h",
+          "Source/KVO/*Shorthand.h",
+          "Source/Notifications/*Shorthand.h",
+          "Source/AppGroups/*Shorthand.h"
+        ],
+        "public_header_files": [
+          "Source/*Shorthand.h",
+          "Source/KVO/*Shorthand.h",
+          "Source/Notifications/*Shorthand.h",
+          "Source/AppGroups/*Shorthand.h"
+        ]
+      },
+      "private_header_files": "Source/ShorthandAutosetup.h"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "BitcoinSPV",
+  "version": "0.5-beta2",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "license": "GPL",
+  "summary": "A native Bitcoin SPV client library for iOS with BIP32 support.",
+  "homepage": "https://github.com/keeshux/BitcoinSPV",
+  "authors": {
+    "Davide De Rosa": "keeshux@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/keeshux/BitcoinSPV.git",
+    "tag": "0.5-beta2"
+  },
+  "source_files": "BitcoinSPV/Sources/BitcoinSPV.h",
+  "exclude_files": [
+    "BitcoinSPVDemo",
+    "BitcoinSPVTests"
+  ],
+  "resource_bundles": {
+    "BitcoinSPV": "BitcoinSPV/Resources/*"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "OpenSSL-Universal": [
+      "~> 1.0.1.l"
+    ],
+    "CocoaLumberjack": [
+      "~> 1.9.2"
+    ],
+    "CocoaAsyncSocket": [
+      "~> 7.3.5"
+    ],
+    "AutoCoding": [
+      "~> 2.2.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BitcoinSPV/Sources/BIPS/*.{h,m}",
+        "BitcoinSPV/Sources/Core/*.{h,m}",
+        "BitcoinSPV/Sources/Global/*.{h,m}",
+        "BitcoinSPV/Sources/Parameters/*.{h,m}",
+        "BitcoinSPV/Sources/Utils/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Blockchain",
+      "source_files": [
+        "BitcoinSPV/Sources/Blockchain/*.{h,m}",
+        "BitcoinSPV/Sources/Model/*.{h,m}"
+      ],
+      "frameworks": "CoreData",
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wallet",
+      "source_files": "BitcoinSPV/Sources/Wallet/*.{h,m}",
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ],
+        "BitcoinSPV/Blockchain": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": [
+        "BitcoinSPV/Sources/Networking/*.{h,m}",
+        "BitcoinSPV/Sources/Protocol/*.{h,m}"
+      ],
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ],
+        "BitcoinSPV/Blockchain": [
+
+        ],
+        "BitcoinSPV/Wallet": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tools",
+      "source_files": [
+        "BitcoinSPV/Sources/Currency/*.{h,m}",
+        "BitcoinSPV/Sources/Web/*.{h,m}"
+      ],
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ]
+      }
+    }
+  ]
+}

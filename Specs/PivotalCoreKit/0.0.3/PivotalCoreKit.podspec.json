@@ -1,0 +1,136 @@
+{
+  "name": "PivotalCoreKit",
+  "version": "0.0.3",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.markdown"
+  },
+  "summary": "Shared library and test code for iOS projects.",
+  "homepage": "https://github.com/pivotal/PivotalCoreKit",
+  "authors": {
+    "Pivotal Labs": "http://pivotallabs.com"
+  },
+  "source": {
+    "git": "https://github.com/pivotal/PivotalCoreKit.git",
+    "tag": "v0.0.3"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PivotalCoreKit/UIKit/Core": [
+
+        ],
+        "PivotalCoreKit/Foundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "UIKit/Core/**/*.{h,m}"
+        },
+        {
+          "name": "SpecHelper",
+          "subspecs": [
+            {
+              "name": "Extensions",
+              "source_files": [
+                "UIKit/SpecHelper/Extensions/*.{h,m}",
+                "UIKit/SpecHelper/UIKit+PivotalSpecHelper.h"
+              ]
+            },
+            {
+              "name": "Matchers",
+              "source_files": "UIKit/SpecHelper/Matchers/*.{h,m}"
+            },
+            {
+              "name": "Stubs",
+              "source_files": [
+                "UIKit/SpecHelper/Stubs/*.{h,m}",
+                "UIKit/SpecHelper/UIKit+PivotalSpecHelperStubs.h"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Foundation",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "Foundation/Core/**/*.{h,m}",
+          "libraries": "xml2",
+          "xcconfig": {
+            "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+          }
+        },
+        {
+          "name": "SpecHelper",
+          "subspecs": [
+            {
+              "name": "Extensions",
+              "source_files": [
+                "Foundation/Core/Extensions/NSObject+MethodRedirection.h",
+                "Foundation/SpecHelper/Helpers/PCKConnectionBlockDelegate.h",
+                "Foundation/SpecHelper/Helpers/PCKConnectionDelegateWrapper.h",
+                "Foundation/SpecHelper/Fakes/PSHKFakeHTTPURLResponse.h",
+                "Foundation/SpecHelper/Fakes/FakeOperationQueue.h",
+                "Foundation/SpecHelper/Extensions/*.{h,m}"
+              ]
+            },
+            {
+              "name": "Fixtures",
+              "source_files": "Foundation/SpecHelper/Fixtures/*.{h,m}"
+            },
+            {
+              "name": "Helpers",
+              "source_files": [
+                "Foundation/SpecHelper/Extensions/NSURLConnection+Spec.h",
+                "Foundation/SpecHelper/Helpers/*.{h,m}"
+              ]
+            },
+            {
+              "name": "Fakes",
+              "source_files": "Foundation/SpecHelper/Fakes/*.{h,m}",
+              "dependencies": {
+                "PivotalCoreKit/Foundation/SpecHelper/Fixtures": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreLocation",
+      "subspecs": [
+        {
+          "name": "SpecHelper",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "CoreLocation/SpecHelper/*.{h,m}"
+            },
+            {
+              "name": "Extensions",
+              "source_files": "CoreLocation/SpecHelper/Extensions/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

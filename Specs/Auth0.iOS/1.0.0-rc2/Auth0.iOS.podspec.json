@@ -1,0 +1,126 @@
+{
+  "name": "Auth0.iOS",
+  "version": "1.0.0-rc2",
+  "summary": "A library that uses Auth0 for Authentication with Native Look & Feel",
+  "description": "[![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)\n\nAuth0 is a SaaS that helps you with Authentication and Authorization. You can use Social Providers (Like Facebook, Google, Twitter, etc.), Enterprise Providers (Active Directory, LDap, Windows Azure AD, SAML, etc.) and a Username/Password store which can be saved either by us or by you. We have SDKs for the most common platforms (Ruby, Node, iOS, Angular, etc.) so that with a couple lines of code, you can get the Authentication for your app implemented. Let us worry about Authentication so that you can focus on the core of your business.\n",
+  "homepage": "https://github.com/auth0/Auth0.iOS",
+  "license": "MIT",
+  "authors": [
+    {
+      "Martin Gontovnikas": "gonto@auth0.com"
+    },
+    {
+      "Hernan Zalazar": "hernan@auth0.com"
+    }
+  ],
+  "source": {
+    "git": "https://github.com/auth0/Auth0.iOS.git",
+    "tag": "1.0.0-rc2"
+  },
+  "social_media_url": "https://twitter.com/authzero",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "public_header_files": "Pod/Classes/Auth0.h",
+  "dependencies": {
+    "libextobjc": [
+      "~> 0.4"
+    ],
+    "CocoaLumberjack": [
+      "~> 1.9"
+    ]
+  },
+  "default_subspecs": [
+    "UI",
+    "Facebook",
+    "Twitter"
+  ],
+  "prefix_header_contents": "    #import \"A0Logging.h\"\n    #define A0LocalizedString(key) NSLocalizedStringFromTable(key, @\"Auth0\", nil)\n",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "Pod/Classes/Core/*.h",
+        "Pod/Classes/Provider/*.h"
+      ],
+      "source_files": [
+        "Pod/Classes/Core/*.{h,m}",
+        "Pod/Classes/Provider/*.{h,m}"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.3"
+        ],
+        "ISO8601DateFormatter": [
+          "~> 0.7"
+        ],
+        "UICKeyChainStore": [
+          "~> 1.0.5"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "public_header_files": "Pod/Classes/UI/*.h",
+      "private_header_files": [
+        "Pod/Classes/UI/Private/*.h",
+        "Pod/Classes/Utils/*.h"
+      ],
+      "source_files": [
+        "Pod/Classes/{UI,Utils}/*.{h,m}",
+        "Pod/Classes/UI/Private/*.{h,m}"
+      ],
+      "dependencies": {
+        "Auth0.iOS/Core": [
+
+        ]
+      },
+      "resources": "Pod/Assets/*.xib",
+      "resource_bundles": {
+        "Auth0": [
+          "Pod/Assets/Images/*.png",
+          "Pod/Assets/*.plist",
+          "Pod/Assets/*.ttf"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "public_header_files": "Pod/Classes/Provider/Facebook/*.h",
+      "source_files": "Pod/Classes/Provider/Facebook/*.{h,m}",
+      "dependencies": {
+        "Auth0.iOS/Core": [
+
+        ],
+        "Facebook-iOS-SDK": [
+          "~> 3.15"
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "public_header_files": "Pod/Classes/Twitter/*.h",
+      "source_files": "Pod/Classes/Provider/Twitter/*.{h,m}",
+      "dependencies": {
+        "Auth0.iOS/Core": [
+
+        ],
+        "BDBOAuth1Manager": [
+          "~> 1.3"
+        ],
+        "TWReverseAuth": [
+          "~> 0.1.0"
+        ],
+        "PSAlertView": [
+          "~> 2.0"
+        ]
+      },
+      "frameworks": [
+        "Social",
+        "Accounts",
+        "Twitter"
+      ]
+    }
+  ]
+}

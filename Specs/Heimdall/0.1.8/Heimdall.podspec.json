@@ -1,0 +1,30 @@
+{
+  "name": "Heimdall",
+  "version": "0.1.8",
+  "summary": "Heimdall is a wrapper around the Security framework for simple encryption/decryption operations.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "description": "                   Heimdall acts as a gatekeeper between UI and the underlying Security frameworks, offering\n                   tools for encryption/decryption, as well as signing/verifying.\n\n                   Heimdall supports both using a RSA public-private key-pair, as well as just a public key,\n                   which allows for multiple parties to verify and encrypt messages for sending.\n",
+  "homepage": "https://github.com/henrinormak/Heimdall",
+  "authors": {
+    "Henri Normak": "henri.normak@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/henrinormak",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/henrinormak/Heimdall.git",
+    "tag": "0.1.8"
+  },
+  "preserve_paths": "CommonCrypto/*",
+  "source_files": "Heimdall/*",
+  "requires_arc": true,
+  "xcconfig": {
+    "SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]": "$(PODS_ROOT)/Heimdall/CommonCrypto/iphonesimulator/",
+    "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]": "$(PODS_ROOT)/Heimdall/CommonCrypto/iphoneos/"
+  },
+  "prepare_command": "                        mkdir -p CommonCrypto/iphoneos\n                        mkdir -p CommonCrypto/iphonesimulator\n                        cp CommonCrypto/iphoneos.modulemap CommonCrypto/iphoneos/module.modulemap\n                        cp CommonCrypto/iphonesimulator.modulemap CommonCrypto/iphonesimulator/module.modulemap\n"
+}

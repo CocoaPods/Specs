@@ -1,0 +1,58 @@
+{
+  "name": "libsqlfs",
+  "version": "1.3",
+  "summary": "Library that implements a POSIX style filesystem on top of an SQLite database",
+  "description": "                        The libsqlfs library implements a POSIX style file system on top of an\n                        SQLite database.  It allows applications to have access to a full read/write\n                        file system in a single file, complete with its own file hierarchy and name\n                        space.  This is useful for applications which needs structured storage, such\n                        as embedding documents within documents, or management of configuration\n                        data or preferences.\n",
+  "homepage": "https://github.com/guardianproject/libsqlfs",
+  "license": {
+    "type": "LGPLv2.1",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Chris Ballinger": "chris@chatsecure.org"
+  },
+  "source": {
+    "git": "https://github.com/guardianproject/libsqlfs.git",
+    "tag": "v1.3"
+  },
+  "social_media_url": "https://twitter.com/guardianproject",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": [
+        "sqlfs_internal.h",
+        "sqlfs.c",
+        "sqlfs.h"
+      ]
+    },
+    {
+      "name": "standard",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "libsqlfs/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher/fts": [
+
+        ],
+        "libsqlfs/common": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DHAVE_LIBSQLCIPHER -DSQLITE_HAS_CODEC"
+      }
+    }
+  ]
+}

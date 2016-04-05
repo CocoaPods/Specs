@@ -1,0 +1,66 @@
+{
+  "name": "PLDatabase",
+  "version": "2.0-alpha",
+  "summary": "A SQL database access library for Objective-C.",
+  "description": "                    A SQL database access library for Objective-C, initially focused on SQLite as an application database. The library supports both OS X and iPhone development.\n                    \n                    Plausible Database is provided free of charge under the BSD license, and may be freely integrated with any application.\n                    \n                    This podspec written and freely contributed by Gwynne Raskind of [Chaotic Moon Studios](http://chaoticmoon.com).\n",
+  "homepage": "http://http://code.google.com/p/pldatabase/",
+  "license": "BSD",
+  "authors": {
+    "Landon Fuller": "landon.j.fuller@gmail.com",
+    "Chris Campbell": "chriscampbell@gmail.com",
+    "Nick Barkas": "nick.barkas@gmail.com"
+  },
+  "source": {
+    "svn": "http://pldatabase.googlecode.com/svn/trunk/"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "default_subspecs": [
+    "standard"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "common",
+      "compiler_flags": [
+        "-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+        "-DPL_DB_PRIVATE=1"
+      ],
+      "source_files": [
+        "Classes",
+        "Other Sources"
+      ],
+      "exclude_files": "Classes/**/*Tests{.h,.m}",
+      "preserve_paths": "Doxyfile",
+      "frameworks": "Foundation",
+      "requires_arc": false
+    },
+    {
+      "name": "standard",
+      "dependencies": {
+        "sqlite3": [
+          "~> 3.8.0.2"
+        ],
+        "sqlite3/unlock_notify": [
+
+        ],
+        "PLDatabase/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "sqlcipher",
+      "dependencies": {
+        "SQLCipher/unlock_notify": [
+
+        ],
+        "PLDatabase/common": [
+
+        ]
+      }
+    }
+  ]
+}

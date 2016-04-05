@@ -1,0 +1,61 @@
+{
+  "name": "zipzap",
+  "version": "8.0.3",
+  "authors": {
+    "Pixelglow Software": "glen.low@pixelglow.com"
+  },
+  "license": "BSD",
+  "homepage": "https://github.com/pixelglow/zipzap",
+  "source": {
+    "git": "https://github.com/pixelglow/zipzap.git",
+    "tag": "8.0.3"
+  },
+  "summary": "zipzap is a zip file I/O library for Mac OS X and iOS.",
+  "description": "The zip file is an ideal container for compound Objective-C documents. Zip files are widely used and well understood. You can randomly access their parts. The format compresses decently and has extensive operating system and tool support. So we want to make this format an even easier choice for you. Thus, the library features:\n\n- Easy-to-use interface: The public API offers just three classes! Yet you can look through zip files using familiar NSArray collections and properties. And you can zip, unzip and rezip zip files through familiar NSData, NSStream and Image I/O classes.\n- Efficient implementation: We've optimized zip file reading and writing to reduce virtual memory pressure and disk file thrashing. Depending on how your compound document is organized, updating a single entry can be faster than writing the same data to a separate file.\n- File format compatibility: Since zipzap closely follows the zip file format specification, it is works with most Mac, Linux and Windows zip tools.\n",
+  "documentation_url": "http://pixelglow.github.io/zipzap/api/",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation"
+  ],
+  "libraries": [
+    "z"
+  ],
+  "public_header_files": [
+    "zipzap/zipzap.h",
+    "zipzap/ZZArchive.h",
+    "zipzap/ZZArchiveEntry.h",
+    "zipzap/ZZConstants.h",
+    "zipzap/ZZError.h"
+  ],
+  "ios": {
+    "frameworks": [
+      "ImageIO"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "ApplicationServices"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "c++",
+      "compiler_flags": "-fno-exceptions -std=c++11 -stdlib=libc++",
+      "source_files": "zipzap/*.{h,cpp}"
+    },
+    {
+      "name": "objc",
+      "compiler_flags": "-fno-objc-exceptions -std=c99",
+      "source_files": "zipzap/*.{h,m}"
+    },
+    {
+      "name": "objc++",
+      "compiler_flags": "-fno-objc-exceptions -fno-exceptions -std=c++11 -stdlib=libc++",
+      "source_files": "zipzap/*.{h,mm}"
+    }
+  ]
+}

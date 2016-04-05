@@ -1,0 +1,26 @@
+{
+  "name": "OAuthConsumer",
+  "version": "1.0.3",
+  "summary": "OAuthConsumer is an iPhone-ready iOS 8.0 compatible, ARC-supported OAuth implementation.",
+  "description": "#OAuthConsumer\n\n\nThis is an iPhone ready version of:\nhttp://oauth.googlecode.com/svn/code/obj-c/OAuthConsumer by Jon Crosby.\n\nThis version has been updated for iOS 8.0 and to use Automatic Reference Counting (ARC). You will need to add **Security.framework**.\n\n\"iPhone ready\" simply means you just need to add the files to Xcode, and import \"OAuthConsumer.h\".\n\nOADataFetcher now also includes the ability to use blocks in addition to delegates as seen in this example:\n\n\tOAConsumer *consumer = [[OAConsumer alloc] initWithKey:self.consumerKey secret:self.consumerSecret];\n\tOAToken *token = [[OAToken alloc] initWithKey:self.accessToken secret:self.accessTokenSecret];\n\tNSURL* url = [NSURL URLWithString:urlString];\n\tOAMutableURLRequest* request = [[OAMutableURLRequest alloc] initWithURL:url consumer:consumer token:token realm:nil signatureProvider:nil];\n\t[request setHTTPMethod:@\"POST\"];\n\tNSMutableArray *params = [[NSMutableArray alloc] init];\n\tfor ( NSString *key in [postParams allKeys] )\n\t{\n\t\tOARequestParameter* param = [[OARequestParameter alloc] initWithName:key value:postParams[key]];\n\t\t[params addObject:param];\n\t}\n\tif ( [params count] > 0 )\n\t\t[request setParameters:params];\n\tOADataFetcher* dataFetcher = [[OADataFetcher alloc] init];\n\t[dataFetcher performRequest:request\n\t\t\t\t\twithHandler:^(OAServiceTicket *ticket, NSData *data, NSError *error) {\n\t\t\t\t   if ( !error ) {\n\t\t\t\t\t   NSLog(@\"didPost:=%@\", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);\n\t\t\t\t\t   [self updateStatusCompleteWithStatus:SCUpdateSuccessful data:data error:nil];\n\t\t\t\t   }\n\t\t\t\t   else\n\t\t\t\t   {\n\t\t\t\t\t   [self updateStatusCompleteWithStatus:SCUpdateFailed data:data error:error];\n\t\t\t\t   }\n\t\t\t   }];\n\n\nThis is a work in progress. Please feel free to contact me at larry [at] larryborsato [dot] com.\n",
+  "homepage": "https://github.com/lborsato/oAuthConsumer-pod",
+  "license": "MIT",
+  "authors": {
+    "Larry Borsato": "larry@larryborsato.com"
+  },
+  "source": {
+    "git": "https://github.com/lborsato/oAuthConsumer-pod.git",
+    "tag": "1.0.3"
+  },
+  "social_media_url": "https://twitter.com/lborsato",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Classes/*",
+  "resource_bundles": {
+    "OAuthConsumer": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

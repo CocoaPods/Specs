@@ -1,0 +1,111 @@
+{
+  "name": "Kite-Print-SDK",
+  "version": "2.0.22",
+  "license": {
+    "type": "MIT",
+    "file": "Kite SDK/LICENSE"
+  },
+  "homepage": "https://github.com/OceanLabs/iOS-Print-SDK",
+  "authors": {
+    "Deon Botha": "deon@oceanlabs.co"
+  },
+  "summary": "Add physical print functionality in minutes! Print magnets, photo prints, postcards, polaroids, posters, stickers, canvas', phone cases, etc",
+  "source": {
+    "git": "https://github.com/OceanLabs/iOS-Print-SDK.git",
+    "tag": "2.0.22"
+  },
+  "source_files": [
+    "Kite SDK/PSPrintSDK/OL*.{h,m}",
+    "Kite SDK/PSPrintSDK/CardIO*.h",
+    "Kite SDK/PSPrintSDK/RMImageCropper/*.{h,m}",
+    "Kite SDK/PSPrintSDK/Categories/*.{h,m}",
+    "Kite SDK/PSPrintSDK/LXReorderableCollectionViewFlowLayout.{h,m}"
+  ],
+  "resources": [
+    "Kite SDK/PSPrintSDK/KitePrintSDK.xcassets",
+    "Kite SDK/*.lproj",
+    "Kite SDK/PSPrintSDK/OLKiteStoryboard.storyboard",
+    "Kite SDK/PSPrintSDK/OLPhotoSelectionButton.xib"
+  ],
+  "dependencies": {
+    "SDWebImage": [
+      "~> 3.7.2"
+    ],
+    "SVProgressHUD": [
+
+    ],
+    "AFNetworking": [
+      "~> 2.5.0"
+    ],
+    "UICKeyChainStore": [
+      "~> 2.0.4"
+    ],
+    "CSStickyHeaderFlowLayout": [
+      "~> 0.2.4"
+    ],
+    "CTAssetsPickerController": [
+      "~> 2.9.3"
+    ],
+    "UIColor-HexString": [
+
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "social_media_url": "https://twitter.com/dbotha",
+  "default_subspecs": "Lite",
+  "subspecs": [
+    {
+      "name": "Lite"
+    },
+    {
+      "name": "PayPal",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_PAYPAL"
+      },
+      "dependencies": {
+        "PayPal-iOS-SDK": [
+          "~> 2.4.2"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_APPLE_PAY"
+      },
+      "dependencies": {
+        "Stripe": [
+          "2.2.0"
+        ],
+        "Stripe/ApplePay": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_FACEBOOK"
+      },
+      "dependencies": {
+        "FacebookImagePicker": [
+
+        ]
+      }
+    },
+    {
+      "name": "Instagram",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_INSTAGRAM"
+      },
+      "dependencies": {
+        "InstagramImagePicker": [
+
+        ]
+      }
+    }
+  ]
+}

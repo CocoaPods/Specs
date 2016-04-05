@@ -1,0 +1,47 @@
+{
+  "name": "CAF",
+  "version": "0.14.0",
+  "summary": "an open source C++11 actor model implementation",
+  "description": "CAF is an open source C++11 actor model implementation featuring lightweight & fast actor implementations, pattern matching for messages, network transparent messaging, and more.",
+  "homepage": "http://actor-framework.org/",
+  "license": "Boost Software License",
+  "authors": {
+    "Dominik Charousset": "dominik.charousset@haw-hamburg.de"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/actor-framework/actor-framework.git",
+    "tag": "0.14.0"
+  },
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/caf/libcaf_core/\" \"${PODS_ROOT}/caf/libcaf_io/\""
+  },
+  "requires_arc": false,
+  "prepare_command": "touch libcaf_core/caf/detail/build_config.hpp",
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "libcaf_core/src/*.cpp",
+      "preserve_paths": [
+        "libcaf_core/caf/**/*.hpp"
+      ]
+    },
+    {
+      "name": "io",
+      "dependencies": {
+        "CAF/core": [
+
+        ]
+      },
+      "source_files": "libcaf_io/src/*.cpp",
+      "preserve_paths": [
+        "libcaf_io/caf/**/*.hpp"
+      ]
+    }
+  ]
+}

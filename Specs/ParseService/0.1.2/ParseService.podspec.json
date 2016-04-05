@@ -1,0 +1,228 @@
+{
+  "name": "ParseService",
+  "version": "0.1.2",
+  "summary": "A dependency-injectable service wrapping the Parse REST API.",
+  "description": "A dependency-injectable service wrapping the Parse REST API.\nRequires the API Service.",
+  "homepage": "https://github.com/AttilaTheFun/ParseService",
+  "license": "MIT",
+  "authors": {
+    "Logan Shire": "logan.shire@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/AttilaTheFun/ParseService.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "API",
+      "dependencies": {
+        "SwiftToolKit": [
+          "~>0.2.4"
+        ],
+        "ServiceRegistry/API": [
+          "~>0.3.0"
+        ],
+        "PromiseKit": [
+          "~>3.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Utils",
+          "source_files": "Pod/API/Utils/*.swift"
+        },
+        {
+          "name": "Create",
+          "source_files": "Pod/API/Create/*.swift"
+        },
+        {
+          "name": "Read",
+          "source_files": "Pod/API/Read/*.swift"
+        },
+        {
+          "name": "Update",
+          "source_files": "Pod/API/Update/*.swift"
+        },
+        {
+          "name": "Delete",
+          "source_files": "Pod/API/Delete/*.swift"
+        },
+        {
+          "name": "User",
+          "subspecs": [
+            {
+              "name": "Models",
+              "source_files": "Pod/API/User/Models/*.swift"
+            },
+            {
+              "name": "Service",
+              "dependencies": {
+                "ParseService/API/User/Models": [
+
+                ],
+                "ParseService/API/Push/Models": [
+
+                ]
+              },
+              "source_files": "Pod/API/User/*.swift"
+            }
+          ]
+        },
+        {
+          "name": "Push",
+          "subspecs": [
+            {
+              "name": "Models",
+              "source_files": "Pod/API/Push/Models/*.swift"
+            },
+            {
+              "name": "Service",
+              "dependencies": {
+                "ParseService/API/User/Models": [
+
+                ],
+                "ParseService/API/Push/Models": [
+
+                ]
+              },
+              "source_files": "Pod/API/Push/*.swift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Implementation",
+      "dependencies": {
+        "ParseService/API": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Create",
+          "dependencies": {
+            "ParseService/API/Create": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/Create/*.swift"
+        },
+        {
+          "name": "Read",
+          "dependencies": {
+            "ParseService/API/Read": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/Read/*.swift"
+        },
+        {
+          "name": "Update",
+          "dependencies": {
+            "ParseService/API/Read": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/Update/*.swift"
+        },
+        {
+          "name": "Delete",
+          "dependencies": {
+            "ParseService/API/Delete": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/Delete/*.swift"
+        },
+        {
+          "name": "User",
+          "dependencies": {
+            "ParseService/API/Create": [
+
+            ],
+            "ParseService/API/Read": [
+
+            ],
+            "ParseService/API/Push": [
+
+            ],
+            "ParseService/API/User": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/User/*.swift"
+        },
+        {
+          "name": "Push",
+          "dependencies": {
+            "ParseService/API/Create": [
+
+            ],
+            "ParseService/API/Read": [
+
+            ],
+            "ParseService/API/User": [
+
+            ],
+            "ParseService/API/Push": [
+
+            ],
+            "ParseService/API/Utils": [
+
+            ],
+            "APIService/API": [
+              "~>0.3.1"
+            ]
+          },
+          "source_files": "Pod/Implementation/Push/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "dependencies": {
+        "ServiceRegistry": [
+          "~>0.3.0"
+        ],
+        "APIService": [
+          "~>0.3.1"
+        ]
+      }
+    }
+  ]
+}

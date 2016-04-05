@@ -1,0 +1,62 @@
+{
+  "name": "SparkSetup",
+  "version": "0.1.4",
+  "summary": "Spark Device Setup library for integrating soft AP setup process of Spark devices in your app",
+  "description": "    Spark Device Setup library for integrating setup process of Spark devices in your app\n    This library will allow you to easily invoke a standalone setup wizard UI for setting up\n    Spark devices from within your app. Setup UI look & feel can be easily customized with custom brand\n    logos/colors/fonts/texts and instructional video.\n",
+  "homepage": "https://github.com/spark/spark-setup-ios",
+  "license": "LGPL v3",
+  "authors": {
+    "Spark": "ido@spark.io"
+  },
+  "source": {
+    "git": "https://github.com/spark/spark-setup-ios.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "7.1"
+  },
+  "requires_arc": true,
+  "public_header_files": "Classes/*.h",
+  "source_files": "Classes/*.h",
+  "subspecs": [
+    {
+      "name": "Resources",
+      "resource_bundles": {
+        "SparkSetup": [
+          "Resources/**/*"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "Classes/User/**/*.{h,m}",
+        "Classes/UI/**/*"
+      ],
+      "dependencies": {
+        "Spark-SDK": [
+
+        ],
+        "SparkSetup/Comm": [
+
+        ],
+        "SparkSetup/Resources": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Comm",
+      "source_files": "Classes/Comm/**/*",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "Security"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "MTProtoKit",
+  "version": "0.0.1",
+  "summary": "Universal MTProto framework for both iOS and OS X",
+  "homepage": "https://github.com/PauloMigAlmeida/MtProtoKit",
+  "license": "MIT",
+  "authors": {
+    "Peter Iakovlev": "",
+    "Paulo Miguel Almeida": "paulo.ubuntu@gmail.com"
+  },
+  "platforms": {
+    "ios": "6.1",
+    "osx": "10.8"
+  },
+  "source": {
+    "git": "https://github.com/PauloMigAlmeida/MtProtoKit.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "*.{h,m}",
+    "MTProtoKit/**/*.{h,m}",
+    "thirdparty/AsyncSocket/*.{h,m}"
+  ],
+  "public_header_files": "**/*.h",
+  "frameworks": "Foundation",
+  "ios": {
+    "prefix_header_file": "MtProtoKitiOS/MtProtoKit-Prefix.pch"
+  },
+  "libraries": "z",
+  "requires_arc": true,
+  "dependencies": {
+    "SSignalKit": [
+      "~> 0.0.2"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "AFNetworking",
+      "source_files": "thirdparty/AFNetworking/*.{h,m}",
+      "requires_arc": false
+    },
+    {
+      "name": "OpenSSL",
+      "source_files": "openssl/openssl/*.{h,m}",
+      "header_dir": "openssl",
+      "libraries": "crypto",
+      "ios": {
+        "preserve_paths": "openssl/iOS/libcrypto.a",
+        "vendored_libraries": "openssl/iOS/libcrypto.a"
+      },
+      "osx": {
+        "preserve_paths": "openssl/OSX/libcrypto.a",
+        "vendored_libraries": "openssl/OSX/libcrypto.a"
+      }
+    }
+  ]
+}

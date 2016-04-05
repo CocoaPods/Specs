@@ -1,0 +1,210 @@
+{
+  "name": "MyiOSHelpers",
+  "version": "0.0.1",
+  "homepage": "http://github.com/premosystems/MyiOSHelpers",
+  "authors": {
+    "Vincil Bishop": "vincil.bishop@vbishop.com"
+  },
+  "license": "MIT",
+  "summary": "A collection of often used but time consuming to recreate logic for iOS.",
+  "source": {
+    "git": "https://github.com/premosystems/MyiOSHelpers.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "resources": "MyiOSHelpers.podspec",
+  "source_files": "MyiOSHelpers/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Logic",
+      "source_files": "MyiOSHelpers/Logic/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "ThirdPartyHelpers",
+          "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/*.h",
+          "subspecs": [
+            {
+              "name": "CoreLocation",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/CoreLocation/*.{h,m}",
+              "ios": {
+                "frameworks": "CoreLocation",
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Categories": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Common": [
+
+                  ]
+                }
+              }
+            },
+            {
+              "name": "CoreBluetooth",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/CoreBluetooth/*.{h,m}",
+              "ios": {
+                "frameworks": "CoreBluetooth",
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Categories": [
+
+                  ],
+                  "MyiOSHelpers/Logic/Common": [
+
+                  ]
+                }
+              }
+            },
+            {
+              "name": "MongoDB",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/Mongo/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping": [
+
+                  ],
+                  "NSObject-ObjectMap": [
+                    "~> 2.2"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "KeyValueObjectMapping",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "DCKeyValueObjectMapping": [
+                    "~>1.4.0"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Twilio",
+              "source_files": "MyiOSHelpers/Logic/ThirdPartyHelpers/Twilio/*.{h,m}",
+              "prefix_header_contents": "#import \"TwilioClient.h\"",
+              "ios": {
+                "dependencies": {
+                  "MyiOSHelpers/Logic/Common": [
+
+                  ]
+                }
+              },
+              "dependencies": {
+                "TwilioSDK": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Blocks",
+          "source_files": "MyiOSHelpers/Logic/Blocks/*.h"
+        },
+        {
+          "name": "Categories",
+          "source_files": "MyiOSHelpers/Logic/Categories/*.{h,m}"
+        },
+        {
+          "name": "Common",
+          "source_files": "MyiOSHelpers/Logic/Common/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "LumberjackHelpers",
+              "ios": {
+                "dependencies": {
+                  "LumberjackPrettyClassInformation": [
+                    "~>1.0.0"
+                  ],
+                  "CocoaLumberjack": [
+                    "~>1.8.1"
+                  ]
+                }
+              },
+              "prefix_header_contents": [
+                "#import \"Lumberjack-Default-Log-Level.h\"",
+                "#import \"PrettyClassInformationLogFormatter.h\""
+              ],
+              "source_files": "MyiOSHelpers/Logic/Common/LumberjackHelpers/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "View",
+      "source_files": "MyiOSHelpers/View/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Screens",
+          "source_files": "MyiOSHelpers/View/Screens/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Drawers",
+              "prefix_header_contents": [
+                "#import \"MMDrawerController.h\"",
+                "#import \"MMDrawerBarButtonItem.h\"",
+                "#import \"UIViewController+MMDrawerController.h\""
+              ],
+              "source_files": "MyiOSHelpers/View/Screens/Drawers/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "MMDrawerController": [
+                    "~> 0.5.2"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "FormViewController",
+              "source_files": "MyiOSHelpers/View/Screens/FormViewController/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "RDVKeyboardAvoiding": [
+                    "~>1.1.0"
+                  ],
+                  "US2FormValidator": [
+                    "~> 1.1.2"
+                  ],
+                  "MyiOSHelpers/Logic/Blocks": [
+
+                  ],
+                  "MyiOSHelpers/View/Categories": [
+
+                  ]
+                }
+              }
+            },
+            {
+              "name": "LoginViewController",
+              "source_files": "MyiOSHelpers/View/Screens/LoginViewController/*.{h,m}",
+              "ios": {
+                "dependencies": {
+                  "MyiOSHelpers/View/Screens/FormViewController": [
+
+                  ],
+                  "MBProgressHUD": [
+                    "~>0.8"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Categories",
+          "source_files": "MyiOSHelpers/View/Categories/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}

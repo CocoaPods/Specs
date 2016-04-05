@@ -1,0 +1,171 @@
+{
+  "name": "MNGAds",
+  "version": "2.0",
+  "summary": "MNG Ads provides functionalities for monetizing your mobile application",
+  "description": "MNG Ads provides functionalities for monetizing your mobile application: from premium sales with reach media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :\nSmart ads server\nFacebook Audience Network\nappsfire\nGoogle DFP\nMng-perf\nAppNexus",
+  "homepage": "https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Home",
+  "license": "Commercial",
+  "authors": {
+    "MOBILENETWORKGROUP": "http://www.mobilenetworkgroup.com",
+    "Technical Assistance": "admin@mng-ads.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/mngcorp/mngads-demo-ios.git",
+    "tag": "v2.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds\""
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "QuartzCore",
+    "SystemConfiguration",
+    "MediaPlayer",
+    "CoreMotion",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "StoreKit",
+    "CoreLocation",
+    "Accelerate",
+    "CoreTelephony",
+    "MessageUI"
+  ],
+  "default_subspecs": "MNGAds",
+  "subspecs": [
+    {
+      "name": "MNGAds",
+      "source_files": "MNGAds/**/*.h",
+      "preserve_paths": "MNGAds/libMngAds.a",
+      "libraries": "MngAds",
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/MNGAds\""
+      }
+    },
+    {
+      "name": "Facebook",
+      "preserve_paths": "MNGAds/libMNGAdsFacebookAdapter.a",
+      "libraries": "MNGAdsFacebookAdapter",
+      "dependencies": {
+        "FBAudienceNetwork": [
+          "4.9.1"
+        ],
+        "MNGAds/MNGAds": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/Facebook\""
+      }
+    },
+    {
+      "name": "DFP",
+      "preserve_paths": "MNGAds/libMNGAdsDFPAdapter.a",
+      "libraries": "MNGAdsDFPAdapter",
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.6.0"
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/DFP\""
+      }
+    },
+    {
+      "name": "SmartAdsServer",
+      "preserve_paths": "MNGAds/libMNGAdsSASAdapter.a",
+      "libraries": "MNGAdsSASAdapter",
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/SmartAdsServer\""
+      }
+    },
+    {
+      "name": "LiveRail",
+      "preserve_paths": "MNGAds/libMNGLiveRailAdapter.a",
+      "libraries": [
+        "z",
+        "c++",
+        "stdc++",
+        "MNGLiveRailAdapter"
+      ],
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/LiveRail\""
+      }
+    },
+    {
+      "name": "Amazon",
+      "preserve_paths": "MNGAds/libMNGAmazonAdapter.a",
+      "libraries": "MNGAmazonAdapter",
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/Amazon\""
+      }
+    },
+    {
+      "name": "Flurry",
+      "preserve_paths": "MNGAds/libMNGFlurryAdapter.a",
+      "libraries": "MNGFlurryAdapter",
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ],
+        "Flurry-iOS-SDK/FlurrySDK": [
+          "7.3.0"
+        ],
+        "Flurry-iOS-SDK/FlurryAds": [
+          "7.3.0"
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds/Flurry\""
+      }
+    },
+    {
+      "name": "MNGAdsFull",
+      "dependencies": {
+        "MNGAds/MNGAds": [
+
+        ],
+        "MNGAds/Facebook": [
+
+        ],
+        "MNGAds/DFP": [
+
+        ],
+        "MNGAds/SmartAdsServer": [
+
+        ],
+        "MNGAds/LiveRail": [
+
+        ],
+        "MNGAds/Amazon": [
+
+        ],
+        "MNGAds/Flurry": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "name": "NBUImagePicker",
+  "version": "1.5.2",
+  "summary": "Modular image picker with Simulator-compatible AVFondation camera, assets library, filters and more.",
+  "description": "Modular and fully customizable UIImagePickerController replacement with Simulator-compatible AVFondation camera, AssetsLibrary and custom directory assets' browser, and image cropping, filters and gallery. Change element's sizes, position, customize picker workflow, add/remove/rename filters, localize for other languages, use cropping features from other libraries, etc.",
+  "homepage": "http://cyberagent.github.io/iOS-NBUImagePicker/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CyberAgent Inc.": "",
+    "Ernesto Rivera": "rivera_ernesto@cyberagent.co.jp"
+  },
+  "source": {
+    "git": "https://github.com/CyberAgent/iOS-NBUImagePicker.git",
+    "tag": "1.5.2"
+  },
+  "screenshots": [
+    "http://cyberagent.github.io/iOS-NBUImagePicker/images/screenshot3.png",
+    "http://cyberagent.github.io/iOS-NBUImagePicker/images/screenshot4.png",
+    "http://cyberagent.github.io/iOS-NBUImagePicker/images/screenshot5.png",
+    "http://cyberagent.github.io/iOS-NBUImagePicker/images/screenshot6.png",
+    "http://cyberagent.github.io/iOS-NBUImagePicker/images/screenshot1.png"
+  ],
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "preserve_paths": [
+    "README.md",
+    "NOTICE"
+  ],
+  "dependencies": {
+    "NBUKit": [
+      ">= 2.4.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "Source/*.{h,m}"
+    },
+    {
+      "name": "Camera",
+      "source_files": "Source/Camera/*.{h,m}",
+      "frameworks": [
+        "AVFoundation",
+        "CoreVideo"
+      ],
+      "dependencies": {
+        "NBUImagePicker/Assets": [
+
+        ],
+        "RBVolumeButtons@PTEz": [
+
+        ]
+      }
+    },
+    {
+      "name": "Assets",
+      "source_files": "Source/Assets/*.{h,m}",
+      "frameworks": "AssetsLibrary",
+      "dependencies": {
+        "NBUImagePicker/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Filters",
+      "source_files": "Source/Filters/*.{h,m}",
+      "frameworks": "CoreImage",
+      "dependencies": {
+        "NBUImagePicker/Base": [
+
+        ],
+        "GPUImage": [
+          ">= 0.1.5"
+        ]
+      }
+    },
+    {
+      "name": "Image",
+      "source_files": "Source/Image/*.{h,m}",
+      "dependencies": {
+        "NBUImagePicker/MediaInfo": [
+
+        ]
+      }
+    },
+    {
+      "name": "Gallery",
+      "source_files": "Source/Gallery/*.{h,m}",
+      "dependencies": {
+        "NBUImagePicker/Assets": [
+
+        ],
+        "NBUImagePicker/MediaInfo": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediaInfo",
+      "source_files": "Source/MediaInfo/*.{h,m}",
+      "dependencies": {
+        "NBUImagePicker/Assets": [
+
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "source_files": "Source/Picker/*.{h,m}",
+      "dependencies": {
+        "NBUImagePicker/Camera": [
+
+        ],
+        "NBUImagePicker/Image": [
+
+        ],
+        "NBUImagePicker/Gallery": [
+
+        ],
+        "NBUImagePicker/Resources": [
+
+        ]
+      }
+    },
+    {
+      "name": "Resources",
+      "resource_bundles": {
+        "NBUImagePicker": [
+          "Resources/*.{png,lproj}",
+          "Resources/filters",
+          "Source/**/*.{storyboard,xib}"
+        ]
+      }
+    }
+  ]
+}

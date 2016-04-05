@@ -1,0 +1,208 @@
+{
+  "name": "Operations",
+  "version": "2.8.2",
+  "summary": "Powerful NSOperation subclasses in Swift.",
+  "description": "A Swift framework inspired by Apple's WWDC 2015\nsession Advanced NSOperations: https://developer.apple.com/videos/wwdc/2015/?id=226",
+  "homepage": "https://github.com/danthorpe/Operations",
+  "license": "MIT",
+  "authors": {
+    "Daniel Thorpe": "@danthorpe"
+  },
+  "source": {
+    "git": "https://github.com/danthorpe/Operations.git",
+    "tag": "2.8.2"
+  },
+  "module_name": "Operations",
+  "documentation_url": "http://docs.danthorpe.me/operations/2.8.0/index.html",
+  "social_media_url": "https://twitter.com/danthorpe",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0",
+    "tvos": "9.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Standard",
+  "subspecs": [
+    {
+      "name": "Standard",
+      "source_files": [
+        "Sources/Core/Shared",
+        "Sources/Core/iOS",
+        "Sources/Features/Shared",
+        "Sources/Features/iOS"
+      ],
+      "ios": {
+        "exclude_files": [
+          "Sources/Features/Shared/CloudCapability.swift",
+          "Sources/Features/Shared/CloudKit*.swift",
+          "Sources/Features/iOS/PhotosCapability.swift",
+          "Sources/Features/iOS/PassbookCapability.swift"
+        ]
+      },
+      "watchos": {
+        "exclude_files": [
+          "Sources/Core/iOS",
+          "Sources/Features/iOS/LocationCapability.swift",
+          "Sources/Features/iOS/LocationOperations.swift",
+          "Sources/Features/iOS/PhotosCapability.swift",
+          "Sources/Features/iOS/RemoteNotificationCondition.swift",
+          "Sources/Features/iOS/UserConfirmationCondition.swift",
+          "Sources/Features/iOS/UserNotificationCondition.swift",
+          "Sources/Features/iOS/WebpageOperation.swift",
+          "Sources/Features/Shared/CloudCapability.swift",
+          "Sources/Features/Shared/ReachabilityCondition.swift",
+          "Sources/Features/Shared/CloudKit*.swift",
+          "Sources/Features/Shared/ReachableOperation.swift",
+          "Sources/Features/Shared/Reachability.swift"
+        ]
+      },
+      "tvos": {
+        "exclude_files": [
+          "Sources/Features/iOS/HealthCapability.swift",
+          "Sources/Features/iOS/LocationCapability.swift",
+          "Sources/Features/iOS/LocationOperations.swift",
+          "Sources/Features/iOS/PassbookCapability.swift",
+          "Sources/Features/iOS/PhotosCapability.swift",
+          "Sources/Features/iOS/RemoteNotificationCondition.swift",
+          "Sources/Features/iOS/UserNotificationCondition.swift",
+          "Sources/Features/iOS/WebpageOperation.swift",
+          "Sources/Features/Shared/CalendarCapability.swift"
+        ]
+      },
+      "osx": {
+        "exclude_files": [
+          "Sources/Core/iOS",
+          "Sources/Features/iOS",
+          "Sources/Features/Shared/CloudCapability.swift",
+          "Sources/Features/Shared/CloudKit*.swift"
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0",
+        "osx": "10.10"
+      },
+      "source_files": [
+        "Sources/Core/Shared",
+        "Sources/Core/iOS",
+        "Sources/Features/Shared",
+        "Sources/Features/iOS"
+      ],
+      "exclude_files": [
+        "Sources/Core/iOS/BackgroundObserver.swift",
+        "Sources/Core/iOS/NetworkObserver.swift",
+        "Sources/Features/iOS/HealthCapability.swift",
+        "Sources/Features/iOS/LocationCapability.swift",
+        "Sources/Features/iOS/LocationOperations.swift",
+        "Sources/Features/iOS/RemoteNotificationCondition.swift",
+        "Sources/Features/iOS/UserNotificationCondition.swift"
+      ],
+      "tvos": {
+        "exclude_files": [
+          "Sources/Features/iOS/PassbookCapability.swift",
+          "Sources/Features/iOS/PhotosCapability.swift",
+          "Sources/Features/iOS/WebpageOperation.swift",
+          "Sources/Features/Shared/CalendarCapability.swift"
+        ]
+      },
+      "osx": {
+        "exclude_files": [
+          "Sources/Core/iOS",
+          "Sources/Features/iOS"
+        ]
+      }
+    },
+    {
+      "name": "+Health",
+      "platforms": {
+        "ios": "8.0",
+        "watchos": "2.0"
+      },
+      "dependencies": {
+        "Operations/Standard": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/Extras/Health/iOS"
+      ]
+    },
+    {
+      "name": "+AddressBook",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.10"
+      },
+      "dependencies": {
+        "Operations/Standard": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/Extras/AddressBook/iOS",
+        "Sources/Extras/Contacts/Shared",
+        "Sources/Extras/Contacts/iOS"
+      ],
+      "osx": {
+        "exclude_files": [
+          "Sources/Extras/AddressBook/iOS",
+          "Sources/Extras/Contacts/iOS"
+        ]
+      }
+    },
+    {
+      "name": "+CloudKit",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0",
+        "osx": "10.10"
+      },
+      "dependencies": {
+        "Operations/Standard": [
+
+        ]
+      },
+      "frameworks": "CloudKit",
+      "source_files": [
+        "Sources/Features/Shared/CloudCapability.swift",
+        "Sources/Features/Shared/CloudKitInterface.swift",
+        "Sources/Features/Shared/CloudKitOperation.swift",
+        "Sources/Features/Shared/CloudKitOperationExtensions.swift"
+      ]
+    },
+    {
+      "name": "+Photos",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "Operations/Standard": [
+
+        ]
+      },
+      "frameworks": "Photos",
+      "source_files": [
+        "Sources/Features/iOS/PhotosCapability.swift"
+      ]
+    },
+    {
+      "name": "+Passbook",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "Operations/Standard": [
+
+        ]
+      },
+      "frameworks": "PassKit",
+      "source_files": [
+        "Sources/Features/iOS/PassbookCapability.swift"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "SRGTimeCheatCapturer",
+  "version": "0.0.1",
+  "summary": "SRGTimeCheatCapturer can validate device time and capture time cheaters by ntp client.",
+  "homepage": "https://github.com/kazu0620/SRGTimeCheatCapturer",
+  "license": "MIT",
+  "authors": {
+    "Kazuhiro Sakamoto": "kazu620@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/kazu0620/SRGTimeCheatCapturer.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": [
+    "SRGTimeCheatCapturer/**/*.{h,m}",
+    "Library/**/*.{h,m}"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Reachability": [
+      "3.2"
+    ]
+  },
+  "prefix_header_contents": "#import <Availability.h>\n#define NTP_Logging(fmt, ...)\n#define LogInProduction(fmt, ...)     NSLog((@\"%@|\" fmt), [NSString stringWithFormat: @\"%16s\",         [[[self class] description] UTF8String]], ##__VA_ARGS__)\n\n#ifdef IOS_NTP_LOGGING\n    #warning \"IOS_NTP_LOGGING enabled\"\n    #undef NTP_Logging\n    #define NTP_Logging(fmt, ...)         NSLog((@\"%@|\" fmt), [NSString stringWithFormat: @\"%16s\",             [[[self class] description] UTF8String]], ##__VA_ARGS__)\n#endif\n"
+}

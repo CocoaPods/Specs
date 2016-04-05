@@ -1,0 +1,107 @@
+{
+  "name": "CTCamera",
+  "version": "0.1.2",
+  "summary": "自定义相机 custom camera mosaic",
+  "description": "自定义相机，模仿微信。\n可使用简单的涂抹功能。\n支持保存到相册。",
+  "homepage": "https://github.com/Mikora/CustomCamera",
+  "license": "MIT",
+  "authors": {
+    "root": "632300630@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Mikora/CustomCamera.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "CTCamera": [
+      "Pod/Assets/resources/cameraicon/*.png",
+      "Pod/Assets/localizations/**",
+      "Pod/Assets/resources/filter/*.png"
+    ]
+  },
+  "public_header_files": "Pod/Classes/*.h",
+  "source_files": "Pod/Classes/*.{h,m}",
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "AVFoundation",
+    "CoreMotion",
+    "CoreGraphics",
+    "CoreImage"
+  ],
+  "subspecs": [
+    {
+      "name": "categories",
+      "public_header_files": "Pod/Classes/categories/**/*.h",
+      "source_files": "Pod/Classes/categories/**/*"
+    },
+    {
+      "name": "configuration",
+      "public_header_files": "Pod/Classes/configuration/**/*.h",
+      "source_files": "Pod/Classes/configuration/**/*"
+    },
+    {
+      "name": "delegate",
+      "public_header_files": "Pod/Classes/delegate/**/*.h",
+      "source_files": "Pod/Classes/delegate/**/*"
+    },
+    {
+      "name": "managers",
+      "public_header_files": "Pod/Classes/managers/**/*.h",
+      "source_files": "Pod/Classes/managers/**/*",
+      "frameworks": [
+        "AVFoundation",
+        "CoreMotion",
+        "UIKit",
+        "Foundation"
+      ]
+    },
+    {
+      "name": "views",
+      "dependencies": {
+        "CTCamera/categories": [
+
+        ],
+        "CTCamera/configuration": [
+
+        ],
+        "CTCamera/delegate": [
+
+        ],
+        "CTCamera/managers": [
+
+        ]
+      },
+      "frameworks": [
+        "AVFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "UIKit",
+        "Foundation"
+      ],
+      "public_header_files": "Pod/Classes/views/**/*.h",
+      "source_files": "Pod/Classes/views/**/*"
+    },
+    {
+      "name": "controller",
+      "dependencies": {
+        "CTCamera/views": [
+
+        ]
+      },
+      "frameworks": [
+        "AVFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "UIKit",
+        "Foundation"
+      ],
+      "public_header_files": "Pod/Classes/controller/**/*.h",
+      "source_files": "Pod/Classes/controller/**/*"
+    }
+  ]
+}

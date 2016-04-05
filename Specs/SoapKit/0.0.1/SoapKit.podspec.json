@@ -1,0 +1,52 @@
+{
+  "name": "SoapKit",
+  "version": "0.0.1",
+  "summary": "SoapKit is a framework to simplify the consumption of SOAP services",
+  "homepage": "https://github.com/hons82/SoapKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Hannes Tribus": "hons82@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/hons82/SoapKit.git",
+    "tag": "v0.0.1"
+  },
+  "platforms": {
+    "ios": "7.1"
+  },
+  "requires_arc": true,
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "default_subspecs": "Core",
+  "header_mappings_dir": "SoapKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "SoapKit/*.{h,m}",
+        "SoapKit/Soap/**/*.{h,m}",
+        "SoapKit/Util/**/*.{h,m}"
+      ],
+      "prefix_header_file": "SoapKit/SoapKit-Prefix.pch",
+      "dependencies": {
+        "ISO8601DateFormatter": [
+          "~> 0.7"
+        ]
+      }
+    },
+    {
+      "name": "Mapping",
+      "source_files": "SoapKit/Mapping/**/*.{h,m}",
+      "dependencies": {
+        "SoapKit/Core": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Facebook-iOS-SDK",
+  "version": "4.0.1",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform with features like Login, Share and Message Dialog, App Links, and Graph API",
+  "description": "                   The Facebook SDK for iOS enables you to use Facebook's Platform such as:\n                   * Facebook Login to easily sign in users.\n                   * Sharing features like the Share or Message Dialog to grow your app.\n                   * Simpler Graph API access to provide more social context.\n",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "sdk-version-4.0.1"
+  },
+  "weak_frameworks": [
+    "Accounts",
+    "CoreLocation",
+    "Social",
+    "Security",
+    "QuartzCore",
+    "CoreGraphics",
+    "UIKit",
+    "Foundation",
+    "AudioToolbox"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Bolts": [
+      "~> 1.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "CoreKit",
+      "source_files": "FBSDKCoreKit/FBSDKCoreKit/**/*.{h,m}",
+      "exclude_files": "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKDynamicFrameworkLoader.m",
+      "public_header_files": "FBSDKCoreKit/FBSDKCoreKit/*.{h}",
+      "header_dir": "FBSDKCoreKit",
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "source_files": [
+            "FBSDKCoreKit/FBSDKCoreKit/**/*.h",
+            "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKDynamicFrameworkLoader.{h,m}"
+          ],
+          "requires_arc": false
+        }
+      ]
+    },
+    {
+      "name": "LoginKit",
+      "source_files": "FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m}",
+      "public_header_files": "FBSDKLoginKit/FBSDKLoginKit/*.{h}",
+      "header_dir": "FBSDKLoginKit",
+      "dependencies": {
+        "Facebook-iOS-SDK/CoreKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ShareKit",
+      "source_files": "FBSDKShareKit/FBSDKShareKit/**/*.{h,m}",
+      "public_header_files": "FBSDKShareKit/FBSDKShareKit/*.{h}",
+      "header_dir": "FBSDKShareKit",
+      "dependencies": {
+        "Facebook-iOS-SDK/CoreKit": [
+
+        ]
+      }
+    }
+  ]
+}

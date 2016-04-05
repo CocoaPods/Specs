@@ -1,0 +1,49 @@
+{
+  "name": "cocos2d",
+  "license": "MIT",
+  "version": "2.0",
+  "summary": "cocos2d for iPhone is a framework for building 2D games, demos, and other graphical/interactive applications.",
+  "description": "cocos2d for iPhone is a framework for building 2D games, demos, and other graphical/interactive applications for iPod Touch, iPhone, iPad and Mac. It is based on the cocos2d design but instead of using python it, uses objective-c.",
+  "homepage": "http://www.cocos2d-iphone.org",
+  "authors": {
+    "Ricardo Quesada": "ricardoquesada@gmail.com",
+    "Zynga Inc.": "https://zynga.com/"
+  },
+  "source": {
+    "git": "https://github.com/cocos2d-classic/cocos2d-iphone.git",
+    "tag": "release-2.0"
+  },
+  "source_files": [
+    "cocos2d/**/*.{h,m,c}",
+    "external/kazmath/src/**/*.{c,h}",
+    "external/kazmath/include/**/*.{c,h}",
+    "external/libpng/*.{h,c}"
+  ],
+  "exclude_files": [
+    "external/libpng/pngtest.c",
+    "external/libpng/example.c"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/cocos2d/external/kazmath/include\""
+  },
+  "frameworks": [
+    "OpenGLES",
+    "QuartzCore",
+    "GameKit"
+  ],
+  "libraries": "z",
+  "prefix_header_contents": "\n#define CC_ENABLE_GL_STATE_CACHE 1\n",
+  "header_mappings_dir": "cocos2d",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "CocosDenshion",
+      "source_files": "CocosDenshion/{CocosDenshion,CocosDenshionExtras}/*.{h,m}",
+      "frameworks": [
+        "OpenAL",
+        "AVFoundation",
+        "AudioToolbox"
+      ]
+    }
+  ]
+}

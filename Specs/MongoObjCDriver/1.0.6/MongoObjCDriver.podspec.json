@@ -1,0 +1,33 @@
+{
+  "name": "MongoObjCDriver",
+  "version": "1.0.6",
+  "summary": "MongoObjCDriver is a framework to connect to a mongodb database",
+  "homepage": "https://github.com/jeromelebel/MongoObjCDriver",
+  "license": {
+    "type": "-",
+    "file": "README"
+  },
+  "authors": "Jerome Lebel",
+  "platforms": {
+    "osx": "10.7"
+  },
+  "requires_arc": false,
+  "source": {
+    "git": "https://github.com/jeromelebel/MongoObjCDriver.git",
+    "tag": "1.0.6"
+  },
+  "source_files": [
+    "Sources/*.{m,h}",
+    "Libraries/mongo-c-driver/src/mongoc/*.{c,h}",
+    "Libraries/mongo-c-driver/src/libbson/src/bson/*.{c,h}",
+    "Sources/generated-headers/*.h",
+    "Libraries/mongo-c-driver/src/libbson/src/*.{c,h}",
+    "Libraries/mongo-c-driver/src/libbson/src/yajl/*.{c,h}"
+  ],
+  "resources": [
+    "Libraries/mongo-c-driver/src/mongoc/*.{defs,def}"
+  ],
+  "prepare_command": "git submodule update --init --recursive",
+  "compiler_flags": "-DBSON_COMPILATION -DMONGOC_COMPILATION",
+  "header_mappings_dir": "Libraries/mongo-c-driver/src/libbson/src/"
+}

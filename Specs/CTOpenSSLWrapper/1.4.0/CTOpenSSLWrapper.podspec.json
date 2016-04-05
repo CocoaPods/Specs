@@ -1,0 +1,61 @@
+{
+  "name": "CTOpenSSLWrapper",
+  "version": "1.4.0",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/ebf/CTOpenSSLWrapper.git",
+    "tag": "1.4.0"
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "homepage": "https://github.com/ebf/CTOpenSSLWrapper",
+  "summary": "Objc OpenSSL wrapper.",
+  "authors": {
+    "Oliver Letterer": "oliver.letterer@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "CTOpenSSLWrapper",
+  "subspecs": [
+    {
+      "name": "CTOpenSSLWrapper",
+      "source_files": [
+        "CTOpenSSLWrapper/*.{h,m}",
+        "CTOpenSSLWrapper/Framework Additions/**/**/*.{h,m}",
+        "CTOpenSSLWrapper/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "CTOpenSSLWrapper/OpenSSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "OpenSSL",
+      "source_files": "include/openssl/*.h",
+      "public_header_files": "include/openssl/*.h",
+      "header_dir": "openssl",
+      "ios": {
+        "vendored_libraries": [
+          "lib/libcrypto_iOS.a",
+          "lib/libssl_iOS.a"
+        ]
+      },
+      "tvos": {
+        "vendored_libraries": [
+          "lib/libcrypto_tvOS.a",
+          "lib/libssl_tvOS.a"
+        ]
+      },
+      "osx": {
+        "vendored_libraries": [
+          "lib/libcrypto_Mac.a",
+          "lib/libssl_Mac.a"
+        ]
+      }
+    }
+  ]
+}

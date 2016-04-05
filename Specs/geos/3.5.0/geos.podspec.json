@@ -1,0 +1,45 @@
+{
+  "name": "geos",
+  "version": "3.5.0",
+  "summary": "GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology Suite (JTS).",
+  "homepage": "http://trac.osgeo.org/geos/",
+  "license": {
+    "type": "GNU LGPL 2.1",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Yury Bychkov": "me@yury.ca",
+    "Martin Davis": "mbdavis@refractions.net"
+  },
+  "source": {
+    "svn": "https://svn.osgeo.org/geos",
+    "tag": "3.5.0"
+  },
+  "platforms": {
+    "ios": "4.0",
+    "osx": "10.6"
+  },
+  "compiler_flags": "-D_SYSTEMCONFIGURATION_H -D__MOBILECORESERVICES__ -D__CORESERVICES__",
+  "prepare_command": "type -P autoconf &>/dev/null || alias autoconf 'xcrun autoconf'\ntype -P autoheader &>/dev/null || alias autoheader 'xcrun autoheader'\ntype -P aclocal &>/dev/null || alias aclocal 'xcrun aclocal'\ntype -P automake &>/dev/null || alias automake 'xcrun automake'\ntype -P glibtool &>/dev/null || alias glibtool 'xcrun glibtool'\ntype -P glibtoolize &>/dev/null || alias glibtoolize 'xcrun glibtoolize'\n\nsh autogen.sh\n./configure\n./tools/svn_repo_revision.sh\n\nsed -i \"\" \"s/\\/\\* #undef HAVE_INT64_T_64 \\*\\//#define HAVE_INT64_T_64 1/\" include/geos/platform.h\nsed -i \"\" \"s/#define HAVE_LONG_INT_64 1/\\/\\* #undef HAVE_LONG_INT_64 \\*\\//\" include/geos/platform.h\n\ncat <<EOT >> include/geos/platform.h\n  #undef ISNAN\n  #define ISNAN(x) (std::isnan(x))\nEOT\n\npatch capi/geos_c.h <<EOF\n  149c149\n  < #include <geos/export.h>\n  ---\n  > #define GEOS_DLL\nEOF",
+  "preserve_paths": [
+    "src/**/*.h",
+    "include/**/*.{h,inl,in}",
+    "capi/*.{h,in}"
+  ],
+  "source_files": [
+    "src/**/*.cpp",
+    "capi/*.cpp",
+    "geos_svn_revision.h",
+    "capi/geos_c.h",
+    "include/geos/export.h"
+  ],
+  "exclude_files": "**/*tests*",
+  "public_header_files": [
+    "capi/geos_c.h",
+    "include/geos/export.h"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi",
+    "CLANG_CXX_LIBRARY": "libstdc++"
+  }
+}

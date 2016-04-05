@@ -1,0 +1,123 @@
+{
+  "name": "Pingpp",
+  "version": "2.1.1",
+  "summary": "Pingplusplus iOS SDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，公众账号支付，支付宝钱包，百度钱包，银联手机支付。",
+  "homepage": "https://pingxx.com",
+  "license": "COMMERCIAL",
+  "authors": {
+    "Afon Weng": "xufeng.weng@pingxx.com"
+  },
+  "platforms": {
+    "ios": "5.1.1"
+  },
+  "source": {
+    "git": "https://github.com/PingPlusPlus/pingpp-ios.git",
+    "tag": "2.1.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx",
+    "UnionPay",
+    "Bfb"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "ApplePay",
+      "ios": {
+        "weak_frameworks": "PassKit"
+      },
+      "source_files": "lib/Channels/ApplePay/*.h",
+      "public_header_files": "lib/Channels/ApplePay/*.h",
+      "vendored_libraries": "lib/Channels/ApplePay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/Alipay/AlipaySDK.bundle",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "vendored_libraries": "lib/Channels/Wx/*.a",
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_libraries": "lib/Channels/UnionPay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bfb",
+      "frameworks": [
+        "CoreTelephony",
+        "AddressBook",
+        "AddressBookUI",
+        "AudioToolbox",
+        "CoreAudio",
+        "CoreGraphics",
+        "ImageIO",
+        "MapKit",
+        "MessageUI",
+        "MobileCoreServices",
+        "QuartzCore"
+      ],
+      "source_files": "lib/Channels/Bfb/Dependencies/**/*.{h,m}",
+      "public_header_files": "lib/Channels/Bfb/Dependencies/**/*.h",
+      "resources": "lib/Channels/Bfb/*.bundle",
+      "vendored_libraries": "lib/Channels/Bfb/**/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    }
+  ]
+}

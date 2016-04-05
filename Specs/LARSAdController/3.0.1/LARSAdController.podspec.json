@@ -1,0 +1,60 @@
+{
+  "name": "LARSAdController",
+  "version": "3.0.1",
+  "summary": "Lightweight ad mediation for iOS to properly manage multiple ad networks dynamically including iAd and Google ads.",
+  "description": "A lightweight singleton ad mediation platform for iOS. Ads are managed in a way that most closely adheres to best practices for ad networks using a single instance for each ad network in order to provide the best publishing platform for advertisers to maximize ad inventory based on your particular needs. Currently there are two adapters available (iAd and Google Ads). The adapters can be extended to any ad framework wanted.",
+  "homepage": "https://github.com/larsacus/LARSAdController",
+  "authors": {
+    "Lars Anderson": "iAm@theonlylars.com"
+  },
+  "source": {
+    "git": "https://github.com/larsacus/LARSAdController.git",
+    "tag": "3.0.1"
+  },
+  "platforms": {
+    "ios": 5.0
+  },
+  "license": "MIT",
+  "requires_arc": true,
+  "frameworks": "CoreGraphics",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Source/{LARSAdController,TOLAdViewController}.{h,m}",
+        "Source/TOLAdAdapter.h"
+      ]
+    },
+    {
+      "name": "GoogleAds",
+      "source_files": "Source/TOLAdAdapterGoogleAds.{h,m}",
+      "dependencies": {
+        "Google-Mobile-Ads-SDK": [
+
+        ],
+        "LARSAdController/Core": [
+
+        ]
+      },
+      "weak_frameworks": "AdSupport",
+      "frameworks": [
+        "AudioToolbox",
+        "MessageUI",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "StoreKit"
+      ]
+    },
+    {
+      "name": "iAds",
+      "source_files": "Source/TOLAdAdapteriAds.{h,m}",
+      "dependencies": {
+        "LARSAdController/Core": [
+
+        ]
+      },
+      "frameworks": "iAd",
+      "weak_frameworks": "AdSupport"
+    }
+  ]
+}

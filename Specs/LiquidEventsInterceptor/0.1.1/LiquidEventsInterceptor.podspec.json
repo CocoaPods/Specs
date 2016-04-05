@@ -1,0 +1,96 @@
+{
+  "name": "LiquidEventsInterceptor",
+  "version": "0.1.1",
+  "summary": "This Pod allows the integration of Liquid without any coding, if you already have Localytics or Mixpanel SDK installed in your application.",
+  "homepage": "https://onliquid.com/",
+  "license": "Apache, Version 2.0",
+  "authors": {
+    "Liquid Data Intelligence S.A.": "support@onliquid.com"
+  },
+  "source": {
+    "git": "https://github.com/lqd-io/liquid-events-interceptor-ios.git",
+    "tag": "v0.1.1"
+  },
+  "social_media_url": "https://twitter.com/onliquid",
+  "documentation_url": "https://lqd.io/documentation/ios",
+  "libraries": "LiquidEventsInterceptor",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "preserve_paths": [
+    "LiquidEventsInterceptor.xcodeproj"
+  ],
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "CoreLocation",
+    "CoreGraphics",
+    "UIKit"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC -all_load"
+  },
+  "dependencies": {
+    "Liquid": [
+
+    ],
+    "Aspects": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Localytics",
+      "source_files": [
+        "lib/LiquidLocalyticsInterceptor.{m,h}",
+        "lib/**/LQ*.{m,h}"
+      ],
+      "public_header_files": [
+        "lib/LiquidLocalyticsInterceptor.h",
+        "lib/**/LQ*.h"
+      ],
+      "dependencies": {
+        "Localytics": [
+
+        ]
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(SRC_ROOT)/Pods/Localytics/*"
+      }
+    },
+    {
+      "name": "Mixpanel",
+      "source_files": [
+        "lib/LiquidMixpanelInterceptor.{m,h}",
+        "lib/**/LQ*.{m,h}"
+      ],
+      "public_header_files": [
+        "lib/LiquidMixpanelInterceptor.h",
+        "lib/**/LQ*.h"
+      ],
+      "dependencies": {
+        "Mixpanel": [
+
+        ]
+      }
+    },
+    {
+      "name": "GoogleAnalytics",
+      "source_files": [
+        "lib/LiquidGoogleAnalyticsInterceptor.{m,h}",
+        "lib/**/LQ*.{m,h}"
+      ],
+      "public_header_files": [
+        "lib/LiquidGoogleAnalyticsInterceptor.h",
+        "lib/**/LQ*.h"
+      ],
+      "dependencies": {
+        "Google/Analytics": [
+
+        ]
+      }
+    }
+  ]
+}

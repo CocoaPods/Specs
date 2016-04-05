@@ -1,0 +1,111 @@
+{
+  "name": "Overcoat",
+  "version": "4.0.0-beta.1",
+  "cocoapods_version": ">= 0.39",
+  "license": "MIT",
+  "summary": "Overcoat is a small but powerful library that makes creating REST clients simple and fun.",
+  "homepage": "https://github.com/overcoat/Overcoat",
+  "authors": {
+    "Guillermo Gonzalez": "gonzalezreal@icloud.com",
+    "sodastsai": "sodas@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/overcoat/Overcoat.git",
+    "tag": "4.0.0-beta.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "Mantle": [
+          "~> 2.0"
+        ],
+        "AFNetworking/Serialization": [
+          "~> 3.0"
+        ],
+        "AFNetworking/NSURLSession": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": "Sources/Core/*.{h,m}",
+      "header_dir": "Overcoat"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "MTLManagedObjectAdapter": [
+          "> 1.0"
+        ]
+      },
+      "frameworks": "CoreData",
+      "source_files": "Sources/CoreData/*.{h,m}",
+      "header_dir": "OvercoatCoreData"
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "AFNetworking/Serialization": [
+
+        ]
+      },
+      "frameworks": [
+        "Accounts",
+        "Social"
+      ],
+      "public_header_files": "Sources/Social/*.h",
+      "source_files": "Sources/Social/*.{h,m}",
+      "header_dir": "OvercoatSocial"
+    },
+    {
+      "name": "PromiseKit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9"
+      },
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "PromiseKit/CorePromise": [
+          "> 2"
+        ]
+      },
+      "source_files": "Sources/PromiseKit/*.{h,m}",
+      "header_dir": "OvercoatPromiseKit",
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "ReactiveCocoa",
+      "dependencies": {
+        "Overcoat/Core": [
+
+        ],
+        "ReactiveCocoa/Core": [
+          "> 2.4"
+        ]
+      },
+      "source_files": "Sources/ReactiveCocoa/*.{h,m}",
+      "header_dir": "OvercoatReactiveCocoa",
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    }
+  ]
+}

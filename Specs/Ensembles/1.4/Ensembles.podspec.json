@@ -1,0 +1,81 @@
+{
+  "name": "Ensembles",
+  "version": "1.4",
+  "summary": "A peer-to-peer synchronization framework for Core Data.",
+  "description": "                    Ensembles extends Apple's Core Data framework to add \n                    peer-to-peer synchronization for Mac OS and iOS. \n                    Multiple SQLite persistent stores can be coupled together \n                    via a file synchronization platform like iCloud or Dropbox. \n                    The framework can be readily extended to support any \n                    service capable of moving files between devices, including \n                    custom servers.\n",
+  "homepage": "https://github.com/drewmccormack/ensembles",
+  "license": {
+    "type": "MIT",
+    "file": "LICENCE.txt"
+  },
+  "authors": {
+    "Drew McCormack": "drewmccormack@mac.com"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/drewmccormack/ensembles.git",
+    "tag": "1.4"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Framework/**/*.{h,m}",
+      "exclude_files": [
+        "Framework/Tests",
+        "Framework/Extensions/**/*.{h,m}"
+      ],
+      "resources": "Framework/Resources/*",
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "Dropbox",
+      "dependencies": {
+        "Ensembles/Core": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "Dropbox-iOS-SDK": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "Dropbox-OSX-SDK": [
+
+          ]
+        }
+      },
+      "source_files": "Framework/Extensions/CDEDropboxCloudFileSystem.{h,m}"
+    },
+    {
+      "name": "Multipeer",
+      "dependencies": {
+        "Ensembles/Core": [
+
+        ],
+        "SSZipArchive": [
+
+        ]
+      },
+      "frameworks": "MultipeerConnectivity",
+      "source_files": "Framework/Extensions/CDEMultipeerCloudFileSystem.{h,m}"
+    },
+    {
+      "name": "Node",
+      "dependencies": {
+        "Ensembles/Core": [
+
+        ]
+      },
+      "source_files": "Framework/Extensions/CDENodeCloudFileSystem.{h,m}"
+    }
+  ]
+}

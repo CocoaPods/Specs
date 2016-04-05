@@ -1,0 +1,48 @@
+{
+  "name": "couchbase-lite-ios",
+  "version": "1.1.0",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "summary": "An embedded syncable NoSQL database for iOS apps.",
+  "homepage": "http://mobile.couchbase.com",
+  "authors": "Couchbase",
+  "source": {
+    "http": "http://packages.couchbase.com/releases/couchbase-lite/ios/1.1.0/couchbase-lite-ios-community_1.1.0-31.zip"
+  },
+  "preserve_paths": "LICENSE.txt",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "sqlite3",
+    "z"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "preserve_paths": "CouchbaseLite.framework",
+      "vendored_frameworks": "CouchbaseLite.framework"
+    },
+    {
+      "name": "Listener",
+      "dependencies": {
+        "couchbase-lite-ios/Core": [
+
+        ]
+      },
+      "preserve_paths": "CouchbaseLiteListener.framework",
+      "vendored_frameworks": "CouchbaseLiteListener.framework"
+    }
+  ]
+}

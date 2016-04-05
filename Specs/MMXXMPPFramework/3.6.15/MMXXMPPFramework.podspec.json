@@ -1,0 +1,152 @@
+{
+  "name": "MMXXMPPFramework",
+  "version": "3.6.15",
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "copying.txt"
+  },
+  "summary": "An XMPP Framework in Objective-C for the Mac / iOS development community.",
+  "homepage": "https://github.com/robbiehanson/XMPPFramework",
+  "authors": {
+    "Robbie Hanson": "robbiehanson@deusty.com"
+  },
+  "source": {
+    "git": "https://github.com/magnetsystems/XMPPFramework.git",
+    "tag": "3.6.15"
+  },
+  "resources": [
+    "**/*.{xcdatamodel,xcdatamodeld}"
+  ],
+  "module_map": "modulemappath/module.modulemap",
+  "description": "XMPPFramework provides a core implementation of RFC-3920 (the xmpp standard), along with\n  the tools needed to read & write XML. It comes with multiple popular extensions (XEPs),\n  all built atop a modular architecture, allowing you to plug-in any code needed for the job.\n  Additionally the framework is massively parallel and thread-safe. Structured using GCD,\n  this framework performs well regardless of whether it's being run on an old iPhone, or\n  on a 12-core Mac Pro. (And it won't block the main thread... at all).",
+  "requires_arc": true,
+  "prepare_command": "echo '#import \"XMPP.h\"' > XMPPFramework.h\ngrep '#define _XMPP_' -r Extensions \\\n| tr '-' '_' \\\n| perl -pe 's/Extensions\\/([A-z0-9_]*)\\/([A-z]*.h).*/\\n#ifdef HAVE_XMPP_SUBSPEC_\\U\\1\\n\\E#import \"\\2\"\\n#endif/' \\\n>> XMPPFramework.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "MMXXMPPFramework-umbrella.h",
+        "XMPPFramework.h",
+        "Core/**/*.{h,m}",
+        "Vendor/libidn/*.h",
+        "Authentication/**/*.{h,m}",
+        "Categories/**/*.{h,m}",
+        "Utilities/**/*.{h,m}",
+        "Vendor/KissXML/**/*.{h,m}"
+      ],
+      "vendored_libraries": "Vendor/libidn/libidn.a",
+      "libraries": [
+        "xml2",
+        "resolv",
+        "iconv"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv $(SDKROOT)/usr/include/libiconv",
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MMXXMPPFramework/Vendor/libidn\"",
+        "ENABLE_BITCODE": "NO"
+      },
+      "dependencies": {
+        "CocoaLumberjack": [
+          "~>2.2"
+        ],
+        "CocoaAsyncSocket": [
+          "~>7.4.1"
+        ]
+      }
+    },
+    {
+      "name": "CoreDataStorage",
+      "source_files": "Extensions/CoreDataStorage/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_COREDATASTORAGE",
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "Roster",
+      "source_files": "Extensions/Roster/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ],
+        "MMXXMPPFramework/CoreDataStorage": [
+
+        ],
+        "MMXXMPPFramework/XEP-0203": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_ROSTER"
+    },
+    {
+      "name": "Reconnect",
+      "source_files": "Extensions/Reconnect/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_RECONNECT"
+    },
+    {
+      "name": "XEP-0016",
+      "source_files": "Extensions/XEP-0016/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_XEP_0016"
+    },
+    {
+      "name": "XEP-0060",
+      "source_files": "Extensions/XEP-0060/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_XEP_0060"
+    },
+    {
+      "name": "XEP-0082",
+      "source_files": "Extensions/XEP-0082/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_XEP_0082"
+    },
+    {
+      "name": "XEP-0106",
+      "source_files": "Extensions/XEP-0106/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_XEP_0106"
+    },
+    {
+      "name": "XEP-0203",
+      "source_files": "Extensions/XEP-0203/**/*.{h,m}",
+      "dependencies": {
+        "MMXXMPPFramework/Core": [
+
+        ],
+        "MMXXMPPFramework/XEP-0082": [
+
+        ]
+      },
+      "prefix_header_contents": "#define HAVE_XMPP_SUBSPEC_XEP_0203"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "name": "TwelveTwentyToolkit",
+  "version": "0.6.1",
+  "summary": "The Twelve Twenty Toolkit of reusable Objective-C classes.",
+  "homepage": "http://twelvetwenty.nl",
+  "license": "MIT",
+  "authors": {
+    "Eric-Paul Lecluse": "epologee@gmail.com",
+    "Jankees van Woezik": "jankeesvw@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/TwelveTwenty/TwelveTwentyToolkit-ObjC.git",
+    "tag": "0.6.1"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "source_files": "TwelveTwentyToolkit/TwelveTwentyToolkit.{h,m}"
+    },
+    {
+      "name": "Foundation",
+      "requires_arc": true,
+      "dependencies": {
+        "TwelveTwentyToolkit/Core": [
+
+        ]
+      },
+      "source_files": "TwelveTwentyToolkit/Foundation/**/*.{h,m}"
+    },
+    {
+      "name": "Logging",
+      "requires_arc": true,
+      "dependencies": {
+        "TwelveTwentyToolkit/Foundation": [
+
+        ]
+      },
+      "osx": {
+        "source_files": "TwelveTwentyToolkit/Logging/**/*.{h,m}"
+      },
+      "ios": {
+        "source_files": "TwelveTwentyToolkit/Logging-iOS/**/*.{h,m}"
+      }
+    },
+    {
+      "name": "CoreData",
+      "requires_arc": true,
+      "frameworks": "CoreData",
+      "dependencies": {
+        "TwelveTwentyToolkit/Logging": [
+
+        ]
+      },
+      "source_files": "TwelveTwentyToolkit/CoreData/*.{h,m}",
+      "ios": {
+        "source_files": "TwelveTwentyToolkit/CoreData/ios/*.{h,m}"
+      },
+      "osx": {
+        "source_files": "TwelveTwentyToolkit/CoreData/osx/*.{h,m}"
+      }
+    },
+    {
+      "name": "Persistence",
+      "requires_arc": true,
+      "ios": {
+        "frameworks": "CoreData",
+        "dependencies": {
+          "TwelveTwentyToolkit/CoreData": [
+
+          ]
+        },
+        "source_files": "TwelveTwentyToolkit/Persistence/*.{h,m}"
+      },
+      "osx": {
+        "dependencies": {
+          "TwelveTwentyToolkit/Foundation": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Tables",
+      "requires_arc": true,
+      "dependencies": {
+        "TwelveTwentyToolkit/CoreData": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "TwelveTwentyToolkit/Tables/**/*.{h,m}"
+      }
+    },
+    {
+      "name": "Layout",
+      "requires_arc": true,
+      "dependencies": {
+        "TwelveTwentyToolkit/Logging": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "TwelveTwentyToolkit/CoreData": [
+
+          ],
+          "EEEManualLayout": [
+
+          ]
+        },
+        "source_files": "TwelveTwentyToolkit/Layout/**/*.{h,m}"
+      }
+    },
+    {
+      "name": "CoreAnimation",
+      "requires_arc": true,
+      "ios": {
+        "dependencies": {
+          "TwelveTwentyToolkit/Logging": [
+
+          ]
+        },
+        "source_files": "TwelveTwentyToolkit/CoreAnimation/**/*.{h,m}"
+      },
+      "osx": {
+        "dependencies": {
+          "TwelveTwentyToolkit/Foundation": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Theming",
+      "requires_arc": true,
+      "ios": {
+        "dependencies": {
+          "TwelveTwentyToolkit/Layout": [
+
+          ],
+          "TwelveTwentyToolkit/Foundation": [
+
+          ]
+        },
+        "source_files": "TwelveTwentyToolkit/Theming/**/*.{h,m}"
+      },
+      "osx": {
+        "dependencies": {
+          "TwelveTwentyToolkit/Foundation": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "CyclicDelegateRetainer",
+      "requires_arc": true,
+      "source_files": "TwelveTwentyToolkit/CyclicDelegateRetainer/*.{h,m}"
+    }
+  ]
+}

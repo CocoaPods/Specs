@@ -1,0 +1,81 @@
+{
+  "name": "WhirlyGlobe",
+  "version": "2.0",
+  "summary": "WhirlyGlobe is a self contained 3D earth display view suitable for use in iPhone and iPad applications.",
+  "homepage": "https://github.com/mousebird/WhirlyGlobe",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "text": "\tLicensed under the Apache License, Version 2.0 (the \"License\"); you may\n\tnot use this file except in compliance with the License. You may obtain\n\ta copy of the License at http://www.apache.org/licenses/LICENSE-2.0\n\n\tUnless required by applicable law or agreed to in writing, software\n\tdistributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\n\tWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\n\t License for the specific language governing permissions and limitations\n\t under the License.\n"
+  },
+  "authors": {
+    "Steve Gifford": "sjg@mousebirdconsulting.com"
+  },
+  "source": {
+    "git": "https://github.com/mousebird/WhirlyGlobe.git",
+    "tag": "v2.0"
+  },
+  "default_subspecs": [
+    "Component"
+  ],
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Headers",
+      "source_files": "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/**/*.h",
+      "public_header_files": "WhirlyGlobeSrc/{WhirlyGlobeLib,WhirlyGlobeComponent}/include/*.h",
+      "dependencies": {
+        "eigen": [
+
+        ],
+        "boost/shared_ptr-includes": [
+
+        ],
+        "boost/pointer_cast-includes": [
+
+        ],
+        "boost/math-includes": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lib",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeLib/src/**/*.{mm,m}",
+      "dependencies": {
+        "WhirlyGlobe/Headers": [
+
+        ],
+        "proj4": [
+
+        ],
+        "shapelib": [
+
+        ],
+        "clipper": [
+          "4.4.0"
+        ]
+      },
+      "libraries": [
+        "stdc++",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "Component",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeComponent/src/**/*.{mm,m}",
+      "dependencies": {
+        "WhirlyGlobe/Lib": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "QuartzCore",
+        "OpenGLES"
+      ]
+    }
+  ]
+}

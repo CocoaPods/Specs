@@ -1,0 +1,77 @@
+{
+  "name": "Quantcast-Measure",
+  "version": "1.2.10",
+  "summary": "Quantcast Measure for iOS.",
+  "description": "  \t\t\t\t\tQuantcast Measure available for iOS and Android mobile apps. The free service lets you to:\n                    * **Showcase Your App Stats** - Get the word out on your mobile app by showcasing your traffic on Quantcast – make your most accomplished metrics accessible to everyone.\n\t\t\t\t\t* **Demonstrate User Loyalty to Brands** - Engaging with mobile audiences is essential to brand advertisers advertising in apps. Return usage metrics indicates how loyal your audience is: if users are coming back for more, brands can connect with them.\n\t\t\t\t\t* **Understand Cross-Platform Visitation** - Get the complete picture. If you have a website, see the audience visitation patterns across your online, mobile web, and mobile app properties.\n",
+  "homepage": "https://www.quantcast.com/measurement/quantcast-measure-for-mobile-apps/",
+  "license": {
+    "type": "Copyright",
+    "text": "\t\tCopyright 2012 Quantcast Corp.\n\n\t\tThis software is licensed under the Quantcast Mobile App Measurement Terms of Service https://www.quantcast.com/learning-center/quantcast-terms/mobile-app-measurement-tos (the “License”). You may not use this file unless (1) you sign up for an account at https://www.quantcast.com and click your agreement to the License and (2) are in compliance with the License. See the License for the specific language governing permissions and limitations under the License.\n"
+  },
+  "authors": {
+    "Quantcast Corporation": "MobileSupport@quantcast.com"
+  },
+  "source": {
+    "git": "https://github.com/quantcast/ios-measurement.git",
+    "tag": "v1.2.10"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreGraphics"
+      ],
+      "weak_frameworks": "AdSupport",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "source_files": "Quantcast-iOS-Measurement/*.{h,m,mm,c,cpp}",
+      "resources": "Quantcast-iOS-Measurement/*.{xib,nib}",
+      "requires_arc": false
+    },
+    {
+      "name": "geo-measurement",
+      "dependencies": {
+        "Quantcast-Measure/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "source_files": "Quantcast-iOS-Measurement/Optional/QuantcastGeoManager.{h,m}",
+      "prefix_header_contents": "#define QCMEASUREMENT_ENABLE_GEOMEASUREMENT 1",
+      "requires_arc": false
+    },
+    {
+      "name": "secure-data",
+      "dependencies": {
+        "Quantcast-Measure/Core": [
+
+        ]
+      },
+      "frameworks": "Security",
+      "prefix_header_contents": "#define QCMEASUREMENT_USE_SECURE_CONNECTIONS 1"
+    },
+    {
+      "name": "digital-periodicals",
+      "dependencies": {
+        "Quantcast-Measure/Core": [
+
+        ]
+      },
+      "source_files": "Quantcast-iOS-Measurement/Optional/QuantcastMeasurement+Periodicals.{h,m}",
+      "requires_arc": false
+    }
+  ]
+}

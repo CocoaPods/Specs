@@ -1,0 +1,111 @@
+{
+  "name": "XPay",
+  "version": "1.1.03",
+  "summary": "XPay iOS SDK",
+  "description": "旋涡科技支付组件,包含 支付宝、微信、百度钱包、银联。",
+  "homepage": "http://www.kkkd.com/home",
+  "license": "MIT",
+  "authors": {
+    "tongxuan": "tongxuan@ixiaopu.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/ouer2015/xpay_ios_demo.git",
+    "tag": "1.1.03"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "AliPay",
+    "WxPay",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "example/sdk/*.h",
+      "public_header_files": "example/sdk/*.h",
+      "vendored_libraries": "example/sdk/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "ImageIO",
+        "MobileCoreServices",
+        "CoreTelephony"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "AliPay",
+      "vendored_libraries": "example/sdk/Channel/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "example/sdk/Channel/Alipay/AlipaySDK.framework"
+      },
+      "resources": "example/sdk/Channel/Alipay/AlipaySDK.bundle",
+      "dependencies": {
+        "XPay/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "WxPay",
+      "vendored_libraries": "example/sdk/Channel/WxPay/*.a",
+      "public_header_files": "example/sdk/Channel/WxPay/*.h",
+      "source_files": "example/sdk/Channel/WxPay/*.h",
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "XPay/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_libraries": "example/sdk/Channel/UnionPay/*.a",
+      "public_header_files": "example/sdk/Channel/UnionPay/*.h",
+      "source_files": "example/sdk/Channel/UnionPay/*.h",
+      "dependencies": {
+        "XPay/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bfb",
+      "frameworks": [
+        "AddressBook",
+        "AddressBookUI",
+        "AudioToolbox",
+        "CoreAudio",
+        "CoreGraphics",
+        "MapKit",
+        "MessageUI",
+        "QuartzCore"
+      ],
+      "public_header_files": "example/sdk/Channel/BfbPay/Library/**/*.h",
+      "source_files": "example/sdk/Channel/BfbPay/Library/**/*.h",
+      "resources": "example/sdk/Channel/BfbPay/*.bundle",
+      "vendored_libraries": "example/sdk/Channel/BfbPay/**/*.a",
+      "dependencies": {
+        "XPay/Base": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "name": "ACSNetworking",
+  "version": "1.3",
+  "summary": "On the basis of AFNetworking encapsulation.",
+  "description": "On the basis of AFNetworking encapsulation, more convenient, more concise.",
+  "homepage": "https://github.com/Hyosung/ACSNetworking",
+  "license": "MIT",
+  "authors": {
+    "Stoney": "sy92710xx@gmail.com"
+  },
+  "social_media_url": "http://weibo.com/sy4312xx",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/Hyosung/ACSNetworking.git",
+    "tag": "1.3"
+  },
+  "public_header_files": "ACSNetworking/ACSNetworking.h",
+  "source_files": "ACSNetworking/ACSNetworking.h",
+  "default_subspecs": "Requester",
+  "subspecs": [
+    {
+      "name": "General",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.6.0"
+        ]
+      },
+      "source_files": "ACSNetworking/ACSNetworkGeneral.h"
+    },
+    {
+      "name": "Reachability",
+      "source_files": "ACSNetworking/ACSReachability.{h,m}",
+      "public_header_files": "ACSNetworking/ACSReachability.h",
+      "frameworks": "SystemConfiguration",
+      "ios": {
+        "frameworks": [
+          "CoreTelephony",
+          "UIKit"
+        ]
+      }
+    },
+    {
+      "name": "BaseRequester",
+      "dependencies": {
+        "ACSNetworking/General": [
+
+        ]
+      },
+      "source_files": "ACSNetworking/ACS*Request.{h,m}",
+      "public_header_files": "ACSNetworking/ACS*Request.h"
+    },
+    {
+      "name": "Foundation",
+      "source_files": "ACSNetworking/NSData+ACSMimeType.*",
+      "public_header_files": "ACSNetworking/NSData+ACSMimeType.h",
+      "ios": {
+        "frameworks": "MobileCoreServices"
+      },
+      "osx": {
+        "frameworks": "CoreServices"
+      }
+    },
+    {
+      "name": "Cache",
+      "dependencies": {
+        "ACSNetworking/General": [
+
+        ]
+      },
+      "source_files": "ACSNetworking/ACSCache.{h,m}",
+      "public_header_files": "ACSNetworking/ACSCache.h",
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Configuration",
+      "dependencies": {
+        "ACSNetworking/General": [
+
+        ],
+        "ACSNetworking/Cache": [
+
+        ]
+      },
+      "source_files": "ACSNetworking/ACSNetworkConfiguration.*",
+      "public_header_files": "ACSNetworking/ACSNetworkConfiguration.h",
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Requester",
+      "dependencies": {
+        "ACSNetworking/General": [
+
+        ],
+        "ACSNetworking/Reachability": [
+
+        ],
+        "ACSNetworking/Cache": [
+
+        ],
+        "ACSNetworking/Configuration": [
+
+        ],
+        "ACSNetworking/Foundation": [
+
+        ],
+        "ACSNetworking/BaseRequester": [
+
+        ]
+      },
+      "source_files": "ACSNetworking/ACS*er.{h,m}",
+      "public_header_files": "ACSNetworking/ACS*er.h",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "MobileCoreServices"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "AppKit",
+          "CoreServices"
+        ]
+      }
+    }
+  ]
+}

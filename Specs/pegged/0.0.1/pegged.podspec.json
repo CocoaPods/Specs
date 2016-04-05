@@ -1,0 +1,29 @@
+{
+  "name": "pegged",
+  "version": "0.0.1",
+  "summary": "Pegged is a tool for generating Objective-C recursive-decent parsers from Parsing Expression Grammars (PEGs).",
+  "description": "  Pegged generates Objective-C parsers from PEG grammars. The parsers it generates are re-entrant, thread-safe, and do not leak memory: they are suitable for inclusion in other programs.\n\nPegged reads the grammar specified in file and will create a class of the same name. A .h and a .m file will then be created in the output directory, which may be specified from the command line and defaults to the directory containing the PEG grammar. The parser class adheres to a simple interface:\n\n    @protocol ParserDataSource;\n    typedef NSObject<ParserDataSource> ParserDataSource;\n    @interface Parser : NSObject\n    {\n    }\n    @property (retain) ParserDataSource *dataSource;\n    - (BOOL) parse;\n    - (BOOL) parseString:(NSString *)string;\n    @end\n    \n    @protocol ParserDataSource\n    - (NSString *) nextString;\n    @end\n\nThe data to be parsed may either be provided via a data source (which responds to a single selector, -nextString) or via the -parseString: selector. \n",
+  "homepage": "https://github.com/explicitcall/pegged",
+  "license": {
+    "type": "Public domain",
+    "text": "       This code, along with the code it generates, is in the public domain\n"
+  },
+  "authors": {
+    "Daniel Parnell": "me@danielparnell.com",
+    "Matt Diephouse": "matt@diephouse.com"
+  },
+  "source": {
+    "git": "https://github.com/explicitcall/pegged.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "osx": "10.8"
+  },
+  "source_files": [
+    "Source",
+    "Source/*.{h,m}"
+  ],
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "prefix_header_file": "Source/pegged_Prefix.pch"
+}

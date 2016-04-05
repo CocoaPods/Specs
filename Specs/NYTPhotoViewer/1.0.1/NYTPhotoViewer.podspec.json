@@ -1,0 +1,50 @@
+{
+  "name": "NYTPhotoViewer",
+  "version": "1.0.1",
+  "description": "NYTPhotoViewer is a slideshow and image viewer that includes double tap to zoom, captions, support for multiple images, interactive flick to dismiss, animated zooming presentation, and more.",
+  "summary": "NYTPhotoViewer is a slideshow and image viewer that includes double tap to zoom, flick to dismiss, animated presentation, and more.",
+  "homepage": "https://github.com/NYTimes/NYTPhotoViewer",
+  "authors": "The New York Times",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "source": {
+    "git": "https://github.com/NYTimes/NYTPhotoViewer.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "resource_bundles": {
+          "NYTPhotoViewer": [
+            "Pod/Assets/ios/*.png"
+          ]
+        }
+      },
+      "source_files": "Pod/Classes/**/*",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ]
+    },
+    {
+      "name": "AnimatedGifSupport",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ANIMATED_GIF_SUPPORT=1"
+      },
+      "dependencies": {
+        "NYTPhotoViewer/Core": [
+
+        ],
+        "FLAnimatedImage": [
+          "~> 1.0.8"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "OMPromises",
+  "version": "0.3.0",
+  "summary": "Promises for iOS & Mac OS X",
+  "homepage": "http://github.com/b52/OMPromises",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Oliver Mader": "b52@reaktor42.de"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/b52/OMPromises.git",
+    "tag": "0.3.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Classes/OMPromises.h",
+        "Classes/Core",
+        "Classes/Core/External"
+      ],
+      "public_header_files": [
+        "Classes/OMPromises.h",
+        "Classes/Core/{OMPromises,OMPromise,OMDeferred}.h"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "OMPromises-Resources-iOS": [
+            "Resources/*.lproj"
+          ]
+        }
+      },
+      "osx": {
+        "resource_bundles": {
+          "OMPromises-Resources-OSX": [
+            "Resources/*.lproj"
+          ]
+        }
+      },
+      "preserve_paths": "Resources"
+    },
+    {
+      "name": "HTTP",
+      "dependencies": {
+        "OMPromises/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Classes/OMHTTP.h",
+        "Classes/HTTP"
+      ],
+      "public_header_files": [
+        "Classes/OMHTTP.h",
+        "Classes/HTTP/*.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OMPROMISES_HTTP_AVAILABLE=1"
+      }
+    },
+    {
+      "name": "Tests",
+      "dependencies": {
+        "OMPromises/Core": [
+
+        ],
+        "OMPromises/HTTP": [
+
+        ]
+      },
+      "frameworks": "XCTest",
+      "source_files": [
+        "Tests/*.{h,m}",
+        "Tests/{Core,HTTP}/*.{h,m}"
+      ],
+      "prefix_header_contents": "#if __IPHONE_OS_VERSION_MIN_REQUIRED\n#import <MobileCoreServices/MobileCoreServices.h>\n#else\n#import <CoreServices/CoreServices.h>\n#endif\n"
+    }
+  ]
+}

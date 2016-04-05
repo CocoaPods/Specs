@@ -1,0 +1,75 @@
+{
+  "name": "SQKDataKit",
+  "version": "0.5.0",
+  "summary": "Lightweight Core Data helper to reduce boilerplate code.",
+  "license": {
+    "type": "Custom",
+    "file": "LICENCE"
+  },
+  "description": "\t\t\t\t\t\t\t\t\tCollection of classes to make working with Core Data easier and help DRY-up your code.\n\t\t\t\t\t\t\t\t\tProvides convenience methods and classes for working in a multi-threaded environment with NSManagedObjects and NSManagedObjectContexts. \n\t\t\t\t\t\t\t\t\tCodifies some good practises for importing large data sets efficiently.\n",
+  "homepage": "https://github.com/3squared/SQKDataKit",
+  "authors": {
+    "Luke Stringer": "luke.stringer@3squared.com",
+    "Sam Oakley": "sam.oakley@3squared.com",
+    "Zack Brown": "zack.brown@3squared.com",
+    "Ken Boucher": "ken.boucher@3squared.com",
+    "Ste Prescott": "ste.prescott@3squared.com",
+    "Ben Walker": "ben.walker@3squared.com"
+  },
+  "source": {
+    "git": "https://github.com/3squared/SQKDataKit.git",
+    "tag": "0.5.0"
+  },
+  "frameworks": "CoreData",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.9"
+  },
+  "source_files": "Classes/shared/SQKDataKit.h",
+  "subspecs": [
+    {
+      "name": "ContextManager",
+      "source_files": "Classes/shared/Core/**/*{h,m}",
+      "public_header_files": [
+        "Classes/shared/Core/SQKContextManager.h",
+        "Classes/shared/Core/NSManagedObjectContext+SQKAdditions.h"
+      ]
+    },
+    {
+      "name": "ManagedObjectExtensions",
+      "source_files": "Classes/shared/NSManagedObject+SQKAdditions/**/*{h,m}",
+      "public_header_files": "Classes/NSManagedObject+SQKAdditions/NSManagedObject+SQKAdditions.h"
+    },
+    {
+      "name": "ManagedObjectController",
+      "source_files": "Classes/shared/SQKManagedObjectController/**/*{h,m}",
+      "public_header_files": "Classes/shared/SQKManagedObjectController.h"
+    },
+    {
+      "name": "FetchedTableViewController",
+      "platforms": {
+        "ios": "6.0"
+      },
+      "source_files": "Classes/ios/SQKFetchedTableViewController/**/*{h,m}",
+      "public_header_files": "Classes/ios/SQKFetchedTableViewController.h",
+      "frameworks": [
+        "CoreData",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "CoreDataOperation",
+      "source_files": "Classes/shared/SQKCoreDataOperation/**/*{h,m}",
+      "public_header_files": "Classes/shared/SQKCoreDataOperation.h",
+      "dependencies": {
+        "SQKDataKit/ContextManager": [
+
+        ],
+        "SQKDataKit/ManagedObjectExtensions": [
+
+        ]
+      }
+    }
+  ]
+}

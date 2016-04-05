@@ -1,0 +1,27 @@
+{
+  "name": "DPDBFramework",
+  "version": "0.4",
+  "summary": "面向对象的本地化持久方案，保存用 save，删除用 delete.",
+  "description": "#项目简介\n框架主要解决苹果开发过程中，数据本地持久化问题。开发初期，选用了sqlite，就一直折腾至今，不爱用`coredata`，或许它更加好用，不过人总有那么点执着，或者说固执，不是吗？废话不多说，开始介绍。\n#方法总览\n\n    - save:                    //保存或更新对象\n    - deleteMe;                //删除自身对象\n    - pk;                      //得到对象主键，默认为－1\n    + queryByPk:               //根据主键查询对象\n    + saveObjects:;            //批量保存对象\n    + deleteAll;               //级连删除对象\n    + deleteByPks:;            //批量删除对象，参数是主键数组\n    + allObjects;              //查询所有对象\n    + (NSArray *)objectsWithPage:(NSInteger)page pageLimit:(NSInteger)pageLimit;    //分页查询\n    + (NSArray *)findByCriteria:(NSString *)criteriaString\n                       page:(NSInteger)page\n                  pageLimit:(NSInteger)pageLimit;  //分页条件查询\n    #待添加\n    + 保存文件（包括图片，视频等）\n#方法使用说明\n此部分不一一讲解每个方法，根据实际项目中对象持久经常遇到的两种情况分别说明，无关联对象和有关联对象。\n##无关联对象\n直接上代码讲解简单明了\n\n\n\n    <!-- NoRelationshipObject.h -->\n    #import \"DPDBObject.h\"\n    @interface NoRelationshipObject : DPDBObject\n    @property (nonatomic,strong)        NSString *desc;\n    @property (nonatomic,assign)        NSInteger    aNumber;\n    @property (nonatomic,assign)        int          aInt;\n    @property (nonatomic,assign)        float        aFloat;\n    @property (nonatomic,assign)        double       aDouble;\n    @end\n\n上面申明了一个无关联对象，如何保存呢，请看下面\n\n\n    <!-- lang: cpp -->\n    NoRelationshipObject *nrObject = [[NoRelationshipObject alloc] init];\n    nrObject.desc = @\"这是在测试无关联对象\";\n    noObject.aInt = 2012;\n    // 此处略去其它属性的赋值\n    //保存到数据库\n    [noObject save];\n\n如何验证数据库中是否保存成功，打开数据库，查看数据库中是否存在此记录。\n\n##一对一关联对象\n新建一个类`OneToOneObject`\n\n    <!-- OneToOneObject.h -->\n    #import \"DPDBObject.h\"\n    @interface OneToOneObject : DPDBObject\n    @property (nonatomic,strong)        NSString *desc;\n    @property (nonatomic,strong)        NoRelationshipObject *nrObject;\n    @end\n\n按照上面方法，创建一个`NoRelationshipObject `对象`nrObject`，再实例化一个`OneToOneObject`对象`otoObject`\n\n    OneToOneObject *otoObject = [[OneToOneObject alloc] init];\n    otoObject.desc = @\"这是在测试一对一关联对象\";\n    otoObject.nrObject = nrObject;\n    [otoObject save];\n一切如你所料，没有任何意外，如何验证保存成功呢，当然可以在数据库中查找对应的记录是否产生，也可以通过程序检测\n\n    //接上\n    NSInteger pk = [otoObject pk];\n    OneToOneObject *object = [OneToOneObject queryByPk:pk];\n    if(object){\n        //可以打断点验证，也可以写代码验证\n    }else{\n        NSLog(@\"验证失败，没有保存成功\");\n    }\n没有任何悬念的结束了，接下来将一对多关系的保存；\n##一对多关联对象的保存\n前两种情况都比较简单，第三种情况就比较复杂了，想了很多方法，包括动态判断类型，配置文件管理，命名判别等等，最后由于种种问题给pass掉了（如果有兴趣可以留言继续探讨这个问题）\n还是直接上代码，新建一个类`OneToManyObject`\n\n    <!-- OneToManyObject.h -->\n    #import \"DPDBObject.h\"\n    @interface OneToManyObject : DPDBObject\n    @property (nonatomic,strong)        NSString *desc;\n    @property (nonatomic,strong)        NSArray  *nrArrs;\n    @end\n\n类里面有个集合类型属性，由于无法像JAVA一样显式指定里面的类型，所以在第一次查询的时候不知道如何“包装”得到的数据，所以需要在`OneToManyObject.m`方法里面加上一个类方法`+ (NSDictionary *)collectionTypeInfo;`\n\n    #import \"OneToManyObject.h\"\n    @implementation OneToManyObject\n    + (NSDictionary *)collectionTypeInfo\n    {\n        return\n        @{\n             @\"nrArrs\":NSStringFromClass([NoRelationshipObject class])\n        };\n    }\n相信看到代码已经明白是什么意思了，指定集合类型的元素类型，这下我就明白了，原来里面装的是 `NoRelationshipObject`对象，那我就按照`NoRelationshipObject`方法包装。\n使用代码如下\n\n    OneToManyObject *otmObject = [[OneToManyObject alloc] init];\n    NSMutableArray *objects = [NSMutableArray array];\n    for (NSInteger i = 0 ; i < 10 ; i++){\n        NoRelationshipObject *nrObject = [[NoRelationshipObject alloc] init];\n        nrObject.desc = [NSString stringWithFormat:@\"这是在测试无关联对象-%ld\",(long)i];\n        [objects addObject:nrObject];\n    }\n    otmObject.nrArrs = objects;\n    [otmObject save];\n全部搞定，接下来就是验证了，可以参考上面的验证方式进行验证！\n\n#适用的情况\n本框架善不完整，有几方面的功能没有实现，\n\n - 事务支持，整个框架没有涉及到事务处理，如果有这方面业务需要的，要让你们失望了\n - 属性类型修改，对于同一个属性名，有修改属性类型的，暂时没有实现，这个功能后期可能会加入进去\n如果对上面两个需求不是很强烈的，可以尝试下哟，有问题欢迎一起探讨！！\n\n#参考&致谢\n这个是很重要滴，喝水不忘挖井人，框架的灵感来自sqliteobjectpersistence，从一行一行读里面代码学到了很多东西，它里面的某些功能至今也没有实现，不过对里面频繁计算部分做了优化，用了缓存换取CPU计算，带来了时间上的优势，再次感谢sqliteobjectpersistence作者。",
+  "homepage": "http://my.oschina.net/juwenz/blog",
+  "license": "MIT",
+  "authors": {
+    "juwenz": "juwenz@icloud.com"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://git.oschina.net/juwenz/DoPersistenceFramework.git",
+    "tag": "0.4"
+  },
+  "source_files": [
+    "Classes",
+    "DoPersistenceFramework/Classes/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "libraries": [
+    "sqlite3",
+    "z"
+  ]
+}

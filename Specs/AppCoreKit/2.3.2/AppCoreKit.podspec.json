@@ -1,0 +1,204 @@
+{
+  "name": "AppCoreKit",
+  "version": "2.3.2",
+  "summary": "AppCoreKit is an application framework designed to improve productivity while creating Apps for iOS.",
+  "homepage": "https://github.com/wherecloud/AppCoreKit",
+  "license": {
+    "type": "Apache Licence 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Wherecloud Team": "appcorekitsupport@wherecloud.com"
+  },
+  "source": {
+    "git": "https://github.com/wherecloud/AppCoreKit.git",
+    "tag": "v2.3.2"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "description": "AppCoreKit is an application framework designed to improve productivity while creating Apps for iOS. This is the result of a 3 years experience at Wherecloud and is a production framework that shipped more than 20 apps. AppCoreKit does not offer out of the box UI components but the technology to help you: Manage your data, Automatic serialization (KeyValue Store, Core Data), Objective-C runtime apis, Type and data structure conversions, View controllers and containers, Ui vs. Models synchronization with bindings, Appearance customization with cascading stylesheets, Responsive view layouts with a hbox/vbox model, Non homogenous Forms, Maps, Network, And more. Keep in mind that AppCoreKit is a toolbox. It is non intrusive so that you can cherry pick features and learn how to use it at your own pace. Screen Cast and high level description of the framework are available at http://www.appcorekit.net. A sample repository with binary versions of the framework is available at https://github.com/wherecloud/appcorekit-samples",
+  "default_subspecs": [
+    "All"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "AddressBook",
+    "CoreData",
+    "QuartzCore",
+    "CoreLocation",
+    "MapKit",
+    "MediaPlayer",
+    "CoreFoundation",
+    "CFNetwork",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "Security",
+    "AdSupport"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-ObjC -all_load -lxml2 -licucore -lz -weak_library /usr/lib/libstdc++.dylib"
+  },
+  "dependencies": {
+    "TouchXML": [
+
+    ],
+    "RegexKitLite": [
+
+    ],
+    "JSONKit": [
+
+    ],
+    "Reachability": [
+
+    ],
+    "SVPullToRefresh": [
+
+    ]
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "Foundation",
+      "source_files": "Classes/Foundation/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Foundation/Private/**/*.{h}",
+      "resources": "Resources/**/*"
+    },
+    {
+      "name": "AddressBook",
+      "source_files": "Classes/AdressBook/**/*.{h,m,mm}",
+      "private_header_files": "Classes/AdressBook/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "Classes/Location/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Location/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mock",
+      "source_files": "Classes/Mock/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Mock/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "source_files": "Classes/CoreData/**/*.{h,m,mm}",
+      "private_header_files": "Classes/CoreData/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Binding",
+      "source_files": "Classes/Bindings/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Bindings/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Style",
+      "source_files": "Classes/Styles/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Styles/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Layout",
+      "source_files": "Classes/Layout/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Layout/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Style": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapping",
+      "source_files": "Classes/Mappings/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Mappings/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Classes/Network/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Network/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Mapping": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": [
+        "Classes/UI/**/*.{h,m,mm}",
+        "Classes/Debugger/**/*.{h,m,mm}"
+      ],
+      "private_header_files": [
+        "Classes/UI/Private/**/*.{h}",
+        "Classes/Debugger/Private/**/*.{h}"
+      ],
+      "dependencies": {
+        "AppCoreKit/Network": [
+
+        ],
+        "AppCoreKit/Binding": [
+
+        ],
+        "AppCoreKit/Layout": [
+
+        ],
+        "AppCoreKit/CoreData": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "source_files": "Classes/AppCoreKit.h",
+      "dependencies": {
+        "AppCoreKit/AddressBook": [
+
+        ],
+        "AppCoreKit/Location": [
+
+        ],
+        "AppCoreKit/Mock": [
+
+        ],
+        "AppCoreKit/UI": [
+
+        ]
+      }
+    }
+  ]
+}

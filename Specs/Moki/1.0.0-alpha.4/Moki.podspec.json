@@ -1,0 +1,81 @@
+{
+  "name": "Moki",
+  "version": "1.0.0-alpha.4",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "summary": "Integrate your application with Moki products.",
+  "description": "                    Using this SDK your application can integrate with [MokiManage](http://MokiManage.com/).\n                    This will help you monitor the applications environment like:\n                    * location\n                    * network connectivity\n                    * battery charge\n                    * memory usage\n                    * etc.\n                    \n                    This will also allow you to manage the settings of your application remotely.\n",
+  "homepage": "http://mokimobility.github.io/MokiManageSDK/",
+  "authors": {
+    "MokiMobility": "info@mokimobility.com"
+  },
+  "source": {
+    "git": "git@github.com:MokiMobility/MokiSDK.git",
+    "tag": "1.0.0-alpha.4"
+  },
+  "requires_arc": true,
+  "license": {
+    "type": "Apache",
+    "text": "\n\t\t\t\t\t\t\t\t\t\t\t<<-DESC\n\t\t\t\t\t\t\t\t\t\t\tLicensed under the Apache License, Version 2.0 (the \"License\")\n\n\t\t\t\t\t\t\t\t\t\t\tYou may only use this file in compliance with the license\n\n\t\t\t\t\t\t\t\t\t\t\tYou may obtain a copy of the License at\n\n\t\t\t\t\t\t\t\t\t\t\thttp://www.apache.org/licenses/LICENSE-2.0\n\n\t\t\t\t\t\t\t\t\t\t\tUnless required by applicable law or agreed to in writing, software\n\t\t\t\t\t\t\t\t\t\t\tdistributed under the License is distributed on an \"AS IS\" BASIS,\n\t\t\t\t\t\t\t\t\t\t\tWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\t\t\t\t\t\t\t\t\t\t\tSee the License for the specific language governing permissions and\n\t\t\t\t\t\t\t\t\t\t\tlimitations under the License.\n\n\t\t\t\t\t\t\t\t\t\t\tDESC \n\t\t\t\t\t\t\t\t\t\t\t"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Core/*.{h,m,c}",
+      "preserve_paths": "Core/libCore.a",
+      "vendored_libraries": "Core/libCore.a",
+      "libraries": "Core",
+      "frameworks": "SystemConfiguration",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.2"
+        ],
+        "Reachability": [
+          "~> 3.1"
+        ]
+      }
+    },
+    {
+      "name": "Logging",
+      "source_files": "Logging/*.{h,m,c}",
+      "preserve_paths": "Logging/libLogging.a",
+      "vendored_libraries": "Logging/libLogging.a",
+      "libraries": "Logging",
+      "frameworks": "CoreTelephony",
+      "dependencies": {
+        "Moki/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Security",
+      "source_files": "Security/*.{h,m,c}",
+      "preserve_paths": "Security/libSecurity.a",
+      "vendored_libraries": "Security/libSecurity.a",
+      "libraries": "Security",
+      "frameworks": "AVFoundation",
+      "dependencies": {
+        "Moki/Core": [
+
+        ],
+        "Moki/Logging": [
+
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "Encryption/*.{h,m,c}",
+      "dependencies": {
+        "RNCryptor": [
+          "~> 2.2"
+        ],
+        "SSKeychain": [
+          "~> 1.2"
+        ]
+      }
+    }
+  ]
+}

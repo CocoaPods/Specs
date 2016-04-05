@@ -1,0 +1,157 @@
+{
+  "name": "DDKit",
+  "version": "0.1.1",
+  "license": "MIT",
+  "summary": "The tools about the share kit、oauth login and payment kit.",
+  "homepage": "https://github.com/openboy2012/DDKit.git",
+  "authors": {
+    "DeJohn Dong": "dongjia_9251@126.com"
+  },
+  "source": {
+    "git": "https://github.com/openboy2012/ddkit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "WX",
+      "source_files": [
+        "Classes/Vender/WX/WXApi.h",
+        "Classes/Vender/WX/WXApiObject.h",
+        "Classes/Vender/WX/WechatAuthSDK.h"
+      ],
+      "vendored_libraries": "Classes/Vender/WX/libWeChatSDK.a",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "QQ",
+      "source_files": "Classes/Vender/QQ/TencentOpenAPI.framework/Headers/*.h",
+      "public_header_files": "Classes/Vender/QQ/TencentOpenAPI.framework/Headers/*.h",
+      "resources": "Classes/Vender/QQ/TencentOpenApi_IOS_Bundle.bundle",
+      "vendored_frameworks": "Classes/Vender/QQ/TencentOpenAPI.framework",
+      "libraries": [
+        "stdc++",
+        "z",
+        "sqlite3",
+        "iconv"
+      ],
+      "frameworks": [
+        "Security",
+        "CoreGraphics",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "OpenSSL",
+      "source_files": "Classes/Vender/openssl/headers/*.h",
+      "vendored_libraries": [
+        "Classes/Vender/openssl/libcrypto.a",
+        "Classes/Vender/openssl/libssl.a"
+      ]
+    },
+    {
+      "name": "AlipaySDK",
+      "dependencies": {
+        "DDKit/OpenSSL": [
+
+        ]
+      },
+      "source_files": [
+        "Classes/Vender/AlipayUtil/*.{h,m}",
+        "Classes/Vender/Alipay/AlipaySDK.framework/Headers/*.h"
+      ],
+      "public_header_files": "Classes/Vender/Alipay/AlipaySDK.framework/Headers/*.h",
+      "vendored_frameworks": "Classes/Vender/Alipay/AlipaySDK.framework",
+      "resources": "Classes/Vender/Alipay/AlipaySDK.bundle",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "DDKitManager",
+      "dependencies": {
+        "DDKit/WX": [
+
+        ],
+        "WeiboSDK": [
+          "~> 3.1.3"
+        ]
+      },
+      "source_files": "Classes/DDKitManager.{h,m}"
+    },
+    {
+      "name": "DDPaymentKit",
+      "dependencies": {
+        "DDKit/AlipaySDK": [
+
+        ],
+        "DDKit/WX": [
+
+        ],
+        "DDCategory": [
+          "~> 0.5"
+        ]
+      },
+      "source_files": "Classes/DDPaymentKit.{h,m}"
+    },
+    {
+      "name": "DDShareKit",
+      "dependencies": {
+        "DDKit/WX": [
+
+        ],
+        "DDKit/QQ": [
+
+        ],
+        "DDKit/DDKitManager": [
+
+        ],
+        "DDCategory": [
+          "~> 0.5"
+        ],
+        "WeiboSDK": [
+          "~> 3.1.3"
+        ]
+      },
+      "resources": "Classes/DDKit_iOS_Bundle.bundle",
+      "source_files": [
+        "Classes/DDShareKit.{h,m}",
+        "Classes/DDShareItem.{h,m}"
+      ]
+    },
+    {
+      "name": "DDOAuthKit",
+      "dependencies": {
+        "DDKit/AlipaySDK": [
+
+        ],
+        "DDKit/WX": [
+
+        ],
+        "DDKit/QQ": [
+
+        ],
+        "DDKit/DDKitManager": [
+
+        ],
+        "DDCategory": [
+          "~> 0.5"
+        ],
+        "WeiboSDK": [
+          "~> 3.1.3"
+        ]
+      },
+      "source_files": "Classes/DDOAuthKit.{h,m}"
+    }
+  ]
+}

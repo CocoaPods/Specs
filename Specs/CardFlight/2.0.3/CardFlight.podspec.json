@@ -1,0 +1,56 @@
+{
+  "name": "CardFlight",
+  "version": "2.0.3",
+  "summary": "CardFlight's iOS SDK Library",
+  "homepage": "https://getcardflight.com",
+  "authors": {
+    "CardFlight": "support@getcardflight.com"
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "source": {
+    "git": "https://github.com/CardFlight/cardflight-ios.git",
+    "tag": "2.0.3"
+  },
+  "preserve_paths": "libCardFlightLibrary.a",
+  "frameworks": [
+    "AVFoundation",
+    "AudioToolbox",
+    "MediaPlayer",
+    "MessageUI"
+  ],
+  "libraries": "stdc++.6.0.9",
+  "requires_arc": true,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/CardFlight\""
+  },
+  "default_subspecs": "AudioJack",
+  "license": {
+    "type": "commercial",
+    "text": "Copyright 2015 Cardflight, Inc. All rights reserved."
+  },
+  "subspecs": [
+    {
+      "name": "AudioJack",
+      "source_files": "*.{h,m}",
+      "vendored_libraries": "libCardFlightLibrary.a",
+      "exclude_files": [
+        "CFTAttacheReader.h",
+        "libCardFlightAttacheLibrary.a"
+      ],
+      "requires_arc": true
+    },
+    {
+      "name": "Attache",
+      "source_files": "*.{h,m}",
+      "vendored_libraries": "libCardFlightAttacheLibrary.a",
+      "exclude_files": [
+        "CFTReader.h",
+        "libCardFlightLibrary.a"
+      ],
+      "frameworks": "ExternalAccessory",
+      "requires_arc": true
+    }
+  ]
+}

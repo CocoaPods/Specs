@@ -1,0 +1,20 @@
+{
+  "name": "ReorderableGridView",
+  "version": "0.2",
+  "summary": "reorderable grid view solution implemented with swift. its UIScrollView subclass, its not a collection view layout",
+  "description": "  ReorderableGridView-Swift\n  =======================\n\n  reorderable grid view solution implemented with swift. <br>\n  its UIScrollView subclass, its not a collection view layout.<br>\n  automatically sets horizontal item spacing by item widths. so items must be fixed-width.<br>\n  also sets automatically its content size. <br>\n  if you call `gridView?.invalidateLayout()` after orientation changed, it will lays out the grid by new orientation.\n\n\n  Demo\n  ----\n\n  ![alt tag](https://raw.githubusercontent.com/cemolcay/ReordableGridView-Swift/master/demo.gif)\n\n  Usage\n  -----\n\n  copy & paste the `ReorderableGridView.swift` into your project. <br>\n\n        gridView = ReorderableGridView(frame: self.view.frame, itemWidth: 180, verticalPadding: 20)\n        self.view.addSubview(gridView!)\n\n  Grid view ready !\n\n  now you can add it `ReorderableView` instances\n\n        let itemView = ReorderableView (x: 0, y: 0, w: 180, h: 250)\n        ...\n        gridView?.addReorderableView(itemView)\n\n        // or\n        let pos = GridPosition (x: 0, y: 1)\n        gridView?addReorderableView (itemView, gridPosition: pos)\n\n\n\n  or  remove them\n\n      gridView?.removeReorderableViewAtGridPosition(GridPosition (x: 0, y: 0))\n\n      // or\n      gridView?.removeReorderableView (itemView)\n\n\n  > **Design Tip**\n  > View itself don't have any margin padding.\n  > It uses all frame width to calculate how many `ReorderableView`s can fit and\n  > what should be their horizontal padding in a row.\n  > Padding between columns (vertical padding) can be set in init method,\n  > which is 10 by default.\n  > You can have a container view and use something like\n  > `CGRectInset (containerView.frame, marginX, marginY)`\n  > when init grid with margin\n\n\n\n  Optional Values\n  ---------------\n\n        var reorderable : Bool = true\n        var draggable : Bool = true\n        var draggableDelegate: Draggable?\n\n  set them if you want your grid editable or not\n\n  **Draggable Protocol**\n\n      func didDragStartedForView (reorderableGridView: ReordableGridView, view: ReordableView)\n      func didDraggedView (reorderableGridView: ReordableGridView, view: ReordableView)\n      func didDragEndForView (reorderableGridView: ReordableGridView, view: ReordableView)\n\n\n  set `gridView.draggableDelegate = self` and implement `Draggable` protocol functions if you want to access info about dragging actions in grid.\n  This can be useful for multiple grid layouts.\n  Example included in second tab of demo.\n",
+  "homepage": "https://github.com/cemolcay/ReorderableGridView-Swift",
+  "license": "MIT",
+  "authors": {
+    "Cem Olcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/ReorderableGridView-Swift.git",
+    "tag": "v0.2"
+  },
+  "source_files": "ReorderableGridView-Swift/ReorderableGridView.swift",
+  "requires_arc": true
+}

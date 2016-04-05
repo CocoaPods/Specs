@@ -1,0 +1,128 @@
+{
+  "name": "WhirlyGlobe",
+  "version": "2.3",
+  "summary": "WhirlyGlobe is a self contained 3D earth display view suitable for use in iPhone and iPad applications.",
+  "homepage": "https://github.com/mousebird/WhirlyGlobe",
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "Steve Gifford": "sjg@mousebirdconsulting.com"
+  },
+  "source": {
+    "git": "https://github.com/mousebird/WhirlyGlobe.git",
+    "tag": "v2.3"
+  },
+  "default_subspecs": "MaplyComponent",
+  "platforms": {
+    "ios": "6.1"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/boost\" \"${PODS_ROOT}/eigen\" \"${PODS_ROOT}/clipper\" \"$(SDKROOT)/usr/include/libxml2\"",
+    "GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS": "__USE_SDL_GLES__ __IPHONEOS__"
+  },
+  "subspecs": [
+    {
+      "name": "Lib-Headers",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeLib/include/**/*.h",
+      "public_header_files": "WhirlyGlobeSrc/WhirlyGlobeLib/include/*.h",
+      "dependencies": {
+        "boost/shared_ptr-includes": [
+          "1.51.0a"
+        ],
+        "boost/pointer_cast-includes": [
+          "1.51.0a"
+        ],
+        "boost/math-includes": [
+          "1.51.0a"
+        ],
+        "eigen": [
+          "3.1.2"
+        ]
+      }
+    },
+    {
+      "name": "MaplyComponent-Headers",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/**/*.h",
+      "public_header_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/*.h",
+      "dependencies": {
+        "WhirlyGlobe/Lib-Headers": [
+
+        ]
+      }
+    },
+    {
+      "name": "Headers",
+      "dependencies": {
+        "WhirlyGlobe/MaplyComponent-Headers": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lib",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobeLib/src/*.{mm,m}",
+      "dependencies": {
+        "WhirlyGlobe/Lib-Headers": [
+
+        ],
+        "proj4": [
+
+        ],
+        "shapelib": [
+
+        ],
+        "clipper": [
+
+        ],
+        "glues": [
+
+        ],
+        "libjson": [
+
+        ],
+        "tinyxml": [
+
+        ]
+      },
+      "libraries": [
+        "c++",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "UIKit",
+        "OpenGLES"
+      ]
+    },
+    {
+      "name": "MaplyComponent",
+      "source_files": "WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/src/*.{cpp,mm,m}",
+      "compiler_flags": "-DDDXMLElementDummyFunc() -DDDXMLDummyFunc()",
+      "dependencies": {
+        "WhirlyGlobe/Lib": [
+
+        ],
+        "WhirlyGlobe/MaplyComponent-Headers": [
+
+        ],
+        "AFNetworking": [
+
+        ],
+        "KissXML": [
+
+        ],
+        "SMCalloutView": [
+
+        ],
+        "FMDB": [
+
+        ],
+        "GoogleProtobuf": [
+
+        ]
+      },
+      "libraries": "z"
+    }
+  ]
+}

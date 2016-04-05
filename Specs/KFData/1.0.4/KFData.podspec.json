@@ -1,0 +1,142 @@
+{
+  "name": "KFData",
+  "version": "1.0.4",
+  "license": "BSD",
+  "summary": "Lightweight Core Data wrapper.",
+  "homepage": "https://github.com/kylef/KFData",
+  "authors": {
+    "Kyle Fuller": "inbox@kylefuller.co.uk"
+  },
+  "social_media_url": "https://twitter.com/kylefuller",
+  "source": {
+    "git": "https://github.com/kylef/KFData.git",
+    "tag": "1.0.4"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "osx": "10.7",
+    "ios": "5.0"
+  },
+  "default_subspecs": "Essentials",
+  "header_dir": "KFData",
+  "subspecs": [
+    {
+      "name": "Attribute",
+      "dependencies": {
+        "QueryKit": [
+          "~> 0.8.3"
+        ]
+      },
+      "ios": {
+        "source_files": "KFData/Attribute/*.{h,m}"
+      },
+      "osx": {
+        "source_files": "KFData/Attribute/*.{h,m}"
+      }
+    },
+    {
+      "name": "Manager",
+      "dependencies": {
+        "QueryKit": [
+          "~> 0.8.3"
+        ]
+      },
+      "ios": {
+        "source_files": "KFData/Manager/*.{h,m}"
+      },
+      "osx": {
+        "source_files": "KFData/Manager/*.{h,m}"
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "frameworks": "CoreData",
+        "source_files": [
+          "KFData/KFData.h",
+          "KFData/Core/*.{h,m}"
+        ]
+      },
+      "osx": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Core/*.{h,m}"
+      }
+    },
+    {
+      "name": "Store",
+      "ios": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Store/*.{h,m}",
+        "public_header_files": "KFData/Store/KFDataStore.h",
+        "private_header_files": "KFData/Store/KFDataStoreInternal.h"
+      },
+      "osx": {
+        "frameworks": "CoreData",
+        "source_files": "KFData/Store/*.{h,m}",
+        "public_header_files": "KFData/Store/KFDataStore.h",
+        "private_header_files": "KFData/Store/KFDataStoreInternal.h"
+      }
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "KFData/Core": [
+
+        ],
+        "KFData/Store": [
+
+        ],
+        "KFData/Attribute": [
+
+        ],
+        "KFData/Manager": [
+
+        ]
+      },
+      "platforms": {
+        "ios": null
+      },
+      "ios": {
+        "frameworks": "UIKit",
+        "source_files": "KFData/UI/*.{h,m}"
+      }
+    },
+    {
+      "name": "Essentials",
+      "dependencies": {
+        "KFData/Core": [
+
+        ],
+        "KFData/Store": [
+
+        ],
+        "KFData/Attribute": [
+
+        ],
+        "KFData/Manager": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "KFData/UI": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Compatibility",
+      "dependencies": {
+        "KFData/Core": [
+
+        ],
+        "KFData/Manager": [
+
+        ]
+      },
+      "header_dir": "KFData/Compatibility",
+      "source_files": "KFData/Compatibility/*.{h,m}"
+    }
+  ]
+}

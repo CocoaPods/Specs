@@ -1,0 +1,38 @@
+{
+  "name": "zziplib",
+  "version": "0.13.62",
+  "summary": "The zziplib library is intentionally lightweight, it offers the ability to easily extract data from files archived in a single zip file",
+  "homepage": "http://zziplib.sourceforge.net",
+  "license": {
+    "type": "LGPL2 / MPL",
+    "file": "README"
+  },
+  "authors": {
+    "Guido Draheim": "guidod@gmx.de",
+    "Tomi Ollila": "too@iki.fi"
+  },
+  "source": {
+    "http": "http://freefr.dl.sourceforge.net/project/zziplib/zziplib13/0.13.59/zziplib-0.13.59.tar.bz2"
+  },
+  "requires_arc": false,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "prepare_command": "sed -i -E 's|#define ZZIP_HAVE_BYTESWAP_H  1|#undef ZZIP_HAVE_BYTESWAP_H|g' zzip/_config.h\nsed -i -E 's|#define _zzip_inline inline|#define _zzip_inline|g' zzip/conf.h",
+  "source_files": "zzip/*.{h,c}",
+  "header_dir": "zzip",
+  "exclude_files": [
+
+  ],
+  "xcconfig": {
+    "USE_HEADERMAP": false,
+    "ALWAYS_SEARCH_USER_PATHS": false,
+    "CLANG_ENABLE_MODULES": "YES",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "compiler_flags": [
+    "-I${PODS_ROOT}/zziplib",
+    "-std=gnu99"
+  ],
+  "libraries": "z"
+}

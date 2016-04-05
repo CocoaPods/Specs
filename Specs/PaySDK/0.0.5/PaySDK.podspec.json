@@ -1,0 +1,71 @@
+{
+  "name": "PaySDK",
+  "version": "0.0.5",
+  "summary": "SDK for weixin,alipay and unionpay",
+  "homepage": "https://github.com/Xiaotengzxf/PaySDK",
+  "license": "MIT",
+  "authors": {
+    "Xiaotengzxf": "315082431@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/Xiaotengzxf/PaySDK.git",
+    "tag": "0.0.5"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Central",
+    "Alipay",
+    "WeiXin"
+  ],
+  "subspecs": [
+    {
+      "name": "Central",
+      "vendored_frameworks": "PaySDK/TTG/PaySDK.framework",
+      "resources": "PaySDK/TTG/PaySDK.bundle",
+      "requires_arc": true,
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "QuartzCore",
+        "CoreTelephony",
+        "Foundation",
+        "CoreGraphics",
+        "UIKit"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "PaySDK/Alipay": [
+
+        ],
+        "PaySDK/WeiXin": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "PaySDK/Channel/Alipay/AlipaySDK.framework"
+    },
+    {
+      "name": "WeiXin",
+      "vendored_libraries": "PaySDK/Channel/WeiXin/libWeChatSDK.a",
+      "source_files": "PaySDK/Channel/WeiXin/*.h",
+      "ios": {
+        "libraries": [
+          "sqlite3",
+          "c++"
+        ]
+      }
+    }
+  ]
+}

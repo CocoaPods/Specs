@@ -1,0 +1,56 @@
+{
+  "name": "MSSpec",
+  "version": "0.1.2",
+  "summary": "Kiwi Spec with support to inject mocks using Objection",
+  "description": "Kiwi Spec with support to inject mocks using Objection.\n\nA series of macros also make using Objection much easier:\n\n- ```MSInjectionRequireProperties```\n- ```MSInjectionDesignatedInitializer```,\n- ```MSInjectionCreateObject```,\n- ```MSInjectionInjectDependencies```\n",
+  "homepage": "https://github.com/mindsnacks/MSSpec",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "NachoSoto": "hello@nachosoto.com"
+  },
+  "default_subspecs": [
+    "App"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/mindsnacks/MSSpec.git",
+    "tag": "0.1.2"
+  },
+  "dependencies": {
+    "Objection": [
+      "~> 1.2"
+    ],
+    "libextobjc": [
+      "~> 0.3"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "App",
+      "source_files": "MSSpec/Classes/App/*.{h,m}",
+      "public_header_files": "MSSpec/Classes/MSInjection.h"
+    },
+    {
+      "name": "Tests",
+      "dependencies": {
+        "Kiwi/XCTest": [
+          "~> 2.x"
+        ],
+        "MSSpec/App": [
+
+        ]
+      },
+      "frameworks": "XCTest",
+      "source_files": "MSSpec/Classes/Tests/*.{h,m}",
+      "public_header_files": "MSSpec/Classes/Tests/MSSpec.h",
+      "prefix_header_contents": "#import <MSSpec/MSSpec.h>\n"
+    }
+  ]
+}

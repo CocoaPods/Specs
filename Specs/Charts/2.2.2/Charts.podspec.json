@@ -1,0 +1,42 @@
+{
+  "name": "Charts",
+  "version": "2.2.2",
+  "summary": "ios-charts is a powerful & easy to use chart library for iOS",
+  "homepage": "https://github.com/danielgindi/ios-charts",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": [
+    "Daniel Cohen Gindi",
+    "Philipp Jahoda"
+  ],
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/danielgindi/ios-charts.git",
+    "tag": "v2.2.2"
+  },
+  "default_subspecs": "Core",
+  "prepare_command": "sed -i '' -e 's/import Charts//g' ChartsRealm/Classes/**/*.swift",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Charts/Classes/**/*.swift"
+    },
+    {
+      "name": "Realm",
+      "source_files": "ChartsRealm/Classes/**/*.swift",
+      "dependencies": {
+        "Charts/Core": [
+
+        ],
+        "RealmSwift": [
+          "~> 0.97"
+        ]
+      }
+    }
+  ]
+}

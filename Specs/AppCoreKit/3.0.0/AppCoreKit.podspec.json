@@ -1,0 +1,244 @@
+{
+  "name": "AppCoreKit",
+  "version": "3.0.0",
+  "summary": "AppCoreKit is an application framework designed to improve productivity while creating Apps for iOS.",
+  "homepage": "https://github.com/smorel/AppCoreKit",
+  "license": {
+    "type": "Apache Licence 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Sebastien Morel": "morel.sebastien@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/smorel/AppCoreKit.git",
+    "tag": "v3.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "header_dir": "AppCoreKit",
+  "description": "AppCoreKit is an application framework designed to improve productivity while creating Apps for iOS. This is the result of a 4 years experience at Wherecloud and is a production framework that shipped more than 20 apps. AppCoreKit does not offer out of the box UI components but the technology to help you: Manage your data, Automatic serialization (KeyValue Store, Core Data), Objective-C runtime apis, Type and data structure conversions, View controllers and containers, Ui vs. Models synchronization with bindings, Appearance customization with cascading stylesheets, Responsive view layouts with a horizontal/vertical box model, Forms with automatic sizing and custom layouts, Maps, Network, And more. Keep in mind that AppCoreKit is a toolbox. It is non intrusive so that you can cherry pick features and learn how to use it at your own pace. Screen Cast and high level description of the framework are available at http://www.appcorekit.net. A sample repository with binary versions of the framework is available at https://github.com/wherecloud/appcorekit-samples",
+  "default_subspecs": "All",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreImage",
+    "CoreGraphics",
+    "AddressBook",
+    "CoreData",
+    "QuartzCore",
+    "CoreLocation",
+    "MapKit",
+    "MediaPlayer",
+    "CoreFoundation",
+    "CFNetwork",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "Security",
+    "AdSupport",
+    "Accelerate",
+    "CoreMotion"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-ObjC -all_load -lxml2 -licucore -lz -lc++ -weak_library /usr/lib/libstdc++.dylib"
+  },
+  "dependencies": {
+    "TouchXML": [
+
+    ],
+    "RegexKitLite": [
+
+    ],
+    "Reachability": [
+
+    ],
+    "SVPullToRefresh": [
+
+    ]
+  },
+  "requires_arc": false,
+  "preserve_paths": [
+    "Documentation/CodeSnippets/*",
+    "Documentation/File Templates/*"
+  ],
+  "prepare_command": "                        sudo mkdir -p \"$HOME/Library/Developer/Xcode/Templates/File Templates/\"\n                        sudo mkdir -p \"$HOME/Library/Developer/Xcode/UserData/CodeSnippets/\"\n                        sudo cp -rf \"Documentation/File Templates/\" \"$HOME/Library/Developer/Xcode/Templates/File Templates/\"\n                        sudo cp -rf \"Documentation/CodeSnippets/\" \"$HOME/Library/Developer/Xcode/UserData/CodeSnippets/\"\n",
+  "subspecs": [
+    {
+      "name": "JSONKit",
+      "source_files": "Vendor/JSONKit.{h,m}"
+    },
+    {
+      "name": "Foundation",
+      "source_files": "Classes/Foundation/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Foundation/Private/**/*.{h}",
+      "exclude_files": "Classes/Foundation/Public/TypeAhead/*.{h,m,mm}",
+      "resources": "Resources/**/*",
+      "dependencies": {
+        "AppCoreKit/JSONKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Animation",
+      "source_files": "Classes/Animation/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Animation/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "AddressBook",
+      "source_files": "Classes/AdressBook/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "Classes/Location/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mock",
+      "source_files": "Classes/Mock/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "source_files": "Classes/CoreData/**/*.{h,m,mm}",
+      "private_header_files": "Classes/CoreData/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Binding",
+      "source_files": "Classes/Bindings/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Bindings/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapping",
+      "source_files": "Classes/Mappings/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Classes/Network/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Mapping": [
+
+        ]
+      }
+    },
+    {
+      "name": "Style",
+      "source_files": "Classes/Styles/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Styles/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/Network": [
+
+        ],
+        "AppCoreKit/Binding": [
+
+        ]
+      }
+    },
+    {
+      "name": "Layout",
+      "source_files": "Classes/Layout/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Style": [
+
+        ]
+      }
+    },
+    {
+      "name": "Media",
+      "source_files": "Classes/Media/**/*.{h,m,mm}",
+      "dependencies": {
+        "AppCoreKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": [
+        "Classes/UI/**/*.{h,m,mm}",
+        "Classes/Debugger/**/*.{h,m,mm}"
+      ],
+      "private_header_files": [
+        "Classes/UI/Private/**/*.{h}",
+        "Classes/Debugger/Private/**/*.{h}"
+      ],
+      "dependencies": {
+        "AppCoreKit/Layout": [
+
+        ],
+        "AppCoreKit/CoreData": [
+
+        ],
+        "AppCoreKit/Animation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Debugger",
+      "source_files": "Classes/Debugger/**/*.{h,m,mm}",
+      "private_header_files": "Classes/Debugger/Private/**/*.{h}",
+      "dependencies": {
+        "AppCoreKit/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "source_files": "Classes/AppCoreKit.h",
+      "dependencies": {
+        "AppCoreKit/AddressBook": [
+
+        ],
+        "AppCoreKit/Location": [
+
+        ],
+        "AppCoreKit/Mock": [
+
+        ],
+        "AppCoreKit/Debugger": [
+
+        ],
+        "AppCoreKit/Media": [
+
+        ]
+      }
+    }
+  ]
+}

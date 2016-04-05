@@ -1,0 +1,108 @@
+{
+  "name": "SGASScreenRecorder",
+  "version": "1.0.1",
+  "summary": "Efficient on-device screen recording for iOS apps.",
+  "cocoapods_version": ">= 1.0.0.beta2",
+  "description": "Record whatever is happening on your device's screen while your app is in foreground.\n\nFeatures:\n\n* low performance impact\n* low memory footprint\n* save recordings to a video file or import into Photo Library\n* touch visualization during recording\n* simple overlay UI to start/stop recording\n\n             To be only used in development and in-house builds, *not* App Store-safe at all.",
+  "homepage": "https://github.com/sanekgusev/SGASScreenRecorder",
+  "screenshots": "https://cloud.githubusercontent.com/assets/1178649/5689239/f76d606e-9861-11e4-9213-e048fbfe9f61.PNG",
+  "license": "MIT",
+  "authors": {
+    "Alexander Gusev": "sanekgusev@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/sanekgusev/SGASScreenRecorder.git",
+    "tag": "1.0.1"
+  },
+  "social_media_url": "https://twitter.com/sanekgusev",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": [
+    "Pod/Classes/SGASScreenRecorderUIManager.{h,m}",
+    "Pod/Classes/SGASTouchVisualizer.{h,m}",
+    "Pod/Classes/SGASTouchTrackingApplication.{h,m}",
+    "Pod/Classes/Windows/*.{h,m}"
+  ],
+  "public_header_files": "Pod/Classes/SGASScreenRecorderUIManager.h",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "SGVObjcMixin": [
+      "~> 1.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_STRICT_OBJC_MSGSEND": "YES",
+    "GCC_TREAT_WARNINGS_AS_ERRORS": "YES",
+    "GCC_WARN_FOUR_CHARACTER_CONSTANTS": "YES",
+    "GCC_WARN_SHADOW": "YES",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "YES",
+    "CLANG_WARN_IMPLICIT_SIGN_CONVERSION": "YES",
+    "GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED": "YES",
+    "GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS": "YES",
+    "GCC_WARN_ABOUT_MISSING_PROTOTYPES": "YES",
+    "CLANG_WARN_ASSIGN_ENUM": "YES",
+    "GCC_WARN_SIGN_COMPARE": "YES",
+    "CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION": "YES",
+    "GCC_WARN_UNKNOWN_PRAGMAS": "YES",
+    "CLANG_WARN_UNREACHABLE_CODE": "YES",
+    "GCC_WARN_UNUSED_LABEL": "YES",
+    "CLANG_WARN__DUPLICATE_METHOD_MATCH": "YES",
+    "CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES": "YES",
+    "CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS": "YES",
+    "GCC_WARN_STRICT_SELECTOR_MATCH": "YES",
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "YES",
+    "CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "SGASScreenRecorder",
+      "source_files": [
+        "Pod/Classes/SGASScreenRecorder.{h,m}",
+        "Pod/Classes/SGASScreenRecorderSettings.{h,m}"
+      ],
+      "public_header_files": [
+        "Pod/Classes/SGASScreenRecorder.h",
+        "Pod/Classes/SGASScreenRecorderSettings.h"
+      ],
+      "dependencies": {
+        "SGVBackgroundRunloop": [
+          "~> 1.0"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "AVFoundation",
+        "CoreMedia",
+        "MobileCoreServices"
+      ],
+      "subspecs": [
+        {
+          "name": "SGASScreenRecorderPrivate",
+          "source_files": "Pod/PrivateHeaders/**/*.h",
+          "private_header_files": "Pod/PrivateHeaders/**/*.h",
+          "header_mappings_dir": "Pod/PrivateHeaders",
+          "preserve_paths": "Pod/PrivateFrameworks/**/*.framework",
+          "weak_frameworks": [
+            "IOSurface",
+            "IOKit",
+            "IOMobileFramebuffer"
+          ],
+          "user_target_xcconfig": {
+            "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/SGASScreenRecorder/Pod/PrivateFrameworks/8.4\""
+          }
+        }
+      ]
+    },
+    {
+      "name": "SGASPhotoLibraryScreenRecorder",
+      "source_files": "Pod/Classes/SGASPhotoLibraryScreenRecorder.{h,m}",
+      "frameworks": "AssetsLibrary",
+      "dependencies": {
+        "SGASScreenRecorder/SGASScreenRecorder": [
+
+        ]
+      }
+    }
+  ]
+}

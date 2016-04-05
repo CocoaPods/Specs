@@ -1,0 +1,25 @@
+{
+  "name": "BCOValueObject",
+  "version": "0.3",
+  "summary": " BCOValueObject is an abstract Objective-C class for implementing value objects.",
+  "description": " BCOValueObject is an abstract class for implementing value objects. BCOValueObject provides equality checking and uniquing and optionally support for mutable variants.\n\n BCOValueObject places the following restrictions on its subclasses:\n - Direct subclasses can only include readonly properties. These properties should only be set by the designated initializer. Direct subclasses are referred to as 'immutable variants'.\n - Immutable variants are thread safe.\n - Immutable variants may be subclassed to create 'mutable variants'. Mutable variants have the following restrictions:\n    - Mutable variants must not add properties (direct ivars can be added but this is strongly discouraged).\n    - Mutable variants should not be subclassed.\n    - Setter declarations for mutable variants must be listed in a category. Implementations for setters will be automatically generated for most types. If a setter cannot be generated then an exception will be raised when the class is initialized. Setters which cannot be generated must be implemented like so:\n        -(void)setTransform:(CATransform3D)transform\n        {\n            [self setValue:[NSValue valueWithCATransform3D:transform] forKey:@\"transform\"];\n        }\n      BCOValueObject overrides setValue:forKey: so that it will not cause an infinite loop when being called from within a setter providing that the class hierarchy requirements listed above are adhered to.\n  - Mutable variants must be registered so that immutable variant can make mutable copies. The simplest way to do this is to call BCO_VALUE_OBJECT_REGISTER_MUTABLE_VARIANT from within the header file where the mutable variant is declared.\n \n Due to the subclassing restrictions protocols should be used to implement polymorphism.\n",
+  "homepage": "https://github.com/BenedictC/BCOValueObject",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benedict Cohen": "ben@benedictcohen.co.uk"
+  },
+  "social_media_url": "http://twitter.com/BenedictC",
+  "source": {
+    "git": "https://github.com/BenedictC/BCOValueObject.git",
+    "tag": "0.3"
+  },
+  "source_files": [
+    "BCOValueObject",
+    "BCOValueObject/*.{h,m}"
+  ],
+  "public_header_files": "BCOValueObject/BCOValueObject.h",
+  "requires_arc": true
+}

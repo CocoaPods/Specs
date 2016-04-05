@@ -1,0 +1,32 @@
+{
+  "name": "LTHPasscodeViewController",
+  "version": "3.7.2",
+  "summary": "iOS 7 style Passcode Lock",
+  "homepage": "https://github.com/rolandleth/LTHPasscodeViewController",
+  "screenshots": [
+    "https://github-camo.global.ssl.fastly.net/f75ef08e3af272400ca2ce74b90b2d2ecd099d1d/687474703a2f2f726f6c616e646c6574682e636f6d2f6173736574732f696f73372d7374796c652d70617373636f64652f73637265656e73686f742e706e67",
+    "https://github-camo.global.ssl.fastly.net/4c2344eee8a3fd31e794be5e18be5fc073998915/687474703a2f2f726f6c616e646c6574682e636f6d2f6173736574732f696f73372d7374796c652d70617373636f64652f6368616e67652d70617373636f64652d73637265656e73686f742e706e67"
+  ],
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Roland Leth": "roland@leth.ro"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/rolandleth/LTHPasscodeViewController.git",
+    "tag": "3.7.2"
+  },
+  "source_files": [
+    "README.md, CHANGELOG.md, LTHPasscodeViewController",
+    "LTHPasscodeViewController/*.{h,m}"
+  ],
+  "requires_arc": true,
+  "resources": "Localizations/**",
+  "frameworks": "QuartzCore",
+  "description": "# LTHPasscodeViewController\nSimple to use iOS 7 style (replica, if you will) Passcode view. Not the Lock Screen one, but the one you get in Settings when changing your passcode.\nI made it a singleton because if the lock is active, when leaving the app a view must be placed on top, so no data from within the app can be seen in the multitasking mode. This is done under the hood, without having to do anything extra.\n# How to use\nDrag the contents of `LTHPasscodeViewController` to your project, or add `pod 'LTHPasscodeViewController'` to your podspec file.\n* When opened from Settings (as a modal):\n```objc\n- (void)showForEnablingPasscodeInViewController:(UIViewController *)viewController;\n- (void)showForChangingPasscodeInViewController:(UIViewController *)viewController;\n- (void)showForTurningOffPasscodeInViewController:(UIViewController *)viewController;\n// Example:\n[[LTHPasscodeViewController sharedUser] showForEnablingPasscodeInViewController: self]\n```\n* At app launch, or whenever you'd like the user to be shown a passcode entry:\n```objc\n- (void)showLockscreenWithAnimation:(BOOL)animated;\n// Example:\n[[LTHPasscodeViewController sharedUser] showLockscreenWithAnimation: YES]\n// Displayed with a slide up animation, which, combined with\n// the keyboard sliding down animation, creates an \"unlocking\" impression.\n```\n* entering foreground and resigning is handled from within the class.\nEverything is easily customizable with macros and static constants.\nMakes use of [SFHFKeyChainUtils](https://github.com/ldandersen/scifihifi-iphone) to save the passcode in the Keychain. I know he dropped support for it, but I updated it for ARC 2 years ago ([with help](http://stackoverflow.com/questions/7663443/sfhfkeychainutils-ios-keychain-arc-compatible)) and I kept using it since. The 'new' version isn't updated to ARC anyway, so I saw no reason to switch to it, or to any other library.\nRather than writing a big documentation, I heavily commented it as best as I could. Feel free to [contact me](mailto:roland@rolandleth.com), or open an issue if anything is unclear, bugged, or can be improved.\n## Removing Unused Localizations\nBecause the App Store automatically attempts to determine supported locales, and LTHPasscodeViewController includes localizations for the aforementioned locales, you may want to remove the `.strings` file and `.lproj` directory. You can do this most easily by having the following command run in a new Build Phase:\n        $ find \"$TARGET_BUILD_DIR\" -maxdepth 8 -type f -name \"LTHPasscodeViewController.strings\" -execdir rm -r -v {} ;\n# Apps using this control\n[Expenses Planner](https://itunes.apple.com/us/app/expenses-planner-reminders/id669431471?mt=8)\n[DigitalOcean Manager](https://itunes.apple.com/us/app/digitalocean-manager/id633128302?mt=8)\n[LovelyHeroku](https://itunes.apple.com/us/app/lovelyheroku/id706287663?mt=8&uo=4)\n[Flow Web Browser](https://itunes.apple.com/us/app/flow-web-browser-downloader/id705536564?mt=8)\n[Balance - Checkbook App](https://itunes.apple.com/US/app/id854362248)\nIf you're using this control, I'd love hearing from you!"
+}

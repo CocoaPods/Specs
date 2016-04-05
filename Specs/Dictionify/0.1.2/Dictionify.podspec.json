@@ -1,0 +1,25 @@
+{
+  "name": "Dictionify",
+  "version": "0.1.2",
+  "summary": "Convert/Init objects to/from NSDictionary with Dictionify.",
+  "description": "Dictionify want to solve the needs of convert objects to dictionary with simple step. By using Dictionify, you don't have to write boring code for each class like dictionary[\"myPropertyA\"] = self.myPropertyA dictionary[\"myPropertyB\"] = self.myPropertyB . . . (or by overriding decode/encode(withCoder)) When you subclass Dictionify, and tag your property with \"dynamic\", you gain the power of calling toDictionary() to get your dictionary that contain all properties in your class. Also, we allow you to init a object with dictionary. Even more, Dictionify can recorgnize properties in dictionary those are also Dictionify subclass(Included in an Array),instantiate them and put right back in. For example: class Person :Dictionify { dynamic var name :String dynamic var likedBook :[Book] init(name:String){ self.name = name likedBook = [] } } class Book :Dictionify{ dynamic var name :String dynamic var content :String } var ben = Person(name:Ben) var book = Book(\"I love\",content:\"Bla Bla Bla...\") ben.likedBook = [book] var benDict = ben.toDictionary() var anotherBen = Person(benDict) var anotherBook = anotherBen.likedBook.first",
+  "homepage": "https://github.com/matthewlui/Dictionify",
+  "license": "MIT",
+  "authors": {
+    "matthewlui": "matthewluihk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/matthewlui/Dictionify.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "Dictionify": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

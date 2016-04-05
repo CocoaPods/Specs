@@ -1,0 +1,36 @@
+{
+  "name": "KZPlayground",
+  "version": "0.2.0",
+  "summary": "Playgrounds but for Objective-C, with some extra coolnes.",
+  "description": "                       We all love Swift playgrounds, they are really great,\nbut since most of us still write Objective-C code, why not get benefits of rapid development with Objective-C Plagrounds?\nFast robust interations make it easy to prototype custom UI/Algorithms or even learn Objective-C or some new API.\n",
+  "homepage": "https://github.com/krzysztofzablocki/KZPlayground",
+  "license": "MIT",
+  "authors": {
+    "Krzysztof Zablocki": "krzysztof.zablocki@me.com"
+  },
+  "source": {
+    "git": "https://github.com/krzysztofzablocki/KZPlayground.git",
+    "tag": "0.2.0"
+  },
+  "social_media_url": "https://twitter.com/merowing_",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "Pod/Classes/**/*.h",
+    "Pod/Classes/**/*.m"
+  ],
+  "resources": [
+    "Pod/Assets/*"
+  ],
+  "dependencies": {
+    "dyci": [
+      "~> 0.1.5.6"
+    ],
+    "RSSwizzle": [
+      "~> 0.1.0"
+    ]
+  },
+  "prepare_command": "  cat << EOF > ../../.kick\n   recipe :ruby\nKicker::Recipes::Ruby.runner_bin = 'bacon -q'\n\nprocess do |potential_files|\n  files = potential_files.take_and_map do |file|\n      if file =~ %r{^.*\\.(m)$}\n        execute(\"/usr/bin/python #{File.expand_path(\"~/.dyci/scripts/dyci-recompile.py\")} #{File.expand_path(file)}\")\n        puts \"KZPlayground: Recompiled #{file}\"\n        file\n      end\n    end\nend\n\nprocess do |remaining_files|\n  remaining_files.take_and_map do |file|\n      puts \"KZPlayground: Ignored #{file}\"\n    file\n  end\nend\n\nstartup do\n  log \"KZPlayground: Watching for file changes!\"\nend\nEOF\n"
+}
