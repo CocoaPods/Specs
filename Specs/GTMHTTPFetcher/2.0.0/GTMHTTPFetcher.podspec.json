@@ -1,0 +1,84 @@
+{
+  "name": "GTMHTTPFetcher",
+  "version": "2.0.0",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/google/gtm-http-fetcher",
+  "source": {
+    "git": "https://github.com/google/gtm-http-fetcher.git",
+    "tag": "v2.0.0"
+  },
+  "summary": "Google Toolbox for Mac - HTTP Fetcher",
+  "description": "GTMHTTPFetcher makes it easy for Cocoa applications to\nperform http operations. The fetcher is implemented as a\nwrapper on NSURLConnection, so its behavior is asynchronous\nand uses operating-system settings on iOS and Mac OS X.",
+  "platforms": {
+    "ios": "4.0",
+    "osx": "10.6"
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "Fetcher",
+      "source_files": "Source/GTMHTTPFetcher.{h,m}"
+    },
+    {
+      "name": "Logging",
+      "source_files": "Source/GTMHTTPFetcherLogging.{h,m}",
+      "dependencies": {
+        "GTMHTTPFetcher/Fetcher": [
+          "2.0.0"
+        ]
+      }
+    },
+    {
+      "name": "LogViewController",
+      "platforms": {
+        "ios": "4.0"
+      },
+      "source_files": "Source/GTMHTTPFetcherLogViewController.{h,m}",
+      "dependencies": {
+        "GTMHTTPFetcher/Logging": [
+          "2.0.0"
+        ]
+      }
+    },
+    {
+      "name": "MIME",
+      "source_files": [
+        "Source/GTMMIMEDocument.{h,m}",
+        "Source/GTMGatherInputStream.{h,m}"
+      ],
+      "dependencies": {
+        "GTMHTTPFetcher/Fetcher": [
+          "2.0.0"
+        ]
+      }
+    },
+    {
+      "name": "ResumableUpload",
+      "source_files": "Source/GTMHTTPUploadFetcher.{h,m}",
+      "dependencies": {
+        "GTMHTTPFetcher/Fetcher": [
+          "2.0.0"
+        ],
+        "GTMHTTPFetcher/Service": [
+          "2.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "source_files": [
+        "Source/GTMHTTPFetcherService.{h,m}",
+        "Source/GTMHTTPFetchHistory.{h,m}"
+      ],
+      "dependencies": {
+        "GTMHTTPFetcher/Fetcher": [
+          "2.0.0"
+        ]
+      }
+    }
+  ]
+}
