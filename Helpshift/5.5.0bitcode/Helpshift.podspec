@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.resources           = ["helpshift-sdk-ios-v5.5.0/HsUIResourceBundle.bundle", "helpshift-sdk-ios-v5.5.0/HSLocalization/*.lproj", "helpshift-sdk-ios-v5.5.0/HSThemes/*.plist"]
   s.preserve_paths      = 'helpshift-sdk-ios-v5.5.0/libHelpshift-bitcode.a', 'helpshift-sdk-ios-v5.5.0/HSLocalization/*.lproj', 'helpshift-sdk-ios-v5.5.0/HSThemes/*.plist'
   s.frameworks          = 'CoreGraphics', 'QuartzCore', 'CoreText', 'SystemConfiguration', 'CoreTelephony', 'Foundation', 'UIKit', 'Security', 'QuickLook', 'CoreLocation', 'MobileCoreServices', 'CoreSpotlight'
-  s.libraries           = 'sqlite3.0', 'z', 'Helpshift'
+  s.libraries           = 'sqlite3.0', 'z', 'Helpshift-bitcode'
   s.xcconfig            = {'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Helpshift/helpshift-sdk-ios-v5.5.0"'}
   s.documentation_url   = 'http://developers.helpshift.com/ios/'
   s.requires_arc        = false
