@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        It is a marquee view used on iOS, which implement by Objective-C.
                        DESC
-  s.homepage         = "https://github.com/wangzz/WZMarqueeView"
+  s.homepage         = "https://github.com/wjTime/WJDropDownMenu"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "高文杰" => "576527857@qq.com.com" }
