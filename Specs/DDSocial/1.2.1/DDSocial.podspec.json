@@ -1,0 +1,169 @@
+{
+  "name": "DDSocial",
+  "version": "1.2.1",
+  "summary": "A share auth wheels based on the official library content wecaht sina tencent facebook twitter google mi",
+  "homepage": "https://github.com/393385724/DDSocial",
+  "license": "MIT",
+  "authors": {
+    "llg": "393385724@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/393385724/DDSocial.git",
+    "tag": "1.2.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "DDSocial/Core/*.{h,m}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Tencent",
+      "source_files": "DDSocial/Tencent/Handler/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": "DDSocial/Tencent/TencentSDK/*.framework"
+      },
+      "resources": "DDSocial/Tencent/TencentSDK/*.bundle",
+      "libraries": [
+        "z",
+        "sqlite3",
+        "stdc++",
+        "iconv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreTelephony",
+        "Security"
+      ],
+      "dependencies": {
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wechat",
+      "source_files": [
+        "DDSocial/Wechat/Handler/*.{h,m}",
+        "DDSocial/Wechat/WeChatSDK/*.h"
+      ],
+      "ios": {
+        "vendored_libraries": "DDSocial/Wechat/WeChatSDK/*.a"
+      },
+      "libraries": [
+        "z",
+        "sqlite3",
+        "stdc++"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sina",
+      "source_files": "DDSocial/Sina/*.{h,m}",
+      "dependencies": {
+        "WeiboSDK": [
+          "~> 3.1.3"
+        ],
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "source_files": "DDSocial/Facebook/*.{h,m}",
+      "dependencies": {
+        "FBSDKLoginKit": [
+          "~> 4.10.0"
+        ],
+        "FBSDKShareKit": [
+          "~> 4.10.0"
+        ],
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "DDSocial/Twitter/*.{h,m}",
+      "xcconfig": {
+        "CLANG_ENABLE_MODULES": "NO"
+      },
+      "dependencies": {
+        "TwitterKit": [
+          "~> 1.15.3"
+        ],
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MiLiao",
+      "source_files": "DDSocial/MiLiao/Handler/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": "DDSocial/MiLiao/MiLiaoSDK/*.framework"
+      },
+      "dependencies": {
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MI",
+      "source_files": "DDSocial/MI/**/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": "DDSocial/MI/Resources/*.framework"
+      },
+      "resources": "DDSocial/MI/Resources/*.bundle",
+      "xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "libraries": "stdc++",
+      "dependencies": {
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Google",
+      "source_files": "DDSocial/Google/*.{h,m}",
+      "dependencies": {
+        "Google/SignIn": [
+          "~> 2.0.3"
+        ],
+        "DDSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Share",
+      "source_files": "DDSocial/Handler/DDSocialShareHandler.{h,m}",
+      "dependencies": {
+        "DDSocial/Core": [
+
+        ]
+      }
+    }
+  ]
+}
