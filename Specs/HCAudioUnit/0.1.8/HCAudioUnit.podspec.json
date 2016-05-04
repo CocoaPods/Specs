@@ -1,0 +1,153 @@
+{
+  "name": "HCAudioUnit",
+  "version": "0.1.8",
+  "summary": "这是一个与声音相关核心库。",
+  "description": "这是一个特定的核心库。包含了常用录音、及声音滤镜相关的功能。",
+  "homepage": "https://github.com/halfking/HCAudioUnit",
+  "license": "MIT",
+  "authors": {
+    "halfking": "kimmy.huang@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/halfking/HCAudioUnit.git",
+    "tag": "0.1.8"
+  },
+  "libraries": [
+    "icucore",
+    "stdc++"
+  ],
+  "xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "ENABLE_BITCODE": "YES",
+    "DEFINES_MODULE": "YES",
+    "HEADER_SEARCH_PATHS": "$(inherited) $(PROJECT_DIR)/Lib /Users/huangxutao/Documents/Work/HCAudioUnit/Lib",
+    "LIBRARY_SEARCH_PATHS": "$(inherited) $(PROJECT_DIR)/Lib /Users/huangxutao/Documents/Work/HCAudioUnit/Lib"
+  },
+  "pod_target_xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "$(inherited) /Users/huangxutao/Documents/Work/HCAudioUnit/Lib"
+  },
+  "dependencies": {
+    "HCMinizip": [
+      "~> 1.2.6"
+    ],
+    "hccoren": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "lame",
+      "source_files": [
+        "Lib/*.h"
+      ],
+      "public_header_files": [
+        "Lib/*.h"
+      ],
+      "preserve_paths": "Lib/*.h",
+      "vendored_libraries": [
+        "Lib/libmp3lame.a",
+        "Lib/libopencore-amrnb.a",
+        "Lib/libopencore-amrwb.a"
+      ],
+      "libraries": [
+        "mp3lame",
+        "opencore-amrnb",
+        "opencore-amrwb"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/HCAudioUnit/Lib/**"
+      }
+    },
+    {
+      "name": "Amazing",
+      "requires_arc": true,
+      "source_files": [
+        "HCAudioUnit/TheAmazingAudioEngine/**/*.{h,m,mm,c,cpp}",
+        "HCAudioUnit/AudioConvert/**/*.{h,m,mm,c,cpp}"
+      ],
+      "public_header_files": [
+        "HCAudioUnit/TheAmazingAudioEngine/**/*.h",
+        "HCAudioUnit/AudioConvert/**/*.h"
+      ],
+      "libraries": [
+        "icucore",
+        "iconv",
+        "stdc++",
+        "stdc++.6"
+      ],
+      "frameworks": [
+        "UIKit",
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "IOKit"
+      ],
+      "ios": {
+        "dependencies": {
+          "HCAudioUnit/lame": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "EZAudioDevice",
+      "requires_arc": false,
+      "source_files": [
+        "HCAudioUnit/EZAudio/EZAudioUtilities.{h,m,mm,c,cpp}",
+        "HCAudioUnit/EZAudio/EZAudioDevice.{h,m,mm,c,cpp}"
+      ],
+      "public_header_files": [
+        "HCAudioUnit/EZAudio/EZAudioUtilities.h",
+        "HCAudioUnit/EZAudio/EZAudioDevice.h"
+      ],
+      "ios": {
+        "dependencies": {
+          "HCAudioUnit/lame": [
+
+          ],
+          "HCAudioUnit/Amazing": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "source_files": [
+        "HCAudioUnit/**/*.{h,m,mm,c,cpp}"
+      ],
+      "public_header_files": [
+        "HCAudioUnit/**/*.h",
+        "HCAudioUnit/**/HCAudioUnit.h"
+      ],
+      "exclude_files": [
+        "HCAudioUnit/TheAmazingAudioEngine/**/*.{h,m,mm,c,cpp}",
+        "HCAudioUnit/AudioConvert/**/*.{h,m,mm,c,cpp}",
+        "HCAudioUnit/EZAudio/EZAudioUtilities.{h,m,mm,c,cpp}",
+        "HCAudioUnit/EZAudio/EZAudioDevice.{h,m,mm,c,cpp}",
+        "HCAudioUnit/**/HCAudioUnit.h"
+      ],
+      "ios": {
+        "dependencies": {
+          "HCAudioUnit/lame": [
+
+          ],
+          "HCAudioUnit/Amazing": [
+
+          ],
+          "HCAudioUnit/EZAudioDevice": [
+
+          ]
+        }
+      }
+    }
+  ]
+}
