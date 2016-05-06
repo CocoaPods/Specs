@@ -1,0 +1,49 @@
+{
+  "name": "couchbase-lite-osx",
+  "version": "1.2.1",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "http://mobile.couchbase.com",
+  "summary": "An embedded syncable NoSQL database for OSX apps.",
+  "authors": "Couchbase",
+  "source": {
+    "http": "http://packages.couchbase.com/releases/couchbase-lite/macosx/1.2.1/couchbase-lite-macosx-community_1.2.1-13.zip"
+  },
+  "preserve_paths": "LICENSE.txt",
+  "platforms": {
+    "osx": "10.8"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "preserve_paths": "CouchbaseLite.framework",
+      "vendored_frameworks": "CouchbaseLite.framework",
+      "osx": {
+        "resources": "CouchbaseLite.framework"
+      }
+    },
+    {
+      "name": "Listener",
+      "preserve_paths": "CouchbaseLiteListener.framework",
+      "vendored_frameworks": "CouchbaseLiteListener.framework",
+      "osx": {
+        "resources": "CouchbaseLiteListener.framework"
+      }
+    }
+  ]
+}
