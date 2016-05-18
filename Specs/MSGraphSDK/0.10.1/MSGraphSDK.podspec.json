@@ -1,0 +1,71 @@
+{
+  "name": "MSGraphSDK",
+  "version": "0.10.1",
+  "summary": "Microsoft Graph iOS SDK",
+  "description": "Integrate the Microsoft Graph API into your iOS App!",
+  "homepage": "http://graph.microsoft.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": "Microsoft Graph",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/MicrosoftGraph/msgraph-sdk-ios.git",
+    "tag": "0.10.1"
+  },
+  "source_files": "MSGraphSDK/MSGraphSDK.h",
+  "public_header_files": "MSGraphSDK/MSGraphSDK.h",
+  "exclude_files": [
+    "Examples/*",
+    "MSGraphSDK/Test/*"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "MSGraphSDK/Common/*.{h,m}",
+      "public_header_files": "MSGraphSDK/Common/*.h"
+    },
+    {
+      "name": "Implementations",
+      "dependencies": {
+        "MSGraphSDK/Common": [
+
+        ]
+      },
+      "source_files": [
+        "MSGraphSDK/MSGraphSDK/MSURLSessionManager/*{h,m}",
+        "MSGraphSDK/MSGraphSDK/*{h,m}"
+      ],
+      "public_header_files": [
+        "MSGraphSDK/MSGraphSDK/MSURLSessionManager/*.h",
+        "MSGraphSDK/MSGraphSDK/*.h"
+      ]
+    },
+    {
+      "name": "MSGraphCoreSDK",
+      "dependencies": {
+        "MSGraphSDK/Common": [
+
+        ]
+      },
+      "source_files": "MSGraphSDK/MSGraphCoreSDK/**/*.{h,m}",
+      "public_header_files": "MSGraphSDK/MSGraphCoreSDK/**/*.h"
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "MSGraphSDK/MSGraphCoreSDK": [
+
+        ],
+        "MSGraphSDK/Implementations": [
+
+        ]
+      },
+      "source_files": "MSGraphSDK/Extensions/*.{h,m}",
+      "public_header_files": "MSGraphSDK/Extensions/*.h"
+    }
+  ]
+}
