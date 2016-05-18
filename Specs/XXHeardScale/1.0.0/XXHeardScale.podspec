@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "XXHeardScale"
-s.version          = "0.0.1"
+s.version          = "1.0.0"
 s.summary          = "一句代码添加Scale的头视图"
 s.description      = <<-DESC
 It is a marquee view used on iOS, which implement by Objective-C.
