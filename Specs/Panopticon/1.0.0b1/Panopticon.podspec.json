@@ -1,0 +1,70 @@
+{
+  "name": "Panopticon",
+  "version": "1.0.0b1",
+  "summary": "Consistent blocks API for disparate Cocoa observers: KVO, NSNotification, cross-app Darwin Notifications, and more.",
+  "description": "A simplified Objective-C API for using NSNotifications and KVO with consistent terminology and useful convenience features.\nUses blocks exclusively, but unlike NSNotification's blocks API, allows manual removal without requiring storage of an observation object.\nSupports automatic removal when either observer or observee is deallocated, and an easy shorthand header which lets you omit method prefixes.\nExtensible to other styles of observers, included are a wrapper for UIControl event actions, and another for darwin notifications across app groups.",
+  "homepage": "https://github.com/jpmhouston/Panopticon",
+  "license": "MIT",
+  "authors": {
+    "Pierre Houston": "jpmhouston@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jpmhouston/Panopticon.git",
+    "tag": "1.0.0b1"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": "Foundation"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/**/*.{h,m}",
+      "public_header_files": "Source/**/*.h",
+      "private_header_files": [
+        "Source/**/*+Private.h",
+        "Source/AppGroups/PANAppGroupNotificationManager.h"
+      ],
+      "ios": {
+        "exclude_files": [
+          "Source/ShorthandAutosetup.h",
+          "Source/**/*Shorthand.{h,m}"
+        ]
+      },
+      "osx": {
+        "exclude_files": [
+          "Source/ShorthandAutosetup.h",
+          "Source/**/*Shorthand.{h,m}",
+          "Source/UIControl/*"
+        ]
+      }
+    },
+    {
+      "name": "Shorthand",
+      "dependencies": {
+        "Panopticon/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Source/ShorthandAutosetup.h",
+        "Source/**/*Shorthand.h"
+      ],
+      "public_header_files": "Source/**/*Shorthand.h",
+      "private_header_files": "Source/ShorthandAutosetup.h",
+      "osx": {
+        "exclude_files": "Source/UIControl/*Shorthand.h"
+      }
+    }
+  ]
+}
