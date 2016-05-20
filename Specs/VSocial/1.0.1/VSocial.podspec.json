@@ -1,0 +1,92 @@
+{
+  "name": "VSocial",
+  "version": "1.0.1",
+  "summary": "this is a social component, including the login and share of WeChat,weibo,qq",
+  "description": "* It is a social component. \n* it can help you quickly integrate login and share function.",
+  "homepage": "https://github.com/lhjzzu/VScocial",
+  "license": "MIT",
+  "authors": {
+    "lhjzzu": "1822657131@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/lhjzzu/VScocial.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "ENABLE_BITCODE": "NO"
+  },
+  "default_subspecs": [
+    "Core",
+    "QQSDK",
+    "WBSDK",
+    "WXSDK"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "sdk/*.{h,m}",
+      "public_header_files": "sdk/*.h",
+      "ios": {
+        "vendored_frameworks": "sdk/VNetworkManager.framework"
+      },
+      "resources": "sdk/VSocialResources.bundle",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork",
+        "ImageIO",
+        "MobileCoreServices",
+        "Security"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3.0"
+      ]
+    },
+    {
+      "name": "QQSDK",
+      "source_files": "sdk/Channels/QQSDK/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": "sdk/Channels/QQSDK/TencentOpenAPI.framework"
+      },
+      "resources": "sdk/Channels/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+      "dependencies": {
+        "VSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WBSDK",
+      "source_files": "sdk/Channels/WBSDK/*.{h,m}",
+      "vendored_libraries": "sdk/Channels/WBSDK/libSinaWeiboSDK.a",
+      "resources": "sdk/Channels/WBSDK/WeiboSDK.bundle",
+      "dependencies": {
+        "VSocial/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXSDK",
+      "source_files": "sdk/Channels/WXSDK/*.{h,m}",
+      "vendored_libraries": "sdk/Channels/WXSDK/libWeChatSDK.a",
+      "dependencies": {
+        "VSocial/Core": [
+
+        ]
+      }
+    }
+  ]
+}
