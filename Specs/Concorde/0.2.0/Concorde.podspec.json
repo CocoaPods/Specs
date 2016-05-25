@@ -1,0 +1,69 @@
+{
+  "name": "Concorde",
+  "version": "0.2.0",
+  "summary": "Download and decode progressive JPEGs easily.",
+  "homepage": "https://github.com/contentful-labs/Concorde/",
+  "social_media_url": "https://twitter.com/contentful",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Boris Bügling": "boris@buegling.com"
+  },
+  "source": {
+    "git": "https://github.com/contentful-labs/Concorde.git",
+    "tag": "0.2.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "default_subspecs": [
+    "Core",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Code/*.{h,m}",
+        "vendor/libjpeg-turbo/include/*"
+      ],
+      "public_header_files": "Code/CCBufferedImageDecoder.h",
+      "vendored_libraries": "vendor/libjpeg-turbo/lib/libturbojpeg.a"
+    },
+    {
+      "name": "UI",
+      "ios": {
+        "source_files": "Code/CCBufferedImageView.swift"
+      },
+      "dependencies": {
+        "Concorde/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Contentful",
+      "ios": {
+        "source_files": "Code/CCBufferedImageView+Contentful.swift"
+      },
+      "dependencies": {
+        "Concorde/Core": [
+
+        ],
+        "Concorde/UI": [
+
+        ],
+        "ContentfulDeliveryAPI": [
+          ">= 1.6.0"
+        ]
+      }
+    }
+  ]
+}
