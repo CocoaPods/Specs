@@ -1,0 +1,51 @@
+{
+  "name": "Mosquitto",
+  "version": "1.4.8",
+  "summary": "Eclipse Mosquitto is an open source implementation of a server for version 3.1 and 3.1.1 of the MQTT protocol.",
+  "description": "Eclipse Mosquitto is an open source implementation of a server for version 3.1 and 3.1.1 of the MQTT protocol.",
+  "homepage": "https://github.com/eclipse/mosquitto",
+  "license": "This project is dual licensed under the Eclipse Public License 1.0 and the Eclipse Distribution License 1.0 as described in the epl-v10 and edl-v10 files.",
+  "authors": {
+    "Eclipse Foundation": "emo@eclipse.org"
+  },
+  "source": {
+    "git": "https://github.com/eclipse/mosquitto.git",
+    "tag": "v1.4.8"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/**",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "GCC_PREPROCESSOR_DEFINITIONS": "WITH_THREADING=1"
+  },
+  "source_files": [
+    "lib/*.{c,h}",
+    "*.h"
+  ],
+  "subspecs": [
+    {
+      "name": "WithoutTLS",
+      "source_files": [
+        "lib/*.{c,h}",
+        "*.h"
+      ]
+    },
+    {
+      "name": "TLS",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "WITH_TLS=1"
+      },
+      "source_files": [
+        "lib/*.{c,h}",
+        "*.h"
+      ],
+      "dependencies": {
+        "OpenSSL-Universal": [
+          "~> 1.0.1.19"
+        ]
+      }
+    }
+  ]
+}
