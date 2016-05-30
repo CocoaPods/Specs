@@ -1,0 +1,64 @@
+{
+  "name": "NMPay",
+  "version": "1.41",
+  "summary": "NMPay",
+  "description": "NMPay for GoSport",
+  "homepage": "https://github.com/jiangyancong/NMPay",
+  "license": "MIT",
+  "authors": {
+    "StanleyJiang": "jiangyancong@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.1"
+  },
+  "source": {
+    "git": "https://github.com/jiangyancong/NMPay.git"
+  },
+  "frameworks": [
+    "Security",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "CoreMotion",
+    "CFNetwork",
+    "QuartzCore",
+    "CoreText"
+  ],
+  "libraries": [
+    "iconv",
+    "sqlite3",
+    "stdc++",
+    "z",
+    "c++"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "AliPay",
+      "resources": "AlixPay/2016_04_28/AlipaySDK.bundle",
+      "vendored_frameworks": "AlixPay/2016_04_28/AliPaySDK.framework",
+      "subspecs": [
+        {
+          "name": "openssl",
+          "source_files": "AlixPay/2016_04_28/openssl/*.h",
+          "header_dir": "AlixPay/2016_04_28/openssl",
+          "vendored_libraries": [
+            "AlixPay/2016_04_28/libcrypto.a",
+            "AlixPay/2016_04_28/libssl.a"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UPPay",
+      "source_files": "UPPay/3.3.3/**/*.h",
+      "vendored_libraries": "UPPay/3.3.3/libs/libPaymentControl.a"
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "UPApplePay/1.1/**/*.h",
+      "frameworks": "PassKit",
+      "vendored_libraries": "UPApplePay/1.1/libs/libUPAPayPlugin.a"
+    }
+  ]
+}
