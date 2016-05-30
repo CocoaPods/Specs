@@ -1,0 +1,43 @@
+{
+  "name": "Charts",
+  "version": "2.2.5",
+  "summary": "Charts is a powerful & easy to use chart library for iOS, tvOS and OSX (and Android)",
+  "homepage": "https://github.com/danielgindi/Charts",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": [
+    "Daniel Cohen Gindi",
+    "Philipp Jahoda"
+  ],
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.11"
+  },
+  "source": {
+    "git": "https://github.com/danielgindi/Charts.git",
+    "tag": "v2.2.5"
+  },
+  "default_subspecs": "Core",
+  "prepare_command": "sed -i '' -e 's/import Charts//g' ChartsRealm/Classes/**/*.swift",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Charts/Classes/**/*.swift"
+    },
+    {
+      "name": "Realm",
+      "source_files": "ChartsRealm/Classes/**/*.swift",
+      "dependencies": {
+        "Charts/Core": [
+
+        ],
+        "RealmSwift": [
+          "~> 0.97"
+        ]
+      }
+    }
+  ]
+}
