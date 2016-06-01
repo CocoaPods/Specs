@@ -1,0 +1,70 @@
+{
+  "name": "Raccoon",
+  "version": "0.1.1",
+  "summary": "A nice Alamofire serializer that convert JSON into CoreData or Realm objects.",
+  "description": "A nice Alamofire serializer that convert JSON into CoreData or Realm objects. Optionally, it provides a Client that puts together Alamofire, PromiseKit and CoreData/Realm",
+  "homepage": "https://github.com/ManueGE/Raccoon/",
+  "license": "MIT",
+  "authors": "Manuel García-Estañ",
+  "social_media_url": "http://twitter.com/ManueGE",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/ManueGE/Raccoon.git",
+    "tag": "0.1.1"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "Alamofire": [
+      "~> 3.4"
+    ]
+  },
+  "default_subspecs": [
+    "CoreData",
+    "Client"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Raccoon/Core/**/*.{swift}"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "Raccoon/Core": [
+
+        ],
+        "Groot": [
+          "~> 1.2"
+        ]
+      },
+      "frameworks": "CoreData",
+      "source_files": "Raccoon/CoreData/**/*.{swift}"
+    },
+    {
+      "name": "Realm",
+      "dependencies": {
+        "Raccoon/Core": [
+
+        ],
+        "RealmSwift": [
+          "~> 1.0"
+        ]
+      },
+      "source_files": "Raccoon/Realm/**/*.{swift}"
+    },
+    {
+      "name": "Client",
+      "dependencies": {
+        "Raccoon/Core": [
+
+        ],
+        "PromiseKit/CorePromise": [
+          "~> 3.2"
+        ]
+      },
+      "source_files": "Raccoon/Client/**/*.{swift}"
+    }
+  ]
+}
