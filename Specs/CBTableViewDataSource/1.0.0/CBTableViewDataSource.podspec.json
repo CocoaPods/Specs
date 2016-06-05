@@ -1,0 +1,19 @@
+{
+  "name": "CBTableViewDataSource",
+  "version": "1.0.0",
+  "summary": "An elegant style of writing for UITableViewDataSource",
+  "description": "最近在重构之前写的代码的时候，发现基本每个viewController里面都有一段又臭又长的代码用于定义tableView的`dataSource`和`delegate`，于是我在想，有没有更优雅的方式来书写`dataSource`，于是乎就产生了CBTableViewDataSource。\n\n\n**使用CBTableViewDataSource之前**\n\n``` object-c\n\n// define a enum to split section\n\ntypedef NS_ENUM(NSInteger, SectionNameDefine) {\n    SECTION_ONE,\n    SECTION_TWO,\n    SECTION_THREE,\n    SECTION_FOUR,\n    //...\n    COUNT_OF_STORE_SECTION\n};\n\n// define identifier for section\n\n#define IDENTIFIER_ONE  @\"IDENTIFIER_ONE\"\n#define IDENTIFIER_TWO  @\"IDENTIFIER_TWO\"\n#define IDENTIFIER_THREE  @\"IDENTIFIER_THREE\"\n#define IDENTIFIER_FOUR @\"IDENTIFIER_FOUR\"\n//...\n\n\n// register cell class for section\n\n[self.tableView registerClass:[OneCell class] forCellWithReuseIdentifier:IDENTIFIER_ONE];\n[self.tableView registerClass:[TwoCell class] forCellWithReuseIdentifier:IDENTIFIER_TWO];\n[self.tableView registerClass:[ThreeCell class] forCellWithReuseIdentifier:IDENTIFIER_THREE];\n[self.tableView registerClass:[FourCell class] forCellWithReuseIdentifier:IDENTIFIER_FOUR];\n\n\n// implementation datasource protocol\n\n- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {\n    return COUNT_OF_STORE_SECTION;\n}\n\n- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {\n    return ((NSArray*)self.data[section]).count;\n}\n\n- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {\n    NSUInteger section = (NSUInteger) indexPath.section;\n    NSUInteger index = (NSUInteger) indexPath.row;\n    switch(section) {\n        case SECTION_ONE:\n        // to do something\n            return cell;\n        case SECTION_TWO:\n        // to do something\n            return cell;\n        case SECTION_THREE:\n        // to do something\n            return cell;\n\n            //...\n    }\n\n    return cell;\n}\n// ...\n\n```\n\n**使用CBTableViewDataSource之后**\n\n``` object-c\nCBTableViewDataSource * dataSource = CBDataSource(self.tableView)\n     .section()\n     .cell([OneCell class])\n     .data(self.viewModel.oneData)\n     .adapter(^UITableViewCell *(OneCell * cell,NSDictionary * data,NSUInteger index){\n\n         //bind data form data to cell\n\n         return cell;\n     })\n\n     .section()\n     .cell([TwoCell class])\n     .data(self.viewModel.twoData)\n     .adapter(^UITableViewCell *(TwoCell * cell,NSDictionary * data,NSUInteger index){\n\n         //bind data form data to cell\n\n         return cell;\n     })\n     // ...\n     .make();\n\n```\nCBTableViewDataSource允许我们以函数式的方式定义dataSouce，逻辑顺序和页面的呈现顺序一致。\n每个section以section()开头，在section()之后，可以对该section进行一些配置，要求每个section必须设置cell，data，和adapter。cell表示该section使用的cell类，data表示该section的数据，adapter用于将数据和cell绑定起来。同时还能配置section中cell的高度，或者设置自动计算高度。也可是设置section的标题，cell的点击事件等等。\n\nCBTableViewDataSource主要解决了以下几个问题：\n\n1. 避免了书写各种乱七八糟的宏定义，自动注册cell类，自动设置identifier。\n2. 提供了一套完美解决不同高度cell的计算问题，提供自动计算cell高度的接口。\n3. 提供一套优雅的api，十分优雅并且有逻辑地书写dataSource。",
+  "homepage": "https://github.com/cocbin/CBTableViewDataSource",
+  "license": "MIT",
+  "authors": {
+    "Cocbin": "460469837@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/cocbin/CBTableViewDataSource.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "CBTableViewDataSource/CBTableViewDataSource/*.{h,m}"
+}
