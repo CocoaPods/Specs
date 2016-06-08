@@ -1,0 +1,44 @@
+{
+  "name": "ISHPermissionKit",
+  "version": "1.1.0",
+  "summary": "A polite and unified way of asking for permission on iOS.",
+  "description": "This framework provides a unified way of asking for user permissions on iOS. It also \n                    provides UI to explain the permission requirements before presenting the system\n                    permission dialog to the user. This allows the developer to postpone the system dialog. The framework \n                    provides no actual chrome, leaving the developer and designer in charge of creating the views.",
+  "homepage": "https://github.com/iosphere/ISHPermissionKit.git",
+  "screenshots": "https://raw.githubusercontent.com/iosphere/ISHPermissionKit/master/assets/demo.gif",
+  "license": "New BSD",
+  "authors": {
+    "Felix Lamouroux": "felix@iosphere.de"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/iosphere/ISHPermissionKit.git",
+    "tag": "1.1.0"
+  },
+  "module_name": "ISHPermissionKit",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ISHPermissionKit/**/*.{h,m}",
+      "private_header_files": "ISHPermissionKit/Private/**/*.h",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Health",
+      "dependencies": {
+        "ISHPermissionKit/Core": [
+
+        ]
+      },
+      "weak_frameworks": "HealthKit",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ISHPermissionRequestHealthKitEnabled"
+      }
+    }
+  ]
+}
