@@ -16,7 +16,7 @@ s.author            = {
 }
 s.source            = {
 :git => 'https://github.com/deepikaaayadav/SDPodDemo.git',
-:tag => 'v0.0.3'
+:tag => 'v1.0.3'
 }
 s.source_files      = 'SampleFramework/*.{m,h}'
 s.requires_arc      = true
