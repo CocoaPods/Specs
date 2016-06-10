@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "SampleFramework"
-s.version      = "0.0.3"
+s.version      = "1.0.3"
 s.summary      = "Demo for pod creation"
 
 s.homepage          = 'https://github.com/deepikaaayadav/SDPodDemo.git'
