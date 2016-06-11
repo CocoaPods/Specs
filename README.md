@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # The CocoaPods Master Repo
 
 This repository contains the public [CocoaPods](https://github.com/CocoaPods/CocoaPods) specifications.
@@ -13,3 +14,7 @@ This repository contains the public [CocoaPods](https://github.com/CocoaPods/Coc
 These specifications and CocoaPods are available under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
 
+=======
+# SDPodDemo
+Demo Pods project
+>>>>>>> 93272926131a77788d2890f92fb6ec3099212994
