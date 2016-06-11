@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "SampleFramework"
-s.version      = "1.0.3"
+s.version      = "1.0.5"
 s.summary      = "Demo for pod creation"
 
 s.homepage          = 'https://github.com/deepikaaayadav/SDPodDemo.git'
@@ -16,9 +16,9 @@ s.author            = {
 }
 s.source            = {
 :git => 'https://github.com/deepikaaayadav/SDPodDemo.git',
-:tag => 'v1.0.3'
+:tag => 'v1.0.5'
 }
-s.source_files      = 'SampleFramework/*.{m,h}'
+s.source_files      = 'SampleFramework/*.{h}'
 s.requires_arc      = true
 
 end
