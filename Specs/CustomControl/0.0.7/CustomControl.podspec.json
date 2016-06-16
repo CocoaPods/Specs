@@ -1,0 +1,87 @@
+{
+  "name": "CustomControl",
+  "version": "0.0.7",
+  "summary": "custom control",
+  "homepage": "https://github.com/jidibingren/customcontrol",
+  "license": "MIT",
+  "authors": {
+    "jidibingren": "jidibingren@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/jidibingren/customcontrol.git",
+    "tag": "0.0.7"
+  },
+  "prefix_header_contents": "#ifdef __OBJC__\n#import <Foundation/Foundation.h>\n#import <UIKit/UIKit.h>\n#import \"SCDGFlatbufferHeaders.h\"\n#import \"SCDGProjectHeaders.h\"\n#import \"SCDGAdditionHeaders.h\"\n#endif",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "control",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "prefix_header_contents": "#import \"SCDGProjectHeaders.h\"",
+      "source_files": "control/*.{h,m,mm}",
+      "public_header_files": "control/SCDGProjectHeaders.h",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.1.0"
+        ],
+        "MQTTClient": [
+          "~> 0.7.4"
+        ],
+        "UICKeyChainStore": [
+          "~> 2.1.0"
+        ],
+        "YYCache": [
+          "~> 1.0.3"
+        ],
+        "XRSA": [
+          "~> 1.1.1"
+        ],
+        "Realm": [
+          "= 1.0.0"
+        ],
+        "CustomControl/flatbuffers": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "flatbuffers",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "prefix_header_contents": "#import \"SCDGFlatbufferHeaders.h\"",
+      "source_files": "flatbuffers/*.{h,m,cpp}",
+      "public_header_files": "flatbuffers/SCDGFlatbufferHeaders.h",
+      "dependencies": {
+        "FlatBuffers-ObjC": [
+          "~> 0.0.1"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "additions",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "prefix_header_contents": "#import \"SCDGAdditionHeaders.h\"",
+      "source_files": "additions/*.{h,m,mm}",
+      "public_header_files": "additions/SCDGAdditionHeaders.h",
+      "dependencies": {
+        "CustomControl/control": [
+
+        ],
+        "CustomControl/flatbuffers": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
