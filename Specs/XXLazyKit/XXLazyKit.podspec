@@ -24,7 +24,7 @@ s.author           = { "PittWong" => "1030046166@qq.com" }
 
 s.source           = { :git => "https://github.com/PittWong/XXLazyKit.git", :tag => s.version.to_s }
 
-# s.social_media_url = 'http://home.cnblogs.com/u/890814/'
+# s.social_media_url = 'http://www.jianshu.com/users/fa7ed8fa9562/latest_articles'
 
 
 
