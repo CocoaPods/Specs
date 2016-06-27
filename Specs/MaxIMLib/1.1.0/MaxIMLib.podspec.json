@@ -1,0 +1,50 @@
+{
+  "name": "MaxIMLib",
+  "version": "1.1.0",
+  "summary": "MaxLeap Services provides all-in-one cloud services for developers.",
+  "homepage": "https://maxleap.com",
+  "license": {
+    "type": "Creative Commons Zero v1.0 Universal",
+    "file": "maxleap-im-ios/LICENSE.txt"
+  },
+  "authors": "MaxLeap",
+  "source": {
+    "http": "https://github.com/MaxLeap/SDK-iOS/releases/download/2.1.0/maxleap-im-ios-v1.1.0.zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "SocketIO",
+    "IMDynamic"
+  ],
+  "subspecs": [
+    {
+      "name": "SocketIO",
+      "vendored_frameworks": "maxleap-im-ios/SocketIOClientSwift.framework",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "IM",
+      "vendored_frameworks": "maxleap-im-ios/MaxIMLib.framework",
+      "dependencies": {
+        "MaxIMLib/SocketIO": [
+
+        ]
+      }
+    },
+    {
+      "name": "IMDynamic",
+      "vendored_frameworks": "maxleap-im-ios/MaxIMLibDynamic.framework",
+      "dependencies": {
+        "MaxIMLib/SocketIO": [
+
+        ]
+      }
+    }
+  ]
+}
