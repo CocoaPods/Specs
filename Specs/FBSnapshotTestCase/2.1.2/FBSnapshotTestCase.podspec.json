@@ -1,0 +1,59 @@
+{
+  "name": "FBSnapshotTestCase",
+  "version": "2.1.2",
+  "summary": "Snapshot view unit tests for iOS",
+  "description": "A \"snapshot test case\" takes a configured UIView or CALayer\nand uses the renderInContext: method to get an image snapshot\nof its contents. It compares this snapshot to a \"reference image\"\nstored in your source code repository and fails the test if the\ntwo images don't match.",
+  "homepage": "https://github.com/facebook/ios-snapshot-test-case",
+  "license": "BSD",
+  "authors": "Facebook",
+  "source": {
+    "git": "https://github.com/facebook/ios-snapshot-test-case.git",
+    "tag": "2.1.2"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "9.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "XCTest",
+    "UIKit",
+    "Foundation",
+    "QuartzCore"
+  ],
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+  },
+  "default_subspecs": "SwiftSupport",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "FBSnapshotTestCase/**/*.{h,m}",
+        "FBSnapshotTestCase/*.{h,m}"
+      ],
+      "public_header_files": [
+        "FBSnapshotTestCase/FBSnapshotTestCase.h",
+        "FBSnapshotTestCase/FBSnapshotTestCasePlatform.h",
+        "FBSnapshotTestCase/FBSnapshotTestController.h"
+      ],
+      "private_header_files": [
+        "FBSnapshotTestCase/Categories/UIImage+Compare.h",
+        "FBSnapshotTestCase/Categories/UIImage+Diff.h",
+        "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"
+      ]
+    },
+    {
+      "name": "SwiftSupport",
+      "dependencies": {
+        "FBSnapshotTestCase/Core": [
+
+        ]
+      },
+      "source_files": "FBSnapshotTestCase/**/*.swift"
+    }
+  ]
+}
