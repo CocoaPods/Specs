@@ -1,0 +1,149 @@
+{
+  "name": "ampiri-ios-sdk",
+  "version": "3.2.0",
+  "summary": "Ampiri iOS SDK",
+  "homepage": "http://ampiri.com/",
+  "license": {
+    "type": "Commercial",
+    "text": "  "
+  },
+  "authors": {
+    "Ampiri": "monetize@glispa.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/ampiri/ampiri-ios-sdk.git",
+    "tag": "3.2.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -lxml2"
+      },
+      "vendored_frameworks": "AmpiriSDK.framework"
+    },
+    {
+      "name": "Adapters",
+      "dependencies": {
+        "ampiri-ios-sdk/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "FBAudienceAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "FBAudienceNetwork": [
+              "~> 4.8"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPFBAudienceAdapter/libAMPFBAudienceAdapter.a"
+        },
+        {
+          "name": "GoogleMobileAdsAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "~> 7.8"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPGoogleMobileAdsAdapter/libAMPGoogleMobileAdsAdapter.a"
+        },
+        {
+          "name": "MopubAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "mopub-ios-sdk": [
+              "~> 4.4"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPMopubAdapter/libAMPMopubAdapter.a"
+        },
+        {
+          "name": "ChartboostAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "ChartboostSDK": [
+              "~> 6.1"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPChartboostAdapter/libAMPChartboostAdapter.a"
+        },
+        {
+          "name": "NativeXAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "NativeX-iOS-SDK": [
+              "~> 5.5"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPNativeXAdapter/libAMPNativeXAdapter.a"
+        },
+        {
+          "name": "UnityAdsAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "UnityAds": [
+              "~> 1.5"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPUnityAdsAdapter/libAMPUnityAdsAdapter.a"
+        },
+        {
+          "name": "VungleAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "VungleSDK-iOS": [
+              "~> 3.2"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPVungleAdapter/libAMPVungleAdapter.a"
+        },
+        {
+          "name": "AdColonyAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ],
+            "AdColony": [
+              "~> 2.6"
+            ]
+          },
+          "vendored_libraries": "Adapters/libAMPAdColonyAdapter/libAMPAdColonyAdapter.a"
+        },
+        {
+          "name": "AppLovinAdapter",
+          "dependencies": {
+            "ampiri-ios-sdk/Core": [
+
+            ]
+          },
+          "vendored_libraries": [
+            "Adapters/libAMPAppLovinAdapter/libAMPAppLovinAdapter.a",
+            "Adapters/libAMPAppLovinAdapter/ApplovinSDK/libAppLovinSdk.a"
+          ],
+          "source_files": "Adapters/libAMPAppLovinAdapter/ApplovinSDK/*.h"
+        }
+      ]
+    }
+  ]
+}
