@@ -1,0 +1,47 @@
+{
+  "name": "AnalyticsWatchAdapter",
+  "version": "0.1.1",
+  "summary": "An adapter to send analytics (like Google Analytics) from your Watch App",
+  "description": "At the moment of creating this library (June 2016) there is no watchos support for the Google Analytics library. To still be able to send your analytics to Google or any other analytics service this library provides an interface that can be used by watchos apps. It uses the WatchConnectivity framework under the hood to first send analytics requests from the Watch app to the iPhone app. Then it's send automatically from the iPhone app to the analytics service.",
+  "homepage": "https://github.com/lammertw/AnalyticsWatchAdapter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Lammert Westerhoff": "westerhoff@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lammertw/AnalyticsWatchAdapter.git",
+    "tag": "0.1.1"
+  },
+  "social_media_url": "https://twitter.com/lwesterhoff",
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "Watch",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "AnalyticsWatchAdapter/Core/Classes/**/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Watch",
+      "dependencies": {
+        "AnalyticsWatchAdapter/Core": [
+
+        ]
+      },
+      "source_files": "AnalyticsWatchAdapter/Watch/Shared/Classes/**/*",
+      "ios": {
+        "source_files": "AnalyticsWatchAdapter/Watch/iOS/Classes/**/*"
+      },
+      "watchos": {
+        "source_files": "AnalyticsWatchAdapter/Watch/WatchOS/Classes/**/*"
+      },
+      "weak_frameworks": "WatchConnectivity"
+    }
+  ]
+}
