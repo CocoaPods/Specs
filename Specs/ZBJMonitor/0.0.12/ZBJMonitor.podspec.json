@@ -1,0 +1,91 @@
+{
+  "name": "ZBJMonitor",
+  "version": "0.0.12",
+  "summary": "性能检测工具",
+  "description": "可以监控cpu、内存、流量，能检测页面耗时、接口请求，内存泄漏(页面不释放)，获取崩溃日志信息等等!",
+  "homepage": "http://git.zhubajie.la/ZBJMonitor-IOS/ZBJMonitor",
+  "license": "MIT",
+  "authors": {
+    "gongxg": "gongxuegang@zbj.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://git.zhubajie.la/ZBJMonitor-IOS/ZBJMonitor.git",
+    "tag": "0.0.12"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": "#ifdef DEBUG\n  #import \"ZBJMMacro.h\"\n#endif",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "OpenGLES",
+    "QuartzCore",
+    "CoreLocation"
+  ],
+  "libraries": "sqlite3",
+  "dependencies": {
+    "Aspects": [
+
+    ],
+    "FMDB": [
+
+    ],
+    "MJExtension": [
+
+    ],
+    "IQKeyboardManager": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Vendor",
+      "source_files": [
+        "ZBJMonitor/Vendor/MLeaksFinder/**/*.{h,m,mm}"
+      ]
+    },
+    {
+      "name": "Header",
+      "source_files": [
+        "ZBJMonitor/Headers/**/*.{h}"
+      ]
+    },
+    {
+      "name": "Util",
+      "ios": {
+        "dependencies": {
+          "ZBJMonitor/Header": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "ZBJMonitor/Util/**/*.{h,m,mm}"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "ZBJMonitor/Main/**/*.{h,m,mm}"
+      ],
+      "ios": {
+        "vendored_frameworks": "ZBJMonitor/Vendor/CrashReporter/CrashReporter.framework",
+        "dependencies": {
+          "ZBJMonitor/Vendor": [
+
+          ],
+          "ZBJMonitor/Util": [
+
+          ]
+        }
+      },
+      "resources": [
+        "ZBJMonitor/Main/**/*.png",
+        "ZBJMonitor/Main/**/*.xib",
+        "ZBJMonitor/Main/**/*.plist"
+      ]
+    }
+  ]
+}
