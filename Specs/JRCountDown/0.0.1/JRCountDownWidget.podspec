@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "JRCountDownWidget"
+  s.name         = "JRCountDown"
   s.version      = "0.0.1"
   s.summary      = "A great of the countdown widget, it is very convenient and easy to use.一个非常棒的倒计时小组件,用起来非常方便和简单."
 
