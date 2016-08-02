@@ -1,0 +1,82 @@
+{
+  "name": "couchbase-lite-ios",
+  "version": "1.3.0",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "http://mobile.couchbase.com",
+  "summary": "An embedded syncable NoSQL database for iOS apps.",
+  "authors": "Couchbase",
+  "source": {
+    "http": "http://latestbuilds.hq.couchbase.com/couchbase-lite-ios/1.3.0/ios/1.3.0-61/couchbase-lite-ios-community_1.3.0-61.zip"
+  },
+  "preserve_paths": "LICENSE.txt",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "SQLite",
+  "subspecs": [
+    {
+      "name": "SQLite",
+      "libraries": "sqlite3",
+      "source_files": [
+        "CouchbaseLite.framework/Headers/*.h",
+        "CouchbaseLiteListener.framework/Headers/*.h"
+      ],
+      "preserve_paths": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ],
+      "vendored_frameworks": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ]
+    },
+    {
+      "name": "SQLCipher",
+      "vendored_libraries": "Extras/libsqlcipher.a",
+      "source_files": [
+        "CouchbaseLite.framework/Headers/*.h",
+        "CouchbaseLiteListener.framework/Headers/*.h"
+      ],
+      "preserve_paths": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ],
+      "vendored_frameworks": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ]
+    },
+    {
+      "name": "ForestDB",
+      "libraries": "sqlite3",
+      "vendored_libraries": "Extras/libCBLForestDBStorage.a",
+      "source_files": [
+        "CouchbaseLite.framework/Headers/*.h",
+        "CouchbaseLiteListener.framework/Headers/*.h"
+      ],
+      "preserve_paths": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ],
+      "vendored_frameworks": [
+        "CouchbaseLite.framework",
+        "CouchbaseLiteListener.framework"
+      ]
+    }
+  ]
+}
