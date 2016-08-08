@@ -1,0 +1,31 @@
+{
+  "name": "openssl-ios-bitcode",
+  "version": "1.0.208.1",
+  "summary": "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in Mac OS and gone in iOS, this spec gives your project non-deprecated OpenSSL support.",
+  "authors": "OpenSSL Project <openssl-dev@openssl.org>",
+  "homepage": "https://github.com/stayHF/OpenSSL-Pod.git",
+  "license": {
+    "type": "OpenSSL (OpenSSL/SSLeay)",
+    "file": "LICENSE"
+  },
+  "source": {
+    "http": "https://www.openssl.org/source/openssl-1.0.2h.tar.gz",
+    "sha1": "577585f5f5d299c44dd3c993d3c0ac7a219e4949"
+  },
+  "source_files": "opensslIncludes/openssl/*.h",
+  "header_dir": "openssl",
+  "prepare_command": "VERSION=\"1.0.2h\"\nSDKVERSION=`xcrun --sdk iphoneos --show-sdk-version 2> /dev/null`\nMIN_SDKVERSION=\"7.0\"\n\nBASEPATH=\"${PWD}\"\nCURRENTPATH=\"${TMPDIR}/openssl\"\nARCHS=\"i386 x86_64 armv7 arm64\"\nDEVELOPER=`xcode-select -print-path`\n\nmkdir -p \"${CURRENTPATH}\"\nmkdir -p \"${CURRENTPATH}/bin\"\n\ncp \"file.tgz\" \"${CURRENTPATH}/file.tgz\"\ncd \"${CURRENTPATH}\"\ntar -xzf file.tgz\ncd \"openssl-${VERSION}\"\n\nfor ARCH in ${ARCHS}\ndo\n  CONFIGURE_FOR=\"iphoneos-cross\"\n\n  if [ \"${ARCH}\" == \"i386\" ] || [ \"${ARCH}\" == \"x86_64\" ] ;\n  then\n    PLATFORM=\"iPhoneSimulator\"\n    if [ \"${ARCH}\" == \"x86_64\" ] ;\n    then\n      CONFIGURE_FOR=\"darwin64-x86_64-cc\"\n    fi\n  else\n    sed -ie \"s!static volatile sig_atomic_t intr_signal;!static volatile intr_signal;!\" \"crypto/ui/ui_openssl.c\"\n    PLATFORM=\"iPhoneOS\"\n  fi\n\n  export CROSS_TOP=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n  export CROSS_SDK=\"${PLATFORM}${SDKVERSION}.sdk\"\n\n  echo \"Building openssl-${VERSION} for ${PLATFORM} ${SDKVERSION} ${ARCH}\"\n  echo \"Please stand by...\"\n\n  export CC=\"${DEVELOPER}/usr/bin/gcc -arch ${ARCH} -miphoneos-version-min=${MIN_SDKVERSION} -fembed-bitcode\"\n  mkdir -p \"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\"\n  LOG=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/build-openssl-${VERSION}.log\"\n\n  LIPO_LIBSSL=\"${LIPO_LIBSSL} ${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/lib/libssl.a\"\n  LIPO_LIBCRYPTO=\"${LIPO_LIBCRYPTO} ${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/lib/libcrypto.a\"\n\n  ./Configure no-asm ${CONFIGURE_FOR} --openssldir=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\" > \"${LOG}\" 2>&1\n  sed -ie \"s!^CFLAG=!CFLAG=-isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} !\" \"Makefile\"\n\n  make >> \"${LOG}\" 2>&1\n  make all install_sw >> \"${LOG}\" 2>&1\n  make clean >> \"${LOG}\" 2>&1\ndone\n\n\necho \"Build library...\"\nrm -rf \"${BASEPATH}/lib/\"\nmkdir -p \"${BASEPATH}/lib/\"\nlipo -create ${LIPO_LIBSSL}    -output \"${BASEPATH}/lib/libssl.a\"\nlipo -create ${LIPO_LIBCRYPTO} -output \"${BASEPATH}/lib/libcrypto.a\"\n\necho \"Copying headers...\"\nrm -rf \"${BASEPATH}/opensslIncludes/\"\nmkdir -p \"${BASEPATH}/opensslIncludes/\"\ncp -RL \"${CURRENTPATH}/openssl-${VERSION}/include/openssl\" \"${BASEPATH}/opensslIncludes/\"\n\ncd \"${BASEPATH}\"\necho \"Building done.\"\n\necho \"Cleaning up...\"\nrm -rf \"${CURRENTPATH}\"\necho \"Done.\"",
+  "platforms": {
+    "ios": null
+  },
+  "public_header_files": "opensslIncludes/openssl/*.h",
+  "vendored_libraries": [
+    "lib/libcrypto.a",
+    "lib/libssl.a"
+  ],
+  "libraries": [
+    "crypto",
+    "ssl"
+  ],
+  "requires_arc": false
+}
