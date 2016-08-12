@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/niexiaobo/NXBPickerImageEditer"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  # s.screenshots = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   s.license      = 'MIT'
 
