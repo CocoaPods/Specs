@@ -1,0 +1,138 @@
+{
+  "name": "AirMapSDK",
+  "module_name": "AirMap",
+  "authors": "AirMap, Inc.",
+  "version": "0.1.3",
+  "summary": "AirMap SDK for iOS & macOS",
+  "description": "Create Flights, Send Telemetry Data, Get Realtime Traffic Alerts.",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "homepage": "https://www.airmap.com/makers/",
+  "documentation_url": "https://developers.airmap.com/docs/ios-getting-started",
+  "social_media_url": "https://twitter.com/AirMapIO",
+  "source": {
+    "git": "https://github.com/AirMap/AirMapSDK-Swift.git",
+    "tag": "0.1.3"
+  },
+  "cocoapods_version": ">= 1.0.0",
+  "frameworks": "Foundation",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": [
+    "Core",
+    "Traffic",
+    "Telemetry",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      },
+      "source_files": [
+        "Source/Core/**/{*.h,*.m,*.swift}",
+        "Source/Rx/*"
+      ],
+      "dependencies": {
+        "SimpleKeychain": [
+
+        ],
+        "Alamofire": [
+
+        ],
+        "JWTDecode": [
+
+        ],
+        "Log": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "RxCocoa": [
+
+        ],
+        "RxSwift": [
+
+        ],
+        "RxSwiftExt": [
+
+        ]
+      },
+      "resources": [
+        "Source/Resources/*.cer",
+        "Source/Resources/*.pdf",
+        "Source/Resources/*.xcassets"
+      ]
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": "UIKit",
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "libPhoneNumber-iOS": [
+
+        ],
+        "Mapbox-iOS-SDK": [
+          "~> 3.3.3"
+        ],
+        "RxDataSources": [
+
+        ]
+      },
+      "source_files": "Source/UI/**/{*.swift}",
+      "resources": [
+        "Source/UI/**/{*.storyboard,*.xcassets}"
+      ]
+    },
+    {
+      "name": "Traffic",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DAIRMAP_TRAFFIC"
+      },
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "SwiftMQTT": [
+          "~> 1.0.1"
+        ]
+      },
+      "source_files": "Source/Traffic/*"
+    },
+    {
+      "name": "Telemetry",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DAIRMAP_TELEMETRY"
+      },
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "CocoaAsyncSocket": [
+
+        ],
+        "CryptoSwift": [
+
+        ],
+        "ProtocolBuffers-Swift": [
+
+        ]
+      },
+      "source_files": "Source/Telemetry/*"
+    }
+  ]
+}
