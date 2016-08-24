@@ -1,0 +1,57 @@
+{
+  "name": "FlyImage",
+  "version": "1.0",
+  "summary": "Download, cache, render small images with UIImageView category",
+  "description": "FlyImage takes the advantages of SDWebImage, FastImageCache and AFNetworking, is a simple and high performance image library.Features: High Performance, reduce memory operations while rendering, avoid Memory warning caused by image; Store and retrieve different size of small images in one memory file, smooth scrolling; Simple, support UIImageView, CALayer category; An asynchronous image downloader; Support WebP format; Support mmap to improve I/O performace;",
+  "homepage": "https://github.com/northwind/FlyImage",
+  "license": "MIT",
+  "authors": {
+    "norristong": "norristong_x@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/northwind/FlyImage.git",
+    "tag": "1.0"
+  },
+  "source_files": [
+    "FlyImage",
+    "FlyImage/**/*.{h,m}"
+  ],
+  "frameworks": [
+    "ImageIO",
+    "UIKit"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.1"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "FlyImage",
+        "FlyImage/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "WebP",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FLYIMAGE_WEBP=1",
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+      },
+      "dependencies": {
+        "FlyImage/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      }
+    }
+  ]
+}
