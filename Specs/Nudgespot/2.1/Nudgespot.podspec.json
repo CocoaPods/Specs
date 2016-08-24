@@ -1,0 +1,63 @@
+{
+  "name": "Nudgespot",
+  "version": "2.1",
+  "summary": "nudgespot-ios is Objective-C framework.",
+  "description": "Nudgespot provides framework for iOS which allows users to track events.",
+  "homepage": "https://github.com/nudgespot/nudgespot-ios",
+  "authors": {
+    "Nudgespot": "dev@nudgespot.com"
+  },
+  "source": {
+    "git": "https://github.com/nudgespot/nudgespot-ios.git",
+    "tag": "2.1"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "FRAMEWORK_SEARCH_PATHS": "\"$(SRCROOT)/../../Nudgespot/Assets/Analytics\" \"$(SRCROOT)/../../Nudgespot/Assets/Messaging\"",
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/Nudgespot/Nudgespot"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/Nudgespot/Nudgespot",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/Nudgespot/Nudgespot",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "module_name": "Nudgespot",
+  "preserve_paths": "Example/Pods/Target Support Files/Nudgespot/Nudgespot.modulemap",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "Nudgespot/Classes/**/*.{h,m}",
+    "Nudgespot/Assets/*.h"
+  ],
+  "ios": {
+    "public_header_files": "Nudgespot/Classes/**/*.h",
+    "vendored_frameworks": "Nudgespot/Assets/**/*.{framework}",
+    "libraries": [
+      "stdc++",
+      "z",
+      "sqlite3"
+    ]
+  },
+  "prefix_header_file": "Example/Pods/Target Support Files/Nudgespot/Nudgespot-prefix.pch",
+  "frameworks": [
+    "SystemConfiguration",
+    "Foundation",
+    "CoreGraphics",
+    "MobileCoreServices",
+    "Security",
+    "AdSupport",
+    "CFNetwork",
+    "AddressBook"
+  ],
+  "dependencies": {
+    "Reachability": [
+
+    ],
+    "AFNetworking": [
+
+    ]
+  },
+  "prefix_header_contents": "#ifdef __OBJC__\n\n#import \"NudgespotActivity.h\"\n#import \"SubscriberContact.h\"\n#import \"Nudgespot.h\"\n#import \"NudgespotSubscriber.h\"\n#import \"SubscriberClient.h\"\n#import \"NudgespotActivity.h\"\n#import \"BasicUtils.h\"\n#import \"Reachability.h\"\n#import \"AFNetworking.h\"\n#import \"SubscriberClient.h\"\n#import \"NudgespotConstants.h\"\n#import \"NudgespotVisitor.h\"\n\n#import <AdSupport/AdSupport.h>\n\n#endif\n\n#ifdef DEBUG\n#    define DLog(...) NSLog(__VA_ARGS__)\n#else\n#    define DLog(...) /* */\n#endif\n#define ALog(...) NSLog(__VA_ARGS__)"
+}
