@@ -1,0 +1,60 @@
+{
+  "name": "ESFramework",
+  "version": "2.5.0",
+  "license": "MIT",
+  "summary": "An Effective & Swingy Framework for iOS.",
+  "homepage": "https://github.com/ElfSundae/ESFramework",
+  "authors": {
+    "Elf Sundae": "http://0x123.com"
+  },
+  "source": {
+    "git": "https://github.com/ElfSundae/ESFramework.git",
+    "tag": "2.5.0",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/ElfSundae",
+  "requires_arc": true,
+  "source_files": "ESFramework/ESFramework.h",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      },
+      "source_files": "ESFramework/Reachability/*.{h,m}",
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "ESFramework/Reachability": [
+
+        ]
+      },
+      "source_files": "ESFramework/Core/**/*.{h,m}",
+      "private_header_files": "ESFramework/Core/**/*+Private.h",
+      "frameworks": [
+        "Security",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "source_files": "ESFramework/UIKit/**/*.{h,m}",
+      "frameworks": [
+        "QuartzCore",
+        "StoreKit",
+        "MediaPlayer"
+      ],
+      "dependencies": {
+        "ESFramework/Core": [
+
+        ]
+      }
+    }
+  ]
+}
