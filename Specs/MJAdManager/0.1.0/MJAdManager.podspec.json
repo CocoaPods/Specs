@@ -1,0 +1,75 @@
+{
+  "name": "MJAdManager",
+  "version": "0.1.0",
+  "summary": "This is an manager for ads.",
+  "homepage": "https://git.musjoy.com/MJAdManager",
+  "license": "MIT",
+  "authors": {
+    "Raymond": "Ray.musjoy@gmail.com"
+  },
+  "source": {
+    "git": "git@git.musjoy.com:MJAdManager.git",
+    "tag": "v-0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "MODULE_AD_MANAGER"
+  },
+  "dependencies": {
+    "ModuleCapability": [
+
+    ]
+  },
+  "prefix_header_contents": "#import <ModuleCapability.h>",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "MJAdManager/Classes/*.{h,m}",
+        "MJAdManager/Classes/Protocols/*.h"
+      ]
+    },
+    {
+      "name": "AdapterAdMob",
+      "source_files": "MJAdManager/Classes/AdAdapters/AdMob/*.{h,m}",
+      "dependencies": {
+        "MJAdManager/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 7.0"
+        ]
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "MODULE_AD_MANAGER_ADAPTER_ADMOB"
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks"
+      }
+    },
+    {
+      "name": "AdapterFacebook",
+      "source_files": "MJAdManager/Classes/AdAdapters/Facebook/*.{h,m}",
+      "resources": [
+        "MJAdManager/Classes/AdAdapters/Facebook/*.xib"
+      ],
+      "dependencies": {
+        "MJAdManager/Core": [
+
+        ],
+        "FBAudienceNetwork": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "MODULE_AD_MANAGER_ADAPTER_FACEBOOK"
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/FBAudienceNetwork"
+      }
+    }
+  ]
+}
