@@ -1,0 +1,243 @@
+{
+  "name": "Pingpp",
+  "version": "2.2.8",
+  "summary": "Pingplusplus iOS SDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，公众账号支付，支付宝钱包，百度钱包，银联手机支付。",
+  "homepage": "https://pingxx.com",
+  "license": "COMMERCIAL",
+  "authors": {
+    "Afon Weng": "xufeng.weng@pingxx.com"
+  },
+  "platforms": {
+    "ios": "5.1.1"
+  },
+  "source": {
+    "git": "https://github.com/PingPlusPlus/pingpp-ios.git",
+    "tag": "2.2.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "Pingpp/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "vendored_libraries": "lib/Channels/ApplePay/*.a",
+      "frameworks": "Passkit",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_libraries": "lib/Channels/UnionPay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "lib/Dependencies/Network/*.h",
+      "public_header_files": "lib/Dependencies/Network/*.h",
+      "vendored_libraries": "lib/Dependencies/Network/*.a"
+    },
+    {
+      "name": "Cnp",
+      "frameworks": "AudioToolbox",
+      "source_files": "lib/Channels/Cnp/*.h",
+      "public_header_files": "lib/Channels/Cnp/*.h",
+      "vendored_libraries": "lib/Channels/Cnp/*.a",
+      "resources": "lib/Channels/Cnp/*.bundle",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/Network": [
+
+        ]
+      },
+      "xcconfig": {
+        "CLANG_CXX_LIBRARY": "libstdc++"
+      }
+    },
+    {
+      "name": "One",
+      "frameworks": "QuartzCore",
+      "source_files": "lib/One/*.h",
+      "public_header_files": "lib/One/*.h",
+      "vendored_libraries": "lib/One/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "Qgbc",
+      "vendored_libraries": "lib/Channels/Qgbc/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Fqlpay",
+      "vendored_libraries": "lib/Channels/Fqlpay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mmdpay",
+      "vendored_libraries": "lib/Channels/Mmdpay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "BfbWap",
+      "vendored_libraries": "lib/Channels/BfbWap/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Yeepay",
+      "vendored_libraries": "lib/Channels/Yeepay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "CmbWallet",
+      "vendored_libraries": "lib/Channels/CmbWallet/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/CmbWallet/cmbkeyboard.framework"
+      },
+      "resources": "lib/Channels/CmbWallet/SecreteKeyBoard",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Jdpay",
+      "vendored_libraries": "lib/Channels/Jdpay/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "Pingpp/WebView": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQWallet",
+      "vendored_libraries": "lib/Channels/QQWallet/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebView",
+      "vendored_libraries": "lib/Dependencies/WebView/*.a",
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ]
+      }
+    }
+  ]
+}
