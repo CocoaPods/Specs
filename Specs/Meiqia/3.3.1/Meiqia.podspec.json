@@ -1,0 +1,62 @@
+{
+  "name": "Meiqia",
+  "version": "3.3.1",
+  "summary": "美洽官方 SDK for iOS",
+  "description": "美洽官方的 iOS SDK",
+  "homepage": "https://github.com/Meiqia/MeiqiaSDK-iOS",
+  "license": "MIT",
+  "authors": {
+    "ijinmao": "340052204@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/meiqia/MeiqiaSDK-iOS.git",
+    "tag": "v3.3.1"
+  },
+  "social_media_url": "https://meiqia.com",
+  "documentation_url": "https://github.com/Meiqia/MeiqiaSDK-iOS/wiki",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "MeiqiaSDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ],
+      "vendored_frameworks": "Meiqia-SDK-files/MeiQiaSDK.framework",
+      "libraries": [
+        "sqlite3",
+        "icucore",
+        "stdc++"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Meiqia/Meiqia-SDK-files"
+      }
+    },
+    {
+      "name": "MQChatViewController",
+      "dependencies": {
+        "Meiqia/MeiqiaSDK": [
+
+        ]
+      },
+      "source_files": [
+        "Meiqia-SDK-files/MeiqiaSDKViewInterface/*.{h,m}",
+        "Meiqia-SDK-files/MQChatViewController/**/*.{h,m,mm,cpp}",
+        "Meiqia-SDK-files/MQMessageForm/**/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "Meiqia-SDK-files/MQChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrnb.a",
+        "Meiqia-SDK-files/MQChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrwb.a"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/Meiqia/Meiqia-SDK-files\""
+      },
+      "resources": "Meiqia-SDK-files/MQChatViewController/Assets/MQChatViewAsset.bundle"
+    }
+  ]
+}
