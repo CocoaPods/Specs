@@ -1,0 +1,94 @@
+{
+  "name": "libksygpulive",
+  "version": "1.8.0",
+  "license": {
+    "type": "Proprietary",
+    "text": "      Copyright 2015 kingsoft Ltd. All rights reserved.\n"
+  },
+  "homepage": "http://v.ksyun.com/doc.html",
+  "authors": {
+    "ksyun": "zengfanping@kingsoft.com"
+  },
+  "summary": "libksylive help you play and stream live video from ios mobile devices.",
+  "description": "* KSYMediaPlayer lite/vod manages the playback of movie or live streaming\n* libksygpulive  lite/265 capture video, compress and publish stream to rtmp server",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "ios": {
+    "libraries": [
+      "z",
+      "iconv",
+      "stdc++.6",
+      "bz2"
+    ],
+    "frameworks": [
+      "AVFoundation",
+      "VideoToolbox"
+    ]
+  },
+  "source": {
+    "git": "https://github.com/ksvc/KSYLive_iOS.git",
+    "tag": "v1.8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "KSYMediaPlayer",
+      "source_files": "prebuilt/include/KSYPlayer/*.h",
+      "vendored_libraries": [
+        "prebuilt/libs/libksybase.a",
+        "prebuilt/libs/libksymediacore_dec_lite.a",
+        "prebuilt/libs/libksyplayer.a"
+      ]
+    },
+    {
+      "name": "KSYMediaPlayer_vod",
+      "source_files": "prebuilt/include/KSYPlayer/*.h",
+      "vendored_libraries": [
+        "prebuilt/libs/libksybase.a",
+        "prebuilt/libs/libksymediacore_dec_vod.a",
+        "prebuilt/libs/libksyplayer.a"
+      ]
+    },
+    {
+      "name": "libksygpulive",
+      "source_files": [
+        "prebuilt/include/**/*.h",
+        "source/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksybase.a",
+        "prebuilt/libs/libksyyuv.a",
+        "prebuilt/libs/libksymediacodec.a",
+        "prebuilt/libs/libksymediacore_enc_lite.a",
+        "prebuilt/libs/libksyplayer.a",
+        "prebuilt/libs/libksystreamer.a"
+      ],
+      "dependencies": {
+        "GPUImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "libksygpulive_265",
+      "source_files": [
+        "prebuilt/include/**/*.h",
+        "source/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksybase.a",
+        "prebuilt/libs/libksyyuv.a",
+        "prebuilt/libs/libksymediacodec.a",
+        "prebuilt/libs/libksymediacore_enc_265.a",
+        "prebuilt/libs/libksyplayer.a",
+        "prebuilt/libs/libksystreamer.a"
+      ],
+      "dependencies": {
+        "GPUImage": [
+
+        ]
+      }
+    }
+  ]
+}
