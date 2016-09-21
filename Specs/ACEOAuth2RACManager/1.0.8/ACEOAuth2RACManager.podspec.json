@@ -1,0 +1,98 @@
+{
+  "name": "ACEOAuth2RACManager",
+  "version": "1.0.8",
+  "license": "MIT",
+  "summary": "Network manager with RAC OAuth2 support.",
+  "homepage": "https://github.com/acerbetti/ACEOAuth2RACManager",
+  "authors": {
+    "Stefano Acerbetti": "acerbetti@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/acerbetti/ACEOAuth2RACManager.git",
+    "tag": "1.0.8"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "Private",
+      "source_files": "ACEOAuth2RACManager/ACEOAuth2RACManagerPrivate.h",
+      "private_header_files": "ACEOAuth2RACManager/ACEOAuth2RACManagerPrivate.h"
+    },
+    {
+      "name": "AFNetworkActivityLogger",
+      "source_files": "AFNetworkHelpers/AFNetworkActivityLogger/*.{h,m}",
+      "dependencies": {
+        "AFOAuth2Manager": [
+          "~> 3.0"
+        ],
+        "ACEOAuth2RACManager/Private": [
+
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking-RACRetryExtensions",
+      "source_files": "AFNetworkHelpers/AFNetworking-RACRetryExtensions/*.{h,m}",
+      "dependencies": {
+        "AFOAuth2Manager": [
+          "~> 3.0"
+        ],
+        "ReactiveCocoa": [
+          "~> 2.5"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9"
+      },
+      "source_files": "ACEOAuth2RACManager/*.{h,m}",
+      "dependencies": {
+        "ACEOAuth2RACManager/AFNetworkActivityLogger": [
+
+        ],
+        "ACEOAuth2RACManager/AFNetworking-RACRetryExtensions": [
+
+        ],
+        "ACEOAuth2RACManager/Private": [
+
+        ],
+        "NSURL+QueryDictionary": [
+          "~> 1.2"
+        ]
+      }
+    },
+    {
+      "name": "CocoaLumberjack",
+      "dependencies": {
+        "ACEOAuth2RACManager/Core": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "AppExtension",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ACEOAuth2RACManager/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "OAUTH_APP_EXTENSION=1"
+      }
+    }
+  ]
+}
