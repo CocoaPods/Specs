@@ -1,0 +1,71 @@
+{
+  "name": "lightstep",
+  "version": "3.1.1",
+  "summary": "The LightStep Objective-C OpenTracing library.",
+  "description": "LightStep (lightstep.com) bindings for the OpenTracing API (opentracing.io).",
+  "homepage": "https://github.com/lightstep/lightstep-tracer-objc",
+  "license": "MIT",
+  "authors": {
+    "LightStep": "support@lightstep.com"
+  },
+  "source": {
+    "git": "https://github.com/lightstep/lightstep-tracer-objc.git",
+    "tag": "3.1.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "Pod/Classes/*",
+  "requires_arc": true,
+  "dependencies": {
+    "Protobuf": [
+
+    ],
+    "gRPC-ProtoRPC": [
+
+    ],
+    "opentracing": [
+      "~>0.3.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": [
+        "Pod/Classes/protobuf/*.pbobjc.{h,m}",
+        "Pod/Classes/protobuf/**/*.pbobjc.{h,m}"
+      ],
+      "header_mappings_dir": "Pod/Classes/protobuf",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "Pod/Classes/protobuf/*.pbrpc.{h,m}",
+        "Pod/Classes/protobuf/**/*.pbrpc.{h,m}"
+      ],
+      "header_mappings_dir": "Pod/Classes/protobuf",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "Protobuf": [
+
+        ],
+        "lightstep/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
