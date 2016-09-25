@@ -1,0 +1,29 @@
+{
+  "name": "IDZSwiftCommonCrypto",
+  "version": "0.9.0",
+  "summary": "A wrapper for Apple's Common Crypto library written in Swift.",
+  "homepage": "https://github.com/iosdevzone/IDZSwiftCommonCrypto",
+  "license": "MIT",
+  "authors": {
+    "iOSDevZone": "idz@iosdeveloperzone.com"
+  },
+  "social_media_url": "http://twitter.com/iOSDevZone",
+  "platforms": {
+    "osx": "10.11",
+    "ios": "9.3",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/iosdevzone/IDZSwiftCommonCrypto.git",
+    "tag": "0.9.0"
+  },
+  "prepare_command": "touch prepare_command.txt\necho 'Running prepare_command'\necho 'Creating modulemaps in' `pwd`\necho Running GenerateCommonCryptoModule\n#TC=\"--toolchain com.apple.dt.toolchain.Swift_2_3\"\nSWIFT=\"xcrun $TC swift\"\n$SWIFT ./GenerateCommonCryptoModule.swift macosx .\n$SWIFT ./GenerateCommonCryptoModule.swift iphonesimulator .\n$SWIFT ./GenerateCommonCryptoModule.swift iphoneos .\n$SWIFT ./GenerateCommonCryptoModule.swift appletvsimulator .\n$SWIFT ./GenerateCommonCryptoModule.swift appletvos .\n$SWIFT ./GenerateCommonCryptoModule.swift watchsimulator .\n$SWIFT ./GenerateCommonCryptoModule.swift watchos .",
+  "source_files": "IDZSwiftCommonCrypto",
+  "preserve_paths": "Frameworks",
+  "xcconfig": {
+    "SWIFT_VERSION": "3.0",
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}/IDZSwiftCommonCrypto/Frameworks/$(PLATFORM_NAME)",
+    "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/IDZSwiftCommonCrypto/Frameworks/$(PLATFORM_NAME)"
+  }
+}
