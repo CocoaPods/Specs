@@ -1,0 +1,201 @@
+{
+  "name": "streethawk",
+  "header_dir": "StreetHawkCore",
+  "version": "1.8.5",
+  "summary": "Mobile Engagement Automation: Geofences campaign, Engage in right time via push message, Segment app user, analyse campaign performance.",
+  "description": "Streethawkis mobile engagement automation for your smartphone and tablet app user.\n\nEngage users in right time using push message, segment your application users, create geofences and beacon regions to trigger location based campaign, analyse results and measure campaign performance.\n\nStreethawk supports iOS and Android devices. Chek out Getting started section for integrating Streethawk into your iOS and Android application or check out detailed document at Streethawk Documents.",
+  "homepage": "https://streethawk.freshdesk.com/helpdesk",
+  "screenshots": [
+
+  ],
+  "license": "LGPL",
+  "authors": {
+    "Christine": "christine@streethawk.com",
+    "Supporter": "support@streethawk.com"
+  },
+  "documentation_url": "http://streethawksdk.github.io/ios/",
+  "source": {
+    "git": "https://github.com/StreetHawkSDK/ios.git",
+    "tag": "1.8.5",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -lObjC",
+    "OTHER_CFLAGS": "$(inherited) -DNS_BLOCK_ASSERTIONS=1 -DNDEBUG"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "StreetHawk/Classes/Core/**/*.{h,m}",
+        "StreetHawk/Classes/ThirdParty/UIDevice_Extension/*.{h,m}",
+        "StreetHawk/Classes/ThirdParty/AFNetworking/*.{h,m}"
+      ],
+      "public_header_files": "StreetHawk/Classes/Core/**/Publish/*.h",
+      "exclude_files": [
+        "StreetHawk/Classes/Core/Private/SHPresentDialog.m",
+        "StreetHawk/Classes/Core/Private/SHCoverWindow.m"
+      ],
+      "resource_bundles": {
+        "streethawk": [
+          "StreetHawk/Assets/**/*"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "CoreGraphics",
+        "UIKit",
+        "CoreSpotlight"
+      ],
+      "libraries": "sqlite3",
+      "dependencies": {
+        "MBProgressHUD": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "source_files": [
+            "StreetHawk/Classes/Core/Private/SHPresentDialog.{h,m}",
+            "StreetHawk/Classes/Core/Private/SHCoverWindow.{h,m}"
+          ],
+          "requires_arc": false,
+          "compiler_flags": "-fno-objc-arc"
+        }
+      ]
+    },
+    {
+      "name": "Growth",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_GROWTH"
+      },
+      "source_files": "StreetHawk/Classes/Growth/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Growth/**/Publish/*.h",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Push",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_NOTIFICATION"
+      },
+      "source_files": [
+        "StreetHawk/Classes/Notification/**/*.{h,m}",
+        "StreetHawk/Classes/ThirdParty/Emojione/*.{h,m}"
+      ],
+      "public_header_files": "StreetHawk/Classes/Notification/**/Publish/*.h",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ],
+        "AutoScrollLabel": [
+
+        ]
+      }
+    },
+    {
+      "name": "Locations",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_LATLNG"
+      },
+      "source_files": "StreetHawk/Classes/Location/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Location/**/Publish/*.h",
+      "exclude_files": [
+        "StreetHawk/Classes/Location/Private/SHBeaconBridge.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHBeaconStatus.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHGeofenceBridge.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHGeofenceStatus.{h,m}"
+      ],
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ],
+        "Reachability": [
+
+        ]
+      }
+    },
+    {
+      "name": "Geofence",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_GEOFENCE"
+      },
+      "source_files": "StreetHawk/Classes/Location/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Location/**/Publish/*.h",
+      "exclude_files": [
+        "StreetHawk/Classes/Location/Private/SHBeaconBridge.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHBeaconStatus.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHLocationBridge.{h,m}"
+      ],
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ],
+        "Reachability": [
+
+        ]
+      }
+    },
+    {
+      "name": "Beacons",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_IBEACON"
+      },
+      "source_files": "StreetHawk/Classes/Location/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Location/**/Publish/*.h",
+      "exclude_files": [
+        "StreetHawk/Classes/Location/Private/SHLocationBridge.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHGeofenceBridge.{h,m}",
+        "StreetHawk/Classes/Location/Private/SHGeofenceStatus.{h,m}"
+      ],
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ],
+        "Reachability": [
+
+        ]
+      }
+    },
+    {
+      "name": "Crash",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_CRASH"
+      },
+      "source_files": "StreetHawk/Classes/Crash/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Crash/**/Publish/*.h",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "StreetHawk/Vendor/CrashReporter.framework"
+    },
+    {
+      "name": "Feed",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SH_FEATURE_FEED"
+      },
+      "source_files": "StreetHawk/Classes/Feed/**/*.{h,m}",
+      "public_header_files": "StreetHawk/Classes/Feed/**/Publish/*.h",
+      "dependencies": {
+        "streethawk/Core": [
+
+        ]
+      }
+    }
+  ]
+}
