@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/yisimeng/SMCategory"  
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"  
   s.license          = 'MIT'  
-  s.author           = { "忆思梦" => "simeng_ios@163.com" }  
+  s.author           = { "忆思梦" => "465386131@qq.com" }  
   s.source           = { :git => "https://github.com/yisimeng/SMCategory.git", :tag => s.version.to_s }  
   # s.social_media_url = 'https://twitter.com/NAME'  
   
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   # s.ios.deployment_target = '5.0'  
   # s.osx.deployment_target = '10.7'  
   s.requires_arc = true  
-  s.source_files  = "SMCategory", "SMCategory/**/*.{h,m}"
+  s.source_files  = "SMCategory/*.{h,m}"
   # s.resources = 'Assets'  
   
   # s.ios.exclude_files = 'Classes/osx'  
