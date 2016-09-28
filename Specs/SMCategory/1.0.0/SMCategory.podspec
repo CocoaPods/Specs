@@ -6,14 +6,14 @@ Pod::Spec.new do |s|
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"  
   s.license          = 'MIT'  
   s.author           = { "忆思梦" => "465386131@qq.com" }  
-  s.source           = { :git => "https://github.com/yisimeng/SMCategory.git", :tag => s.version.to_s }  
+  s.source           = { :git => "https://github.com/yisimeng/SMCategory.git", :tag => s.version, :commit => "b91eda20d77f6083f87b60807b51fd0ca5d87410" }  
   # s.social_media_url = 'https://twitter.com/NAME'  
   
   s.platform     = :ios, '5.0'  
   # s.ios.deployment_target = '5.0'  
   # s.osx.deployment_target = '10.7'  
   s.requires_arc = true  
-  s.source_files  = "SMCategory/*.{h,m}"
+  s.source_files  = "SMCategory/**/*.*"
   # s.resources = 'Assets'  
   
   # s.ios.exclude_files = 'Classes/osx'  
