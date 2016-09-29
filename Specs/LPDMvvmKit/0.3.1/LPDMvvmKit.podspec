@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name         = "LPDMvvmKit"
-  s.version      = "0.3.1"
+  s.version      = "0.3.0"
   s.summary      = "mvvm"
 
   s.description  = <<-DESC
-                   Objective-c下采用MVVM的另外一个选择.
+                   a framework of mvvm.
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source = { :git => "https://github.com/foxsofter/lpd-mvvm-kit.git", :tag => "#{s.version}", :submodules => true }
+  s.source = { :git => "https://github.com/foxsofter/lpd-mvvm-kit.git", :tag => "v#{s.version}", :submodules => true }
 
   s.requires_arc = true
 
