@@ -1,0 +1,31 @@
+{
+  "name": "OpenSSL-OSX",
+  "platforms": {
+    "osx": "10.7"
+  },
+  "version": "1.0.211",
+  "summary": "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in OS X, this CocoaPod will add the latest OpenSSL to your OS X project.",
+  "authors": "OpenSSL Project <openssl-dev@openssl.org>",
+  "homepage": "https://github.com/GerTeunis/OpenSSL-OSX-Pod",
+  "license": {
+    "type": "OpenSSL (OpenSSL/SSLeay)",
+    "file": "LICENSE"
+  },
+  "source": {
+    "http": "https://www.openssl.org/source/openssl-1.0.2j.tar.gz",
+    "sha1": "bdfbdb416942f666865fa48fe13c2d0e588df54f"
+  },
+  "source_files": "opensslIncludes/openssl/*.h",
+  "header_dir": "openssl",
+  "prepare_command": "VERSION=\"1.0.2j\"\n SDKVERSION=`xcrun --sdk macosx --show-sdk-version 2> /dev/null`\n MIN_SDK_VERSION=\"10.7\"\n\n BASEPATH=\"${PWD}\"\n CURRENTPATH=\"${TMPDIR}/openssl\"\n ARCHS=\"i386 x86_64\"\n DEVELOPER=`xcode-select -print-path`\n PLATFORM=\"MacOSX\"\n\n mkdir -p \"${CURRENTPATH}\"\n mkdir -p \"${CURRENTPATH}/bin\"\n\n curl -L \"https://www.openssl.org/source/openssl-${VERSION}.tar.gz\" -o file.tgz\n cp \"file.tgz\" \"${CURRENTPATH}/file.tgz\"\n cd \"${CURRENTPATH}\"\n tar -xzf file.tgz\n cd \"openssl-${VERSION}\"\n\n for ARCH in ${ARCHS}\n do\n \n   if [ \"${ARCH}\" == \"i386\" ];\n   then\n       CONFIGURE_FOR=\"darwin-i386-cc\"\n   elif [ \"${ARCH}\" == \"x86_64\" ];\n   then\nCONFIGURE_FOR=\"darwin64-x86_64-cc\"\n   fi\n   export CROSS_TOP=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n   export CROSS_SDK=\"${PLATFORM}${SDKVERSION}.sdk\"\n\n   echo \"Building openssl-${VERSION} for ${PLATFORM} ${SDKVERSION} ${ARCH}\"\n   echo \"Please stand by...\"\n\n   export CC=\"${DEVELOPER}/usr/bin/gcc -arch ${ARCH} -mmacosx-version-min=${MIN_SDK_VERSION}\"\n   mkdir -p \"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\"\n   LOG=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/build-openssl-${VERSION}.log\"\n\n   LIPO_LIBSSL=\"${LIPO_LIBSSL} ${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/lib/libssl.a\"\n   LIPO_LIBCRYPTO=\"${LIPO_LIBCRYPTO} ${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/lib/libcrypto.a\"\n\n   ./Configure ${CONFIGURE_FOR} --openssldir=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\" > \"${LOG}\" 2>&1\n   sed -ie \"s!^CFLAG=!CFLAG=-isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} !\" \"Makefile\"\n\n   make >> \"${LOG}\" 2>&1\n   make all install_sw >> \"${LOG}\" 2>&1\n   make clean >> \"${LOG}\" 2>&1\n done\n\n\n echo \"Build library...\"\n rm -rf \"${BASEPATH}/lib/\"\n mkdir -p \"${BASEPATH}/lib/\"\n lipo -create ${LIPO_LIBSSL}    -output \"${BASEPATH}/lib/libssl.a\"\n lipo -create ${LIPO_LIBCRYPTO} -output \"${BASEPATH}/lib/libcrypto.a\"\n\n echo \"Copying headers...\"\n rm -rf \"${BASEPATH}/opensslIncludes/\"\n mkdir -p \"${BASEPATH}/opensslIncludes/\"\n cp -RL \"${CURRENTPATH}/openssl-${VERSION}/include/openssl\" \"${BASEPATH}/opensslIncludes/\"\n\n cd \"${BASEPATH}\"\n echo \"Building done.\"\n\n echo \"Cleaning up...\"\n rm -rf \"${CURRENTPATH}\"\n echo \"Done.\"",
+  "public_header_files": "opensslIncludes/openssl/*.h",
+  "vendored_libraries": [
+    "lib/libcrypto.a",
+    "lib/libssl.a"
+  ],
+  "libraries": [
+    "crypto",
+    "ssl"
+  ],
+  "requires_arc": false
+}
