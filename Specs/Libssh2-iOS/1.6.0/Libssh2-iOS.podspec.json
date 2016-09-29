@@ -1,0 +1,58 @@
+{
+  "name": "Libssh2-iOS",
+  "version": "1.6.0",
+  "summary": "Libssh2 is a client-side C library implementing the SSH2 protocol.",
+  "description": "                        Libssh2 is a project providing a lean C library implementing the SSH2 protocol for embedding specific SSH capabilities into other tools. It has a stable, well-documented API for working on the client side with the different SSH subsystems: Session, Userauth, Channel, SFTP, and Public Key. The API can be set to either blocking or non-blocking.\n",
+  "homepage": "https://github.com/libssh2/libssh2",
+  "documentation_url": "http://www.libssh2.org/docs.html",
+  "authors": {
+    "Sara Golemon": "sarag@libssh2.org",
+    "Mikhail Gusarov": "dottedmag@dottedmag.net",
+    "Eli Fant": "elifantu@mail.ru",
+    "The Written Word, Inc.": "info@thewrittenword.com",
+    "Daniel Stenberg": "daniel@haxx.se",
+    "Simon Josefsson": "simon@josefsson.org"
+  },
+  "source": {
+    "git": "https://github.com/libssh2/libssh2.git",
+    "tag": "libssh2-1.6.0"
+  },
+  "license": {
+    "type": "BSD 3-Clause",
+    "file": "COPYING"
+  },
+  "module_name": "Libssh2",
+  "module_map": "module.modulemap",
+  "default_subspecs": "Framework",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": false,
+  "public_header_files": "include/*.h",
+  "preserve_paths": [
+    "libssh2.a",
+    "libssl.a",
+    "libcrypto.a"
+  ],
+  "libraries": "z",
+  "prepare_command": "    ARCHS=\"i386 x86_64 armv7 armv7s arm64\"\n\n    BASEPATH=\"${PWD}\"\n    BUILDDIR=\"${TMPDIR}Libssh2\"\n    SRCDIR=\"${BUILDDIR}/openssl\"\n\n    SDK_VERSION=`xcrun --sdk iphoneos --show-sdk-version`\n    CLANG=`xcrun --find clang`\n    DEVELOPER=`xcode-select --print-path`\n\n    rm -rf \"${BUILDDIR}\"\n    mkdir -p \"${SRCDIR}\"\n    cd \"${BUILDDIR}\"\n\n    git clone \"https://github.com/openssl/openssl.git\"\n    cd \"${SRCDIR}\"\n    OPENSSLVERSION=`git tag -l | egrep \"OpenSSL(_[0-9])+[a-zA-Z]?$\" | sort -r | head -1`\n    git checkout $OPENSSLVERSION\n    echo $OPENSSLVERSION > \"${BUILDDIR}/openssl-version.txt\"\n\n    for ARCH in ${ARCHS}\n    do\n      if [ \"${ARCH}\" == \"i386\" -o \"${ARCH}\" == \"x86_64\" ];\n      then\n        PLATFORM=\"iPhoneSimulator\"\n      else\n        sed -ie \"s!static volatile sig_atomic_t intr_signal;!static volatile intr_signal;!\" \"${SRCDIR}/crypto/ui/ui_openssl.c\"\n        PLATFORM=\"iPhoneOS\"\n      fi\n\n      CONF=\"no-asm\"\n\n      if [ \"${ARCH}\" == \"arm64\" -o \"${ARCH}\" == \"x86_64\" ];\n      then\n        HOST=\"BSD-generic64\"\n        CONF=\"${CONF} enable-ec_nistp_64_gcc_128\"\n      else\n        HOST=\"BSD-generic32\"\n      fi\n\n      OPENSSLDIR=\"${BUILDDIR}/${PLATFORM}${SDK_VERSION}-${ARCH}\"\n\n      LIPO_LIBSSL=\"${LIPO_LIBSSL} ${OPENSSLDIR}/lib/libssl.a\"\n      LIPO_LIBCRYPTO=\"${LIPO_LIBCRYPTO} ${OPENSSLDIR}/lib/libcrypto.a\"\n\n      rm -rf \"${OPENSSLDIR}\"\n      mkdir -p \"${OPENSSLDIR}\"\n\n      LOG=\"${OPENSSLDIR}/build-openssl.log\"\n\n      export DEVROOT=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n      export SDKROOT=\"${DEVROOT}/SDKs/${PLATFORM}${SDK_VERSION}.sdk\"\n      export CC=\"${CLANG}\"\n\n      ./Configure ${HOST} ${CONF} --openssldir=\"${OPENSSLDIR}\" > \"${LOG}\" 2>&1\n\n      sed -ie \"s!^CFLAG=!CFLAG=-isysroot ${SDKROOT} -arch ${ARCH} -mios-version-min=7.0 !\" \"Makefile\"\n\n      make all install_sw >> \"${LOG}\" 2>&1\n      make clean >> \"${LOG}\" 2>&1\n    done\n\n    SRCDIR=\"${BUILDDIR}/src\"\n\n    mkdir -p \"${SRCDIR}\"\n    cp -R \"${BASEPATH}/.\" \"${SRCDIR}\"\n    cd \"${SRCDIR}\"\n\n    ./buildconf\n\n    for ARCH in ${ARCHS}\n    do\n      if [ \"${ARCH}\" == \"i386\" -o \"${ARCH}\" == \"x86_64\" ];\n      then\n        PLATFORM=\"iPhoneSimulator\"\n      else\n        PLATFORM=\"iPhoneOS\"\n      fi\n\n      if [ \"${ARCH}\" == \"arm64\" ];\n      then\n        HOST=\"aarch64-apple-darwin\"\n      else\n        HOST=\"${ARCH}-apple-darwin\"\n      fi\n\n      LIBSSH2DIR=\"${BUILDDIR}/${PLATFORM}${SDK_VERSION}-${ARCH}\"\n\n      LIPO_SSH2=\"${LIPO_SSH2} ${LIBSSH2DIR}/lib/libssh2.a\"\n\n      mkdir -p \"${LIBSSH2DIR}\"\n\n      LOG=\"${LIBSSH2DIR}/build-libssh2.log\"\n\n      export DEVROOT=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n      export SDKROOT=\"${DEVROOT}/SDKs/${PLATFORM}${SDK_VERSION}.sdk\"\n      export CC=\"${CLANG}\"\n      export CPP=\"${CLANG} -E\"\n      export CFLAGS=\"-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -miphoneos-version-min=7.0\"\n      export CPPFLAGS=\"-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -miphoneos-version-min=7.0\"\n\n      ./configure --host=${HOST} --prefix=\"${LIBSSH2DIR}\" --with-openssl --with-libssl-prefix=\"${LIBSSH2DIR}\" --disable-shared --enable-static  >> \"${LOG}\" 2>&1\n\n      make >> \"${LOG}\" 2>&1\n      make install >> \"${LOG}\" 2>&1\n      make clean >> \"${LOG}\" 2>&1\n    done\n\n    rm -f \"${BASEPATH}/libssh2.a\"\n    rm -f \"${BASEPATH}/libssl.a\"\n    rm -f \"${BASEPATH}/libcrypto.a\"\n    lipo -create ${LIPO_SSH2}      -output \"${BASEPATH}/libssh2.a\"\n    lipo -create ${LIPO_LIBSSL}    -output \"${BASEPATH}/libssl.a\"\n    lipo -create ${LIPO_LIBCRYPTO} -output \"${BASEPATH}/libcrypto.a\"\n\n    cd \"${BASEPATH}\"\n    rm -rf \"${BUILDDIR}\"\n\n    MODULE=\"module.modulemap\"\n\n    echo \"module Libssh2 {\" > $MODULE\n    for HEADER in include/*.h; do\n        echo \"    header \\\"${HEADER}\\\"\" >> $MODULE\n    done\n    echo -e \"\n    link \\\"ssl\\\"\n    link \\\"crypto\\\"\n    link \\\"ssh2\\\"\n\n    export *\n}\" >> $MODULE\n",
+  "subspecs": [
+    {
+      "name": "Static",
+      "source_files": "include/*.h",
+      "vendored_libraries": [
+        "libssh2.a",
+        "libssl.a",
+        "libcrypto.a"
+      ]
+    },
+    {
+      "name": "Framework",
+      "source_files": "include/*.h",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/Libssh2-iOS",
+        "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/Libssh2-iOS"
+      }
+    }
+  ]
+}

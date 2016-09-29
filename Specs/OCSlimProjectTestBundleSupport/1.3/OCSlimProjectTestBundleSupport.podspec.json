@@ -1,0 +1,43 @@
+{
+  "name": "OCSlimProjectTestBundleSupport",
+  "version": "1.3",
+  "summary": "Integrate Fitnesse with XCTest to provide running and reporting of fast Fitnesse based BDD/Acceptance Tests right from within Xcode.",
+  "description": "OCSlimProjectTestBundleSupport enables OSX and iOS Unit Test targets to dynamically run test suites that run and display the results of Fitnesse based Acceptance Tests conveniently right within Xcode.\nUse together with 'OCSlimProject' for fast, rock-solid, non UI based acceptance testing that integrates seamlessly with both Xcode development and CI environments.",
+  "homepage": "http://paulstringer.github.io/OCSlimProject",
+  "documentation_url": "http://paulstringer.github.io/OCSlimProject",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Paul Stringer": "paulstringer@mac.com"
+  },
+  "social_media_url": "http://twitter.com/paulstringer",
+  "source": {
+    "git": "https://github.com/paulstringer/OCSlimProject.git",
+    "tag": "1.3"
+  },
+  "source_files": "Pod/TestClasses/**/*.{h,m}",
+  "exclude_files": "Pod/TestClasses/*Test{s,able}.{h,m}",
+  "public_header_files": "Pod/TestClasses/OCSPTestSuite.h",
+  "resources": "Pod/Resources/*.lproj",
+  "frameworks": "XCTest",
+  "user_target_xcconfig": {
+    "OCSP_TEST_REPORT_FILE_NAME": "Fitnesse-Test-Report.xml",
+    "OCSP_SUPPORT_FILE_DIR": "${PODS_ROOT}/OCSlimProject/Pod/Support/SharedSupport"
+  },
+  "osx": {
+    "user_target_xcconfig": {
+      "OCSP_TEST_REPORT_FILE_PATH": "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${OCSP_TEST_REPORT_FILE_NAME}"
+    }
+  },
+  "ios": {
+    "user_target_xcconfig": {
+      "OCSP_TEST_REPORT_FILE_PATH": "${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${OCSP_TEST_REPORT_FILE_NAME}"
+    }
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.8"
+  }
+}

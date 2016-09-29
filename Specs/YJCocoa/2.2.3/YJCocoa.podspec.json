@@ -1,0 +1,250 @@
+{
+  "name": "YJCocoa",
+  "version": "2.2.3",
+  "authors": {
+    "阳君": "937447974@qq.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/937447974/YJCocoa",
+  "source": {
+    "git": "https://github.com/937447974/YJCocoa.git",
+    "tag": "v2.2.3"
+  },
+  "summary": "YJ系列开源库",
+  "description": "姓名：阳君\nQQ：937447974\nYJ技术支持群：557445088",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "preserve_paths": "Documentation/*.*",
+  "prepare_command": "sh Documentation/docset-installed.sh",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "source_files": "Cocoa/*.{h,m}",
+  "default_subspecs": [
+    "CocoaTouchLayer",
+    "CoreServicesLayer",
+    "CoreOSLayer"
+  ],
+  "subspecs": [
+    {
+      "name": "CocoaTouchLayer",
+      "source_files": "Cocoa/CocoaTouchLayer/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "UIKit",
+          "source_files": "Cocoa/CocoaTouchLayer/UIKit/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "InputLength",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/InputLength/*.{h,m}"
+            },
+            {
+              "name": "ViewGeometry",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/ViewGeometry/*.{h,m}"
+            },
+            {
+              "name": "AutoLayout",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/AutoLayout/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "UIView",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIView/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "UIViewController",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/AutoLayout/UIViewController/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "LayoutAnchor",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/AutoLayout/LayoutAnchor/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Extend",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/AutoLayout/Extend/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "NavigationBar",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/NavigationBar/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/NavigationBar/Core/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "PageView",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/PageView/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CoreOSLayer/System": [
+
+                    ],
+                    "YJCocoa/CocoaTouchLayer/UIKit/AutoLayout": [
+
+                    ],
+                    "YJCocoa/CoreServicesLayer/Foundation/Other": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "ImagePage",
+                  "resources": "Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.xib",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/PageView/ImagePage/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/PageView/Core": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "TableView",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/TableView/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": [
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/DataSource/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/Delegate/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/TableCell/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/TableView/Suspension/*.{h,m}"
+                  ],
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "TableCellObject",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/TableView/TableCellObject/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry": [
+
+                    ],
+                    "YJCocoa/CoreServicesLayer/Foundation/Other": [
+
+                    ],
+                    "YJCocoa/CoreOSLayer/System": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "CollectionView",
+              "source_files": "Cocoa/CocoaTouchLayer/UIKit/CollectionView/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": [
+                    "Cocoa/CocoaTouchLayer/UIKit/CollectionView/DataSource/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/CollectionView/Delegate/*.{h,m}",
+                    "Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCell/*.{h,m}"
+                  ],
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "CollectionCellObject",
+                  "source_files": "Cocoa/CocoaTouchLayer/UIKit/CollectionView/CollectionCellObject/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/CocoaTouchLayer/UIKit/ViewGeometry": [
+
+                    ],
+                    "YJCocoa/CoreServicesLayer/Foundation/Other": [
+
+                    ],
+                    "YJCocoa/CoreOSLayer/System": [
+
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreServicesLayer",
+      "source_files": "Cocoa/CoreServicesLayer/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "Cocoa/CoreServicesLayer/Foundation/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Http",
+              "source_files": "Cocoa/CoreServicesLayer/Foundation/Http/*.{h,m}"
+            },
+            {
+              "name": "Singleton",
+              "source_files": "Cocoa/CoreServicesLayer/Foundation/Singleton/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/CoreServicesLayer/Foundation/Other": [
+
+                ]
+              }
+            },
+            {
+              "name": "Log",
+              "source_files": "Cocoa/CoreServicesLayer/Foundation/Log/*.{h,m}"
+            },
+            {
+              "name": "Other",
+              "source_files": "Cocoa/CoreServicesLayer/Foundation/Other/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreOSLayer",
+      "source_files": "Cocoa/CoreOSLayer/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "System",
+          "source_files": "Cocoa/CoreOSLayer/System/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}

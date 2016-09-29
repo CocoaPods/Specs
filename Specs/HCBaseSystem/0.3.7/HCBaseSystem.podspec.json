@@ -1,0 +1,153 @@
+{
+  "name": "HCBaseSystem",
+  "version": "0.3.7",
+  "summary": "这是一个与分享、推送、上传下载及用户、命令等的核心库。",
+  "description": "这是一个特定的核心库。包含了常用的分享、命令、推送、上传、下载、及用户管理器。简化了外部引用的一些问题。",
+  "homepage": "https://github.com/halfking/HCBaseSystem",
+  "license": "MIT",
+  "authors": {
+    "halfking": "kimmy.huang@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/halfking/hcbasesystem.git",
+    "tag": "0.3.7",
+    "submodules": true
+  },
+  "xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "ENABLE_BITCODE": "YES",
+    "DEFINES_MODULE": "YES"
+  },
+  "dependencies": {
+    "HCMinizip": [
+
+    ],
+    "hccoren": [
+
+    ],
+    "Qiniu": [
+      "~> 7.0"
+    ],
+    "SDWebImage": [
+      "~>3.7.5"
+    ],
+    "AFNetworking": [
+      "~>2.6.3"
+    ]
+  },
+  "exclude_files": [
+    "HCBaseSystem/VDCManager/VDCLoaderConnection.{h,m,mm,cpp,c}",
+    "HCBaseSystem/VDCManager/VDCTempFileManager(readerwrite).{h,m,mm,cpp,c}",
+    "HCBaseSystem/VDCManager/VDCTempFileManager.{h,m,mm,cpp,c}"
+  ],
+  "subspecs": [
+    {
+      "name": "Ver",
+      "requires_arc": true,
+      "source_files": [
+        "HCBaseSystem/iVersion/*.{h,m,mm,c,cpp}"
+      ],
+      "public_header_files": [
+        "HCBaseSystem/iVersion/*.h"
+      ],
+      "frameworks": [
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UIControls",
+      "requires_arc": true,
+      "source_files": [
+        "HCBaseSystem/UIControls/**/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/imagecontrols.h"
+      ],
+      "exclude_files": [
+        "HCBaseSystem/UIControls/LoginViewNew.{h,m,mm,cpp,c}",
+        "HCBaseSystem/UIControls/ShareView.{h,m,mm,cpp,c}"
+      ],
+      "public_header_files": [
+        "HCBaseSystem/UIControls/**/*.h",
+        "HCBaseSystem/imagecontrols.h"
+      ],
+      "frameworks": [
+        "UIKit",
+        "CoreImage",
+        "CoreGraphics",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration"
+      ]
+    },
+    {
+      "name": "User",
+      "requires_arc": true,
+      "source_files": [
+        "HCBaseSystem/CMDEX/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/Users/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/UpDown/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/UpDown.h",
+        "HCBaseSystem/User_WT.h",
+        "HCBaseSystem/config.h",
+        "HCBaseSystem/textresource.h",
+        "HCBaseSystem/cmd_wt.h",
+        "HCBaseSystem/database_wt.h",
+        "HCBaseSystem/PublicEnum.h"
+      ],
+      "public_header_files": [
+        "HCBaseSystem/CMDEX/*.h",
+        "HCBaseSystem/Users/*.h",
+        "HCBaseSystem/UpDown/*.h",
+        "HCBaseSystem/UpDown.h",
+        "HCBaseSystem/User_WT.h",
+        "HCBaseSystem/config.h",
+        "HCBaseSystem/textresource.h",
+        "HCBaseSystem/cmd_wt.h",
+        "HCBaseSystem/database_wt.h",
+        "HCBaseSystem/PublicEnum.h"
+      ]
+    },
+    {
+      "name": "VDCManager",
+      "requires_arc": true,
+      "source_files": [
+        "HCBaseSystem/VDCManager/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/vdc_f.h",
+        "HCBaseSystem/vdc.h"
+      ],
+      "public_header_files": [
+        "HCBaseSystem/VDCManager/*.h",
+        "HCBaseSystem/vdc.h",
+        "HCBaseSystem/vdc_f.h"
+      ],
+      "ios": {
+        "dependencies": {
+          "HCBaseSystem/User": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Comments",
+      "requires_arc": true,
+      "source_files": [
+        "HCBaseSystem/Comment/*.{h,m,mm,cpp,c}",
+        "HCBaseSystem/comments_wt.h"
+      ],
+      "public_header_files": [
+        "HCBaseSystem/Comment/*.h",
+        "HCBaseSystem/comments_wt.h"
+      ],
+      "ios": {
+        "dependencies": {
+          "HCBaseSystem/User": [
+
+          ]
+        }
+      }
+    }
+  ]
+}

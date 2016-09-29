@@ -1,0 +1,79 @@
+{
+  "name": "BaiduMapAPI",
+  "version": "2.8.1",
+  "license": {
+    "type": "Copyright",
+    "text": "LICENSE  ©2013 Baidu, Inc. All rights reserved."
+  },
+  "summary": "Baidu Map API For iOS. Official home page : http://developer.baidu.com/map/index.php?title=iossdk",
+  "homepage": "https://github.com/qzs21/BaiduMapAPI",
+  "authors": {
+    "Steven": "qzs21@qq.com"
+  },
+  "source": {
+    "http": "http://wiki.lbsyun.baidu.com/cms/iossdk/doc/v2_8_1/output_ios/map_search_cloud_loc_util_radar/BaiduMap_IOSSDK_v2.8.1_Lib.zip",
+    "sha1": "7abf46aedbe73c9ea8b4046fe83567dfed31f7fb"
+  },
+  "default_subspecs": "Default",
+  "platforms": {
+    "ios": "5.0"
+  },
+  "libraries": [
+    "stdc++",
+    "stdc++.6"
+  ],
+  "requires_arc": true,
+  "compiler_flags": "-ObjC",
+  "frameworks": [
+    "UIKit",
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security"
+  ],
+  "prepare_command": "if [ ! -d \"Release-universal\" ]; then mkdir Release-universal; fi\nrm -rf Release-universal/*\ncp -rf Release-iphoneos/BaiduMapAPI.framework Release-universal/\nrm -rf Release-Universal/BaiduMapAPI.framework/BaiduMapAPI\nlipo -create Release-iphoneos/BaiduMapAPI.framework/BaiduMapAPI Release-iphonesimulator/BaiduMapAPI.framework/BaiduMapAPI -output Release-Universal/BaiduMapAPI.framework/BaiduMapAPI",
+  "subspecs": [
+    {
+      "name": "Default",
+      "ios": {
+        "dependencies": {
+          "BaiduMapAPI/Universal": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Universal",
+      "ios": {
+        "vendored_frameworks": "Release-universal/BaiduMapAPI.framework"
+      },
+      "resources": "Release-universal/BaiduMapAPI.framework/Resources/mapapi.bundle",
+      "public_header_files": [
+        "Release-universal/BaiduMapAPI.framework/Headers/*.h"
+      ]
+    },
+    {
+      "name": "iPhoneSimulator",
+      "ios": {
+        "vendored_frameworks": "Release-iphonesimulator/BaiduMapAPI.framework"
+      },
+      "resources": "Release-iphonesimulator/BaiduMapAPI.framework/Resources/mapapi.bundle",
+      "public_header_files": [
+        "Release-iphonesimulator/BaiduMapAPI.framework/Headers/*.h"
+      ]
+    },
+    {
+      "name": "iPhoneOS",
+      "ios": {
+        "vendored_frameworks": "Release-iphoneos/BaiduMapAPI.framework"
+      },
+      "resources": "Release-iphoneos/BaiduMapAPI.framework/Resources/mapapi.bundle",
+      "public_header_files": [
+        "Release-iphoneos/BaiduMapAPI.framework/Headers/*.h"
+      ]
+    }
+  ]
+}

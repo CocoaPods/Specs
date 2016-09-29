@@ -1,0 +1,126 @@
+{
+  "name": "GCDWebServer",
+  "version": "3.3.1",
+  "authors": {
+    "Pierre-Olivier Latour": "info@pol-online.net"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/swisspol/GCDWebServer",
+  "summary": "Lightweight GCD based HTTP server for OS X & iOS (includes web based uploader & WebDAV server)",
+  "source": {
+    "git": "https://github.com/swisspol/GCDWebServer.git",
+    "tag": "3.3.1"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "tvos": "9.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GCDWebServer/**/*.{h,m}",
+      "private_header_files": "GCDWebServer/Core/GCDWebServerPrivate.h",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "z",
+        "frameworks": [
+          "MobileCoreServices",
+          "CFNetwork"
+        ]
+      },
+      "tvos": {
+        "libraries": "z",
+        "frameworks": [
+          "MobileCoreServices",
+          "CFNetwork"
+        ]
+      },
+      "osx": {
+        "libraries": "z",
+        "frameworks": "SystemConfiguration"
+      }
+    },
+    {
+      "name": "CocoaLumberjack",
+      "dependencies": {
+        "GCDWebServer/Core": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 2"
+        ]
+      }
+    },
+    {
+      "name": "WebDAV",
+      "default_subspecs": "Core",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "GCDWebServer/Core": [
+
+            ]
+          },
+          "source_files": "GCDWebDAVServer/*.{h,m}",
+          "requires_arc": true,
+          "ios": {
+            "libraries": "xml2"
+          },
+          "tvos": {
+            "libraries": "xml2"
+          },
+          "osx": {
+            "libraries": "xml2"
+          },
+          "compiler_flags": "-I$(SDKROOT)/usr/include/libxml2"
+        },
+        {
+          "name": "CocoaLumberjack",
+          "dependencies": {
+            "GCDWebServer/WebDAV/Core": [
+
+            ],
+            "GCDWebServer/CocoaLumberjack": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebUploader",
+      "default_subspecs": "Core",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "GCDWebServer/Core": [
+
+            ]
+          },
+          "source_files": "GCDWebUploader/*.{h,m}",
+          "requires_arc": true,
+          "resources": "GCDWebUploader/GCDWebUploader.bundle"
+        },
+        {
+          "name": "CocoaLumberjack",
+          "dependencies": {
+            "GCDWebServer/WebUploader/Core": [
+
+            ],
+            "GCDWebServer/CocoaLumberjack": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

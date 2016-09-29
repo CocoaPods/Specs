@@ -1,0 +1,52 @@
+{
+  "name": "Penny-SDK-iOS",
+  "version": "0.1.0",
+  "summary": "Official Penny SDK for iOS to access Penny Platform.",
+  "description": "The Penny SDK for iOS enables you to use Penny's' Platform to build an engaging community driven Question/Answer based feedback system.",
+  "license": {
+    "type": "Penny Platform License",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Devon Boyer": "devon@thecodery.com"
+  },
+  "homepage": "https://github.com/pennyhq/penny-sdk-ios",
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/pennyhq/penny-sdk-ios.git",
+    "tag": "sdk-version-0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "CoreKit",
+      "ios": {
+        "preserve_paths": "PNYCoreKit.framework",
+        "public_header_files": "PNYCoreKit.framework/Versions/A/Headers/*.h",
+        "vendored_frameworks": "PNYCoreKit.framework",
+        "frameworks": [
+          "CFNetwork",
+          "Security",
+          "MobileCoreServices",
+          "SystemConfiguration"
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "ios": {
+        "preserve_paths": "PNYUIKit.framework",
+        "public_header_files": "PNYUIKit.framework/Versions/A/Headers/*.h",
+        "resources": "PNYUIKitResources.bundle",
+        "vendored_frameworks": "PNYUIKit.framework"
+      },
+      "dependencies": {
+        "Penny-SDK-iOS/CoreKit": [
+
+        ]
+      }
+    }
+  ]
+}

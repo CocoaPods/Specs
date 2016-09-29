@@ -1,0 +1,26 @@
+{
+  "name": "ARSSlideTransition",
+  "version": "1.0.0",
+  "summary": "Custom slide view controller transition animation.",
+  "description": "#ARSSlideTransition\n\nThis library helps to achieve smooth custom view controller transition animation in your project. It uses your provided UIView objects to perform animations.\n\n![ARSSlideTransition](http://git.arsenkin.com/ARSSlideTransition.gif)\n\n## Installation\n\n### CocoaPods\nTo install with [CocoaPods](http://cocoapods.org/), copy and paste this in your *.pod* file:\n\n    platform :ios, '7.0'\n    pod 'ARSSlideTransition', '~> 1.0'\n\n### Non-CocoaPods way\nYou can always to do the old way - just drag the source files into your projects and you are good to go.\n\n## Usage\n\n### Prepare your classes\nIn order to prepare your views for animation, you have to configure your UIViewControllers to support custom transition:\n\n###### Presenting view controller\n\n1. Make sure, that in your view, that contains elements you wish to animate, you have set `clipsToBounds` property to `NO`. This will allow animate these elements outside of the view's bounds.\n\n2. Import `ARSSlideTransition.h` and conform to protocols `UINavigationControllerDelegate` and `ARSSlideTransitionProtocol`\n\n```objective-c\n@interface TableViewController () <UINavigationControllerDelegate, ARSSlideTransitionProtocol>\n```\n\n3. Implement `ARSSlideTransitionProtocol`'s required `objectsToAnimate` method. It should return `NSArray` of UIView class/subclass objects, that you wish to animate. **Order matters** - objects are going to be animated in the same order as they are presented in array.\n\n4. Set your presenting viewController as a delegate for navigationController\n\n```objective-c\nself.navigationController.delegate = self;\n```\n\n5. Implement `UINavigationControllerDelegate` method, to let iOS know, that custom transition would be used instead of the default one:\n\n```objective-c\n(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC \n{\nARSSlideTransition *transition = [ARSSlideTransition new];\ntransition.operation = operation;\nreturn transition;\n}\n```\n\n###### Presented view controller\n\n1.  Import `ARSSlideTransition.h` and conform to `ARSSlideTransitionProtocol` protocol.\n2. Implement `ARSSlideTransitionProtocol`'s required method.\n\n## Customizing animation\nIn case you specify only those three lines of code from step 4 in the section above, then default animation parameters are going to be used.\n\nIn order to provide your custom tweaks or configurations to animation's behavior, you are able to use these properties:\n\n* `pushAnimationDuration` - specify presenting view controller's animation duration.\n\n```objective-c\ntransition.pushAnimationDuration = 0.45; // Default.\n```\n\n* `dismissAnimationDuration` - specify presented view controller's animation duration.\n\n```objective-c\ntransition.dismissAnimationDuration = 0.45; // Default\n```\n\n* `springDamping` - specify spring damping ratio for spring animation.\n\n```objective-c\ntransition.springDamping = 0.8; // Default\n```\n\n* `springVelocity` - specify spring velocity ratio for spring animation.\n\n```objective-c\ntransition.springVelocity = 0.8; // Default\n```\n\n* `initialDelay` - specify initial delay, after which animation transition will be launched.\n\n```objective-c\ntransition.initialDelay = 0.0; // Default\n```\n\n* `elementDelay` - specify delay for animating each following view element.\n\n```objective-c\ntransition.elementDelay = 0.05; // Default\n```\n\n* `viewDelay` - specify delay for animating presented view controller's elements.\n\n```objective-c\ntransition.viewDelay = 0.15; // Default\n```\n\n* `presentingViewAnimationOption` - specify animation option for presenting view.\n\n```objective-c\ntransition.presentingViewAnimationOption = UIViewAnimationOptionCurveEaseOut; // Default\n```\n\n* `presentedViewAnimationOption` - specify animation option for presented view.\n\n```objective-c\ntransition.presentedViewAnimationOption = UIViewAnimationOptionCurveEaseOut; // Default\n```\n\n## License\n\nARSSlideTransition is released under the [MIT license](http://opensource.org/licenses/MIT). See LICENSE for details.",
+  "homepage": "https://github.com/soberman/ARSSlideTransition",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yarik Arsenkin": "info@arsenkin.com"
+  },
+  "social_media_url": "http://twitter.com/Soberman777",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/soberman/ARSSlideTransition.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "Source/ARSSlideTransition.{h,m}",
+  "exclude_files": "Demo/*",
+  "public_header_files": "Source/ARSSlideTransition.h",
+  "requires_arc": true
+}

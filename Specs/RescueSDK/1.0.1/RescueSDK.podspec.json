@@ -1,0 +1,39 @@
+{
+  "name": "RescueSDK",
+  "version": "1.0.1",
+  "summary": "LogMeIn Rescue SDK for iOS.",
+  "description": "The Rescue In-App Support iOS SDK allows your customers to establish a Rescue support session within your app.",
+  "homepage": "https://www.logmeinrescue.com/",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": "LogMeIn Inc.",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/LogmeinRescue/iOS-SDK.git",
+    "tag": "1.0.1"
+  },
+  "source_files": "SDK/include/*.h",
+  "vendored_libraries": "SDK/lib/fat/libRescueLib.a",
+  "public_header_files": "SDK/include/*.h",
+  "resources": "SDK/lib/LocalisationBundle.bundle",
+  "prepare_command": "mkdir -p SDK/lib/fat\nlibtool -static SDK/lib/arm/libRescueLib.a SDK/lib/i386/libRescueLib.a -o SDK/lib/fat/libRescueLib.a",
+  "frameworks": [
+    "CFNetwork",
+    "CoreBluetooth",
+    "CoreTelephony",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "resolv",
+    "z",
+    "c++"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "PocketSocket",
+  "version": "1.0.0",
+  "license": "Apache 2.0",
+  "summary": "Objective-C websocket client/server library for building things that work in realtime on iOS and OS X.",
+  "description": "Objective-C websocket client/server library. Conforms fully to RFC6455 websocket protocol, support for websocket compression via the permessage-deflate extension, passes all ~355 Autobahn tests with 100% compliance and comes with a driver level BYO networking API.",
+  "homepage": "https://github.com/zwopple/PocketSocket",
+  "authors": {
+    "Robert Payne": "robert@zwopple.com"
+  },
+  "source": {
+    "git": "https://github.com/zwopple/PocketSocket.git",
+    "tag": "1.0.0",
+    "submodules": false
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "PocketSocket/PSWebSocketDriver.h",
+        "PocketSocket/PSWebSocketTypes.h"
+      ],
+      "source_files": [
+        "PocketSocket/PSWebSocketDriver.{h,m}",
+        "PocketSocket/PSWebSocketTypes.{h,m}",
+        "PocketSocket/PSWebSocketBuffer.{h,m}",
+        "PocketSocket/PSWebSocketDeflater.{h,m}",
+        "PocketSocket/PSWebSocketInflater.{h,m}",
+        "PocketSocket/PSWebSocketUTF8Decoder.{h,m}",
+        "PocketSocket/PSWebSocketInternal.h"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "Foundation",
+        "Security"
+      ],
+      "libraries": [
+        "z",
+        "system"
+      ]
+    },
+    {
+      "name": "Client",
+      "dependencies": {
+        "PocketSocket/Core": [
+
+        ]
+      },
+      "public_header_files": "PocketSocket/PSWebSocket.h",
+      "source_files": [
+        "PocketSocket/PSWebSocket.{h,m}",
+        "PocketSocket/PSWebSocketNetworkThread.{h,m}"
+      ]
+    },
+    {
+      "name": "Server",
+      "dependencies": {
+        "PocketSocket/Client": [
+
+        ]
+      },
+      "public_header_files": "PocketSocket/PSWebSocketServer.h",
+      "source_files": "PocketSocket/PSWebSocketServer.{h,m}"
+    }
+  ]
+}

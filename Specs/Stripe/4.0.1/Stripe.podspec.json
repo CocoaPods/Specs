@@ -1,0 +1,85 @@
+{
+  "name": "Stripe",
+  "version": "4.0.1",
+  "summary": "Stripe is a web-based API for accepting payments online.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://stripe.com/docs/mobile/ios",
+  "authors": {
+    "Jack Flintermann": "jack@stripe.com",
+    "Stripe": "support+github@stripe.com"
+  },
+  "source": {
+    "git": "https://github.com/stripe/stripe-ios.git",
+    "tag": "v4.0.1"
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "Security"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "Foundation",
+      "Security",
+      "WebKit"
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": [
+    "Core",
+    "Checkout"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "Stripe/PublicHeaders/*.h",
+      "source_files": [
+        "Stripe/PublicHeaders/*.h",
+        "Stripe/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Checkout",
+      "dependencies": {
+        "Stripe/Core": [
+
+        ]
+      },
+      "public_header_files": "Stripe/PublicHeaders/Checkout/*.h",
+      "source_files": [
+        "Stripe/PublicHeaders/Checkout/*.h",
+        "Stripe/Checkout/*.{h,m}"
+      ]
+    },
+    {
+      "name": "ApplePay",
+      "platforms": {
+        "ios": null
+      },
+      "dependencies": {
+        "Stripe/Core": [
+
+        ]
+      },
+      "ios": {
+        "public_header_files": "Stripe/PublicHeaders/ApplePay/*.h",
+        "source_files": [
+          "Stripe/PublicHeaders/ApplePay/*.h",
+          "Stripe/ApplePay/*.{h,m}"
+        ],
+        "weak_frameworks": [
+          "PassKit",
+          "AddressBook"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "name": "PINRemoteImage",
+  "version": "2.1",
+  "summary": "A thread safe, performant, feature rich image fetcher",
+  "homepage": "https://github.com/pinterest/PINRemoteImage",
+  "license": "Apache 2.0",
+  "authors": {
+    "Garrett Moon": "garrett@pinterest.com"
+  },
+  "source": {
+    "git": "https://github.com/pinterest/PINRemoteImage.git",
+    "tag": "2.1"
+  },
+  "social_media_url": "https://twitter.com/garrettmoon",
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "FLAnimatedImage",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/Classes/**/*.{h,m}",
+      "exclude_files": [
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.h",
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.m"
+      ],
+      "public_header_files": "Pod/Classes/**/*.h",
+      "frameworks": [
+        "ImageIO",
+        "Accelerate"
+      ],
+      "dependencies": {
+        "PINCache": [
+          ">=2.1"
+        ]
+      }
+    },
+    {
+      "name": "iOS",
+      "platforms": {
+        "ios": "6.0"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "OSX",
+      "platforms": {
+        "osx": "10.8"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ]
+      },
+      "frameworks": "Cocoa"
+    },
+    {
+      "name": "tvOS",
+      "platforms": {
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "FLAnimatedImage",
+      "platforms": {
+        "ios": "6.0"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ],
+        "FLAnimatedImage": [
+          ">= 1.0"
+        ]
+      },
+      "source_files": [
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.h",
+        "Pod/Classes/Image Categories/FLAnimatedImageView+PINRemoteImage.m"
+      ]
+    },
+    {
+      "name": "WebP",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PIN_WEBP=1"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "MeshPipe",
+  "version": "0.1.0",
+  "summary": "IPC library for iOS",
+  "description": "MeshPipe is an IPC (inter-process communication) library for iOS using UDP networking.\nIt allows multiple running applications on a single iOS device to send arbitrary data to each other.\nIt:\n\n* Automatically connects to all other MeshPipe apps that are configured with the same port\n* Detects when other apps disconnect or disappear, giving you a list of available peers\n\nSince it is based on UDP, there are some hard-wired limitations:\n\n* Message must fit within a single UDP datagram. The current UDP datagram max size on iOS is 9216 bytes.\n* Delivery is not guaranteed. Messages may or may not get through, may arrive from seemingly unavailable peers, or arrive out of order.\n* You may receive malicious or unexpected data, as any app on the phone could craft a message and send it to your app.\n* Communication is insecure, and any app on the device might listen in or even change messages.",
+  "homepage": "https://github.com/nevyn/MeshPipe",
+  "license": {
+    "type": "Simplified BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nevyn Bengtsson": "nevyn.jpg@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/nevyn",
+  "source": {
+    "git": "https://github.com/nevyn/MeshPipe.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "MeshPipe/*.{h,m}",
+      "exclude_files": "MeshPipe/main.m",
+      "public_header_files": "MeshPipe/MeshPipe.h"
+    },
+    {
+      "name": "CerfingMeshPipe",
+      "source_files": "CerfingMeshPipeTransport/*.{h,m}",
+      "exclude_files": "CerfingMeshPipeTransport/main.m",
+      "dependencies": {
+        "Cerfing": [
+
+        ],
+        "MeshPipe/Core": [
+
+        ]
+      }
+    }
+  ]
+}

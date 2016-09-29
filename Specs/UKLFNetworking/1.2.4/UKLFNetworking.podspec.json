@@ -1,0 +1,98 @@
+{
+  "name": "UKLFNetworking",
+  "version": "1.2.4",
+  "license": "MIT",
+  "summary": "A delightful iOS and OS X networking framework.",
+  "homepage": "https://github.com/LaiFengiOS/UKLFNetworking",
+  "authors": {
+    "wangxiaoxiang": "wangxiaoxiang@youku.com"
+  },
+  "source": {
+    "git": "https://github.com/LaiFengiOS/UKLFNetworking.git",
+    "tag": "1.2.4",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "public_header_files": "UKLFNetworking/*.h",
+  "source_files": "UKLFNetworking/*.{h,m}",
+  "prefix_header_contents": "#ifndef TARGET_OS_IOS\n#define TARGET_OS_IOS TARGET_OS_IPHONE\n#endif\n#ifndef TARGET_OS_WATCH\n#define TARGET_OS_WATCH 0\n#endif\n#ifndef TARGET_OS_TV\n#define TARGET_OS_TV 0\n#endif",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "UKLFNetworking/Serialization/*.{h,m}",
+      "public_header_files": "UKLFNetworking/Serialization/*.h",
+      "watchos": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "osx": {
+        "frameworks": "CoreServices"
+      }
+    },
+    {
+      "name": "Security",
+      "source_files": "UKLFNetworking/Security/*.{h,m}",
+      "public_header_files": "UKLFNetworking/Security/*.h",
+      "frameworks": "Security"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9",
+        "tvos": "9.0"
+      },
+      "source_files": "UKLFNetworking/Reachability/*.{h,m}",
+      "public_header_files": "UKLFNetworking/Reachability/*.h",
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "UKLFNetworking/Serialization": [
+
+        ],
+        "UKLFNetworking/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "UKLFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "UKLFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "tvos": {
+        "dependencies": {
+          "UKLFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": "UKLFNetworking/NSURLSession/*.{h,m}",
+      "public_header_files": "UKLFNetworking/NSURLSession/U*.h"
+    }
+  ]
+}

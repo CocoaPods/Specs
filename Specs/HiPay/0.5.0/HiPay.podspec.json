@@ -1,0 +1,99 @@
+{
+  "name": "HiPay",
+  "version": "0.5.0",
+  "summary": "Payment util with swift",
+  "description": "移动应用支付接口。\n使移动支付更简单。\n支持微信支付，银联支付，支付宝支付",
+  "homepage": "https://github.com/wuyingminhui/HiPay",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jasonwoo": "wuyingminhui@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wuyingminhui/HiPay.git",
+    "tag": "0.5.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "AliPay",
+    "WxPay",
+    "UnionPay"
+  ],
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "HiPay/Classes/HiPayCore",
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "AliPay",
+      "source_files": [
+        "HiPay/Classes/AlipaySDk",
+        "HiPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/*",
+        "HiPay/Classes/AlipaySDk/openssl/*.{h, m}",
+        "HiPay/Classes/AlipaySDk/Util/*.{h, m}"
+      ],
+      "vendored_frameworks": "HiPay/Classes/AlipaySDk/AlipaySDK.framework",
+      "vendored_libraries": "HiPay/Classes/AlipaySDk/*.a",
+      "resources": "HiPay/Classes/AlipaySDk/AlipaySDK.bundle",
+      "public_header_files": [
+        "HiPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/**/*.h",
+        "HiPay/Classes/AlipaySDk/Util/*.h"
+      ],
+      "frameworks": [
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "HiPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WxPay",
+      "source_files": "HiPay/Classes/WxSDK",
+      "vendored_libraries": "HiPay/Classes/WxSDK/*.a",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "HiPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "HiPay/Classes/UPPaySDK",
+      "vendored_libraries": "HiPay/Classes/UPPaySDK/*.a",
+      "public_header_files": "HiPay/Classes/UPPaySDK/*.h",
+      "dependencies": {
+        "HiPay/Core": [
+
+        ]
+      }
+    }
+  ]
+}

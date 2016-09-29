@@ -1,0 +1,120 @@
+{
+  "name": "Kite-Print-SDK",
+  "version": "5.1.0",
+  "license": {
+    "type": "MIT",
+    "file": "Kite-SDK/LICENSE"
+  },
+  "homepage": "https://github.com/OceanLabs/iOS-Print-SDK",
+  "authors": {
+    "Deon Botha": "deon@oceanlabs.co"
+  },
+  "summary": "Add physical print functionality in minutes! Print magnets, photo prints, postcards, polaroids, posters, stickers, canvas', phone cases, etc",
+  "source": {
+    "git": "https://github.com/OceanLabs/iOS-Print-SDK.git",
+    "tag": "5.1.0"
+  },
+  "source_files": [
+    "Kite-SDK/PSPrintSDK/OL*.{h,m}",
+    "Kite-SDK/PSPrintSDK/CardIO*.h",
+    "Kite-SDK/PSPrintSDK/RMImageCropper/*.{h,m}",
+    "Kite-SDK/PSPrintSDK/Categories/*.{h,m}",
+    "Kite-SDK/PSPrintSDK/LXReorderableCollectionViewFlowLayout.{h,m}"
+  ],
+  "resources": [
+    "Kite-SDK/PSPrintSDK/KitePrintSDK.xcassets",
+    "Kite-SDK/PSPrintSDK/*.lproj",
+    "Kite-SDK/PSPrintSDK/OLPhotoSelectionButton.xib",
+    "Kite-SDK/PSPrintSDK/kite_corrupt.jpg",
+    "Kite-SDK/PSPrintSDK/Base.lproj/OLKiteStoryboard.storyboard"
+  ],
+  "dependencies": {
+    "SVProgressHUD": [
+      "~> 1.1.3"
+    ],
+    "CSStickyHeaderFlowLayout": [
+      "~> 0.2.4"
+    ],
+    "MPFlipViewController": [
+      "~> 0.0.2"
+    ],
+    "TSMarkdownParser": [
+      "~> 1.0.17"
+    ],
+    "DACircularProgress": [
+
+    ],
+    "ios-qr-encoder": [
+      "~> 1.0.4"
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "social_media_url": "https://twitter.com/dbotha",
+  "default_subspecs": "Lite",
+  "subspecs": [
+    {
+      "name": "Lite"
+    },
+    {
+      "name": "PayPal",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_PAYPAL"
+      },
+      "dependencies": {
+        "PayPal-iOS-SDK/Core": [
+          "~> 2.12.6"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_APPLE_PAY"
+      },
+      "dependencies": {
+        "Stripe": [
+          "5.1.4"
+        ],
+        "Stripe/ApplePay": [
+          "5.1.4"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_FACEBOOK"
+      },
+      "dependencies": {
+        "FacebookImagePicker": [
+
+        ]
+      }
+    },
+    {
+      "name": "Instagram",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_INSTAGRAM"
+      },
+      "dependencies": {
+        "InstagramImagePicker": [
+
+        ]
+      }
+    },
+    {
+      "name": "ImageProviders",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DOL_KITE_OFFER_CUSTOM_IMAGE_PROVIDERS"
+      },
+      "dependencies": {
+        "KITAssetsPickerController": [
+
+        ]
+      }
+    }
+  ]
+}

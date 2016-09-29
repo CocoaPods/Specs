@@ -1,0 +1,106 @@
+{
+  "name": "LTLootsie",
+  "version": "5.1.4",
+  "license": "MIT",
+  "summary": "The World’s Most Powerful Loyalty Engine",
+  "homepage": "http://www.lootsie.com",
+  "social_media_url": "https://twitter.com/lootsie",
+  "authors": {
+    "Fabio Teles": "pixel4@gmail.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/LootsieIOS/ios-sdk",
+    "tag": "5.1.4"
+  },
+  "default_subspecs": "AdMob",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "LTLootsie/**/*.{h,m}",
+      "public_header_files": "LTLootsie/**/*.h",
+      "private_header_files": "LTLootsie/Vendor/**/*.h",
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "LTLootsie/Core": [
+
+        ]
+      },
+      "source_files": "LTLootsieUI/**/*.{h,m}",
+      "public_header_files": "LTLootsieUI/**/*.h",
+      "private_header_files": "LTLootsieUI/Vendor/**/*.h",
+      "frameworks": "CoreGraphics",
+      "resources": [
+        "LTLootsieUI/Resources/*.{storyboard,xib}",
+        "LTLootsieUI/Resources/Images/*.png"
+      ]
+    },
+    {
+      "name": "AchievementCore",
+      "dependencies": {
+        "LTLootsie/Core": [
+
+        ]
+      },
+      "source_files": "LTModule/LTAchievement/Core/**/*.{h,m}",
+      "public_header_files": "LTModule/LTAchievement/Core/**/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_ACHIEVEMENT=1"
+      }
+    },
+    {
+      "name": "AchievementUI",
+      "dependencies": {
+        "LTLootsie/AchievementCore": [
+
+        ],
+        "LTLootsie/UI": [
+
+        ]
+      },
+      "source_files": "LTModule/LTAchievement/UI/**/*.{h,m}",
+      "public_header_files": "LTModule/LTAchievement/UI/**/*.h"
+    },
+    {
+      "name": "AdMob",
+      "dependencies": {
+        "LTLootsie/AchievementUI": [
+
+        ]
+      },
+      "preserve_paths": "ThirdParty/GoogleMobileAds.framework",
+      "vendored_frameworks": "ThirdParty/GoogleMobileAds.framework",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "USE_ADMOB=1"
+      }
+    },
+    {
+      "name": "Aerserv",
+      "dependencies": {
+        "LTLootsie/UI": [
+
+        ],
+        "LTLootsie/AchievementUI": [
+
+        ]
+      },
+      "preserve_paths": "ThirdParty/AerServSDK.framework",
+      "vendored_frameworks": "ThirdParty/AerServSDK.framework",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "USE_AERSERV=1",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "libraries": "xml2.2"
+    }
+  ]
+}

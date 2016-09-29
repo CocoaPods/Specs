@@ -1,0 +1,52 @@
+{
+  "name": "DBModel",
+  "version": "0.1.2",
+  "summary": "This is a combination of json parsing and database.",
+  "homepage": "https://github.com/Musjoy/DBModel",
+  "license": "MIT",
+  "authors": {
+    "Raymond": "Ray.musjoy@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Musjoy/DBModel.git",
+    "tag": "v-0.1.2",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "default_subspecs": "DBModel",
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "MODULE_DB_MODEL"
+  },
+  "dependencies": {
+    "ModuleCapability": [
+      "~> 0.1.2"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "DBModel",
+      "source_files": "DBModel/DBMode*.{h,m}"
+    },
+    {
+      "name": "DBManager",
+      "source_files": [
+        "DBModel/DBManager.{h,m}",
+        "DBModel/DBTableInfo.{h,m}"
+      ],
+      "dependencies": {
+        "DBModel/DBModel": [
+
+        ],
+        "FMDB": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "MODULE_DB_MANAGER"
+      },
+      "prefix_header_contents": "#import \"ModuleCapability.h\"\n#ifndef MODULE_DB_MANAGER\n  #define MODULE_DB_MANAGER\n#endif"
+    }
+  ]
+}

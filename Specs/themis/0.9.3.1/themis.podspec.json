@@ -1,0 +1,67 @@
+{
+  "name": "themis",
+  "version": "0.9.3.1",
+  "summary": "Data security library for network communication and data storage for iOS and OS X",
+  "description": "Themis is a data security library, providing users with high-quality security services for secure messaging of any kinds and flexible data storage. Themis is aimed at modern development practices, with high level OOP wrappers for Ruby, Python, PHP, Java / Android and iOS / OSX. It is designed with ease of use in mind, high security and cross-platform availability.",
+  "homepage": "http://cossacklabs.com",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "source": {
+    "git": "https://github.com/cossacklabs/themis.git",
+    "tag": "0.9.3.1"
+  },
+  "authors": {
+    "cossacklabs": "info@cossacklabs.com"
+  },
+  "dependencies": {
+    "OpenSSL-Universal": [
+      "1.0.1.19"
+    ]
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "xcconfig": {
+    "OTHER_CFLAGS": "-DLIBRESSL",
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+    "LIBRARY_SEARCH_PATHS": "\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\""
+  },
+  "libraries": [
+    "ssl",
+    "crypto"
+  ],
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": [
+        "src/themis/*.{h,c}",
+        "src/soter/**/*.{c,h}"
+      ],
+      "header_mappings_dir": "src",
+      "header_dir": "src",
+      "preserve_paths": [
+        "src/themis/*.h",
+        "src/soter/**/*.h"
+      ],
+      "public_header_files": [
+        "src/themis/*.h",
+        "src/soter/**/*.h"
+      ]
+    },
+    {
+      "name": "objcwrapper",
+      "header_mappings_dir": "src/wrappers/themis/Obj-C/objcthemis",
+      "source_files": "src/wrappers/themis/Obj-C/objcthemis/*.{m,h}",
+      "public_header_files": "src/wrappers/themis/Obj-C/objcthemis/*.h",
+      "header_dir": "objcthemis",
+      "dependencies": {
+        "themis/core": [
+
+        ]
+      }
+    }
+  ]
+}

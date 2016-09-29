@@ -1,0 +1,121 @@
+{
+  "name": "XMNThirdFunction",
+  "version": "1.0.1",
+  "summary": "封装第三方SDK 集成分享功能",
+  "description": "移动分享集成,\n目前支持微信,微博,QQ",
+  "homepage": "https://github.com/ws00801526",
+  "license": "MIT",
+  "authors": {
+    "XMFraker": "3057600441@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ws00801526/XMNThirdFunction.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "WeChat",
+    "Weibo",
+    "QQ"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction.{h,m}",
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+Supports.{h,m}"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "ImageIO",
+        "CoreTelephony",
+        "QuartzCore",
+        "Security"
+      ]
+    },
+    {
+      "name": "WeChat",
+      "ios": {
+        "libraries": [
+          "z",
+          "sqlite3.0",
+          "c++"
+        ]
+      },
+      "public_header_files": [
+        "XMNThirdExample/XMNThirdInteraction/APPSDK/WeChat/*.h",
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+WeChat.h"
+      ],
+      "source_files": [
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+WeChat.{h,m}",
+        "XMNThirdExample/XMNThirdInteraction/APPSDK/WeChat/*.h"
+      ],
+      "vendored_libraries": "XMNThirdExample/XMNThirdInteraction/APPSDK/WeChat/*.a",
+      "dependencies": {
+        "XMNThirdFunction/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Weibo",
+      "source_files": [
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+Weibo.{h,m}",
+        "XMNThirdExample/XMNThirdInteraction/APPSDK/Weibo/*.h"
+      ],
+      "public_header_files": [
+        "XMNThirdExample/XMNThirdInteraction/APPSDK/Weibo/*.h",
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+Weibo.h"
+      ],
+      "vendored_libraries": "XMNThirdExample/XMNThirdInteraction/APPSDK/Weibo/*.a",
+      "frameworks": [
+        "ImageIO",
+        "SystemConfiguration",
+        "CoreText",
+        "QuartzCore",
+        "Security",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "XMNThirdFunction/Core": [
+
+        ]
+      },
+      "resources": "XMNThirdExample/XMNThirdInteraction/APPSDK/Weibo/*.bundle"
+    },
+    {
+      "name": "QQ",
+      "source_files": "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+QQ.{h,m}",
+      "public_header_files": [
+        "XMNThirdExample/XMNThirdInteraction/XMNThirdFunction+QQ.h",
+        "XMNThirdExample/XMNThirdInteraction/APPSDK/QQ/TencentOpenAPI.framework/Headers/*.h"
+      ],
+      "ios": {
+        "vendored_frameworks": "XMNThirdExample/XMNThirdInteraction/APPSDK/QQ/TencentOpenAPI.framework",
+        "libraries": [
+          "iconv",
+          "sqlite3",
+          "stdc++",
+          "z"
+        ]
+      },
+      "dependencies": {
+        "XMNThirdFunction/Core": [
+
+        ]
+      },
+      "resources": "XMNThirdExample/XMNThirdInteraction/APPSDK/QQ/*.bundle"
+    }
+  ]
+}

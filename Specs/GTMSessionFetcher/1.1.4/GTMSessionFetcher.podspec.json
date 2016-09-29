@@ -1,0 +1,59 @@
+{
+  "name": "GTMSessionFetcher",
+  "version": "1.1.4",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/google/gtm-session-fetcher",
+  "source": {
+    "git": "https://github.com/google/gtm-session-fetcher.git",
+    "tag": "v1.1.4"
+  },
+  "summary": "Google Toolbox for Mac - Session Fetcher",
+  "description": "GTMSessionFetcher makes it easy for Cocoa applications\nto perform http operations. The fetcher is implemented\nas a wrapper on NSURLSession, so its behavior is asynchronous\nand uses operating-system settings on iOS and Mac OS X.",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Source/GTMSessionFetcher.{h,m}",
+        "Source/GTMSessionFetcherLogging.{h,m}",
+        "Source/GTMSessionFetcherService.{h,m}",
+        "Source/GTMSessionUploadFetcher.{h,m}"
+      ],
+      "frameworks": "Security"
+    },
+    {
+      "name": "Full",
+      "source_files": [
+        "Source/GTMGatherInputStream.{h,m}",
+        "Source/GTMMIMEDocument.{h,m}",
+        "Source/GTMReadMonitorInputStream.{h,m}"
+      ],
+      "dependencies": {
+        "GTMSessionFetcher/Core": [
+          "1.1.4"
+        ]
+      }
+    },
+    {
+      "name": "LogView",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": "Source/GTMSessionFetcherLogViewController.{h,m}",
+      "dependencies": {
+        "GTMSessionFetcher/Core": [
+          "1.1.4"
+        ]
+      }
+    }
+  ]
+}

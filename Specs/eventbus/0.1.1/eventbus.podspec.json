@@ -1,0 +1,56 @@
+{
+  "name": "eventbus",
+  "version": "0.1.1",
+  "summary": "mobile foundation framework",
+  "resources": "README.md",
+  "social_media_url": "https://twitter.com/galblank",
+  "platforms": {
+    "ios": "8.1"
+  },
+  "requires_arc": true,
+  "description": "brings to provide ALL the foundational needs of any mobile applicaion",
+  "homepage": "https://github.com/galblank/eventbus",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Blank, Gal": "galblank@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/galblank/eventbus.git",
+    "tag": "0.1.1"
+  },
+  "preserve_paths": "mobilesdkfw/sqlite3",
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "standard",
+      "ios": {
+        "frameworks": [
+          "CoreFoundation",
+          "ExternalAccessory",
+          "Security"
+        ]
+      },
+      "source_files": "mobilesdkfw/**/*.{c,h,m,swift}",
+      "libraries": [
+        "icucore",
+        "sqlite3"
+      ],
+      "dependencies": {
+        "sqlite3": [
+
+        ]
+      },
+      "exclude_files": [
+        "**/*.{png}",
+        "**/*.{pdf}"
+      ],
+      "preserve_paths": "mobilesdkfw/sqlite3/**/*",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]": "$(SRCROOT)/mobilesdkfw/sqlite3"
+      }
+    }
+  ]
+}

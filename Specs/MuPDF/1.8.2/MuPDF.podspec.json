@@ -1,0 +1,45 @@
+{
+  "name": "MuPDF",
+  "version": "1.8.2",
+  "summary": "A lightweight PDF and XPS viewer.",
+  "cocoapods_version": ">= 0.39",
+  "description": "MuPDF is a small, fast, and yet complete PDF viewer. \nIt supports PDF 1.7 with transparency, encryption, \nhyperlinks, annotations, searching and more. It also\nreads XPS and OpenXPS documents. Commercial\nlicensing is also available, contact sales@artifex.com",
+  "homepage": "http://www.mupdf.com/",
+  "license": {
+    "type": "Affero GNU GPL v3",
+    "file": "COPYING"
+  },
+  "authors": "Artifex",
+  "source": {
+    "git": "git://git.ghostscript.com/mupdf.git",
+    "tag": "1.8-ios",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "requires_arc": false,
+  "source_files": [
+    "platform/ios/Classes/**/*.[mh]",
+    "platform/ios/common.[mh]",
+    "include/*",
+    "include/**/*"
+  ],
+  "resources": [
+    "platform/ios/*.png",
+    "platform/android/res/drawable-ldpi/*.png"
+  ],
+  "public_header_files": [
+    "platform/ios/Classes/**/*.h",
+    "platform/ios/common.h",
+    "include/*",
+    "include/**/*"
+  ],
+  "header_mappings_dir": "include",
+  "prepare_command": "cd platform/ios\n# release armv7 + arm64\nxcodebuild -scheme MuPDF -configuration Release CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO\n\n# debug 64bit sim\nxcodebuild -scheme MuPDF -configuration Release -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO\ncd ../../build/\nfor i in freetype jbig2dec jpeg mujs mupdf openjpeg z; do\n    LIB=lib${i}.a\n    lipo -create -output $LIB release-ios-i386-x86_64/$LIB release-ios-armv7-arm64/$LIB\ndone\n\n# avoid any conflict with the libMuPDF.a that the pod generates\nmv libmupdf.a libmupdfcore.a",
+  "vendored_libraries": "build/*.a",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/MuPDF/platform/ios\" \"${PODS_ROOT}/MuPDF/platform/ios/Classes\""
+  }
+}

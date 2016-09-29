@@ -1,0 +1,152 @@
+{
+  "name": "hccoren",
+  "version": "0.3.7",
+  "summary": "这是一个与具体业务无关的通用核心库。",
+  "description": "这是一个特定的核心库。包含了常用的字串处理、网络处理、图片处理、压缩、正则、JSON、数据库及一个WebServer管理器。简化了外部引用的一些问题。\n在使用于，要特别注意Debug模式与Release模式切换处理。\n使用命令CMD时注意，需要重新设置DeviceConfig中记录的命令地址的信息。",
+  "homepage": "https://github.com/halfking/hccoren",
+  "license": "MIT",
+  "authors": {
+    "halfking": "kimmy.huang@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/halfking/hccoren.git",
+    "tag": "0.3.7",
+    "submodules": true
+  },
+  "resources": "hccoren.bundle",
+  "xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "ENABLE_BITCODE": "YES",
+    "DEFINES_MODULE": "YES"
+  },
+  "dependencies": {
+    "HCMinizip": [
+      "~> 1.2.6"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": false,
+      "source_files": [
+        "hccoren/String/**/*.{h,m,mm,c,cpp}",
+        "hccoren/Util/**/*.{h,m,mm,c,cpp}",
+        "hccoren/Data/*.{h,m,c,cpp}",
+        "hccoren/base/*.{h,m,mm,c,cpp}",
+        "hccoren/config_coren.h",
+        "hccoren/Map/*.{h,m}",
+        "hccoren/**/Reachability.{h,m}",
+        "hccoren/UDI/**/*.{h,m,cpp,c}",
+        "hccoren/base.h",
+        "hccoren/**/*.bundle"
+      ],
+      "public_header_files": [
+        "hccoren/String/**/*.h",
+        "hccoren/Util/**/*.h",
+        "hccoren/Data/*.h",
+        "hccoren/Base/*.h",
+        "hccoren/config_coren.h",
+        "hccoren/Map/*.h",
+        "hccoren/UDI/**/*.h",
+        "hccoren/**/Reachability.h",
+        "hccoren/base.h"
+      ],
+      "exclude_files": [
+        "hccoren/Util/HttpServerManager.{h,m,mm,c,cpp}",
+        "hccoren/Util/HWWeakTimer.{h,m}",
+        "hccoren/ZipArchive/**/*.{h,m,mm,c,cpp}",
+        "hccoren/ZipArchive/MiniZip/*.{h,m,mm,c,cpp}",
+        "hccoren/base/publictext.h",
+        "hccoren/**/*.png",
+        "hccorentest/**/*"
+      ],
+      "libraries": [
+        "icucore",
+        "iconv",
+        "stdc++",
+        "stdc++.6",
+        "z"
+      ],
+      "frameworks": [
+        "UIKit",
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "IOKit"
+      ]
+    },
+    {
+      "name": "NetworkAndDatabase",
+      "requires_arc": true,
+      "source_files": [
+        "hccoren/Network/AsyncSocket/*.{h,m,mm,cpp,c}",
+        "hccoren/CMDBase/*.{h,m,mm,cpp,c}",
+        "hccoren/Database/*.{h,m,mm,cpp,c}",
+        "hccoren/Util/HttpServerManager.{h,m,mm,c,cpp}",
+        "hccoren/Network/CocoaWebResource/*.{h,m,mm,c,cpp}",
+        "hccoren/Network/BlueSession/*.{h,m,mm,c,cpp}",
+        "hccoren/Util/HWWeakTimer.{h,m}",
+        "hccoren/database.h",
+        "hccoren/cmd.h"
+      ],
+      "public_header_files": [
+        "hccoren/Network/AsyncSocket/*.h",
+        "hccoren/CMDBase/*.h",
+        "hccoren/Database/*.h",
+        "hccoren/Network/CocoaWebResource/*.h",
+        "hccoren/Network/BlueSession/*.h",
+        "hccoren/Util/HttpServerManager.h",
+        "hccoren/Util/HWWeakTimer.h",
+        "hccoren/database.h",
+        "hccoren/cmd.h"
+      ],
+      "libraries": [
+        "stdc++",
+        "stdc++.6",
+        "icucore",
+        "iconv",
+        "sqlite3.0"
+      ],
+      "ios": {
+        "dependencies": {
+          "hccoren/Core": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "UIControls",
+      "requires_arc": true,
+      "source_files": [
+        "hccoren/UIControls/*.{h,m,mm,cpp,c}",
+        "hccoren/images.h"
+      ],
+      "public_header_files": [
+        "hccoren/UIControls/*.h",
+        "hccoren/images.h"
+      ],
+      "frameworks": [
+        "UIKit",
+        "CoreImage",
+        "CoreGraphics",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration"
+      ],
+      "ios": {
+        "dependencies": {
+          "hccoren/Core": [
+
+          ]
+        }
+      }
+    }
+  ]
+}

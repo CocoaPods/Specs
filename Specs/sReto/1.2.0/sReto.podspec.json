@@ -1,0 +1,53 @@
+{
+  "name": "sReto",
+  "version": "1.2.0",
+  "summary": "P2P Framework for realtime collaboration in Swift",
+  "homepage": "https://github.com/ls1intum/sReto",
+  "license": "MIT",
+  "authors": {
+    "Chair for Applied Software Engineering": "ios@in.tum.de"
+  },
+  "social_media_url": "https://twitter.com/ls1intum",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/ls1intum/sReto.git",
+    "tag": "1.2.0"
+  },
+  "ios": {
+    "frameworks": [
+      "CFNetwork",
+      "Security"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "CoreServices",
+      "Security"
+    ]
+  },
+  "libraries": "icucore",
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "Source/sReto/DNSSD/*",
+      "requires_arc": false
+    },
+    {
+      "name": "arc",
+      "source_files": "Source/**/*.{h,c,m,swift}",
+      "exclude_files": [
+        "Source/sReto/DNSSD/*",
+        "Source/sRetoTests/*"
+      ],
+      "requires_arc": true,
+      "dependencies": {
+        "sReto/no-arc": [
+
+        ]
+      }
+    }
+  ]
+}

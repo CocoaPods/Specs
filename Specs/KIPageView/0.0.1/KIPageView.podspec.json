@@ -1,0 +1,21 @@
+{
+  "name": "KIPageView",
+  "version": "0.0.1",
+  "summary": "KIPageView",
+  "description": "## KIPageView\nUITableView 很强大，可是只能竖向滚动；UICollectionView 可以解决各种布局难题，但是稍显复杂，对于一些简单的需求，有点杀鸡用牛刀的感觉。\n\n在 iOS6 以前，还没有 UICollectionView，为了实现横向滚动的 UITableView，只有自己动手写组件。为了达到和 UITableView 差不多的效果，就得先弄清其内部实现机制是怎么回事。\n\n在渲染 View 的时候，是很耗系统资源的，如果创建大量的 View, 系统运行将变得异常缓慢，甚至导致内存耗尽。但是，在实际应用中，我们难免会遇到大量的数据需要显示，如果每显示一个数据，我们都创建一个 View，那应用程序的体验将相当糟糕。所以 Apple 为 iOS 开发者提供了 UITableView，Google 为 Android 开发者提供了 ListView。\n\n简单来讲，UITableView 采用复用机制，其只会显示其可见区域内的 UITableViewCell。我们在滑动的过程中，当超出 UITableView 可见区域的 Cell，将会从 UITableView 中移除，并加入回收池中以作复用。当 UITableView 需要显示新的 Cell，会先从回收池中查找是否有相应的 Cell 可以重用（通过 dequeueReusableCellWithIdentifier:）。如果有，则直接将其重新显示；如果没有，则创建新的 Cell。这样一来，就可以避免因创建过多的 View，导致内存耗尽的尴尬情况。\n\n了解了其内部的运行原理，我们也可以实现一个自己的 UITableView。\n\n很常见的一个应用场景——显示图片：如果显示一张图片，我们用一个 UIImageView 足矣，如果要显示多张图片，并且可以左右滚动，最简单的办法是用一个 UIScrollView 包含多个 UIImageView, 但是这样带来的后果则是，如果图片数据量较大，那这个程序根本没有办法正常使用。如果我们还需要实现无限循环滚动，那这个解决方案肯定是不行的。所以这时候，就得我们自己实现一个 UITableView。\n\n最开始，我写了一个组件叫 KIFlowView，实现了上面讲的需求，但是都是 iOS5 时代的产物了，难免过于陈旧。在后续的工作中也发现，类似的需求其实挺多的，比如左右滑动的 View，如网易新闻客户端，可以左右滑动，在不同的新闻栏目之间进行切换；有时候我们也需要实现一些 Tab，如果 Tab 的项目比较多，也需要考虑复用的问题，所以决定重新写一个增强组件，作为其替代品，所以就产生了 KIPageView。",
+  "homepage": "https://github.com/smartwalle/KIPageView",
+  "license": "MIT",
+  "authors": {
+    "SmartWalle": "smartwalle@gmail.com"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/smartwalle/KIPageView.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "KIPageView/KIPageView/*.{h,m}",
+  "exclude_files": "Classes/Exclude",
+  "requires_arc": true
+}

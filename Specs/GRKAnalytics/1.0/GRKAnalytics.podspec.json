@@ -1,0 +1,44 @@
+{
+  "name": "GRKAnalytics",
+  "version": "1.0",
+  "summary": "A lightweight abstraction for underlying analytics providers.",
+  "homepage": "https://github.com/levigroker/GRKAnalytics",
+  "license": "Creative Commons Attribution 3.0 Unported License",
+  "authors": {
+    "Levi Brown": "levigroker@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/levigroker",
+  "source": {
+    "git": "https://github.com/levigroker/GRKAnalytics.git",
+    "tag": "1.0"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "frameworks": "Foundation",
+  "description": "GRKAnalytics is a lightweight abstraction allowing for the agnostic use of multiple and varying analytics providers. Supported providers:  and Fabric.",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "*.{h,m}"
+      ]
+    },
+    {
+      "name": "Fabric",
+      "prefix_header_contents": "#define GRK_FABRIC_EXISTS 1",
+      "dependencies": {
+        "GRKAnalytics/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Providers/GRKFabricProvider.{h,m}"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-Wl,-U,_OBJC_CLASS_$_Fabric,-U,_OBJC_CLASS_$_Crashlytics,-U,_OBJC_CLASS_$_Answers"
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "GhostPlusShare",
+  "version": "1.00",
+  "summary": "Ghost Plus Share Framework",
+  "description": "Ghost Plus Share Framework",
+  "homepage": "http://www.ghostplus.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "VANSTUDIO": "vanstudio@ghost-corps.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/vanstudio/GhostPlusShare-iOS.git",
+    "tag": "1.00"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "GhostPlus": [
+
+        ]
+      },
+      "header_dir": "GhostPlusShare",
+      "vendored_frameworks": [
+        "Frameworks/GhostPlusShare.framework"
+      ],
+      "resources": "Frameworks/GhostPlusShare.framework/Versions/A/Resources/GhostPlusShareResources.bundle",
+      "frameworks": "MessageUI"
+    },
+    {
+      "name": "Facebook",
+      "source_files": "Classes/Services/Facebook/**/*.{h,m}",
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "~> 4.10.1"
+        ],
+        "FBSDKShareKit": [
+          "~> 4.10.1"
+        ],
+        "GhostPlusShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "pod_target_xcconfig": {
+        "CLANG_ENABLE_MODULES": "NO"
+      },
+      "source_files": "Classes/Services/Twitter/**/*.{h,m}",
+      "dependencies": {
+        "Fabric": [
+          "~> 1.6.7"
+        ],
+        "TwitterKit": [
+          "~> 1.15.3"
+        ],
+        "GhostPlusShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Kakao",
+      "source_files": "Classes/Services/Kakao/**/*.{h,m}",
+      "dependencies": {
+        "GhostPlusShare/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Frameworks/KakaoOpenSDK.framework"
+      ],
+      "frameworks": "UIKit"
+    }
+  ]
+}

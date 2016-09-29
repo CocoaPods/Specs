@@ -1,0 +1,52 @@
+{
+  "name": "NSLogger",
+  "version": "1.7.0",
+  "license": "BSD",
+  "summary": "A modern, flexible logging tool.",
+  "homepage": "https://github.com/fpillet/NSLogger",
+  "authors": {
+    "Florent Pillet": "fpillet@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/fpillet/NSLogger.git",
+    "tag": "v1.7.0"
+  },
+  "screenshots": "https://github.com/fpillet/NSLogger/raw/master/Screenshots/mainwindow.png",
+  "description": "NSLogger is a high perfomance logging utility which displays traces emitted by client applications running on Mac OS X or iOS (iPhone OS). It replaces your usual NSLog()-based traces and provides powerful additions like display filtering, image and binary logging, traces buffering, timing information, etc. Download a prebuilt desktop viewer from https://github.com/fpillet/NSLogger/releases",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0"
+  },
+  "ios": {
+    "frameworks": [
+      "CFNetwork",
+      "SystemConfiguration"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "CFNetwork",
+      "SystemConfiguration",
+      "CoreServices"
+    ]
+  },
+  "requires_arc": false,
+  "default_subspecs": "Standard",
+  "subspecs": [
+    {
+      "name": "Standard",
+      "source_files": "Client Logger/iOS/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "${inherited} NSLOGGER_WAS_HERE=1 NSLOGGER_BUILD_USERNAME=\"${USER}\""
+      }
+    },
+    {
+      "name": "NoStrip",
+      "source_files": "Client Logger/iOS/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "${inherited} NSLOGGER_WAS_HERE=1 NSLOGGER_BUILD_USERNAME=\"${USER}\" NSLOGGER_ALLOW_NOSTRIP=1"
+      }
+    }
+  ]
+}

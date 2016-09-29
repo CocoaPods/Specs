@@ -1,0 +1,60 @@
+{
+  "name": "ZumeroSync",
+  "version": "2.1.0.2940",
+  "summary": "Use Zumero to sync SQL Server databases with local SQLite dbfiles.",
+  "description": "Includes all sync and quarantine functions of the Zumero API.\n\nZumero syncs local (SQLite) databases bidirectionally with backend SQL Server databases.",
+  "homepage": "http://zumero.com/dev-center/zss",
+  "license": "Apache",
+  "authors": {
+    "Zumero LLC": "support@zumero.com"
+  },
+  "source": {
+    "git": "https://github.com/zumero/ZumeroSyncPod.git",
+    "tag": "2.1.0.2940"
+  },
+  "social_media_url": "https://twitter.com/zumero_uno",
+  "requires_arc": true,
+  "default_subspecs": "SQLite",
+  "platforms": {
+    "osx": "10.7",
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "common",
+      "libraries": "z",
+      "frameworks": "CFNetwork",
+      "ios": {
+        "vendored_libraries": "Libraries/ios/libzumero_client_api.a",
+        "exclude_files": "Classes/osx"
+      },
+      "osx": {
+        "vendored_libraries": "Libraries/osx/libzumero_client_api.a",
+        "exclude_files": "Classes/ios"
+      },
+      "source_files": "Classes"
+    },
+    {
+      "name": "SQLite",
+      "dependencies": {
+        "sqlite3": [
+
+        ],
+        "ZumeroSync/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+
+        ],
+        "ZumeroSync/common": [
+
+        ]
+      }
+    }
+  ]
+}

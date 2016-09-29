@@ -1,0 +1,42 @@
+{
+  "name": "Siesta",
+  "version": "1.0-beta.2",
+  "summary": "iOS REST Client Framework",
+  "description": "Drastically simplifies app code by providing a client-side cache of observable models for RESTful resources.\n\nSiesta ends the stateful headache of client-side network request management by providing an observable model of a RESTful resource’s state. The model answers three basic questions:\n\n* What is the latest data for this resource, if any?\n* Did the latest request result in an error?\n* Is there a request in progress?\n\n…then provides notifications whenever the answers to these questions change.\n\nSiesta handles all the transitions and corner cases to deliver these answers wrapped up with a pretty bow on top, letting you focus on your UI.\n\n## Requirements\n\n* **OS:** iOS 8+\n* **Languages:** Written in Swift, supports Swift and Objective-C\n* **Build requirements:** Xcode 7 beta 6, Swift 2.0\n* **License:** MIT\n* **Status:** 1.0 release now in beta. Seeking feedback. Please experiment!\n\n## Features\n\n- Decouples UI component lifecycles from network request lifecycles\n- Eliminates error-prone state tracking logic\n- Eliminates redundant network requests\n- Unified reporting for all errors: encoding, network, server-side, and parsing\n- Transparent Etag / If-Modified-Since handling\n- Painless handling for JSON and plain text, plus customizable response transformation\n- Prebaked UI for loading & error handling\n- Debug-friendly, customizable logging\n- Written in Swift with a great [Swift-centric API](https://bustoutsolutions.github.io/siesta/api/), but…\n- …also works great from Objective-C thanks to a compatibility layer.\n- Lightweight. Won’t achieve sentience and attempt to destroy you.\n- [Robust regression tests](https://bustoutsolutions.github.io/siesta/specs/)\n- [Documentation](https://bustoutsolutions.github.io/siesta/guide/)",
+  "homepage": "http://bustoutsolutions.github.io/siesta/",
+  "license": "MIT",
+  "authors": {
+    "Bust Out Solutions, Inc.": "hello@bustoutsolutions.com",
+    "Paul Cantrell": "https://innig.net"
+  },
+  "social_media_url": "https://twitter.com/teambustout",
+  "documentation_url": "https://bustoutsolutions.github.io/siesta/guide/",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/bustoutsolutions/siesta.git",
+    "tag": "1.0-beta.2"
+  },
+  "resources": "Source/**/*.xib",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/**/*",
+      "exclude_files": "Source/Networking-Alamofire.swift"
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "Source/Networking-Alamofire.swift",
+      "dependencies": {
+        "Siesta/Core": [
+
+        ],
+        "Alamofire": [
+          "2.0.2"
+        ]
+      }
+    }
+  ]
+}

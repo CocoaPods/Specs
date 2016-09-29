@@ -1,0 +1,73 @@
+{
+  "name": "RHSocketKit",
+  "version": "2.1.4",
+  "summary": "A socket kit based on CocoaAsyncSocket.",
+  "homepage": "https://github.com/zhu410289616/RHSocketKit",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhu410289616": "zhu410289616@163.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/zhu410289616/RHSocketKit.git",
+    "tag": "2.1.4"
+  },
+  "default_subspecs": [
+    "Core",
+    "Extend"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "RHSocketKit/Core/*.{h,m}",
+        "RHSocketKit/Core/{Channel,Codec,Exception,Packet,Utils}/*.{h,m}",
+        "RHSocketKit/Core/Codec/{Delimiter,Protobuf,VariableLength}/*.{h,m}"
+      ],
+      "requires_arc": true,
+      "dependencies": {
+        "CocoaAsyncSocket": [
+          "~> 7.4.3"
+        ],
+        "ProtocolBuffers": [
+          "~> 1.9.9.2"
+        ]
+      }
+    },
+    {
+      "name": "Extend",
+      "dependencies": {
+        "RHSocketKit/Core": [
+
+        ]
+      },
+      "source_files": [
+        "RHSocketKit/Extend/*.{h,m}",
+        "RHSocketKit/Extend/Codec/{Base64Codec,ProtobufCodec,SerializationCodec,StringCodec}/*.{h,m}"
+      ],
+      "requires_arc": true
+    },
+    {
+      "name": "RPC",
+      "dependencies": {
+        "RHSocketKit/Core": [
+
+        ],
+        "MSWeakTimer": [
+          "~> 1.1.0"
+        ]
+      },
+      "source_files": [
+        "RHSocketKit/RPC/*.{h,m}",
+        "RHSocketKit/RPC/CallReply/*.{h,m}"
+      ],
+      "requires_arc": true
+    }
+  ]
+}

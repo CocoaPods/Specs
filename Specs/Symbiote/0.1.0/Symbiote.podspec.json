@@ -1,0 +1,70 @@
+{
+  "name": "Symbiote",
+  "version": "0.1.0",
+  "summary": "Symbiote is an analytics framework that supports multiple platforms, auto enables analytics in an app (through swizzling) and is easily extensible.",
+  "description": "Symbiote is an analytics framework that supports multiple platforms, auto enables basic analytics in your app and is easily extensible with event processors.\nExtended analytics support can be enabled by subclassing UIButtons and UIViewControllers from analytics subclasses and providing a view name. This will enable the framework to automatically build view paths and label buttons with their respective actions correctly.\nUnsupported analytics platforms may be integrated by implementing a simple event logging protocol. Custom events can be created easily.\nEvents may be filtered and processed (add/edit/remove/analyze data) by adding custom event processors to the event bus.",
+  "homepage": "https://github.com/vectorform/Symbiote",
+  "license": "BSD",
+  "authors": {
+    "Vectorform": "jstart@vectorform.de"
+  },
+  "source": {
+    "git": "https://github.com/vectorform/Symbiote.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/vectorform",
+  "source_files": "Core/",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": "UIKit",
+  "default_subspecs": [
+    "Core",
+    "Provider/DebugLog"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Core/**/*.swift"
+    },
+    {
+      "name": "Provider",
+      "subspecs": [
+        {
+          "name": "DebugLog",
+          "dependencies": {
+            "Symbiote/Core": [
+
+            ]
+          },
+          "source_files": "Provider/DebugLog/*.swift"
+        },
+        {
+          "name": "AWSMobileAnalytics",
+          "dependencies": {
+            "Symbiote/Core": [
+
+            ],
+            "AWSMobileAnalytics": [
+              "~> 2.3.2"
+            ]
+          },
+          "source_files": "Provider/AWSMobileAnalytics/*.swift"
+        },
+        {
+          "name": "FlurryAnalytics",
+          "dependencies": {
+            "Symbiote/Core": [
+
+            ],
+            "Flurry-iOS-SDK/FlurrySDK": [
+
+            ]
+          },
+          "source_files": "Provider/FlurryAnalytics/*.swift"
+        }
+      ]
+    }
+  ]
+}

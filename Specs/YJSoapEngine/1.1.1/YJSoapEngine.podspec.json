@@ -1,0 +1,71 @@
+{
+  "name": "YJSoapEngine",
+  "version": "1.1.1",
+  "summary": "A SoapEngine for iOS written in Objective - C",
+  "description": "YJSoapEngine is a class designed to simplify the implementation of a SOAP Web Service for iPhone, iPad. YJSoapEngine can be used to serialize custom objects for Soap Requests.",
+  "homepage": "https://github.com/yj7/YJSoapEngine",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yash Jhunjhunwala": "jhunjhunwalayash7@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/yashj97",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/yj7/YJSoapEngine.git",
+    "tag": "1.1.1"
+  },
+  "exclude_files": [
+    "YJSoapEngine/GDataXMLNode.{h,m}",
+    "YJSoapEngine/XmlParser.{h,m}",
+    "YJSoapEngine/OrderedDictionary.{h,m}"
+  ],
+  "public_header_files": "YJSoapEngine/YJSoapEngine.h",
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-lxml2"
+  },
+  "subspecs": [
+    {
+      "name": "TypeMapping",
+      "source_files": "YJSoapEngine/**/TypeMapping.{h,m}"
+    },
+    {
+      "name": "no-arc",
+      "dependencies": {
+        "YJSoapEngine/TypeMapping": [
+
+        ]
+      },
+      "requires_arc": false,
+      "source_files": [
+        "YJSoapEngine/GDataXMLNode.{h,m}",
+        "YJSoapEngine/XmlParser.{h,m}",
+        "YJSoapEngine/OrderedDictionary.{h,m}"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": "YJSoapEngine/*.{h,m}",
+      "dependencies": {
+        "YJSoapEngine/no-arc": [
+
+        ]
+      },
+      "exclude_files": [
+        "YJSoapEngine/GDataXMLNode.{h,m}",
+        "YJSoapEngine/XmlParser.{h,m}",
+        "YJSoapEngine/OrderedDictionary.{h,m}"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+        "OTHER_LDFLAGS": "-lxml2"
+      }
+    }
+  ]
+}

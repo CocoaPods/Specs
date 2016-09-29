@@ -1,0 +1,43 @@
+{
+  "name": "NetworkEye",
+  "version": "1.0.5",
+  "summary": "NetworkEye - a iOS network debug library ,It can monitor HTTP requests within the App and displays information related to the request.",
+  "homepage": "https://github.com/coderyi/NetworkEye",
+  "license": "MIT",
+  "authors": {
+    "coderyi": "coderyi@163.com"
+  },
+  "source": {
+    "git": "https://github.com/coderyi/NetworkEye.git",
+    "tag": "1.0.5"
+  },
+  "frameworks": [
+    "Foundation",
+    "CoreGraphics",
+    "UIKit"
+  ],
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": "NetworkEye/NetworkEye/**/*.{h,m,png}"
+    },
+    {
+      "name": "FMDB",
+      "libraries": "sqlite3",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DFMDB_SQLCipher"
+      },
+      "dependencies": {
+        "FMDB/SQLCipher": [
+          "~> 2.5"
+        ]
+      },
+      "source_files": "NetworkEye/NetworkEye/**/*.{h,m,png}"
+    }
+  ]
+}

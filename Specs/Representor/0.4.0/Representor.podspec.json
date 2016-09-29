@@ -1,0 +1,93 @@
+{
+  "name": "Representor",
+  "version": "0.4.0",
+  "summary": "A canonical resource object interface in Swift.",
+  "homepage": "https://github.com/the-hypermedia-project/representor-swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kyle Fuller": "kyle@fuller.li"
+  },
+  "social_media_url": "http://twitter.com/kylefuller",
+  "source": {
+    "git": "https://github.com/the-hypermedia-project/representor-swift.git",
+    "tag": "0.4.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Representor/*.{swift,h}",
+        "Representor/Builder/*.swift"
+      ]
+    },
+    {
+      "name": "HTTP",
+      "subspecs": [
+        {
+          "name": "Transition",
+          "dependencies": {
+            "Representor/Core": [
+
+            ]
+          },
+          "source_files": "Representor/HTTP/HTTPTransition{,Builder}.swift"
+        },
+        {
+          "name": "Deserialization",
+          "dependencies": {
+            "Representor/HTTP/Transition": [
+
+            ],
+            "Representor/HTTP/Adapters/HAL": [
+
+            ],
+            "Representor/HTTP/Adapters/Siren": [
+
+            ]
+          },
+          "source_files": "Representor/HTTP/HTTPDeserialization.swift"
+        },
+        {
+          "name": "Adapters",
+          "subspecs": [
+            {
+              "name": "HAL",
+              "dependencies": {
+                "Representor/HTTP/Transition": [
+
+                ]
+              },
+              "source_files": "Representor/HTTP/Adapters/HTTPHALAdapter.swift"
+            },
+            {
+              "name": "Siren",
+              "dependencies": {
+                "Representor/HTTP/Transition": [
+
+                ]
+              },
+              "source_files": "Representor/HTTP/Adapters/HTTPSirenAdapter.swift"
+            },
+            {
+              "name": "APIBlueprint",
+              "dependencies": {
+                "Representor/HTTP/Transition": [
+
+                ]
+              },
+              "source_files": "Representor/HTTP/APIBlueprint/*.swift"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

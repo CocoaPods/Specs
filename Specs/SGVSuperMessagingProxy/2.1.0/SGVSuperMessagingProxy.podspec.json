@@ -1,0 +1,68 @@
+{
+  "name": "SGVSuperMessagingProxy",
+  "version": "2.1.0",
+  "cocoapods_version": ">= 1.0.0",
+  "summary": "Invoke superclass method implementations of dynamically dispatched methods in Objective-C and Swift.",
+  "description": "This NSProxy/SwiftObject proxy allows one to invoke method implementations from any class in the inheritance hierarchy for any Objective-C object or invoke dynamically-dispatched method implementations for any Swift object.\n\nOn creation, the proxy is passed the object and optionally a class in that object's inheritance hierarchy.\n\nAny message sent to the proxy will be executed as if it was invoked with the `super` keyword from within that object's class declaration.",
+  "homepage": "https://github.com/sanekgusev/SGVSuperMessagingProxy",
+  "license": "MIT",
+  "authors": {
+    "Aleksandr Gusev": "sanekgusev@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/sanekgusev/SGVSuperMessagingProxy.git",
+    "tag": "2.1.0"
+  },
+  "social_media_url": "https://twitter.com/sanekgusev",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "Pod/Sources/Common/TrampolineMacros.h",
+      "private_header_files": "Pod/Sources/Common/TrampolineMacros.h",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.8",
+        "watchos": "1.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "Objective-C",
+      "source_files": "Pod/Sources/Objective-C/**/*.{h,c,m}",
+      "private_header_files": "Pod/Sources/Objective-C/ObjcTrampolines.h",
+      "dependencies": {
+        "SGVSuperMessagingProxy/Common": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.8",
+        "watchos": "1.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "Swift",
+      "source_files": "Pod/Sources/Swift/**/*.{h,c,swift}",
+      "private_header_files": "Pod/Sources/Swift/SwiftTrampolines.h",
+      "dependencies": {
+        "SGVSuperMessagingProxy/Common": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "!ProtoCompiler-gRPCPlugin",
+  "version": "1.0.0-pre1.2",
+  "summary": "The gRPC ProtoC plugin generates Objective-C files from .proto services.",
+  "description": "This podspec only downloads the gRPC protoc plugin so that local pods generating protos can use\nit in their invocation of protoc, as part of their prepare_command.\nThe generated code will have a dependency on the gRPC Objective-C Proto runtime of the same\nversion. The runtime can be obtained as the \"gRPC-ProtoRPC\" pod.",
+  "homepage": "http://www.grpc.io",
+  "license": {
+    "type": "New BSD",
+    "text": "      Copyright 2015, Google Inc.\n      All rights reserved.\n\n      Redistribution and use in source and binary forms, with or without\n      modification, are permitted provided that the following conditions are\n      met:\n\n          * Redistributions of source code must retain the above copyright\n      notice, this list of conditions and the following disclaimer.\n          * Redistributions in binary form must reproduce the above\n      copyright notice, this list of conditions and the following disclaimer\n      in the documentation and/or other materials provided with the\n      distribution.\n          * Neither the name of Google Inc. nor the names of its\n      contributors may be used to endorse or promote products derived from\n      this software without specific prior written permission.\n\n      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n      \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n      LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n      A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n      OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n      SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n      LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n      DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n      THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n      (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n      OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+  },
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "http": "https://github.com/grpc/grpc/releases/download/objective-c-v1.0.0-pre1/grpc_objective_c_plugin-1.0.0-pre1-macos-x86_64.zip"
+  },
+  "preserve_paths": "grpc_objective_c_plugin",
+  "dependencies": {
+    "!ProtoCompiler": [
+      "3.0.0"
+    ],
+    "gRPC-ProtoRPC": [
+      "1.0.0-pre1"
+    ]
+  },
+  "platforms": {
+    "ios": "7.1",
+    "osx": "10.9"
+  },
+  "prepare_command": "if [ ! -f grpc_objective_c_plugin ]; then\n  cd ../..\n  # This will build the plugin and put it in ../../bins/opt.\n  #\n  # TODO(jcanizales): I reckon make will try to use locally-installed libprotoc (headers and\n  # library binary) if found, which _we do not want_. Find a way for this to always use the\n  # sources in the repo.\n  make grpc_objective_c_plugin\n  cd -\nfi"
+}

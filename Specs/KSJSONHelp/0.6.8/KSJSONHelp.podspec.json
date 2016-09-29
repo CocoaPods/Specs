@@ -1,0 +1,57 @@
+{
+  "name": "KSJSONHelp",
+  "version": "0.6.8",
+  "summary": "swift's MJExtension",
+  "description": "KSJSONHelp is a lightweight and pure Swift implemented library for\nconversion between JSON and model\nSimple ActiveRecord implementation for working with your database",
+  "homepage": "https://github.com/kingslay/KSJSONHelp",
+  "license": "MIT",
+  "authors": {
+    "kingslay": "kingslay@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/kingslay/KSJSONHelp.git",
+    "tag": "0.6.8"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": "Core",
+  "module_name": "KSJSONHelp",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Core/Source/**/*.swift"
+    },
+    {
+      "name": "SQL",
+      "source_files": "SQL/Source/**/*.swift",
+      "dependencies": {
+        "KSJSONHelp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLite",
+      "source_files": "SQLite/Source/**/*.swift",
+      "dependencies": {
+        "KSJSONHelp/SQL": [
+
+        ]
+      },
+      "preserve_paths": "SQLite/CocoaPods/**/*",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS[sdk=macosx*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/macosx",
+        "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/iphoneos",
+        "SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/iphonesimulator",
+        "SWIFT_INCLUDE_PATHS[sdk=appletvos*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/appletvos",
+        "SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/appletvsimulator",
+        "SWIFT_INCLUDE_PATHS[sdk=watchos*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/watchos",
+        "SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]": "$(SRCROOT)/KSJSONHelp/SQLite/CocoaPods/watchsimulator"
+      },
+      "libraries": "sqlite3"
+    }
+  ]
+}

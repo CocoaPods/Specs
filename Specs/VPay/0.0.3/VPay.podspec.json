@@ -1,0 +1,92 @@
+{
+  "name": "VPay",
+  "version": "0.0.3",
+  "summary": "this is  a pay components.",
+  "description": "* this is  a pay components.\n* 包含了Alipay, WxPay, UnionPay\n* 如果需要,后续会陆续集成更多的组件。",
+  "homepage": "https://github.com/lhjzzu/VPay",
+  "license": "MIT",
+  "authors": {
+    "lhjzzu": "1822657131@qq.com"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/lhjzzu/VPay.git",
+    "tag": "0.0.3"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "AliPay",
+    "WxPay",
+    "UnionPay"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "c++",
+        "stdc++",
+        "z",
+        "sqlite3.0"
+      ]
+    },
+    {
+      "name": "AliPay",
+      "vendored_libraries": "lib/Channels/AliPay/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/AliPay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/AliPay/AlipaySDK.bundle",
+      "dependencies": {
+        "VPay/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "WxPay",
+      "vendored_libraries": "lib/Channels/WxPay/*.a",
+      "public_header_files": "lib/Channels/WxPay/*.h",
+      "source_files": "lib/Channels/WxPay/*.h",
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "VPay/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_libraries": "lib/Channels/UnionPay/*.a",
+      "public_header_files": "lib/Channels/UnionPay/*.h",
+      "source_files": "lib/Channels/UnionPay/*.h",
+      "dependencies": {
+        "VPay/Base": [
+
+        ]
+      }
+    }
+  ]
+}

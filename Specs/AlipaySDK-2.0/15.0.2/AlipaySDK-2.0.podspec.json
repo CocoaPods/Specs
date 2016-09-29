@@ -1,0 +1,58 @@
+{
+  "name": "AlipaySDK-2.0",
+  "version": "15.0.2",
+  "summary": "Alipay SDK for iOS. You can create alipay order or sign orders with `Order` subspec.",
+  "homepage": "https://b.alipay.com/newIndex.htm",
+  "license": {
+    "type": "Copyright",
+    "text": "      支付宝(中国)网络技术有限公司 ^? 版权所有.\n"
+  },
+  "authors": {
+    "AliPay": "http://www.alipay.com/"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/candyan/AlipaySDK.git",
+    "tag": "15.0.2"
+  },
+  "frameworks": [
+    "CoreTelephony",
+    "SystemConfiguration",
+    "CoreMotion"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "sources/extensions/ANAlipayResultCode.h",
+      "resources": "AlipaySDK.bundle",
+      "vendored_frameworks": "AlipaySDK.framework",
+      "public_header_files": [
+        "AlipaySDK.framework/Headers/**/*.h",
+        "sources/extensions/ANAlipayResultCode.h"
+      ]
+    },
+    {
+      "name": "Order",
+      "source_files": "sources/order/**/*.{h,m}",
+      "dependencies": {
+        "AlipaySDK-2.0/Core": [
+
+        ],
+        "OpenSSL": [
+
+        ],
+        "PupaFoundation": [
+
+        ]
+      }
+    }
+  ]
+}

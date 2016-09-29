@@ -1,0 +1,146 @@
+{
+  "name": "MNGAds",
+  "version": "2.1.2",
+  "summary": "MNG Ads provides functionalities for monetizing your mobile application",
+  "description": "MNG Ads provides functionalities for monetizing your mobile application: from premium sales with reach media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :\nSmart adServer\nFacebook Audience Network\nappsfire\nGoogle DFP\nMng-perf\nAmazon\nFlurry",
+  "homepage": "https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Home",
+  "license": "Commercial",
+  "authors": {
+    "MOBILENETWORKGROUP": "http://www.mobilenetworkgroup.com",
+    "Technical Assistance": "admin@mng-ads.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/mngcorp/mngads-demo-ios.git",
+    "tag": "v2.1.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/MNGAds/MNGAds\""
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "QuartzCore",
+    "SystemConfiguration",
+    "MediaPlayer",
+    "CoreMotion",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "StoreKit",
+    "CoreLocation",
+    "Accelerate",
+    "CoreTelephony",
+    "MessageUI"
+  ],
+  "default_subspecs": "MNGAdsFull",
+  "subspecs": [
+    {
+      "name": "MNGAdsStandalone",
+      "source_files": "MNGAds/**/*.h",
+      "preserve_paths": "MNGAds/libMngAds.a",
+      "libraries": "MngAds"
+    },
+    {
+      "name": "AppsFire",
+      "dependencies": {
+        "MNGAds/MNGAdsStandalone": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "preserve_paths": "MNGAds/libMNGAdsFacebookAdapter.a",
+      "libraries": "MNGAdsFacebookAdapter",
+      "dependencies": {
+        "FBAudienceNetwork": [
+          "4.13.1"
+        ],
+        "MNGAds/MNGAdsStandalone": [
+
+        ]
+      }
+    },
+    {
+      "name": "DFP",
+      "preserve_paths": "MNGAds/libMNGAdsDFPAdapter.a",
+      "libraries": "MNGAdsDFPAdapter",
+      "dependencies": {
+        "MNGAds/MNGAdsStandalone": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.8.1"
+        ]
+      }
+    },
+    {
+      "name": "SmartAdServer",
+      "preserve_paths": "MNGAds/libMNGAdsSASAdapter.a",
+      "libraries": "MNGAdsSASAdapter",
+      "dependencies": {
+        "MNGAds/MNGAdsStandalone": [
+
+        ],
+        "SmartAdServer-DisplaySDK": [
+          "6.4"
+        ]
+      }
+    },
+    {
+      "name": "Amazon",
+      "preserve_paths": "MNGAds/libMNGAmazonAdapter.a",
+      "libraries": "MNGAmazonAdapter",
+      "dependencies": {
+        "AmazonAd": [
+          "2.2.14"
+        ],
+        "MNGAds/MNGAdsStandalone": [
+
+        ]
+      }
+    },
+    {
+      "name": "Flurry",
+      "preserve_paths": "MNGAds/libMNGFlurryAdapter.a",
+      "libraries": "MNGFlurryAdapter",
+      "dependencies": {
+        "MNGAds/MNGAdsStandalone": [
+
+        ],
+        "Flurry-iOS-SDK/FlurrySDK": [
+          "7.6.6"
+        ],
+        "Flurry-iOS-SDK/FlurryAds": [
+          "7.6.6"
+        ]
+      }
+    },
+    {
+      "name": "MNGAdsFull",
+      "dependencies": {
+        "MNGAds/MNGAdsStandalone": [
+
+        ],
+        "MNGAds/Facebook": [
+
+        ],
+        "MNGAds/DFP": [
+
+        ],
+        "MNGAds/SmartAdServer": [
+
+        ],
+        "MNGAds/Amazon": [
+
+        ],
+        "MNGAds/Flurry": [
+
+        ]
+      }
+    }
+  ]
+}

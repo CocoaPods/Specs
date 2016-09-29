@@ -1,0 +1,378 @@
+{
+  "name": "MobShareSDK",
+  "version": "2.11.1-2",
+  "summary": "ShareSDK of mob for iOS.",
+  "license": "Copyright © 2012-2015 mob",
+  "authors": {
+    "shingwasix": "https://github.com/shingwasix"
+  },
+  "homepage": "http://mob.com",
+  "source": {
+    "git": "https://github.com/shingwasix/MobShareSDK.git",
+    "tag": "2.11.1-2"
+  },
+  "platforms": {
+    "ios": "5.1.1"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "QuartzCore",
+    "CoreTelephony",
+    "Security",
+    "JavaScriptCore"
+  ],
+  "libraries": [
+    "icucore",
+    "z.1.2.5",
+    "stdc++"
+  ],
+  "default_subspecs": "Core",
+  "vendored_frameworks": "ShareSDK/ShareSDK.framework",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "ShareSDK/Core/AGCommon.framework",
+        "ShareSDK/Core/MOBFoundation.framework",
+        "ShareSDK/Core/ShareSDKCoreService.framework"
+      ],
+      "libraries": [
+        "z",
+        "icucore"
+      ],
+      "resources": [
+        "ShareSDK/Core/Resource.bundle",
+        "ShareSDK/Core/zh-Hans.lproj/ShareSDKLocalizable.strings"
+      ]
+    },
+    {
+      "name": "UI",
+      "default_subspecs": [
+        "Flat",
+        "iPadDefault",
+        "iPadSimple",
+        "iPhoneDefault",
+        "iPhoneSimple",
+        "iPhoneAppRecommend"
+      ],
+      "subspecs": [
+        {
+          "name": "Flat",
+          "vendored_frameworks": [
+            "ShareSDK/UI/ShareSDKFlatShareViewUI.framework",
+            "ShareSDK/UI/ShareSDKShareActionSheet.framework"
+          ],
+          "resources": "ShareSDK/UI/ShareSDKFlatShareViewUI.bundle"
+        },
+        {
+          "name": "iPadDefault",
+          "vendored_frameworks": "ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.framework",
+          "resources": "ShareSDK/UI/ShareSDKiPadDefaultShareViewUI.bundle"
+        },
+        {
+          "name": "iPadSimple",
+          "vendored_frameworks": "ShareSDK/UI/ShareSDKiPadSimpleShareViewUI.framework",
+          "resources": "ShareSDK/UI/ShareSDKiPadSimpleShareViewUI.bundle"
+        },
+        {
+          "name": "iPhoneDefault",
+          "vendored_frameworks": "ShareSDK/UI/ShareSDKiPhoneDefaultShareViewUI.framework",
+          "resources": "ShareSDK/UI/ShareSDKiPhoneDefaultShareViewUI.bundle"
+        },
+        {
+          "name": "iPhoneSimple",
+          "vendored_frameworks": "ShareSDK/UI/ShareSDKiPhoneSimpleShareViewUI.framework",
+          "resources": "ShareSDK/UI/ShareSDKiPhoneSimpleShareViewUI.bundle"
+        },
+        {
+          "name": "iPhoneAppRecommend",
+          "vendored_frameworks": "ShareSDK/UI/ShareSDKiPhoneAppRecommendShareViewUI.framework"
+        }
+      ]
+    },
+    {
+      "name": "Comment",
+      "vendored_frameworks": "Comment/Comment.framework",
+      "resources": "Comment/Comment.bundle"
+    },
+    {
+      "name": "Extend",
+      "subspecs": [
+        {
+          "name": "GooglePlusSDK",
+          "vendored_frameworks": [
+            "ShareSDK/Extend/GooglePlusSDK/GoogleOpenSource.framework",
+            "ShareSDK/Extend/GooglePlusSDK/GooglePlus.framework"
+          ],
+          "resources": "ShareSDK/Extend/GooglePlusSDK/GooglePlus.bundle",
+          "frameworks": [
+            "CoreMotion",
+            "CoreLocation",
+            "MediaPlayer",
+            "CoreText",
+            "AssetsLibrary",
+            "AddressBook"
+          ]
+        },
+        {
+          "name": "QQConnectSDK",
+          "vendored_frameworks": "ShareSDK/Extend/QQConnectSDK/TencentOpenAPI.framework",
+          "resources": "ShareSDK/Extend/QQConnectSDK/TencentOpenApi_IOS_Bundle.bundle",
+          "libraries": [
+            "stdc++",
+            "sqlite3"
+          ]
+        },
+        {
+          "name": "SinaWeiboSDK",
+          "vendored_libraries": "ShareSDK/Extend/SinaWeiboSDK/*.a",
+          "resources": "ShareSDK/Extend/SinaWeiboSDK/WeiboSDK.bundle",
+          "frameworks": "ImageIO",
+          "source_files": "ShareSDK/Extend/SinaWeiboSDK/*.{h,m}",
+          "public_header_files": "ShareSDK/Extend/SinaWeiboSDK/*.h"
+        },
+        {
+          "name": "WeChatSDK",
+          "vendored_libraries": "ShareSDK/Extend/WeChatSDK/*.a",
+          "source_files": "ShareSDK/Extend/WeChatSDK/*.{h,m}",
+          "public_header_files": "ShareSDK/Extend/WeChatSDK/*.h"
+        },
+        {
+          "name": "YiXinSDK",
+          "vendored_libraries": "ShareSDK/Extend/YiXinSDK/*.a",
+          "source_files": "ShareSDK/Extend/YiXinSDK/*.{h,m}",
+          "public_header_files": "ShareSDK/Extend/YiXinSDK/*.h"
+        },
+        {
+          "name": "Pinterest.embeddedframework",
+          "vendored_frameworks": "ShareSDK/Extend/Pinterest.embeddedframework/Pinterest.framework",
+          "resources": "ShareSDK/Extend/Pinterest.embeddedframework/Resources/PinterestSDKResources.bundle"
+        },
+        {
+          "name": "RenRenSDK",
+          "vendored_frameworks": "ShareSDK/Extend/RenRenSDK/RennSDK.framework",
+          "resources": "ShareSDK/Extend/RenRenSDK/RennSDK.bundle"
+        }
+      ]
+    },
+    {
+      "name": "Connection",
+      "default_subspecs": [
+        "SMS",
+        "Mail",
+        "Copy",
+        "Print",
+        "SinaWeibo",
+        "WeChat",
+        "QQ",
+        "QZone",
+        "TencentWeibo",
+        "GooglePlus",
+        "RenRen",
+        "YiXin",
+        "Pinterest",
+        "Facebook",
+        "Dropbox",
+        "DouBan",
+        "EverNote",
+        "Flickr",
+        "Instagram",
+        "Instapaper",
+        "KaiXin",
+        "Sohu",
+        "Twitter",
+        "Tumblr",
+        "WhatsApp",
+        "VKontakte",
+        "KaKaoStory",
+        "KaKaoTalk",
+        "Line",
+        "LinkedIn",
+        "Pocket",
+        "MingDao",
+        "YouDaoNote"
+      ],
+      "subspecs": [
+        {
+          "name": "SMS",
+          "vendored_frameworks": "ShareSDK/Connection/SMSConnection.framework",
+          "frameworks": "MessageUI"
+        },
+        {
+          "name": "Mail",
+          "vendored_frameworks": "ShareSDK/Connection/MailConnection.framework",
+          "frameworks": "MessageUI"
+        },
+        {
+          "name": "Copy",
+          "vendored_frameworks": "ShareSDK/Connection/CopyConnection.framework"
+        },
+        {
+          "name": "Print",
+          "vendored_frameworks": "ShareSDK/Connection/PrintConnection.framework"
+        },
+        {
+          "name": "SinaWeibo",
+          "dependencies": {
+            "MobShareSDK/Extend/SinaWeiboSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/SinaWeiboConnection.framework"
+        },
+        {
+          "name": "WeChat",
+          "dependencies": {
+            "MobShareSDK/Extend/WeChatSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/WeChatConnection.framework"
+        },
+        {
+          "name": "QQ",
+          "dependencies": {
+            "MobShareSDK/Extend/QQConnectSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/QQConnection.framework"
+        },
+        {
+          "name": "QZone",
+          "dependencies": {
+            "MobShareSDK/Extend/QQConnectSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/QZoneConnection.framework"
+        },
+        {
+          "name": "TencentWeibo",
+          "vendored_frameworks": "ShareSDK/Connection/TencentWeiboConnection.framework",
+          "frameworks": [
+            "Social",
+            "Accounts"
+          ]
+        },
+        {
+          "name": "GooglePlus",
+          "dependencies": {
+            "MobShareSDK/Extend/GooglePlusSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/GooglePlusConnection.framework"
+        },
+        {
+          "name": "RenRen",
+          "dependencies": {
+            "MobShareSDK/Extend/RenRenSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/RenRenConnection.framework"
+        },
+        {
+          "name": "YiXin",
+          "dependencies": {
+            "MobShareSDK/Extend/YiXinSDK": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/YiXinConnection.framework"
+        },
+        {
+          "name": "Pinterest",
+          "dependencies": {
+            "MobShareSDK/Extend/Pinterest.embeddedframework": [
+
+            ]
+          },
+          "vendored_frameworks": "ShareSDK/Connection/PinterestConnection.framework"
+        },
+        {
+          "name": "Facebook",
+          "vendored_frameworks": "ShareSDK/Connection/FacebookConnection.framework"
+        },
+        {
+          "name": "Dropbox",
+          "vendored_frameworks": "ShareSDK/Connection/DropboxConnection.framework"
+        },
+        {
+          "name": "DouBan",
+          "vendored_frameworks": "ShareSDK/Connection/DouBanConnection.framework"
+        },
+        {
+          "name": "EverNote",
+          "vendored_frameworks": "ShareSDK/Connection/EverNoteConnection.framework"
+        },
+        {
+          "name": "Flickr",
+          "vendored_frameworks": "ShareSDK/Connection/FlickrConnection.framework"
+        },
+        {
+          "name": "Instagram",
+          "vendored_frameworks": "ShareSDK/Connection/InstagramConnection.framework"
+        },
+        {
+          "name": "Instapaper",
+          "vendored_frameworks": "ShareSDK/Connection/InstapaperConnection.framework",
+          "resources": "ShareSDK/Connection/InstapaperResource.bundle"
+        },
+        {
+          "name": "KaiXin",
+          "vendored_frameworks": "ShareSDK/Connection/KaiXinConnection.framework"
+        },
+        {
+          "name": "Sohu",
+          "vendored_frameworks": "ShareSDK/Connection/SohuConnection.framework"
+        },
+        {
+          "name": "Twitter",
+          "vendored_frameworks": "ShareSDK/Connection/TwitterConnection.framework"
+        },
+        {
+          "name": "Tumblr",
+          "vendored_frameworks": "ShareSDK/Connection/TumblrConnection.framework"
+        },
+        {
+          "name": "WhatsApp",
+          "vendored_frameworks": "ShareSDK/Connection/WhatsAppConnection.framework"
+        },
+        {
+          "name": "VKontakte",
+          "vendored_frameworks": "ShareSDK/Connection/VKontakteConnection.framework"
+        },
+        {
+          "name": "KaKaoStory",
+          "vendored_frameworks": "ShareSDK/Connection/KaKaoStoryConnection.framework"
+        },
+        {
+          "name": "KaKaoTalk",
+          "vendored_frameworks": "ShareSDK/Connection/KaKaoTalkConnection.framework"
+        },
+        {
+          "name": "Line",
+          "vendored_frameworks": "ShareSDK/Connection/LineConnection.framework"
+        },
+        {
+          "name": "LinkedIn",
+          "vendored_frameworks": "ShareSDK/Connection/LinkedInConnection.framework"
+        },
+        {
+          "name": "Pocket",
+          "vendored_frameworks": "ShareSDK/Connection/PocketConnection.framework"
+        },
+        {
+          "name": "MingDao",
+          "vendored_frameworks": "ShareSDK/Connection/MingDaoConnection.framework"
+        },
+        {
+          "name": "YouDaoNote",
+          "vendored_frameworks": "ShareSDK/Connection/YouDaoNoteConnection.framework"
+        }
+      ]
+    }
+  ]
+}

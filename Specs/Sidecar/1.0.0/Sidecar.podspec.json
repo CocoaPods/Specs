@@ -1,0 +1,35 @@
+{
+  "name": "Sidecar",
+  "version": "1.0.0",
+  "summary": "Yet Another iOS Utility Belt",
+  "license": "MIT",
+  "authors": {
+    "Crush & Lovely": "engineering@crushlovely.com",
+    "Tim Clem": "tim@crushlovely.com"
+  },
+  "source": {
+    "git": "https://github.com/crushlovely/Sidecar.git",
+    "tag": "v1.0.0"
+  },
+  "homepage": "https://github.com/crushlovely/Sidecar",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": "#ifdef __OBJC__\n  #if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)\n    #define LOG_LEVEL_DEF CRLSidecarLogLevel\n\n    #pragma clang diagnostic push\n    #pragma clang diagnostic ignored \"-Wunused-function\"\n    #import <CocoaLumberjack/CocoaLumberjack.h>\n    #pragma clang diagnostic pop\n\n    static const DDLogLevel CRLSidecarLogLevel = DDLogLevelWarning;\n  #endif\n#endif",
+  "source_files": "Sidecar",
+  "exclude_files": "Sidecar/CRLSystemSound.{h,m}",
+  "public_header_files": "Sidecar/*.h",
+  "frameworks": [
+    "QuartzCore",
+    "AudioToolbox"
+  ],
+  "subspecs": [
+    {
+      "name": "Non-ARC",
+      "requires_arc": false,
+      "source_files": "Sidecar/CRLSystemSound.{h,m}",
+      "prefix_header_contents": ""
+    }
+  ]
+}

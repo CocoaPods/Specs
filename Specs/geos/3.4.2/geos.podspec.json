@@ -12,7 +12,7 @@
     "Martin Davis": "mbdavis@refractions.net"
   },
   "source": {
-    "svn": "http://svn.osgeo.org/geos",
+    "svn": "https://svn.osgeo.org/geos",
     "tag": "3.4.2"
   },
   "platforms": {
@@ -20,17 +20,23 @@
     "osx": "10.6"
   },
   "compiler_flags": "-D_SYSTEMCONFIGURATION_H -D__MOBILECORESERVICES__ -D__CORESERVICES__",
-  "prepare_command": "\n    type -P autoconf &>/dev/null || alias autoconf='xcrun autoconf'\n    type -P autoheader &>/dev/null || alias autoheader='xcrun autoheader'\n    type -P aclocal &>/dev/null || alias aclocal='xcrun aclocal'\n    type -P automake &>/dev/null || alias automake='xcrun automake'\n    type -P glibtool &>/dev/null || alias glibtool='xcrun glibtool'\n    type -P glibtoolize &>/dev/null || alias glibtoolize='xcrun glibtoolize'\n\n    sh autogen.sh\n    ./configure\n    ./tools/svn_repo_revision.sh\n\n    sed -i \"\" \"s/\\/\\* #undef HAVE_INT64_T_64 \\*\\//#define HAVE_INT64_T_64 1/\" include/geos/platform.h\n\n    cat <<EOT >> include/geos/platform.h\n      #undef ISNAN\n      #define ISNAN(x) (std::isnan(x))\n    EOT\n\n",
+  "prepare_command": "\n    type -P autoconf &>/dev/null || alias autoconf 'xcrun autoconf'\n    type -P autoheader &>/dev/null || alias autoheader 'xcrun autoheader'\n    type -P aclocal &>/dev/null || alias aclocal 'xcrun aclocal'\n    type -P automake &>/dev/null || alias automake 'xcrun automake'\n    type -P glibtool &>/dev/null || alias glibtool 'xcrun glibtool'\n    type -P glibtoolize &>/dev/null || alias glibtoolize 'xcrun glibtoolize'\n\n    sh autogen.sh\n    ./configure\n    ./tools/svn_repo_revision.sh\n\n    sed -i \"\" \"s/\\/\\* #undef HAVE_INT64_T_64 \\*\\//#define HAVE_INT64_T_64 1/\" include/geos/platform.h\n    sed -i \"\" \"s/#define HAVE_LONG_INT_64 1/\\/\\* #undef HAVE_LONG_INT_64 \\*\\//\" include/geos/platform.h\n\n    cat <<EOT >> include/geos/platform.h\n      #undef ISNAN\n      #define ISNAN(x) (std::isnan(x))\n    EOT\n\n",
   "source_files": [
-    "*.h",
     "src/**/*.cpp",
-    "capi/*.cpp"
+    "capi/*.cpp",
+    "geos_svn_revision.h",
+    "capi/geos_c.h",
+    "include/geos/export.h"
   ],
   "exclude_files": "**/*tests*",
   "preserve_paths": [
     "src/**/*.h",
     "include/**/*.{h,inl,in}",
     "capi/*.{h,in}"
+  ],
+  "public_header_files": [
+    "capi/geos_c.h",
+    "include/geos/export.h"
   ],
   "xcconfig": {
     "HEADER_SEARCH_PATHS": "${PODS_ROOT}/geos/include ${PODS_ROOT}/geos/capi",

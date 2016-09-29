@@ -1,0 +1,89 @@
+{
+  "name": "CrayWebViewController",
+  "version": "0.7.7",
+  "summary": "Easy to use commonplace UIWebViewController.",
+  "homepage": "https://github.com/plusr/CrayWebViewController",
+  "screenshots": "http://gyazo.com/88c8b0a4d606815f813d7728b66a0e91.gif",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "azu": "info@efcl.info"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/plusr/CrayWebViewController.git",
+    "tag": "0.7.7"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "NJKWebViewProgress": [
+
+        ]
+      },
+      "source_files": "Lib/CrayTabWebViewController/*.{h,m}"
+    },
+    {
+      "name": "CrayNavigationController",
+      "source_files": "Lib/CrayNavigationController/*.{h,m}"
+    },
+    {
+      "name": "CrayBundleSupport",
+      "resources": [
+        "Lib/**/*.bundle"
+      ],
+      "source_files": "Lib/CrayBundleSupport/*.{h,m}"
+    },
+    {
+      "name": "CrayStandaloneWebViewController",
+      "resources": [
+        "Lib/CrayStandaloneWebViewController/*.storyboard"
+      ],
+      "source_files": "Lib/CrayStandaloneWebViewController/*.{h,m}",
+      "dependencies": {
+        "CrayWebViewController/Core": [
+
+        ],
+        "TUSafariActivity": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrayAllInOneBackWebViewController",
+      "resources": [
+        "Lib/CrayAllInOneBackWebViewController/*.storyboard"
+      ],
+      "source_files": "Lib/CrayAllInOneBackWebViewController/*.{h,m}",
+      "dependencies": {
+        "CrayWebViewController/CrayStandaloneWebViewController": [
+
+        ],
+        "CrayWebViewController/CrayBundleSupport": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrayModalWebViewController",
+      "resources": [
+        "Lib/CrayModalWebViewController/*.storyboard"
+      ],
+      "source_files": "Lib/CrayModalWebViewController/*.{h,m}",
+      "dependencies": {
+        "CrayWebViewController/CrayAllInOneBackWebViewController": [
+
+        ],
+        "CrayWebViewController/CrayNavigationController": [
+
+        ]
+      }
+    }
+  ]
+}

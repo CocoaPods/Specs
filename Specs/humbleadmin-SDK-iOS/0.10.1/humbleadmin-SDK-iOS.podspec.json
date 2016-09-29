@@ -1,0 +1,77 @@
+{
+  "name": "humbleadmin-SDK-iOS",
+  "version": "0.10.1",
+  "summary": "HumbleAdmin SDK",
+  "license": "MIT",
+  "authors": {
+    "李辰": "wolichen0501@gmail.com"
+  },
+  "homepage": "http://www.humbleadmin.com/",
+  "source": {
+    "git": "https://github.com/HumbleAdmin/humbleadmin-SDK-iOS.git",
+    "tag": "0.10.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "description": "可信 ID SDK 提供短信验证方式",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "JavaScriptCore",
+    "SystemConfiguration",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText",
+    "CoreTelephony",
+    "Security",
+    "ImageIO",
+    "AdSupport"
+  ],
+  "libraries": [
+    "z",
+    "stdc++",
+    "iconv",
+    "icucore",
+    "sqlite3"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "HASDK/Library/*.h",
+      "public_header_files": "HASDK/Library/*.h"
+    },
+    {
+      "name": "Connection",
+      "subspecs": [
+        {
+          "name": "SMS",
+          "vendored_libraries": "HASDK/Library/WithOut3rdLogin/libhumbleadminbase.a",
+          "resources": "HASDK/Library/WithOut3rdLogin/humbleadminbase.bundle"
+        },
+        {
+          "name": "Extend",
+          "vendored_frameworks": "HASDK/PlatformSDK/QQSDK/TencentOpenAPI.framework",
+          "vendored_libraries": [
+            "HASDK/PlatformSDK/SinaWeiboSDK/*.a",
+            "HASDK/Library/Have3rdLogin/libhumbleadminbase.a"
+          ],
+          "resources": [
+            "HASDK/PlatformSDK/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+            "HASDK/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+            "HASDK/Library/Have3rdLogin/humbleadminbase.bundle"
+          ],
+          "source_files": "HASDK/PlatformSDK/SinaWeiboSDK/*.{h,m}",
+          "public_header_files": "HASDK/PlatformSDK/SinaWeiboSDK/*.h",
+          "xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) QQLOGIN=1 WBLOGIN=1"
+          },
+          "pod_target_xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) QQLOGIN=1 WBLOGIN=1"
+          }
+        }
+      ]
+    }
+  ]
+}

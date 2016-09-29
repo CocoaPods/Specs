@@ -1,0 +1,58 @@
+{
+  "name": "NodeKit",
+  "version": "0.8.1",
+  "summary": "The universal, open-source, embedded engine",
+  "description": "NodeKit is the universal, open-source, embedded engine that provides a full ES5 / Node.js instance inside desktop and mobile applications for OS X, iOS, Android, and Windows.",
+  "homepage": "https://github.com/nodekit-io/nodekit",
+  "license": {
+    "type": "APACHE-2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "OffGrid Networks": "admin@offgridn.com"
+  },
+  "source": {
+    "git": "https://github.com/nodekit-io/nodekit-darwin.git"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "NKScripting",
+      "libraries": "compression",
+      "source_files": "src/nodekit/NKScripting/**/*.{swift,h,m}",
+      "resources": [
+        "src/nodekit/NKScripting/lib-scripting.nkar"
+      ]
+    },
+    {
+      "name": "NKElectro",
+      "source_files": "src/nodekit/NKElectro/**/*.{swift,h,m}",
+      "resources": [
+        "src/nodekit/NKElectro/lib-electro.nkar",
+        "src/nodekit/NKElectro/NK_ElectroHost/www/default.nkar",
+        "src/nodekit/NKElectro/NK_ElectroHost/splash/default.nkar"
+      ],
+      "dependencies": {
+        "NodeKit/NKScripting": [
+
+        ]
+      }
+    },
+    {
+      "name": "NKCore",
+      "source_files": "src/nodekit/NKCore/**/*.{swift,h,m}",
+      "resources": [
+        "src/nodekit/NKCore/lib-core.nkar"
+      ],
+      "dependencies": {
+        "NodeKit/NKScripting": [
+
+        ]
+      }
+    }
+  ]
+}

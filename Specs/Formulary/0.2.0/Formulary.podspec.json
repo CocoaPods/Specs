@@ -1,0 +1,24 @@
+{
+  "name": "Formulary",
+  "version": "0.2.0",
+  "summary": "Declarative iOS TableView Forms in Swift",
+  "description": "Formulary is a library for creating dynamic, declarative, table view forms for iOS.\n\nFormulary is inspired by XLForm, written in Swift, and designed for developer flexibility.\nIt is intended to stay small and possibly as a foundation for ther libraries.\n\nDevelopment-oriented features include:\n\n* Form components are Swift protocols\n* Lots of points of control to override default behavior\n* Easy to integrate with existing model classes\n\nOther cool features:\n\n* \"Floating Labels\" for form fields.\n* Composable validation functions\n\n```swift\nself.form = Formulary.ConcreteForm(sections: [\nFormulary.ConcreteFormSection(rows: [\n  Formulary.ConcreteFormRow(name:\"Name\", tag: \"name\", type: .Text, validation: RequiredString(\"Name\")),\n  Formulary.ConcreteFormRow(name:\"Email\", tag: \"email\", type: .Text),\n  Formulary.ConcreteFormRow(name:\"Age\", tag: \"age\", type: .Number, validation: MinimumNumber(\"Age\", 13))],\n  name:\"Profile\"),\nFormulary.ConcreteFormSection(rows: [\n  Formulary.ConcreteFormRow(name:\"Favorite Number\", tag: \"favoriteNumber\", value: nil, type: .Decimal, validation: MinimumNumber(\"Your favorite number\", 47) && MaximumNumber(\"Your favorite number\", 47)),\n  Formulary.ConcreteFormRow(name:\"Ice Cream?\", tag: \"wantsIceCream\", value: false, type: .Switch),\n  Formulary.ConcreteFormRow(name:\"Beer?\", tag: \"wantsBeer\", value: true, type: .Switch),\n  Formulary.ConcreteFormRow(name:\"Other Thoughts?\", tag: \"thoughts\", type: .Text),],\n  name:\"Preferences\",\n  footerName: \"Fin\"),\nFormulary.ConcreteFormSection(rows: [\n  Formulary.ConcreteFormRow(name:\"Show Values\", tag: \"show\", type: .Button, action: { _ in\n\n    let data = NSJSONSerialization.dataWithJSONObject(values(self.form) as NSDictionary, options: nil, error: nil)!\n    let s = NSString(data: data, encoding: NSUTF8StringEncoding)\n\n    let alert = UIAlertController(title: \"Form Values\", message: s, preferredStyle: .Alert)\n    alert.addAction(UIAlertAction(title: \"Ok\", style: .Default, handler: nil))\n    self.presentViewController(alert, animated: true, completion: nil)\n    })\n])\n]\n)\n```",
+  "homepage": "https://fcanas.github.io/Formulary/",
+  "screenshots": "https://raw.github.com/fcanas/Formulary/master/Screenshots/animated-capture.gif",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Fabian Cañas": "fcanas@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/fcanas",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/fcanas/Formulary.git",
+    "tag": "v0.2.0"
+  },
+  "source_files": "Formulary/**/*.{swift}"
+}

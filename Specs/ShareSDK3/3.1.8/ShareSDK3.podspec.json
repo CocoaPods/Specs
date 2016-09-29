@@ -1,0 +1,121 @@
+{
+  "name": "ShareSDK3",
+  "version": "3.1.8",
+  "summary": "ShareSDK is the most comprehensive Social SDK in the world,which share easily with 40+ platforms.",
+  "license": "MIT",
+  "authors": {
+    "Jinghuang Liu": "liujinghuang@icloud.com"
+  },
+  "homepage": "http://www.mob.com",
+  "source": {
+    "git": "https://github.com/ShareSDKPlatform/ShareSDK.git",
+    "tag": "3.1.8"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "JavaScriptCore"
+  ],
+  "libraries": [
+    "icucore",
+    "z.1.2.5",
+    "stdc++"
+  ],
+  "default_subspecs": "libraries",
+  "vendored_frameworks": "libraries/ShareSDK.framework",
+  "subspecs": [
+    {
+      "name": "libraries",
+      "vendored_frameworks": [
+        "libraries/ShareSDKConnector.framework",
+        "libraries/ShareSDKExtension.framework"
+      ],
+      "libraries": [
+        "icucore",
+        "z",
+        "stdc++"
+      ],
+      "resources": "libraries/ShareSDK.bundle"
+    },
+    {
+      "name": "ShareSDKUI",
+      "vendored_frameworks": "libraries/ShareSDKUI.framework",
+      "resources": "libraries/ShareSDKUI.bundle"
+    },
+    {
+      "name": "ShareSDKPlatforms",
+      "default_subspecs": [
+        "GooglePlus",
+        "QQ",
+        "SinaWeibo",
+        "WeChat",
+        "RenRen"
+      ],
+      "subspecs": [
+        {
+          "name": "GooglePlus",
+          "vendored_frameworks": [
+            "libraries/extends/GooglePlusSDK/GoogleOpenSource.framework",
+            "libraries/extends/GooglePlusSDK/GooglePlus.framework"
+          ],
+          "resources": "libraries/extends/GooglePlusSDK/GooglePlus.bundle",
+          "frameworks": [
+            "CoreMotion",
+            "CoreLocation",
+            "MediaPlayer",
+            "AssetsLibrary",
+            "AddressBook"
+          ]
+        },
+        {
+          "name": "QQ",
+          "vendored_frameworks": "libraries/extends/QQSDK/TencentOpenAPI.framework",
+          "resources": "libraries/extends/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+          "libraries": "sqlite3"
+        },
+        {
+          "name": "SinaWeibo",
+          "vendored_libraries": "libraries/extends/SinaWeiboSDK/*.a",
+          "resources": "libraries/extends/SinaWeiboSDK/WeiboSDK.bundle",
+          "frameworks": [
+            "ImageIO",
+            "AdSupport"
+          ],
+          "libraries": "sqlite3",
+          "source_files": "libraries/extends/SinaWeiboSDK/*.{h,m}",
+          "public_header_files": "libraries/extends/SinaWeiboSDK/*.h"
+        },
+        {
+          "name": "WeChat",
+          "vendored_libraries": "libraries/extends/WeChatSDK/*.a",
+          "source_files": "libraries/extends/WeChatSDK/*.{h,m}",
+          "public_header_files": "libraries/extends/WeChatSDK/*.h",
+          "libraries": "sqlite3"
+        },
+        {
+          "name": "RenRen",
+          "vendored_frameworks": "libraries/extends/RenRenSDK/RennSDK.framework",
+          "resources": "libraries/extends/RenRenSDK/RennSDK.bundle"
+        },
+        {
+          "name": "AliPaySocial",
+          "vendored_libraries": "libraries/extends/APSocialSDK/*.a",
+          "source_files": "libraries/extends/APSocialSDK/*.{h,m}",
+          "public_header_files": "libraries/extends/APSocialSDK/*.h"
+        },
+        {
+          "name": "Kakao",
+          "vendored_frameworks": "libraries/extends/KaKaoSDK/KakaoOpenSDK.framework"
+        },
+        {
+          "name": "Yixin",
+          "vendored_libraries": "libraries/extends/YiXinSDK/*.a",
+          "source_files": "libraries/extends/YiXinSDK/*.{h,m}",
+          "public_header_files": "libraries/extends/YiXinSDK/*.h"
+        }
+      ]
+    }
+  ]
+}

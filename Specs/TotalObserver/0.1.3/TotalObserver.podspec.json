@@ -1,0 +1,97 @@
+{
+  "name": "TotalObserver",
+  "version": "0.1.3",
+  "summary": "Simplified Objective-C blocks API for NSNotifications and KVO.",
+  "description": "A simplified Objective-C API for using NSNotifications and KVO with consistent terminology and useful convenience features.\nUses blocks exclusively, but unlike NSNotification's blocks API, allows manual removal without requiring storage of an observation object.\nSupports automatic removal when either observer or observee is deallocated, and an easy shorthand header when imported lets you omit method prefixes.\nPotentially extensible to other styles of observers, an included example is a wrapper for UIControl event actions.",
+  "homepage": "https://github.com/jpmhouston/TotalObserver",
+  "license": "MIT",
+  "authors": {
+    "Pierre Houston": "jpmhouston@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jpmhouston/TotalObserver.git",
+    "tag": "0.1.3"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": "Foundation"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": [
+          "Pod/TotalObserver.h",
+          "Pod/TOObservation.{h,m}",
+          "Pod/TOObservation-Private.h",
+          "Pod/NSObject+TotalObserver.{h,m}",
+          "Pod/UIControl+TotalObserver.{h,m}"
+        ],
+        "public_header_files": [
+          "Pod/TotalObserver.h",
+          "Pod/TOObservation.h",
+          "Pod/NSObject+TotalObserver.h",
+          "Pod/UIControl+TotalObserver.h"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Pod/TotalObserver.h",
+          "Pod/TOObservation.{h,m}",
+          "Pod/TOObservation-Private.h",
+          "Pod/NSObject+TotalObserver.{h,m}"
+        ],
+        "public_header_files": [
+          "Pod/TotalObserver.h",
+          "Pod/TOObservation.h",
+          "Pod/NSObject+TotalObserver.h"
+        ]
+      },
+      "private_header_files": "Pod/TOObservation-Private.h"
+    },
+    {
+      "name": "Shorthand",
+      "dependencies": {
+        "TotalObserver/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": [
+          "Pod/TotalObserverShorthand.h",
+          "Pod/TOObservation+Shorthand.{h,m}",
+          "Pod/NSObject+TotalObserverShorthand.h",
+          "Pod/UIControl+TotalObserverShorthand.h"
+        ],
+        "public_header_files": [
+          "Pod/TotalObserverShorthand.h",
+          "Pod/TOObservation+Shorthand.h",
+          "Pod/NSObject+TotalObserverShorthand.h",
+          "Pod/UIControl+TotalObserverShorthand.h"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Pod/TotalObserverShorthand.h",
+          "Pod/TOObservation+Shorthand.{h,m}",
+          "Pod/NSObject+TotalObserverShorthand.h"
+        ],
+        "public_header_files": [
+          "Pod/TotalObserverShorthand.h",
+          "Pod/TOObservation+Shorthand.h",
+          "Pod/NSObject+TotalObserverShorthand.h"
+        ]
+      }
+    }
+  ]
+}

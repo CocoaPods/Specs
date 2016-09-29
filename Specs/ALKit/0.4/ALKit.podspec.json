@@ -1,0 +1,24 @@
+{
+  "name": "ALKit",
+  "version": "0.4",
+  "summary": "Easy to use AutoLayout wrapper around `NSLayoutConstraints`.",
+  "description": "ALKit\n===\n\nEasy to use AutoLayout wrapper around `NSLayoutConstraints`.\n\nInstall\n----\n\n#### Cocoapods\n\n``` ruby\n!use_frameworks\npod 'ALKit'\n```\n\n### Manual\n\nCopy the `ALKit` folder into your project\n\nDocumentation\n----\n\n### Init\n\nInitialzes autolayout ready views.\n\n\n``` swift\nconvenience init (withAutolayout: Bool) {\nself.init(frame: CGRect.zero)\ntranslatesAutoresizingMaskIntoConstraints = false\n}\n```\n\n``` swift\nclass func AutoLayout() -> UIView {\nlet view = UIView(frame: CGRect.zero)\nview.translatesAutoresizingMaskIntoConstraints = false\nreturn view\n}\n```\n\n### Wraper\n\nThe main function of all kit.\nWraps `addConstraint:` method of autolayout.\n\n``` swift\npublic func pin(\nedge: NSLayoutAttribute,\ntoEdge: NSLayoutAttribute,\nofView: UIView?,\nwithInset: CGFloat = 0) {\nguard let view = superview else {\nreturn assertionFailure(\"view must be added as subview in view hierarchy\")\n}\nview.addConstraint(NSLayoutConstraint(\nitem: self,\nattribute: edge,\nrelatedBy: .Equal,\ntoItem: ofView,\nattribute: toEdge,\nmultiplier: 1,\nconstant: withInset))\n}\n```\n\n```\n\noverride func viewDidLoad() {\nsuper.viewDidLoad()\n\n// setup views\n\nlet box = UIView.AutoLayout()\nbox.backgroundColor = UIColor.greenColor()\nview.addSubview(box)\n\nlet blue = UIView.AutoLayout()\nblue.backgroundColor = UIColor.blueColor()\nbox.addSubview(blue)\n\nlet red = UIView.AutoLayout()\nred.backgroundColor = UIColor.redColor()\nbox.addSubview(red)\n\nlet yellow = UIView.AutoLayout()\nyellow.backgroundColor = UIColor.yellowColor()\nbox.addSubview(yellow)\n\n// setup constraints\n\nbox.fill(toView: view)\n\nblue.pinTop(toView: box, withInset: 10)\nblue.fillHorizontal(toView: box, withInset: 10)\nblue.pinHeight(90)\n\nred.pinBottom(toView: box, withInset: 10)\nred.fillHorizontal(toView: box, withInset: 10)\nred.pinHeight(90)\n\nyellow.pinToTop(ofView: red, withOffset: 10)\nyellow.pinCenterX(toView: red)\nyellow.pinSize(width: 50, height: 50)\n}\n\n```",
+  "homepage": "https://github.com/cemolcay/ALKit",
+  "license": {
+    "type": "MIT",
+    "file": "ALKit/LICENSE"
+  },
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/ALKit.git",
+    "tag": "v0.4"
+  },
+  "source_files": "ALKit/ALKit/*.swift",
+  "requires_arc": true
+}

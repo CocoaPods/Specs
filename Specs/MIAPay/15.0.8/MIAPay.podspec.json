@@ -1,0 +1,74 @@
+{
+  "name": "MIAPay",
+  "version": "15.0.8",
+  "summary": "use for pay.",
+  "description": "*use for pay\n* use for greater than ios 7.0",
+  "homepage": "https://github.com/tianjackyang/MIAPay",
+  "license": "MIT",
+  "authors": {
+    "tianjackyang": "919548782@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/tianjackyang/MIAPay.git",
+    "tag": "15.0.8",
+    "submodules": true
+  },
+  "source_files": [
+    "Pod",
+    "Pod/MIAPayHeader.h"
+  ],
+  "public_header_files": "Pod/MIAPayHeader.h",
+  "resources": "Pod/Resource/AlipaySDK.bundle",
+  "frameworks": [
+    "CoreMotion",
+    "CFNetwork",
+    "Foundation",
+    "UIKit",
+    "CoreGraphics",
+    "CoreText",
+    "QuartzCore",
+    "CoreTelephony",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "openssl",
+      "source_files": "Pod/openssl/**/*.{h}",
+      "public_header_files": "Pod/openssl/*.h",
+      "header_dir": "openssl"
+    },
+    {
+      "name": "Util",
+      "dependencies": {
+        "MIAPay/openssl": [
+
+        ]
+      },
+      "source_files": "Pod/Util/**/*.{h,m}",
+      "public_header_files": "Pod/Util/*.h"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "MIAPay/Util": [
+
+        ]
+      },
+      "source_files": "Pod/Core/**/*.{h,m}",
+      "public_header_files": "Pod/Core/**/*.{h}",
+      "vendored_frameworks": "Pod/Framework/AlipaySDK.framework",
+      "vendored_libraries": [
+        "Pod/Lib/libssl.a",
+        "Pod/Lib/libcrypto.a"
+      ]
+    }
+  ]
+}

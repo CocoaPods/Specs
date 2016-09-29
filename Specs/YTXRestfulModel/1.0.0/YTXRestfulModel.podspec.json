@@ -1,0 +1,90 @@
+{
+  "name": "YTXRestfulModel",
+  "version": "1.0.0",
+  "summary": "YTXRestfulModel 提供了restful的功能",
+  "homepage": "https://github.com/baidao/YTXRestfulModel",
+  "license": "MIT",
+  "authors": {
+    "caojun": "78612846@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/baidao/YTXRestfulModel.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Default",
+  "description": "提供了restful的model和collection。提供这些sync:AFNetworkingRemoteSync, FMDBSync 和 UserDefaultStorageSync",
+  "subspecs": [
+    {
+      "name": "Default",
+      "source_files": [
+        "Pod/Classes/Model/**/*",
+        "Pod/Classes/Protocol/**/*"
+      ],
+      "dependencies": {
+        "Mantle": [
+          "~> 1.5.7"
+        ]
+      }
+    },
+    {
+      "name": "RACSupport",
+      "source_files": [
+        "Pod/Classes/RACSupport/**/*"
+      ],
+      "dependencies": {
+        "ReactiveCocoa": [
+          "~> 2.3.1"
+        ],
+        "YTXRestfulModel/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "AFNetworkingRemoteSync",
+      "prefix_header_contents": "#define YTX_AFNETWORKINGREMOTESYNC_EXISTS 1",
+      "source_files": [
+        "Pod/Classes/Sync/AFNetworkingRemoteSync/**/*"
+      ],
+      "dependencies": {
+        "YTXRestfulModel/Default": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.6.3"
+        ]
+      }
+    },
+    {
+      "name": "FMDBSync",
+      "prefix_header_contents": "#define YTX_FMDBSYNC_EXISTS 1",
+      "source_files": [
+        "Pod/Classes/Sync/FMDBSync/**/*"
+      ],
+      "dependencies": {
+        "YTXRestfulModel/Default": [
+
+        ],
+        "FMDB": [
+          "~> 2.6"
+        ]
+      }
+    },
+    {
+      "name": "UserDefaultStorageSync",
+      "prefix_header_contents": "#define YTX_USERDEFAULTSTORAGESYNC_EXISTS 1",
+      "source_files": [
+        "Pod/Classes/Sync/UserDefaultStorageSync/**/*"
+      ],
+      "dependencies": {
+        "YTXRestfulModel/Default": [
+
+        ]
+      }
+    }
+  ]
+}

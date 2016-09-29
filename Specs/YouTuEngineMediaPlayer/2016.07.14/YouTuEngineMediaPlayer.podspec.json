@@ -1,0 +1,63 @@
+{
+  "name": "YouTuEngineMediaPlayer",
+  "version": "2016.07.14",
+  "summary": "iOS平台集成Youku Player OpenSDK播放视频 SDK",
+  "description": "**已解决WebViewJavascriptBridge冲突**\n\n需要申请视频云服务client_id、client_secret\n\n具体支持功能：正常播放、清晰度切换、播放、暂停、进度条（拖动快进、回退）等\n\n该版本支持免广告、共享收益服务\n\n支持iphone，ipad\n\n支持真机，模拟器调试\n\n---\n\n**更新于2016-07-14**\n\n- 更新统计sdk（解决多次切换视频退出时偶现崩溃问题）\n\n- 解决播放时网络状态异常导致崩溃问题\n\n- 增加-all_load支持（sdk大小稍有减少）",
+  "homepage": "http://cloud.youku.com/down/play",
+  "license": {
+    "type": "LGPL",
+    "text": "                                                   Copyright©2016 优酷 youku.com 版权所有\n"
+  },
+  "authors": {
+    "openapi": "openapi@youku.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "http": "http://cloud.youku.com/assets/sdk/YoukuPlayerOpenSDK_iOS.zip"
+  },
+  "prepare_command": "cat <<'CLEAN_LIB' > clean_lib.sh && chmod +x clean_lib.sh && ./clean_lib.sh && rm -rf clean_lib.sh\n#!/bin/bash\n\ncd YKMediaPlayerDemo/YouTuEngineMediaPlayer/\nlib_filename=libYouTuMediaPlayerEngineYouku\nlib_splits=\"\"\n\nfor arch in $(lipo -info ${lib_filename}.a |awk -F'are:' '{print $2}')\ndo\n    echo \"$arch ...\"\n\n    lipo -thin ${arch} ${lib_filename}.a -output ${lib_filename}-${arch}.a\n    ar -d -sv ${lib_filename}-${arch}.a WebViewJavascriptBridge.o\n    lib_splits=\"${lib_splits} ${lib_filename}-${arch}.a\"\ndone\n\nlipo -create ${lib_splits} -output libYouTuMediaPlayerEngineYouku_clean.a\nrm -f ${lib_splits}\nmv libYouTuMediaPlayerEngineYouku_clean.a libYouTuMediaPlayerEngineYouku.a\n\nCLEAN_LIB",
+  "dependencies": {
+    "WebViewJavascriptBridge": [
+
+    ]
+  },
+  "source_files": "YKMediaPlayerDemo/YouTuEngineMediaPlayer/YouTuMediaPlayerEngineYoukuHeaders/*.h",
+  "frameworks": [
+    "ModelIO",
+    "CoreMotion",
+    "VideoToolbox",
+    "MobileCoreServices",
+    "Social",
+    "PassKit",
+    "MessageUI",
+    "EventKit",
+    "MediaPlayer",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreText",
+    "OpenGLES",
+    "QuartzCore",
+    "CoreMedia",
+    "AudioToolbox",
+    "UIKit",
+    "Foundation",
+    "CoreGraphics"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3",
+    "c++",
+    "bz2",
+    "xml2",
+    "iconv",
+    "resolv"
+  ],
+  "vendored_libraries": "YKMediaPlayerDemo/YouTuEngineMediaPlayer/libYouTuMediaPlayerEngineYouku.a",
+  "resources": [
+    "YKMediaPlayerDemo/YouTuEngineMediaPlayer/sdk.bundle",
+    "YKMediaPlayerDemo/YouTuEngineMediaPlayer/YTEngine.bundle"
+  ],
+  "prefix_header_contents": "#ifndef DEVICE_TYPE_IPAD\n  #define DEVICE_TYPE_IPAD  ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)\n#endif"
+}

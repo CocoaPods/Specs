@@ -1,0 +1,69 @@
+{
+  "name": "Diplomat",
+  "version": "0.3.10",
+  "summary": "The third party SDKs unified API lib.",
+  "homepage": "https://github.com/cloudorz/Diplomat",
+  "license": {
+    "type": "MIT License",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Cloud": "cloudcry@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/cloudorz/Diplomat.git",
+    "tag": "0.3.10"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "ImageIO",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "stdc++",
+    "sqlite3",
+    "z"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/*.{h,m}",
+      "resources": "Sources/*.md"
+    },
+    {
+      "name": "Weibo",
+      "dependencies": {
+        "Diplomat/Core": [
+
+        ]
+      },
+      "source_files": "Sources/Weibo/*.{h,m}",
+      "resources": "Sources/Weibo/*.bundle",
+      "vendored_libraries": "Sources/Weibo/*.a"
+    },
+    {
+      "name": "Wechat",
+      "dependencies": {
+        "Diplomat/Core": [
+
+        ]
+      },
+      "source_files": "Sources/Wechat/*.{h,m}",
+      "vendored_libraries": "Sources/Wechat/*.a"
+    },
+    {
+      "name": "Tencent",
+      "dependencies": {
+        "Diplomat/Core": [
+
+        ]
+      },
+      "source_files": "Sources/Tencent/*.{h,m}",
+      "vendored_frameworks": "Sources/Tencent/TencentOpenAPI.framework"
+    }
+  ]
+}

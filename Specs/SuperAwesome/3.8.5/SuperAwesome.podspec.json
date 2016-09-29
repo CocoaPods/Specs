@@ -1,0 +1,83 @@
+{
+  "name": "SuperAwesome",
+  "version": "3.8.5",
+  "summary": "SuperAwesome Mobile SDK for iOS",
+  "description": "The SuperAwesome Mobile SDK lets you to easily add COPPA compliant advertisements and other platform features, like user authentication and registration, to your apps. We try to make integration as easy as possible, so we provide all the necessary tools such as this guide, API documentation, screencasts and demo apps.",
+  "homepage": "http://developers.superawesome.tv/docs/iossdk",
+  "documentation_url": "http://developers.superawesome.tv/docs/iossdk",
+  "license": {
+    "type": "GNU GENERAL PUBLIC LICENSE Version 3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gabriel Coman": "gabriel.coman@superawesome.tv"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/SuperAwesomeLTD/sa-mobile-sdk-ios.git",
+    "branch": "master",
+    "tag": "3.8.5"
+  },
+  "frameworks": "AdSupport",
+  "dependencies": {
+    "SAUtils": [
+
+    ],
+    "SAVideoPlayer": [
+
+    ],
+    "SAWebPlayer": [
+
+    ],
+    "SAEvents": [
+
+    ],
+    "SAVASTParser": [
+
+    ],
+    "SAJsonParser": [
+
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/Classes/**/*",
+      "resource_bundles": {
+        "SuperAwesome": [
+          "Pod/Assets/*"
+        ]
+      }
+    },
+    {
+      "name": "Unity",
+      "dependencies": {
+        "SuperAwesome/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Plugin/Unity/*",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)"
+      }
+    },
+    {
+      "name": "MoPub",
+      "dependencies": {
+        "mopub-ios-sdk": [
+
+        ],
+        "SuperAwesome/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Plugin/MoPub/*"
+    }
+  ]
+}

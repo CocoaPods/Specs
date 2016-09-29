@@ -1,0 +1,93 @@
+{
+  "name": "ImojiSDKUI",
+  "version": "2.2.2",
+  "license": "MIT",
+  "summary": "iOS UI Widgets for Imoji Integration. Integrate Stickers and custom emojis into your applications easily!",
+  "homepage": "https://imoji.io/developers",
+  "authors": {
+    "Alex Hoang": "alex@imojiapp.com",
+    "Nima Khoshini": "nima@imojiapp.com",
+    "Jeff Wang": "jeffkwang@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/imojiengineering/imoji-ios-sdk-ui.git",
+    "tag": "2.2.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "CollectionView",
+  "subspecs": [
+    {
+      "name": "CollectionView",
+      "dependencies": {
+        "YYImage/WebP": [
+          "~> 1.0"
+        ],
+        "ImojiSDK/Core": [
+
+        ],
+        "ImojiSDKUI/Common": [
+
+        ],
+        "Masonry": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "Source/CollectionView/**/*.{h,m}",
+        "public_header_files": "Source/CollectionView/*.h"
+      }
+    },
+    {
+      "name": "Editor",
+      "dependencies": {
+        "ImojiSDK/Core": [
+
+        ],
+        "ImojiSDKUI/Common": [
+
+        ],
+        "Masonry": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/ImojiGraphics.framework",
+      "ios": {
+        "resource_bundles": {
+          "ImojiEditorAssets": [
+            "Source/Editor/Resources/Icons/*.png",
+            "Source/Editor/Resources/Images/*.png"
+          ]
+        },
+        "source_files": "Source/Editor/**/*.{h,m}",
+        "public_header_files": "Source/Editor/*.h",
+        "frameworks": [
+          "Accelerate",
+          "GLKit",
+          "AVFoundation",
+          "CoreMotion"
+        ]
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "Common",
+      "ios": {
+        "source_files": "Source/Common/Source/**/*.{h,m}",
+        "resource_bundles": {
+          "ImojiUIStrings": [
+            "Source/Common/Resources/Localization/*.lproj"
+          ],
+          "ImojiUIAssets": [
+            "Source/Common/Resources/Images/*.*"
+          ],
+          "ImojiUIFonts": [
+            "Source/Common/Resources/Fonts/*.otf"
+          ]
+        }
+      }
+    }
+  ]
+}

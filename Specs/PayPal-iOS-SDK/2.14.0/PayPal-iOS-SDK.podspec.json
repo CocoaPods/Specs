@@ -1,0 +1,65 @@
+{
+  "name": "PayPal-iOS-SDK",
+  "version": "2.14.0",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE.md"
+  },
+  "homepage": "https://developer.paypal.com/webapps/developer/docs/integration/mobile/mobile-sdk-overview/",
+  "authors": {
+    "PayPal": "support@paypal.com"
+  },
+  "summary": "Accept credit cards and PayPal in your iOS app.",
+  "description": "The PayPal iOS SDK provides a software library that makes it easy for an iOS developer to accept both credit cards and PayPal directly within their mobile app.",
+  "source": {
+    "git": "https://github.com/paypal/PayPal-iOS-SDK.git",
+    "tag": "2.14.0"
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "requires_arc": false,
+  "default_subspecs": [
+    "Core",
+    "CardIO"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "PayPalMobile/*.h"
+      ],
+      "preserve_paths": [
+        "PayPalMobile/*.a"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "AudioToolbox",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreMedia",
+        "MessageUI",
+        "MobileCoreServices",
+        "SystemConfiguration"
+      ],
+      "vendored_libraries": [
+        "PayPalMobile/libPayPalMobile.a"
+      ],
+      "compiler_flags": [
+        "-fmodules",
+        "-fmodules-autolink"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lc++ -ObjC"
+      }
+    },
+    {
+      "name": "CardIO",
+      "dependencies": {
+        "CardIO": [
+          "~> 5.3.1"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "RxObjC",
+  "version": "1.1.1",
+  "summary": "RxObjC is a Objective-C implementation of Reactive Extensions",
+  "description": "RxObjC:\nRxObjC is a Objective-C port of [RxSwift]\n\nLike the original [Rx](https://github.com/Reactive-extensions/Rx.Net), its intention is to enable easy composition of asynchronous operations and event streams.\n\nRxCocoa: (see [RxSwift/RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa))\n* KVO extensions\n* Dealloc observing\n\nRxBlocking: (see [RxSwift/RxBlocking](https://github.com/ReactiveX/RxSwift/tree/master/RxBlocking))\nSet of blocking operators for RxObjC. These operators are mostly intended for unit/integration tests\nwith a couple of other special scenarios where they could be useful.\nE.g.\nWaiting for observable sequence to complete before exiting command line application.\n\nRxTests: (see [RxSwift/RxTests](https://github.com/ReactiveX/RxSwift/tree/master/RxTests))\nUnit testing extensions for RxObjC. This library contains mock schedulers, observables, and observers\nthat should make unit testing your operators easy as unit testing RxObjC built-in operators.\nThis library contains everything you needed to write unit tests in the following way:\n```\n- (void)testMap {\n    RxTestScheduler *scheduler = [[RxTestScheduler alloc] initWithInitialClock:0];\n\n    RxTestableObservable *xs = [scheduler createHotObservable:@[\n            next(150, @1),\n            next(210, @0),\n            next(220, @1),\n            next(230, @2),\n            next(240, @4),\n            completed(300)\n    ]];\n\n    RxTestableObserver *res = [scheduler startWithObservable:[xs map:^NSNumber *(NSNumber *o) {\n        return @(o.integerValue * 2);\n    }]];\n\n    NSArray *events = @[\n            next(210, @(0 * 2)),\n            next(220, @(1 * 2)),\n            next(230, @(2 * 2)),\n            next(240, @(4 * 2)),\n            completed(300),\n    ];\n    XCTAssertEqualObjects(res.events, events);\n\n    XCTAssertEqualObjects(xs.subscriptions, @[\n            Subscription(200, 300)\n    ]);\n}\n```\n\n```",
+  "homepage": "https://github.com/pasha010/RxObjC",
+  "license": "MIT",
+  "authors": {
+    "Pavel Malkov": "mpa026@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pasha010/RxObjC.git",
+    "tag": "1.1.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "RxObjC/*.h",
+        "RxObjC/Concurrency/*.h",
+        "RxObjC/DataStructures/*.h",
+        "RxObjC/Disposables/*.h",
+        "RxObjC/Extensions/*.h",
+        "RxObjC/Observables/*.h",
+        "RxObjC/Observables/Implementations/*.h",
+        "RxObjC/Observers/*.h",
+        "RxObjC/Platform/*.h",
+        "RxObjC/Schedulers/*.h",
+        "RxObjC/Schedulers/Internal/*.h",
+        "RxObjC/Subjects/*.h"
+      ],
+      "source_files": [
+        "RxObjC/*{h,m}",
+        "RxObjC/Concurrency/*{h,m}",
+        "RxObjC/DataStructures/*{h,m}",
+        "RxObjC/Disposables/*{h,m}",
+        "RxObjC/Extensions/*{h,m}",
+        "RxObjC/Observables/*{h,m}",
+        "RxObjC/Observables/Implementations/*{h,m}",
+        "RxObjC/Observers/*{h,m}",
+        "RxObjC/Platform/*{h,m}",
+        "RxObjC/Schedulers/*{h,m}",
+        "RxObjC/Schedulers/Internal/*{h,m}",
+        "RxObjC/Subjects/*{h,m}"
+      ]
+    },
+    {
+      "name": "RxBlocking",
+      "dependencies": {
+        "RxObjC/Core": [
+
+        ]
+      },
+      "source_files": "RxBlocking/*.{h,m}",
+      "public_header_files": "RxBlocking/*.h"
+    },
+    {
+      "name": "RxCocoa",
+      "dependencies": {
+        "RxObjC/Core": [
+
+        ]
+      },
+      "source_files": [
+        "RxCocoa/RxCocoa.h",
+        "RxCocoa/Common/*{h,m}",
+        "RxCocoa/Common/Observables/*{h,m}",
+        "RxCocoa/Common/Observables/Implementations/*{h,m}"
+      ],
+      "public_header_files": [
+        "RxCocoa/RxCocoa.h",
+        "RxCocoa/Common/*.h",
+        "RxCocoa/Common/Observables/*.h",
+        "RxCocoa/Common/Observables/Implementations/*.h"
+      ]
+    },
+    {
+      "name": "RxTests",
+      "dependencies": {
+        "RxObjC/Core": [
+
+        ]
+      },
+      "source_files": "RxTests/**/*.{h,m}",
+      "public_header_files": "RxTests/**/*.h",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.9",
+        "tvos": "9.0"
+      }
+    }
+  ]
+}

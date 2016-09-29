@@ -1,0 +1,81 @@
+{
+  "name": "QShare",
+  "version": "1.0.1",
+  "summary": "Gather Some Auth Share Pay.",
+  "homepage": "https://github.com/quankevin/QShare",
+  "license": "MIT",
+  "authors": {
+    "quankevin": "quankevin@163.com"
+  },
+  "social_media_url": "http://weibo.com/quankevin",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/quankevin/QShare.git",
+    "tag": "v1.0.1"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "UIKit",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "stdc++",
+    "sqlite3",
+    "z"
+  ],
+  "requires_arc": true,
+  "public_header_files": "QShare/ShareHeader.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "QShare/*.{h,m}",
+        "QShare/QUtil/*.{h,m}"
+      ]
+    },
+    {
+      "name": "WeChat",
+      "dependencies": {
+        "QShare/Core": [
+
+        ]
+      },
+      "source_files": [
+        "QShare/Wechat/SDK/*.{h,m}",
+        "QShare/Wechat/*.{h,m}"
+      ],
+      "vendored_libraries": "QShare/Wechat/SDK/*.a"
+    },
+    {
+      "name": "Weibo",
+      "dependencies": {
+        "WeiboSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tencent",
+      "dependencies": {
+        "QShare/Core": [
+
+        ]
+      },
+      "source_files": "QShare/Tencent/*.{h,m}",
+      "vendored_frameworks": "QShare/Tencent/SDK/TencentOpenAPI.framework"
+    },
+    {
+      "name": "Ali",
+      "dependencies": {
+        "QShare/Core": [
+
+        ]
+      },
+      "source_files": "QShare/Ali/*.{h,m}",
+      "resources": "QShare/Ali/SDK/*.bundle",
+      "vendored_frameworks": "QShare/Ali/SDK/AlipaySDK.framework"
+    }
+  ]
+}

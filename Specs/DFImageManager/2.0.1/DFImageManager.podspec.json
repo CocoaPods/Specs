@@ -1,0 +1,111 @@
+{
+  "name": "DFImageManager",
+  "version": "2.0.1",
+  "summary": "Advanced framework for managing images. Zero config, yet immense customization.",
+  "description": "Advanced framework for loading, caching, processing, displaying and preheating images. DFImageManager is a pipeline that loads images using multiple dependencies which can be injected in runtime. It features optional AFNetworking, FLAnimatedImage and WebP integration.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/kean/DFImageManager",
+  "authors": "Alexander Grebenyuk",
+  "social_media_url": "https://twitter.com/a_grebenyuk",
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/kean/DFImageManager.git",
+    "tag": "2.0.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/Source/Core/**/*.{h,m}",
+      "private_header_files": "Pod/Source/Core/Private/*.h"
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "DFImageManager/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "Pod/Source/UI/**/*.{h,m}"
+      }
+    },
+    {
+      "name": "AFNetworking",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "prefix_header_contents": "#define DF_SUBSPEC_AFNETWORKING_ENABLED 1",
+      "dependencies": {
+        "DFImageManager/Core": [
+
+        ],
+        "AFNetworking/NSURLSession": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": "Pod/Source/AFNetworking/**/*.{h,m}"
+    },
+    {
+      "name": "PhotosKit",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "prefix_header_contents": "#define DF_SUBSPEC_PHOTOSKIT_ENABLED 1",
+      "dependencies": {
+        "DFImageManager/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Source/PhotosKit/**/*.{h,m}"
+    },
+    {
+      "name": "GIF",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "prefix_header_contents": "#define DF_SUBSPEC_GIF_ENABLED 1",
+      "dependencies": {
+        "DFImageManager/Core": [
+
+        ],
+        "DFImageManager/UI": [
+
+        ],
+        "FLAnimatedImage": [
+          "~> 1.0"
+        ]
+      },
+      "source_files": "Pod/Source/GIF/**/*.{h,m}"
+    },
+    {
+      "name": "WebP",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "prefix_header_contents": "#define DF_SUBSPEC_WEBP_ENABLED 1",
+      "dependencies": {
+        "DFImageManager/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      },
+      "source_files": "Pod/Source/WebP/**/*.{h,m}"
+    }
+  ]
+}

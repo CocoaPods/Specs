@@ -1,0 +1,181 @@
+{
+  "name": "YUKit",
+  "module_name": "YUKit",
+  "version": "0.0.9",
+  "summary": "YUKit for iOS.(objective-c 、c++）",
+  "homepage": "https://github.com/c6357/YUKit",
+  "license": "MIT",
+  "authors": {
+    "BruceYu": "c6357@outlook.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/c6357/YUKit.git",
+    "tag": "0.0.9"
+  },
+  "source_files": "YUKit/YUKitHeader.h",
+  "requires_arc": true,
+  "prefix_header_contents": "#ifdef DEBUG\n#define TBMB_DEBUG\n#endif",
+  "ios": {
+    "vendored_frameworks": "YUKit/framework/YUDBFramework.framework"
+  },
+  "frameworks": [
+    "UIKit",
+    "QuartzCore",
+    "Foundation"
+  ],
+  "libraries": "sqlite3",
+  "dependencies": {
+    "MJRefresh": [
+      "~> 2.2.0"
+    ],
+    "Masonry": [
+      "~> 0.6.2"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "header",
+      "source_files": "YUKit/*"
+    },
+    {
+      "name": "foundation",
+      "source_files": "YUKit/foundation/YU_Core.{h}",
+      "subspecs": [
+        {
+          "name": "lib",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/services/Reachability": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/foundation/lib/**/*.{h,m}"
+        },
+        {
+          "name": "category",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/foundation/lib": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/foundation/category/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    },
+    {
+      "name": "uikit",
+      "source_files": "YUKit/uikit/YU_UI.{h}",
+      "subspecs": [
+        {
+          "name": "lib",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/foundation": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "category",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/foundation": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/uikit/category/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "subspecs": [
+        {
+          "name": "NSJson",
+          "source_files": "YUKit/services/NSJson/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "Reachability",
+          "requires_arc": false,
+          "source_files": "YUKit/services/Reachability/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "source_files": "YUKit/base/YU_Base.{h}",
+      "subspecs": [
+        {
+          "name": "NavigationController",
+          "source_files": "YUKit/base/NavigationController/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "ViewController",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/uikit": [
+
+              ],
+              "YUKit/foundation": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/base/ViewController/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "TableView",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/uikit": [
+
+              ],
+              "YUKit/foundation": [
+
+              ],
+              "YUKit/base/ViewController": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/base/TableView/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "View",
+          "source_files": "YUKit/base/View/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "ViewModel",
+          "source_files": "YUKit/base/ViewModel/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    }
+  ]
+}

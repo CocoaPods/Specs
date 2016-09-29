@@ -1,0 +1,98 @@
+{
+  "name": "StylingKit",
+  "version": "0.3.0",
+  "summary": "Style your iOS app with CSS, using 100% native code and no webviews.",
+  "description": "StylingKit is an iOS framework that allows you to style your application using stylesheets and a CSS-like syntax. StylingKit lets you build  beautiful applications with less code and more flexibility by using familiar CSS markup to style native controls and components. Free up your team to focus on creating amazing user experiences throughout the design and development cycle.",
+  "homepage": "https://github.com/StylingKit/StylingKit",
+  "license": {
+    "type": "Apache 2.0",
+    "text": "                  Copyright © 2015-present StylingKit Development Team\n\n                  Licensed under the Apache License, Version 2.0 (the \"License\");\n                  you may not use this file except in compliance with the License.\n                  You may obtain a copy of the License at\n\n                      http://www.apache.org/licenses/LICENSE-2.0\n\n                  Unless required by applicable law or agreed to in writing, software\n                  distributed under the License is distributed on an \"AS IS\" BASIS,\n                  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n                  See the License for the specific language governing permissions and\n                  limitations under the License.\n"
+  },
+  "authors": {
+    "Anton Matosov": "anton.matosov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/StylingKit/StylingKit.git",
+    "tag": "0.3.0"
+  },
+  "platforms": {
+    "ios": "8.1"
+  },
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "source_files": "Pod/Classes/Main/**/*.{h,m,c}",
+      "resource_bundles": {
+        "StylingKit": [
+          "Pod/Assets/*.png"
+        ]
+      },
+      "preserve_paths": "NOTICE",
+      "dependencies": {
+        "StylingKit/Freestyle": [
+
+        ]
+      }
+    },
+    {
+      "name": "Freestyle",
+      "prefix_header_file": "Pod/Classes/freestyle/src/pixate-freestyle-Prefix.pch",
+      "source_files": "Pod/Classes/freestyle/src/**/*.{h,m,c}",
+      "private_header_files": "Pod/Classes/freestyle/src/**/*.h",
+      "frameworks": [
+        "CoreText",
+        "QuartzCore",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "WithLogging",
+      "dependencies": {
+        "StylingKit/Main": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 2"
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "STK_LOGGING=1"
+      }
+    },
+    {
+      "name": "Cloud",
+      "default_subspecs": "Main",
+      "subspecs": [
+        {
+          "name": "Main",
+          "dependencies": {
+            "StylingKit/Main": [
+
+            ],
+            "GCDWebServer/WebDAV": [
+              "~> 3"
+            ]
+          },
+          "source_files": "Pod/Classes/Cloud/**/*.{h,m,c}"
+        },
+        {
+          "name": "WithLogging",
+          "dependencies": {
+            "StylingKit/Cloud/Main": [
+
+            ],
+            "StylingKit/WithLogging": [
+
+            ],
+            "GCDWebServer/WebDAV/CocoaLumberjack": [
+              "~> 3"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

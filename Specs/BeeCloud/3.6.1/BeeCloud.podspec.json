@@ -1,0 +1,191 @@
+{
+  "name": "BeeCloud",
+  "version": "3.6.1",
+  "summary": "BeeCloud 让支付更简单",
+  "homepage": "http://beecloud.cn",
+  "license": "MIT",
+  "authors": {
+    "LacusRInz": "zhihaoq@beecloud.cn"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/beecloud/beecloud-ios.git",
+    "tag": "v3.6.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "BCPaySDK/BeeCloud/**/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "resources": "BCPaySDK/BeeCloud/SandBox/*.bundle",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "vendored_frameworks": "BCPaySDK/Channel/AliPay/AlipaySDK.framework",
+      "source_files": [
+        "BCPaySDK/Channel/AliPay/AliPayAdapter/*.{h,m}",
+        "BCPaySDK/Channel/AliPay/*.h"
+      ],
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "frameworks": "CoreTelephony",
+      "vendored_libraries": "BCPaySDK/Channel/WXPay/libWeChatSDK.a",
+      "source_files": [
+        "BCPaySDK/Channel/WXPay/WXPayAdapter/*.{h,m}",
+        "BCPaySDK/Channel/WXPay/*.h"
+      ],
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "frameworks": "QuartzCore",
+      "vendored_libraries": "BCPaySDK/Channel/UnionPay/libUPPayPlugin.a",
+      "source_files": [
+        "BCPaySDK/Channel/UnionPay/UnionPayAdapter/*.{h,m}",
+        "BCPaySDK/Channel/UnionPay/*.h"
+      ],
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "frameworks": [
+        "QuartzCore",
+        "PassKit"
+      ],
+      "vendored_libraries": "BCPaySDK/Channel/ApplePay/libUPAPayPlugin.a",
+      "source_files": [
+        "BCPaySDK/Channel/ApplePay/ApplePayAdapter/*.{h,m,mm}",
+        "BCPaySDK/Channel/ApplePay/*.h"
+      ],
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PayPal",
+      "frameworks": [
+        "AudioToolbox",
+        "CoreLocation",
+        "MessageUI",
+        "CoreMedia",
+        "CoreVideo",
+        "Accelerate",
+        "AVFoundation"
+      ],
+      "vendored_libraries": "BCPaySDK/Channel/PayPal/libPayPalMobile.a",
+      "source_files": [
+        "BCPaySDK/Channel/PayPal/PayPalAdapter/*.{h,m}",
+        "BCPaySDK/Channel/PayPal/*.h"
+      ],
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Offline",
+      "source_files": "BCPaySDK/Channel/OfflinePay/**/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Baidu",
+      "frameworks": [
+        "CoreTelephony",
+        "AddressBook",
+        "AddressBookUI",
+        "AudioToolbox",
+        "CoreAudio",
+        "CoreGraphics",
+        "ImageIO",
+        "MapKit",
+        "MessageUI",
+        "MobileCoreServices",
+        "QuartzCore"
+      ],
+      "source_files": [
+        "BCPaySDK/Channel/Baidu/Dependency/**/*.{h,m}",
+        "BCPaySDK/Channel/Baidu/BaiduAdapter/*.{h,m}",
+        "BCPaySDK/Channel/Baidu/BDWalletSDK/*.{h,m}"
+      ],
+      "resources": "BCPaySDK/Channel/Baidu/**/*.bundle",
+      "vendored_libraries": "BCPaySDK/Channel/Baidu/**/*.a",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BCWXPay",
+      "frameworks": "AVFoundation",
+      "vendored_libraries": "BCPaySDK/Channel/BCWXPay/libSPaySDK.a",
+      "resources": "BCPaySDK/Channel/BCWXPay/**/*.bundle",
+      "source_files": [
+        "BCPaySDK/Channel/BCWXPay/BCWXPayAdapter/*.{h,m}",
+        "BCPaySDK/Channel/BCWXPay/include/*.h",
+        "BCPaySDK/Channel/BCWXPay/**/*.bundle"
+      ],
+      "dependencies": {
+        "BeeCloud/Wx": [
+
+        ],
+        "MBProgressHUD": [
+          "~> 0.9.1"
+        ]
+      }
+    }
+  ]
+}

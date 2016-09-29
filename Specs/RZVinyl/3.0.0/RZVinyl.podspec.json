@@ -1,0 +1,60 @@
+{
+  "name": "RZVinyl",
+  "version": "3.0.0",
+  "summary": "Stack management, ActiveRecord utilities, and seamless importing for Core Data.",
+  "description": "Stack management, ActiveRecord utilities, and seamless importing for Core Data.\nRZVinyl makes it easy to manage Core Data stacks, multiple contexts, concurrency,\nand more.\n\nActiveRecord-style extensions for NSManagedObject let you easily create, find, filter,\nsort, and enumerate objects in your database.\n\nWith the RZImport extension, importing objects into Core Data from external sources\nis simple and intuitive.",
+  "homepage": "https://github.com/Raizlabs/RZVinyl",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nick Donaldson": "nick.donaldson@raizlabs.com"
+  },
+  "social_media_url": "http://twitter.com/raizlabs",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/Raizlabs/RZVinyl.git",
+    "tag": "3.0.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "CoreData",
+    "UIKit"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Extensions",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Classes/*.{h,m}",
+        "Classes/Private/*.{h,m}"
+      ],
+      "public_header_files": "Classes/*.h",
+      "private_header_files": "Classes/Private/*.h"
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "RZVinyl/Core": [
+
+        ],
+        "RZImport": [
+          "~> 2.0"
+        ]
+      },
+      "source_files": [
+        "Extensions/*.{h,m}",
+        "Extensions/Private/*.{h,m}"
+      ],
+      "public_header_files": "Extensions/*.h",
+      "private_header_files": "Extensions/Private/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "RZV_IMPORT_AVAILABLE=1"
+      }
+    }
+  ]
+}

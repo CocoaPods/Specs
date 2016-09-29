@@ -1,0 +1,81 @@
+{
+  "name": "FoundationExtension",
+  "version": "1.2.2",
+  "summary": "Foundation/UIKit extension kit. It is category based and looks familiar to Foundation/UIKit. It includes many common snippets as shortcut.",
+  "description": "This library includes small Foundation/Cocoa/UIKit extensions. This library does not includes high-level data structure, algorithm or frameworks, but collection of code snippets.\n* Many common snippets in a method call.\n* Looks like native foundation methods - It follows Apple Coding Guideline and Foundation naming convention.\nSee document on [Github] (http://youknowone.github.com/FoundationExtension)\n\nTry FoundationExtension for Foundation extensions.\nFor iOS, UIKitExtension is available too.",
+  "homepage": "https://github.com/youknowone/FoundationExtension",
+  "license": "2-clause BSD",
+  "authors": {
+    "Jeong YunWon": "jeong@youknowone.org"
+  },
+  "source": {
+    "git": "https://github.com/youknowone/FoundationExtension.git",
+    "tag": "1.2.2"
+  },
+  "dependencies": {
+    "cdebug": [
+      "~> 1.0"
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "osx": "10.9",
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "FoundationExtensionRC",
+      "source_files": "FoundationExtensionRC/*.{h,m}",
+      "public_header_files": "FoundationExtensionRC/*.h",
+      "header_dir": "FoundationExtensionRC",
+      "requires_arc": false
+    },
+    {
+      "name": "FoundationExtension",
+      "source_files": "FoundationExtension/*.{h,m}",
+      "public_header_files": "FoundationExtension/*.h",
+      "header_dir": "FoundationExtension",
+      "dependencies": {
+        "FoundationExtension/FoundationExtensionRC": [
+
+        ]
+      }
+    },
+    {
+      "name": "CocoaExtension",
+      "platforms": {
+        "osx": "10.9"
+      },
+      "source_files": "CocoaExtension/*.{h,m}",
+      "public_header_files": "CocoaExtension/*.h",
+      "header_dir": "CocoaExtension",
+      "frameworks": [
+        "Cocoa",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "FoundationExtension/FoundationExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKitExtension",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": "UIKitExtension/*.{h,m}",
+      "public_header_files": "UIKitExtension/*.h",
+      "header_dir": "UIKitExtension",
+      "frameworks": [
+        "UIKit",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "FoundationExtension/FoundationExtension": [
+
+        ]
+      }
+    }
+  ]
+}

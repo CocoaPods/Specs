@@ -1,0 +1,60 @@
+{
+  "name": "SDWebImage_Transform",
+  "version": "0.0.1",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "license": "MIT",
+  "summary": "Transform image using block instead of delegate, keep transformed file in memcache instread of disk",
+  "homepage": "https://github.com/kudocc/SDWebImage",
+  "authors": {
+    "KudoCC": "cangmuma@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/kudocc/SDWebImage.git",
+    "tag": "0.0.1"
+  },
+  "description": "This library provides a category for UIImageView with support for remote images coming from the web. It provides an UIImageView category adding web image and cache management to the Cocoa Touch framework, an asynchronous image downloader, an asynchronous memory + disk image caching with automatic cache expiration handling, a guarantee that the same URL won't be downloaded several times, a guarantee that bogus URLs won't be retried again and again, and performances!",
+  "requires_arc": true,
+  "frameworks": "ImageIO",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDWebImage/{NS,SD,UI}*.{h,m}",
+      "exclude_files": "SDWebImage/UIImage+WebP.{h,m}",
+      "tvos": {
+        "exclude_files": "SDWebImage/MKAnnotationView+WebCache.*"
+      }
+    },
+    {
+      "name": "MapKit",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": "SDWebImage/MKAnnotationView+WebCache.*",
+      "frameworks": "MapKit",
+      "dependencies": {
+        "SDWebImage/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebP",
+      "source_files": "SDWebImage/UIImage+WebP.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SD_WEBP=1",
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+      },
+      "dependencies": {
+        "SDWebImage/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      }
+    }
+  ]
+}

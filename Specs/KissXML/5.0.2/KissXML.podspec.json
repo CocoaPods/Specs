@@ -1,0 +1,61 @@
+{
+  "name": "KissXML",
+  "version": "5.0.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "summary": "A replacement for Cocoa's NSXML cluster of classes. Based on libxml.",
+  "homepage": "https://github.com/robbiehanson/KissXML",
+  "authors": {
+    "Robbie Hanson": "robbiehanson@deusty.com"
+  },
+  "source": {
+    "git": "https://github.com/robbiehanson/KissXML.git",
+    "tag": "5.0.2"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Standard",
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "KissXML/**/*.{h,m}",
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "Standard",
+      "dependencies": {
+        "KissXML/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "OTHER_CFLAGS": "$(inherited) -DDDXML_NS_DECLARATIONS_ENABLED=1 -DDDXML_LIBXML_MODULE_ENABLED=0"
+      }
+    },
+    {
+      "name": "libxml_module",
+      "dependencies": {
+        "KissXML/Core": [
+
+        ]
+      },
+      "preserve_paths": "libxml/module.modulemap",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/KissXML/libxml \"$(PODS_ROOT)/../../../libxml\"",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "NO",
+        "OTHER_CFLAGS": "$(inherited) -DDDXML_NS_DECLARATIONS_ENABLED=1 -DDDXML_LIBXML_MODULE_ENABLED=1"
+      }
+    }
+  ]
+}

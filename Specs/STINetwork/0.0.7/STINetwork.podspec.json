@@ -1,0 +1,55 @@
+{
+  "name": "STINetwork",
+  "version": "0.0.7",
+  "summary": "1.自动生成model代码，并且非常简洁\n2.自动生成api接口调用代码，你要做的只是填充请求数据 \n3.请求的数据，自动反序列化成相对应的mode实例",
+  "description": "STINetwork",
+  "homepage": "https://github.com/i-phil/STINetwork",
+  "license": "MIT",
+  "authors": {
+    "philZhang": "goo.gle@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/i-phil/STINetwork.git",
+    "tag": "0.0.7",
+    "submodules": true
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "source_files": "STINetwork/STINetworkHeader.{h,m}",
+  "dependencies": {
+    "AFNetworking": [
+
+    ]
+  },
+  "public_header_files": "STINetwork/STINetworkHeader.h",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "prefix_header_contents": "",
+  "subspecs": [
+    {
+      "name": "Singleton",
+      "public_header_files": "STINetwork/Samurai_Singleton.h",
+      "source_files": "STINetwork/Samurai_Singleton.{h,m}"
+    },
+    {
+      "name": "AutoCoding",
+      "source_files": "STINetwork/http/vendor/AutoCoding/**/*.{h,m}",
+      "public_header_files": "STINetwork/http/vendor/AutoCoding/**/*.h"
+    },
+    {
+      "name": "Http",
+      "dependencies": {
+        "STINetwork/AutoCoding": [
+
+        ],
+        "STINetwork/Singleton": [
+
+        ]
+      },
+      "source_files": "STINetwork/http/STIHTTPNetwork/**/*.{h,m}",
+      "public_header_files": "STINetwork/http/STIHTTPNetwork/**/*.h"
+    }
+  ]
+}

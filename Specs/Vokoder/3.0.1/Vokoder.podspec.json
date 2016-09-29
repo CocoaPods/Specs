@@ -1,0 +1,105 @@
+{
+  "name": "Vokoder",
+  "version": "3.0.1",
+  "summary": "Vokal's Core Data Manager",
+  "homepage": "https://github.com/vokal/Vokoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vokal": "hello@vokal.io"
+  },
+  "source": {
+    "git": "https://github.com/vokal/Vokoder.git",
+    "tag": "3.0.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "MapperMacros",
+    "DataSources"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Classes/*.{h,m}",
+        "Pod/Classes/Internal"
+      ],
+      "frameworks": "CoreData",
+      "dependencies": {
+        "ILGDynamicObjC/ILGClasses": [
+          "~> 0.1.1"
+        ],
+        "VOKUtilities/VOKKeyPathHelper": [
+          "~> 0.8.0"
+        ]
+      }
+    },
+    {
+      "name": "MapperMacros",
+      "dependencies": {
+        "Vokoder/Core": [
+
+        ]
+      },
+      "source_files": "Pod/Classes/MapperMacros/*.{h,m}"
+    },
+    {
+      "name": "DataSources",
+      "dependencies": {
+        "Vokoder/Core": [
+
+        ]
+      },
+      "default_subspecs": [
+        "FetchedResults",
+        "PagingFetchedResults",
+        "Collection"
+      ],
+      "subspecs": [
+        {
+          "name": "FetchedResults",
+          "source_files": "Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.{h,m}"
+        },
+        {
+          "name": "PagingFetchedResults",
+          "source_files": [
+            "Pod/Classes/Optional Data Sources/VOKPagingFetchedResultsDataSource.{h,m}",
+            "Pod/Classes/Optional Data Sources/VOKDefaultPagingAccessory.{h,m}"
+          ],
+          "dependencies": {
+            "Vokoder/DataSources/FetchedResults": [
+
+            ]
+          }
+        },
+        {
+          "name": "Collection",
+          "source_files": "Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}",
+          "dependencies": {
+            "Vokoder/DataSources/FetchedResults": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Swift",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "Vokoder/DataSources": [
+
+        ]
+      },
+      "source_files": "Pod/Classes/Swift/*.swift"
+    }
+  ]
+}

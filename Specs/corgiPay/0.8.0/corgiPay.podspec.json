@@ -1,0 +1,94 @@
+{
+  "name": "corgiPay",
+  "version": "0.8.0",
+  "summary": "A short description of corgiPay.",
+  "description": "移动应用支付接口。\n使移动支付更简单。\n支持微信支付，银联支付，支付宝支付",
+  "homepage": "https://github.com/wuyingminhui/corgiPay",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jasonwoo": "wuyingminhui@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wuyingminhui/corgiPay.git",
+    "tag": "0.8.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "AliPay",
+    "WxPay",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "corgiPay/Classes/HiPayCore",
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "AliPay",
+      "source_files": [
+        "corgiPay/Classes/AlipaySDk",
+        "corgiPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/*"
+      ],
+      "vendored_frameworks": "corgiPay/Classes/AlipaySDk/AlipaySDK.framework",
+      "public_header_files": "corgiPay/Classes/AlipaySDk/AlipaySDK.framework/Headers/**/*.h",
+      "frameworks": [
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "corgiPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "corgiPay/Classes/UPPaySDK",
+      "vendored_libraries": "corgiPay/Classes/UPPaySDK/*.a",
+      "public_header_files": "corgiPay/Classes/UPPaySDK/*.h",
+      "dependencies": {
+        "corgiPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WxPay",
+      "source_files": "corgiPay/Classes/WxSDK/*.h",
+      "vendored_libraries": "corgiPay/Classes/WxSDK/*.a",
+      "public_header_files": "corgiPay/Classes/WxSDK/*.h",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "frameworks": "CoreTelephony",
+      "dependencies": {
+        "corgiPay/Core": [
+
+        ]
+      }
+    }
+  ]
+}

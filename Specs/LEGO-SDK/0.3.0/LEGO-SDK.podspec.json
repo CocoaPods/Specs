@@ -1,0 +1,193 @@
+{
+  "name": "LEGO-SDK",
+  "version": "0.3.0",
+  "summary": "LEGO-SDK is bridge via WebView and Native.",
+  "description": "LEGO-SDK is bridge via WebView and Native.\nSDK Provides lots of APIs.",
+  "homepage": "http://code.yy.com/LEGO-SDK/LEGO-SDK-OC",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "PonyCui": "cuis@vip.qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/LEGO-SDK/LEGO-SDK-OC.git",
+    "tag": "0.3.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "SDK/Core/*.{h,m}",
+        "SDK/WebView/UIWebView/*.{h,m}",
+        "SDK/WebView/WKWebView/*.{h,m}"
+      ],
+      "frameworks": "JavaScriptCore",
+      "weak_frameworks": "WebKit"
+    },
+    {
+      "name": "AutoInject",
+      "source_files": "SDK/WebView/AutoInject/*.{h,m}",
+      "dependencies": {
+        "LEGO-SDK/Core": [
+
+        ]
+      },
+      "frameworks": "JavaScriptCore",
+      "weak_frameworks": "WebKit"
+    },
+    {
+      "name": "API",
+      "dependencies": {
+        "LEGO-SDK/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Native",
+          "subspecs": [
+            {
+              "name": "Call",
+              "source_files": "SDK/Modules/Native/Call/*.{h,m}"
+            },
+            {
+              "name": "Check",
+              "source_files": "SDK/Modules/Native/Check/*.{h,m}"
+            },
+            {
+              "name": "DataModel",
+              "source_files": "SDK/Modules/Native/DataModel/*.{h,m}"
+            },
+            {
+              "name": "Device",
+              "source_files": "SDK/Modules/Native/Device/*.{h,m}"
+            },
+            {
+              "name": "FileManager",
+              "source_files": "SDK/Modules/Native/FileManager/*.{h,m}"
+            },
+            {
+              "name": "HTTPRequest",
+              "source_files": "SDK/Modules/Native/HTTPRequest/*.{h,m}"
+            },
+            {
+              "name": "Notification",
+              "source_files": "SDK/Modules/Native/Notification/*.{h,m}"
+            },
+            {
+              "name": "OpenURL",
+              "source_files": "SDK/Modules/Native/OpenURL/*.{h,m}"
+            },
+            {
+              "name": "Pasteboard",
+              "source_files": "SDK/Modules/Native/Pasteboard/*.{h,m}"
+            },
+            {
+              "name": "UserDefaults",
+              "source_files": "SDK/Modules/Native/UserDefaults/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "UI",
+          "subspecs": [
+            {
+              "name": "ActionSheet",
+              "source_files": "SDK/Modules/UI/ActionSheet/*.{h,m}"
+            },
+            {
+              "name": "AlertView",
+              "source_files": "SDK/Modules/UI/AlertView/*.{h,m}"
+            },
+            {
+              "name": "AppFrame",
+              "source_files": "SDK/Modules/UI/AppFrame/*.{h,m}",
+              "dependencies": {
+                "LEGO-SDK/API/UI/ViewController": [
+
+                ]
+              }
+            },
+            {
+              "name": "Bounce",
+              "source_files": "SDK/Modules/UI/Bounce/*.{h,m}"
+            },
+            {
+              "name": "ImagePreviewer",
+              "source_files": "SDK/Modules/UI/ImagePreviewer/*.{h,m}"
+            },
+            {
+              "name": "IndicatorView",
+              "source_files": "SDK/Modules/UI/IndicatorView/*.{h,m}"
+            },
+            {
+              "name": "ModalController",
+              "source_files": "SDK/Modules/UI/ModalController/*.{h,m}",
+              "dependencies": {
+                "LEGO-SDK/API/UI/ViewController": [
+
+                ]
+              }
+            },
+            {
+              "name": "NavigationBar",
+              "source_files": "SDK/Modules/UI/NavigationBar/*.{h,m}"
+            },
+            {
+              "name": "NavigationController",
+              "source_files": "SDK/Modules/UI/NavigationController/*.{h,m}",
+              "dependencies": {
+                "LEGO-SDK/API/UI/ViewController": [
+
+                ]
+              }
+            },
+            {
+              "name": "NavigationItem",
+              "source_files": "SDK/Modules/UI/NavigationItem/*.{h,m}"
+            },
+            {
+              "name": "ProgressView",
+              "source_files": "SDK/Modules/UI/ProgressView/*.{h,m}"
+            },
+            {
+              "name": "Refresh",
+              "source_files": "SDK/Modules/UI/Refresh/*.{h,m}"
+            },
+            {
+              "name": "StatusBar",
+              "source_files": "SDK/Modules/UI/StatusBar/*.{h,m}"
+            },
+            {
+              "name": "ViewController",
+              "source_files": "SDK/Modules/UI/ViewController/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "WebView",
+          "subspecs": [
+            {
+              "name": "Pack",
+              "source_files": "SDK/Modules/WebView/Pack/*.{h,m}",
+              "dependencies": {
+                "GCDWebServer": [
+
+                ],
+                "SSZipArchive": [
+
+                ],
+                "CocoaSecurity": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

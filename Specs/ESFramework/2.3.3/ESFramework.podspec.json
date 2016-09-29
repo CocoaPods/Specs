@@ -1,0 +1,124 @@
+{
+  "name": "ESFramework",
+  "version": "2.3.3",
+  "license": "MIT",
+  "summary": "An Effective & Swing Framework for iOS.",
+  "homepage": "https://github.com/ESFramework/ESFramework",
+  "authors": {
+    "Elf Sundae": "http://0x123.com"
+  },
+  "source": {
+    "git": "https://github.com/ESFramework/ESFramework.git",
+    "tag": "2.3.3",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/ElfSundae",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "ESFramework/ESFramework.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ESFramework/Core/**/*.{h,m}",
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "Security"
+      ]
+    },
+    {
+      "name": "Additions",
+      "source_files": "ESFramework/Additions/**/*.{h,m}",
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "ESFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "App",
+      "source_files": "ESFramework/App/**/*.{h,m}",
+      "private_header_files": "ESFramework/App/**/*+Private.h",
+      "dependencies": {
+        "ESFramework/Core": [
+
+        ],
+        "ESFramework/Additions": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreKit",
+      "source_files": "ESFramework/StoreKit/**/*.{h,m}",
+      "frameworks": "StoreKit",
+      "dependencies": {
+        "ESFramework/Core": [
+
+        ],
+        "ESFramework/Additions": [
+
+        ],
+        "ESFramework/App": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "ESFramework/UIKit/ESFrameworkUIKit.h",
+      "frameworks": "QuartzCore",
+      "subspecs": [
+        {
+          "name": "Animation",
+          "source_files": "ESFramework/UIKit/Animation/**/*.{h,m}"
+        },
+        {
+          "name": "View",
+          "source_files": "ESFramework/UIKit/View/**/*.{h,m}",
+          "dependencies": {
+            "ESFramework/Core": [
+
+            ],
+            "ESFramework/Additions": [
+
+            ]
+          }
+        },
+        {
+          "name": "RefreshControl",
+          "source_files": "ESFramework/UIKit/RefreshControl/**/*.{h,m}",
+          "dependencies": {
+            "ESFramework/UIKit/View": [
+
+            ]
+          }
+        },
+        {
+          "name": "Controller",
+          "source_files": "ESFramework/UIKit/Controller/**/*.{h,m}",
+          "frameworks": "MediaPlayer",
+          "dependencies": {
+            "ESFramework/App": [
+
+            ],
+            "ESFramework/UIKit/View": [
+
+            ],
+            "ESFramework/UIKit/RefreshControl": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

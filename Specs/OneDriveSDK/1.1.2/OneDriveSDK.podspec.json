@@ -1,0 +1,93 @@
+{
+  "name": "OneDriveSDK",
+  "version": "1.1.2",
+  "summary": "OneDrive iOS SDK",
+  "description": "Integrate the OneDrive API into your iOS App!",
+  "homepage": "https://dev.onedrive.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "onedriveapi ": "onedriveapi@microsoft.com"
+  },
+  "social_media_url": "http://twitter.com/onedrivedev",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/OneDrive/onedrive-sdk-ios.git",
+    "tag": "1.1.2"
+  },
+  "source_files": "OneDriveSDK/OneDriveSDK/OneDriveSDK.h",
+  "public_header_files": "OneDriveSDK/OneDriveSDK/OneDriveSDK.h",
+  "exclude_files": [
+    "Examples/*",
+    "OneDriveSDK/Test/*"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "OneDriveSDK/Common/*.{h,m}",
+      "public_header_files": "OneDriveSDK/Common/*.h"
+    },
+    {
+      "name": "Implementations",
+      "dependencies": {
+        "OneDriveSDK/Common": [
+
+        ]
+      },
+      "source_files": [
+        "OneDriveSDK/OneDriveSDK/ODURLSessionManager/*{h,m}",
+        "OneDriveSDK/OneDriveSDK/*{h,m}"
+      ],
+      "public_header_files": "OneDriveSDK/OneDriveSDK/**/*.h"
+    },
+    {
+      "name": "Auth",
+      "dependencies": {
+        "ADALiOS": [
+          "~> 1.2.4"
+        ],
+        "OneDriveSDK/Common": [
+
+        ]
+      },
+      "source_files": [
+        "OneDriveSDK/Auth/*.{h,m}",
+        "OneDriveSDK/Accounts/*.{h,m}"
+      ],
+      "public_header_files": [
+        "OneDriveSDK/Auth/*.h",
+        "OneDriveSDK/Accounts/*.h"
+      ]
+    },
+    {
+      "name": "OneDriveCoreSDK",
+      "dependencies": {
+        "OneDriveSDK/Common": [
+
+        ]
+      },
+      "source_files": "OneDriveSDK/OneDriveCoreSDK/**/*.{h,m}",
+      "public_header_files": "OneDriveSDK/OneDriveCoreSDK/**/*.h"
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "OneDriveSDK/OneDriveCoreSDK": [
+
+        ],
+        "OneDriveSDK/Implementations": [
+
+        ],
+        "OneDriveSDK/Auth": [
+
+        ]
+      },
+      "source_files": "OneDriveSDK/Extensions/*.{h,m}",
+      "public_header_files": "OneDriveSDK/Extensions/*.h"
+    }
+  ]
+}

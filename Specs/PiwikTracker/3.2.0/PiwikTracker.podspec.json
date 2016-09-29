@@ -1,0 +1,68 @@
+{
+  "name": "PiwikTracker",
+  "version": "3.2.0",
+  "summary": "A Piwik tracker written in Objective-C for iOS and OSX apps.",
+  "homepage": "https://github.com/piwik/piwik-sdk-ios/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Mattias Levin": "mattias.levin@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/piwik/piwik-sdk-ios.git",
+    "tag": "v3.2.0"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "PiwikTracker/*.{h,m}",
+        "PiwikTracker/piwiktracker.xcdatamodeld",
+        "PiwikTracker/piwiktracker.xcdatamodeld/*.xcdatamodel"
+      ],
+      "osx": {
+        "exclude_files": "PiwikTracker/PiwikTrackedViewController.{h,m}",
+        "frameworks": [
+          "Foundation",
+          "Cocoa",
+          "CoreData",
+          "CoreGraphics"
+        ]
+      },
+      "resources": [
+        "PiwikTracker/piwiktracker.xcdatamodeld",
+        "PiwikTracker/piwiktracker.xcdatamodeld/*.xcdatamodel"
+      ],
+      "preserve_paths": "PiwikTracker/piwiktracker.xcdatamodeld",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "CoreData",
+          "CoreLocation",
+          "CoreGraphics"
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking2",
+      "source_files": "PiwikTracker+AFNetworking2/*.{h,m,}",
+      "dependencies": {
+        "PiwikTracker/Core": [
+
+        ],
+        "AFNetworking": [
+          "~> 2.0"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "TRON",
+  "version": "0.4.3",
+  "license": "MIT",
+  "summary": "Lightweight network abstraction layer, written on top of Alamofire",
+  "homepage": "https://github.com/MLSDev/TRON",
+  "authors": {
+    "Denys Telezhkin": "denys.telezhkin@yandex.ru"
+  },
+  "social_media_url": "https://twitter.com/MLSDevCom",
+  "source": {
+    "git": "https://github.com/MLSDev/TRON.git",
+    "tag": "0.4.3"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.10",
+    "watchos": "2.0"
+  },
+  "frameworks": "Foundation",
+  "dependencies": {
+    "Alamofire": [
+      "~> 3.3"
+    ]
+  },
+  "default_subspecs": "SwiftyJSON",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "source_files": "Source/Core/*.swift",
+      "tvos": {
+        "exclude_files": "Source/Core/NetworkActivityPlugin.swift"
+      },
+      "osx": {
+        "exclude_files": "Source/Core/NetworkActivityPlugin.swift"
+      },
+      "watchos": {
+        "exclude_files": "Source/Core/NetworkActivityPlugin.swift"
+      }
+    },
+    {
+      "name": "SwiftyJSON",
+      "dependencies": {
+        "TRON/Core": [
+
+        ],
+        "SwiftyJSON": [
+          "~> 2.3"
+        ]
+      },
+      "source_files": "Source/SwiftyJSON/*.swift"
+    },
+    {
+      "name": "RxSwift",
+      "dependencies": {
+        "TRON/Core": [
+
+        ],
+        "RxSwift": [
+
+        ]
+      },
+      "source_files": "Source/RxSwift/*.swift"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "actv8lib",
+  "version": "2.0.7",
+  "summary": "Actv8 Framework",
+  "homepage": "http://www.actv8me.com/",
+  "authors": {
+    "Tom Stamm": "tom.stamm@actv8me.com"
+  },
+  "documentation_url": "http://actv8me.com/dev/docs/#/ios",
+  "description": "The actv8lib SDK listens for \"trigger\" signals from various analog and digital technologies.  These may include: Audio trigguers, BluetoothLE triggers, UURLs (deep links), \"Catch\" buttons, etc.  All these technologies are used by commercial intererest to transmit offers and promotions to an app on a mobile device.\nOnce the SDK senses a valid signal, it then forwards that information to the actv8me servers which will return to the app an offer or promotion, etc.",
+  "license": {
+    "type": "Copyright",
+    "text": "Activate License and Service\n"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/ACTV8meInc/sdk_bin_iphone.git",
+    "tag": "2.0.7"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "compiler_flags": [
+    "-ObjC",
+    "$(inherited)"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Actv8Core/actv8lib.framework/Versions/A/Headers/*.h",
+      "preserve_paths": "Actv8Core/actv8lib.framework",
+      "ios": {
+        "vendored_frameworks": "Actv8Core/actv8lib.framework"
+      },
+      "frameworks": [
+        "actv8lib",
+        "Accelerate",
+        "AVFoundation",
+        "CoreFoundation",
+        "UIKit",
+        "AudioToolbox",
+        "CoreLocation",
+        "EventKit",
+        "SystemConfiguration",
+        "Security",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "stdc++",
+        "xml2",
+        "z",
+        "resolv"
+      ]
+    },
+    {
+      "name": "UI",
+      "preserve_paths": "Actv8UI/actv8libUI.framework",
+      "source_files": "Actv8UI/actv8libUI.framework/Versions/A/Headers/*.h",
+      "dependencies": {
+        "actv8lib/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "Actv8UI/actv8libUI.framework"
+      },
+      "resource_bundles": {
+        "actv8libUI": [
+          "Actv8UI/actv8libUI.bundle/*.*"
+        ]
+      }
+    }
+  ]
+}

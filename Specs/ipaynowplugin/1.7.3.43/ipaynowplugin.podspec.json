@@ -1,0 +1,120 @@
+{
+  "name": "ipaynowplugin",
+  "version": "1.7.3.43",
+  "summary": "ipaynowplugin SDK",
+  "description": "Help developer to quickly intergrate variety of payment methods",
+  "homepage": "http://www.ipaynow.cn",
+  "license": "MIT",
+  "authors": {
+    "Hstripe": "huangrui@ipaynow.cn"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/Hstripe/libipaynow.git",
+    "tag": "1.7.3.43"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreTelephony",
+        "QuartzCore",
+        "SystemConfiguration",
+        "Security",
+        "Foundation",
+        "UIKit"
+      ],
+      "ios": {
+        "libraries": [
+          "z",
+          "sqlite3.0",
+          "c++",
+          "stdc++"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/AliPayPlugin/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/AliPayPlugin/AlipaySDK.bundle",
+      "frameworks": "CoreMotion",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Weixin",
+      "ios": {
+        "vendored_libraries": "lib/Channels/WechatPlugin/*.a"
+      },
+      "source_files": "lib/Channels/WechatPlugin/*.h",
+      "public_header_files": "lib/Channels/WechatPlugin/*.h",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Unionpay",
+      "vendored_libraries": "lib/Channels/UPPayPlugin/*.a",
+      "source_files": "lib/Channels/UPPayPlugin/*.h",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaiduWallet",
+      "public_header_files": "lib/Channels/BDWalletSDK/Library/**/*.h",
+      "source_files": "lib/Channels/BDWalletSDK/Library/**/*.h",
+      "resources": "lib/Channels/BDWalletSDK/*.bundle",
+      "vendored_libraries": "lib/Channels/BDWalletSDK/**/*.a",
+      "frameworks": [
+        "AddressBook",
+        "AddressBookUI",
+        "AudioToolbox",
+        "CoreAudio",
+        "ImageIO",
+        "MessageUI",
+        "MobileCoreServices"
+      ],
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "lib/Channels/UPApplePay/*.h",
+      "public_header_files": "lib/Channels/UPApplePay/*.h",
+      "vendored_libraries": "lib/Channels/UPApplePay/*.a",
+      "ios": {
+        "weak_frameworks": "PassKit"
+      },
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    }
+  ]
+}

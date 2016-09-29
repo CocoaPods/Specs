@@ -1,0 +1,36 @@
+{
+  "name": "TextExpander",
+  "version": "4.0",
+  "license": {
+    "type": "Commercial",
+    "text": "http://smilesoftware.com/sdk"
+  },
+  "summary": "Add TextExpander touch functionality to your iOS app!",
+  "description": "The TextExpander SDK lets you add TextExpander functionality to your\niOS apps.  TextExpander is an app that allows you to define shortcut\n\"snippets\" that automatically expand into any arbitrary length of text\nwhen typed.\n\n* Note for iOS 9: You must add the following entries to\nLSApplicationQueriesSchemes in Info.plist:\n\ntetouch\ntetouch-xc\ntetouch-settings\n\nIf you do not add these entries, the SDK will always report that TextExpander\nis NOT installed, expansion will not work in your app, and your app will not\nbe able to update snippets\n\n* Note for TextExpander 2.3+ *\n\nTextExpander 2.3+ no longer uses Reminders (EventKit) to pass snippet data.\nWhen upgrading your apps, please make sure to follow these steps:\n\n1. Remove the EventKit framework from your project unless you use it for\n   something other than TextExpander\n2. Remove or edit the NSRemindersUsageDescription in your Info.plist\n3. Remove calls to -[SMTEDelegateController willEnterForeground]\n4. If you've implemented fill-ins, search and replace fillForAppName with\n   clientAppName\n5. Remove any code checking for access to Reminders unless your app uses\n   Reminders for other purposes\n6. Follow the instructions under Acquiring / Updating Snippet Data in the\n   SDK Read Me file, or at:\n   https://github.com/SmileSoftware/TextExpanderTouchSDK#acquiring--updating-snippet-data\n",
+  "homepage": "http://smilesoftware.com/sdk",
+  "authors": {
+    "SmileOnMyMac": "textexpander-touch@smilesoftware.com"
+  },
+  "source": {
+    "git": "https://github.com/SmileSoftware/TextExpanderTouchSDK.git",
+    "tag": "4.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "TextExpander.framework/Versions/A/Headers/*.h",
+  "frameworks": [
+    "AudioToolbox",
+    "CoreGraphics",
+    "CoreText",
+    "Foundation",
+    "JavaScriptCore",
+    "UIKit"
+  ],
+  "preserve_paths": "TextExpander.framework",
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/TextExpander",
+    "OTHER_LDFLAGS": "-framework TextExpander"
+  }
+}

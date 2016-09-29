@@ -1,0 +1,167 @@
+{
+  "name": "OpenCartKit",
+  "version": "0.1.1",
+  "summary": "A simplicity but high efficiency iOS kit can be use to develop iOS app for ecommerce platform OpenCart",
+  "description": "A simplicity but high efficiency kit wrap web service layer for the OpenCart ecommerce platform.\nThis is Objecitve-C version, you can use to develop iOS client app for OpenCart store site.\n",
+  "homepage": "https://github.com/iXCart/OpenCartKit",
+  "license": "GNU General Public License version 3 (GPLv3)",
+  "authors": {
+    "RobinCheung": "iRobinCheung@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iXCart/OpenCartKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+      "~> 2.5.4"
+    ]
+  },
+  "public_header_files": [
+    "OpenCartKit/*.h",
+    "OpenCartKit/*.pch"
+  ],
+  "source_files": [
+    "OpenCartKit/OpenCartKit.h",
+    "OpenCartKit/*.pch"
+  ],
+  "subspecs": [
+    {
+      "name": "Services",
+      "subspecs": [
+        {
+          "name": "Core",
+          "ios": {
+            "public_header_files": "OpenCartKit/Services/Core/*.h",
+            "source_files": "OpenCartKit/Services/Core/*"
+          },
+          "dependencies": {
+            "OpenCartKit/Support": [
+
+            ],
+            "OpenCartKit/Vendor": [
+
+            ],
+            "OpenCartKit/Services/Exception": [
+
+            ]
+          }
+        },
+        {
+          "name": "Exception",
+          "ios": {
+            "public_header_files": "OpenCartKit/Services/Exception/*.h",
+            "source_files": "OpenCartKit/Services/Exception/*"
+          }
+        },
+        {
+          "name": "Product",
+          "ios": {
+            "public_header_files": "OpenCartKit/Services/Catalog/Product/*.h",
+            "source_files": "OpenCartKit/Services/Catalog/Product/*"
+          },
+          "dependencies": {
+            "OpenCartKit/Support": [
+
+            ],
+            "OpenCartKit/Vendor": [
+
+            ],
+            "OpenCartKit/Services/Core": [
+
+            ],
+            "OpenCartKit/Services/Exception": [
+
+            ]
+          }
+        },
+        {
+          "name": "Account",
+          "ios": {
+            "public_header_files": "OpenCartKit/Services/Catalog/Account/*.h",
+            "source_files": "OpenCartKit/Services/Catalog/Account/*"
+          },
+          "dependencies": {
+            "OpenCartKit/Support": [
+
+            ],
+            "OpenCartKit/Vendor": [
+
+            ],
+            "OpenCartKit/Services/Core": [
+
+            ],
+            "OpenCartKit/Services/Exception": [
+
+            ]
+          }
+        },
+        {
+          "name": "Checkout",
+          "ios": {
+            "public_header_files": "OpenCartKit/Services/Catalog/Checkout/*.h",
+            "source_files": "OpenCartKit/Services/Catalog/Checkout/*"
+          },
+          "dependencies": {
+            "OpenCartKit/Support": [
+
+            ],
+            "OpenCartKit/Vendor": [
+
+            ],
+            "OpenCartKit/Services/Core": [
+
+            ],
+            "OpenCartKit/Services/Exception": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "source_files": "OpenCartKit/Support/*.{h,m}",
+      "ios": {
+        "public_header_files": "OpenCartKit/Support/*.h"
+      },
+      "dependencies": {
+        "OpenCartKit/Vendor": [
+
+        ]
+      }
+    },
+    {
+      "name": "Vendor",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "ios": {
+            "public_header_files": [
+              "Vendor/Foundation/*.h",
+              "Vendor/Foundation/**/*.h"
+            ],
+            "source_files": [
+              "Vendor/Foundation/*",
+              "Vendor/Foundation/**/*"
+            ]
+          }
+        },
+        {
+          "name": "Security",
+          "ios": {
+            "public_header_files": [
+              "Vendor/Security/*.h",
+              "Vendor/Security/**/*.h"
+            ],
+            "source_files": "Vendor/Security/**/*"
+          }
+        }
+      ]
+    }
+  ]
+}

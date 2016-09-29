@@ -1,0 +1,187 @@
+{
+  "name": "KSCrash",
+  "version": "0.0.9",
+  "summary": "The Ultimate iOS Crash Reporter",
+  "homepage": "https://github.com/kstenerud/KSCrash",
+  "license": {
+    "type": "KSCrash license agreement",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Karl Stenerud": "kstenerud@gmail.com"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/kstenerud/KSCrash.git",
+    "tag": "0.0.9"
+  },
+  "frameworks": "Foundation",
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "xcconfig": {
+    "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "Source/KSCrash/Recording/**/KSZombie.{h,m}",
+      "requires_arc": false
+    },
+    {
+      "name": "Recording",
+      "dependencies": {
+        "KSCrash/no-arc": [
+
+        ]
+      },
+      "source_files": [
+        "Source/KSCrash/Recording/**/*.{h,m,mm,c,cpp}",
+        "Source/KSCrash/llvm/**/*.{h,m,mm,c,cpp}",
+        "Source/KSCrash/swift/**/*.{h,m,mm,c,cpp}",
+        "Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h"
+      ],
+      "exclude_files": "Source/KSCrash/Recording/**/KSZombie.{h,m}"
+    },
+    {
+      "name": "Reporting",
+      "dependencies": {
+        "KSCrash/Recording": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Filters",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/Tools/**/*.{h,m,mm,c,cpp}",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilter.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilter.m"
+              ]
+            },
+            {
+              "name": "Alert",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterAlert.m"
+              ]
+            },
+            {
+              "name": "AppleFmt",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterAppleFmt.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterAppleFmt.m"
+              ]
+            },
+            {
+              "name": "Basic",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterBasic.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterBasic.m"
+              ]
+            },
+            {
+              "name": "GZip",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterGZip.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterGZip.m"
+              ]
+            },
+            {
+              "name": "JSON",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterJSON.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterJSON.m"
+              ]
+            },
+            {
+              "name": "Sets",
+              "dependencies": {
+                "KSCrash/Reporting/Filters/Base": [
+
+                ],
+                "KSCrash/Reporting/Filters/AppleFmt": [
+
+                ],
+                "KSCrash/Reporting/Filters/Basic": [
+
+                ],
+                "KSCrash/Reporting/Filters/GZip": [
+
+                ],
+                "KSCrash/Reporting/Filters/JSON": [
+
+                ]
+              },
+              "source_files": [
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterSets.h",
+                "Source/KSCrash/Reporting/Filters/KSCrashReportFilterSets.m"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tools",
+          "frameworks": "SystemConfiguration",
+          "source_files": "Source/KSCrash/Reporting/Tools/**/*.{h,m,mm,c,cpp}"
+        },
+        {
+          "name": "Sinks",
+          "frameworks": "MessageUI",
+          "dependencies": {
+            "KSCrash/Reporting/Filters": [
+
+            ],
+            "KSCrash/Reporting/Tools": [
+
+            ]
+          },
+          "source_files": "Source/KSCrash/Reporting/Sinks/**/*.{h,m,mm,c,cpp}"
+        }
+      ]
+    },
+    {
+      "name": "Installations",
+      "dependencies": {
+        "KSCrash/Recording": [
+
+        ],
+        "KSCrash/Reporting": [
+
+        ]
+      },
+      "source_files": "Source/KSCrash/Installations/**/*.{h,m,mm,c,cpp}"
+    }
+  ]
+}

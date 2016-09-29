@@ -1,0 +1,90 @@
+{
+  "name": "BeeCloud",
+  "version": "2.6.1",
+  "summary": "BeeCloud云服务 致力加速App 开发",
+  "homepage": "http://beecloud.cn",
+  "license": "COMMERCIAL",
+  "authors": {
+    "LacusRInz": "zhihaoq@beecloud.cn"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/beecloud/ios-sdk-cocoapods-release.git",
+    "tag": "2.6.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreLocation",
+        "MobileCoreServices",
+        "Security",
+        "SystemConfiguration",
+        "UIKit",
+        "CoreTelephony"
+      ],
+      "ios": {
+        "libraries": "c++"
+      },
+      "vendored_frameworks": [
+        "BeeCloud.framework",
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": [
+        "Channels/BCAliPay.framework",
+        "Channels/AlipaySDK.framework"
+      ],
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "vendored_libraries": "Channels/libWeChatSDK.a",
+      "vendored_frameworks": "Channels/BCWXPay.framework",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "vendored_frameworks": "Channels/BCUnionPay.framework",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "InAppPay",
+      "vendored_frameworks": "Channels/BCIAPay.framework",
+      "dependencies": {
+        "BeeCloud/Core": [
+
+        ]
+      }
+    }
+  ]
+}

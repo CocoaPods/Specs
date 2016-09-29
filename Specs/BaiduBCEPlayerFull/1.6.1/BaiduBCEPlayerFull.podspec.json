@@ -1,0 +1,43 @@
+{
+  "name": "BaiduBCEPlayerFull",
+  "version": "1.6.1",
+  "summary": "Baidu BCE iOS Player SDK",
+  "homepage": "https://bce.baidu.com/doc/MCT/iOS-Player-SDK.html",
+  "license": {
+    "type": "Proprietary",
+    "text": "         Copyright (c) 2016 Baidu.com, Inc. All Rights Reserved.\n"
+  },
+  "description": "Baidu BCE iOS Player SDK supoort iOS 7.0 and later,",
+  "authors": {
+    "bailu": "bailu07@baidu.com"
+  },
+  "source": {
+    "http": "http://sdk.bce.baidu.com/media-sdk/Baidu-T5Player-SDK-iOS-Full-1.6.1.zip?responseContentDisposition=attachment",
+    "sha1": "60d33adddf5592195e46b12d048ba32821d48b14"
+  },
+  "prepare_command": "VERSION=\"1.6.1\"\nBASEPATH=\"${PWD}\"\nSDKPATH=\"Baidu-T5Player-SDK-iOS-${VERSION}\"\n\nrm -rf \"${BASEPATH}/include\"\nrm -rf \"${BASEPATH}/lib\"\nmkdir -p \"${BASEPATH}/include\"\nmkdir -p \"${BASEPATH}/lib\"\n\n# copy headers\ncp ${SDKPATH}/include/CyberDownloader/*.h \"${BASEPATH}/include/\"\ncp ${SDKPATH}/include/CyberPlayer/*.h \"${BASEPATH}/include/\"\n\n# copy libs\ncp \"${SDKPATH}/lib/libCyberDownloader.a\" \"${BASEPATH}/lib/\"\ncp \"${SDKPATH}/lib/libCyberPlayerController.a\" \"${BASEPATH}/lib/\"",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "include/*.h",
+  "vendored_libraries": [
+    "lib/libCyberPlayerController.a",
+    "lib/libCyberDownloader.a"
+  ],
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AudioToolbox",
+    "MobileCoreServices"
+  ],
+  "dependencies": {
+    "OpenSSL": [
+      "~> 1.0"
+    ]
+  },
+  "libraries": [
+    "bz2",
+    "z"
+  ]
+}

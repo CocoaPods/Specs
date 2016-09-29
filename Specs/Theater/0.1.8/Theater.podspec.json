@@ -1,0 +1,29 @@
+{
+  "name": "Theater",
+  "version": "0.1.8",
+  "summary": "Swift framework to help write async, resilient and responsive applications.",
+  "description": "Writing async, resilient and responsive applications is too hard. \n\nIn the case of iOS, is because we've been using the wrong abstraction level: NSOperationQueues, dispatch_semaphore_create, dispatch_semaphore_wait and other low level GCD functions and structures.\n\nUsing the Actor Model, we raise the abstraction level and provide a better platform to build correct concurrent and scalable applications.\n\nTheater is Open Source and available under the Apache 2 License.\n\nTheater is inspired by Akka.\n\nTwitter = [@TheaterFwk](https://twitter.com/TheaterFwk)\n\n### How to get started\n\n- install via [CocoaPods](http://cocoapods.org)\n\n```ruby\npod 'Theater'\n```\n\nActors should subclass the Actor class:\n\n```swift\n  public class Dude : Actor {\n```\nIn order to \"listen\" for messages, actors have to override the receive method:\n```swift\n  override public func receive(msg : Message) -> Void {\n\n  }\n```\n\nIn order to unwrap the message, you can use switch \n\n```swift\noverride public func receive(msg : Message) -> Void {\n  switch (msg) {\n    case let m as Hi:\n      m.sender! ! Hello(sender: self.this)\n    case is Hello:\n      print(\"got Hello\")\n    default:\n      print(\"what?\")\n  }\n}\n```\n\nAll messages must subclass Message:\n```swift\n\npublic class Hi : Message {}\n \npublic class Hello : Message {}\n\n```\n\nActors live inside an actor system, theater provides a default system\n\n```swift\n  let system : ActorSystem = AppActorSystem.shared\n```\n\nPutting in all together:\n\n```swift\nimport Theater\n \npublic class Hi : Message {}\n \npublic class Hello : Message {}\n \npublic class Dude : Actor {\n    override public func receive(msg : Message) -> Void {\n        switch (msg) {\n            case let m as Hi:\n                m.sender! ! Hello(sender: self.this)\n            case is Hello:\n                print(\"got Hello\")\n            default:\n                print(\"what?\")\n        }\n    }\n}\n\n.\n.\n.\n(inside the app delegate)\n\nfunc application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {\n        \n        let system : ActorSystem = AppActorSystem.shared\n        \n        let dude1 = system.actorOf(Dude.self, name: \"dude1\")\n        let dude2 = system.actorOf(Dude.self, name: \"dude2\")\n        \n        dude2 ! Hi(sender : dude1)\n```\n\nThe output will be:\n```swift\nTell = Optional(\"dude1\") <Actors.Hi: 0x7bf951a0> dude2 \nTell = Optional(\"dude2\") <Actors.Hello: 0x7be4bc00> dude1 \ngot Hello\n```",
+  "homepage": "https://github.com/darioalessandro/Theater",
+  "screenshots": "https://raw.githubusercontent.com/darioalessandro/Theater/master/theaterlogo.jpg",
+  "license": {
+    "type": "Apache2",
+    "file": "License.txt"
+  },
+  "authors": {
+    "Dario Lencina": "darioalessandrolencina@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/theaterfwk",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/darioalessandro/Theater.git",
+    "tag": "0.1.8"
+  },
+  "source_files": "Classes/*.swift",
+  "dependencies": {
+    "Starscream": [
+      "~> 1.0.0"
+    ]
+  }
+}

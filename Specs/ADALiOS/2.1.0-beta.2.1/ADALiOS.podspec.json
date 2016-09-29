@@ -1,0 +1,61 @@
+{
+  "name": "ADALiOS",
+  "module_name": "ADAL",
+  "version": "2.1.0-beta.2.1",
+  "summary": "The ADAL SDK for iOS gives you the ability to add Azure Identity authentication to your application",
+  "description": "The Azure Identity Library for Objective C. This library gives you the ability to add support for Work Accounts to your iOS and OS X applications with just a few lines of additional code. This SDK gives your application the full functionality of Microsoft Azure AD, including industry standard protocol support for OAuth2, Web API integration with user level consent, and two factor authentication support.",
+  "homepage": "https://github.com/AzureAD/azure-activedirectory-library-for-objc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Brandon Werner": "brandwe@microsoft.com"
+  },
+  "social_media_url": "https://twitter.com/azuread",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/AzureAD/azure-activedirectory-library-for-objc.git",
+    "commit": "c52c34cd31c352730b4b9e325d66fdb7f7b1650c"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "PrivateHeader",
+      "ios": {
+        "source_files": "ADAL/src/public/mac/ADTokenCache.h",
+        "private_header_files": "ADAL/src/public/mac/ADTokenCache.h"
+      }
+    },
+    {
+      "name": "no-arc",
+      "source_files": [
+        "ADAL/src/**/*.{h}",
+        "ADAL/src/broker/ios/ADBrokerKeyHelper.m",
+        "ADAL/src/cache/ios/ADKeychainTokenCache.m",
+        "ADAL/src/workplacejoin/ios/ADWorkPlaceJoinUtil.m"
+      ],
+      "requires_arc": false
+    },
+    {
+      "name": "Core",
+      "public_header_files": "ADAL/src/public/*.h",
+      "source_files": "ADAL/src/**/*.{h,m}",
+      "prefix_header_file": "ADAL/src/ADAL.pch",
+      "exclude_files": [
+        "ADAL/src/**/mac/*",
+        "ADAL/src/broker/ios/ADBrokerKeyHelper.m",
+        "ADAL/src/cache/ios/ADKeychainTokenCache.m",
+        "ADAL/src/workplacejoin/ios/ADWorkPlaceJoinUtil.m"
+      ],
+      "requires_arc": true,
+      "dependencies": {
+        "ADALiOS/no-arc": [
+
+        ]
+      }
+    }
+  ]
+}

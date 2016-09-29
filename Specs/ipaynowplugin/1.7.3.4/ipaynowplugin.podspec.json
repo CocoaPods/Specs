@@ -1,0 +1,55 @@
+{
+  "name": "ipaynowplugin",
+  "version": "1.7.3.4",
+  "summary": "ipaynowplugin SDK",
+  "description": "Help developer to quickly intergrate variety of payment methods",
+  "homepage": "http://www.ipaynow.cn",
+  "license": "MIT",
+  "authors": {
+    "Hstripe": "huangrui@ipaynow.cn"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/Hstripe/libipaynow.git",
+    "tag": "1.7.3.4"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreTelephony",
+        "QuartzCore",
+        "SystemConfiguration",
+        "Security",
+        "Foundation",
+        "UIKit"
+      ],
+      "ios": {
+        "libraries": [
+          "z",
+          "sqlite3.0"
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/AliPayPlugin/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/AliPayPlugin/AlipaySDK.bundle",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    }
+  ]
+}

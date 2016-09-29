@@ -1,0 +1,29 @@
+{
+  "name": "cmark",
+  "version": "0.24.1",
+  "summary": "CommonMark parsing and rendering library and program in C",
+  "description": "`cmark` is the C reference implementation of [CommonMark], a\nrationalized version of Markdown syntax with a [spec][http://spec.commonmark.org/].\n(For the JavaScript reference implementation, see\n[commonmark.js].)\n\nIt provides a shared library (`libcmark`) with functions for parsing\nCommonMark documents to an abstract syntax tree (AST), manipulating\nthe AST, and rendering the document to HTML, groff man, LaTeX,\nCommonMark, or an XML representation of the AST.  It also provides a\ncommand-line program (`cmark`) for parsing and rendering CommonMark\ndocuments.",
+  "homepage": "https://github.com/jgm/cmark",
+  "license": "BSD2",
+  "authors": {
+    "John MacFarlane": "email@address.com"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/jgm/cmark.git",
+    "tag": "0.24.0"
+  },
+  "source_files": [
+    "src/*.{h,c,m,inc}",
+    "build/src/"
+  ],
+  "public_header_files": [
+    "src/cmark.h",
+    "build/src"
+  ],
+  "prepare_command": "echo `pwd`\nsed -i '' 's/include <\\(cmark.*\\)>/include \"\\1\"/' src/cmark.h\nmkdir -p build; cd build && cmake -G Xcode .."
+}

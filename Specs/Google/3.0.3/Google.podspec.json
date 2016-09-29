@@ -1,0 +1,100 @@
+{
+  "name": "Google",
+  "version": "3.0.3",
+  "summary": "Google APIs for iOS",
+  "description": "Simplify your iOS development, grow your user base, and monetize more effectively with Google services.",
+  "homepage": "https://developers.google.com/ios",
+  "license": {
+    "text": "Copyright 2016 Google Inc.",
+    "type": "Copyright"
+  },
+  "authors": "Google Inc.",
+  "source": {
+    "http": "https://www.gstatic.com/cpdc/8f4d85570fdd4ab9-Google-3.0.3.tar.gz"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "header_dir": "Google",
+  "preserve_paths": "Samples/*",
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Frameworks/GGLCore.framework"
+      ],
+      "public_header_files": [
+        "Headers/Core.h",
+        "Headers/ModuleHeaders/*.h"
+      ],
+      "preserve_paths": [
+        "Headers/module.modulemap"
+      ],
+      "source_files": [
+        "Headers/Core.h",
+        "Headers/ModuleHeaders/*.h"
+      ],
+      "libraries": [
+        "z",
+        "stdc++",
+        "sqlite3"
+      ],
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/Google/Headers"
+      },
+      "frameworks": [
+        "AddressBook",
+        "AssetsLibrary",
+        "CoreFoundation",
+        "CoreLocation",
+        "CoreMotion",
+        "MessageUI",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "FirebaseAnalytics": [
+          "~> 3.2"
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "vendored_frameworks": [
+        "Frameworks/GGLAnalytics.framework"
+      ],
+      "public_header_files": "Headers/Analytics.h",
+      "source_files": "Headers/Analytics.h",
+      "libraries": [
+        "sqlite3"
+      ],
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GoogleAnalytics": [
+          "~> 3.12"
+        ]
+      }
+    },
+    {
+      "name": "SignIn",
+      "vendored_frameworks": [
+        "Frameworks/GGLSignIn.framework"
+      ],
+      "public_header_files": "Headers/SignIn.h",
+      "source_files": "Headers/SignIn.h",
+      "dependencies": {
+        "Google/Core": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 4.0"
+        ]
+      }
+    }
+  ]
+}
