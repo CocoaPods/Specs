@@ -1,0 +1,48 @@
+{
+  "name": "TPInAppReceipt",
+  "version": "0.0.1",
+  "summary": "Validates and parses Apple Store Receipt.",
+  "description": "This helper validates and parses the payload and the PKCS7 container itself. Pure swift, openssl+bitcode",
+  "homepage": "http://tikhop.com",
+  "license": "MIT",
+  "authors": {
+    "Pavel Tikhonenko": "hi@tikhop.com"
+  },
+  "platforms": {
+    "ios": "8.3"
+  },
+  "source": {
+    "git": "https://github.com/tikhop/TPInAppReceipt.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "TPInAppReceipt/**/*.{h,m}",
+    "TPInAppReceipt/**/*.{swift}",
+    "Vendor/OpenSSL/include/**/*.h"
+  ],
+  "public_header_files": "TPInAppReceipt/**/*.h",
+  "vendored_libraries": [
+    "Vendor/OpenSSL/lib/libssl.a",
+    "Vendor/OpenSSL/lib/libcrypto.a"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/lib"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/lib"
+  },
+  "preserve_paths": [
+    "TPInAppReceipt/*",
+    "Vendor/OpenSSL/module.modulemap",
+    "TPInAppReceipt/**/*"
+  ],
+  "resources": "TPInAppReceipt/AppleIncRootCertificate.cer",
+  "libraries": [
+    "ssl",
+    "crypto"
+  ]
+}
