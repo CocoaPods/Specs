@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source = { :git => "https://github.com/foxsofter/lpd-mvvm-kit.git", :tag => "v#{s.version}", :submodules => true }
+  s.source = { :git => "https://github.com/foxsofter/lpd-mvvm-kit.git", :tag => "#{s.version}", :submodules => true }
 
   s.requires_arc = true
 
