@@ -1,0 +1,58 @@
+{
+  "name": "Siesta",
+  "version": "1.0-rc.1",
+  "summary": "Swift REST client library",
+  "description": "An elegant abstraction for REST APIs that untangles stateful messes and drastically simplifies app code. A **resource-centric** alternative to the familiar **request-centric** approach.\n\nSiesta ends the stateful headache of client-side network request management by providing an observable model of a RESTful resource’s state. The model answers three basic questions:\n\n* What is the latest data for this resource, if any?\n* Did the latest request result in an error?\n* Is there a request in progress?\n\n…then provides notifications whenever the answers to these questions change.\n\nSiesta handles all the transitions and corner cases to deliver these answers wrapped up with a pretty bow on top, letting you focus on your UI.\n\n## Stats\n\n* **OS:** iOS 8+, OS X / macOS 10.11+\n* **Languages:** Written in Swift, supports apps in both Swift and Objective-C\n* **Tool requirements:** Xcode 8, Swift 3.0\n* **License:** MIT\n\n## Features\n\n- Decouples view and model lifecycle from network request lifecycle\n- Decouples request initiation from request configuration\n- Eliminates error-prone state tracking logic\n- Eliminates redundant network requests\n- Unified handling for all errors: encoding, network, server-side, and parsing\n- Highly extensible, multithreaded response deserialization\n- Transparent built-in parsing (which you can turn off) for JSON, text, and images\n- Smooth progress reporting that accounts for upload, download, _and_ latency\n- Transparent Etag / If-Modified-Since handling\n- Prebaked UI helpers for loading & error handling, remote images\n- Debug-friendly, customizable logging\n- Written in Swift with a great [Swift-centric API](https://bustoutsolutions.github.io/siesta/api/), but…\n- …also works great from Objective-C thanks to a compatibility layer.\n- Lightweight. Won’t achieve sentience and attempt to destroy you.\n- [Robust regression tests](https://bustoutsolutions.github.io/siesta/specs/)\n- [Documentation](https://bustoutsolutions.github.io/siesta/guide/)\n\n## What it doesn’t do\n\n- It **doesn’t reinvent networking.** Siesta delegates network operations to your library of choice (`NSURLSession` by default, or [Alamofire](https://github.com/Alamofire/Alamofire), or inject your own [custom adapter](http://bustoutsolutions.github.io/siesta/api/Protocols/NetworkingProvider.html)).\n- It **doesn’t hide HTTP**. On the contrary, Siesta strives to expose the full richness of HTTP while providing conveniences to simplify common usage patterns. You can devise an abstraction layer to suit your own particular needs, or work directly with Siesta’s nice APIs for requests and response entities.\n- It **doesn’t do response ↔ model mapping.** This means that Siesta doesn’t constrain your response models, or force you to have any at all. Add a response transformer to work with your model library of choice, or work directly with parsed JSON.\n\n## Documentation\n\n- **[Full README](https://github.com/bustoutsolutions/siesta)**\n- **[User Guide](https://bustoutsolutions.github.io/siesta/guide/)**\n- **[API documentation](https://bustoutsolutions.github.io/siesta/api/)**\n- **[Specs](https://bustoutsolutions.github.io/siesta/specs/)**",
+  "homepage": "http://bustoutsolutions.github.io/siesta/",
+  "license": "MIT",
+  "authors": {
+    "Bust Out Solutions, Inc.": "hello@bustoutsolutions.com",
+    "Paul Cantrell": "https://innig.net"
+  },
+  "social_media_url": "https://twitter.com/siestaframework",
+  "documentation_url": "https://bustoutsolutions.github.io/siesta/",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11"
+  },
+  "source": {
+    "git": "https://github.com/bustoutsolutions/siesta.git",
+    "tag": "1.0-rc.1"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/Siesta/**/*",
+      "exclude_files": "**/Info*.plist"
+    },
+    {
+      "name": "UI",
+      "ios": {
+        "source_files": "Source/SiestaUI/**/*",
+        "resources": "Source/**/*.xib"
+      },
+      "dependencies": {
+        "Siesta/Core": [
+
+        ]
+      },
+      "exclude_files": "**/Info*.plist"
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "Extensions/Alamofire/**/*",
+      "dependencies": {
+        "Siesta/Core": [
+
+        ],
+        "Alamofire": [
+          "> 4"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0"
+      }
+    }
+  ]
+}
