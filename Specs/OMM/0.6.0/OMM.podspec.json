@@ -1,0 +1,61 @@
+{
+  "name": "OMM",
+  "version": "0.6.0",
+  "summary": "OMM is a one more mapper that helps to map JSON and property list objects to Swift instances.",
+  "description": "OMM has clear compact API, supports Swift error handling, provides subscript syntax, allows to to distinguish absence of value and wrong value, and gives opportunity to reuse mapping uging mappable types and custom transforms.",
+  "homepage": "https://github.com/fen-x/OMM",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Ivan Nikitin": "fenix661@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/fen-x/OMM.git",
+    "tag": "v0.6.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": [
+    "JSON",
+    "Mappable"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "OMM/Core/*.swift"
+    },
+    {
+      "name": "JSON",
+      "source_files": "OMM/{JSON,Scalars,Transforms}/*.swift",
+      "exclude_files": "OMM/Scalars/Scalar+{Date,Data}.swift",
+      "dependencies": {
+        "OMM/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PropertyList",
+      "source_files": "OMM/{PropertyList,Scalars,Transforms}/*.swift",
+      "exclude_files": "OMM/Transforms/Date*Transform.swift",
+      "dependencies": {
+        "OMM/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mappable",
+      "source_files": "OMM/Mappable/*.swift",
+      "dependencies": {
+        "OMM/Core": [
+
+        ]
+      }
+    }
+  ]
+}
