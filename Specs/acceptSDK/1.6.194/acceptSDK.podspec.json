@@ -1,0 +1,104 @@
+{
+  "name": "acceptSDK",
+  "version": "1.6.194",
+  "summary": "Accept Payment Platform SDK - credit card payments, Chip and PIN, magstripe",
+  "description": "The library extends the point of sale to modern mobile environment. \nMajor Credit and Debit Card payment processing (Master, Visa, American Express)\n\nFully integrated with licensed Wirecard Payment infrastructure.\n\nSet of Wirecard approved terminals is supported (more to come):\n* IDTech Unimag Pro\n* BBPOS uEMVSwiper *Chipper\n* Spire PosMate\n* Spire SPm2\n* Datecs DPP-250",
+  "homepage": "https://github.com/mposSVK/acceptSDK",
+  "license": "MIT",
+  "authors": {
+    "Radoslav Danko": "radoslav.danko@wirecard.com",
+    "Francisco Fortes": "francisco.fortes@wirecard.com",
+    "Damian Kołakowski": "damian.kolakowski@up-next.com"
+  },
+  "source": {
+    "git": "https://github.com/mposSVK/acceptSDK.git",
+    "tag": "1.6.194"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "libraries": [
+    "stdc++.6",
+    "z.1",
+    "xml2"
+  ],
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "MediaPlayer",
+    "AVFoundation",
+    "AudioToolbox",
+    "CoreAudio",
+    "ExternalAccessory",
+    "CoreBluetooth"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": "Pod/Classes/lib/libPodsSDK.a",
+      "source_files": "Pod/Classes/include/*.{h}",
+      "public_header_files": "**/*.{h}",
+      "resources": [
+        "Pod/Assets/*.xml",
+        "Pod/Classes/lib/acceptResources.bundle"
+      ],
+      "dependencies": {
+        "ZipArchive": [
+          "~> 1.4"
+        ],
+        "KissXML": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "IDTech",
+      "vendored_libraries": "Pod/Classes/lib/libUnimagSDK.a",
+      "dependencies": {
+        "acceptSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BBPOS",
+      "vendored_libraries": "Pod/Classes/lib/libEmvSwipeBBPOSSDK.a",
+      "dependencies": {
+        "acceptSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Spire",
+      "vendored_libraries": "Pod/Classes/lib/libPosmateSDK.a",
+      "dependencies": {
+        "acceptSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Datecs",
+      "vendored_libraries": "Pod/Classes/lib/libDatecsPrinterSDK.a",
+      "dependencies": {
+        "acceptSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "mPOP",
+      "vendored_libraries": "Pod/Classes/lib/libStarioSDK.a",
+      "dependencies": {
+        "acceptSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
