@@ -1,0 +1,22 @@
+{
+  "name": "KissPaginate",
+  "version": "0.3.0",
+  "summary": "Simplify your implementation of tableView paginate.",
+  "description": "```\nclass ViewController: PaginateViewController {\n    @IBOutlet weak var noElementLabel: UILabel!\n\n    override func viewDidLoad() {\n        super.viewDidLoad()\n        tableView.dataSource = self\n        refreshElements()\n    }\n\n    override var getElementsClosure: (page: Int, successHandler: GetElementsSuccessHandler, failureHandler: (error: NSError) -> Void) -> Void {\n        return getElementList\n    }\n\n    func getElementList(page: Int, successHandler: GetElementsSuccessHandler, failureHandler: (error: NSError) -> Void) {\n        let elements = (0...20).map { \"page (page), element index\" + String($0) }\n        delay(2) {\n            successHandler(elements: elements, hasMoreElements: true)\n        }\n    }\n\n    override func displayNoElementIfNeeded(noElement: Bool) {\n        noElementLabel.hidden = !noElement\n    }\n}\n\nextension ViewController: UITableViewDataSource {\n    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {\n        return elements.count\n    }\n\n    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {\n        let cell = tableView.dequeueReusableCellWithIdentifier(\"Cell\")!\n        let element = getElement(String.self, at: indexPath.row)\n        cell.textLabel?.text = element\n        if elements.count == indexPath.row + 1 {\n            loadNextPage()\n        }\n        return cell\n    }\n}\n```",
+  "homepage": "https://github.com/WANGjieJacques/KissPaginate",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WANG Jie": "jacques09125715@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/WANGjieJacques/KissPaginate.git",
+    "tag": "0.3.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "KissPaginate/Classes/**/*"
+}
