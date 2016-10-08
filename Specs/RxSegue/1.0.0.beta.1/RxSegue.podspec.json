@@ -1,0 +1,26 @@
+{
+  "name": "RxSegue",
+  "version": "1.0.0.beta.1",
+  "summary": "Reactive generic segue",
+  "description": "Reactive generic segue.\n                        Implemented with RxSwift.\n                        Abstracts navigation logic\n\n```swift\nvar profileSegue: NavigationSegue<UINavigationController,\nProfileViewController,\nProfileViewModel> {\n   return NavigationSegue(fromViewController: self.navigationController!,\n            toViewControllerFactory: { (sender, context) -> ProfileViewController in\n               let profileViewController: ProfileViewController = ...\n               profileViewController.profileViewModel = context\n               return profileViewController\n         })\n   }\n//----------\n   pushButton.rx_tap\n      .map {\n         return ProfileViewModel(name: \"John Doe\",\n                  email: \"JohnDoe@example.com\",\n                  avatar: UIImage(named: \"avatar\"))\n               }\n               .bindTo(profileSegue)\n               .addDisposableTo(disposeBag)\n\n```",
+  "homepage": "https://github.com/RxSwiftCommunity/RxSegue.git",
+  "license": "MIT",
+  "authors": {
+    "sergdort": "sergdort@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/RxSwiftCommunity/RxSegue.git",
+    "tag": "1.0.0.beta.1"
+  },
+  "social_media_url": "https://twitter.com/SergDort",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "3.0.0-beta.2"
+    ]
+  }
+}
