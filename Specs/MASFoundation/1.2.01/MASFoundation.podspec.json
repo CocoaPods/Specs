@@ -1,0 +1,41 @@
+{
+  "name": "MASFoundation",
+  "version": "1.2.01",
+  "summary": "The MASFoundation framework is the core iOS framework upon which Mobile App Service is built.",
+  "homepage": "http://mas.ca.com",
+  "authors": {
+    "Britton Katnich": "britton.katnich@ca.com",
+    "Luis Sanches": "luis.sanches@ca.com",
+    "Robert Weber": "robert.weber@ca.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/CAAPIM/iOS-MAS-Foundation.git",
+    "tag": "1.2.01"
+  },
+  "source_files": "MASFoundation/MASFoundation.h",
+  "subspecs": [
+    {
+      "name": "OpenSSL",
+      "preserve_paths": "MASFoundation/Vendor/OpenSSL/include/openssl/*.h",
+      "vendored_libraries": [
+        "MASFoundation/Vendor/OpenSSL/include/lib/libcrypto_iOS.a",
+        "MASFoundation/Vendor/OpenSSL/include/lib/libssl_iOS.a"
+      ],
+      "libraries": [
+        "ssl_iOS",
+        "crypto_iOS"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/MASFoundation/MASFoundation/Vendor/OpenSSL/include/**"
+      }
+    }
+  ]
+}
