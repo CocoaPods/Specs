@@ -1,0 +1,74 @@
+{
+  "name": "GoSquared",
+  "version": "1.0.0",
+  "summary": "Tracking SDK for integrating GoSquared in your iOS app.",
+  "homepage": "https://gosquared.com/",
+  "social_media_url": "https://twitter.com/gosquared",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Giles Williams": "giles.williams@gmail.com",
+    "Ed Wellbrook": "edwellbrook@gmail.com",
+    "Ben White": "ben@benjackwhite.co.uk"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "tvos": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/gosquared/gosquared-ios.git",
+    "tag": "v1.0.0"
+  },
+  "default_subspecs": "Core",
+  "prepare_command": "curl -f -s -o GoSquared/Embed/chat.js.tmp \"https://js.gs-chat.com/chat-embedded.js?$RANDOM\" && mv GoSquared/Embed/chat.js.tmp GoSquared/Embed/chat.js",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GoSquared/*.{h,m}",
+      "public_header_files": "Gosquared/{GoSquared,GSTracker,GSTypes,GSTransaction,GSTransactionItem}.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Autoload",
+      "dependencies": {
+        "GoSquared/Core": [
+
+        ]
+      },
+      "source_files": "GoSquared/Autoload/*.{h,m}",
+      "public_header_files": "GoSquared/Autoload/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Chat",
+      "dependencies": {
+        "GoSquared/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "GoSquared/Chat/*.{h,m}",
+      "public_header_files": "Gosquared/Chat/{GoSquared+Chat,GSChatViewController,UIViewController+Chat}.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "WebKit"
+      ],
+      "weak_frameworks": "SafariServices",
+      "resource_bundles": {
+        "GSChatEmbed": "GoSquared/Embed/**/*"
+      }
+    }
+  ]
+}
