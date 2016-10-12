@@ -1,0 +1,52 @@
+{
+  "name": "KSJSONHelp",
+  "version": "2.0.0",
+  "summary": "swift's MJExtension",
+  "description": "KSJSONHelp is a lightweight and pure Swift implemented library for\nconversion between JSON and model\nSimple ActiveRecord implementation for working with your database",
+  "homepage": "https://github.com/kingslay/KSJSONHelp",
+  "license": "MIT",
+  "authors": {
+    "kingslay": "kingslay@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/kingslay/KSJSONHelp.git",
+    "tag": "2.0.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": "Core",
+  "module_name": "KSJSONHelp",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Core/Source/**/*.swift"
+    },
+    {
+      "name": "SQL",
+      "source_files": "SQL/Source/**/*.swift",
+      "dependencies": {
+        "KSJSONHelp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLiteStandalone",
+      "source_files": "SQLite/Source/**/*.swift",
+      "dependencies": {
+        "KSJSONHelp/SQL": [
+
+        ],
+        "sqlite3": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSQLITE_SWIFT_STANDALONE"
+      }
+    }
+  ]
+}
