@@ -1,0 +1,91 @@
+{
+  "name": "HiPayFullservice",
+  "version": "0.6.0",
+  "summary": "HiPay Fullservice SDK for iOS lets you accept payments in your iOS application.",
+  "description": "HiPay Fullservice is a new generation of payment platform optimized for todays’ e-tailers.\n\nThis SDK leverages the HiPay Fullservice platform to let you accept payments in your iOS application.\n\nYou can either take advantage of the turnkey payment screen or make a custom implement by using the core wrapper.",
+  "homepage": "https://github.com/hipay/hipay-fullservice-sdk-ios/wiki",
+  "license": "Apache-2.0",
+  "authors": {
+    "Jonathan TIRET": "jtiret@hipay.com"
+  },
+  "source": {
+    "git": "https://github.com/hipay/hipay-fullservice-sdk-ios.git",
+    "tag": "0.6.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "TARGETED_DEVICE_FAMILY": "1,2"
+  },
+  "source_files": "HiPayFullservice/*.{m,h}",
+  "default_subspecs": [
+    "Core",
+    "Payment-Screen",
+    "Device-Print"
+  ],
+  "public_header_files": "HiPayFullservice/*.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "HiPayFullservice/Core/**/*.{h,m}",
+        "HiPayFullservice/Device Print/**/*.h"
+      ],
+      "public_header_files": "HiPayFullservice/Core/**/*.h",
+      "resource_bundles": {
+        "HPFCoreLocalization": [
+          "HiPayFullservice/Core/**/*.lproj"
+        ]
+      }
+    },
+    {
+      "name": "Utilities",
+      "source_files": "HiPayFullservice/Utilities/**/*.{h,m}",
+      "public_header_files": "HiPayFullservice/Utilities/**/*.h",
+      "resource_bundles": {
+        "HPFUtilitiesResources": [
+          "HiPayFullservice/Utilities/**/*.{plist}"
+        ]
+      },
+      "dependencies": {
+        "HiPayFullservice/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Device-Print",
+      "vendored_frameworks": "HiPayFullservice/Device Print/iovation.framework",
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "ExternalAccessory"
+      ]
+    },
+    {
+      "name": "Payment-Screen",
+      "source_files": "HiPayFullservice/Payment Screen/**/*.{h,m}",
+      "public_header_files": "HiPayFullservice/Payment Screen/**/*.h",
+      "resource_bundles": {
+        "HPFPaymentScreenViews": [
+          "HiPayFullservice/Payment Screen/**/*.{xib,png,storyboard}"
+        ],
+        "HPFPaymentScreenLocalization": [
+          "HiPayFullservice/Payment Screen/**/*.lproj"
+        ]
+      },
+      "dependencies": {
+        "HiPayFullservice/Core": [
+
+        ],
+        "HiPayFullservice/Utilities": [
+
+        ]
+      },
+      "frameworks": "UIKit",
+      "weak_frameworks": "WebKit"
+    }
+  ]
+}
