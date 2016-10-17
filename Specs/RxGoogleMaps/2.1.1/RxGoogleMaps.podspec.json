@@ -1,0 +1,32 @@
+{
+  "name": "RxGoogleMaps",
+  "version": "2.1.1",
+  "summary": "RxSwift reactive wrapper for GoogleMaps SDK.",
+  "description": "RxSwift reactive wrapper for GoogleMaps SDK. \n# RxGoogleMaps\n\nRxGoogleMaps is a [RxSwift](https://github.com/ReactiveX/RxSwift) wrapper for [GoogleMaps](https://developers.google.com/maps/documentation/ios-sdk/).\n\n## Example Usages\n\n### Setup GoogleMaps\n```swift\n// Setup API Key\nGMSServices.provideAPIKey(\"Your-API-Key\")\n```\n\n\n```swift\n// Setup GMSMapview from Interface Builder\n@IBOutlet weak var mapView: GMSMapView!\n```\nor\n```swift\n// Setup GMSMapview\nlet mapView = GMSMapView(frame: self.view.bounds)\nself.view.addSubview(mapView)\n```\n\n### Observing properties\n```swift\n// Camera position\n\nmapView.rx.didChangePosition.asDriver()\n    .drive(onNext: { print(\"Did change camera position: ($0)\") })\n    .addDisposableTo(disposeBag)\n\n// Marker tapped\n\nmapView.rx.didTapMarker.asDriver()\n    .drive(onNext: { print(\"Did tap marker: ($0)\") })\n    .addDisposableTo(disposeBag)\n\n// Update marker icon without storing selection status\n\nlet s0 = mapView.rx.selectedMarker.asObservable()\nlet s1 = s0.skip(1)\n\nObservable.zip(s0, s1) { $0 }\n    .subscribe(onNext: { (prev, cur) in\n        if let marker = prev { marker.icon = #imageLiteral(resourceName: \"marker_normal\") }\n        if let marker = cur { marker.icon = #imageLiteral(resourceName: \"marker_selected\") }\n    })\n    .addDisposableTo(disposeBag)\n                \n```\n\n### Binding properties\n```Swift\n// Properties\n\nbutton.rx.tap\n    .map { false }\n    .bindTo(mapView.rx.trafficEnabled.asObserver())\n    .addDisposableTo(disposeBag)\n\n// Camera animations\n\nbutton.rx.tap\n    .map { 14 }\n    .bindTo(mapView.rx.zoomToAnimate)\n    .addDisposableTo(disposeBag)\n            \nbutton.rx.tap\n    .map { GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 8, bearing: 10, viewingAngle: 30) }\n    .bindTo(mapView.rx.cameraToAnimate)\n    .addDisposableTo(disposeBag)\n    \n// Selected marker\n\nbutton.rx.tap\n    .map { myMarker }\n    .bindTo(mapView.rx.selectedMarker.asObserver())\n    .addDisposableTo(disposeBag)\n    \n// GMSMarker or GMSOverlay properties\n\nbutton.rx.tap\n    .map{ 180.0 }\n    .bindTo(marker.rx.rotation.asObserver())\n    .addDisposableTo(disposeBag)\n\nbutton.rx.tap\n    .map{ UIColor.red }\n    .bindTo(circle.rx.fillColor.asObserver())\n    .addDisposableTo(disposeBag)\n    \n```\n\n### Delegates which have a return value\n```Swift\n// func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool\n\nmapView.rx.handleTapMarker { false }\n\n// func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView?\n\nmapView.rx.handleMarkerInfoWindow { marker in\n    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 180, height: 60))\n    label.textAlignment = .center\n    label.textColor = UIColor.brown\n    label.font = UIFont.boldSystemFont(ofSize: 16)\n    label.backgroundColor = UIColor.yellow\n    label.text = marker.title\n    return label\n}\n\n```\n\n## Installation\n\nBecause GoogleMaps SDK include static binaries, it's hard to find a nice solution to make a *straight-forward* Cocoapods framework if it uses GoogleMaps SDK. So I decided ``RxGoogleMaps`` not to use ``GoogleMaps`` directly and to provide a *bridging* swift file which connects ``GoogleMaps`` and ``RxGoogleMaps`` instead.\n\n1. Add to `Podfile`:\n\n    ```\n    pod 'GoogleMaps'\n    pod 'RxGoogleMaps'\n  ```\n2. Add **``Pods/RxGoogleMaps/RxGoogleMapsBridge.swift`` file to your app target** in your Xcode project manually. (Once at first installation)\n\n## Requirements\n\nRxGoogleMaps requires Swift 3.0 and dedicated versions of RxSwift 3.0.0-beta.2 (Xcode8+ and iOS8+)\n\n## License\n\nMIT",
+  "homepage": "https://github.com/RxSwiftCommunity/RxGoogleMaps",
+  "license": "MIT",
+  "authors": {
+    "Yongha Yoo": "inkyfox@oo-v.com"
+  },
+  "source": {
+    "git": "https://github.com/RxSwiftCommunity/RxGoogleMaps.git",
+    "tag": "2.1.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Sources/*.swift",
+  "preserve_paths": "RxGoogleMapsBridge.swift",
+  "dependencies": {
+    "RxSwift": [
+      "~> 3.0.0-beta.2"
+    ],
+    "RxCocoa": [
+      "~> 3.0.0-beta.2"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  }
+}
