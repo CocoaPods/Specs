@@ -1,0 +1,86 @@
+{
+  "name": "SOHTaskSDK",
+  "version": "0.4.1",
+  "summary": "搜猴儿任务管理SDK",
+  "homepage": "http://www.sohouer.com/fans",
+  "license": {
+    "type": "Copyright",
+    "text": " Copyright 2016 Sohouer "
+  },
+  "authors": {
+    "jiangzhou": "jiangzhoubai@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/bllny/SOHTaskSDK.git",
+    "tag": "0.4.1",
+    "submodules": true
+  },
+  "default_subspecs": "Task",
+  "subspecs": [
+    {
+      "name": "Task",
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "KVOController": [
+
+        ],
+        "YYModel": [
+
+        ],
+        "YYText": [
+
+        ],
+        "YYWebImage": [
+
+        ],
+        "Masonry": [
+
+        ]
+      },
+      "vendored_frameworks": "SohouerSDK/SohouerSDK.framework",
+      "resources": "SohouerSDK/SohouerSDK.bundle",
+      "frameworks": [
+        "UIKit",
+        "Security",
+        "Foundation",
+        "AdSupport",
+        "MobileCoreServices",
+        "JavaScriptCore",
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "ZipArchive",
+      "source_files": [
+        "SohouerSDK/ZipArchive/*.{h,m}",
+        "SohouerSDK/ZipArchive/minizip/crypt.{h,c}",
+        "SohouerSDK/ZipArchive/minizip/ioapi.{h,c}",
+        "SohouerSDK/ZipArchive/minizip/mztools.{h,c}",
+        "SohouerSDK/ZipArchive/minizip/unzip.{h,c}",
+        "SohouerSDK/ZipArchive/minizip/zip.{h,c}"
+      ],
+      "public_header_files": "SohouerSDK/ZipArchive/*.h",
+      "libraries": "z",
+      "requires_arc": false,
+      "compiler_flags": "-Dunix"
+    },
+    {
+      "name": "TaskZip",
+      "dependencies": {
+        "SOHTaskSDK/ZipArchive": [
+
+        ],
+        "SOHTaskSDK/Task": [
+
+        ]
+      },
+      "vendored_frameworks": "SohouerSDK/SohouerSDK.framework",
+      "resources": "SohouerSDK/SohouerSDK.bundle"
+    }
+  ]
+}
