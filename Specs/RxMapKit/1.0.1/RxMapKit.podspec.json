@@ -1,0 +1,31 @@
+{
+  "name": "RxMapKit",
+  "version": "1.0.1",
+  "summary": "RxSwift reactive wrapper for MapKit.",
+  "description": "# RxMapKit\n![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)\n\n\nRxMapKit is a [RxSwift](https://github.com/ReactiveX/RxSwift) wrapper for [MapKit](https://developer.apple.com/reference/mapkit)\n\n## Example Usages\n\n### Setup MKMapView\n```swift\n// Setup MKMapview from Interface Builder\n@IBOutlet weak var mapView: MKMapView!\n```\nor\n```swift\n// Setup MKMapview\nlet mapView = MKMapView(frame: self.view.bounds)\nself.view.addSubview(mapView)\n```\n\n### Observing properties\n```swift\n// Camera position\n\nmapView.rx.regionDidChange.asDriver()\n    .drive(onNext: { print(\"Did region change: ($0.region) isAnimated ($0.isAnimated)\") })\n    .addDisposableTo(disposeBag)\n\n// Marker tapped\n\nmapView.rx.didTapMarker.asDriver()\n    .drive(onNext: { print(\"Did tap marker: ($0)\") })\n    .addDisposableTo(disposeBag)\n\n// Update marker icon \n\nmapView.rx.didSelectAnnotationView.asDriver()\n    .drive(onNext: { $0.image = #imageLiteral(resourceName: \"marker_selected\") })\n    .addDisposableTo(disposeBag)\n\nmapView.rx.didDeselectAnnotationView.asDriver()\n    .drive(onNext: { $0.image = #imageLiteral(resourceName: \"marker_normal\") })\n    .addDisposableTo(disposeBag)\n                \n```\n\n### Binding properties\n```Swift\n// Camera animations\n\nbutton.rx.tap\n    .map { MKMapCamera(lookingAtCenter: center, fromDistance: 50000, pitch: 30, heading: 45) }\n    .bindTo(mapView.rx.cameraToAnimate)\n    .addDisposableTo(disposeBag)\n    \nbutton.rx.tap\n    .map { CLLocationCoordinate2D(latitude: 33.3659424, longitude: 126.3476852) }\n    .bindTo(mapView.rx.centerToAnimate)\n    .addDisposableTo(disposeBag)\n\nbutton.rx.tap\n    .map { [annotation0, annotaion1] }\n    .bindTo(mapView.rx.annotationsToShowToAnimate)\n    .addDisposableTo(disposeBag)\n\n// Properties\n\nbutton.rx.tap\n    .map { .satellite }\n    .bindTo(mapView.rx.mapType)\n    .addDisposableTo(disposeBag)\n    \nbutton.rx.tap\n    .map { false }\n    .bindTo(mapView.rx.showsTraffic)\n    .addDisposableTo(disposeBag)\n\n```\n\n### Delegates which have a return value\n```Swift\n//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?\n\nmapView.rx.handleViewForAnnotation { (mapView, annotation) in\n    if let _ = annotation as? MKUserLocation {\n        return nil\n    } else {\n        let view = mapView.dequeueReusableAnnotationView(withIdentifier: \"reusableIdentifier\") ??\n            MKAnnotationView(annotation: annotation, reuseIdentifier: \"reusableIdentifier\")\n        view.image = #imageLiteral(resourceName: \"marker_normal\")\n        view.canShowCallout = true\n        return view\n    }\n}\n\n// func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer\n\nmapView.rx.handleRendererForOverlay { (mapView, overlay) in\n    if overlay is MKCircle {\n        let renderer = MKCircleRenderer(overlay: overlay)\n        renderer.strokeColor = UIColor.green.withAlphaComponent(0.8)\n        renderer.lineWidth = 4\n        renderer.fillColor = UIColor.green.withAlphaComponent(0.3)\n        return renderer\n    } else {\n        return MKOverlayRenderer(overlay: overlay)\n    }\n}\n\n```\n\n## Installation\n\n### CocoaPods\n\n```Ruby\npod 'RxMapKit'\n```\n\n## Requirements\n\nRxMapKit requires Swift 3.0 and dedicated versions of RxSwift 3.0.0-beta.2 (Xcode8+ and iOS8+)\n\n## Author\n\n[Yongha Yoo](http://inkyfox.oo-v.com)\n\n## License\n\nMIT",
+  "homepage": "https://github.com/inkyfox/RxMapKit",
+  "license": "MIT",
+  "authors": {
+    "Yongha Yoo": "inkyfox@oo-v.com"
+  },
+  "source": {
+    "git": "https://github.com/inkyfox/RxMapKit.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Sources/*.swift",
+  "dependencies": {
+    "RxSwift": [
+      "~> 3.0.0-beta.2"
+    ],
+    "RxCocoa": [
+      "~> 3.0.0-beta.2"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  }
+}
