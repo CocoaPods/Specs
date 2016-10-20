@@ -1,0 +1,214 @@
+{
+  "name": "UMengUShare",
+  "version": "6.0.1",
+  "summary": "UMeng's official Social SDK for iOS.",
+  "description": "UMeng Social SDK\nYou can easily share any content to Sina Weibo, Tencent Weibo, Renren, Qzone, Doubban, Wechat and so on using our unified APIs",
+  "homepage": "http://dev.umeng.com/social/ios/quick-integration",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2011 - 2016 UMeng.com. All rights reserved.\n"
+  },
+  "authors": {
+    "UMeng": "support@umeng.com"
+  },
+  "source": {
+    "http": "http://dev.umeng.com/files/download/Umeng_SDK_Social_iOS_ARM64_6.0.1.zip"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Network",
+      "ios": {
+        "vendored_frameworks": "UShareSDK/UMSocialSDK/UMSocialNetwork.framework"
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "UShareSDK/UMSocialSDK/UMSocialCore.framework"
+      },
+      "dependencies": {
+        "UMengUShare/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "UShareSDK/UMSocialUI/*.{h,m}",
+      "public_header_files": "UShareSDK/UMSocialUI/*.h",
+      "resources": "UShareSDK/UMSocialUI/Resource/UMSocialSDKResources.bundle",
+      "dependencies": {
+        "UMengUShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "UMengUShare/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "WeChat",
+          "vendored_libraries": "UShareSDK/SocialLibraries/WeChat/*.a",
+          "source_files": "UShareSDK/SocialLibraries/WeChat/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/WeChat/*.h",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony"
+          ],
+          "libraries": [
+            "sqlite3",
+            "c++",
+            "z"
+          ]
+        },
+        {
+          "name": "Sina",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Sina/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Sina/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Sina/*.h",
+          "resources": "UShareSDK/SocialLibraries/Sina/WeiboSDK.bundle",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony",
+            "ImageIO"
+          ],
+          "libraries": [
+            "sqlite3",
+            "z"
+          ]
+        },
+        {
+          "name": "QQ",
+          "vendored_libraries": "UShareSDK/SocialLibraries/QQ/*.a",
+          "source_files": "UShareSDK/SocialLibraries/QQ/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/QQ/*.h",
+          "ios": {
+            "vendored_frameworks": "UShareSDK/SocialLibraries/QQ/TencentOpenAPI.framework"
+          },
+          "resources": "UShareSDK/SocialLibraries/QQ/TencentOpenApi_IOS_Bundle.bundle",
+          "frameworks": "SystemConfiguration",
+          "libraries": "c++"
+        },
+        {
+          "name": "AlipayShare",
+          "vendored_libraries": "UShareSDK/SocialLibraries/AlipayShare/*.a",
+          "source_files": "UShareSDK/SocialLibraries/AlipayShare/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/AlipayShare/*.h"
+        },
+        {
+          "name": "YiXin",
+          "vendored_libraries": "UShareSDK/SocialLibraries/YiXin/*.a",
+          "source_files": "UShareSDK/SocialLibraries/YiXin/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/YiXin/*.h"
+        },
+        {
+          "name": "LaiWang",
+          "vendored_libraries": "UShareSDK/SocialLibraries/LaiWang/*.a",
+          "source_files": "UShareSDK/SocialLibraries/LaiWang/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/LaiWang/*.h"
+        },
+        {
+          "name": "TencentWeibo",
+          "vendored_libraries": "UShareSDK/SocialLibraries/TencentWeibo/*.a",
+          "source_files": "UShareSDK/SocialLibraries/TencentWeibo/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/TencentWeibo/*.h"
+        },
+        {
+          "name": "Renren",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Renren/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Renren/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Renren/*.h"
+        },
+        {
+          "name": "Douban",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Douban/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Douban/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Douban/*.h"
+        },
+        {
+          "name": "Facebook",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Facebook/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Facebook/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Facebook/*.h",
+          "ios": {
+            "vendored_frameworks": [
+              "UShareSDK/SocialLibraries/Facebook/Bolts.framework",
+              "UShareSDK/SocialLibraries/Facebook/FBSDKCoreKit.framework",
+              "UShareSDK/SocialLibraries/Facebook/FBSDKLoginKit.framework",
+              "UShareSDK/SocialLibraries/Facebook/FBSDKShareKit.framework"
+            ]
+          }
+        },
+        {
+          "name": "Twitter",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Twitter/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Twitter/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Twitter/*.h",
+          "ios": {
+            "vendored_frameworks": [
+              "UShareSDK/SocialLibraries/Twitter/Fabric.framework",
+              "UShareSDK/SocialLibraries/Twitter/TwitterCore.framework",
+              "UShareSDK/SocialLibraries/Twitter/TwitterKit.framework"
+            ]
+          },
+          "resources": "UShareSDK/SocialLibraries/Twitter/TwitterKit.framework/Resources/TwitterKitResources.bundle",
+          "frameworks": "CoreData"
+        },
+        {
+          "name": "Linkedin",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Linkedin/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Linkedin/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Linkedin/*.h",
+          "ios": {
+            "vendored_frameworks": "UShareSDK/SocialLibraries/Linkedin/linkedin-sdk.framework"
+          }
+        },
+        {
+          "name": "Line",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Line/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Line/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Line/*.h"
+        },
+        {
+          "name": "WhatsApp",
+          "vendored_libraries": "UShareSDK/SocialLibraries/WhatsApp/*.a",
+          "source_files": "UShareSDK/SocialLibraries/WhatsApp/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/WhatsApp/*.h"
+        },
+        {
+          "name": "Flickr",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Flickr/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Flickr/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Flickr/*.h"
+        },
+        {
+          "name": "Instagram",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Instagram/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Instagram/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Instagram/*.h"
+        },
+        {
+          "name": "SMS",
+          "vendored_libraries": "UShareSDK/SocialLibraries/SMS/*.a",
+          "source_files": "UShareSDK/SocialLibraries/SMS/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/SMS/*.h"
+        },
+        {
+          "name": "Email",
+          "vendored_libraries": "UShareSDK/SocialLibraries/Email/*.a",
+          "source_files": "UShareSDK/SocialLibraries/Email/*.{h,m}",
+          "public_header_files": "UShareSDK/SocialLibraries/Email/*.h"
+        }
+      ]
+    }
+  ]
+}
