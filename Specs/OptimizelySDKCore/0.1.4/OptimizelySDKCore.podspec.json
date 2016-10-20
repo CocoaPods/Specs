@@ -1,0 +1,60 @@
+{
+  "name": "OptimizelySDKCore",
+  "version": "0.1.4",
+  "summary": "Optimizely server-side testing core framework.",
+  "homepage": "http://developers.optimizely.com/server/reference/index.html?language=objectivec",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Optimizely": "support@optimizely.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/optimizely/objective-c-sdk.git",
+    "tag": "core-0.1.4"
+  },
+  "source_files": [
+    "OptimizelySDKCore/OptimizelySDKCore/*.{h,m}",
+    "OptimizelySDKCore/Frameworks/**/*.{c,h,m}"
+  ],
+  "public_header_files": "OptimizelySDKCore/OptimizelySDKCore/*.h",
+  "exclude_files": [
+    "OPTLYMacros.h",
+    "OPTLYLog.h",
+    "OPTLYLog.m"
+  ],
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "preserve_paths": "OptimizelySDKCore/Config/OptimizelySDKCore.xcconfig",
+  "xcconfig": {
+    "OPTIMIZELY_SDK_CORE_VERSION_MAJOR ": " 0\n",
+    "OPTIMIZELY_SDK_CORE_VERSION_MINOR ": " 1\n",
+    "OPTIMIZELY_SDK_CORE_VERSION_PATCH ": " 4\n",
+    "OPTIMIZELY_SDK_CORE_VERSION ": " $(OPTIMIZELY_SDK_CORE_VERSION_MAJOR).$(OPTIMIZELY_SDK_CORE_VERSION_MINOR).$(OPTIMIZELY_SDK_CORE_VERSION_PATCH)\n",
+    "GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_CORE ": " $(inherited) 'OPTIMIZELY_SDK_CORE_VERSION=@\"$(OPTIMIZELY_SDK_CORE_VERSION)\"'\n",
+    "GCC_PREPROCESSOR_DEFINITIONS ": " $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_CORE) $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_iOS) $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_tvOS)\n",
+    "SUPPORTED_PLATFORMS ": " iphonesimulator iphoneos appletvos appletvsimulator\n",
+    "TARGETED_DEVICE_FAMILY ": " 1,2,3,4\n",
+    "IPHONEOS_DEPLOYMENT_TARGET ": " 8.0\n",
+    "TVOS_DEPLOYMENT_TARGET ": " 9.0\n",
+    "SWIFT_VERSION ": " 3.0"
+  },
+  "subspecs": [
+    {
+      "name": "JSONModel",
+      "dependencies": {
+        "JSONModel": [
+          "= 1.3.0"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/JSONModel"
+      }
+    }
+  ]
+}
