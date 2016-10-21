@@ -1,0 +1,49 @@
+{
+  "name": "OptimizelySDKiOS",
+  "version": "0.1.5",
+  "summary": "Optimizely server-side testing framework for iOS.",
+  "homepage": "http://developers.optimizely.com/server",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Optimizely",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/optimizely/objective-c-sdk.git",
+    "tag": "iOS-0.1.5"
+  },
+  "source_files": "OptimizelySDKiOS/OptimizelySDKiOS/*.{h,m}",
+  "public_header_files": "OptimizelySDKiOS/OptimizelySDKiOS/*.h",
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "preserve_paths": "OptimizelySDKiOS/Config/OptimizelySDKiOS.xcconfig",
+  "xcconfig": {
+    "OPTIMIZELY_SDK_iOS_VERSION_MAJOR ": " 0\n",
+    "OPTIMIZELY_SDK_iOS_VERSION_MINOR ": " 1\n",
+    "OPTIMIZELY_SDK_iOS_VERSION_PATCH ": " 5\n",
+    "OPTIMIZELY_SDK_iOS_VERSION ": " $(OPTIMIZELY_SDK_iOS_VERSION_MAJOR).$(OPTIMIZELY_SDK_iOS_VERSION_MINOR).$(OPTIMIZELY_SDK_iOS_VERSION_PATCH)\n",
+    "GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_iOS ": " $(inherited) 'OPTIMIZELY_SDK_iOS_VERSION=@\"$(OPTIMIZELY_SDK_iOS_VERSION)\"'\n",
+    "GCC_PREPROCESSOR_DEFINITIONS ": " $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_CORE) $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_iOS) $(GCC_PREPROCESSOR_DEFINITIONS_DEFAULT_TVOS)"
+  },
+  "dependencies": {
+    "OptimizelySDKCore": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "JSONModel",
+      "dependencies": {
+        "JSONModel": [
+          "~> 1.3.0"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/JSONModel"
+      }
+    }
+  ]
+}
