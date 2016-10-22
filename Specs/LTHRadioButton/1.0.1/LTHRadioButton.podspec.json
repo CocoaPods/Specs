@@ -1,0 +1,29 @@
+{
+  "name": "LTHRadioButton",
+  "version": "1.0.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Roland Leth": "roland@leth.ro"
+  },
+  "summary": "A radio button with a pretty animation",
+  "description": "# LTHRadioButton\n\nSlightly inspired by Google's material radio button. \n\nThe clip below has 3 sections: full speed, 25% and 10%, but after converting it to GIF, it actually made it longer, so the 10% part takes a really long time 😄. [Here's](https://rolandleth.com/assets/radio-button/video.mp4) an mp4 link; try with Chrome if Safari doesn't work - for me it doesn't.\n\n![](https://rolandleth.com/assets/radio-button/gif.gif)\n\n## How to install\n\n#### CocoaPods\n\n[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following terminal command:\n\n```\ngem install cocoapods\n```\n\nTo integrate `LTHRadioButton` into your Xcode project using CocoaPods, specify it in your Podfile:\n\n```ruby\nsource 'https://github.com/CocoaPods/Specs.git'\nplatform :ios, '9.0'\nuse_frameworks!\n\ntarget '<Your Target Name>' do\n  pod 'LTHRadioButton'\nend\n```\n\nThen, run the following terminal command:\n\n```\npod install\n```\n\n#### Manual\n\nDrag `LTHRadioButton.swift` from the `source` folder into your Xcode project.\n\n## How to use\n\nThe initializer takes up to 3 params: a `radius`, a `selectedColor`, and a `deselectedColor`. All of them are optional:\n\n* `radius` defaults to `18`\n* `selectedColor` defaults to a light blue\n* `deselectedColor` defaults to `UIColor.lightGray`\n\nIt doesn't use Auto Layout internally, but after initialization it will have a proper size, so you can simply create constraints based on its `frame.width` and `frame.height`.\n\n#### Properties\n\n`selectedColor` and `deselectedColor` have been made publicly customizable for cases like a `tableView` with alternating row and radio colors, where the `tableView` might dequeue a cell with one color for displaying a cell with a different color.\n\n`isSelected` - Indicates whether the radio button is selected.\n\n#### Methods\n\n```swift\ninit(radius: CGFloat = 18, selectedColor: UIColor? = nil, deselectedColor: UIColor? = nil) // Colors default internally if nil.\nfunc select(animated: Bool = true) // Selects the radio button.\nfunc deselect(animated: Bool = true) // Deselects the radio button.\n```\n\n### Example\n\n```swift\nlet radioButton = LTHRadioButton(selectedColor: .red)\ncontainer.addSubview(radioButton)\n\nradioButton.translatesAutoresizingMaskIntoConstraints = false\nNSLayoutConstraint.activate([\n  radioButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),\n  radioButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 16),\n  radioButton.heightAnchor.constraint(equalToConstant: radioButton.frame.height),\n  radioButton.widthAnchor.constraint(equalToConstant: radioButton.frame.width)]\n)\n\n[...]\n\nradioButton.select()\n\n[...]\n\nradioButton.deselect(animated: false)\n```\n\n## Apps using this control\n\nIf you're using this control, I'd love hearing from you!  \n\n## License\nLicensed under MIT. If you'd like (or need) a license without attribution, don't hesitate to [contact me](mailto:roland@leth.ro).",
+  "homepage": "https://github.com/rolandleth/LTHRadioButton",
+  "source": {
+    "git": "https://github.com/rolandleth/LTHRadioButton.git",
+    "tag": "1.0.1"
+  },
+  "screenshots": [
+    "https://rolandleth.com/assets/radio-button/gif.gif",
+    "https://rolandleth.com/assets/radio-button/screenshot-1.png",
+    "https://rolandleth.com/assets/radio-button/screenshot-2.png"
+  ],
+  "source_files": "source/LTHRadioButton.swift",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pushed_with_swift_version": "3.0"
+}
