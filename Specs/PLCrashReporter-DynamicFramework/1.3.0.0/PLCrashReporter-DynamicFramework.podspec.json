@@ -1,0 +1,49 @@
+{
+  "name": "PLCrashReporter-DynamicFramework",
+  "version": "1.3.0.0",
+  "summary": "Reliable, open-source crash reporting for iOS and Mac OS X.",
+  "description": "Plausible CrashReporter provides an in-process crash reporting \nframework for use on both iOS and Mac OS X, and powers many of \nthe crash reporting services available for iOS, including \nHockeyApp, Flurry, Crittercism and FoglightAPM.",
+  "homepage": "https://github.com/plausiblelabs/plcrashreporter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Plausible Labs Cooperative, Inc.": "contact@plausible.coop"
+  },
+  "source": {
+    "git": "https://github.com/plausiblelabs/plcrashreporter.git",
+    "commit": "5347b1e1e5f2e134f624dd0c47de74b8b40a57eb"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": [
+    "Source/**/*.{h,hpp,c,cc,cpp,m,mm,s}",
+    "Dependencies/protobuf-2.0.3/src/*"
+  ],
+  "exclude_files": [
+    "**/*Tests.*",
+    "**/*_test_*",
+    "**/*TestCase.*",
+    "**/*test.*",
+    "**/*main.m"
+  ],
+  "public_header_files": [
+    "Source/**/*.h",
+    "Dependencies/**/*.h"
+  ],
+  "prefix_header_contents": "#import \"PLCrashNamespace.h\"",
+  "header_mappings_dir": ".",
+  "requires_arc": false,
+  "resources": "Resources/*.proto",
+  "preserve_paths": "Dependencies/**",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "PLCR_PRIVATE"
+  },
+  "xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "prepare_command": "cd \"Resources\" && \"../Dependencies/protobuf-2.0.3/bin/protoc-c\" --c_out=\"../Source\" \"crash_report.proto\" && cd ..\nfind . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#include <google\\/protobuf-c\\/protobuf-c.h>/#include \"..\\/Dependencies\\/protobuf-2.0.3\\/src\\/protobuf-c.h\"/g' {} \\;\nfind . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#import \"CrashReporter\\/CrashReporter.h\"/#import \"CrashReporter.h\"/g' {} \\;",
+  "libraries": "c++"
+}
