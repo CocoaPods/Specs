@@ -1,0 +1,29 @@
+{
+  "name": "LTHPasscodeViewController",
+  "version": "3.7.10",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Roland Leth": "roland@leth.ro"
+  },
+  "summary": "iOS 7 style Passcode Lock",
+  "description": "# LTHPasscodeViewController\nSimple to use iOS 7 style Passcode - the one you get in Settings when changing your passcode.\n\n# How to use\nDrag the contents of `LTHPasscodeViewController` to your project, or add `pod 'LTHPasscodeViewController'` to your podspec file.\n\nExample, called in `application:didFinishLaunchingWithOptions`:\n\n```objc\n[LTHPasscodeViewController useKeychain:NO];\nif ([LTHPasscodeViewController doesPasscodeExist]) {\n\tif ([LTHPasscodeViewController didPasscodeTimerEnd])\n\t\t[[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES\n                                                                 withLogout:NO\n                                                             andLogoutTitle:nil];\n}\n```\n\n* Supports simple (4 digit) and complex passcodes.\n* Data us saved in the Keychain, by default. Supports custom saving, by calling `[LTHPasscodeViewController useKeychain:NO]` after initializing and implementing a few protocol methods (the same names the library uses for the same job):\n\n```objc\n- (void)passcodeViewControllerWillClose;\n- (void)maxNumberOfFailedAttemptsReached;\n- (void)passcodeWasEnteredSuccessfully;\n- (void)logoutButtonWasPressed;\n- (NSTimeInterval)timerDuration;\n- (void)saveTimerDuration:(NSTimeInterval)duration;\n- (NSTimeInterval)timerStartTime;\n- (void)saveTimerStartTime;\n- (BOOL)didPasscodeTimerEnd;\n- (void)deletePasscode;\n- (void)savePasscode:(NSString *)passcode;\n- (NSString *)passcode;\n// All of them fall back on the Keychain if they are not implemented, even if [LTHPasscodeViewController useKeychain:NO] was called, for flexibility over what and where you save. \n// Do you only want to save the passcode in a different location and leave everything else in the Keychain? Call [LTHPasscodeViewController useKeychain:NO], but only implement -savePasscode:\n```\n\n* Open as a modal, or pushed for changing, enabling or disabling the passcode:\n\n```objc\n/**\n @param\tviewController The view controller where the passcode view controller will be displayed.\n @param asModal        Set to YES to present as a modal, or to NO to push on the current nav stack.\n */\n- (void)showForEnablingPasscodeInViewController:(UIViewController *)viewController asModal:(BOOL)isModal;\n- (void)showForDisablingPasscodeInViewController:(UIViewController *)viewController asModal:(BOOL)isModal;\n- (void)showForChangingPasscodeInViewController:(UIViewController *)viewController asModal:(BOOL)isModal;\n```\n\n* Show the lock screen:\n\n```objc\n- (void)showLockScreenWithAnimation:(BOOL)animated withLogout:(BOOL)hasLogout andLogoutTitle:(NSString*)logoutTitle;\n\n// Example:\n[[LTHPasscodeViewController sharedUser] showLockscreenWithAnimation:YES withLogout:NO andLogoutTitle:nil];\n// Displayed with a slide up animation, which, combined with \n// the keyboard sliding down animation, creates an \"unlocking\" impression.\n```\n\n* entering foreground and resigning is handled from within the class. \n\n\nMakes use of [SFHFKeyChainUtils](https://github.com/ldandersen/scifihifi-iphone) to save the passcode in the Keychain. I know he dropped support for it, but I updated it for ARC 2 years ago ([with help](http://stackoverflow.com/questions/7663443/sfhfkeychainutils-ios-keychain-arc-compatible)) and I kept using it since. The 'new' version isn't updated to ARC anyway, so I saw no reason to switch to it, or to any other library.\n\nFeel free to [contact me](mailto:roland@rolandleth.com), or open an issue if anything is unclear, bugged, or can be improved. \n\n![Screenshot](http://rolandleth.com/assets/ios7-style-passcode/screenshot.png)   ![Screenshot](http://rolandleth.com/assets/ios7-style-passcode/change-passcode-screenshot.png)\n\n# Apps using this control\n[Expenses Planner](https://itunes.apple.com/us/app/expenses-planner-reminders/id669431471?mt=8), [DigitalOcean Manager](https://itunes.apple.com/us/app/digitalocean-manager/id633128302?mt=8), [LovelyHeroku](https://itunes.apple.com/us/app/lovelyheroku/id706287663?mt=8&uo=4), [Flow Web Browser](https://itunes.apple.com/us/app/flow-web-browser-downloader/id705536564?mt=8), [Balance - Checkbook App](https://itunes.apple.com/US/app/id854362248), [QIF Reader](https://itunes.apple.com/us/app/qif-reader/id374178932?mt=8), [Zee - Personal Finance](https://itunes.apple.com/us/app/zee-personal-finance/id422694086?mt=8), [EZDiary](https://itunes.apple.com/us/app/ezdiary-my-diary/id1128083826?ls=1&mt=8).\n\nIf you're using this control, I'd love hearing from you!  \n\n# License\nLicensed under MIT. If you'd like (or need) a license without attribution, don't hesitate to [contact me](mailto:roland@rolandleth.com).",
+  "homepage": "https://github.com/rolandleth/LTHPasscodeViewController",
+  "source": {
+    "git": "https://github.com/rolandleth/LTHPasscodeViewController.git",
+    "tag": "3.7.10"
+  },
+  "screenshots": [
+    "https://rolandleth.com/assets/ios7-style-passcode/screenshot.png",
+    "https://rolandleth.com/assets/ios7-style-passcode/change-passcode-screenshot.png"
+  ],
+  "source_files": "LTHPasscodeViewController/*.{h,m}",
+  "resources": "Localizations/**",
+  "frameworks": "QuartzCore",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0"
+  }
+}
