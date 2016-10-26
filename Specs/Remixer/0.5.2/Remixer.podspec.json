@@ -1,0 +1,54 @@
+{
+  "name": "Remixer",
+  "version": "0.5.2",
+  "authors": "Google Inc.",
+  "summary": "Remixer is a set of libraries and protocols to allow live adjustment of apps and prototypes during the development process.",
+  "homepage": "https://github.com/material-foundation/material-remixer-ios",
+  "license": "Apache 2.0",
+  "source": {
+    "git": "https://github.com/material-foundation/material-remixer-ios.git",
+    "tag": "0.5.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "src/core/**/*.{h,m}",
+      "resource_bundles": {
+        "Remixer": [
+          "src/core/resources/Remixer.bundle/*"
+        ]
+      }
+    },
+    {
+      "name": "Firebase",
+      "dependencies": {
+        "Remixer/Core": [
+
+        ],
+        "Firebase/Core": [
+          "~> 3.8"
+        ],
+        "Firebase/Database": [
+          "~> 3.1"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/FirebaseCore/Frameworks/frameworks\" \"$(PODS_ROOT)/FirebaseAnalytics/Frameworks/frameworks\" \"$(PODS_ROOT)/FirebaseDatabase/Frameworks\" \"$(PODS_ROOT)/GoogleInterchangeUtilities/Frameworks/frameworks\" \"$(PODS_ROOT)/GoogleSymbolUtilities/Frameworks/frameworks\"",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/Firebase/Core/Sources",
+        "GCC_PREPROCESSOR_DEFINITIONS": "REMIXER_CLOUD_FIREBASE=1"
+      },
+      "frameworks": [
+        "FirebaseCore",
+        "FirebaseAnalytics",
+        "FirebaseDatabase",
+        "GoogleInterchangeUtilities",
+        "GoogleSymbolUtilities"
+      ]
+    }
+  ]
+}
