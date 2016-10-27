@@ -1,0 +1,24 @@
+{
+  "name": "WizardViewController",
+  "version": "1.1.1",
+  "summary": "An abstract view controller for sliding pages.",
+  "description": "Build your tutorial / description / informative screens by trivial approach.\nSetup visual assets and be flexible with page delegation.\nPut special views or controls on top subview, which is not scrolling.\n\n```swift\n_wizardVC = WizardViewController()\n_wizardVC.modalTransitionStyle = .coverVertical\n_wizardVC.modalPresentationStyle = .overCurrentContext\n\n// setup page indicators\n_wizardVC.pageIndicatorColors = {[unowned self] currentPageIndex in\n    let value: UIColor\n\n    if let color = self._wizardVC.getView(index: currentPageIndex)?.backgroundColor {\n        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0\n        color.getRed(&r, green: &g, blue: &b, alpha: &a)\n\n        // inverse color\n        value = UIColor(red: 1-r, green: 1-g, blue: 1-b, alpha: 1)\n    }\n    else {\n        switch currentPageIndex {\n            case 1: value = .darkGray\n            case 2: value = .gray\n            default: value = .black\n        }\n\n    }\n\n    return (nil, value)\n}\n\n// set views\n_wizardVC.setViews([B(), B(), B()])\n\n// or\n\n// set view controllers\n_wizardVC.setViewControllers([A(), A(), A(), A()])\n\n// set custom view on top subview\nlet button = UIButton(type: .custom)\nbutton.setTitle(\"skip\", for: .normal)\nbutton.sizeToFit()\nbutton.frame.origin.y = view.bounds.height - button.bounds.height - 50\nbutton.frame.size.width = view.bounds.width\nbutton.addTarget(self, action: #selector(closeTutorial), for: .touchUpInside)\n\n_wizardVC.setTop(view: button)\n```",
+  "homepage": "https://github.com/dimpiax/WizardViewController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Pilipenko Dima": "dimpiax@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dimpiax/WizardViewController.git",
+    "tag": "1.1.1"
+  },
+  "social_media_url": "https://twitter.com/dimpiax",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WizardViewController/Classes/**/*",
+  "pushed_with_swift_version": "3.0"
+}
