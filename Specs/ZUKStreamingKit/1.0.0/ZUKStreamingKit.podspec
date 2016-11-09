@@ -14,25 +14,20 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://git.oschina.net/aplaycat/ZUKStreamingKit'
+  s.homepage         = 'https://github.com/hutuyingxiong/ZUKStreamingKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'aplaycat' => 'tuandxiong@gmail.com' }
-  s.source           = { :git => 'git@github.com:hutuyingxiong/Specs.git', :tag => s.version.to_s }
+  s.author           = { 'hutuyingxiong' => '2398585702@qq.com' }
+  s.source           = { :git => 'https://github.com/hutuyingxiong/ZUKStreamingKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 	s.requires_arc = true 
   s.ios.deployment_target = '8.0'
 
-	s.public_header_files = 'Pod/Library/include/**/*.h'
-  s.source_files = 'Pod/Library/include/**/*.h'
-  s.default_subspec = "precompiled"
-
-  s.subspec "precompiled" do |ss|
-    ss.preserve_paths         = "Pod/Library/include/**/*.h", 'Pod/Library/lib/*.a'
-    ss.vendored_libraries   = 'Pod/Library/lib/*.a'
-    ss.libraries = 'ZUKStreamingKit'
-    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/ZUKStreamingKit/lib/include" }
-  end
+	s.public_header_files = 'Pod/Library/include/*.h'
+  s.source_files = 'Pod/Library/include/*.h'
+  #s.default_subspec = "precompiled"
+	s.vendored_libraries   = 'Pod/Library/lib/*.a'
+  
  
 
 end
