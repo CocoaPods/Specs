@@ -1,0 +1,132 @@
+{
+  "name": "ArtSignProSdk",
+  "version": "0.0.4",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "homepage": "https://github.com/o0starshine0o/iOS-ArtSignProDemo",
+  "authors": {
+    "AbelHu": "tohys@qq.com"
+  },
+  "summary": "The core function of ArtSignPro",
+  "description": "The core function of ArtSignPro.With this sdk,you can offer expert sign to your users,at the same time you will share the amount of the charge",
+  "dependencies": {
+    "Alamofire": [
+
+    ],
+    "Kingfisher": [
+
+    ],
+    "EZSwiftExtensions": [
+
+    ],
+    "SwiftyJSON": [
+
+    ],
+    "CryptoSwift": [
+
+    ],
+    "SwiftSpinner": [
+
+    ],
+    "Toast-Swift": [
+
+    ],
+    "M13Checkbox": [
+
+    ],
+    "IQKeyboardManager": [
+
+    ],
+    "AutoLayoutTextViews": [
+
+    ]
+  },
+  "source": {
+    "git": "https://github.com/o0starshine0o/iOS-ArtSignPro_Sdk.git",
+    "tag": "v0.0.4"
+  },
+  "default_subspecs": [
+    "Core",
+    "Pay",
+    "Alipay",
+    "WeChat"
+  ],
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Source/**/*.swift",
+        "Headers/*.h"
+      ],
+      "resources": "Resources/**/*.*",
+      "private_header_files": "Headers/*.h",
+      "dependencies": {
+        "ArtSignProSdk/Pay": [
+
+        ]
+      }
+    },
+    {
+      "name": "Pay",
+      "source_files": [
+        "lib/*.h",
+        "lib/Dependencies/Network/*.h"
+      ],
+      "public_header_files": [
+        "lib/*.h",
+        "lib/Dependencies/Network/*.h"
+      ],
+      "vendored_libraries": [
+        "lib/*.a",
+        "lib/Dependencies/Network/*.a"
+      ],
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "ArtSignProSdk/Pay": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChat",
+      "dependencies": {
+        "ArtSignProSdk/Pay": [
+
+        ]
+      }
+    }
+  ]
+}
