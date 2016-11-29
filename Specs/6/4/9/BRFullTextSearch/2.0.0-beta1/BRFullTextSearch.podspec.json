@@ -1,0 +1,77 @@
+{
+  "name": "BRFullTextSearch",
+  "version": "2.0.0-beta1",
+  "summary": "Objective-C full text search engine.",
+  "description": "This project provides a way to integrate full-text search\ncapabilities into your iOS and OS X projects. First, it provides\na protocol-based API for a simple text indexing and search\nframework. Second, it provides a\n[CLucene](http://clucene.sourceforge.net/) based implementation of\nthat framework.",
+  "homepage": "https://github.com/Blue-Rocket/BRFullTextSearch",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Matt Magoffin": "matt@bluerocket.us"
+  },
+  "platforms": {
+    "ios": "5.1",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/Blue-Rocket/BRFullTextSearch.git",
+    "tag": "2.0.0-beta1"
+  },
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "compiler_flags": [
+    "-fvisibility=default",
+    "-fPIC",
+    "-D_UCS2",
+    "-D_UNICODE",
+    "-D_REENTRANT",
+    "-DNDEBUG"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++0x",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "BRFullTextSearch/API": [
+
+        ],
+        "BRFullTextSearch/Implementation-CLucene": [
+
+        ]
+      }
+    },
+    {
+      "name": "API",
+      "source_files": "BRFullTextSearch/*.{h,m}",
+      "exclude_files": [
+        "BRFullTextSearch/*CLucene*",
+        "BRFullTextSearch/BRNoLockFactory.*",
+        "BRFullTextSearch/*Analyzer*",
+        "BRFullTextSearch/*Filter*"
+      ]
+    },
+    {
+      "name": "Implementation-CLucene",
+      "source_files": [
+        "BRFullTextSearch/*CLucene*",
+        "BRFullTextSearch/BRNoLockFactory.*",
+        "BRFullTextSearch/*Analyzer*",
+        "BRFullTextSearch/*Filter*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/API": [
+
+        ],
+        "BRCLucene": [
+          "< 2.0"
+        ]
+      }
+    }
+  ]
+}
