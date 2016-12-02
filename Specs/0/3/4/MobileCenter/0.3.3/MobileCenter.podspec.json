@@ -1,0 +1,73 @@
+{
+  "name": "MobileCenter",
+  "version": "0.3.3",
+  "summary": "Add Mobile Center SDK to your app to collect crash reports & understand user behavior by analyzing the session, user or device information.",
+  "description": "Add Mobile Center services to your app and collect crash reports and understand user behavior by analyzing the session, user and device information for your app. The SDK is currently in public preview and supports the following services:\n\n 1. Analytics:\n Mobile Center Analytics helps you understand user behavior and customer engagement to improve your iOS app. The SDK automatically captures session count, device properties like model, OS version etc. and pages. You can define your own custom events to measure things that matter to your business. All the information captured is available in the Mobile Center portal for you to analyze the data.\n\n 2. Crashes: \n The Mobile Center SDK will automatically generate a crash log every time your app crashes. The log is first written to the device's storage and when the user starts the app again, the crash report will be forwarded to Mobile Center. Collecting crashes works for both beta and live apps, i.e. those submitted to App Store. Crash logs contain viable information for you to help resolve the issue. Crashes uses PLCrashReporter 1.3.",
+  "homepage": "https://mobile.azure.com",
+  "documentation_url": "https://docs.mobile.azure.com/sdk/ios/",
+  "license": {
+    "type": "MIT",
+    "file": "MobileCenter-SDK-iOS/LICENSE"
+  },
+  "authors": {
+    "Microsoft": "mobilecentersdk@microsoft.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://github.com/microsoft/mobile-center-sdk-ios/releases/download/0.3.3/MobileCenter-SDK-iOS-0.3.3.zip"
+  },
+  "preserve_paths": "MobileCenter-SDK-iOS/LICENSE",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "MobileCenterAnalytics",
+    "MobileCenterCrashes"
+  ],
+  "subspecs": [
+    {
+      "name": "MobileCenter",
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenter.framework"
+    },
+    {
+      "name": "MobileCenterAnalytics",
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MobileCenter/MobileCenter": [
+
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterAnalytics.framework"
+    },
+    {
+      "name": "MobileCenterCrashes",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "dependencies": {
+        "MobileCenter/MobileCenter": [
+
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterCrashes.framework"
+    }
+  ]
+}
