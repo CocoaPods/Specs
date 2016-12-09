@@ -1,0 +1,47 @@
+{
+  "name": "ReActionSDK",
+  "version": "0.0.22",
+  "summary": "ReActionSDK",
+  "description": "ReActionSDK - GCM notifications",
+  "homepage": "https://github.com/ironSource/reaction-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "g8y3e": "valentine.pavchuk@ironsrc.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/ironSource/reaction-ios.git",
+    "tag": "dev"
+  },
+  "source_files": "reaction_sdk/ReactionSDK/ReactionSDK/**/*.{h,m}",
+  "requires_arc": true,
+  "dependencies": {
+    "AtomSDK": [
+
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "StaticLibWorkaround",
+      "preserve_paths": "reaction_sdk/ReactionSDK/ReactionSDK/**/*"
+    },
+    {
+      "name": "Core",
+      "source_files": "reaction_sdk/ReactionSDK/ReactionSDK/**/*",
+      "dependencies": {
+        "Google/CloudMessaging": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/Google/Headers"
+      }
+    }
+  ]
+}
