@@ -1,0 +1,113 @@
+{
+  "name": "HouseAFNetworking",
+  "version": "3.1.0",
+  "license": "MIT",
+  "summary": "A delightful iOS and OS X networking framework for house.",
+  "homepage": "https://github.com/xayoung/HouseAFNetworking.git",
+  "social_media_url": "https://github.com/xayoung/HouseAFNetworking.git",
+  "authors": {
+    "xayoung": "xayoung01@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/xayoung/HouseAFNetworking.git",
+    "tag": "3.1.0",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "public_header_files": "HouseAFNetworking/AFNetworking.h",
+  "source_files": "HouseAFNetworking/AFNetworking.h",
+  "prefix_header_contents": "#ifndef TARGET_OS_IOS\n  #define TARGET_OS_IOS TARGET_OS_IPHONE\n#endif\n#ifndef TARGET_OS_WATCH\n  #define TARGET_OS_WATCH 0\n#endif\n#ifndef TARGET_OS_TV\n  #define TARGET_OS_TV 0\n#endif",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "HouseAFNetworking/AFURL{Request,Response}Serialization.{h,m}",
+      "public_header_files": "HouseAFNetworking/AFURL{Request,Response}Serialization.h",
+      "watchos": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "osx": {
+        "frameworks": "CoreServices"
+      }
+    },
+    {
+      "name": "Security",
+      "source_files": "HouseAFNetworking/AFSecurityPolicy.{h,m}",
+      "public_header_files": "HouseAFNetworking/AFSecurityPolicy.h",
+      "frameworks": "Security"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9",
+        "tvos": "9.0"
+      },
+      "source_files": "HouseAFNetworking/AFNetworkReachabilityManager.{h,m}",
+      "public_header_files": "HouseAFNetworking/AFNetworkReachabilityManager.h",
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "HouseAFNetworking/Serialization": [
+
+        ],
+        "HouseAFNetworking/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "HouseAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "HouseAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "tvos": {
+        "dependencies": {
+          "HouseAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": "HouseAFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+      "public_header_files": "HouseAFNetworking/AF{URL,HTTP}SessionManager.h"
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "7.0",
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "HouseAFNetworking/NSURLSession": [
+
+        ]
+      },
+      "public_header_files": "UIKit+AFNetworking/*.h",
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
