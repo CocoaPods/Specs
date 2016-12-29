@@ -8,23 +8,46 @@
   "authors": {
     "devtodev": "info@devtodev.com"
   },
-  "platforms": {
-    "ios": "8.0"
-  },
   "source": {
     "git": "https://github.com/devtodev-analytics/ios-sdk.git",
     "branch": "master",
     "tag": "1.9.5"
   },
-  "ios": {
-    "vendored_frameworks": "devtodev-ios 1.9.5/devtodev.framework"
+  "default_subspecs": "devtodev",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
   },
-  "vendored_frameworks": "devtodev-ios 1.9.5/devtodev.framework",
-  "frameworks": [
-    "Security",
-    "UIKit",
-    "UserNotifications",
-    "AdSupport"
-  ],
-  "libraries": "z"
+  "subspecs": [
+    {
+      "name": "devtodev",
+      "ios": {
+        "vendored_frameworks": "devtodev-ios 1.9.5/devtodev.framework"
+      },
+      "vendored_frameworks": "devtodev-ios 1.9.5/devtodev.framework",
+      "frameworks": [
+        "Security",
+        "UIKit",
+        "UserNotifications",
+        "AdSupport"
+      ],
+      "libraries": "z",
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "AppExtension",
+      "ios": {
+        "vendored_frameworks": "devtodev-ios 1.9.5/devtodevAppExtensions.framework"
+      },
+      "vendored_frameworks": "devtodev-ios 1.9.5/devtodevAppExtensions.framework",
+      "frameworks": "UserNotifications",
+      "platforms": {
+        "ios": "10.0"
+      }
+    }
+  ]
 }
