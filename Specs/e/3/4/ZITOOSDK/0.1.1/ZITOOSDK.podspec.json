@@ -1,0 +1,79 @@
+{
+  "name": "ZITOOSDK",
+  "version": "0.1.1",
+  "summary": "easyPay ZITOOSDK.",
+  "description": "智慧支付  一键开启",
+  "homepage": "http://www.rtkj.com.cn",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sunnymoteng": "369074420@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/sunnymoteng/ZITOOSDK.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "BaseCore",
+    "Alipay",
+    "WXPay"
+  ],
+  "subspecs": [
+    {
+      "name": "BaseCore",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/AliPaySDK/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/AliPaySDK/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/AliPaySDK/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "ZITOOSDK/BaseCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXPay",
+      "frameworks": "CoreTelephony",
+      "vendored_libraries": "lib/Channels/WeChatSDK/*.a",
+      "ios": {
+        "libraries": "sqlite3"
+      },
+      "dependencies": {
+        "ZITOOSDK/BaseCore": [
+
+        ]
+      }
+    }
+  ]
+}
