@@ -1,0 +1,96 @@
+{
+  "name": "IFQImageBrowser",
+  "version": "0.1.1",
+  "summary": "images browser",
+  "description": "images browser support NSString|NSData|UIImage",
+  "homepage": "https://github.com/infiniteQin/IFQImageBrowser",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "infiniteQin": "whcwylp@163.com"
+  },
+  "source": {
+    "git": "https://github.com/infiniteQin/IFQImageBrowser.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": "UIKit",
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "All",
+      "dependencies": {
+        "IFQImageBrowser/WithoutImageLoader": [
+
+        ],
+        "IFQImageBrowser/WebImageLoader": [
+
+        ]
+      }
+    },
+    {
+      "name": "WithoutImageLoader",
+      "dependencies": {
+        "IFQImageBrowser/Base": [
+
+        ],
+        "IFQImageBrowser/TitleBar": [
+
+        ]
+      },
+      "source_files": "IFQImageBrowser/*.{h,m}",
+      "public_header_files": "IFQImageBrowser/*.{h}"
+    },
+    {
+      "name": "Base",
+      "source_files": [
+        "IFQImageBrowser/Base/*.{h,m}",
+        "IFQImageBrowser/Base/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "IFQImageBrowser/Base/Controller/*.{h}",
+        "IFQImageBrowser/Base/Protocol/*.{h}"
+      ]
+    },
+    {
+      "name": "TitleBar",
+      "dependencies": {
+        "IFQImageBrowser/Base": [
+
+        ]
+      },
+      "source_files": [
+        "IFQImageBrowser/TitleBar/*.{h,m}",
+        "IFQImageBrowser/TitleBar/**/*.{h,m}"
+      ],
+      "private_header_files": "IFQImageBrowser/TitleBar/**/*.{h}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "SHOW_TITLE_BAR=1"
+      }
+    },
+    {
+      "name": "WebImageLoader",
+      "dependencies": {
+        "SDWebImage": [
+
+        ],
+        "IFQImageBrowser/Base": [
+
+        ]
+      },
+      "source_files": [
+        "IFQImageBrowser/WebImgLoader/*.{h,m}",
+        "IFQImageBrowser/WebImgLoader/**/*.{h,m}"
+      ],
+      "private_header_files": "IFQImageBrowser/WebImgLoader/**/*.{h}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IFQ_WEB_IMG_LOADER=1"
+      }
+    }
+  ]
+}
