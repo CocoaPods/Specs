@@ -15,52 +15,65 @@
     "ios": "7.0"
   },
   "requires_arc": true,
-  "default_subspecs": "Core",
+  "default_subspecs": "Default",
   "subspecs": [
     {
-      "name": "Core",
+      "name": "Default",
       "dependencies": {
-        "XZKit/UIKit": [
+        "XZKit/Core": [
 
         ],
-        "XZKit/XZTheme": [
-
-        ],
-        "XZKit/UI": [
+        "XZKit/Kit": [
 
         ]
       }
     },
     {
-      "name": "UIKit",
-      "public_header_files": "XZKit/UIKit/*.h",
-      "source_files": "XZKit/UIKit/*.{h,m}"
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "UIKit",
+          "public_header_files": "XZKit/Core/UIKit/*.h",
+          "source_files": "XZKit/Core/UIKit/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Kit",
+      "dependencies": {
+        "XZKit/XZTheme": [
+
+        ],
+        "XZKit/XZMenuView": [
+
+        ]
+      }
     },
     {
       "name": "XZTheme",
       "subspecs": [
         {
           "name": "Supporting",
-          "public_header_files": "XZKit/XZTheme/XZThemeSupporting.h",
-          "source_files": "XZKit/XZTheme/XZThemeSupporting.h"
+          "public_header_files": "XZKit/Kit/XZTheme/XZThemeSupporting.h",
+          "source_files": "XZKit/Kit/XZTheme/XZThemeSupporting.h"
         },
         {
           "name": "Theme",
-          "public_header_files": "XZKit/XZTheme/Theme/*.h",
-          "source_files": "XZKit/XZTheme/Theme/*.{h,m}",
+          "public_header_files": "XZKit/Kit/XZTheme/Theme/*.h",
+          "source_files": "XZKit/Kit/XZTheme/Theme/*.{h,m}",
           "dependencies": {
             "XZKit/XZTheme/Supporting": [
 
             ],
-            "XZKit/UIKit": [
+            "XZKit/Core/UIKit": [
 
             ]
           }
         },
         {
           "name": "Extended",
-          "public_header_files": "XZKit/XZTheme/Extended/*.h",
-          "source_files": "XZKit/XZTheme/Extended/*.{h,m}",
+          "public_header_files": "XZKit/Kit/XZTheme/Extended/*.h",
+          "source_files": "XZKit/Kit/XZTheme/Extended/*.{h,m}",
           "dependencies": {
             "XZKit/XZTheme/Theme": [
 
@@ -70,14 +83,9 @@
       ]
     },
     {
-      "name": "UI",
-      "subspecs": [
-        {
-          "name": "XZMenuView",
-          "public_header_files": "XZKit/UI/XZMenuView/*.h",
-          "source_files": "XZKit/UI/XZMenuView/*.{h,m}"
-        }
-      ]
+      "name": "XZMenuView",
+      "public_header_files": "XZKit/Kit/XZMenuView/*.h",
+      "source_files": "XZKit/Kit/XZMenuView/*.{h,m}"
     }
   ]
 }

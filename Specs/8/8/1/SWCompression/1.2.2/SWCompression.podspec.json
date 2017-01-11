@@ -1,0 +1,74 @@
+{
+  "name": "SWCompression",
+  "version": "1.2.2",
+  "summary": "Framework with implementations in Swift of different (de)compression algorithms",
+  "description": "A framework which contains native (written in Swift) implementations of compression algorithms.\nSwift developers currently have access only to various wrappers written in Objective-C\naround system libraries if they want to decompress something. SWCompression allows to do this with pure Swift\nwithout relying on availability of system libraries.",
+  "homepage": "https://github.com/tsolomko/SWCompression",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Timofey Solomko": "tsolomko@gmail.com"
+  },
+  "platforms": {
+    "ios": "10.1",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.1"
+  },
+  "source": {
+    "git": "https://github.com/tsolomko/SWCompression.git",
+    "tag": "v1.2.2"
+  },
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Common",
+      "public_header_files": "Sources/Service/SWCompression.h",
+      "source_files": "Sources/{DataWithPointer.swift,HuffmanTree.swift,Protocols.swift,Extensions.swift,Service/*.swift,Service/*.h}"
+    },
+    {
+      "name": "Deflate",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/Deflate.swift"
+    },
+    {
+      "name": "GZip",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/GZipArchive.swift"
+    },
+    {
+      "name": "Zlib",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/ZlibArchive.swift"
+    },
+    {
+      "name": "BZip2",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/BZip2.swift"
+    }
+  ]
+}

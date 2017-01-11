@@ -1,0 +1,77 @@
+{
+  "name": "ZITOPayDemo",
+  "version": "0.1.1",
+  "summary": "ZITOPay iOS SDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，支付宝钱包。",
+  "homepage": "http://www.zitopay.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bruce_lidd": "964991296@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/bruce-lidd/zitopayDemo.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ZITOPayDemo/Classes/**/*",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Sumpay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "ZITOPayDemo/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sumpay",
+      "vendored_libraries": "lib/Channels/Sumpay/*.a",
+      "dependencies": {
+        "ZITOPayDemo/Core": [
+
+        ]
+      }
+    }
+  ]
+}
