@@ -1,0 +1,96 @@
+{
+  "name": "SWCompression",
+  "version": "2.0.1",
+  "summary": "Framework with implementations in Swift of different (de)compression algorithms",
+  "description": "A framework which contains native (written in Swift) implementations of compression algorithms.\nSwift developers currently have access only to various wrappers written in Objective-C\naround system libraries if they want to decompress something. SWCompression allows to do this with pure Swift\nwithout relying on availability of system libraries.",
+  "homepage": "https://github.com/tsolomko/SWCompression",
+  "documentation_url": "http://tsolomko.github.io/SWCompression",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Timofey Solomko": "tsolomko@gmail.com"
+  },
+  "platforms": {
+    "ios": "10.1",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.1"
+  },
+  "source": {
+    "git": "https://github.com/tsolomko/SWCompression.git",
+    "tag": "v2.0.1"
+  },
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Common",
+      "public_header_files": "Sources/Service/SWCompression.h",
+      "source_files": "Sources/{CheckSums.swift,DataWithPointer.swift,Extensions.swift,HuffmanTree.swift,Protocols.swift,Service/*.swift,Service/*.h}"
+    },
+    {
+      "name": "Deflate",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/Deflate.swift"
+    },
+    {
+      "name": "GZip",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/GZipArchive.swift"
+    },
+    {
+      "name": "Zlib",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/ZlibArchive.swift"
+    },
+    {
+      "name": "BZip2",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/BZip2.swift"
+    },
+    {
+      "name": "LZMA",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/LZMA*.swift"
+    },
+    {
+      "name": "XZ",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/LZMA": [
+
+        ]
+      },
+      "source_files": "Sources/XZArchive.swift"
+    }
+  ]
+}

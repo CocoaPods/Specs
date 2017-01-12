@@ -1,0 +1,126 @@
+{
+  "name": "BRCLucene",
+  "version": "1.0.0-beta1",
+  "summary": "CLucene as a Pod",
+  "description": "This project provides provides a pod for the\n[CLucene](http://clucene.sourceforge.net/) search framework.",
+  "homepage": "https://github.com/Blue-Rocket/clucene",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Matt Magoffin": "matt@bluerocket.us"
+  },
+  "platforms": {
+    "ios": "5.1",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/Blue-Rocket/clucene.git",
+    "tag": "1.0.0-beta1"
+  },
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "compiler_flags": [
+    "-Wmost",
+    "-fvisibility=default",
+    "-fPIC",
+    "-D_UCS2",
+    "-D_UNICODE",
+    "-D_REENTRANT",
+    "-DNDEBUG"
+  ],
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "_WCHAR_H_CPLUSPLUS_98_CONFORMANCE_"
+  },
+  "requires_arc": false,
+  "default_subspecs": "CLucene",
+  "subspecs": [
+    {
+      "name": "CLucene",
+      "dependencies": {
+        "BRCLucene/CLucene-Shared": [
+
+        ],
+        "BRCLucene/CLucene-Core": [
+
+        ],
+        "BRCLucene/CLucene-Contribs-Lib": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Config",
+      "requires_arc": false,
+      "source_files": "BRCLucene/src/CLucene/*",
+      "header_mappings_dir": "BRCLucene/src"
+    },
+    {
+      "name": "CLucene-Core-API",
+      "requires_arc": false,
+      "source_files": [
+        "src/core/CLucene.h",
+        "src/core/CLucene/**/*.h"
+      ],
+      "header_mappings_dir": "src/core",
+      "exclude_files": [
+        "src/core/CLucene/CLMonolithic.*",
+        "src/core/CLucene/search/FilterResultCache.*",
+        "src/core/CLucene/queryParser/legacy"
+      ],
+      "dependencies": {
+        "BRCLucene/CLucene-Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Shared",
+      "requires_arc": false,
+      "source_files": "src/shared/CLucene/**/*.{h,c,cpp}",
+      "header_mappings_dir": "src/shared",
+      "exclude_files": [
+        "src/shared/CLucene/CLSharedMonolithic.*",
+        "src/shared/CLucene/util/deflate.*"
+      ],
+      "dependencies": {
+        "BRCLucene/CLucene-Core-API": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Core",
+      "requires_arc": false,
+      "source_files": "src/core/CLucene/**/*.{c,cpp}",
+      "header_mappings_dir": "src/core",
+      "exclude_files": [
+        "src/core/CLucene/CLMonolithic.*",
+        "src/core/CLucene/search/FilterResultCache.*",
+        "src/core/CLucene/queryParser/legacy"
+      ],
+      "dependencies": {
+        "BRCLucene/CLucene-Core-API": [
+
+        ],
+        "BRCLucene/CLucene-Shared": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Contribs-Lib",
+      "requires_arc": false,
+      "source_files": "src/contribs-lib/CLucene/**/*.{h,c,cpp}",
+      "header_mappings_dir": "src/contribs-lib",
+      "dependencies": {
+        "BRCLucene/CLucene-Core": [
+
+        ],
+        "BRCLucene/CLucene-Shared": [
+
+        ]
+      }
+    }
+  ]
+}

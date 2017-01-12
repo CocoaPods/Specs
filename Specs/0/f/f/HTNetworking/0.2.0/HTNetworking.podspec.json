@@ -1,0 +1,259 @@
+{
+  "name": "HTNetworking",
+  "version": "0.2.0",
+  "summary": "HTNetworking is a high level request util based on AFNetworking and RestKit.",
+  "homepage": "https://github.com/NEYouFan/HTNetworking",
+  "license": "Apache License, Version 2.0",
+  "source": {
+    "git": "https://github.com/NEYouFan/ht-networking.git",
+    "tag": "v0.2.0"
+  },
+  "authors": {
+    "wlp": "hzwangliping@corp.netease.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "prefix_header_contents": "#if __has_include(\"RKCoreData.h\")\n    #import <CoreData/CoreData.h>\n#endif",
+  "subspecs": [
+    {
+      "name": "HT",
+      "dependencies": {
+        "HTNetworking/HTRestKit": [
+
+        ]
+      },
+      "header_mappings_dir": "HTHttp/HTHttp/HTHttp",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": [
+            "HTHttp/HTHttp/HThttp/Core/*.{h,m}",
+            "HTHttp/HTHttp/HThttp/HTNetworking.h",
+            "HTHttp/HTHttp/HThttp/HTAutoBaseRequest.h",
+            "HTHttp/HTHttp/HThttp/HTBaseRequest.h",
+            "HTHttp/HTHttp/HThttp/HTHTTPModel.h",
+            "HTHttp/HTHttp/HThttp/NSObject+HTModel.h"
+          ],
+          "dependencies": {
+            "HTNetworking/HTRestKit/Core": [
+
+            ],
+            "HTNetworking/HT/Cache": [
+
+            ],
+            "HTNetworking/HT/Freeze": [
+
+            ],
+            "HTNetworking/HT/RACSupport": [
+
+            ],
+            "HTNetworking/HT/Support": [
+
+            ],
+            "AFDownloadRequestOperation": [
+              "~> 2.0"
+            ]
+          }
+        },
+        {
+          "name": "Cache",
+          "source_files": "HTHttp/HTHttp/HThttp/Cache/*.{h,m}",
+          "dependencies": {
+            "HTNetworking/HT/Support": [
+
+            ],
+            "HTNetworking/HTRestKit": [
+
+            ],
+            "FMDB": [
+
+            ],
+            "HTCommonUtility": [
+
+            ]
+          }
+        },
+        {
+          "name": "Freeze",
+          "source_files": "HTHttp/HTHttp/HThttp/Freeze/*.{h,m}",
+          "dependencies": {
+            "HTNetworking/HT/Cache": [
+
+            ],
+            "HTNetworking/HTRestKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "RACSupport",
+          "source_files": "HTHttp/HTHttp/HThttp/RACSupport/*.{h,m}",
+          "dependencies": {
+            "ReactiveCocoa": [
+              "~> 2.1"
+            ],
+            "HTCommonUtility": [
+
+            ],
+            "HTNetworking/HT/Support": [
+
+            ],
+            "HTNetworking/HTRestKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Support",
+          "source_files": "HTHttp/HTHttp/HThttp/Support/*.{h,m}",
+          "dependencies": {
+            "HTCommonUtility": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "HTRestKit",
+      "header_mappings_dir": "HTHttp/RestKit/Code",
+      "header_dir": "RestKit",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "HTNetworking/HTRestKit/ObjectMapping": [
+
+            ],
+            "HTNetworking/HTRestKit/Network": [
+
+            ],
+            "HTNetworking/HTRestKit/CoreData": [
+
+            ]
+          }
+        },
+        {
+          "name": "ObjectMapping",
+          "source_files": [
+            "HTHTTP/RestKit/Code/ObjectMapping.h",
+            "HTHTTP/RestKit/Code/ObjectMapping/**/*"
+          ],
+          "dependencies": {
+            "HTNetworking/HTRestKit/Support": [
+
+            ],
+            "RKValueTransformers": [
+              "~> 1.1.0"
+            ],
+            "ISO8601DateFormatterValueTransformer": [
+              "~> 0.6.1"
+            ]
+          }
+        },
+        {
+          "name": "Network",
+          "source_files": [
+            "HTHTTP/RestKit/Code/Network.h",
+            "HTHTTP/RestKit/Code/Network/**/*"
+          ],
+          "ios": {
+            "frameworks": [
+              "CFNetwork",
+              "Security",
+              "MobileCoreServices",
+              "SystemConfiguration"
+            ]
+          },
+          "osx": {
+            "frameworks": [
+              "CoreServices",
+              "Security",
+              "SystemConfiguration"
+            ]
+          },
+          "dependencies": {
+            "SOCKit": [
+
+            ],
+            "AFNetworking": [
+              "~> 2.5"
+            ],
+            "HTNetworking/HTRestKit/ObjectMapping": [
+
+            ],
+            "HTNetworking/HTRestKit/Support": [
+
+            ]
+          },
+          "prefix_header_contents": "#import <Availability.h>\n#define _AFNETWORKING_PIN_SSL_CERTIFICATES_\n#if __IPHONE_OS_VERSION_MIN_REQUIRED\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <MobileCoreServices/MobileCoreServices.h>\n  #import <Security/Security.h>\n#else\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <CoreServices/CoreServices.h>\n  #import <Security/Security.h>\n#endif"
+        },
+        {
+          "name": "CoreData",
+          "source_files": [
+            "HTHTTP/RestKit/Code/CoreData.h",
+            "HTHTTP/RestKit/Code/CoreData/**/*"
+          ],
+          "frameworks": "CoreData",
+          "dependencies": {
+            "HTNetworking/HTRestKit/ObjectMapping": [
+
+            ]
+          }
+        },
+        {
+          "name": "Testing",
+          "source_files": [
+            "HTHTTP/RestKit/Code/Testing.h",
+            "HTHTTP/RestKit/Code/Testing"
+          ],
+          "dependencies": {
+            "HTNetworking/HTRestKit/Network": [
+
+            ]
+          },
+          "prefix_header_contents": "#import <Availability.h>\n#define _AFNETWORKING_PIN_SSL_CERTIFICATES_\n#if __IPHONE_OS_VERSION_MIN_REQUIRED\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <MobileCoreServices/MobileCoreServices.h>\n  #import <Security/Security.h>\n#else\n  #import <SystemConfiguration/SystemConfiguration.h>\n  #import <CoreServices/CoreServices.h>\n  #import <Security/Security.h>\n#endif"
+        },
+        {
+          "name": "Search",
+          "source_files": [
+            "HTHTTP/RestKit/Code/Search.h",
+            "HTHTTP/RestKit/Code/Search"
+          ],
+          "dependencies": {
+            "HTNetworking/HTRestKit/CoreData": [
+
+            ]
+          }
+        },
+        {
+          "name": "Support",
+          "source_files": [
+            "HTHTTP/RestKit/Code/RestKit.h",
+            "HTHTTP/RestKit/Code/Support.h",
+            "HTHTTP/RestKit/Code/Support"
+          ],
+          "dependencies": {
+            "TransitionKit": [
+              "~> 2.2"
+            ]
+          }
+        },
+        {
+          "name": "CocoaLumberjack",
+          "source_files": "HTHTTP/RestKit/Code/CocoaLumberjack/RKLumberjackLogger.*",
+          "dependencies": {
+            "CocoaLumberjack": [
+              "~> 2.0"
+            ],
+            "HTNetworking/HTRestKit/Support": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
