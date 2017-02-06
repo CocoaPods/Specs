@@ -1,0 +1,69 @@
+{
+  "name": "CG-KFEpubKit",
+  "version": "1.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "summary": "An Objective-C epub extracting and parsing framework for OSX and iOS.",
+  "homepage": "https://pods.kf-interactive.com",
+  "authors": {
+    "Rico Becker": "rico.becker@kf-interactive.com"
+  },
+  "source": {
+    "git": "https://github.com/cgossain/KFEpubKit.git",
+    "tag": "1.0"
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8"
+  },
+  "default_subspecs": "Standard",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "SSZipArchive": [
+          "~> 1.0.1"
+        ],
+        "KissXML": [
+          "~> 5.1.0"
+        ]
+      },
+      "source_files": [
+        "KFEpubKit/Sources/*.{h,m}",
+        "KFEpubKit/LICENSE.txt"
+      ],
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(SDKROOT)/usr/include/libxml2\""
+      }
+    },
+    {
+      "name": "Standard",
+      "dependencies": {
+        "CG-KFEpubKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Framework",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "CG-KFEpubKit/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/KissXML",
+        "OTHER_CFLAGS": "$(inherited) -DDDXML_LIBXML_MODULE_ENABLED=1",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDDXML_LIBXML_MODULE_ENABLED"
+      }
+    }
+  ]
+}
