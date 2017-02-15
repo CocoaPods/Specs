@@ -1,0 +1,75 @@
+{
+  "name": "MobileMessaging",
+  "version": "2.2.3",
+  "summary": "Mobile Messaging SDK for iOS",
+  "description": "Mobile Messaging SDK is designed and developed to easily enable push notification channel in your mobile application. In almost no time of implementation you get push notification in you application and access to the features of Infobip IP Messaging Platform.",
+  "homepage": "https://github.com/infobip/mobile-messaging-sdk-ios",
+  "license": "MIT",
+  "authors": {
+    "Andrey Kadochnikov": "andrey.kadochnikov@infobip.com",
+    "Olga Koroleva": "olga.koroleva@infobip.com"
+  },
+  "source": {
+    "git": "https://github.com/infobip/mobile-messaging-sdk-ios.git",
+    "tag": "2.2.3"
+  },
+  "social_media_url": "https://twitter.com/infobip",
+  "platforms": {
+    "ios": "8.4"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0.1",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-DDEBUG"
+  },
+  "default_subspecs": "CocoaLumberjack",
+  "module_map": "Pod/MobileMessaging.modulemap",
+  "pushed_with_swift_version": "3.0.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "CoreData",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "resources": [
+        "Pod/Classes/MessageStorage/*.xcdatamodeld",
+        "Pod/Classes/InternalStorage/*.xcdatamodeld"
+      ],
+      "public_header_files": "Pod/Classes/**/*.h",
+      "private_header_files": "Pod/Classes/Vendor/**/*.h",
+      "source_files": "Pod/Classes/**/*.{h,m,swift}",
+      "exclude_files": "Pod/Classes/Logging/CocoaLumberjack/**"
+    },
+    {
+      "name": "DummyLogger",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CocoaLumberjack",
+      "frameworks": [
+        "CoreData",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "resources": [
+        "Pod/Classes/MessageStorage/*.xcdatamodeld",
+        "Pod/Classes/InternalStorage/*.xcdatamodeld"
+      ],
+      "public_header_files": "Pod/Classes/**/*.h",
+      "private_header_files": "Pod/Classes/Vendor/**/*.h",
+      "source_files": "Pod/Classes/**/*.{h,m,swift}",
+      "exclude_files": "Pod/Classes/Logging/DummyLogger/**",
+      "dependencies": {
+        "CocoaLumberjack": [
+          "~> 3.0"
+        ]
+      }
+    }
+  ]
+}
