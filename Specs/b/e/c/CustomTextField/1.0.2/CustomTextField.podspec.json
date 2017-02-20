@@ -1,0 +1,23 @@
+{
+  "name": "CustomTextField",
+  "version": "1.0.2",
+  "summary": "CustomTextField is used to mask the text entered in textfield(e.g: Credit card number -> \"**** **** **** 1111\").",
+  "description": "TODO: Add long description of the pod here.\nLast login: Mon Feb 20 10:57:36 on ttys000\nSA-MAC-019:~ rajan.shah$ cd /Users/rajan.shah/Documents/SA Projects/iOS/Github/CustomTextField/CustomTextField\n-bash: cd: /Users/rajan.shah/Documents/SA: No such file or directory\nSA-MAC-019:~ rajan.shah$ cd \"/Users/rajan.shah/Documents/SA Projects/iOS/Github/CustomTextField/CustomTextField\"\nSA-MAC-019:CustomTextField rajan.shah$ cd \n.DS_Store                .travis.yml              LICENSE\n.git/                    CustomTextField/         README.md\n.gitignore               CustomTextField.podspec  _Pods.xcodeproj/\n.swift-version           Example/                 \nSA-MAC-019:CustomTextField rajan.shah$ vi CustomTextField.podspec \nSA-MAC-019:CustomTextField rajan.shah$ vi README.md \nSA-MAC-019:CustomTextField rajan.shah$ git add .\nSA-MAC-019:CustomTextField rajan.shah$ git commit -m \"Update Description\"\n[master 7e33a19] Update Description\n 2 files changed, 2 insertions(+), 2 deletions(-)\nSA-MAC-019:CustomTextField rajan.shah$ git push\nCounting objects: 4, done.\nDelta compression using up to 4 threads.\nCompressing objects: 100% (4/4), done.\nWriting objects: 100% (4/4), 551 bytes | 0 bytes/s, done.\nTotal 4 (delta 3), reused 0 (delta 0)\nremote: Resolving deltas: 100% (3/3), completed with 3 local objects.\nTo https://github.com/rajanshahsa/CustomTextField.git\n   ec521e7..7e33a19  master -> master\nSA-MAC-019:CustomTextField rajan.shah$ vi README.md \n\n```\n- Implement 'shouldChangeCharactersIn' method of UITextFieldDelegate.\n- return false for the textfield you want to mask the text.\n- Call textField.shouldChangeValue(cardNumberBuffer: String)\n```swift\nfunc textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {\nif (string.characters.count > 0)\n{\nif (self.isMaxLength(textField)) {\nreturn false\n}\n\nself.cardNumberBuffer = String(format: \"%@%@\", self.cardNumberBuffer, string)\n}\nelse\n{\nif (self.cardNumberBuffer.characters.count > 1)\n{\nlet length = self.cardNumberBuffer.characters.count-1\nself.cardNumberBuffer = self.cardNumberBuffer[self.cardNumberBuffer.index(self.cardNumberBuffer.startIndex, offsetBy: 0)...self.cardNumberBuffer.index(self.cardNumberBuffer.startIndex, offsetBy: length-1)]\n}\nelse\n{\nself.cardNumberBuffer = \"\"\n}\n}\n\ntextField.shouldChangeValue(cardNumberBuffer: self.cardNumberBuffer)\nreturn false\n}\n\nfunc isMaxLength(_ textField:UITextField) -> Bool {\nvar result = false\n\nif ((textField.text?.characters.count)! > 19)\n{\nresult = true\n}\n\nreturn result\n}\n```\n\n\n<!--CustomTextField is available through [CocoaPods](http://cocoapods.org). To install-->\n<!--it, simply add the following line to your Podfile:-->\n<!---->\n<!--```ruby-->\n<!--pod \"CustomTextField\"-->\n<!--```-->\n\n## Author\n\nrajanshahsa, rajan.shah@solutionanalysts.com",
+  "homepage": "https://github.com/rajanshahsa/CustomTextField",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rajanshahsa": "rajan.shah@solutionanalysts.com"
+  },
+  "source": {
+    "git": "https://github.com/rajanshahsa/CustomTextField.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CustomTextField/Classes/**/*",
+  "pushed_with_swift_version": "3.0"
+}
