@@ -1,0 +1,66 @@
+{
+  "name": "SCFFLD",
+  "version": "0.8.0",
+  "summary": "Dependency Injection framework for iOS",
+  "description": "Core functionality for the SCFFLD dependency injection (DI) framework for iOS.\nThis library provides:\n* Internal URI space;\n* Inversion of Control (IoC) container functionality;\n* Actions/events through target containers;\n* Basic UI views;\n* Supporting utility functions.",
+  "homepage": "https://github.com/innerfunction/SCFFLD-ios",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Julian Goacher": "julian.goacher@innerfunction.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/innerfunction/SCFFLD-ios.git",
+    "tag": "0.8.0"
+  },
+  "source_files": [
+    "SCFFLD/*.{h,m}",
+    "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}",
+    "SCFFLD/Externals/**/*.{h,m}"
+  ],
+  "exclude_files": [
+    "SCFFLD/Externals/ISO8601DateFormatter/*.m",
+    "SCFFLD/Externals/JSONKit/*.m",
+    "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
+  ],
+  "public_header_files": [
+    "SCFFLD/util/*.h",
+    "SCFFLD/uri/*.h",
+    "SCFFLD/ioc/*.h",
+    "SCFFLD/app/*.h",
+    "SCFFLD/ui/*.h"
+  ],
+  "requires_arc": true,
+  "compiler_flags": "-w",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "libraries": "z",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SRCROOT)/**",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "OTHER_LDFLAGS": "-w"
+  },
+  "dependencies": {
+    "ZipArchive": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "noarc",
+      "source_files": [
+        "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}",
+        "SCFFLD/Externals/JSONKit/*.{h,m}"
+      ],
+      "requires_arc": false,
+      "compiler_flags": "-w"
+    }
+  ]
+}
