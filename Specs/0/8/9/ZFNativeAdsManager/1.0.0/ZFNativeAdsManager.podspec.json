@@ -1,0 +1,81 @@
+{
+  "name": "ZFNativeAdsManager",
+  "version": "1.0.0",
+  "summary": "ZFNativeAdsManager integrates and dispatches mainstream leading native ads platform.",
+  "homepage": "https://github.com/xbull/ZFNativeAdsManager",
+  "license": "MIT",
+  "authors": {
+    "ruozi": "wizardfan88@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/xbull/ZFNativeAdsManager.git",
+    "tag": "1.0.0"
+  },
+  "default_subspecs": "Core",
+  "pushed_with_swift_version": null,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ZFNativeAdsManager/*.{h,m}",
+        "ZFNativeAdsManager/Mediator/*.{h,m}",
+        "ZFNativeAdsManager/Categories/*.{h,m}"
+      ],
+      "public_header_files": "ZFNativeAdsManager/*.h"
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "ZFNativeAdsManager/Core": [
+
+        ],
+        "FBAudienceNetwork": [
+          "~> 4.18.0"
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Facebook/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Facebook/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Mobvista",
+      "dependencies": {
+        "ZFNativeAdsManager/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Mobvista/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Mobvista/Action/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Mobvista/Observer/*.{h,m}"
+      ],
+      "frameworks": [
+        "CoreGraphics",
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "StoreKit",
+        "QuartzCore",
+        "CoreLocation",
+        "CoreTelephony",
+        "MobileCoreServices",
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreMotion",
+        "AVFoundation",
+        "CoreMedia",
+        "MessageUI",
+        "MediaPlayer"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/Mobvista/Frameworks/MVSDK.framework",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    }
+  ]
+}

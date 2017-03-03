@@ -1,0 +1,122 @@
+{
+  "name": "JSPatch",
+  "version": "1.1.3",
+  "summary": "JSPatch bridge Objective-C and JavaScript. You can call any Objective-C class and method in JavaScript by just including a small engine.",
+  "description": "JSPatch bridges Objective-C and JavaScript using the\nObjective-C runtime. You can call any Objective-C class and\nmethod in JavaScript by just including a small engine.\nThat makes the APP obtaining the power of script language:\nadd modules or replacing Objective-C codes to fix bugs dynamically.",
+  "homepage": "https://github.com/bang590/JSPatch",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bang": "bang590@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/bang590",
+  "platforms": {
+    "ios": "6.0",
+    "tvos": "9.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/bang590/JSPatch.git",
+    "tag": "1.1.3"
+  },
+  "frameworks": "Foundation",
+  "weak_frameworks": "JavaScriptCore",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": "JSPatch/*.{h,m}"
+      },
+      "tvos": {
+        "source_files": "JSPatch/*.{h,m}"
+      },
+      "osx": {
+        "source_files": "JSPatch/*.{h,m}"
+      },
+      "public_header_files": "JSPatch/*.h",
+      "resources": "JSPatch/*.js"
+    },
+    {
+      "name": "Extensions",
+      "ios": {
+        "source_files": "Extensions/*",
+        "public_header_files": "Extensions/*.h"
+      },
+      "dependencies": {
+        "JSPatch/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "JPCFunction",
+      "ios": {
+        "source_files": [
+          "Extensions/JPCFunction/**/*",
+          "Extensions/JPLibffi/**/*"
+        ],
+        "public_header_files": [
+          "Extensions/JPCFunction/**/*.h",
+          "Extensions/JPLibffi/**/*.h"
+        ]
+      },
+      "vendored_libraries": "Extensions/JPLibffi/libffi/libffi.a",
+      "dependencies": {
+        "JSPatch/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "JPBlock",
+      "ios": {
+        "source_files": [
+          "Extensions/JPBlock/**/*",
+          "Extensions/JPLibffi/**/*"
+        ],
+        "public_header_files": [
+          "Extensions/JPBlock/**/*.h",
+          "Extensions/JPLibffi/**/*.h"
+        ]
+      },
+      "vendored_libraries": "Extensions/JPLibffi/libffi/libffi.a",
+      "dependencies": {
+        "JSPatch/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "JPCFunctionBinder",
+      "ios": {
+        "source_files": "Extensions/JPCFunctionBinder/**/*",
+        "public_header_files": "Extensions/JPCFunctionBinder/**/*.h"
+      },
+      "dependencies": {
+        "JSPatch/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Loader",
+      "ios": {
+        "source_files": "Loader/**/*.{h,m,c}",
+        "public_header_files": "Loader/*.h"
+      },
+      "tvos": {
+        "source_files": "Loader/**/*.{h,m,c}",
+        "public_header_files": "Loader/*.h"
+      },
+      "dependencies": {
+        "JSPatch/Core": [
+
+        ]
+      },
+      "libraries": "z"
+    }
+  ]
+}

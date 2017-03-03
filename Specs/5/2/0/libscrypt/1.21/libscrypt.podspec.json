@@ -1,0 +1,30 @@
+{
+  "name": "libscrypt",
+  "version": "1.21",
+  "summary": "A shared library that implements scrypt() functionality - a replacement for bcrypt()",
+  "description": "https://github.com/technion/libscrypt/blob/master/README.md",
+  "homepage": "https://github.com/technion/libscrypt",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "technion": "https://lolware.net"
+  },
+  "source": {
+    "git": "https://github.com/technion/libscrypt",
+    "tag": "v1.21"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "module_map": "libscrypt.modulemap",
+  "prepare_command": "printf \"framework module libscrypt {\\n  umbrella header \\\"libscrypt.h\\\"\\n\\n  export *\\n  module * { export * }\\n}\" > libscrypt.modulemap",
+  "source_files": "*.{h,c}",
+  "exclude_files": "main.c",
+  "public_header_files": "libscrypt.h",
+  "pod_target_xcconfig": {
+    "GCC_OPTIMIZATION_LEVEL": "2",
+    "OTHER_CFLAGS": " $(inherited) -Wall -fstack-protector -DHAVE_POSIX_MEMALIGN"
+  }
+}

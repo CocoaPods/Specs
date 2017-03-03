@@ -1,0 +1,90 @@
+{
+  "name": "TimCore",
+  "version": "1.2.7",
+  "summary": "Timcore 为其他的 module 需要的基本支持部分,推送,分享, ViewModel,网络部分==",
+  "license": "MIT",
+  "authors": {
+    "Tim": "491590253@qq.com"
+  },
+  "homepage": "http://www.mob.com",
+  "source": {
+    "git": "https://github.com/tpctt/TimCore.git",
+    "tag": "1.2.7"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "JavaScriptCore",
+    "SystemConfiguration",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "icucore",
+    "z.1.2.5",
+    "stdc++"
+  ],
+  "default_subspecs": "TimCore",
+  "subspecs": [
+    {
+      "name": "TimCore",
+      "source_files": "Classes/TimCore/*.{h,m,mm}"
+    },
+    {
+      "name": "TimJpush",
+      "libraries": [
+        "icucore",
+        "z",
+        "stdc++"
+      ],
+      "source_files": "Classes/TimJpush/**/*.{h,m,mm}",
+      "frameworks": "UserNotifications",
+      "dependencies": {
+        "TimCore/TimCore": [
+
+        ],
+        "XAspect": [
+
+        ],
+        "JPush": [
+          "~>2.2.0.1"
+        ]
+      }
+    },
+    {
+      "name": "TimAFAppConnectClient",
+      "libraries": [
+        "icucore",
+        "z",
+        "stdc++"
+      ],
+      "source_files": "Classes/TimAFAppConnectClient/**/*.{h,m,mm}",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "TimBaseListViewModel",
+      "libraries": [
+        "icucore",
+        "z",
+        "stdc++"
+      ],
+      "source_files": "Classes/TimBaseListViewModel/**/*.{h,m,mm}",
+      "dependencies": {
+        "TimCore/TimAFAppConnectClient": [
+
+        ],
+        "TMCache": [
+
+        ],
+        "ReactiveCocoa": [
+          "~>2.5"
+        ]
+      }
+    }
+  ]
+}

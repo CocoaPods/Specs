@@ -1,0 +1,31 @@
+{
+  "name": "JSONNode",
+  "version": "1.2.0",
+  "summary": "A simple, Swifty way to interact with JSON",
+  "description": "# JSONNode\n\nA simple, Swifty way to interact with JSON.\n\nJSONNode is simple, useful, and under 150 lines of code.\n\n## Advantage over traditional JSON handling\n\nLet's take the response from the ImgFlip Meme API\n\n```JSON\n{\n    \"success\": true,\n    \"data\": {\n        \"memes\": [\n            {\n                \"id\": \"61579\",\n                \"name\": \"One Does Not Simply\",\n                \"url\": \"http://i.imgflip.com/1bij.jpg\",\n                \"width\": 568,\n                \"height\": 335\n            },\n            {\n                \"id\": \"101470\",\n                \"name\": \"Ancient Aliens\",\n                \"url\": \"http://i.imgflip.com/26am.jpg\",\n                \"width\": 500,\n                \"height\": 437\n            }\n        ]\n    }\n}\n```\n\nTo retrieve the name for the first meme, you would do the following:\n\n```Swift\nvar jsonObject = try! JSONSerialization.jsonObject(with: jsonData, options: [.allowFragments])\n\nguard\n    let jsonDictionary = jsonObject as? [String: Any],\n    let dataDictionary = jsonDictionary[\"data\"] as? [String: Any],\n    let memesArray = dataDictionary[\"memes\"] as? [[String: Any]],\n    let firstMeme = memesArray.first,\n    let memeName = firstMeme[\"name\"] as? String else {\n\n        fatalError()\n}\n\nprint(memeName)\n```\n\nWith JSONNode this becomes the following:\n\n```Swift\nvar jsonNode = try! JSONNode(data: jsonData)\nguard let name = jsonNode[\"data\"][\"memes\"][0][\"name\"].string else { fatalError() }\n\nprint(name)\n```\n\n## How it works\n\nTypically when JSON is deserialised, it is turned into nested arrays and dictionary, and since these collections need a type and the JSON could contain any of multiple types, the non-specific `Any` protocol is used.\n\nThis is not a true representation of the situation though. There can't be \"anything\" in the collection. Each node in the JSON structure can only be one of the following:\n- String\n- Boolean\n- Integer\n- Floating point number\n- Array containing something in this list\n- Dictionary with a string key and value as something in this list\n\nWith this finite list of possible values for a JSON node, a enum is the best way to represent that. Inspiration was taken from the way that Swift Playgrounds passes information been the playground page and the live view.\n\n## Requirements\n\n- Swift 3\n- Xcode 8\n\n## Integration\n\n#### CocoaPods\n\nYou can use [CocoaPods](http://cocoapods.org/) to install `JSONNode`by adding it to your `Podfile`:\n\n```ruby\nplatform :ios, '8.0'\nuse_frameworks!\n\ntarget 'MyApp' do\npod 'JSONNode'\nend\n```\n\nNote that this requires CocoaPods version 36, and your iOS deployment target to be at least 8.0:\n\n\n#### Manually (iOS 8+, OS X 10.9+)\n\nTo use this library in your project manually you may:\n\n1. for Projects, just drag JSONNode.swift to the project tree\n2. for Workspaces, include the whole JSONNode.xcodeproj",
+  "homepage": "http://github.com/keefmoon/JSONNode",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Keith Moon": "keef@keefmoon.com"
+  },
+  "social_media_url": "http://twitter.com/keefmoon",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/keefmoon/JSONNode.git",
+    "tag": "1.2.0"
+  },
+  "source_files": [
+    "JSONNode",
+    "JSONNode/JSONNode/*.{swift}"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  },
+  "requires_arc": true,
+  "pushed_with_swift_version": "3.0"
+}
