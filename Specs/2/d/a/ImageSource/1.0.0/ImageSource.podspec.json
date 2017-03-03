@@ -1,0 +1,90 @@
+{
+  "name": "ImageSource",
+  "module_name": "ImageSource",
+  "version": "1.0.0",
+  "summary": "ImageSource by Avito",
+  "homepage": "https://github.com/avito-tech/Paparazzo",
+  "license": "MIT",
+  "authors": {
+    "Andrey Yutkin": "ayutkin@avito.ru"
+  },
+  "source": {
+    "git": "https://github.com/avito-tech/Paparazzo.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": "CoreGraphics",
+      "source_files": "ImageSource/Core/**/*"
+    },
+    {
+      "name": "PHAsset",
+      "frameworks": "Photos",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/PHAsset/*"
+    },
+    {
+      "name": "Local",
+      "frameworks": [
+        "ImageIO",
+        "MobileCoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/Local/*"
+    },
+    {
+      "name": "Remote",
+      "frameworks": [
+        "ImageIO",
+        "MobileCoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ],
+        "ImageSource/UIKit": [
+
+        ]
+      },
+      "source_files": "ImageSource/Remote/*",
+      "subspecs": [
+        {
+          "name": "SDWebImage",
+          "dependencies": {
+            "SDWebImage": [
+              "~> 3.8"
+            ]
+          },
+          "source_files": [
+            "ImageSource/Remote/*",
+            "ImageSource/Remote/SDWebImage/*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UIKit",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/UIKit/*"
+    }
+  ]
+}
