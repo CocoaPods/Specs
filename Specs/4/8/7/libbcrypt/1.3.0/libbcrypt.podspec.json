@@ -1,0 +1,31 @@
+{
+  "name": "libbcrypt",
+  "version": "1.3.0",
+  "summary": "bcrypt password hash C library",
+  "description": "https://github.com/rg3/bcrypt",
+  "homepage": "https://github.com/rg3/bcrypt",
+  "license": {
+    "type": "CC0",
+    "file": "COPYING"
+  },
+  "authors": {
+    "rg3": "Ricardo Garcia"
+  },
+  "source": {
+    "git": "https://github.com/tleavy86/bcrypt",
+    "tag": "1.3.0"
+  },
+  "module_map": "libbcrypt.modulemap",
+  "prepare_command": "sed -e \"57s/1/0/; 64s/0/1/\" crypt_blowfish/crypt_blowfish.c > crypt_blowfish/temp.c; mv crypt_blowfish/temp.c crypt_blowfish/crypt_blowfish.c; printf \"framework module libbcrypt {\\n  umbrella header \\\"bcrypt.h\\\"\\n\\n  export *\\n  module * { export * }\\n}\" > libbcrypt.modulemap",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": [
+    "*.{h,c}",
+    "crypt_blowfish/*.{h,c}"
+  ],
+  "public_header_files": "bcrypt.h",
+  "pod_target_xcconfig": {
+    "OTHER_CFLAGS": "$(inherited) -W -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wmissing-prototypes -Wstrict-prototypes -Wshadow -Wundef -Wpointer-arith -fomit-frame-pointer -funroll-loops"
+  }
+}

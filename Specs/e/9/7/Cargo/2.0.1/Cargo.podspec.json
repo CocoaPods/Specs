@@ -1,0 +1,104 @@
+{
+  "name": "Cargo",
+  "version": "2.0.1",
+  "summary": "Cargo makes it easier to track your mobile app.",
+  "description": "Cargo is a tool developed by fifty-five. It allows to quickly and easily integrate third-party analytics SDKs through Google Tag Manager.\nWith Google Tag Manager (GTM), developers are able to change configuration values in their mobile applications using the GTM interface without having to rebuild and resubmit app binaries to app marketplaces.",
+  "homepage": "https://github.com/fifty-five/Cargo-ios",
+  "license": "MIT",
+  "authors": {
+    "Julien": "julien.gil@fifty-five.com"
+  },
+  "source": {
+    "git": "https://github.com/fifty-five/Cargo-ios.git",
+    "tag": "v2.0.1"
+  },
+  "social_media_url": "https://twitter.com/55FiftyFive55",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "CARGO_VERSION=2.0.1"
+  },
+  "dependencies": {
+    "GoogleTagManager": [
+      "~> 5.0.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "Cargo/Core/**/*.h",
+      "source_files": "Cargo/Core/**/*",
+      "platforms": {
+        "ios": "7.0"
+      }
+    },
+    {
+      "name": "Tune",
+      "prefix_header_contents": "#define USE_CARGO_TUNE 1",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "public_header_files": [
+        "Cargo/Handlers/*.h",
+        "Cargo/Handlers/Tune/*.h"
+      ],
+      "ios": {
+        "source_files": "Cargo/Handlers/Tune/*.{h,m}"
+      },
+      "dependencies": {
+        "Cargo/Core": [
+
+        ],
+        "Tune": [
+          "4.5.0"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "prefix_header_contents": "#define USE_CARGO_FACEBOOK 1",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "public_header_files": [
+        "Cargo/Handlers/*.h",
+        "Cargo/Handlers/Facebook/*.h"
+      ],
+      "ios": {
+        "source_files": "Cargo/Handlers/Facebook/*.{h,m}"
+      },
+      "dependencies": {
+        "Cargo/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "4.19.0"
+        ]
+      }
+    },
+    {
+      "name": "ATInternet",
+      "prefix_header_contents": "#define USE_CARGO_ATINTERNET 1",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "public_header_files": [
+        "Cargo/Handlers/*.h",
+        "Cargo/Handlers/ATInternet/*.h"
+      ],
+      "ios": {
+        "source_files": "Cargo/Handlers/ATInternet/*.{h,m}"
+      },
+      "dependencies": {
+        "Cargo/Core": [
+
+        ],
+        "ATInternet-iOS-ObjC-SDK/iOS": [
+          "2.2.0"
+        ]
+      }
+    }
+  ]
+}

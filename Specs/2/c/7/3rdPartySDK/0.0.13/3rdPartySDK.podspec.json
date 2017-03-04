@@ -1,0 +1,88 @@
+{
+  "name": "3rdPartySDK",
+  "version": "0.0.13",
+  "summary": "可能用到的第三方分享平台的 SDK",
+  "description": "其中管理第三方平台的 SDK，方便随时更新",
+  "homepage": "https://g.hz.netease.com/hztanxin/3rdPartySDK",
+  "license": "MIT",
+  "authors": {
+    "hztanxin": "hztanxin@corp.netease.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "prefix_header_contents": "#import <UIKit/UIKit.h>",
+  "source": {
+    "git": "https://g.hz.netease.com/hztanxin/3rdPartySDK.git",
+    "tag": "0.0.13"
+  },
+  "subspecs": [
+    {
+      "name": "Weixin",
+      "ios": {
+        "vendored_libraries": "Vendors/Weixin/libWeChatSDK.a"
+      },
+      "public_header_files": "Vendors/Weixin/*.h",
+      "source_files": "Vendors/Weixin/*.{h,m}",
+      "libraries": [
+        "z",
+        "sqlite3",
+        "stdc++"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      }
+    },
+    {
+      "name": "QQ",
+      "ios": {
+        "vendored_frameworks": "Vendors/QQ/TencentOpenAPI.framework"
+      },
+      "resources": "Vendors/QQ/TencentOpenApi_IOS_Bundle.bundle",
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "iconv",
+        "sqlite3",
+        "stdc++",
+        "z"
+      ]
+    },
+    {
+      "name": "Weibo",
+      "dependencies": {
+        "WeiboSDK": [
+          "~> 3.1"
+        ]
+      }
+    },
+    {
+      "name": "Yixin",
+      "ios": {
+        "vendored_libraries": "Vendors/Yixin/libYixinSDK_V2.2.a"
+      },
+      "public_header_files": "Vendors/Yixin/*.h",
+      "source_files": "Vendors/Yixin/*.{h,m}"
+    },
+    {
+      "name": "URS",
+      "ios": {
+        "vendored_frameworks": "Vendors/URS/NELoginSDK.framework"
+      },
+      "resources": "Vendors/URS/NELoginSDK.bundle",
+      "frameworks": "Security",
+      "libraries": [
+        "z",
+        "stdc++"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "name": "ZDToolKit",
+  "version": "0.0.2",
+  "summary": "awesome iOS development tools（Objective-C）",
+  "description": "collect some iOS development tools, e.g: category、block、runtime、subclass、macro, and so on...",
+  "homepage": "https://github.com/faimin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zero.D.Saber": "fuxianchao@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/faimin/ZDToolKit.git",
+    "tag": "0.0.2"
+  },
+  "subspecs": [
+    {
+      "name": "ZDAutoLayout",
+      "source_files": "ZDToolKit/ZDAutoLayout/*.{h,m}"
+    },
+    {
+      "name": "ZDBlock",
+      "source_files": "ZDToolKit/ZDBlock/*.{h,m}"
+    },
+    {
+      "name": "ZDCategory",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "ZDToolKit/ZDCategory/Foundation/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "Foundation",
+            "CoreText"
+          ]
+        },
+        {
+          "name": "UIKit",
+          "source_files": "ZDToolKit/ZDCategory/UIKit/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "QuartzCore",
+            "CoreImage",
+            "CoreGraphics",
+            "ImageIO",
+            "CoreText",
+            "WebKit"
+          ],
+          "dependencies": {
+            "SDWebImage": [
+              "~> 3.8.2"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZDMacros",
+      "source_files": "ZDToolKit/ZDMacros/*.{h,m}"
+    },
+    {
+      "name": "ZDRuntime",
+      "source_files": "ZDToolKit/ZDRuntime/*.{h,m}"
+    },
+    {
+      "name": "ZDTools",
+      "source_files": "ZDToolKit/ZDTools/*.{h,m}",
+      "exclude_files": "ZDToolKit/ZDTools/ZDSafe.{h,m}",
+      "subspecs": [
+        {
+          "name": "BackButtonHandle",
+          "source_files": "ZDToolKit/ZDTools/BackButtonHandle/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": "ZDToolKit/ZDTools/ZDSafe.{h,m}"
+    }
+  ]
+}
