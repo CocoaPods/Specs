@@ -1,0 +1,78 @@
+{
+  "name": "YPMTestSDK",
+  "version": "0.0.12",
+  "summary": "YPMTestSDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，公众账号支付，支付宝钱包，百度钱包，银联手机支付。",
+  "homepage": "https://github.com/samwitiwiki/YPMTestSDK",
+  "license": "MIT",
+  "authors": {
+    "Sam": "568013410@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/samwitiwiki/YPMTestSDK.git",
+    "tag": "0.0.12"
+  },
+  "source_files": "Library",
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Wxpay",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Library/*.h",
+      "public_header_files": "Library/*.h",
+      "vendored_libraries": "Library/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z",
+          "sqlite3.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "ios": {
+        "vendored_frameworks": "Library/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "Library/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "YPMTestSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wxpay",
+      "source_files": "Library/Channels/Wxpay/*.h",
+      "public_header_files": "Library/Channels/Wxpay/*.h",
+      "vendored_libraries": "Library/Channels/Wxpay/*.a",
+      "dependencies": {
+        "YPMTestSDK/Core": [
+
+        ]
+      },
+      "frameworks": "CoreTelephony"
+    }
+  ]
+}
