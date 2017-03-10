@@ -1,0 +1,76 @@
+{
+  "name": "ZKPayMediator",
+  "version": "0.1.0",
+  "summary": "A short description of ZKPayMediator.",
+  "homepage": "https://github.com/kaiser143/ZKPayMediator",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kaiser": "deyang143@126.com"
+  },
+  "source": {
+    "git": "https://github.com/kaiser143/ZKPayMediator.git",
+    "tag": "0.1.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "ZKPayMediator/Classes/*.{h,m}",
+      "public_header_files": "ZKPayMediator/Classes/*.h",
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "AliPay",
+      "source_files": "ZKPayMediator/Classes/AliPay/*.{h,m}",
+      "public_header_files": "ZKPayMediator/Classes/AliPay/*.h",
+      "ios": {
+        "vendored_frameworks": "ZKPayMediator/Classes/AliPay/AlipaySDK.framework"
+      },
+      "resources": "ZKPayMediator/Classes/AliPay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreText",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "ZKPayMediator/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXPay",
+      "source_files": "ZKPayMediator/Classes/WXPay/*.{h,m}",
+      "public_header_files": "ZKPayMediator/Classes/WXPay/*.h",
+      "vendored_libraries": "ZKPayMediator/Classes/WXPay/*.a",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "ZKPayMediator/Base": [
+
+        ]
+      }
+    }
+  ]
+}
