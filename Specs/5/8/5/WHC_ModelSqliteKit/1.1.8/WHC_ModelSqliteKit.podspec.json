@@ -1,0 +1,41 @@
+{
+  "name": "WHC_ModelSqliteKit",
+  "version": "1.1.8",
+  "summary": "专业数据模型存储解决方案(告别直接使用sqlite和coreData)",
+  "homepage": "https://github.com/netyouli/WHC_ModelSqliteKit",
+  "license": "MIT",
+  "authors": {
+    "吴海超(WHC)": "712641411@qq.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/netyouli/WHC_ModelSqliteKit.git",
+    "tag": "1.1.8"
+  },
+  "source_files": "WHC_ModelSqliteKit/WHC_ModelSqliteKit/*.{h,m}",
+  "default_subspecs": "standard",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "standard",
+      "libraries": "sqlite3",
+      "source_files": "WHC_ModelSqliteKit/WHC_ModelSqliteKit/*.{h,m}",
+      "exclude_files": "WHC_ModelSqliteKit/WHC_ModelSqlite.m"
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+
+        ]
+      },
+      "source_files": "WHC_ModelSqliteKit/WHC_ModelSqliteKit/*.{h,m}",
+      "exclude_files": "WHC_ModelSqliteKit/WHC_ModelSqlite.m",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+      }
+    }
+  ]
+}
