@@ -1,0 +1,84 @@
+{
+  "name": "HeepaySDK",
+  "version": "4.0.1",
+  "summary": "Heepay iOS SDK",
+  "description": "支持微信支付，支付宝，快捷支付、游戏卡支付、骏卡支付、手机充值卡支付。",
+  "homepage": "https://github.com/JiangrxMaomao/HeepaySDK",
+  "license": "MIT",
+  "authors": {
+    "降瑞雪": "cyjiangruixue@163.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/JiangrxMaomao/HeepaySDK.git",
+    "tag": "4.0.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "JavaScriptCore",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreGraphics"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "WXSDK",
+      "vendored_libraries": "lib/Channels/WXSDK/*.a",
+      "public_header_files": "lib/Channels/WXSDK/*.h",
+      "source_files": "lib/Channels/WXSDK/*.h",
+      "dependencies": {
+        "HeepaySDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "libraries": "sqlite3"
+      }
+    },
+    {
+      "name": "AliPaySDK",
+      "vendored_libraries": "lib/Channels/AliPaySDK/*.a",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/AliPaySDK/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/AliPaySDK/AlipaySDK.bundle",
+      "dependencies": {
+        "HeepaySDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "HYShortPaySDK",
+      "vendored_libraries": "lib/Channels/HYShortPaySDK/*.a",
+      "resources": "lib/Channels/HYShortPaySDK/HySdkResource.bundle",
+      "dependencies": {
+        "HeepaySDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
