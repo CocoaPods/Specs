@@ -1,0 +1,43 @@
+{
+  "name": "libbson",
+  "version": "1.6.1-cocoapods-rc1",
+  "summary": "A BSON utility library.",
+  "description": "libbson is a library providing useful routines related to building, parsing, and iterating BSON documents.",
+  "homepage": "https://github.com/mongodb/libbson",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "authors": "MongoDB",
+  "documentation_url": "http://mongoc.org/libbson/1.6.1/index.html",
+  "social_media_url": "http://twitter.com/mongodb",
+  "source": {
+    "git": "https://github.com/paulmelnikow/libbson.git",
+    "tag": "1.6.1-cocoapods-rc1"
+  },
+  "prepare_command": "((command -v automake && command -v glibtoolize) >/dev/null 2>&1 ||\n { echo >&2 'Please run `brew install automake libtool`.'; exit 1; }) &&\n./autogen.sh && ./configure",
+  "preserve_paths": "src/libbson.modulemap",
+  "source_files": [
+    "src/bson/*.{c,h}",
+    "src/yajl/*.{c,h}",
+    "src/jsonsl/*.{c,h}"
+  ],
+  "exclude_files": "src/**/*-win32.h",
+  "header_mappings_dir": "src",
+  "private_header_files": "src/bson/*-private.h",
+  "module_name": "bson",
+  "module_map": "src/libbson.modulemap",
+  "compiler_flags": "-DBSON_COMPILATION",
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/src",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "platforms": {
+    "osx": "10.7",
+    "ios": "6.0"
+  }
+}
