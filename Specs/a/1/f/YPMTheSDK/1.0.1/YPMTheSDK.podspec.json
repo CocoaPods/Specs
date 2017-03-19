@@ -1,0 +1,77 @@
+{
+  "name": "YPMTheSDK",
+  "version": "1.0.1",
+  "summary": "YPMTheSDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，公众账号支付，支付宝钱包，百度钱包，银联手机支付。",
+  "homepage": "https://github.com/samwitiwiki/YPMTheSDK",
+  "license": "MIT",
+  "authors": {
+    "SamPan": "568013410@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/samwitiwiki/YPMTheSDK.git",
+    "tag": "1.0.1"
+  },
+  "source_files": "PayPlus",
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Wxpay",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PayPlus/*.h",
+      "public_header_files": "PayPlus/*.h",
+      "vendored_libraries": "PayPlus/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z",
+          "sqlite3.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "ios": {
+        "vendored_frameworks": "PayPlus/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "PayPlus/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "vendored_libraries": "PayPlus/Channels/Alipay/*.a",
+      "dependencies": {
+        "YPMTheSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wxpay",
+      "vendored_libraries": "PayPlus/Channels/Wxpay/*.a",
+      "dependencies": {
+        "YPMTheSDK/Core": [
+
+        ]
+      },
+      "frameworks": "CoreTelephony"
+    }
+  ]
+}
