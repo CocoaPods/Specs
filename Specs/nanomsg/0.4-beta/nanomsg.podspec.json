@@ -1,0 +1,29 @@
+{
+  "name": "nanomsg",
+  "version": "0.4-beta",
+  "summary": "nanomsg is a socket library that provides several common communication patterns. It aims to make the networking layer fast, scalable, and easy to use. Implemented in C, it works on a wide range of operating systems with no further dependencies.",
+  "description": "The communication patterns, also called \"scalability protocols\", are basic blocks for building distributed systems. By combining them you can create a vast array of distributed applications. The following scalability protocols are currently available:\nPAIR - simple one-to-one communication,\nBUS - simple many-to-many communication\nREQREP - allows to build clusters of stateless services to process user requests\nPUBSUB - distributes messages to large sets of interested subscribers\nPIPELINE - aggregates messages from multiple sources and load balances them among many destinations\nSURVEY - allows to query state of multiple applications in a single go",
+  "homepage": "http://nanomsg.org",
+  "license": {
+    "type": "MIT/X11",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Martin Sustrik": "sustrik@250bpm.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "http": "http://download.nanomsg.org/nanomsg-0.4-beta.tar.gz"
+  },
+  "source_files": [
+    "src/*.{h,hpp,c,cc,cpp}",
+    "include/*.h"
+  ],
+  "public_header_files": "include/*.h",
+  "libraries": "stdc++",
+  "requires_arc": false,
+  "prepare_command": "        (\n            ./autogen.sh\n            ./configure --prefix=$PWD\n        ) | tee \"/tmp/$(basename $0).$$.tmp\"\n"
+}
