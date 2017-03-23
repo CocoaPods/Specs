@@ -1,0 +1,22 @@
+{
+  "name": "LYJArchiveModel",
+  "version": "0.1.0",
+  "summary": "应用于模型快速归档转化为NSData类型",
+  "description": "1: 创建一个继承LYJArchiveModel的类UserModel,UserModel放入我们的使用的属性(支持的格式NSString, NSInteger, double, NSDictionary, NSArray, NSMutableDictionary, NSMutableArray, CGFloat, NSData, 继承LYJArchiveModel的类 , UIImage)\n2: 在 UserModel 创建你自己使用到的属性\n   例如:\n    #import \"ArciveModel.h\"\n\n    @class SubUserModel , UIImage;\n    @interface UserModel : ArciveModel\n\n    @property (nonatomic , copy) NSString *name;\n    @property (nonatomic , assign) BOOL isFirstLogin;\n    @property (nonatomic , assign) NSInteger age;\n    @property (nonatomic , assign) double height;\n    @property (nonatomic , strong) NSDictionary *dic;\n    @property (nonatomic , strong) NSArray *arr;\n    @property (nonatomic , strong) SubUserModel *subUserModel; // 继承LYJArchiveModel的子类\n    @property (nonatomic , strong) UIImage *userImage;\n    @end\n3: 使用方法\n   引入头文件: #import <LYJArchiveModel/LYJArchiveModel-umbrella.h>\n\n    UserModel *model = [UserModel new];\n    model.name = @\"你好\";\n    model.isFirstLogin = YES;\n    model.age = 18;\n    model.height = 181.5;\n    model.dic = @{@\"1\" : @\"2\"};\n    model.arr = @[@\"4\" , @\"5\"];\n    model.userImage = [UIImage imageNamed:@\"123\"];\n    model.subUserModel = [SubUserModel new];\n    model.subUserModel.name = @\"你浪开\";\n    model.subUserModel.age = 20;\n    model.subUserModel.isFirstLogin = YES;\n    model.subUserModel.height = 170.1;\n\n    // 如果归档时间较长,这里开启加载动画\n    if ([UserModel archive:model keyName:@\"li\"]) { // 这里开始归档并存储到本地,如果存储成功继续往下执行,这里\n\n        model = nil; // 这里置空,为了演示使用\n        // 储存完成后\n        // 这里关闭加载动画\n    }\n\n    NSLog(@\"Model name is %@\" , model.name);\n\n    UserModel *newModel = [UserModel unarchiveWithKeyName:@\"li\"]; // 取出本地存储的数据,并进行解档\n    if (newModel.isFirstLogin) {\n\n        NSLog(@\"model.name is %@\" , newModel.name);\n        NSLog(@\"%ld\", newModel.age);\n        NSLog(@\"%.2f\" , newModel.height);\n        NSLog(@\"dic is %@\" , newModel.dic);\n        self.photoImageView.image = newModel.userImage;\n\n    if (newModel.subUserModel.isFirstLogin) {\n\n        NSLog(@\"Info of subUserModel is %@ , %ld , %.2f\" , newModel.subUserModel.name , newModel.subUserModel.age , newModel.subUserModel.height);\n    }\n\n输出结果:\n Model name is (null)\n model.name is 你好\n 18\n 181.50\n dic is {\n1 = 2;\n}\nInfo of subUserModel is 你浪开 , 20 , 170.10",
+  "homepage": "https://git.oschina.net/6253175234/LYJArchiveModel",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "li625317534": "625317534@qq.com"
+  },
+  "source": {
+    "git": "https://git.oschina.net/6253175234/LYJArchiveModel.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "LYJArchiveModel/Classes/**/*"
+}
