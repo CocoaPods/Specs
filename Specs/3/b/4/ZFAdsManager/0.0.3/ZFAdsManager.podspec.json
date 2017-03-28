@@ -1,0 +1,331 @@
+{
+  "name": "ZFAdsManager",
+  "version": "0.0.3",
+  "summary": "ZFAdsManager integrates and dispatches third party advertisements.",
+  "homepage": "https://github.com/ruozi",
+  "license": "MIT",
+  "authors": {
+    "ruozi": "wizardfan88@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://git.assembla.com/pinpublic.ZFAdsManager.git",
+    "tag": "0.0.3"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Core/Mediator",
+        "Core/Utils"
+      ]
+    },
+    {
+      "name": "VideoCore",
+      "dependencies": {
+        "ZFAdsManager/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZFRewardVideoManager/*.{h,m}",
+        "ZFRewardVideoManager/Categories/*.{h,m}"
+      ],
+      "public_header_files": "ZFRewardVideoManager/*.h"
+    },
+    {
+      "name": "VungleRV",
+      "dependencies": {
+        "ZFAdsManager/VideoCore": [
+
+        ],
+        "VungleSDK-iOS": [
+          "~> 4.0.9"
+        ]
+      },
+      "source_files": [
+        "ZFRewardVideoManager/Platforms/Vungle/*.{h,m}",
+        "ZFRewardVideoManager/Platforms/Vungle/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "AppnextRV",
+      "dependencies": {
+        "ZFAdsManager/VideoCore": [
+
+        ],
+        "DPNextSDK/VideoAds": [
+          "~> 0.0.1"
+        ]
+      },
+      "source_files": [
+        "ZFRewardVideoManager/Platforms/Appnext/*.{h,m}",
+        "ZFRewardVideoManager/Platforms/Appnext/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "AdcolonyRV",
+      "dependencies": {
+        "ZFAdsManager/VideoCore": [
+
+        ],
+        "AdColony": [
+          "~> 3.0.6"
+        ]
+      },
+      "source_files": [
+        "ZFRewardVideoManager/Platforms/Adcolony/*.{h,m}",
+        "ZFRewardVideoManager/Platforms/Adcolony/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "UnityRV",
+      "dependencies": {
+        "ZFAdsManager/VideoCore": [
+
+        ]
+      },
+      "source_files": [
+        "ZFRewardVideoManager/Platforms/Unity/*.{h,m}",
+        "ZFRewardVideoManager/Platforms/Unity/Action/*.{h,m}"
+      ],
+      "vendored_frameworks": "ZFRewardVideoManager/Platforms/Unity/UnitySDK/UnityAds.framework"
+    },
+    {
+      "name": "NativeCore",
+      "dependencies": {
+        "ZFAdsManager/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/{ZFNativeAdsManager,ZFReformedNativeAd}.{h,m}",
+        "ZFNativeAdsManager/ZFNativeAdsDefine.h",
+        "ZFNativeAdsManager/Categories/Native/*.{h,m}",
+        "ZFNativeAdsManager/Utils/*.{h,m}"
+      ],
+      "public_header_files": [
+        "ZFNativeAdsManager/{ZFNativeAdsManager,ZFReformedNativeAd}.h",
+        "ZFNativeAdsManager/ZFNativeAdsDefine.h"
+      ]
+    },
+    {
+      "name": "FacebookNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ],
+        "FBAudienceNetwork": [
+          "~> 4.19.0"
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Facebook/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Facebook/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "MobvistaNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Mobvista/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Mobvista/Action/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Mobvista/Observer/*.{h,m}"
+      ],
+      "frameworks": [
+        "CoreGraphics",
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "StoreKit",
+        "QuartzCore",
+        "CoreLocation",
+        "CoreTelephony",
+        "MobileCoreServices",
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreMotion",
+        "AVFoundation",
+        "CoreMedia",
+        "MessageUI",
+        "MediaPlayer"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/Mobvista/Frameworks/MVSDK.framework",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "MVAppWallNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ],
+        "ZFAdsManager/MobvistaNA": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/MVAppWall/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/MVAppWall/Action/*.{h,m}"
+      ],
+      "frameworks": [
+        "CoreGraphics",
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "StoreKit",
+        "QuartzCore",
+        "CoreLocation",
+        "CoreTelephony",
+        "MobileCoreServices",
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreMotion",
+        "AVFoundation",
+        "CoreMedia",
+        "MessageUI",
+        "MediaPlayer"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/MVAppWall/Frameworks/MVSDKAppWall.framework",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AltamobNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Altamob/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Altamob/Action/*.{h,m}"
+      ],
+      "frameworks": "WebKit",
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/Altamob/Framework/AltamobAdSDK.framework",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "AppnextNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ],
+        "DPNextSDK/NativeAds": [
+          "~> 0.0.1"
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Appnext/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Appnext/Action/*.{h,m}"
+      ]
+    },
+    {
+      "name": "StartAppNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/StartApp/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/StartApp/Action/*.{h,m}"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "StoreKit",
+        "AdSupport",
+        "QuartzCore",
+        "CoreMedia",
+        "AVFoundation"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/StartApp/Frameworks/StartApp.framework",
+      "libraries": "z"
+    },
+    {
+      "name": "AvocarrotNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Avocarrot/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Avocarrot/Action/*.{h,m}"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/Avocarrot/Frameworks/AvocarrotSDK.framework"
+    },
+    {
+      "name": "YeahmobiNA",
+      "dependencies": {
+        "ZFAdsManager/NativeCore": [
+
+        ],
+        "FBAudienceNetwork": [
+          "~> 4.19.0"
+        ],
+        "GoogleMobileAds": [
+          "~> 7.8.0"
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Yeahmobi/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Yeahmobi/Action/*.{h,m}"
+      ],
+      "vendored_frameworks": "ZFNativeAdsManager/Platforms/Yeahmobi/Frameworks/CTSDK.framework",
+      "frameworks": [
+        "AVFoundation",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "InterstitialCore",
+      "dependencies": {
+        "ZFAdsManager/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/JSInterstitialAdsManager.{h,m}",
+        "ZFNativeAdsManager/JSInterstitialAdsDefine.h",
+        "ZFNativeAdsManager/Categories/Interstitial/*.{h,m}"
+      ],
+      "public_header_files": [
+        "ZFNativeAdsManager/JSInterstitialAdsManager.h",
+        "ZFNativeAdsManager/JSInterstitialAdsDefine.h"
+      ]
+    },
+    {
+      "name": "AdmobInterstitial",
+      "dependencies": {
+        "ZFAdsManager/InterstitialCore": [
+
+        ],
+        "Firebase/Core": [
+          "~> 3.12.0"
+        ],
+        "Firebase/AdMob": [
+          "~> 3.12.0"
+        ]
+      },
+      "source_files": [
+        "ZFNativeAdsManager/Platforms/Admob/*.{h,m}",
+        "ZFNativeAdsManager/Platforms/Admob/Action/*.{h,m}"
+      ]
+    }
+  ]
+}
