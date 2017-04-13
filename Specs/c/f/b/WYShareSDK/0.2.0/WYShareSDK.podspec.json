@@ -1,0 +1,84 @@
+{
+  "name": "WYShareSDK",
+  "authors": {
+    "wangyansnow": "13146597377@163.com"
+  },
+  "version": "0.2.0",
+  "summary": "三大平台登录和分享",
+  "description": "qq, 微信， 微博分享以及除了微博的登录,可以选择你想要的平台进行集成",
+  "homepage": "https://github.com/wangyansnow/WYShareSDK",
+  "source": {
+    "git": "https://github.com/wangyansnow/WYShareSDK.git",
+    "tag": "0.2.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "license": "MIT",
+  "source_files": "ShareSDK/Core/*.{h,m}",
+  "frameworks": [
+    "ImageIO",
+    "SystemConfiguration",
+    "CoreText",
+    "QuartzCore",
+    "Security",
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "sqlite3",
+    "z",
+    "c++",
+    "iconv",
+    "stdc++",
+    "sqlite3.0"
+  ],
+  "subspecs": [
+    {
+      "name": "QQSDK",
+      "source_files": "ShareSDK/QQModel/*.{h,m}",
+      "resources": "ShareSDK/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+      "vendored_frameworks": "ShareSDK/QQSDK/TencentOpenAPI.framework",
+      "dependencies": {
+        "WYShareSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXSDK",
+      "source_files": [
+        "ShareSDK/WXSDK/*.{h,m}",
+        "ShareSDK/WXModel/*.{h,m}"
+      ],
+      "vendored_libraries": "ShareSDK/WXSDK/libWeChatSDK.a",
+      "dependencies": {
+        "WYShareSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeiboSDK",
+      "source_files": [
+        "ShareSDK/libWeiboSDK/*.{h,m}",
+        "ShareSDK/WeiboModel/*.{h,m}"
+      ],
+      "resources": "ShareSDK/libWeiboSDK/WeiboSDK.bundle",
+      "vendored_libraries": "ShareSDK/libWeiboSDK/libWeiboSDK.a",
+      "dependencies": {
+        "WYShareSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "ShareSDK/Core/*.{h,m}"
+    }
+  ]
+}
