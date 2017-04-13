@@ -1,0 +1,96 @@
+{
+  "name": "NutsSdk",
+  "version": "1.1",
+  "authors": {
+    "occall": "support@occall.com"
+  },
+  "social_media_url": "http://weibo.com/qiaoliant",
+  "summary": "a light weight sms Verification SDK.",
+  "description": "NutsSdk for iOS. \n NutsSdk 提供简单的短信验证工具，使得开发者能够方便的实现短信验证服务。\n提供反馈功能,并可捕捉crash，附录在反馈中上传。",
+  "homepage": "http://china-zqx.com",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "http://git.occall.com/iOS/nuts_ios.git",
+    "tag": "1.1"
+  },
+  "subspecs": [
+    {
+      "name": "NutsUtilities",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "source_files": "NutsSdk/NutsSdk/NutsUtilities/*.{h,m}"
+      }
+    },
+    {
+      "name": "NutsAnalyse",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "NutsSdk/NutsUtilities": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "NutsSdk/NutsSdk/NutsAnalyse/*.{h,m}"
+      }
+    },
+    {
+      "name": "NutsRequest",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "NutsSdk/NutsUtilities": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "NutsSdk/NutsSdk/NutsRequest/*.{h,m}"
+      }
+    },
+    {
+      "name": "NutsSmsVerify",
+      "dependencies": {
+        "NutsSdk/NutsRequest": [
+
+        ],
+        "NutsSdk/NutsUtilities": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "source_files": "NutsSdk/NutsSdk/NutsSmsVerify/*.{h,m}"
+      }
+    },
+    {
+      "name": "NutsFeedback",
+      "dependencies": {
+        "NutsSdk/NutsRequest": [
+
+        ],
+        "NutsSdk/NutsUtilities": [
+
+        ],
+        "NutsSdk/NutsAnalyse": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "source_files": "NutsSdk/NutsSdk/NutsFeedback/**/*.{h,m}",
+        "resources": "NutsSdk/NutsSdk/NutsFeedback/NutsFeedbackResource.bundle"
+      }
+    }
+  ]
+}
