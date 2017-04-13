@@ -1,0 +1,95 @@
+{
+  "name": "AMRSA",
+  "version": "1.0.3",
+  "summary": "A Object-c lib of RSA.",
+  "description": "1.Generate a key pair\n\n2.Encrypt by public key\n\n3.decrypt by private key\n\n4.sign by private key\n\n5.verify by public key.",
+  "homepage": "https://github.com/LiuToTo/AMRSA",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LiuToTo": "526902870@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/LiuToTo/AMRSA.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": "Security",
+  "subspecs": [
+    {
+      "name": "error",
+      "ios": {
+        "source_files": "AMRSA/Classes/error/*.{h,m}",
+        "public_header_files": "AMRSA/Classes/error/*.h"
+      }
+    },
+    {
+      "name": "openssl",
+      "ios": {
+        "source_files": "AMRSA/Classes/openssl/include/openssl/*.{h,m}",
+        "public_header_files": "AMRSA/Classes/openssl/include/openssl/*.h",
+        "header_dir": "openssl",
+        "preserve_paths": [
+          "AMRSA/Classes/openssl/lib/libcrypto.a",
+          "AMRSA/Classes/openssl/lib/libssl.a"
+        ],
+        "vendored_libraries": [
+          "AMRSA/Classes/openssl/lib/libcrypto.a",
+          "AMRSA/Classes/openssl/lib/libssl.a"
+        ]
+      }
+    },
+    {
+      "name": "cipher",
+      "ios": {
+        "source_files": "AMRSA/Classes/cipher/*.{h,m}",
+        "public_header_files": "AMRSA/Classes/cipher/*.h"
+      },
+      "dependencies": {
+        "AMRSA/error": [
+
+        ]
+      }
+    },
+    {
+      "name": "kernel",
+      "ios": {
+        "source_files": "AMRSA/Classes/kernel/*.{h,m}",
+        "public_header_files": "AMRSA/Classes/kernel/*.h"
+      },
+      "dependencies": {
+        "AMRSA/error": [
+
+        ],
+        "AMRSA/cipher": [
+
+        ]
+      }
+    },
+    {
+      "name": "extension",
+      "ios": {
+        "source_files": "AMRSA/Classes/extension/*.{h,m}",
+        "public_header_files": "AMRSA/Classes/extension/*.h"
+      },
+      "dependencies": {
+        "AMRSA/error": [
+
+        ],
+        "AMRSA/cipher": [
+
+        ],
+        "AMRSA/openssl": [
+
+        ],
+        "AMRSA/kernel": [
+
+        ]
+      }
+    }
+  ]
+}
