@@ -1,0 +1,32 @@
+{
+  "name": "Fretboard",
+  "version": "0.0.1",
+  "summary": "Customisable guitar fretboard view for iOS, tvOS and macOS with CoreGraphics",
+  "description": "Fretboard\n===\n\nCustomisable guitar fretboard view for iOS, tvOS and macOS with CoreGraphics.\n\nDemo\n----\n\n#### Mac\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/mac_horizontal.png?raw=true)\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/mac_vertical.png?raw=true)\n\n#### iOS\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/ios.png?raw=true)\n\n#### Apple TV\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/tv.png?raw=true)\n\n#### Storyboard\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/ib.png?raw=true)\n\nRequierments\n----\n\n* Swift 3.0+\n* iOS 8.0+\n* tvOS 9.0+\n* macOS 10.9+\n\nInstall\n----\n\n```\nuse_frameworks!\npod 'Fretboard'\n```\n\nUsage\n----\n\nCreate a `FretboardView`, subclass of `UIView` with code or from storyboard.\nFretboard uses `[MusicTheory](https://github.com/cemolcay/MusicTheory)` library to render scales, chords or notes.\nYou need to select/unselect notes, chords or scales on `fretboard` property of your `FretboardView` instance.\n\n```\nlet chord = Chord(type: .maj, key: .a)\nfretboardView?.fretboard.select(notes: chord)\n\nlet scale = Scale(type: .major, key: .e)\nfretboardView?.fretboard.select(scale: scale)\n\nlet note = Note(type: .a, octave: 2)\nfretboardView?.fretboard.select(note: note)\n\nfretboardView?.fretboard.unselect(note: note)\nfretboardView?.fretboard.unselectAll()\n```\n\n#### Tuning\n\nFretboard has a neat tuning property which is a `FretboardTuning` enum, lets you define strings and their reprented notes on fretboard.\nIt has a bunch of premade tuning for guitar, bass and ukelele.\nYou can define custom tunings with custom string count as well.\n\n```\nlet tuning = FretboardTuning.custom(tuning: [\nNote(type: .g, octave: 2),\nNote(type: .d, octave: 2),\nNote(type: .a, octave: 1),\nNote(type: .e, octave: 1)\n])\nfretboardView?.fretboard.tuning = tuning\n```\n\n#### Direction\n\nYou could render fretboard either horizontal or vertical with `direction` property on fretboard of type `FretboardDirection`.\n\n```\nfreboardView?.fretboard.direction = .horizontal\nfreboardView?.fretboard.direction = .vertical\n```\n\n#### Frets\n\nYou could render any range of fretboard with `startIndex` and `count` properties on fretboard.\n`startIndex` is the start fret and 0 is open string, defaults 0.\n`count` is the fret count and defaults 5.\n\n#### Customisation\n\nYou could change the line widths and colors of frets and strings.\nYou could change the colors of fret numbers, string names, notes from code or storyboard.\nRendering note names on pressed notes and optional.\nAlso rendering fret numbers and strings names are optional too.\nSee the properties of `FretboardView`.",
+  "homepage": "https://github.com/cemolcay/Fretboard",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/cemolcay",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/Fretboard.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "Source/*.swift",
+  "requires_arc": true,
+  "dependencies": {
+    "MusicTheorySwift": [
+
+    ],
+    "CenterTextLayer": [
+
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
