@@ -1,0 +1,102 @@
+{
+  "name": "AsyncDisplayKit",
+  "version": "2.2.1",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "http://asyncdisplaykit.org",
+  "authors": {
+    "Scott Goodson": "scottgoodson@gmail.com"
+  },
+  "summary": "Smooth asynchronous user interfaces for iOS apps.",
+  "source": {
+    "git": "https://github.com/facebook/AsyncDisplayKit.git",
+    "tag": "2.2.1"
+  },
+  "deprecated_in_favor_of": "Texture",
+  "documentation_url": "http://asyncdisplaykit.org/appledoc/",
+  "weak_frameworks": [
+    "Photos",
+    "MapKit",
+    "AssetsLibrary"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "PINRemoteImage",
+  "social_media_url": "https://twitter.com/AsyncDisplayKit",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "prefix_header_file": "AsyncDisplayKit/AsyncDisplayKit-Prefix.pch",
+      "public_header_files": [
+        "AsyncDisplayKit/*.h",
+        "AsyncDisplayKit/Details/**/*.h",
+        "AsyncDisplayKit/Layout/**/*.h",
+        "Base/*.h",
+        "AsyncDisplayKit/Debug/ASLayoutElementInspectorNode.h",
+        "AsyncDisplayKit/TextKit/ASTextNodeTypes.h",
+        "AsyncDisplayKit/TextKit/ASTextKitComponents.h"
+      ],
+      "source_files": [
+        "AsyncDisplayKit/**/*.{h,m,mm}",
+        "Base/*.{h,m}",
+        "AsyncDisplayKit/TextKit/*.h"
+      ],
+      "xcconfig": {
+        "GCC_PRECOMPILE_PREFIX_HEADER": "YES"
+      }
+    },
+    {
+      "name": "PINRemoteImage",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PIN_REMOTE_IMAGE=1"
+      },
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+          "= 3.0.0-beta.8"
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ],
+        "AsyncDisplayKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "IGListKit",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) IG_LIST_KIT=1"
+      },
+      "dependencies": {
+        "IGListKit": [
+          "2.1.0"
+        ],
+        "AsyncDisplayKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Yoga",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YOGA=1"
+      },
+      "dependencies": {
+        "Yoga": [
+          "1.0.2"
+        ],
+        "AsyncDisplayKit/Core": [
+
+        ]
+      }
+    }
+  ]
+}
