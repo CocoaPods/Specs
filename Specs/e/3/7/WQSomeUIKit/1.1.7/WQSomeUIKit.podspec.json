@@ -1,0 +1,239 @@
+{
+  "name": "WQSomeUIKit",
+  "version": "1.1.7",
+  "summary": "Usual collection",
+  "description": "平常自己使用一些频率比较高得工具、控件的封装,后期使用的时候也不断维护、更新",
+  "homepage": "https://github.com/wang68543/WQSomeUIKit",
+  "license": "MIT",
+  "authors": {
+    "王强": "wang68543@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/wang68543/WQSomeUIKit.git",
+    "tag": "1.1.7"
+  },
+  "requires_arc": true,
+  "resources": [
+    "WQSomeUIKit/Resources/Sb/*.storyboard"
+  ],
+  "exclude_files": "WQSomeUIKit/Tool/VoiceTool/amrwapper/*.{h,m}",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.0"
+    ],
+    "SDWebImage": [
+      "~>3.8"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Gloable",
+      "subspecs": [
+        {
+          "name": "Header",
+          "source_files": "WQSomeUIKit/Gloable/Header/*.{h,m}",
+          "public_header_files": "WQSomeUIKit/Gloable/Header/*.h"
+        }
+      ]
+    },
+    {
+      "name": "AnmationViews",
+      "subspecs": [
+        {
+          "name": "Animation",
+          "source_files": "WQSomeUIKit/AnmationViews/Animation/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "subspecs": [
+        {
+          "name": "Category_Vendor",
+          "source_files": "WQSomeUIKit/Category/Category_Vendor/*.{h,m}"
+        },
+        {
+          "name": "Category_Foundation",
+          "dependencies": {
+            "WQSomeUIKit/Category/Category_Vendor": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/Category/Category_Foundation/*.{h,m}",
+          "public_header_files": "WQSomeUIKit/Category/Category_Foundation/*.h"
+        },
+        {
+          "name": "Category_UIKit",
+          "dependencies": {
+            "WQSomeUIKit/Gloable/Header": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/Category/Category_UIKit/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "WavAmrHelp",
+      "requires_arc": false,
+      "source_files": "WQSomeUIKit/Tool/VoiceTool/amrwapper/*.{h,m}",
+      "vendored_libraries": [
+        "WQSomeUIKit/Tool/VoiceTool/amrwapper/libopencore-amrnb.a",
+        "WQSomeUIKit/Tool/VoiceTool/amrwapper/libopencore-amrwb.a"
+      ]
+    },
+    {
+      "name": "Tool",
+      "subspecs": [
+        {
+          "name": "BasicFoundation",
+          "source_files": "WQSomeUIKit/Tool/BasicFoundation/*.{h,m}"
+        },
+        {
+          "name": "BasicHelp",
+          "source_files": "WQSomeUIKit/Tool/BasicHelp/*.{h,m}",
+          "public_header_files": "WQSomeUIKit/Tool/BasicHelp/*.h"
+        },
+        {
+          "name": "FunctionHelp",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/Tool/FunctionHelp/*.{h,m}"
+        },
+        {
+          "name": "NetWorkTool",
+          "dependencies": {
+            "WQSomeUIKit/Tool/BasicHelp": [
+
+            ],
+            "WQSomeUIKit/Category/Category_UIKit": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/Tool/NetWorkTool/*.{h,m}"
+        },
+        {
+          "name": "VoiceTool",
+          "dependencies": {
+            "WQSomeUIKit/Tool/NetWorkTool": [
+
+            ],
+            "WQSomeUIKit/WavAmrHelp": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/Tool/VoiceTool/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "UICustom",
+      "subspecs": [
+        {
+          "name": "ViewCustom",
+          "source_files": "WQSomeUIKit/UICustom/ViewCustom/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "UIHelp",
+      "subspecs": [
+        {
+          "name": "Help",
+          "source_files": "WQSomeUIKit/UIHelp/Help/*.{h,m}",
+          "public_header_files": "WQSomeUIKit/UIHelp/Help/*.h"
+        },
+        {
+          "name": "AlertUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/AlertUI/*.{h,m}"
+        },
+        {
+          "name": "BannerLoop",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/BannerLoop/*.{h,m}"
+        },
+        {
+          "name": "ClendarUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/ClendarUI/*.{h,m}"
+        },
+        {
+          "name": "ExamineUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/ExamineUI/*.{h,m}"
+        },
+        {
+          "name": "FlowTagUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/FlowTagUI/*.{h,m}"
+        },
+        {
+          "name": "PhotoUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/PhotoUI/*.{h,m}"
+        },
+        {
+          "name": "PopSelectionsUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/PopSelectionsUI/*.{h,m}"
+        },
+        {
+          "name": "ShareUI",
+          "dependencies": {
+            "WQSomeUIKit/UIHelp/Help": [
+
+            ]
+          },
+          "source_files": "WQSomeUIKit/UIHelp/ShareUI/*.{h,m}"
+        },
+        {
+          "name": "SlideMenu",
+          "source_files": "WQSomeUIKit/UIHelp/SlideMenu/*.{h,m}"
+        },
+        {
+          "name": "StarUI",
+          "source_files": "WQSomeUIKit/UIHelp/StarUI/*.{h,m}"
+        },
+        {
+          "name": "VerticalLoopText",
+          "source_files": "WQSomeUIKit/UIHelp/VerticalLoopText/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
