@@ -1,0 +1,44 @@
+{
+  "name": "DebuggIt",
+  "version": "0.1.6",
+  "summary": "Tool that will help QA and clients report bugs easily directly from the device",
+  "description": "# debugg.it\n\ndebugg.it is a simple, yet powerful tool that helps you get reports of the bugs directly to your defined issue tracker. It is a perfect tool for QA/clients.\n\n## Installation\n\ndebugg.it is available through CocoaPods. To install it, add the following to your Podfile:\n\n```ruby\nuse_frameworks!\nplatform :ios, '9.0'\npod 'DebuggIt'\n```\n\nDon’t forget to import the Pod in `AppDelegate`:\n\n```swift\nimport DebuggIt\n```\nor in Objective-C\n```objc\n@import DebuggIt;\n```\n\nand add one of these lines (**at start of method**) to initialize debugg.it\n\n*Swift*:\n\n```swift\nfunc application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {\n    // Override point for customization after application launch.\n    DebuggIt.sharedInstance.initBitbucket(repoSlug: \"repo-name\", accountName: \"repo-owner-username\")\n    // or Github\n    DebuggIt.sharedInstance.initGithub(repoSlug: \"repo-name\", accountName: \"repo-owner-username\")\n    // or JIRA\n    DebuggIt.sharedInstance.initJira(host: \"jira-host-url\", projectKey: \"project-key\")\n    return true\n}\n```\n\n*Objective-C*:\n\n```objc\n- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {\n    // Bitbucket\n    [[DebuggIt sharedInstance] initBitbucketWithRepoSlug: @\"repo-name\" accountName:@\"repo-owner-username\"];\n    // or Github\n    [[DebuggIt sharedInstance] initGithubWithRepoSlug: @\"repo-name\" accountName:@\"repo-owner-username\"];\n    // or JIRA\n    [[DebuggIt sharedInstance] initJiraWithHost:@\"jira-host-url\" projectKey:@\"project-key\" usesHttps:YES];\n    return YES;\n}\n```\n\n**Note**: If you are using **JIRA** and your host **do not use SSL**, use additional parameter in initialize method:\n\n```swift\nDebuggIt.sharedInstance.initJira(host: \"jira-host-url\", projectKey: \"project-key\", usesHttps: false)\n```\n\n```objc\n[[DebuggIt sharedInstance] initJiraWithHost:@\"jira-host-url\" projectKey:@\"project-key\" usesHttps:NO];\n``` \n\n### Additional options\n\n#### Record notes\n\n**debugg.it** allows to record audio notes and add it to bug description. To enable this feature simply add this line in your `AppDelegate` file:\n\n```swift\nDebuggIt.sharedInstance.recordingEnabled = true\n```\n\n```objc\n[DebuggIt sharedInstance].recordingEnabled = YES;\n```\n\nEnsure you have added _Microphone Usage Description_ in your `Info.plist` file. For example:\n```xml\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>NSMicrophoneUsageDescription</key>\n\t<string>debugg.it record notes</string>\n\t<!-- \n\t\tRest of Info.plist file... \n\t-->\n</dict>\n</plist>\n```",
+  "homepage": "http://debugg.it",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MoodUp.team": "info@debugg.it"
+  },
+  "source": {
+    "http": "http://debugg.it/downloads/ios/0.1.6/DebuggIt.framework.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "ios": {
+    "vendored_frameworks": "outputs/frameworks/DebuggIt.framework"
+  },
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.0"
+    ],
+    "SwiftyJSON": [
+
+    ],
+    "IQKeyboardManagerSwift": [
+      "~> 4.0.6"
+    ],
+    "KMPlaceholderTextView": [
+      "~> 1.3.0"
+    ],
+    "RNCryptor": [
+
+    ],
+    "ReachabilitySwift": [
+
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
