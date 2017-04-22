@@ -1,0 +1,22 @@
+{
+  "name": "SizeClasser",
+  "version": "0.0.1",
+  "summary": "Device specific UITraitCollection helper with split view detection for iOS.",
+  "description": "SizeClasser\n===\n\nDevice specific `UITraitCollection` helper with split view detection for iOS.\n\nDemo\n----\n\n![alt tag](https://github.com/cemolcay/SizeClasser/blob/master/Examples/demo.gif?raw=true)\n\nRequirements\n----\n\n- Swift 3.0+\n- iOS 8.0+\n\nInstall\n----\n\n```\nuse_frameworks!\npod 'SizeClasser'\n```\n\nUsage\n----\n\n[`SizeClasser`](https://github.com/cemolcay/SizeClasser/SizeClasser/SizeClasser.swift) is an `OptionSet` type struct.\nYou can initilize it with your viewController's `traitCollection` property to identify your current device specific orientation and split view status.\n\n```\n/// Screen height is bigger than width. Portrait mode in all devices.\npublic static let portrait = SizeClasser(rawValue: 1 << 0)\n/// Screen width is bigger than height. Landscape mode in all devices.\npublic static let landscape = SizeClasser(rawValue: 1 << 1)\n/// Portrait mode for iPhone devices.\npublic static let iPhonePortrait = SizeClasser(rawValue: 1 << 2)\n/// Landscape mode for iPhone devices.\npublic static let iPhoneLandscape = SizeClasser(rawValue: 1 << 3)\n/// Portrait mode for iPad devices.\npublic static let iPadPortrait = SizeClasser(rawValue: 1 << 4)\n/// Landscape mode for iPad devices.\npublic static let iPadLandscape = SizeClasser(rawValue: 1 << 5)\n/// Split mode 1/3 of visible area in iPad devices.\npublic static let iPadSplitOneThird = SizeClasser(rawValue: 1 << 8)\n/// Split mode 1/2 of visible area in iPad devices.\npublic static let iPadSplitHalf = SizeClasser(rawValue: 1 << 9)\n/// Split mode 2/3 of visible area in iPad devices.\npublic static let iPadSplitTwoThird = SizeClasser(rawValue: 1 << 10)\n```\n\nFor example, if you want to detect iPad split view 1/3 on landscape orientation, simply:\n\n```\nguard let trait = SizeClasser(traitCollection: traitCollection ?? super.traitCollection) else { return }\nif trait.contains([.iPadLandscape, .iPadSplitOneThird]) {\n// You are on iPad, landscape and 1/3 split view mode\nif SizeClasser.isiPadPro {\n// You are on 12.9\" iPad\n} else {\n// You are on regular iPad / iPad mini\n}\n}\n```\n\nAlso you can use `SizeClasser.isiPadPro` to detect 12.9\" iPad Pro if you want to layout your views more specificly.\n\n#### Note on `traitCollectionDidChange:previousTraitCollection` function:\nThis function only get called if `traitCollection` changes.\nIf you are on iPad, either portrait or landscape mode, it won't change 1/3 split view to 2/3 split view transitions.\niOS calculates them both `compact width regular height` mode.\nSo, I recommend to use `viewDidLayoutSubviews:` function to detect split view changes specificly.\n![alt tag](https://github.com/cemolcay/SizeClasser/blob/master/Examples/split.png?raw=true)",
+  "homepage": "https://github.com/cemolcay/SizeClasser",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/cemolcay",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/SizeClasser.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "SizeClasser/SizeClasser.swift",
+  "requires_arc": true,
+  "pushed_with_swift_version": "3.0"
+}
