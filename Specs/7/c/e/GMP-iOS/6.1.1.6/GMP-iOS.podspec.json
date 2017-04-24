@@ -1,0 +1,25 @@
+{
+  "name": "GMP-iOS",
+  "summary": "The GNU Multiple Precision Arithmetic Library",
+  "homepage": "https://git.oschina.net/euagore/gmp-ios.git",
+  "authors": "GMP Authors",
+  "license": "LGPL",
+  "version": "6.1.1.6",
+  "source": {
+    "http": "https://gmplib.org/download/gmp/gmp-6.1.1.tar.bz2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "prepare_command": "build_for_ios() {\n      generate_32bit_headers\n      build_for_architecture iphoneos armv7 arm-apple-darwin\n      build_for_architecture iphonesimulator i386 i386-apple-darwin\n      clean\n      generate_64bit_headers\n      build_for_architecture iphoneos arm64 arm-apple-darwin\n      build_for_architecture iphonesimulator x86_64 x86_64-apple-darwin\n      create_universal_library\n}\n\n    generate_32bit_headers() {\n      generate_headers i386\n    }\n\n    generate_64bit_headers() {\n      generate_headers x86_64\n    }\n\n    generate_headers() {\n      ARCH=$1\n      ./configure         CPPFLAGS=\"-arch ${ARCH}\"         LDFLAGS=\"-arch ${ARCH}\"         --disable-assembly         --quiet         --enable-silent-rules\n      make -j 16\n    }\n\n    build_for_architecture() {\n      PLATFORM=$1\n      ARCH=$2\n      HOST=$3\n      SDKPATH=`xcrun -sdk $PLATFORM --show-sdk-path`\n      PREFIX=$(pwd)/build/$ARCH\n      ./configure         CC=`xcrun -sdk $PLATFORM -find cc`         CXX=`xcrun -sdk $PLATFORM -find c++`         CPP=`xcrun -sdk $PLATFORM -find cc`\" -E\"         LD=`xcrun -sdk $PLATFORM -find ld`         AR=`xcrun -sdk $PLATFORM -find ar`         NM=`xcrun -sdk $PLATFORM -find nm`         NMEDIT=`xcrun -sdk $PLATFORM -find nmedit`         LIBTOOL=`xcrun -sdk $PLATFORM -find libtool`         LIPO=`xcrun -sdk $PLATFORM -find lipo`         OTOOL=`xcrun -sdk $PLATFORM -find otool`         RANLIB=`xcrun -sdk $PLATFORM -find ranlib`         STRIP=`xcrun -sdk $PLATFORM -find strip`         CPPFLAGS=\"-arch $ARCH -isysroot $SDKPATH\"         LDFLAGS=\"-arch $ARCH -headerpad_max_install_names\"         --host=$HOST         --disable-assembly         --enable-cxx         --prefix=$PREFIX         --quiet --enable-silent-rules\n      xcrun -sdk $PLATFORM make mostlyclean\n      xcrun -sdk $PLATFORM make -j 16 install\n    }\n\n    create_universal_library() {\n      lipo -create -output libgmp.dylib         build/{armv7,arm64,i386,x86_64}/lib/libgmp.dylib\n      lipo -create -output libgmpxx.dylib         build/{armv7,arm64,i386,x86_64}/lib/libgmpxx.dylib\n      update_dylib_names\n      update_dylib_references\n    }\n\n    update_dylib_names() {\n      install_name_tool -id \"@rpath/libgmp.dylib\" libgmp.dylib\n      install_name_tool -id \"@rpath/libgmpxx.dylib\" libgmpxx.dylib\n    }\n\n    update_dylib_references() {\n      update_dylib_reference_for_architecture armv7\n      update_dylib_reference_for_architecture arm64\n      update_dylib_reference_for_architecture i386\n      update_dylib_reference_for_architecture x86_64\n    }\n\n    update_dylib_reference_for_architecture() {\n      ARCH=$1\n      install_name_tool -change         \"$(pwd)/build/$ARCH/lib/libgmp.10.dylib\"         \"@rpath/libgmp.dylib\"         libgmpxx.dylib\n    }\n\n    clean() {\n      make distclean\n}\n\n    build_for_ios",
+  "source_files": [
+    "gmp.h",
+    "gmpxx.h"
+  ],
+  "ios": {
+    "vendored_libraries": [
+      "libgmp.dylib",
+      "libgmpxx.dylib"
+    ]
+  }
+}
