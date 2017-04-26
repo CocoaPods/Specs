@@ -1,0 +1,79 @@
+{
+  "name": "TPInAppReceipt",
+  "version": "1.1.4",
+  "summary": "Validates and parses Apple Store Receipt.",
+  "description": "This helper validates and parses the payload and the PKCS7 container itself. Pure swift, openssl+bitcode",
+  "homepage": "http://tikhop.com",
+  "license": "MIT",
+  "authors": {
+    "Pavel Tikhonenko": "hi@tikhop.com"
+  },
+  "platforms": {
+    "ios": "8.2",
+    "osx": "10.11"
+  },
+  "source": {
+    "git": "https://github.com/tikhop/TPInAppReceipt.git",
+    "tag": "1.1.4"
+  },
+  "ios": {
+    "source_files": [
+      "TPInAppReceipt/**/*.{h,m}",
+      "TPInAppReceipt/Source/*.{swift}",
+      "Vendor/OpenSSL/include/**/*.h"
+    ],
+    "public_header_files": "TPInAppReceipt/**/*.h",
+    "vendored_libraries": [
+      "Vendor/OpenSSL/iOS/libssl.a",
+      "Vendor/OpenSSL/iOS/libcrypto.a"
+    ],
+    "xcconfig": {
+      "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/iOS"
+    },
+    "pod_target_xcconfig": {
+      "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/iOS"
+    },
+    "preserve_paths": [
+      "TPInAppReceipt/*",
+      "Vendor/OpenSSL/module.modulemap",
+      "TPInAppReceipt/**/*"
+    ]
+  },
+  "osx": {
+    "source_files": [
+      "TPInAppReceipt/**/*.{h,m}",
+      "TPInAppReceipt/Source/*.{swift}",
+      "Vendor/OpenSSL/include/**/*.h"
+    ],
+    "public_header_files": "TPInAppReceipt/**/*.h",
+    "vendored_libraries": [
+      "Vendor/OpenSSL/Mac/libssl.a",
+      "Vendor/OpenSSL/Mac/libcrypto.a"
+    ],
+    "xcconfig": {
+      "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/Mac"
+    },
+    "pod_target_xcconfig": {
+      "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/include",
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/TPInAppReceipt/Vendor/OpenSSL/Mac"
+    },
+    "preserve_paths": [
+      "TPInAppReceipt/*",
+      "Vendor/OpenSSL/module.modulemap",
+      "TPInAppReceipt/**/*"
+    ]
+  },
+  "resources": "TPInAppReceipt/AppleIncRootCertificate.cer",
+  "libraries": [
+    "ssl",
+    "crypto"
+  ],
+  "pushed_with_swift_version": "3.0"
+}
