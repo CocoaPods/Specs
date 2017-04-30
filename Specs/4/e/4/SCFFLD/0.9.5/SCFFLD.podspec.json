@@ -1,0 +1,121 @@
+{
+  "name": "SCFFLD",
+  "version": "0.9.5",
+  "summary": "Dependency Injection framework for iOS",
+  "description": "Core functionality for the SCFFLD dependency injection (DI) framework for iOS.\nThis library provides:\n* Internal URI space;\n* Inversion of Control (IoC) container functionality;\n* Actions/events through target containers;\n* Basic UI views;\n* Supporting utility functions.",
+  "homepage": "https://github.com/innerfunction/SCFFLD-ios",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Julian Goacher": "julian.goacher@innerfunction.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/innerfunction/SCFFLD-ios.git",
+    "tag": "0.9.5"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SRCROOT)/**",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "OTHER_LDFLAGS": "-w"
+  },
+  "subspecs": [
+    {
+      "name": "NoArc",
+      "source_files": [
+        "SCFFLD/util/ISO8601DateFormatter.*",
+        "SCFFLD/Externals/JSONKit/*"
+      ],
+      "requires_arc": false,
+      "compiler_flags": "-w",
+      "public_header_files": [
+        "SCFFLD/util/ISO8601DateFormatter.h",
+        "SCFFLD/Externals/JSONKit/*.h"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": "SCFFLD/{core,util}/*.{h,m}",
+      "public_header_files": "SCFFLD/{core,util}/*.h",
+      "requires_arc": true,
+      "compiler_flags": "-w",
+      "libraries": "z",
+      "dependencies": {
+        "SCFFLD/NoArc": [
+
+        ],
+        "ZipArchive": [
+
+        ]
+      }
+    },
+    {
+      "name": "DB",
+      "source_files": "SCFFLD/db/*.{h,m}",
+      "public_header_files": "SCFFLD/db/*.h",
+      "requires_arc": true,
+      "compiler_flags": "-w",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "SCFFLD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "HTTP",
+      "source_files": "SCFFLD/http/*.{h,m}",
+      "public_header_files": "SCFFLD/http/*.h",
+      "requires_arc": true,
+      "compiler_flags": "-w",
+      "dependencies": {
+        "SCFFLD/Core": [
+
+        ],
+        "Q": [
+
+        ],
+        "SSKeychain": [
+
+        ],
+        "MessagePack": [
+
+        ]
+      }
+    },
+    {
+      "name": "IOC",
+      "source_files": [
+        "SCFFLD/ioc/*.{h,m}",
+        "SCFFLD/ioc/{app,ui}/*.{h,m}",
+        "SCFFLD/uri/*.{h,m}"
+      ],
+      "public_header_files": [
+        "SCFFLD/ioc/*.h",
+        "SCFFLD/ioc/{app,ui}/*.h",
+        "SCFFLD/uri/*.h"
+      ],
+      "requires_arc": true,
+      "compiler_flags": "-w",
+      "dependencies": {
+        "SCFFLD/Core": [
+
+        ],
+        "JTSImageViewController": [
+
+        ],
+        "SWRevealViewController": [
+
+        ]
+      }
+    }
+  ]
+}
