@@ -1,0 +1,37 @@
+{
+  "name": "OpenSSL",
+  "version": "1.0.108",
+  "summary": "OpenSSL is an SSL/TLS and Crypto toolkit. Deprecated in Mac OS and gone in iOS, this spec gives your project non-deprecated OpenSSL support.",
+  "authors": "OpenSSL Project <openssl-dev@openssl.org>",
+  "homepage": "https://github.com/FredericJacobs/OpenSSL-Pod",
+  "license": {
+    "type": "OpenSSL (OpenSSL/SSLeay)",
+    "file": "LICENSE"
+  },
+  "source": {
+    "http": "https://www.openssl.org/source/openssl-1.0.1h.tar.gz",
+    "sha1": "b2239599c8bf8f7fc48590a55205c26abe560bf8"
+  },
+  "preserve_paths": [
+    "file.tgz",
+    "opensslIncludes/*"
+  ],
+  "source_files": [
+    "opensslIncludes/*.h",
+    "**/*.h"
+  ],
+  "header_dir": "openssl",
+  "prepare_command": "    VERSION=\"1.0.1h\"\n    SDKVERSION=`/usr/bin/xcodebuild -version -sdk 2> /dev/null | grep SDKVersion | tail -n 1 |  awk '{ print $2 }'`\n\n    CURRENTPATH=`pwd`\n    ARCHS=\"i386 x86_64 armv7 armv7s arm64\"\n    DEVELOPER=`xcode-select -print-path`\n\n    mkdir -p \"${CURRENTPATH}/bin\"\n    mkdir -p \"${CURRENTPATH}/lib\"\n    mkdir -p \"${CURRENTPATH}/opensslIncludes\"\n    mkdir -p \"${CURRENTPATH}/opensslIncludes/openssl\"\n\n    tar -xzf file.tgz\n\n    cd openssl-${VERSION}\n    cd include/openssl\n\n    for link in $(find . -type l)\n      do\n        dir=$(readlink $link)\n        cp $dir ../../../opensslIncludes/openssl\n    done\n\n    cd ../..\n    for ARCH in ${ARCHS}\n    do\n      CONFIGURE_FOR=\"iphoneos-cross\"\n\n      if [ \"${ARCH}\" == \"i386\" ] || [ \"${ARCH}\" == \"x86_64\" ] ;\n      then\n        PLATFORM=\"iPhoneSimulator\"\n        if [ \"${ARCH}\" == \"x86_64\" ] ;\n        then\n          CONFIGURE_FOR=\"darwin64-x86_64-cc\"\n        fi\n      else\n        sed -ie \"s!static volatile sig_atomic_t intr_signal;!static volatile intr_signal;!\" \"crypto/ui/ui_openssl.c\"\n        PLATFORM=\"iPhoneOS\"\n      fi\n\n      export CROSS_TOP=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer\"\n      export CROSS_SDK=\"${PLATFORM}${SDKVERSION}.sdk\"\n\n      echo \"Building openssl-${VERSION} for ${PLATFORM} ${SDKVERSION} ${ARCH}\"\n      echo \"Please stand by...\"\n\n      export CC=\"${DEVELOPER}/usr/bin/gcc -arch ${ARCH} -miphoneos-version-min=${SDKVERSION}\"\n      mkdir -p \"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\"\n      LOG=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/build-openssl-${VERSION}.log\"\n\n      ./Configure ${CONFIGURE_FOR} --openssldir=\"${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk\" > \"${LOG}\" 2>&1\n      sed -ie \"s!^CFLAG=!CFLAG=-isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} !\" \"Makefile\"\n\n      make >> \"${LOG}\" 2>&1\n      make install >> \"${LOG}\" 2>&1\n      make clean >> \"${LOG}\" 2>&1\n    done\n\n\n    echo \"Build library...\"\n    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-x86_64.sdk/lib/libssl.a  ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libssl.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib/libssl.a -output ${CURRENTPATH}/lib/libssl.a\n    lipo -create ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-i386.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneSimulator${SDKVERSION}-x86_64.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-armv7s.sdk/lib/libcrypto.a ${CURRENTPATH}/bin/iPhoneOS${SDKVERSION}-arm64.sdk/lib/libcrypto.a -output ${CURRENTPATH}/lib/libcrypto.a\n\n    echo \"Building done.\"\n    echo \"Cleaning up...\"\n    rm -rf ${CURRENTPATH}/openssl-${VERSION}\n    rm -R ${CURRENTPATH}/bin\n    rm -rf file.tgz\n    echo \"Done.\"\n",
+  "ios": {
+    "public_header_files": "opensslIncludes/*.h",
+    "vendored_libraries": [
+      "lib/libcrypto.a",
+      "lib/libssl.a"
+    ]
+  },
+  "libraries": [
+    "crypto",
+    "ssl"
+  ],
+  "requires_arc": false
+}

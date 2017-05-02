@@ -1,0 +1,67 @@
+{
+  "name": "Realm",
+  "version": "0.93.0\n",
+  "summary": "Realm is a modern data framework & database for iOS & OS X.",
+  "description": "                              The Realm database, for Objective-C. (If you want to use Realm from Swift, see the “RealmSwift” pod.)\n\n                              Realm is a mobile database: a replacement for Core Data & SQLite. You can use it on iOS & OS X. Realm is not an ORM on top SQLite: instead it uses its own persistence engine, built for simplicity (& speed). Learn more and get help at https://realm.io\n",
+  "homepage": "https://realm.io",
+  "source": {
+    "git": "https://github.com/realm/realm-cocoa.git",
+    "tag": "v0.93.0"
+  },
+  "authors": {
+    "Realm": "help@realm.io"
+  },
+  "libraries": "c++",
+  "requires_arc": true,
+  "social_media_url": "https://twitter.com/realm",
+  "documentation_url": "https://realm.io/docs/objc/0.93.0",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "module_map": "Realm/module.modulemap",
+  "compiler_flags": "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"0.93.0\"'",
+  "prepare_command": "sh build.sh cocoapods-setup",
+  "source_files": "Realm/*.{m,mm}",
+  "header_mappings_dir": "include",
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "compiler-default",
+    "OTHER_CPLUSPLUSFLAGS": "-std=c++1y $(inherited)"
+  },
+  "preserve_paths": [
+    "build.sh"
+  ],
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "ios": {
+    "vendored_libraries": "core/librealm-ios.a"
+  },
+  "osx": {
+    "vendored_libraries": "core/librealm.a"
+  },
+  "subspecs": [
+    {
+      "name": "Headers",
+      "source_files": "include/**/*.{h,hpp}",
+      "public_header_files": [
+        "include/Realm/RLMArray.h",
+        "include/Realm/RLMCollection.h",
+        "include/Realm/RLMConstants.h",
+        "include/Realm/RLMListBase.h",
+        "include/Realm/RLMMigration.h",
+        "include/Realm/RLMObject.h",
+        "include/Realm/RLMObjectBase.h",
+        "include/Realm/RLMObjectSchema.h",
+        "include/Realm/RLMPlatform.h",
+        "include/Realm/RLMProperty.h",
+        "include/Realm/RLMRealm.h",
+        "include/Realm/RLMResults.h",
+        "include/Realm/RLMSchema.h",
+        "include/Realm/Realm.h"
+      ],
+      "private_header_files": "include/Realm/*{RealmUtil,ListBase,ObjectStore,Private,Dynamic}.h"
+    }
+  ]
+}

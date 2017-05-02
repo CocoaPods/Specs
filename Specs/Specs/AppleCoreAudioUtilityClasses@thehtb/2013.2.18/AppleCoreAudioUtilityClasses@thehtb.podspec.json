@@ -1,0 +1,48 @@
+{
+  "name": "AppleCoreAudioUtilityClasses@thehtb",
+  "version": "2013.2.18",
+  "summary": "A git mirror of Apple's Core Audio Utility Classes for better versioning and with clang/llvm fixes.",
+  "description": "The \"CoreAudio\" folder contains the Public Utility sources (PublicUtility folder) as well as base classes required for codec and audio unit development. These utility classes are used by various Apple Core Audio sample project and extend or wrap Core Audio API's.\n\nAdditionally (and tagged separately) there is a branch which has (some) fixes for issues where the Currently supplied Apple code won't work with clang/llvm.\n",
+  "homepage": "https://github.com/thehtb/AppleCoreAudioUtilityClasses",
+  "license": "Apple Sample Code License",
+  "authors": "(c) 2013 Apple Inc. All Rights Reserved.",
+  "source": {
+    "git": "https://github.com/thehtb/AppleCoreAudioUtilityClasses.git",
+    "tag": "2013.2.18"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "PublicUtility",
+      "subspecs": [
+        {
+          "name": "CAProcess",
+          "source_files": "CoreAudio/PublicUtility/CAProcess.{cpp,h}"
+        },
+        {
+          "name": "CAAutoDisposer",
+          "source_files": "CoreAudio/PublicUtility/CAAutoDisposer.h"
+        },
+        {
+          "name": "CABitOperations",
+          "source_files": "CoreAudio/PublicUtility/CABitOperations.h",
+          "frameworks": "CoreAudio"
+        },
+        {
+          "name": "CASpectralProcessor",
+          "source_files": "CoreAudio/PublicUtility/CASpectralProcessor.{cpp,h}",
+          "frameworks": "Accellerate",
+          "dependencies": {
+            "AppleCoreAudioUtilityClasses@thehtb/PublicUtility/CABitOperations": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

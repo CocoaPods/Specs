@@ -1,0 +1,62 @@
+{
+  "name": "box-ios-sdk-v2",
+  "version": "1.2.0",
+  "summary": "iOS + OS X SDK for the Box V2 API.",
+  "homepage": "https://github.com/box/box-ios-sdk-v2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Ryan Lopopolo",
+  "source": {
+    "git": "https://github.com/box/box-ios-sdk-v2.git",
+    "tag": "v1.2.0"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "source_files": "BoxSDK/**/*.{h,m}",
+    "exclude_files": "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+    "frameworks": [
+      "Security",
+      "QuartzCore"
+    ],
+    "header_dir": "BoxSDK"
+  },
+  "osx": {
+    "source_files": [
+      "BoxCocoaSDK/**/*.{h,m}",
+      "BoxSDK/BoxLog.h",
+      "BoxSDK/BoxSDKConstants.{h,m}",
+      "BoxSDK/BoxSDKErrors.h",
+      "BoxSDK/Categories/*.{h,m}",
+      "BoxSDK/Models/*.{h,m}",
+      "BoxSDK/OAuth2/*.{h,m}",
+      "BoxSDK/Operations/*.{h,m}",
+      "BoxSDK/QueueManagers/*.{h,m}",
+      "BoxSDK/RequestBuilders/*.{h,m}",
+      "BoxSDK/ResourceManagers/*.{h,m}"
+    ],
+    "exclude_files": [
+      "BoxSDK/Categories/UIIMage+BoxAdditions.{h,m}",
+      "BoxSDK/Categories/BoxItem+BoxAdditions.{h,m}",
+      "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+      "BoxSDK/OAuth2/BoxAuthorizationViewController.{h,m}"
+    ],
+    "frameworks": "Security",
+    "header_dir": "BoxCocoaSDK"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+      "requires_arc": false
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "name": "PivotalCoreKit",
+  "version": "0.2.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.markdown"
+  },
+  "summary": "Shared library and test code for iOS projects.",
+  "homepage": "https://github.com/pivotal/PivotalCoreKit",
+  "authors": {
+    "Pivotal Labs": "http://pivotallabs.com"
+  },
+  "source": {
+    "git": "https://github.com/pivotal/PivotalCoreKit.git",
+    "tag": "v0.2.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": false,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PivotalCoreKit/UIKit/Core": [
+
+        ],
+        "PivotalCoreKit/Foundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Development",
+      "dependencies": {
+        "PivotalCoreKit/Core": [
+
+        ],
+        "PivotalCoreKit/Foundation/SpecHelper": [
+
+        ],
+        "PivotalCoreKit/UIKit/SpecHelper": [
+
+        ],
+        "PivotalCoreKit/CoreLocation/SpecHelper": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "UIKit/Core/**/*.{h,m}",
+          "exclude_files": "UIKit/Core/Extensions/UIView+PCKNibHelpers.{h,m}",
+          "subspecs": [
+            {
+              "name": "Core-arc",
+              "requires_arc": true,
+              "source_files": "UIKit/Core/Extensions/UIView+PCKNibHelpers.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "SpecHelper",
+          "subspecs": [
+            {
+              "name": "Extensions",
+              "source_files": [
+                "UIKit/SpecHelper/Extensions/*.{h,m}",
+                "UIKit/SpecHelper/UIKit+PivotalSpecHelper.h"
+              ],
+              "dependencies": {
+                "PivotalCoreKit/UIKit/SpecHelper/Support": [
+
+                ]
+              }
+            },
+            {
+              "name": "Matchers",
+              "source_files": "UIKit/SpecHelper/Matchers/*.{h,m}"
+            },
+            {
+              "name": "Stubs",
+              "requires_arc": true,
+              "source_files": [
+                "UIKit/SpecHelper/Stubs/*.{h,m}",
+                "UIKit/SpecHelper/UIKit+PivotalSpecHelperStubs.h"
+              ],
+              "dependencies": {
+                "PivotalCoreKit/UIKit/SpecHelper/Support": [
+
+                ]
+              },
+              "exclude_files": [
+                "UIKit/SpecHelper/Stubs/UIGestureRecognizer+Spec.*"
+              ],
+              "subspecs": [
+                {
+                  "name": "Stubs-noarc",
+                  "requires_arc": false,
+                  "source_files": [
+                    "UIKit/SpecHelper/Stubs/UIGestureRecognizer+Spec.*"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Support",
+              "source_files": [
+                "UIKit/SpecHelper/Support/*.{h,m}"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Foundation",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.6"
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "Foundation/Core/**/*.{h,m}",
+          "libraries": "xml2",
+          "xcconfig": {
+            "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+          }
+        },
+        {
+          "name": "SpecHelper",
+          "source_files": [
+            "Foundation/SpecHelper/Foundation+PivotalSpecHelper.h"
+          ],
+          "subspecs": [
+            {
+              "name": "Extensions",
+              "source_files": [
+                "Foundation/SpecHelper/Extensions/*.{h,m}",
+                "Foundation/Core/Extensions/NSObject+MethodRedirection.{h,m}"
+              ],
+              "dependencies": {
+                "PivotalCoreKit/Foundation/SpecHelper/Helpers": [
+
+                ],
+                "PivotalCoreKit/Foundation/SpecHelper/Fakes": [
+
+                ]
+              }
+            },
+            {
+              "name": "Fixtures",
+              "source_files": "Foundation/SpecHelper/Fixtures/*.{h,m}"
+            },
+            {
+              "name": "Helpers",
+              "source_files": [
+                "Foundation/SpecHelper/Helpers/*.{h,m}",
+                "Foundation/SpecHelper/Extensions/NSURLConnection+Spec.h"
+              ]
+            },
+            {
+              "name": "Fakes",
+              "source_files": "Foundation/SpecHelper/Fakes/*.{h,m}",
+              "dependencies": {
+                "PivotalCoreKit/Foundation/SpecHelper/Fixtures": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreLocation",
+      "subspecs": [
+        {
+          "name": "SpecHelper",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "CoreLocation/SpecHelper/*.{h,m}"
+            },
+            {
+              "name": "Extensions",
+              "source_files": "CoreLocation/SpecHelper/Extensions/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

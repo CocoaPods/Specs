@@ -1,0 +1,52 @@
+{
+  "name": "jre_emul",
+  "version": "0.7.2",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "summary": "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library.",
+  "homepage": "https://code.google.com/p/j2objc/",
+  "authors": "Google Inc.",
+  "source": {
+    "git": "https://github.com/goodow/j2objc.git",
+    "tag": "v0.7.2"
+  },
+  "default_subspecs": [
+    "jre"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "jre",
+      "source_files": [
+        "jre_emul/Classes/**/*.{m,mm}",
+        "jre_emul/build_result/Classes/**/*.m"
+      ],
+      "exclude_files": "jre_emul/Classes/*Test.{h,m}",
+      "preserve_paths": [
+        "dist/include/**/*.h",
+        "jre_emul/icu4c/i18n/include/**",
+        "jre_emul/icu4c/common/**"
+      ],
+      "compiler_flags": "-DU_DISABLE_RENAMING=1",
+      "xcconfig": {
+        "GCC_WARN_MISSING_PARENTHESES": "NO",
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/jre_emul/dist/include\" \"${PODS_ROOT}/jre_emul/jre_emul/icu4c/i18n/include\" \"${PODS_ROOT}/jre_emul/jre_emul/icu4c/common\"",
+        "OTHER_LDFLAGS": "-licucore -lstdc++"
+      }
+    },
+    {
+      "name": "junit",
+      "source_files": [
+        "junit/src/main/native/junit/**/*.m",
+        "junit/build_result/junit/framework/**/*.m"
+      ],
+      "dependencies": {
+        "jre_emul/jre": [
+
+        ]
+      }
+    }
+  ]
+}

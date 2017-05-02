@@ -1,0 +1,70 @@
+{
+  "name": "YMPromptKit",
+  "version": "1.0.0",
+  "summary": "An iOS soft prompting tookit by Yahoo!",
+  "description": "                      YMPromptKit attempts to simplify your iOS app code by providing flexible and extensible tools for soft prompting.\n",
+  "homepage": "http://yahoo-mep.tumblr.com",
+  "screenshots": "https://cloud.githubusercontent.com/assets/727953/6237605/548d7012-b6c2-11e4-97da-976398a5a7fa.png",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "adamkaplan": "adamkaplan@yahoo-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/yahoo/YMPromptKit.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "weak_frameworks": [
+    "AVFoundation",
+    "AssetsLibrary",
+    "EventKit",
+    "AddressBook",
+    "CoreLocation"
+  ],
+  "default_subspecs": "SDCAlerts",
+  "subspecs": [
+    {
+      "name": "SystemPrompts",
+      "source_files": "YMPromptKit/systemprompts/*.{h,m}"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "YMPromptKit/SystemPrompts": [
+
+        ]
+      },
+      "source_files": "YMPromptKit/*.{h,m}"
+    },
+    {
+      "name": "SDCAlerts",
+      "dependencies": {
+        "YMPromptKit/Core": [
+
+        ],
+        "SDCAlertView": [
+          "~> 2.1.1"
+        ]
+      },
+      "source_files": "YMPromptKit/sdc/*.{h,m}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DYMPROMPTKIT_SDCALERT_ENABLE=1"
+      }
+    },
+    {
+      "name": "NativeAlerts",
+      "dependencies": {
+        "YMPromptKit/Core": [
+
+        ]
+      },
+      "source_files": "YMPromptKit/native/*.{h,m}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DYMPROMPTKIT_NATIVEALERT_ENABLE=1"
+      }
+    }
+  ]
+}

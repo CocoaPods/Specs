@@ -1,0 +1,112 @@
+{
+  "name": "CDTDatastore",
+  "version": "0.17.1",
+  "summary": "CDTDatastore is a document datastore which syncs.",
+  "description": "                    CDTDatastore is a JSON document datastore which speaks the\n                    Apache CouchDB(tm) replication protocol.\n\n                    * Replicates with Cloudant and CouchDB.\n",
+  "homepage": "http://cloudant.github.io/cloudant-sync-eap",
+  "license": {
+    "type": "Apache",
+    "text": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n"
+  },
+  "authors": {
+    "Cloudant, Inc.": "support@cloudant.com"
+  },
+  "source": {
+    "git": "https://github.com/cloudant/CDTDatastore.git",
+    "tag": "0.17.1"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "standard",
+      "prefix_header_contents": [
+        "#import \"CollectionUtils.h\"",
+        "#import \"Logging.h\"",
+        "#import \"Test.h\"",
+        "#import \"CDTMacros.h\""
+      ],
+      "source_files": "Classes/**/*.{h,m}",
+      "exclude_files": "Classes/vendor/MYUtilities/*.{h,m}",
+      "ios": {
+        "exclude_files": "Classes/osx"
+      },
+      "osx": {
+        "exclude_files": "Classes/ios"
+      },
+      "dependencies": {
+        "CDTDatastore/common-dependencies": [
+
+        ],
+        "FMDB": [
+          "= 2.3"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "SQLCipher",
+      "prefix_header_contents": [
+        "#import \"CollectionUtils.h\"",
+        "#import \"Logging.h\"",
+        "#import \"Test.h\"",
+        "#import \"CDTMacros.h\""
+      ],
+      "source_files": "Classes/**/*.{h,m}",
+      "exclude_files": "Classes/vendor/MYUtilities/*.{h,m}",
+      "ios": {
+        "exclude_files": "Classes/osx"
+      },
+      "osx": {
+        "exclude_files": "Classes/ios"
+      },
+      "dependencies": {
+        "CDTDatastore/common-dependencies": [
+
+        ],
+        "FMDB/SQLCipher": [
+          "= 2.3"
+        ],
+        "SQLCipher/fts": [
+          "~> 3.1.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DENCRYPT_DATABASE"
+      },
+      "libraries": "z"
+    },
+    {
+      "name": "common-dependencies",
+      "frameworks": "SystemConfiguration",
+      "dependencies": {
+        "CDTDatastore/no-arc": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "prefix_header_contents": [
+        "#import \"CollectionUtils.h\"",
+        "#import \"Logging.h\"",
+        "#import \"Test.h\""
+      ],
+      "source_files": "Classes/vendor/MYUtilities/*.{h,m}",
+      "ios": {
+        "exclude_files": "Classes/vendor/MYUtilities/MYURLHandler.{h,m}"
+      }
+    }
+  ]
+}

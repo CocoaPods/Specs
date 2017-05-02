@@ -1,0 +1,95 @@
+{
+  "name": "ROADFramework",
+  "version": "1.3.8",
+  "summary": "ROAD iOS Framework",
+  "description": "                   ROAD Framework is a collection of libraries, tools and guidelines to handle common routines like web services integration, serialization and others. As result ROAD accelerates development, streamline support and maintenance, enforce best practices as well as remove technology entropy and fragmentation. Framework architecture allows to use libraries in application independently as well as all together to benefit from capabilities of each other.\n",
+  "homepage": "https://github.com/epam/road-ios-framework",
+  "social_media_url": "https://twitter.com/ROADFramework",
+  "license": "BSD-3",
+  "authors": {
+    "EPAM Systems, Inc": "SupportROAD@epam.com"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "source": {
+    "git": "https://github.com/epam/road-ios-framework.git",
+    "tag": "1.3.8"
+  },
+  "subspecs": [
+    {
+      "name": "ROADCore",
+      "source_files": "Framework/ROADCore/ROADCore/**/*.{h,m}",
+      "public_header_files": "Framework/ROADCore/ROADCore/**/*.h",
+      "header_dir": "ROAD",
+      "dependencies": {
+        "libObjCAttr": [
+          "~> 1.3.0"
+        ]
+      }
+    },
+    {
+      "name": "ROADServices",
+      "source_files": "Framework/ROADServices/ROADServices/**/*.{h,m}",
+      "public_header_files": "Framework/ROADServices/ROADServices/**/*.h",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ]
+      },
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADSerialization",
+      "source_files": "Framework/ROADSerialization/ROADSerialization/**/*.{h,m}",
+      "public_header_files": "Framework/ROADSerialization/ROADSerialization/**/*.h",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ],
+        "ROADFramework/ROADServices": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "CoreFoundation"
+      },
+      "libraries": [
+        "xml2",
+        "z"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(SDKROOT)/usr/include/libxml2\""
+      },
+      "header_dir": "ROAD"
+    },
+    {
+      "name": "ROADWebService",
+      "source_files": "Framework/ROADWebService/ROADWebService/**/*.{h,m}",
+      "public_header_files": "Framework/ROADWebService/ROADWebService/**/*.h",
+      "resources": "Framework/ROADWebService/ROADWebService/Caching/*.{xcdatamodeld,xcdatamodel}",
+      "dependencies": {
+        "ROADFramework/ROADCore": [
+
+        ],
+        "ROADFramework/ROADSerialization": [
+
+        ],
+        "ROADFramework/ROADServices": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "CoreFoundation",
+          "CFNetwork"
+        ]
+      },
+      "header_dir": "ROAD"
+    }
+  ]
+}

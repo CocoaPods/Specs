@@ -1,0 +1,58 @@
+{
+  "name": "DFVideoPlayer",
+  "version": "0.1.2",
+  "summary": "powerful video player wrapped around Vitaimo like weico",
+  "description": "\t\t\t\t\t\t\t\t\t\t\t\tPowerful video player wrapped around Vitamio\n\t\t\t\t\t\t\t\t\t\t\t\t* Support MMS / RTSP / RTP / SDP / HTTP ...\n\t\t\t\t\t\t\t\t\t\t\t\t* Support MPEG-4 / H.264 / H.265 / RMVB ...\n",
+  "homepage": "https://github.com/zhudongfang/DFVideoPlayer",
+  "license": "https://www.vitamio.org/License",
+  "authors": {
+    "zhudongfang": "dongfang.zhu@inbox.com"
+  },
+  "source": {
+    "git": "https://github.com/zhudongfang/DFVideoPlayer.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "DFVideoPlayer": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "public_header_files": "Pod/classes/**/*.h",
+  "frameworks": [
+    "UIKit",
+    "AVFoundation",
+    "AudioToolbox",
+    "CoreGraphics",
+    "CoreMedia",
+    "Foundation",
+    "MediaPlayer",
+    "OpenGlES",
+    "QuartzCore"
+  ],
+  "libraries": [
+    "bz2",
+    "z",
+    "stdc++",
+    "iconv"
+  ],
+  "subspecs": [
+    {
+      "name": "Vitamio",
+      "preserve_paths": "Pod/Vendor/Vitamio/include/Vitamio/*.h",
+      "source_files": "Pod/Vendor/Vitamio/include/Vitamio/*",
+      "vendored_libraries": [
+        "Pod/Vendor/Vitamio/libffmpeg.a",
+        "Pod/Vendor/Vitamio/libopenssl.a",
+        "Pod/Vendor/Vitamio/libVitamio.a"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/{s.name}/Pod/Vendor/Vitamio/include/**"
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "BZObjectStore",
+  "version": "1.0.9",
+  "license": "MIT",
+  "summary": "ORM library wrapped FMDB",
+  "homepage": "https://github.com/expensivegasprices/BZObjectStore",
+  "authors": {
+    "BONZOO LLC": "expensivegasprices@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/expensivegasprices/BZObjectStore.git",
+    "tag": "1.0.9"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FMDB": [
+
+        ],
+        "ColorUtils": [
+
+        ],
+        "BZRuntime": [
+
+        ]
+      },
+      "source_files": "BZObjectStore/Core/**/*.{h,m}"
+    },
+    {
+      "name": "CoreLocation",
+      "dependencies": {
+        "BZObjectStore/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "source_files": "BZObjectStore/CoreLocation/*.{h,m}"
+    },
+    {
+      "name": "Parse",
+      "dependencies": {
+        "BZObjectStore/Core": [
+
+        ],
+        "BZRuntime": [
+
+        ],
+        "FMDB": [
+
+        ],
+        "Parse": [
+
+        ]
+      },
+      "frameworks": "Parse",
+      "ios": {
+        "xcconfig": {
+          "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Parse\""
+        }
+      },
+      "source_files": "BZObjectStore/Parse/*.{h,m}"
+    },
+    {
+      "name": "ActiveRecord",
+      "dependencies": {
+        "BZObjectStore/Core": [
+
+        ]
+      },
+      "source_files": "BZObjectStore/ActiveRecord/*.{h,m}"
+    }
+  ]
+}

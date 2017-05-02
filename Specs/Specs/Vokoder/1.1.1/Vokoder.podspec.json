@@ -1,0 +1,83 @@
+{
+  "name": "Vokoder",
+  "version": "1.1.1",
+  "summary": "VOKAL's Core Data Manager",
+  "homepage": "https://github.com/vokalinteractive/Vokoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "VOKAL Interactive": "hello@vokalinteractive.com"
+  },
+  "source": {
+    "git": "https://github.com/vokalinteractive/Vokoder.git",
+    "tag": "1.1.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Classes/*.{h,m}",
+        "Pod/Classes/Internal"
+      ],
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "DataSources",
+      "dependencies": {
+        "Vokoder/Core": [
+
+        ]
+      },
+      "default_subspecs": [
+        "FetchedResults",
+        "PagingFetchedResults",
+        "Collection"
+      ],
+      "subspecs": [
+        {
+          "name": "FetchedResults",
+          "source_files": "Pod/Classes/Optional Data Sources/VOKFetchedResultsDataSource.{h,m}"
+        },
+        {
+          "name": "PagingFetchedResults",
+          "source_files": [
+            "Pod/Classes/Optional Data Sources/VOKPagingFetchedResultsDataSource.{h,m}",
+            "Pod/Classes/Optional Data Sources/VOKDefaultPagingAccessory.{h,m}"
+          ],
+          "dependencies": {
+            "Vokoder/DataSources/FetchedResults": [
+
+            ]
+          }
+        },
+        {
+          "name": "Collection",
+          "source_files": "Pod/Classes/Optional Data Sources/VOKCollectionDataSource.{h,m}",
+          "dependencies": {
+            "Vokoder/DataSources/FetchedResults": [
+
+            ]
+          }
+        },
+        {
+          "name": "Carousel",
+          "source_files": "Pod/Classes/Optional Data Sources/VOKCarouselDataSource.{h,m}",
+          "dependencies": {
+            "Vokoder/DataSources/FetchedResults": [
+
+            ],
+            "iCarousel": [
+              "~> 1.7.3"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

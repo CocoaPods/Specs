@@ -1,0 +1,57 @@
+{
+  "name": "PushSpring",
+  "version": "2.1.1",
+  "summary": "PushSpring helps you understand your app's audience in order to keep them engaged.",
+  "homepage": "http://www.pushspring.com/",
+  "license": {
+    "type": "MIT",
+    "file": "License.md"
+  },
+  "authors": {
+    "PushSpring": "hello@pushspring.com"
+  },
+  "source": {
+    "http": "http://public.pushspring.com/SDK/iOS/PushSpringSDK-2.1.1.zip",
+    "flatten": true
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/PushSpring/PushSpringSDK\""
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PushSpringSDK/PushSpring.h",
+      "preserve_paths": [
+        "PushSpringSDK/libPushSpringSDK.a"
+      ],
+      "frameworks": "MessageUI",
+      "weak_frameworks": [
+        "Accounts",
+        "AdSupport",
+        "CoreLocation"
+      ],
+      "libraries": [
+        "z",
+        "PushSpringSDK"
+      ]
+    },
+    {
+      "name": "Push",
+      "source_files": "PushSpringPlugins/Push/**/*.{h,m}",
+      "resources": [
+        "PushSpringPlugins/Push/psSVWebViewController/*.lproj",
+        "PushSpringPlugins/Push/psSVWebViewController/psSVWebViewController.bundle"
+      ],
+      "dependencies": {
+        "PushSpring/Core": [
+
+        ]
+      }
+    }
+  ]
+}

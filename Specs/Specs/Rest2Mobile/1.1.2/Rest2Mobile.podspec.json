@@ -1,0 +1,114 @@
+{
+  "name": "Rest2Mobile",
+  "version": "1.1.2",
+  "license": "Apache License, Version 2.0",
+  "summary": "Use rest2mobile iOS SDK to develop iOS applications that communicate with REST/JSON APIs.",
+  "homepage": "https://developer.magnet.com",
+  "authors": {
+    "Magnet Systems, Inc.": "support@magnet.com"
+  },
+  "source": {
+    "git": "https://github.com/magnetsystems/r2m-sdk-ios.git",
+    "tag": "1.1.2",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "public_header_files": [
+    "Rest2Mobile/*/*.h",
+    "Rest2Mobile/Rest2Mobile.h"
+  ],
+  "source_files": "Rest2Mobile/Rest2Mobile.h",
+  "subspecs": [
+    {
+      "name": "Categories",
+      "source_files": "Rest2Mobile/Categories/*.{h,m}"
+    },
+    {
+      "name": "Utilities",
+      "dependencies": {
+        "Rest2Mobile/Logging": [
+
+        ]
+      },
+      "source_files": "Rest2Mobile/Utilities/*.{h,m}"
+    },
+    {
+      "name": "Logging",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.2"
+        ],
+        "CocoaLumberjack": [
+          "~> 1.8"
+        ]
+      },
+      "source_files": "Rest2Mobile/Logging/*.{h,m}"
+    },
+    {
+      "name": "Serialization",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.2"
+        ],
+        "Mantle": [
+          "~> 1.4"
+        ],
+        "Rest2Mobile/Logging": [
+
+        ],
+        "Rest2Mobile/Utilities": [
+
+        ]
+      },
+      "source_files": "Rest2Mobile/Serialization/*/*.{h,m}"
+    },
+    {
+      "name": "Transport",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.2"
+        ],
+        "Mantle": [
+          "~> 1.4"
+        ],
+        "Rest2Mobile/Logging": [
+
+        ],
+        "Rest2Mobile/Controller": [
+
+        ]
+      },
+      "source_files": [
+        "Rest2Mobile/Transport/*/*.{h,m}",
+        "Rest2Mobile/Transport/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Controller",
+      "dependencies": {
+        "Rest2Mobile/Categories": [
+
+        ],
+        "Rest2Mobile/Logging": [
+
+        ],
+        "Rest2Mobile/Serialization": [
+
+        ],
+        "Rest2Mobile/Transport": [
+
+        ],
+        "Rest2Mobile/Utilities": [
+
+        ]
+      },
+      "source_files": [
+        "Rest2Mobile/Controller/*/*.{h,m}",
+        "Rest2Mobile/Controller/*.{h,m}"
+      ]
+    }
+  ]
+}

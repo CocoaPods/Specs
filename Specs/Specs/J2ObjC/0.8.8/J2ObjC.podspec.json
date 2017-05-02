@@ -1,0 +1,69 @@
+{
+  "name": "J2ObjC",
+  "version": "0.8.8",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "COPYING"
+  },
+  "summary": "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library.",
+  "homepage": "https://code.google.com/p/j2objc/",
+  "authors": "Google Inc.",
+  "source": {
+    "git": "https://github.com/goodow/j2objc.git",
+    "tag": "v0.8.8-lib"
+  },
+  "requires_arc": false,
+  "default_subspecs": [
+    "lib/jre"
+  ],
+  "header_mappings_dir": "dist/include",
+  "prepare_command": "    scripts/download_distribution.sh\n",
+  "subspecs": [
+    {
+      "name": "lib",
+      "frameworks": "Security",
+      "osx": {
+        "frameworks": "ExceptionHandling"
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/J2ObjC/dist/lib\"",
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC/dist/include\""
+      },
+      "subspecs": [
+        {
+          "name": "jre",
+          "preserve_paths": "dist",
+          "libraries": [
+            "jre_emul",
+            "z"
+          ],
+          "xcconfig": {
+            "OTHER_LDFLAGS": "-force_load ${PODS_ROOT}/J2ObjC/dist/lib/libjre_emul.a"
+          }
+        },
+        {
+          "name": "junit",
+          "dependencies": {
+            "J2ObjC/lib/jre": [
+
+            ]
+          },
+          "libraries": [
+            "j2objc_main",
+            "junit",
+            "mockito"
+          ]
+        },
+        {
+          "name": "guava",
+          "dependencies": {
+            "J2ObjC/lib/jre": [
+
+            ]
+          },
+          "libraries": "guava"
+        }
+      ]
+    }
+  ]
+}

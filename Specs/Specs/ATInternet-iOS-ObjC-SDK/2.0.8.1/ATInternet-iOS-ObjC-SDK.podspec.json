@@ -1,0 +1,64 @@
+{
+  "name": "ATInternet-iOS-ObjC-SDK",
+  "version": "2.0.8.1",
+  "summary": "AT Internet mobile analytics solution for iOS",
+  "homepage": "https://github.com/at-internet/atinternet-ios-objc-sdk",
+  "documentation_url": "http://developers.atinternet-solutions.com/ios-en/getting-started-en/operating-principle-ios-en/",
+  "license": "MIT",
+  "authors": "AT Internet",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/at-internet/atinternet-ios-objc-sdk.git",
+    "tag": "2.0.8"
+  },
+  "prefix_header_file": "Tracker/Tracker/ATTracker-prefix.pch",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Res",
+      "resource_bundles": {
+        "ATAssets": [
+          "Tracker/Tracker/*.{xcdatamodeld,png,json}",
+          "Tracker/Tracker/ATDefaultConfiguration.plist"
+        ]
+      }
+    },
+    {
+      "name": "iOS",
+      "source_files": "Tracker/Tracker/*.{h,m}",
+      "frameworks": [
+        "CoreData",
+        "CoreFoundation",
+        "UIKit",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "ATInternet-iOS-ObjC-SDK/Res": [
+
+        ]
+      }
+    },
+    {
+      "name": "WatchExtension",
+      "prefix_header_contents": "#define AT_EXTENSION",
+      "source_files": "Tracker/Tracker/*.{h,m}",
+      "exclude_files": "Tracker/Tracker/ATBackgroundTask.{h,m}",
+      "frameworks": [
+        "CoreData",
+        "CoreFoundation",
+        "WatchKit",
+        "UIKit",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "ATInternet-iOS-ObjC-SDK/Res": [
+
+        ]
+      }
+    }
+  ]
+}

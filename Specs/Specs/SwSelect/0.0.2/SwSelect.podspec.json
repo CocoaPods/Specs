@@ -1,0 +1,31 @@
+{
+  "name": "SwSelect",
+  "version": "0.0.2",
+  "summary": "This framework could be used for parsing HTML easily with jQuery style queries.",
+  "description": "# SwSelect\nThis Swift framework provides similar selector implementation to [jQuery](http://jquery.com). It could be used for parsing HTML easily with jQuery style queries. Currently, it supports only tag queries but no content manipulations. Most codes are ported from an Golang project called [\"Cascadia\"](https://github.com/andybalholm/cascadia).\n\n## Simple usage\n```Swift\n//Get image urls\nlet $ = SwSelect(html)\nlet imgUrls = $(”img”).attrs(”src”)\nfor url in imgUrls {\nprint(url)\n}\n\n//get image urls inside tags with class=a1\nlet imgUrls2 = $(”.a1″).find(”img”).attrs(”src”)\n```\nPlease check unit test codes for more usages",
+  "homepage": "https://github.com/julianshen/SwSelect",
+  "license": "MIT",
+  "authors": {
+    "Julian Shen": "julianshen@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/julianshen/SwSelect.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "module_name": "SwSelect",
+  "ios": {
+    "libraries": "xml2"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "module_map": "libxml.modulemap",
+  "prepare_command": "cat > \"libxml.modulemap\" << MAP\nmodule libxml [system] {\n    header \"$(SDKROOT)/usr/include/libxml2/libxml/HTMLtree.h\"\n    header \"$(SDKROOT)/usr/include/libxml2/libxml/HTMLparser.h\"\n    header \"$(SDKROOT)/usr/include/libxml2/libxml/xpath.h\"\n    header \"$(SDKROOT)/usr/include/libxml2/libxml/xpathInternals.h\"\n    header \"$(SDKROOT)/usr/include/libxml2/libxml/xmlerror.h\"\n    link \"libxml\"\n    export *\n}\nMAP",
+  "source_files": "SwSelect/libxml2/libxml2.h",
+  "libraries": "xml2"
+}

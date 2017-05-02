@@ -1,0 +1,49 @@
+{
+  "name": "ScoutMaps-iOS-SDKTools",
+  "version": "2.2.0",
+  "license": {
+    "type": "Commercial",
+    "text": "see http://www.skobbler.com/legal#termsSDK"
+  },
+  "summary": "Utility library for the Scout Maps & Navigation SDK",
+  "description": "The utility library offers an out-of-the box Navigation UI for TBT navigation and advanced control over the experience of downloading maps",
+  "homepage": "http://developer.skobbler.com/getting-started/iosTools",
+  "authors": {
+    "Telenav Inc.": "http://www.telenav.com/about/"
+  },
+  "platforms": {
+    "ios": "6.1"
+  },
+  "source": {
+    "http": "http://developer.skobbler.com/cocoapods/ScoutMaps-iOS-SDKTools_2.2.0.zip"
+  },
+  "requires_arc": true,
+  "resources": "SDKTools/SDKTools/Resources/SKTNavigationResources.bundle",
+  "frameworks": [
+    "AVFoundation",
+    "CoreTelephony"
+  ],
+  "documentation_url": "http://developer.skobbler.com/getting-started/ios",
+  "dependencies": {
+    "ScoutMaps-iOS-SDK": [
+      "~>2.2"
+    ]
+  },
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/ScoutMaps-iOS-SDK/**\""
+  },
+  "subspecs": [
+    {
+      "name": "arc-files",
+      "source_files": "SDKTools/**/*.{h,m,c}",
+      "prefix_header_file": "SDKTools/SDKTools/SDKTools-Prefix.pch",
+      "exclude_files": "SDKTools/SDKTools/SKTDownloadManager/Helper/KVCBaseObject.m",
+      "requires_arc": true
+    },
+    {
+      "name": "non-arc",
+      "source_files": "SDKTools/SDKTools/SKTDownloadManager/Helper/KVCBaseObject.{h,m}",
+      "requires_arc": false
+    }
+  ]
+}

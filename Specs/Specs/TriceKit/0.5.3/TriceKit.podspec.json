@@ -1,0 +1,75 @@
+{
+  "name": "TriceKit",
+  "version": "0.5.3",
+  "summary": "The TriceKit iOS SDK does things.",
+  "homepage": "http://tricekit.com/",
+  "license": {
+    "type": "none",
+    "text": "Copyright 2015 STQRY"
+  },
+  "authors": {
+    "Jake": "jake.bellamy@stqry.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/stqry/TriceKit.git",
+    "tag": "0.5.3"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC -lc++"
+  },
+  "source_files": "include/TriceKit.{h,m}",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "include/TriceKitShared/*.{h,m}",
+      "vendored_libraries": "libTriceKitShared.a",
+      "dependencies": {
+        "AFNetworking/NSURLSession": [
+          "~> 2.5"
+        ],
+        "Mantle": [
+          "~> 1.5"
+        ]
+      }
+    },
+    {
+      "name": "ZTA",
+      "source_files": "include/TriceKitZTA/*.{h,m}",
+      "vendored_libraries": "libTriceKitZTA.a",
+      "dependencies": {
+        "TriceKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapping",
+      "source_files": "include/TriceKitMapping/*.{h,m}",
+      "vendored_libraries": "libTriceKitMapping.a",
+      "dependencies": {
+        "TriceKit/Core": [
+
+        ],
+        "BFPaperView": [
+          "~> 2.1"
+        ],
+        "BFPaperButton": [
+          "~> 2.0"
+        ],
+        "Masonry": [
+          "~> 0.6"
+        ],
+        "PocketSVG": [
+          "~> 0.6"
+        ],
+        "SDWebImage": [
+          "~> 3.7"
+        ]
+      }
+    }
+  ]
+}

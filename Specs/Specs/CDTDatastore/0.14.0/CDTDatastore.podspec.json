@@ -1,0 +1,59 @@
+{
+  "name": "CDTDatastore",
+  "version": "0.14.0",
+  "summary": "CDTDatastore is a document datastore which syncs.",
+  "description": "                    CDTDatastore is a JSON document datastore which speaks the\n                    Apache CouchDB(tm) replication protocol.\n\n                    * Replicates with Cloudant and CouchDB.\n",
+  "homepage": "http://cloudant.github.io/cloudant-sync-eap",
+  "license": {
+    "type": "Apache",
+    "text": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n"
+  },
+  "authors": {
+    "Cloudant, Inc.": "support@cloudant.com"
+  },
+  "source": {
+    "git": "https://github.com/cloudant/CDTDatastore.git",
+    "tag": "0.14.0"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "source_files": "Classes/**/*.{h,m}",
+  "exclude_files": "Classes/vendor/MYUtilities/*.{h,m}",
+  "prefix_header_contents": [
+    "#import \"CollectionUtils.h\"",
+    "#import \"Logging.h\"",
+    "#import \"Test.h\""
+  ],
+  "ios": {
+    "exclude_files": "Classes/osx"
+  },
+  "osx": {
+    "exclude_files": "Classes/ios"
+  },
+  "dependencies": {
+    "FMDB": [
+      "= 2.3"
+    ],
+    "CocoaLumberjack": [
+      "= 2.0.0-rc"
+    ]
+  },
+  "frameworks": "SystemConfiguration",
+  "libraries": [
+    "sqlite3",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "Classes/vendor/MYUtilities/*.{h,m}",
+      "requires_arc": false,
+      "ios": {
+        "exclude_files": "Classes/vendor/MYUtilities/MYURLHandler.{h,m}"
+      }
+    }
+  ]
+}

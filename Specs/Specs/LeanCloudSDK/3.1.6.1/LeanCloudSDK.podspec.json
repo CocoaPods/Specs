@@ -1,0 +1,61 @@
+{
+  "name": "LeanCloudSDK",
+  "version": "3.1.6.1",
+  "summary": "LeanCloud iOS SDK for mobile backend.",
+  "homepage": "https://leancloud.cn",
+  "license": {
+    "type": "Commercial",
+    "text": "Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html"
+  },
+  "authors": {
+    "LeanCloud": "support@leancloud.cn"
+  },
+  "source": {
+    "git": "https://github.com/appwgh/LeanCloudSDK.git",
+    "tag": "3.1.6.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "public_header_files": "Frameworks/AVOSCloud.framework/Headers/*.h",
+      "preserve_paths": "Frameworks/AVOSCloud.framework",
+      "ios": {
+        "vendored_frameworks": "Frameworks/AVOSCloud.framework"
+      },
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "CoreTelephony",
+        "CoreLocation",
+        "CoreGraphics",
+        "Security",
+        "QuartzCore"
+      ],
+      "libraries": [
+        "icucore",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "LeanCloudIM",
+      "requires_arc": true,
+      "public_header_files": "Frameworks/AVOSCloudIM.framework/Headers/*.h",
+      "preserve_paths": "Frameworks/AVOSCloudIM.framework",
+      "ios": {
+        "vendored_frameworks": "Frameworks/AVOSCloudIM.framework"
+      },
+      "dependencies": {
+        "LeanCloudSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}

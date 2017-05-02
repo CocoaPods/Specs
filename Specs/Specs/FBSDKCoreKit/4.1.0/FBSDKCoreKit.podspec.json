@@ -1,0 +1,56 @@
+{
+  "name": "FBSDKCoreKit",
+  "version": "4.1.0",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform's core features",
+  "description": "                   The Facebook SDK for iOS CoreKit framework provides:\n                   * App Events (for App Analytics)\n                   * Graph API Access and Error Recovery\n                   * Working with Access Tokens and User Profiles\n",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "sdk-version-4.1.0"
+  },
+  "weak_frameworks": [
+    "Accounts",
+    "CoreLocation",
+    "Social",
+    "Security",
+    "QuartzCore",
+    "CoreGraphics",
+    "UIKit",
+    "Foundation",
+    "AudioToolbox"
+  ],
+  "dependencies": {
+    "Bolts": [
+      "~> 1.1"
+    ]
+  },
+  "header_dir": "FBSDKCoreKit",
+  "header_mappings_dir": "FBSDKCoreKit/FBSDKCoreKit/Internal",
+  "subspecs": [
+    {
+      "name": "arc",
+      "public_header_files": "FBSDKCoreKit/FBSDKCoreKit/*.h",
+      "source_files": "FBSDKCoreKit/FBSDKCoreKit/**/*.{h,m}",
+      "exclude_files": "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKDynamicFrameworkLoader.m",
+      "requires_arc": true
+    },
+    {
+      "name": "no-arc",
+      "source_files": "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKDynamicFrameworkLoader.m",
+      "requires_arc": false,
+      "dependencies": {
+        "FBSDKCoreKit/arc": [
+
+        ]
+      }
+    }
+  ]
+}

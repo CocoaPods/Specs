@@ -1,0 +1,28 @@
+{
+  "name": "RxTests",
+  "version": "2.0.0",
+  "summary": "RxSwift Testing extensions",
+  "description": "Unit testing extensions for RxSwift. This library contains mock schedulers, observables, and observers\nthat should make unit testing your operators easy as unit testing RxSwift built-in operators.\n\nThis library contains everything you needed to write unit tests in the following way:\n```swift\nfunc testMap() {\n    let scheduler = TestScheduler(initialClock: 0)\n\n    let xs = scheduler.createHotObservable([\n        next(150, 1),\n        next(210, 0),\n        next(220, 1),\n        next(230, 2),\n        next(240, 4),\n        completed(300)\n        ])\n\n    let res = scheduler.start { xs.map { $0 * 2 } }\n\n    let correctEvents = [\n        next(210, 0 * 2),\n        next(220, 1 * 2),\n        next(230, 2 * 2),\n        next(240, 4 * 2),\n        completed(300)\n    ]\n\n    let correctSubscriptions = [\n        Subscription(200, 300)\n    ]\n\n    XCTAssertEqual(res.events, correctEvents)\n    XCTAssertEqual(xs.subscriptions, correctSubscriptions)\n}\n```",
+  "homepage": "https://github.com/ReactiveX/RxSwift",
+  "license": "MIT",
+  "authors": {
+    "Krunoslav Zaher": "krunoslav.zaher@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ReactiveX/RxSwift.git",
+    "tag": "2.0.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.0"
+  },
+  "source_files": "RxTests/**/*.swift",
+  "frameworks": "XCTest",
+  "dependencies": {
+    "RxSwift": [
+      "~> 2.0"
+    ]
+  }
+}

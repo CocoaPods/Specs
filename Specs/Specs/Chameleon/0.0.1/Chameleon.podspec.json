@@ -1,0 +1,67 @@
+{
+  "name": "Chameleon",
+  "version": "0.0.1",
+  "summary": "Chameleon is a port of Apple's UIKit (and some minimal related frameworks) to Mac OS X.",
+  "description": "Chameleon is a port of Apple's UIKit (and some minimal related frameworks) to Mac OS X. It is meant to be as much of a drop-in replacement for the real UIKit as possible. It also adapts some iOS user interface conventions to the Mac (such as UIAlertView being represented by NSAlert) so that apps built using Chameleon have as much chance as possible of feeling at home on the desktop with relatively little porting effort.",
+  "homepage": "http://chameleonproject.org/",
+  "authors": {
+    "Sean Heber": "sean@iconfactory.com"
+  },
+  "source": {
+    "git": "https://github.com/BigZaphod/Chameleon.git",
+    "commit": "af3dcfd6e86078ed6b2fd1c4c45adf3622b0e925"
+  },
+  "license": {
+    "type": "Modified BSD License"
+  },
+  "platforms": {
+    "osx": "10.6"
+  },
+  "frameworks": [
+    "IOKit",
+    "QuartzCore",
+    "SystemConfiguration",
+    "AppKit",
+    "Foundation",
+    "QTKit",
+    "WebKit"
+  ],
+  "prefix_header_contents": "// If ARC is not enabled, declare empty ARC directives to supress compiler errors\n  #ifndef __has_feature\n      #define __has_feature(x) 0 // Compatibility with non-clang compilers.\n  #endif\n\n  #if !__has_feature(objc_arc)\n      #define __unsafe_unretained\n      #define __bridge\n  #endif",
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "UIKit",
+      "source_files": "UIKit/Classes/*.{h,m}",
+      "resources": "UIKit/Resources/*.png",
+      "header_dir": "UIKit"
+    },
+    {
+      "name": "StoreKit",
+      "source_files": "StoreKit/Classes/*.{h,m}",
+      "header_dir": "StoreKit"
+    },
+    {
+      "name": "AVFoundation",
+      "source_files": "AVFoundation/Classes/*.{h,m}",
+      "header_dir": "AVFoundation"
+    },
+    {
+      "name": "AssetsLibrary",
+      "source_files": "AssetsLibrary/Classes/*.{h,m}",
+      "header_dir": "AssetsLibrary"
+    },
+    {
+      "name": "MediaPlayer",
+      "source_files": "MediaPlayer/Classes/*.{h,m}",
+      "header_dir": "MediaPlayer"
+    },
+    {
+      "name": "MessageUI",
+      "source_files": [
+        "MessageUI/*.{h,m}",
+        "MessageUI/Classes/*.{h,m}"
+      ],
+      "header_dir": "MessageUI"
+    }
+  ]
+}

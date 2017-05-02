@@ -1,0 +1,196 @@
+{
+  "name": "BRFullTextSearch",
+  "version": "1.0.4",
+  "summary": "iOS Objective-C full text search engine.",
+  "description": "                   This project provides a way to integrate full-text search\n                   capabilities into your iOS project. First, it provides a\n                   protocol-based API for a simple text indexing and search\n                   framework. Second, it provides a\n                   [CLucene](http://clucene.sourceforge.net/) based implementation of\n                   that framework.\n",
+  "homepage": "https://github.com/Blue-Rocket/BRFullTextSearch",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Matt Magoffin": "git+matt@msqr.us"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/Blue-Rocket/BRFullTextSearch.git",
+    "tag": "1.0.4",
+    "submodules": true
+  },
+  "libraries": [
+    "stdc++",
+    "z"
+  ],
+  "compiler_flags": [
+    "-Wmost",
+    "-fvisibility=default",
+    "-fPIC",
+    "-D_UCS2",
+    "-D_UNICODE",
+    "-D_REENTRANT",
+    "-DNDEBUG"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++98",
+    "CLANG_CXX_LIBRARY": "libstdc++",
+    "GCC_OPTIMIZATION_LEVEL": "1",
+    "OTHER_LDFLAGS": "-stdlib=libstdc++"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "BRFullTextSearch/API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared": [
+
+        ],
+        "BRFullTextSearch/CLucene-Core": [
+
+        ],
+        "BRFullTextSearch/CLucene-Contribs-Lib": [
+
+        ],
+        "BRFullTextSearch/Implementation-CLucene": [
+
+        ]
+      }
+    },
+    {
+      "name": "API",
+      "source_files": "BRFullTextSearch/*.{h,m}",
+      "exclude_files": [
+        "BRFullTextSearch/*CLucene*",
+        "BRFullTextSearch/BRNoLockFactory.*",
+        "BRFUllTextSearch/*Analyzer*"
+      ]
+    },
+    {
+      "name": "Implementation-CLucene",
+      "source_files": [
+        "BRFullTextSearch/*CLucene*",
+        "BRFullTextSearch/BRNoLockFactory.*",
+        "BRFUllTextSearch/*Analyzer*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared-API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Core-API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Contribs-Lib": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene",
+      "dependencies": {
+        "BRFullTextSearch/API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared": [
+
+        ],
+        "BRFullTextSearch/CLucene-Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Config",
+      "requires_arc": false,
+      "source_files": "BRFullTextSearch/CLucene/*",
+      "header_mappings_dir": "BRFullTextSearch"
+    },
+    {
+      "name": "CLucene-Shared-API",
+      "requires_arc": false,
+      "source_files": "clucene/src/shared/CLucene/**/*.h",
+      "header_mappings_dir": "clucene/src/shared",
+      "exclude_files": [
+        "clucene/src/shared/CLucene/CLSharedMonolithic.*",
+        "clucene/src/shared/CLucene/util/deflate.*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/CLucene-Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Core-API",
+      "requires_arc": false,
+      "source_files": [
+        "clucene/src/core/CLucene.h",
+        "clucene/src/core/CLucene/**/*.h"
+      ],
+      "header_mappings_dir": "clucene/src/core",
+      "exclude_files": [
+        "clucene/src/core/CLucene/CLMonolithic.*",
+        "clucene/src/core/CLucene/search/FilterResultCache.*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/CLucene-Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Shared",
+      "requires_arc": false,
+      "source_files": "clucene/src/shared/CLucene/**/*.{c,cpp}",
+      "header_mappings_dir": "clucene/src/shared",
+      "exclude_files": [
+        "clucene/src/shared/CLucene/CLSharedMonolithic.*",
+        "clucene/src/shared/CLucene/util/deflate.*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/CLucene-Core-API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared-API": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Core",
+      "requires_arc": false,
+      "source_files": "clucene/src/core/CLucene/**/*.{c,cpp}",
+      "header_mappings_dir": "clucene/src/core",
+      "exclude_files": [
+        "clucene/src/core/CLucene/CLMonolithic.*",
+        "clucene/src/core/CLucene/search/FilterResultCache.*"
+      ],
+      "dependencies": {
+        "BRFullTextSearch/CLucene-Core-API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared-API": [
+
+        ]
+      }
+    },
+    {
+      "name": "CLucene-Contribs-Lib",
+      "requires_arc": false,
+      "source_files": "clucene/src/contribs-lib/CLucene/**/*.{h,c,cpp}",
+      "header_mappings_dir": "clucene/src/contribs-lib",
+      "dependencies": {
+        "BRFullTextSearch/CLucene-Core-API": [
+
+        ],
+        "BRFullTextSearch/CLucene-Shared-API": [
+
+        ]
+      }
+    }
+  ]
+}

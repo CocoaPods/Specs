@@ -1,0 +1,155 @@
+{
+  "name": "MyMeteor",
+  "version": "1.0.1",
+  "homepage": "http://github.com/premosystems/MyMeteor",
+  "authors": {
+    "Vincil Bishop": "vincil.bishop@vbishop.com"
+  },
+  "license": "MIT",
+  "summary": "Helper classes for implementing ObjectiveDDP as a Meteor client for iOS.",
+  "source": {
+    "git": "https://github.com/premosystems/MyMeteor.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "resources": "MyMeteor.podspec",
+  "source_files": "MyMeteor/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "MyMeteor/Core/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "ObjectiveDDP": [
+            "~>0.1.5"
+          ],
+          "MyiOSHelpers/Logic/ThirdPartyHelpers/CocoaLumberjack": [
+            "~>1.0.0"
+          ],
+          "MyiOSHelpers/Logic/Categories": [
+            "~>1.0.0"
+          ],
+          "MyiOSHelpers/Logic/Blocks": [
+            "~>1.0.0"
+          ]
+        }
+      },
+      "prefix_header_contents": [
+        "#import \"Lumberjack-Default-Log-Level.h\"",
+        "#import \"MyiOSLogicCategories.h\""
+      ]
+    },
+    {
+      "name": "Reactive",
+      "source_files": "MyMeteor/Reactive/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "ReactiveCocoa": [
+            "~>2.3"
+          ],
+          "MyMeteor/Core": [
+
+          ],
+          "MyMeteor/Model": [
+
+          ],
+          "BlocksKit": [
+            "~>2.2.3"
+          ]
+        }
+      },
+      "prefix_header_contents": "#import \"ReactiveCocoa.h\""
+    },
+    {
+      "name": "Model",
+      "source_files": "MyMeteor/Model/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "MyiOSHelpers/Logic/ThirdPartyHelpers/KeyValueObjectMapping": [
+            "~>1.0.0"
+          ],
+          "MyiOSHelpers/Logic/ThirdPartyHelpers/MongoDB": [
+            "~>1.0.0"
+          ],
+          "MyiOSHelpers/Logic/Blocks": [
+            "~>1.0.0"
+          ],
+          "MyiOSHelpers/Logic/Categories/NSDictionary": [
+            "~>1.0.0"
+          ],
+          "Underscore.m": [
+            "~>0.2.1"
+          ],
+          "MyMeteor/Core": [
+
+          ]
+        }
+      },
+      "prefix_header_contents": [
+        "#import \"MYMeteorModelObjectBase.h\"",
+        "#import \"Underscore.h\"",
+        "#ifndef _",
+        "#define _ Underscore",
+        "#endif"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "source_files": "MyMeteor/UIKit/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "MyiOSViewHelpers": [
+            "~>1.0.0"
+          ],
+          "MyMeteor/Model": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Controller",
+      "source_files": "MyMeteor/Controller/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "MyMeteor/Model": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Helpers",
+      "source_files": "MyMeteor/Helpers/*.{h,m}",
+      "ios": {
+        "dependencies": {
+          "MyMeteor/Core": [
+
+          ]
+        }
+      },
+      "subspecs": [
+        {
+          "name": "AutoLogon",
+          "source_files": "MyMeteor/Helpers/AutoLogon/*.{h,m}",
+          "ios": {
+            "dependencies": {
+              "MyiOSHelpers/Logic/Categories/NSString": [
+                "~>1.0.0"
+              ],
+              "MyiOSHelpers/Logic/Categories/NSError": [
+                "~>1.0.0"
+              ],
+              "MyMeteor/Core": [
+
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

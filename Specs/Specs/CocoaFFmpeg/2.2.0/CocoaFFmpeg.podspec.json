@@ -1,0 +1,42 @@
+{
+  "name": "CocoaFFmpeg",
+  "version": "2.2.0",
+  "license": {
+    "type": "LGPLv2.1+",
+    "file": "COPYING.LGPLv2.1"
+  },
+  "summary": "Pre-compiled light-weight FFmpeg libraries for iOS. Build your own with attached build script.",
+  "description": "  \t\t\t\t\t\tOptimized to decrease the size by compiling the necessary formats only\n\t\t\t\t\t\t\tvideo codecs: h264 (enable h263)\n\t\t\t\t\t\t\taudio codecs: AAC (enable mp3)\n\t\t\t\t\t\tFFmpeg - A complete, cross-platform solution to record, convert and stream audio and video.\n\t\t\t\t\t\thttps://www.ffmpeg.org/\n",
+  "homepage": "https://github.com/jold/CocoaFFmpeg",
+  "authors": {
+    "Daniel Jankovic": "dj@digital-life.cz"
+  },
+  "source": {
+    "git": "https://github.com/jold/CocoaFFmpeg.git",
+    "tag": "2.2.0"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "requires_arc": false,
+  "default_subspecs": [
+    "precompiled"
+  ],
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "source_files": "universal/include/**/*.h",
+      "public_header_files": "universal/include/**/*.h",
+      "header_mappings_dir": "universal/include",
+      "vendored_libraries": "universal/lib/*.a",
+      "libraries": [
+        "avcodec",
+        "avformat",
+        "avutil",
+        "swscale",
+        "z",
+        "bz2"
+      ]
+    }
+  ]
+}

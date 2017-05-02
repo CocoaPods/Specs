@@ -1,0 +1,95 @@
+{
+  "name": "TKScanKit",
+  "version": "0.1.2",
+  "summary": "Use multiple scanning SDKs with one clean API.",
+  "description": "  TKScanKit is a Cocoapods only library, inspired by ARAnalytics, which provides a clean API for different scanning SDKs. It does this by using subspecs from CocoaPods to let you decide which libraries you'd like to use.\"\n",
+  "homepage": "http://github.com/xslim/TKScanKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Taras Kalapun": "t.kalapun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/xslim/TKScanKit.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "CoreIOS",
+      "source_files": [
+        "*.{h,m}",
+        "TKScanningProvider.{h,m}",
+        "Providers/TKScanKitProviders.h"
+      ],
+      "platforms": [
+        "ios"
+      ]
+    },
+    {
+      "name": "ZBarSDK",
+      "prefix_header_contents": "#define TKSK_ZBARSDK_EXISTS 1",
+      "ios": {
+        "source_files": [
+          "Providers/ZBarSDKProvider.{h,m}"
+        ]
+      },
+      "dependencies": {
+        "TKScanKit/CoreIOS": [
+
+        ],
+        "ZBarSDK": [
+
+        ]
+      },
+      "platforms": [
+        "ios"
+      ]
+    },
+    {
+      "name": "IOS7ScanningVC",
+      "prefix_header_contents": "#define TKSK_IOS7SCANNINGVC_EXISTS 1",
+      "ios": {
+        "source_files": [
+          "Providers/IOS7ScanningVCProvider.{h,m}"
+        ]
+      },
+      "dependencies": {
+        "TKScanKit/CoreIOS": [
+
+        ],
+        "CDZQRScanningViewController": [
+
+        ]
+      },
+      "platforms": [
+        "ios"
+      ]
+    },
+    {
+      "name": "ScanditSDK",
+      "prefix_header_contents": "#define TKSK_SCANDITSDK_EXISTS 1",
+      "ios": {
+        "source_files": [
+          "Providers/ScanditSDKProvider.{h,m}"
+        ]
+      },
+      "dependencies": {
+        "TKScanKit/CoreIOS": [
+
+        ],
+        "ScanditSDK": [
+
+        ]
+      },
+      "platforms": [
+        "ios"
+      ]
+    }
+  ]
+}

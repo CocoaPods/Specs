@@ -1,0 +1,54 @@
+{
+  "name": "CoconutKit",
+  "version": "3.0.rc2",
+  "license": "MIT",
+  "summary": "CoconutKit is a library of high-quality iOS components.",
+  "homepage": "https://github.com/defagos/CoconutKit",
+  "authors": {
+    "Samuel Défago": "defagos@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/defagos/CoconutKit.git",
+    "tag": "3.0.rc2"
+  },
+  "social_media_url": "http://twitter.com/defagos",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "description": "                  CoconutKit is a library of high-quality iOS components, including:\n\n                  * Custom view controller containers\n                  * Declarative UIView and Core Animation-based animations\n                  * Language change at runtime\n                  * Localization in nib files without outlets\n                  * Core Data model management and validation made easy\n                  * Custom controls\n                  * ... and much more!\n",
+  "prefix_header_file": "CoconutKit/CoconutKit-Prefix.pch",
+  "frameworks": [
+    "CoreData",
+    "CoreGraphics",
+    "CoreText",
+    "Foundation",
+    "MessageUI",
+    "MobileCoreServices",
+    "QuartzCore",
+    "QuickLook",
+    "UIKit",
+    "WebKit"
+  ],
+  "requires_arc": true,
+  "source_files": "CoconutKit/Sources/**/*.{h,m}",
+  "exclude_files": "CoconutKit/Sources/Externals/MAZeroingWeakRef-75695a81/*.{h,m}",
+  "preserve_paths": [
+    "Tools/Scripts/GeneratedHeaders",
+    "Tools/Scripts/GeneratedResources"
+  ],
+  "prepare_command": "                      ruby Tools/Scripts/fix_cocoapods_localized_strings.rb\n                      ruby Tools/Scripts/generate_public_headers.rb\n",
+  "public_header_files": "Tools/Scripts/GeneratedHeaders/*.h",
+  "resource_bundles": {
+    "CoconutKit-resources": [
+      "CoconutKit-resources/{HTML,Images,Nibs}/*",
+      "Tools/Scripts/GeneratedResources/*.lproj"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "fno-objc-arc",
+      "requires_arc": false,
+      "source_files": "CoconutKit/Sources/Externals/MAZeroingWeakRef-75695a81/*.{h,m}"
+    }
+  ]
+}

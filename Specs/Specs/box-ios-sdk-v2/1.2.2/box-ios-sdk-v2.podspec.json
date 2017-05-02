@@ -1,0 +1,71 @@
+{
+  "name": "box-ios-sdk-v2",
+  "version": "1.2.2",
+  "summary": "iOS + OS X SDK for the Box V2 API.",
+  "homepage": "https://github.com/box/box-ios-sdk-v2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Ryan Lopopolo",
+  "source": {
+    "git": "https://github.com/box/box-ios-sdk-v2.git",
+    "tag": "v1.2.2"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "source_files": [
+      "BoxSDK/*.{h,m}",
+      "BoxSDK/**/*.{h,m}"
+    ],
+    "exclude_files": "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+    "public_header_files": [
+      "BoxSDK/*.h",
+      "BoxSDK/**/*.h"
+    ],
+    "frameworks": [
+      "Security",
+      "QuartzCore"
+    ],
+    "header_dir": "BoxSDK"
+  },
+  "osx": {
+    "source_files": [
+      "BoxCocoaSDK/*.{h,m}",
+      "BoxCocoaSDK/**/*.{h,m}",
+      "BoxSDK/*.{h,m}",
+      "BoxSDK/**/*.{h,m}"
+    ],
+    "exclude_files": [
+      "BoxSDK/BoxSDK.{h,m}",
+      "BoxSDK/Categories/UIImage+BoxAdditions.{h,m}",
+      "BoxSDK/Categories/BoxItem+BoxAdditions.{h,m}",
+      "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+      "BoxSDK/External/ODRefreshControl/*.{h,m}",
+      "BoxSDK/FolderPicker/*.{h,m}",
+      "BoxSDK/OAuth2/BoxAuthorizationViewController.{h,m}"
+    ],
+    "public_header_files": [
+      "BoxCocoaSDK/*.h",
+      "BoxCocoaSDK/**/*.h",
+      "BoxSDK/*.h",
+      "BoxSDK/**/*.h"
+    ],
+    "frameworks": "Security",
+    "header_dir": "BoxCocoaSDK"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "BoxSDK/External/ISO8601DateFormatter/BoxISO8601DateFormatter.{h,m}",
+      "requires_arc": false
+    }
+  ]
+}

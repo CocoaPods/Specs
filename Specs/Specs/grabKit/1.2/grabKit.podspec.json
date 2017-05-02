@@ -1,0 +1,56 @@
+{
+  "name": "grabKit",
+  "version": "1.2",
+  "summary": "Simple access on iOS to your photos on Facebook, FlickR, Instagram, Picasa, and more.",
+  "homepage": "https://github.com/pierrotsmnrd/grabKit",
+  "license": "MIT",
+  "authors": {
+    "Pierre-Olivier Simonard": "pierre.olivier.simonard@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pierrotsmnrd/grabKit.git",
+    "tag": "v1.2"
+  },
+  "source_files": [
+    "grabKit/grabKit/grabKitSources/*.{m,h}",
+    "grabKit/grabKit/grabKitSources/{configuration,constants,helpers,model,serviceGrabbers}/*.{m,h}",
+    "grabKit/grabKit/grabKitSources/serviceGrabbers/protocols/*.{m,h}",
+    "grabKit/grabKit/grabKitSources/serviceGrabbers/tokenStores/*.{m,h}"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": null
+  },
+  "subspecs": [
+    {
+      "name": "device",
+      "source_files": "grabKit/grabKit/grabKitSources/serviceGrabbers/deviceGrabber/*.{m,h}",
+      "frameworks": "AssetsLibrary"
+    },
+    {
+      "name": "facebook",
+      "source_files": "grabKit/grabKit/grabKitSources/serviceGrabbers/facebookGrabber/*.{m,h}",
+      "dependencies": {
+        "Facebook-iOS-SDK": [
+          "3.1.1"
+        ],
+        "ISO8601DateFormatter": [
+          "0.6"
+        ]
+      }
+    },
+    {
+      "name": "flickr",
+      "source_files": "grabKit/grabKit/grabKitSources/serviceGrabbers/flickrGrabber/*.{m,h}",
+      "dependencies": {
+        "objectiveflickr": [
+          "2.0.2"
+        ]
+      }
+    },
+    {
+      "name": "instagram",
+      "source_files": "grabKit/grabKit/grabKitSources/serviceGrabbers/instagramGrabber/*.{m,h}"
+    }
+  ]
+}

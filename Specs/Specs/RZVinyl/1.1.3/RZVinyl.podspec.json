@@ -1,0 +1,59 @@
+{
+  "name": "RZVinyl",
+  "version": "1.1.3",
+  "summary": "Stack management, ActiveRecord utilities, and seamless importing for Core Data.",
+  "description": "                          Stack management, ActiveRecord utilities, and seamless importing for Core Data.\n                          RZVinyl makes it easy to manage Core Data stacks, multiple contexts, concurrency,\n                          and more.\n                          \n                          ActiveRecord-style extensions for NSManagedObject let you easily create, find, filter,\n                          sort, and enumerate objects in your database.\n                          \n                          With the RZImport extension, importing objects into Core Data from external sources\n                          is simple and intuitive.\n",
+  "homepage": "https://github.com/Raizlabs/RZVinyl",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nick Donaldson": "nick.donaldson@raizlabs.com"
+  },
+  "social_media_url": "http://twitter.com/raizlabs",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/Raizlabs/RZVinyl.git",
+    "tag": "1.1.3"
+  },
+  "frameworks": [
+    "Foundation",
+    "CoreData"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Extensions",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Classes/*.{h,m}",
+        "Classes/Private/*.{h,m}"
+      ],
+      "public_header_files": "Classes/*.h",
+      "private_header_files": "Classes/Private/*.h"
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "RZVinyl/Core": [
+
+        ],
+        "RZImport": [
+          "~> 1.1"
+        ]
+      },
+      "source_files": [
+        "Extensions/*.{h,m}",
+        "Extensions/Private/*.{h,m}"
+      ],
+      "public_header_files": "Extensions/*.h",
+      "private_header_files": "Extensions/Private/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "RZV_IMPORT_AVAILABLE=1"
+      }
+    }
+  ]
+}

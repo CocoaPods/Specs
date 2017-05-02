@@ -1,0 +1,108 @@
+{
+  "name": "libopus",
+  "version": "1.0.3",
+  "summary": "Opus is a totally open, royalty-free, highly versatile audio codec.",
+  "description": "                   Opus is a totally open, royalty-free, highly versatile audio codec. \n                   Opus is unmatched for interactive speech and music transmission over \n                   the Internet, but is also intended for storage and streaming \n                   applications. It is standardized by the Internet Engineering Task \n                   Force (IETF) as [RFC 6716][1] which incorporated technology from \n                   Skype's SILK codec and Xiph.Org's CELT codec.\n                   \n                    [1]: http://tools.ietf.org/html/rfc6716\n",
+  "homepage": "http://www.opus-codec.org/",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": [
+    "Xiph.Org",
+    "Skype Limited",
+    "Octasic",
+    "Jean-Marc Valin",
+    "Timothy B. Terriberry",
+    "CSIRO",
+    "Gregory Maxwell",
+    "Mark Borgerding",
+    "Erik de Castro Lopo"
+  ],
+  "source": {
+    "git": "git://git.opus-codec.org/opus.git",
+    "tag": "v1.0.3"
+  },
+  "requires_arc": false,
+  "default_subspecs": "float",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/libopus/silk\""
+  },
+  "prepare_command": "cat >config.h <<CONFIG_H\n#define OPUS_BUILD /**/\n#define OPUS_EXTRA_VERSION \"\"\n#define OPUS_MAJOR_VERSION 1\n#define OPUS_MICRO_VERSION 0\n#define OPUS_MINOR_VERSION 2\n#define OPUS_VERSION \"1.0.2\"\n\n#define VAR_ARRAYS\n#define HAVE_LRINTF 1\n#define HAVE_LRINT 1\n#define HAVE_MEMORY_H 1\n#define HAVE_STDINT_H 1\n#define HAVE_STDLIB_H 1\n#define HAVE_STRINGS_H 1\n#define HAVE_STRING_H 1\n#define STDC_HEADERS 1\n\n#define restrict\nCONFIG_H\n",
+  "subspecs": [
+    {
+      "name": "fixed",
+      "source_files": [
+        "config.h",
+        "include/*.h",
+        "silk/*.{c,h}",
+        "celt/*.{c,h}",
+        "src/opus.c",
+        "src/opus_decoder.c",
+        "src/opus_encoder.c",
+        "src/opus_multistream.c",
+        "src/opus_multistream_encoder.c",
+        "src/opus_multistream_decoder.c",
+        "src/repacketizer.c",
+        "src/analysis.c",
+        "src/mlp.c",
+        "src/mlp_data.c",
+        "include/opus.h",
+        "include/opus_multistream.h",
+        "src/opus_private.h",
+        "src/analysis.h",
+        "src/mlp.h",
+        "src/tansig_table.h",
+        "silk/fixed"
+      ],
+      "public_header_files": [
+        "include/*.h"
+      ],
+      "exclude_files": "celt/opus_custom_demo.c",
+      "compiler_flags": [
+        "-w",
+        "-Xanalyzer",
+        "-analyzer-disable-checker",
+        "-DHAVE_CONFIG_H=1",
+        "-DFIXED_POINT"
+      ]
+    },
+    {
+      "name": "float",
+      "source_files": [
+        "config.h",
+        "include/*.h",
+        "silk/*.{c,h}",
+        "celt/*.{c,h}",
+        "src/opus.c",
+        "src/opus_decoder.c",
+        "src/opus_encoder.c",
+        "src/opus_multistream.c",
+        "src/opus_multistream_encoder.c",
+        "src/opus_multistream_decoder.c",
+        "src/repacketizer.c",
+        "src/analysis.c",
+        "src/mlp.c",
+        "src/mlp_data.c",
+        "include/opus.h",
+        "include/opus_multistream.h",
+        "src/opus_private.h",
+        "src/analysis.h",
+        "src/mlp.h",
+        "src/tansig_table.h",
+        "silk/float"
+      ],
+      "public_header_files": [
+        "include/*.h"
+      ],
+      "exclude_files": "celt/opus_custom_demo.c",
+      "compiler_flags": [
+        "-w",
+        "-Xanalyzer",
+        "-analyzer-disable-checker",
+        "-DHAVE_CONFIG_H=1",
+        "-DFLOATING_POINT"
+      ]
+    }
+  ]
+}

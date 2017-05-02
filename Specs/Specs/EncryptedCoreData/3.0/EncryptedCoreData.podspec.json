@@ -1,0 +1,34 @@
+{
+  "name": "EncryptedCoreData",
+  "version": "3.0",
+  "license": "Apache-2.0",
+  "summary": "iOS Core Data encrypted SQLite store using SQLCipher",
+  "description": "Provides a Core Data store that encrypts all data that is persisted. Besides the initial setup, the usage is exactly the same as Core Data and can be used in existing projects that use Core Data.",
+  "homepage": "https://github.com/project-imas/encrypted-core-data/",
+  "authors": {
+    "MITRE": "imas-proj-list@lists.mitre.org"
+  },
+  "source": {
+    "git": "https://github.com/project-imas/encrypted-core-data.git",
+    "tag": "3.0"
+  },
+  "frameworks": [
+    "CoreData",
+    "Security"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.9"
+  },
+  "source_files": "Incremental Store/**/*.{h,m}",
+  "public_header_files": "Incremental Store/EncryptedStore.h",
+  "dependencies": {
+    "SQLCipher": [
+      "~> 3.1.0"
+    ]
+  },
+  "xcconfig": {
+    "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_CC"
+  }
+}

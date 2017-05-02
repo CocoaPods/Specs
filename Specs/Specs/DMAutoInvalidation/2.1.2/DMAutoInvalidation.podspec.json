@@ -1,0 +1,25 @@
+{
+  "name": "DMAutoInvalidation",
+  "version": "2.1.2",
+  "summary": "Block-based observers that automatically unregister themselves.",
+  "description": "                   The DMAutoInvalidation class provides behavior to attach an\n                   observer object to an owning object. When the owning object\n                   is *about to* deallocate, `-invalidate` is sent to the\n                   observer object.\n\n                   This library includes pre-built observers for NSNotifcation,\n                   key-value observing, Core Data managed objects (observing\n                   `NSManagedObjectContextObjectsDidChangeNotification` and\n                   testing if an observed managed object's attributes or\n                   relationships have changed), and FSEvents (on Mac desktop\n                   only).\n\n                   The purpose of this is to model observer registration as an\n                   object, each with an associated block. This removes the need\n                   for the owning objects to dispatch to the desired code (if\n                   the observation always funnels through a single callback,\n                   such as key-value observing), and removes the need to\n                   manually unregister for notifications. With that, the\n                   possibility of *forgetting* to unregister for a notification\n                   (and the subsequent crash or bad behavior) is removed.\n",
+  "homepage": "https://github.com/jmah/DMAutoInvalidation",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Jonathon Mah": "me@JonathonMah.com",
+    "Wil Shipley": "wjs@mac.com"
+  },
+  "source": {
+    "git": "https://github.com/jmah/DMAutoInvalidation.git",
+    "tag": "2.1.2"
+  },
+  "source_files": "**/*.{h,m}",
+  "exclude_files": [
+    "DMBlockUtilities/DMBlockUtilitiesTest",
+    "DMKeyValueObserver/DMKeyValueObserverTest"
+  ],
+  "requires_arc": true
+}

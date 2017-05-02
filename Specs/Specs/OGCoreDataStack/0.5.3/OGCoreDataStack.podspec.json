@@ -1,0 +1,76 @@
+{
+  "name": "OGCoreDataStack",
+  "version": "0.5.3",
+  "summary": "A multi-threaded Core Data stack. Design goals are ease of use, compile-time checks, and wrappers for some common use cases.",
+  "homepage": "https://github.com/OrangeGroove/OGCoreDataStack",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Jesper": "jesper@orangegroove.net"
+  },
+  "source": {
+    "git": "https://github.com/OrangeGroove/OGCoreDataStack.git",
+    "tag": "0.5.3"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "private_header_files": "OGCoreDataStack/*Private.h",
+  "frameworks": "CoreData",
+  "requires_arc": true,
+  "social_media_url": "https://twitter.com/jskrufve",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "OGCoreDataStack/OGCoreDataStackCore.h",
+        "OGCoreDataStack/OGCoreDataStackPrivate.[hm]",
+        "OGCoreDataStack/*+OGCoreDataStack.[hm]"
+      ]
+    },
+    {
+      "name": "Vendor",
+      "dependencies": {
+        "OGCoreDataStack/Core": [
+
+        ]
+      },
+      "source_files": "OGCoreDataStack/OG*ManagedObjectVendor.[hm]"
+    },
+    {
+      "name": "UniqueId",
+      "dependencies": {
+        "OGCoreDataStack/Core": [
+
+        ]
+      },
+      "source_files": "OGCoreDataStack/NSManagedObject+OGCoreDataStackUniqueId.[hm]"
+    },
+    {
+      "name": "Contexts",
+      "dependencies": {
+        "OGCoreDataStack/Core": [
+
+        ]
+      },
+      "source_files": "OGCoreDataStack/NSManagedObjectContext+OGCoreDataStackContexts.[hm]"
+    },
+    {
+      "name": "ValueMapping",
+      "dependencies": {
+        "OGCoreDataStack/Core": [
+
+        ],
+        "OGCoreDataStack/UniqueId": [
+
+        ]
+      },
+      "source_files": [
+        "OGCoreDataStack/OGCoreDataStackValueMapper.[hm]",
+        "OGCoreDataStack/OGCoreDataStackValueMapping.h",
+        "OGCoreDataStack/*+OGCoreDataStackValueMapping.[hm]"
+      ]
+    }
+  ]
+}

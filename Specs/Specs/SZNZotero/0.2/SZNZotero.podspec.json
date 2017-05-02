@@ -1,0 +1,49 @@
+{
+  "name": "SZNZotero",
+  "version": "0.2",
+  "summary": "Objective-C client for the Zotero API.",
+  "homepage": "https://github.com/shazino/SZNZotero",
+  "license": "MIT",
+  "authors": {
+    "shazino": "contact@shazino.com"
+  },
+  "social_media_url": "https://twitter.com/shazino",
+  "source": {
+    "git": "https://github.com/shazino/SZNZotero.git",
+    "tag": "0.2"
+  },
+  "source_files": [
+    "SZNZotero/SZN*",
+    "NSString+SZNURLEncoding*"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "ios": {
+    "frameworks": "Security"
+  },
+  "dependencies": {
+    "AFOAuth1Client": [
+      "~> 0.3.0"
+    ],
+    "TBXML": [
+      "~> 1.5"
+    ],
+    "ISO8601DateFormatter": [
+      "~> 0.7"
+    ]
+  },
+  "prefix_header_contents": "  #import <Availability.h>\n\n  #if __IPHONE_OS_VERSION_MIN_REQUIRED\n    #import <SystemConfiguration/SystemConfiguration.h>\n    #import <MobileCoreServices/MobileCoreServices.h>\n    #import <Security/Security.h>\n  #else\n    #import <SystemConfiguration/SystemConfiguration.h>\n    #import <CoreServices/CoreServices.h>\n    #import <Security/Security.h>\n  #endif\n",
+  "subspecs": [
+    {
+      "name": "google-toolbox-mac",
+      "source_files": [
+        "SZNZotero/GTMDefines.h",
+        "SZNZotero/GTMNSString+HTML.{h,m}"
+      ],
+      "requires_arc": false
+    }
+  ]
+}

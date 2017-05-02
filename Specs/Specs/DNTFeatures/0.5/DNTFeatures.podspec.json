@@ -1,0 +1,37 @@
+{
+  "name": "DNTFeatures",
+  "version": "0.5",
+  "summary": "An Objective-C library to provide Feature flags and debug options.",
+  "description": "                   Use feature flags to hide code which is still in development.\n                   \n                   DNTFeatures provides classes to register flags, query the state of a \n                   flag, and present a view controller to switch the flags on or off.\n                   \n                   Extend this mechanism by allowing server control of flags, update the\n                   default value from a server to enable features in production. This can\n                   be used for powerful release strategies, such as turning on a feature\n                   gradually over a user base, or restrict features to user/market slices.\n                   \n                   Additionally, you can define debug options for feature to further \n                   control behaviour or allow additional configuration during development\n                   or QA. E.g. Enable Verbose Logging for a particular feature.\n\n",
+  "homepage": "http://github.com/danthorpe/DNTFeatures",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Thorpe": "danthorpe@me.com"
+  },
+  "social_media_url": "http://twitter.com/danthorpe",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/danthorpe/DNTFeatures.git",
+    "tag": "0.5"
+  },
+  "source_files": "sources/*.{h,m}",
+  "prefix_header_contents": "\n  #ifdef __OBJC__    \n    #define DNT_WEAK_SELF __weak __typeof(&*self)weakSelf = self;\n    #define DNT_STRING(value) (@#value)\n    #define DNT_YESNO(value) value ? @\"YES\" : @\"NO\"\n    #define DNT_PRETTY_METHOD NSStringFromSelector(_cmd)\n  #endif\n  ",
+  "resources": [
+    "sources/*.{storyboard,xib}",
+    "resources/*.{storyboard,xib}"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "DNTFEATURES_VERSION": "0.5"
+  },
+  "dependencies": {
+    "YapDatabase": [
+      "~> 2"
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "name": "AerisWeather",
+  "version": "2.2.2",
+  "summary": "Quickly integrate the Aeris Weather API data and map overlays into your iOS apps.",
+  "description": "The Aeris iOS Weather Framework allows a developer to quickly and easily add weather content and functionality to their iOS applications quickly and easily without having to code anything themselves. It utilizes the Aeris API backend for data loading and is built on top of an object mapping system that efficiently loads requested weather content into third-party iOS applications, greatly reducing the amount of code and development needed on the developer end.",
+  "homepage": "https://github.com/aerisweather/Aeris-iOS-Library",
+  "documentation_url": "http://www.aerisweather.com/support/docs/toolkits/aeris-ios-sdk/",
+  "social_media_url": "https://twitter.com/AerisDeveloper",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AerisWeather, LLC": "http://aerisweather.com"
+  },
+  "source": {
+    "git": "https://github.com/aerisweather/Aeris-iOS-Library.git",
+    "tag": "2.2.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Aeris",
+  "subspecs": [
+    {
+      "name": "Aeris",
+      "header_dir": "Aeris",
+      "vendored_frameworks": "AerisWeatherSDK/Aeris.framework",
+      "public_header_files": "AerisWeatherSDK/Aeris.framework/**/*.h",
+      "resources": "AerisWeatherSDK/Aeris.bundle",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.6"
+        ]
+      }
+    },
+    {
+      "name": "AerisUI",
+      "header_dir": "AerisUI",
+      "vendored_frameworks": "AerisWeatherSDK/AerisUI.framework",
+      "public_header_files": "AerisWeatherSDK/AerisUI.framework/**/*.h",
+      "resources": "AerisWeatherSDK/AerisUI.bundle",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "AerisMap",
+      "header_dir": "AerisMap",
+      "vendored_frameworks": "AerisWeatherSDK/AerisMap.framework",
+      "public_header_files": "AerisWeatherSDK/AerisMap.framework/**/*.h",
+      "frameworks": "MapKit",
+      "dependencies": {
+        "AerisWeather/AerisUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "AerisMapboxMap",
+      "header_dir": "AerisMapboxMap",
+      "vendored_frameworks": "AerisWeatherSDK/AerisMapboxMap.framework",
+      "public_header_files": "AerisWeatherSDK/AerisMapboxMap.framework/**/*.h",
+      "dependencies": {
+        "MBXMapKit": [
+
+        ],
+        "AerisWeather/AerisUI": [
+
+        ],
+        "AerisWeather/AerisMap": [
+
+        ]
+      }
+    },
+    {
+      "name": "AerisGoogleMap",
+      "header_dir": "AerisGoogleMap",
+      "vendored_frameworks": "AerisWeatherSDK/AerisGoogleMap.framework",
+      "public_header_files": "AerisWeatherSDK/AerisGoogleMap.framework/**/*.h",
+      "dependencies": {
+        "GoogleMaps": [
+
+        ],
+        "AerisWeather/AerisUI": [
+
+        ],
+        "AerisWeather/AerisMap": [
+
+        ]
+      }
+    }
+  ]
+}

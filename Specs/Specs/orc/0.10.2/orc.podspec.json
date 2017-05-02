@@ -1,0 +1,62 @@
+{
+  "name": "orc",
+  "version": "0.10.2",
+  "summary": "Office REST Client for Office 365 APIs",
+  "description": "\t\t   Client stack for Office 365 REST APIs and SDKs.\n\t\t   These libraries are in preview.\n",
+  "homepage": "https://github.com/MSOpenTech/orc-for-ios",
+  "license": "MIT",
+  "authors": {
+    "joshgav": "joshgav@microsoft.com"
+  },
+  "social_media_url": "http://twitter.com/OpenAtMicrosoft",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/MSOpenTech/orc-for-ios.git",
+    "tag": "v0.10.2"
+  },
+  "exclude_files": "**/Build/**/*",
+  "source_files": "orc.h",
+  "header_dir": "orc",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "api",
+      "source_files": "api/**/*.{h,m}",
+      "exclude_files": "api/apiTests/**/*",
+      "public_header_files": "api/**/*.h",
+      "header_dir": "api"
+    },
+    {
+      "name": "core",
+      "dependencies": {
+        "orc/api": [
+
+        ]
+      },
+      "source_files": "core/**/*.{h,m}",
+      "exclude_files": "core/coreTests/**/*",
+      "public_header_files": "core/**/*.h",
+      "header_dir": "core"
+    },
+    {
+      "name": "impl",
+      "dependencies": {
+        "orc/core": [
+
+        ],
+        "ADALiOS": [
+          "=1.2.4"
+        ],
+        "LiveSDK": [
+          "=5.6.1"
+        ]
+      },
+      "source_files": "impl/**/*.{h,m}",
+      "exclude_files": "impl/implTests/**/*",
+      "public_header_files": "impl/**/*.h",
+      "header_dir": "impl"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "DTModelStorage",
+  "version": "0.3.1",
+  "license": "MIT",
+  "summary": "Storage classes for datasource based controls.",
+  "homepage": "https://github.com/DenHeadless/DTModelStorage",
+  "authors": {
+    "Denys Telezhkin": "denys.telezhkin@yandex.ru"
+  },
+  "source": {
+    "git": "https://github.com/DenHeadless/DTModelStorage.git",
+    "tag": "0.3.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "source_files": "DTModelStorage/DTModelStorage.h",
+  "default_subspecs": [
+    "All"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "DTModelStorage/Core"
+    },
+    {
+      "name": "MemoryStorage",
+      "dependencies": {
+        "DTModelStorage/Core": [
+
+        ]
+      },
+      "source_files": [
+        "DTModelStorage/Memory",
+        "DTModelStorage/Utilities/DTModelSearching.h"
+      ]
+    },
+    {
+      "name": "CoreDataStorage",
+      "ios": {
+        "frameworks": "CoreData"
+      },
+      "dependencies": {
+        "DTModelStorage/Core": [
+
+        ]
+      },
+      "source_files": "DTModelStorage/CoreData"
+    },
+    {
+      "name": "ModelTransfer",
+      "source_files": "DTModelStorage/Utilities/DTModelTransfer.h"
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "DTModelStorage/CoreDataStorage": [
+
+        ],
+        "DTModelStorage/MemoryStorage": [
+
+        ],
+        "DTModelStorage/ModelTransfer": [
+
+        ]
+      }
+    }
+  ]
+}

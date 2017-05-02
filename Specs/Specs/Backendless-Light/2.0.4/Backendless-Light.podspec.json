@@ -1,0 +1,43 @@
+{
+  "name": "Backendless-Light",
+  "version": "2.0.4",
+  "summary": "Backendless provides an instant backend to help developers build better apps faster.",
+  "description": "\tBackendless is a development and a run-time platform. It helps software developers to create \n\tmobile and desktop applications while removing the need for server-side coding. The platform \n\tconsists of six core backend services which developers typically spend time implementing for \n\teach new applications. These services include:\n\n\t\tUser Service – facilitates user registrations, login, logout, session management.\n\t\tData Service – is responsible for data management – storage, retrieval, updates and deletion.\n\t\tMessaging Service – handles message publishing, broadcast, filtered message delivery and native mobile push notifications.\n\t\tFiles Service – is responsible for file uploads, downloads and file sharing.\n\t\tMedia Service – provides support for video and audio streaming (up and down) and server-side recording.\n\t\tGeo-Location Service – supports geo spatial data imports and geo queries.\n\n\t\tThe Backendless services can be accessed through an easy-to-use APIs which we packaged into our \n\t\tSDKs. The behavior of the services and the business logic behind them can be customized through \n\t\tthe Development Console.\n",
+  "homepage": "http://Backendless.com",
+  "screenshots": "https://backendless.com/wp-content/uploads/2013/03/Backendless_architecture-1024x710.jpg",
+  "license": {
+    "type": "Apache",
+    "text": "Copyright (c) 2012-2015 by Backendless.com"
+  },
+  "authors": {
+    "Vyacheslav Vdovichenko": "slavav@themidnightcoders.com"
+  },
+  "platforms": {
+    "ios": "8.2"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/Backendless/ios-SDK.git",
+    "commit": "ebc21a0ab052c545d7097060486bdf6c5d454107",
+    "tag": "2.0.4"
+  },
+  "preserve_paths": [
+    "SDK/lib/backendless/backendless.a",
+    "SDK/lib/CommLibiOS/CommLibiOS.a"
+  ],
+  "source_files": [
+    "SDK/lib/backendless/**/*.h",
+    "SDK/lib/CommLibiOS/**/*.h"
+  ],
+  "frameworks": "SystemConfiguration",
+  "libraries": [
+    "sqlite3",
+    "backendless",
+    "CommLibiOS"
+  ],
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/Backendless-Light/SDK/lib/backendless\" \"$(SRCROOT)/Pods/Backendless-Light/SDK/lib/CommLibiOS\"",
+    "SWIFT_OBJC_BRIDGING_HEADER": "${PODS_ROOT}/Headers/Backendless-Light/Backendless-Bridging-Header.h"
+  },
+  "prepare_command": "\n    pushd SDK/lib/backendless/\n\t  ln -s backendless.a libbackendless.a\n\tpopd\n\t\n\tpushd SDK/lib/CommLibiOS/\n\t  ln -s CommLibiOS.a libCommLibiOS.a\n\tpopd\n\t\n"
+}

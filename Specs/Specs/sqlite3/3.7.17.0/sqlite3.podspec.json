@@ -1,0 +1,32 @@
+{
+  "name": "sqlite3",
+  "version": "3.7.17.0",
+  "summary": "SQLite is an embedded SQL database engine.",
+  "homepage": "http://www.sqlite.org",
+  "license": "Public Domain",
+  "authors": {
+    "D. Richard Hipp": "drh@hwaci.com"
+  },
+  "source": {
+    "http": "http://www.sqlite.org/2013/sqlite-amalgamation-3071700.zip"
+  },
+  "default_subspecs": [
+    "common"
+  ],
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": "sqlite-amalgamation-3071700/sqlite3*.{h,c}"
+    },
+    {
+      "name": "fts",
+      "dependencies": {
+        "sqlite3/common": [
+
+        ]
+      },
+      "prefix_header_contents": "\n#define SQLITE_ENABLE_FTS4\n#define SQLITE_ENABLE_FTS3_PARENTHESIS\n"
+    }
+  ]
+}

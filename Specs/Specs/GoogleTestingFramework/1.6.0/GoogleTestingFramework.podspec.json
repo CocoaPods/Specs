@@ -1,0 +1,33 @@
+{
+  "name": "GoogleTestingFramework",
+  "version": "1.6.0",
+  "summary": "C++ unit testing framework",
+  "description": "                   Google's framework for writing C++ tests on a variety of platforms (Linux, Mac OS X, Windows, Cygwin, Windows CE, and Symbian). Based on the xUnit architecture. Supports automatic test discovery, a rich set of assertions, user-defined assertions, death tests, fatal and non-fatal failures, value- and type-parameterized tests, various options for running the tests, and XML test report generation.\n",
+  "homepage": "https://code.google.com/p/googletest/",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": "Google, Inc.",
+  "platforms": {
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/google-cpp-testing-framework/google-cpp-testing-framework.git",
+    "tag": "1.6.0"
+  },
+  "source_files": [
+    "src/*",
+    "include/**/*.h"
+  ],
+  "exclude_files": "src/gtest_main.cc",
+  "public_header_files": "include/**/*.h",
+  "header_mappings_dir": "include",
+  "frameworks": "Cocoa",
+  "requires_arc": false,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "GoogleTest/include/",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "prepare_command": "sed -i '' 's/src\\///' src/gtest-all.cc\necho \"246a247,251\n> #if __GXX_EXPERIMENTAL_CXX0X__ || __cplusplus >= 201103L\n> // Compiling in at least C++11 mode.\n> # define GTEST_LANG_CXX11 1\n> #endif\n> \n452c457,458\n< # if (defined(__GNUC__) && !defined(__CUDACC__) && (GTEST_GCC_VER_ >= 40000)) \\\\\n---\n> # if (defined(__GNUC__) && !defined(__CUDACC__) && (GTEST_GCC_VER_ >= 40000) \\\\\n> && (GTEST_LANG_CXX11 || !defined(_LIBCPP_VERSION))) \\\\\n467a474,487\n> # elif GTEST_LANG_CXX11\n> # include <tuple>\n> // C++11 puts its tuple into the ::std namespace rather than\n> // ::std::tr1. gtest expects tuple to live in ::std::tr1, so put it there.\n> namespace std {\n> namespace tr1 {\n> using ::std::get;\n> using ::std::make_tuple;\n> using ::std::tuple;\n> using ::std::tuple_element;\n> using ::std::tuple_size;\n> }\n> }\n> \n\" | patch include/gtest/internal/gtest-port.h\n"
+}

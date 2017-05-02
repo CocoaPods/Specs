@@ -1,0 +1,70 @@
+{
+  "name": "GetSocial",
+  "version": "4.0.2",
+  "summary": "GetSocial provides the whole social layer stack that powers engagement, retention, acquisition and revenue tools.",
+  "description": "Build and manage the community within your apps with GetSocial.\n\nGetSocial provides the whole social layer stack that powers engagement, retention, acquisition and revenue tools.\n\nFeatures Include:\n\nFully customizable UI\nPlayer-to-player chat\nDeveloper-to-player communication\nGroup Chats\nSegmented and Global Activity Feeds\nCommunity Management\nPlayer Feedback and support\nSmart invites and tracking\nLocalisation to 12 languages\nIn-app Notification Center\nSocially triggered push notifications\nAnd more...",
+  "homepage": "http://www.getsocial.im",
+  "social_media_url": "https://twitter.com/GetSocial_now",
+  "documentation_url": "http://docs.getsocial.im",
+  "license": {
+    "type": "Commercial",
+    "text": "See https://www.getsocial.im/legal/"
+  },
+  "authors": {
+    "GetSocial": "support@getsocial.im"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "preserve_paths": "GetSocial/README.md",
+  "source": {
+    "http": "http://downloads.getsocial.im/ios/GetSocial-iOS-v4.0.2.zip"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Social",
+        "MessageUI",
+        "MobileCoreServices",
+        "CoreTelephony",
+        "AdSupport",
+        "SystemConfiguration",
+        "Security",
+        "Foundation",
+        "Accelerate",
+        "AVFoundation"
+      ],
+      "libraries": "sqlite3",
+      "compiler_flags": [
+        "-ObjC",
+        "-all_load"
+      ],
+      "vendored_frameworks": "GetSocial/GetSocial.embeddedframework/GetSocial.framework",
+      "resources": "GetSocial/GetSocial.embeddedframework/GetSocial.framework/Versions/A/Resources/GetSocial.bundle"
+    },
+    {
+      "name": "Chat",
+      "dependencies": {
+        "GetSocial/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreLocation",
+        "CoreMedia",
+        "AudioToolbox"
+      ],
+      "libraries": [
+        "resolv",
+        "iconv",
+        "xml2",
+        "z"
+      ],
+      "compiler_flags": "-lstdc++",
+      "resources": "GetSocial/GetSocialChat.embeddedframework/GetSocialChat.framework/Versions/A/Resources/GetSocialChat.bundle",
+      "vendored_frameworks": "GetSocial/GetSocialChat.embeddedframework/GetSocialChat.framework"
+    }
+  ]
+}

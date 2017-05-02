@@ -1,0 +1,93 @@
+{
+  "name": "BZObjectStore",
+  "version": "1.2.5",
+  "license": "MIT",
+  "summary": "ORM library wrapped FMDB",
+  "homepage": "https://github.com/expensivegasprices/BZObjectStore",
+  "authors": {
+    "BONZOO LLC": "expensivegasprices@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/expensivegasprices/BZObjectStore.git",
+    "tag": "1.2.5"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FMDB": [
+
+        ],
+        "BZRuntime": [
+
+        ],
+        "AutoCoding": [
+
+        ]
+      },
+      "source_files": "BZObjectStore/Core/**/*.{h,m}"
+    },
+    {
+      "name": "CoreLocation",
+      "dependencies": {
+        "BZObjectStore/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "source_files": "BZObjectStore/CoreLocation/*.{h,m}"
+    },
+    {
+      "name": "ActiveRecord",
+      "dependencies": {
+        "BZObjectStore/Core": [
+
+        ]
+      },
+      "source_files": "BZObjectStore/ActiveRecord/*.{h,m}"
+    },
+    {
+      "name": "Parse",
+      "platforms": {
+        "ios": "5.0",
+        "osx": "10.8"
+      },
+      "ios": {
+        "dependencies": {
+          "BZObjectStore/Core": [
+
+          ],
+          "Parse-iOS-SDK": [
+
+          ]
+        },
+        "frameworks": "Parse",
+        "xcconfig": {
+          "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Parse\""
+        },
+        "source_files": "BZObjectStore/BZObjectStoreParse/*.{h,m}"
+      },
+      "osx": {
+        "dependencies": {
+          "BZObjectStore/Core": [
+
+          ],
+          "Parse-OSX-SDK": [
+
+          ]
+        },
+        "frameworks": "ParseOSX",
+        "xcconfig": {
+          "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Parse\""
+        },
+        "source_files": "BZObjectStore/BZObjectStoreParse/*.{h,m}"
+      }
+    }
+  ]
+}

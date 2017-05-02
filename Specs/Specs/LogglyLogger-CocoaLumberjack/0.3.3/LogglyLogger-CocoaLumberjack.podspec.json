@@ -1,0 +1,42 @@
+{
+  "name": "LogglyLogger-CocoaLumberjack",
+  "version": "0.3.3",
+  "summary": "LogglyLogger-CocoaLumberjack is a custom logger for CocoaLumberjack that logs to Loggly",
+  "description": "                   LogglyLogger-CocoaLumberjack let's you log to the cloud service.\n                   The logger extends the excellent base class DDAbstractDatabaseLogger, that makes\n                   sure that the threading model is correct and that the logs are not constantly being\n                   saved.\n                   Besides posting JSON to Loggly, LogglyLogger-CocoaLumberjack will add:\n                   - Sending standard info about the device, like os-version, lang setting etc\n                   - Automatic session number generation, which will help you search for log entires by session in the Loggly web interface\n                   - (Optional) Custom user specific id for each session\n                   - (Optional) Changing loglevel for a session\n",
+  "homepage": "https://github.com/melke/LogglyLogger-CocoaLumberjack",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.TXT"
+  },
+  "authors": {
+    "Mats Melke": "mats@melke.nu"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/melke/LogglyLogger-CocoaLumberjack.git",
+    "tag": "0.3.3"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "CocoaLumberjack": [
+      "~> 1.6"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Formatter",
+      "source_files": "LogglyLogger-CocoaLumberjack/{LogglyFields,LogglyFormatter}.{h,m}"
+    },
+    {
+      "name": "Logger",
+      "source_files": "LogglyLogger-CocoaLumberjack/LogglyLogger.{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.0"
+        ]
+      }
+    }
+  ]
+}

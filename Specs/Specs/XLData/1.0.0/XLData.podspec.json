@@ -1,0 +1,79 @@
+{
+  "name": "XLData",
+  "version": "1.0.0",
+  "license": "MIT",
+  "summary": "XLData provides an elegant and concise way to load and show data sets into UITableViews and UICollectionViews.",
+  "homepage": "https://github.com/xmartlabs/XLData",
+  "authors": {
+    "Martin Barreto": "martin@xmartlabs.com",
+    "Miguel Revetria": "miguel@xmartlabs.com"
+  },
+  "source": {
+    "git": "https://github.com/xmartlabs/XLData.git",
+    "tag": "v1.0.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": "CoreData"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "XLData/XL/Core/**/*.{h,m}"
+    },
+    {
+      "name": "CoreRemote",
+      "source_files": "XLData/XL/CoreRemote/**/*.{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "DataStore",
+      "source_files": "XLData/XL/Local/DataStore/**/*.{h,m}",
+      "dependencies": {
+        "XLData/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "source_files": "XLData/XL/Local/CoreData/**/*.{h,m}",
+      "dependencies": {
+        "XLData/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "RemoteDataStore",
+      "source_files": "XLData/XL/Remote/DataStore/**/*.{h,m}",
+      "dependencies": {
+        "XLData/CoreRemote": [
+
+        ],
+        "XLData/DataStore": [
+
+        ]
+      }
+    },
+    {
+      "name": "RemoteCoreData",
+      "source_files": "XLData/XL/Remote/CoreData/**/*.{h,m}",
+      "dependencies": {
+        "XLData/CoreRemote": [
+
+        ],
+        "XLData/CoreData": [
+
+        ]
+      }
+    }
+  ]
+}

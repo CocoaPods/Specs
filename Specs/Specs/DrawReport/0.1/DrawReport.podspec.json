@@ -1,0 +1,53 @@
+{
+  "name": "DrawReport",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "version": "0.1",
+  "license": "MIT",
+  "summary": "Library for reporting UI bugs.",
+  "homepage": "https://github.com/opedge/DrawReport",
+  "authors": {
+    "Oleg Poyaganov": "opedge@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/opedge/DrawReport.git",
+    "tag": "0.1"
+  },
+  "requires_arc": true,
+  "public_header_files": "DrawReport/*.h",
+  "source_files": "DrawReport/DRPDrawReport.h",
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "DrawReport/{DRPReporter,DRPReporterViewController}.h",
+      "source_files": "DrawReport/Core/*.{h,m}",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "CoreGraphics"
+        ]
+      }
+    },
+    {
+      "name": "Basecamp",
+      "public_header_files": "DrawReport/Basecamp/DRPBasecamp.h",
+      "source_files": "DrawReport/Basecamp/*.{h,m}",
+      "dependencies": {
+        "DrawReport/Core": [
+
+        ],
+        "NXOAuth2Client": [
+          "~> 1.2.4"
+        ]
+      },
+      "ios": {
+        "frameworks": "MobileCoreServices"
+      }
+    }
+  ]
+}

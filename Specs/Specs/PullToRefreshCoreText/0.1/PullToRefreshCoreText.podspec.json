@@ -1,0 +1,24 @@
+{
+  "name": "PullToRefreshCoreText",
+  "version": "0.1",
+  "summary": "PullToRefresh extension for all UIScrollView type classes with animated text drawing style ",
+  "description": "PullToRefreshCoreText\n=====================\n\nPullToRefresh extension for all UIScrollView type classes with animated text drawing style<br>\n\nDemo\n----\n\n![alt tag](https://raw.githubusercontent.com/cemolcay/PullToRefreshCoreText/master/demo.gif)\n\n\nUsage\n-----\nCopy the files in the folder named PullToRefreshCoreText to your project. <br>\nImport the \"UIScrollView+PullToRefreshCoreText.h\"\n\n\t- (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                       pullTextColor:(UIColor *)pullTextColor\n\t                        pullTextFont:(UIFont *)pullTextFont\n\t                      refreshingText:(NSString *)refreshingText\n\t                 refreshingTextColor:(UIColor *)refreshingTextColor\n\t                  refreshingTextFont:(UIFont *)refreshingTextFont\n\t                              action:(pullToRefreshAction)action;\n\nIt has 2 main texts, pulling and refreshing. <br>\nInit function has parameters for creating this texts with its strings, text colors and fonts. <br> \nLast parameter is the block function where loading code goes to. <br>\n\nAlternatively I added some other init methods if you want to use same texts or fonts etc. <br>\n\n\t   - (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                                 action:(pullToRefreshAction)action;\n\t   \n\t   - (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                         refreshingText:(NSString *)refreshingText\n\t                                 action:(pullToRefreshAction)action;\n\t   \n\t   - (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                                   font:(UIFont *)font\n\t                                 action:(pullToRefreshAction)action;\n\t   \n\t   \n\t   - (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                         refreshingText:(NSString *)refreshingText\n\t                                   font:(UIFont *)font\n\t                                 action:(pullToRefreshAction)action;\n\t   \n\t   \n\t   - (void)addPullToRefreshWithPullText:(NSString *)pullText\n\t                          pullTextColor:(UIColor *)pullTextColor\n\t                         refreshingText:(NSString *)refreshingText\n\t                    refreshingTextColor:(UIColor *)refreshingTextColor\n\t                                   font:(UIFont *)font\n\t                                 action:(pullToRefreshAction)action;\n\n\nImplementation\n--------------\n\n    //Create ScrollView\n    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];\n    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 1)];\n    [self.view addSubview:self.scrollView];\n\n    \n    //add pull to refresh\n    __weak typeof(self) weakSelf = self;\n    [self.scrollView addPullToRefreshWithPullText:@\"Pull To Refresh\" pullTextColor:[UIColor blackColor] pullTextFont:DefaultTextFont refreshingText:@\"Refreshing\" refreshingTextColor:[UIColor blueColor] refreshingTextFont:DefaultTextFont action:^{\n        [weakSelf loadItems];\n    }];\n\n\nOne last thing: you should call the `[scrollView finishLoading]` method after the load finishes.<br>\nOtherwise you stuck in refreshing state always.\n\nCredits\n=======\n\nBlogs and codes I used for creating this<br>\nhttps://github.com/jrturton/NSString-Glyphs<br>\nhttp://www.codeproject.com/Articles/109729/Low-level-text-rendering<br>\nhttp://ronnqvi.st/controlling-animation-timing/<br>\n",
+  "homepage": "https://github.com/cemolcay/PullToRefreshCoreText",
+  "license": "MIT",
+  "authors": {
+    "Cem Olcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/PullToRefreshCoreText.git",
+    "tag": "v0.1"
+  },
+  "source_files": [
+    "PullToRefreshCoreText/*.{h,m}",
+    "PullToRefreshCoreText/PullToRefreshCoreText/*.{h,m}"
+  ],
+  "frameworks": "CoreText",
+  "requires_arc": true
+}

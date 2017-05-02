@@ -1,0 +1,113 @@
+{
+  "name": "BugReportKit",
+  "version": "0.1.9",
+  "summary": "Easier bug reports on iOS.",
+  "description": "                       Easier bug reports on iOS. Just take a screenshot in your app, doodle on the image, and send it away! The report will contain device metadata including device model, iOS version, jailbreak status, memory, disk and battery usage status, carrier and WiFi names and a unique user identifier (if set by developer). Currently, Bug reports can be added to Github Issues, JIRA issues, Gitlab Issues, or sent as emails.\n\n                       For more details, check out the Github repo -- https://github.com/rahuljiresal/BugReportKit\n",
+  "homepage": "https://github.com/rahuljiresal/BugReportKit",
+  "screenshots": [
+    "https://cloud.githubusercontent.com/assets/216346/9147661/06328b94-3d1f-11e5-829f-bbda3ceb9856.gif",
+    "https://cloud.githubusercontent.com/assets/216346/9147888/c91bfb24-3d22-11e5-9d43-151d08ae7129.png",
+    "https://cloud.githubusercontent.com/assets/216346/9147889/c937381c-3d22-11e5-89e7-152c18e3b6f3.png"
+  ],
+  "license": "MIT",
+  "authors": {
+    "Rahul Jiresal": "rahul.jiresal@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/rahuljiresal/BugReportKit.git",
+    "tag": "0.1.9"
+  },
+  "social_media_url": "https://twitter.com/rahuljiresal",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "BugReportKit": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pod/Classes/Core/**/*",
+      "public_header_files": "Pod/Core/BRK.h",
+      "dependencies": {
+        "GBDeviceInfo": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ]
+    },
+    {
+      "name": "S3ImageUploader",
+      "source_files": "Pod/Classes/ImageUploader/**/*",
+      "public_header_files": "Pod/ImageUploader/*.h",
+      "dependencies": {
+        "AWSS3": [
+          "2.2.3"
+        ],
+        "BugReportKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "EmailReporter",
+      "source_files": "Pod/Classes/Reporters/Email/**/*",
+      "public_header_files": "Pod/Reporters/Email/BRKEmailReporter.h",
+      "dependencies": {
+        "mailcore2-ios": [
+
+        ],
+        "BugReportKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "GithubReporter",
+      "source_files": "Pod/Classes/Reporters/Github/**/*",
+      "public_header_files": "Pod/Reporters/Github/BRKGithubReporter.h",
+      "dependencies": {
+        "BugReportKit/Core": [
+
+        ],
+        "BugReportKit/S3ImageUploader": [
+
+        ]
+      }
+    },
+    {
+      "name": "GitlabReporter",
+      "source_files": "Pod/Classes/Reporters/Gitlab/**/*",
+      "public_header_files": "Pod/Reporters/Gitlab/BRKGithubReporter.h",
+      "dependencies": {
+        "BugReportKit/Core": [
+
+        ],
+        "BugReportKit/S3ImageUploader": [
+
+        ]
+      }
+    },
+    {
+      "name": "JIRAReporter",
+      "source_files": "Pod/Classes/Reporters/JIRA/**/*",
+      "public_header_files": "Pod/Reporters/JIRA/BRKJIRAReporter.h",
+      "dependencies": {
+        "BugReportKit/Core": [
+
+        ],
+        "BugReportKit/S3ImageUploader": [
+
+        ]
+      }
+    }
+  ]
+}

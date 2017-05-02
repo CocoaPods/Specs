@@ -1,0 +1,77 @@
+{
+  "name": "J2ObjC",
+  "version": "0.9.3",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "summary": "J2ObjC's JRE emulation library, emulates a subset of the Java runtime library.",
+  "homepage": "https://github.com/google/j2objc",
+  "authors": "Google Inc.",
+  "source": {
+    "git": "https://github.com/goodow/j2objc.git",
+    "tag": "v0.9.3-lib"
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7"
+  },
+  "requires_arc": false,
+  "default_subspecs": "lib/jre",
+  "header_mappings_dir": "dist/include",
+  "prepare_command": "    scripts/download_distribution.sh\n",
+  "subspecs": [
+    {
+      "name": "lib",
+      "frameworks": "Security",
+      "osx": {
+        "frameworks": "ExceptionHandling"
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/J2ObjC/dist/lib\"",
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC/dist/include\""
+      },
+      "subspecs": [
+        {
+          "name": "jre",
+          "preserve_paths": "dist",
+          "libraries": [
+            "jre_emul",
+            "z"
+          ]
+        },
+        {
+          "name": "jsr305",
+          "dependencies": {
+            "J2ObjC/lib/jre": [
+
+            ]
+          },
+          "libraries": "jsr305"
+        },
+        {
+          "name": "junit",
+          "dependencies": {
+            "J2ObjC/lib/jre": [
+
+            ]
+          },
+          "libraries": [
+            "j2objc_main",
+            "junit",
+            "mockito"
+          ]
+        },
+        {
+          "name": "guava",
+          "dependencies": {
+            "J2ObjC/lib/jre": [
+
+            ]
+          },
+          "libraries": "guava"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "PNChart",
+  "version": "0.5.5",
+  "summary": "A simple and beautiful chart lib with animation used in Piner for iOS",
+  "description": "                  #PNChart\n\n                  [![Build Status](https://travis-ci.org/kevinzhow/PNChart.png?branch=master)](https://travis-ci.org/kevinzhow/PNChart)\n\n                  You can also find swift version at here https://github.com/kevinzhow/PNChart-Swift\n\n                  A simple and beautiful chart lib with **animation** used in [Piner](https://itunes.apple.com/us/app/piner/id637706410) and [CoinsMan](https://itunes.apple.com/us/app/coinsman/id772163893) for iOS\n\n                  [![](https://dl.dropboxusercontent.com/u/1599662/pnchart.gif)](https://dl.dropboxusercontent.com/u/1599662/pnchart.gif)\n\n                  ## Requirements\n\n                  PNChart works on iOS 6.0 and later version and is compatible with ARC projects. It depends on the following Apple frameworks, which should already be included with most Xcode templates:\n\n                  * Foundation.framework\n                  * UIKit.framework\n                  * CoreGraphics.framework\n                  * QuartzCore.framework\n\n                  You will need LLVM 3.0 or later in order to build PNChart.\n\n\n\n\n                  ## Usage\n\n                  ### Cocoapods\n\n                  [CocoaPods](http://cocoapods.org) is the recommended way to add PNChart to your project.\n\n                  1. Add a pod entry for PNChart to your Podfile `pod 'PNChart', '~> 0.5'`\n                  2. Install the pod(s) by running `pod install`.\n                  3. Include PNChart wherever you need it with `#import \"PNChart.h\"`.\n\n\n                  ### Copy the PNChart folder to your project\n\n\n                  [![](https://dl.dropboxusercontent.com/u/1599662/line.png)](https://dl.dropboxusercontent.com/u/1599662/line.png)\n\n                  ```objective-c\n                    #import \"PNChart.h\"\n\n                    //For LineChart\n                    PNLineChart * lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];\n                    [lineChart setXLabels:@[@\"SEP 1\",@\"SEP 2\",@\"SEP 3\",@\"SEP 4\",@\"SEP 5\"]];\n\n                    // Line Chart No.1\n                    NSArray * data01Array = @[@60.1, @160.1, @126.4, @262.2, @186.2];\n                    PNLineChartData *data01 = [PNLineChartData new];\n                    data01.color = PNFreshGreen;\n                    data01.itemCount = lineChart.xLabels.count;\n                    data01.getData = ^(NSUInteger index) {\n                        CGFloat yValue = [data01Array[index] floatValue];\n                        return [PNLineChartDataItem dataItemWithY:yValue];\n                    };\n                    // Line Chart No.2\n                    NSArray * data02Array = @[@20.1, @180.1, @26.4, @202.2, @126.2];\n                    PNLineChartData *data02 = [PNLineChartData new];\n                    data02.color = PNTwitterColor;\n                    data02.itemCount = lineChart.xLabels.count;\n                    data02.getData = ^(NSUInteger index) {\n                        CGFloat yValue = [data02Array[index] floatValue];\n                        return [PNLineChartDataItem dataItemWithY:yValue];\n                    };\n\n                    lineChart.chartData = @[data01, data02];\n                    [lineChart strokeChart];\n\n                  ```\n\n                  [![](https://dl.dropboxusercontent.com/u/1599662/bar.png)](https://dl.dropboxusercontent.com/u/1599662/bar.png)\n\n                  ```objective-c\n                    #import \"PNChart.h\"\n\n                    //For BarChart\n                    PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];\n                    [barChart setXLabels:@[@\"SEP 1\",@\"SEP 2\",@\"SEP 3\",@\"SEP 4\",@\"SEP 5\"]];\n                    [barChart setYValues:@[@1,  @10, @2, @6, @3]];\n                    [barChart strokeChart];\n\n                  ```\n\n                  [![](https://dl.dropboxusercontent.com/u/1599662/circle.png)](https://dl.dropboxusercontent.com/u/1599662/circle.png)\n\n\n                  ```objective-c\n                  #import \"PNChart.h\"\n\n                  //For CircleChart\n\n                  PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 80.0, SCREEN_WIDTH, 100.0) andTotal:[NSNumber numberWithInt:100] andCurrent:[NSNumber numberWithInt:60] andClockwise:NO];\n                  circleChart.backgroundColor = [UIColor clearColor];\n                  [circleChart setStrokeColor:PNGreen];\n                  [circleChart strokeChart];\n\n                  ```\n\n\n                  [![](https://dl.dropboxusercontent.com/u/1599662/pie.png)](https://dl.dropboxusercontent.com/u/1599662/pie.png)\n\n                  ```objective-c\n                  # import \"PNChart.h\"\n                  //For PieChart\n                  NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNRed],\n                                             [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@\"WWDC\"],\n                                             [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@\"GOOL I/O\"],\n                                             ];\n\n\n\n                  PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];\n                  pieChart.descriptionTextColor = [UIColor whiteColor];\n                  pieChart.descriptionTextFont  = [UIFont fontWithName:@\"Avenir-Medium\" size:14.0];\n                  [pieChart strokeChart];\n                  ```\n\n                  #### Callback\n\n                  Currently callback only works on Linechart\n\n                  ```objective-c\n                    #import \"PNChart.h\"\n\n                  //For LineChart\n\n                  lineChart.delegate = self;\n\n\n                  ```\n\n                  ```objective-c\n\n                  //For DelegateMethod\n\n\n                  -(void)userClickedOnLineKeyPoint:(CGPoint)point lineIndex:(NSInteger)lineIndex pointIndex:(NSInteger)pointIndex{\n                      NSLog(@\"Click Key on line %f, %f line index is %d and point index is %d\",point.x, point.y,(int)lineIndex, (int)pointIndex);\n                  }\n\n                  -(void)userClickedOnLinePoint:(CGPoint)point lineIndex:(NSInteger)lineIndex{\n                      NSLog(@\"Click on line %f, %f, line index is %d\",point.x, point.y, (int)lineIndex);\n                  }\n\n                  ```\n\n\n                  ## License\n\n                  This code is distributed under the terms and conditions of the [MIT license](LICENSE).\n\n                  ## SpecialThanks\n\n                  [@lexrus](http://twitter.com/lexrus)  CocoaPods Spec\n\n",
+  "homepage": "https://github.com/kevinzhow/PNChart",
+  "screenshots": "https://camo.githubusercontent.com/e99c1bbab103c63efd561c4997a4bedb878bb2a2/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f313539393636322f706e63686172742e676966",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kevinzhow": "kevinchou.c@gmail.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/kevinzhow/PNChart.git",
+    "tag": "0.5.5"
+  },
+  "source_files": [
+    "PNChart",
+    "PNChart/**/*.{h,m}"
+  ],
+  "public_header_files": "PNChart/**/*.h",
+  "frameworks": [
+    "CoreGraphics",
+    "UIKit",
+    "Foundation",
+    "QuartzCore"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "UICountingLabel": [
+      "~> 1.0.0"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "MTLManagedObjectAdapter",
+  "version": "1.0",
+  "license": "MIT",
+  "summary": "Model framework for Cocoa and Cocoa Touch.",
+  "homepage": "https://github.com/Mantle/Mantle",
+  "authors": {
+    "GitHub": "support@github.com"
+  },
+  "source": {
+    "git": "https://github.com/Mantle/MTLManagedObjectAdapter.git",
+    "tag": "1.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "source_files": "MTLManagedObjectAdapter/MTLManagedObjectAdapter.{h,m}",
+  "public_header_files": "MTLManagedObjectAdapter/MTLManagedObjectAdapter.h",
+  "dependencies": {
+    "Mantle": [
+      "~> 2.0"
+    ]
+  },
+  "frameworks": [
+    "Foundation",
+    "CoreData"
+  ],
+  "prepare_command": "  PREFIX=\"mtl_moa_\"\n  # Add prefix to header imports\n  ext_header_prefix_src() {\n    SOURCE_FILE=$1\n    EXT_HEADER_NAME=$2\n    sed -i.bak \"s/\"${EXT_HEADER_NAME}\"/\"${PREFIX}${EXT_HEADER_NAME}\"/g\" ${SOURCE_FILE} && rm ${SOURCE_FILE}.bak\n  }\n  ext_header_prefix_src MTLManagedObjectAdapter/MTLManagedObjectAdapter.m EXTRuntimeExtensions.h\n  ext_header_prefix_src MTLManagedObjectAdapter/MTLManagedObjectAdapter.m EXTScope.h\n  ext_header_prefix_src MTLManagedObjectAdapter/extobjc/EXTRuntimeExtensions.m EXTRuntimeExtensions.h\n  ext_header_prefix_src MTLManagedObjectAdapter/extobjc/EXTScope.m EXTScope.h\n  # Change header name\n  ext_header_prefix_mv() {\n    SOURCE_FILE=$1\n    FILE_NAME=`basename ${SOURCE_FILE}`\n    DIR_NAME=`dirname ${SOURCE_FILE}`\n    mv ${SOURCE_FILE} `dirname ${SOURCE_FILE}`/${PREFIX}`basename ${SOURCE_FILE}`\n  }\n  export -f ext_header_prefix_mv\n  export PREFIX=${PREFIX}\n  find MTLManagedObjectAdapter/extobjc -name \"*.h\" -exec bash -c 'ext_header_prefix_mv \"$0\"' {} \\;\n  unset ext_header_prefix_mv\n  unset PREFIX\n",
+  "subspecs": [
+    {
+      "name": "extobjc",
+      "source_files": "MTLManagedObjectAdapter/extobjc/*.{h,m}",
+      "private_header_files": "MTLManagedObjectAdapter/extobjc/*.h"
+    }
+  ]
+}

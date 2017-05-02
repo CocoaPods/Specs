@@ -1,0 +1,71 @@
+{
+  "name": "IGHTMLQuery",
+  "version": "0.6.4",
+  "summary": "IGHTMLQuery is a lightweight XML/HTML parser for iOS, built on top of libxml.",
+  "description": "IGHTMLQuery is a lightweight XML/HTML parser for iOS, built on top of libxml.\n\n* XPath support for document searching.\n* jQuery style chainable syntax.\n* XML traversal and manipulation.\n",
+  "homepage": "https://github.com/siuying/IGHTMLQuery",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Francis Chong": "francis@ignition.hk"
+  },
+  "source": {
+    "git": "https://github.com/siuying/IGHTMLQuery.git",
+    "tag": "0.6.4"
+  },
+  "libraries": "xml2",
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.8"
+      },
+      "source_files": "IGHTMLQuery/Classes/**/*.{h,m}",
+      "exclude_files": "IGHTMLQuery/Classes/JSContext+IGHTMLQueryRubyAdditions.{h,m}"
+    },
+    {
+      "name": "JavaScript",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      },
+      "prefix_header_contents": "#define IGHTMLQUERY_JAVSCRIPT_EXPORT",
+      "frameworks": "JavaScriptCore",
+      "source_files": "IGHTMLQuery/Classes/**/*.{h,m}",
+      "exclude_files": "IGHTMLQuery/Classes/JSContext+IGHTMLQueryRubyAdditions.{h,m}"
+    },
+    {
+      "name": "Ruby",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      },
+      "prefix_header_contents": "#define IGHTMLQUERY_JAVSCRIPT_EXPORT\n#define IGHTMLQUERY_RUBY_EXPORT",
+      "frameworks": "JavaScriptCore",
+      "source_files": "IGHTMLQuery/Classes/**/*.{h,m}",
+      "resources": "IGHTMLQuery/JavaScript/*.js",
+      "dependencies": {
+        "IGHTMLQuery/JavaScript": [
+
+        ],
+        "JavaScriptCoreOpalAdditions": [
+          ">= 0.2.2"
+        ]
+      }
+    }
+  ]
+}

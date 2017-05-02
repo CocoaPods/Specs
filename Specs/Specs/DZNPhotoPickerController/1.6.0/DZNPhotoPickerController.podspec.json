@@ -1,0 +1,77 @@
+{
+  "name": "DZNPhotoPickerController",
+  "version": "1.6.0",
+  "summary": "A photo search/picker for iOS using popular providers like 500px, Flickr, Intagram, Google Images, etc.",
+  "description": "This framework tries to mimic as close as possible the native UIImagePickerController API for iOS7, in terms of features, appearance and behaviour.",
+  "homepage": "https://github.com/dzenbot/DZNPhotoPickerController",
+  "screenshots": "https://raw.githubusercontent.com/dzenbot/DZNPhotoPickerController/master/Docs/screenshots.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ignacio Romero Z.": "iromero@dzen.cl"
+  },
+  "source": {
+    "git": "https://github.com/dzenbot/UIPhotoPickerController.git",
+    "tag": "v1.6.0"
+  },
+  "default_subspecs": "Core",
+  "resources": [
+    "Resources",
+    "Source/Resources/**/*.*"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/Classes/Core/*.{h,m}",
+      "dependencies": {
+        "SDWebImage": [
+          "3.7"
+        ],
+        "DZNEmptyDataSet": [
+          "1.3.3"
+        ],
+        "MBProgressHUD": [
+          "0.9"
+        ],
+        "DZNPhotoPickerController/Services": [
+
+        ],
+        "DZNPhotoPickerController/Editor": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "Source/Classes/Services/*.{h,m}",
+        "Source/Classes/Core/DZNPhotoPickerControllerConstants.{h,m}"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "2.4.1"
+        ],
+        "GROAuth2SessionManager": [
+          "0.2.3"
+        ]
+      },
+      "prefix_header_contents": [
+        "#import <MobileCoreServices/MobileCoreServices.h>",
+        "#import <SystemConfiguration/SystemConfiguration.h>"
+      ]
+    },
+    {
+      "name": "Editor",
+      "source_files": [
+        "Source/Classes/Editor/*.{h,m}",
+        "Source/Classes/Core/DZNPhotoPickerControllerConstants.{h,m}"
+      ]
+    }
+  ]
+}
