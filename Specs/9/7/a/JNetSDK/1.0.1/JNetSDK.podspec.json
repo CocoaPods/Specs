@@ -1,0 +1,81 @@
+{
+  "name": "JNetSDK",
+  "version": "1.0.1",
+  "summary": "汇付宝,让移动支付更简单快捷.",
+  "homepage": "https://github.com/zhangyuchao/HeepaySDKDemo.git",
+  "license": "MIT",
+  "authors": {
+    "zhangyuchao": "zhangyuchaofight@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/zhangyuchao/HeepaySDKDemo.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Wx",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "HeepaySDKDemo/SDKs/*.h",
+      "vendored_libraries": "HeepaySDKDemo/SDKs/*.a",
+      "requires_arc": true,
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreGraphics",
+        "CoreTelephony",
+        "JavaScriptCore",
+        "SystemConfiguration",
+        "CFNetwork",
+        "CoreMotion"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Wx",
+      "frameworks": "CoreTelephony",
+      "vendored_libraries": [
+        "HeepaySDKDemo/SDKs/Librarys/WXSDK/libWeChatSDK.a",
+        "HeepaySDKDemo/SDKs/Librarys/WXSDK/*.a"
+      ],
+      "source_files": "HeepaySDKDemo/SDKs/Librarys/WXSDK/*.h",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "JNetSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "vendored_frameworks": "HeepaySDKDemo/SDKs/Librarys/AliPaySDK/AlipaySDK.framework",
+      "vendored_libraries": "HeepaySDKDemo/SDKs/Librarys/AliPaySDK/*.a",
+      "resources": "HeepaySDKDemo/SDKs/Librarys/AliPaySDK/AlipaySDK.bundle",
+      "dependencies": {
+        "JNetSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
