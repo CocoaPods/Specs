@@ -1,0 +1,25 @@
+{
+  "name": "WRService",
+  "version": "0.1.0",
+  "summary": "WRService is light and convinient tool for working with an API via NSURLSession for most of applications.",
+  "description": "# WRService\n\nWRService is light and convinient tool for working with an API via NSURLSession  for most of applications.\n\nStandart configuration has 2 queues: default and background. Background queue has less priority than standart queue. Each quque is represented as an NSURLSession instance. \n\nYou get internet data throuth WROperations. There is an example:\n\n    NSURL *url = [NSURL URLWithString:@\"http://speedtest.ftp.otenet.gr/files/test100Mb.db\"];\n    \n    WROperation *op = [[WROperation alloc] initWithUrl:url];\n    \n    [[WRService shared] execute:op onSuccess:^(WROperation * _Nonnull op, NSData * _Nonnull data) {\n        NSLog(@\"Backgound task is READY! %@\", op);\n    } onFail:^(WROperation * _Nonnull op, NSError * _Nonnull error) {\n        NSLog(@\"Fail error: %@\", error);\n    }];\n\n\n\nYou can get progress via block or delegate. Example:\n\n    op.progressCallback = ^(float progress) {\n        NSLog(@\"Progress: %f\", progress);\n    };\n    \n\nIf you emplemented WRObjectOperationProtocol to your class you can get result as your class instance or array of your class instanse. Example:\n\n    NSURL *url = [NSURL URLWithString:@\"http://ip.jsontest.com\"];\n    NSURLRequest *req = [NSURLRequest requestWithURL:url];\n    \n    WRObjectOperation * objOp = [[WRObjectOperation alloc] initWithRequest:req resultClass:[Article class]];\n    \n    [[WRService shared] execute:objOp onSuccess:^(WROperation * _Nonnull op, Article  _Nonnull result) {\n        NSLog(@\"Article: %@\", result);\n    } onFail:^(WROperation * _Nonnull op, NSError * _Nonnull error) {\n        NSLog(@\"Error: %@\", error);\n    }];\n\nWROperation.\n------------\n\nEach WROperation has priority property. There are three types of priority: \nWROperationPriorityDefault, WROperationPriorityBackground, WROperationPriorityExclusive.\n\nIf you start an operation with Exclusive priority all task (except Exclusive) will be suspended. \nSuspended tasks will continue work after all exclusive tasks is finished.\n\n\nJSON encoding and decoding.\n--------------------------\nAnd if you want have the fastest way for creating class which will be decoded from JSON use NSObject_WRJSON category for generating Objective-C class from JSON object. Example:\n\n    NSURL *url = [NSURL URLWithString:@\"https://api.github.com/events\"];\n    NSURLRequest *req = [NSURLRequest requestWithURL:url];\n    \n    WRObjectOperation *op = [[WRObjectOperation alloc] initWithRequest:req];\n    \n    [[WRService shared] execute:op onSuccess:^(WROperation * _Nonnull op, NSData*  _Nonnull result) {\n        \n        id json = [NSJSONSerialization JSONObjectWithData:result options:0 error:nil];\n        if (json) {\n            NSString *classInterface = [NSObject wrGenerateClass:@\"GitHubEvent\" fromJSON:json];\n            NSLog(@\"%@\", classInterface);\n        }\n    } onFail:nil];\n    \n    \n    /* Result of NSLog: */\n\n@class Repo, Actor, Payload;@interface GitHubEvent : NSObject\n\n@property (nonatomic, strong) Repo *repo;@property (nonatomic, strong) Actor *actor;@property (nonatomic, assign) short public;@property (nonatomic, assign) NSInteger id;@property (nonatomic, copy) NSString *created_at;@property (nonatomic, strong) Payload *payload;@property (nonatomic, copy) NSString *type;@end\n\n\n@interface Repo : NSObject\n\n@property (nonatomic, assign) NSInteger id;@property (nonatomic, copy) NSString *name;@property (nonatomic, copy) NSString *url;@end\n\n\n@interface Actor : NSObject\n\n@property (nonatomic, copy) NSString *display_login;@property (nonatomic, assign) NSInteger id;@property (nonatomic, copy) NSString *login;@property (nonatomic, copy) NSString *avatar_url;@property (nonatomic, copy) NSString *url;@property (nonatomic, copy) NSString *gravatar_id;@end\n\n@interface Payload : NSObject\n\n@property (nonatomic, copy) NSString *before;@property (nonatomic, copy) NSString *ref;@property (nonatomic, assign) NSInteger push_id;@property (nonatomic, assign) NSInteger size;@property (nonatomic, assign) NSInteger distinct_size;@property (nonatomic, copy) NSString *head;@end",
+  "homepage": "https://github.com/beastgrim/WRService",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "beastgrim": "beastgrim@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/beastgrim/WRService.git",
+    "branch": "0.1.0",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "source_files": "WRService/Classes/**/*"
+}
