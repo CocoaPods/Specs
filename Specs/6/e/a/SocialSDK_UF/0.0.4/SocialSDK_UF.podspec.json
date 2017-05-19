@@ -1,0 +1,319 @@
+{
+  "name": "SocialSDK_UF",
+  "version": "0.0.4",
+  "summary": "SocialSDK_UF SDK for iOS",
+  "homepage": "https://github.com/GagSquad/SocialSDK",
+  "authors": {
+    "itlijunjie@gmail.com": "https://github.com/itlijunjie",
+    "LVJIALIN": "https://github.com/LVJIALIN"
+  },
+  "license": {
+    "type": "WTFPL",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/GagSquad/SocialSDK.git",
+    "tag": "0.0.4"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": " -all_load"
+  },
+  "default_subspecs": [
+    "UI",
+    "QQ",
+    "Sina",
+    "WeChat"
+  ],
+  "subspecs": [
+    {
+      "name": "TencentOpenApiSDK",
+      "source_files": "SDK/TencentOpenApi/TencentOpenAPI.framework/Headers/*.{h,m}",
+      "public_header_files": "SDK/TencentOpenApi/TencentOpenAPI.framework/Headers/*.h",
+      "vendored_frameworks": "SDK/TencentOpenApi/TencentOpenAPI.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -lz -lsqlite3 -liconv -lstdc++ -framework \"SystemConfiguration\" -framework \"CoreTelephony\""
+      }
+    },
+    {
+      "name": "WeiboSDK",
+      "source_files": "SDK/libWeiboSDK/*.{h,m}",
+      "public_header_files": "SDK/libWeiboSDK/*.h",
+      "vendored_libraries": "SDK/libWeiboSDK/libWeiboSDK.a",
+      "frameworks": [
+        "ImageIO",
+        "SystemConfiguration",
+        "CoreText",
+        "QuartzCore",
+        "Security",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "WeChatSDK",
+      "source_files": "SDK/WeChatSDK/*.{h,m}",
+      "public_header_files": "SDK/WeChatSDK/*.h",
+      "vendored_libraries": "SDK/WeChatSDK/libWeChatSDK.a",
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "SocialSDK/Classes/Core/Logger/**/*.{h,m}",
+        "SocialSDK/Classes/Core/Util/**/*.{h,m}",
+        "SocialSDK/Classes/Core/SocialManager/**/*.{h,m}",
+        "SocialSDK/Classes/Core/PlatformParamConfig/Base/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "SocialSDK/Classes/Core/Logger/**/*.h",
+        "SocialSDK/Classes/Core/Util/**/*.h",
+        "SocialSDK/Classes/Core/SocialManager/**/*.h",
+        "SocialSDK/Classes/Core/PlatformParamConfig/Base/**/*.h"
+      ]
+    },
+    {
+      "name": "UI",
+      "source_files": "SocialSDK/Classes/UI/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/UI/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQPlatformParamConfig",
+      "source_files": "SocialSDK/Classes/Core/PlatformParamConfig/QQ/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Core/PlatformParamConfig/QQ/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/TencentOpenApiSDK": [
+
+        ],
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SinaPlatformParamConfig",
+      "source_files": "SocialSDK/Classes/Core/PlatformParamConfig/Sina/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Core/PlatformParamConfig/Sina/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/WeiboSDK": [
+
+        ],
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatPlatformParamConfig",
+      "source_files": "SocialSDK/Classes/Core/PlatformParamConfig/WeChat/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Core/PlatformParamConfig/WeChat/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/WeChatSDK": [
+
+        ],
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ShareBase",
+      "source_files": "SocialSDK/Classes/Share/Base/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/Base/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQShare",
+      "source_files": "SocialSDK/Classes/Share/QQ/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/QQ/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/QQPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/ShareBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "QzoneShare",
+      "source_files": "SocialSDK/Classes/Share/Qzone/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/Qzone/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/QQPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/ShareBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "SinaShare",
+      "source_files": "SocialSDK/Classes/Share/Sina/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/Sina/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/SinaPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/ShareBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatSessionShare",
+      "source_files": "SocialSDK/Classes/Share/WeChatSession/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/WeChatSession/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/WeChatPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/ShareBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatTimeLineShare",
+      "source_files": "SocialSDK/Classes/Share/WeChatTimeLine/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Share/WeChatTimeLine/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/WeChatPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/ShareBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "LoginBase",
+      "source_files": "SocialSDK/Classes/Login/Base/**/*.{h,m,mm}",
+      "public_header_files": "SocialSDK/Classes/Login/Base/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQLogin",
+      "source_files": "SocialSDK/Classes/Login/QQ/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Login/QQ/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/QQPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/LoginBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "SinaLogin",
+      "source_files": "SocialSDK/Classes/Login/Sina/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Login/Sina/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/SinaPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/LoginBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatLogin",
+      "source_files": "SocialSDK/Classes/Login/WeChat/**/*.{h,m}",
+      "public_header_files": "SocialSDK/Classes/Login/WeChat/**/*.h",
+      "dependencies": {
+        "SocialSDK_UF/WeChatPlatformParamConfig": [
+
+        ],
+        "SocialSDK_UF/LoginBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQ",
+      "dependencies": {
+        "SocialSDK_UF/TencentOpenApiSDK": [
+
+        ],
+        "SocialSDK_UF/UI": [
+
+        ],
+        "SocialSDK_UF/QQShare": [
+
+        ],
+        "SocialSDK_UF/QzoneShare": [
+
+        ],
+        "SocialSDK_UF/QQLogin": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sina",
+      "dependencies": {
+        "SocialSDK_UF/WeiboSDK": [
+
+        ],
+        "SocialSDK_UF/SinaShare": [
+
+        ],
+        "SocialSDK_UF/SinaLogin": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChat",
+      "dependencies": {
+        "SocialSDK_UF/WeChatSDK": [
+
+        ],
+        "SocialSDK_UF/WeChatSessionShare": [
+
+        ],
+        "SocialSDK_UF/WeChatTimeLineShare": [
+
+        ],
+        "SocialSDK_UF/WeChatLogin": [
+
+        ]
+      }
+    }
+  ]
+}
