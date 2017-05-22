@@ -1,0 +1,133 @@
+{
+  "name": "WQBasicComponents",
+  "version": "0.0.1",
+  "summary": "基础组件",
+  "description": "将之前的组件进行细致拆分",
+  "homepage": "https://github.com/wang68543/WQBasicComponents",
+  "license": "MIT",
+  "authors": {
+    "王强": "wang68543@163.com"
+  },
+  "source": {
+    "git": "https://github.com/wang68543/WQBasicComponents.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": [
+    "#import <UIKit/UIKit.h>",
+    "#import <Foundation/Foundation.h>"
+  ],
+  "source_files": "WQBasicComponents/WQBasicComponents.h",
+  "exclude_files": "WQBasicComponents/Tool/VoiceTool/amrwapper/*.{h,m}",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.0"
+    ],
+    "SDWebImage": [
+      "~>3.8"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Category",
+      "subspecs": [
+        {
+          "name": "Category_Vendor",
+          "source_files": "WQBasicComponents/Category/Category_Vendor/*.{h,m}"
+        },
+        {
+          "name": "Category_Foundation",
+          "source_files": "WQBasicComponents/Category/Category_Foundation/*.{h,m}"
+        },
+        {
+          "name": "Category_UIKit",
+          "source_files": "WQBasicComponents/Category/Category_UIKit/*.{h,m}"
+        },
+        {
+          "name": "Category_Date",
+          "dependencies": {
+            "WQBasicComponents/Category/Category_Vendor": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Category/Category_Date/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "WavAmrHelp",
+      "requires_arc": false,
+      "source_files": "WQBasicComponents/Tool/VoiceTool/amrwapper/*.{h,m}",
+      "vendored_libraries": [
+        "WQBasicComponents/Tool/VoiceTool/amrwapper/libopencore-amrnb.a",
+        "WQBasicComponents/Tool/VoiceTool/amrwapper/libopencore-amrwb.a"
+      ]
+    },
+    {
+      "name": "Tool",
+      "subspecs": [
+        {
+          "name": "BasicFoundation",
+          "source_files": "WQBasicComponents/Tool/BasicFoundation/*.{h,m}"
+        },
+        {
+          "name": "BasicHelp",
+          "dependencies": {
+            "WQBasicComponents/Category/Category_Foundation": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Tool/BasicHelp/*.{h,m}"
+        },
+        {
+          "name": "FunctionHelp",
+          "source_files": "WQBasicComponents/Tool/FunctionHelp/*.{h,m}"
+        },
+        {
+          "name": "NetWorkTool",
+          "dependencies": {
+            "WQBasicComponents/Tool/BasicHelp": [
+
+            ],
+            "WQBasicComponents/Category/Category_UIKit": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Tool/NetWorkTool/*.{h,m}"
+        },
+        {
+          "name": "VoiceTool",
+          "dependencies": {
+            "WQBasicComponents/Tool/NetWorkTool": [
+
+            ],
+            "WQBasicComponents/Tool/BasicHelp": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Tool/VoiceTool/*.{h,m}"
+        },
+        {
+          "name": "PayTool",
+          "source_files": "WQBasicComponents/Tool/PayTool/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "UICustom",
+      "subspecs": [
+        {
+          "name": "ViewCustom",
+          "source_files": "WQBasicComponents/UICustom/ViewCustom/*.{h,m}"
+        },
+        {
+          "name": "StarView",
+          "source_files": "WQBasicComponents/UICustom/StarView/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
