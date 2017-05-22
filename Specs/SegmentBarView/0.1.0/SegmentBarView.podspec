@@ -18,8 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.test
-                       DESC
+Encapsulation of similar netease cloud music trying to switch the space!
+Rapid development of!
+DESC
 
   s.homepage         = 'https://github.com/Zhangxueyang/SegmentBarView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
