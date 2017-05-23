@@ -1,0 +1,84 @@
+{
+  "name": "KrMediumKit",
+  "version": "0.1.11",
+  "summary": "Basic components of 36kr Medium",
+  "license": {
+    "type": "MIT",
+    "file": "License.md"
+  },
+  "authors": {
+    "yangyang": "yangyang02@36kr.com"
+  },
+  "homepage": "https://github.com/yyny1789/KrMediumKit",
+  "source": {
+    "git": "https://github.com/yyny1789/KrMediumKit.git",
+    "tag": "0.1.11"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Source/Utils/",
+        "Source/Utils/Extensions/"
+      ]
+    },
+    {
+      "name": "Database",
+      "source_files": "Source/Database/",
+      "dependencies": {
+        "RealmSwift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Source/Network/",
+      "dependencies": {
+        "KrMediumKit/Database": [
+
+        ],
+        "Moya/RxSwift": [
+          "~> 8.0.0"
+        ],
+        "ObjectMapper": [
+          "~> 2.0.0"
+        ],
+        "ReachabilitySwift": [
+          "~> 3.0.0"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "subspecs": [
+        {
+          "name": "PullToRefresh",
+          "source_files": "Source/UI/PullToRefresh",
+          "dependencies": {
+            "KrMediumKit/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "Source/Base/",
+      "dependencies": {
+        "KrMediumKit/UI": [
+
+        ],
+        "KrMediumKit/Network": [
+
+        ]
+      }
+    }
+  ]
+}
