@@ -1,0 +1,166 @@
+{
+  "name": "Phunware",
+  "version": "1.1.9.2",
+  "license": "MIT",
+  "summary": "Phunware SDKs (BETA)",
+  "homepage": "https://github.com/phunware/beta-ios",
+  "authors": {
+    "Phunware": "info@phunware.com"
+  },
+  "source": {
+    "git": "https://github.com/phunware/beta-ios.git",
+    "tag": "v1.1.9.2"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Beta",
+  "subspecs": [
+    {
+      "name": "Beta",
+      "subspecs": [
+        {
+          "name": "Core",
+          "ios": {
+            "vendored_frameworks": "Framework/PWCore.framework",
+            "frameworks": [
+              "Security",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony"
+            ],
+            "dependencies": {
+              "SSZipArchive": [
+
+              ],
+              "TMCache": [
+
+              ],
+              "AFNetworking": [
+
+              ]
+            }
+          },
+          "libraries": [
+            "z",
+            "xml2.2"
+          ]
+        },
+        {
+          "name": "Location",
+          "ios": {
+            "vendored_frameworks": "Framework/PWLocation.framework",
+            "libraries": "c++",
+            "frameworks": [
+              "Security",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony",
+              "CoreBluetooth",
+              "CoreMotion",
+              "CoreLocation",
+              "MapKit"
+            ]
+          },
+          "dependencies": {
+            "Phunware/Beta/Core": [
+
+            ],
+            "MistSDK": [
+
+            ],
+            "IndoorAtlas": [
+
+            ],
+            "TMCache": [
+
+            ]
+          },
+          "libraries": [
+            "sqlite3",
+            "z",
+            "xml2.2"
+          ]
+        },
+        {
+          "name": "MapKit",
+          "ios": {
+            "vendored_frameworks": "Framework/PWMapKit.framework",
+            "dependencies": {
+              "Phunware/Beta/Location": [
+
+              ],
+              "TMCache": [
+
+              ]
+            },
+            "frameworks": [
+              "Security",
+              "CoreGraphics",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony",
+              "CoreLocation",
+              "MapKit"
+            ]
+          }
+        },
+        {
+          "name": "Engagement",
+          "ios": {
+            "vendored_frameworks": "Framework/PWEngagement.framework",
+            "frameworks": "CoreLocation"
+          },
+          "dependencies": {
+            "Phunware/Beta/Core": [
+
+            ],
+            "FMDB": [
+
+            ]
+          },
+          "libraries": [
+            "sqlite3",
+            "z"
+          ]
+        },
+        {
+          "name": "Ads",
+          "ios": {
+            "vendored_frameworks": "Framework/PWAdvertising.framework",
+            "frameworks": [
+              "Security",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony",
+              "MessageUI",
+              "EventKit",
+              "EventKitUI",
+              "CoreMedia",
+              "AVFoundation",
+              "MediaPlayer",
+              "AudioToolbox",
+              "AdSupport",
+              "StoreKit",
+              "WebKit"
+            ]
+          },
+          "dependencies": {
+            "Phunware/Beta/Core": [
+
+            ]
+          },
+          "libraries": [
+            "sqlite3",
+            "z"
+          ]
+        }
+      ]
+    }
+  ]
+}
