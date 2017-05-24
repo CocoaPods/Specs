@@ -1,0 +1,96 @@
+{
+  "name": "HJPaymentModule",
+  "version": "0.0.2",
+  "summary": "对Alipay、微信支付、银联支付三方支付进行聚合",
+  "description": "1、集成alipay 、 微信支付、 银联支付三种支付方式，并暴露统一API进行管理",
+  "homepage": "https://github.com/Hjayth/HJPaymentModule",
+  "license": "MIT",
+  "authors": {
+    "hjayth": "18622995206@163.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/Hjayth/HJPaymentModule.git",
+    "tag": "0.0.2"
+  },
+  "source_files": "HJPaymentModule/HJPaymentModule.h",
+  "subspecs": [
+    {
+      "name": "PayChannels",
+      "source_files": "HJPaymentModule/PayChannels/*.{h,m}"
+    },
+    {
+      "name": "AliPay",
+      "source_files": "HJPaymentModule/PayChannels/AliPay/*.{h,m}",
+      "resources": "HJPaymentModule/PayChannels/AliPay/**/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion"
+      ],
+      "vendored_frameworks": "HJPaymentModule/PayChannels/AliPay/**/AlipaySDK.framework",
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "HJPaymentModule/PayChannels": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXPay",
+      "source_files": "HJPaymentModule/PayChannels/WXPay/*.{h,m}",
+      "dependencies": {
+        "WechatOpenSDK": [
+
+        ],
+        "HJPaymentModule/PayChannels": [
+
+        ]
+      }
+    },
+    {
+      "name": "Unpay",
+      "source_files": "HJPaymentModule/PayChannels/Unpay/**/*.{h,m}",
+      "vendored_libraries": "HJPaymentModule/PayChannels/Unpay/**/*.a",
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ],
+      "dependencies": {
+        "HJPaymentModule/PayChannels": [
+
+        ]
+      }
+    },
+    {
+      "name": "HJPaymentService",
+      "source_files": "HJPaymentModule/HJPaymentService/*.{h,m}",
+      "frameworks": [
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "dependencies": {
+        "HJPaymentModule/PayChannels": [
+
+        ],
+        "HJPaymentModule/AliPay": [
+
+        ],
+        "HJPaymentModule/WXPay": [
+
+        ],
+        "HJPaymentModule/Unpay": [
+
+        ]
+      }
+    }
+  ]
+}
