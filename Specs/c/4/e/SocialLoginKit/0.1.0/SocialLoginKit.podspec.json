@@ -1,0 +1,91 @@
+{
+  "name": "SocialLoginKit",
+  "version": "0.1.0",
+  "summary": "multiple social login kit. Support to Naver, Kakao and Facebook",
+  "description": "multiple social login kit. Support to Naver, Kakao and Facebook",
+  "homepage": "https://github.com/magicmon/SocialLoginKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "magicmon": "sagun25si@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/magicmon/SocialLoginKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SocialLoginKit/Classes/**/*"
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "SocialLoginKit/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "4.22.0"
+        ],
+        "FBSDKLoginKit": [
+          "4.22.0"
+        ],
+        "FBSDKShareKit": [
+          "4.22.0"
+        ]
+      },
+      "source_files": "SocialLoginKit/Facebook/Classes/**/*.swift",
+      "resource_bundles": {
+        "FacebookBundle": [
+          "SocialLoginKit/Facebook/Dependencies/Resources/*.png"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-all_load -ObjC",
+        "OTHER_SWIFT_FLAGS": "$(inherited) \"-DFacebook\""
+      }
+    },
+    {
+      "name": "Naver",
+      "dependencies": {
+        "SocialLoginKit/Core": [
+
+        ]
+      },
+      "source_files": [
+        "SocialLoginKit/Naver/Classes/**/*",
+        "SocialLoginKit/Naver/Dependencies/thirdPartyModule/*.[h,m]"
+      ],
+      "vendored_libraries": "SocialLoginKit/Naver/Dependencies/thirdPartyModule/libNaverLogin.a",
+      "resources": "SocialLoginKit/Naver/Dependencies/Resources/NaverAuth.bundle",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-all_load -ObjC",
+        "OTHER_SWIFT_FLAGS": "$(inherited) \"-DNaver\""
+      }
+    },
+    {
+      "name": "Kakao",
+      "dependencies": {
+        "SocialLoginKit/Core": [
+
+        ]
+      },
+      "source_files": [
+        "SocialLoginKit/Kakao/Classes/**/*.{h,swift}",
+        "SocialLoginKit/Kakao/Dependencies/**/*.h"
+      ],
+      "vendored_frameworks": "SocialLoginKit/Kakao/Dependencies/KakaoOpenSDK.framework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-all_load -ObjC",
+        "OTHER_SWIFT_FLAGS": "$(inherited) \"-DKakao\""
+      }
+    }
+  ]
+}
