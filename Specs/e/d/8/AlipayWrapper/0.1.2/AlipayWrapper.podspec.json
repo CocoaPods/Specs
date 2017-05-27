@@ -1,0 +1,64 @@
+{
+  "name": "AlipayWrapper",
+  "version": "0.1.2",
+  "summary": "AlipayWrapper 是 AlipaySDK 的帮助类库。",
+  "description": "AlipayWrapper 是 AlipaySDK 的帮助类库。它从 AlipaySDK 官方 Demo 中提取除 AlipaySDK.framework 和 AlipaySDK.bundle 之外的文件。",
+  "homepage": "https://github.com/EvoIos/AlipayWrapper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhenglanchun": "zlanchun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/EvoIos/AlipayWrapper.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "AlipayWrapper/Classes/**/*.{h,m}",
+  "dependencies": {
+    "AlipaySDKIniOS": [
+      "~> 15.2.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/AlipaySDKIniOS",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup"
+  },
+  "subspecs": [
+    {
+      "name": "Util",
+      "source_files": "AlipayWrapper/Util/**/*.{h,m}",
+      "dependencies": {
+        "AlipayWrapper/OpenSSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "OpenSSL",
+      "source_files": "AlipayWrapper/Openssl/**/*.h",
+      "public_header_files": "AlipayWrapper/Openssl/**/*.h",
+      "ios": {
+        "preserve_paths": [
+          "AlipayWrapper/StaticLibrary/libcrypto.a",
+          "AlipayWrapper/StaticLibrary/libssl.a"
+        ],
+        "vendored_libraries": [
+          "AlipayWrapper/StaticLibrary/libcrypto.a",
+          "AlipayWrapper/StaticLibrary/libssl.a"
+        ]
+      },
+      "libraries": [
+        "ssl",
+        "crypto"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/AlipayWrapper/AlipayWrapper/Openssl/**"
+      }
+    }
+  ]
+}
