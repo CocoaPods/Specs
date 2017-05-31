@@ -1,0 +1,23 @@
+{
+  "name": "HLTabPagerViewController",
+  "version": "0.1.0",
+  "summary": "TabPagerViewController like 今日头条.",
+  "description": "## Installation\n**CocoaPods** (recommended)\nAdd the following line to your `Podfile`:\n\n`pod 'HLTabPagerViewController', '~> 0.1.0'`\n\nAnd then add `import HLTabPagerViewController` to your view controller.\n\n## Usage\nTo use it, you should create a view controller that extends `HLTabPagerViewController `. Write your `viewDidLoad` as follows:\n\n```swift\n\noverride func viewDidLoad() {\n    super.viewDidLoad()\n    \n    self.dataSource = self\n    self.delegate \t= self\n    \n    self.reloadData()\n}\n\n```\n\nThen, implement the `HLTabPagerDataSource` to populate the view.\nThe data source has a couple of required methods, and a few more optional.\n\n### Data Source\nThe data source methods will allow you to provide content to your tab pager view controller.\n\n#### Required Methods\n```swift\nfunc numberOfViewControllers() -> Int\n\nfunc viewController(forIndex index: Int) -> UIViewController\n\n```\n\n#### Optional Methods\n**Note that despite being optional, the tab setup will require you to return either a `UIView` or an `String` to work.**\n\n```swift\n\noptional func viewForTab(atIndex index: Int) -> UIView\noptional func titleForTab(atIndex index: Int) -> String\noptional func tabHeight() -> CGFloat\noptional func tabColor() -> UIColor\noptional func tabBackgroundColor() -> UIColor\noptional func titleFont() -> UIFont\noptional func titleColor() -> UIColor\noptional func bottomLineHeight() -> CGFloat\n\n```\n\n### Delegate\nThe delegate methods report events that happened in the tab pager view controller.\n\n#### Optional Methods\n```swift\noptional func tabPager(_ tabPager: HLTabPagerViewController, willTransitionToTab atIndex: Int)\noptional func tabPager(_ tabPager: HLTabPagerViewController, didTransitionToTab atIndex: Int)\n```\n\n### Public\nThere are two public methods:\n\n```swift\nopen func reloadData()\nopen func selectTabbar(atIndex index: Int, animation: Bool = false)\n```\n\n`reloadData` will refresh the content of the tab pager view controller. Make sure to provide the data source before reloading the content.\n\n`selectTabbar` will return the index of the current selected tab.\n\nAnd these public properties:\n\n```swift\nopen weak var dataSource: HLTabPagerDataSource?\nopen weak var delegate: HLTabPagerDelegate?\nopen var selectedIndex = 0\n\n```",
+  "homepage": "https://github.com/pandaApe/HLTabPagerViewController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "PandaApe": "whailong2010@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pandaApe/HLTabPagerViewController.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HLTabPagerViewController/Classes/**/*",
+  "pushed_with_swift_version": "3.0"
+}
