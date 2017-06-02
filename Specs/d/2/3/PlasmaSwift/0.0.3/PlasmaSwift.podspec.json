@@ -1,0 +1,58 @@
+{
+  "name": "PlasmaSwift",
+  "version": "0.0.3",
+  "summary": "A short description of PlasmaSwift.",
+  "description": "Plasma Client for Swift.",
+  "homepage": "https://github.com/openfresh/PlasmaSwift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "FRESH!": "valencia_dev@cyberagent.co.jp"
+  },
+  "source": {
+    "git": "https://github.com/openfresh/PlasmaSwift.git",
+    "tag": "0.0.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PlasmaSwift/*.swift",
+  "dependencies": {
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.3.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": "*.pbobjc.{h,m}",
+      "header_mappings_dir": ".",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": "*.pbrpc.{h,m}",
+      "header_mappings_dir": ".",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "PlasmaSwift/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
