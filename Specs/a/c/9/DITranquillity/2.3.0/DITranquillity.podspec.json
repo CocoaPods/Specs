@@ -1,0 +1,179 @@
+{
+  "name": "DITranquillity",
+  "version": "2.3.0",
+  "summary": "DITranquillity - Dependency injection for iOS/macOS/tvOS (Swift)",
+  "description": "DITranquillity - The small library for dependency injection in applications written on pure Swift for iOS/OSX/tvOS. Despite its size, it solves a large enough range of tasks, including Storyboard support. Its main advantage - modularity of support, detailed errors description and lots of opportunities.",
+  "homepage": "https://github.com/ivlevAstef/DITranquillity",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "documentation_url": "https://github.com/ivlevAstef/DITranquillity",
+  "authors": {
+    "Alexander.Ivlev": "ivlev.stef@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ivlevAstef/DITranquillity.git",
+    "tag": "v2.3.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": [
+    "Core",
+    "Logger",
+    "Description",
+    "Component",
+    "Storyboard"
+  ],
+  "pushed_with_swift_version": "3.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "Sources/DITranquillity.h",
+      "source_files": [
+        "Sources/Core/**/*.swift",
+        "Sources/Logger/*.swift",
+        "Sources/DITranquillity.h"
+      ]
+    },
+    {
+      "name": "Description",
+      "source_files": "Sources/Descriptions/**/*.swift",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Component",
+      "source_files": "Sources/Component/*.swift",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D ENABLE_DI_COMPONENT"
+      }
+    },
+    {
+      "name": "Module",
+      "source_files": "Sources/Module/*.swift",
+      "dependencies": {
+        "DITranquillity/Component": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D ENABLE_DI_MODULE"
+      }
+    },
+    {
+      "name": "Storyboard",
+      "ios": {
+        "public_header_files": "Sources/Storyboard/iOS-tvOS/*.h",
+        "source_files": "Sources/Storyboard/iOS-tvOS/*.{h,m,swift}"
+      },
+      "tvos": {
+        "public_header_files": "Sources/Storyboard/iOS-tvOS/*.h",
+        "source_files": "Sources/Storyboard/iOS-tvOS/*.{h,m,swift}"
+      },
+      "osx": {
+        "public_header_files": "Sources/Storyboard/OSX/*.h",
+        "source_files": "Sources/Storyboard/OSX/*.{h,m,swift}"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_DI_STORYBOARD"
+      },
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D ENABLE_DI_LOGGER"
+      }
+    },
+    {
+      "name": "Scan",
+      "source_files": "Sources/Scan/*.swift"
+    },
+    {
+      "name": "RuntimeArgs",
+      "source_files": "Sources/RuntimeArgs/*.swift",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Modular",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ],
+        "DITranquillity/Logger": [
+
+        ],
+        "DITranquillity/Description": [
+
+        ],
+        "DITranquillity/Component": [
+
+        ],
+        "DITranquillity/Module": [
+
+        ],
+        "DITranquillity/Storyboard": [
+
+        ],
+        "DITranquillity/Scan": [
+
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "DITranquillity/Core": [
+
+        ],
+        "DITranquillity/Description": [
+
+        ],
+        "DITranquillity/Component": [
+
+        ],
+        "DITranquillity/Module": [
+
+        ],
+        "DITranquillity/Storyboard": [
+
+        ],
+        "DITranquillity/Logger": [
+
+        ],
+        "DITranquillity/Scan": [
+
+        ],
+        "DITranquillity/RuntimeArgs": [
+
+        ]
+      }
+    }
+  ]
+}
