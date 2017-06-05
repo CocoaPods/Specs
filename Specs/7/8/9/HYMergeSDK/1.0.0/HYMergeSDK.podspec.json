@@ -1,0 +1,77 @@
+{
+  "name": "HYMergeSDK",
+  "version": "1.0.0",
+  "summary": "汇元聚合支付iOS SDK.",
+  "homepage": "https://github.com/zhangyuchao/heemoney-ios",
+  "license": "MIT",
+  "authors": {
+    "zhangyuchao": "zhangyuchaofight@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/zhangyuchao/heemoney-ios.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Wx",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDK/HeeMoneySDK/*.h",
+      "vendored_libraries": "SDK/HeeMoneySDK/*.a",
+      "requires_arc": true,
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreGraphics",
+        "CoreTelephony",
+        "JavaScriptCore",
+        "SystemConfiguration",
+        "CFNetwork",
+        "CoreMotion",
+        "Security",
+        "CoreLocation"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Wx",
+      "vendored_libraries": [
+        "SDK/Channel/WXPay/libWeChatSDK.a",
+        "SDK/Channel/WXPay/*.a"
+      ],
+      "source_files": "SDK/Channel/WXPay/*.h",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "HYMergeSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "SDK/Channel/AliPay/AlipaySDK.framework",
+      "vendored_libraries": "SDK/Channel/AliPay/*.a",
+      "dependencies": {
+        "HYMergeSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
