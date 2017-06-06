@@ -1,0 +1,71 @@
+{
+  "name": "SSKitUtility",
+  "version": "1.1.1",
+  "summary": "SSKit中的配置项",
+  "description": "适用于SSKit基础配置、请求处理、宏定义的一些文件",
+  "homepage": "https://github.com/bassamyan/SSKitUtility",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Quincy Yan": "yanyibin.nz@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/bassamyan/SSKitUtility.git",
+    "tag": "1.1.1"
+  },
+  "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/*.h",
+  "resources": "SSKitUtility/SSKitUtility/SSKitUtility/Resource/**/*",
+  "dependencies": {
+    "ReactiveCocoa": [
+      "~> 2.5"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Configure",
+      "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/Configure/**/*.{h,m}"
+    },
+    {
+      "name": "Manager",
+      "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/Manager/**/*.{h,m}",
+      "dependencies": {
+        "SSWrapper": [
+
+        ],
+        "SSKitUtility/Configure": [
+
+        ],
+        "AFNetworking": [
+          "~> 3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/Category/*.h",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/Category/Foundation/**/*.{h,m}"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "SSKitUtility/SSKitUtility/SSKitUtility/Category/UIKit/**/*.{h,m}",
+          "dependencies": {
+            "SSKitUtility/Category/Foundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
