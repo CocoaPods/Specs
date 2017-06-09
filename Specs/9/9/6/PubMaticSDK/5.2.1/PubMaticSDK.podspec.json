@@ -1,0 +1,120 @@
+{
+  "name": "PubMaticSDK",
+  "version": "5.2.1",
+  "summary": "The PubMatic iOS SDK makes it easy to incorporate ads into iOS applications & monetize your applications with ease",
+  "homepage": "https://github.com/PubMatic/pubmatic-sdk-ios",
+  "license": {
+    "type": "Pubmatic Inc. license",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "PubMatic": "pm-library@pubmatic.com"
+  },
+  "source": {
+    "git": "https://github.com/PubMatic/pubmatic-sdk-ios.git",
+    "tag": "5.2.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "default_subspecs": [
+    "BannerAds",
+    "InterstitialAds",
+    "NativeAds"
+  ],
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "MessageUI",
+    "CoreLocation",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": [
+        "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/Common/**/*",
+        "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/Communicator/**/*"
+      ],
+      "public_header_files": [
+        "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/Common/**/{PUBLoggers,PMMediationData,UASConstants,PubMaticConstants,UASConstants,PubMaticAdRequest,UASAdRequest,MoceanAdRequest,PMSDKDefines}.h",
+        "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/Communicator/**/{PMAdRequest,CommonConstants}.h"
+      ]
+    },
+    {
+      "name": "BannerAds",
+      "dependencies": {
+        "PubMaticSDK/Common": [
+
+        ]
+      },
+      "source_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMBannerAdView/**/*.{h,m}",
+      "exclude_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMBannerAdView/**/{PMInterstitialAdView}.{h,m}",
+      "public_header_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMBannerAdView/**/{UASBannerAdRequest,MoceanBannerAdRequest,PMBannerAdView,PMBannerAdViewDelegate,PubMaticBannerAdRequest}.h"
+    },
+    {
+      "name": "InterstitialAds",
+      "dependencies": {
+        "PubMaticSDK/BannerAds": [
+
+        ]
+      },
+      "source_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMBannerAdView/**/{PMInterstitialAdView}.{h,m}",
+      "public_header_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMBannerAdView/**/{PMInterstitialAdView}.h"
+    },
+    {
+      "name": "NativeAds",
+      "dependencies": {
+        "PubMaticSDK/Common": [
+
+        ]
+      },
+      "source_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMNativeAd/**/*",
+      "public_header_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/PMNativeAd/**/{UASNativeAdRequest,PMNativeAd,PMNativeAssetRequest,PMNativeAssetResponse,PMNativeAdAttributes,PMNativeAdDelegate,PMNativeAdConstants,MoceanNativeAdRequest,PubMaticNativeAdRequest,PMNativeAssetTypes}.h"
+    },
+    {
+      "name": "HB",
+      "subspecs": [
+        {
+          "name": "Common",
+          "dependencies": {
+            "PubMaticSDK/Common": [
+
+            ]
+          },
+          "source_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/HeaderBidding/HBCommon/*.{h,m}",
+          "public_header_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/HeaderBidding/HBCommon/*.h"
+        },
+        {
+          "name": "Banner",
+          "dependencies": {
+            "PubMaticSDK/BannerAds": [
+
+            ],
+            "PubMaticSDK/HB/Common": [
+
+            ]
+          },
+          "source_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/HeaderBidding/HBBanner/*.{h,m}",
+          "public_header_files": "PubMatic-iOS-SDK/PubMaticSDK/PubMaticSDK/HeaderBidding/HBBanner/*.h"
+        },
+        {
+          "name": "Interstitial",
+          "dependencies": {
+            "PubMaticSDK/InterstitialAds": [
+
+            ],
+            "PubMaticSDK/HB/Banner": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
