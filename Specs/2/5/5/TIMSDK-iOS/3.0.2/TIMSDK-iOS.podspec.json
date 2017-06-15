@@ -1,0 +1,105 @@
+{
+  "name": "TIMSDK-iOS",
+  "version": "3.0.2",
+  "summary": "Tencent QCloud IM SDK for iOS",
+  "homepage": "https://github.com/litt1e-p/TIMSDK",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright ©2013-2017 Qcloud.com"
+  },
+  "authors": {
+    "litt1e-p": "https://github.com/litt1e-p"
+  },
+  "source": {
+    "http": "http://dldir1.qq.com/hudongzhibo/im/IM_iOS_SDK_3.0.2.zip",
+    "sha1": "3810e708a300c9357d981ae229cf4afc6bf56e93"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreTelephony",
+    "UIKit",
+    "Foundation"
+  ],
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3",
+    "stdc++.6"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "Message",
+    "Group",
+    "Friendship",
+    "Bugly",
+    "QALHttp"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": [
+        "IM_iOS_SDK_3.0.2/libs/ImSDK.framework",
+        "IM_iOS_SDK_3.0.2/libs/QALSDK.framework",
+        "IM_iOS_SDK_3.0.2/libs/TLSSDK.framework"
+      ]
+    },
+    {
+      "name": "Message",
+      "vendored_frameworks": "IM_iOS_SDK_3.0.2/libs/IMMessageExt.framework",
+      "dependencies": {
+        "TIMSDK-iOS/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Group",
+      "vendored_frameworks": "IM_iOS_SDK_3.0.2/libs/IMGroupExt.framework",
+      "dependencies": {
+        "TIMSDK-iOS/Base": [
+
+        ],
+        "TIMSDK-iOS/Message": [
+
+        ]
+      }
+    },
+    {
+      "name": "Friendship",
+      "vendored_frameworks": "IM_iOS_SDK_3.0.2/libs/IMFriendshipExt.framework",
+      "dependencies": {
+        "TIMSDK-iOS/Base": [
+
+        ],
+        "TIMSDK-iOS/Message": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bugly",
+      "vendored_frameworks": "IM_iOS_SDK_3.0.2/libs/IMSDKBugly.framework",
+      "dependencies": {
+        "TIMSDK-iOS/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "QALHttp",
+      "vendored_frameworks": "IM_iOS_SDK_3.0.2/libs/QALHttpSDK.framework",
+      "dependencies": {
+        "TIMSDK-iOS/Base": [
+
+        ]
+      }
+    }
+  ]
+}
