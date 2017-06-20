@@ -1,0 +1,102 @@
+{
+  "name": "MomXML",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/phimage/MomXML/",
+  "summary": "Create or parse CoreData XMLs model definition.",
+  "authors": {
+    "phimage": "eric.marchand.n7@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/phimage/MomXML.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": [
+    "Model",
+    "Equatable",
+    "ToXML"
+  ],
+  "pushed_with_swift_version": "3.1",
+  "subspecs": [
+    {
+      "name": "Model",
+      "source_files": "Sources/Model/*.swift"
+    },
+    {
+      "name": "Equatable",
+      "source_files": "Sources/Equatable/*.swift",
+      "dependencies": {
+        "MomXML/Model": [
+
+        ]
+      }
+    },
+    {
+      "name": "FromXML",
+      "source_files": "Sources/FromXML/*.swift",
+      "dependencies": {
+        "MomXML/Model": [
+
+        ],
+        "SWXMLHash": [
+
+        ]
+      }
+    },
+    {
+      "name": "ToXML",
+      "dependencies": {
+        "MomXML/Model": [
+
+        ]
+      },
+      "source_files": "Sources/ToXML/*.swift"
+    },
+    {
+      "name": "XML",
+      "dependencies": {
+        "MomXML/FromXML": [
+
+        ],
+        "MomXML/ToXML": [
+
+        ]
+      }
+    },
+    {
+      "name": "FromCoreData",
+      "source_files": "Sources/FromCoreData/*.swift",
+      "dependencies": {
+        "MomXML/Model": [
+
+        ]
+      },
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "ToCoreData",
+      "source_files": "Sources/ToCoreData/*.swift",
+      "dependencies": {
+        "MomXML/Model": [
+
+        ]
+      },
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "MomXML/FromCoreData": [
+
+        ],
+        "MomXML/ToCoreData": [
+
+        ]
+      }
+    }
+  ]
+}
