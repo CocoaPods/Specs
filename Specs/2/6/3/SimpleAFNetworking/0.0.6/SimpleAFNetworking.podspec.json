@@ -1,0 +1,116 @@
+{
+  "name": "SimpleAFNetworking",
+  "version": "0.0.6",
+  "license": "MIT",
+  "summary": "A delightful iOS networking framework.",
+  "homepage": "https://github.com/Chasingdreamboy/SimpleAFNetworking",
+  "social_media_url": "https://twitter.com/AFNetworking",
+  "authors": {
+    "Mattt Thompson": "m@mattt.me"
+  },
+  "source": {
+    "git": "https://github.com/Chasingdreamboy/SimpleAFNetworking.git",
+    "tag": "0.0.6",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "public_header_files": "SimpleAFNetworking/AFNetworking.h",
+  "source_files": "SimpleAFNetworking/AFNetworking.h",
+  "xcconfig": {
+    "GENERATE_DEBUG_SYMBOLS": "NO"
+  },
+  "prefix_header_contents": "#ifndef TARGET_OS_IOS\n  #define TARGET_OS_IOS TARGET_OS_IPHONE\n#endif\n#ifndef TARGET_OS_WATCH\n  #define TARGET_OS_WATCH 0\n#endif\n#ifndef TARGET_OS_TV\n  #define TARGET_OS_TV 0\n#endif",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "SimpleAFNetworking/AFURL{Request,Response}Serialization.{h,m}",
+      "public_header_files": "SimpleAFNetworking/AFURL{Request,Response}Serialization.h",
+      "watchos": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "MobileCoreServices",
+          "CoreGraphics"
+        ]
+      },
+      "osx": {
+        "frameworks": "CoreServices"
+      }
+    },
+    {
+      "name": "Security",
+      "source_files": "SimpleAFNetworking/AFSecurityPolicy.{h,m}",
+      "public_header_files": "SimpleAFNetworking/AFSecurityPolicy.h",
+      "frameworks": "Security"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9",
+        "tvos": "9.0"
+      },
+      "source_files": "SimpleAFNetworking/AFNetworkReachabilityManager.{h,m}",
+      "public_header_files": "SimpleAFNetworking/AFNetworkReachabilityManager.h",
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "SimpleAFNetworking/Serialization": [
+
+        ],
+        "SimpleAFNetworking/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "SimpleAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "SimpleAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "tvos": {
+        "dependencies": {
+          "SimpleAFNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": "SimpleAFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+      "public_header_files": "SimpleAFNetworking/AF{URL,HTTP}SessionManager.h"
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "7.0",
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "SimpleAFNetworking/NSURLSession": [
+
+        ]
+      },
+      "public_header_files": "UIKit+AFNetworking/*.h",
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
