@@ -1,0 +1,126 @@
+{
+  "name": "SWCompression",
+  "version": "3.1.2",
+  "summary": "Framework with implementations in Swift of different (de)compression algorithms",
+  "description": "A framework which contains native (written in Swift) implementations of compression algorithms.\nSwift developers currently have access only to various wrappers written in Objective-C\naround system libraries if they want to decompress something. SWCompression allows to do this with pure Swift\nwithout relying on availability of system libraries.",
+  "homepage": "https://github.com/tsolomko/SWCompression",
+  "documentation_url": "http://tsolomko.github.io/SWCompression",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Timofey Solomko": "tsolomko@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/tsolomko/SWCompression.git",
+    "tag": "v3.1.2"
+  },
+  "pushed_with_swift_version": "3.1",
+  "subspecs": [
+    {
+      "name": "Common",
+      "public_header_files": "Sources/Service/SWCompression.h",
+      "source_files": "Sources/{CheckSums.swift,DataWithPointer.swift,Extensions.swift,Protocols.swift,Service/*.swift,Service/*.h}"
+    },
+    {
+      "name": "Deflate",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/{Deflate.swift,HuffmanTree.swift,BitToByteWriter.swift}"
+    },
+    {
+      "name": "GZip",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{GzipArchive,GzipHeader,GzipError}.swift"
+    },
+    {
+      "name": "Zlib",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{ZlibArchive,ZlibHeader,ZlibError}.swift"
+    },
+    {
+      "name": "BZip2",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/{BZip2.swift,HuffmanTree.swift,BitToByteWriter.swift}",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_BZ2"
+      }
+    },
+    {
+      "name": "LZMA",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/LZMA*.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_LZMA"
+      }
+    },
+    {
+      "name": "XZ",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/LZMA": [
+
+        ]
+      },
+      "source_files": "Sources/{XZArchive,XZError}.swift"
+    },
+    {
+      "name": "ZIP",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ],
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{ZipContainer,ZipEntry,ZipError,ZipLocalHeader,ZipCentralDirectoryEntry,ZipEndOfCentralDirectory}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_BUILD"
+      }
+    },
+    {
+      "name": "TAR",
+      "dependencies": {
+        "SWCompression/Common": [
+
+        ]
+      },
+      "source_files": "Sources/{TarContainer,TarEntry,TarError}.swift"
+    }
+  ]
+}
