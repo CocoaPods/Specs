@@ -1,0 +1,84 @@
+{
+  "name": "Phunware",
+  "version": "1.2.2.7",
+  "license": "MIT",
+  "summary": "Phunware SDKs (BETA)",
+  "homepage": "https://github.com/phunware/beta-ios",
+  "authors": {
+    "Phunware": "info@phunware.com"
+  },
+  "source": {
+    "git": "https://github.com/phunware/beta-ios.git",
+    "tag": "v1.2.2.7"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Beta",
+  "subspecs": [
+    {
+      "name": "Beta",
+      "subspecs": [
+        {
+          "name": "Location",
+          "ios": {
+            "vendored_frameworks": "Framework/PWLocation.framework",
+            "libraries": "c++",
+            "frameworks": [
+              "Security",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony",
+              "CoreBluetooth",
+              "CoreMotion",
+              "CoreLocation",
+              "MapKit"
+            ]
+          },
+          "dependencies": {
+            "PWCore": [
+
+            ],
+            "MistSDK": [
+
+            ],
+            "TMCache": [
+
+            ]
+          },
+          "libraries": [
+            "sqlite3",
+            "z",
+            "xml2.2"
+          ]
+        },
+        {
+          "name": "MapKit",
+          "ios": {
+            "vendored_frameworks": "Framework/PWMapKit.framework",
+            "dependencies": {
+              "Phunware/Beta/Location": [
+
+              ],
+              "TMCache": [
+
+              ]
+            },
+            "frameworks": [
+              "Security",
+              "CoreGraphics",
+              "QuartzCore",
+              "SystemConfiguration",
+              "MobileCoreServices",
+              "CoreTelephony",
+              "CoreLocation",
+              "MapKit"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
