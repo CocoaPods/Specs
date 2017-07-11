@@ -1,0 +1,60 @@
+{
+  "name": "JustPersist",
+  "version": "1.0.1",
+  "summary": "JustPersist is the easiest and safest way to do persistence on iOS with Core Data support out of the box. It also allows you to migrate to any other persistence framework with minimal effort.",
+  "description": "<<-DESC\nJustPersist aims to be the easiest and safest way to do persistence on iOS. It supports Core Data out of the box and can be extended to transparently support other frameworks.\nYou can use JustPersist to migrate from one persistence layer to another with minimal effort. Since we moved from MagicalRecord to Skopelos, we provide available wrappers for these two frameworks.\nAt it's core, JustPersist is a persistence layer with a clear and simple interface to do transactional readings and writings, taking inspirations from Skopelos where readings and writings are separated by design.\n                        DESC",
+  "homepage": "https://github.com/justeat/JustPersist",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Just Eat iOS team": "justeat.ios.team@gmail.com",
+    "Alberto De Bortoli": "alberto.debortoli@just-eat.com",
+    "Keith Moon": "keith.moon@just-eat.com"
+  },
+  "source": {
+    "git": "https://github.com/justeat/JustPersist.git",
+    "tag": "1.0.1"
+  },
+  "social_media_url": "https://twitter.com/justeat_tech",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "CoreData"
+  ],
+  "default_subspecs": "Core",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "JustPersist/Classes/Core/**/*"
+    },
+    {
+      "name": "Skopelos",
+      "dependencies": {
+        "JustPersist/Core": [
+
+        ],
+        "Skopelos": [
+          "2.0.0"
+        ]
+      },
+      "source_files": "JustPersist/Classes/Wrappers/Skopelos/*"
+    },
+    {
+      "name": "MagicalRecord",
+      "dependencies": {
+        "JustPersist/Core": [
+
+        ],
+        "MagicalRecord": [
+          "~> 2.3.2"
+        ]
+      },
+      "source_files": "JustPersist/Classes/Wrappers/MagicalRecord/*"
+    }
+  ]
+}
