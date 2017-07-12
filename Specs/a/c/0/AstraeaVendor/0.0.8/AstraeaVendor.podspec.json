@@ -1,0 +1,74 @@
+{
+  "name": "AstraeaVendor",
+  "version": "0.0.8",
+  "summary": "Astraea vendor for astraea sdk",
+  "description": "Astraea vendor for astraea swift sdk",
+  "homepage": "http://www.5ikankan.com/",
+  "license": "MIT",
+  "authors": {
+    "wenzhaot": "tanwenzhao1025@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wenzhaot/AstraeaVendor.git",
+    "tag": "0.0.8"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "RongIM",
+      "ios": {
+        "vendored_frameworks": [
+          "IMKit/RongIMKit.framework",
+          "IMLib/RongIMLib.framework"
+        ],
+        "vendored_libraries": [
+          "IMLib/libopencore-amrnb.a"
+        ]
+      },
+      "resources": [
+        "IMKit/*.{plist,bundle,lproj}",
+        "IMLib/*.{plist}"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++",
+        "z",
+        "c++abi",
+        "stdc++",
+        "xml2"
+      ],
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/AstraeaVendor/IMKit $(PODS_ROOT)/AstraeaVendor/IMLib",
+        "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/AstraeaVendor/IMLib"
+      }
+    },
+    {
+      "name": "Agora",
+      "vendored_frameworks": [
+        "Agora/AgoraRtcEngineKit.framework",
+        "Agora/videoprp.framework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/AstraeaVendor/Agora",
+        "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/AstraeaVendor/Agora"
+      },
+      "libraries": [
+        "c++",
+        "resolv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreMedia",
+        "AudioToolbox",
+        "AVFoundation",
+        "VideoToolbox"
+      ]
+    }
+  ]
+}
