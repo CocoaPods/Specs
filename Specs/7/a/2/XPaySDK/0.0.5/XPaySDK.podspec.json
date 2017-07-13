@@ -1,0 +1,66 @@
+{
+  "name": "XPaySDK",
+  "version": "0.0.5",
+  "summary": "The aggregation of payment on iOS.",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付、支付宝支付、点指金融支付",
+  "homepage": "https://github.com/Casum/XPaySDK",
+  "license": "MIT",
+  "authors": {
+    "Casum": "casum.liang@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/Casum/XPaySDK.git",
+    "tag": "0.0.5"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "ios": {
+        "libraries": [
+          "stdc++",
+          "sqlite3.0",
+          "z",
+          "c++"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "ios": {
+        "vendored_frameworks": "lib/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "lib/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "XPaySDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
