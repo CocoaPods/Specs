@@ -1,0 +1,72 @@
+{
+  "name": "MobileMessaging",
+  "version": "2.6.7",
+  "summary": "Mobile Messaging SDK for iOS",
+  "description": "Mobile Messaging SDK is designed and developed to easily enable push notification channel in your mobile application. In almost no time of implementation you get push notification in you application and access to the features of Infobip IP Messaging Platform.",
+  "homepage": "https://github.com/infobip/mobile-messaging-sdk-ios",
+  "license": "MIT",
+  "authors": {
+    "Andrey Kadochnikov": "andrey.kadochnikov@infobip.com",
+    "Olga Koroleva": "olga.koroleva@infobip.com"
+  },
+  "source": {
+    "git": "https://github.com/infobip/mobile-messaging-sdk-ios.git",
+    "tag": "2.6.7"
+  },
+  "social_media_url": "https://twitter.com/infobip",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0.1",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-DDEBUG"
+  },
+  "default_subspecs": "CocoaLumberjack",
+  "module_map": "Pod/MobileMessaging.modulemap",
+  "pushed_with_swift_version": "3.0.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "CoreData",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "resources": [
+        "Pod/Classes/MessageStorage/*.xcdatamodeld",
+        "Pod/Classes/Core/InternalStorage/*.xcdatamodeld"
+      ],
+      "public_header_files": "Pod/Classes/Core/**/*.h",
+      "private_header_files": "Pod/Classes/Vendor/**/*.h",
+      "source_files": [
+        "Pod/Classes/Core/**/*.{h,m,swift}",
+        "Pod/Classes/Vendor/**/*.{h,m,swift}",
+        "Pod/Classes/MessageStorage/**/*.{h,m,swift}",
+        "Pod/Classes/RichNotifications/**"
+      ]
+    },
+    {
+      "name": "CocoaLumberjack",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 3.1"
+        ]
+      },
+      "source_files": "Pod/Classes/Logging/CocoaLumberjack/**/*.{h,m,swift}"
+    },
+    {
+      "name": "Geofencing",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "source_files": "Pod/Classes/Geofencing/**"
+    }
+  ]
+}
