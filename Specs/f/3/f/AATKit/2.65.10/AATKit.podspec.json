@@ -1,0 +1,356 @@
+{
+  "name": "AATKit",
+  "version": "2.65.10",
+  "summary": "Mobile Ad Mediation Framework",
+  "description": "Integrate many different advertising networks by adding this mediation framework only once.",
+  "homepage": "https://bitbucket.org/addapptr/aatkit-ios/wiki/Home",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2012\\u20132017 AddApptr GmbH."
+  },
+  "authors": {
+    "Addapptr GmbH": "support@addapptr.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": false,
+  "source": {
+    "http": "https://download.addapptr.com/AATKit-2.65.10.zip",
+    "sha256": "11007c74c86aa5e657fe05cdea8015043111816db330d7d28e23901762f07d40"
+  },
+  "preserve_paths": [
+    "aat/AATConfig.m"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "resources": "aat/AATKit.bundle",
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "vendored_frameworks": [
+        "aat/AATKit.framework"
+      ]
+    },
+    {
+      "name": "AdColony",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "z"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/AdColony_*/libAdColony.a"
+      ]
+    },
+    {
+      "name": "Admob",
+      "dependencies": {
+        "AATKit/GoogleMobileAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdX",
+      "dependencies": {
+        "AATKit/GoogleMobileAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "Amazon",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "JavaScriptCore",
+        "SafariServices"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/AmazonAds_*/libAmazonAd.a"
+      ]
+    },
+    {
+      "name": "Applovin",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/Applovin_*/libAppLovinSdk.a"
+      ]
+    },
+    {
+      "name": "DFP",
+      "dependencies": {
+        "AATKit/GoogleMobileAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ],
+        "FBAudienceNetwork": [
+          "~>4.14"
+        ]
+      }
+    },
+    {
+      "name": "Flurry",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "z"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/Flurry_*/libFlurry_*.a",
+        "aat/subSDKs/FlurryAds_*/libFlurryAds_*.a"
+      ]
+    },
+    {
+      "name": "GoogleMobileAds",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "GLKit",
+        "MobileCoreServices"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/AdMob_*/libGoogleMobileAds.a"
+      ]
+    },
+    {
+      "name": "Inmobi",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/InMobi_*/libInMobiSDK.a"
+      ]
+    },
+    {
+      "name": "Inneractive",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "xml2"
+      ],
+      "resources": "aat/subSDKs/Inneractive_*/InneractiveSDKResources.bundle",
+      "vendored_frameworks": [
+        "aat/subSDKs/Inneractive_*/InneractiveAdSDK.framework"
+      ]
+    },
+    {
+      "name": "Loopme",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "GLKit"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/LoopMe_*/libLoopMeSDK.a"
+      ]
+    },
+    {
+      "name": "MdotM",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/MdotM_*/libMdotMSDK3.a"
+      ]
+    },
+    {
+      "name": "Millennial",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "xml2"
+      ],
+      "user_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/Millennial_*/libMMAdSDK.a"
+      ]
+    },
+    {
+      "name": "Mopub",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "WebKit",
+        "SafariServices"
+      ],
+      "resources": [
+        "aat/subSDKs/MoPub_*/Resources/MRAID.bundle",
+        "aat/subSDKs/MoPub_*/Internal/Common/MPAdBrowserController.xib"
+      ],
+      "vendored_libraries": [
+        "aat/subSDKs/MoPub_*/libMoPub*.a"
+      ]
+    },
+    {
+      "name": "Opera",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "ExternalAccessory",
+        "Social"
+      ],
+      "user_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/Apprupt_*/libCvSDK*.a"
+      ]
+    },
+    {
+      "name": "Permodo",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "libraries": [
+        "xml2"
+      ],
+      "resources": "aat/subSDKs/Permodo_*/MADSDKResources.bundle",
+      "vendored_libraries": [
+        "aat/subSDKs/Permodo_*/libMADSDK.a"
+      ]
+    },
+    {
+      "name": "Pubmatic",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/PubMatic_*/libMASTAdView_fat.a"
+      ]
+    },
+    {
+      "name": "Revmob",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/RevMobAds_*/libRevMobAds.a"
+      ]
+    },
+    {
+      "name": "Smaato",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/Smaato_*/libiSoma.a"
+      ]
+    },
+    {
+      "name": "SmartAdServer",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "resources": "aat/subSDKs/SmartAdServer_*/sas.bundle",
+      "vendored_libraries": [
+        "aat/subSDKs/SmartAdServer_*/libSmartAdServer.a"
+      ]
+    },
+    {
+      "name": "SmartStream",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "resources": "aat/subSDKs/SmartStream_*/include/VideoAdLib.bundle",
+      "user_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/SmartStream_*/libAdSDKLib.a"
+      ]
+    },
+    {
+      "name": "Unity",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "resources": "aat/subSDKs/unityAds_*/UnityAds.bundle",
+      "user_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "vendored_libraries": [
+        "aat/subSDKs/unityAds_*/libUnityAds.a"
+      ]
+    },
+    {
+      "name": "Appnexus",
+      "dependencies": {
+        "AATKit/Core": [
+
+        ]
+      },
+      "resources": "aat/subSDKs/AppNexus_*/ANSDKResources.bundle",
+      "vendored_libraries": [
+        "aat/subSDKs/AppNexus_*/libANSDK.a"
+      ]
+    }
+  ]
+}
