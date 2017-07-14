@@ -1,0 +1,251 @@
+{
+  "name": "libksygpulive_ks3",
+  "module_name": "libksygpulive",
+  "version": "2.5.0",
+  "license": {
+    "type": "Proprietary",
+    "text": "      Copyright 2015 kingsoft Ltd. All rights reserved.\n"
+  },
+  "homepage": "http://v.ksyun.com/doc.html",
+  "authors": {
+    "ksyun": "zengfanping@kingsoft.com"
+  },
+  "summary": "libksylive help you play and stream live video from ios mobile devices.",
+  "description": "* KSYMediaPlayer lite/vod manages the playback of movie or live streaming\n* libksygpulive  lite/265 capture video, compress and publish stream to rtmp server",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "ios": {
+    "libraries": [
+      "z",
+      "iconv",
+      "stdc++.6",
+      "bz2"
+    ],
+    "frameworks": [
+      "AVFoundation",
+      "VideoToolbox"
+    ]
+  },
+  "source": {
+    "http": "http://ks3-cn-beijing.ksyun.com/ksy.vcloud.sdk/Ios/ksylive_ios_v2.5.0.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC -all_load"
+  },
+  "header_dir": "libksygpulive",
+  "default_subspecs": "libksygpulive",
+  "subspecs": [
+    {
+      "name": "base",
+      "vendored_libraries": "prebuilt/libs/libksybase.a"
+    },
+    {
+      "name": "yuv",
+      "vendored_libraries": "prebuilt/libs/libksyyuv.a"
+    },
+    {
+      "name": "mediacodec",
+      "vendored_libraries": "prebuilt/libs/libksymediacodec.a"
+    },
+    {
+      "name": "mediacore_dec_lite",
+      "vendored_libraries": "prebuilt/libs/libksymediacore_dec_lite.a"
+    },
+    {
+      "name": "mediacore_dec_vod",
+      "vendored_libraries": "prebuilt/libs/libksymediacore_dec_vod.a"
+    },
+    {
+      "name": "mediacore_enc_lite",
+      "vendored_libraries": "prebuilt/libs/libksymediacore_enc_lite.a"
+    },
+    {
+      "name": "mediacore_enc_265",
+      "vendored_libraries": "prebuilt/libs/libksymediacore_enc_265.a"
+    },
+    {
+      "name": "mediacore_enc_base",
+      "vendored_libraries": "prebuilt/libs/libksymediacore_enc_base.a"
+    },
+    {
+      "name": "KSYMediaPlayer",
+      "source_files": "prebuilt/include/KSYPlayer/*.h",
+      "vendored_libraries": "prebuilt/libs/libksyplayer.a",
+      "dependencies": {
+        "libksygpulive_ks3/base": [
+
+        ],
+        "libksygpulive_ks3/mediacore_dec_lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "KSYMediaPlayer_vod",
+      "source_files": "prebuilt/include/KSYPlayer/*.h",
+      "vendored_libraries": "prebuilt/libs/libksyplayer.a",
+      "dependencies": {
+        "libksygpulive_ks3/base": [
+
+        ],
+        "libksygpulive_ks3/mediacore_dec_vod": [
+
+        ]
+      }
+    },
+    {
+      "name": "streamerbase",
+      "source_files": [
+        "prebuilt/include/KSYStreamer/libksystreamerbase.h",
+        "prebuilt/include/KSYStreamer/KSYTypeDef.h",
+        "prebuilt/include/KSYStreamer/KSYClipWriter.h",
+        "prebuilt/include/KSYStreamer/KSYStreamerBase.h",
+        "prebuilt/include/KSYStreamer/KSYMovieWriter.h",
+        "prebuilt/include/KSYStreamer/KSYAVMuxer.h",
+        "prebuilt/include/KSYStreamer/KSYMessage.h"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksystreamerbase.a"
+      ],
+      "dependencies": {
+        "libksygpulive_ks3/base": [
+
+        ],
+        "libksygpulive_ks3/yuv": [
+
+        ],
+        "libksygpulive_ks3/mediacodec": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_base": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "libksygpulive",
+      "source_files": [
+        "prebuilt/include/**/*.h",
+        "source/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksyplayer.a",
+        "prebuilt/libs/libksystreamerengine.a",
+        "prebuilt/libs/libksygpufilter.a"
+      ],
+      "dependencies": {
+        "GPUImage": [
+
+        ],
+        "libksygpulive_ks3/streamerbase": [
+
+        ]
+      }
+    },
+    {
+      "name": "libksygpulive_noKit",
+      "source_files": [
+        "prebuilt/include/**/*.h"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksyplayer.a",
+        "prebuilt/libs/libksystreamerengine.a",
+        "prebuilt/libs/libksygpufilter.a"
+      ],
+      "dependencies": {
+        "GPUImage": [
+
+        ],
+        "libksygpulive_ks3/streamerbase": [
+
+        ]
+      }
+    },
+    {
+      "name": "streamerbase_265",
+      "source_files": [
+        "prebuilt/include/KSYStreamer/libksystreamerbase.h",
+        "prebuilt/include/KSYStreamer/KSYTypeDef.h",
+        "prebuilt/include/KSYStreamer/KSYClipWriter.h",
+        "prebuilt/include/KSYStreamer/KSYStreamerBase.h",
+        "prebuilt/include/KSYStreamer/KSYMovieWriter.h",
+        "prebuilt/include/KSYStreamer/KSYAVMuxer.h",
+        "prebuilt/include/KSYStreamer/KSYMessage.h"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksystreamerbase.a"
+      ],
+      "dependencies": {
+        "libksygpulive_ks3/base": [
+
+        ],
+        "libksygpulive_ks3/yuv": [
+
+        ],
+        "libksygpulive_ks3/mediacodec": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_base": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_265": [
+
+        ]
+      }
+    },
+    {
+      "name": "libksygpulive_265",
+      "source_files": [
+        "prebuilt/include/**/*.h",
+        "source/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "prebuilt/libs/libksyplayer.a",
+        "prebuilt/libs/libksystreamerengine.a",
+        "prebuilt/libs/libksygpufilter.a"
+      ],
+      "dependencies": {
+        "GPUImage": [
+
+        ],
+        "libksygpulive_ks3/streamerbase_265": [
+
+        ]
+      }
+    },
+    {
+      "name": "KSYGPUResource",
+      "resources": "resource/KSYGPUResource.bundle"
+    },
+    {
+      "name": "ksyplayer_d",
+      "source_files": "prebuilt/include/**/*.h",
+      "vendored_libraries": "prebuilt/libs/libksyplayer.a",
+      "dependencies": {
+        "GPUImage": [
+
+        ],
+        "libksygpulive_ks3/base": [
+
+        ],
+        "libksygpulive_ks3/yuv": [
+
+        ],
+        "libksygpulive_ks3/mediacodec": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_base": [
+
+        ],
+        "libksygpulive_ks3/mediacore_enc_lite": [
+
+        ]
+      }
+    }
+  ]
+}
