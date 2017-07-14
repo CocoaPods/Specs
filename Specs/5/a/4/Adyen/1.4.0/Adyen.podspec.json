@@ -1,0 +1,124 @@
+{
+  "name": "Adyen",
+  "version": "1.4.0",
+  "summary": "Adyen SDK for iOS",
+  "description": "With Adyen SDK you can dynamically list all relevant payment methods for a specific transaction, so your shoppers can always pay with the method of their choice. The methods are listed based on the shopper's country, the transaction currency and amount.",
+  "homepage": "https://adyen.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Adyen": "support@adyen.com"
+  },
+  "source": {
+    "git": "https://github.com/Adyen/adyen-ios.git",
+    "tag": "1.4.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Cards",
+    "Ideal",
+    "SEPADirectDebit",
+    "UI"
+  ],
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Adyen/Core/**/*"
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "Adyen/Plugins/ApplePay/**/*",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/CoreUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Cards",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/CoreUI": [
+
+        ],
+        "AdyenCSE": [
+
+        ]
+      },
+      "source_files": "Adyen/Plugins/Cards/**/*",
+      "resource_bundles": {
+        "Cards": [
+          "Adyen/Plugins/Cards/**/*.xib"
+        ]
+      }
+    },
+    {
+      "name": "Ideal",
+      "source_files": "Adyen/Plugins/Ideal/**/*",
+      "dependencies": {
+        "Adyen/CoreUI": [
+
+        ],
+        "Adyen/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SEPADirectDebit",
+      "source_files": "Adyen/Plugins/SEPADirectDebit/**/*",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/CoreUI": [
+
+        ]
+      },
+      "resource_bundles": {
+        "SEPADirectDebit": [
+          "Adyen/Plugins/SEPADirectDebit/**/*.xib"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Adyen/UI/**/*",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/CoreUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreUI",
+      "source_files": "Adyen/CoreUI/**/*.swift",
+      "resource_bundles": {
+        "CoreUI": [
+          "Adyen/CoreUI/Assets/Media.xcassets",
+          "Adyen/CoreUI/Assets/*.lproj/*.strings"
+        ]
+      },
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      }
+    }
+  ]
+}
