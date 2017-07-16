@@ -1,0 +1,89 @@
+{
+  "name": "SWCompression",
+  "version": "3.2.0",
+  "summary": "Framework with implementations in Swift of different (de)compression algorithms",
+  "description": "A framework which contains native (written in Swift) implementations of compression algorithms.\nSwift developers currently have access only to various wrappers written in Objective-C\naround system libraries if they want to decompress something. SWCompression allows to do this with pure Swift\nwithout relying on availability of system libraries.",
+  "homepage": "https://github.com/tsolomko/SWCompression",
+  "documentation_url": "http://tsolomko.github.io/SWCompression",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Timofey Solomko": "tsolomko@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/tsolomko/SWCompression.git",
+    "tag": "v3.2.0"
+  },
+  "pushed_with_swift_version": "3.1",
+  "subspecs": [
+    {
+      "name": "Deflate",
+      "source_files": "Sources/{Deflate,DeflateCompression,DeflateError,Extensions,Protocols,DataWithPointer,BitReader,HuffmanTree,BitWriter,CheckSums}.swift"
+    },
+    {
+      "name": "GZip",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{GzipArchive,GzipHeader,GzipError,CheckSums}.swift"
+    },
+    {
+      "name": "Zlib",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{ZlibArchive,ZlibHeader,ZlibError,CheckSums}.swift"
+    },
+    {
+      "name": "BZip2",
+      "source_files": "Sources/{BZip2,BZip2Error,Extensions,Protocols,CheckSums,DataWithPointer,BitReader,HuffmanTree,BitWriter}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_BZ2"
+      }
+    },
+    {
+      "name": "LZMA",
+      "source_files": "Sources/{LZMA*,Extensions,Protocols,DataWithPointer}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_LZMA"
+      }
+    },
+    {
+      "name": "XZ",
+      "dependencies": {
+        "SWCompression/LZMA": [
+
+        ]
+      },
+      "source_files": "Sources/{XZArchive,XZError,CheckSums}.swift"
+    },
+    {
+      "name": "ZIP",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{Zip*,CheckSums}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMP_ZIP_POD_BUILD"
+      }
+    },
+    {
+      "name": "TAR",
+      "source_files": "Sources/{Tar*,Extensions,Protocols,DataWithPointer}.swift"
+    }
+  ]
+}
