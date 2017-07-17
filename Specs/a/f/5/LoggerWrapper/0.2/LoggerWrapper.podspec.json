@@ -1,0 +1,80 @@
+{
+  "name": "LoggerWrapper",
+  "version": "0.2",
+  "summary": "A very simple library that aims to provide a simple wrapper around the various logging library that exists for iOS.",
+  "description": "A very simple library that aims to provide a simple wrapper around the various logging library that exists for iOS.\nCurrently supports CocoaLumberjack, and can optionally integrate with PluggableApplicationDelegate.\n\n  Ideally, this library allows library creators to allow to use logging, without relying on the classic NSLog/print which\n  can't be disabled easily.",
+  "homepage": "https://github.com/stephanecopin/LoggerWrapper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "stephanecopin": "stephane.copin@live.fr"
+  },
+  "source": {
+    "git": "https://github.com/stephanecopin/LoggerWrapper.git",
+    "tag": "0.2"
+  },
+  "social_media_url": "https://fueled.com/stephane",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "ObjC",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "ObjC",
+      "source_files": "LoggerWrapper/Classes/*.{h,m}"
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "LoggerWrapper/ObjC": [
+
+        ]
+      },
+      "source_files": "LoggerWrapper/Classes/*.{swift}"
+    },
+    {
+      "name": "CocoaLumberjack",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "LoggerWrapper/ObjC": [
+
+            ],
+            "CocoaLumberjack": [
+
+            ]
+          },
+          "source_files": "LoggerWrapper/Classes/CocoaLumberjack/*.{h,m,swift}"
+        },
+        {
+          "name": "Swift",
+          "dependencies": {
+            "LoggerWrapper/Swift": [
+
+            ],
+            "CocoaLumberjack/Swift": [
+
+            ]
+          },
+          "source_files": "LoggerWrapper/Classes/CocoaLumberjack/*.{h,m,swift}"
+        },
+        {
+          "name": "PluggableApplicationDelegate",
+          "dependencies": {
+            "LoggerWrapper/CocoaLumberjack/Swift": [
+
+            ],
+            "PluggableApplicationDelegate": [
+
+            ]
+          },
+          "source_files": "LoggerWrapper/Classes/CocoaLumberjack/PluggableApplicationDelegate/**/*"
+        }
+      ]
+    }
+  ]
+}
