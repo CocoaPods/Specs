@@ -1,0 +1,91 @@
+{
+  "name": "IrisRtcSdk",
+  "version": "3.0.0.15",
+  "summary": "iOS SDK which leverages Comcast Iris Platform",
+  "description": "iOS SDK which leverages Comcast Iris Platform.",
+  "homepage": "https://iris.comcast.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Comcast": "support@iris.comcast.com"
+  },
+  "source": {
+    "git": "https://github.com/iris-platform/iris-ios-sdk-pod.git",
+    "tag": "v3.0.0.15"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": [
+    "IrisRtcSdk/*",
+    "IrisRtcSdk/IrisRtcSdk/*.{h,m}",
+    "IrisRtcSdk/IrisRtcSdk/public/*.{h,m}",
+    "IrisRtcSdk/legacy/*.{h,m,mm}",
+    "IrisRtcSdk/XMPP/*.{h,m}",
+    "IrisRtcSdk/XMPP/XMPPFramework/**/*.{h,m}",
+    "IrisRtcSdk/socket.IO-objc/*",
+    "IrisRtcSdk/socket.IO-objc/**/*.{h,m,c}",
+    "IrisRtcSdk/webrtc/header/WebRTC/*",
+    "IrisRtcSdk/loggerSdk/header/*"
+  ],
+  "resources": [
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/Roster/CoreDataStorage/XMPPRoster.xcdatamodel",
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/XEP-0045/CoreDataStorage/XMPPRoom.xcdatamodeld",
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/XEP-0045/HybridStorage/XMPPRoomHybrid.xcdatamodeld",
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/XEP-0054/CoreDataStorage/XMPPvCard.xcdatamodeld",
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/XEP-0115/CoreDataStorage/XMPPCapabilities.xcdatamodel",
+    "IrisRtcSdk/XMPP/XMPPFramework/Extensions/XEP-0136/CoreDataStorage/XMPPMessageArchiving.xcdatamodeld"
+  ],
+  "public_header_files": [
+    "IrisRtcSdk/IrisRtcSdk/public/*.h",
+    "IrisRtcSdk/webrtc/header"
+  ],
+  "exclude_files": "IrisRtcSdk/IrisRtcSdk/public/IrisRtcSdkCoreData.h",
+  "frameworks": [
+    "AudioToolbox",
+    "Foundation",
+    "AVFoundation",
+    "CFNetwork",
+    "AssetsLibrary",
+    "VideoToolBox",
+    "AudioToolBox",
+    "GLKit",
+    "Security",
+    "SystemConfiguration",
+    "CoreAudio",
+    "VideoToolBox",
+    "CoreMedia",
+    "CoreFoundation"
+  ],
+  "libraries": [
+    "icucore",
+    "c++",
+    "xml2",
+    "idn",
+    "resolv"
+  ],
+  "default_subspecs": "precompiled",
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "vendored_libraries": [
+        "IrisRtcSdk/webrtc/libs/libwebrtc.a",
+        "IrisRtcSdk/loggerSdk/libs/libwebrtc-logger-sdk.a",
+        "IrisRtcSdk/XMPP/XMPPFramework/Vendor/libidn/libidn.a"
+      ],
+      "libraries": [
+        "webrtc",
+        "webrtc-logger-sdk"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/loggerSdk/header ${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/webrtc/header $(SDKROOT)/usr/include/libxml2",
+        "LIBRARY_SEARCH_PATHS": "${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/loggerSdk/libs ${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/webrtc/libs ${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/XMPP/XMPPFramework/Vendor/libidn/",
+        "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+        "OTHER_LDFLAGS": "-ObjC",
+        "ENABLE_BITCODE": "NO"
+      }
+    }
+  ]
+}
