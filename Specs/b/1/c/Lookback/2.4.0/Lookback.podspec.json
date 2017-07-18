@@ -1,0 +1,81 @@
+{
+  "name": "Lookback",
+  "version": "2.4.0",
+  "summary": "UX research tool: Records screen, camera, touches onto lookback.io. NOTE: This pod is AppStore safe and replaces the 'LookbackSafe' pod.",
+  "description": "Lookback is a tool and library for user experience research\nthat you can integrate into your app. Lookback records the\niOS screen, the front-facing camera, microphone, metadata,\ntouches and active views, and uploads it all in\nnear-realtime to lookback.io where you can study and dive\ninto the data. Example use cases:\n\n* Remote research. Invite testers to test your app with just a\n  Participate link, and no additional setp.\n* User testing sessions. Instead of mounting web cams in your\n  testing lab to record both the screen and your tester's\n  reactions, let Lookback do the hard work for you.\n* Long-term usability study. Let a user record a week of\n  using your app, and study trends, reactions and recurring\n  problems.\n\nHead over to [the SDK guide on our website](https://lookback.io/learn/ios-sdk/get-started#setup-lookback) to get started!\n\nNOTE: There used to be separate \"Lookback\" and \"LookbackSafe\" pods. This pod replaces both, and is\nAppStore safe. Lookback HD is no more.",
+  "homepage": "http://lookback.io/",
+  "license": {
+    "type": "Commercial",
+    "file": "lookback/LICENSE.md"
+  },
+  "authors": {
+    "Nevyn Bengtsson": "nevyn@lookback.io",
+    "Brian Gerstle": "bgerstle@lookback.io",
+    "Pete Nelson": "pete@lookback.io"
+  },
+  "social_media_url": "http://twitter.com/lookback",
+  "source": {
+    "http": "https://s3-eu-west-1.amazonaws.com/lookback-public/sdk/lookback-sdk-2.4.0.19.g20279d1.zip"
+  },
+  "documentation_url": "https://s3-eu-west-1.amazonaws.com/lookback-public/docs/ios/2.4.0.19.g20279d1/Lookback_h/index.html",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Lookback/Lookback/\"",
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "SelfTest",
+      "dependencies": {
+        "PDKTZipArchive": [
+
+        ]
+      },
+      "source_files": "lookback/Lookback.framework/Versions/A/Headers/*.h",
+      "resources": "lookback/Lookback-Resources/Lookback.bundle",
+      "preserve_paths": [
+        "lookback/LICENSE.md",
+        "lookback/Lookback.framework"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "AVFoundation",
+        "AudioToolbox",
+        "VideoToolbox",
+        "CoreVideo",
+        "CoreMedia",
+        "SystemConfiguration",
+        "MediaPlayer",
+        "MessageUI",
+        "MobileCoreServices",
+        "ImageIO",
+        "QuartzCore",
+        "Lookback"
+      ],
+      "libraries": "stdc++"
+    },
+    {
+      "name": "Live",
+      "dependencies": {
+        "LookbackWebRTC": [
+          "12816.2.8"
+        ],
+        "SocketRocket": [
+          "~> 0.5.1"
+        ],
+        "Lookback/SelfTest": [
+
+        ]
+      },
+      "preserve_paths": [
+        "lookback/LICENSE.md",
+        "lookback/LookbackLive.framework"
+      ],
+      "frameworks": [
+        "LookbackLive"
+      ]
+    }
+  ]
+}
