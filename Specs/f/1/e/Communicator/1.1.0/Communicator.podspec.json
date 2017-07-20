@@ -1,0 +1,31 @@
+{
+  "name": "Communicator",
+  "version": "1.1.0",
+  "summary": "Communication between iOS and watchOS apps just got a whole lot easier.",
+  "description": "Sending messages and data between watchOS and iOS apps\nis possible thanks to Apple's work on `WatchConnectivity`,\nhowever there are a lot of delegate callbacks to work with,\nplus some of the API calls are similar and it's not really\nclear which is needed for what purpose.\n\n`Communicator` means you don't have to spend any time writing a cross-platform wrapper around `WatchConnectivity` and is extremely easy to use.\n\nEach app gets its own shared `Communicator` object to use which handles all the underlying session stuff:\n\n```swift\nCommunicator.shared\n```\n\nUsage between the two platforms is identical, so you can\nuse it in a shared framework with no workarounds.\n\nHere's how you send a simple message with Communicator.\n\n```swift\nlet message = Message(identifier: \"1234\", content: [\"messageKey\" : \"This is some message content!\"])\ntry? Communicator.shared.send(immediateMessage: message)\n```\n\nThis will try to send a message to the counterpart immediately. If the underlying session is not active, the `try` will fail and Communicator will `throw` an error you can catch if you want.\n\nOn the other device you register as an observer for new messages:\n\n```swift\nCommunicator.shared.messageReceivedObservers.add { message in\n    if message.identifier == \"1234\" {\n        print(\"Message received: (message.content)\")\n    }\n}\n```\n\nThe great thing about using this style of observing means that you can observe these messages from anywhere in your app and filter out the ones you don't care about.\n\n`Communicator` can also transfer `Blob`s and sync `Context`s.\n\n`Blob`s are perfect for sending larger amounts of data (`WatchConnectivity` will reject large data in `Message`s), and will continue to transfer even if your app\nis terminated during transfer.\n\nYou can use a `Context` to keep things in sync between devices, which makes it perfect for preferences. `Context`s are not suitable for messaging or sending large data.",
+  "homepage": "https://github.com/KaneCheshire/Communicator",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kane Cheshire": "kane.cheshire@googlemail.com"
+  },
+  "source": {
+    "git": "https://github.com/KaneCheshire/Communicator.git",
+    "tag": "1.1.0"
+  },
+  "social_media_url": "https://twitter.com/kanecheshire",
+  "platforms": {
+    "ios": "9.3",
+    "watchos": "2.2"
+  },
+  "source_files": "Communicator/Classes/**/*",
+  "frameworks": "WatchConnectivity",
+  "dependencies": {
+    "TABObserverSet": [
+      "1.1.1"
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
