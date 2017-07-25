@@ -1,0 +1,539 @@
+{
+  "name": "YJCocoa",
+  "version": "6.6.0",
+  "authors": {
+    "阳君": "937447974@qq.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/937447974/YJCocoa",
+  "source": {
+    "git": "https://github.com/937447974/YJCocoa.git",
+    "tag": "v6.6.0"
+  },
+  "summary": "YJ系列开源库",
+  "description": "姓名：阳君\nQQ：937447974\nYJ技术支持群：557445088",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "preserve_paths": "Documentation/*.*",
+  "prepare_command": "sh Documentation/docset-installed.sh",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "source_files": "Cocoa/*.{h,m}",
+  "default_subspecs": [
+    "AppFrameworks",
+    "AppServices",
+    "DeveloperTools",
+    "System"
+  ],
+  "subspecs": [
+    {
+      "name": "AppFrameworks",
+      "source_files": "Cocoa/AppFrameworks/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "Cocoa/AppFrameworks/Foundation/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "AOP",
+              "source_files": "Cocoa/AppFrameworks/Foundation/AOP/*.{h,m}"
+            },
+            {
+              "name": "Calendar",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Calendar/*.{h,m}"
+            },
+            {
+              "name": "DictionaryModel",
+              "source_files": "Cocoa/AppFrameworks/Foundation/DictionaryModel/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ]
+              }
+            },
+            {
+              "name": "Directory",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Directory/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ]
+              }
+            },
+            {
+              "name": "FileManager",
+              "source_files": "Cocoa/AppFrameworks/Foundation/FileManager/*.{h,m}"
+            },
+            {
+              "name": "Http",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Http/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/URLCode": [
+
+                ]
+              }
+            },
+            {
+              "name": "Log",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Log/*.{h,m}"
+            },
+            {
+              "name": "PerformSelector",
+              "source_files": "Cocoa/AppFrameworks/Foundation/PerformSelector/*.{h,m}"
+            },
+            {
+              "name": "Router",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Router/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Http": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "Header",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/Router/Header/*.{h,m}"
+                },
+                {
+                  "name": "Manager",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/Router/Manager/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Router/Header": [
+
+                    ],
+                    "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Router",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/Router/Router/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Router/Header": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Singleton",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Singleton/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/Singleton/Core/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Other": [
+
+                    ],
+                    "YJCocoa/System/Dispatch": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Swizzling",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Swizzling/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ],
+                "YJCocoa/System/Dispatch": [
+
+                ]
+              }
+            },
+            {
+              "name": "Timer",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Timer/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Calendar": [
+
+                ],
+                "YJCocoa/AppFrameworks/Foundation/PerformSelector": [
+
+                ],
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ],
+                "YJCocoa/System/Security/Random": [
+
+                ]
+              }
+            },
+            {
+              "name": "URLCode",
+              "source_files": "Cocoa/AppFrameworks/Foundation/URLCode/*.{h,m}"
+            },
+            {
+              "name": "URLSession",
+              "source_files": "Cocoa/AppFrameworks/Foundation/URLSession/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Pool",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/URLSession/Pool/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Request",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/URLSession/Request/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/DictionaryModel": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Task",
+                  "source_files": "Cocoa/AppFrameworks/Foundation/URLSession/Task/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/URLSession/Pool": [
+
+                    ],
+                    "YJCocoa/AppFrameworks/Foundation/URLSession/Request": [
+
+                    ],
+                    "YJCocoa/System/Dispatch": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Other",
+              "source_files": "Cocoa/AppFrameworks/Foundation/Other/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "UIKit",
+          "source_files": "Cocoa/AppFrameworks/UIKit/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "AutoLayout",
+              "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "UIView",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/UIView/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "UIViewController",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/UIViewController/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "LayoutAnchor",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/LayoutAnchor/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/AutoLayout/Extend": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Extend",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/AutoLayout/Extend/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "CollectionViewManager",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": [
+                    "Cocoa/AppFrameworks/UIKit/CollectionViewManager/Core/*.{h,m}",
+                    "Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCell/*.{h,m}"
+                  ],
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject": [
+
+                    ],
+                    "YJCocoa/AppFrameworks/UIKit/ScrollViewManager": [
+
+                    ],
+                    "YJCocoa/System/Dispatch": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "CollectionCellObject",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/CollectionViewManager/CollectionCellObject/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Other": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Color",
+              "source_files": "Cocoa/AppFrameworks/UIKit/Color/*.{h,m}"
+            },
+            {
+              "name": "InputLength",
+              "source_files": "Cocoa/AppFrameworks/UIKit/InputLength/*.{h,m}"
+            },
+            {
+              "name": "NavigationBar",
+              "source_files": "Cocoa/AppFrameworks/UIKit/NavigationBar/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/NavigationBar/Core/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/ViewGeometry": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "NavigationRouter",
+              "source_files": "Cocoa/AppFrameworks/UIKit/NavigationRouter/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Router": [
+
+                ]
+              }
+            },
+            {
+              "name": "PageViewManager",
+              "source_files": [
+                "Cocoa/AppFrameworks/UIKit/PageViewManager/*.{h,m}",
+                "Cocoa/AppFrameworks/UIKit/PageViewManager/Cell/*.{h,m}"
+              ],
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Timer": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "CellObject",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/PageViewManager/CellObject/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "ScrollViewManager",
+              "source_files": "Cocoa/AppFrameworks/UIKit/ScrollViewManager/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/AOP": [
+
+                ],
+                "YJCocoa/AppFrameworks/UIKit/ViewGeometry": [
+
+                ]
+              }
+            },
+            {
+              "name": "TableViewManager",
+              "subspecs": [
+                {
+                  "name": "Core",
+                  "source_files": [
+                    "Cocoa/AppFrameworks/UIKit/TableViewManager/Core/*.{h,m}",
+                    "Cocoa/AppFrameworks/UIKit/TableViewManager/TableCell/*.{h,m}"
+                  ],
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject": [
+
+                    ],
+                    "YJCocoa/AppFrameworks/UIKit/ScrollViewManager": [
+
+                    ],
+                    "YJCocoa/System/Dispatch": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "TableCellObject",
+                  "source_files": "Cocoa/AppFrameworks/UIKit/TableViewManager/TableCellObject/*.{h,m}",
+                  "dependencies": {
+                    "YJCocoa/AppFrameworks/Foundation/Other": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "ViewGeometry",
+              "source_files": "Cocoa/AppFrameworks/UIKit/ViewGeometry/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AppServices",
+      "source_files": "Cocoa/AppServices/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "CoreData",
+          "source_files": "Cocoa/AppServices/CoreData/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Core",
+              "source_files": "Cocoa/AppServices/CoreData/Core/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Timer": [
+
+                ]
+              }
+            },
+            {
+              "name": "Migration",
+              "source_files": "Cocoa/AppServices/CoreData/Migration/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppServices/CoreData/Core": [
+
+                ],
+                "YJCocoa/AppFrameworks/Foundation/Directory": [
+
+                ],
+                "YJCocoa/AppFrameworks/Foundation/FileManager": [
+
+                ]
+              }
+            },
+            {
+              "name": "Object",
+              "source_files": "Cocoa/AppServices/CoreData/Object/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppServices/CoreData/Core": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DeveloperTools",
+      "source_files": "Cocoa/DeveloperTools/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Leaks",
+          "source_files": "Cocoa/DeveloperTools/Leaks/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Core",
+              "source_files": "Cocoa/DeveloperTools/Leaks/Core/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Singleton": [
+
+                ],
+                "YJCocoa/System/Dispatch": [
+
+                ]
+              }
+            },
+            {
+              "name": "UIView",
+              "source_files": "Cocoa/DeveloperTools/Leaks/UIView/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Swizzling": [
+
+                ],
+                "YJCocoa/DeveloperTools/Leaks/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "UIViewController",
+              "source_files": "Cocoa/DeveloperTools/Leaks/UIViewController/*.{h,m}",
+              "dependencies": {
+                "YJCocoa/AppFrameworks/Foundation/Swizzling": [
+
+                ],
+                "YJCocoa/DeveloperTools/Leaks/Core": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "MemoryInfo",
+          "source_files": "Cocoa/DeveloperTools/MemoryInfo/*.{h,m}"
+        },
+        {
+          "name": "TimeProfiler",
+          "source_files": "Cocoa/DeveloperTools/TimeProfiler/*.{h,m}",
+          "dependencies": {
+            "YJCocoa/AppFrameworks/Foundation/Swizzling": [
+
+            ],
+            "YJCocoa/System/Dispatch": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "source_files": "Cocoa/System/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Dispatch",
+          "source_files": "Cocoa/System/Dispatch/*.{h,m}"
+        },
+        {
+          "name": "Security",
+          "source_files": "Cocoa/System/Security/*.{h,m}",
+          "subspecs": [
+            {
+              "name": "Keychain",
+              "source_files": "Cocoa/System/Security/Keychain/*.{h,m}",
+              "subspecs": [
+                {
+                  "name": "Item",
+                  "source_files": "Cocoa/System/Security/Keychain/Item/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Random",
+              "source_files": "Cocoa/System/Security/Random/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
