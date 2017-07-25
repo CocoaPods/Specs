@@ -1,0 +1,116 @@
+{
+  "name": "SSMVVM",
+  "version": "1.4.2",
+  "summary": "MVVM化核心组件",
+  "description": "SSMVVM是作为SSKit中最核心的MVVM化的组件",
+  "homepage": "https://github.com/bassamyan/SSMVVM",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Quincy Yan": "yanyibin.nz@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/bassamyan/SSMVVM.git",
+    "tag": "1.4.2"
+  },
+  "resources": "SSMVVM/SSMVVM/SSMVVM/Resource/**/*",
+  "source_files": "SSMVVM/SSMVVM/SSMVVM/*.h",
+  "dependencies": {
+    "ReactiveCocoa": [
+      "~> 2.5"
+    ],
+    "Masonry": [
+      "~> 1.0.1"
+    ],
+    "SDWebImage": [
+      "~> 3.8.2"
+    ],
+    "AFNetworking": [
+      "~> 3.1.0"
+    ],
+    "TPKeyboardAvoiding": [
+      "~> 1.3"
+    ],
+    "SSWrapper": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Configure",
+      "source_files": "SSMVVM/SSMVVM/SSMVVM/Configure/**/*.{h,m}"
+    },
+    {
+      "name": "Header",
+      "source_files": "SSMVVM/SSMVVM/SSMVVM/Header/**/*.{h,m}",
+      "dependencies": {
+        "SSMVVM/Configure": [
+
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "SSMVVM/SSMVVM/SSMVVM/Category/*.h",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "SSMVVM/SSMVVM/SSMVVM/Category/Foundation/**/*.{h,m}"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "SSMVVM/SSMVVM/SSMVVM/Category/UIKit/**/*.{h,m}",
+          "dependencies": {
+            "SSMVVM/Category/Foundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Centeral",
+      "source_files": "SSMVVM/SSMVVM/SSMVVM/Centeral/**/*.{h,m}",
+      "dependencies": {
+        "SSWrapper": [
+
+        ],
+        "AFNetworking": [
+          "~> 3.1.0"
+        ],
+        "SSMVVM/Configure": [
+
+        ],
+        "SSMVVM/Header": [
+
+        ],
+        "SSMVVM/Category/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "MVVMBase",
+      "source_files": "SSMVVM/SSMVVM/SSMVVM/MVVMBase/**/*.{h,m}",
+      "dependencies": {
+        "SSMVVM/Category/Foundation": [
+
+        ],
+        "SSMVVM/Header": [
+
+        ],
+        "SSMVVM/Centeral": [
+
+        ]
+      }
+    }
+  ]
+}
