@@ -1,0 +1,92 @@
+{
+  "name": "Agamotto",
+  "version": "0.12.0",
+  "summary": "Agamotto is an iOS/macOS/tvOS/watchOS framework that provides block based extensions to KVO and NSNotificationCenter.",
+  "description": "Agamotto is an iOS/macOS/tvOS/watchOS framework that provides block based extensions to KVO and `NSNotificationCenter`. It supports removing the observations upon deallocation. It is based on a portion of the ReactiveCocoa Objective-C framework. It also provides a simplified version of RACCommand class, which can be assigned to various UI controls.",
+  "homepage": "https://github.com/Kosoku/Agamotto",
+  "license": {
+    "type": "MIT",
+    "file": "license.txt"
+  },
+  "authors": {
+    "William Towe": "willbur1984@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Kosoku/Agamotto.git",
+    "tag": "0.12.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "requires_arc": true,
+  "source_files": "Agamotto/**/*.{h,m}",
+  "exclude_files": "Agamotto/Agamotto-Info.h",
+  "ios": {
+    "exclude_files": "Agamotto/macOS"
+  },
+  "osx": {
+    "exclude_files": "Agamotto/iOS"
+  },
+  "tvos": {
+    "exclude_files": "Agamotto/macOS"
+  },
+  "watchos": {
+    "exclude_files": [
+      "Agamotto/iOS",
+      "Agamotto/macOS"
+    ]
+  },
+  "private_header_files": "Agamotto/Private/*.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Agamotto/*.{h,m}",
+        "Agamotto/Private/*.{h,m}"
+      ],
+      "exclude_files": "Agamotto/Agamotto.h",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "Stanley": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0"
+      },
+      "source_files": "Agamotto/iOS",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "Agamotto/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppKit",
+      "platforms": {
+        "osx": "10.12"
+      },
+      "source_files": "Agamotto/macOS",
+      "frameworks": [
+        "Foundation",
+        "AppKit"
+      ],
+      "dependencies": {
+        "Agamotto/Core": [
+
+        ]
+      }
+    }
+  ]
+}
