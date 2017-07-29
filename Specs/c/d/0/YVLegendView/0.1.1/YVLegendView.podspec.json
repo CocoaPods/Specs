@@ -1,0 +1,28 @@
+{
+  "name": "YVLegendView",
+  "version": "0.1.1",
+  "summary": "A simple Legend View which slides in to show categorize and group layers in the map into sections.",
+  "description": "### Installing\nJust Clone or download this repo to your desktop\ndrag and drop **YVLegendView** Folder to your Project, thats it you are ready to use it in your view.\n\n### Prerequisites\nWritten in **Swift 3**\nsupports from iOS 9 and above\nXcode 8 and above\n\n## Getting Started\n\nFirst simply Initiate a array of Objects (Layer info with icons)\n\nLegendObject is an object which expects a title to display as section header title and a array of layers categorized under it of type infoObject which takes a img and name as parameters\n```swift\nlet MultipleLegendFeed:[LegendObject] = [\nLegendObject(name: \"Traffic Camera\", info: [\ninfoObject(img: UIImage(named: \"map_camera_on\"), title: \"Camera - On\"),\ninfoObject(img:UIImage(named: \"map_camera_off\"), title: \"Camera - On\")\n]),\nLegendObject(name: \"Roadway Weather\", info: [\ninfoObject(img: UIImage(named: \"icon_weather_dry\"), title: \"Dry\"),\ninfoObject(img: UIImage(named: \"icon_weather_wet\"), title: \"Wet\"),\ninfoObject(img: UIImage(named: \"icon_weather_ice_watch\"), title: \"Ice Watch\"),\ninfoObject(img: UIImage(named:\"map_weather_sun\"), title: \"Sun\"),\ninfoObject(img: UIImage(named: \"icon_weather_unknown\"), title: \"Unkonwon\")\n]),\nLegendObject(name: \"Water Level\", info: [\ninfoObject(img: UIImage(named: \"flooding\"), title: \"Flooding Occuring\"),\ninfoObject(img: UIImage(named: \"flooding-nodata\"), title: \"No Dota Available\")\n])\n]\n```\nAdd the following method to your ViewController\nThe frame of the legend View is customizable according to your requirements including the animation you want the view to appear\n```swift\ninternal func AddLegendView(LegendInfoFeed:[LegendObject]){\nlet  legendView = YVLegendView()\nlegendView.removeFromSuperview()\nlegendView.LegendFeed = LegendInfoFeed\nlegendView.frame = CGRect(x:UIScreen.main.bounds.width - 20.5 , y: 70, width: 219, height:300)\nlegendView.OpenLegend = { (legendView) in\nUIView.animate(withDuration: 1.0, animations: {\nlegendView.frame = CGRect(x:UIScreen.main.bounds.width - 216 , y: 70, width: 219, height:300)\n})\n}\nlegendView.CloseLegend = { (legendView) in\nUIView.animate(withDuration: 1.0, animations: {\nlegendView.frame = CGRect(x:UIScreen.main.bounds.width - 20.5 , y: 70, width: 219, height:300)\n})\n}\nview.addSubview(legendView)\n}\n```\n\nthe call this method in ViewDidLoad\n\n```swift\nAddLegendView(LegendInfoFeed:MultipleLegendFeed)\n```\nThats it its done you can reuse this View in multiple maps with custom layers and fell free to customize the files according to your need",
+  "homepage": "https://github.com/kanumuri9593/YVLegendView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yeswanth Varma Kanumuri": "yeshuRAJ.9593@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/kanumuri9593/YVLegendView.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "YVLegendView/Classes/**/*",
+  "resource_bundles": {
+    "YVLegendView": [
+      "YVLegendView/**/*.{xib,png}"
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
