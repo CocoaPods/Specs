@@ -1,0 +1,72 @@
+{
+  "name": "Serpent",
+  "version": "1.1.0",
+  "summary": "A protocol to serialize Swift structs and classes for encoding and decoding.",
+  "homepage": "https://github.com/nodes-ios/Serpent",
+  "description": "Serpent is a framework made for creating model objects or structs that can be easily serialized and deserialized from/to JSON. It's easily expandable and handles all common data types used when consuming a REST API, as well as recursive parsing of custom objects.\nIt's designed to be used together with our helper app, the Model Boiler, making model creation a breeze. Serpent is implemented using protocol extensions and static typing.\nAlso provides extensions for Alamofire and Cashier.",
+  "license": "MIT",
+  "authors": {
+    "Nodes Agency - iOS": "ios@nodes.dk"
+  },
+  "social_media_url": "http://twitter.com/nodes_ios",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/nodes-ios/Serpent.git",
+    "tag": "1.1.0"
+  },
+  "default_subspecs": "Core",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Serpent/Serpent/Classes/**/*",
+      "exclude_files": [
+        "Serpent/Serpent/Classes/Extensions/CashierExtension.swift",
+        "Serpent/Serpent/Classes/Extensions/AlamofireExtension.swift"
+      ]
+    },
+    {
+      "name": "Extensions",
+      "dependencies": {
+        "Serpent/Core": [
+
+        ],
+        "Serpent/AlamofireExtension": [
+
+        ],
+        "Serpent/CashierExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "AlamofireExtension",
+      "dependencies": {
+        "Serpent/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 4.1"
+        ]
+      },
+      "source_files": "Serpent/Serpent/Classes/Extensions/AlamofireExtension.swift"
+    },
+    {
+      "name": "CashierExtension",
+      "dependencies": {
+        "Serpent/Core": [
+
+        ],
+        "Cashier": [
+          "~> 1.2.1"
+        ]
+      },
+      "source_files": "Serpent/Serpent/Classes/Extensions/CashierExtension.swift"
+    }
+  ]
+}
