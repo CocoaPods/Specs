@@ -1,0 +1,89 @@
+{
+  "name": "WLHelpers",
+  "version": "0.2.0.16",
+  "summary": "WLHelpers is a collection of utility and cosmetic helpers.",
+  "description": "WLHelpers's goal is to patch holes in native Cocoa API, to add convenience to most cumbersome of tasks. This library contains seven different helpers:\nWLUtilityHelper - multitude of utility and formatting methods, intended as a massive time-saver, shortening multi-line tasks into one call. Time and data formatting, string manipulation, application navigation, random generation, and many other frequently used tools at your disposal.\nWLKeychainHelper - a better formated KeychainWrapper from Apple's Keychain Services Programming Guide with the ability to add and retirieve basic items from the Keychain.\nWLVisualHelper - helper for all things visual, which performs tasks of CoreGraphics, Quartz and UIKit, so you don't have to.\nWLImageHelper - this tool will help you decouple image-loading from your controllers, with fallbacks and spinners and whatnot. Now you can load profile pictures of your users in one method call, even if your users have profile pictures from Facebook, VK, Twitter, and your own backend.\nWLLogHelper - convenience logging, which includes visual cues and automatically reports from which controller and method the log is called, greatly improving transparency of logs, so they are easy to read and navigate.\nWLLocationHelper - helper built around CoreLocation, which will spare you the task of doing trivial location-related tasks from scratch.\nWLCoreDataHelper - simple CoreData manager, that removes the need to specificly create CoreData project each time you want to use the framework, and makes it possible to add CoreData support on the fly.\nWLCurrentUserHelper - simple NSDefaults wrapper, which can be used to store user data as discrete fields, as well as to clean some of the fields, while leaving others intact. Perfect for storing data of the currently logged in user, and for logging the user out.\nWLAlertHelper - the most robust helper, providing centralized control and structure to alert messages. WLAlertHelper uses UIAlertController in a way intended by Apple, while providing compact and transparent methods that are easy to use, as well as framework for managing your own alert messages in an elegant way. You can provide your own custom alert controllers with the help of WLAlertDisplayer protocol.\n\nAFNetworkingHelper subspec:\nWLServerHelper – server API helper, which bottlenecks alert generation, validity checks and server response cleaning. The subspec is dependant on the AFNetworking 3 pod, and this helper uses AFNetworking under the hood. You can subclass, override and customize the helper to the needs of your application.",
+  "homepage": "https://github.com/leetmorry/WLHelpers",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Leetmorry": "developer@wonderslab.com"
+  },
+  "source": {
+    "git": "https://github.com/leetmorry/WLHelpers.git",
+    "tag": "0.2.0.16"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreLocation",
+    "MapKit",
+    "Photos",
+    "Contacts"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "WLHelpers/Classes/Core/**/*"
+    },
+    {
+      "name": "FacebookLogin",
+      "source_files": "WLHelpers/Classes/SocialAuthorization/FacebookLogin/**/*",
+      "dependencies": {
+        "WLHelpers/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 4"
+        ],
+        "FBSDKLoginKit": [
+          "~> 4"
+        ]
+      }
+    },
+    {
+      "name": "TwitterLogin",
+      "source_files": "WLHelpers/Classes/SocialAuthorization/TwitterLogin/**/*",
+      "dependencies": {
+        "WLHelpers/Core": [
+
+        ],
+        "TwitterKit": [
+          "~> 2.8"
+        ]
+      }
+    },
+    {
+      "name": "InstagramLogin",
+      "source_files": "WLHelpers/Classes/SocialAuthorization/InstagramLogin/**/*",
+      "dependencies": {
+        "WLHelpers/Core": [
+
+        ],
+        "InstagramKit": [
+          "~> 3.8"
+        ]
+      }
+    },
+    {
+      "name": "AFNetworkingHelper",
+      "source_files": "WLHelpers/Classes/AFNetworkingHelper/**/*",
+      "dependencies": {
+        "WLHelpers/Core": [
+
+        ],
+        "AFNetworking": [
+          "~> 3"
+        ],
+        "Reachability": [
+
+        ]
+      }
+    }
+  ]
+}
