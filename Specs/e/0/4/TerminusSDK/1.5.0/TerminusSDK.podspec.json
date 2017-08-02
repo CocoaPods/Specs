@@ -1,0 +1,85 @@
+{
+  "name": "TerminusSDK",
+  "version": "1.5.0",
+  "summary": "TerminusSDK",
+  "homepage": "https://github.com/TerminusGroup/TerminusSDK",
+  "license": "MIT",
+  "authors": {
+    "Jack Li": "445765368@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/TerminusGroup/TerminusSDK.git",
+    "tag": "1.5.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "TerminusSDK",
+    "TerminusUISDK"
+  ],
+  "subspecs": [
+    {
+      "name": "TerminusSDK",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": [
+        "iOS",
+        "iOS/TSLSDKDemo/SDK/Terminus.framework/Headers/**.h"
+      ],
+      "resources": [
+        "iOS/TSLSDKDemo/SDK/*.txt",
+        "iOS/TSLSDKDemo/SDK/*.plist",
+        "iOS/TSLSDKDemo/SDK/TSLSSKeychain.bundle"
+      ],
+      "resource_bundles": {
+        "TerminusLocalizable": "iOS/TSLSDKDemo/SDK/*.lproj"
+      },
+      "frameworks": [
+        "Security",
+        "Foundation",
+        "CoreBluetooth",
+        "CoreFoundation"
+      ],
+      "libraries": "sqlite3.0",
+      "vendored_frameworks": "iOS/TSLSDKDemo/SDK/Terminus.framework"
+    },
+    {
+      "name": "TerminusUISDK",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": [
+        "iOS/TSLSDKDemo/SDK/Terminus.framework/Headers/**.h",
+        "iOS/TSLSDKDemo/SDK/TerminusUI.framework/Headers/**.h"
+      ],
+      "public_header_files": [
+        "iOS/TSLSDKDemo/SDK/TerminusUI.framework/Headers/**.h",
+        "iOS/TSLSDKDemo/SDK/Terminus.framework/Headers/**.h"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      },
+      "resources": [
+        "iOS/TSLSDKDemo/SDK/*.txt",
+        "iOS/TSLSDKDemo/SDK/*.plist",
+        "iOS/TSLSDKDemo/SDK/TSLSSKeychain.bundle",
+        "iOS/TSLSDKDemo/SDK/TerminusUISource.bundle"
+      ],
+      "frameworks": [
+        "UIKit",
+        "Security",
+        "Foundation",
+        "CoreBluetooth",
+        "CoreFoundation"
+      ],
+      "libraries": "sqlite3.0",
+      "vendored_frameworks": [
+        "iOS/TSLSDKDemo/SDK/TerminusUI.framework",
+        "iOS/TSLSDKDemo/SDK/Terminus.framework"
+      ]
+    }
+  ]
+}
