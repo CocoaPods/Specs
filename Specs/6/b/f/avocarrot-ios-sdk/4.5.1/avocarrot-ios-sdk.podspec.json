@@ -1,0 +1,536 @@
+{
+  "name": "avocarrot-ios-sdk",
+  "version": "4.5.1",
+  "summary": "Avocarrot iOS SDK",
+  "homepage": "http://avocarrot.com/",
+  "license": {
+    "type": "Commercial",
+    "text": "  "
+  },
+  "authors": {
+    "Avocarrot": "support@avocarrot.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "NativeAssets",
+  "source": {
+    "git": "https://github.com/avocarrot/ios-sdk.git",
+    "tag": "4.5.1"
+  },
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ],
+        "avocarrot-ios-sdk/NativeAssets": [
+
+        ],
+        "avocarrot-ios-sdk/BannerAdapters": [
+
+        ],
+        "avocarrot-ios-sdk/InterstitialAdapters": [
+
+        ],
+        "avocarrot-ios-sdk/NativeViewAdapters": [
+
+        ],
+        "avocarrot-ios-sdk/VideoAdapters": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -lxml2"
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotCore.framework"
+    },
+    {
+      "name": "Mraid",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/Mraid.framework"
+    },
+    {
+      "name": "Vast",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/Vast.framework"
+    },
+    {
+      "name": "NativeAssets",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotNativeAssets.framework"
+    },
+    {
+      "name": "CoreAdapters",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "FBAudienceAdapter",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "~> 4.20"
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOFBAudienceAdapter/libAVOFBAudienceAdapter-Core.a"
+        },
+        {
+          "name": "GoogleMobileAdsAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOGoogleMobileAdsAdapter/libAVOGoogleMobileAdsAdapter-Core.a",
+          "dependencies": {
+            "Google-Mobile-Ads-SDK": [
+              "~> 7.19"
+            ]
+          }
+        },
+        {
+          "name": "MopubAdapter",
+          "dependencies": {
+            "mopub-ios-sdk": [
+              "~> 4.13"
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOMopubAdapter/libAVOMopubAdapter-Core.a"
+        },
+        {
+          "name": "ChartboostAdapter",
+          "dependencies": {
+            "ChartboostSDK": [
+              "~> 6.6"
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOChartboostAdapter/libAVOChartboostAdapter-Core.a"
+        },
+        {
+          "name": "NativeXAdapter",
+          "dependencies": {
+            "NativeX-iOS-SDK": [
+              "~> 5.5"
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVONativeXAdapter/libAVONativeXAdapter-Core.a"
+        },
+        {
+          "name": "AppLovinAdapter",
+          "vendored_libraries": [
+            "AvocarrotSDK/Adapters/libAVOAppLovinAdapter/libAVOAppLovinAdapter-Core.a",
+            "AvocarrotSDK/Adapters/libAVOAppLovinAdapter/ApplovinSDK/libAppLovinSdk.a"
+          ],
+          "source_files": "AvocarrotSDK/Adapters/libAVOAppLovinAdapter/ApplovinSDK/*.h",
+          "frameworks": [
+            "CoreMedia",
+            "AVFoundation"
+          ]
+        },
+        {
+          "name": "InLocoAdapter",
+          "dependencies": {
+            "InLocoMedia-Ads-SDK": [
+              "~> 2.4"
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOInLocoAdapter/libAVOInLocoAdapter-Core.a"
+        }
+      ]
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ],
+        "avocarrot-ios-sdk/Mraid": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotBanner.framework"
+    },
+    {
+      "name": "BannerAdapters",
+      "subspecs": [
+        {
+          "name": "FBAudienceAdapter",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "~> 4.20"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/FBAudienceAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Banner": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOFBAudienceAdapter/libAVOFBAudienceAdapter-Banner.a"
+        },
+        {
+          "name": "GoogleMobileAdsAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOGoogleMobileAdsAdapter/libAVOGoogleMobileAdsAdapter-Banner.a",
+          "dependencies": {
+            "avocarrot-ios-sdk/CoreAdapters/GoogleMobileAdsAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Banner": [
+
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "~> 7.19"
+            ]
+          }
+        },
+        {
+          "name": "MopubAdapter",
+          "dependencies": {
+            "mopub-ios-sdk": [
+              "~> 4.13"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/MopubAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Banner": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOMopubAdapter/libAVOMopubAdapter-Banner.a"
+        },
+        {
+          "name": "InLocoAdapter",
+          "dependencies": {
+            "InLocoMedia-Ads-SDK": [
+              "~> 2.4"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/InLocoAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Banner": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOInLocoAdapter/libAVOInLocoAdapter-Banner.a"
+        }
+      ]
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ],
+        "avocarrot-ios-sdk/Mraid": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotInterstitial.framework"
+    },
+    {
+      "name": "InterstitialAdapters",
+      "subspecs": [
+        {
+          "name": "FBAudienceAdapter",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "~> 4.20"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/FBAudienceAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOFBAudienceAdapter/libAVOFBAudienceAdapter-Interstitial.a"
+        },
+        {
+          "name": "GoogleMobileAdsAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOGoogleMobileAdsAdapter/libAVOGoogleMobileAdsAdapter-Interstitial.a",
+          "dependencies": {
+            "avocarrot-ios-sdk/CoreAdapters/GoogleMobileAdsAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "~> 7.19"
+            ]
+          }
+        },
+        {
+          "name": "MopubAdapter",
+          "dependencies": {
+            "mopub-ios-sdk": [
+              "~> 4.13"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/MopubAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOMopubAdapter/libAVOMopubAdapter-Interstitial.a"
+        },
+        {
+          "name": "ChartboostAdapter",
+          "dependencies": {
+            "ChartboostSDK": [
+              "~> 6.6"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/ChartboostAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOChartboostAdapter/libAVOChartboostAdapter-Interstitial.a"
+        },
+        {
+          "name": "NativeXAdapter",
+          "dependencies": {
+            "NativeX-iOS-SDK": [
+              "~> 5.5"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/NativeXAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVONativeXAdapter/libAVONativeXAdapter-Interstitial.a"
+        },
+        {
+          "name": "AppLovinAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOAppLovinAdapter/libAVOAppLovinAdapter-Interstitial.a",
+          "dependencies": {
+            "avocarrot-ios-sdk/CoreAdapters/AppLovinAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "frameworks": [
+            "CoreMedia",
+            "AVFoundation"
+          ]
+        },
+        {
+          "name": "InLocoAdapter",
+          "dependencies": {
+            "InLocoMedia-Ads-SDK": [
+              "~> 2.4"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/InLocoAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Interstitial": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOInLocoAdapter/libAVOInLocoAdapter-Interstitial.a"
+        }
+      ]
+    },
+    {
+      "name": "NativeView",
+      "dependencies": {
+        "avocarrot-ios-sdk/NativeAssets": [
+
+        ],
+        "avocarrot-ios-sdk/Core": [
+
+        ],
+        "avocarrot-ios-sdk/Vast": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotNativeView.framework"
+    },
+    {
+      "name": "NativeViewAdapters",
+      "subspecs": [
+        {
+          "name": "FBAudienceAdapter",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "~> 4.20"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/FBAudienceAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/NativeView": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOFBAudienceAdapter/libAVOFBAudienceAdapter-Native.a"
+        },
+        {
+          "name": "GoogleMobileAdsAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOGoogleMobileAdsAdapter/libAVOGoogleMobileAdsAdapter-Native.a",
+          "dependencies": {
+            "avocarrot-ios-sdk/CoreAdapters/GoogleMobileAdsAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/NativeView": [
+
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "~> 7.19"
+            ]
+          }
+        },
+        {
+          "name": "MopubAdapter",
+          "dependencies": {
+            "mopub-ios-sdk": [
+              "~> 4.13"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/MopubAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/NativeView": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOMopubAdapter/libAVOMopubAdapter-Native.a"
+        },
+        {
+          "name": "AppLovinAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOAppLovinAdapter/libAVOAppLovinAdapter-Native.a",
+          "dependencies": {
+            "avocarrot-ios-sdk/NativeView": [
+
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/AppLovinAdapter": [
+
+            ]
+          }
+        },
+        {
+          "name": "InLocoAdapter",
+          "dependencies": {
+            "InLocoMedia-Ads-SDK": [
+              "~> 2.4"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/InLocoAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/NativeView": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOInLocoAdapter/libAVOInLocoAdapter-Native.a"
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "dependencies": {
+        "avocarrot-ios-sdk/Core": [
+
+        ],
+        "avocarrot-ios-sdk/Vast": [
+
+        ]
+      },
+      "vendored_frameworks": "AvocarrotSDK/AvocarrotVideo.framework"
+    },
+    {
+      "name": "VideoAdapters",
+      "subspecs": [
+        {
+          "name": "ChartboostAdapter",
+          "dependencies": {
+            "ChartboostSDK": [
+              "~> 6.6"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/ChartboostAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Video": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOChartboostAdapter/libAVOChartboostAdapter-Video.a"
+        },
+        {
+          "name": "NativeXAdapter",
+          "dependencies": {
+            "NativeX-iOS-SDK": [
+              "~> 5.5"
+            ],
+            "avocarrot-ios-sdk/CoreAdapters/NativeXAdapter": [
+
+            ],
+            "avocarrot-ios-sdk/Video": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVONativeXAdapter/libAVONativeXAdapter-Video.a"
+        },
+        {
+          "name": "UnityAdsAdapter",
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOUnityAdsAdapter/libAVOUnityAdsAdapter-Video.a",
+          "dependencies": {
+            "UnityAds": [
+              "~> 2.1"
+            ],
+            "avocarrot-ios-sdk/Video": [
+
+            ]
+          },
+          "frameworks": [
+            "CoreMedia",
+            "AVFoundation"
+          ]
+        },
+        {
+          "name": "VungleAdapter",
+          "dependencies": {
+            "VungleSDK-iOS": [
+              "~> 3.2"
+            ],
+            "avocarrot-ios-sdk/Video": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOVungleAdapter/libAVOVungleAdapter-Video.a"
+        },
+        {
+          "name": "AdColonyAdapter",
+          "dependencies": {
+            "AdColony": [
+              "~> 3.1"
+            ],
+            "avocarrot-ios-sdk/Video": [
+
+            ]
+          },
+          "vendored_libraries": "AvocarrotSDK/Adapters/libAVOAdColonyAdapter/libAVOAdColonyAdapter-Video.a"
+        }
+      ]
+    }
+  ]
+}
