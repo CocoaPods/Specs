@@ -1,0 +1,46 @@
+{
+  "name": "CCSQLite",
+  "version": "2.1.0",
+  "summary": "A Cocoa / Objective-C wrapper around SQLite. YapDatabase(key/value store) + FMDB (ARC),\nCCKeyValue can replace NSUserDefaults or simple data type or key value type [Lightweight data] [Lightweight cache]. \nCCSQLite 支持 iOS与OSX (Objective-C 封装的SQLite. 结合YapDatabase(key/value store) + FMDB (ARC)),\nCCKeyValue可替换NSUserDefaults 或 简单数据类型 或 键值类型 [轻量级数据] [轻量级缓存].",
+  "homepage": "https://github.com/ccworld1000/CCSQLite",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "CC": "ccworld1000@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ccworld1000/CCSQLite.git",
+    "tag": "2.1.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "standard",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "libraries": "sqlite3",
+      "source_files": "CCSQLite/*.{h,m}",
+      "resources": "LICENSE/*.{txt}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited)"
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+
+        ]
+      },
+      "source_files": "CCSQLite/*.{h,m}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+      }
+    }
+  ]
+}
