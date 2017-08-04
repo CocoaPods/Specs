@@ -1,0 +1,62 @@
+{
+  "name": "AdStir-Ads-SDK",
+  "version": "2.9.2",
+  "summary": "AdStir Ads SDK for iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2015 UNITED, Inc. All Rights Reserved."
+  },
+  "homepage": "https://ad-stir.com",
+  "authors": "UNITED, Inc.",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "http": "http://dl.ad-stir.com/sdk/AdstirAdsSdkiOS-2.9.2.zip",
+    "sha256": "e675e716f2b493ea611f5b17f00460e313562d8dc14f88bfb81af421af4b8015"
+  },
+  "preserve_paths": "**/README.md",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "**/AdstirAds.framework",
+      "frameworks": [
+        "AdSupport",
+        "CoreTelephony",
+        "AVFoundation",
+        "CoreMedia",
+        "QuartzCore"
+      ]
+    },
+    {
+      "name": "AdMobMediationAdapter",
+      "dependencies": {
+        "AdStir-Ads-SDK/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      },
+      "vendored_frameworks": "**/AdstirAds.framework",
+      "vendored_libraries": "**/AdMobMediationAdapter/libAdMobMediationAdapter-AdstirAds.a"
+    },
+    {
+      "name": "LegacyInterstitial",
+      "dependencies": {
+        "AdStir-Ads-SDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAds.framework",
+      "source_files": "**/LegacyInterstitial/AdstirLegacyInterstitial.h",
+      "public_header_files": "**/LegacyInterstitial/AdstirLegacyInterstitial.h",
+      "vendored_libraries": "**/LegacyInterstitial/libAdstirAds-LegacyInterstitial.a"
+    }
+  ]
+}
