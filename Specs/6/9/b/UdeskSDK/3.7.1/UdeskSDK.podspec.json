@@ -1,0 +1,52 @@
+{
+  "name": "UdeskSDK",
+  "version": "3.7.1",
+  "license": "MIT",
+  "summary": "Udesk SDK for iOS",
+  "homepage": "https://github.com/udesk/UdeskSDK-iOS",
+  "authors": {
+    "xuchen ": "xuc@udesk.cn"
+  },
+  "source": {
+    "git": "https://github.com/udesk/UdeskSDK-iOS.git",
+    "tag": "3.7.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "SDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "WebKit"
+      ],
+      "source_files": "UdeskSDK/SDK/*.{h}",
+      "vendored_libraries": "UdeskSDK/SDK/libUdesk.a",
+      "libraries": [
+        "z",
+        "xml2",
+        "resolv",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "UdeskSDK/UDChatMessage/**/*.{h,m}",
+      "resources": "UdeskSDK/UDChatMessage/UDResource/UdeskBundle.bundle",
+      "dependencies": {
+        "UdeskSDK/SDK": [
+
+        ]
+      }
+    }
+  ]
+}
