@@ -1,0 +1,58 @@
+{
+  "name": "XMNWeb",
+  "version": "0.2.4",
+  "summary": "XMNWeb provide WKWebView And JS connection",
+  "homepage": "https://github.com/ws00801526/XMNWeb",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ws00801526": "3057600441@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ws00801526/XMNWeb.git",
+    "tag": "0.2.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "WebKit"
+  ],
+  "default_subspecs": "Bridge",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "XMNWeb/Classes/Core/**/*",
+      "public_header_files": "XMNWeb/Classes/Core/*.h",
+      "dependencies": {
+        "KVOController": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bridge",
+      "source_files": "XMNWeb/Classes/Bridge/**/*",
+      "public_header_files": "XMNWeb/Classes/Bridge/*.h",
+      "resource_bundles": {
+        "XMNWebBridge": [
+          "XMNWeb/Assets/Bridge/**/*"
+        ]
+      },
+      "dependencies": {
+        "XMNWeb/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "XMNBRIDGE_ENABLED=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "XMNBRIDGE_ENABLED=1"
+      }
+    }
+  ]
+}
