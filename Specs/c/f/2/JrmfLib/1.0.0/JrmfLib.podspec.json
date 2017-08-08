@@ -1,0 +1,74 @@
+{
+  "name": "JrmfLib",
+  "version": "1.0.0",
+  "summary": "some sources of jrmf360",
+  "homepage": "http://weibo.com/vamCriss",
+  "license": "MIT",
+  "authors": {
+    "criss": "ericluo0114@hotmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/VamCriss/JrmfLib.git",
+    "tag": "1.0.0"
+  },
+  "resources": "jrmfLib/*.{bundle,cer,framework}",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "AlipayLib",
+      "resources": "jrmfLib/AlipayLib/**",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreGraphics",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "UIKit",
+        "Foundation",
+        "CFNetwork",
+        "CoreMotion"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ]
+    },
+    {
+      "name": "WeChatSDK",
+      "frameworks": [
+        "AVFoundation",
+        "Security",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++",
+        "z.1.2.5"
+      ],
+      "subspecs": [
+        {
+          "name": "WXSDK",
+          "vendored_libraries": "jrmfLib/WeChatSDK/WXSDK/libWeChatSDK.a",
+          "source_files": "jrmfLib/WeChatSDK/WXSDK/*.h"
+        },
+        {
+          "name": "SPaySDK",
+          "frameworks": [
+            "Foundation",
+            "UIKit",
+            "CoreMotion",
+            "CoreTelephony",
+            "SystemConfiguration",
+            "CoreGraphics"
+          ],
+          "source_files": "jrmfLib/WeChatSDK/SPaySDK/*"
+        }
+      ]
+    }
+  ]
+}
