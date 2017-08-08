@@ -1,0 +1,33 @@
+{
+  "name": "nuntius",
+  "version": "0.0.1",
+  "summary": "Extended Triple Diffie-Hellman (X3DH) and Double Ratchet for iOS",
+  "description": "Objc implementation of Extended Triple Diffie-Hellman (X3DH) and Double Ratchet protocols using libsodium for most of the crypto operations.",
+  "homepage": "https://github.com/ivRodriguezCA/nuntius",
+  "license": "MIT",
+  "authors": "Ivan E. Rodriguez",
+  "social_media_url": "http://twitter.com/ivRodriguezCA",
+  "source": {
+    "git": "https://github.com/ivRodriguezCA/nuntius.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "nuntius/**/*.{h,m}",
+  "exclude_files": "nuntius/libsodium/**/*.{h,m}",
+  "platforms": {
+    "ios": null
+  },
+  "subspecs": [
+    {
+      "name": "libsodium",
+      "preserve_paths": [
+        "nuntius/libsodium/include/**/*.{h,m}",
+        "nuntius/libsodium/LICENSE"
+      ],
+      "vendored_libraries": "nuntius/libsodium/lib/libsodium.a",
+      "libraries": "sodium",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/nuntius/nuntius/libsodium/include/**"
+      }
+    }
+  ]
+}
