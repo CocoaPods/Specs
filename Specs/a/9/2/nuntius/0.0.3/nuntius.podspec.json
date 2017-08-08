@@ -1,0 +1,34 @@
+{
+  "name": "nuntius",
+  "version": "0.0.3",
+  "summary": "iOS Framework for end-to-end encrypted messages",
+  "description": "nuntius is an iOS framework that helps iOS developers integrate end-to-end encryption (e2ee) into their apps with simple APIs.\nIt provides an objc implementation of the Extended Triple Diffie-Hellman (X3DH) and Double Ratchet protocols using libsodium for most of the crypto operations.\nnuntius provides Authenticated Encryption with Associated Data (AEAD) via AES-CBC-HMAC-256, it uses Apple's CommonCrypto framework for this operations, but in the future I'll move to libsodium-only crypto and use ChaCha20-Poly1305 instead.",
+  "homepage": "https://github.com/ivRodriguezCA/nuntius",
+  "license": "MIT",
+  "authors": "Ivan E. Rodriguez",
+  "social_media_url": "http://twitter.com/ivRodriguezCA",
+  "source": {
+    "git": "https://github.com/ivRodriguezCA/nuntius.git",
+    "branch": "master",
+    "tag": "0.0.3"
+  },
+  "source_files": "nuntius/**/*.{h,m}",
+  "exclude_files": "nuntius/libsodium/**/*.{h,m}",
+  "platforms": {
+    "ios": null
+  },
+  "subspecs": [
+    {
+      "name": "libsodium",
+      "preserve_paths": [
+        "nuntius/libsodium/include/**/*.{h,m}",
+        "nuntius/libsodium/LICENSE"
+      ],
+      "vendored_libraries": "nuntius/libsodium/lib/libsodium.a",
+      "libraries": "sodium",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/nuntius/nuntius/libsodium/include/**"
+      }
+    }
+  ]
+}
