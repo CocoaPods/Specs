@@ -1,0 +1,104 @@
+{
+  "name": "MobileCenter",
+  "version": "0.11.2",
+  "summary": "Mobile Center is mission control for mobile apps. Get faster release cycles, higher-quality apps, and the insights to build what users want.",
+  "description": "Mobile Center is mission control for mobile apps.\n Get faster release cycles, higher-quality apps, and the insights to build what users want.\n\n The Mobile Center SDK uses a modular architecture so you can use any or all of the following services: \n\n 1. Mobile Center Analytics:\n Mobile Center Analytics helps you understand user behavior and customer engagement to improve your app. The SDK automatically captures session count, device properties like model, OS version, etc. You can define your own custom events to measure things that matter to you. All the information captured is available in the Mobile Center portal for you to analyze the data.\n\n 2. Mobile Center Crashes: \n Mobile Center Distribute will let your users install a new version of the app when you distribute it via the Mobile Center. With a new version of the app available, the SDK will present an update dialog to the users to either download or postpone the new version. Once they choose to update, the SDK will start to update your application. This feature will NOT work if your app is deployed to the app store.\n\n 3. Mobile Center Distribute:\n Mobile Center Distribute provides the capability to display in-app updates to your app users when a new version of the application is released.\n\n 4. Mobile Center Push:\n Mobile Center Push enables you to send push notifications to users of your app from the Mobile Center portal.",
+  "homepage": "https://mobile.azure.com",
+  "documentation_url": "https://docs.mobile.azure.com/sdk/ios/",
+  "license": {
+    "type": "MIT",
+    "file": "MobileCenter-SDK-iOS/LICENSE"
+  },
+  "authors": {
+    "Microsoft": "mobilecentersdk@microsoft.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://github.com/microsoft/mobile-center-sdk-ios/releases/download/0.11.2/MobileCenter-SDK-iOS-0.11.2.zip"
+  },
+  "preserve_paths": "MobileCenter-SDK-iOS/LICENSE",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "Analytics",
+    "Crashes"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenter.framework",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "Analytics",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MobileCenter/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterAnalytics.framework"
+    },
+    {
+      "name": "Crashes",
+      "frameworks": "Foundation",
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "dependencies": {
+        "MobileCenter/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterCrashes.framework"
+    },
+    {
+      "name": "Distribute",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "weak_frameworks": "SafariServices",
+      "dependencies": {
+        "MobileCenter/Core": [
+
+        ]
+      },
+      "resource_bundles": {
+        "MobileCenterDistributeResources": [
+          "MobileCenter-SDK-iOS/MobileCenterDistributeResources.bundle/*.lproj"
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterDistribute.framework"
+    },
+    {
+      "name": "Push",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "weak_frameworks": "UserNotifications",
+      "dependencies": {
+        "MobileCenter/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MobileCenter-SDK-iOS/MobileCenterPush.framework"
+    }
+  ]
+}
