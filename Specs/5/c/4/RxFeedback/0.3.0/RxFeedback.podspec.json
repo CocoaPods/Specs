@@ -1,0 +1,35 @@
+{
+  "name": "RxFeedback",
+  "version": "0.3.0",
+  "summary": "Simplest architecture for RxSwift. State + feedback loops.",
+  "description": "Simplest architecture for RxSwift. State + feedback loops.\n\n* Simple\n    * If the system doesn't have state -> congrats, you have either a pure function or an observable sequence\n    * It the system does have state, here we are :)\n    * Interaction with that state is by definition a feedback loop.\n    * =>  It's just state + CQRS\n* Straightforward\n    * if it's state -> State\n    * if it's a way to modify state -> Event/Command\n    * it it's an effect -> encode it into part of state and then design a feedback loop\n* Declarative\n    * System behavior is first declaratively specified and effects begin after subscribe is called => Compile time proof there are no \"unhandled states\"\n* Debugging is easier\n    * A lot of logic is just normal pure function that can be debugged using Xcode debugger, or just printing the commands.\n\n* Can be applied on any level\n    * [Entire system](https://kafka.apache.org/documentation/)\n    * application (state is stored inside a database, CoreData, Firebase, Realm)\n    * view controller (state is stored inside `system` operator)\n    * inside feedback loop (another `system` operator inside feedback loop)\n* Works awesome with dependency injection\n* Testing\n    * Reducer is a pure function, just call it and assert results\n    * In case effects are being tested -> TestScheduler\n* Can model circular dependencies\n* Completely separates business logic from effects (Rx).\n    * Business logic can be transpiled between platforms (ShiftJS, C++, J2ObjC)",
+  "homepage": "https://github.com/kzaher/RxFeedback",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Krunoslav Zaher": "krunoslav.zaher@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/kzaher/RxFeedback.git",
+    "tag": "0.3.0"
+  },
+  "source_files": "Sources/**/*",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "RxSwift": [
+      "~> 3.4"
+    ],
+    "RxCocoa": [
+      "~> 3.4"
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
