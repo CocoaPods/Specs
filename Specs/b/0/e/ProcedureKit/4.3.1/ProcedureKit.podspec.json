@@ -1,0 +1,112 @@
+{
+  "name": "ProcedureKit",
+  "version": "4.3.1",
+  "summary": "Powerful Operation subclasses in Swift.",
+  "description": "A Swift framework inspired by Apple's WWDC 2015\nsession Advanced NSOperations: https://developer.apple.com/videos/wwdc/2015/?id=226.",
+  "homepage": "https://github.com/ProcedureKit/ProcedureKit",
+  "license": "MIT",
+  "authors": {
+    "ProcedureKit Core Contributors": "hello@procedure.kit.run"
+  },
+  "source": {
+    "git": "https://github.com/ProcedureKit/ProcedureKit.git",
+    "tag": "4.3.1"
+  },
+  "module_name": "ProcedureKit",
+  "social_media_url": "https://twitter.com/danthorpe",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0",
+    "tvos": "9.2",
+    "osx": "10.10"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  },
+  "default_subspecs": "Standard",
+  "pushed_with_swift_version": "3.0",
+  "subspecs": [
+    {
+      "name": "Standard",
+      "source_files": [
+        "Sources/ProcedureKit"
+      ],
+      "exclude_files": [
+        "Sources/TestingProcedureKit",
+        "Sources/ProcedureKitMobile",
+        "Sources/ProcedureKitMac",
+        "Sources/ProcedureKitTV",
+        "Sources/ProcedureKitNetwork",
+        "Sources/ProcedureKitCloud",
+        "Sources/ProcedureKitLocation"
+      ]
+    },
+    {
+      "name": "Network",
+      "dependencies": {
+        "ProcedureKit/Standard": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/ProcedureKitNetwork"
+      ]
+    },
+    {
+      "name": "Location",
+      "dependencies": {
+        "ProcedureKit/Standard": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreLocation",
+        "MapKit"
+      ],
+      "source_files": [
+        "Sources/ProcedureKitLocation"
+      ]
+    },
+    {
+      "name": "Cloud",
+      "dependencies": {
+        "ProcedureKit/Standard": [
+
+        ]
+      },
+      "frameworks": "CloudKit",
+      "source_files": [
+        "Sources/ProcedureKitCloud"
+      ]
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "ProcedureKit/Network": [
+
+        ],
+        "ProcedureKit/Location": [
+
+        ],
+        "ProcedureKit/Cloud": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mobile",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ProcedureKit/Standard": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/ProcedureKitMobile"
+      ]
+    }
+  ]
+}
