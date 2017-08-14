@@ -1,0 +1,96 @@
+{
+  "name": "WQBasicComponents",
+  "version": "0.1.5",
+  "summary": "基础组件(不涉及UI部分)",
+  "description": "平常收集的一些常用的工具以及分类",
+  "homepage": "https://github.com/wang68543/WQBasicComponents",
+  "license": "MIT",
+  "authors": {
+    "王强": "wang68543@163.com"
+  },
+  "source": {
+    "git": "https://github.com/wang68543/WQBasicComponents.git",
+    "tag": "0.1.5"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": [
+    "#import <UIKit/UIKit.h>",
+    "#import <Foundation/Foundation.h>"
+  ],
+  "source_files": "WQBasicComponents/WQBasicComponents.h",
+  "dependencies": {
+    "AFNetworking": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "WQPublicHelp",
+      "subspecs": [
+        {
+          "name": "WQBasicHelp",
+          "source_files": "WQBasicComponents/WQPublicHelp/WQBasicHelp/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "subspecs": [
+        {
+          "name": "Category_String",
+          "source_files": "WQBasicComponents/Category/Category_String/*.{h,m}"
+        },
+        {
+          "name": "Category_Vendor",
+          "source_files": "WQBasicComponents/Category/Category_Vendor/*.{h,m}"
+        },
+        {
+          "name": "Category_Foundation",
+          "source_files": "WQBasicComponents/Category/Category_Foundation/*.{h,m}"
+        },
+        {
+          "name": "Category_Date",
+          "dependencies": {
+            "WQBasicComponents/Category/Category_Vendor": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Category/Category_Date/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Tool",
+      "subspecs": [
+        {
+          "name": "BasicFoundation",
+          "source_files": "WQBasicComponents/Tool/BasicFoundation/*.{h,m}"
+        },
+        {
+          "name": "BasicHelp",
+          "dependencies": {
+            "WQBasicComponents/Category/Category_Foundation": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Tool/BasicHelp/*.{h,m}"
+        },
+        {
+          "name": "NetWorkTool",
+          "dependencies": {
+            "WQBasicComponents/Tool/BasicHelp": [
+
+            ],
+            "WQBasicComponents/Category/Category_Foundation": [
+
+            ]
+          },
+          "source_files": "WQBasicComponents/Tool/NetWorkTool/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
