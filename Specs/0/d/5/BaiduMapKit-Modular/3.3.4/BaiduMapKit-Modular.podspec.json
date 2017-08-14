@@ -1,0 +1,271 @@
+{
+  "name": "BaiduMapKit-Modular",
+  "version": "3.3.4",
+  "summary": "百度地图iOS SDK Modular（CocoaPods百度地图官方库）, 支持Cocoaspods subspec",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ApterKing": "wangcccong@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ApterKing/BaiduMapKit-Modular.git",
+    "tag": "3.3.4",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "Cloud",
+    "Location",
+    "Map",
+    "Radar",
+    "Search",
+    "Utils"
+  ],
+  "prepare_command": "# 创建Base Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Base {\n  umbrella header \"BMKBaseComponent.h\"\n\n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Cloud Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Cloud {\n  umbrella header \"BMKCloudSearchComponent.h\"\n\n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Location Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Location {\n  umbrella header \"BMKLocationComponent.h\"\n\n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Map Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Map {\n  umbrella header \"BMKMapComponent.h\"\n  \n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Radar Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Radar {\n  umbrella header \"BMKRadarComponent.h\"\n  \n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Search  Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Search {\n  umbrella header \"BMKSearchComponent.h\"\n  header \"BMKSearchVersion.h\"\n  \n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF\n\n# 创建Utils  Module\nrm -rf BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Modules\nmkdir BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Modules\ntouch BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Modules/module.modulemap\ncat <<-EOF > BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Utils {\n  umbrella header \"BMKUtilsComponent.h\"\n  \n  export *\n  link \"sqlite3.0\"\n  link \"stdc++.6.0.9\"\n}\nEOF",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Base.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Cloud",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Cloud.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Location.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Map",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Headers/**.h",
+      "resources": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Map.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Radar",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Radar.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Search",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Search.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    },
+    {
+      "name": "Utils",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "BaiduMapKit-Modular/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit-Modular/Base": [
+
+          ]
+        }
+      },
+      "source_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Headers/**.h",
+      "public_header_files": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "stdc++.6.0.9"
+      ],
+      "vendored_frameworks": "BaiduMapKit-Modular/Vendors/BaiduMapAPI_Utils.framework",
+      "vendored_libraries": "BaiduMapKit-Modular/Vendors/thirdlibs/*.a"
+    }
+  ]
+}
