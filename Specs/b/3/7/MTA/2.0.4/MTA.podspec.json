@@ -1,0 +1,56 @@
+{
+  "name": "MTA",
+  "version": "2.0.4",
+  "summary": "An unofficial MTA SDK Cocoapods repository.",
+  "homepage": "http://mta.qq.com",
+  "authors": {
+    "Sunnyyoung": "https://github.com/Sunnyyoung"
+  },
+  "source": {
+    "git": "https://github.com/Sunnyyoung/MTA.git",
+    "tag": "2.0.4"
+  },
+  "license": "None",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDK/*.h",
+      "public_header_files": "SDK/*.h",
+      "vendored_libraries": "SDK/libmtasdk.a",
+      "frameworks": [
+        "CoreTelephony",
+        "CFNetwork",
+        "Security",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "MTA/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/libautotrack.a"
+    },
+    {
+      "name": "IDFA",
+      "dependencies": {
+        "MTA/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/libidfa.a",
+      "frameworks": "AdSupport"
+    }
+  ]
+}
