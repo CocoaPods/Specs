@@ -1,0 +1,100 @@
+{
+  "name": "Texture",
+  "version": "2.4",
+  "license": {
+    "type": "BSD and Apache 2"
+  },
+  "homepage": "http://texturegroup.org",
+  "authors": {
+    "Huy Nguyen": "huy@pinterest.com",
+    "Garrett Moon": "garrett@excitedpixel.com",
+    "Scott Goodson": "scottgoodson@gmail.com",
+    "Michael Schneider": "schneider@pinterest.com",
+    "Adlai Holler": "adlai@pinterest.com"
+  },
+  "summary": "Smooth asynchronous user interfaces for iOS apps.",
+  "source": {
+    "git": "https://github.com/TextureGroup/Texture.git",
+    "tag": "2.4"
+  },
+  "module_name": "AsyncDisplayKit",
+  "header_dir": "AsyncDisplayKit",
+  "documentation_url": "http://texturegroup.org/appledoc/",
+  "weak_frameworks": [
+    "Photos",
+    "MapKit",
+    "AssetsLibrary"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "PINRemoteImage",
+  "social_media_url": "https://twitter.com/TextureiOS",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "Source/*.h",
+        "Source/Details/**/*.h",
+        "Source/Layout/**/*.h",
+        "Source/Base/*.h",
+        "Source/Debug/**/*.h",
+        "Source/TextKit/ASTextNodeTypes.h",
+        "Source/TextKit/ASTextKitComponents.h"
+      ],
+      "source_files": [
+        "Source/**/*.{h,m,mm}",
+        "Base/*.{h,m}",
+        "Source/TextKit/*.h"
+      ],
+      "xcconfig": {
+        "GCC_PRECOMPILE_PREFIX_HEADER": "YES"
+      }
+    },
+    {
+      "name": "PINRemoteImage",
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+          "= 3.0.0-beta.11"
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "IGListKit",
+      "dependencies": {
+        "IGListKit": [
+          "3.0.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Yoga",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YOGA=1"
+      },
+      "dependencies": {
+        "Yoga": [
+          "1.5.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    }
+  ]
+}
