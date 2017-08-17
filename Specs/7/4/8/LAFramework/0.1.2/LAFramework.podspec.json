@@ -1,0 +1,91 @@
+{
+  "name": "LAFramework",
+  "version": "0.1.2",
+  "summary": "iOS Base Framework.",
+  "description": "This is a base framwork that constans Networking,Monitor,Cache,Mediator...",
+  "homepage": "https://github.com/huhk345/LAFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LakeR": "njlaker@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/huhk345/LAFramework.git",
+    "tag": "0.1.2"
+  },
+  "prefix_header_file": "LAFramework/Classes/LAPrefix.pch",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LAFramework/Classes/**/*",
+  "exclude_files": "LAFramework/Classes/LAPrefix.pch",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.1.0"
+    ],
+    "ReactiveObjC": [
+      "~> 1.0.1"
+    ],
+    "CocoaLumberjack": [
+      "~>2.3.0"
+    ]
+  },
+  "preserve_paths": "LAFramework/runscript.rb",
+  "subspecs": [
+    {
+      "name": "LADataCategory",
+      "source_files": "LADataCategory/Classes/**/*",
+      "libraries": "z"
+    },
+    {
+      "name": "LAJsonKit",
+      "source_files": "LAJsonKit/Classes/**/*",
+      "public_header_files": "LAJsonKit/Classes/**/*.h",
+      "preserve_paths": "LAJsonKit/Scripts/**/*"
+    },
+    {
+      "name": "LAMediator",
+      "source_files": "LAMediator/Classes/**/*"
+    },
+    {
+      "name": "LACache",
+      "source_files": "LACache/Classes/**/*",
+      "dependencies": {
+        "LAFramework/LADataCategory": [
+
+        ]
+      }
+    },
+    {
+      "name": "LAWebViewBridge",
+      "source_files": "LAWebViewBridge/Classes/**/*",
+      "dependencies": {
+        "LAFramework/LACache": [
+
+        ]
+      }
+    },
+    {
+      "name": "LASystemInfo",
+      "source_files": "LASystemInfo/Classes/**/*"
+    },
+    {
+      "name": "LANetworking",
+      "source_files": "LANetworking/Classes/**/*",
+      "preserve_paths": "LANetworking/Scripts/**/*",
+      "dependencies": {
+        "LAFramework/LADataCategory": [
+
+        ],
+        "LAFramework/LACache": [
+
+        ],
+        "LAFramework/LAJsonKit": [
+
+        ]
+      }
+    }
+  ]
+}
