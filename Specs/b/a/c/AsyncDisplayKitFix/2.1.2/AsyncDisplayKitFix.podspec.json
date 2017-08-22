@@ -1,0 +1,83 @@
+{
+  "name": "AsyncDisplayKitFix",
+  "version": "2.1.2",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "http://asyncdisplaykit.org",
+  "authors": {
+    "Scott Goodson": "scottgoodson@gmail.com"
+  },
+  "summary": "fix gif warnings for ios7.",
+  "source": {
+    "git": "https://github.com/aimobier/AsyncDisplayKit.git",
+    "tag": "2.1.2"
+  },
+  "documentation_url": "http://asyncdisplaykit.org/appledoc/",
+  "weak_frameworks": [
+    "Photos",
+    "MapKit",
+    "AssetsLibrary"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "7.0"
+  },
+  "default_subspecs": "PINRemoteImage",
+  "social_media_url": "https://twitter.com/AsyncDisplayKit",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "AsyncDisplayKitFix/*.h",
+        "AsyncDisplayKitFix/Details/**/*.h",
+        "AsyncDisplayKitFix/Layout/**/*.h",
+        "Base/*.h",
+        "AsyncDisplayKitFix/Debug/ASLayoutElementInspectorNode.h",
+        "AsyncDisplayKitFix/TextKit/ASTextNodeTypes.h",
+        "AsyncDisplayKitFix/TextKit/ASTextKitComponents.h"
+      ],
+      "source_files": [
+        "AsyncDisplayKitFix/**/*.{h,m,mm}",
+        "Base/*.{h,m}",
+        "AsyncDisplayKitFix/TextKit/*.h"
+      ]
+    },
+    {
+      "name": "PINRemoteImage",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PIN_REMOTE_IMAGE=1"
+      },
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+          "= 3.0.0-beta.8"
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ],
+        "AsyncDisplayKitFix/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "IGListKit",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) IG_LIST_KIT=1"
+      },
+      "dependencies": {
+        "IGListKit": [
+          "2.1.0"
+        ],
+        "AsyncDisplayKitFix/Core": [
+
+        ]
+      }
+    }
+  ]
+}
