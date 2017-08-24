@@ -1,0 +1,43 @@
+{
+  "name": "WQVoiceToolComponents",
+  "version": "0.0.5",
+  "summary": "音频组件",
+  "description": "将之前的组件进行细致拆分",
+  "homepage": "https://github.com/wang68543/WQVoiceToolComponents",
+  "license": "MIT",
+  "authors": {
+    "王强": "wang68543@163.com"
+  },
+  "source": {
+    "git": "https://github.com/wang68543/WQVoiceToolComponents.git",
+    "tag": "0.0.5"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "requires_arc": true,
+  "exclude_files": "WQVoiceToolComponents/amrwapper/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "WavAmrHelp",
+      "requires_arc": false,
+      "source_files": "WQVoiceToolComponents/amrwapper/*.{h,m}",
+      "vendored_libraries": [
+        "WQVoiceToolComponents/amrwapper/libopencore-amrnb.a",
+        "WQVoiceToolComponents/amrwapper/libopencore-amrwb.a"
+      ]
+    },
+    {
+      "name": "VoiceTool",
+      "dependencies": {
+        "WQVoiceToolComponents/WavAmrHelp": [
+
+        ]
+      },
+      "source_files": "WQVoiceToolComponents/WQVoiceManager/*.{h,m}"
+    }
+  ]
+}
