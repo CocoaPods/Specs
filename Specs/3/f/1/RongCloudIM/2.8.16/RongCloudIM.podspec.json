@@ -1,0 +1,205 @@
+{
+  "name": "RongCloudIM",
+  "version": "2.8.16",
+  "summary": "RongCloud IM SDK.(如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库)",
+  "description": "RongCloud IM SDK for iOS.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "litao": "litao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "http": "http://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_v2_8_16_Stable.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM/RongIMLib.framework",
+      "libraries": [
+        "stdc++",
+        "sqlite3",
+        "z"
+      ],
+      "resources": "RongCloudIM/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "vendored_libraries": "RongCloudIM/libopencore-amrnb.a"
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM/RongCloud.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/Emoji.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongIMKit.framework",
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "CallLib",
+      "vendored_frameworks": [
+        "RongCloudIM/RongCallLib.framework",
+        "RongCloudIM/AgoraRtcEngineKit.framework"
+      ],
+      "libraries": [
+        "z",
+        "xml2",
+        "stdc++",
+        "sqlite3",
+        "c++",
+        "c++abi",
+        "resolv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "CoreMotion",
+        "VideoToolbox"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "CallKit",
+      "vendored_frameworks": "RongCloudIM/RongCallKit.framework",
+      "libraries": [
+        "z",
+        "xml2",
+        "stdc++",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "RongCloudIM/CallLib": [
+
+        ],
+        "RongCloudIM/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "RedPacket",
+      "vendored_frameworks": [
+        "RongCloudIM/JrmfIMLib/JrmfPacketKit.framework",
+        "RongCloudIM/JrmfIMLib/JYangToolKit.framework",
+        "RongCloudIM/AlipaySDK/AlipaySDK.framework",
+        "RongCloudIM/JrmfIMLib/JrmfWalletKit.framework"
+      ],
+      "resources": [
+        "RongCloudIM/JrmfIMLib/JResource.bundle",
+        "RongCloudIM/JrmfIMLib/en.lproj",
+        "RongCloudIM/JrmfIMLib/zh-Hans.lproj",
+        "RongCloudIM/JrmfIMLib/jrmf.cer",
+        "RongCloudIM/AlipaySDK/AlipaySDK.bundle"
+      ],
+      "libraries": [
+        "z",
+        "xml2",
+        "stdc++",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "CoreMotion",
+        "CoreText"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sticker",
+      "vendored_frameworks": "RongCloudIM/BQMMRongCloudExt.framework",
+      "resources": "RongCloudIM/BQMM.bundle",
+      "libraries": "z",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      }
+    }
+  ]
+}
