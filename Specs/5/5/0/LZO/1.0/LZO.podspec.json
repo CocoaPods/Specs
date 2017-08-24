@@ -1,0 +1,35 @@
+{
+  "name": "LZO",
+  "version": "1.0",
+  "license": {
+    "type": "GNU General Public License v2.0",
+    "file": "License.txt"
+  },
+  "homepage": "https://github.com/CodingMarkus/LZO.pod",
+  "authors": {
+    "Markus Hanauska": "CodingMarkus@hanauska.name"
+  },
+  "summary": "The LZO compression library as a CocoaPod.",
+  "source": {
+    "git": "https://github.com/CodingMarkus/LZO.pod.git",
+    "tag": "Releases/1.0",
+    "submodules": true
+  },
+  "source_files": [
+    "Pod/Source/*.{h,m}",
+    "Pod/Include/*.h",
+    "Pod/Include/Private/lzo/*.h",
+    "Pod/Submodules/lzo.git/src/*.{c,h,ch}"
+  ],
+  "public_header_files": "Pod/Include/*.h",
+  "requires_arc": true,
+  "compiler_flags": "-O3",
+  "frameworks": "Foundation",
+  "prepare_command": "echo \"Building headers dynamically, please be patient...\"\n\n\tsrcroot=$PWD\nhdrPath=\"$srcroot/Pod/Include/Private\"\nlzoPath=\"$srcroot/Pod/Submodules/lzo.git\"\n\ntmpPath=`mktemp -d`\nif [ -z $tmpPath ]; then\n\techo \"Cannot create temp directory!\" >&2\n\texit 1\nfi\n\nmkdirOK=1\nmkdir -p \"$hdrPath\" || mkdirOK = 0\nif [ mkdirOK == \"0\" ]; then\n\techo \"Cannot create header directory!\" >&2\n\trm -rf \"$tmpPath\"\n\texit 1\nfi\n\ncd \"$tmpPath\"\nconfigureOK=1\n\"$srcroot/Pod/Submodules/lzo.git/configure\"   \t\t\t--disable-dependency-tracking \t\t\t--disable-largefile           \t\t\t--disable-asm                 \t\t\t--prefix=\"$tmpPath\"           \t\t\t--includedir=\"$hdrPath\"       \t\t\t|| configureOK=0\nif [ configureOK == \"0\" ]; then\n\techo \"Cannot run `configure` to create the makefile!\" >&2\n\tcd \"$srcroot\"\n\trm -rf \"$tmpPath\"\n\texit 1\nfi\n\nmakeOK=1\nmake || makeOK=0\nif [ makeOK == \"0\" ]; then\n\techo \"Cannot run `make` to build header files!\" >&2\n\tcd \"$srcroot\"\n\trm -rf \"$tmpPath\"\n\texit 1\nfi\n\nmakeInstallOK=1\nmake install || makeInstallOK=0\nif [ makeInstallOK == \"0\" ]; then\n\techo \"Cannot run `make install` to install headers!\" >&2\n\tcd \"$srcroot\"\n\trm -rf \"$tmpPath\"\n\texit 1\nfi",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
