@@ -1,0 +1,85 @@
+{
+  "name": "ipaynowplugin",
+  "version": "3.0.0",
+  "summary": "ipaynowplugin SDK",
+  "description": "Help developer to quickly intergrate variety of payment methods",
+  "homepage": "http://www.ipaynow.cn",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Chuck": "lipengchang@ipaynow.cn"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/iPaynow/iPaynow-agg-iOS.git",
+    "tag": "3.0.0"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/iphone+simulator/*.a",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreTelephony",
+        "QuartzCore",
+        "SystemConfiguration",
+        "Security",
+        "Foundation",
+        "UIKit"
+      ],
+      "ios": {
+        "libraries": [
+          "z",
+          "sqlite3.0",
+          "c++",
+          "stdc++"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "lib/Channels/AliPayPlugin/AlipaySDK.framework",
+      "resources": "lib/Channels/AliPayPlugin/AlipaySDK.bundle",
+      "frameworks": "CoreMotion",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Weixin",
+      "ios": {
+        "vendored_libraries": "lib/Channels/WechatPlugin/*.a"
+      },
+      "source_files": "lib/Channels/WechatPlugin/*.h",
+      "public_header_files": "lib/Channels/WechatPlugin/*.h",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Unionpay",
+      "vendored_libraries": "lib/Channels/UPPayPlugin/*.a",
+      "source_files": "lib/Channels/UPPayPlugin/*.h",
+      "dependencies": {
+        "ipaynowplugin/Core": [
+
+        ]
+      }
+    }
+  ]
+}
