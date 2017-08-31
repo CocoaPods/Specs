@@ -1,0 +1,37 @@
+{
+  "name": "libcmark",
+  "version": "0.28.0",
+  "summary": "A pedantic Markdown parser, written in C.",
+  "homepage": "https://github.com/jgm/cmark",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": {
+    "John MacFarlane": "https://github.com/jgm"
+  },
+  "source": {
+    "git": "https://github.com/jgm/cmark.git",
+    "tag": "0.28.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "src/*.{h,c,m,inc}",
+    "build/src/"
+  ],
+  "public_header_files": [
+    "src/cmark.h",
+    "build/src"
+  ],
+  "exclude_files": "src/main.c",
+  "compiler_flags": "-Wno-shorten-64-to-32",
+  "preserve_paths": [
+    "src/case_fold_switch.inc",
+    "src/entities.inc"
+  ],
+  "prepare_command": "echo `pwd`\nsed -i '' 's/include <\\(cmark.*\\)>/include \"\\1\"/' src/cmark.h\nmkdir -p build; cd build && cmake -G Xcode .."
+}
