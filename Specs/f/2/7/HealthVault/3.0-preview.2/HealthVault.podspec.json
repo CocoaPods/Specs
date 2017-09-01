@@ -1,0 +1,72 @@
+{
+  "name": "HealthVault",
+  "version": "3.0-preview.2",
+  "summary": "An iOS framework you can use to build applications that leverage the Microsoft HealthVault platform",
+  "description": "The healthvault-ios-sdk framework simplifies developing apps that use the Microsoft HealthVault platform. It handles authenticating users, managing credentials, serializing data types and much more.",
+  "homepage": "https://github.com/Microsoft/healthvault-ios-sdk",
+  "license": {
+    "type": "APACHE",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": "hvtech@microsoft.com"
+  },
+  "source": {
+    "git": "https://github.com/Microsoft/healthvault-ios-sdk.git",
+    "tag": "3.0-preview.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) $(SDKROOT)/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-lxml2"
+  },
+  "frameworks": [
+    "UIKit",
+    "Security",
+    "MobileCoreServices",
+    "SystemConfiguration"
+  ],
+  "default_subspecs": "CachingSupport",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "HealthVault/Classes/**/*.{h,m}",
+      "exclude_files": "HealthVault/Classes/Caching/**/*.{h,m}",
+      "private_header_files": "**/Private/**/*.h"
+    },
+    {
+      "name": "CachingSupport",
+      "resources": "HealthVault/Assets/MHVThingCacheDatabase.xcdatamodeld",
+      "preserve_paths": "HealthVault/Assets/MHVThingCacheDatabase.xcdatamodeld",
+      "source_files": "HealthVault/Classes/**/*.{h,m}",
+      "private_header_files": "**/Private/**/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "THING_CACHE=1"
+      },
+      "frameworks": "CoreData",
+      "dependencies": {
+        "EncryptedCoreData": [
+          "~> 3.1"
+        ]
+      }
+    },
+    {
+      "name": "Tests",
+      "source_files": "HealthVault/Classes/**/*.{h,m,xcdatamodeld}",
+      "resources": "HealthVault/Assets/**/*",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "THING_CACHE=1"
+      },
+      "frameworks": "CoreData",
+      "dependencies": {
+        "EncryptedCoreData": [
+          "~> 3.1"
+        ]
+      }
+    }
+  ]
+}
