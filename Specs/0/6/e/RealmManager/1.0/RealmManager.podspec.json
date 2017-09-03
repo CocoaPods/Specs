@@ -1,0 +1,31 @@
+{
+  "name": "RealmManager",
+  "version": "1.0",
+  "summary": "An easier way of persisting data using Realm Mobile Database",
+  "description": "# RealmManager\nA threaded and easier way of persisting data using Realm Mobile Database\n\n## Installation\n### CocoaPods\n\n[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:\n\n```bash\n$ gem install cocoapods\n```\n\n> CocoaPods 1.1.0+ is required to build RealmManager 1.0.0+.\n\nTo integrate RealmManager into your Xcode project using CocoaPods, specify it in your `Podfile`:\n\n```ruby\nsource 'https://github.com/CocoaPods/Specs.git'\nplatform :ios, '10.0'\nuse_frameworks!\n\ntarget '<Your Target Name>' do\n    pod 'RealmManager', '~> 1.0'\nend\n```\n\nThen, run the following command:\n\n```bash\n$ pod install\n```\n### Manually\n\nIf you prefer not to use any of the aforementioned dependency managers, you can integrate RealmManager into your project manually.\n\n## Usage\n\n### Add or Update an object to existing model:\n\nYou can simply use this method to add or update an object to an existing model\n\n##### Note: I'm treating each object as unique, thus the model needs to have a primaryKey\n \n```swift\n    RealmManager.addOrUpdate(model: \"MODEL_NAME\", \n                                object: [\"foo\":\"bar\"], \n                                completionHandler: { (error) in\n        //Code goes here\n    })\n```\n\nor if you need to have a configuration for your Realm instance\n\n```swift\n    var config = Realm.Configuration()\n    \n    let directory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier:  \n    \"group.com.directurl\")!.appendingPathComponent(\"db.realm\")\n    \n    config.fileURL = directory\n    \n    let foo = Foo(description:\"Bar\")\n\n    RealmManager.addOrUpdate(configuration: config, \n                                model: \"MODEL_NAME\", \n                                object: foo, \n                                completionHandler: { (error) in\n        //Code goes here\n    })\n```\n\nobject can be an instance of ```Object```,```Array```,```Dictionary<AnyHashable,AnyObject>```, or ```AnyObject```.\n\n### Fetching\n\nFetching an object from the Realm DB:\n\n```swift\n    let foo = Foo(description:\"Bar\")\n            \n    RealmManager.fetch(model: \"MODEL_NAME\", \n                       condition: \"description == '(foo.description)'\", \n                       completionHandler: { (result) in\n                       \n        //Your code can do anything with 'result' >:)\n    })\n            \n```\n\n### Deleting\n\nMap and Delete an object by using predicate:\n\n```swift\n    RealmManager.delete(model: \"MODEL_NAME\",\n                        condition: \"description = (foo.description)\",\n                        completionHandler: { (error) in\n\n        //Code goes here\n    })     \n```\n\nor if you have the object and not need to map it:\n\n```swift\n    RealmManager.deleteObject(object: foo, \n                              completionHandler: { (error) in\n        //Code goes here\n    })\n```",
+  "dependencies": {
+    "Realm": [
+      "~> 2.6.2"
+    ],
+    "RealmSwift": [
+      "~> 2.6.2"
+    ]
+  },
+  "homepage": "https://github.com/markcdb/RealmManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mark Christian Buot": "mark.buot1394@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/markcdb/RealmManager.git",
+    "tag": "1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RealmManager/RealmManager.swift",
+  "pushed_with_swift_version": "3.0"
+}
