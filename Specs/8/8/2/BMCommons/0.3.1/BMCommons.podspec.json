@@ -1,0 +1,134 @@
+{
+  "name": "BMCommons",
+  "version": "0.3.1",
+  "summary": "BehindMedia Commons Library",
+  "description": "BehindMedia Commons Library for iOS",
+  "homepage": "https://github.com/werner77/BMCommons",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Werner Altewischer",
+  "source": {
+    "git": "https://github.com/werner77/BMCommons.git",
+    "tag": "0.3.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "default_subspecs": "BMCore",
+  "subspecs": [
+    {
+      "name": "BMCore",
+      "libraries": [
+        "z",
+        "icucore"
+      ],
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMCore/Sources/**/*.{c,m,h}",
+      "exclude_files": "BMCommons/Modules/BMCore/**/*_Private.*",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "CoreGraphics",
+          "SystemConfiguration",
+          "AudioToolbox",
+          "Security"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "Foundation",
+          "CoreGraphics",
+          "SystemConfiguration",
+          "AudioToolbox",
+          "Security"
+        ]
+      }
+    },
+    {
+      "name": "BMRestKit",
+      "frameworks": "CoreData",
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMRestKit/Sources/**/*.{c,m,h}",
+      "exclude_files": "BMCommons/Modules/BMRestKit/**/*_Private.*",
+      "dependencies": {
+        "BMCommons/BMXML": [
+
+        ],
+        "eli-yajl-objc": [
+          "0.3.0"
+        ]
+      }
+    },
+    {
+      "name": "BMXML",
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMXML/Sources/**/*.{c,m,h}",
+      "private_header_files": "BMCommons/Modules/BMXML/**/Private/*.h",
+      "libraries": "xml2",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      },
+      "dependencies": {
+        "BMCommons/BMCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BMUICore",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": "CoreData",
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMUICore/Sources/**/*.{c,m,h}",
+      "exclude_files": "BMCommons/Modules/BMUICore/**/*_Private.*",
+      "resource_bundles": {
+        "BMUICore": "BMCommons/Modules/BMUICore/Resources/**/*.*"
+      },
+      "dependencies": {
+        "BMCommons/BMCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BMUIExtensions",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMUIExtensions/Sources/**/*.{c,m,h}",
+      "exclude_files": "BMCommons/Modules/BMUIExtensions/**/*_Private.*",
+      "dependencies": {
+        "BMCommons/BMUICore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BMCoreData",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": [
+        "CoreData",
+        "CoreMedia",
+        "AVFoundation",
+        "QuartzCore"
+      ],
+      "requires_arc": true,
+      "source_files": "BMCommons/Modules/BMCoreData/Sources/**/*.{c,m,h}",
+      "exclude_files": "BMCommons/Modules/BMCoreData/**/*_Private.*",
+      "dependencies": {
+        "BMCommons/BMUICore": [
+
+        ]
+      }
+    }
+  ]
+}
