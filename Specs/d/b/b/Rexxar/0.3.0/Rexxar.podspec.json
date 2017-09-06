@@ -1,0 +1,51 @@
+{
+  "name": "Rexxar",
+  "version": "0.3.0",
+  "license": {
+    "type": "MIT",
+    "text": "LICENSE"
+  },
+  "summary": "Rexxar Hybrid Framework",
+  "description": "Rexxar is Douban Hybrid Framework. By Rexxar, You can develop UI interface with Web tech.",
+  "homepage": "https://www.github.com/douban/rexxar-ios",
+  "authors": {
+    "iOS Dev": "ios-dev@douban.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/douban/rexxar-ios.git",
+    "tag": "0.3.0"
+  },
+  "requires_arc": true,
+  "source_files": "Rexxar/**/*.{h,m}",
+  "public_header_files": "Rexxar/Rexxar.h",
+  "frameworks": "UIKit",
+  "default_subspecs": "Widget",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Rexxar/Core/**/*.{h,m}",
+        "Rexxar/ContainerAPI/**/*.{h,m}",
+        "Rexxar/Decorator/**/*.{h,m}"
+      ],
+      "frameworks": "UIKit",
+      "requires_arc": true
+    },
+    {
+      "name": "Widget",
+      "source_files": "Rexxar/Widget/**/*.{h,m}",
+      "requires_arc": true,
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "DSK_WIDGET=1"
+      },
+      "dependencies": {
+        "Rexxar/Core": [
+
+        ]
+      }
+    }
+  ]
+}
