@@ -1,0 +1,105 @@
+{
+  "name": "lib4399Login",
+  "version": "0.0.1",
+  "summary": "4399登录SDK第二版",
+  "description": "4399登录SDK，基于第一版增加第三方SSO登录授权",
+  "homepage": "https://github.com/4399SDKDev/lib4399Login",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fmricky": "zhengxu@4399inc.com"
+  },
+  "source": {
+    "git": "https://github.com/4399SDKDev/lib4399Login.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Core",
+      "resources": "lib4399Login/Assets/lib4399LoginBundle.bundle",
+      "libraries": "sqlite3",
+      "frameworks": [
+        "CoreGraphics",
+        "SystemConfiguration"
+      ],
+      "vendored_frameworks": "lib4399Login/Classes/lib4399Login.framework",
+      "user_target_xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(inherited)"
+      }
+    },
+    {
+      "name": "WeChat",
+      "vendored_libraries": "lib4399Login/M4399SocialSDK/Wechat/WechatLogin/libWechat.a",
+      "source_files": "lib4399Login/M4399SocialSDK/Wechat/WechatLogin/*.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Wechat/WechatLogin/**"
+      },
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "~> 1.7.8"
+        ]
+      }
+    },
+    {
+      "name": "QQ",
+      "vendored_libraries": "lib4399Login/M4399SocialSDK/QQ/QQLogin/libQQLogin.a",
+      "source_files": "lib4399Login/M4399SocialSDK/QQ/QQLogin/*.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/QQ/QQLogin/**"
+      },
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ],
+        "QQOpenSDK": [
+          "~> 3.2.1"
+        ]
+      }
+    },
+    {
+      "name": "Weibo",
+      "vendored_libraries": "lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/libSinaLogin.a",
+      "source_files": [
+        "lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/*.h",
+        "lib4399Login/M4399SocialSDK/Weibo/libWeiboSDK/*.h"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/lib4399Login/M4399SocialSDK/Weibo/WeiboLogin/**"
+      },
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ],
+        "VPWeiboSDK": [
+          "~> 3.2.0"
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "lib4399Login/Core": [
+
+        ],
+        "lib4399Login/WeChat": [
+
+        ],
+        "lib4399Login/QQ": [
+
+        ],
+        "lib4399Login/Weibo": [
+
+        ]
+      }
+    }
+  ]
+}
