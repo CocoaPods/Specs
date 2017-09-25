@@ -1,0 +1,71 @@
+{
+  "name": "ALSPayMent",
+  "version": "0.1.4",
+  "summary": "A short description of ALSPayMent.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/yangzmpang/ALSPayMent",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangzmpang": "zimin.yzm@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/yangzmpang/ALSPayMent.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "dependencies": {
+    "AlipaySDKIniOS": [
+      "~> 15.2.0"
+    ],
+    "PodAsset": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/AlipaySDKIniOS",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ALSPayMent/Classes/**/*",
+      "public_header_files": "ALSPayMent/Classes/**/*.h",
+      "resources": [
+        "ALSPayMent/lib/*.bundle",
+        "ALSPayMent/lib/ALSAppleIncRootCertificate.cer"
+      ],
+      "frameworks": [
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreTelephony",
+        "QuartzCore",
+        "SystemConfiguration",
+        "Security",
+        "Foundation",
+        "UIKit"
+      ],
+      "ios": {
+        "libraries": [
+          "z",
+          "sqlite3.0",
+          "c++",
+          "stdc++",
+          "ssl",
+          "crypto"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "ENABLE_BITCODE": "NO",
+        "HEADER_SEARCH_PATHS": "/Users/yangziminyangzimin/Desktop/test/ALSPayMent/ALSPayMent/ALSPayMent/Classes/openssl/include/**"
+      },
+      "vendored_libraries": "ALSPayMent/lib/*.a"
+    }
+  ]
+}
