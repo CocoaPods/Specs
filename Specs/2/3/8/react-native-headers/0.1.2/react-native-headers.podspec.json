@@ -1,0 +1,23 @@
+{
+  "name": "react-native-headers",
+  "version": "0.1.2",
+  "summary": "A short description of react-native-headers.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/bestofsong/react-native-headers",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bestofsong": "betterofsong@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bestofsong/react-native-headers.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "react-native-headers/Classes/**/*",
+  "prepare_command": "proof_file=/Users/wansongHome/react-native-headers.txt\n\necho \"begin prepare_command\" >>$proof_file\n  \nfunction debug {\n  local name=$1\n  eval \"echo \"debug: $name: $$name\"\"\n}\n  \nPODS_ROOT=`pwd`\nRN_SRC=\"${PODS_ROOT}/../../node_modules/react-native/React\"\nRN_DEST=\"${PODS_ROOT}/Headers/Public/React\"\n  \ndebug \"PODS_ROOT\" >>\"${proof_file}\"\ndebug \"RN_SRC\" >>\"${proof_file}\"\ndebug \"RN_DEST\" >>\"${proof_file}\"\n  \n[ ! -d \"${RN_SRC}\" ] && exit 0\n[ -d \"${RN_DEST}\" ] || mkdir -p \"${RN_DEST}\"\n  \nheaders=`find \"${RN_SRC}\" -iname \"*.h\"`\ndebug \"headers\" >>\"${proof_file}\"\n\nfor hh in ${headers} ; do\n  name=`basename \"${hh}\"`\n  dest=${RN_DEST}/${name}\n  [ -f \"${dest}\" ] && rm \"${dest}\"\n  cp \"${hh}\" \"${dest}\"\ndone\n\necho \"end prepare_command\" >>$proof_file"
+}
