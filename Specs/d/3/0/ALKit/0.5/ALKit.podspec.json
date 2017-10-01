@@ -1,0 +1,25 @@
+{
+  "name": "ALKit",
+  "version": "0.5",
+  "summary": "Easy to use AutoLayout wrapper around `NSLayoutConstraints`.",
+  "description": "ALKit\n===\n\nEasy to use AutoLayout wrapper around `NSLayoutConstraints`.\n\nRequirements\n---\n\n- Swift 3.0+\n- iOS 8.0+\n- tvOS 9.0+\n\nInstall\n----\n\n#### CocoaPods\n\n``` ruby\nuse_frameworks!\npod 'ALKit'\n```\n\n### Manual\n\nCopy the `ALKit` folder into your project\n\nUsage\n----\n\n### Init\n\nCreate `UIView` instances from either storyboard or programmatically.\nDon't forget to set `view.translatesAutoresizingMaskIntoConstraints = false` if you are creating them programmatically.\n\n### Wraper\n\nThe main function of all kit.\nWraps `addConstraint:` method of autolayout.\n\n``` swift\nfunc pin(\ninView inView: UIView? = nil,\nedge: NSLayoutAttribute,\ntoEdge: NSLayoutAttribute,\nofView: UIView?,\nwithInset: CGFloat = 0) {\nlet view = inView ?? ofView ?? self\nview.addConstraint(NSLayoutConstraint(\nitem: self,\nattribute: edge,\nrelatedBy: .Equal,\ntoItem: ofView,\nattribute: toEdge,\nmultiplier: 1,\nconstant: withInset))\n}\n```\n\n#### Example\n\n``` swift\nbox.fill(toView: view)\n\nblue.pinTop(toView: box, withInset: 10)\nblue.fillHorizontal(toView: box, withInset: 10)\nblue.pinHeight(90)\n\nred.pinBottom(toView: box, withInset: 10)\nred.fillHorizontal(toView: box, withInset: 10)\nred.pinHeight(90)\n\nyellow.pinToTop(ofView: red, withOffset: 10)\nyellow.pinCenterX(toView: red)\nyellow.pinSize(width: 50, height: 50)\n```\n\nThat would be look like this:\n\n![alt tag](https://github.com/cemolcay/ALKit/blob/master/demo.png?raw=true)",
+  "homepage": "https://github.com/cemolcay/ALKit",
+  "license": {
+    "type": "MIT",
+    "file": "ALKit/LICENSE"
+  },
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/ALKit.git",
+    "tag": "0.5"
+  },
+  "source_files": "ALKit/ALKit/*.swift",
+  "requires_arc": true,
+  "pushed_with_swift_version": "3.0"
+}
