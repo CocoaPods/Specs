@@ -1,0 +1,82 @@
+{
+  "name": "VCRToolFramework",
+  "version": "1.0.1",
+  "summary": "VCC short description of VCRToolFramework.",
+  "description": "hello world",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "homepage": "https://github.com/vcc1235/VCRToolFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "vcc1235": "1041497818@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/vcc1235/VCRToolFramework.git",
+    "tag": "1.0.1",
+    "submodules": true
+  },
+  "dependencies": {
+    "Masonry": [
+      "~> 1.0.1"
+    ],
+    "SDWebImage": [
+      "~>3.8"
+    ],
+    "AFNetworking": [
+      "~>3.1.0"
+    ]
+  },
+  "vendored_frameworks": [
+    "VCRToolFramework/iOSPalette.framework"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Catorgate",
+      "source_files": "VCRToolFramework/Catorgate/*"
+    },
+    {
+      "name": "BrowerImage",
+      "source_files": "VCRToolFramework/BrowerImage/*",
+      "dependencies": {
+        "VCRToolFramework/Catorgate": [
+
+        ]
+      }
+    },
+    {
+      "name": "XMLParse",
+      "source_files": "VCRToolFramework/XMLParse/*.{h,m}",
+      "resources": "VCRToolFramework/XMLParse/world.xml",
+      "public_header_files": "VCRToolFramework/XMLParse/*.h"
+    },
+    {
+      "name": "Tool",
+      "source_files": "VCRToolFramework/Tool/*",
+      "dependencies": {
+        "VCRToolFramework/BrowerImage": [
+
+        ],
+        "VCRToolFramework/Catorgate": [
+
+        ]
+      },
+      "libraries": "sqlite3.0"
+    },
+    {
+      "name": "Scan",
+      "source_files": "VCRToolFramework/Scan/*.{h}",
+      "resources": "VCRToolFramework/Scan/CodeScan.bundle",
+      "vendored_libraries": [
+        "VCRToolFramework/Scan/libVCRQR.a"
+      ]
+    }
+  ]
+}
