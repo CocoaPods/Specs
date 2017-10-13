@@ -1,0 +1,82 @@
+{
+  "name": "AXUserInfo",
+  "version": "0.0.5",
+  "summary": "A 玩转组件化-个人用户",
+  "description": "玩转组件化，写的一个个人中心页面，用于调试",
+  "homepage": "https://github.com/GG-beyond/AXUserInfo",
+  "license": "MIT",
+  "authors": {
+    "GG-beyond": "872608550@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/GG-beyond/AXUserInfo.git",
+    "tag": "0.0.5"
+  },
+  "exclude_files": "Classes/Exclude",
+  "prefix_header_file": "AXUserInfo/AXGlobal.h",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.1.0"
+    ],
+    "Categories-AX": [
+      "~> 0.1.0"
+    ],
+    "AX-HttpClientTool": [
+      "~> 0.0.4"
+    ],
+    "CTMediator": [
+      "~> 12"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Models",
+      "source_files": "AXUserInfo/AXUserInfo/Models/*.{h,m}"
+    },
+    {
+      "name": "Views",
+      "source_files": "AXUserInfo/AXUserInfo/Views/*.{h,m}",
+      "dependencies": {
+        "AXUserInfo/Models": [
+
+        ]
+      }
+    },
+    {
+      "name": "ViewModels",
+      "source_files": "AXUserInfo/AXUserInfo/ViewModels/*.{h,m}",
+      "dependencies": {
+        "AXUserInfo/Models": [
+
+        ],
+        "AX-HttpClientTool": [
+          "~> 0.0.4"
+        ]
+      }
+    },
+    {
+      "name": "ViewControllers",
+      "source_files": "AXUserInfo/AXUserInfo/ViewControllers/*.{h,m}",
+      "dependencies": {
+        "AXUserInfo/ViewModels": [
+
+        ],
+        "AXUserInfo/Views": [
+
+        ]
+      }
+    },
+    {
+      "name": "CTMediatorCategory",
+      "source_files": "AXUserInfo/AXUserInfo/CTMediatorCategory/*.{h,m}",
+      "dependencies": {
+        "AXUserInfo/ViewControllers": [
+
+        ]
+      }
+    }
+  ]
+}
