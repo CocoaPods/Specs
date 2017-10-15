@@ -1,0 +1,61 @@
+{
+  "name": "KSOFileMagic",
+  "version": "1.0.0",
+  "summary": "KSOFileMagic is a iOS/macOS framework that wraps the Darwin file command, which can determine file type by examining file contents.",
+  "description": "KSOFileMagic is a iOS/macOS wrapper around the Darwin file command, which can identify files by examing their contents. This can be used to identify a file without a file extension or raw data from the network when a MIME type is not provided. It prefers to use the UTType family of functions to determine types, but will examine the file contents directly if a file extension is not provided or when examining NSData instances.",
+  "homepage": "https://github.com/Kosoku/KSOFileMagic",
+  "license": {
+    "type": "BSD",
+    "file": "license.txt"
+  },
+  "authors": {
+    "William Towe": "willbur1984@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Kosoku/KSOFileMagic.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "KSOFileMagic/*.{h,m}",
+    "KSOFileMagic/Private/*.{h,m}",
+    "KSOFileMagic/Private/file/config.h",
+    "KSOFileMagic/Private/file/src/*.{h,c}"
+  ],
+  "exclude_files": [
+    "KSOFileMagic/KSOFileMagic-Info.h",
+    "KSOFileMagic/Private/file/src/strlcat.c",
+    "KSOFileMagic/Private/file/src/strlcpy.c"
+  ],
+  "private_header_files": [
+    "KSOFileMagic/Private/*.h",
+    "KSOFileMagic/Private/file/**/*.h"
+  ],
+  "resource_bundles": {
+    "KSOFileMagic": [
+      "KSOFileMagic/Private/file/magic/magic.mgc"
+    ]
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "MobileCoreServices"
+    ]
+  },
+  "osx": {
+    "frameworks": "Foundation"
+  },
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_CONFIG_H=1"
+  },
+  "dependencies": {
+    "Stanley": [
+
+    ]
+  }
+}
