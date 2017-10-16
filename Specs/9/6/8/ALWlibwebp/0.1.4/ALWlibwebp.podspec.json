@@ -1,0 +1,107 @@
+{
+  "name": "ALWlibwebp",
+  "version": "0.1.4",
+  "summary": "The libwebp of Google. Version is 0.6.0 .",
+  "homepage": "https://github.com/ALongWay/ALWlibwebp",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lisong": "370381830@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ALongWay/ALWlibwebp.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Decoder",
+      "source_files": "ALWlibwebp/Classes/Decoder/*.{h,m}",
+      "dependencies": {
+        "ALWlibwebp/libwebp": [
+
+        ]
+      }
+    },
+    {
+      "name": "libwebp",
+      "compiler_flags": "-D_THREAD_SAFE",
+      "requires_arc": false,
+      "subspecs": [
+        {
+          "name": "webp",
+          "header_dir": "webp",
+          "source_files": "ALWlibwebp/Classes/libwebp/src/webp/*.h"
+        },
+        {
+          "name": "core",
+          "source_files": [
+            "ALWlibwebp/Classes/libwebp/src/utils/*.{h,c}",
+            "ALWlibwebp/Classes/libwebp/src/dsp/*.{h,c}",
+            "ALWlibwebp/Classes/libwebp/src/enc/*.{h,c}",
+            "ALWlibwebp/Classes/libwebp/src/dec/*.{h,c}"
+          ],
+          "dependencies": {
+            "ALWlibwebp/libwebp/webp": [
+
+            ]
+          }
+        },
+        {
+          "name": "utils",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "dsp",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "enc",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "dec",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "demux",
+          "source_files": "ALWlibwebp/Classes/libwebp/src/demux/*.{h,c}",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "mux",
+          "source_files": "ALWlibwebp/Classes/libwebp/src/mux/*.{h,c}",
+          "dependencies": {
+            "ALWlibwebp/libwebp/core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
