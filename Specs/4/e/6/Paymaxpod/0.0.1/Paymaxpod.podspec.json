@@ -1,0 +1,72 @@
+{
+  "name": "Paymaxpod",
+  "version": "0.0.1",
+  "summary": "Paymaxpod Test",
+  "description": "pod1 测试 \"The description is shorter than the summary\"",
+  "homepage": "hhttps://github.com/daimakuangmo/PaymaxPod",
+  "license": "MIT",
+  "authors": {
+    "stan": "wangxiaoqiang@lxfintech.com"
+  },
+  "platforms": {
+    "ios": "8.1"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/daimakuangmo/PaymaxPod.git",
+    "commit": "1f3a95fb03544256fcc3f1279d6370736e09f7b2",
+    "tag": "0.0.1"
+  },
+  "default_subspecs": "Paymax",
+  "subspecs": [
+    {
+      "name": "Paymax",
+      "source_files": "PaymaxSDK/*.h",
+      "public_header_files": "PaymaxSDK/*.h",
+      "vendored_libraries": "PaymaxSDK/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation",
+        "CoreTelephony"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z",
+          "sqlite3.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "PaymaxSDK/Channels/Alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "PaymaxSDK/Channels/Alipay/AlipaySDK.framework"
+      },
+      "resources": "PaymaxSDK/Channels/Alipay/AlipaySDK.bundle",
+      "frameworks": "CoreMotion",
+      "dependencies": {
+        "Paymaxpod/Paymax": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "source_files": "PaymaxSDK/Channels/Wx/*.h",
+      "public_header_files": "PaymaxSDK/Channels/Wx/*.h",
+      "vendored_libraries": "PaymaxSDK/Channels/Wx/*.a",
+      "dependencies": {
+        "Paymaxpod/Paymax": [
+
+        ]
+      }
+    }
+  ]
+}
