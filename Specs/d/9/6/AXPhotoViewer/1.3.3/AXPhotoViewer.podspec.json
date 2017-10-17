@@ -1,0 +1,121 @@
+{
+  "name": "AXPhotoViewer",
+  "version": "1.3.3",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "summary": "An iPhone/iPad photo gallery viewer, useful for viewing a large number of photos.",
+  "homepage": "https://github.com/alexhillc/AXPhotoViewer",
+  "authors": {
+    "Alex Hill": "alexhill.c@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/alexhillc/AXPhotoViewer.git",
+    "tag": "v1.3.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Lite",
+  "pushed_with_swift_version": "4.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "AXStateButton": [
+          ">= 1.1.3"
+        ],
+        "FLAnimatedImage": [
+          ">= 1.0.0"
+        ]
+      },
+      "resources": "Assets/*.{xcassets}",
+      "source_files": [
+        "Source/*.{swift,h,m}",
+        "Source/Classes/**/*.{swift,h,m}",
+        "Source/Protocols/*.{swift,h,m}",
+        "Source/Extensions/*.{swift,h,m}"
+      ],
+      "frameworks": [
+        "UIKit",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "Lite",
+      "frameworks": "ImageIO",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D AX_LITE_SUPPORT"
+      },
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ]
+      },
+      "source_files": "Source/Integrations/SimpleNetworkIntegration.swift"
+    },
+    {
+      "name": "SDWebImage",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D AX_SDWEBIMAGE_SUPPORT"
+      },
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "SDWebImage": [
+          ">= 4.0.0"
+        ]
+      },
+      "source_files": "Source/Integrations/SDWebImageIntegration.swift"
+    },
+    {
+      "name": "PINRemoteImage",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D AX_PINREMOTEIMAGE_SUPPORT"
+      },
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "PINRemoteImage/FLAnimatedImage": [
+          "~> 3.0.0-beta.9"
+        ]
+      },
+      "source_files": "Source/Integrations/PINRemoteImageIntegration.swift"
+    },
+    {
+      "name": "AFNetworking",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D AX_AFNETWORKING_SUPPORT"
+      },
+      "frameworks": "ImageIO",
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "AFNetworking/NSURLSession": [
+          ">= 3.1.0"
+        ]
+      },
+      "source_files": "Source/Integrations/AFNetworkingIntegration.swift"
+    },
+    {
+      "name": "Kingfisher",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D AX_KINGFISHER_SUPPORT"
+      },
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "Kingfisher": [
+          ">= 3.10.0"
+        ]
+      },
+      "source_files": "Source/Integrations/KingfisherIntegration.swift"
+    }
+  ]
+}
