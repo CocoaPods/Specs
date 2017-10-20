@@ -1,0 +1,45 @@
+{
+  "name": "CloverConnector-Hackathon-2017",
+  "version": "0.0.4",
+  "summary": "Provides an api for communicating with a Clover Mini and Clover Go as a customer facing payment device.",
+  "description": "CloverConnector provides an interface to communicate with a tethered Clover device to enable integration with Clover's customer facing payment device capabilities.\n\nNew features in 1.4 largely focused around expanding printing capabilities. The 1.4 release is also the first to support Swift 4.0.\n\nICloverConnector\n- *sale* - method to collect a final sale payment\n- *auth* - method to collect a payment that can be tip adjusted\n- *preAuth* - method to collect a payment that will not be eligible to be final until a capturePreAuth is processed on this payment\n- *tipAdjustAuth* - method to adjust the tip amount on a payment collected from an auth, or a payment that has been captured via capturePreAuth\n- *capturePreAuth* - method to make a preAuth payment eligible to be tip adjusted or finalized\n- *voidPayment* - queues a request to void a payment\n- *refundPayment* - refund a payment or partially refund a final payment\n- *manualRefund* - provide a manual refund a.k.a. naked credit\n- *cancel* - sends a cancel command to exit activities that support the cancel option\n- *closeout* - posts a closeout request to the server to closeout open payments\n- *displayPaymentReceiptOptions* - display the receipt selection screen\n- *acceptSignature* - method to accept a signature when the Clover device sends a `verifySignatureRequest`\n- *rejectSignature* - method to reject a signature when the Clover device sends a `verifySignatureRequest`\n- *vaultCard* - reads a card and retrieves a multi-pay token\n- *printText* - prints simple text *deprecated*\n- *printImage* - prints the passed in image *deprecated*\n- *printImageFromURL* - print an image references in the url *deprecated*\n- *openCashDrawer* - opens a cash drawer attached to the Clover device *deprecated*\n- *showMessage* - displays a simple message on the Clover device\n- *showWelcomeScreen* - displays the welcome screen on the Clover device\n- *showThankYouScreen* - displays the thank you screen on the Clover device\n- *showDisplayOrder* - displays the DisplayOrder passed in on the Clover device\n- *removeDisplayOrder* - clears the DisplayOrder from the DisplayOrder screen\n- *resetDevice* - requests the device exit whatever activity has been started and returns the device to Welcome. Note: Any payment in process will be voided\n- *invokeInputOption* - sends an input option to the device, which may act on behalf of the customer. Input options are passed to the POS via the onDeviceActivityStart callback\n- *readCardData* - reads a card and calls back with the card data. Financial cards will be returned encrypted\n- *acceptPayment* - method to accept a payment when the Clover device sends a `confirmPaymentRequest`\n- *rejectPayment* - method to reject a payment when the Clover device sends a `confirmPaymentRequest`\n- *retrievePendingPayments* - requests the device send any payments taken offline that haven't been processed by the server\n- *dispose* - cleans up the CloverConnector and disconnects from the Clover Mini\n- *retrievePayment* - query the device for the status of a payment on the device by its external id, callback on on\n- *retrieveDeviceStatus* - query the status of the device, callback on onRetrieveDeviceStatus\n- *startCustomActivity* - send a request to start a custom activity on the Clover device\n- *sendMessageToActivity* - send a message to a custom activity running on the Clover device\n- __NEW__\n- *print* - print the contents of the passed-in `PrintRequest` object\n- *openCashDrawer* - opens a cash drawer attached to the Clover device with a passed in `OpenCashDrawerRequest` object\n- *retrievePrinters* - request to retreive available printers\n- *retrievePrintJobStatus* - request the status of a given print job\n\nICloverConnectorListener\n- *onSaleResponse* - called at the completion of a sale request with either a payment or a cancel state\n- *onAuthResponse* - called at the completion of an auth request with either a payment or a cancel state\n- *onPreAuthResponse* - called at the completion of a preAuth request with either a payment or a cancel state\n- *onTipAdjustAuthResponse* - called at the completion ofo a tipAdjustAuth request\n- *onCapturePreAuthResponse* - called at the completion of a capturePreAuth request\n- *onRefundPaymentResponse* - called at the completion of a refund payment request\n- *onManualRefundResponse* - called at the completion of a manual refund request\n- *onVoidPaymentResponse* - called at the completion of a void payment request\n- *onCloseoutResponse* - called at the completion of a closeout request\n- *confirmPaymentRequest* - called if the Clover device needs confirmation of a payment (duplicate verification, offline verification)\n- *verifySignatureRequest* - called if the Clover device needs acceptance of a signature\n- *onRetrievePendingPaymentsResponse* - called in response to a retrieve pending payments request. Returns a list of payments not yet submitted to the server\n- *onReadCardDataResponse* - called at the completion of a read card data request. Data may come back encrypted depending on the card type and bin\n- *onCustomActivityResponse* - called at the completion of a custom activity\n- *onResetDeviceResponse* - called at the completion of a resetDevice request\n- *onMessageFromActivity* - called if the custom activity wants to send a message back to the POS, prior to finishing\n- *onRetrievePaymentResponse* - called at the completion of a retrievePayment request\n- *onRetrieveDeviceStatusResponse* - called at the completion of a retrieveDeviceStatus request\n- __NEW__\n- *onRetrievePrintersResponse* - called at the completion of a retrievePrinters request\n- *onPrintJobStatusResponse* - called at the completion of a retrievePrintJobStatus",
+  "homepage": "https://docs.clover.com/build/integration-overview-requirements/",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Clover Go": "clovergodev@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/CloverGo/remote-pay-ios-hackathon.git",
+    "tag": "0.0.4"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "CloverConnector/Classes/**/*.swift",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/CLVGoSDK",
+    "FRAMEWORK_SEARCH_PATHS": "$(PODS_ROOT)/CLVGoSDK/**"
+  },
+  "frameworks": "Foundation",
+  "dependencies": {
+    "ObjectMapper": [
+      "3.0.0"
+    ],
+    "Starscream": [
+      "2.1.1"
+    ],
+    "SwiftyJSON": [
+      "3.1.4"
+    ],
+    "CLVGoSDK": [
+      "3.0.0.8"
+    ]
+  },
+  "pushed_with_swift_version": "4.0"
+}
