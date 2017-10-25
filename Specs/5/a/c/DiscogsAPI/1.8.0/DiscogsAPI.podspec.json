@@ -1,0 +1,170 @@
+{
+  "name": "DiscogsAPI",
+  "version": "1.8.0",
+  "summary": "An Objective-C interface for Discogs API v2.0.",
+  "description": "Features:\n- Supports OAuth process and store the token in keychain.\n               - Supports Discogs Auth.\n- Database support: Release, Master Release, Master Release Versions, Artist, Artist Releases, Label, All Label Releases, Search.\n- User support: Identify, Profile, Collection, Wantlist.\n               - Marketplace support: Price suggestions, Listings, Orders.\n- Image support.",
+  "homepage": "https://github.com/maxep/DiscogsAPI",
+  "license": "MIT",
+  "authors": {
+    "Maxime Epain": "maxime.epain@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/MaximeEpain",
+  "source": {
+    "git": "https://github.com/maxep/DiscogsAPI.git",
+    "tag": "1.8.0"
+  },
+  "documentation_url": "http://cocoadocs.org/docsets/DiscogsAPI",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": [
+      "CFNetwork",
+      "MobileCoreServices",
+      "SystemConfiguration"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "CoreServices",
+      "SystemConfiguration"
+    ]
+  },
+  "source_files": "DiscogsAPI/*.{h,m}",
+  "default_subspecs": [
+    "Authentication",
+    "Database",
+    "User",
+    "Marketplace",
+    "Resource"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "DiscogsAPI/Core",
+        "DiscogsAPI/Core/Internal",
+        "AFOAuth1Client/AFOAuth1Client"
+      ],
+      "prefix_header_contents": [
+        "#import <SystemConfiguration/SystemConfiguration.h>",
+        "#import <MobileCoreServices/MobileCoreServices.h>",
+        "#import <Security/Security.h>",
+        "#import <RestKit/RestKit.h>"
+      ],
+      "private_header_files": [
+        "DiscogsAPI/Core/Internal/*.h",
+        "AFOAuth1Client/AFOAuth1Client/*.h"
+      ],
+      "dependencies": {
+        "DiscogsAPI/Mapping": [
+
+        ],
+        "RestKit/ObjectMapping": [
+          "~> 0.27.2"
+        ],
+        "RestKit/Network": [
+          "~> 0.27.2"
+        ]
+      }
+    },
+    {
+      "name": "Authentication",
+      "source_files": [
+        "DiscogsAPI/Authentication",
+        "DiscogsAPI/Authentication/Identity",
+        "DiscogsAPI/Mapping/Authentication/**/*"
+      ],
+      "private_header_files": [
+        "DiscogsAPI/Authentication/DGAuthView.h",
+        "DiscogsAPI/Authentication/DGTokenStore.h",
+        "DiscogsAPI/Authentication/Identity/DGIdentity+Keychain.h",
+        "DiscogsAPI/Mapping/Authentication/**/*.h"
+      ],
+      "dependencies": {
+        "DiscogsAPI/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": [
+        "DiscogsAPI/Database",
+        "DiscogsAPI/Database/Release",
+        "DiscogsAPI/Database/Artist",
+        "DiscogsAPI/Database/Label",
+        "DiscogsAPI/Database/Master",
+        "DiscogsAPI/Database/Search",
+        "DiscogsAPI/Database/Data",
+        "DiscogsAPI/Mapping/Database/**/*"
+      ],
+      "private_header_files": "DiscogsAPI/Mapping/Database/**/*.h",
+      "dependencies": {
+        "DiscogsAPI/Pagination": [
+
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "source_files": [
+        "DiscogsAPI/User",
+        "DiscogsAPI/User/Profile",
+        "DiscogsAPI/User/Collection",
+        "DiscogsAPI/User/Wantlist",
+        "DiscogsAPI/Mapping/User/**/*"
+      ],
+      "private_header_files": "DiscogsAPI/Mapping/User/**/*.h",
+      "dependencies": {
+        "DiscogsAPI/Database": [
+
+        ]
+      }
+    },
+    {
+      "name": "Marketplace",
+      "source_files": [
+        "DiscogsAPI/Marketplace",
+        "DiscogsAPI/Marketplace/Price",
+        "DiscogsAPI/Marketplace/Listing",
+        "DiscogsAPI/Marketplace/Order",
+        "DiscogsAPI/Mapping/Marketplace/**/*"
+      ],
+      "private_header_files": "DiscogsAPI/Mapping/Marketplace/**/*.h",
+      "dependencies": {
+        "DiscogsAPI/User": [
+
+        ]
+      }
+    },
+    {
+      "name": "Pagination",
+      "source_files": [
+        "DiscogsAPI/Pagination",
+        "DiscogsAPI/Mapping/Pagination"
+      ],
+      "private_header_files": "DiscogsAPI/Mapping/Pagination/**/*.h",
+      "dependencies": {
+        "DiscogsAPI/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Resource",
+      "source_files": "DiscogsAPI/Resource",
+      "dependencies": {
+        "DiscogsAPI/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapping",
+      "source_files": "DiscogsAPI/Mapping",
+      "private_header_files": "DiscogsAPI/Mapping/*.h"
+    }
+  ]
+}
