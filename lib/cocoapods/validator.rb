@@ -395,19 +395,39 @@ module Pod
 
     # Performs validation for which version of Swift is used during validation.
     #
+    #
+    #
     # The user will be warned that the default version of Swift was used if the following things are true:
     #   - The project uses Swift at all
     #   - The user did not supply a Swift version via a parameter
+    #   - There is no `swift_version` attribute set within the specification
     #   - There is no `.swift-version` file present either.
     #
     def validate_swift_version
-      if uses_swift? && @swift_version.nil? && dot_swift_version.nil?
-        warning(:swift_version,
-                'The validator used ' \
-                "Swift #{DEFAULT_SWIFT_VERSION} by default because no Swift version was specified. " \
-                'If you want to use a different version of Swift during validation, then either use the `--swift-version` parameter ' \
-                'or use a `.swift-version` file to set the version of Swift to use for ' \
-                'your Pod. For example to use Swift 4.0, run: `echo "4.0" > .swift-version`.')
+      return unless uses_swift?
+      spec_swift_version = spec.swift_version
+      unless spec_swift_version.nil?
+        message = nil
+        if !dot_swift_version.nil? && dot_swift_version != spec_swift_version
+          message = "Specification `#{spec.name}` specifies an inconsistent `swift_version` (`#{spec_swift_version}`) compared to the one present in your `.swift-version` file (`#{dot_swift_version}`). " \
+                    'Please update your `.swift-version` file or remove it and replace with the `swift_version` attribute within your podspec.'
+        elsif !@swift_version.nil? && @swift_version != spec_swift_version
+          message = "Specification `#{spec.name}` specifies an inconsistent `swift_version` (`#{spec_swift_version}`) compared to the one passed during lint (`#{@swift_version}`)."
+        end
+        unless message.nil?
+          error('swift', message)
+          return
+        end
+      end
+      if spec_swift_version.nil? && @swift_version.nil? && dot_swift_version.nil?
+          warning('swift',
+                  'The validator used ' \
+                  "Swift #{DEFAULT_SWIFT_VERSION} by default because no Swift version was specified. " \
+                  'If you want to use a different version of Swift during validation, then either specify a `swift_version` attribute in your podspec, ' \
+                  'use the `--swift-version` parameter during lint ' \
+                  'or use a `.swift-version` file to set the version of Swift to use for ' \
+                  'your Pod. For example to use Swift 4.0, run: `echo "4.0" > .swift-version`.')
+
       end
     end
 
