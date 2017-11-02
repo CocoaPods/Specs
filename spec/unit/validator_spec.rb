@@ -887,9 +887,57 @@ module Pod
           result.type.should == :warning
           result.message.should == 'The validator used ' \
             'Swift 3.2 by default because no Swift version was specified. ' \
-            'If you want to use a different version of Swift during validation, then either use the `--swift-version` parameter ' \
+            'If you want to use a different version of Swift during validation, then either specify a `swift_version` attribute in your podspec, ' \
+            'use the `--swift-version` parameter during lint ' \
             'or use a `.swift-version` file to set the version of Swift to use for ' \
             'your Pod. For example to use Swift 4.0, run: `echo "4.0" > .swift-version`.'
+        end
+
+        it 'errors when swift version spec attribute does not match dot swift version' do
+          Specification.any_instance.stubs(:deployment_target).returns('9.0')
+          Specification.any_instance.stubs(:swift_version).returns('4.0')
+
+          validator = test_swiftpod_with_dot_swift_version('3.2')
+          validator.validate
+          validator.results.count.should == 1
+
+          result = validator.results.first
+          result.type.should == :error
+          result.message.should == 'Specification `JSONKit` specifies an inconsistent `swift_version` (`4.0`) compared to the one present in your `.swift-version` file (`3.2`). ' \
+                                   'Please update your `.swift-version` file or remove it and replace with the `swift_version` attribute within your podspec.'
+        end
+
+        it 'does not error when swift version spec attribute matches dot swift version' do
+          Specification.any_instance.stubs(:deployment_target).returns('9.0')
+          Specification.any_instance.stubs(:swift_version).returns('4.0')
+
+          validator = test_swiftpod_with_dot_swift_version('4.0')
+          validator.validate
+          validator.results.count.should == 0
+        end
+
+        it 'errors when swift version spec attribute does not match parameter based swift version' do
+          Specification.any_instance.stubs(:deployment_target).returns('9.0')
+          Specification.any_instance.stubs(:swift_version).returns('4.0')
+
+          validator = test_swiftpod
+          validator.swift_version = '3.2'
+          validator.validate
+          validator.results.count.should == 1
+
+          result = validator.results.first
+          result.type.should == :error
+          result.message.should == 'Specification `JSONKit` specifies an inconsistent `swift_version` (`4.0`) compared to the one passed during lint (`3.2`).'
+        end
+
+        it 'does not error when swift version spec attribute matches parameter based swift version' do
+          Specification.any_instance.stubs(:deployment_target).returns('9.0')
+          Specification.any_instance.stubs(:swift_version).returns('4.0')
+
+          validator = test_swiftpod
+          validator.swift_version = '4.0'
+          validator.validate
+          validator.results.count.should == 0
         end
 
         it 'does not warn for Swift if version was set by a dot swift version file' do
