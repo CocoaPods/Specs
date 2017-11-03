@@ -1,0 +1,47 @@
+{
+  "name": "MobPay",
+  "version": "0.0.4",
+  "summary": "mob.com免费好用的支付SDK",
+  "license": "MIT",
+  "authors": {
+    "qc123456": "vhbvbqc@gmail.com"
+  },
+  "homepage": "http://www.mob.com",
+  "source": {
+    "git": "https://github.com/MobClub/MOBPaySDK-For-iOS.git",
+    "tag": "0.0.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "dependencies": {
+    "MOBFoundation": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SDK/MOBPaySDK/MOBPaySDK.framework"
+    },
+    {
+      "name": "Channels",
+      "subspecs": [
+        {
+          "name": "WeChat",
+          "vendored_libraries": "SDK/Channels/WeChatSDK/*.a",
+          "source_files": "SDK/Channels/WeChatSDK/*.{h,m}",
+          "public_header_files": "SDK/Channels/WeChatSDK/*.h",
+          "libraries": "sqlite3"
+        },
+        {
+          "name": "AliPay",
+          "vendored_frameworks": "SDK/Channels/AlipaySDK/AlipaySDK.framework",
+          "resources": "SDK/Channels/AlipaySDK/AlipaySDK.bundle",
+          "frameworks": "CoreMotion"
+        }
+      ]
+    }
+  ]
+}
