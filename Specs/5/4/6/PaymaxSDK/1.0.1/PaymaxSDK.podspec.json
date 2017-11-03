@@ -1,0 +1,79 @@
+{
+  "name": "PaymaxSDK",
+  "version": "1.0.1",
+  "summary": "PaymaxSDK task",
+  "description": "lkl-boss-sdk\nlkl-boss-sdk\nlkl-boss-sdk\nlkl-boss-sdk",
+  "homepage": "https://github.com/daimakuangmo/PaymaxSDK",
+  "license": "MIT",
+  "platforms": {
+    "ios": "8.1"
+  },
+  "authors": {
+    "wangxiaoqiang": "codeingwang@163.com"
+  },
+  "source": {
+    "git": "https://github.com/daimakuangmo/PaymaxSDK.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Paymax",
+    "Alipay",
+    "LKL"
+  ],
+  "dependencies": {
+    "WechatOpenSDK": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Paymax",
+      "source_files": "PaymaxSDK/*.h",
+      "public_header_files": "PaymaxSDK/*.h",
+      "vendored_libraries": "PaymaxSDK/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "PaymaxSDK/Paymax+alipay/*.a",
+      "ios": {
+        "vendored_frameworks": "PaymaxSDK/Paymax+alipay/Alipay/AlipaySDK.framework"
+      },
+      "resources": "PaymaxSDK/Paymax+alipay/Alipay/AlipaySDK.bundle",
+      "dependencies": {
+        "PaymaxSDK/Paymax": [
+
+        ]
+      }
+    },
+    {
+      "name": "LKL",
+      "source_files": "PaymaxSDK/Paymax+lkl/lkl/*.h",
+      "vendored_libraries": "PaymaxSDK/Paymax+lkl/lkl/*.a",
+      "resources": "PaymaxSDK/Paymax+lkl/lkl/LKLImages.bundle",
+      "dependencies": {
+        "PaymaxSDK/Paymax": [
+
+        ]
+      }
+    }
+  ]
+}
