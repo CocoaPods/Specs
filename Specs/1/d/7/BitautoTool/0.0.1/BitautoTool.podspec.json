@@ -1,0 +1,110 @@
+{
+  "name": "BitautoTool",
+  "version": "0.0.1",
+  "summary": "易车创新产品部のiOS开发工具集合，包含刷新组件，类别，网络等等，持续更新升级~方便项目开发使用.",
+  "homepage": "http://gitlab.bitautotech.com/WP/APP/yiche4iOS-Toolkit",
+  "license": "MIT",
+  "authors": {
+    "彭辉": "pengh@yiche.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "git@gitlab.bitautotech.com:WP/APP/yiche4iOS-Toolkit.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "default_subspecs": "Category",
+  "subspecs": [
+    {
+      "name": "Refresh",
+      "source_files": "BitautoTool/Refresh/**/*.{h,m}",
+      "resources": "BitautoTool/Refresh/Refresh.bundle",
+      "dependencies": {
+        "MJRefresh": [
+          ">= 3.1.15"
+        ],
+        "BitautoTool/Indicator": [
+
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "subspecs": [
+        {
+          "name": "UIKit",
+          "source_files": "BitautoTool/Category/UIKit/*.{h,m}",
+          "dependencies": {
+            "BitautoTool/Category/Foundation": [
+
+            ]
+          }
+        },
+        {
+          "name": "Foundation",
+          "source_files": "BitautoTool/Category/Foundation/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Indicator",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "BitautoTool/Indicator/**/*.{h,m}",
+      "resources": "BitautoTool/Indicator/Indicator.bundle"
+    },
+    {
+      "name": "Network",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "subspecs": [
+        {
+          "name": "Reachability",
+          "source_files": "BitautoTool/Network/Reachability/*.{h,m}"
+        },
+        {
+          "name": "RequestManager",
+          "source_files": "BitautoTool/Network/RequestManager/*.{h,m}",
+          "dependencies": {
+            "BitautoTool/Network/YTKNetwork": [
+
+            ]
+          }
+        },
+        {
+          "name": "YTKNetwork",
+          "source_files": "BitautoTool/Network/YTKNetwork/*.{h,m}",
+          "frameworks": "CFNetwork",
+          "dependencies": {
+            "AFNetworking": [
+              ">= 3.1.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Keychain",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "BitautoTool/Keychain/**/*.{h,m}",
+      "dependencies": {
+        "SAMKeychain": [
+          ">= 1.5.3"
+        ]
+      }
+    }
+  ]
+}
