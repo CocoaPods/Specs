@@ -1,0 +1,71 @@
+{
+  "name": "QQMta",
+  "version": "2.0.8",
+  "summary": "专业的移动应用数据分析能力，为您的应用提供实时数据统计分析服务，监控版本质量、渠道状况、用户画像属性及用户细分行为，通过数据可视化展现，协助产品运营决策。",
+  "homepage": "http://mta.qq.com",
+  "authors": {
+    "derekibw": "https://github.com/derekibw"
+  },
+  "source": {
+    "git": "https://github.com/derekibw/QQMta.git",
+    "tag": "2.0.8"
+  },
+  "license": "None",
+  "requires_arc": true,
+  "platforms": {
+    "ios": null
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDK/*.h",
+      "public_header_files": "SDK/*.h",
+      "vendored_libraries": "SDK/libmtasdk.a",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "QuartzCore",
+        "CoreGraphics",
+        "CoreTelephony",
+        "CFNetwork",
+        "Security",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/plugin/autotrack/libautotrack.a"
+    },
+    {
+      "name": "IDFA",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/plugin/idfa/libidfa.a",
+      "frameworks": "AdSupport"
+    },
+    {
+      "name": "InstallTracker",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "source_files": "SDK/plugin/installtracker/*.h",
+      "public_header_files": "SDK/plugin/installtracker/*.h",
+      "vendored_libraries": "SDK/plugin/installtracker/libinstalltracker.a"
+    }
+  ]
+}
