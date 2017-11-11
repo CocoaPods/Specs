@@ -1,0 +1,43 @@
+{
+  "name": "GQImageViewer",
+  "version": "1.0.8",
+  "summary": "一款多图文浏览器，支持图文混合浏览和单图片浏览，增加底部文字，仿今日头条效果，图片原尺寸显示，不会变形，双击放大缩小，单击消失，支持多张本地及网络图片混合查看，支持链式调用，支持WebP图片浏览。",
+  "homepage": "https://github.com/g763007297/ImageViewer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "developer_高": "763007297@qq.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/g763007297/ImageViewer.git",
+    "tag": "1.0.8"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GQImageViewer/**/*.{h,m}"
+    },
+    {
+      "name": "WebP",
+      "source_files": "GQImageViewer/GQCategory/UIImage+GQImageViewrCategory.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GQ_WEBP=1"
+      },
+      "dependencies": {
+        "GQImageViewer/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "GQImageViewer/GQThirdPart/WebP.framework"
+      }
+    }
+  ]
+}
