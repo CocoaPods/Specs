@@ -1,0 +1,52 @@
+{
+  "name": "LongImageCache",
+  "version": "1.0.4",
+  "license": {
+    "type": "Personal",
+    "text": "zilong.li"
+  },
+  "summary": "An Objective-C tool for Cache",
+  "homepage": "https://github.com/lizilong1989/LongImageCache",
+  "authors": {
+    "zilong.li": "15131968@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/lizilong1989/LongImageCache.git",
+    "tag": "1.0.4"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "frameworks": "Security",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "dependencies": {
+    "LongDispatch": [
+      "~> 1.0.3"
+    ],
+    "LongRequest": [
+      "~> 1.0.1"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "src/**/*.{h,m,mm}",
+      "public_header_files": "src/**/*.{h}"
+    },
+    {
+      "name": "WebP",
+      "source_files": "3rdparty/webp/include/*.h",
+      "vendored_libraries": [
+        "3rdparty/webp/lib/libwebp.a",
+        "3rdparty/webp/lib/libwebpdecoder.a"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LONG_WEBP=1"
+      }
+    }
+  ]
+}
