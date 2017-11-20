@@ -1,0 +1,208 @@
+{
+  "name": "DLKit",
+  "version": "0.3.6",
+  "summary": "构建App常用的基本功能库",
+  "description": "Http请求,获取设备信息,获取App信息,Base64加解密,文件下载器,网络数据打包解析,UIKitExtened,KeyChain数据存储,AOP打点统计子系统,Http网络请求数据拦截修改管理子系统,\n广告无限自动循环轮播组件,iOS常用宏,ViewController通用架构(Loading加载,网络异常,下拉上拉刷新)",
+  "homepage": "https://github.com/LengYi/DLKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "707689817@qq.com": "707689817@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/LengYi/DLKit.git",
+    "tag": "0.3.6"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Classes",
+  "frameworks": [
+    "UIKit",
+    "AdSupport",
+    "Foundation"
+  ],
+  "subspecs": [
+    {
+      "name": "Classes",
+      "subspecs": [
+        {
+          "name": "Base",
+          "subspecs": [
+            {
+              "name": "DLAppInfo",
+              "source_files": "DLKit/Classes/Base/App/**/*",
+              "public_header_files": "DLKit/Classes/Base/App/**/*.h"
+            },
+            {
+              "name": "Define",
+              "source_files": "DLKit/Classes/Base/Define/**/*"
+            },
+            {
+              "name": "DLNet",
+              "subspecs": [
+                {
+                  "name": "DLDownloadFile",
+                  "source_files": "DLKit/Classes/Base/DLNet/DLDownloadFile/**/*",
+                  "dependencies": {
+                    "DLKit/Classes/Base/DLUIKitExtended/NSURL": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "DLHttp",
+                  "source_files": "DLKit/Classes/Base/DLNet/DLHttp/**/*"
+                },
+                {
+                  "name": "DLNetReachability",
+                  "source_files": "DLKit/Classes/Base/DLNet/DLNetReachability/**/*",
+                  "requires_arc": false
+                }
+              ]
+            },
+            {
+              "name": "DLPath",
+              "source_files": "DLKit/Classes/Base/DLPath/**/*"
+            },
+            {
+              "name": "DLUIKitExtended",
+              "subspecs": [
+                {
+                  "name": "Device",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/Device/**/*"
+                },
+                {
+                  "name": "NSURL",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/NSURL/**/*"
+                },
+                {
+                  "name": "NSString",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/NSString/**/*"
+                },
+                {
+                  "name": "NSData",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/NSData/**/*"
+                },
+                {
+                  "name": "NSDate",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/NSDate/**/*"
+                },
+                {
+                  "name": "NSObject",
+                  "source_files": "DLKit/Classes/Base/DLUIKitExtended/NSObject/**/*"
+                }
+              ]
+            },
+            {
+              "name": "DLUIKitSafeExtended",
+              "subspecs": [
+                {
+                  "name": "NSMutableArray",
+                  "source_files": "DLKit/Classes/Base/DLUIKitSafeExtended/NSMutableArray/**/*",
+                  "dependencies": {
+                    "DLKit/Classes/Base/DLUIKitExtended/NSObject": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "NSMutableDictionary",
+                  "source_files": "DLKit/Classes/Base/DLUIKitSafeExtended/NSMutableDictionary/**/*",
+                  "dependencies": {
+                    "DLKit/Classes/Base/DLUIKitExtended/NSObject": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Encrypt",
+              "subspecs": [
+                {
+                  "name": "DESBase64",
+                  "source_files": "DLKit/Classes/Base/Encrypt/DESBase64/**/*",
+                  "dependencies": {
+                    "GTMBase64": [
+                      "~> 1.0.0"
+                    ]
+                  }
+                },
+                {
+                  "name": "AES128",
+                  "source_files": "DLKit/Classes/Base/Encrypt/AES128/**/*",
+                  "dependencies": {
+                    "GTMBase64": [
+                      "~> 1.0.0"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "DLData",
+              "source_files": "DLKit/Classes/Base/DLData/**/*"
+            },
+            {
+              "name": "Storage",
+              "source_files": "DLKit/Classes/Base/Storage/KeyChain/**/*"
+            }
+          ]
+        },
+        {
+          "name": "Assist",
+          "subspecs": [
+            {
+              "name": "DLLog",
+              "source_files": "DLKit/Classes/Assist/Statistics/Log/DLLog/**/*",
+              "dependencies": {
+                "DLKit/Classes/Base/DLUIKitExtended/NSDate": [
+
+                ]
+              }
+            },
+            {
+              "name": "AOPStastic",
+              "source_files": "DLKit/Classes/Assist/Statistics/AOPStatistic/**/*"
+            },
+            {
+              "name": "HttpMock",
+              "source_files": "DLKit/Classes/Assist/HttpMock/**/*",
+              "dependencies": {
+                "GYHttpMock": [
+                  "~> 1.0.1"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ViewComponent",
+          "subspecs": [
+            {
+              "name": "CircleBanner",
+              "source_files": "DLKit/Classes/ViewComponent/ADCircleBanner/**/*"
+            }
+          ]
+        },
+        {
+          "name": "Vendors",
+          "subspecs": [
+            {
+              "name": "TablePullToRefresh",
+              "source_files": "DLKit/Classes/Vendors/TablePullToRefresh/**/*",
+              "dependencies": {
+                "SVPullToRefresh": [
+                  "~> 0.4.1"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
