@@ -1,0 +1,61 @@
+{
+  "name": "IndCalculator",
+  "version": "0.1.1",
+  "summary": "IndCalculator",
+  "description": "C++计算\nOC桥接, 以及数据协议",
+  "homepage": "http://ph.benemind.com/diffusion/95",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aelam": "wanglun02@gmail.com"
+  },
+  "source": {
+    "git": "http://ph.benemind.com/diffusion/95/indcalculator.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "subspecs": [
+    {
+      "name": "Ind",
+      "source_files": "IndCalculator/Ind/**/*.{h,m,cpp}",
+      "private_header_files": "IndCalculator/Ind/**/*.{h}"
+    },
+    {
+      "name": "IndFactory",
+      "source_files": "IndCalculator/IndFactory/**/*.{h,m,cpp}",
+      "private_header_files": "IndCalculator/IndFactory/**/*.{h}",
+      "dependencies": {
+        "IndCalculator/Ind": [
+
+        ]
+      }
+    },
+    {
+      "name": "OCBridge",
+      "subspecs": [
+        {
+          "name": "Interface",
+          "source_files": "IndCalculator/OCBridge/Interface/**/*.{h,m,mm}",
+          "dependencies": {
+            "IndCalculator/IndFactory": [
+
+            ]
+          }
+        },
+        {
+          "name": "Implementation",
+          "source_files": "IndCalculator/OCBridge/Implementation/**/*.{h,m,mm}",
+          "dependencies": {
+            "IndCalculator/OCBridge/Interface": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
