@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YPLib"
-  s.version      = "0.0.1"
+  s.version      = "1.0.1"
   s.summary      = "This is a basic framework programr"
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ A program infrastructure framework for rapid development
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "YPLib/**/*"
+  s.source_files  = "YPLib"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
