@@ -1,0 +1,64 @@
+{
+  "name": "LYMqttSDK",
+  "version": "1.0.01",
+  "summary": "an iOS communication SDK",
+  "description": "an iOS communication SDK create by HHLY ,you need go to the HHLY registing you app first",
+  "homepage": "http://www.71ant.com",
+  "license": "MIT",
+  "authors": {
+    "ShanggenZhang": "gkzhangshangen@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/install-b/FrameworkTest.git",
+    "tag": "1.0.01"
+  },
+  "requires_arc": true,
+  "exclude_files": "FrameworkTest/*.md",
+  "default_subspecs": "LYTSDK",
+  "subspecs": [
+    {
+      "name": "LYTFoundation",
+      "frameworks": "Foundation",
+      "source_files": "FrameworkTest/LYTFoundation/**/*.{h,a}",
+      "vendored_libraries": "FrameworkTest/LYTFoundation/*.a",
+      "public_header_files": "FrameworkTest/LYTFoundation/**/*.h"
+    },
+    {
+      "name": "LYTCommonLib",
+      "frameworks": "Foundation",
+      "source_files": "FrameworkTest/LYTCommonLib/**/*.{h,a}",
+      "vendored_libraries": "FrameworkTest/LYTCommonLib/*.a",
+      "public_header_files": "FrameworkTest/LYTCommonLib/**/*.h"
+    },
+    {
+      "name": "LYTSDK",
+      "frameworks": [
+        "UIKit",
+        "CoreTelephony",
+        "UserNotifications"
+      ],
+      "libraries": [
+        "z",
+        "xml2",
+        "sqlite3.0"
+      ],
+      "dependencies": {
+        "LYMqttSDK/LYTFoundation": [
+
+        ],
+        "LYMqttSDK/LYTCommonLib": [
+
+        ]
+      },
+      "source_files": [
+        "FrameworkTest/LYTSDK/*.h",
+        "FrameworkTest/LYTSDK/*.a"
+      ],
+      "vendored_libraries": "FrameworkTest/LYTSDK/*.a",
+      "public_header_files": "FrameworkTest/LYTSDK/*.h"
+    }
+  ]
+}
