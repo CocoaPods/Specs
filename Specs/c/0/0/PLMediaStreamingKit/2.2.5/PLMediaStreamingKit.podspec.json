@@ -1,0 +1,95 @@
+{
+  "name": "PLMediaStreamingKit",
+  "version": "2.2.5",
+  "summary": "Pili iOS media streaming framework via RTMP.",
+  "homepage": "https://github.com/pili-engineering/PLMediaStreamingKit",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "pili": "pili@qiniu.com"
+  },
+  "source": {
+    "git": "https://github.com/pili-engineering/PLMediaStreamingKit.git",
+    "tag": "v2.2.5"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "pili-librtmp": [
+      "1.0.7"
+    ],
+    "HappyDNS": [
+      "0.3.10"
+    ],
+    "QNNetDiag": [
+      "0.0.6"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "AVFoundation",
+    "CoreGraphics",
+    "CFNetwork",
+    "AudioToolbox",
+    "CoreMedia",
+    "VideoToolbox"
+  ],
+  "libraries": [
+    "z",
+    "c++",
+    "icucore",
+    "sqlite3"
+  ],
+  "vendored_libraries": "Pod/Library/*.a",
+  "subspecs": [
+    {
+      "name": "PLCameraStreamingKit",
+      "public_header_files": "Pod/Library/include/PLCameraStreamingKit/*.h",
+      "source_files": "Pod/Library/include/PLCameraStreamingKit/*.h",
+      "dependencies": {
+        "PLMediaStreamingKit/PLStreamingKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "PLStreamingKit",
+      "public_header_files": "Pod/Library/include/PLStreamingKit/*.h",
+      "source_files": "Pod/Library/include/PLStreamingKit/*.h",
+      "dependencies": {
+        "PLMediaStreamingKit/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "PLRTCStreamingKit",
+      "public_header_files": "Pod/Library/include/PLRTCStreamingKit/*.h",
+      "source_files": "Pod/Library/include/PLRTCStreamingKit/*.h",
+      "dependencies": {
+        "PLMediaStreamingKit/PLStreamingKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "PLMediaStreamingKit",
+      "public_header_files": "Pod/Library/include/PLMediaStreamingKit/*.h",
+      "source_files": "Pod/Library/include/PLMediaStreamingKit/*.h",
+      "dependencies": {
+        "PLMediaStreamingKit/PLCameraStreamingKit": [
+
+        ],
+        "PLMediaStreamingKit/PLRTCStreamingKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "public_header_files": "Pod/Library/include/Common/*.h",
+      "source_files": "Pod/Library/include/Common/*.h"
+    }
+  ]
+}
