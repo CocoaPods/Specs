@@ -1,0 +1,55 @@
+{
+  "name": "tesseract-objc",
+  "version": "0.6.0",
+  "summary": "Tesseract OCR Objective-C bindings",
+  "description": "tesseract-objc contains:\n* ObjC API with handy blocks\n* Pre-built static libraries: libleptonica, libtesseract\n* English tessdata for recognition as optional subspec\n* Shell script to rebuild static libraries from official repos via git submodules",
+  "homepage": "https://github.com/stefan-sedlak/tesseract-objc",
+  "license": {
+    "type": "2-BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stefan Sedlak": "stefan@sedlak.eu"
+  },
+  "source": {
+    "git": "https://github.com/stefan-sedlak/tesseract-objc.git",
+    "tag": "0.6.0"
+  },
+  "module_name": "Tesseract",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "code",
+  "subspecs": [
+    {
+      "name": "code",
+      "source_files": [
+        "tesseract-objc/Classes/**/*",
+        "tesseract-objc/Libraries/include/**/*.h"
+      ],
+      "public_header_files": "tesseract-objc/Classes/Tesseract.h",
+      "private_header_files": "tesseract-objc/Libraries/include/**/*.h",
+      "ios": {
+        "vendored_libraries": [
+          "tesseract-objc/Libraries/lib/ios/libleptonica.a",
+          "tesseract-objc/Libraries/lib/ios/libtesseract.a"
+        ],
+        "frameworks": "UIKit"
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "eng",
+      "dependencies": {
+        "tesseract-objc/code": [
+
+        ]
+      },
+      "resource_bundles": {
+        "tesseract-eng": [
+          "tesseract-objc/Assets/eng/tessdata"
+        ]
+      }
+    }
+  ]
+}
