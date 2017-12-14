@@ -1,0 +1,122 @@
+{
+  "name": "YUKit",
+  "module_name": "YUKit",
+  "version": "2.1.4",
+  "summary": "YUKit for iOS.(objective-c 、c++）",
+  "homepage": "https://github.com/c6357/YUKit",
+  "license": "MIT",
+  "authors": {
+    "BruceYu": "c6357@outlook.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/c6357/YUKit.git",
+    "tag": "2.1.4"
+  },
+  "source_files": "YUKit/YUKitHeader.h",
+  "requires_arc": true,
+  "prefix_header_contents": "#ifdef DEBUG\n#define TBMB_DEBUG\n#endif",
+  "subspecs": [
+    {
+      "name": "header",
+      "source_files": "YUKit/*"
+    },
+    {
+      "name": "foundation",
+      "source_files": "YUKit/foundation/YU_Foundation.{h}",
+      "subspecs": [
+        {
+          "name": "lib",
+          "ios": {
+            "dependencies": {
+              "YUKit/foundation/category": [
+
+              ],
+              "YUKit/header": [
+
+              ],
+              "YUKit/frameworks/Reachability": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/foundation/lib/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "category",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/foundation/category/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    },
+    {
+      "name": "uikit",
+      "source_files": "YUKit/uikit/YU_UIKit.{h}",
+      "subspecs": [
+        {
+          "name": "lib",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/foundation": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/uikit/lib/**/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "category",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ],
+              "YUKit/foundation": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/uikit/category/**/*.{h,m,cpp,mm,c}"
+        }
+      ]
+    },
+    {
+      "name": "frameworks",
+      "source_files": "YUKit/frameworks/YUKeychain/**/*.{h,m,cpp,mm,c}",
+      "subspecs": [
+        {
+          "name": "Reachability",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ]
+            }
+          },
+          "source_files": "YUKit/frameworks/Reachability/*.{h,m,cpp,mm,c}"
+        },
+        {
+          "name": "YUKeychain",
+          "ios": {
+            "dependencies": {
+              "YUKit/header": [
+
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
