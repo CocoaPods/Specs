@@ -1,0 +1,58 @@
+{
+  "name": "JJCTools",
+  "version": "0.1.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A Library for iOS to  get result fasterly with some methods.",
+  "homepage": "https://github.com/jijiucheng/JJCTools",
+  "authors": {
+    "苜蓿鬼仙": "302926124@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/jijiucheng/JJCTools.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "JJCToolsDemo/JJCTools/JJCTools.h",
+  "resources": "JJCToolsDemo/JJCTools/JJCToolsSource/JJCTools.bundle",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "QuartzCore",
+    "CoreText",
+    "CoreGraphics"
+  ],
+  "prefix_header_contents": "// 图片、xib\n\n#define JJCBundleName [NSBundle bundleWithURL:[[NSBundle bundleForClass:self.class] URLForResource:@\"JJCTools\" withExtension:@\"bundle\"]]\n#define JJCBundleImageNamed(A) [UIImage imageNamed:A inBundle:[NSBundle bundleWithURL:JJCBundleName] compatibleWithTraitCollection:nil]\n\n\n// 国际化字符串\n\n#define JJCLocalizedString(key, comment)        ({        NSString *language = [NSLocale preferredLanguages].firstObject;        if ([language hasPrefix:@\"en\"]) {        language = @\"en\";        } else if ([language hasPrefix:@\"zh\"]) {        language = @\"zh-Hans\";        } else {        language = @\"en\";        }        NSBundle *bundle = [NSBundle bundleWithPath:[JJCBundleName pathForResource:language ofType:@\"lproj\"]];        [bundle localizedStringForKey:key value:@\"\" table:nil];        })",
+  "subspecs": [
+    {
+      "name": "JJCToolsDefine",
+      "source_files": "JJCToolsDemo/JJCTools/JJCToolsDefine/**/*.{h,m}",
+      "public_header_files": "JJCToolsDemo/JJCTools/JJCToolsDefine/**/*.{h}"
+    },
+    {
+      "name": "JJCToolsObject",
+      "source_files": "JJCToolsDemo/JJCTools/JJCToolsObject/**/*.{h,m}",
+      "public_header_files": "JJCToolsDemo/JJCTools/JJCToolsObject/**/*.{h}"
+    },
+    {
+      "name": "JJCToolsCategory",
+      "subspecs": [
+        {
+          "name": "UITabBar",
+          "source_files": "JJCToolsDemo/JJCTools/JJCToolsCategory/UITabBar/**/*.{h,m}",
+          "public_header_files": "JJCToolsDemo/JJCTools/JJCToolsCategory/UITabBar/**/*.{h}"
+        },
+        {
+          "name": "UIView",
+          "source_files": "JJCToolsDemo/JJCTools/JJCToolsCategory/UIView/**/*.{h,m}",
+          "public_header_files": "JJCToolsDemo/JJCTools/JJCToolsCategory/UIView/**/*.{h}"
+        }
+      ]
+    }
+  ]
+}
