@@ -1,0 +1,79 @@
+{
+  "name": "PayKit",
+  "version": "0.0.2",
+  "summary": "集成支付宝、微信、苹果内购",
+  "description": "TODO: 集成支付宝、微信、苹果内购",
+  "homepage": "https://git.coding.net/yuxilong/PayKit.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jack Yu": "305758560@qq.com"
+  },
+  "source": {
+    "git": "https://git.coding.net/yuxilong/PayKit.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PayKit/**/*.{h,m,mm}",
+      "public_header_files": "PayKit/*.h",
+      "frameworks": [
+        "UIKit",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "Foundation",
+        "CFNetwork",
+        "CoreMotion",
+        "StoreKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "vendored_libraries": "PayKit/vendored/libWeChatSDK.a",
+      "vendored_frameworks": "PayKit/vendored/AlipaySDK.framework",
+      "dependencies": {
+        "OpenSSL": [
+          "~> 1.0.210"
+        ]
+      }
+    },
+    {
+      "name": "WX",
+      "vendored_libraries": "PayKit/vendored/libWeChatSDK.a",
+      "dependencies": {
+        "PayKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alipay",
+      "resource_bundles": {
+        "PayKit": [
+          "PayKit/vendored/*.bundle"
+        ]
+      },
+      "vendored_frameworks": "PayKit/vendored/AlipaySDK.framework",
+      "dependencies": {
+        "PayKit/Core": [
+
+        ]
+      }
+    }
+  ]
+}
