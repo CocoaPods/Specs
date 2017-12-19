@@ -1,0 +1,27 @@
+{
+  "name": "LuaJIT-DynamOC",
+  "version": "1.0.0",
+  "summary": "LuaJIT for DynamOC",
+  "homepage": "https://github.com/onesmash/LuaJIT-DYOC",
+  "license": {
+    "type": "MIT",
+    "file": "COPYRIGHT"
+  },
+  "authors": {
+    "xuhui": "good122000@qq.com"
+  },
+  "source": {
+    "http": "https://raw.githubusercontent.com/onesmash/LuaJIT-DYOC/master/LuaJIT-2.1.0-beta3.tar.gz"
+  },
+  "source_files": "include/*.h",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "public_header_files": "include/*.h",
+    "vendored_libraries": "lib/libluajit.a"
+  },
+  "libraries": "c++",
+  "requires_arc": false,
+  "prepare_command": "ICC=$(xcrun --find clang)\nSDK_VERSION=$(xcrun --sdk iphoneos --show-sdk-version 2> /dev/null)\nARCHS=\"i386 x86_64 armv7 armv7s arm64\"\n  \tDEVELOPER=$(xcode-select -print-path)\n  \tMIN_SDK_VERSION_FLAG=\"-miphoneos-version-min=8.0\"\n\nBASE_PATH=\"${PWD}\"\nCURRENT_PATH=\"/tmp/luajit\"\n\nmkdir -p ${CURRENT_PATH}/include\n\n  \tcp file.tgz ${CURRENT_PATH}/file.tgz\n  \tcd ${CURRENT_PATH}\n  \ttar -xzf file.tgz\n  \tcd LuaJIT-2.1.0-beta3\n\n  \techo \"base path ${BASE_PATH}\"\n\n  \tsed -i .bak \"s/BUILDMODE= mixed/BUILDMODE= static/g\" ./src/Makefile\n\n  \tcp -v ./src/lua.h ${CURRENT_PATH}/include\ncp -v ./src/lauxlib.h ${CURRENT_PATH}/include\ncp -v ./src/lualib.h ${CURRENT_PATH}/include\ncp -v ./src/luajit.h ${CURRENT_PATH}/include\ncp -v ./src/lua.hpp ${CURRENT_PATH}/include\ncp -v ./src/luaconf.h ${CURRENT_PATH}/include\ncp -v ./src/dynamoc.h ${CURRENT_PATH}/include\n\necho \"Build library...\"\nrm -rf \"${BASE_PATH}/lib/\"\nmkdir -p \"${BASE_PATH}/lib/\"\nmkdir -p \"${BASE_PATH}/lib/jit\"\ncp -vRL \"./src/jit/\" \"${BASE_PATH}/lib/jit/\"\n\nfor TARGET_ARCH in ${ARCHS}\ndo\n\tMARCH=\"-m32\"\n\tHOST_ARCH=\"i386\"\n\tCOMPILE_FLAGS=\"-DLUAJIT_ENABLE_LUA52COMPAT -DLJ_NO_SYSTEM\"\n\tif [ \"${TARGET_ARCH}\" == \"i386\" ] || [ \"${TARGET_ARCH}\" == \"x86_64\" ]\n     \tthen\n       \tPLATFORM=\"iPhoneSimulator\"\n       \tMIN_SDK_VERSION_FLAG=\"-mios-simulator-version-min=8.0\"\n       \tCOMPILE_FLAGS=\"$COMPILE_FLAGS -fembed-bitcode-marker\"\n       \tif [ \"${TARGET_ARCH}\" == \"x86_64\" ]\n       \tthen\n       \t\tMARCH=\"-m64\"\n       \t\tHOST_ARCH=\"x86_64\"\n       \t\tCOMPILE_FLAGS=\"$COMPILE_FLAGS\"\n       \tfi\n     \telse\n       \tPLATFORM=\"iPhoneOS\"\n       \tCOMPILE_FLAGS=\"$COMPILE_FLAGS -fembed-bitcode\"\n       \tif [ \"${TARGET_ARCH}\" == \"arm64\" ]\n       \tthen\n       \t\tMARCH=\"\"\n       \t\tHOST_ARCH=\"arm64\"\n       \t\tCOMPILE_FLAGS=\"$COMPILE_FLAGS\"\n       \tfi\n     \tfi\n     \tISDKP=\"${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDK_VERSION}.sdk\"\n     \tISDKF=\"-arch ${TARGET_ARCH} -isysroot $ISDKP $MIN_SDK_VERSION_FLAG $COMPILE_FLAGS\"\n     \tmake clean 2> /dev/null \n     \techo =================================================\n     \techo \"build ${TARGET_ARCH} Architecture\"\n     \tif [ \"${TARGET_ARCH}\" == \"arm64\" ] || [ \"${TARGET_ARCH}\" == \"x86_64\" ]\n    then\n        make DEFAULT_CC=clang CROSS=\"$(dirname $ICC)/\" TARGET_FLAGS=\"$ISDKF\" LIBS=-lc++ TARGET_SYS=iOS\n    else\n        make DEFAULT_CC=clang HOST_CC=\"clang ${MARCH} -arch ${HOST_ARCH}\" CROSS=\"$(dirname $ICC)/\" LIBS=-lc++ TARGET_FLAGS=\"$ISDKF\" TARGET_SYS=iOS\n    fi\n     \tmv -v ./src/libluajit.a ${BASE_PATH}/lib/libluajit${TARGET_ARCH}.a\n     \tJIT_LIBS=\"${JIT_LIBS} ${BASE_PATH}/lib/libluajit${TARGET_ARCH}.a\"\ndone  \n  \nlipo -create ${JIT_LIBS} -output ${BASE_PATH}/lib/libluajit.a  2> /dev/null\n\necho \"Copying headers...\"\nrm -rf \"${BASE_PATH}/include/\"\nmkdir -p \"${BASE_PATH}/include/\"\ncp -vRL \"${CURRENT_PATH}/include/\" \"${BASE_PATH}/include/\"\n\ncd \"${BASE_PATH}\"\n\necho \"base path ${BASE_PATH}\"\n\necho \"Cleaning up...\"\n  \trm -rf \"${CURRENT_PATH}\"\necho \"Done\""
+}
