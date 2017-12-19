@@ -1,0 +1,78 @@
+{
+  "name": "QQMta",
+  "version": "2.1.1",
+  "summary": "\"腾讯移动分析（MTA）",
+  "homepage": "http://mta.qq.com",
+  "authors": {
+    "derekibw": "https://github.com/derekibw"
+  },
+  "source": {
+    "git": "https://github.com/derekibw/MTA.git",
+    "tag": "2.1.1"
+  },
+  "license": "None",
+  "requires_arc": true,
+  "platforms": {
+    "ios": null
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDK/*.h",
+      "public_header_files": "SDK/*.h",
+      "vendored_libraries": "SDK/libmtasdk.a",
+      "frameworks": [
+        "CoreTelephony",
+        "CFNetwork",
+        "Security",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/plugin/autotrack/libautotrack.a"
+    },
+    {
+      "name": "IDFA",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/plugin/idfa/libidfa.a",
+      "frameworks": "AdSupport"
+    },
+    {
+      "name": "InstallTracker",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "source_files": "SDK/plugin/installtracker/*.h",
+      "public_header_files": "SDK/plugin/installtracker/*.h",
+      "vendored_libraries": "SDK/plugin/installtracker/libinstalltracker.a"
+    },
+    {
+      "name": "Hybrid",
+      "dependencies": {
+        "QQMta/Core": [
+
+        ]
+      },
+      "vendored_libraries": "SDK/plugin/hybrid/*.a",
+      "source_files": "SDK/plugin/hybrid/*.h",
+      "public_header_files": "SDK/plugin/hybrid/*.h"
+    }
+  ]
+}
