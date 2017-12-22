@@ -1,0 +1,75 @@
+{
+  "name": "ALSUniversalAccount-ThirdParty",
+  "version": "0.0.3",
+  "summary": "A short description of ALSUniversalAccount.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/AltairEven/ALSUniversalAccount",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AltairEven": "qianye.qy@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/AltairEven/ALSUniversalAccount.git",
+    "tag": "0.0.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/**",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup",
+    "ENABLE_BITCODE": "NO",
+    "MACH_O_TYPE": "staticlib"
+  },
+  "subspecs": [
+    {
+      "name": "Public",
+      "source_files": "ALSUniversalAccount/Classes/Public/*"
+    },
+    {
+      "name": "Interface",
+      "dependencies": {
+        "ALSUniversalAccount-ThirdParty/Public": [
+
+        ],
+        "TTTAttributedLabel": [
+          "~> 2.0.0"
+        ],
+        "SFHFKeychainUtils": [
+          "~> 0.0.1"
+        ],
+        "MBProgressHUD": [
+          "~> 0.9.0"
+        ],
+        "UMengUShare/Social/Sina": [
+
+        ],
+        "UMengUShare/Social/QQ": [
+
+        ]
+      },
+      "vendored_frameworks": "ALSUniversalAccount/Classes/Interface/ThirdParty/*.framework",
+      "resource_bundles": {
+        "ALSUniversalAccount": [
+          "ALSUniversalAccount/Assets/**/*.png"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "BaiChuan",
+          "vendored_frameworks": "ALSUniversalAccount/Classes/Plug/BaiChuan/ThirdParty/**/*.framework",
+          "frameworks": "CoreMotion",
+          "ios": {
+            "libraries": [
+              "sqlite3.0",
+              "z.1.2.8"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
