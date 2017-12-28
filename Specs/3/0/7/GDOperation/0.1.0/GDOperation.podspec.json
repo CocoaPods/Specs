@@ -1,0 +1,69 @@
+{
+  "name": "GDOperation",
+  "version": "0.1.0",
+  "summary": "Collaborative Rich Text on iOS.",
+  "description": "?? NSAttributedString ??????, ? JSON ????, ?????????????",
+  "homepage": "https://github.com/goodow/GDOperation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Larry Tin": "dev@goodow.com"
+  },
+  "source": {
+    "git": "https://github.com/goodow/GDOperation.git",
+    "tag": "v0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.0"
+        ],
+        "GDChannel": [
+          "~> 0.8"
+        ]
+      },
+      "requires_arc": [
+        "GDOperation/Classes/**/*"
+      ],
+      "source_files": [
+        "GDOperation/Classes/*",
+        "GDOperation/Classes/AttributedString/**/*",
+        "GDOperation/Generated/**/*"
+      ],
+      "resource_bundles": {
+        "GDOperation": "protos/*.proto"
+      }
+    },
+    {
+      "name": "YYText",
+      "dependencies": {
+        "GDOperation/Core": [
+
+        ],
+        "YYText": [
+          "~> 1.0"
+        ]
+      },
+      "source_files": "GDOperation/Classes/YYText/**/*"
+    },
+    {
+      "name": "Firebase",
+      "dependencies": {
+        "GDOperation/YYText": [
+
+        ],
+        "Firebase/Database": [
+
+        ]
+      },
+      "source_files": "GDOperation/Classes/Firebase/**/*"
+    }
+  ]
+}
