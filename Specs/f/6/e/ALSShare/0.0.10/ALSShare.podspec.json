@@ -1,0 +1,79 @@
+{
+  "name": "ALSShare",
+  "version": "0.0.10",
+  "summary": "This is a description of ALSShare.",
+  "description": "This is a long description of the pod here.This is a long description of the pod here.",
+  "homepage": "https://github.com/AltairEven/ALSShare.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AltairEven": "qianye.qy@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/AltairEven/ALSShare.git",
+    "tag": "0.0.10"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/**",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup",
+    "ENABLE_BITCODE": "NO",
+    "MACH_O_TYPE": "staticlib"
+  },
+  "subspecs": [
+    {
+      "name": "Public",
+      "source_files": "ALSShare/Classes/Public/*"
+    },
+    {
+      "name": "Interface",
+      "dependencies": {
+        "ALSShare/Public": [
+
+        ]
+      },
+      "source_files": "ALSShare/Classes/Interface/*"
+    },
+    {
+      "name": "Plug",
+      "dependencies": {
+        "ALSShare/Public": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Wechat",
+          "dependencies": {
+            "AEDataKit": [
+
+            ]
+          },
+          "source_files": "ALSShare/Classes/Plug/Wechat/*"
+        },
+        {
+          "name": "Weibo",
+          "dependencies": {
+            "AEDataKit": [
+
+            ]
+          },
+          "source_files": "ALSShare/Classes/Plug/Weibo/*"
+        },
+        {
+          "name": "Tencent",
+          "dependencies": {
+            "AEDataKit": [
+
+            ]
+          },
+          "source_files": "ALSShare/Classes/Plug/Tencent/*"
+        }
+      ]
+    }
+  ]
+}
