@@ -1,0 +1,100 @@
+{
+  "name": "RGBasic",
+  "version": "0.0.9.2",
+  "summary": "A basic RGBasic.",
+  "homepage": "https://github.com/sunnyGT/RGBasic",
+  "license": {
+    "type": "MIT",
+    "file": "FILE_LICENSE"
+  },
+  "authors": {
+    "Robin_Gzb": "a184820975@sina.cn"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/sunnyGT/RGBasic.git",
+    "tag": "0.0.9.2"
+  },
+  "source_files": "RGBasic/XM.h",
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "$(SRCROOT)"
+  },
+  "subspecs": [
+    {
+      "name": "RGMacro",
+      "source_files": "RGBasic/XMMacro.h",
+      "public_header_files": "RGBasic/XMMacro.h"
+    },
+    {
+      "name": "RGNetwork",
+      "source_files": "RGBasic/XMNetWork(网络)/*.{h,m}",
+      "public_header_files": "RGBasic/XMNetWork(网络)/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "RGCategory",
+      "source_files": "RGBasic/XMCategory(类目)/*.{h,m}",
+      "public_header_files": "RGBasic/XMCategory(类目)/*.h",
+      "dependencies": {
+        "RGBasic/RGUtilities": [
+
+        ],
+        "RGBasic/RGMacro": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "RGBasicUI",
+      "source_files": [
+        "RGBasic/XMBasicUI(UI基类)/*.{h,m}",
+        "RGBasic/XMBasicUI(UI基类)/**/*.h"
+      ],
+      "dependencies": {
+        "Masonry": [
+          "~> 1.1.0"
+        ],
+        "RGBasic/RGMacro": [
+
+        ],
+        "RGBasic/RGCategory": [
+
+        ]
+      }
+    },
+    {
+      "name": "RGUtilities",
+      "source_files": "RGBasic/XMUtilities(工具)/**/*.{h,m}",
+      "public_header_files": "RGBasic/XMUtilities(工具)/**/*.h",
+      "dependencies": {
+        "Base64": [
+          "~> 1.1.2"
+        ],
+        "MBProgressHUD": [
+          "~> 1.1.0"
+        ],
+        "RGBasic/RGMacro": [
+
+        ]
+      }
+    },
+    {
+      "name": "RGAboutProject",
+      "source_files": "RGBasic/XMAboutProject(工程相关)/*.{h,m}",
+      "dependencies": {
+        "RGBasic/RGBasicUI": [
+
+        ]
+      }
+    }
+  ]
+}
