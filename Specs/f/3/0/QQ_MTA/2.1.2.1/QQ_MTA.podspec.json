@@ -1,0 +1,77 @@
+{
+  "name": "QQ_MTA",
+  "version": "2.1.2.1",
+  "summary": "腾讯移动分析（MTA）",
+  "homepage": "http://mta.qq.com",
+  "authors": "tencent TEG",
+  "license": "MIT",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/tegdata/MTA.git",
+    "tag": "2.1.2.1"
+  },
+  "default_subspecs": "BasicAnalysis",
+  "subspecs": [
+    {
+      "name": "BasicAnalysis",
+      "vendored_libraries": "MTA/*.a",
+      "source_files": "MTA/*.h",
+      "public_header_files": "MTA/*.h",
+      "frameworks": [
+        "Security",
+        "CFNetwork",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/autotrack/*.a",
+      "source_files": "MTA/plugin/autotrack/*.h",
+      "public_header_files": "MTA/plugin/autotrack/*.h"
+    },
+    {
+      "name": "Hybrid",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/hybrid/*.a",
+      "source_files": "MTA/plugin/hybrid/*.h",
+      "public_header_files": "MTA/plugin/hybrid/*.h"
+    },
+    {
+      "name": "Idfa",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/idfa/*.a",
+      "frameworks": "AdSupport"
+    },
+    {
+      "name": "InstallTracker",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/installtracker/*.a",
+      "source_files": "MTA/plugin/installtracker/*.h",
+      "public_header_files": "MTA/plugin/installtracker/*.h"
+    }
+  ]
+}
