@@ -1,0 +1,44 @@
+{
+  "name": "KinSDK",
+  "version": "0.3.9",
+  "summary": "pod for the KIN SDK.",
+  "description": "Initial pod for the KIN SDK.",
+  "homepage": "https://github.com/kinfoundation/kin-sdk-core-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Kin Foundation": "kin@kik.com"
+  },
+  "source": {
+    "git": "https://github.com/kinfoundation/kin-sdk-core-ios.git",
+    "tag": "0.3.9"
+  },
+  "prepare_command": "make get-geth",
+  "source_files": "KinSDK/KinSDK/**/*.swift",
+  "resource_bundles": {
+    "KinSDK": [
+      "KinSDK/KinSDK/Resources/contractABI.json"
+    ]
+  },
+  "preserve_paths": [
+    "KinSDK/Module/module.modulemap",
+    "KinSDK/Geth.framework/**/*",
+    "KinSDK/KinSDK/Resources/**/*",
+    "geth-commit"
+  ],
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/KinSDK/KinSDK",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/KinSDK/KinSDK/Module",
+    "OTHER_LDFLAGS": "-framework Geth"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS[arch=i386]": "-read_only_relocs suppress -framework Geth",
+    "SWIFT_VERSION": "3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pushed_with_swift_version": "3"
+}
