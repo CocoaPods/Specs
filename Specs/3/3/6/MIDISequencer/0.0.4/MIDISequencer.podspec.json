@@ -1,0 +1,30 @@
+{
+  "name": "MIDISequencer",
+  "version": "0.0.4",
+  "summary": "MIDI Sequencer that sends MIDI events to other apps.",
+  "description": "MIDISequencer\n===\n\nMIDI Sequencer that sends MIDI events to other apps.\nBuilt top on AKSequencer of AudioKit for iOS and macOS.\nCreate smart MIDI sequencer instruments with just focus on notes.\n\nRequirements\n----\n\n- Swift 3.0+\n- iOS 9.0+\n- macOS 10.11+\n\nInstall\n----\n\n``` ruby\npod 'MIDISequencer'\n```\n\nUsage\n----\n\nMIDISequencer built top on `AudioKit`'s `AKSequencer` with [`MusicTheory`](https://github.com/cemolcay/MusicTheory) library to create sequences just focusing on notes with multiple track support.\n\n- Create a `MIDISequencer` instance.\n\n``` swift\nlet sequencer = MIDISequencer(name: \"Awesome Sequencer\")\n```\n\n- Create a `MIDISequencerTrack` and add it to sequencer's tracks.\n\n``` swift\nlet track = MIDISequencerTrack(\nname: \"Track 1\",\nmidiChannel: 1)\n```\n\n- Add some `MIDISequencerStep`s to track's `steps`\n\n``` swift\ntrack.steps = [\nMIDISequencerStep(\nnote: Note(type: .c, octave: 4),\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(100)),\nMIDISequencerStep(\nnote: Note(type: .d, octave: 4),\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(100)),\nMIDISequencerStep(\nnote: Note(type: .e, octave: 4),\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(100)),\nMIDISequencerStep(\nnote: Note(type: .f, octave: 4),\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(100)),\n]\n```\n\n- You can even add chords or multiple notes or even both to any step.\n\n```\nMIDISequencerStep(\nchord: Chord(type: .maj, key: .c),\noctave: 4,\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(60))\n\nMIDISequencerStep(\nnotes: [Note(type: .c, octave: 4), Note(type: .d, octave: 4)],\noctave: 4,\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(60))\n\nMIDISequencerStep(\nnotes: Chord(type: .maj, key: .c).notes(octave: 4) + [Note(type: .c, octave: 4), Note(type: .d, octave: 4)],\nnoteValue: NoteValue(type: .quarter),\nvelocity: .standard(60))\n```\n\n- Set `isMuted` property to `true` to mute any `MIDISequencerStep`.",
+  "homepage": "https://github.com/cemolcay/MIDISequencer",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/MIDISequencer.git",
+    "tag": "0.0.4"
+  },
+  "source_files": "Source/*.swift",
+  "requires_arc": true,
+  "dependencies": {
+    "AudioKit": [
+
+    ],
+    "MusicTheorySwift": [
+
+    ]
+  },
+  "pushed_with_swift_version": "3.0"
+}
