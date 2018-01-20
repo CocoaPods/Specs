@@ -1,0 +1,62 @@
+{
+  "name": "iSphinx",
+  "version": "1.1.6",
+  "license": "MIT",
+  "summary": "iOS library with swift for offline speech recognition base on Pocketsphinx engine.",
+  "homepage": "https://github.com/icaksama/iSphinx",
+  "social_media_url": "https://www.facebook.com/icaksama.fanpage",
+  "authors": {
+    "icaksama": "icaksama@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/icaksama/iSphinx.git",
+    "tag": "1.1.6"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "CoreAudio",
+    "AVFoundation",
+    "CoreMedia"
+  ],
+  "preserve_paths": [
+    "iSphinx/Sphinx/include/**/*.{h}",
+    "iSphinx/Sphinx/include/*.{modulemap}"
+  ],
+  "vendored_libraries": [
+    "iSphinx/Sphinx/lib/pocketsphinx/libpocketsphinx.a",
+    "iSphinx/Sphinx/lib/sphinxbase/libsphinxbase.a"
+  ],
+  "libraries": [
+    "pocketsphinx",
+    "sphinxbase"
+  ],
+  "resource_bundles": {
+    "Assets": [
+      "iSphinx/iSphinx/Assets/*.{arpa,wav,txt}"
+    ],
+    "AcousticModel": "iSphinx/iSphinx/Assets/en-us-ptm/*"
+  },
+  "source_files": [
+    "iSphinx/iSphinx/*.{swift,h}",
+    "iSphinx/iSphinx/iSphinx Utilities/*.{swift}"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0",
+    "ENABLE_BITCODE": "NO",
+    "SWIFT_OPTIMIZATION_LEVEL": "-Onone",
+    "EXCLUDED_SOURCE_FILE_NAMES": "cmudict-en-us.dict",
+    "HEADER_SEARCH_PATHS": "${PODS_TARGET_SRCROOT}/iSphinx/Sphinx/Include/**",
+    "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/iSphinx/Sphinx/Include",
+    "LIBRARY_SEARCH_PATHS": "${PODS_TARGET_SRCROOT}/iSphinx/Sphinx/lib/pocketsphinx ${PODS_TARGET_SRCROOT}/iSphinx/Sphinx/lib/sphinxbase",
+    "OTHER_LDFLAGS": "-lsphinxbase -lpocketsphinx"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_TARGET_SRCROOT}/iSphinx/Sphinx/Include/**",
+    "SWIFT_OPTIMIZATION_LEVEL": "$(inherited)",
+    "ENABLE_BITCODE": "$(inherited)"
+  }
+}
