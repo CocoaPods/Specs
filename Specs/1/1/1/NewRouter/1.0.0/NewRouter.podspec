@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/wangzz/WZMarqueeView"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "王中周" => "wzzvictory_tjsd@163.com" }
-  s.source           = { :git => "https://github.com/wangzz/WZMarqueeView.git", :tag => s.version.to_s }
+  s.author           = { “冯高伟” => “f18911739766@126.com" }
+  s.source           = { :git => "https://github.com/fenggaowei1314/NewRouterProject.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/NAME'
 
   s.platform     = :ios, '4.3'
