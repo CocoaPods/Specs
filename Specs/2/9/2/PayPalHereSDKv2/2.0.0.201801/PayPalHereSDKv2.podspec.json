@@ -1,0 +1,76 @@
+{
+  "name": "PayPalHereSDKv2",
+  "version": "2.0.0.201801",
+  "summary": "SDK for interfacing with PayPal card readers and mobile payment processing APIs.",
+  "license": {
+    "file": "License.md"
+  },
+  "authors": {
+    "PayPal": "DL-PP-RetailSDK@paypal.com"
+  },
+  "homepage": "https://github.com/paypal/paypal-here-sdk-ios-distribution",
+  "description": "PayPal Retail SDK",
+  "source": {
+    "git": "https://github.com/PayPal-Mobile/ios-here-sdk-dist.git",
+    "tag": "v2.0.0.201801"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.1"
+  },
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+    "OTHER_LDFLAGS": "-weak_library /usr/lib/libstdc++.dylib -lstdc++ -ObjC"
+  },
+  "ios": {
+    "frameworks": [
+      "AudioToolbox",
+      "MobileCoreServices",
+      "Security",
+      "CFNetwork",
+      "AVFoundation",
+      "ExternalAccessory",
+      "MediaPlayer",
+      "CoreTelephony",
+      "Foundation",
+      "CoreBluetooth",
+      "SystemConfiguration",
+      "JavaScriptCore",
+      "CoreBluetooth",
+      "UIKit",
+      "CoreLocation"
+    ]
+  },
+  "default_subspecs": "Debug",
+  "dependencies": {
+    "SimpleKeychain": [
+      "~> 0.6.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Debug",
+      "vendored_frameworks": [
+        "RSDK/Debug/PayPalRetailSDK.framework",
+        "frameworks/PPHSwiper.framework",
+        "frameworks/PPHR_BLE.framework",
+        "frameworks/PPHSDK_BLE.framework"
+      ],
+      "ios": {
+        "resources": "RSDK/Debug/PayPalRetailSDK.framework/Versions/A/Resources/**/*"
+      }
+    },
+    {
+      "name": "Release",
+      "vendored_frameworks": [
+        "RSDK/Release/PayPalRetailSDK.framework",
+        "frameworks/PPHSwiper.framework",
+        "frameworks/PPHR_BLE.framework",
+        "frameworks/PPHSDK_BLE.framework"
+      ],
+      "ios": {
+        "resources": "RSDK/Release/PayPalRetailSDK.framework/Versions/A/Resources/**/*"
+      }
+    }
+  ]
+}
