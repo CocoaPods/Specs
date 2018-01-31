@@ -1,0 +1,73 @@
+{
+  "name": "LocationInfo",
+  "version": "1.0.1",
+  "summary": "It provides a common interface to location info for geocoding",
+  "description": "This LocationInfo interconnects different frameworks : image metadata processing, geocoding, speech recognition, etc. This used like shared data object amoung them all.",
+  "homepage": "https://github.com/truebucha/LocationInfo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "truebucha": "truebucha@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/truebucha/LocationInfo.git",
+    "tag": "1.0.1"
+  },
+  "social_media_url": "https://twitter.com/truebucha",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "public_header_files": "LocationInfo/Classes/LocationInfo.h",
+  "source_files": "LocationInfo/Classes/*.{h,m}",
+  "default_subspecs": "Core",
+  "frameworks": "Foundation",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "LocationInfo/Classes/Core/**/*",
+      "public_header_files": "LocationInfo/Classes/Core/*.h"
+    },
+    {
+      "name": "LMGeocoder",
+      "source_files": "LocationInfo/Classes/LMGeocoder/**/*",
+      "public_header_files": "LocationInfo/Classes/LMGeocoder/*.h",
+      "dependencies": {
+        "LocationInfo/Core": [
+
+        ],
+        "LMGeocoderUniversal": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppleGeocoder",
+      "source_files": "LocationInfo/Classes/AppleGeocoder/**/*",
+      "public_header_files": "LocationInfo/Classes/AppleGeocoder/*.h",
+      "dependencies": {
+        "LocationInfo/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation"
+    },
+    {
+      "name": "AppleMap",
+      "source_files": "LocationInfo/Classes/AppleMap/**/*",
+      "public_header_files": "LocationInfo/Classes/AppleMap/*.h",
+      "dependencies": {
+        "LocationInfo/Core": [
+
+        ],
+        "LocationInfo/AppleGeocoder": [
+
+        ]
+      },
+      "frameworks": "MapKit"
+    }
+  ]
+}
