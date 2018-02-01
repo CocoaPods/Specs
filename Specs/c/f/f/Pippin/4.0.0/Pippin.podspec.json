@@ -1,0 +1,141 @@
+{
+  "name": "Pippin",
+  "version": "4.0.0",
+  "summary": "A Swift framework to scaffold an app and make development and maintenance easier.",
+  "description": "A collection of Swift and Objective-C utilities delivering reusable components of iOS applications and utilities to work with Apple frameworks.",
+  "homepage": "http://github.com/tworingsoft/Pippin",
+  "license": "MIT",
+  "authors": {
+    "Andrew McKnight": "andrew@tworingsoft.com"
+  },
+  "source": {
+    "git": "https://github.com/tworingsoft/Pippin.git",
+    "tag": "4.0.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "CanIHaz",
+    "Extensions",
+    "Adapters"
+  ],
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/**/*.swift"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Adapters",
+      "subspecs": [
+        {
+          "name": "PinpointKit",
+          "source_files": "Sources/Pippin/Adapters/PinpointKit/**/*.{h,m,swift}",
+          "dependencies": {
+            "PinpointKit": [
+              "~> 1"
+            ],
+            "Pippin/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "XCGLogger",
+          "source_files": "Sources/Pippin/Adapters/XCGLogger/**/*.{h,m,swift}",
+          "dependencies": {
+            "XCGLogger": [
+              "~> 6"
+            ],
+            "Pippin/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SwiftMessages",
+          "source_files": "Sources/Pippin/Adapters/SwiftMessages/**/*.{h,m,swift}",
+          "dependencies": {
+            "SwiftMessages": [
+              "~> 4"
+            ],
+            "Pippin/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "DebugController",
+          "source_files": "Sources/Pippin/Adapters/DebugController/**/*.{h,m,swift}",
+          "dependencies": {
+            "Pippin/Extensions/UIKit": [
+
+            ],
+            "Anchorage": [
+              "~> 4"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/Pippin/Core/**/*.{h,m,swift}",
+      "dependencies": {
+        "Pippin/Extensions/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CanIHaz",
+      "subspecs": [
+        {
+          "name": "Camera",
+          "source_files": "Sources/Pippin/CanIHaz/Camera/**/*.{h,m,swift}"
+        },
+        {
+          "name": "Location",
+          "source_files": "Sources/Pippin/CanIHaz/Location/**/*.{h,m,swift}"
+        }
+      ]
+    },
+    {
+      "name": "Extensions",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "Sources/Pippin/Extensions/Foundation/**/*.{h,m,swift}"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "Sources/Pippin/Extensions/UIKit/**/*.{h,m,swift}",
+          "dependencies": {
+            "Anchorage": [
+              "~> 4"
+            ],
+            "Pippin/Core": [
+
+            ],
+            "Pippin/Extensions/Foundation": [
+
+            ]
+          }
+        },
+        {
+          "name": "WebKit",
+          "source_files": "Sources/Pippin/Extensions/WebKit/**/*.{h,m,swift}",
+          "dependencies": {
+            "Pippin/Extensions/Foundation": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
