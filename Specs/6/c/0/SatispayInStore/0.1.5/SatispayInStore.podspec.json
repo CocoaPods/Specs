@@ -1,0 +1,56 @@
+{
+  "name": "SatispayInStore",
+  "version": "0.1.5",
+  "summary": "Satispay inStore API framework",
+  "description": "You can use our API to access Satispay API endpoints, which can get information on received payments, pending ones and manage proposal of payments, besides many other operations.",
+  "homepage": "https://github.com/satispay/in-store-api-swift-sdk",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Pierluigi D'Andrea": "pierluigi.dandrea@satispay.com"
+  },
+  "source": {
+    "git": "https://github.com/satispay/in-store-api-swift-sdk.git",
+    "tag": "0.1.5",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source_files": "SatispayInStore/**/*.swift",
+  "preserve_paths": [
+    "SatispayInStore/Modules/**/*",
+    "OpenSSL/lib/*.a"
+  ],
+  "libraries": [
+    "crypto",
+    "ssl"
+  ],
+  "ios": {
+    "vendored_libraries": [
+      "OpenSSL/lib/libcrypto.a",
+      "OpenSSL/lib/libssl.a"
+    ],
+    "pod_target_xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SatispayInStore/SatispayInStore/Modules/iOS/**",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/SatispayInStore/OpenSSL/lib",
+      "SWIFT_VERSION": "4.0"
+    }
+  },
+  "osx": {
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "/usr/local/opt/openssl/lib",
+      "HEADER_SEARCH_PATHS": "/usr/local/opt/openssl/include"
+    },
+    "pod_target_xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SatispayInStore/SatispayInStore/Modules/macOS/**",
+      "LIBRARY_SEARCH_PATHS": "/usr/local/opt/openssl/lib",
+      "HEADER_SEARCH_PATHS": "/usr/local/opt/openssl/include",
+      "SWIFT_VERSION": "4.0"
+    }
+  },
+  "prepare_command": "BASE_PATH=\"${PWD}\"\nOPENSSL_PATH=\"$BASE_PATH/OpenSSL\"\nMODULE_PATH=\"$BASE_PATH/SatispayInStore/Modules/iOS/OpenSSL\"\n\ncd \"$OPENSSL_PATH\"\n\nif [ -f lib/libssl.a ] && [ -f lib/libcrypto.a ] && [ -d \"$MODULE_PATH/openssl\" ]; then\n    exit 0\nfi\n\nOPTIONS=\"no-ssl2 no-ssl3 no-comp no-async no-psk no-srp no-dtls no-dtls1\"\nOPTIONS+=\" no-ec no-ec2m no-engine no-hw no-err\"\nOPTIONS+=\" no-bf no-blake2 no-camellia no-cast no-chacha no-cmac no-ecdh no-ecdsa no-idea no-md4 no-mdc2 no-ocb no-poly1305 no-rc2 no-rc4 no-rmd160 no-scrpyt no-seed no-siphash no-sm3 no-sm4 no-whirlpool\"\nOPTIONS+=\" -Wno-error=ignored-optimization-argument\"\n\nexport CONFIG_OPTIONS=\"$OPTIONS\"\n\n./build-libssl.sh --archs=\"x86_64 i386 arm64 armv7\" --version=\"1.0.2m\"\n\nmkdir -p $MODULE_PATH\ncp -R \"$OPENSSL_PATH/include/openssl\" \"$MODULE_PATH/\""
+}
