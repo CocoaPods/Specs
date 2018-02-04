@@ -1,0 +1,87 @@
+{
+  "name": "QRCodeUIKit",
+  "version": "1.0.6",
+  "summary": "一款让扫码变得简单的视图控制器",
+  "description": "一款让扫码变得简单的视图控制器,支持 二维码/条码 扫描，可无需一行代码快速集成。",
+  "homepage": "https://github.com/pcjbird/QRCodeUIKit",
+  "license": "MIT",
+  "authors": {
+    "pcjbird": "pcjbird@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pcjbird/QRCodeUIKit.git",
+    "tag": "1.0.6"
+  },
+  "social_media_url": "http://www.lessney.com",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "CoreGraphics"
+  ],
+  "source_files": [
+    "QRCodeUIKit/*.{h,m}",
+    "QRCodeUIKit/Categories/*.{h,m}"
+  ],
+  "public_header_files": "QRCodeUIKit/*.{h}",
+  "resource_bundles": {
+    "QRCodeUIKit": [
+      "QRCodeUIKitBundle/*.*"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "QuickTextQRResultController",
+      "source_files": [
+        "QRCodeUIKit/QuickTextQRResultController/*.{h,m}",
+        "QRCodeUIKit/Categories/*.{h,m}"
+      ],
+      "public_header_files": "QRCodeUIKit/QuickTextQRResultController/QuickTextQRResultController.h",
+      "dependencies": {
+        "TTTAttributedLabel": [
+
+        ]
+      }
+    },
+    {
+      "name": "QuickQRCodeScanController",
+      "source_files": [
+        "QRCodeUIKit/QuickQRCodeScanController/*.{h,m}",
+        "QRCodeUIKit/QuickQRCodeScanController/UI",
+        "QRCodeUIKit/Categories/*.{h,m}"
+      ],
+      "public_header_files": [
+        "QRCodeUIKit/QuickQRCodeScanController/QuickQRCodeScanController.h",
+        "QRCodeUIKit/QuickQRCodeScanController/QuickQRCodeScanResultHandler.h",
+        "QRCodeUIKit/QuickQRCodeScanController/UI/QuickQRCodeScanViewStyle.h"
+      ],
+      "dependencies": {
+        "ZXingObjC": [
+
+        ],
+        "Toast": [
+
+        ],
+        "QRCodeUIKit/QuickTextQRResultController": [
+
+        ]
+      }
+    },
+    {
+      "name": "QuickBarCodeScanController",
+      "source_files": "QRCodeUIKit/QuickBarCodeScanController/*.{h,m}",
+      "public_header_files": "QRCodeUIKit/QuickBarCodeScanController/QuickBarCodeScanController.h",
+      "dependencies": {
+        "QRCodeUIKit/QuickQRCodeScanController": [
+
+        ]
+      }
+    }
+  ]
+}
