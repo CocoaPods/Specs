@@ -1,0 +1,38 @@
+{
+  "name": "AzureIoTUtility",
+  "version": "0.1.2",
+  "summary": "Unfinished AzureIoTUtility preview library for CocoaPods.",
+  "description": "This is an unfinished (and non-functional) preview release of Azure IoT Utility.",
+  "homepage": "https://github.com/Azure/azure-c-shared-utility",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Roy Sprowl": "v-royspr@microsoft.com"
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-c-shared-utility.git",
+    "branch": "ios-pod"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": [
+    "src/**/*.c",
+    "inc/azure_c_shared_utility/*.h",
+    "inc/",
+    "pal/tlsio_options.c",
+    "pal/agenttime.c",
+    "adapters/uniqueid_linux.c",
+    "adapters/httpapi_compact.c",
+    "adapters/threadapi_pthreads.c"
+  ],
+  "prepare_command": "cp pal/generic/refcount_os.h inc/azure_c_shared_utility\ncp pal/objective-c/*.c src\ncp pal/objective-c/*.h inc/azure_c_shared_utility\nrm -f src/etwlogger_driver.c\nrm -f src/etwxlogging.c\nrm -f src/tlsio_cy*.*\nrm -f src/tlsio_wolf*.*\nrm -f src/tlsio_openssl.c\nrm -f src/tlsio_schannel.c\nrm -f src/x509_schannel.c\nrm -f src/x509_openssl.c\n# Restore gballoc.c after Lock is implemented\nrm -f src/gballoc.c",
+  "public_header_files": "inc/azure_c_shared_utility/*.h",
+  "header_mappings_dir": "inc/",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTUtility/inc/\""
+  }
+}
