@@ -1,0 +1,50 @@
+{
+  "name": "Traffic",
+  "version": "0.6.0",
+  "summary": "Simple and powerful URL routing library to easily handle incoming URLs in your app.",
+  "homepage": "https://github.com/jilouc/Traffic",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jldagon": "jldagon@cocoapps.fr"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/jilouc/Traffic.git",
+    "tag": "0.6.0"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": "#ifndef TARGET_OS_IOS\n  #define TARGET_OS_IOS TARGET_OS_IPHONE\n#endif\n#ifndef TARGET_OS_WATCH\n  #define TARGET_OS_WATCH 0\n#endif\n#ifndef TARGET_OS_TV\n  #define TARGET_OS_TV 0\n#endif",
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "9.0",
+        "watchos": "2.0"
+      },
+      "source_files": [
+        "Traffic/*.{h,m}",
+        "Private/**/*.{h,m}"
+      ],
+      "public_header_files": "Traffic/*.h"
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "public_header_files": "Traffic/UIKit/*.h",
+      "source_files": "Traffic/UIKit",
+      "dependencies": {
+        "Traffic/Core": [
+
+        ]
+      }
+    }
+  ]
+}
