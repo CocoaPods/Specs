@@ -1,0 +1,90 @@
+{
+  "name": "JSONAPIParser",
+  "version": "0.1.0",
+  "summary": "Lightweight JSON:API parser.",
+  "description": "Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.\nIt works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.",
+  "homepage": "https://github.com/infinum/iOS-JSON-API-Parser",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Infinum": "ios@infinum.hr",
+    "Vlaho Poluta": "vlaho.poluta@infinum.hr",
+    "Filip Gulan": "filip.gulan@infinum.hr"
+  },
+  "source": {
+    "git": "https://github.com/infinum/iOS-JSON-API-Parser.git",
+    "tag": "0.1.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_version": "4.0",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "JSONAPIParser/Classes/Core/**/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Codable",
+      "source_files": "JSONAPIParser/Classes/Codable/**/*",
+      "dependencies": {
+        "JSONAPIParser/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "JSONAPIParser/Classes/Alamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 4.5"
+        ]
+      }
+    },
+    {
+      "name": "RxAlamofire",
+      "source_files": "JSONAPIParser/Classes/RxAlamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Alamofire": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "CodableAlamofire",
+      "source_files": "JSONAPIParser/Classes/CodableAlamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/Alamofire": [
+
+        ],
+        "JSONAPIParser/Codable": [
+
+        ]
+      }
+    },
+    {
+      "name": "RxCodableAlamofire",
+      "source_files": "JSONAPIParser/Classes/RxCodableAlamofire/**/*",
+      "dependencies": {
+        "JSONAPIParser/CodableAlamofire": [
+
+        ],
+        "JSONAPIParser/RxAlamofire": [
+
+        ]
+      }
+    }
+  ]
+}
