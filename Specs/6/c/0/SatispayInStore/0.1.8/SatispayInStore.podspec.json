@@ -1,0 +1,56 @@
+{
+  "name": "SatispayInStore",
+  "version": "0.1.8",
+  "summary": "Satispay inStore API framework",
+  "description": "You can use our API to access Satispay API endpoints, which can get information on received payments, pending ones and manage proposal of payments, besides many other operations.",
+  "homepage": "https://github.com/satispay/in-store-api-swift-sdk",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Pierluigi D'Andrea": "pierluigi.dandrea@satispay.com"
+  },
+  "source": {
+    "git": "https://github.com/satispay/in-store-api-swift-sdk.git",
+    "tag": "0.1.8",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source_files": "SatispayInStore/**/*.swift",
+  "preserve_paths": [
+    "SatispayInStore/Modules/**/*",
+    "OpenSSL/lib-ios/*.a",
+    "OpenSSL/lib-macos/*.a"
+  ],
+  "libraries": [
+    "crypto",
+    "ssl"
+  ],
+  "ios": {
+    "vendored_libraries": [
+      "OpenSSL/lib-ios/libcrypto.a",
+      "OpenSSL/lib-ios/libssl.a"
+    ],
+    "pod_target_xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SatispayInStore/SatispayInStore/Modules/iOS/**",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/SatispayInStore/OpenSSL/lib-ios",
+      "SWIFT_VERSION": "4.0"
+    }
+  },
+  "osx": {
+    "vendored_libraries": [
+      "OpenSSL/lib-macos/libcrypto.a",
+      "OpenSSL/lib-macos/libssl.a"
+    ],
+    "pod_target_xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SatispayInStore/SatispayInStore/Modules/macOS/**",
+      "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/SatispayInStore/OpenSSL/lib-macos",
+      "SWIFT_VERSION": "4.0"
+    }
+  },
+  "prepare_command": "BASE_PATH=\"${PWD}\"\nOPENSSL_PATH=\"$BASE_PATH/OpenSSL\"\nMODULE_PATH_IOS=\"$BASE_PATH/SatispayInStore/Modules/iOS/OpenSSL\"\nMODULE_PATH_MACOS=\"$BASE_PATH/SatispayInStore/Modules/macOS/OpenSSL\"\n\ncd \"$OPENSSL_PATH\"\n\nif [ -f lib-ios/libssl.a ] && [ -f lib-ios/libcrypto.a ] && [ -f lib-macos/libssl.a ] && [ -f lib-macos/libcrypto.a ] && [ -d \"$MODULE_PATH_IOS/openssl\" ] && [ -d \"$MODULE_PATH_MACOS/openssl\" ]; then\n    exit 0\nfi\n\n./build.sh\n\nmkdir -p $MODULE_PATH_IOS\nmkdir -p $MODULE_PATH_MACOS\ncp -R \"$OPENSSL_PATH/include-ios/openssl\" \"$MODULE_PATH_IOS/\"\ncp -R \"$OPENSSL_PATH/include-macos/openssl\" \"$MODULE_PATH_MACOS/\""
+}
