@@ -1,0 +1,86 @@
+{
+  "name": "LocationInfo",
+  "version": "1.0.3",
+  "summary": "It provides a common interface to location info for geocoding",
+  "description": "This LocationInfo interconnects different frameworks : image metadata processing, geocoding, speech recognition, etc. This used like shared data object amoung them all.",
+  "homepage": "https://github.com/truebucha/LocationInfo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "truebucha": "truebucha@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/truebucha/LocationInfo.git",
+    "tag": "1.0.3"
+  },
+  "social_media_url": "https://twitter.com/truebucha",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "public_header_files": "LocationInfo/Classes/LocationInfo.h",
+  "source_files": "LocationInfo/Classes/*.{h,m}",
+  "default_subspecs": "Initial",
+  "frameworks": "Foundation",
+  "subspecs": [
+    {
+      "name": "Initial",
+      "source_files": "LocationInfo/Classes/*",
+      "public_header_files": "LocationInfo/Classes/*.h",
+      "dependencies": {
+        "LocationInfo/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "LocationInfo/Classes/Core/**/*",
+      "public_header_files": "LocationInfo/Classes/Core/*.h"
+    },
+    {
+      "name": "AppleGeocoder",
+      "source_files": "LocationInfo/Classes/AppleGeocoder/**/*",
+      "public_header_files": "LocationInfo/Classes/AppleGeocoder/*.h",
+      "dependencies": {
+        "LocationInfo/Initial": [
+
+        ]
+      },
+      "frameworks": "CoreLocation"
+    },
+    {
+      "name": "LMGeocoder",
+      "source_files": "LocationInfo/Classes/LMGeocoder/**/*",
+      "public_header_files": "LocationInfo/Classes/LMGeocoder/*.h",
+      "dependencies": {
+        "LocationInfo/Initial": [
+
+        ],
+        "LocationInfo/AppleGeocoder": [
+
+        ],
+        "LMGeocoderUniversal": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppleMap",
+      "source_files": "LocationInfo/Classes/AppleMap/**/*",
+      "public_header_files": "LocationInfo/Classes/AppleMap/*.h",
+      "dependencies": {
+        "LocationInfo/Initial": [
+
+        ],
+        "LocationInfo/AppleGeocoder": [
+
+        ]
+      },
+      "frameworks": "MapKit"
+    }
+  ]
+}
