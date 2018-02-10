@@ -1,0 +1,42 @@
+{
+  "name": "FavIcon",
+  "version": "3.0.1",
+  "summary": "A library for downloading website icons",
+  "homepage": "https://github.com/leonbreedt/FavIcon",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Leon Breedt": "leon@sector42.io"
+  },
+  "source": {
+    "git": "https://github.com/leonbreedt/FavIcon.git",
+    "tag": "3.0.1"
+  },
+  "source_files": "Sources/**/*.swift",
+  "preserve_paths": [
+    "Sources/Clibxml2/*",
+    "Support/*.sh"
+  ],
+  "script_phases": {
+    "name": "Generate ModuleMap",
+    "script": "bash $PODS_TARGET_SRCROOT/Support/Generate-ModuleMap.sh $PODS_TARGET_SRCROOT/Sources/Clibxml2/module.modulemap",
+    "execution_position": "before_compile"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0",
+    "SWIFT_WHOLE_MODULE_OPTIMIZATION": "YES"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/Clibxml2"
+  }
+}
