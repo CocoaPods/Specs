@@ -1,0 +1,22 @@
+{
+  "name": "MIDITimeTableView",
+  "version": "1.0.0",
+  "summary": "Customisable and editable time table grid for showing midi or audio related data with a measure.",
+  "description": "MIDITimeTableView\n===\n\nCustomisable and editable time table grid for showing midi or audio related data with a measure.\n\nDemo\n----\n\n![alt tag](https://github.com/cemolcay/MIDITimeTableView/raw/master/demo.gif)\n\nRequirements\n----\n\n- Swift 3+\n- iOS 9.0+\n\nInstall\n----\n\n```\npod 'MIDITimeTableView'\n```\n\nUsage\n----\n\nCreate a `MIDITimeTableView` either programmatically or from storyboard and implement its `MIDITimeTableViewDataSource` and `MIDITimeTableViewDelegate` methods.\n\nYou need a data object to store each row and its cells data.\n\n``` swift\nvar rowData: [MIDITimeTableRowData] = [\nMIDITimeTableRowData(\ncells: [\nMIDITimeTableCellData(data: \"C7\", position: 0, duration: 4),\nMIDITimeTableCellData(data: \"Dm7\", position: 4, duration: 4),\nMIDITimeTableCellData(data: \"G7b5\", position: 8, duration: 4),\nMIDITimeTableCellData(data: \"C7\", position: 12, duration: 4),\n],\nheaderCellView: HeaderCellView(title: \"Chords\"),\ncellView: { cellData in\nlet title = cellData.data as? String ?? \"\"\nreturn CellView(title: title)\n}),\n]\n```\n\n`MIDITimeTableViewDataSource` is very likely to `UITableViewDataSource` or `UICollectionViewDataSource` API. Just feed the row data, number of rows, time signature and you are ready to go.\n\n``` swift\nfunc numberOfRows(in midiTimeTableView: MIDITimeTableView) -> Int {\nreturn rowData.count\n}\n\nfunc timeSignature(of midiTimeTableView: MIDITimeTableView) -> MIDITimeTableTimeSignature {\nreturn MIDITimeTableTimeSignature(beats: 4, noteValue: .quarter)\n}\n\nfunc midiTimeTableView(_ midiTimeTableView: MIDITimeTableView, rowAt index: Int) -> MIDITimeTableRowData {\nlet row = rowData[index]\nreturn row\n}\n```\n\nYou can customise the measure bar, the grid, each header and data cell. Check out the example project.\n\n`MIDITimeTableCellView`'s are editable, you can move around them on the grid, resize their duration or long press to open a delete menu. Also, you need to subclass yourself to present your own data on it.\n\nYou can set the `minMeasureWidth` and `maxMeasureWidth` to set zoom levels of the time table.",
+  "homepage": "https://github.com/cemolcay/MIDITimeTableView",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/cemolcay",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/MIDITimeTableView.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "MIDITimeTableView/Source/*.swift",
+  "requires_arc": true,
+  "pushed_with_swift_version": "3.0"
+}
