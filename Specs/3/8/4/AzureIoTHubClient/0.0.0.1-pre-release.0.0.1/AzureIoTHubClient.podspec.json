@@ -1,0 +1,46 @@
+{
+  "name": "AzureIoTHubClient",
+  "version": "0.0.0.1-pre-release.0.0.1",
+  "summary": "Unfinished AzureIoTSDKs preview library for CocoaPods.",
+  "description": "This is an unfinished (and non-functional) preview CocoaPods \nrelease of the Azure C SDKs.",
+  "homepage": "https://github.com/azure/azure-iot-sdk-c",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-iot-sdk-c.git",
+    "branch": "ios-pod"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "prepare_command": "git submodule update --init deps/parson\nmkdir -p inc\ncp deps/parson/parson.h inc\ncp iothub_client/inc/*.h inc\ncp serializer/inc/*.h inc",
+  "source_files": [
+    "inc/*.h",
+    "deps/parson/parson.c",
+    "iothub_client/src/*.c",
+    "serializer/src/*.c"
+  ],
+  "header_mappings_dir": "inc/",
+  "public_header_files": "inc/*.h",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"~/Documents/dev_pods/AzureIoTHubClient/inc/\" \"${SRCROOT}/AzureIoTHubClient/inc/\" \"${SRCROOT}/AzureIoTUtility/inc/\" \"${SRCROOT}/AzureIoTuMqtt/inc/\" \"${SRCROOT}/AzureIoTuAmqp/inc/\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureIoTUtility": [
+      "0.0.0.1-pre-release.0.0.1"
+    ],
+    "AzureIoTuAmqp": [
+      "0.0.0.1-pre-release.0.0.1"
+    ],
+    "AzureIoTuMqtt": [
+      "0.0.0.1-pre-release.0.0.1"
+    ]
+  }
+}
