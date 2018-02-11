@@ -1,0 +1,55 @@
+{
+  "name": "Instabug",
+  "version": "7.9.1",
+  "summary": "Bug reporting for mobile apps. Learn more at http://instabug.com",
+  "homepage": "http://instabug.com",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Instabug": "contactus@instabug.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/Instabug/Instabug-iOS.git",
+    "tag": "7.9.1"
+  },
+  "libraries": "z",
+  "frameworks": [
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreMotion",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "UIKit",
+    "CoreMedia",
+    "CoreVideo",
+    "CoreData"
+  ],
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/Instabug/\""
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "InstabugCore",
+      "source_files": "InstabugCore.framework/Headers/*.{h}",
+      "vendored_frameworks": "InstabugCore.framework",
+      "preserve_paths": "InstabugCore.framework/*"
+    },
+    {
+      "name": "Instabug",
+      "source_files": "Instabug.framework/Headers/*.{h}",
+      "vendored_frameworks": "Instabug.framework",
+      "preserve_paths": "Instabug.framework/*",
+      "dependencies": {
+        "Instabug/InstabugCore": [
+
+        ]
+      }
+    }
+  ]
+}
