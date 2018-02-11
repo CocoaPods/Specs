@@ -1,0 +1,99 @@
+{
+  "name": "WZFMWK",
+  "summary": "一些自用的、通用的、业务逻辑无关的类别/工具类。",
+  "version": "0.1.5",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhuangyz": "632647076@qq.com"
+  },
+  "homepage": "https://github.com/zhuangyz",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/zhuangyz/WZFMWK.git",
+    "tag": "0.1.5"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Utils",
+      "public_header_files": "WZFMWK/Utils/*.h",
+      "source_files": "WZFMWK/Utils/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Categories",
+          "public_header_files": "WZFMWK/Utils/Categories/WZCategoriesHeader.h",
+          "source_files": "WZFMWK/Utils/Categories/WZCategoriesHeader.h",
+          "subspecs": [
+            {
+              "name": "Foundation",
+              "public_header_files": "WZFMWK/Utils/Categories/Foundation/*.h",
+              "source_files": "WZFMWK/Utils/Categories/Foundation/*.{h,m}"
+            },
+            {
+              "name": "UIKit",
+              "public_header_files": "WZFMWK/Utils/Categories/UIKit/*.h",
+              "source_files": "WZFMWK/Utils/Categories/UIKit/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "Tools",
+          "source_files": "WZFMWK/Utils/Tools/*.{h,m}",
+          "public_header_files": "WZFMWK/Utils/Tools/*.h",
+          "dependencies": {
+            "INTULocationManager": [
+
+            ],
+            "WZFMWK/Utils/Categories": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WZPhotoBrowser",
+      "source_files": "WZFMWK/WZPhotoBrowser/*.{h,m}",
+      "public_header_files": [
+        "WZFMWK/WZPhotoBrowser/WZPhotoBrowser.h",
+        "WZFMWK/WZPhotoBrowser/WZPhoto.h",
+        "WZFMWK/WZPhotoBrowser/UIViewController+WZPhotoBrowser.h"
+      ],
+      "dependencies": {
+        "SDWebImage": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "WZHTTPNetworking",
+      "source_files": "WZFMWK/WZHTTPNetworking/*.{h,m}",
+      "public_header_files": "WZFMWK/WZHTTPNetworking/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "WZFMWK/Utils": [
+
+        ],
+        "WZFMWK/WZHTTPNetworking": [
+
+        ],
+        "WZFMWK/WZPhotoBrowser": [
+
+        ]
+      }
+    }
+  ]
+}
