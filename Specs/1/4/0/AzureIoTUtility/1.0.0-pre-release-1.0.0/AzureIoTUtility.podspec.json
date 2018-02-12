@@ -1,0 +1,43 @@
+{
+  "name": "AzureIoTUtility",
+  "version": "1.0.0-pre-release-1.0.0",
+  "summary": "AzureIoT C-Utility preview library for CocoaPods.",
+  "description": "This is a preview CocoaPods \nrelease of the Azure C Shared Utility library,\nwhich is part of the Microsoft Azure IoT C SDK.",
+  "homepage": "https://github.com/Azure/azure-c-shared-utility/build_all/ios-osx",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-c-shared-utility.git",
+    "branch": "pod"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "prepare_command": "cp pal/generic/refcount_os.h inc/azure_c_shared_utility\ncp adapters/linux_time.h inc\ncp pal/ios-osx/*.h inc/azure_c_shared_utility\nrm -f src/etwlogger_driver.c\nrm -f src/etwxlogging.c\nrm -f src/tlsio_cy*.*\nrm -f src/tlsio_wolf*.*\nrm -f src/tlsio_openssl.c\nrm -f src/tlsio_schannel.c\nrm -f src/x509_schannel.c\nrm -f src/x509_openssl.c",
+  "source_files": [
+    "inc/**/*.h",
+    "src/*.c",
+    "pal/tlsio_options.c",
+    "pal/agenttime.c",
+    "pal/ios-osx/*.c",
+    "adapters/lock_pthreads.c",
+    "adapters/threadapi_pthreads.c",
+    "adapters/linux_time.c",
+    "adapters/tickcounter_linux.c",
+    "adapters/uniqueid_linux.c",
+    "adapters/httpapi_compact.c",
+    "adapters/threadapi_pthreads.c"
+  ],
+  "public_header_files": "inc/azure_c_shared_utility/*.h",
+  "header_mappings_dir": "inc/",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTUtility/inc/\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  }
+}
