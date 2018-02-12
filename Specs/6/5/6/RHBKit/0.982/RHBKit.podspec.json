@@ -1,0 +1,118 @@
+{
+  "name": "RHBKit",
+  "version": "0.982",
+  "summary": "Orientation tracker. Mutable protocol. Predicate operators. Core data operations. App settings. Objective-C defer, casting and singleton.",
+  "description": "Mutable protocol. Predicate operators. Cancellable and core data operations. Casting, singletons and defer for Objective-C and more... Goal was to reduce overabstractions and keep it low level.",
+  "homepage": "https://github.com/sisoje/RHBKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Lazar Otasevic": "redhotbits@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/sisoje/RHBKit.git",
+    "tag": "0.982"
+  },
+  "social_media_url": "https://twitter.com/redhotbits",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "watchos": "3.0",
+    "tvos": "10.0",
+    "osx": "10.12"
+  },
+  "default_subspecs": "All/Core",
+  "subspecs": [
+    {
+      "name": "All",
+      "subspecs": [
+        {
+          "name": "Core",
+          "subspecs": [
+            {
+              "name": "Utilities",
+              "source_files": "Sources/Utilities/**/*"
+            },
+            {
+              "name": "Mutable",
+              "source_files": "Sources/Mutable/**/*"
+            },
+            {
+              "name": "Extensions",
+              "source_files": "Sources/Extensions/**/*"
+            },
+            {
+              "name": "Predicates",
+              "source_files": "Sources/Predicates/**/*"
+            },
+            {
+              "name": "Operations",
+              "source_files": "Sources/Operations/**/*"
+            }
+          ]
+        },
+        {
+          "name": "OrientationTracker",
+          "platforms": {
+            "ios": "10.0",
+            "watchos": "3.0"
+          },
+          "source_files": "Sources/OrientationTracker/**/*",
+          "dependencies": {
+            "RHBKit/All/Core/Utilities": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIKit",
+          "platforms": {
+            "ios": "10.0",
+            "watchos": "3.0",
+            "tvos": "10.0"
+          },
+          "source_files": "Sources/UIKit/**/*"
+        },
+        {
+          "name": "Application",
+          "platforms": {
+            "ios": "10.0",
+            "tvos": "10.0"
+          },
+          "source_files": "Sources/Application/**/*",
+          "dependencies": {
+            "RHBKit/All/Core/Extensions": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ObjC",
+      "subspecs": [
+        {
+          "name": "Snippets",
+          "source_files": "ObjC/Snippets/**/*",
+          "dependencies": {
+            "RHBKit/All/Core/Utilities": [
+
+            ]
+          }
+        },
+        {
+          "name": "Casting",
+          "source_files": "ObjC/Casting/**/*"
+        },
+        {
+          "name": "EncryptionChecker",
+          "source_files": "ObjC/EncryptionChecker/**/*"
+        }
+      ]
+    }
+  ]
+}
