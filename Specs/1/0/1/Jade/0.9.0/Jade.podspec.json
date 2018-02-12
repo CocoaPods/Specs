@@ -1,0 +1,90 @@
+{
+  "name": "Jade",
+  "version": "0.9.0",
+  "summary": "Lightweight JSON:API parser.",
+  "description": "Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON. It can also take simple JSON and turn it into JSON:API structure.\nIt works by transfering Dictionary to Dictionary, so you can use Codable, Unbox, Wrap, ObjectMapper, or any other object mapping tool that you preffer.",
+  "homepage": "https://github.com/infinum/Jade",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Infinum": "ios@infinum.hr",
+    "Vlaho Poluta": "vlaho.poluta@infinum.hr",
+    "Filip Gulan": "filip.gulan@infinum.hr"
+  },
+  "source": {
+    "git": "https://github.com/infinum/Jade.git",
+    "tag": "0.9.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_version": "4.0",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Jade/Classes/Core/**/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Codable",
+      "source_files": "Jade/Classes/Codable/**/*",
+      "dependencies": {
+        "Jade/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "Jade/Classes/Alamofire/**/*",
+      "dependencies": {
+        "Jade/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 4.5"
+        ]
+      }
+    },
+    {
+      "name": "RxAlamofire",
+      "source_files": "Jade/Classes/RxAlamofire/**/*",
+      "dependencies": {
+        "Jade/Alamofire": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "CodableAlamofire",
+      "source_files": "Jade/Classes/CodableAlamofire/**/*",
+      "dependencies": {
+        "Jade/Alamofire": [
+
+        ],
+        "Jade/Codable": [
+
+        ]
+      }
+    },
+    {
+      "name": "RxCodableAlamofire",
+      "source_files": "Jade/Classes/RxCodableAlamofire/**/*",
+      "dependencies": {
+        "Jade/CodableAlamofire": [
+
+        ],
+        "Jade/RxAlamofire": [
+
+        ]
+      }
+    }
+  ]
+}
