@@ -1,0 +1,43 @@
+{
+  "name": "FAVPlayer",
+  "version": "0.0.1",
+  "summary": "The FAVPlayer or Frequency AVPlayer is a iOS and tvOS native player which let you easily play Frequency's videos.",
+  "description": "The FAVPlayer or Frequency AVPlayer is a iOS and tvOS native player which let you easily play Frequency's videos.\n\n            The FAVPlayer encapsulate all the logic required to play a video with advertisement, reporting and beaconing. This project leverage the Javascript Core framework to allow the existing Javascript code of the Javascript Player SDK to be interfaced with Swift and objc. The native part, written in Swift 4, is only responsible for playback and sending/handling events. The Javascript part handles requests to the Frequency API, request to the ad decisioning server, parse the VAST responses, tracks the activity of the player, and sends beacons to the appropriate ad servers.\n\nTo play a video\n\nFirst you'll have to authenticate, then create the player and pass it the token and deviceId.\n\nvar f = FAVPlayer.init(apiUrl: \"https://prd-freq.frequency.com\", token: \"TOKEN_ID\", deviceId: \"DEVICE_ID\")\n\nCreate an avPlayerViewController and assign the newly created favPlayer as its player.\n\nvar avPlayerViewController = AVPlayerViewController.init()\navPlayerViewController.player = favPlayer\n\nLoad a videoId provided by a Frequency service\n\nfavPlayer.load(videoId: \"VIDEO_ID\")\n\nPresent the AVPlayerViewController.\n\nself.present(avPlayerViewController, animated: true, completion: nil)",
+  "homepage": "https://www.frequency.com/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "clementperez": "clement@frequency.com"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/frequency/frequency-ios-sdk-public.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "Sources",
+    "Sources/**/*.{h,m,swift}"
+  ],
+  "exclude_files": [
+    "Demo",
+    "Sources/Ejecta/*.{h,m}",
+    "Sources/Ejecta/**/*.{h,m}"
+  ],
+  "requires_arc": true,
+  "resources": "Assets/*.js",
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": [
+        "Sources/Ejecta/*.{h,m}",
+        "Sources/Ejecta/**/*.{h,m}"
+      ],
+      "requires_arc": false
+    }
+  ]
+}
