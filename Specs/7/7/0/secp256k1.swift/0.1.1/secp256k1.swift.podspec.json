@@ -1,0 +1,51 @@
+{
+  "name": "secp256k1.swift",
+  "version": "0.1.1",
+  "summary": "secp256k1 bindings for swift. Cocoapods, Carthage and SPM support. Linux support.",
+  "description": "This pod binds the bitcoin-core library, the ECDSA curve, secp256k1 into Swift. This curve is used for\nBitcoin, Ethereum and many other Cryptocurrency Signature generation and verification.",
+  "homepage": "https://github.com/Boilertalk/secp256k1.swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Koray Koska": "koray@koska.at"
+  },
+  "source": {
+    "git": "https://github.com/Boilertalk/secp256k1.swift.git",
+    "tag": "0.1.1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "module_name": "secp256k1",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}",
+    "OTHER_CFLAGS": "-DHAVE_CONFIG_H=1 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-function -Wno-long-long -Wno-overlength-strings -O3",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/secp256k1/Classes\""
+  },
+  "source_files": [
+    "secp256k1/Classes/secp256k1/{src,include,contrib}/*.{h,c}",
+    "secp256k1/Classes/secp256k1/src/modules/{recovery,ecdh}/*.{h,c}",
+    "secp256k1/Classes/secp256k1-config.h",
+    "secp256k1/Classes/secp256k1_main.h",
+    "secp256k1/Classes/secp256k1_ec_mult_static_context.h"
+  ],
+  "public_header_files": "secp256k1/Classes/secp256k1/include/*.h",
+  "private_header_files": [
+    "secp256k1/Classes/secp256k1_ec_mult_static_context.h",
+    "secp256k1/Classes/secp256k1/*.h",
+    "secp256k1/Classes/secp256k1/{contrib,src}/*.h",
+    "secp256k1/Classes/secp256k1/src/modules/{recovery, ecdh}/*.h"
+  ],
+  "exclude_files": [
+    "secp256k1/Classes/secp256k1/src/test*.{c,h}",
+    "secp256k1/Classes/secp256k1/src/gen_context.c",
+    "secp256k1/Classes/secp256k1/src/*bench*.{c,h}",
+    "secp256k1/Classes/secp256k1/src/modules/{recovery,ecdh}/*test*.{c,h}"
+  ]
+}
