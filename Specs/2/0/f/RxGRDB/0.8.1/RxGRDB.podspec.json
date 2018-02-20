@@ -1,0 +1,53 @@
+{
+  "name": "RxGRDB",
+  "version": "0.8.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "Reactive extensions for GRDB.swift.",
+  "homepage": "https://github.com/RxSwiftCommunity/RxGRDB",
+  "authors": {
+    "Gwendal Roué": "gr@pierlis.com"
+  },
+  "source": {
+    "git": "https://github.com/RxSwiftCommunity/RxGRDB.git",
+    "tag": "v0.8.1"
+  },
+  "module_name": "RxGRDB",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "watchos": "2.0"
+  },
+  "dependencies": {
+    "RxSwift": [
+      "~> 4.0"
+    ]
+  },
+  "default_subspecs": "default",
+  "subspecs": [
+    {
+      "name": "default",
+      "source_files": "RxGRDB/**/*.{h,swift}",
+      "dependencies": {
+        "GRDB.swift": [
+          "~> 2.6"
+        ]
+      }
+    },
+    {
+      "name": "GRDBCipher",
+      "source_files": "RxGRDB/**/*.{h,swift}",
+      "dependencies": {
+        "GRDBCipher": [
+          "~> 2.6"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DUSING_SQLCIPHER",
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DUSING_SQLCIPHER"
+      }
+    }
+  ]
+}
