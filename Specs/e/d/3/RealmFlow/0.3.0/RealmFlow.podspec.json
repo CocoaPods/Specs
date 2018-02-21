@@ -1,0 +1,32 @@
+{
+  "name": "RealmFlow",
+  "version": "0.3.0",
+  "summary": "RealmFlow makes Realm operation more easy.",
+  "description": "RealmFlow makes Realm operation more easy.\n  - Define Realm operation as `RealmFlow`.\n  - Write operations following the previous operation, using method chain.\n  - Run Realm operation with `realm.run(flow:)`.\n\nRealmFlow call ```realm.beginTransaction()``` automatically, if needed.\nSo you don't need to think about transaction.\n\nexample:\n\n```swift\nimport RealmSwift\nimport RealmFlow\n\nclass Dog : Object {\n    @objc dynamic var name: String = \"\"\n}\n\nclass Cat : Object {\n    @objc dynamic var name: String = \"\"\n}\n\n// ...\n\nfunc do_operations() {\n  // define data\n  let pochi = Dog()\n  pochi.name = \"Poti\"\n  let tama = Cat()\n  tama.name = \"Tama\"\n  let hachi = Dog()\n  hachi.name = \"Hachi\"\n  let taro = Dog()\n  taro.name = \"Taro\"\n  let jiro = Dog()\n  jiro.name = \"Jiro\"\n\n  // write operations (not run yet)\n  let flow = Realm.Flow\n      .add(pochi)  // add pochi\n      .add(tama)\n      .add(hachi)\n      .objects(Dog.self)  // query type Dog\n      .subscribe { results in  // process query results\n          print(\"first subscribe\")\n          for dog in results {\n              print(\"dog.name: (dog.name)\")\n          }\n      }\n      .objects(Cat.self)  // query type Cat\n      .add(taro) // add taro\n      .subscribe { results in  // process query type Cat\n          print(\"second subscribe\")\n          for cat in results {\n              print(\"cat.name: (cat.name)\")\n          }\n      }\n      .delete(pochi) // delete pochi\n      .add(jiro)\n      .objects(Dog.self)  // query type Dog again\n      .subscribe { results in\n          print(\"third subscribe\")\n          for dog in results {\n              print(\"dog.name: (dog.name)\")\n          }\n      }\n\n  // run operations\n  let realm = try! Realm()\n  let _ = try? realm.run(flow: flow)\n}\n```",
+  "homepage": "https://github.com/JunSuzukiJapan/RealmFlow",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "JunSuzukiJapan": "jun.suzuki.japan@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/JunSuzukiJapan/RealmFlow.git",
+    "tag": "0.3.0"
+  },
+  "swift_version": "4.0",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "source_files": "RealmFlow/**/*",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "RealmSwift": [
+      "~> 3.1"
+    ]
+  }
+}
