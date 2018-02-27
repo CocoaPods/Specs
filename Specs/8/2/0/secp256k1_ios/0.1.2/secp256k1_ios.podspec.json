@@ -1,0 +1,46 @@
+{
+  "name": "secp256k1_ios",
+  "version": "0.1.2",
+  "summary": "Reference sepc256k1 implementation as pod",
+  "description": "Bitcoin secp256k1 library portable pod. Swift binding are provided in web3swift pod.",
+  "homepage": "https://github.com/shamatar/secp256k1_ios",
+  "license": "MIT",
+  "authors": {
+    "Alex Vlasov": "alex.m.vlasov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/shamatar/secp256k1_ios.git",
+    "tag": "0.1.2"
+  },
+  "social_media_url": "https://twitter.com/shamatar",
+  "module_name": "secp256k1_ios",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}",
+    "OTHER_CFLAGS": "-DHAVE_CONFIG_H=1 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-function -Wno-long-long -Wno-overlength-strings -O3",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/secp256k1_ios/secp256k1_ios\""
+  },
+  "prepare_command": "sed -i '' -e 's:include/::g' ./**/**/*.h\nsed -i '' -e 's:include/::g' ./**/**/**/*.h\nsed -i '' -e 's:include/::g' ./**/**/**/**/*.h\nsed -i '' -e 's:include/::g' ./**/**/*.c\nsed -i '' -e 's:src/modules/recovery/:modules/recovery/:g' ./**/**/*.c\nsed -i '' -e 's:src/modules/echd/:modules/ecdh/:g' ./**/**/*.c\nsed -i '' -e 's:contrib/::g' ./**/**/*.c\nsed -i '' -e 's:contrib/::g' ./**/**/*.c",
+  "source_files": [
+    "secp256k1_ios/{src,include,contrib}/*.{h,c}",
+    "secp256k1_ios/src/modules/{recovery,ecdh}/*.{h,c}",
+    "secp256k1_ios/libsecp256k1-config.h",
+    "secp256k1_ios/secp256k1_ios.h"
+  ],
+  "private_header_files": [
+    "secp256k1_ios/*.h",
+    "secp256k1_ios/{contrib,src}/*.h",
+    "secp256k1_ios/src/modules/{recovery, ecdh}/*.h"
+  ],
+  "public_header_files": "secp256k1_ios/{include}/*.h",
+  "exclude_files": [
+    "secp256k1_ios/src/test*.{c,h}",
+    "secp256k1_ios/src/gen_context.c",
+    "secp256k1_ios/src/*bench*.{c,h}",
+    "secp256k1_ios/src/*bench*.{c,h}",
+    "secp256k1_ios/src/modules/{recovery,ecdh}/*test*.{c,h}"
+  ]
+}
