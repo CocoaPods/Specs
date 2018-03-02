@@ -1,0 +1,26 @@
+{
+  "name": "ELSwiftJsonParser",
+  "version": "1.0.4",
+  "summary": "A light-weight tool helps to transfrom Json dictionary into model as well as transfrom model into Json dictionary.",
+  "description": "Model object which can be convert from Dictionary should confirm Protocol JsonDictionaryDecodable.\n``` Swift\n/// Convert model from dictionary\nprotocol JsonDictionaryDecodable {\n    /// Creating model from dictionary\n    ///\n    /// - Parameter dictionary: Source dictionary\n    /// - Returns: Model\n    static func from(dictionary: [String: Any]) -> Self\n}\n```\nA sample\n\n```Swift\nclass AnObject: NSObject, JsonDictionaryDecodable {\n    \n    var string: String?\n    var int: Int?\n    var bool: Bool?\n    var double: Double?\n    var date: Date?\n    var object: AnObject?\n    var objectArray: [AnObject] = []\n    var arrayOfString: [String] = []\n    \n    enum AType {\n        case foo\n        case bar\n        static func from(int: Int) -> AType? {\n            switch int {\n            case 0:\n                return .foo\n            case 1:\n                return .bar\n            default:\n                return nil\n            }\n        }\n        \n        func toInt() -> Int {\n            switch self {\n            case .foo:\n                return 0\n            case .bar:\n                return 1\n            }\n        }\n    }\n    \n    var aType: AType?\n    var randomlyParse: String?\n    \n    required init(from dictionary: [String : Any]) {\n        super.init()\n        string = dictionary.string(\"string\")\n        int = dictionary.int(\"int\")\n        bool = dictionary.bool(\"boolValue\")\n        double = dictionary.double(\"double\")\n        date = dictionary.date(\"dateString\")\n        object = dictionary.object(\"object\", type: AnObject.self)\n        objectArray = dictionary.objectArray(\"objectArray\", type: AnObject.self)\n        arrayOfString = dictionary.array(\"arrayOfString\", type: String.self)\n        aType = AType.from(int: dictionary.int(\"aType\") ?? -1)\n        randomlyParse = dictionary.array(\"anyDictionaryArray\", type: [String: Any].self).first?.dictionary(\"anyInnerDictionary\")?.string(\"randomParse\")\n    }\n    \n    required override init() {\n        super.init()\n    }\n}\n```\n\nModel object which can be convert to Dictionary should confirm Protocol: JsonDictionaryEncodable.\n\n  \n``` Swift\nextension AnObject: JsonDictionaryEncodable {\n    \n    func toDictionary() -> [String : Any] {\n        var dictionary: [String: Any]  = [:]\n        dictionary[\"string\"] = string ?? \"\"\n        dictionary[\"int\"] = int ?? -1\n        if let boolValue = bool {\n            dictionary[\"boolValue\"] = boolValue\n        }\n        dictionary[\"double\"] = double ?? 0.0\n        dictionary[\"date\"] = (date?.timeIntervalSince1970 ?? 0.0) * 1000\n        dictionary[\"object\"] = object?.toDictionary() ?? [:]\n        dictionary[\"objectArray\"] = objectArray.map({ (object) -> [String: Any] in\n            return object.toDictionary()\n        })\n        dictionary[\"arrayOfString\"] = arrayOfString\n        dictionary[\"aType\"] = aType?.toInt() ?? -1\n        return dictionary\n    }\n}\n```",
+  "homepage": "https://github.com/Elenionl/ELSwiftJsonParser",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Hanping Xu": "stellanxu@gmail.com"
+  },
+  "social_media_url": "https://github.com/Elenionl",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/Elenionl/ELSwiftJsonParser.git",
+    "tag": "1.0.4"
+  },
+  "source_files": "ELSwiftJsonParser/*",
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "swift_version": "4.0"
+}
