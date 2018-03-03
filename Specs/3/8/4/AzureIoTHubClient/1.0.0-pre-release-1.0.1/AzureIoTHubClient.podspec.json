@@ -1,0 +1,49 @@
+{
+  "name": "AzureIoTHubClient",
+  "version": "1.0.0-pre-release-1.0.1",
+  "summary": "Azure IoT Hub Client preview library for CocoaPods.",
+  "description": "This is a preview CocoaPods \nrelease of the Azure C IoT Hub Client.",
+  "homepage": "https://github.com/azure/azure-iot-sdk-c",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-iot-sdk-c.git",
+    "tag": "2018-03-01-temp-pod-1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "prepare_command": "# Keeping this script idempotent makes using it in a\n# development situation much easier.\ngit submodule update --init deps/parson\nrm -R inc || true\nmkdir -p inc\ncp deps/parson/parson.h inc\ncp iothub_client/inc/*.h inc\ncp serializer/inc/*.h inc\n\n# Assemble the module.modulemap file\necho \"module AzureIoTHubClient [system][extern_c] {\" > module.modulemap\nquote_thing='\"'\nfor filename in inc/*.h; do\n    echo \"    header $quote_thing$filename$quote_thing\" >> module.modulemap\ndone\necho \"    export *\" >> module.modulemap\necho \"}\" >> module.modulemap\n# Done assembling module.modulemap file",
+  "preserve_paths": "module.modulemap",
+  "source_files": [
+    "inc/*.h",
+    "deps/parson/parson.c",
+    "iothub_client/src/*.c",
+    "serializer/src/*.c"
+  ],
+  "header_mappings_dir": "inc/",
+  "public_header_files": "inc/*.h",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTHubClient/inc/\" \"${PODS_ROOT}/AzureIoTUtility/inc/\" \"${PODS_ROOT}/AzureIoTuMqtt/inc/\" \"${PODS_ROOT}/AzureIoTuAmqp/inc/\" \"~/Documents/dev_pods/AzureIoTHubClient/inc\"",
+    "SWIFT_INCLUDE_PATHS": "\"${PODS_ROOT}/AzureIoTHubClient/\" \"~/Documents/dev_pods/AzureIoTHubClient\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureIoTUtility": [
+      "1.0.0-pre-release-1.0.3"
+    ],
+    "AzureIoTuAmqp": [
+      "1.0.0-pre-release-1.0.3"
+    ],
+    "AzureIoTuMqtt": [
+      "1.0.0-pre-release-1.0.3"
+    ]
+  }
+}
