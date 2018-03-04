@@ -1,0 +1,48 @@
+{
+  "name": "SwiftNetworker",
+  "version": "1.0.0",
+  "summary": "HTTP Networking library built on top of Alamofire and ObjectMapper to provide simple and structured way to make requests.",
+  "description": "SwiftNetworker simplifies and makes HTTP requests code structured using Router abstraction.\nIt means you write REST API requests with enum cases for better readability and code reuse.\nReceived HTTP response automatically parsed into Swift objects using [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) library.\n\n## Usage\n\n### Models\n\nAssume you want to use GitHub REST API for your project to work with Users and Repositories.\nUnexpectedly, you need a User model :)\n```swift\nimport ObjectMapper\n\nstruct User: Mappable {\n\nvar id: Int?\nvar name = \"\"\nvar avatarUrl: String?\n\ninit(map: Map) { /* Object Mapper requires constructor */ }\n\n// Parsing magic happens here, \"id\", \"name\", \"avatar_url\" are JSON response attribute names\nmutating func mapping(map: Map) {\nid          <- map[\"id\"]\nname        <- map[\"name\"]\navatarUrl   <- map[\"avatar_url\"]\n}\n}\n```\n\nAbove User object will be parsed from JSON response automatically using SwiftNetworker.\nDo you like it ? Then let's create one more model for Repository object owned by User:\n\n```swift\nimport ObjectMapper\n\nstruct Repository: Mappable {\n\nvar id: Int?\nvar name = \"\"\nvar owner: User?\n\ninit(map: Map) { /* Object Mapper requires constructor */ }\n\nmutating func mapping(map: Map) {\nid          <- map[\"id\"]\nname        <- map[\"name\"]\nowner       <- map[\"owner\"]\n}\n}\n```\nYes, `owner` variable will be parsed into User object without any extra code.\n\n### Router\n\nOk, it's time to present to you Router that describes GitHub API calls we want to use to:\n- get user details\n- get repositories owned by user\n- update user info\n```swift\nenum GitHubRouter: NetworkerRouter {\n\ncase getUserDetails(nickname: String)\ncase getUserRepositories(ownerNickname: String)\ncase updateUser(name: String, email: String)\n\nvar baseUrl: String { return \"https://api.github.com/\" }\n\nvar endpoint: String {\nswitch self {\ncase .getUserDetails(let nickname):             return \"users/(nickname)\"\ncase .getUserRepositories(let ownerNickname):   return \"users/(ownerNickname)/repos\"\ncase .updateUser:                               return \"user/\"\n}\n}\n\nvar method: HTTPMethod {\nswitch self {\ncase .getUserDetails,\n.getUserRepositories:\nreturn .get\n\ncase .updateUser:\nreturn .patch\n}\n}\n\nvar params: Parameters? {\nswitch self {\ncase .updateUser(let name, let email):\nreturn [\"name\": name,\n\"email\": email]\n\ndefault: return nil\n}\n}\n\nvar headers: [String : String]? {\nswitch self {\ncase .updateUser: return [\"Authorization\": \"token OAUTH-TOKEN\"]\ndefault: return nil\n}\n}\n}\n```\nMandatory for Router are: base API url, endpoints, HTTP methods.\nOptional are: HTTP headers, encoding type.\n\n### Make HTTP requests\n\nNow let's use our GitHubRouter to get user details:\n```swift\nGitHubRouter\n.getUserDetails(nickname: \"git\")\n.requestMappable(onSuccess: { (user: User) in\nprint(\"user name: (user.name)\")\n}) { (error) in\nlet networkerError = error.networkerError\nif let statusCode = networkerError?.statusCode {\nprint(\"failure status code: (statusCode)\")\n}\nif let json = networkerError?.info {\nprint(\"failure json: (json)\")\n}\n}\n```\n\n### Error handling\n\nSwift Error object can be easy converted (by Error extension) to `NetworkerError` with additional information: statusCode, received JSON response dictionary. Error response means any request issues (e.g. missing network connection) or response with Client(4xx) or Server(5xx) error status codes.\n\n### Different options of HTTP request, response\n\nIf you want to get response HTTP status code, JSON dictionary along with parsed Object you can use another method with `NetworkerMappableResult` callback which can be success or failure.\n- success case gives `NetworkerMappableResponse` structure with: statusCode, parsed object itself, received JSON response dictionary.\n- failure case contains Swift Error object\n```swift\nGitHubRouter\n.getUserDetails(nickname: \"git\")\n.requestMappable { (result: NetworkerMappableResult<User>) in\nswitch result {\ncase .success(let response):\nprint(\"status code: (response.statusCode)\")\nprint(\"user name: (response.object.name)\")\ncase .failure(let error):\nif let statusCode = error.networkerError?.statusCode {\nprint(\"failure status code: (statusCode)\")\n}\n}\n}\n```\n\nGet array of user's repositories:\n```swift\nGitHubRouter\n.getUserRepositories(ownerNickname: \"git\")\n.requestMappable(onSuccess: { (repositories: ArrayResponse<Repository>) in\nlet reposNames = repositories.array.map { $0.name }\nprint(\"repositories names: (reposNames)\")\n}, onError: { (error) in\nprint(error.localizedDescription)\n})\n```\n\nUpdate user info without response handling:\n```swift\nGitHubRouter\n.updateUser(name: \"new name\",\nemail: \"new_email@mail.com\")\n.request()\n```\n\nUpload photo or other Data? Easy, just create `NetworkerFile` and pass it as param to Router:\n```swift\nlet photoFile = NetworkerFile(image: UIImage(),\nkey: \"photo\",\nname: \"photo.png\",\nimageFormat: .png)\nRouter\n.uploadPhoto(photo: photoFile)\n.request()\n```\n\nUsing of Router is recommended but not required, the same for automatic JSON parsing - it's optional, you can still receive JSON and parse manually:\n```swift\nNetworker.requestJSON(url: \"https://api.github.com/users/git\",\nmethod: .get,\nonSuccess: { (json, statusCode) in\nprint(\"success, json: (json)\")\n}) { (error) in\nprint(error.localizedDescription)\n}\n```\n\n### RxSwift\n\nThere is also RxSwift extension:\n```swift\nGitHubRouter\n.getUserDetails(nickname: \"git\")\n.requestMappableRx()\n.subscribe(onNext: { (result: NetworkerMappableResult<User>) in\nswitch result {\ncase .success(let response):\nprint(\"success, user name: (response.object.name), status code: (response.statusCode)\")\ncase .failure(let error):\nprint(error.localizedDescription)\n}\n})\n.addDisposableTo(disposeBag)\n```\n\n## Example\n\nTo run the example project, clone the repo, and run `pod install` from the Example directory first.\n\n## Requirements\n\n* iOS 8.0+\n* Swift 3.2+\n\n## Installation\n\nSwiftNetworker is available through [CocoaPods](http://cocoapods.org). To install\nit, simply add the following line to your Podfile:\n\n```ruby\npod 'SwiftNetworker'\n```\n\nIf you use RxSwift:\n```ruby\npod 'SwiftNetworker/RxSwift'\n```\n\n## Author\n\nIgor Prysyazhnyuk, i.prisyagnyuk@gmail.com\n\n## License\n\nSwiftNetworker is available under the MIT license. See the LICENSE file for more info.",
+  "homepage": "https://github.com/iPrysyazhnyuk/SwiftNetworker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Igor Prysyazhnyuk": "i.prisyagnyuk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iPrysyazhnyuk/SwiftNetworker.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SwiftNetworker/Classes/SwiftNetworker/**/*",
+      "dependencies": {
+        "Alamofire": [
+          "~> 4.4.0"
+        ],
+        "ObjectMapper": [
+          "~> 2.2.7"
+        ]
+      }
+    },
+    {
+      "name": "RxSwift",
+      "source_files": "SwiftNetworker/Classes/SwiftNetworkerRx/**/*",
+      "dependencies": {
+        "SwiftNetworker/Core": [
+
+        ],
+        "RxSwift": [
+          "~> 3.0"
+        ]
+      }
+    }
+  ]
+}
