@@ -1,0 +1,57 @@
+{
+  "name": "HJPaymentModule",
+  "version": "0.0.4",
+  "summary": "对Alipay、微信支付、银联支付三方支付进行聚合",
+  "description": "1、集成alipay 、 微信支付、 银联支付三种支付方式，并暴露统一API进行管理",
+  "homepage": "https://github.com/Hjayth/HJPaymentModule",
+  "license": "MIT",
+  "authors": {
+    "hjayth": "18622995206@163.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/Hjayth/HJPaymentModule.git",
+    "tag": "0.0.4"
+  },
+  "source_files": "HJPaymentModule/HJPaymentModule.h",
+  "subspecs": [
+    {
+      "name": "PayChannels",
+      "source_files": "HJPaymentModule/PayChannels/**/*.{h,m}",
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ],
+      "vendored_libraries": "HJPaymentModule/PayChannels/Unpay/**/*.a",
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion"
+      ],
+      "dependencies": {
+        "WechatOpenSDK": [
+
+        ]
+      },
+      "resources": "HJPaymentModule/PayChannels/AliPay/**/AlipaySDK.bundle",
+      "vendored_frameworks": "HJPaymentModule/PayChannels/AliPay/**/AlipaySDK.framework"
+    },
+    {
+      "name": "HJPaymentService",
+      "source_files": "HJPaymentModule/HJPaymentService/*.{h,m}",
+      "frameworks": [
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "dependencies": {
+        "HJPaymentModule/PayChannels": [
+
+        ]
+      }
+    }
+  ]
+}
