@@ -1,0 +1,88 @@
+{
+  "name": "FindIt",
+  "version": "0.9.4",
+  "summary": "StoreMap (& co) - without philips tracking",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://git.osiris.withoxylane.com:ecommerce-mobile/FindIt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Loïc Albert": "external.Z05LALBE@decathlon.com"
+  },
+  "source": {
+    "git": "git@git.osiris.withoxylane.com:ecommerce-mobile/LibFindit-ios.git",
+    "tag": "0.9.4"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "FindIt/Common/**/*"
+    },
+    {
+      "name": "DKGL",
+      "source_files": "FindIt/DKGL/Classes/**/*",
+      "resources": [
+        "FindIt/DKGL/Xib/**/*",
+        "FindIt/DKGL/Assets/**/*.glsl"
+      ],
+      "dependencies": {
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "GeoLightLocalization",
+      "source_files": "FindIt/GeoLightLocalization/Classes/**/*",
+      "exclude_files": "FindIt/GeoLightLocalization/Classes/GeoLocPhilips.swift",
+      "dependencies": {
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreFiles",
+      "source_files": "FindIt/StoreFiles/Classes/**/*",
+      "resources": "FindIt/storefiles/Xib/**/*",
+      "dependencies": {
+        "AWSS3": [
+          "2.6.12"
+        ],
+        "ZIPFoundation": [
+          "~> 0.9"
+        ],
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreMap",
+      "source_files": "FindIt/Storemap/Classes/**/*",
+      "resources": [
+        "FindIt/Storemap/Xib/**/*",
+        "FindIt/Storemap/Assets/**/*.png"
+      ],
+      "dependencies": {
+        "FindIt/StoreFiles": [
+
+        ],
+        "FindIt/GeoLightLocalization": [
+
+        ],
+        "FindIt/DKGL": [
+
+        ],
+        "FindIt/Common": [
+
+        ]
+      }
+    }
+  ]
+}
