@@ -1,0 +1,1027 @@
+{
+  "name": "PromiseKit",
+  "version": "1.7.6",
+  "source": {
+    "git": "https://github.com/mxcl/PromiseKit.git",
+    "tag": "1.7.6"
+  },
+  "license": "MIT",
+  "summary": "A delightful Promises implementation for iOS and OS X.",
+  "homepage": "http://promisekit.org",
+  "description": "UIActionSheet UIAlertView CLLocationManager MFMailComposeViewController ACAccountStore StoreKit SKRequest SKProductRequest blocks",
+  "social_media_url": "https://twitter.com/mxcl",
+  "authors": {
+    "Max Howell": "mxcl@me.com"
+  },
+  "documentation_url": "http://promisekit.org/api",
+  "default_subspecs": [
+    "CALayer",
+    "NSURLConnection",
+    "NSNotificationCenter",
+    "UIActionSheet",
+    "UIAlertView",
+    "UIViewController",
+    "UIView",
+    "Pause",
+    "When",
+    "Until"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.7",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Promise",
+      "source_files": [
+        "Sources/PromiseKit.h",
+        "Sources/PMKPromise.m",
+        "Sources/PromiseKit/Promise.h",
+        "Sources/PromiseKit/fwd.h"
+      ],
+      "preserve_paths": [
+        "Sources/PromiseKit",
+        "Sources/Private"
+      ],
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Pause",
+      "source_files": [
+        "Sources/PMKPromise+Pause.m",
+        "Sources/PromiseKit/Promise+Pause.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_PAUSE=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "Until",
+      "source_files": [
+        "Sources/PMKPromise+Until.m",
+        "Sources/PromiseKit/Promise+Until.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_UNTIL=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/When": [
+
+        ],
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "When",
+      "source_files": [
+        "Sources/PMKPromise+When.m",
+        "Sources/PromiseKit/Promise+When.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_WHEN=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "Join",
+      "source_files": [
+        "Sources/PMKPromise+Join.m",
+        "Sources/PromiseKit/Promise+Join.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_JOIN=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/Until": [
+
+        ],
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "Hang",
+      "source_files": [
+        "Sources/PMKPromise+Hang.m",
+        "Sources/PromiseKit/Promise+Hang.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_HANG=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "Zalgo",
+      "source_files": [
+        "Sources/PMKPromise+Zalgo.m",
+        "Sources/PromiseKit/Promise+Zalgo.h"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_ZALGO=1"
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      }
+    },
+    {
+      "name": "ACAccountStore",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "Accounts",
+        "source_files": [
+          "Sources/ACAccountStore+PromiseKit.h",
+          "Sources/ACAccountStore+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_ACACCOUNTSTORE=1"
+        }
+      },
+      "osx": {
+        "frameworks": "Accounts",
+        "source_files": [
+          "Sources/ACAccountStore+PromiseKit.h",
+          "Sources/ACAccountStore+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_ACACCOUNTSTORE=1"
+        }
+      }
+    },
+    {
+      "name": "AVAudioSession",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": null,
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "AVFoundation",
+        "source_files": [
+          "Sources/AVAudioSession+PromiseKit.h",
+          "Sources/AVAudioSession+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_AVAUDIOSESSION=1"
+        }
+      }
+    },
+    {
+      "name": "CLGeocoder",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "ios": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLGeocoder+PromiseKit.h",
+          "Sources/CLGeocoder+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLGEOCODER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLGeocoder+PromiseKit.h",
+          "Sources/CLGeocoder+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLGEOCODER=1"
+        }
+      },
+      "watchos": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLGeocoder+PromiseKit.h",
+          "Sources/CLGeocoder+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLGEOCODER=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLGeocoder+PromiseKit.h",
+          "Sources/CLGeocoder+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLGEOCODER=1"
+        }
+      }
+    },
+    {
+      "name": "CKContainer",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "CloudKit",
+        "source_files": [
+          "Sources/CKContainer+PromiseKit.h",
+          "Sources/CKContainer+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CKCONTAINER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "CloudKit",
+        "source_files": [
+          "Sources/CKContainer+PromiseKit.h",
+          "Sources/CKContainer+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CKCONTAINER=1"
+        }
+      }
+    },
+    {
+      "name": "CKDatabase",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "tvos": "9.0",
+        "watchos": "2.0"
+      },
+      "ios": {
+        "frameworks": "CloudKit",
+        "source_files": [
+          "Sources/CKDatabase+PromiseKit.h",
+          "Sources/CKDatabase+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CKDATABASE=1"
+        }
+      },
+      "osx": {
+        "frameworks": "CloudKit",
+        "source_files": [
+          "Sources/CKDatabase+PromiseKit.h",
+          "Sources/CKDatabase+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CKDATABASE=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "CloudKit",
+        "source_files": [
+          "Sources/CKDatabase+PromiseKit.h",
+          "Sources/CKDatabase+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CKDATABASE=1"
+        }
+      }
+    },
+    {
+      "name": "CLLocationManager",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLLocationManager+PromiseKit.h",
+          "Sources/CLLocationManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLLOCATIONMANAGER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "CoreLocation",
+        "source_files": [
+          "Sources/CLLocationManager+PromiseKit.h",
+          "Sources/CLLocationManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CLLOCATIONMANAGER=1"
+        }
+      }
+    },
+    {
+      "name": "MKDirections",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "MapKit",
+        "source_files": [
+          "Sources/MKDirections+PromiseKit.h",
+          "Sources/MKDirections+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_MKDIRECTIONS=1"
+        }
+      },
+      "osx": {
+        "frameworks": "MapKit",
+        "source_files": [
+          "Sources/MKDirections+PromiseKit.h",
+          "Sources/MKDirections+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_MKDIRECTIONS=1"
+        }
+      }
+    },
+    {
+      "name": "MKMapSnapshotter",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "tvos": "9.0",
+        "watchos": "2.0"
+      },
+      "ios": {
+        "frameworks": "MapKit",
+        "source_files": [
+          "Sources/MKMapSnapshotter+PromiseKit.h",
+          "Sources/MKMapSnapshotter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_MKMAPSNAPSHOTTER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "MapKit",
+        "source_files": [
+          "Sources/MKMapSnapshotter+PromiseKit.h",
+          "Sources/MKMapSnapshotter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_MKMAPSNAPSHOTTER=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "MapKit",
+        "source_files": [
+          "Sources/MKMapSnapshotter+PromiseKit.h",
+          "Sources/MKMapSnapshotter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_MKMAPSNAPSHOTTER=1"
+        }
+      }
+    },
+    {
+      "name": "NSFileManager",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "ios": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSFileManager+PromiseKit.h",
+          "Sources/NSFileManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSFILEMANAGER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSFileManager+PromiseKit.h",
+          "Sources/NSFileManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSFILEMANAGER=1"
+        }
+      },
+      "watchos": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSFileManager+PromiseKit.h",
+          "Sources/NSFileManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSFILEMANAGER=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSFileManager+PromiseKit.h",
+          "Sources/NSFileManager+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSFILEMANAGER=1"
+        }
+      }
+    },
+    {
+      "name": "NSNotificationCenter",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "ios": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSNotificationCenter+PromiseKit.h",
+          "Sources/NSNotificationCenter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSNOTIFICATIONCENTER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSNotificationCenter+PromiseKit.h",
+          "Sources/NSNotificationCenter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSNOTIFICATIONCENTER=1"
+        }
+      },
+      "watchos": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSNotificationCenter+PromiseKit.h",
+          "Sources/NSNotificationCenter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSNOTIFICATIONCENTER=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSNotificationCenter+PromiseKit.h",
+          "Sources/NSNotificationCenter+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSNOTIFICATIONCENTER=1"
+        }
+      }
+    },
+    {
+      "name": "NSTask",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "osx": "10.7",
+        "ios": "6.0",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "osx": {
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSTask+PromiseKit.h",
+          "Sources/NSTask+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSTASK=1"
+        }
+      }
+    },
+    {
+      "name": "NSURLConnection",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "dependencies": {
+          "OMGHTTPURLRQ": [
+            "~> 3.2"
+          ]
+        },
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSURLConnection+PromiseKit.h",
+          "Sources/NSURLConnection+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSURLCONNECTION=1"
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "OMGHTTPURLRQ": [
+            "~> 3.2"
+          ]
+        },
+        "frameworks": "Foundation",
+        "source_files": [
+          "Sources/NSURLConnection+PromiseKit.h",
+          "Sources/NSURLConnection+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_NSURLCONNECTION=1"
+        }
+      }
+    },
+    {
+      "name": "SKRequest",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "tvos": "9.0",
+        "watchos": "2.0"
+      },
+      "ios": {
+        "frameworks": "StoreKit",
+        "source_files": [
+          "Sources/SKRequest+PromiseKit.h",
+          "Sources/SKRequest+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_SKREQUEST=1"
+        }
+      },
+      "osx": {
+        "frameworks": "StoreKit",
+        "source_files": [
+          "Sources/SKRequest+PromiseKit.h",
+          "Sources/SKRequest+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_SKREQUEST=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "StoreKit",
+        "source_files": [
+          "Sources/SKRequest+PromiseKit.h",
+          "Sources/SKRequest+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_SKREQUEST=1"
+        }
+      }
+    },
+    {
+      "name": "SLRequest",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "Social",
+        "source_files": [
+          "Sources/SLRequest+PromiseKit.h",
+          "Sources/SLRequest+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_SLREQUEST=1"
+        }
+      },
+      "osx": {
+        "frameworks": "Social",
+        "source_files": [
+          "Sources/SLRequest+PromiseKit.h",
+          "Sources/SLRequest+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_SLREQUEST=1"
+        }
+      }
+    },
+    {
+      "name": "UIActionSheet",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": null,
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "UIKit",
+        "source_files": [
+          "Sources/UIActionSheet+PromiseKit.h",
+          "Sources/UIActionSheet+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_UIACTIONSHEET=1"
+        }
+      }
+    },
+    {
+      "name": "UIAlertView",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": null,
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "UIKit",
+        "source_files": [
+          "Sources/UIAlertView+PromiseKit.h",
+          "Sources/UIAlertView+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_UIALERTVIEW=1"
+        }
+      }
+    },
+    {
+      "name": "UIView",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": null,
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "frameworks": "UIKit",
+        "source_files": [
+          "Sources/UIView+PromiseKit.h",
+          "Sources/UIView+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_UIVIEW=1"
+        }
+      }
+    },
+    {
+      "name": "UIViewController",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": null,
+        "watchos": null,
+        "tvos": null
+      },
+      "ios": {
+        "weak_frameworks": "AssetsLibrary",
+        "frameworks": "UIKit",
+        "source_files": [
+          "Sources/UIViewController+PromiseKit.h",
+          "Sources/UIViewController+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_UIVIEWCONTROLLER=1"
+        }
+      }
+    },
+    {
+      "name": "CALayer",
+      "dependencies": {
+        "PromiseKit/Promise": [
+
+        ]
+      },
+      "preserve_paths": "Sources/PromiseKit",
+      "platforms": {
+        "ios": "6.0",
+        "osx": "10.7",
+        "tvos": "9.0",
+        "watchos": "2.0"
+      },
+      "ios": {
+        "frameworks": "QuartzCore",
+        "source_files": [
+          "Sources/CALayer+PromiseKit.h",
+          "Sources/CALayer+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CALAYER=1"
+        }
+      },
+      "osx": {
+        "frameworks": "QuartzCore",
+        "source_files": [
+          "Sources/CALayer+PromiseKit.h",
+          "Sources/CALayer+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CALAYER=1"
+        }
+      },
+      "tvos": {
+        "frameworks": "QuartzCore",
+        "source_files": [
+          "Sources/CALayer+PromiseKit.h",
+          "Sources/CALayer+PromiseKit.m"
+        ],
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PMK_CALAYER=1"
+        }
+      }
+    },
+    {
+      "name": "Accounts",
+      "dependencies": {
+        "PromiseKit/ACAccountStore": [
+
+        ]
+      }
+    },
+    {
+      "name": "AVFoundation",
+      "dependencies": {
+        "PromiseKit/AVAudioSession": [
+
+        ]
+      }
+    },
+    {
+      "name": "CloudKit",
+      "dependencies": {
+        "PromiseKit/CKContainer": [
+
+        ],
+        "PromiseKit/CKDatabase": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreLocation",
+      "dependencies": {
+        "PromiseKit/CLGeocoder": [
+
+        ],
+        "PromiseKit/CLLocationManager": [
+
+        ]
+      }
+    },
+    {
+      "name": "Foundation",
+      "dependencies": {
+        "PromiseKit/NSFileManager": [
+
+        ],
+        "PromiseKit/NSNotificationCenter": [
+
+        ],
+        "PromiseKit/NSTask": [
+
+        ],
+        "PromiseKit/NSURLConnection": [
+
+        ]
+      }
+    },
+    {
+      "name": "MapKit",
+      "dependencies": {
+        "PromiseKit/MKDirections": [
+
+        ],
+        "PromiseKit/MKMapSnapshotter": [
+
+        ]
+      }
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "PromiseKit/SLRequest": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreKit",
+      "dependencies": {
+        "PromiseKit/SKRequest": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "dependencies": {
+        "PromiseKit/UIActionSheet": [
+
+        ],
+        "PromiseKit/UIAlertView": [
+
+        ],
+        "PromiseKit/UIView": [
+
+        ],
+        "PromiseKit/UIViewController": [
+
+        ]
+      }
+    },
+    {
+      "name": "QuartzCore",
+      "dependencies": {
+        "PromiseKit/CALayer": [
+
+        ]
+      }
+    },
+    {
+      "name": "all",
+      "dependencies": {
+        "PromiseKit/When": [
+
+        ],
+        "PromiseKit/Until": [
+
+        ],
+        "PromiseKit/Pause": [
+
+        ],
+        "PromiseKit/Join": [
+
+        ],
+        "PromiseKit/Hang": [
+
+        ],
+        "PromiseKit/Accounts": [
+
+        ],
+        "PromiseKit/AVFoundation": [
+
+        ],
+        "PromiseKit/CloudKit": [
+
+        ],
+        "PromiseKit/CoreLocation": [
+
+        ],
+        "PromiseKit/Foundation": [
+
+        ],
+        "PromiseKit/MapKit": [
+
+        ],
+        "PromiseKit/Social": [
+
+        ],
+        "PromiseKit/StoreKit": [
+
+        ],
+        "PromiseKit/UIKit": [
+
+        ],
+        "PromiseKit/QuartzCore": [
+
+        ]
+      }
+    }
+  ]
+}
