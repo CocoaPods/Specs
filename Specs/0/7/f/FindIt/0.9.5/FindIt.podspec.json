@@ -1,0 +1,98 @@
+{
+  "name": "FindIt",
+  "version": "0.9.5",
+  "summary": "StoreMap (& co) - with philips tracking",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://git.osiris.withoxylane.com:ecommerce-mobile/FindIt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Loïc Albert": "external.Z05LALBE@decathlon.com"
+  },
+  "source": {
+    "git": "git@git.osiris.withoxylane.com:ecommerce-mobile/LibFindit-ios.git",
+    "tag": "0.9.5"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7",
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7",
+    "ENABLE_BITCODE": "NO"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "4.0",
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "FindIt/Common/**/*"
+    },
+    {
+      "name": "DKGL",
+      "source_files": "FindIt/DKGL/Classes/**/*",
+      "resources": [
+        "FindIt/DKGL/Xib/**/*",
+        "FindIt/DKGL/Assets/**/*.glsl"
+      ],
+      "dependencies": {
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "GeoLightLocalization",
+      "source_files": "FindIt/GeoLightLocalization/Classes/**/*",
+      "vendored_frameworks": "FindIt/GeoLightLocalization/Libs/IndoorPositioning.framework",
+      "dependencies": {
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreFiles",
+      "source_files": "FindIt/StoreFiles/Classes/**/*",
+      "resources": "FindIt/storefiles/Xib/**/*",
+      "dependencies": {
+        "AWSS3": [
+          "2.6.12"
+        ],
+        "ZIPFoundation": [
+          "~> 0.9"
+        ],
+        "FindIt/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "StoreMap",
+      "source_files": "FindIt/Storemap/Classes/**/*",
+      "resources": [
+        "FindIt/Storemap/Xib/**/*",
+        "FindIt/Storemap/Assets/**/*.png"
+      ],
+      "vendored_frameworks": "FindIt/GeoLightLocalization/Libs/IndoorPositioning.framework",
+      "dependencies": {
+        "FindIt/StoreFiles": [
+
+        ],
+        "FindIt/GeoLightLocalization": [
+
+        ],
+        "FindIt/DKGL": [
+
+        ],
+        "FindIt/Common": [
+
+        ]
+      }
+    }
+  ]
+}
