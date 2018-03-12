@@ -1,0 +1,41 @@
+{
+  "name": "AzureIoTuMqtt",
+  "version": "1.0.0-pre-release-1.0.7-m",
+  "summary": "AzureIoTuMqtt preview library for CocoaPods.",
+  "description": "This is a preview CocoaPods \nrelease of the Azure C uMQTT library.",
+  "homepage": "https://github.com/Azure/azure-iot-sdk-c/tree/ios-samples/build_all/ios/samples",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-umqtt-c.git",
+    "tag": "1.0.0-pre-release-1.0.7-m"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "prepare_command": "# Assemble the module.modulemap file\npushd inc\necho \"module AzureIoTuMqtt [system][extern_c] {\" > module.modulemap\nquote_thing='\"'\nfor filename in azure_umqtt_c/*.h; do\n    echo \"    header $quote_thing$filename$quote_thing\" >> module.modulemap\ndone\necho \"    export *\" >> module.modulemap\necho \"}\" >> module.modulemap\npopd\n# Done assembling module.modulemap file",
+  "preserve_paths": "inc/module.modulemap",
+  "module_map": "inc/module.modulemap",
+  "source_files": [
+    "inc/**/*.h",
+    "src/*.c"
+  ],
+  "header_mappings_dir": "inc/",
+  "public_header_files": "inc/**/*.h",
+  "xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTUtility/inc/\" \"${PODS_ROOT}/AzureIoTuMqtt/inc/\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureIoTUtility": [
+      "1.0.0-pre-release-1.0.7-u2"
+    ]
+  }
+}
