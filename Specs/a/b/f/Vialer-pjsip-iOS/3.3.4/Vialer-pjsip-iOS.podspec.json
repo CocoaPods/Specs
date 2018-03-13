@@ -1,0 +1,42 @@
+{
+  "name": "Vialer-pjsip-iOS",
+  "version": "3.3.4",
+  "summary": "PJSIP 2.7.1 for iOS",
+  "description": "Pod for distributing PJSIP 2.7.1 wrapped in a framework. With Opus, OpenSSL and openh264.",
+  "homepage": "https://www.wearespindle.com",
+  "license": {
+    "type": "GNU GPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Devhouse Spindle": "vialersiplib@wearespindle.com"
+  },
+  "source": {
+    "git": "https://github.com/VoIPGRID/Vialer-pjsip-iOS.git",
+    "tag": "3.3.4"
+  },
+  "social_media_url": "https://twitter.com/wearespindle",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": false,
+  "preserve_paths": "VialerPJSIP.framework/*",
+  "public_header_files": "VialerPJSIP.framework/Versions/A/Headers/**/*.{h,hpp}",
+  "source_files": "VialerPJSIP.framework/Versions/A/Headers/**/*.{h,hpp}",
+  "vendored_frameworks": "VialerPJSIP.framework",
+  "libraries": "stdc++",
+  "frameworks": [
+    "AudioToolbox",
+    "AVFoundation",
+    "CFNetwork",
+    "CoreMedia"
+  ],
+  "script_phases": {
+    "name": "Combine VialerPJSIP library in one file",
+    "execution_position": "after_compile",
+    "script": "\n\t\tBINARY_FILENAME=VialerPJSIP\n\t\tSPLIT_FILENAME_PREFIX=${BINARY_FILENAME}_Split\n\t\tVIALERPJSIP_FRAMEWORK_DIR=${SRCROOT}/Vialer-pjsip-iOS/VialerPJSIP.framework/Versions/Current\n\t\tVIALERPJSIP_FRAMEWORK_FILE=$VIALERPJSIP_FRAMEWORK_DIR/$BINARY_FILENAME\n\t\t\n\t\tminimumsize=50000000\n\t\tactualsize=$(wc -c <\"${VIALERPJSIP_FRAMEWORK_FILE}\")\n\t\t\n\t\tif [[ -f \"${VIALERPJSIP_FRAMEWORK_FILE}\" && $actualsize -ge $minimumsize ]]; then\n\t\t\techo \"The library is already combined\"\n\t\telse\n\t\t\tcd ${VIALERPJSIP_FRAMEWORK_DIR}\n\t\t\t#  But we have chunks! ...Probably\n\t\t\tif [ -f ${SPLIT_FILENAME_PREFIX}_aa ]; then\n\t\t\t\techo \"Creating file from smaller files with ${SPLIT_FILENAME_PREFIX} prefix\"\n\t\t\t\tcat ${SPLIT_FILENAME_PREFIX}_* > ${BINARY_FILENAME}\n\t\t\t    rm ${SPLIT_FILENAME_PREFIX}_*\n\t\t\tfi\n\t\tfi\t\t\n\t\t"
+  },
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "PJ_AUTOCONF=1"
+  }
+}
