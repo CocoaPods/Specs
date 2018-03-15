@@ -1,0 +1,87 @@
+{
+  "name": "PayKit",
+  "version": "0.1.1",
+  "summary": "集成支付宝、微信、苹果内购",
+  "description": "TODO: 集成支付宝、微信、苹果内购",
+  "homepage": "https://git.coding.net/yuxilong/PayKit.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jack Yu": "305758560@qq.com"
+  },
+  "source": {
+    "git": "https://git.coding.net/yuxilong/PayKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "source_files": "PayKit/*.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "PayKit/Core/*.h",
+        "PayKit/Core/*.m"
+      ],
+      "dependencies": {
+        "PayKit/Wx": [
+
+        ],
+        "PayKit/IAP": [
+
+        ],
+        "PayKit/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "source_files": [
+        "PayKit/Common/*.h",
+        "PayKit/Common/*.m"
+      ]
+    },
+    {
+      "name": "Wx",
+      "source_files": [
+        "PayKit/WX/lib/*.h",
+        "PayKit/WX/*.m",
+        "PayKit/WX/*.h"
+      ],
+      "vendored_libraries": "PayKit/WX/lib/*.a",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "PayKit/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "IAP",
+      "source_files": [
+        "PayKit/IAP/*.h",
+        "PayKit/IAP/*.m"
+      ],
+      "frameworks": "StoreKit"
+    }
+  ]
+}
