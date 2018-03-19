@@ -1,0 +1,88 @@
+{
+  "name": "QuickExcelKit",
+  "version": "1.0.0",
+  "summary": "A great & strong microsoft excel parser for iOS, support csv/xls/xlsx format. 一款微软 Excel 文件解析器，支持 csv/xls/xlsx 格式。",
+  "description": "A great & strong microsoft excel parser for iOS, support csv/xls/xlsx format. 一款 iOS 平台上的微软 Excel 文件解析器，支持 csv/xls/xlsx 格式, 该项目支持 Cocoapods 的 subspec。",
+  "homepage": "https://github.com/pcjbird/QuickExcelKit",
+  "license": "MIT",
+  "authors": {
+    "pcjbird": "pcjbird@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pcjbird/QuickExcelKit.git",
+    "tag": "1.0.0",
+    "submodules": true
+  },
+  "social_media_url": "http://www.lessney.com",
+  "requires_arc": true,
+  "documentation_url": "https://github.com/pcjbird/QuickExcelKit/blob/master/README.md",
+  "screenshots": "https://github.com/pcjbird/QuickExcelKit/blob/master/logo.png",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "source_files": "QuickExcelKit/QuickExcelKit.h",
+  "public_header_files": "QuickExcelKit/QuickExcelKit.h",
+  "prefix_header_file": "QuickExcelKit/Supporting Files/QuickExcelKit-Prefix.pch",
+  "default_subspecs": "QuickExcelReaderUtil",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC -liconv"
+  },
+  "subspecs": [
+    {
+      "name": "ZXLSXParser",
+      "source_files": [
+        "ZXLSXReader/ZXLSXReader/ZXLSXParser/xmlParser/*.{h,m}",
+        "ZXLSXReader/ZXLSXReader/ZXLSXParser/xmlParser/models/*.{h,m}"
+      ],
+      "public_header_files": [
+        "ZXLSXReader/ZXLSXReader/ZXLSXParser/xmlParser/models/ZContent.h",
+        "ZXLSXReader/ZXLSXReader/ZXLSXParser/xmlParser/ZXLSXParser.h"
+      ],
+      "dependencies": {
+        "SSZipArchive": [
+
+        ]
+      }
+    },
+    {
+      "name": "iOSlibxls",
+      "source_files": [
+        "iOSlibxls/*.{h,m}",
+        "iOSlibxls/libxls/include/libxls/*.{h}",
+        "iOSlibxls/libxls/src/*.{c}"
+      ],
+      "public_header_files": [
+        "iOSlibxls/iOSXLSReader.h",
+        "iOSlibxls/iOSXLSCell.h"
+      ],
+      "header_mappings_dir": ".",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC -liconv",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/QuickExcelKit/iOSlibxls/** ${PODS_ROOT}/QuickExcelKit/iOSlibxls/libxls/include/**"
+      }
+    },
+    {
+      "name": "QuickExcelReaderUtil",
+      "source_files": [
+        "QuickExcelKit/*.{h,m}",
+        "QuickExcelKit/CSVParser/*.{h,m}"
+      ],
+      "public_header_files": [
+        "QuickExcelKit/QuickExcelKit.h",
+        "QuickExcelKit/QuickExcelReaderUtil.h"
+      ],
+      "dependencies": {
+        "QuickExcelKit/ZXLSXParser": [
+
+        ],
+        "QuickExcelKit/iOSlibxls": [
+
+        ]
+      }
+    }
+  ]
+}
