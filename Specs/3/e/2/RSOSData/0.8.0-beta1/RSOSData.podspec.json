@@ -1,0 +1,79 @@
+{
+  "name": "RSOSData",
+  "version": "0.8.0-beta1",
+  "summary": "Get life-saving user data into the hands of first responders in an emergency.",
+  "homepage": "https://rapidsos.com/products/#emergencyapi",
+  "license": "APACHE",
+  "authors": {
+    "Gabe Mahoney": "gmahoney@rapidsos.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/RapidSOS/era-ios.git",
+    "tag": "0.8.0-beta1"
+  },
+  "requires_arc": true,
+  "public_header_files": "RSOSData/RSOSData/RSOSData.h",
+  "source_files": "RSOSData/RSOSData/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Util",
+      "source_files": "RSOSData/RSOSData/Utils/*.{h,m}",
+      "public_header_files": "RSOSData/RSOSData/Utils/*.h"
+    },
+    {
+      "name": "Serialization",
+      "dependencies": {
+        "RSOSData/Util": [
+
+        ]
+      },
+      "source_files": [
+        "RSOSData/RSOSData/Serialization/*.{h,m}",
+        "RSOSData/RSOSData/Serialization/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "RSOSData/RSOSData/Serialization/*.h",
+        "RSOSData/RSOSData/Serialization/**/*.h"
+      ]
+    },
+    {
+      "name": "Authorization",
+      "dependencies": {
+        "RSOSData/Util": [
+
+        ],
+        "AFNetworking": [
+
+        ]
+      },
+      "source_files": [
+        "RSOSData/RSOSData/Authorization/*.{h,m}",
+        "RSOSData/RSOSData/Authorization/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "RSOSData/RSOSData/Authorization/*.h",
+        "RSOSData/RSOSData/Authorization/**/*.h"
+      ],
+      "frameworks": "Security"
+    },
+    {
+      "name": "DataClient",
+      "dependencies": {
+        "RSOSData/Authorization": [
+
+        ],
+        "RSOSData/Serialization": [
+
+        ],
+        "AFNetworking": [
+
+        ]
+      },
+      "source_files": "RSOSData/RSOSData/DataClient/*.{h,m}",
+      "public_header_files": "RSOSData/RSOSData/DataClient/*.h"
+    }
+  ]
+}
