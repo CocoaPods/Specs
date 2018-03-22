@@ -1,0 +1,121 @@
+{
+  "name": "SwiftProjection",
+  "version": "1.0.1",
+  "summary": "Easy map projections in Swift",
+  "description": "SwiftProjection is a framework for performing map projections and transformations in Swift using the PROJ library.",
+  "homepage": "https://github.com/paxswill/SwiftProjection",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Will Ross": "paxswill@paxswill.com"
+  },
+  "source": {
+    "git": "https://github.com/paxswill/SwiftProjection.git",
+    "tag": "v1.0.1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "swift_version": "4.1",
+  "compiler_flags": [
+    "-DMUTEX_pthread"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/proj-src/src/\"",
+    "OTHER_CFLAGS": "-Wno-strict-prototypes -Wno-documentation -Wno-comma -Wno-shorten-64-to-32 -Wno-#warnings"
+  },
+  "module_name": "SwiftProjection",
+  "source_files": [
+    "Classes/*",
+    "proj-src/src/pj_*.{h,c}",
+    "proj-src/src/PJ_*.{h,c}",
+    "proj-src/src/proj_*.{h,c}",
+    "proj-src/src/proj.h",
+    "proj-src/src/projects.h",
+    "proj-src/src/aasincos.c",
+    "proj-src/src/adjlon.c",
+    "proj-src/src/bch2bps.c",
+    "proj-src/src/bchgen.c",
+    "proj-src/src/dmstor.c",
+    "proj-src/src/rtodms.c",
+    "proj-src/src/mk_cheby.c",
+    "proj-src/src/vector1.c",
+    "proj-src/src/biveval.c",
+    "proj-src/src/nad_*",
+    "proj-src/src/emess.{h,c}",
+    "proj-src/src/geocent.{h,c}",
+    "proj-src/src/geodesic.{h,c}"
+  ],
+  "public_header_files": [
+    "proj-src/src/proj.h",
+    "proj-src/src/proj_api.h",
+    "Classes/bundle-reader.h"
+  ],
+  "private_header_files": [
+    "proj-src/src/projects.h",
+    "proj-src/src/proj_internal.h"
+  ],
+  "resource_bundles": {
+    "proj-data": [
+      "proj-src/nad/*",
+      "proj-datumgrid/alaska",
+      "proj-datumgrid/BETA2007.gsb",
+      "proj-datumgrid/conus",
+      "proj-datumgrid/egm96_15.gtx",
+      "proj-datumgrid/FL",
+      "proj-datumgrid/hawaii",
+      "proj-datumgrid/MD",
+      "proj-datumgrid/ntf_r93.gsb",
+      "proj-datumgrid/ntv1_can.dat",
+      "proj-datumgrid/null",
+      "proj-datumgrid/nzgd2kgrid0005.gsb",
+      "proj-datumgrid/prvi",
+      "proj-datumgrid/stgeorge",
+      "proj-datumgrid/stlrnc ",
+      "proj-datumgrid/stpaul",
+      "proj-datumgrid/TN",
+      "proj-datumgrid/WI",
+      "proj-datumgrid/WO"
+    ]
+  },
+  "exclude_files": [
+    "**/*.in",
+    "**/*.am",
+    "**/CMakeLists.txt",
+    "proj-src/**/README",
+    "proj-src/nad/test*",
+    "proj-src/nad/*.dist*",
+    "proj-src/nad/*.lla"
+  ],
+  "libraries": "pthread",
+  "dependencies": {
+    "Threadly": [
+      "~> 2.0.1"
+    ],
+    "Quick": [
+      "~> 1.2.0"
+    ],
+    "Nimble": [
+      "~> 7.0.2"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/*",
+      "dependencies": {
+        "Quick": [
+          "~> 1.2.0"
+        ],
+        "Nimble": [
+          "~> 7.0.2"
+        ]
+      }
+    }
+  ]
+}
