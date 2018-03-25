@@ -1,0 +1,35 @@
+{
+  "name": "cmark-gfm",
+  "version": "0.1.0",
+  "summary": "A fork of cmark-gfm with CocoaPods support.",
+  "homepage": "https://github.com/githawkapp/cmark",
+  "license": {
+    "type": "BSD2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ryan Nystrom": "rnystrom@instagram.com"
+  },
+  "source": {
+    "git": "https://github.com/githawkapp/cmark.git",
+    "tag": "0.1.0"
+  },
+  "source_files": [
+    "src/*.{h,c,m,inc}",
+    "extensions/*.{h,c}",
+    "build/src/",
+    "build/extensions/"
+  ],
+  "public_header_files": [
+    "src/cmark.h",
+    "build/src",
+    "build/extensions"
+  ],
+  "prepare_command": "echo `pwd`\nsed -i '' 's/include <\\(cmark.*\\)>/include \"\\1\"/' src/cmark.h\nmkdir -p build; cd build && cmake -G Xcode ..",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
