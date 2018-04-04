@@ -1,0 +1,41 @@
+{
+  "name": "TencentOpenAPI-Swift",
+  "version": "3.3.2",
+  "summary": "TencentOpenAPI Swift version, based on V3.3.1",
+  "description": "Based on TencentOpenAPI version V3.3.1",
+  "homepage": "http://wiki.open.qq.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TencentOpenAPI": "TencentOpenAPI"
+  },
+  "source": {
+    "git": "https://github.com/dulingkang/TencentOpenAPI-Swift.git",
+    "tag": "3.3.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "vendored_frameworks": "Framework/**/*.framework",
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Framework/"
+  },
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "stdc++",
+    "z",
+    "iconv"
+  ],
+  "prepare_command": "rm -rf Framework/TencentOpenAPI.framework/Modules\nmkdir Framework/TencentOpenAPI.framework/Modules\ntouch Framework/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > Framework/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n  umbrella header \"Tencent.h\"\n  export *\n  module * { export * }\n}\nEOF"
+}
