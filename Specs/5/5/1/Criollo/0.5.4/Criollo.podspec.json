@@ -1,0 +1,72 @@
+{
+  "name": "Criollo",
+  "version": "0.5.4",
+  "license": "MIT",
+  "summary": "A powerful Cocoa based web application framework for macS, iOS and tvOS.",
+  "homepage": "https://criollo.io/",
+  "authors": {
+    "Cătălin Stan": "catalin.stan@me.com"
+  },
+  "social_media_url": "http://twitter.com/criolloio",
+  "source": {
+    "git": "https://github.com/thecatalinstan/Criollo.git",
+    "tag": "0.5.4",
+    "submodules": true
+  },
+  "module_name": "Criollo",
+  "requires_arc": true,
+  "dependencies": {
+    "CocoaAsyncSocket": [
+      "~> 7.6"
+    ]
+  },
+  "source_files": [
+    "Criollo/Criollo.h",
+    "Criollo/Source/*.{h,m}",
+    "Criollo/Source/{HTTP,FCGI,Routing,Extensions}/*.{h,m}"
+  ],
+  "public_header_files": [
+    "Criollo/Criollo.h",
+    "Criollo/Source/CRTypes.h",
+    "Criollo/Source/CRApplication.h",
+    "Criollo/Source/Routing/CRRouter.h",
+    "Criollo/Source/CRServer.h",
+    "Criollo/Source/CRConnection.h",
+    "Criollo/Source/CRMessage.h",
+    "Criollo/Source/CRRequest.h",
+    "Criollo/Source/CRRequestRange.h",
+    "Criollo/Source/CRUploadedFile.h",
+    "Criollo/Source/CRResponse.h",
+    "Criollo/Source/HTTP/CRHTTPServer.h",
+    "Criollo/Source/FCGI/CRFCGIServer.h",
+    "Criollo/Source/Routing/CRRouteController.h",
+    "Criollo/Source/Routing/CRNib.h",
+    "Criollo/Source/Routing/CRView.h",
+    "Criollo/Source/Routing/CRViewController.h",
+    "Criollo/Source/CRMimeTypeHelper.h"
+  ],
+  "platforms": {
+    "osx": "10.10",
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "osx": {
+    "weak_frameworks": "Foundation"
+  },
+  "ios": {
+    "vendored_frameworks": "Libraries/OpenSSL/openssl.framework"
+  },
+  "tvos": {
+    "vendored_libraries": [
+      "Libraries/OpenSSL/lib/libcrypto-tvOS.a",
+      "Libraries/OpenSSL/lib/libssl-tvOS.a"
+    ],
+    "preserve_paths": [
+      "Libraries/OpenSSL/include/openssl/*.h",
+      "Libraries/OpenSSL/include/LICENSE"
+    ],
+    "xcconfig": {
+      "HEADER_SEARCH_PATHS": "${PODS_ROOT}/Criollo/Libraries/OpenSSL/include/**"
+    }
+  }
+}
