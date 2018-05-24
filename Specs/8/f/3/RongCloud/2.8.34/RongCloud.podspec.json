@@ -1,0 +1,72 @@
+{
+  "name": "RongCloud",
+  "version": "2.8.34",
+  "summary": "RongCloud IM SDK",
+  "description": "RongCloud IM SDK for iOS",
+  "homepage": "https://github.com/Limon-O-O/RongCloud",
+  "license": "MIT",
+  "authors": {
+    "Limon": "fengninglong@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "http://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_v2_8_32_Stable.zip"
+  },
+  "prepare_command": "while read line; do\n    if [[ $line == *\"//  iOS-IMKi\"* ]]; then\n        sed -i '' \"s#//  iOS-IMKi#@import Foundation;#\" \"RongCloudIM/RongIMKit.framework/Headers/RCThemeDefine.h\"\n        break\n    fi\ndone < \"RongCloudIM/RongIMKit.framework/Headers/RCThemeDefine.h\"\n\nmkdir RongCloudIM/RongIMKit.framework/Modules\ntouch RongCloudIM/RongIMKit.framework/Modules/module.modulemap\ncat <<-EOF > RongCloudIM/RongIMKit.framework/Modules/module.modulemap\nframework module RongIMKit {\n  header \"RCIM.h\"\n\n  header \"RCConversationListViewController.h\"\n  header \"RCPublicServiceListViewController.h\"\n\n  header \"RCConversationViewController.h\"\n  header \"RCImagePreviewController.h\"\n  header \"RCImageSlideController.h\"\n  header \"RCLocationPickerViewController.h\"\n  header \"RCLocationViewController.h\"\n  header \"RCPublicServiceChatViewController.h\"\n  header \"RCPublicServiceSearchViewController.h\"\n\n  header \"RCConversationBaseCell.h\"\n  header \"RCConversationCell.h\"\n  header \"RCConversationModel.h\"\n\n  header \"RCFileMessageCell.h\"\n  header \"RCImageMessageCell.h\"\n  header \"RCImageMessageProgressView.h\"\n  header \"RCLocationMessageCell.h\"\n  header \"RCMessageBaseCell.h\"\n  header \"RCMessageCell.h\"\n  header \"RCMessageCellDelegate.h\"\n  header \"RCMessageCellNotificationModel.h\"\n  header \"RCMessageModel.h\"\n  header \"RCRichContentMessageCell.h\"\n  header \"RCTextMessageCell.h\"\n  header \"RCTipMessageCell.h\"\n  header \"RCUnknownMessageCell.h\"\n  header \"RCVoiceMessageCell.h\"\n\n  header \"RCKitUtility.h\"\n  header \"RCThemeDefine.h\"\n\n  header \"RCAttributedLabel.h\"\n  header \"RCBaseViewController.h\"\n  header \"RCContentView.h\"\n  header \"RCConversationSettingTableViewHeader.h\"\n  header \"RCEmoticonTabSource.h\"\n  header \"RCMessageBubbleTipView.h\"\n  header \"RCPublicServiceProfileViewController.h\"\n  header \"RCSettingViewController.h\"\n  header \"RCTextView.h\"\n  header \"RCTipLabel.h\"\n  header \"RongIMKitExtensionModule.h\"\n\n  header \"RCChatSessionInputBarControl.h\"\n  header \"RCEmojiBoardView.h\"\n  header \"RCPluginBoardView.h\"\n\n  header \"RCExtensionMessageCellInfo.h\"\n  header \"RCExtensionModule.h\"\n\n  header \"RCConversationDetailContentView.h\"\n  header \"RCConversationStatusView.h\"\n\n  header \"RCConversationSettingTableViewController.h\"\n\n  header \"RCExtensionPluginItemInfo.h\"\n\n  export *\n}\nEOF\n\nmkdir RongCloudIM/RongIMLib.framework/Modules\ntouch RongCloudIM/RongIMLib.framework/Modules/module.modulemap\ncat <<-EOF > RongCloudIM/RongIMLib.framework/Modules/module.modulemap\nframework module RongIMLib {\n  header \"RongIMLib.h\"\n  header \"RCIMClient.h\"\n  header \"RCStatusDefine.h\"\n  header \"RCChatRoomInfo.h\"\n  header \"RCConversation.h\"\n  header \"RCDiscussion.h\"\n  header \"RCGroup.h\"\n  header \"RCUserTypingStatus.h\"\n  header \"RCCSLeaveMessage.h\"\n  header \"RCCSPullLeaveMessage.h\"\n  header \"RCCommandMessage.h\"\n  header \"RCCommandNotificationMessage.h\"\n  header \"RCContactNotificationMessage.h\"\n  header \"RCDiscussionNotificationMessage.h\"\n  header \"RCGroupNotificationMessage.h\"\n  header \"RCImageMessage.h\"\n  header \"RCInformationNotificationMessage.h\"\n  header \"RCLocationMessage.h\"\n  header \"RCMessage.h\"\n  header \"RCMessageContent.h\"\n  header \"RCMessageContentView.h\"\n  header \"RCProfileNotificationMessage.h\"\n  header \"RCPublicServiceCommandMessage.h\"\n  header \"RCPublicServiceMultiRichContentMessage.h\"\n  header \"RCPublicServiceRichContentMessage.h\"\n  header \"RCRealTimeLocationEndMessage.h\"\n  header \"RCRealTimeLocationStartMessage.h\"\n  header \"RCRecallNotificationMessage.h\"\n  header \"RCRichContentMessage.h\"\n  header \"RCTextMessage.h\"\n  header \"RCUnknownMessage.h\"\n  header \"RCVoiceMessage.h\"\n\n  header \"RCAMRDataConverter.h\"\n  header \"RCTSMutableDictionary.h\"\n  header \"RCUtilities.h\"\n  header \"interf_dec.h\"\n  header \"interf_enc.h\"\n\n  header \"RCCSLeaveMessageItem.h\"\n  header \"RCCustomerServiceInfo.h\"\n  header \"RCEvaluateItem.h\"\n\n  header \"RCChatRoomMemberInfo.h\"\n  header \"RCCustomerServiceGroupItem.h\"\n  header \"RCPublicServiceMenu.h\"\n  header \"RCPublicServiceProfile.h\"\n  header \"RCRealTimeLocationManager.h\"\n  header \"RCStatusMessage.h\"\n  header \"RCUploadImageStatusListener.h\"\n  header \"RCUploadMediaStatusListener.h\"\n  header \"RCUserInfo.h\"\n  header \"RCWatchKitStatusDelegate.h\"\n\n  header \"RCFileMessage.h\"\n  header \"RCFileUtility.h\"\n  header \"RCReadReceiptInfo.h\"\n  header \"RCUserOnlineStatusInfo.h\"\n\n  header \"RCMentionedInfo.h\"\n  \n  header \"RCCustomerServiceConfig.h\"\n  header \"RCPushProfile.h\"\n  header \"RCSearchConversationResult.h\"\n\n  header \"RCPublicServiceMenuItem.h\"\n\n  header \"RCRichContentItem.h\"\n\n  header \"RCRealTimeLocationCommonDefine.h\"\n\n  export *\n}\nEOF",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "IMKit",
+      "vendored_frameworks": "RongCloudIM/RongIMKit.framework",
+      "resources": [
+        "RongCloudIM/RongCloud.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/Emoji.plist",
+        "RongCloudIM/RCColor.plist"
+      ],
+      "dependencies": {
+        "RongCloud/IMLib": [
+
+        ]
+      },
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+      ]
+    },
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM/RongIMLib.framework",
+      "vendored_libraries": "RongCloudIM/libopencore-amrnb.a",
+      "libraries": [
+        "z",
+        "stdc++",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "resources": [
+        "RongCloudIM/RCConfig.plist"
+      ]
+    }
+  ]
+}
