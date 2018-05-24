@@ -1,0 +1,135 @@
+{
+  "name": "ObjectiveRocks",
+  "version": "0.9.0",
+  "summary": "Objective-C wrapper of RocksDB - A Persistent Key-Value Store for Flash and RAM Storage.",
+  "license": "MIT",
+  "homepage": "https://github.com/iabudiab/ObjectiveRocks",
+  "authors": "iabudiab",
+  "social_media_url": "https://twitter.com/_iabudiab",
+  "source": {
+    "git": "https://github.com/iabudiab/ObjectiveRocks.git",
+    "tag": "0.9.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "preserve_paths": "rocksdb_src/rocksdb/**/*",
+  "prepare_command": "sh clean_rocksdb_source.sh",
+  "source_files": [
+    "rocksdb_src/rocksdb/**/*",
+    "Code/*.{h,mm,cpp}"
+  ],
+  "private_header_files": [
+    "Code/*Callback*.h",
+    "Code/*Private*.h",
+    "Code/RocksDBError.h",
+    "Code/RocksDBSlice.h"
+  ],
+  "osx": {
+    "public_header_files": [
+      "Code/RocksDB.h",
+      "Code/RocksDBBackupEngine.h",
+      "Code/RocksDBBackupInfo.h",
+      "Code/RocksDBBlockBasedTableOptions.h",
+      "Code/RocksDBCache.h",
+      "Code/RocksDBCheckpoint.h",
+      "Code/RocksDBColumnFamily.h",
+      "Code/RocksDBColumnFamilyDescriptor.h",
+      "Code/RocksDBColumnFamilyMetadata.h",
+      "Code/RocksDBColumnFamilyOptions.h",
+      "Code/RocksDBCompactRangeOptions.h",
+      "Code/RocksDBComparator.h",
+      "Code/RocksDBCuckooTableOptions.h",
+      "Code/RocksDBDatabaseOptions.h",
+      "Code/RocksDBEnv.h",
+      "Code/RocksDBFilterPolicy.h",
+      "Code/RocksDBIndexedWriteBatch.h",
+      "Code/RocksDBIterator.h",
+      "Code/RocksDBMemTableRepFactory.h",
+      "Code/RocksDBMergeOperator.h",
+      "Code/RocksDBOptions.h",
+      "Code/RocksDBPlainTableOptions.h",
+      "Code/RocksDBPrefixExtractor.h",
+      "Code/RocksDBProperties.h",
+      "Code/RocksDBRange.h",
+      "Code/RocksDBReadOptions.h",
+      "Code/RocksDBSnapshot.h",
+      "Code/RocksDBSnapshotUnavailable.h",
+      "Code/RocksDBStatistics.h",
+      "Code/RocksDBStatisticsHistogram.h",
+      "Code/RocksDBTableFactory.h",
+      "Code/RocksDBThreadStatus.h",
+      "Code/RocksDBWriteBatch.h",
+      "Code/RocksDBWriteBatchIterator.h",
+      "Code/RocksDBWriteOptions.h"
+    ],
+    "exclude_files": "rocksdb_src/rocksdb/tools/sst_dump_tool*",
+    "pod_target_xcconfig": {
+      "GCC_PREPROCESSOR_DEFINITIONS": "ROCKSDB_USING_THREAD_STATUS=1"
+    },
+    "user_target_xcconfig": {
+      "GCC_PREPROCESSOR_DEFINITIONS": "ROCKSDB_USING_THREAD_STATUS=1"
+    }
+  },
+  "ios": {
+    "exclude_files": [
+      "Code/RocksDBColumnFamilyMetadata*.{h,mm}",
+      "Code/RocksDBIndexedWriteBatch*.{h,mm}",
+      "Code/RocksDBWriteBatchIterator*.{h,mm}",
+      "Code/RocksDBThreadStatus*.{h,mm}",
+      "Code/RocksDBPlainTableOptions*.{h,mm}",
+      "Code/RocksDBCuckooTableOptions*.{h,mm}",
+      "Code/RocksDBProperties*.{h,mm}",
+      "Code/RocksDBCheckpoint*.{h,mm}",
+      "Code/RocksDBStatistics*.{h,mm}",
+      "Code/RocksDBStatisticsHistogram*.{h,mm}",
+      "Code/RocksDBBackupEngine*.{h,mm}",
+      "Code/RocksDBBackupInfo*.{h,mm}"
+    ],
+    "public_header_files": [
+      "Code/RocksDB.h",
+      "Code/RocksDBBlockBasedTableOptions.h",
+      "Code/RocksDBCache.h",
+      "Code/RocksDBColumnFamily.h",
+      "Code/RocksDBColumnFamilyDescriptor.h",
+      "Code/RocksDBColumnFamilyOptions.h",
+      "Code/RocksDBCompactRangeOptions.h",
+      "Code/RocksDBComparator.h",
+      "Code/RocksDBDatabaseOptions.h",
+      "Code/RocksDBEnv.h",
+      "Code/RocksDBFilterPolicy.h",
+      "Code/RocksDBIterator.h",
+      "Code/RocksDBMemTableRepFactory.h",
+      "Code/RocksDBMergeOperator.h",
+      "Code/RocksDBOptions.h",
+      "Code/RocksDBPrefixExtractor.h",
+      "Code/RocksDBRange.h",
+      "Code/RocksDBReadOptions.h",
+      "Code/RocksDBSnapshot.h",
+      "Code/RocksDBSnapshotUnavailable.h",
+      "Code/RocksDBTableFactory.h",
+      "Code/RocksDBWriteBatch.h",
+      "Code/RocksDBWriteOptions.h"
+    ],
+    "pod_target_xcconfig": {
+      "GCC_PREPROCESSOR_DEFINITIONS": "ROCKSDB_LITE=1 IOS_CROSS_COMPILE=1 NROCKSDB_THREAD_STATUS=1"
+    },
+    "user_target_xcconfig": {
+      "GCC_PREPROCESSOR_DEFINITIONS": "ROCKSDB_LITE=1 IOS_CROSS_COMPILE=1 NROCKSDB_THREAD_STATUS=1"
+    }
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "NDEBUG=1 OS_MACOSX=1 ROCKSDB_PLATFORM_POSIX=1 ROCKSDB_LIB_IO_POSIX=1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/rocksdb_src/rocksdb\" \"${PODS_TARGET_SRCROOT}/rocksdb_src/rocksdb/include\"",
+    "LIBRARY_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/rocksdb_src/rocksdb\"",
+    "GCC_INPUT_FILETYPE": "sourcecode.cpp.objcpp",
+    "GCC_C_LANGUAGE_STANDARD": "gnu99",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++11"
+  },
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "NDEBUG=1 OS_MACOSX=1 ROCKSDB_PLATFORM_POSIX=1 ROCKSDB_LIB_IO_POSIX=1"
+  }
+}
