@@ -1,0 +1,88 @@
+{
+  "name": "FBAliPaySDK",
+  "version": "1.1.2",
+  "summary": "Alipay SDK for iOS. You can create alipay order or sign orders with `Order` subspec.",
+  "homepage": "https://github.com/robin2005/AliPaySDK",
+  "license": {
+    "type": "Copyright",
+    "text": "      支付宝(中国)网络技术有限公司 ^? 版权所有.\n"
+  },
+  "authors": {
+    "AliPay": "http://www.alipay.com/"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/robin2005/AliPaySDK.git",
+    "tag": "1.1.2"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreTelephony",
+    "Security",
+    "QuartzCore",
+    "CoreText",
+    "CoreMotion",
+    "CFNetwork",
+    "CoreGraphics",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "ssl",
+    "crypto",
+    "z",
+    "c++"
+  ],
+  "default_subspecs": "openssl",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/FBAliPaySDK"
+  },
+  "subspecs": [
+    {
+      "name": "openssl",
+      "header_dir": "openssl",
+      "source_files": "openssl/*.{h,m}",
+      "preserve_paths": [
+        "lib/libcrypto.a",
+        "lib/libssl.a"
+      ],
+      "vendored_libraries": [
+        "lib/libcrypto.a",
+        "lib/libssl.a"
+      ],
+      "public_header_files": "openssl/*.h"
+    },
+    {
+      "name": "DataSigner",
+      "source_files": "DataSigner/*.{h,m}",
+      "public_header_files": "DataSigner/*.h",
+      "dependencies": {
+        "FBAliPaySDK/openssl": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDK",
+      "frameworks": "AlipaySDK",
+      "resources": "AlipaySDK.bundle",
+      "vendored_frameworks": "AlipaySDK.framework",
+      "preserve_paths": [
+        "lib/libcrypto.a",
+        "lib/libssl.a"
+      ],
+      "vendored_libraries": [
+        "lib/libcrypto.a",
+        "lib/libssl.a"
+      ],
+      "dependencies": {
+        "FBAliPaySDK/openssl": [
+
+        ]
+      }
+    }
+  ]
+}
