@@ -1,0 +1,65 @@
+{
+  "name": "Typhoon",
+  "version": "4.0.5",
+  "license": "Apache2.0",
+  "summary": "Dependency injection for Objective-C and Swift. Light-weight, yet flexible and full-featured.",
+  "homepage": "http://www.typhoonframework.org",
+  "authors": {
+    "Jasper Blues, Aleksey Garbarev, Robert Gilliam, Daniel Rodríguez, Erik Sundin & Contributors": "info@typhoonframework.org"
+  },
+  "source": {
+    "git": "https://github.com/appsquickly/Typhoon.git",
+    "tag": "4.0.5",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7",
+    "tvos": "9.0"
+  },
+  "source_files": "Source/**/*.{h,m}",
+  "ios": {
+    "exclude_files": [
+      "Source/osx",
+      "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}"
+    ]
+  },
+  "osx": {
+    "exclude_files": [
+      "Source/ios",
+      "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}"
+    ]
+  },
+  "tvos": {
+    "exclude_files": [
+      "Source/osx",
+      "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}"
+    ]
+  },
+  "requires_arc": true,
+  "documentation_url": "http://www.typhoonframework.org/docs/latest/api/",
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.{h,m}",
+      "dependencies": {
+        "Typhoon/IntrospectionUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "IntrospectionUtils",
+      "source_files": [
+        "Source/Utils/TyphoonIntrospectionUtils.{h,m}",
+        "Source/TypeConversion/TyphoonTypeDescriptor.{h,m}",
+        "Source/Utils/TyphoonUtils.h"
+      ]
+    },
+    {
+      "name": "DeallocNotifier",
+      "source_files": "Source/Utils/NSObject+DeallocNotification.{h,m}"
+    }
+  ]
+}
