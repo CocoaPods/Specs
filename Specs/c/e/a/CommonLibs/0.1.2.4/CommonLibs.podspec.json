@@ -1,0 +1,154 @@
+{
+  "name": "CommonLibs",
+  "version": "0.1.2.4",
+  "summary": "通用组件",
+  "description": "通用组件",
+  "homepage": "https://www.58daojia.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangxiaoqiao": "zhangxiaoqiao@daojia.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "http://git.daojia-inc.com/cswebsite/ios-CommonLib.git",
+    "branch": "developer"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreFoundation"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "libraries": "xml2",
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "MBProgressHUD": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "DACircularProgress": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "YYUtility",
+      "source_files": "CommonLib/YYUtility/**/*.{h,m}",
+      "public_header_files": "CommonLib/YYUtility/**/*.h"
+    },
+    {
+      "name": "YYModel",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ]
+      },
+      "source_files": "CommonLib/YYModel/**/*.{h,m}",
+      "public_header_files": "CommonLib/YYModel/**/*.h"
+    },
+    {
+      "name": "YYCache",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ]
+      },
+      "source_files": "CommonLib/YYCache/**/*.{h,m}",
+      "public_header_files": "CommonLib/YYCache/**/*.h"
+    },
+    {
+      "name": "Aloha",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ],
+        "CommonLibs/YYModel": [
+
+        ],
+        "CommonLibs/YYCache": [
+
+        ]
+      },
+      "source_files": "CommonLib/Aloha/AlohaKit.h",
+      "public_header_files": "CommonLib/Aloha/AlohaKit.h",
+      "subspecs": [
+        {
+          "name": "BaseView",
+          "source_files": "CommonLib/Aloha/BaseView/**/*.{h,m}",
+          "public_header_files": "CommonLib/Aloha/BaseView/**/*.h"
+        },
+        {
+          "name": "Utils",
+          "dependencies": {
+            "CommonLibs/Aloha/BaseView": [
+
+            ]
+          },
+          "source_files": "CommonLib/Aloha/Utils/**/*.{h,m}",
+          "public_header_files": "CommonLib/Aloha/Utils/**/*.h"
+        },
+        {
+          "name": "Network",
+          "dependencies": {
+            "CommonLibs/Aloha/BaseView": [
+
+            ],
+            "CommonLibs/Aloha/Utils": [
+
+            ]
+          },
+          "source_files": "CommonLib/Aloha/Network/**/*.{h,m}",
+          "public_header_files": "CommonLib/Aloha/Network/**/*.h"
+        }
+      ]
+    },
+    {
+      "name": "MLPhotoLib",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ],
+        "CommonLibs/Aloha": [
+
+        ]
+      },
+      "source_files": "CommonLib/MLPhotoLib/**/*.{h,m}",
+      "public_header_files": "CommonLib/MLPhotoLib/**/*.h",
+      "resources": "CommonLib/MLPhotoLib/**/*.{bundle,xib}"
+    },
+    {
+      "name": "RAlertView",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ]
+      },
+      "source_files": "CommonLib/RAlertView/**/*.{h,m}",
+      "public_header_files": "CommonLib/RAlertView/**/*.h"
+    },
+    {
+      "name": "WebPageCache",
+      "dependencies": {
+        "CommonLibs/YYUtility": [
+
+        ]
+      },
+      "source_files": "CommonLib/WebPageCache/**/*.{h,m}",
+      "public_header_files": "CommonLib/WebPageCache/**/*.h"
+    }
+  ]
+}
