@@ -1,0 +1,78 @@
+{
+  "name": "BigDiffer",
+  "version": "0.3.0",
+  "summary": "diff & patch for multi-section UITableView with large number of rows (changes between 0~5000)",
+  "description": "* Multi section diff & patch for UITableView\n* Fast linear complexity diff algorithm a.k.a. Heckel, by making use of ListDiff\n* Optimize diff with some heuristics for large number of rows\n* Skip diffing for currently invisible sections (use reload)\n  * Section-wise diff for currently (partially or completely) visible sections\n  * Skip applying diff when many deletions detected (> 300), for each section",
+  "homepage": "https://github.com/banjun/BigDiffer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "banjun": "banjun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/banjun/BigDiffer.git",
+    "tag": "0.3.0"
+  },
+  "social_media_url": "https://twitter.com/banjun",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "4.1",
+  "default_subspecs": "BigDiffer",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "BigDiffer/Classes/Core/**/*.swift"
+    },
+    {
+      "name": "BigDiffer",
+      "source_files": "BigDiffer/Classes/BigDiffer/**/*.swift",
+      "dependencies": {
+        "BigDiffer/Core": [
+
+        ],
+        "ListDiff": [
+
+        ]
+      }
+    },
+    {
+      "name": "Differ",
+      "source_files": "BigDiffer/Classes/Differ/**/*.swift",
+      "dependencies": {
+        "BigDiffer/Core": [
+
+        ],
+        "Differ": [
+
+        ]
+      }
+    },
+    {
+      "name": "HeckelDiff",
+      "source_files": "BigDiffer/Classes/HeckelDiff/**/*.swift",
+      "dependencies": {
+        "BigDiffer/Core": [
+
+        ],
+        "HeckelDiff": [
+
+        ]
+      }
+    },
+    {
+      "name": "DeepDiff",
+      "source_files": "BigDiffer/Classes/DeepDiff/**/*.swift",
+      "dependencies": {
+        "BigDiffer/Core": [
+
+        ],
+        "DeepDiff": [
+
+        ]
+      }
+    }
+  ]
+}

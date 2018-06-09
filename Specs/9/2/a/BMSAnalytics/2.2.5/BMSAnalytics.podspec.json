@@ -1,0 +1,60 @@
+{
+  "name": "BMSAnalytics",
+  "version": "2.2.5",
+  "summary": "The analytics component of the Swift client SDK for IBM Bluemix Mobile Services",
+  "homepage": "https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics",
+  "documentation_url": "https://ibm-bluemix-mobile-services.github.io/API-docs/client-SDK/BMSAnalytics/Swift/index.html",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "IBM Bluemix Services Mobile SDK": "mobilsdk@us.ibm.com"
+  },
+  "source": {
+    "git": "https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-analytics.git",
+    "tag": "2.2.5"
+  },
+  "source_files": [
+    "Source/**/*.swift",
+    "Source/Resource/*.h"
+  ],
+  "ios": {
+    "exclude_files": "Source/**/*watchOS*.swift",
+    "resources": [
+      "Source/Resources/*.{storyboard,xcassets,json,imageset,png}"
+    ]
+  },
+  "watchos": {
+    "exclude_files": [
+      "Source/**/*iOS*.swift",
+      "Source/Feedback",
+      "Source/SSZipArchive/*.{swift,h}",
+      "Source/SSZipArchive/minizip/*.{c,h}",
+      "Source/SSZipArchive/minizip/aes/*.{c,h}"
+    ]
+  },
+  "dependencies": {
+    "BMSCore": [
+      "~> 2.1"
+    ]
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "watchos": "2.0"
+  },
+  "subspecs": [
+    {
+      "name": "SSZipArchive",
+      "source_files": [
+        "Source/SSZipArchive/*.{m,h}",
+        "Source/SSZipArchive/minizip/*.{c,h}",
+        "Source/SSZipArchive/minizip/aes/*.{c,h}"
+      ],
+      "libraries": "z",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(SRCROOT)/Source/SSZipArchive",
+        "LIBRARY_SEARCH_PATHS": "$(SRCROOT)/Source/SSZipArchive"
+      },
+      "public_header_files": "Source/SSZipArchive/*.h"
+    }
+  ]
+}

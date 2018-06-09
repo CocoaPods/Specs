@@ -1,0 +1,76 @@
+{
+  "name": "ZZNetwork",
+  "version": "1.0.0",
+  "summary": "网络请求的封装，基于AFNetworking,扩展一些基本常用的业务功能",
+  "description": "网络请求的封装，基于AFNetworking,扩展一些基本常用的业务功能。如网络请求的去重，网络请求结果缓存。请求错误协议的记录等等。",
+  "homepage": "https://github.com/saberge/ZZNetwork.git",
+  "license": "MIT",
+  "authors": {
+    "zhenglaixian": "saberge@163.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/saberge/ZZNetwork.git",
+    "tag": "1.0.0"
+  },
+  "source_files": [
+    "Classes",
+    "ZZNetwork/Classes/ZZNetwork.h"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "public_header_files": "ZZNetwork/Classes/ZZNetwork.h",
+  "subspecs": [
+    {
+      "name": "ZZCategory",
+      "source_files": "ZZNetwork/Classes/ZZCategory/*.{h,m}",
+      "frameworks": "QuartzCore"
+    },
+    {
+      "name": "ZZCache",
+      "source_files": "ZZNetwork/Classes/ZZCache/*.{h,m}",
+      "dependencies": {
+        "ZZNetwork/ZZCategory": [
+
+        ],
+        "ZZNetwork/ZZStoreManager": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZZStoreManager",
+      "source_files": "ZZNetwork/Classes/ZZStoreManager/*.{h,m}",
+      "frameworks": "CoreData",
+      "dependencies": {
+        "ZZNetwork/ZZCategory": [
+
+        ]
+      },
+      "resource_bundles": {
+        "ZZStoreManager": [
+          "ZZNetwork/Classes/ZZStoreManager/ZZKeyValueDB.xcdatamodeld"
+        ]
+      }
+    },
+    {
+      "name": "ZZRequest",
+      "source_files": "ZZNetwork/Classes/ZZRequest/*.{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.2.1"
+        ],
+        "ZZNetwork/ZZCategory": [
+
+        ],
+        "ZZNetwork/ZZCache": [
+
+        ],
+        "YYModel": [
+          "~> 1.0.4"
+        ]
+      }
+    }
+  ]
+}

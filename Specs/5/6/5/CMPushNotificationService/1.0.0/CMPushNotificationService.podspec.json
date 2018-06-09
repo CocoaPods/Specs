@@ -1,0 +1,70 @@
+{
+  "name": "CMPushNotificationService",
+  "version": "1.0.0",
+  "summary": "对推送服务的封装",
+  "homepage": "https://github.com/JKshared92/CMPushNotificationService",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "comma": "506702341@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/JKshared92/CMPushNotificationService.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64"
+  },
+  "frameworks": [
+    "UIKit",
+    "CFNetwork",
+    "CoreFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Foundation",
+    "Security"
+  ],
+  "weak_frameworks": "UserNotifications",
+  "libraries": [
+    "resolv",
+    "z",
+    "sqlite3"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CMPushNotificationService/Classes/Core/*.{h,m}",
+      "public_header_files": "CMPushNotificationService/Classes/Core/*.h",
+      "dependencies": {
+        "CMPushNotificationService/JPushLib": [
+
+        ],
+        "CMPushNotificationService/XGLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "JPushLib",
+      "dependencies": {
+        "JPush": [
+
+        ]
+      }
+    },
+    {
+      "name": "XGLib",
+      "source_files": "CMPushNotificationService/Classes/XGPushLib/*.{h}",
+      "vendored_libraries": "CMPushNotificationService/Classes/XGPushLib/*.{a}",
+      "public_header_files": "CMPushNotificationService/Classes/XGPushLib/*.{h}"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "FBAliPaySDK",
+  "version": "1.1.0",
+  "summary": "Alipay SDK for iOS. You can create alipay order or sign orders with `Order` subspec.",
+  "homepage": "https://github.com/robin2005/AliPaySDK",
+  "license": {
+    "type": "Copyright",
+    "text": "      支付宝(中国)网络技术有限公司 ^? 版权所有.\n"
+  },
+  "authors": {
+    "AliPay": "http://www.alipay.com/"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/robin2005/AliPaySDK.git",
+    "tag": "1.1.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreTelephony",
+    "Security",
+    "QuartzCore",
+    "CoreText",
+    "CoreMotion",
+    "CFNetwork",
+    "CoreGraphics",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "ssl",
+    "crypto",
+    "z",
+    "c++"
+  ],
+  "default_subspecs": "openssl",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/FBAliPaySDK $(PODS_ROOT)/FBAliPaySDK/AliPay-Extend"
+  },
+  "subspecs": [
+    {
+      "name": "openssl",
+      "source_files": "AliPay-Extend/openssl/**/*.{h,m}",
+      "header_dir": "openssl",
+      "preserve_paths": [
+        "AliPay-Extend/libcrypto.a",
+        "AliPay-Extend/libssl.a"
+      ],
+      "vendored_libraries": [
+        "AliPay-Extend/libcrypto.a",
+        "AliPay-Extend/libssl.a"
+      ],
+      "public_header_files": "AliPay-Extend/openssl/**/*.h"
+    },
+    {
+      "name": "Order",
+      "source_files": [
+        "AliPay-Extend/*.{h,m}",
+        "AliPay-Extend/Util/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "AliPay-Extend/*.h",
+        "AliPay-Extend/Util/**/*.h"
+      ],
+      "dependencies": {
+        "FBAliPaySDK/openssl": [
+
+        ]
+      }
+    }
+  ]
+}

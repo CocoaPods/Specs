@@ -1,0 +1,66 @@
+{
+  "name": "EMKissXML",
+  "version": "1.1.0",
+  "summary": "自己用的一个KissXML版本，支持原创",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/faterman/EMKissXML",
+  "authors": {
+    "faterman": "xxyformobile@163.com"
+  },
+  "source": {
+    "git": "https://github.com/faterman/EMKissXML.git",
+    "tag": "1.1.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Standard",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "EMKissXML/**/*.{h,m}",
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "Standard",
+      "dependencies": {
+        "EMKissXML/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "OTHER_CFLAGS": "$(inherited) -DDDXML_LIBXML_MODULE_ENABLED=0"
+      }
+    },
+    {
+      "name": "libxml_module",
+      "dependencies": {
+        "EMKissXML/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "EMKissXML/**/*.swift"
+      },
+      "preserve_paths": "libxml/module.modulemap",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/EMKissXML/libxml \"$(PODS_ROOT)/../../../libxml\"",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "OTHER_CFLAGS": "$(inherited) -DDDXML_LIBXML_MODULE_ENABLED=0",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDDXML_LIBXML_MODULE_ENABLED"
+      }
+    }
+  ]
+}

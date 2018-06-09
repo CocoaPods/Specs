@@ -1,0 +1,99 @@
+{
+  "name": "SnapshotTestCase",
+  "module_name": "FBSnapshotTestCase",
+  "version": "3.0.0",
+  "summary": "Snapshot view unit tests for iOS/MacOS",
+  "description": "A \"snapshot test case\" takes a configured UIView/NSView or CALayer\nand uses the renderInContext: method to get an image snapshot\nof its contents. It compares this snapshot to a \"reference image\"\nstored in your source code repository and fails the test if the\ntwo images don't match.",
+  "homepage": "https://github.com/albumprinter/snapshot-test-case",
+  "license": "MIT",
+  "authors": "Albelli",
+  "source": {
+    "git": "https://github.com/albumprinter/snapshot-test-case.git",
+    "tag": "3.0.0"
+  },
+  "platforms": {
+    "ios": "8.1",
+    "tvos": "9.0",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "ios": {
+    "frameworks": [
+      "XCTest",
+      "UIKit",
+      "Foundation",
+      "QuartzCore"
+    ]
+  },
+  "tvos": {
+    "frameworks": [
+      "XCTest",
+      "UIKit",
+      "Foundation",
+      "QuartzCore"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "XCTest",
+      "AppKit",
+      "Foundation",
+      "QuartzCore"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+  },
+  "default_subspecs": "SwiftSupport",
+  "swift_version": "4.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "FBSnapshotTestCase/**/*.{h,m}",
+        "FBSnapshotTestCase/*.{h,m}"
+      ],
+      "public_header_files": [
+        "FBSnapshotTestCase/FBSnapshotTestCase.h",
+        "FBSnapshotTestCase/FBSnapshotTestCasePlatform.h",
+        "FBSnapshotTestCase/FBSnapshotTestController.h"
+      ],
+      "ios": {
+        "private_header_files": [
+          "FBSnapshotTestCase/Categories/UIImage+Compare.h",
+          "FBSnapshotTestCase/Categories/UIImage+Diff.h",
+          "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"
+        ],
+        "exclude_files": "FBSnapshotTestCase/Categories-macOS/*.{h,m}"
+      },
+      "tvos": {
+        "private_header_files": [
+          "FBSnapshotTestCase/Categories/UIImage+Compare.h",
+          "FBSnapshotTestCase/Categories/UIImage+Diff.h",
+          "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"
+        ],
+        "exclude_files": "FBSnapshotTestCase/Categories-macOS/*.{h,m}"
+      },
+      "osx": {
+        "private_header_files": [
+          "FBSnapshotTestCase/Categories-macOS/NSImage+Compare.h",
+          "FBSnapshotTestCase/Categories-macOS/NSImage+Diff.h",
+          "FBSnapshotTestCase/Categories-macOS/NSImage+Snapshot.h"
+        ],
+        "exclude_files": "FBSnapshotTestCase/Categories/*.{h,m}"
+      }
+    },
+    {
+      "name": "SwiftSupport",
+      "dependencies": {
+        "SnapshotTestCase/Core": [
+
+        ]
+      },
+      "source_files": "FBSnapshotTestCase/**/*.swift"
+    }
+  ]
+}

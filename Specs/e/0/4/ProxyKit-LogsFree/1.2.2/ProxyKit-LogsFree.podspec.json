@@ -1,0 +1,100 @@
+{
+  "name": "ProxyKit-LogsFree",
+  "version": "1.2.2",
+  "summary": "SOCKS proxy server and socket client built upon GCDAsyncSocket.",
+  "homepage": "https://github.com/chrisballinger/ProxyKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Chris Ballinger": "chrisballinger@gmail.com"
+  },
+  "social_media_url": "https://github.com/chrisballinger",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/RishatShamsutdinov/ProxyKit.git",
+    "tag": "1.2.2"
+  },
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "common",
+      "dependencies": {
+        "CocoaAsyncSocket": [
+          "~> 7.6"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "common-logs",
+      "dependencies": {
+        "CocoaLumberjack": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Server-LogsFree",
+      "source_files": "ProxyKit/Server/*.{h,m}",
+      "dependencies": {
+        "ProxyKit-LogsFree/common": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Server",
+      "dependencies": {
+        "ProxyKit-LogsFree/Server-LogsFree": [
+
+        ],
+        "ProxyKit-LogsFree/common-logs": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Client-LogsFree",
+      "source_files": "ProxyKit/Client/*.{h,m}",
+      "dependencies": {
+        "ProxyKit-LogsFree/common": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Client",
+      "dependencies": {
+        "ProxyKit-LogsFree/Client-LogsFree": [
+
+        ],
+        "ProxyKit-LogsFree/common-logs": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "standard",
+      "dependencies": {
+        "ProxyKit-LogsFree/Client": [
+
+        ],
+        "ProxyKit-LogsFree/Server": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}

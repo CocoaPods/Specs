@@ -1,0 +1,31 @@
+{
+  "name": "RxMKMapView",
+  "version": "4.1.0",
+  "summary": "Reactive wrapper for MKMapView `delegate`",
+  "description": "RxMKMapView is a Reactive wrapper for MKMapView `delegate`.\n\n## Installation\n\nRxMKMapView is available through [CocoaPods](http://cocoapods.org). To install\nit, simply add the following line to your Podfile:\n\n```ruby\npod \"RxMKMapView\"\n```\n\n## Example Usages\n\n```swift\n// MARK: Setup MKMapView\nlet mapView = MKMapView(frame: view.frame)\nview.addSubview(mapView)\n\n// MARK: Bind Annotations\n\nrequestForAnnotations() // Observable<MKAnnotation>\n    .asDriver(onErrorJustReturn: [])\n    .drive(mapView.rx.annotations)\n    .disposed(by: disposeBag)\n\n// MARK: Respond to Loading Events\nmapView.rx.willStartLoadingMap\n       .asDriver()\n       .drive(onNext: {\n           print(\"map started loadedloading)\n       })\n       .disposed(by: disposeBag)\n\nmapView.rx.didFinishLoadingMap\n       .asDriver()\n       .drive(onNext: {\n           print(\"map finished loading\")\n       })\n       .disposed(by: disposeBag)\n```",
+  "homepage": "https://github.com/RxSwiftCommunity/RxMKMapView",
+  "license": "MIT",
+  "authors": {
+    "RxSwift Community": "community@rxswift.org"
+  },
+  "source": {
+    "git": "https://github.com/RxSwiftCommunity/RxMKMapView.git",
+    "tag": "4.1.0"
+  },
+  "social_media_url": "https://twitter.com/sger",
+  "swift_version": "4.0",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "dependencies": {
+    "RxCocoa": [
+      "~> 4.0"
+    ],
+    "RxSwift": [
+      "~> 4.0"
+    ]
+  },
+  "frameworks": "Foundation"
+}

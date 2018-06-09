@@ -1,0 +1,61 @@
+{
+  "name": "HTLivePushKit",
+  "version": "1.0.9",
+  "summary": "This is a Kit for iOS Live Push",
+  "description": "This is a Kit for iOS Live Push,you can pod this Kit to push video and audio",
+  "homepage": "http://www.helloted.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "helloted": "helloted@live.com"
+  },
+  "social_media_url": "http://helloted.com",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/helloted/HTLivePushKit.git",
+    "tag": "1.0.9"
+  },
+  "source_files": "Classes/*.{h,m}",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/HTLivePushKit/include/librtmp",
+    "LIBRARY_SEARCH_PATHS": "${PODS_ROOT}/HTLivePushKit/Libraries"
+  },
+  "public_header_files": "Classes/HTLivePushKit.h",
+  "frameworks": [
+    "AVFoundation",
+    "VideoToolbox",
+    "AudioToolbox"
+  ],
+  "libraries": "z",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "HTCapture",
+      "public_header_files": "Classes/Capture/*.h",
+      "source_files": "Classes/Capture/*.{h,m}"
+    },
+    {
+      "name": "HTEncoder",
+      "public_header_files": "Classes/Encoder/*.h",
+      "source_files": "Classes/Encoder/*.{h,m}"
+    },
+    {
+      "name": "HTRTMP",
+      "public_header_files": "Classes/RTMP/*.h",
+      "source_files": "Classes/RTMP/*.{h,m}",
+      "vendored_libraries": [
+        "Libraries/libcrypto.a",
+        "Libraries/librtmp.a",
+        "Libraries/libssl.a"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/HTLivePushKit/include/librtmp",
+        "LIBRARY_SEARCH_PATHS": "${PODS_ROOT}/HTLivePushKit/Libraries"
+      }
+    }
+  ]
+}
