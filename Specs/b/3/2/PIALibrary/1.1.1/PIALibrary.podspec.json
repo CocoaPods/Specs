@@ -1,0 +1,123 @@
+{
+  "name": "PIALibrary",
+  "version": "1.1.1",
+  "summary": "PIA client library in Swift.",
+  "homepage": "https://www.privateinternetaccess.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Davide De Rosa": "davide@londontrustmedia.com"
+  },
+  "source": {
+    "git": "https://github.com/pia-foss/client-library-apple.git",
+    "tag": "v1.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Library"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PIALibrary/Sources/Core/**/*.swift"
+    },
+    {
+      "name": "Library",
+      "source_files": "PIALibrary/Sources/Library/**/*.swift",
+      "resources": "PIALibrary/Resources/Library/**/*",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "PIALibrary/Core": [
+
+        ],
+        "PIALibrary/Util": [
+
+        ],
+        "Gloss": [
+          "~> 2"
+        ],
+        "Alamofire": [
+          "~> 4"
+        ],
+        "ReachabilitySwift": [
+
+        ],
+        "SwiftyBeaver": [
+
+        ]
+      }
+    },
+    {
+      "name": "VPN",
+      "source_files": "PIALibrary/Sources/VPN/*.swift",
+      "frameworks": "NetworkExtension",
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "PIATunnel": [
+          "~> 1.1"
+        ],
+        "PIALibrary/Library": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "PIALibrary/Sources/UI/Shared/*.swift",
+      "resources": "PIALibrary/Resources/UI/Shared/**/*",
+      "dependencies": {
+        "PIALibrary/Library": [
+
+        ],
+        "SwiftyBeaver": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "PIALibrary/Sources/UI/iOS/*.swift",
+        "resources": "PIALibrary/Resources/UI/iOS/**/*",
+        "dependencies": {
+          "TPKeyboardAvoiding": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mock",
+      "source_files": "PIALibrary/Sources/Mock/*.swift",
+      "dependencies": {
+        "PIALibrary/Library": [
+
+        ]
+      }
+    },
+    {
+      "name": "Util",
+      "source_files": "PIALibrary/Sources/Util/*.{h,m,swift}",
+      "private_header_files": "PIALibrary/Sources/Util/*.h",
+      "ios": {
+        "source_files": "PIALibrary/Sources/Util/iOS/*.{h,m,swift}",
+        "private_header_files": "PIALibrary/Sources/Util/iOS/*.h",
+        "preserve_paths": "PIALibrary/Sources/Util/iOS/*.modulemap",
+        "pod_target_xcconfig": {
+          "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/PIALibrary/Sources/Util/iOS"
+        }
+      },
+      "dependencies": {
+        "PIALibrary/Core": [
+
+        ]
+      }
+    }
+  ]
+}
