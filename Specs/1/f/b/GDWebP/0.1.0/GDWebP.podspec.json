@@ -1,0 +1,179 @@
+{
+  "name": "GDWebP",
+  "version": "0.1.0",
+  "summary": "libwebp镜像，包含SD框架",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/QDFish/GDWebP",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "QDFish": "zhengzonggang@taqu.cn"
+  },
+  "source": {
+    "git": "https://github.com/QDFish/GDWebP.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "compiler_flags": "-D_THREAD_SAFE",
+  "subspecs": [
+    {
+      "name": "webp",
+      "source_files": "GDWebP/libwebp/src/webp/*.h",
+      "private_header_files": "GDWebP/libwebp/src/webp/*.h",
+      "header_dir": "webp"
+    },
+    {
+      "name": "core",
+      "private_header_files": [
+        "GDWebP/libwebp/src/utils/*.h",
+        "GDWebP/libwebp/src/dsp/*.h",
+        "GDWebP/libwebp/src/enc/*.h",
+        "GDWebP/libwebp/src/dec/*.h"
+      ],
+      "source_files": [
+        "GDWebP/libwebp/src/utils/*.{h,c}",
+        "GDWebP/libwebp/src/dsp/*.{h,c}",
+        "GDWebP/libwebp/src/enc/*.{h,c}",
+        "GDWebP/libwebp/src/dec/*.{h,c}"
+      ],
+      "dependencies": {
+        "GDWebP/webp": [
+
+        ]
+      }
+    },
+    {
+      "name": "utils",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "dsp",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "enc",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "dec",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "demux",
+      "source_files": "GDWebP/libwebp/src/demux/*.{h,c}",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "mux",
+      "private_header_files": "GDWebP/libwebp/src/mux/*.h",
+      "source_files": "GDWebP/libwebp/src/mux/*.{h,c}",
+      "dependencies": {
+        "GDWebP/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDCore",
+      "source_files": "GDWebP/{NS,SD,UI}*.{h,m}",
+      "exclude_files": [
+        "GDWebP/UIImage+WebP.{h,m}",
+        "GDWebP/SDWebImageWebPCoder.{h,m}"
+      ],
+      "tvos": {
+        "exclude_files": "GDWebP/MKAnnotationView+WebCache.*"
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT)/GDWebP/**/"
+      }
+    },
+    {
+      "name": "SDGIF",
+      "platforms": {
+        "ios": "7.0"
+      },
+      "source_files": "GDWebP/FLAnimatedImage/*.{h,m}",
+      "dependencies": {
+        "GDWebP/SDCore": [
+
+        ],
+        "FLAnimatedImage": [
+          "~> 1.0"
+        ]
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/FLAnimatedImage/FLAnimatedImage"
+      }
+    },
+    {
+      "name": "SDWebp",
+      "source_files": [
+        "GDWebP/UIImage+WebP.{h,m}",
+        "GDWebP/SDWebImageWebPCoder.{h,m}"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SD_WEBP=1",
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT)/GDWebP/libwebp/src"
+      },
+      "watchos": {
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SD_WEBP=1 WEBP_USE_INTRINSICS=1",
+          "USER_HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT)/GDWebP/libwebp/src"
+        }
+      },
+      "dependencies": {
+        "GDWebP/SDCore": [
+
+        ],
+        "GDWebP/webp": [
+
+        ],
+        "GDWebP/core": [
+
+        ],
+        "GDWebP/utils": [
+
+        ],
+        "GDWebP/dsp": [
+
+        ],
+        "GDWebP/enc": [
+
+        ],
+        "GDWebP/dec": [
+
+        ],
+        "GDWebP/demux": [
+
+        ],
+        "GDWebP/mux": [
+
+        ]
+      }
+    }
+  ]
+}
