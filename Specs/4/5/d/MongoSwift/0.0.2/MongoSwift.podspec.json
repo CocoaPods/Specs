@@ -1,0 +1,34 @@
+{
+  "name": "MongoSwift",
+  "version": "0.0.2",
+  "summary": "The Swift driver for MongoDB",
+  "homepage": "https://github.com/mongodb/mongo-swift-driver",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Matt Broadstone": "mbroadst@mongodb.com",
+    "Kaitlin Mahar": "kaitlin.mahar@mongodb.com"
+  },
+  "source": {
+    "git": "https://github.com/mongodb/mongo-swift-driver.git",
+    "tag": "v0.0.2"
+  },
+  "platforms": {
+    "ios": "11.2",
+    "tvos": "9.1",
+    "osx": "10.10"
+  },
+  "requires_arc": true,
+  "source_files": "Sources/MongoSwift/**/*.swift",
+  "preserve_paths": [
+    "Sources/libbson/*.{h,modulemap}",
+    "Sources/libmongoc/*.{h,modulemap}"
+  ],
+  "prepare_command": "[[ -d Sources/libbson ]] || git clone --depth 1 https://github.com/mongodb/swift-bson Sources/libbson\n[[ -d Sources/libmongoc ]] || git clone --depth 1 https://github.com/mongodb/swift-mongoc Sources/libmongoc",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "\"$(PODS_TARGET_SRCROOT)/Sources/libbson\" \"$(PODS_TARGET_SRCROOT)/Sources/libmongoc\" \"/usr/local/Cellar/mongo-c-driver/1.9.4/include/libmongoc-1.0\" \"/usr/local/Cellar/mongo-c-driver/1.9.4/include/libbson-1.0\"",
+    "LIBRARY_SEARCH_PATHS": "\"/usr/local/Cellar/mongo-c-driver/1.9.4/lib\""
+  },
+  "user_target_xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"/usr/local/Cellar/mongo-c-driver/1.9.4/lib\""
+  }
+}
