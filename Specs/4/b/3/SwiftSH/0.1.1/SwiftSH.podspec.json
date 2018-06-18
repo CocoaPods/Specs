@@ -1,0 +1,43 @@
+{
+  "name": "SwiftSH",
+  "version": "0.1.1",
+  "summary": "A Swift SSH framework that wraps libssh2.",
+  "homepage": "https://github.com/Frugghi/SwiftSH",
+  "license": "MIT",
+  "authors": {
+    "Tommaso Madonia": "tommaso@madonia.me"
+  },
+  "source": {
+    "git": "https://github.com/Frugghi/SwiftSH.git",
+    "tag": "0.1.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Libssh2",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SwiftSH/*.swift",
+      "exclude_files": "SwiftSH/Libssh2*"
+    },
+    {
+      "name": "Libssh2",
+      "dependencies": {
+        "SwiftSH/Core": [
+
+        ]
+      },
+      "libraries": "z",
+      "preserve_paths": "libssh2",
+      "source_files": "SwiftSH/Libssh2*.{h,m,swift}",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+        "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SwiftSH/libssh2",
+        "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/SwiftSH/libssh2",
+        "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/SwiftSH/libssh2"
+      }
+    }
+  ]
+}
