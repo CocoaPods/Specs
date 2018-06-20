@@ -1,0 +1,63 @@
+{
+  "name": "MongoSwiftMobile",
+  "version": "4.0.0-beta-1",
+  "summary": "MongoSwift Driver Mobile extension",
+  "homepage": "https://github.com/mongodb/stitch-ios-sdk",
+  "license": "Apache2",
+  "authors": {
+    "Jason Flax": "jason.flax@mongodb.com",
+    "Adam Chelminski": "adam.chelminski@mongodb.com",
+    "Eric Daniels": "eric.daniels@mongodb.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/mongodb/stitch-ios-sdk.git",
+    "branch": "master"
+  },
+  "swift_version": "4.1",
+  "requires_arc": true,
+  "prepare_command": "sh download_sdk.sh",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=appletvos*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=appletvsimulator*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvos*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvsimulator*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include/libbson-1.0 $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include/libmongoc-1.0 $(PODS_TARGET_SRCROOT)/vendor/Sources/libmongoc $(PODS_TARGET_SRCROOT)/vendor/Sources/libbson",
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=appletvos*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=appletvsimulator*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvos*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvsimulator*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "ENABLE_BITCODE": "NO"
+  },
+  "preserve_paths": "vendor",
+  "ios": {
+    "vendored_libraries": [
+      "vendor/MobileSDKs/iphoneos/lib/libmongoc-1.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libmongoc-1.0.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libbson-1.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libbson-1.0.0.dylib"
+    ]
+  },
+  "tvos": {
+    "vendored_libraries": [
+      "vendor/MobileSDKs/iphoneos/lib/libmongoc-1.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libmongoc-1.0.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libbson-1.0.dylib",
+      "vendor/MobileSDKs/iphoneos/lib/libbson-1.0.0.dylib"
+    ]
+  },
+  "source_files": "vendor/Sources/MongoSwift/**/*.swift"
+}
