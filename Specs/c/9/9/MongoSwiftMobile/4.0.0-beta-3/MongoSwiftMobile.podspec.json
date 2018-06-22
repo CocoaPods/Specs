@@ -1,0 +1,64 @@
+{
+  "name": "MongoSwiftMobile",
+  "version": "4.0.0-beta-3",
+  "summary": "MongoSwift Driver Mobile extension",
+  "homepage": "https://github.com/mongodb/stitch-ios-sdk",
+  "license": "Apache2",
+  "authors": {
+    "Jason Flax": "jason.flax@mongodb.com",
+    "Adam Chelminski": "adam.chelminski@mongodb.com",
+    "Eric Daniels": "eric.daniels@mongodb.com"
+  },
+  "platforms": {
+    "watchos": "4.3",
+    "ios": "11.0",
+    "tvos": "10.2"
+  },
+  "source": {
+    "git": "https://github.com/jsflax/stitch-ios-sdk.git",
+    "branch": "master"
+  },
+  "prepare_command": "sh download_sdk.sh",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=appletvos*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=appletvsimulator*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=watchos*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/watchos/lib",
+    "OTHER_LDFLAGS[sdk=watchsimulator*]": "-rpath $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/watchos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvos*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvsimulator*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=watchos*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/watchos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=watchsimulator*]": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/watchos/lib",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include/libbson-1.0 $(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include/libmongoc-1.0 $(PODS_TARGET_SRCROOT)/vendor/Sources/libmongoc $(PODS_TARGET_SRCROOT)/vendor/Sources/libbson",
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "OTHER_LDFLAGS[sdk=appletvos*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=appletvsimulator*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "OTHER_LDFLAGS[sdk=watchos*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/watchos/lib",
+    "OTHER_LDFLAGS[sdk=watchsimulator*]": "-rpath $(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/watchos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/iphoneos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvos*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=appletvsimulator*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/appletvos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=watchos*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/watchos/lib",
+    "LIBRARY_SEARCH_PATHS[sdk=watchsimulator*]": "$(PODS_ROOT)/MongoSwiftMobile/vendor/MobileSDKs/watchos/lib",
+    "ENABLE_BITCODE": "NO"
+  },
+  "preserve_paths": "vendor",
+  "ios": {
+    "vendored_libraries": "vendor/MobileSDKs/iphoneos/lib/*.dylib"
+  },
+  "tvos": {
+    "vendored_libraries": "vendor/MobileSDKs/appletvos/lib/*.dylib"
+  },
+  "watchos": {
+    "vendored_libraries": "vendor/MobileSDKs/watchos/lib/*.dylib"
+  },
+  "source_files": "vendor/Sources/MongoSwift/**/*.swift"
+}
