@@ -1,0 +1,85 @@
+{
+  "name": "SPSDKPay",
+  "version": "1.0.2",
+  "summary": "Supay iOS SDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，支付宝支付。",
+  "homepage": "https://github.com/SPComponents/cheng-pay-ios-sdk",
+  "license": "COMMERCIAL",
+  "authors": {
+    "Afon Weng": "lm.zou@rechengit.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/SPComponents/cheng-pay-ios-sdk.git",
+    "tag": "1.0.2"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx",
+    "UnionPay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "lib/*.h",
+      "public_header_files": "lib/*.h",
+      "vendored_libraries": "lib/*.a",
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_libraries": "lib/Channels/Alipay/*.a",
+      "vendored_frameworks": "lib/Channels/Alipay/*.framework",
+      "resources": "lib/Channels/Alipay/*.bundle",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "SPSDKPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "source_files": "lib/Channels/Wx/*.h",
+      "vendored_libraries": "lib/Channels/Wx/*.a",
+      "dependencies": {
+        "SPSDKPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "lib/Channels/UnionPay/*.h",
+      "vendored_libraries": "lib/Channels/UnionPay/*.a",
+      "dependencies": {
+        "SPSDKPay/Core": [
+
+        ]
+      }
+    }
+  ]
+}
