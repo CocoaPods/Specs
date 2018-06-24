@@ -1,0 +1,68 @@
+{
+  "name": "ZSModule",
+  "version": "0.0.9",
+  "summary": "测试demo",
+  "description": "就是用来测试的demo，没有什么意思。",
+  "homepage": "https://github.com/zhangguozhong/ZSModule.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangguozhong": "494316382@qq.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/zhangguozhong/ZSModule.git",
+    "tag": "0.0.9"
+  },
+  "default_subspecs": "FrameWork",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Source",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_SOURCE=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_SOURCE=1"
+      },
+      "subspecs": [
+        {
+          "name": "Home",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "ZSModule/Classes/Home/Controller/*.{h,m}",
+              "dependencies": {
+                "ZSModule/Source/Module": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Service",
+          "source_files": "ZSModule/Classes/Service/*.{h,m}"
+        },
+        {
+          "name": "Module",
+          "source_files": "ZSModule/Classes/Module/*.{h,m}",
+          "public_header_files": "ZSModule/Classes/Module/*.h"
+        }
+      ]
+    },
+    {
+      "name": "FrameWork",
+      "ios": {
+        "vendored_frameworks": "ZSModule/Pod/*.framework"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_FRAMEWORK=1"
+      }
+    }
+  ]
+}
