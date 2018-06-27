@@ -1,0 +1,57 @@
+{
+  "name": "PIATunnel",
+  "version": "1.1.2",
+  "summary": "PIA tunnel implementation in Swift.",
+  "homepage": "https://www.privateinternetaccess.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Davide De Rosa": "davide@londontrustmedia.com"
+  },
+  "source": {
+    "git": "https://github.com/pia-foss/tunnel-apple.git",
+    "tag": "v1.1.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PIATunnel/Sources/Core/*.{h,m,swift}",
+      "private_header_files": "PIATunnel/Sources/Core/*.h",
+      "preserve_paths": "PIATunnel/Sources/Core/*.modulemap",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/PIATunnel/Sources/Core",
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "SwiftyBeaver": [
+
+        ],
+        "OpenSSL-Apple": [
+          "~> 1.1.0h"
+        ]
+      }
+    },
+    {
+      "name": "AppExtension",
+      "source_files": "PIATunnel/Sources/AppExtension/**/*.swift",
+      "resources": "PIATunnel/Resources/AppExtension/**/*",
+      "frameworks": "NetworkExtension",
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "PIATunnel/Core": [
+
+        ],
+        "SwiftyBeaver": [
+
+        ]
+      }
+    }
+  ]
+}
