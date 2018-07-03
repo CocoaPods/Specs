@@ -1,0 +1,196 @@
+{
+  "name": "ChatSDK",
+  "version": "4.6.4",
+  "summary": "Chat SDK - Mobile messaging framework for iOS",
+  "homepage": "http://chatsdk.co",
+  "license": {
+    "type": "Chat SDK License",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Ben Smiley": "ben@chatsdk.co"
+  },
+  "source": {
+    "git": "https://github.com/chat-sdk/chat-sdk-ios.git",
+    "tag": "4.6.4"
+  },
+  "module_name": "ChatSDK",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "UI",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ChatSDKCore/Classes/**/*"
+      ],
+      "resource_bundles": {
+        "ChatCore": [
+          "ChatSDKCore/Assets/**/*"
+        ]
+      },
+      "dependencies": {
+        "RXPromise": [
+          "~> 1.0"
+        ],
+        "Reachability": [
+          "~> 3.0"
+        ],
+        "AFNetworking": [
+          "~>3.1.0"
+        ]
+      },
+      "frameworks": "SafariServices"
+    },
+    {
+      "name": "CoreData",
+      "source_files": [
+        "ChatSDKCoreData/Classes/**/*"
+      ],
+      "resource_bundles": {
+        "ChatCoreData": [
+          "ChatSDKCoreData/Assets/**/*"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreData"
+      ],
+      "dependencies": {
+        "ChatSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": [
+        "ChatSDKUI/Classes/**/*"
+      ],
+      "resource_bundles": {
+        "ChatUI": [
+          "ChatSDKUI/Assets/**/*",
+          "ChatSDKUI/Interface/**/*"
+        ]
+      },
+      "dependencies": {
+        "MBProgressHUD": [
+          "~> 1.0"
+        ],
+        "VENTokenField": [
+          "~> 2.0"
+        ],
+        "SDWebImage": [
+          "~> 4.0"
+        ],
+        "StaticDataTableViewController": [
+          "~> 2.0"
+        ],
+        "CountryPicker": [
+          "~> 1.0"
+        ],
+        "DateTools": [
+          "~> 1.0"
+        ],
+        "TOCropViewController": [
+          "~> 2.0"
+        ],
+        "Hakawai": [
+          "~> 5.0.0"
+        ],
+        "ChatSDKKeepLayout": [
+
+        ],
+        "Toast": [
+          "~>4.0.0"
+        ],
+        "ChatSDK/CoreData": [
+
+        ]
+      },
+      "frameworks": "CoreLocation"
+    },
+    {
+      "name": "FirebaseAdapter",
+      "source_files": [
+        "ChatSDKFirebase/FirebaseNetworkAdapter/Classes/**/*"
+      ],
+      "dependencies": {
+        "Firebase/Auth": [
+
+        ],
+        "Firebase/Database": [
+
+        ],
+        "Firebase/Performance": [
+
+        ],
+        "ChatSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebaseFileStorage",
+      "source_files": [
+        "ChatSDKFirebase/FirebaseFileStorage/Classes/**/*"
+      ],
+      "dependencies": {
+        "Firebase/Storage": [
+
+        ],
+        "ChatSDK/FirebaseAdapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebasePush",
+      "source_files": [
+        "ChatSDKFirebase/FirebasePush/Classes/**/*"
+      ],
+      "dependencies": {
+        "Firebase/Messaging": [
+
+        ],
+        "ChatSDK/FirebaseAdapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebaseSocialLogin",
+      "source_files": [
+        "ChatSDKFirebase/FirebaseSocialLogin/Classes/**/*"
+      ],
+      "resource_bundles": {
+        "ChatFirebaseSocialLogin": [
+          "ChatSDKFirebase/FirebaseSocialLogin/Assets/**/*"
+        ]
+      },
+      "dependencies": {
+        "TwitterKit": [
+          "<3.3.0"
+        ],
+        "TwitterCore": [
+          "<3.1.0"
+        ],
+        "GoogleSignIn": [
+
+        ],
+        "FBSDKLoginKit": [
+
+        ],
+        "ChatSDK/FirebaseAdapter": [
+
+        ],
+        "ChatSDK/UI": [
+
+        ]
+      }
+    }
+  ]
+}
