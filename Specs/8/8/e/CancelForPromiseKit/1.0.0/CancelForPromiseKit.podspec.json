@@ -1,0 +1,160 @@
+{
+  "name": "CancelForPromiseKit",
+  "version": "1.0.0",
+  "source": {
+    "git": "https://github.com/dougzilla32/CancelForPromiseKit.git",
+    "tag": "1.0.0",
+    "submodules": true
+  },
+  "license": "MIT",
+  "summary": "Cancellable Promises for Swift.",
+  "homepage": "https://github.com/dougzilla32/CancelForPromiseKit.git",
+  "description": "Provides clear, concise and complete cancellation abilities for PromiseKit and the PromiseKit Extensions.",
+  "authors": {
+    "Doug Stein": "dougstein@gmail.com"
+  },
+  "documentation_url": "https://dougzilla32.github.io/CancelForPromiseKit/api/",
+  "default_subspecs": [
+    "CorePromise",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "swift_version": "4.0",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-DCPKCocoaPods"
+  },
+  "subspecs": [
+    {
+      "name": "Alamofire",
+      "source_files": "Extensions/Alamofire/Sources/*",
+      "dependencies": {
+        "Alamofire": [
+          "~> 4.0"
+        ],
+        "PromiseKit/Alamofire": [
+          "~> 6.0"
+        ],
+        "CancelForPromiseKit/CorePromise": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+
+          ],
+          "dependencies": {
+            "OHHTTPStubs/Swift": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CorePromise",
+      "source_files": [
+        "Sources/CancellableCatchable.swift",
+        "Sources/when.swift",
+        "Sources/race.swift",
+        "Sources/Error.swift",
+        "Sources/after.swift",
+        "Sources/CancellableTask.swift",
+        "Sources/hang.swift",
+        "Sources/CancelContext.swift",
+        "Sources/CancellableGuarantee.swift",
+        "Sources/CancellableThenable.swift",
+        "Sources/firstly.swift",
+        "Sources/CustomStringConvertible.swift",
+        "Sources/CancellablePromise.swift",
+        "Sources/{after,CancellableAnyPromise}.m"
+      ],
+      "public_header_files": [
+
+      ],
+      "dependencies": {
+        "PromiseKit/CorePromise": [
+          "~> 6.0"
+        ]
+      },
+      "frameworks": "Foundation",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "CoreLocation",
+      "source_files": "Extensions/CoreLocation/Sources/*",
+      "watchos": {
+        "source_files": "Extensions/CoreLocation/Sources/CLGeocoder*"
+      },
+      "dependencies": {
+        "PromiseKit/CoreLocation": [
+          "~> 6.0"
+        ],
+        "CancelForPromiseKit/CorePromise": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "watchos": "3.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "Foundation",
+      "source_files": [
+
+      ],
+      "dependencies": {
+        "PromiseKit/Foundation": [
+          "~> 6.0"
+        ],
+        "CancelForPromiseKit/CorePromise": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+
+          ],
+          "dependencies": {
+            "OHHTTPStubs/Swift": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
