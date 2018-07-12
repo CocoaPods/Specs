@@ -1,0 +1,95 @@
+{
+  "name": "Cips",
+  "version": "0.3.0",
+  "summary": "iOS SDK for Cips Service.",
+  "description": "iOS SDK for Cips Service.",
+  "homepage": "https://github.com/ioscodigo/CIPS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iOS Team": "ios@codigo.id"
+  },
+  "source": {
+    "git": "https://github.com/ioscodigo/CIPS.git",
+    "tag": "0.3.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/\""
+  },
+  "source_files": "Cips/Core/Cips.{h,m}",
+  "public_header_files": "Cips/Core/Cips.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Cips/Core/**/*.{h,m}",
+      "public_header_files": "Cips/Core/*.h"
+    },
+    {
+      "name": "Qnock",
+      "dependencies": {
+        "Cips/Core": [
+
+        ]
+      },
+      "source_files": "Cips/Qnock/**/*.{h,m}",
+      "private_header_files": [
+        "Cips/Qnock/Internal/*.h"
+      ]
+    },
+    {
+      "name": "Squad",
+      "dependencies": {
+        "Cips/Core": [
+
+        ],
+        "SDWebImage": [
+          "~> 4.0"
+        ]
+      },
+      "source_files": "Cips/Squad/**/*.{h,m}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "resource_bundles": {
+        "CipsSquad": [
+          "Cips/Squad/Resource/**/*.{storyboard,xcassets,xib}"
+        ]
+      },
+      "private_header_files": [
+        "Cips/Squad/Internal/*.h",
+        "Cips/Squad/Views/*.h"
+      ]
+    },
+    {
+      "name": "Hearsay",
+      "dependencies": {
+        "Cips/Core": [
+
+        ]
+      },
+      "source_files": "Cips/Hearsay/**/*.{h,m}",
+      "private_header_files": [
+        "Cips/Hearsay/Internal/*.h"
+      ]
+    },
+    {
+      "name": "Spotlight",
+      "dependencies": {
+        "Cips/Core": [
+
+        ]
+      },
+      "source_files": "Cips/Spotlight/**/*.{h,m}",
+      "private_header_files": [
+        "Cips/Spotlight/Internal/*.h"
+      ]
+    }
+  ]
+}
