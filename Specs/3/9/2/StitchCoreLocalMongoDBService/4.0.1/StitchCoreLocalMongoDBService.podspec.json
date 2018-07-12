@@ -1,0 +1,43 @@
+{
+  "name": "StitchCoreLocalMongoDBService",
+  "version": "4.0.1",
+  "summary": "/Users/jasonflax/Development/stitch-ios-sdk/Core/Services/StitchCoreLocalMongoDBService/StitchCoreLocalMongoDBService.podspec Module",
+  "homepage": "https://github.com/mongodb/stitch-ios-sdk",
+  "license": "Apache2",
+  "authors": {
+    "Jason Flax": "jason.flax@mongodb.com",
+    "Adam Chelminski": "adam.chelminski@mongodb.com",
+    "Eric Daniels": "eric.daniels@mongodb.com"
+  },
+  "platforms": {
+    "watchos": "4.3",
+    "ios": "11.0",
+    "tvos": "10.2"
+  },
+  "source": {
+    "git": "https://github.com/mongodb/stitch-ios-sdk.git",
+    "branch": "master",
+    "tag": "4.0.0"
+  },
+  "prepare_command": "sh scripts/download_sdk.sh --with-mobile --for-pods\nsh scripts/prep_pods.sh         --module=StitchCoreLocalMongoDBService         --sources=Sources/StitchCoreLocalMongoDBService",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "\"$(PODS_TARGET_SRCROOT)/vendor/MobileSDKs/include/mongo/embedded-v1/\" \"$(PODS_TARGET_SRCROOT)/vendor/Sources/mongo_embedded\"",
+    "ENABLE_BITCODE": "NO"
+  },
+  "preserve_paths": "vendor",
+  "source_files": "dist/StitchCoreLocalMongoDBService/**/*.swift",
+  "ios": {
+    "vendored_libraries": "vendor/MobileSDKs/iphoneos/lib/*.dylib"
+  },
+  "tvos": {
+    "vendored_libraries": "vendor/MobileSDKs/appletvos/lib/*.dylib"
+  },
+  "watchos": {
+    "vendored_libraries": "vendor/MobileSDKs/watchos/lib/*.dylib"
+  },
+  "dependencies": {
+    "StitchCoreSDK": [
+      "<= 4.0.0"
+    ]
+  }
+}
