@@ -1,0 +1,73 @@
+{
+  "name": "XCShareManager",
+  "version": "0.0.3",
+  "summary": "封装分享功能，关于白名单和URLschemes请自行配置。\n目前已经集成了 WeChat、QQ、Sina 这三个平台的分享功能，默认这三个全部集成，如果不享集成其中的某个，请使用：\n    不集成新浪的SDK： NO_SIAN=1 pod install\n    不集成微信的SDK： NO_WECHAT=1 pod install\n    不集成QQ的SDK：  NO_QQ=1 pod install",
+  "description": "XCShareManager. 封装分享功能，关于白名单和URLschemes请自行配置。\n目前已经集成了 WeChat、QQ、Sina 这三个平台的分享功能，默认这三个全部集成，如果不享集成其中的某个，请使用：\n    不集成新浪的SDK： NO_SIAN=1 pod install\n    不集成微信的SDK： NO_WECHAT=1 pod install\n    不集成QQ的SDK：  NO_QQ=1 pod install",
+  "homepage": "https://github.com/fanxiaocong/XCShareManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fanxiaocong": "1016697223@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/fanxiaocong/XCShareManager.git",
+    "tag": "0.0.3"
+  },
+  "platforms": {
+    "ios": "8.3"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "XCShareManager",
+      "source_files": [
+        "XCShareManager/Classes/XCShareManager/*.{h,m}",
+        "XCShareManager/Classes/XCShareManager/XCShareProtocol/*.{h}",
+        "XCShareManager/Classes/XCShareManager/XCShareUI/*.{h,m}"
+      ],
+      "resource_bundles": {
+        "XCShareManager": [
+          "XCShareManager/Assets/*.png"
+        ]
+      }
+    },
+    {
+      "name": "UMengShare",
+      "source_files": "XCShareManager/Classes/UMengShare/*.{h,m}",
+      "dependencies": {
+        "XCShareManager/XCShareManager": [
+
+        ],
+        "UMengUShare/Social/ReducedWeChat": [
+
+        ],
+        "UMengUShare/Social/ReducedQQ": [
+
+        ],
+        "UMengUShare/Social/ReducedSina": [
+
+        ]
+      }
+    },
+    {
+      "name": "MobShare",
+      "source_files": "XCShareManager/Classes/MobShare/*.{h,m}",
+      "dependencies": {
+        "XCShareManager/XCShareManager": [
+
+        ],
+        "mob_sharesdk/ShareSDKPlatforms/WeChat": [
+
+        ],
+        "mob_sharesdk/ShareSDKPlatforms/QQ": [
+
+        ],
+        "mob_sharesdk/ShareSDKPlatforms/SinaWeibo": [
+
+        ]
+      }
+    }
+  ]
+}
