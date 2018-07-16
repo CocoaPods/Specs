@@ -1,0 +1,54 @@
+{
+  "name": "CoreEthereum",
+  "version": "1.0.4",
+  "summary": "CoreEthereum is a subset of CoreBitcoin in Objective-C.",
+  "description": "CoreEthereum provides helpful functions for deriving and signing with Ethereum keychains.",
+  "homepage": "https://github.com/wjmelements/CoreBitcoin",
+  "license": "WTFPL",
+  "authors": {
+    "William Morriss": "william.morriss@consensys.net"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/wjmelements/CoreBitcoin.git",
+    "tag": "1.0.4"
+  },
+  "source_files": [
+    "CoreBitcoin",
+    "openssl/**/*.c",
+    "openssl/include/**/*.h"
+  ],
+  "exclude_files": [
+    "CoreBitcoin/**/*+Tests.{h,m}",
+    "CoreBitcoin/BTCScriptTestData.h"
+  ],
+  "public_header_files": [
+    "CoreBitcoin/*.h",
+    "openssl/include/openssl/*.h"
+  ],
+  "private_header_files": "openssl/include/internal/*.h",
+  "header_mappings_dir": ".",
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/CoreEthereum/openssl/include\"",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/CoreEthereum/openssl/include\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/src/**\" \"${PODS_ROOT}/CoreEthereum/openssl/src/**\"",
+    "OTHER_CFLAGS": "$(inherited) -DOPENSSL_NO_SEED -DOPENSSL_NO_IDEA -DOPENSSL_NO_RC2 -DOPENSSL_NO_RC4 -DOPENSSL_NO_DES -DOPENSSL_NO_SM4 -DOPENSSL_NO_SM4 -DOPENSSL_NO_BF -DOPENSSL_NO_CHACHA"
+  },
+  "frameworks": "Foundation",
+  "preserve_paths": [
+    "openssl/LICENSE",
+    "openssl/**/*.h"
+  ],
+  "dependencies": {
+    "ISO8601DateFormatter": [
+
+    ]
+  }
+}
