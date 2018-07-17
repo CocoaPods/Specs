@@ -1,0 +1,82 @@
+{
+  "name": "PushSpring",
+  "version": "5.0.0",
+  "summary": "PushSpring helps you understand your app's audience in order to keep them engaged.",
+  "homepage": "http://www.pushspring.com/",
+  "license": {
+    "type": "MIT",
+    "file": "License.md"
+  },
+  "authors": {
+    "PushSpring": "hello@pushspring.com"
+  },
+  "source": {
+    "http": "https://cdn.public.pushspring.com/SDK/iOS/PushSpringSDK-5.0.0.zip",
+    "flatten": true
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PushSpringSDK/PushSpring.h",
+      "preserve_paths": [
+        "PushSpringSDK/libPushSpringSDK.a",
+        "Scheme-Management"
+      ],
+      "weak_frameworks": [
+        "AdSupport",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "z",
+        "PushSpringSDK"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/PushSpring/PushSpringSDK\""
+      },
+      "platforms": {
+        "ios": "8.0"
+      }
+    },
+    {
+      "name": "Framework",
+      "weak_frameworks": [
+        "AdSupport",
+        "CoreTelephony"
+      ],
+      "preserve_paths": [
+        "Scheme-Management"
+      ],
+      "libraries": "z",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "vendored_frameworks": "PushSpring.framework"
+      }
+    },
+    {
+      "name": "TV",
+      "source_files": "PushSpringTVSDK/PushSpring.h",
+      "preserve_paths": [
+        "PushSpringTVSDK/libPushSpringTVSDK.a",
+        "Scheme-Management"
+      ],
+      "weak_frameworks": "AdSupport",
+      "libraries": [
+        "z",
+        "PushSpringTVSDK"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/PushSpring/PushSpringTVSDK\""
+      },
+      "platforms": {
+        "tvos": "9.2"
+      }
+    }
+  ]
+}
