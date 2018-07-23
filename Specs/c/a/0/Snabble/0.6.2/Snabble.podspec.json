@@ -1,0 +1,54 @@
+{
+  "name": "Snabble",
+  "version": "0.6.2",
+  "summary": "The snabble iOS SDK",
+  "description": "snabble - the self-scanning and checkout platform\nThe SDK provides scanning, checkout and payment services and UI components based on the snabble SaaS platform.",
+  "homepage": "https://snabble.io/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "snabble GmbH": "info@snabble.io"
+  },
+  "source": {
+    "git": "https://github.com/snabble/iOS-SDK.git",
+    "tag": "0.6.2"
+  },
+  "social_media_url": "https://twitter.com/snabble_io",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "4.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Snabble/Core/{Products,EAN,Cart,Metadata}/*.swift",
+      "dependencies": {
+        "GRDB.swift": [
+          "~> 2"
+        ],
+        "Zip": [
+          "~> 1"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Snabble/UI/{Utilities,EAN,Scanner,ShoppingCart,Payment,EmptyState}/*.swift",
+      "dependencies": {
+        "Snabble/Core": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Snabble": [
+          "Snabble.xcassets",
+          "Snabble/UI/*.lproj/*.strings",
+          "Snabble/UI/**/*.xib",
+          "i18n/*.twine"
+        ]
+      }
+    }
+  ]
+}
