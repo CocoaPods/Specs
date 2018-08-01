@@ -1,0 +1,98 @@
+{
+  "name": "Rover",
+  "version": "2.0.0-beta.2",
+  "summary": "iOS framework for the Rover platform",
+  "homepage": "https://www.rover.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Rover Labs Inc.": "support@rover.io"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/RoverPlatform/rover-ios.git",
+    "tag": "v2.0.0-beta.2"
+  },
+  "swift_version": "4.1",
+  "cocoapods_version": ">= 1.4.0",
+  "subspecs": [
+    {
+      "name": "RoverFoundation",
+      "source_files": "Sources/Foundation/**/*.swift",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "RoverData",
+      "source_files": "Sources/Data/**/*.swift",
+      "dependencies": {
+        "Rover/RoverFoundation": [
+
+        ]
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "RoverUI",
+      "source_files": "Sources/UI/**/*.swift",
+      "dependencies": {
+        "Rover/RoverData": [
+
+        ]
+      },
+      "frameworks": "SafariServices"
+    },
+    {
+      "name": "RoverExperiences",
+      "source_files": "Sources/Experiences/**/*.swift",
+      "dependencies": {
+        "Rover/RoverUI": [
+
+        ]
+      },
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "RoverNotifications",
+      "source_files": "Sources/Notifications/**/*.swift",
+      "dependencies": {
+        "Rover/RoverUI": [
+
+        ]
+      },
+      "frameworks": "UserNotifications"
+    },
+    {
+      "name": "RoverLocation",
+      "source_files": "Sources/Location/**/*.swift",
+      "dependencies": {
+        "Rover/RoverData": [
+
+        ]
+      },
+      "frameworks": "CoreLocation"
+    },
+    {
+      "name": "RoverBluetooth",
+      "source_files": "Sources/Bluetooth/**/*.swift",
+      "dependencies": {
+        "Rover/RoverData": [
+
+        ]
+      },
+      "frameworks": "CoreBluetooth"
+    },
+    {
+      "name": "RoverDebug",
+      "source_files": "Sources/Debug/**/*.swift",
+      "dependencies": {
+        "Rover/RoverUI": [
+
+        ]
+      }
+    }
+  ]
+}
