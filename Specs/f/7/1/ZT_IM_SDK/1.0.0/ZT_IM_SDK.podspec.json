@@ -1,0 +1,60 @@
+{
+  "name": "ZT_IM_SDK",
+  "version": "1.0.0",
+  "summary": "中通在线客服",
+  "homepage": "https://github.com/ztthgly/mobile-ios-im-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jialiang": "jialiangnull@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ztthgly/mobile-ios-im-sdk.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "SDKLib",
+      "source_files": "ZT_IM_SDK/Classes/SDKLib/**/*.{h}",
+      "frameworks": [
+        "Foundation",
+        "CoreMedia",
+        "AVFoundation",
+        "CFNetwork",
+        "Security"
+      ],
+      "libraries": [
+        "icucore",
+        "curses"
+      ],
+      "vendored_libraries": "ZT_IM_SDK/Classes/SDKLib/libZT_IM_Lib.a",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "SDKKit",
+      "source_files": "ZT_IM_SDK/Classes/SDKKit/**/*.{h,m}",
+      "requires_arc": true,
+      "resource_bundles": {
+        "ZT_IM_SDK": [
+          "ZT_IM_SDK/Classes/SDKKit/Assets/*.xcassets"
+        ]
+      },
+      "resources": "ZT_IM_SDK/Classes/SDKKit/**/*.{xib,storyboard,plist}",
+      "dependencies": {
+        "ZT_IM_SDK/SDKLib": [
+
+        ],
+        "YYWebImage": [
+
+        ]
+      }
+    }
+  ]
+}
