@@ -1,0 +1,46 @@
+{
+  "name": "Rambo",
+  "version": "1.0.0",
+  "summary": "Image extract tool kit base on ffmpeg",
+  "description": "Extract image from video file/stream base on ffmpeg written by C",
+  "homepage": "https://github.com/czqasngit/Rambo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "czqasngit": "czqasn_6@163.com"
+  },
+  "source": {
+    "git": "https://github.com/czqasngit/Rambo.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "Rambo/Classes/**/*",
+  "libraries": [
+    "bz2",
+    "c++",
+    "iconv",
+    "z"
+  ],
+  "public_header_files": "Rambo/Classes/**/*.{h}",
+  "subspecs": [
+    {
+      "name": "FFMpeg",
+      "source_files": "Rambo/FFmpeg.framework/Headers/**.{h,m}",
+      "public_header_files": "Rambo/FFmpeg.framework/Headers/**.h",
+      "vendored_frameworks": "Rambo/FFmpeg.framework",
+      "preserve_paths": "Rambo/FFmpeg.framework",
+      "pod_target_xcconfig": {
+        "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Rambo/"
+      },
+      "frameworks": [
+        "VideoToolBox",
+        "AudioToolBox",
+        "CoreMedia"
+      ]
+    }
+  ]
+}
