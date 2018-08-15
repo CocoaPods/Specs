@@ -1,0 +1,22 @@
+{
+  "name": "CSDataModel",
+  "version": "1.1.1",
+  "summary": "一个简单的数据模型基类，方便将NSDictionary、NSArray等类型数据转为模型对象",
+  "description": "# CSDataModel\n\n一个简单的数据模型基类，方便将NSDictionary、NSArray等类型数据转为模型对象\n\n## 基本使用\n\n例如一个JSON对象Department\n\n{\n\"name\": \"DepartmentA\",\n\"tel\": \"88888888\",\n\"num\": 1\n}\n\n该JSON String转化成NSDictionary： dict1\n\n### 模型：\n\n@interface Department : CSBaseModel\n@property (nonatomic , strong) NSString *name;\n@property (nonatomic , strong) NSString *tel;\n@property (nonatomic , strong) NSNumber *num;\n@end\n\n### 转化时：\n\nDepartment *deprtmt = [Department modelFromDict:dict1];\n\n## 嵌套使用\n\n### 模型\n对于常见的情况：\n\n{\n\"name\": \"departmentA\",\n\"number\": 3,\n\"members\": [{\n\"name\": \"王五\",\n\"jobNum\": \"0023\"\n},\n{\n\"name\": \"陈六\",\n\"jobNum\": \"0028\"\n}]\n}\n\n该JSON String转化成NSDictionary： dict2\n\nDepartment中含有成员Member\n\n@interface Department : CSBaseModel\n@property (nonatomic , strong) NSString *name;\n@property (nonatomic , strong) NSArray<Member*> *members;\n@end\n\n@interface Member : CSBaseModel\n@property (nonatomic , strong) NSString *name;\n@property (nonatomic , strong) NSNumber *jobNum;\n@end\n\nDeparmtent实现文件中需要注册子模型的类\n\n@implementation Department\n-(instancetype)init{\nself = [super init];\nif (self) {\n[self registerClass:[Member class]   forProperty:@\"members\"];\n}\nreturn self;\n}\n@end\n\n### 转化时：\n\nDepartment *deprtmt = [Department modelFromDict:dict2];\n\n转化成功后，可通过deprtmt.members访问member数组",
+  "homepage": "https://github.com/csdq/CSDataModel",
+  "license": {
+    "type": "GPL-3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mr.s": "stqemail@163.com"
+  },
+  "source": {
+    "git": "https://github.com/csdq/CSDataModel.git",
+    "tag": "1.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CSDataModel/Classes/**/*"
+}
