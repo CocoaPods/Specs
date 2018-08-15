@@ -1,0 +1,96 @@
+{
+  "name": "OKPaypp",
+  "version": "0.1.1",
+  "summary": "OKPaypp iOS SDK.",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n支持微信支付，公众账号支付，支付宝钱包，银联等。",
+  "homepage": "https://github.com/latehorse/OKPaypp",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yuhanle": "deadvia@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/latehorse/OKPaypp.git",
+    "tag": "0.1.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "Wx"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "OKPaypp/*.h",
+        "OKPaypp/Core/*.h"
+      ],
+      "source_files": [
+        "OKPaypp/*.{h,m}",
+        "OKPaypp/Core/*.{h,m}"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreTelephony"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "stdc++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "public_header_files": "OKPaypp/Channels/Alipay/*.h",
+      "source_files": "OKPaypp/Channels/Alipay/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": "OKPaypp/Channels/Alipay/*.framework"
+      },
+      "resources": "OKPaypp/Channels/Alipay/*.bundle",
+      "frameworks": "CoreMotion",
+      "dependencies": {
+        "OKPaypp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wx",
+      "public_header_files": "OKPaypp/Channels/Wx/*.h",
+      "source_files": "OKPaypp/Channels/Wx/*.{h,m}",
+      "vendored_libraries": "OKPaypp/Channels/Wx/*.a",
+      "ios": {
+        "libraries": "sqlite3.0"
+      },
+      "dependencies": {
+        "OKPaypp/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "public_header_files": "OKPaypp/Channels/UnionPay/*.h",
+      "source_files": "OKPaypp/Channels/UnionPay/*.{h,mm}",
+      "vendored_libraries": "OKPaypp/Channels/UnionPay/*.a",
+      "dependencies": {
+        "OKPaypp/Core": [
+
+        ]
+      }
+    }
+  ]
+}
