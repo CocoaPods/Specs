@@ -1,0 +1,61 @@
+{
+  "name": "GismartLogger",
+  "version": "0.3.0",
+  "summary": "GismartLogger.",
+  "description": "library helper for logging",
+  "homepage": "https://bitbucket.org/gismart/gismartlogger",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gismart": "info@gismart.com"
+  },
+  "source": {
+    "git": "http://git@bitbucket.org/gismart/gismartlogger.git",
+    "tag": "0.3.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GismartLogger/Classes/**/*",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": [
+        "GismartLogger/Classes/GLLogger.{h,m}",
+        "GismartLogger/Classes/IErrorReporter.h",
+        "GismartLogger/Classes/ITimeEventContainer.h",
+        "GismartLogger/Classes/ILogger.h",
+        "GismartLogger/Classes/Proxy/ILoggerProxy.h",
+        "GismartLogger/Classes/MultiAnalyticsAdapter.{h,m}",
+        "GismartLogger/Classes/NSLogAdapter.{h,m}"
+      ]
+    },
+    {
+      "name": "answers",
+      "source_files": "GismartLogger/Classes/AnswersAdapter.{h,m}",
+      "dependencies": {
+        "GismartLogger/core": [
+
+        ],
+        "Crashlytics": [
+
+        ]
+      }
+    },
+    {
+      "name": "flurry",
+      "source_files": "GismartLogger/Classes/FlurryAdapter.{h,m}",
+      "dependencies": {
+        "GismartLogger/core": [
+
+        ],
+        "Flurry-iOS-SDK/FlurrySDK": [
+
+        ]
+      }
+    }
+  ]
+}
