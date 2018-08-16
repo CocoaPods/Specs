@@ -1,0 +1,41 @@
+{
+  "name": "PatchSDK",
+  "version": "1.0.1",
+  "summary": "A framework to check the size of patch framework",
+  "description": "A framework to check the size of patch framework along with pjsua, callkit, pushkit",
+  "homepage": "https://github.com/sanyamjain65/PatchSDK",
+  "license": "MIT",
+  "authors": {
+    "sanyam": "sanyam.j65@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/sanyamjain65/PatchSDK.git",
+    "tag": "1.0.1"
+  },
+  "source_files": "PatchSDK/**/*",
+  "static_framework": true,
+  "private_header_files": "PatchSDK/**/*.h",
+  "frameworks": [
+    "CallKit",
+    "PushKit"
+  ],
+  "subspecs": [
+    {
+      "name": "pjsip-ios",
+      "dependencies": {
+        "pjsip-ios": [
+          "~> 0.1.3"
+        ]
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "${PODS_ROOT}/pjsip-ios/Pod/pjsip-include/**/*.h"
+      },
+      "pod_target_xcconfig": {
+        "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+      }
+    }
+  ]
+}
