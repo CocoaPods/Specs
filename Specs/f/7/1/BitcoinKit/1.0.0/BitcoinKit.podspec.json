@@ -1,0 +1,43 @@
+{
+  "name": "BitcoinKit",
+  "version": "1.0.0",
+  "summary": "Bitcoin(BCH/BTC) protocol toolkit for Swift",
+  "description": "The BitcoinKit library is a Swift implementation of the Bitcoin(BCH/BTC) protocol. This library was originally made by Katsumi Kishikawa, and now is maintained by Yenom Inc. It allows maintaining a wallet and sending/receiving transactions without needing a full blockchain node. It comes with a simple wallet app showing how to use it.\n```",
+  "homepage": "https://github.com/yenom/BitcoinKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BitcoinKit developers": "usatie@yenom.tech"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/yenom/BitcoinKit.git",
+    "tag": "v1.0.0"
+  },
+  "source_files": [
+    "BitcoinKit/**/*.{h,m,swift}",
+    "Sources/BitcoinKit/**/*.{h,m,swift}"
+  ],
+  "private_header_files": "BitcoinKit/**/BitcoinKitPrivate.h",
+  "exclude_files": "Sources/**/LinuxSupport.swift",
+  "module_map": "BitcoinKit/BitcoinKit.modulemap",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.1",
+  "pod_target_xcconfig": {
+    "SWIFT_WHOLE_MODULE_OPTIMIZATION": "YES",
+    "APPLICATION_EXTENSION_API_ONLY": "YES",
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}/BitcoinKit/Libraries",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/BitcoinKit/Libraries/openssl/include\" \"${PODS_ROOT}/BitcoinKit/Libraries/secp256k1/include\"",
+    "LIBRARY_SEARCH_PATHS": "\"${PODS_ROOT}/BitcoinKit/Libraries/openssl/lib\" \"${PODS_ROOT}/BitcoinKit/Libraries/secp256k1/lib\"",
+    "OTHER_SWIFT_FLAGS": "-D BitcoinKitXcode"
+  },
+  "preserve_paths": [
+    "setup",
+    "Libraries"
+  ],
+  "prepare_command": "sh setup/build_libraries.sh"
+}
