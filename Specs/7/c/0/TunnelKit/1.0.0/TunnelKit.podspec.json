@@ -1,0 +1,57 @@
+{
+  "name": "TunnelKit",
+  "version": "1.0.0",
+  "summary": "VPN framework for Apple platforms.",
+  "homepage": "https://github.com/keeshux/TunnelKit",
+  "license": {
+    "type": "GPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Davide De Rosa": "keeshux@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/keeshux/TunnelKit.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TunnelKit/Sources/Core/**/*.{h,m,swift}",
+      "private_header_files": "TunnelKit/Sources/Core/**/*.h",
+      "preserve_paths": "TunnelKit/Sources/Core/*.modulemap",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/TunnelKit/Sources/Core",
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "SwiftyBeaver": [
+
+        ],
+        "OpenSSL-Apple": [
+          "~> 1.1.0h"
+        ]
+      }
+    },
+    {
+      "name": "AppExtension",
+      "source_files": "TunnelKit/Sources/AppExtension/**/*.swift",
+      "frameworks": "NetworkExtension",
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "TunnelKit/Core": [
+
+        ],
+        "SwiftyBeaver": [
+
+        ]
+      }
+    }
+  ]
+}
