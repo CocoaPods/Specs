@@ -1,0 +1,103 @@
+{
+  "name": "ocapp",
+  "version": "1.0.1",
+  "summary": "个人常用第三方SDK集成方案",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/cocoa.me/ocapp",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhuxietong": "zhuxietong@me.com"
+  },
+  "source": {
+    "git": "https://gitee.com/cocoa.me/ocapp.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "AliPay",
+    "QQ",
+    "WeChat",
+    "Sina"
+  ],
+  "subspecs": [
+    {
+      "name": "AliPay",
+      "source_files": [
+        "ocapp/Classes/AliPay/DemoAlipaySDK.h"
+      ],
+      "ios": {
+        "frameworks": [
+          "CFNetwork",
+          "SystemConfiguration",
+          "CoreGraphics",
+          "CoreTelephony",
+          "CoreMotion",
+          "CoreText"
+        ],
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      }
+    },
+    {
+      "name": "QQ",
+      "vendored_frameworks": "ocapp/Classes/QQ/SDK/TencentOpenAPI.framework",
+      "ios": {
+        "frameworks": [
+          "Security",
+          "SystemConfiguration",
+          "CoreGraphics",
+          "CoreTelephony"
+        ],
+        "libraries": [
+          "iconv",
+          "sqlite3",
+          "stdc++",
+          "z"
+        ]
+      }
+    },
+    {
+      "name": "WeChat",
+      "dependencies": {
+        "WechatOpenSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sina",
+      "source_files": [
+        "ocapp/Classes/Sina/SDK/*.{h}"
+      ],
+      "vendored_libraries": "ocapp/Classes/Sina/SDK/libWeiboSDK.a",
+      "ios": {
+        "frameworks": [
+          "Photos",
+          "ImageIO",
+          "SystemConfiguration",
+          "CoreText",
+          "QuartzCore",
+          "Security",
+          "UIKit",
+          "Foundation",
+          "CoreGraphics",
+          "CoreTelephony"
+        ],
+        "libraries": [
+          "sqlite3",
+          "z"
+        ]
+      },
+      "resources": [
+        "ocapp/Classes/Sina/SDK/WeiboSDK.bundle"
+      ]
+    }
+  ]
+}
