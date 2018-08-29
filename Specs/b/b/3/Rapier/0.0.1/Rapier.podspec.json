@@ -1,0 +1,51 @@
+{
+  "name": "Rapier",
+  "version": "0.0.1",
+  "summary": "A dependency injection framework for swift.",
+  "description": "This pods purpose is to reduce the boilerplate that comes with using dependency\ninjection. It generates an initializer for constructor/initializer injection\nand class members from a dependencies annotation in addition to a handy factory class.\nIt uses sourcery for code generation and swinject to help build the object graph.",
+  "homepage": "https://github.com/kaygro/Rapier",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kaygro": "kay@dein-superheld.de"
+  },
+  "source": {
+    "git": "https://github.com/kaygro/Rapier.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.0",
+  "source_files": "Rapier/Templates/*.swifttemplate",
+  "dependencies": {
+    "Swinject": [
+
+    ]
+  },
+  "default_subspecs": "Manual",
+  "subspecs": [
+    {
+      "name": "AutoIntegrate",
+      "source_files": "Rapier/Templates/*.swifttemplate",
+      "dependencies": {
+        "Sourcery": [
+
+        ]
+      },
+      "ios": {
+        "script_phases": {
+          "name": "Hello World",
+          "script": "sourcerycmd=\"$PODS_ROOT/Sourcery/bin/sourcery\"\n$sourcerycmd --templates \"$PODS_TARGET_SRCROOT/Rapier/Templates\" --sources \"$SRCROOT\" --exclude-sources \"$SRCROOT/Rapier\" --exclude-sources \"$SRCROOT/Example/Pods\"  --output \"$PODS_TARGET_SRCROOT/Generated\" --verbose\nenv\n",
+          "execution_position": "before_compile"
+        }
+      }
+    },
+    {
+      "name": "Manual",
+      "source_files": "Rapier/Templates/*.swifttemplate"
+    }
+  ]
+}
