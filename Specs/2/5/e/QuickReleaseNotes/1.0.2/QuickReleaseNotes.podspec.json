@@ -1,0 +1,68 @@
+{
+  "name": "QuickReleaseNotes",
+  "version": "1.0.2",
+  "summary": "Quick integrate release note check with your App. 一行代码让你的App快速集成应用商店版本更新检测功能。",
+  "description": "Quick integrate release note check with your App. 一行代码让你的App快速集成应用商店版本更新检测功能, 支持扩展。",
+  "homepage": "https://github.com/pcjbird/QuickReleaseNotes",
+  "license": "MIT",
+  "authors": {
+    "pcjbird": "pcjbird@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pcjbird/QuickReleaseNotes.git",
+    "tag": "1.0.2"
+  },
+  "social_media_url": "http://www.lessney.com",
+  "requires_arc": true,
+  "documentation_url": "https://github.com/pcjbird/QuickReleaseNotes/blob/master/README.md",
+  "screenshots": "https://github.com/pcjbird/QuickReleaseNotes/blob/master/logo.png",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "SystemConfiguration"
+  ],
+  "source_files": "QuickReleaseNotes/*.{h,m}",
+  "public_header_files": [
+    "QuickReleaseNotes/QuickReleaseNotes.h",
+    "QuickReleaseNotes/QuickReleaseCheckProtocol.h"
+  ],
+  "resource_bundles": {
+    "QuickReleaseNotes": [
+      "QuickReleaseNotesBundle/*.*"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "QuickReleaseCheckAppStore",
+      "source_files": [
+        "QuickReleaseNotes/QuickReleaseCheckAppStore/*.{h,m}",
+        "QuickReleaseNotes/QuickReleaseNotesDefine.h",
+        "QuickReleaseNotes/QuickReleaseCheckProtocol.h"
+      ],
+      "public_header_files": [
+        "QuickReleaseNotes/QuickReleaseCheckAppStore/QuickReleaseCheckAppStore.h",
+        "QuickReleaseNotes/QuickReleaseCheckProtocol.h"
+      ]
+    },
+    {
+      "name": "QuickAppStoreReleaseNotesAlert",
+      "source_files": [
+        "QuickReleaseNotes/QuickAppStoreReleaseNotesAlert/*.{h,m}",
+        "QuickReleaseNotes/QRNAlertViewController/*.{h,m}",
+        "QuickReleaseNotes/QuickReleaseNotesDefine.h"
+      ],
+      "public_header_files": "QuickReleaseNotes/QuickAppStoreReleaseNotesAlert/QuickAppStoreReleaseNotesAlert.h",
+      "dependencies": {
+        "QuickReleaseNotes/QuickReleaseCheckAppStore": [
+
+        ]
+      }
+    }
+  ]
+}
