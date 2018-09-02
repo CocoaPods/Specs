@@ -1,0 +1,70 @@
+{
+  "name": "AssetImportKit",
+  "version": "1.0.1",
+  "summary": "Swifty cross platform library (macOS, iOS) that converts Assimp supported models to SceneKit scenes.",
+  "description": "AssetImportKit allows you to import Assimp supported file formats directly in SceneKit at runtime. The library supports: geometry, materials (with color, embedded textures and external textures), cameras, skeletal animations, serialization to .scn format.",
+  "homepage": "https://github.com/eugenebokhan/AssetImportKit",
+  "screenshots": [
+    "https://github.com/eugenebokhan/AssetImportKit/raw/master/Media/AssetImportKit_Demonstration.png",
+    "https://github.com/eugenebokhan/AssetImportKit/raw/master/SceneKitAssetImport/Media/SceneKitAssetImport_HowToUse.png"
+  ],
+  "license": {
+    "type": "BSD 3-Clause",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Eugene Bokhan": "eugenebokhan@protonmail.com"
+  },
+  "social_media_url": "http://twitter.com/eugenebokhan",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_version": "4.2",
+  "source": {
+    "git": "https://github.com/eugenebokhan/AssetImportKit.git",
+    "tag": "v1.0.1"
+  },
+  "default_subspecs": "Universal",
+  "xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/AssetImportKit/AssetImportKit/AssetImportKit/",
+    "ENABLE_BITCODE": "NO",
+    "OTHER_LDFLAGS": "-ObjC -all_load -lz -lstdc++"
+  },
+  "subspecs": [
+    {
+      "name": "Universal",
+      "source_files": "AssetImportKit/**/*.{swift}",
+      "preserve_paths": [
+        "AssetImportKit/AssetImportKit/Dependencies/**/*",
+        "AssetImportKit/AssetImportKit/module.map"
+      ],
+      "vendored_libraries": [
+        "AssetImportKit/AssetImportKit/Dependencies/Assimp/Library/libassimp-fat.a",
+        "AssetImportKit/AssetImportKit/Dependencies/Assimp/Library/libIrrXML-fat.a"
+      ],
+      "libraries": [
+        "IrrXML-fat",
+        "assimp-fat"
+      ]
+    },
+    {
+      "name": "ARM64",
+      "source_files": "AssetImportKit/**/*.{swift}",
+      "preserve_paths": [
+        "AssetImportKit/AssetImportKit/Dependencies/**/*",
+        "AssetImportKit/AssetImportKit/module.map"
+      ],
+      "vendored_libraries": [
+        "AssetImportKit/AssetImportKit/Dependencies/Assimp/Library/arm64/libassimp.a",
+        "AssetImportKit/AssetImportKit/Dependencies/Assimp/Library/arm64/libIrrXML.a"
+      ],
+      "libraries": [
+        "IrrXML",
+        "assimp"
+      ],
+      "pod_target_xcconfig": {
+        "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+      }
+    }
+  ]
+}
