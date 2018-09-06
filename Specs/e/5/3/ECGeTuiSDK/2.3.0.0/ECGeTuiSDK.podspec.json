@@ -1,0 +1,40 @@
+{
+  "name": "ECGeTuiSDK",
+  "version": "2.3.0.0",
+  "summary": "集成个推SDK 并创建modulemap文件",
+  "homepage": "https://github.com/GetuiLaboratory/getui-sdk-ios-cocoapods",
+  "license": "MIT",
+  "authors": {
+    "East-Coast": "heng_sea@163.com"
+  },
+  "source": {
+    "git": "https://github.com/GetuiLaboratory/getui-sdk-ios-cocoapods.git",
+    "tag": "2.3.0.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "ios": {
+    "vendored_frameworks": "GTSDK.framework",
+    "frameworks": [
+      "SystemConfiguration",
+      "CFNetwork",
+      "CoreTelephony",
+      "CoreLocation",
+      "AVFoundation",
+      "Security"
+    ],
+    "weak_frameworks": "UserNotifications",
+    "libraries": [
+      "z",
+      "sqlite3.0",
+      "c++"
+    ]
+  },
+  "source_files": "GTSDK.framework/**/*",
+  "requires_arc": true,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/**\""
+  },
+  "prepare_command": "mkdir GTSDK.framework/Modules\ntouch GTSDK.framework/Modules/module.modulemap\ncat <<-EOF > GTSDK.framework/Modules/module.modulemap\nframework module GTSDK {\n    header \"GeTuiSdk.h\"\n    export *\n    link \"z\"\n    link \"sqlite3.0\"\n    link \"c++\"\n}\nEOF"
+}
