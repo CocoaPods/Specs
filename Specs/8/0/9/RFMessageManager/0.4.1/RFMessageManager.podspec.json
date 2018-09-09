@@ -1,0 +1,104 @@
+{
+  "name": "RFMessageManager",
+  "version": "0.4.1",
+  "summary": "An Abstract Message Manager.",
+  "homepage": "https://github.com/RFUI/RFMessageManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BB9z": "bb9z@me.com"
+  },
+  "source": {
+    "git": "https://github.com/RFUI/RFMessageManager.git",
+    "tag": "0.4.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "osx": "10.8",
+    "ios": "6.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Manager",
+  "pod_target_xcconfig": {
+  },
+  "subspecs": [
+    {
+      "name": "Manager",
+      "dependencies": {
+        "RFInitializing": [
+          ">= 1.1"
+        ],
+        "RFKit/Runtime": [
+          ">= 1.7"
+        ],
+        "RFKit/Category/NSArray": [
+
+        ]
+      },
+      "source_files": [
+        "RFMessageManager.{h,m}"
+      ],
+      "public_header_files": [
+        "RFMessageManager.h"
+      ]
+    },
+    {
+      "name": "RFNetworkActivityIndicatorMessage",
+      "dependencies": {
+        "RFMessageManager/Manager": [
+
+        ]
+      },
+      "source_files": [
+        "RFNetworkActivityIndicatorMessage.{h,m}",
+        "RFMessageManager+RFDisplay.{h,m}"
+      ],
+      "public_header_files": [
+        "RFNetworkActivityIndicatorMessage.h",
+        "RFMessageManager+RFDisplay.h"
+      ]
+    },
+    {
+      "name": "SVProgressHUD",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "RFMessageManager/Manager": [
+
+        ],
+        "RFMessageManager/RFNetworkActivityIndicatorMessage": [
+
+        ],
+        "SVProgressHUD": [
+
+        ]
+      },
+      "source_files": "Implementation/RFSVProgressMessageManager.{h,m}",
+      "public_header_files": [
+        "Implementation/RFSVProgressMessageManager.h"
+      ]
+    },
+    {
+      "name": "UIAlertView",
+      "platforms": {
+        "ios": "6.0"
+      },
+      "dependencies": {
+        "RFMessageManager/Manager": [
+
+        ],
+        "RFMessageManager/RFNetworkActivityIndicatorMessage": [
+
+        ]
+      },
+      "source_files": "Implementation/RFAlertViewMessageManager.{h,m}",
+      "public_header_files": [
+        "Implementation/RFAlertViewMessageManager.h"
+      ]
+    }
+  ]
+}
