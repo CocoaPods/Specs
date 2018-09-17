@@ -1,0 +1,104 @@
+{
+  "name": "MyCheckWalletUI",
+  "version": "1.2.2",
+  "summary": "An SDK that supplies UI for payment method managment.",
+  "description": "README.md",
+  "homepage": "https://mycheckapp.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "elad schiller": "eladsc@mycheck.co.il"
+  },
+  "source": {
+    "git": "https://github.com/mycheck888/MyCheckWalletUI.git",
+    "tag": "1.2.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": "true",
+  "dependencies": {
+    "MyCheckCore": [
+
+    ],
+    "Kingfisher": [
+      "~> 3.0"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "MyCheckWalletUI/Classes/*",
+        "MyCheckWalletUI/Classes/ViewControllers/**/*",
+        "MyCheckWalletUI/Classes/extensionTools/*",
+        "MyCheckWalletUI/Classes/interfaces/*",
+        "MyCheckWalletUI/Classes/extensions/*"
+      ],
+      "resource_bundles": {
+        "MyCheckWalletUI": [
+          "MyCheckWalletUI/Assets/*"
+        ]
+      }
+    },
+    {
+      "name": "MasterPass",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "MyCheckWalletUI/Classes/MasterPass/**/*",
+      "dependencies": {
+        "MyCheckWalletUI/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "dependencies": {
+        "MyCheckWalletUI/Core": [
+
+        ]
+      },
+      "frameworks": "PassKit",
+      "source_files": "MyCheckWalletUI/Classes/ApplePay/**/*",
+      "platforms": {
+        "ios": "9.0"
+      }
+    },
+    {
+      "name": "VisaCheckout",
+      "dependencies": {
+        "MyCheckWalletUI/Core": [
+
+        ]
+      },
+      "source_files": "MyCheckWalletUI/Classes/VisaCheckout/*",
+      "vendored_frameworks": "MyCheckWalletUI/Classes/VisaCheckout/frameworks/*",
+      "platforms": {
+        "ios": "9.0"
+      }
+    },
+    {
+      "name": "PayPal",
+      "dependencies": {
+        "MyCheckWalletUI/Core": [
+
+        ],
+        "Braintree/PayPal": [
+
+        ],
+        "Braintree/DataCollector": [
+
+        ]
+      },
+      "source_files": "MyCheckWalletUI/Classes/paypal/**/*",
+      "platforms": {
+        "ios": "9.0"
+      }
+    }
+  ]
+}
