@@ -1,0 +1,32 @@
+{
+  "name": "Fretboard",
+  "version": "0.0.2",
+  "summary": "Customisable guitar fretboard view for iOS, tvOS and macOS with CoreGraphics",
+  "swift_version": "4.2",
+  "description": "Fretboard\n===\n\nCustomisable guitar fretboard view for iOS, tvOS and macOS with CoreGraphics.\n\nDemo\n----\n\n### Mac\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/mac_horizontal.png?raw=true)\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/mac_vertical.png?raw=true)\n\n### iOS\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/ios.png?raw=true)\n\n### Apple TV\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/tv.png?raw=true)\n\n### Storyboard\n\n![alt tag](https://github.com/cemolcay/Fretboard/blob/master/Examples/ib.png?raw=true)\n\nRequierments\n----\n\n* Swift 4.0+\n* iOS 8.0+\n* tvOS 9.0+\n* macOS 10.9+\n\nInstall\n----\n\n```\nuse_frameworks!\npod 'Fretboard'\n```\n\nUsage\n----\n\nCreate a `FretboardView`, subclass of `UIView` with code or from storyboard.\n\n### Note selection\n\nFretboard uses [`MusicTheory`](https://github.com/cemolcay/MusicTheory) library to render scales, chords or notes.\nYou need to select/unselect notes, chords or scales on `fretboard` property of your `FretboardView` instance.\n\n``` swift\nlet chord = Chord(type: ChordType(third: .major), key: Key(type: .a))\nfretboardView?.fretboard.select(chord: chord)\n\nlet scale = Scale(type: .major, key: Key(type: .e, accidental: .flat))\nfretboardView?.fretboard.select(scale: scale)\n\nlet note = Pitch(key: Key(type: .a), octave: 2)\nfretboardView?.fretboard.select(note: note)\n\nfretboardView?.fretboard.unselect(note: note)\nfretboardView?.fretboard.unselectAll()\n```\n\nYou could also set `isChordModeOn` property to true, if you want the render only lowest pitch on a string.\nI recommend 3, 4 or 5 frets to use that feature.\n\n### Tuning\n\nFretboard has a neat tuning property which is a `FretboardTuning` protocol, lets you define strings and their represented notes on fretboard.\nIt has a bunch of premade tunings in `GuitarTuning`, `BassTuning` and `UkeleleTuning` enums.\nAlso, you can define custom tunings with `CustomTuning` struct with custom string count as well.\n\n``` swift\nlet tuning = CustomTuning(\nstrings: [\nPitch(key: Key(type: .g), octave: 2),\nPitch(key: Key(type: .d), octave: 2),\nPitch(key: Key(type: .a), octave: 1),\nPitch(key: Key(type: .e), octave: 1)\n],\ndescription: \"My Custom Tuning\")\nfretboardView?.fretboard.tuning = tuning\n```\n\n### Direction\n\nYou could render fretboard either horizontal or vertical with `direction` property on fretboard of type `FretboardDirection`.\n\n``` swift\nfreboardView?.fretboard.direction = .horizontal\nfreboardView?.fretboard.direction = .vertical\n```\n\n### Frets\n\nYou could render any range of fretboard with `startIndex` and `count` properties on fretboard.\n`startIndex` is the starting fret and 0 is open string, defaults 0.\n`count` is the fret count and defaults 5.\n\n### Customisation\n\nYou could change the line widths and colors of frets and strings.\nYou could change the colors of fret numbers, string names, notes from code or storyboard.\nRendering note names on pressed notes and optional.\nAlso rendering fret numbers and strings names are optional too.\nSee the properties of `FretboardView`.\n\n### FretboardScrollView\n\nThere is also a scroll view you can use in your iOS/tvOS/macOS apps that you can scroll your fretboard inside it. It has a `FretboardView` instance you can customise your fretboard directly.\n\n``` swift\n@IBOutlet weak var scrollView: FretboardScrollView?\nscrollView?.fretboardView.fretStartIndex = appState.fretStartIndex\nscrollView?.fretboardView.fretCount = appState.fretCount\nscrollView?.fretboardView.fretboard.tuning = appState.tuning.tuning\n```\n\nFretBud\n----\n\nThis library is used in my iOS/tvOS app [FretBud](https://itunes.apple.com/us/app/fretbud-chord-scales-for-guitar-bass-and-more/id1234224249?mt=8), check it out!\n\n[![alt tag](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg)](https://itunes.apple.com/us/app/fretbud-chord-scales-for-guitar-bass-and-more/id1234224249?mt=8)",
+  "homepage": "https://github.com/cemolcay/Fretboard",
+  "license": "MIT",
+  "authors": {
+    "cemolcay": "ccemolcay@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/cemolcay",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/cemolcay/Fretboard.git",
+    "tag": "0.0.2"
+  },
+  "source_files": "Source/*.swift",
+  "requires_arc": true,
+  "dependencies": {
+    "MusicTheorySwift": [
+
+    ],
+    "CenterTextLayer": [
+
+    ]
+  }
+}
