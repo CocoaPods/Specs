@@ -1,0 +1,29 @@
+{
+  "name": "FancySources",
+  "version": "1.0.1",
+  "summary": "Flexible, generic and abstracted from UIKit data sources.",
+  "description": "FancySources\n\nFlexible, generic and abstracted from UIKit data sources\n\nUsage example\n\ntypealias DataSourceType = CollectionViewDataSource\n\nfunc didLoadEntities(entities: [SomeEntities]) {        \n    let dataSource = DataSourceType(items: entities)\n    fill(with: dataSource)\n}\n\nfunc fill(with dataSource: DataSourceType) {\n    dataSource.cellDescriptorCreator = {\n        [weak self] item, index in\n\n        return CellDescriptor(nibName: String(describing: SomeGameCell.self), configure: {\n            (cell: SomeGameCell) in\n\n            cell.fill(with: item)\n            cell.delegate = self\n        })\n    }\n    collectionView.dataSource = dataSource\n    collectionView.reloadData()\n}",
+  "homepage": "https://github.com/Aranoledur/FancySources",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nikolay Ischuk": "nk13.666@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/Aranoledur/FancySources.git",
+    "tag": "v1.0.1"
+  },
+  "source_files": [
+    "FancySources",
+    "FancySources/**/*.{h,m,swift}"
+  ],
+  "exclude_files": "FancySources/Exclude",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4"
+  }
+}
