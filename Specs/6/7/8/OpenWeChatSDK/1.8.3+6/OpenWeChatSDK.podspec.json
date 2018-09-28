@@ -1,0 +1,34 @@
+{
+  "name": "OpenWeChatSDK",
+  "version": "1.8.3+6",
+  "summary": "WeChatSDK for Cocoapods convenience.",
+  "license": {
+    "type": "MIT",
+    "text": "LICENSE"
+  },
+  "authors": {
+    "JarvanMo": "jarvan.mo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/JarvanMo/OpenWeChatSDK.git",
+    "tag": "1.8.3+6"
+  },
+  "homepage": "https://github.com/JarvanMo/OpenWeChatSDK",
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3.0",
+    "c++"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "vendored_frameworks": "OpenWeChatSDK.framework"
+  },
+  "prepare_command": "# 创建Base Module\nrm -rf OpenWeChatSDK.framework/Modules\nmkdir OpenWeChatSDK.framework/Modules\ntouch OpenWeChatSDK.framework/Modules/module.modulemap\ncat <<-EOF > OpenWeChatSDK.framework/Modules/module.modulemap\nframework module OpenWeChatSDK {\n  umbrella header \"WechatAuthSDK.h\"\n  umbrella header \"WXApi.h\"\n  umbrella header \"WXApiObject.h\"\n  export *\n  link \"c++\"\n  link \"z\"\n  link \"sqlite3.0\"\n}\nEOF"
+}
