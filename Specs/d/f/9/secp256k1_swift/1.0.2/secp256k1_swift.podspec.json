@@ -1,0 +1,51 @@
+{
+  "name": "secp256k1_swift",
+  "version": "1.0.2",
+  "summary": "Swift bindings for secp256k1 C library for iOS and OSX",
+  "description": "Swift bindings for secp256k1 C library for iOS and OSX for various applications",
+  "homepage": "https://github.com/shamatar/secp256k1_swift",
+  "license": "Apache License 2.0",
+  "authors": {
+    "Alex Vlasov": "alex.m.vlasov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/shamatar/secp256k1_swift.git",
+    "tag": "1.0.2",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/shamatar",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "swift_version": "4.0",
+  "module_name": "secp256k1_swift",
+  "prepare_command": "sed -i '' -e 's:include/::g' ./**/**/**/*.c\nsed -i '' -e 's:include/::g' ./**/**/**/**/**/*.h",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}",
+    "OTHER_CFLAGS": "-DHAVE_CONFIG_H=1 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-function -Wno-long-long -Wno-overlength-strings -O3",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/secp256k1\""
+  },
+  "source_files": [
+    "Classes/secp256k1/{src,include,contrib}/*.{h,c}",
+    "Classes/secp256k1/src/modules/{recovery,ecdh}/*.{h,c}",
+    "Classes/libsecp256k1-config.h",
+    "Classes/secp256k1_main.h",
+    "Classes/secp256k1.swift"
+  ],
+  "public_header_files": "Classes/secp256k1/include/*.h",
+  "private_header_files": [
+    "Classes/secp256k1/*.h",
+    "Classes/secp256k1/{contrib,src}/*.h",
+    "Classes/secp256k1/src/modules/{recovery, ecdh}/*.h"
+  ],
+  "exclude_files": [
+    "Classes/secp256k1/src/test*.{c,h}",
+    "Classes/secp256k1/src/gen_context.c",
+    "Classes/secp256k1/src/*bench*.{c,h}",
+    "Classes/secp256k1/src/modules/{recovery,ecdh}/*test*.{c,h}",
+    "Classes/module.modulemap"
+  ]
+}
