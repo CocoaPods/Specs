@@ -1,0 +1,27 @@
+{
+  "name": "WeakableSelf",
+  "version": "1.1.0",
+  "summary": "KeyPathKit leverages Swift 4 KeyPath type in order to implement a SQL-like data manipulation API",
+  "description": "Closures are one of Swift must-have features, and Swift developers are aware of how tricky they can be when they capture the reference of an external object, especially when this object is self.\n\nTo deal with this issue, developers are required to write additional code, using constructs such as [weak self] and guard, and the result looks like the following:\n\nservice.call(completion: { [weak self] result in\n    guard let self = self else { return }\n    \n    // use weak non-optional `self` to handle `result`\n})\n\nThe purpose of this micro-framework is to provide the developer with a helper function weakify that will allow him to declaratively indicate that he wishes to use a weak non-optional reference to self in closure, and not worry about how this reference is provided.\n\nUsing this weakify function, the code above will be transformed into the much more concise:\n\nimport WeakableSelf\n\nservice.call(completion: weakify { result, strongSelf in    \n    // use weak non-optional `strongSelf` to handle `result`\n})\n\n`weakify` works with closures that take up to 7 arguments.",
+  "homepage": "https://github.com/vincent-pradeilles/weakable-self",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vincent Pradeilles": "vin.pradeilles+weakableself@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/vincent-pradeilles/weakable-self.git",
+    "tag": "1.1.0"
+  },
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0",
+    "osx": "10.12",
+    "watchos": "3.0"
+  },
+  "frameworks": "Foundation",
+  "source_files": "Sources/**/*.swift"
+}
