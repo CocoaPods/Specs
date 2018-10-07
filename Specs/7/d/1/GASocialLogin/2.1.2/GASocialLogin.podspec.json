@@ -1,0 +1,67 @@
+{
+  "name": "GASocialLogin",
+  "version": "2.1.2",
+  "summary": "A short description of GASocialLogin.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/shay-somech/GASocialLogin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "idoMeirov": "idom@gini-apps.com"
+  },
+  "source": {
+    "git": "https://github.com/shay-somech/GASocialLogin.git",
+    "tag": "2.1.2"
+  },
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GASocialLogin/Core/**/*"
+    },
+    {
+      "name": "Facebook",
+      "source_files": "GASocialLogin/Facebook/**/*",
+      "dependencies": {
+        "GASocialLogin/Core": [
+
+        ],
+        "FBSDKLoginKit": [
+          "~> 4.36.0"
+        ]
+      }
+    },
+    {
+      "name": "Google",
+      "source_files": "GASocialLogin/Google/**/*",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSYNCSERVER_GOOGLE_SIGNIN",
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      },
+      "resources": "GASocialLogin/Assets/Google/GoogleSignIn.bundle",
+      "preserve_paths": "GASocialLogin/ExternalVendors/Google/*.framework",
+      "vendored_frameworks": [
+        "GASocialLogin/ExternalVendors/Google/GoogleSignIn.framework",
+        "GASocialLogin/ExternalVendors/Google/GoogleSignInDependencies.framework"
+      ],
+      "frameworks": [
+        "UIKit",
+        "LocalAuthentication",
+        "SafariServices",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "GASocialLogin/Core": [
+
+        ]
+      }
+    }
+  ]
+}
