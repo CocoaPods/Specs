@@ -1,0 +1,51 @@
+{
+  "name": "SCBSmartID",
+  "version": "0.5.1",
+  "summary": "Special wrapper for SESmartID",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitlab.com/ID-IOS/SCBSmartID",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stanislav Pletnev": "pletnev@improveitgroup.com"
+  },
+  "source": {
+    "git": "git@gitlab.com:ID-IOS/SCBSmartID.git",
+    "tag": "0.5.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "SCBSmartID/**/*.{h,m}",
+  "public_header_files": "SCBSmartID/*.h",
+  "private_header_files": "SCBSmartID/Private/*.h",
+  "preserve_paths": "SESmartIDCore/include",
+  "pod_target_xcconfig": {
+    "SE_SMART_ID_CORE_PATH": "$PODS_TARGET_SRCROOT/SESmartIDCore",
+    "HEADER_SEARCH_PATHS": "$SE_SMART_ID_CORE_PATH/include",
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "SCBDocument",
+      "dependencies": {
+        "SCBSmartID/SESmartID": [
+
+        ]
+      },
+      "source_files": "SCBDocument/*.{h,m}",
+      "public_header_files": "SCBDocument/*.h"
+    },
+    {
+      "name": "SESmartID",
+      "source_files": "SESmartID/**/*.{h,m,mm}",
+      "exclude_files": "SESmartID/Controller/Swift/**",
+      "public_header_files": "SESmartID/*.h",
+      "vendored_libraries": "SESmartIDCore/lib/libsmartid-universal.a",
+      "resources": "SESmartIDCore/**/*.zip",
+      "preserve_paths": "SESmartIDCore/include"
+    }
+  ]
+}
