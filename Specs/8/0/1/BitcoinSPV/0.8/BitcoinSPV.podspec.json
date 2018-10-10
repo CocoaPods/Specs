@@ -1,0 +1,115 @@
+{
+  "name": "BitcoinSPV",
+  "version": "0.8",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "license": {
+    "type": "GPLv3",
+    "file": "LICENSE"
+  },
+  "summary": "A native Bitcoin SPV client library for iOS with BIP32 support.",
+  "homepage": "https://github.com/keeshux/bitcoinspv",
+  "authors": {
+    "Davide De Rosa": "keeshux@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/keeshux/bitcoinspv.git",
+    "tag": "0.8"
+  },
+  "source_files": "BitcoinSPV/Sources/BitcoinSPV.h",
+  "exclude_files": [
+    "BitcoinSPVDemo",
+    "BitcoinSPVTests"
+  ],
+  "resource_bundles": {
+    "BitcoinSPV": "BitcoinSPV/Resources/Content/**/*"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "OpenSSL-Apple": [
+      "~> 1.1.0i"
+    ],
+    "CocoaLumberjack": [
+      "~> 1.9.2"
+    ],
+    "CocoaAsyncSocket": [
+      "~> 7.3.5"
+    ],
+    "AutoCoding": [
+      "~> 2.2.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BitcoinSPV/Sources/BIPS/*.{h,m}",
+        "BitcoinSPV/Sources/Core/*.{h,m}",
+        "BitcoinSPV/Sources/Global/*.{h,m}",
+        "BitcoinSPV/Sources/Parameters/*.{h,m}",
+        "BitcoinSPV/Sources/Utils/*.{h,m}"
+      ],
+      "private_header_files": [
+        "BitcoinSPV/Sources/Core/WSMacrosPrivate.h",
+        "BitcoinSPV/Sources/Global/WSLogging.h",
+        "BitcoinSPV/Sources/Utils/WSLogFormatter.h"
+      ]
+    },
+    {
+      "name": "Blockchain",
+      "source_files": [
+        "BitcoinSPV/Sources/Blockchain/*.{h,m}",
+        "BitcoinSPV/Sources/Model/*.{h,m}"
+      ],
+      "frameworks": "CoreData",
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wallet",
+      "source_files": "BitcoinSPV/Sources/Wallet/*.{h,m}",
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ],
+        "BitcoinSPV/Blockchain": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": [
+        "BitcoinSPV/Sources/Networking/*.{h,m}",
+        "BitcoinSPV/Sources/Protocol/*.{h,m}"
+      ],
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ],
+        "BitcoinSPV/Blockchain": [
+
+        ],
+        "BitcoinSPV/Wallet": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tools",
+      "source_files": [
+        "BitcoinSPV/Sources/Currency/*.{h,m}",
+        "BitcoinSPV/Sources/Web/*.{h,m}"
+      ],
+      "dependencies": {
+        "BitcoinSPV/Core": [
+
+        ]
+      }
+    }
+  ]
+}
