@@ -1,0 +1,80 @@
+{
+  "name": "AppRouter",
+  "version": "5.1.0",
+  "summary": "UIViewController creation, navigation, utility methods for easy routing",
+  "homepage": "https://github.com/MLSDev/AppRouter",
+  "license": "MIT",
+  "authors": {
+    "Artem Antihevich": "sinarionn@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/sinarionn",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/MLSDev/AppRouter.git",
+    "tag": "5.1.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/*.swift",
+      "platforms": {
+        "ios": "9.0"
+      }
+    },
+    {
+      "name": "Route",
+      "source_files": "Sources/Route/AppRouter+route.swift",
+      "dependencies": {
+        "AppRouter/Core": [
+
+        ],
+        "RxCocoa": [
+          "~> 4.0"
+        ],
+        "ReusableView": [
+          "~> 2.0"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Dip",
+          "source_files": "Sources/Route/*.swift",
+          "dependencies": {
+            "Dip": [
+              "~> 7.0"
+            ]
+          },
+          "platforms": {
+            "ios": "9.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RxSwift",
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10"
+      },
+      "dependencies": {
+        "RxCocoa": [
+          "~> 4.0"
+        ]
+      },
+      "source_files": "Sources/RxSwift/*.swift"
+    }
+  ]
+}
