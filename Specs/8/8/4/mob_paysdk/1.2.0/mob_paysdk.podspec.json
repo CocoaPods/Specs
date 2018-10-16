@@ -1,0 +1,69 @@
+{
+  "name": "mob_paysdk",
+  "version": "1.2.0",
+  "summary": "mob.com免费好用的支付SDK",
+  "license": "MIT",
+  "authors": {
+    "mob": "mobproducts@163.com"
+  },
+  "homepage": "http://www.mob.com",
+  "source": {
+    "git": "https://github.com/MobClub/MOBPaySDK-For-iOS.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "PaySDK",
+  "dependencies": {
+    "MOBFoundation": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "PaySDK",
+      "vendored_frameworks": "SDK/PaySDK/MOBPaySDK.framework"
+    },
+    {
+      "name": "Channels",
+      "subspecs": [
+        {
+          "name": "WeChat",
+          "vendored_libraries": "SDK/PaySDK/Channels/WeChat/*.a",
+          "source_files": "SDK/PaySDK/Channels/WeChat/*.{h,m}",
+          "public_header_files": "SDK/PaySDK/Channels/WeChat/*.h",
+          "libraries": "sqlite3",
+          "dependencies": {
+            "mob_paysdk/PaySDK": [
+
+            ]
+          }
+        },
+        {
+          "name": "AliPay",
+          "vendored_frameworks": "SDK/PaySDK/Channels/AliPay/AlipaySDK.framework",
+          "resources": "SDK/PaySDK/Channels/AliPay/AlipaySDK.bundle",
+          "frameworks": "CoreMotion",
+          "dependencies": {
+            "mob_paysdk/PaySDK": [
+
+            ]
+          }
+        },
+        {
+          "name": "UnionPay",
+          "vendored_libraries": "SDK/PaySDK/Channels/UnionPay/*.a",
+          "source_files": "SDK/PaySDK/Channels/UnionPay/*.{h,m}",
+          "public_header_files": "SDK/PaySDK/Channels/UnionPay/*.h",
+          "libraries": "sqlite3",
+          "dependencies": {
+            "mob_paysdk/PaySDK": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
