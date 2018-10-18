@@ -1,0 +1,39 @@
+{
+  "name": "bls-signatures-pod",
+  "version": "0.1.4",
+  "summary": "BLS signatures in C++, using the relic toolkit",
+  "description": "Implements BLS signatures with aggregation as in Boneh, Drijvers, Neven 2018, using relic toolkit for cryptographic primitives (pairings, EC, hashing). The BLS12-381 curve is used.",
+  "homepage": "https://github.com/Chia-Network/bls-signatures",
+  "license": {
+    "type": "Apache License 2.0"
+  },
+  "authors": {
+    "Chia Network": "hello@chia.net"
+  },
+  "social_media_url": "https://twitter.com/ChiaNetworkInc",
+  "source": {
+    "git": "https://github.com/Chia-Network/bls-signatures.git",
+    "commit": "825428f46f9107a3f01550064ad0b4d76867e28d",
+    "submodules": true
+  },
+  "prepare_command": "# build relic\n\npushd contrib/relic\n\nMD5_HASH=\"862455e976646e3b0f449cbd9b35302c\"\ncurl -o ios.toolchain.cmake https://raw.githubusercontent.com/leetal/ios-cmake/6ea5db18f9a05b4103e2aca665374b94c119fbed/ios.toolchain.cmake\nDOWNLOADED_HASH=`md5 -q ios.toolchain.cmake`\nif [ $MD5_HASH != $DOWNLOADED_HASH ]; then\n  echo \"Error: md5 checksum of ios.toolchain.cmake mismatch\" >&2\n  exit 1\nfi\n\nARM_TARGET_DIR=\"relic-target-arm\"\nX86_TARGET_DIR=\"relic-target-x86\"\n\n\nmkdir \"$ARM_TARGET_DIR\"\npushd \"$ARM_TARGET_DIR\"\n\nexport CC=`xcrun --sdk iphoneos --find clang`\n\nARCHFLAGS=\"-arch arm64\"\nSYSROOT=`xcrun --sdk iphoneos --show-sdk-path`\n\ncmake -DTESTS=0 -DBENCH=0 -DCHECK=off -DARITH=easy -DFP_PRIME=381 -DFP_QNRES=off -DFP_METHD=\"INTEG;INTEG;INTEG;MONTY;LOWER;SLIDE\" -DFPX_METHD=\"INTEG;INTEG;LAZYR\" -DPP_METHD=\"LAZYR;OATEP\" -DCOMP=\"-O3 -funroll-loops -fomit-frame-pointer $INCLUDES -isysroot $SYSROOT $ARCHFLAGS -fembed-bitcode\" -DWSIZE=64 -DVERBS=off -DSHLIB=off -DALLOC=\"AUTO\" -DDSEED=\"UDEV\" -DEP_PLAIN=off -DEP_SUPER=off -DPP_EXT=\"LAZYR\" -DTIMER=\"HREAL\" -DARCH=ARM -DOPSYS=NONE -DIOS_PLATFORM=OS64 -DCMAKE_TOOLCHAIN_FILE=../ios.toolchain.cmake ../\nmake\n\npopd # \"$ARM_TARGET_DIR\"\n\n\nmkdir \"$X86_TARGET_DIR\"\npushd \"$X86_TARGET_DIR\"\n\nunset CC\nexport CC=`xcrun --sdk macosx --find clang`\n\nARCHFLAGS=\"-arch x86_64\"\nSYSROOT=`xcrun --sdk macosx --show-sdk-path`\n\ncmake -DTESTS=0 -DBENCH=0 -DCHECK=off -DARITH=easy -DFP_PRIME=381 -DFP_QNRES=off -DFP_METHD=\"INTEG;INTEG;INTEG;MONTY;LOWER;SLIDE\" -DFPX_METHD=\"INTEG;INTEG;LAZYR\" -DPP_METHD=\"LAZYR;OATEP\" -DCOMP=\"-O3 -funroll-loops -fomit-frame-pointer $INCLUDES -isysroot $SYSROOT $ARCHFLAGS -fembed-bitcode\" -DWSIZE=64 -DVERBS=off -DSHLIB=off -DALLOC=\"AUTO\" -DDSEED=\"UDEV\" -DEP_PLAIN=off -DEP_SUPER=off -DPP_EXT=\"LAZYR\" -DTIMER=\"HREAL\" ../\nmake\n\npopd # \"$X86_TARGET_DIR\"\n\n\nxcrun lipo -create \"${ARM_TARGET_DIR}/lib/librelic_s.a\" \"${X86_TARGET_DIR}/lib/librelic_s.a\" -output \"librelic_universal.a\"\n\npopd # contrib/relic",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "NO",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES"
+  },
+  "source_files": [
+    "src/*.{hpp,cpp}",
+    "contrib/relic/include/*.h",
+    "contrib/relic/include/low/*.h",
+    "contrib/relic/relic-target-arm/include/*.h"
+  ],
+  "exclude_files": "src/{test-utils.hpp,test-bench.cpp,test.cpp}",
+  "vendored_libraries": "contrib/relic/librelic_universal.a",
+  "public_header_files": "src/*.hpp"
+}
