@@ -1,0 +1,237 @@
+{
+  "name": "MKFitpoloRightPageModule",
+  "version": "0.0.2",
+  "summary": "fitpolo App右侧菜单模块",
+  "description": "个人信息、运动目标、苹果健康说明",
+  "homepage": "http://120.27.8.241/MKFitpolo/MKFitpoloMainRightPage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chengang": "chengang@mokotechnology.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "source": {
+    "git": "git@120.27.8.241:MKFitpolo/MKFitpoloMainRightPage.git",
+    "tag": "0.0.2"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "MKFitpoloRightPageModule": [
+      "MKFitpoloRightPageModule/*.lproj/*"
+    ]
+  },
+  "resources": "MKFitpoloRightPageModule/MKRightMainPage.bundle",
+  "dependencies": {
+    "MKBaseModule": [
+
+    ],
+    "MKFitpoloDataCenterManager": [
+
+    ],
+    "MKFitpoloAppConfigModule": [
+
+    ],
+    "CTMediator": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Expand",
+      "subspecs": [
+        {
+          "name": "defines",
+          "source_files": "MKFitpoloRightPageModule/Expand/defines/*.h"
+        },
+        {
+          "name": "MKPhotoPicker",
+          "source_files": "MKFitpoloRightPageModule/Expand/MKPhotoPicker/*.{h,m}",
+          "dependencies": {
+            "MKFitpoloRightPageModule/Expand/defines": [
+
+            ]
+          },
+          "frameworks": "AssetsLibrary"
+        }
+      ]
+    },
+    {
+      "name": "CTMediator_RightPage",
+      "source_files": "MKFitpoloRightPageModule/CTMediator_RightPage/*.{h,m}"
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKFitpoloRightPageModule/Expand/defines": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Health",
+          "subspecs": [
+            {
+              "name": "controller",
+              "source_files": "MKFitpoloRightPageModule/Functions/Health/controller/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/Health/view": [
+
+                ]
+              }
+            },
+            {
+              "name": "Target",
+              "source_files": "MKFitpoloRightPageModule/Functions/Health/Target/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/Health/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKFitpoloRightPageModule/Functions/Health/view/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "MovingTarget",
+          "subspecs": [
+            {
+              "name": "controller",
+              "source_files": "MKFitpoloRightPageModule/Functions/MovingTarget/controller/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/MovingTarget/view": [
+
+                ]
+              }
+            },
+            {
+              "name": "Target",
+              "source_files": "MKFitpoloRightPageModule/Functions/MovingTarget/Target/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/MovingTarget/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKFitpoloRightPageModule/Functions/MovingTarget/view/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "RightPage",
+          "subspecs": [
+            {
+              "name": "controller",
+              "source_files": "MKFitpoloRightPageModule/Functions/RightPage/controller/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/CTMediator_RightPage": [
+
+                ],
+                "MKFitpoloRightPageModule/Functions/RightPage/view": [
+
+                ],
+                "MKFitpoloRightPageModule/Functions/RightPage/model": [
+
+                ]
+              }
+            },
+            {
+              "name": "model",
+              "source_files": "MKFitpoloRightPageModule/Functions/RightPage/model/*.{h,m}"
+            },
+            {
+              "name": "Target",
+              "source_files": "MKFitpoloRightPageModule/Functions/RightPage/Target/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/RightPage/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKFitpoloRightPageModule/Functions/RightPage/view/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/RightPage/model": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PersonInfo",
+          "subspecs": [
+            {
+              "name": "adopter",
+              "source_files": "MKFitpoloRightPageModule/Functions/PersonInfo/adopter/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/PersonInfo/model": [
+
+                ]
+              }
+            },
+            {
+              "name": "controller",
+              "source_files": "MKFitpoloRightPageModule/Functions/PersonInfo/controller/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/PersonInfo/model": [
+
+                ],
+                "MKFitpoloRightPageModule/Functions/PersonInfo/adopter": [
+
+                ],
+                "MKFitpoloRightPageModule/Functions/PersonInfo/view": [
+
+                ],
+                "MKFitpoloRightPageModule/CTMediator_RightPage": [
+
+                ]
+              }
+            },
+            {
+              "name": "model",
+              "source_files": "MKFitpoloRightPageModule/Functions/PersonInfo/model/*.{h,m}"
+            },
+            {
+              "name": "Target",
+              "source_files": "MKFitpoloRightPageModule/Functions/PersonInfo/Target/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/PersonInfo/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKFitpoloRightPageModule/Functions/PersonInfo/view/*.{h,m}",
+              "dependencies": {
+                "MKFitpoloRightPageModule/Functions/PersonInfo/model": [
+
+                ],
+                "MKFitpoloRightPageModule/Functions/PersonInfo/adopter": [
+
+                ],
+                "MKFitpoloRightPageModule/Expand/MKPhotoPicker": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
