@@ -1,0 +1,588 @@
+{
+  "name": "MKHomePageModule",
+  "version": "0.0.2",
+  "summary": "主页面",
+  "description": "主页面、计步、睡眠、心率",
+  "homepage": "http://120.27.8.241/MKFitpolo/MKHomePage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chengang": "chengang@mokotechnology.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "source": {
+    "git": "git@120.27.8.241:MKFitpolo/MKHomePage.git",
+    "tag": "0.0.2"
+  },
+  "requires_arc": true,
+  "resources": "MKHomePageModule/MKHomePage.bundle",
+  "dependencies": {
+    "MKBaseModule": [
+
+    ],
+    "MKFitpoloDataCenterManager": [
+
+    ],
+    "MKFitpoloAppConfigModule": [
+
+    ],
+    "CTMediator": [
+
+    ],
+    "FLAnimatedImage": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "YYKit": [
+
+    ],
+    "Toast": [
+
+    ],
+    "MJRefresh": [
+
+    ],
+    "MBProgressHUD": [
+
+    ],
+    "Aspects": [
+
+    ],
+    "IMYWebView": [
+
+    ],
+    "MLInputDodger": [
+
+    ],
+    "CircleProgressBar": [
+
+    ],
+    "FMDB": [
+
+    ],
+    "HJTabViewController": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Expand",
+      "subspecs": [
+        {
+          "name": "category",
+          "source_files": "MKHomePageModule/Expand/category/*.{h,m}"
+        },
+        {
+          "name": "defines",
+          "source_files": "MKHomePageModule/Expand/defines/*.h",
+          "dependencies": {
+            "MKHomePageModule/Expand/category": [
+
+            ]
+          }
+        },
+        {
+          "name": "MKDatabaseAdopter",
+          "source_files": "MKHomePageModule/Expand/MKDatabaseAdopter/*.{h,m}",
+          "dependencies": {
+            "MKHomePageModule/Expand/defines": [
+
+            ]
+          }
+        },
+        {
+          "name": "refreshHeader",
+          "source_files": "MKHomePageModule/Expand/refreshHeader/*.{h,m}",
+          "resources": "MKHomePageModule/Expand/refreshHeader/MKRefreshHeader.bundle",
+          "dependencies": {
+            "MKHomePageModule/Expand/defines": [
+
+            ]
+          }
+        },
+        {
+          "name": "Health",
+          "source_files": "MKHomePageModule/Expand/Health/*.{h,m}",
+          "dependencies": {
+            "MKHomePageModule/Expand/defines": [
+
+            ]
+          },
+          "frameworks": "HealthKit"
+        }
+      ]
+    },
+    {
+      "name": "CTMediator_HomePage",
+      "source_files": "MKHomePageModule/CTMediator_HomePage/*.{h,m}"
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKHomePageModule/Expand/defines": [
+
+        ],
+        "MKHomePageModule/Expand/MKDatabaseAdopter": [
+
+        ],
+        "MKHomePageModule/Expand/category": [
+
+        ],
+        "MKHomePageModule/CTMediator_HomePage": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Database",
+          "subspecs": [
+            {
+              "name": "Heart",
+              "source_files": "MKHomePageModule/Functions/Database/Heart/*.{h,m}"
+            },
+            {
+              "name": "Sleep",
+              "source_files": "MKHomePageModule/Functions/Database/Sleep/*.{h,m}"
+            },
+            {
+              "name": "Step",
+              "source_files": "MKHomePageModule/Functions/Database/Step/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "SSNormal",
+          "subspecs": [
+            {
+              "name": "Sleep",
+              "subspecs": [
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/SSNormal/Sleep/view/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/SSNormal/Sleep/model": [
+
+                    ],
+                    "MKHomePageModule/Functions/NormalHistory/model": [
+
+                    ],
+                    "MKHomePageModule/Functions/NormalHistory/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "model",
+                  "source_files": "MKHomePageModule/Functions/SSNormal/Sleep/model/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Step",
+              "subspecs": [
+                {
+                  "name": "model",
+                  "source_files": "MKHomePageModule/Functions/SSNormal/Step/model/*.{h,m}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "HeartAdopter",
+          "subspecs": [
+            {
+              "name": "adopter",
+              "source_files": "MKHomePageModule/Functions/HeartAdopter/adopter/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/HeartAdopter/model": [
+
+                ]
+              }
+            },
+            {
+              "name": "cache",
+              "source_files": "MKHomePageModule/Functions/HeartAdopter/cache/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/HeartAdopter/model": [
+
+                ],
+                "MKHomePageModule/Functions/Database/Heart": [
+
+                ]
+              }
+            },
+            {
+              "name": "model",
+              "source_files": "MKHomePageModule/Functions/HeartAdopter/model/*.{h,m}"
+            },
+            {
+              "name": "view",
+              "source_files": "MKHomePageModule/Functions/HeartAdopter/view/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/HeartAdopter/model": [
+
+                ],
+                "MKHomePageModule/Functions/HeartAdopter/cache": [
+
+                ],
+                "MKHomePageModule/Functions/HeartAdopter/adopter": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Heart",
+          "dependencies": {
+            "MKHomePageModule/Functions/HeartAdopter/adopter": [
+
+            ],
+            "MKHomePageModule/Functions/HeartAdopter/cache": [
+
+            ],
+            "MKHomePageModule/Functions/HeartAdopter/model": [
+
+            ],
+            "MKHomePageModule/Functions/HeartAdopter/view": [
+
+            ],
+            "MKHomePageModule/Functions/Database/Heart": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "heartDetail",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Heart/heartDetail/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Heart/heartDetail/model": [
+
+                    ],
+                    "MKHomePageModule/Functions/Heart/heartDetail/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "model",
+                  "source_files": "MKHomePageModule/Functions/Heart/heartDetail/model/*.{h,m}"
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Heart/heartDetail/view/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Heart/heartDetail/model": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "heartRatePage",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Heart/heartRatePage/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Heart/heartRatePage/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Heart/heartRatePage/view/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKHomePageModule/Functions/Heart/Target/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Heart/heartDetail/controller": [
+
+                ],
+                "MKHomePageModule/Functions/Heart/heartRatePage/controller": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "HomePage",
+          "dependencies": {
+            "MKHomePageModule/Expand/Health": [
+
+            ],
+            "MKHomePageModule/Expand/refreshHeader": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "adopter",
+              "source_files": "MKHomePageModule/Functions/HomePage/adopter/*.{h,m}"
+            },
+            {
+              "name": "controller",
+              "source_files": "MKHomePageModule/Functions/HomePage/controller/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/HomePage/adopter": [
+
+                ],
+                "MKHomePageModule/Functions/HomePage/view": [
+
+                ]
+              }
+            },
+            {
+              "name": "Target",
+              "source_files": "MKHomePageModule/Functions/HomePage/Target/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/HomePage/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKHomePageModule/Functions/HomePage/view/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "NormalHistory",
+          "subspecs": [
+            {
+              "name": "model",
+              "source_files": "MKHomePageModule/Functions/NormalHistory/model/*.{h,m}"
+            },
+            {
+              "name": "view",
+              "source_files": "MKHomePageModule/Functions/NormalHistory/view/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/NormalHistory/model": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sleep",
+          "dependencies": {
+            "MKHomePageModule/Functions/Database/Sleep": [
+
+            ],
+            "MKHomePageModule/Functions/SSNormal/Sleep/model": [
+
+            ],
+            "MKHomePageModule/Functions/SSNormal/Sleep/view": [
+
+            ],
+            "MKHomePageModule/Functions/NormalHistory/model": [
+
+            ],
+            "MKHomePageModule/Functions/NormalHistory/view": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "sleepHistoryPage",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Sleep/sleepHistoryPage/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Sleep/sleepHistoryPage/view": [
+
+                    ],
+                    "MKHomePageModule/Functions/Sleep/sleepHistoryPage/model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "model",
+                  "source_files": "MKHomePageModule/Functions/Sleep/sleepHistoryPage/model/*.{h,m}"
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Sleep/sleepHistoryPage/view/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Sleep/sleepHistoryPage/model": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "sleepPage",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Sleep/sleepPage/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Sleep/sleepPage/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Sleep/sleepPage/view/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKHomePageModule/Functions/Sleep/Target/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Sleep/sleepPage/controller": [
+
+                ],
+                "MKHomePageModule/Functions/Sleep/sleepHistoryPage/controller": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Step",
+          "dependencies": {
+            "MKHomePageModule/Functions/Database/Step": [
+
+            ],
+            "MKHomePageModule/Functions/SSNormal/Step/model": [
+
+            ],
+            "MKHomePageModule/Functions/NormalHistory/model": [
+
+            ],
+            "MKHomePageModule/Functions/NormalHistory/view": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "stepHistoryPage",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Step/stepHistoryPage/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Step/stepHistoryPage/model": [
+
+                    ],
+                    "MKHomePageModule/Functions/Step/stepHistoryPage/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "model",
+                  "source_files": "MKHomePageModule/Functions/Step/stepHistoryPage/model/*.{h,m}"
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Step/stepHistoryPage/view/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Step/stepHistoryPage/model": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "stepPage",
+              "subspecs": [
+                {
+                  "name": "controller",
+                  "source_files": "MKHomePageModule/Functions/Step/stepPage/controller/*.{h,m}",
+                  "dependencies": {
+                    "MKHomePageModule/Functions/Step/stepPage/view": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "view",
+                  "source_files": "MKHomePageModule/Functions/Step/stepPage/view/*.{h,m}"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKHomePageModule/Functions/Step/Target/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Step/stepPage/controller": [
+
+                ],
+                "MKHomePageModule/Functions/Step/stepHistoryPage/controller": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update",
+          "subspecs": [
+            {
+              "name": "controller",
+              "source_files": "MKHomePageModule/Functions/Update/controller/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Update/view": [
+
+                ]
+              }
+            },
+            {
+              "name": "manager",
+              "source_files": "MKHomePageModule/Functions/Update/manager/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Update/controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Target",
+              "source_files": "MKHomePageModule/Functions/Update/Target/*.{h,m}",
+              "dependencies": {
+                "MKHomePageModule/Functions/Update/manager": [
+
+                ]
+              }
+            },
+            {
+              "name": "view",
+              "source_files": "MKHomePageModule/Functions/Update/view/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
