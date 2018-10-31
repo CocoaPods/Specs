@@ -1,0 +1,78 @@
+{
+  "name": "ChouTi",
+  "version": "0.4.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "ChouTi (抽屉) - A framework for Swift development.",
+  "description": "ChouTi (抽屉) - A framework for Swift development.\n\nThis is a project includes extended data structures, classes, extensions.",
+  "homepage": "https://github.com/ChouTi-Lab/ChouTi",
+  "authors": {
+    "Honghao Zhang": "zhh358@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ChouTi-Lab/ChouTi.git",
+    "tag": "0.4.2"
+  },
+  "requires_arc": true,
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "ChouTi/Tests/*.swift",
+      "dependencies": {
+        "Quick": [
+          "~> 1.3"
+        ],
+        "Nimble": [
+          "~> 7.3"
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Default",
+      "ios": {
+        "source_files": "ChouTi/Source/**/*.swift",
+        "exclude_files": [
+          "ChouTi/Source/iOS/UI/LoadingMorphingLabel",
+          "ChouTi/Source/iOS/UI/SlideController"
+        ],
+        "resource_bundles": {
+          "Resources": "ChouTi/Resources/**/*.png"
+        }
+      }
+    },
+    {
+      "name": "AppExtensionUnsafe",
+      "ios": {
+        "source_files": "ChouTi/Source/iOS/UI/SlideController",
+        "dependencies": {
+          "ChouTi/Default": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "LoadingMorphingLabel",
+      "ios": {
+        "source_files": "ChouTi/Source/iOS/UI/LoadingMorphingLabel",
+        "dependencies": {
+          "ChouTi/Default": [
+
+          ],
+          "LTMorphingLabel": [
+            "~> 0.5.8"
+          ]
+        }
+      }
+    }
+  ]
+}
