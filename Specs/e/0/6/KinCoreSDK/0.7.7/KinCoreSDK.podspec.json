@@ -1,0 +1,45 @@
+{
+  "name": "KinCoreSDK",
+  "version": "0.7.7",
+  "summary": "Pod for the KIN Core SDK.",
+  "description": "Initial pod for the KIN SDK.",
+  "homepage": "https://github.com/kinfoundation/kin-core-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Kin Foundation": "kin@kik.com"
+  },
+  "source": {
+    "git": "https://github.com/kinfoundation/kin-core-ios.git",
+    "tag": "0.7.7",
+    "submodules": true
+  },
+  "source_files": [
+    "KinSDK/KinSDK/source/*.swift",
+    "KinSDK/KinSDK/source/third-party/keychain-swift/KeychainSwift/*.swift",
+    "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/*.{swift,h}",
+    "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium/*.h"
+  ],
+  "preserve_paths": [
+    "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium/module.modulemap",
+    "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium/libsodium-ios.a"
+  ],
+  "vendored_libraries": "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium/libsodium-ios.a",
+  "private_header_files": "KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium/*.h",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium",
+    "OTHER_LDFLAGS": "-lsodium-ios",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/KinSDK/KinSDK/source/third-party/swift-sodium/Sodium/libsodium"
+  },
+  "dependencies": {
+    "StellarKit": [
+      "0.3.7"
+    ]
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "3.2"
+}
