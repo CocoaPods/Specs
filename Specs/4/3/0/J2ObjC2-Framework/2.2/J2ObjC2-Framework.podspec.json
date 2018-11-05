@@ -1,0 +1,72 @@
+{
+  "name": "J2ObjC2-Framework",
+  "version": "2.2",
+  "summary": "Swift-compatible J2ObjC static framework pod",
+  "homepage": "http://j2objc.org",
+  "authors": "J2ObjC Team",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/kustra/J2ObjC-Framework.git",
+    "tag": "2.2"
+  },
+  "static_framework": true,
+  "preserve_paths": "dist",
+  "prepare_command": "scripts/download.sh",
+  "frameworks": "Security",
+  "osx": {
+    "frameworks": "ExceptionHandling"
+  },
+  "default_subspecs": "all",
+  "subspecs": [
+    {
+      "name": "all",
+      "dependencies": {
+        "J2ObjC2-Framework/JRE": [
+
+        ],
+        "J2ObjC2-Framework/JSR305": [
+
+        ]
+      }
+    },
+    {
+      "name": "JRE",
+      "vendored_frameworks": "dist/frameworks/JRE.framework",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "libraries": [
+        "z",
+        "icucore",
+        "iconv"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC2-Framework/dist/frameworks/JRE.framework/Headers\""
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC2-Framework/dist/frameworks/JRE.framework/Headers\""
+      }
+    },
+    {
+      "name": "JSR305",
+      "dependencies": {
+        "J2ObjC2-Framework/JRE": [
+
+        ]
+      },
+      "vendored_frameworks": "dist/frameworks/JSR305.framework",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC2-Framework/dist/frameworks/JSR305.framework/Headers\""
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/J2ObjC2-Framework/dist/frameworks/JSR305.framework/Headers\""
+      }
+    }
+  ]
+}
