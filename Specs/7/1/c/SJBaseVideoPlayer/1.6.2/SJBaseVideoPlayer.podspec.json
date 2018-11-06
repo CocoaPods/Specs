@@ -1,0 +1,105 @@
+{
+  "name": "SJBaseVideoPlayer",
+  "version": "1.6.2",
+  "summary": "video player.",
+  "description": "https://github.com/changsanjiang/SJBaseVideoPlayer/blob/master/README.md",
+  "homepage": "https://github.com/changsanjiang/SJBaseVideoPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "SanJiang": "changsanjiang@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://gitee.com/changsanjiang/SJBaseVideoPlayer.git",
+    "tag": "v1.6.2"
+  },
+  "frameworks": [
+    "UIKit",
+    "AVFoundation"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "SJObserverHelper": [
+
+    ],
+    "Reachability": [
+
+    ]
+  },
+  "source_files": "SJBaseVideoPlayer/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Header",
+      "source_files": "SJBaseVideoPlayer/Header/*.{h}"
+    },
+    {
+      "name": "Model",
+      "source_files": "SJBaseVideoPlayer/Model/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJAVMediaPlaybackController",
+      "source_files": "SJBaseVideoPlayer/SJAVMediaPlaybackController/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Tool": [
+
+        ],
+        "SJBaseVideoPlayer/Header": [
+
+        ],
+        "SJBaseVideoPlayer/Model": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/SJAVMediaPlaybackController/Core/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "SJPrompt",
+      "source_files": "SJBaseVideoPlayer/SJPrompt/*.{h,m}"
+    },
+    {
+      "name": "SJRotationManager",
+      "source_files": "SJBaseVideoPlayer/SJRotationManager/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJVolBrigControl",
+      "source_files": "SJBaseVideoPlayer/SJVolBrigControl/*.{h,m}",
+      "resources": "SJBaseVideoPlayer/SJVolBrigControl/Resource/SJVolBrigResource.bundle",
+      "subspecs": [
+        {
+          "name": "Resource",
+          "source_files": "SJBaseVideoPlayer/SJVolBrigControl/Resource/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Tool",
+      "source_files": "SJBaseVideoPlayer/Tool/*.{h,m}",
+      "ios": {
+        "libraries": "sqlite3"
+      }
+    }
+  ]
+}
