@@ -1,0 +1,123 @@
+{
+  "name": "KBAPISupport",
+  "version": "3.0.0",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/byss/KBAPISupport",
+  "authors": {
+    "Kirill byss Bystrov": "kirrbyss@gmail.com"
+  },
+  "summary": "Simple library for HTTP/HTTPS requests and parsing & mapping JSON/XML responses to native objects.",
+  "source": {
+    "git": "https://github.com/byss/KBAPISupport.git",
+    "tag": "v3.0.0"
+  },
+  "requires_arc": true,
+  "module_map": "KBAPISupport/Supporting Files/KBAPISupport.modulemap",
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": [
+    "NSURLSession",
+    "JSON",
+    "ObjectMapping",
+    "Blocks"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "KBAPISupport/Core/*.{h,m}",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "private_header_files": "KBAPISupport/Core/*_Protected.h",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "NSURLConnection",
+      "source_files": "KBAPISupport/NSURLConnection/*.{h,m}",
+      "private_header_files": "KBAPISupport/NSURLConnection/*_Protected.h",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "7.0",
+        "osx": "10.9"
+      }
+    },
+    {
+      "name": "NSURLSession",
+      "source_files": "KBAPISupport/NSURLSession/*.{h,m}",
+      "private_header_files": [
+        "KBAPISupport/NSURLSession/*_Protected.h",
+        "KBAPISupport/NSURLSession/KBURLSessionDelegate.h"
+      ],
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSON",
+      "source_files": "KBAPISupport/JSON/*.{h,m}",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreMapping",
+      "source_files": "KBAPISupport/CoreMapping/*.{h,m}",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ObjectMapping",
+      "source_files": "KBAPISupport/ObjectMapping/*.{h,m}",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ],
+        "KBAPISupport/CoreMapping": [
+
+        ]
+      },
+      "private_header_files": "KBAPISupport/ObjectMapping/*_Protected.h"
+    },
+    {
+      "name": "Blocks",
+      "source_files": "KBAPISupport/Blocks/*.{h,m}",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetworkIndicator",
+      "source_files": "KBAPISupport/NetworkIndicator/*.{h,m}",
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "platforms": {
+        "ios": "7.0"
+      }
+    }
+  ]
+}
