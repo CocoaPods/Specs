@@ -1,0 +1,87 @@
+{
+  "name": "KBAPISupport",
+  "version": "4.0.0-a04",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/byss/KBAPISupport",
+  "authors": {
+    "Kirill byss Bystrov": "kirrbyss@gmail.com"
+  },
+  "summary": "Simple library for HTTP/HTTPS requests and parsing & mapping JSON/XML responses to native objects.",
+  "source": {
+    "git": "https://github.com/byss/KBAPISupport.git",
+    "tag": "v4.0.0-a04"
+  },
+  "requires_arc": false,
+  "frameworks": "Foundation",
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0",
+    "osx": "10.12",
+    "watchos": "4.0"
+  },
+  "module_map": "KBAPISupport/Supporting Files/KBAPISupport.modulemap",
+  "pod_target_xcconfig": {
+    "COPY_HEADERS_RUN_UNIFDEF": "YES",
+    "COPY_HEADERS_UNIFDEF_FLAGS": "-U__cplusplus",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "KBAPISupport/Core/{Public,Internal,Private}/*.{h,m,mm,swift}",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "public_header_files": [
+        "KBAPISupport/Core/Public/*.h",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "private_header_files": "KBAPISupport/Core/Internal/*.h"
+    },
+    {
+      "name": "ObjC",
+      "source_files": [
+        "KBAPISupport/ObjC/{Public,Internal,Private}/*.{h,m,mm,swift}",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "public_header_files": [
+        "KBAPISupport/ObjC/Public/*.h",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ImageLoading",
+      "source_files": [
+        "KBAPISupport/ImageLoading/{Public,Internal,Private}/*.{h,m,mm,swift}",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "public_header_files": [
+        "KBAPISupport/ImageLoading/Public/*.h",
+        "KBAPISupport/Supporting Files/KBAPISupport.h"
+      ],
+      "dependencies": {
+        "KBAPISupport/Core": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "tvos": {
+        "frameworks": "UIKit"
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      }
+    }
+  ]
+}
