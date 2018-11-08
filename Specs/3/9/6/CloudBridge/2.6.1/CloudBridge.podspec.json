@@ -1,0 +1,115 @@
+{
+  "name": "CloudBridge",
+  "version": "2.6.1",
+  "summary": "Synchronize your object graphed data model with it's cloud backend",
+  "homepage": "https://github.com/layered-pieces/CloudBridge",
+  "license": "MIT",
+  "authors": {
+    "Oliver Letterer": "oliver.letterer@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/OliverLetterer/CloudBridge.git",
+    "tag": "2.6.1"
+  },
+  "social_media_url": "https://twitter.com/OliverLetterer",
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "default_subspecs": "CoreData+REST",
+  "prefix_header_contents": [
+    "#ifndef NS_BLOCK_ASSERTIONS",
+    "#define __assert_unused",
+    "#else",
+    "#define __assert_unused __unused",
+    "#endif"
+  ],
+  "subspecs": [
+    {
+      "name": "CloudBridge",
+      "source_files": [
+        "CloudBridge",
+        "Swift"
+      ]
+    },
+    {
+      "name": "CoreData",
+      "source_files": "CoreData",
+      "dependencies": {
+        "CloudBridge/CloudBridge": [
+
+        ]
+      }
+    },
+    {
+      "name": "Realm",
+      "source_files": "Realm",
+      "dependencies": {
+        "Realm": [
+          "~> 3.0"
+        ],
+        "CloudBridge/CloudBridge": [
+
+        ]
+      }
+    },
+    {
+      "name": "CBRRESTConnection",
+      "source_files": [
+        "CBRRESTConnection",
+        "CBRRESTConnection/JSON",
+        "CBRRESTConnection/Swift"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.0"
+        ],
+        "CloudBridge/CloudBridge": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreData+REST",
+      "source_files": [
+        "CBRRESTConnection/CoreData",
+        "CBRRESTConnection/CoreData/Swift"
+      ],
+      "dependencies": {
+        "CloudBridge/CoreData": [
+
+        ],
+        "CloudBridge/CBRRESTConnection": [
+
+        ]
+      }
+    },
+    {
+      "name": "Realm+REST",
+      "source_files": "CBRRESTConnection/Realm",
+      "dependencies": {
+        "CloudBridge/Realm": [
+
+        ],
+        "CloudBridge/CBRRESTConnection": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "CloudBridge/CoreData+REST": [
+
+        ],
+        "CloudBridge/Realm+REST": [
+
+        ]
+      }
+    }
+  ]
+}
