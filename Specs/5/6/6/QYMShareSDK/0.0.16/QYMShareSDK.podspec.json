@@ -1,0 +1,62 @@
+{
+  "name": "QYMShareSDK",
+  "version": "0.0.16",
+  "summary": "集成微信、QQ分享的SDK",
+  "homepage": "https://github.com/lz156/QYMShareSDK",
+  "license": "MIT",
+  "authors": {
+    "zhen": ""
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/lz156/QYMShareSDK.git",
+    "tag": "v0.0.16"
+  },
+  "source_files": "QYMShareSDK/QYMShareSDK.{h,m}",
+  "public_header_files": "QYMShareSDK/QYMShareSDK.h",
+  "frameworks": "SystemConfiguration",
+  "requires_arc": true,
+  "dependencies": {
+    "WechatOpenSDK": [
+      "~> 1.8.3"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Model",
+      "source_files": [
+        "QYMShareSDK/Model/QYMConfig.h",
+        "QYMShareSDK/Model/QYMRegisterModel.{h,m}",
+        "QYMShareSDK/Model/QYMShareModel.{h,m}"
+      ],
+      "public_header_files": [
+        "QYMShareSDK/Model/QYMConfig.h",
+        "QYMShareSDK/Model/QYMRegisterModel.h",
+        "QYMShareSDK/Model/QYMShareModel.h"
+      ]
+    },
+    {
+      "name": "QQ",
+      "dependencies": {
+        "QYMShareSDK/Model": [
+
+        ]
+      },
+      "source_files": "QYMShareSDK/QQ/QYMQqManage.{h,m}",
+      "ios": {
+        "vendored_frameworks": "QYMShareSDK/QQ/framework/TencentOpenAPI.framework"
+      }
+    },
+    {
+      "name": "WeiXin",
+      "dependencies": {
+        "QYMShareSDK/Model": [
+
+        ]
+      },
+      "source_files": "QYMShareSDK/WeiXin/QYMWeiXinManage.{h,m}"
+    }
+  ]
+}
