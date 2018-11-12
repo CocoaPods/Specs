@@ -1,0 +1,137 @@
+{
+  "name": "HealthMonitor",
+  "version": "1.4.4",
+  "summary": "Chart of HealthMonitor.",
+  "description": "Health Monitor Data In View Of Chart",
+  "homepage": "http://git.aijk.com/ext-sdk/HealthMonitor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tiger8888": "seekarmor@139.com",
+    "xuchenguang": "xucg@yjhealth.cn"
+  },
+  "source": {
+    "git": "http://git.aijk.com/ext-sdk/HealthMonitor.git",
+    "tag": "1.4.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "CoreFoundation",
+    "Foundation",
+    "CoreBluetooth",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreGraphics",
+    "Security",
+    "UIKit"
+  ],
+  "libraries": [
+    "z.1.1.3",
+    "stdc++",
+    "sqlite3"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "AJKFrame",
+      "source_files": "MVVM/AJKFrame/Classes/**/*.{h,m}",
+      "prefix_header_contents": "#import \"AJKFrame.h\"",
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "FLKAutoLayout": [
+
+        ],
+        "SDWebImage": [
+
+        ],
+        "ReactiveObjC": [
+
+        ],
+        "TMCache": [
+
+        ],
+        "JSONModel": [
+
+        ],
+        "Toast": [
+
+        ],
+        "MBProgressHUD": [
+
+        ],
+        "IQKeyboardManager": [
+          "4.0.13"
+        ],
+        "MJRefresh": [
+          "~> 3.1.12"
+        ],
+        "NJKWebViewProgress": [
+
+        ]
+      }
+    },
+    {
+      "name": "AJKCommon",
+      "source_files": "MVVM/AJKCommon/AJKCommon_Class/**/*.{h,m}",
+      "resource_bundles": {
+        "AJKCommon": [
+          "MVVM/AJKCommon/AJKCommon_Resources/RefreshImg/*.png"
+        ]
+      },
+      "dependencies": {
+        "HealthMonitor/AJKFrame": [
+
+        ]
+      }
+    },
+    {
+      "name": "Monitor",
+      "source_files": [
+        "Monitor/Classes/**/*.{h,m}",
+        "Monitor/LollypopSDK.framework/Headers/**/*.h",
+        "Monitor/Classes/LMTP/lame.h"
+      ],
+      "resource_bundles": {
+        "Monitor": [
+          "Monitor/Assets/**/*.png",
+          "Monitor/Assets/**/*.jpg",
+          "Monitor/Assets/**/*.json",
+          "Monitor/Classes/**/*.xib",
+          "Monitor/Classes/**/*.storyboard",
+          "Monitor/Classes/**/*.bundle"
+        ]
+      },
+      "vendored_frameworks": "Monitor/LollypopSDK.framework",
+      "vendored_libraries": [
+        "Monitor/Classes/bluetoothManager/*.a",
+        "Monitor/Classes/bluetoothManager/LikangLib/*.a",
+        "Monitor/Classes/bluetoothManager/CRSpo2&ECG/*.a",
+        "Monitor/Classes/LMTP/*.a"
+      ],
+      "dependencies": {
+        "HealthMonitor/AJKFrame": [
+
+        ],
+        "HealthMonitor/AJKCommon": [
+
+        ],
+        "Masonry": [
+
+        ],
+        "SWExtension": [
+
+        ]
+      }
+    }
+  ]
+}
