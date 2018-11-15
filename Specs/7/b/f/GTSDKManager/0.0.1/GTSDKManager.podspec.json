@@ -1,0 +1,149 @@
+{
+  "name": "GTSDKManager",
+  "version": "0.0.1",
+  "summary": "第三方SDK统一管理组件",
+  "homepage": "https://github.com/liuxc123/GTSDKManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liuxc123": "lxc_work@126.com"
+  },
+  "source": {
+    "git": "https://github.com/liuxc123/GTSDKManager.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "CoreService",
+      "public_header_files": [
+        "GTSDKManager/CoreService/GTSDKManager.h",
+        "GTSDKManager/CoreService/SDKServiceInterface/*.h"
+      ],
+      "source_files": "GTSDKManager/CoreService/**/*.{h,m,mm}",
+      "resources": [
+        "GTSDKManager/CoreService/SDKServiceConfig.plist"
+      ]
+    },
+    {
+      "name": "QQPlatform",
+      "public_header_files": [
+        "GTSDKManager/QQPlatform/*.h",
+        "GTSDKManager/QQPlatform/**/*.h"
+      ],
+      "source_files": "GTSDKManager/QQPlatform/**/*.{h,m,mm}",
+      "vendored_frameworks": "GTSDKManager/QQPlatform/GTQQSDK/TencentOpenAPI.framework",
+      "resources": [
+        "GTSDKManager/QQPlatform/**/*.{bundle}"
+      ],
+      "ios": {
+        "frameworks": [
+          "CoreTelephony",
+          "SystemConfiguration"
+        ],
+        "libraries": [
+          "z",
+          "sqlite3.0",
+          "c++",
+          "iconv"
+        ]
+      },
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "WechatPlatform",
+      "public_header_files": "GTSDKManager/WechatPlatform/WeChatSDK/*.h",
+      "source_files": "GTSDKManager/WechatPlatform/**/*.{h,m,mm}",
+      "vendored_libraries": "GTSDKManager/WechatPlatform/WeChatSDK/libWeChatSDK.a",
+      "frameworks": [
+        "MobileCoreServices",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3.0",
+        "c++"
+      ],
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "AlipayPlatform",
+      "public_header_files": [
+        "GTSDKManager/AlipayPlatform/*.h",
+        "GTSDKManager/AlipayPlatform/**/*.h"
+      ],
+      "source_files": "GTSDKManager/AlipayPlatform/**/*{h,m,mm}",
+      "vendored_frameworks": "GTSDKManager/AlipayPlatform/AlipaySDK/AlipaySDK.framework",
+      "resources": [
+        "GTSDKManager/AlipayPlatform/**/*.{bundle}"
+      ],
+      "frameworks": "SystemConfiguration",
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeiboPlatform",
+      "public_header_files": "GTSDKManager/WeiboPlatform/libWeiboSDK/*.h",
+      "source_files": "GTSDKManager/WeiboPlatform/**/*{h,m,mm}",
+      "vendored_libraries": "GTSDKManager/WeiboPlatform/libWeiboSDK/libWeiboSDK.a",
+      "resources": [
+        "GTSDKManager/WeiboPlatform/**/*.{bundle}"
+      ],
+      "frameworks": [
+        "QuartzCore",
+        "ImageIO",
+        "SystemConfiguration",
+        "Security",
+        "CoreTelephony",
+        "CoreText"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3.0"
+      ],
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "YixinPlatform",
+      "public_header_files": "GTSDKManager/YixinPlatform/YiXinSDK/*.h",
+      "source_files": "GTSDKManager/YixinPlatform/**/*.{h,m,mm}",
+      "vendored_libraries": "GTSDKManager/YixinPlatform/YiXinSDK/libYixinSDK.a",
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "DingTalkPlatform",
+      "source_files": "GTSDKManager/DingTalkPlatform/**/*.{h,m,mm}",
+      "vendored_frameworks": "GTSDKManager/DingTalkPlatform/DingTalkSDK/DTShareKit.framework",
+      "dependencies": {
+        "GTSDKManager/CoreService": [
+
+        ]
+      }
+    }
+  ]
+}
