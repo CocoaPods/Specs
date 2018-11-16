@@ -1,0 +1,108 @@
+{
+  "name": "RTMapSDK",
+  "version": "0.1.2",
+  "summary": "A short description of RTMapSDK.",
+  "description": "室内地图导航SDK\nRTLbsMapSDK 地图绘制库，可单独使用\nRTLbsLocation 室内定位\nARSDK AR导航，依赖另外两个库",
+  "homepage": "https://gitee.com/wwwzz321/RTMapSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WWWZZ321": "zhangzhi@njfae.com"
+  },
+  "source": {
+    "git": "https://gitee.com/wwwzz321/RTMapSDK.git",
+    "tag": "0.1.2",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "CoreMotion",
+    "SystemConfiguration",
+    "CoreLocation",
+    "CoreBluetooth",
+    "Foundation",
+    "CoreGraphics"
+  ],
+  "libraries": [
+    "sqlite3",
+    "z",
+    "c++"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "xcconfig": {
+    "OTHER_CFLAGS": "-fembed-bitcode"
+  },
+  "subspecs": [
+    {
+      "name": "ARSDK",
+      "source_files": "RTMapSDK/Classes/RTM/SDK/ARSDK/include/*",
+      "public_header_files": "RTMapSDK/Classes/RTM/SDK/ARSDK/include/*.h",
+      "vendored_libraries": "RTMapSDK/Classes/RTM/SDK/ARSDK/libARSDK.a",
+      "resources": "RTMapSDK/Classes/RTM/SDK/ARSDK/RTImages.bundle",
+      "dependencies": {
+        "RTMapSDK/RTLbsLocation": [
+
+        ],
+        "RTMapSDK/RTLbsMapSDK": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "QuartzCore",
+        "ImageIO",
+        "CoreMedia",
+        "CoreVideo",
+        "AVFoundation"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "RTLbsLocation",
+      "source_files": "RTMapSDK/Classes/RTM/SDK/RTLbsLocationSDK/*.h",
+      "vendored_libraries": "RTMapSDK/Classes/RTM/SDK/RTLbsLocationSDK/libRTLbsLocation.a",
+      "frameworks": [
+        "UIKit",
+        "CoreMotion",
+        "SystemConfiguration",
+        "CoreLocation",
+        "CoreBluetooth",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "RTLbsMapSDK",
+      "source_files": "RTMapSDK/Classes/RTM/SDK/RTLbsMapSDK/*.h",
+      "vendored_libraries": "RTMapSDK/Classes/RTM/SDK/RTLbsMapSDK/lib3DMapView.a",
+      "resources": "RTMapSDK/Classes/RTM/SDK/RTLbsMapSDK/RtmapRes.bundle",
+      "frameworks": [
+        "CoreLocation",
+        "CoreBluetooth",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "OpenGLES",
+        "QuartzCore"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ]
+    }
+  ]
+}
