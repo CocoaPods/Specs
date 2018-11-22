@@ -1,0 +1,62 @@
+{
+  "name": "LYAudioManager",
+  "version": "1.0.1",
+  "summary": "audio recoder,player and convert tool",
+  "description": "a simple audio recoder,player and convert tool for iOS",
+  "homepage": "https://github.com/install-b/LYAudioConvert",
+  "license": "MIT",
+  "authors": {
+    "Shangen Zhang": "gkzhangshangen@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/install-b/LYAudioConvert.git",
+    "tag": "1.0.1"
+  },
+  "subspecs": [
+    {
+      "name": "AudioDevice",
+      "frameworks": "AVFoundation",
+      "source_files": "LYAudioDevice/*.{h,m}",
+      "public_header_files": "LYAudioDevice/*.h"
+    },
+    {
+      "name": "AudioConvert",
+      "subspecs": [
+        {
+          "name": "Convert",
+          "source_files": "LYAudioConvert/AudioConvert/**/*.{h,mm,m}",
+          "dependencies": {
+            "LYAudioManager/AudioConvert/Code": [
+
+            ],
+            "LYAudioManager/AudioConvert/SoundTouch": [
+
+            ]
+          }
+        },
+        {
+          "name": "Code",
+          "source_files": "LYAudioConvert/AudioEncode/**/*.{h,m,mm,cpp,a}",
+          "vendored_libraries": "LYAudioConvert/AudioEncode/**/*.a",
+          "frameworks": [
+            "CoreAudio",
+            "CoreFoundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "SoundTouch",
+          "source_files": "LYAudioConvert/AudioSoundTouch/**/*.{h,mm,cpp}",
+          "dependencies": {
+            "LYAudioManager/AudioConvert/Code": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
