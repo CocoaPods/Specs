@@ -1,0 +1,123 @@
+{
+  "name": "SDWebImageHEIFCoder",
+  "version": "0.2.1",
+  "summary": "A SDWebImage coder plugin to support HEIF image",
+  "description": "This is a SDWebImage coder plugin to add High Efficiency Image File Format (HEIF) support.\nWhich is built based on the open-sourced libheif codec.",
+  "homepage": "https://github.com/SDWebImage/SDWebImageHEIFCoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DreamPiggy": "lizhuoli1126@126.com"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/SDWebImageHEIFCoder.git",
+    "tag": "0.2.1",
+    "submodules": true
+  },
+  "platforms": {
+    "osx": "10.10",
+    "ios": "8.0",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "module_map": "SDWebImageHEIFCoder/Module/SDWebImageHEIFCoder.modulemap",
+  "default_subspecs": [
+    "libheif",
+    "libde265"
+  ],
+  "dependencies": {
+    "SDWebImage/Core": [
+      ">= 5.0.0-beta3"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "libheif",
+      "source_files": [
+        "Vendors/libheif/libheif/*.{h,c,cc}",
+        "Vendors/include/libheif/*.h",
+        "SDWebImageHEIFCoder/Classes/**/*",
+        "SDWebImageHEIFCoder/Module/SDWebImageHEIFCoder.h"
+      ],
+      "exclude_files": [
+        "Vendors/libheif/libheif/*fuzzer.{h,c,cc}",
+        "Vendors/libheif/libheif/heif.h",
+        "Vendors/libheif/libheif/heif_decoder_libde265.{h,c,cc}",
+        "Vendors/libheif/libheif/heif_encoder_x265.{h,c,cc}"
+      ],
+      "public_header_files": [
+        "Vendors/include/libheif/*.h",
+        "SDWebImageHEIFCoder/Classes/**/*.h",
+        "SDWebImageHEIFCoder/Module/SDWebImageHEIFCoder.h"
+      ],
+      "preserve_paths": "Vendors/include",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_UNISTD_H=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/SDWebImageHEIFCoder/Vendors/include ${PODS_ROOT}/SDWebImageHEIFCoder/Vendors/include/libx265 ${PODS_TARGET_SRCROOT}/Vendors/include ${PODS_TARGET_SRCROOT}/Vendors/include/libx265"
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "libde265",
+      "dependencies": {
+        "SDWebImageHEIFCoder/libheif": [
+
+        ]
+      },
+      "source_files": [
+        "Vendors/include/libde265/*.{h}",
+        "Vendors/libheif/libheif/heif_decoder_libde265.{h,c,cc}"
+      ],
+      "public_header_files": "Vendors/include/libde265/*.{h}",
+      "osx": {
+        "vendored_libraries": "Vendors/libde265/macOS/libde265.a"
+      },
+      "ios": {
+        "vendored_libraries": "Vendors/libde265/iOS/libde265.a"
+      },
+      "tvos": {
+        "vendored_libraries": "Vendors/libde265/tvOS/libde265.a"
+      },
+      "watchos": {
+        "vendored_libraries": "Vendors/libde265/watchOS/libde265.a"
+      },
+      "preserve_paths": "Vendors/include",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_LIBDE265=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/SDWebImageHEIFCoder/Vendors/include"
+      }
+    },
+    {
+      "name": "libx265",
+      "dependencies": {
+        "SDWebImageHEIFCoder/libheif": [
+
+        ]
+      },
+      "source_files": [
+        "Vendors/include/libx265/*.{h}",
+        "Vendors/libheif/libheif/heif_encoder_x265.{h,c,cc}"
+      ],
+      "public_header_files": "Vendors/include/libx265/*.{h}",
+      "osx": {
+        "vendored_libraries": "Vendors/libx265/macOS/libx265.a"
+      },
+      "ios": {
+        "vendored_libraries": "Vendors/libx265/iOS/libx265.a"
+      },
+      "tvos": {
+        "vendored_libraries": "Vendors/libx265/tvOS/libx265.a"
+      },
+      "watchos": {
+        "vendored_libraries": "Vendors/libx265/watchOS/libx265.a"
+      },
+      "preserve_paths": "Vendors/include",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_X265=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/SDWebImageHEIFCoder/Vendors/include"
+      }
+    }
+  ]
+}
