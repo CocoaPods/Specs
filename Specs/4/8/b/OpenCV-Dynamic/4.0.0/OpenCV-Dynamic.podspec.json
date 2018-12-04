@@ -1,0 +1,39 @@
+{
+  "name": "OpenCV-Dynamic",
+  "version": "4.0.0",
+  "summary": "OpenCV (Computer Vision) for iOS as a dynamic framework.",
+  "description": "OpenCV: open source computer vision library\n    Homepage: http://opencv.org\n    Online docs: http://docs.opencv.org\n    Q&A forum: http://answers.opencv.org\n    Dev zone: http://code.opencv.org",
+  "homepage": "https://github.com/legoless/opencv-dynamic",
+  "license": {
+    "type": "3-clause BSD",
+    "file": "LICENSE"
+  },
+  "authors": "opencv.org",
+  "source": {
+    "git": "https://github.com/legoless/opencv-dynamic.git",
+    "tag": "4.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "opencv2.framework/Headers/**/*{.h,.hpp}",
+  "preserve_paths": "opencv2.framework",
+  "vendored_frameworks": "opencv2.framework",
+  "requires_arc": false,
+  "libraries": [
+    "stdc++"
+  ],
+  "frameworks": [
+    "Accelerate",
+    "AssetsLibrary",
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreImage",
+    "CoreMedia",
+    "CoreVideo",
+    "Foundation",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "prepare_command": "git submodule init\ngit submodule update\n/usr/bin/python opencv/platforms/ios/build_framework.py ios --dynamic\ncp -a ./ios/opencv2.framework ./opencv2.framework"
+}
