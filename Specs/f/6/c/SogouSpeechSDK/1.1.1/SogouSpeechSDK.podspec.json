@@ -1,0 +1,63 @@
+{
+  "name": "SogouSpeechSDK",
+  "version": "1.1.1",
+  "summary": "zhiyin lib",
+  "homepage": "https://github.com/sogouspeech/asr-ios-sdk",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "machuanxing@sogou-inc.com": "machuanxing@sogou-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/sogouspeech/asr-ios-sdk.git",
+    "tag": "1.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "vendored_libraries": "SogouSpeechSDK/Classes/Client/*.{a}",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "GRPC_SRC_ROOT": "$(PODS_ROOT)/SogouSpeechSDK/SogouSpeechSDK",
+    "HEADER_SEARCH_PATHS": "\"$(inherited)\" \"$(GRPC_SRC_ROOT)/Classes/SogouSpeech\"",
+    "USER_HEADER_SEARCH_PATHS": "\"$(GRPC_SRC_ROOT)\" \"$(GRPC_SRC_ROOT)/Classes/SogouSpeech\""
+  },
+  "subspecs": [
+    {
+      "name": "Client",
+      "source_files": [
+        "SogouSpeechSDK/Classes/Client/SogouSpeechDelegate.h",
+        "SogouSpeechSDK/Classes/Client/SogouSpeechErrorCode.h",
+        "SogouSpeechSDK/Classes/Client/SogoSpeechSDK.h",
+        "SogouSpeechSDK/Classes/Client/SogouSpeechManager.h",
+        "SogouSpeechSDK/Classes/Client/SogouSpeechPropertySetting.h"
+      ]
+    },
+    {
+      "name": "Messages",
+      "source_files": "SogouSpeechSDK/Classes/**/*.pbobjc.{h,m}",
+      "header_mappings_dir": "SogouSpeechSDK/Classes/SogouSpeech",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": "SogouSpeechSDK/Classes/**/*.pbrpc.{h,m}",
+      "header_mappings_dir": "SogouSpeechSDK/Classes/SogouSpeech",
+      "private_header_files": "SogouSpeechSDK/Classes/**/*.pbrpc.h",
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "SogouSpeechSDK/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
