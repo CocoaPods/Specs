@@ -1,0 +1,68 @@
+{
+  "name": "UBAlipayTool",
+  "version": "1.0.3.2",
+  "summary": "UBAlipayTool 封装了alipay",
+  "description": "1.0.2:\n    1.支付\n1.0.3.1:\n    1.增加授权\n1.0.3.2:\n    1.bug fix",
+  "homepage": "https://github.com/Crazysiri/UBAlipayTool.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "James": "511121933@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Crazysiri/UBAlipayTool.git",
+    "tag": "1.0.3.2"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "Alipay/*.{h,m}",
+  "dependencies": {
+    "UBAlipaySDK": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/UBAlipaySDK",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup"
+  },
+  "subspecs": [
+    {
+      "name": "Classes",
+      "source_files": "UBAlipayTool/Classes/**/*.{h,m}"
+    },
+    {
+      "name": "Util",
+      "source_files": "UBAlipayTool/Util/**/*.{h,m}",
+      "dependencies": {
+        "UBAlipayTool/OpenSSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "OpenSSL",
+      "source_files": "UBAlipayTool/Openssl/**/*.h",
+      "public_header_files": "UBAlipayTool/Openssl/**/*.h",
+      "ios": {
+        "preserve_paths": [
+          "UBAlipayTool/Library/libcrypto.a",
+          "UBAlipayTool/Library/libssl.a"
+        ],
+        "vendored_libraries": [
+          "UBAlipayTool/Library/libcrypto.a",
+          "UBAlipayTool/Library/libssl.a"
+        ]
+      },
+      "libraries": [
+        "ssl",
+        "crypto"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/UBAlipayTool/**"
+      }
+    }
+  ]
+}
