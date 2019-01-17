@@ -1,0 +1,86 @@
+{
+  "name": "SpectrumCore",
+  "version": "1.0.0",
+  "summary": "A client-side image transcoding library.",
+  "description": "Spectrum is a cross-platform image transcoding library that can easily be integrated into an iOS project to efficiently perform common image operations.",
+  "homepage": "http://libspectrum.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "source": {
+    "git": "https://github.com/facebookincubator/spectrum.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Plugins/Jpeg",
+    "Plugins/Png",
+    "Plugins/Webp"
+  ],
+  "dependencies": {
+    "spectrum-folly": [
+      "~>2018.11.12.00"
+    ]
+  },
+  "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DSPECTRUM_TARGET_IOS -DSPECTRUM_EXTERNAL",
+  "subspecs": [
+    {
+      "name": "Base",
+      "header_dir": "spectrum",
+      "header_mappings_dir": "cpp/spectrum",
+      "source_files": "cpp/spectrum/**/*.{h,cpp}",
+      "exclude_files": "cpp/spectrum/plugins"
+    },
+    {
+      "name": "Plugins",
+      "subspecs": [
+        {
+          "name": "Jpeg",
+          "dependencies": {
+            "SpectrumCore/Base": [
+              "~>1.0.0"
+            ],
+            "mozjpeg": [
+
+            ]
+          },
+          "source_files": "cpp/spectrum/plugins/jpeg/**/*.{h,cpp}",
+          "header_dir": "spectrum/plugins/jpeg",
+          "header_mappings_dir": "cpp/spectrum/plugins/jpeg"
+        },
+        {
+          "name": "Png",
+          "dependencies": {
+            "SpectrumCore/Base": [
+              "~>1.0.0"
+            ],
+            "libpng": [
+
+            ]
+          },
+          "source_files": "cpp/spectrum/plugins/png/**/*.{h,cpp}",
+          "header_dir": "spectrum/plugins/png",
+          "header_mappings_dir": "cpp/spectrum/plugins/png"
+        },
+        {
+          "name": "Webp",
+          "dependencies": {
+            "SpectrumCore/Base": [
+              "~>1.0.0"
+            ],
+            "libwebp": [
+
+            ]
+          },
+          "source_files": "cpp/spectrum/plugins/webp/**/*.{h,cpp}",
+          "header_dir": "spectrum/plugins/webp",
+          "header_mappings_dir": "cpp/spectrum/plugins/webp"
+        }
+      ]
+    }
+  ]
+}
