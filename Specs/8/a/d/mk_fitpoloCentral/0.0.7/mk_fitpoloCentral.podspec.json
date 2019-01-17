@@ -1,0 +1,112 @@
+{
+  "name": "mk_fitpoloCentral",
+  "version": "0.0.7",
+  "summary": "bluetooth central Manager For fitpolo",
+  "description": "bluetooth central Manager For fitpolo",
+  "homepage": "http://120.27.8.241/MKFitpolo/mk_fitpoloCentralManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lovexiaoxia": "aadyx2007@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "source": {
+    "git": "git@120.27.8.241:MKFitpolo/mk_fitpoloCentralManager.git",
+    "tag": "0.0.7"
+  },
+  "requires_arc": true,
+  "source_files": "mk_fitpoloCentral/*.h",
+  "subspecs": [
+    {
+      "name": "category",
+      "source_files": "mk_fitpoloCentral/category/*.{h,m}"
+    },
+    {
+      "name": "header",
+      "source_files": "mk_fitpoloCentral/header/*.h"
+    },
+    {
+      "name": "log",
+      "source_files": "mk_fitpoloCentral/log/*.{h,m}",
+      "dependencies": {
+        "mk_fitpoloCentral/header": [
+
+        ]
+      }
+    },
+    {
+      "name": "adopter",
+      "source_files": "mk_fitpoloCentral/adopter/*.{h,m}",
+      "dependencies": {
+        "mk_fitpoloCentral/header": [
+
+        ]
+      }
+    },
+    {
+      "name": "task",
+      "dependencies": {
+        "mk_fitpoloCentral/header": [
+
+        ],
+        "mk_fitpoloCentral/log": [
+
+        ],
+        "mk_fitpoloCentral/adopter": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "fitpoloCurrent",
+          "source_files": "mk_fitpoloCentral/task/fitpoloCurrent/*.{h,m}"
+        },
+        {
+          "name": "fitpolo701",
+          "source_files": "mk_fitpoloCentral/task/fitpolo701/*.{h,m}"
+        },
+        {
+          "name": "operation",
+          "source_files": "mk_fitpoloCentral/task/operation/*.{h,m}",
+          "dependencies": {
+            "mk_fitpoloCentral/task/fitpolo701": [
+
+            ],
+            "mk_fitpoloCentral/task/fitpoloCurrent": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "centralManager",
+      "source_files": "mk_fitpoloCentral/centralManager/*.{h,m}",
+      "dependencies": {
+        "mk_fitpoloCentral/header": [
+
+        ],
+        "mk_fitpoloCentral/log": [
+
+        ],
+        "mk_fitpoloCentral/adopter": [
+
+        ],
+        "mk_fitpoloCentral/category": [
+
+        ],
+        "mk_fitpoloCentral/task/operation": [
+
+        ]
+      }
+    }
+  ]
+}
