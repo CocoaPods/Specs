@@ -1,0 +1,64 @@
+{
+  "name": "Pixel",
+  "version": "1.0.0",
+  "summary": "A collection of classes, protocols and extensions that enrich UIKit & Texture",
+  "description": "`Pixel` brings new classes, protocols and extensions to `UIKit` and `Texture` to boost your productivity.",
+  "homepage": "https://github.com/iDonJose/Pixel",
+  "source": {
+    "git": "https://github.com/iDonJose/Pixel.git",
+    "tag": "1.0.0"
+  },
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iDonJose": "donor.develop@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Texture",
+    "SVG"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "source_files": "Sources/**/*.{h,swift}"
+    },
+    {
+      "name": "Texture",
+      "dependencies": {
+        "Pixel/Core": [
+
+        ],
+        "Texture/Core": [
+          "~> 2.7"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D USE_TEXTURE"
+      }
+    },
+    {
+      "name": "SVG",
+      "dependencies": {
+        "Pixel/Core": [
+
+        ],
+        "SVGPath": [
+          "~> 1.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D USE_SVG"
+      }
+    }
+  ]
+}
