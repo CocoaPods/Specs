@@ -1,0 +1,102 @@
+{
+  "name": "Paparazzo",
+  "module_name": "Paparazzo",
+  "version": "3.0.0",
+  "summary": "iOS component for picking and editing photos from camera and user's photo library",
+  "homepage": "https://github.com/avito-tech/Paparazzo",
+  "license": "MIT",
+  "authors": {
+    "Andrey Yutkin": "ayutkin@avito.ru"
+  },
+  "source": {
+    "git": "https://github.com/avito-tech/Paparazzo.git",
+    "tag": "3.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "ImageIO",
+    "MobileCoreServices",
+    "GLKit",
+    "OpenGLES",
+    "CoreMedia",
+    "CoreVideo",
+    "AVFoundation",
+    "QuartzCore"
+  ],
+  "dependencies": {
+    "JNWSpringAnimation": [
+
+    ],
+    "ImageSource/Core": [
+      "~> 2.2"
+    ],
+    "ImageSource/PHAsset": [
+      "~> 2.2"
+    ],
+    "ImageSource/Local": [
+      "~> 2.2"
+    ],
+    "ImageSource/Remote": [
+      "~> 2.2"
+    ]
+  },
+  "default_subspecs": [
+    "Core",
+    "Marshroute",
+    "AlamofireImage"
+  ],
+  "subspecs": [
+    {
+      "name": "AlamofireImage",
+      "dependencies": {
+        "Paparazzo/Core": [
+
+        ],
+        "ImageSource/AlamofireImage": [
+          "~> 2.2"
+        ]
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "dependencies": {
+        "Paparazzo/Core": [
+
+        ],
+        "ImageSource/SDWebImage": [
+          "~> 2.2"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Paparazzo/Core/**/*",
+      "ios": {
+        "resource_bundles": {
+          "Paparazzo": [
+            "Paparazzo/Shader/CameraShader.metallib",
+            "Paparazzo/Localization/*.lproj",
+            "Paparazzo/Assets/Assets.xcassets"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Marshroute",
+      "dependencies": {
+        "Paparazzo/Core": [
+
+        ],
+        "Marshroute": [
+
+        ]
+      },
+      "source_files": "Paparazzo/Marshroute/**/*"
+    }
+  ]
+}
