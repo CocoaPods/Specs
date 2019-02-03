@@ -1,0 +1,111 @@
+{
+  "name": "libx265",
+  "version": "3.0",
+  "summary": "x265 HEVC Encoder.",
+  "description": "x265 is a free software library and application for encoding video streams into the H.265/MPEG-H HEVC compression format.",
+  "homepage": "http://x265.org/",
+  "license": {
+    "type": "GPL"
+  },
+  "authors": "MulticoreWare",
+  "source": {
+    "git": "https://github.com/videolan/x265.git",
+    "tag": "3.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "module_map": "source/libx265.modulemap",
+  "prepare_command": "cp './source/x265_config.h.in' './source/x265_config.h'\n                      sed -i.bak 's/\\${X265_BUILD}/169/g' './source/x265_config.h'\n                      echo -e \"framework module libx265 {\n  umbrella header \\\"x265.h\\\"\n  export *\n  module * { export * }\n}\" > ./source/libx265.modulemap",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) X265_DEPTH=8 HAVE_STRTOK_R=1 EXPORT_C_API=1 X265_NS=x265 X265_VERSION=3.0",
+    "USER_HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libx265/source/ ${PODS_TARGET_SRCROOT}/source/ ${PODS_ROOT}/libx265/source/encoder/ ${PODS_TARGET_SRCROOT}/source/encoder/ ${PODS_ROOT}/libx265/source/common/ ${PODS_TARGET_SRCROOT}/source/common/",
+    "USE_HEADERMAP": "NO"
+  },
+  "preserve_paths": "source",
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "x265",
+      "source_files": [
+        "source/x265.{h,cpp}",
+        "source/x265_config.h",
+        "source/x265cli.h"
+      ],
+      "public_header_files": [
+        "source/x265.h",
+        "source/x265_config.h"
+      ],
+      "dependencies": {
+        "libx265/core": [
+
+        ],
+        "libx265/common": [
+
+        ],
+        "libx265/input": [
+
+        ],
+        "libx265/output": [
+
+        ],
+        "libx265/encoder": [
+
+        ]
+      }
+    },
+    {
+      "name": "core",
+      "source_files": [
+        "source/x265.h",
+        "source/x265_config.h"
+      ]
+    },
+    {
+      "name": "common",
+      "dependencies": {
+        "libx265/core": [
+
+        ]
+      },
+      "source_files": [
+        "source/common/*.{h,c,cpp,hpp}",
+        "source/encoder/*.h"
+      ],
+      "public_header_files": "source/common/common.h"
+    },
+    {
+      "name": "input",
+      "dependencies": {
+        "libx265/common": [
+
+        ]
+      },
+      "source_files": "source/input/*.{h,c,cpp,hpp}",
+      "public_header_files": "source/input/input.h"
+    },
+    {
+      "name": "output",
+      "dependencies": {
+        "libx265/input": [
+
+        ]
+      },
+      "source_files": "source/output/*.{h,c,cpp,hpp}",
+      "public_header_files": "source/output/output.h"
+    },
+    {
+      "name": "encoder",
+      "dependencies": {
+        "libx265/output": [
+
+        ]
+      },
+      "source_files": "source/encoder/*.{h,c,cpp,hpp}",
+      "public_header_files": "source/encoder/encoder.h"
+    }
+  ]
+}
