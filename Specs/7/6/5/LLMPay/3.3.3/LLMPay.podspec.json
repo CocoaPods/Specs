@@ -1,0 +1,66 @@
+{
+  "name": "LLMPay",
+  "version": "3.3.3",
+  "summary": "LLMPay iOS SDK",
+  "description": "LLMPaySDK是一个统一网关支付SDK，支持连连支付的认证支付、快捷支付、分期付、银行APP支付等支付方式， 支持短信、TouchID、FaceID等验证方式",
+  "homepage": "https://gitee.com/LLPayiOS/LLMPay",
+  "license": {
+    "type": "Copyright",
+    "text": "© 2003-2018 Lianlian Yintong Electronic Payment Co., Ltd. All rights reserved."
+  },
+  "authors": {
+    "LLPayiOSDev": "iosdev@yintong.com.cn"
+  },
+  "source": {
+    "git": "https://gitee.com/LLPayiOS/LLMPay.git",
+    "tag": "3.3.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "MPay",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": "LLMPay/Core/*.a",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "MPay",
+      "vendored_libraries": "LLMPay/MPay/*.a",
+      "public_header_files": "LLMPay/MPay/*.h",
+      "resources": "LLMPay/MPay/LLMPayResources.bundle",
+      "dependencies": {
+        "LLMPay/Core": [
+
+        ]
+      },
+      "source_files": "LLMPay/MPay/*.h"
+    },
+    {
+      "name": "EBank",
+      "vendored_libraries": "LLMPay/EBank/*.a",
+      "public_header_files": "LLMPay/EBank/*.h",
+      "resources": "LLMPay/EBank/LLEBankResources.bundle",
+      "dependencies": {
+        "LLMPay/Core": [
+
+        ],
+        "AFNetworking": [
+          "~>3.0"
+        ],
+        "Toast": [
+
+        ]
+      },
+      "source_files": "LLMPay/EBank/*.h",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      },
+      "libraries": "xml2"
+    }
+  ]
+}

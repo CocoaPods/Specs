@@ -1,0 +1,37 @@
+{
+  "name": "VKarmaneSDK",
+  "version": "1.0.0",
+  "summary": "A short description of VKarmaneSDK.",
+  "description": "VKarmane application SDK to provide convenient cross-application interaction",
+  "homepage": "https://github.com/TinkoffCreditSystems/vkarmane-sdk-ios.git",
+  "license": {
+    "type": "Apache License 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "a.kulabukhov": "a.kulabukhov@tinkoff.ru"
+  },
+  "source": {
+    "git": "https://github.com/TinkoffCreditSystems/vkarmane-sdk-ios.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": [
+    "VKarmaneSDK/Classes/*.swift",
+    "VKarmaneSDK/Classes/Definitions/*.swift"
+  ],
+  "swift_version": "4.2",
+  "subspecs": [
+    {
+      "name": "Encryption",
+      "source_files": "VKarmaneSDK/Classes/Encryption/*.swift",
+      "script_phases": {
+        "name": "CommonCrypto",
+        "script": "COMMON_CRYPTO_DIR=\"${SDKROOT}/usr/include/CommonCrypto\"\n        if [ -f \"${COMMON_CRYPTO_DIR}/module.modulemap\" ]\n            then\n            echo \"CommonCrypto already exists, skipping\"\n            else\n            # This if-statement means we will only run the main script if the\n            # CommonCrypto.framework directory doesn not exist because otherwise\n            # the rest of the script causes a full recompile for anything\n            # where CommonCrypto is a dependency\n            # Do a \"Clean Build Folder\" to remove this directory and trigger\n            # the rest of the script to run\n            FRAMEWORK_DIR=\"${BUILT_PRODUCTS_DIR}/CommonCrypto.framework\"\n            if [ -d \"${FRAMEWORK_DIR}\" ]; then\n                echo \"${FRAMEWORK_DIR} already exists, so skipping the rest of the script.\"\n                exit 0\n                fi\n                mkdir -p \"${FRAMEWORK_DIR}/Modules\"\n                echo \"module CommonCrypto [system] {\n                header \\\"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\\\"\n                export *\n                }\" >> \"${FRAMEWORK_DIR}/Modules/module.modulemap\"\n                ln -sf \"${SDKROOT}/usr/include/CommonCrypto\" \"${FRAMEWORK_DIR}/Headers\"\n                fi",
+        "execution_position": "before_compile"
+      }
+    }
+  ]
+}

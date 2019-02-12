@@ -1,0 +1,67 @@
+{
+  "name": "AssetImportKit",
+  "version": "1.0.8",
+  "summary": "Swifty cross platform library (macOS, iOS) that converts Assimp supported models to SceneKit scenes.",
+  "description": "AssetImportKit allows you to import Assimp supported file formats directly in SceneKit at runtime. The library supports: geometry, materials (with color, embedded textures and external textures), cameras, skeletal animations, serialization to .scn format.",
+  "homepage": "https://github.com/eugenebokhan/AssetImportKit",
+  "screenshots": [
+    "https://github.com/eugenebokhan/AssetImportKit/raw/master/Media/AssetImportKit_Demonstration.png",
+    "https://github.com/eugenebokhan/AssetImportKit/raw/master/SceneKitAssetImport/Media/SceneKitAssetImport_HowToUse.png"
+  ],
+  "license": {
+    "type": "BSD 3-Clause",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Eugene Bokhan": "eugenebokhan@protonmail.com"
+  },
+  "social_media_url": "http://twitter.com/eugenebokhan",
+  "platforms": {
+    "ios": "10.3",
+    "osx": "10.12"
+  },
+  "swift_version": "4.2",
+  "source": {
+    "git": "https://github.com/eugenebokhan/AssetImportKit.git",
+    "tag": "1.0.8"
+  },
+  "source_files": "AssetImportKit/**/*.{swift}",
+  "preserve_paths": [
+    "AssetImportKit/AssetImportKit/Dependencies/**/*",
+    "AssetImportKit/AssetImportKit/module.modulemap"
+  ],
+  "ios": {
+    "vendored_libraries": [
+      "AssetImportKit/AssetImportKit/Dependencies/Assimp/lib/iOS/libassimp-iOS.a",
+      "AssetImportKit/AssetImportKit/Dependencies/Assimp/lib/iOS/libIrrXML-iOS.a"
+    ],
+    "libraries": [
+      "assimp-iOS",
+      "IrrXML-iOS"
+    ],
+    "xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PROJECT_DIR)/AssetImportKit/AssetImportKit/AssetImportKit/",
+      "HEADER_SEARCH_PATHS": "$(PROJECT_DIR)/AssetImportKit/Dependencies/Assimp/include",
+      "ENABLE_BITCODE": "NO",
+      "OTHER_LDFLAGS": "-ObjC -all_load -lz -lstdc++"
+    }
+  },
+  "osx": {
+    "vendored_libraries": [
+      "AssetImportKit/AssetImportKit/Dependencies/Assimp/lib/macOS/libassimp-macOS.a",
+      "AssetImportKit/AssetImportKit/Dependencies/Assimp/lib/macOS/libIrrXML-macOS.a"
+    ],
+    "libraries": [
+      "assimp-macOS",
+      "IrrXML-macOS"
+    ],
+    "xcconfig": {
+      "SWIFT_INCLUDE_PATHS": "$(PROJECT_DIR)/AssetImportKit/AssetImportKit/AssetImportKit/",
+      "HEADER_SEARCH_PATHS": "$(PROJECT_DIR)/AssetImportKit/Dependencies/Assimp/include",
+      "ENABLE_BITCODE": "NO",
+      "OTHER_LDFLAGS": "-ObjC -all_load -lz -lstdc++",
+      "EXPANDED_CODE_SIGN_IDENTITY": "-",
+      "EXPANDED_CODE_SIGN_IDENTITY_NAME": "-"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "WechatOpenSDK.swift",
+  "version": "1.8.3.3",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "summary": "微信sdk马甲,方便swift调用",
+  "description": "微信sdk马甲,方便swift调用",
+  "homepage": "https://github.com/karlcool/WechatOpenSDK.swift.git",
+  "license": "MIT",
+  "authors": {
+    "yanzhi.liu": "karlcool.l@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/karlcool/WechatOpenSDK.swift.git",
+    "tag": "1.8.3.3"
+  },
+  "public_header_files": "sdk/*.h",
+  "source_files": "sdk/*.{h,m}",
+  "vendored_libraries": "sdk/libWeChatSDK.a",
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "frameworks": [
+    "CoreTelephony",
+    "SystemConfiguration",
+    "Security",
+    "CoreTelephony",
+    "CFNetwork"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-all_load"
+  },
+  "requires_arc": false,
+  "prepare_command": "mkdir sdk/Modules\n  touch sdk/Modules/module.modulemap\n  cat <<-EOF > sdk/Modules/module.modulemap\n  framework module WechatOpenSDK.swift {\nheader \"WechatAuthSDK.h\"\nheader \"WXApi.h\"\nheader \"WXApiObject.h\"\n      export *\n      link \"z\"\n      link \"c++\"\nlink \"sqlite3\"\n  }"
+}

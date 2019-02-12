@@ -1,0 +1,143 @@
+{
+  "name": "JMLibrary",
+  "version": "0.5.0",
+  "summary": "假面科技工具库合集",
+  "description": "- 狼人杀APP基础功能框架，便于以后调用\n- 0.2.0 JMShare\n- 0.3.5 JMCore - Category\n- 0.3.7 JMBlackBox\n- 0.3.8 tcpLibrary、purchase、picker、mp3 recoder、progressHUD",
+  "homepage": "https://coding.jiamiantech.com/p/Library-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhengxianda": "xianda.zheng@jiamiantech.com"
+  },
+  "source": {
+    "git": "http://coding.jiamiantech.com/ce/Library-ios.git",
+    "tag": "0.5.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "libraries": "resolv",
+  "dependencies": {
+    "CocoaLumberjack": [
+      "~> 3.0.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "JMCore",
+      "subspecs": [
+        {
+          "name": "Category",
+          "public_header_files": "JMLibrary/JMCore/Category/Categorys/**/*.h",
+          "source_files": "JMLibrary/JMCore/Category/Categorys/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "JMShare",
+      "dependencies": {
+        "Weibo_SDK": [
+
+        ],
+        "WechatOpenSDK": [
+
+        ]
+      },
+      "public_header_files": "JMLibrary/JMShare/Classes/*.h",
+      "source_files": "JMLibrary/JMShare/Classes/**/*",
+      "ios": {
+        "vendored_frameworks": "JMLibrary/JMShare/Frameworks/*.framework"
+      }
+    },
+    {
+      "name": "JMBlackBox",
+      "public_header_files": "JMLibrary/JMBlackBox/Classes/*.h",
+      "source_files": "JMLibrary/JMBlackBox/Classes/**/*.{h,m}",
+      "vendored_libraries": "JMLibrary/JMBlackBox/Classes/TongdunLib/libFMDeviceManager_without_IDFA.a"
+    },
+    {
+      "name": "JMTCPLibrary",
+      "public_header_files": "JMLibrary/JMTCPLibrary/Classes/*.h",
+      "source_files": "JMLibrary/JMTCPLibrary/Classes/**/*.{h,m}"
+    },
+    {
+      "name": "ECPurchase",
+      "public_header_files": "JMLibrary/ECPurchase/ECPurchase/*.h",
+      "source_files": "JMLibrary/ECPurchase/**/*.{h,m}",
+      "requires_arc": false,
+      "compiler_flags": "-fno-objc-arc"
+    },
+    {
+      "name": "LDImagePicker",
+      "public_header_files": "JMLibrary/LDImagePicker/*.h",
+      "source_files": "JMLibrary/LDImagePicker/**/*.{h,m}"
+    },
+    {
+      "name": "TZImagePickerController",
+      "resources": "JMLibrary/TZImagePickerController/*.{png,bundle}",
+      "public_header_files": "JMLibrary/TZImagePickerController/*.h",
+      "source_files": "JMLibrary/TZImagePickerController/**/*.{h,m}",
+      "frameworks": [
+        "Photos",
+        "AssetsLibrary"
+      ]
+    },
+    {
+      "name": "JZRecorder",
+      "public_header_files": "JMLibrary/JZRecorder/*.h",
+      "source_files": "JMLibrary/JZRecorder/**/*.{h,m}",
+      "vendored_libraries": "JMLibrary/JZRecorder/libmp3lame.a"
+    },
+    {
+      "name": "ProgressHUD",
+      "public_header_files": "JMLibrary/ProgressHUD/*.h",
+      "source_files": "JMLibrary/ProgressHUD/**/*.{h,m}",
+      "dependencies": {
+        "SVProgressHUD": [
+          "~> 2.0.3"
+        ]
+      }
+    },
+    {
+      "name": "JMWebViewController",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "WebKit"
+      ],
+      "source_files": [
+        "JMLibrary/JMWebViewController/*.{h,m}",
+        "JMLibrary/JMWebViewController/Activity/*.{h,m}",
+        "JMLibrary/JMWebViewController/Security/*.{h,m}"
+      ],
+      "resources": "JMLibrary/JMWebViewController/JMWebViewController.bundle",
+      "dependencies": {
+        "NJKWebViewProgress": [
+
+        ],
+        "JMLibrary/ProgressHUD": [
+
+        ]
+      }
+    },
+    {
+      "name": "JMAgoraSdk",
+      "ios": {
+        "vendored_frameworks": "JMLibrary/JMAgoraSdk/*.framework",
+        "vendored_libraries": "JMLibrary/JMAgoraSdk/*.a"
+      },
+      "frameworks": [
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreMedia",
+        "AudioToolbox",
+        "CoreTelephony",
+        "AVFoundation"
+      ],
+      "source_files": "JMLibrary/JMAgoraSdk/AgoraPacketObserver/**/*.{h,mm}",
+      "libraries": "c++"
+    }
+  ]
+}

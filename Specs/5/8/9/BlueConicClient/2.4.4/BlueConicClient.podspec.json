@@ -1,0 +1,79 @@
+{
+  "name": "BlueConicClient",
+  "version": "2.4.4",
+  "license": {
+    "type": "Commercial"
+  },
+  "swift_version": "4.2",
+  "homepage": "https://blueconic.com",
+  "authors": {
+    "BlueConic": "info@blueconic.com"
+  },
+  "summary": "The BlueConicClient Framework provides the basis for communication with BlueConic.",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://download.blueconic.com/cocoapod/BlueConic-iOS-SDK-2.4.4-Source.zip",
+    "flatten": true
+  },
+  "source_files": "BlueConicClient/BlueConicClient.h",
+  "default_subspecs": "main",
+  "resources": [
+    "BlueConicClient/Resources/*.{png}",
+    "BlueConicClient/Resources/**/*.{png}"
+  ],
+  "resource_bundles": {
+    "Assets": [
+      "BlueConicClient/Resources/*.{png}",
+      "BlueConicClient/Resources/**/*.{png}"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "main",
+      "dependencies": {
+        "BlueConicClient/BlueConicClient": [
+
+        ],
+        "BlueConicClient/impl": [
+
+        ],
+        "BlueConicClient/Plugins": [
+
+        ]
+      }
+    },
+    {
+      "name": "BlueConicClient",
+      "source_files": [
+        "BlueConicClient/*",
+        "BlueConicClient/impl/BlueConicClientImpl.swift",
+        "BlueConicClient/impl/util/BlueConicExtensions.swift"
+      ],
+      "dependencies": {
+        "BlueConicClient/impl": [
+
+        ]
+      },
+      "exclude_files": "BlueConicClient/Info.plist"
+    },
+    {
+      "name": "impl",
+      "source_files": "BlueConicClient/impl/**/*",
+      "exclude_files": [
+        "BlueConicClient/impl/BlueConicClientImpl.swift",
+        "BlueConicClient/impl/util/BlueConicExtensions.swift"
+      ]
+    },
+    {
+      "name": "Plugins",
+      "source_files": "BlueConicClient/Plugins/**/*",
+      "dependencies": {
+        "BlueConicClient/BlueConicClient": [
+
+        ]
+      }
+    }
+  ]
+}

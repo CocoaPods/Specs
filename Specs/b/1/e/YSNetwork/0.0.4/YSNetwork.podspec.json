@@ -1,0 +1,33 @@
+{
+  "name": "YSNetwork",
+  "version": "0.0.4",
+  "summary": "基于Alamofire的再封装",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/OneKnife/YSNetwork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "OneKnife": "melody@hitour.cc"
+  },
+  "source": {
+    "git": "https://github.com/OneKnife/YSNetwork.git",
+    "tag": "0.0.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.0",
+  "source_files": "YSNetwork/Classes/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.7"
+    ]
+  },
+  "script_phases": {
+    "name": "CommonCrypto",
+    "script": "COMMON_CRYPTO_DIR=\"${SDKROOT}/usr/include/CommonCrypto\"\n    if [ -f \"${COMMON_CRYPTO_DIR}/module.modulemap\" ]\n      then\n      echo \"CommonCrypto already exists, skipping\"\n      else\n      # This if-statement means we will only run the main script if the\n      # CommonCrypto.framework directory doesn not exist because otherwise\n      # the rest of the script causes a full recompile for anything\n      # where CommonCrypto is a dependency\n      # Do a \"Clean Build Folder\" to remove this directory and trigger\n      # the rest of the script to run\n      FRAMEWORK_DIR=\"${BUILT_PRODUCTS_DIR}/CommonCrypto.framework\"\n      if [ -d \"${FRAMEWORK_DIR}\" ]; then\n        echo \"${FRAMEWORK_DIR} already exists, so skipping the rest of the script.\"\n        exit 0\n      fi\n      mkdir -p \"${FRAMEWORK_DIR}/Modules\"\n      echo \"module CommonCrypto [system] {\n        header \\\"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\\\"\n        export *\n      }\" >> \"${FRAMEWORK_DIR}/Modules/module.modulemap\"\n      ln -sf \"${SDKROOT}/usr/include/CommonCrypto\" \"${FRAMEWORK_DIR}/Headers\"\n    fi",
+    "execution_position": "before_compile"
+  }
+}

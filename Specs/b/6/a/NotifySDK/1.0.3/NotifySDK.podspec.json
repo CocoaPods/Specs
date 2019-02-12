@@ -1,0 +1,72 @@
+{
+  "name": "NotifySDK",
+  "version": "1.0.3",
+  "summary": "Libnotify and Libverify libraries.",
+  "description": "Client SDK for Notify Mail.ru service.",
+  "homepage": "https://notify.mail.ru",
+  "license": {
+    "type": "LGPL-3.0",
+    "file": "notify/LICENSE"
+  },
+  "authors": {
+    "Notify Mail.ru": "libverify@corp.mail.ru"
+  },
+  "source": {
+    "http": "https://github.com/NotifySDK/notify-sdk-ios/releases/download/1.0.3/notify-ios-1_0_3-master-f3bcdb7723d95a76d9551ed62e1e6a1fa574d198.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "preserve_paths": "*",
+  "default_subspecs": "Notify",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": "notify/libnotify-core.a",
+      "public_header_files": "notify/include/notify-core/*.h",
+      "source_files": "notify/include/notify-core/*.h",
+      "header_dir": "notify-core"
+    },
+    {
+      "name": "Notify",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ]
+      },
+      "vendored_libraries": "notify/liblibnotify.a",
+      "public_header_files": "notify/include/libnotify/*.h",
+      "source_files": "notify/include/libnotify/*.h",
+      "header_dir": "libnotify"
+    },
+    {
+      "name": "Verify",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ]
+      },
+      "vendored_libraries": "notify/liblibverify.a",
+      "vendored_frameworks": "notify/LibverifyStringsKit.framework",
+      "public_header_files": "notify/include/libverify/*.h",
+      "source_files": "notify/include/libverify/*.h",
+      "resources": "notify/LibverifyStringsKit.framework",
+      "header_dir": "libverify"
+    },
+    {
+      "name": "VerifyControls",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ],
+        "NotifySDK/Verify": [
+
+        ]
+      },
+      "vendored_libraries": "notify/liblibverify-controls.a",
+      "public_header_files": "notify/include/libverify-controls/*.h",
+      "source_files": "notify/include/libverify-controls/*.h",
+      "header_dir": "libVerify-controls"
+    }
+  ]
+}

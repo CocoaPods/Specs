@@ -1,0 +1,103 @@
+{
+  "name": "LDSDKManager",
+  "version": "1.0.4",
+  "summary": "第三方SDK统一管理组件",
+  "description": "对应用中集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。",
+  "license": "MIT",
+  "authors": {
+    "littleplayer": "mailjiancheng@163.com"
+  },
+  "homepage": "https://github.com/poholo/LDSDKManager_IOS",
+  "source": {
+    "git": "https://github.com/poholo/LDSDKManager_IOS.git",
+    "tag": "1.0.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "CoreGraphics",
+    "Foundation"
+  ],
+  "dependencies": {
+    "MCTencentOpenAPI": [
+      "3.3.3"
+    ],
+    "SNWeChatSDK": [
+
+    ],
+    "Weibo_SDK": [
+      "3.2.3"
+    ],
+    "AlipaySDK-iOS": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "CoreService",
+      "public_header_files": [
+        "LDSDKManager/CoreService/LDSDKManager.h",
+        "LDSDKManager/CoreService/LDSDKConfig.h",
+        "LDSDKManager/CoreService/SDKServiceInterface/*.h"
+      ],
+      "source_files": "LDSDKManager/CoreService/**/*.{h,m,mm}",
+      "resources": [
+        "LDSDKManager/CoreService/SDKServiceConfig.plist"
+      ]
+    },
+    {
+      "name": "QQPlatform",
+      "public_header_files": "LDSDKManager/QQPlatform/*.h",
+      "source_files": "LDSDKManager/QQPlatform/*.{h,m,mm}",
+      "dependencies": {
+        "LDSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "WechatPlatform",
+      "public_header_files": "LDSDKManager/WechatPlatform/*.h",
+      "source_files": "LDSDKManager/WechatPlatform/**/*.{h,m,mm}",
+      "dependencies": {
+        "LDSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "YixinPlatform",
+      "public_header_files": "LDSDKManager/YixinPlatform/YiXinSDK/*.h",
+      "source_files": "LDSDKManager/YixinPlatform/**/*.{h,m,mm}",
+      "vendored_libraries": "LDSDKManager/YixinPlatform/YiXinSDK/libYixinSDK.a",
+      "dependencies": {
+        "LDSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeiboPlatform",
+      "public_header_files": "LDSDKManager/WeiboPlatform/*.h",
+      "source_files": "LDSDKManager/WeiboPlatform/*{h,m,mm}",
+      "dependencies": {
+        "LDSDKManager/CoreService": [
+
+        ]
+      }
+    },
+    {
+      "name": "AlipayPlatform",
+      "public_header_files": "LDSDKManager/AlipayPlatform/*.h",
+      "source_files": "LDSDKManager/AlipayPlatform/*{h,m,mm}",
+      "dependencies": {
+        "LDSDKManager/CoreService": [
+
+        ]
+      }
+    }
+  ]
+}

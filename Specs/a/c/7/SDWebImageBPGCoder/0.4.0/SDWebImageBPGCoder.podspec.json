@@ -1,0 +1,89 @@
+{
+  "name": "SDWebImageBPGCoder",
+  "version": "0.4.0",
+  "summary": "BPG decoder for SDWebImage plugin coder.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/SDWebImage/SDWebImageBPGCoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DreamPiggy": "lizhuoli1126@126.com"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/SDWebImageBPGCoder.git",
+    "tag": "0.4.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "libbpg",
+  "module_map": "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.modulemap",
+  "dependencies": {
+    "SDWebImage/Core": [
+      ">= 5.0.0-beta4"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "libbpg",
+      "source_files": [
+        "SDWebImageBPGCoder/Classes/SDImageBPGCoder.{h,m}",
+        "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.h",
+        "Vendor/libbpg/include/libbpg.h"
+      ],
+      "public_header_files": [
+        "SDWebImageBPGCoder/Classes/SDImageBPGCoder.h",
+        "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.h",
+        "Vendor/libbpg/include/libbpg.h"
+      ],
+      "osx": {
+        "vendored_libraries": "Vendor/libbpg/lib/mac/libbpg.a"
+      },
+      "ios": {
+        "vendored_libraries": "Vendor/libbpg/lib/ios/libbpg.a"
+      },
+      "tvos": {
+        "vendored_libraries": "Vendor/libbpg/lib/tvos/libbpg.a"
+      },
+      "watchos": {
+        "vendored_libraries": "Vendor/libbpg/lib/watchos/libbpg.a"
+      }
+    },
+    {
+      "name": "bpgenc",
+      "dependencies": {
+        "SDWebImageBPGCoder/libbpg": [
+
+        ]
+      },
+      "source_files": [
+        "SDWebImageBPGCoder/Classes/bpgenc/*",
+        "Vendor/libx265/include/x265.h",
+        "Vendor/libx265/include/x265_config.h"
+      ],
+      "public_header_files": "SDWebImageBPGCoder/Classes/bpgenc/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) USE_X265=1",
+        "WARNING_CFLAGS": "$(inherited) -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-variable"
+      },
+      "osx": {
+        "vendored_libraries": "Vendor/libx265/lib/mac/libx265.a"
+      },
+      "ios": {
+        "vendored_libraries": "Vendor/libx265/lib/ios/libx265.a"
+      },
+      "tvos": {
+        "vendored_libraries": "Vendor/libx265/lib/tvos/libx265.a"
+      },
+      "watchos": {
+        "vendored_libraries": "Vendor/libx265/lib/watchos/libx265.a"
+      },
+      "libraries": "c++"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "secp256k1_axe",
+  "version": "0.1.2.4",
+  "summary": "Optimized C library for EC operations on curve secp256k1",
+  "description": "Optimized C library for EC operations on curve secp256k1.\n\nConfigured with following defines: `USE_BASIC_CONFIG`, `ENABLE_MODULE_RECOVERY`, `DETERMINISTIC` and `WORDS_BIGENDIAN`\n\n* secp256k1 ECDSA signing/verification and key generation.\n* Adding/multiplying private/public keys.\n* Serialization/parsing of private keys, public keys, signatures.\n* Constant time, constant memory access signing and pubkey generation.\n* Derandomized DSA (via RFC6979 or with a caller provided function.)\n* Very efficient implementation.",
+  "homepage": "https://github.com/axerunners/axesync-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AXErunners": "info@axerunners.com"
+  },
+  "source": {
+    "git": "https://github.com/bitcoin-core/secp256k1.git",
+    "commit": "84973d393ac240a90b2e1a6538c5368202bc2224"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "watchos": "2.0"
+  },
+  "libraries": "c++",
+  "source_files": [
+    "src/*.{h,c}",
+    "src/modules/**/*.h",
+    "include/*.h"
+  ],
+  "exclude_files": [
+    "src/bench*",
+    "src/test*",
+    "src/gen_context.c",
+    "src/libsecp256k1-config.h",
+    "src/**/test*"
+  ],
+  "public_header_files": "include/*.h",
+  "private_header_files": "src/*.h",
+  "header_mappings_dir": ".",
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/**",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "NO",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES",
+    "GCC_WARN_UNINITIALIZED_AUTOS": "NO",
+    "GCC_WARN_UNUSED_FUNCTION": "NO",
+    "GCC_WARN_UNUSED_LABEL": "NO",
+    "GCC_WARN_UNUSED_PARAMETER": "NO",
+    "GCC_WARN_UNUSED_VALUE": "NO",
+    "GCC_WARN_UNUSED_VARIABLE": "NO"
+  },
+  "prefix_header_contents": "/* AXE specific secp256k1 configuration */\n#define USE_BASIC_CONFIG 1\n#define ENABLE_MODULE_RECOVERY 1\n#define DETERMINISTIC          1\n#if __BIG_ENDIAN__\n#define WORDS_BIGENDIAN        1\n#endif\n\n#include \"basic-config.h\""
+}

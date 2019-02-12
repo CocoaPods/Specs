@@ -1,0 +1,106 @@
+{
+  "name": "ImageSource",
+  "module_name": "ImageSource",
+  "version": "2.2.0",
+  "summary": "Image abstraction toolkit",
+  "homepage": "https://github.com/avito-tech/ImageSource",
+  "license": "MIT",
+  "authors": {
+    "Andrey Yutkin": "ayutkin@avito.ru"
+  },
+  "source": {
+    "git": "https://github.com/avito-tech/ImageSource.git",
+    "tag": "2.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "PHAsset",
+    "Local",
+    "Remote",
+    "AlamofireImage"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": "CoreGraphics",
+      "source_files": "ImageSource/Core/*"
+    },
+    {
+      "name": "PHAsset",
+      "frameworks": "Photos",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/PHAsset/*"
+    },
+    {
+      "name": "Local",
+      "frameworks": [
+        "ImageIO",
+        "MobileCoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/Local/*"
+    },
+    {
+      "name": "Remote",
+      "frameworks": [
+        "ImageIO",
+        "MobileCoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ],
+        "ImageSource/UIKit": [
+
+        ]
+      },
+      "source_files": "ImageSource/Remote/*"
+    },
+    {
+      "name": "SDWebImage",
+      "dependencies": {
+        "ImageSource/Remote": [
+
+        ],
+        "SDWebImage": [
+          "~> 3.8"
+        ]
+      },
+      "source_files": "ImageSource/SDWebImage/*"
+    },
+    {
+      "name": "AlamofireImage",
+      "dependencies": {
+        "ImageSource/Remote": [
+
+        ],
+        "AlamofireImage": [
+          "~> 3"
+        ]
+      },
+      "source_files": "ImageSource/AlamofireImage/*"
+    },
+    {
+      "name": "UIKit",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/UIKit/*"
+    }
+  ]
+}

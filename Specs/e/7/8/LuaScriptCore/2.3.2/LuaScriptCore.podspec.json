@@ -1,0 +1,43 @@
+{
+  "name": "LuaScriptCore",
+  "version": "2.3.2",
+  "summary": "An easy-to-use OC-Lua bridge",
+  "description": "An easy-to-use OC-Lua bridge",
+  "homepage": "https://vimfung.github.io/LuaScriptCore",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "vimfung": "vimfung@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7"
+  },
+  "source": {
+    "git": "https://github.com/vimfung/LuaScriptCore.git",
+    "tag": "2.3.2"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_CFLAGS": "-DTARGET_OS_IPHONE"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/lua-core/src/*.{h,c}",
+      "requires_arc": true
+    },
+    {
+      "name": "OCLua",
+      "source_files": [
+        "Source/iOS_OSX/Code/**/*",
+        "Source/iOS_OSX/*.{h,m}"
+      ],
+      "dependencies": {
+        "LuaScriptCore/Core": [
+
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}

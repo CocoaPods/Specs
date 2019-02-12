@@ -1,0 +1,58 @@
+{
+  "name": "acrawriter",
+  "version": "1.0.1",
+  "summary": "AcraWriter library for iOS: encrypts data into AcraStructs, allowing Acra to decrypt it",
+  "description": "Part of Acra database protection suite: developers can encrypt the sensitive data by generating AcraStructs with AcraWriter anywhere across their apps. AcraServer or AcraTranslator can be used for decryption.",
+  "homepage": "https://cossacklabs.com",
+  "source": {
+    "git": "https://github.com/cossacklabs/acra.git",
+    "branch": "master"
+  },
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "authors": {
+    "cossacklabs": "info@cossacklabs.com"
+  },
+  "dependencies": {
+    "themis": [
+      "~> 0.10.0"
+    ]
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation",
+      "CoreFoundation"
+    ],
+    "xcconfig": {
+      "OTHER_CFLAGS": "-DLIBRESSL",
+      "USE_HEADERMAP": "NO",
+      "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+      "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+    },
+    "pod_target_xcconfig": {
+      "OTHER_CFLAGS[config=Debug]": "$(inherited) -fembed-bitcode-marker",
+      "OTHER_CFLAGS[config=Release]": "$(inherited) -fembed-bitcode",
+      "BITCODE_GENERATION_MODE[config=Release]": "bitcode",
+      "BITCODE_GENERATION_MODE[config=Debug]": "bitcode-marker"
+    }
+  },
+  "source_files": "wrappers/objc/AcraWriter/*.{h,m}",
+  "public_header_files": [
+    "wrappers/objc/AcraWriter/AcraWriter.h",
+    "wrappers/objc/AcraWriter/AcraStruct.h"
+  ],
+  "osx": {
+    "xcconfig": {
+      "OTHER_CFLAGS": "-DLIBRESSL",
+      "USE_HEADERMAP": "NO",
+      "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+      "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+    }
+  }
+}

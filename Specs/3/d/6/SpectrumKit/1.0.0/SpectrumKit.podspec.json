@@ -1,0 +1,102 @@
+{
+  "name": "SpectrumKit",
+  "version": "1.0.0",
+  "summary": "A client-side image transcoding library.",
+  "description": "Spectrum is a cross-platform image transcoding library that can easily be integrated into an  iOS project to efficiently perform common image operations.",
+  "homepage": "http://libspectrum.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "source": {
+    "git": "https://github.com/facebookincubator/spectrum.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Plugins/Default",
+  "dependencies": {
+    "spectrum-folly": [
+      "~>2018.11.12.00"
+    ]
+  },
+  "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+  "subspecs": [
+    {
+      "name": "Base",
+      "header_dir": "SpectrumKit",
+      "source_files": "ios/SpectrumKit/SpectrumKit/**/*.{h,m,mm}",
+      "dependencies": {
+        "SpectrumCore/Base": [
+
+        ]
+      },
+      "exclude_files": "ios/SpectrumKit/SpectrumKit/Internal",
+      "public_header_files": [
+        "ios/SpectrumKit/SpectrumKit/Configuration/**/*.h",
+        "ios/SpectrumKit/SpectrumKit/*.h",
+        "ios/SpectrumKit/SpectrumKit/Requirements/*.h",
+        "ios/SpectrumKit/SpectrumKit/Misc/*.h",
+        "ios/SpectrumKit/SpectrumKit/Image/*.h"
+      ]
+    },
+    {
+      "name": "Plugins",
+      "subspecs": [
+        {
+          "name": "Default",
+          "dependencies": {
+            "SpectrumKit/Plugins/Jpeg": [
+
+            ],
+            "SpectrumKit/Plugins/Png": [
+
+            ],
+            "SpectrumKit/Plugins/Webp": [
+
+            ]
+          },
+          "source_files": "ios/SpectrumKit/SpectrumKitPlugins/Default/**/*"
+        },
+        {
+          "name": "Jpeg",
+          "dependencies": {
+            "SpectrumKit/Base": [
+              "~>1.0.0"
+            ],
+            "SpectrumCore/Plugins/Jpeg": [
+
+            ]
+          },
+          "source_files": "ios/SpectrumKit/SpectrumKitPlugins/Jpeg/**/*"
+        },
+        {
+          "name": "Png",
+          "dependencies": {
+            "SpectrumKit/Base": [
+              "~>1.0.0"
+            ],
+            "SpectrumCore/Plugins/Png": [
+
+            ]
+          },
+          "source_files": "ios/SpectrumKit/SpectrumKitPlugins/Png/**/*"
+        },
+        {
+          "name": "Webp",
+          "dependencies": {
+            "SpectrumKit/Base": [
+              "~>1.0.0"
+            ],
+            "SpectrumCore/Plugins/Webp": [
+
+            ]
+          },
+          "source_files": "ios/SpectrumKit/SpectrumKitPlugins/Webp/**/*"
+        }
+      ]
+    }
+  ]
+}

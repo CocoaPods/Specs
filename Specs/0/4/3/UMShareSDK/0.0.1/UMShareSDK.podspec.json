@@ -1,0 +1,96 @@
+{
+  "name": "UMShareSDK",
+  "version": "0.0.1",
+  "summary": "UMCShare 组件",
+  "description": "基于友盟社会化分享组件,包含精简版QQ SDK、精简版微博SDK、完整版带支付功能的微信SDK",
+  "homepage": "https://github.com/duxinfeng/UMShareSDK",
+  "license": "MIT",
+  "authors": {
+    "Xinfeng Du": "duxinfeng99@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/duxinfeng/UMShareSDK.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "UMCCommon": [
+      "~> 1.5.3"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "UMShare",
+      "vendored_frameworks": "UMShare/UMShare.framework",
+      "frameworks": "CoreGraphics",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "UMShareSDK/UMShare": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ReducedQQ",
+          "vendored_libraries": "UMShare/SocialLibraries/QQ/*.a",
+          "source_files": "UMShare/SocialLibraries/QQ/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/QQ/*.h",
+          "dependencies": {
+            "UMShareSDK/UMShare": [
+
+            ]
+          }
+        },
+        {
+          "name": "ReducedSina",
+          "vendored_libraries": "UMShare/SocialLibraries/Sina/*.a",
+          "source_files": "UMShare/SocialLibraries/Sina/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Sina/*.h",
+          "frameworks": "Photos",
+          "dependencies": {
+            "UMShareSDK/UMShare": [
+
+            ]
+          }
+        },
+        {
+          "name": "ReducedWeChat",
+          "vendored_libraries": "UMShare/SocialLibraries/WeChat/*.a",
+          "source_files": "UMShare/SocialLibraries/WeChat/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/WeChat/*.h",
+          "dependencies": {
+            "UMShareSDK/UMShare": [
+
+            ]
+          }
+        },
+        {
+          "name": "WeChat",
+          "vendored_libraries": "UMShare/SocialLibraries/WeChat/WechatSDK/*.a",
+          "source_files": "UMShare/SocialLibraries/WeChat/WechatSDK/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/WeChat/WechatSDK/*.h",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony"
+          ],
+          "libraries": [
+            "sqlite3",
+            "c++",
+            "z"
+          ],
+          "dependencies": {
+            "UMShareSDK/Social/ReducedWeChat": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

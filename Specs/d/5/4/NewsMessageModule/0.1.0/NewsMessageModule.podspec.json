@@ -1,0 +1,67 @@
+{
+  "name": "NewsMessageModule",
+  "version": "0.1.0",
+  "summary": "A short description of NewsMessageModule.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://git.flabbj.com/gongchuanzan/NewsMessageModule",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zan999@qq.com": "gongchuanzan@qq.com"
+  },
+  "source": {
+    "git": "http://git.flabbj.com/gongchuanzan/NewsMessageModule.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.2",
+  "source_files": "NewsMessageModule/Classes/**/*",
+  "resource_bundles": {
+    "NewsMessageModule": [
+      "NewsMessageModule/Assets/**/*.{storyboard,xcassets}"
+    ]
+  },
+  "dependencies": {
+    "NewsBaseModule": [
+
+    ],
+    "SingleHornRouter": [
+
+    ],
+    "Kingfisher": [
+
+    ]
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "XGPushVendor",
+      "source_files": "NewsMessageModule/Vender/**/*.{h}",
+      "ios": {
+        "vendored_libraries": "NewsMessageModule/Vender/XGPush/libXG-SDK.a",
+        "public_header_files": "NewsMessageModule/Vender/**/*.{h}",
+        "frameworks": [
+          "CoreTelephony",
+          "SystemConfiguration",
+          "UserNotifications",
+          "CFNetwork",
+          "CoreGraphics",
+          "CoreTelephony",
+          "Foundation"
+        ],
+        "libraries": [
+          "z",
+          "sqlite3.0"
+        ]
+      },
+      "preserve_paths": "NewsMessageModule/Vender/XGPush/libXG-SDK.a",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "\"-ObjC\""
+      }
+    }
+  ]
+}

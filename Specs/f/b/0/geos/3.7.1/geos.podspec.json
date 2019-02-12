@@ -1,0 +1,42 @@
+{
+  "name": "geos",
+  "version": "3.7.1",
+  "summary": "GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology Suite (JTS).",
+  "homepage": "http://trac.osgeo.org/geos",
+  "license": {
+    "type": "GNU LGPL 2.1",
+    "file": "geos/COPYING"
+  },
+  "authors": {
+    "Yury Bychkov": "me@yury.ca",
+    "Martin Davis": "mbdavis@refractions.net"
+  },
+  "source": {
+    "git": "https://github.com/GEOSwift/geos.git",
+    "tag": "3.7.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7"
+  },
+  "preserve_paths": "geos/**/*.{h,inl}",
+  "source_files": [
+    "geos/{include,src,capi}/**/*.cpp",
+    "geos/capi/geos_c.h",
+    "geos/include/geos/export.h"
+  ],
+  "exclude_files": "geos/**/*tests*",
+  "public_header_files": [
+    "geos/capi/geos_c.h",
+    "geos/include/geos/export.h"
+  ],
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "GEOS_USE_ONLY_R_API"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/geos/geos/include ${PODS_ROOT}/geos/geos/capi",
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES"
+  },
+  "prepare_command": "sh prepare.sh"
+}
