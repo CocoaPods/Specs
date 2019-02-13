@@ -1,0 +1,99 @@
+{
+  "name": "IrisRtcSdk",
+  "version": "3.1.16",
+  "summary": "iOS SDK which leverages Comcast Iris Platform",
+  "description": "iOS SDK which leverages Comcast Iris Platform.",
+  "homepage": "https://iris.comcast.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Comcast": "support@iris.comcast.com"
+  },
+  "source": {
+    "git": "https://github.com/555platform/rtc-ios-sdk-pod.git",
+    "tag": "v3.1.16"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  },
+  "source_files": [
+    "IrisRtcSdk/*",
+    "IrisRtcSdk/IrisRtcSdk/*.{h,m}",
+    "IrisRtcSdk/IrisRtcSdk/public/*.{h,m}",
+    "IrisRtcSdk/legacy/*.{h,m,mm}",
+    "IrisRtcSdk/XMPP/*.{h,m}",
+    "IrisRtcSdk/XMPP/XEP-0327/*.{h,m}",
+    "IrisRtcSdk/XMPP/XEP-0166/*.{h,m}",
+    "IrisRtcSdk/socket.IO-objc/*",
+    "IrisRtcSdk/socket.IO-objc/**/*.{h,m,c}",
+    "IrisRtcSdk/webrtc/header/WebRTC/*",
+    "IrisRtcSdk/loggerSdk/header/*"
+  ],
+  "public_header_files": [
+    "IrisRtcSdk/IrisRtcSdk/public/*.h",
+    "IrisRtcSdk/webrtc/header"
+  ],
+  "dependencies": {
+    "XMPPFramework": [
+      "~> 3.7.0"
+    ],
+    "libPhoneNumber-iOS": [
+      "~> 0.9"
+    ]
+  },
+  "exclude_files": "IrisRtcSdk/IrisRtcSdk/public/IrisRtcSdkCoreData.h",
+  "resources": "IrisRtcSdk/**/*.{mp3}",
+  "resource_bundles": {
+    "IrisRtcSdk": [
+      "IrisRtcSdk/**/*.{mp3}"
+    ]
+  },
+  "frameworks": [
+    "AudioToolbox",
+    "Foundation",
+    "AVFoundation",
+    "CFNetwork",
+    "AssetsLibrary",
+    "VideoToolBox",
+    "AudioToolBox",
+    "GLKit",
+    "Security",
+    "SystemConfiguration",
+    "CoreAudio",
+    "VideoToolBox",
+    "CoreMedia",
+    "CoreFoundation"
+  ],
+  "libraries": [
+    "icucore",
+    "c++",
+    "xml2",
+    "resolv"
+  ],
+  "default_subspecs": "precompiled",
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "vendored_libraries": [
+        "IrisRtcSdk/webrtc/libs/libwebrtc.a",
+        "IrisRtcSdk/loggerSdk/libs/libwebrtc-logger-sdk.a"
+      ],
+      "libraries": [
+        "webrtc",
+        "webrtc-logger-sdk"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/loggerSdk/header ${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/webrtc/header $(SDKROOT)/usr/include/libxml2",
+        "LIBRARY_SEARCH_PATHS": "${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/loggerSdk/libs ${PODS_ROOT}/IrisRtcSdk/IrisRtcSdk/webrtc/libs ",
+        "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+        "OTHER_LDFLAGS": "-ObjC",
+        "ENABLE_BITCODE": "NO"
+      }
+    }
+  ]
+}
