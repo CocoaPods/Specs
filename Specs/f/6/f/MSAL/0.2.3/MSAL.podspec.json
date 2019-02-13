@@ -1,0 +1,89 @@
+{
+  "name": "MSAL",
+  "version": "0.2.3",
+  "summary": "Microsoft Authentication Library (MSAL) Preview for iOS",
+  "description": "The MSAL library preview for iOS gives your app the ability to begin using the Microsoft Cloud by supporting Microsoft Azure Active Directory and Microsoft Accounts in a converged experience using industry standard OAuth2 and OpenID Connect. The library also supports Microsoft Azure B2C for those using our hosted identity management service.",
+  "homepage": "https://github.com/AzureAD/microsoft-authentication-library-for-objc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": "nugetaad@microsoft.com"
+  },
+  "social_media_url": "https://twitter.com/azuread",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.11"
+  },
+  "source": {
+    "git": "https://github.com/AzureAD/microsoft-authentication-library-for-objc.git",
+    "tag": "0.2.3",
+    "submodules": true
+  },
+  "pod_target_xcconfig": {
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
+  },
+  "default_subspecs": "app-lib",
+  "prefix_header_file": "MSAL/src/MSAL.pch",
+  "header_dir": "MSAL",
+  "subspecs": [
+    {
+      "name": "app-lib",
+      "source_files": [
+        "MSAL/src/**/*.{h,m}",
+        "MSAL/IdentityCore/IdentityCore/src/**/*.{h,m}"
+      ],
+      "ios": {
+        "public_header_files": [
+          "MSAL/src/public/*.h",
+          "MSAL/src/public/ios/*.h"
+        ],
+        "exclude_files": [
+          "MSAL/src/**/mac/*",
+          "MSAL/IdentityCore/IdentityCore/src/**/mac/*"
+        ]
+      },
+      "osx": {
+        "public_header_files": [
+          "MSAL/src/public/mac/*.h",
+          "MSAL/src/public/*.h"
+        ],
+        "exclude_files": [
+          "MSAL/src/**/ios/*",
+          "MSAL/IdentityCore/IdentityCore/src/**/ios/*"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "extension",
+      "compiler_flags": "-DADAL_EXTENSION_SAFE=1",
+      "source_files": [
+        "MSAL/src/**/*.{h,m}",
+        "MSAL/IdentityCore/IdentityCore/src/**/*.{h,m}"
+      ],
+      "ios": {
+        "public_header_files": [
+          "MSAL/src/public/*.h",
+          "MSAL/src/public/ios/*.h"
+        ],
+        "exclude_files": [
+          "MSAL/src/**/mac/*",
+          "MSAL/IdentityCore/IdentityCore/src/**/mac/*"
+        ]
+      },
+      "osx": {
+        "public_header_files": [
+          "MSAL/src/public/mac/*.h",
+          "MSAL/src/public/*.h"
+        ],
+        "exclude_files": [
+          "MSAL/src/**/ios/*",
+          "MSAL/IdentityCore/IdentityCore/src/**/ios/*"
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
