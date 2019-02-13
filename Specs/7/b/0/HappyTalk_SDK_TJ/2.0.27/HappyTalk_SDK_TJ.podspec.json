@@ -1,0 +1,58 @@
+{
+  "name": "HappyTalk_SDK_TJ",
+  "version": "2.0.27",
+  "summary": "HappyTalkSDK iOS Library",
+  "homepage": "http://git.sweettracker.net/ios/happytalksdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TJ": "tejayjung@gmail.com"
+  },
+  "source": {
+    "git": "http://git.sweettracker.net/ios/happytalksdk.git",
+    "tag": "2.0.27"
+  },
+  "source_files": "HappyTalkSDK/HappyTalkSDK/**/*.{h,m}",
+  "exclude_files": [
+    "HappyTalkSDK/HappyTalkSDK/JsonKit/*.{h,m}",
+    "HappyTalkSDK/HappyTalkSDK/Data/*.{h,m}"
+  ],
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "libraries": [
+    "c++",
+    "icucore",
+    "z"
+  ],
+  "dependencies": {
+    "Socket.IO-Client-Swift": [
+      "~> 12.1.3"
+    ]
+  },
+  "xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "Pod/Dependencies"
+  },
+  "subspecs": [
+    {
+      "name": "JsonKit",
+      "requires_arc": false,
+      "source_files": "HappyTalkSDK/HappyTalkSDK/JsonKit/*.{h,m}",
+      "public_header_files": "HappyTalkSDK/HappyTalkSDK/JsonKit/*.h"
+    },
+    {
+      "name": "Data",
+      "requires_arc": true,
+      "source_files": "HappyTalkSDK/HappyTalkSDK/Data/*.{h,m}",
+      "public_header_files": "HappyTalkSDK/HappyTalkSDK/Data/*.h",
+      "dependencies": {
+        "HappyTalk_SDK_TJ/JsonKit": [
+
+        ]
+      }
+    }
+  ]
+}
