@@ -1,0 +1,101 @@
+{
+  "name": "ZIKRouter",
+  "version": "1.0.9",
+  "summary": "Interface-Oriented iOS router for discovering modules and injecting dependencies with protocol in both Swift and Objective-C.",
+  "description": "Interface-Oriented iOS router for discovering modules and injecting dependencies with protocol in both Swift and Objective-C, designed for VIPER. The view router can perform all navigation types in UIKit through one method. The service router can discover service with protocol.",
+  "homepage": "https://github.com/Zuikyo/ZIKRouter",
+  "license": "MIT",
+  "authors": {
+    "Zuikyo": "zuikxyo@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "9.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/Zuikyo/ZIKRouter.git",
+    "tag": "1.0.9"
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "tvos": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "Foundation",
+      "AppKit"
+    ]
+  },
+  "libraries": "c++",
+  "requires_arc": true,
+  "preserve_paths": "ZIKRouter/Framework/module.modulemap",
+  "module_map": "ZIKRouter/Framework/module.modulemap",
+  "default_subspecs": [
+    "ServiceRouter",
+    "ViewRouter"
+  ],
+  "subspecs": [
+    {
+      "name": "ServiceRouter",
+      "source_files": [
+        "ZIKRouter/Router/*.{h,m,mm,cpp}",
+        "ZIKRouter/Router/**/*.{h,m,mm,cpp}",
+        "ZIKRouter/ServiceRouter/*.{h,m,mm,cpp}",
+        "ZIKRouter/ServiceRouter/**/*.{h,m,mm,cpp}",
+        "ZIKRouter/Utilities/*.{h,m,mm,cpp}",
+        "ZIKRouter/Utilities/**/*.{h,m,mm,cpp}",
+        "ZIKRouter/Utilities/**/**/*.{h,m,mm,cpp}",
+        "ZIKRouter/Framework/*.h",
+        "ZIKRouter/ViewRouter/BlockRouter/ZIKViewRoute.h",
+        "ZIKRouter/ViewRouter/ZIKViewRouterInternal.h",
+        "ZIKRouter/ViewRouter/Registry/ZIKViewRouteRegistry.h"
+      ],
+      "public_header_files": [
+        "ZIKRouter/*.h",
+        "ZIKRouter/Router/*.h",
+        "ZIKRouter/Router/**/*.h",
+        "ZIKRouter/ServiceRouter/*.h",
+        "ZIKRouter/ServiceRouter/**/*.h",
+        "ZIKRouter/Utilities/*.h",
+        "ZIKRouter/Framework/*.h",
+        "ZIKRouter/ViewRouter/BlockRouter/ZIKViewRoute.h",
+        "ZIKRouter/ViewRouter/ZIKViewRouterInternal.h",
+        "ZIKRouter/ViewRouter/Registry/ZIKViewRouteRegistry.h"
+      ],
+      "private_header_files": [
+        "ZIKRouter/Router/Private/*.h",
+        "ZIKRouter/ServiceRouter/BlockRouter/ZIKBlockServiceRouter.h"
+      ]
+    },
+    {
+      "name": "ViewRouter",
+      "dependencies": {
+        "ZIKRouter/ServiceRouter": [
+
+        ]
+      },
+      "source_files": [
+        "ZIKRouter/ViewRouter/*.{h,m,mm,cpp}",
+        "ZIKRouter/ViewRouter/**/*.{h,m,mm,cpp}",
+        "ZIKRouter/ViewRouter/**/**/*.{h,m,mm,cpp}"
+      ],
+      "public_header_files": [
+        "ZIKRouter/ViewRouter/*.h",
+        "ZIKRouter/ViewRouter/**/*.h"
+      ],
+      "private_header_files": [
+        "ZIKRouter/ViewRouter/Private/*.h",
+        "ZIKRouter/ViewRouter/BlockRouter/ZIKBlockViewRouter.h"
+      ]
+    }
+  ]
+}
