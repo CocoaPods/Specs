@@ -1,0 +1,74 @@
+{
+  "name": "Backendless",
+  "version": "5.2.10",
+  "license": {
+    "type": "Apache",
+    "text": "Copyright (c) 2013-2019 by Backendless.com"
+  },
+  "homepage": "http://backendless.com",
+  "authors": {
+    "Mark Piller": "mark@backendless.com"
+  },
+  "summary": "Backendless is a Mobile Backend and API Services Platform",
+  "description": "Backendless is a development and a run-time platform. It helps software developers to create mobile and desktop applications while removing the need for server-side coding.",
+  "source": {
+    "git": "https://github.com/Backendless/ios-SDK.git",
+    "tag": "5.2.10"
+  },
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "ios": {
+    "source_files": "SDK/ios/**/*.h",
+    "preserve_paths": "SDK/ios/**/*.a",
+    "frameworks": [
+      "SystemConfiguration",
+      "UIKit",
+      "CoreLocation",
+      "Foundation"
+    ],
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/Backendless/SDK/ios/backendless\""
+    }
+  },
+  "osx": {
+    "source_files": "SDK/osx/**/*.h",
+    "preserve_paths": "SDK/osx/**/*.a",
+    "frameworks": [
+      "SystemConfiguration",
+      "AppKit"
+    ],
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/Backendless/SDK/osx/backendless\""
+    }
+  },
+  "tvos": {
+    "source_files": "SDK/tvos/**/*.h",
+    "preserve_paths": "SDK/tvos/**/*.a",
+    "frameworks": [
+      "SystemConfiguration",
+      "UIKit"
+    ],
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/Backendless/SDK/tvos/backendless\""
+    }
+  },
+  "watchos": {
+    "source_files": "SDK/watchos/**/*.h",
+    "preserve_paths": "SDK/watchos/**/*.a",
+    "xcconfig": {
+      "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/Backendless/SDK/watchos/backendless\""
+    }
+  },
+  "libraries": "backendless",
+  "prepare_command": "pushd SDK/ios/backendless/\n  ln -s backendless.a libbackendless.a\npopd\n\npushd SDK/osx/backendless/\n  ln -s backendless.a libbackendless.a\npopd\n\npushd SDK/tvos/backendless/\n  ln -s backendless.a libbackendless.a\npopd\n\npushd SDK/watchos/backendless/\n  ln -s backendless.a libbackendless.a\npopd",
+  "dependencies": {
+    "Socket.IO-Client-Swift": [
+      "~> 13.3.0"
+    ]
+  }
+}
