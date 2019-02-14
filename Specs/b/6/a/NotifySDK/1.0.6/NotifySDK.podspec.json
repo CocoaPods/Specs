@@ -1,0 +1,63 @@
+{
+  "name": "NotifySDK",
+  "version": "1.0.6",
+  "summary": "Libnotify and Libverify libraries.",
+  "description": "Client SDK for Notify Mail.ru service.",
+  "homepage": "https://notify.mail.ru",
+  "license": {
+    "type": "LGPL-3.0",
+    "file": "NotifySDK/LICENSE"
+  },
+  "authors": {
+    "Notify Mail.ru": "libverify@corp.mail.ru"
+  },
+  "source": {
+    "http": "https://github.com/NotifySDK/notify-sdk-ios/releases/download/1.0.6/notify-ios-1_0_6-HEAD-5150e9c757637c694292eaa95a4ddf8860e2f5b6.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Notify"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "NotifySDK/NotifyCore.framework"
+    },
+    {
+      "name": "Notify",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "NotifySDK/Libnotify.framework"
+    },
+    {
+      "name": "Verify",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "NotifySDK/Libverify.framework",
+      "resources": [
+        "NotifySDK/Libverify.framework/LibverifyResources.bundle"
+      ]
+    },
+    {
+      "name": "VerifyControls",
+      "dependencies": {
+        "NotifySDK/Core": [
+
+        ],
+        "NotifySDK/Verify": [
+
+        ]
+      },
+      "vendored_frameworks": "NotifySDK/LibverifyControls.framework"
+    }
+  ]
+}
