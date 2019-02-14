@@ -1,0 +1,85 @@
+{
+  "name": "FSAdSDK",
+  "version": "0.3.1",
+  "summary": "Freestar iOS Mobile Advertising SDK.",
+  "description": "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info.",
+  "homepage": "https://freestar.io",
+  "authors": {
+    "Freestar - Dean Chang": "dean.chang@freestar.io"
+  },
+  "license": {
+    "type": "Freestar Limited License"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git",
+    "tag": "0.3.1"
+  },
+  "default_subspecs": "Core",
+  "dependencies": {
+    "FSCache": [
+
+    ],
+    "Protobuf": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FSAdSDK/Registration": [
+
+        ],
+        "FSAdSDK/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Registration",
+      "source_files": "SDK/FSAdSDK.framework/Headers/*.{h}",
+      "vendored_frameworks": "SDK/FSAdSDK.framework",
+      "preserve_paths": "SDK/FSAdSDK.framework/*"
+    },
+    {
+      "name": "Common",
+      "source_files": "SDK/FSCommon.framework/Headers/*.{h}",
+      "vendored_frameworks": "SDK/FSCommon.framework",
+      "preserve_paths": "SDK/FSCommon.framework/*"
+    },
+    {
+      "name": "DFP",
+      "source_files": "SDK/FSDFP.framework/Headers/*.{h}",
+      "vendored_frameworks": "SDK/FSDFP.framework",
+      "preserve_paths": "SDK/FSDFP.framework/*"
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "FSAdSDK/Core": [
+
+        ],
+        "FSAdSDK/DFP": [
+
+        ]
+      }
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "FSAdSDK/Core": [
+
+        ],
+        "FSAdSDK/DFP": [
+
+        ]
+      }
+    }
+  ]
+}
