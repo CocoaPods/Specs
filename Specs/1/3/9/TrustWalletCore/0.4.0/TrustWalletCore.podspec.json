@@ -1,0 +1,45 @@
+{
+  "name": "TrustWalletCore",
+  "version": "0.4.0",
+  "summary": "Trust Wallet core data structures and algorithms.",
+  "homepage": "https://github.com/TrustWallet/trust-wallet-core",
+  "license": "MIT",
+  "authors": {
+    "Alejandro Isaza": "al@isaza.ca"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12"
+  },
+  "swift_version": "4.2",
+  "source": {
+    "http": "https://s3.amazonaws.com/wallet-core/TrustWalletCore-iOS-0.4.0.zip"
+  },
+  "preserve_paths": "build/ios/*.a",
+  "vendored_libraries": [
+    "build/ios/libprotobuf.a",
+    "build/ios/libTrezorCrypto.a",
+    "build/ios/libTrustWalletCore.a"
+  ],
+  "source_files": [
+    "include/**/*.h",
+    "swift/Sources/**/*.{swift,h,m,cpp}"
+  ],
+  "public_header_files": [
+    "include/**/*.h",
+    "swift/Sources/*.h"
+  ],
+  "libraries": "c++",
+  "xcconfig": {
+    "SYSTEM_HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/TrustWalletCore/include",
+    "OTHER_LDFLAGS": "$(inherited) -fprofile-instr-generate"
+  },
+  "pod_target_xcconfig": {
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "dependencies": {
+    "SwiftProtobuf": [
+      "~> 1.3.0"
+    ]
+  }
+}
