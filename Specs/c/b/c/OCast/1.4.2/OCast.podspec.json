@@ -1,0 +1,58 @@
+{
+  "name": "OCast",
+  "version": "1.4.2",
+  "summary": "OCast SDK provides an application with all necessary functions to cast any contents to an Orange stick.",
+  "description": "The Orange OCast SDK provides all required API methods to implement cast applications for the Orange stick.\nThe Example project aims at demonstrating the basic instruction set of the Orange OCast SDK to help you get started.\n\nBoth Objective C and Swift applications may use the Orange OCast SDK.\n\nHere are the main functionalities of the Example project:\n\n- Wifi connection to the receiver\n- Application stop and restart\n- Audio cast Play/Pause/Stop\n- Video cast Play/Pause/Stop\n- Image cast\n- Volume control\n- Time seek management\n- Media tracks management\n- Custom messages handling",
+  "homepage": "https://github.com/Orange-OpenSource/OCast-iOS",
+  "license": {
+    "type": "Apache V2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Orange Labs": [
+      "philippe.besombe@orange.com",
+      "christophe.azemar@orange.com",
+      "francois.suc@orange.com"
+    ]
+  },
+  "source": {
+    "git": "https://github.com/Orange-OpenSource/OCast-iOS.git",
+    "tag": "1.4.2",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.2",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "OCast/Core/**/*.{swift,m,h}",
+        "OCast/OCast.h"
+      ],
+      "dependencies": {
+        "CocoaAsyncSocket": [
+          "7.6.3"
+        ]
+      }
+    },
+    {
+      "name": "ReferenceDriver",
+      "source_files": [
+        "OCast/ReferenceDriver/**/*.{swift,m,h}",
+        "OCast/Starscream/Sources/*.swift"
+      ],
+      "dependencies": {
+        "OCast/Core": [
+
+        ]
+      },
+      "libraries": "z",
+      "preserve_paths": "OCast/Starscream/zlib/*",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/OCast/Starscream/zlib"
+      }
+    }
+  ]
+}
