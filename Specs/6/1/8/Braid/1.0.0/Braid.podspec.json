@@ -1,0 +1,61 @@
+{
+  "name": "Braid",
+  "version": "1.0.0",
+  "summary": "Declarative, type-safe table view binding.",
+  "description": "Braid is a table view binding library that makes setup for table views more declarative, more functional, and\nmore type-safe.",
+  "homepage": "https://github.com/Saelyria/Braid",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Aaron Bosnjak": "aaron.bosnjak707@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Saelyria/Braid.git",
+    "tag": "1.0.0"
+  },
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Core/",
+        "Core/Protocols/",
+        "Core/TableView/",
+        "Core/TableView/SingleSection",
+        "Core/TableView/MultiSection",
+        "Core/TableView/AnySection",
+        "Core/Diffing/"
+      ],
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Rx",
+      "source_files": "Rx/",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "Braid/Core": [
+
+        ],
+        "RxSwift": [
+          "~> 4.4"
+        ],
+        "RxCocoa": [
+          "~> 4.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DRX_BRAID"
+      }
+    }
+  ]
+}
