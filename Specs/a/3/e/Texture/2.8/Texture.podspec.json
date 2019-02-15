@@ -1,0 +1,164 @@
+{
+  "name": "Texture",
+  "version": "2.8",
+  "license": {
+    "type": "Apache 2"
+  },
+  "homepage": "http://texturegroup.org",
+  "authors": {
+    "Huy Nguyen": "hi@huytnguyen.me",
+    "Garrett Moon": "garrett@excitedpixel.com",
+    "Scott Goodson": "scottgoodson@gmail.com",
+    "Michael Schneider": "mischneider1@gmail.com",
+    "Adlai Holler": "adlai@icloud.com"
+  },
+  "summary": "Smooth asynchronous user interfaces for iOS apps.",
+  "source": {
+    "git": "https://github.com/TextureGroup/Texture.git",
+    "tag": "2.8"
+  },
+  "module_name": "AsyncDisplayKit",
+  "header_dir": "AsyncDisplayKit",
+  "documentation_url": "http://texturegroup.org/appledoc/",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "PINRemoteImage",
+    "Video",
+    "MapKit",
+    "AssetsLibrary",
+    "Photos"
+  ],
+  "social_media_url": "https://twitter.com/TextureiOS",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "compiler_flags": "-fno-exceptions -Wno-implicit-retain-self",
+      "public_header_files": [
+        "Source/*.h",
+        "Source/Details/**/*.h",
+        "Source/Layout/**/*.h",
+        "Source/Base/*.h",
+        "Source/Debug/**/*.h",
+        "Source/TextKit/ASTextNodeTypes.h",
+        "Source/TextKit/ASTextKitComponents.h"
+      ],
+      "source_files": [
+        "Source/**/*.{h,mm}",
+        "Source/TextKit/*.h"
+      ]
+    },
+    {
+      "name": "PINRemoteImage",
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+          "= 3.0.0-beta.13"
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "IGListKit",
+      "dependencies": {
+        "IGListKit": [
+          "~> 3.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Yoga",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YOGA=1"
+      },
+      "dependencies": {
+        "Yoga": [
+          "1.6.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TextNode2",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_ENABLE_TEXTNODE=0"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Video",
+      "frameworks": [
+        "AVFoundation",
+        "CoreMedia"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_VIDEO=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MapKit",
+      "frameworks": [
+        "CoreLocation",
+        "MapKit"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_MAPKIT=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Photos",
+      "frameworks": "Photos",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_PHOTOS=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AssetsLibrary",
+      "frameworks": "AssetsLibrary",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_ASSETS_LIBRARY=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    }
+  ]
+}
