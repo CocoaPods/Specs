@@ -1,0 +1,177 @@
+{
+  "name": "SJVideoPlayer",
+  "version": "2.4.0",
+  "summary": "video player.",
+  "description": "https://github.com/changsanjiang/SJVideoPlayer/blob/master/README.md",
+  "homepage": "https://github.com/changsanjiang/SJVideoPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "SanJiang": "changsanjiang@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/changsanjiang/SJVideoPlayer.git",
+    "tag": "v2.4.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "SJBaseVideoPlayer": [
+
+    ],
+    "SJUIFactory": [
+
+    ],
+    "SJAttributesFactory": [
+
+    ]
+  },
+  "source_files": "SJVideoPlayer/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "SJVideoPlayer/Common/*.{h,m}"
+    },
+    {
+      "name": "Adapters",
+      "source_files": "SJVideoPlayer/Adapters/**/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Switcher",
+      "source_files": "SJVideoPlayer/Switcher/**/*.{h,m}"
+    },
+    {
+      "name": "SJProgressSlider",
+      "source_files": "SJVideoPlayer/SJProgressSlider/*.{h,m}"
+    },
+    {
+      "name": "SJLoadingView",
+      "source_files": "SJVideoPlayer/SJLoadingView/*.{h,m}"
+    },
+    {
+      "name": "Settings",
+      "source_files": "SJVideoPlayer/Settings/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader": [
+
+        ],
+        "SJVideoPlayer/SJEdgeControlLayer/ResourceLoader": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJEdgeControlLayer",
+      "source_files": "SJVideoPlayer/SJEdgeControlLayer/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/Adapters": [
+
+        ],
+        "SJVideoPlayer/Switcher": [
+
+        ],
+        "SJVideoPlayer/Common": [
+
+        ],
+        "SJVideoPlayer/SJProgressSlider": [
+
+        ],
+        "SJVideoPlayer/SJLoadingView": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ResourceLoader",
+          "source_files": "SJVideoPlayer/SJEdgeControlLayer/ResourceLoader/*.{h,m}",
+          "resources": "SJVideoPlayer/SJEdgeControlLayer/ResourceLoader/SJEdgeControlLayer.bundle"
+        },
+        {
+          "name": "View",
+          "source_files": "SJVideoPlayer/SJEdgeControlLayer/View/*.{h,m}",
+          "dependencies": {
+            "SJVideoPlayer/SJEdgeControlLayer/ResourceLoader": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SJFilmEditingControlLayer",
+      "source_files": "SJVideoPlayer/SJFilmEditingControlLayer/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/SJProgressSlider": [
+
+        ],
+        "SJVideoPlayer/Switcher": [
+
+        ],
+        "SJVideoPlayer/Adapters": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ResourceLoader",
+          "source_files": "SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader/*",
+          "resources": "SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader/SJFilmEditing.bundle"
+        },
+        {
+          "name": "Core",
+          "source_files": "SJVideoPlayer/SJFilmEditingControlLayer/Core/**/*.{h,m}",
+          "dependencies": {
+            "SJVideoPlayer/SJFilmEditingControlLayer/ResourceLoader": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SJLoadFailedControlLayer",
+      "source_files": "SJVideoPlayer/SJLoadFailedControlLayer/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/SJNotReachableControlLayer": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJNotReachableControlLayer",
+      "source_files": "SJVideoPlayer/SJNotReachableControlLayer/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/SJEdgeControlLayer": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJMoreSettingControlLayer",
+      "source_files": "SJVideoPlayer/SJMoreSettingControlLayer/*.{h,m}",
+      "dependencies": {
+        "SJVideoPlayer/SJEdgeControlLayer": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJVideoPlayer/SJMoreSettingControlLayer/Core/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
