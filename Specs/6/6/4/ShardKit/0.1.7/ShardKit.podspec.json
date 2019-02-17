@@ -1,0 +1,46 @@
+{
+  "name": "ShardKit",
+  "version": "0.1.7",
+  "summary": "iOS implementation of https://shardlib.com",
+  "homepage": "https://shardlib.com",
+  "authors": {
+    "Visly Inc.": "emil@visly.app"
+  },
+  "source": {
+    "git": "https://github.com/vislyhq/shard-mobile.git",
+    "tag": "0.1.7"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "swift_version": "4.2",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ios/ShardKit/Classes/**/*",
+  "dependencies": {
+    "Kingfisher": [
+      "~> 5.1.0"
+    ]
+  },
+  "xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "ShardCore",
+      "source_files": "ios/Libraries/Headers/*.h",
+      "vendored_libraries": "ios/Libraries/libshard.a",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/ShardCore/Libraries/Headers"
+      },
+      "preserve_paths": [
+        "ios/Libraries/libshard.a",
+        "ios/Libraries/Headers/libshard.h"
+      ],
+      "public_header_files": "ios/Libraries/Headers/*.h",
+      "requires_arc": false
+    }
+  ]
+}
