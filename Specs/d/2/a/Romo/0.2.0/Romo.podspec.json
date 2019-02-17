@@ -1,0 +1,86 @@
+{
+  "name": "Romo",
+  "summary": "Romo SDK",
+  "homepage": "https://github.com/navideck/Romo",
+  "version": "0.2.0",
+  "authors": {
+    "Navideck": "team@navideck.com"
+  },
+  "source": {
+    "git": "https://github.com/navideck/Romo",
+    "tag": "Romo_v0.2.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "license": {
+    "file": "LICENSE.md"
+  },
+  "default_subspecs": "RMCore",
+  "subspecs": [
+    {
+      "name": "RMShared",
+      "source_files": "RMShared/Classes/**/*.{h,m,mm,pch}",
+      "dependencies": {
+        "CocoaLumberjack": [
+
+        ],
+        "SocketRocket": [
+
+        ]
+      }
+    },
+    {
+      "name": "RMCore",
+      "source_files": "RMCore/Classes/**/*.{h,m,mm,pch}",
+      "dependencies": {
+        "Romo/RMShared": [
+
+        ]
+      }
+    },
+    {
+      "name": "RMCharacter",
+      "source_files": "RMCharacter/Classes/**/*.{h,m,mm,pch}",
+      "resource_bundles": {
+        "RMCharacter": [
+          "RMCharacter/Assets/**/*.*"
+        ]
+      },
+      "dependencies": {
+        "Romo/RMShared": [
+
+        ]
+      }
+    },
+    {
+      "name": "RMVision",
+      "source_files": "RMVision/Classes/**/*.{h,m,mm,pch}",
+      "exclude_files": [
+        "RMVisionSample",
+        "RMVisionSampleTests"
+      ],
+      "resource_bundles": {
+        "RMVision": [
+          "RMVision/Assets/**/*.*"
+        ]
+      },
+      "dependencies": {
+        "Romo/RMShared": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ],
+        "GPUImage": [
+
+        ],
+        "OpenCV": [
+          "~> 2.0"
+        ]
+      }
+    }
+  ]
+}
