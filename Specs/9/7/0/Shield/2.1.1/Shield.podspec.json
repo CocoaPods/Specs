@@ -1,0 +1,370 @@
+{
+  "name": "Shield",
+  "version": "2.1.1",
+  "summary": "Shield is an iOS/macOS/tvOS framework that wraps various authorization APIs (e.g. camera, photo, location).",
+  "description": "Shield is an iOS/macOS/tvOS framework that wraps various authorization APIs (e.g. camera, photo, location). The majority of the wrapped APIs are for iOS, with a few cross platform available on macOS and tvOS as well. Subspecs are provided for each individual set of wrapped APIs.",
+  "homepage": "https://github.com/Kosoku/Shield",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "William Towe": "willbur1984@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Kosoku/Shield.git",
+    "tag": "2.1.1"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "10.0"
+  },
+  "requires_arc": true,
+  "ios": {
+    "source_files": [
+      "Shield/*.{h,m}",
+      "Shield/iOS/*.{h,m}",
+      "Shield/Private/*.{h,m}"
+    ]
+  },
+  "osx": {
+    "source_files": [
+      "Shield/*.{h,m}",
+      "Shield/macOS/*.{h,m}",
+      "Shield/Private/*.{h,m}"
+    ]
+  },
+  "tvos": {
+    "source_files": [
+      "Shield/KSHLocationAuthorization.{h,m}",
+      "Shield/KSHPhotosAuthorization.{h,m}",
+      "Shield/KSHNotificationAuthorization.{h,m}",
+      "Shield/iOS/KSHVideoSubscriberAccountAuthorization.{h,m}",
+      "Shield/Private/*.{h,m}"
+    ]
+  },
+  "exclude_files": "Shield/Shield-Info.h",
+  "private_header_files": "Shield/Private/*.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Shield/Shield.h",
+      "resource_bundles": {
+        "Shield": [
+          "Shield/**/*.{lproj}"
+        ]
+      }
+    },
+    {
+      "name": "Camera",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHCameraAuthorization.{h,m}",
+      "frameworks": "AVFoundation",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Microphone",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHMicrophoneAuthorization.{h,m}",
+      "frameworks": "AVFoundation",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediaLibrary",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHMediaLibraryAuthorization.{h,m}",
+      "frameworks": "MediaPlayer",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Health",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHHealthAuthorization.{h,m}",
+      "frameworks": "HealthKit",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Siri",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHSiriAuthorization.{h,m}",
+      "frameworks": "Intents",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Speech",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHSpeechAuthorization.{h,m}",
+      "frameworks": "Speech",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bluetooth",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHBluetoothAuthorization.{h,m}",
+      "frameworks": "CoreBluetooth",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Home",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHHomeAuthorization.{h,m}",
+      "frameworks": "HomeKit",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Motion",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "Shield/**/KSHMotionAuthorization.{h,m}",
+      "frameworks": "CoreMotion",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Photos",
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "10.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHPhotosAuthorization.{h,m}",
+      "frameworks": "Photos",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Notification",
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "10.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHNotificationAuthorization.{h,m}",
+      "frameworks": "UserNotifications",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "VideoSubscriberAccount",
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "10.0"
+      },
+      "source_files": "Shield/**/KSHVideoSubscriberAccountAuthorization.{h,m}",
+      "frameworks": "VideoSubscriberAccount",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Event",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHEventAuthorization.{h,m}",
+      "frameworks": "EventKit",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Contacts",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHContactsAuthorization.{h,m}",
+      "frameworks": "Contacts",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Local",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "source_files": [
+        "Shield/**/KSHLocalAuthorization.{h,m}",
+        "Shield/Private/*.{h,m}"
+      ],
+      "frameworks": "LocalAuthentication",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14",
+        "tvos": "10.0"
+      },
+      "source_files": "Shield/**/KSHLocationAuthorization.{h,m}",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Accessibility",
+      "platforms": {
+        "osx": "10.14"
+      },
+      "source_files": "Shield/**/KSHAccessibilityAuthorization.{h,m}",
+      "frameworks": [
+        "ApplicationServices",
+        "AppKit"
+      ],
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Security",
+      "platforms": {
+        "osx": "10.14"
+      },
+      "source_files": [
+        "Shield/**/KSHSecurityAuthorization.{h,m}",
+        "Shield/**/KSHSecurityRights.{h,m}",
+        "Shield/Private/*.{h,m}"
+      ],
+      "frameworks": "Security",
+      "dependencies": {
+        "Stanley": [
+
+        ],
+        "Shield/Core": [
+
+        ]
+      }
+    }
+  ]
+}
