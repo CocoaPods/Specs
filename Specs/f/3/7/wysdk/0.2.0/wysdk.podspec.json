@@ -1,0 +1,196 @@
+{
+  "name": "wysdk",
+  "version": "0.2.0",
+  "summary": "A short description of wysdk.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "git@192.168.10.116:iOSTeam/wysdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wangwei": "18103315758@163.com"
+  },
+  "source": {
+    "git": "git@192.168.10.116:iOSTeam/wysdk.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-all_load"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "SystemConfiguration",
+    "Security",
+    "CoreTelephony",
+    "CFNetwork",
+    "CoreGraphics",
+    "CoreText",
+    "AVFoundation",
+    "AudioToolbox"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3.0",
+    "sqlite3",
+    "c++",
+    "iconv",
+    "stdc++"
+  ],
+  "dependencies": {
+    "TTTAttributedLabel": [
+      "2.0.0"
+    ],
+    "SDWebImage": [
+      "3.8.2"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "BYCore",
+      "source_files": "wysdk/Classes/BYCore/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYCore/*.h",
+      "resource_bundles": {
+        "BYCore": [
+          "wysdk/Classes/BYCore/Resource/*"
+        ]
+      },
+      "dependencies": {
+        "CocoaLumberjack": [
+          "3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "BYCategory",
+      "source_files": "wysdk/Classes/BYCategory/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYCategory/*.h",
+      "dependencies": {
+        "wysdk/BYCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BYUtility",
+      "source_files": "wysdk/Classes/BYUtility/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYUtility/*.{h}",
+      "resource_bundles": {
+        "BYUtility": [
+          "wysdk/Classes/BYUtility/Resource/*"
+        ]
+      },
+      "dependencies": {
+        "wysdk/BYCore": [
+
+        ],
+        "wysdk/BYCategory": [
+
+        ],
+        "DeviceUtil": [
+          "2.1.2"
+        ],
+        "SVProgressHUD": [
+          "2.0.4"
+        ],
+        "UIAlertView-Blocks": [
+          "1.0"
+        ],
+        "UICKeyChainStore": [
+          "2.1.0"
+        ],
+        "FCUUID": [
+          "1.3.1"
+        ],
+        "AFNetworking": [
+          "3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "BYNetworking",
+      "source_files": "wysdk/Classes/BYNetworking/**/*.{h,m}",
+      "dependencies": {
+        "wysdk/BYCore": [
+
+        ],
+        "wysdk/BYCategory": [
+
+        ],
+        "wysdk/BYUtility": [
+
+        ],
+        "AFNetworking": [
+          "3.1.0"
+        ]
+      }
+    },
+    {
+      "name": "BYWXTool",
+      "source_files": [
+        "wysdk/Classes/BYWXTool/**/*.{h,m}",
+        "wysdk/Classes/BYVendor/Libraries/Wechat/*.{h,m}"
+      ],
+      "public_header_files": "wysdk/Classes/BYWXTool/*.h",
+      "ios": {
+        "vendored_libraries": "wysdk/Classes/BYVendor/Libraries/Wechat/libWeChatSDK.a"
+      }
+    },
+    {
+      "name": "BYAuth",
+      "source_files": "wysdk/Classes/BYAuth/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYAuth/*.h",
+      "dependencies": {
+        "wysdk/BYWXTool": [
+
+        ]
+      }
+    },
+    {
+      "name": "BYInstalled",
+      "source_files": "wysdk/Classes/BYInstalled/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYInstalled/*.h",
+      "ios": {
+        "vendored_frameworks": "wysdk/Classes/BYVendor/Frameworks/TencentOpenAPI/TencentOpenAPI.framework"
+      },
+      "dependencies": {
+        "wysdk/BYWXTool": [
+
+        ]
+      }
+    },
+    {
+      "name": "BYRefreshManager",
+      "source_files": "wysdk/Classes/BYRefreshManager/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYRefreshManager/*.h",
+      "dependencies": {
+        "MJRefresh": [
+
+        ],
+        "wysdk/BYCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BYUIKit",
+      "source_files": "wysdk/Classes/BYUIKit/**/*.{h,m}",
+      "public_header_files": "wysdk/Classes/BYUIKit/**/*.{h}",
+      "dependencies": {
+        "wysdk/BYCore": [
+
+        ],
+        "wysdk/BYCategory": [
+
+        ]
+      }
+    }
+  ]
+}
