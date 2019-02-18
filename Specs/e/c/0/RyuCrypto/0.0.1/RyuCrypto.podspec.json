@@ -1,0 +1,60 @@
+{
+  "name": "RyuCrypto",
+  "version": "0.0.1",
+  "summary": "Heavily optimized cryptography algorithms for iOS.",
+  "homepage": "https://github.com/Ryucoin/trezor-crypto-ios",
+  "license": {
+    "type": "MIT",
+    "file": "trezor-crypto/LICENSE"
+  },
+  "authors": {
+    "Wyatt Mufson": "wyatt@ryucoin.com"
+  },
+  "source": {
+    "git": "https://github.com/Ryucoin/trezor-crypto-ios.git",
+    "tag": "0.0.1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "prepare_command": "git submodule update --init\nsed -i '' -e 's:ed25519-donna/::g' ./**/*.c\nsed -i '' -e 's:ed25519-donna/::g' ./**/*.h\nsed -i '' -e 's:USE_ETHEREUM 0:USE_ETHEREUM 1:g' trezor-crypto/options.h",
+  "module_map": "RyuCrypto.modulemap",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}",
+    "OTHER_CFLAGS": "-O3 -std=c99 -DRAND_PLATFORM_INDEPENDENT",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/trezor-crypto\" \"${PODS_ROOT}/trezor-crypto/aes\" \"${PODS_ROOT}/trezor-crypto/chacha20poly1305\" \"${PODS_ROOT}/trezor-crypto/ed25519-donna\""
+  },
+  "source_files": [
+    "RyuCrypto.h",
+    "util/SecRandom.m",
+    "trezor-crypto/*.{c,h}",
+    "trezor-crypto/aes/*.{c,h}",
+    "trezor-crypto/chacha20poly1305/*.{c,h}",
+    "trezor-crypto/ed25519-donna/*.{c,h}"
+  ],
+  "private_header_files": [
+    "trezor-crypto/aes/aesopt.h",
+    "trezor-crypto/aes/aestab.h",
+    "trezor-crypto/ed25519-donna/curve25519-donna-scalarmult-base.h",
+    "trezor-crypto/ed25519-donna/ed25519-hash-custom-keccak.h",
+    "trezor-crypto/ed25519-donna/ed25519-hash-custom-sha3.h",
+    "trezor-crypto/ed25519-donna/ed25519-hash-custom.h",
+    "trezor-crypto/ed25519-donna/ed25519-keccak.h",
+    "trezor-crypto/ed25519-donna/ed25519-sha3.h",
+    "trezor-crypto/bip39_english.h",
+    "trezor-crypto/blake2_common.h",
+    "trezor-crypto/check_mem.h",
+    "trezor-crypto/macros.h",
+    "trezor-crypto/nem_serialize.h"
+  ],
+  "exclude_files": [
+    "trezor-crypto/aes/aestst*.{c,h}",
+    "trezor-crypto/gui/*.{c,h}",
+    "trezor-crypto/rfc6979.c",
+    "trezor-crypto/test*.{c,h}",
+    "trezor-crypto/tools/*.{c,h}"
+  ],
+  "preserve_paths": "trezor-crypto/*.{table}",
+  "libraries": "c"
+}
