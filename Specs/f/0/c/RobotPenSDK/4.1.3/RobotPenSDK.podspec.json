@@ -1,0 +1,62 @@
+{
+  "name": "RobotPenSDK",
+  "version": "4.1.3",
+  "summary": "A SDK for RobotPenServer.",
+  "description": "A SDK for RobotServer.RobotPenServer、RobotBoardServer、RobotRecordServer.",
+  "homepage": "https://github.com/PPWrite/SDK_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "OneQuietCat": "onequietcat@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/PPWrite/SDK_iOS.git",
+    "tag": "4.1.3"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RobotPenSDK",
+      "source_files": "SDK/RobotPenSDK/RobotPenSDKHeader/*.h",
+      "public_header_files": "SDK/RobotPenSDK/RobotPenSDKHeader/*.h",
+      "vendored_libraries": "SDK/RobotPenSDK/Libraries/*.a",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "RobotBoardSDK",
+      "source_files": "SDK/RobotBoardSDK/RobotBoardSDKHeader/*.h",
+      "public_header_files": "SDK/RobotBoardSDK/RobotBoardSDKHeader/*.h",
+      "vendored_libraries": "SDK/RobotBoardSDK/Libraries/*.a",
+      "libraries": "z",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "dependencies": {
+        "RobotPenSDK/RobotPenSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "RobotRecordSDK",
+      "source_files": "SDK/RobotRecordSDK/RobotRecordSDKHeader/*.h",
+      "public_header_files": "SDK/RobotRecordSDK/RobotRecordSDKHeader/*.h",
+      "vendored_libraries": "SDK/RobotRecordSDK/Libraries/*.a",
+      "frameworks": [
+        "AudioToolbox",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "RobotPenSDK/RobotBoardSDK": [
+
+        ]
+      }
+    }
+  ]
+}
