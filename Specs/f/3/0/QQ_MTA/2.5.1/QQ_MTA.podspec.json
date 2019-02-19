@@ -1,0 +1,100 @@
+{
+  "name": "QQ_MTA",
+  "version": "2.5.1",
+  "summary": "腾讯移动分析（MTA）",
+  "homepage": "http://mta.qq.com",
+  "authors": "tencent TEG",
+  "license": "MIT",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/xingePush/MTA.git",
+    "tag": "v2.5.1"
+  },
+  "default_subspecs": "BasicAnalysis",
+  "subspecs": [
+    {
+      "name": "BasicAnalysis",
+      "vendored_libraries": "MTA/*.a",
+      "source_files": "MTA/*.h",
+      "public_header_files": "MTA/*.h",
+      "frameworks": [
+        "Security",
+        "CFNetwork",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/autotrack/*.a",
+      "source_files": "MTA/plugin/autotrack/*.h",
+      "public_header_files": "MTA/plugin/autotrack/*.h"
+    },
+    {
+      "name": "CrashReporter",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/crashreporter/*.a",
+      "source_files": "MTA/plugin/crashreporter/*.h",
+      "public_header_files": "MTA/plugin/crashreporter/*.h"
+    },
+    {
+      "name": "Hybrid",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/MTAHybrid/*.a",
+      "source_files": "MTA/plugin/MTAHybrid/*.h",
+      "public_header_files": "MTA/plugin/MTAHybrid/*.h"
+    },
+    {
+      "name": "AdTracker",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/adtracker/*.a",
+      "source_files": "MTA/plugin/adtracker/*.h",
+      "public_header_files": "MTA/plugin/adtracker/*.h"
+    },
+    {
+      "name": "DataInsight",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/datainsight/*.a",
+      "source_files": "MTA/plugin/datainsight/*.h",
+      "public_header_files": "MTA/plugin/datainsight/*.h"
+    },
+    {
+      "name": "Fbi",
+      "dependencies": {
+        "QQ_MTA/BasicAnalysis": [
+
+        ]
+      },
+      "vendored_libraries": "MTA/plugin/fbi/*.a",
+      "source_files": "MTA/plugin/fbi/*.h",
+      "public_header_files": "MTA/plugin/fbi/*.h"
+    }
+  ]
+}
