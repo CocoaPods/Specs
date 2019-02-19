@@ -1,0 +1,53 @@
+{
+  "name": "BugfenderSDK",
+  "version": "1.6.4",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "license": {
+    "type": "Commercial",
+    "text": "See https://bugfender.com/terms-of-service/"
+  },
+  "summary": "Bugfender: a mobile remote logger",
+  "description": "A modern remote logger tailor-made for mobile development.",
+  "homepage": "https://bugfender.com",
+  "authors": {
+    "Bugfender": "support@bugfender.com"
+  },
+  "social_media_url": "https://twitter.com/bugfenderapp",
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/bugfender/BugfenderSDK-iOS.git",
+    "tag": "1.6.4"
+  },
+  "prepare_command": "cp BugfenderSDK.framework/Headers/BugfenderSDK.h BugfenderSDK.h\ncp BugfenderSDK.framework/Headers/BFUserFeedbackViewController.h BFUserFeedbackViewController.h\ncp BugfenderSDK.framework/Headers/BFUserFeedbackNavigationController.h BFUserFeedbackNavigationController.h\ncp BugfenderSDK.framework/BugfenderSDK libBugfenderSDKstatic.a",
+  "default_subspecs": "Swift",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "Security",
+    "MobileCoreServices"
+  ],
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "ObjC",
+      "vendored_libraries": "libBugfenderSDKstatic.a",
+      "source_files": [
+        "BugfenderSDK.h",
+        "BFUserFeedbackViewController.h",
+        "BFUserFeedbackNavigationController.h"
+      ]
+    },
+    {
+      "name": "Swift",
+      "vendored_libraries": "libBugfenderSDKstatic.a",
+      "source_files": [
+        "swift/*.swift",
+        "BugfenderSDK.h",
+        "BFUserFeedbackViewController.h",
+        "BFUserFeedbackNavigationController.h"
+      ]
+    }
+  ]
+}
