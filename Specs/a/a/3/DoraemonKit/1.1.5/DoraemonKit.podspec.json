@@ -1,0 +1,77 @@
+{
+  "name": "DoraemonKit",
+  "version": "1.1.5",
+  "summary": "iOS各式各样的工具集合",
+  "description": "iOS各式各样的工具集合 Desc",
+  "homepage": "https://github.com/didi/DoraemonKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yixiang": "javer_yi@163.com"
+  },
+  "source": {
+    "git": "https://github.com/didi/DoraemonKit",
+    "tag": "1.1.5"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "prefix_header_contents": "#import \"DoraemonDefine.h\"",
+  "dependencies": {
+    "PNChart": [
+
+    ],
+    "BSBacktraceLogger": [
+
+    ],
+    "fishhook": [
+
+    ],
+    "UITextView+Placeholder": [
+
+    ],
+    "AFNetworking": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "iOS/DoraemonKit/Src/Core/**/*{.h,.m}",
+      "resource_bundles": {
+        "DoraemonKit": "iOS/DoraemonKit/Resource/**/*"
+      },
+      "vendored_frameworks": "iOS/DoraemonKit/Framework/*.framework"
+    },
+    {
+      "name": "WithLogger",
+      "source_files": "iOS/DoraemonKit/Src/Logger/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithLogger"
+      },
+      "dependencies": {
+        "DoraemonKit/Core": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      }
+    },
+    {
+      "name": "WithGPS",
+      "source_files": "iOS/DoraemonKit/Src/GPS/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithGPS"
+      },
+      "dependencies": {
+        "DoraemonKit/Core": [
+
+        ]
+      }
+    }
+  ]
+}
