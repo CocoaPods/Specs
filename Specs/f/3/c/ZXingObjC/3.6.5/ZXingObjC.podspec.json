@@ -1,0 +1,135 @@
+{
+  "name": "ZXingObjC",
+  "version": "3.6.5",
+  "summary": "An Objective-C Port of the ZXing barcode framework.",
+  "homepage": "https://github.com/zxingify/zxingify-objc",
+  "authors": "zxingify",
+  "license": {
+    "type": "Apache License 2.0",
+    "file": "COPYING"
+  },
+  "source": {
+    "git": "https://github.com/zxingify/zxingify-objc.git",
+    "tag": "3.6.5"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8"
+  },
+  "ios": {
+    "frameworks": [
+      "AVFoundation",
+      "CoreGraphics",
+      "CoreMedia",
+      "CoreVideo",
+      "ImageIO",
+      "QuartzCore"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "AVFoundation",
+      "CoreMedia",
+      "QuartzCore"
+    ]
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "All",
+      "source_files": "ZXingObjC/**/*.{h,m}"
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "ZXingObjC/*.{h,m}",
+        "ZXingObjC/client/*.{h,m}",
+        "ZXingObjC/common/**/*.{h,m}",
+        "ZXingObjC/core/**/*.{h,m}",
+        "ZXingObjC/multi/**/*.{h,m}"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS"
+      }
+    },
+    {
+      "name": "Aztec",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": "ZXingObjC/aztec/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_AZTEC"
+      }
+    },
+    {
+      "name": "DataMatrix",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": "ZXingObjC/datamatrix/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_DATAMATRIX"
+      }
+    },
+    {
+      "name": "MaxiCode",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": "ZXingObjC/maxicode/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_MAXICODE"
+      }
+    },
+    {
+      "name": "OneD",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZXingObjC/oned/**/*.{h,m}",
+        "ZXingObjC/client/result/**/*.{h,m}"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_ONED"
+      }
+    },
+    {
+      "name": "PDF417",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": "ZXingObjC/pdf417/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_PDF417"
+      }
+    },
+    {
+      "name": "QRCode",
+      "dependencies": {
+        "ZXingObjC/Core": [
+
+        ]
+      },
+      "source_files": "ZXingObjC/qrcode/**/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ZXINGOBJC_USE_SUBSPECS ZXINGOBJC_QRCODE"
+      }
+    }
+  ]
+}
