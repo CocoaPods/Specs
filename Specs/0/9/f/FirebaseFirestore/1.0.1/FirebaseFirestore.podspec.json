@@ -1,0 +1,103 @@
+{
+  "name": "FirebaseFirestore",
+  "version": "1.0.1",
+  "summary": "Google Cloud Firestore for iOS",
+  "description": "Google Cloud Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development.",
+  "homepage": "https://developers.google.com/",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "Firestore-1.0.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "static_framework": true,
+  "prefix_header_file": false,
+  "source_files": [
+    "Firestore/Source/**/*",
+    "Firestore/Protos/nanopb/**/*.{h,cc}",
+    "Firestore/Protos/objc/**/*.[hm]",
+    "Firestore/core/include/**/*.{h,cc,mm}",
+    "Firestore/core/src/**/*.{h,cc,mm}",
+    "Firestore/third_party/Immutable/*.[mh]"
+  ],
+  "requires_arc": [
+    "Firestore/Source/**/*",
+    "Firestore/core/src/**/*.mm",
+    "Firestore/third_party/Immutable/*.[mh]"
+  ],
+  "exclude_files": [
+    "Firestore/third_party/Immutable/Tests/**",
+    "Firestore/core/src/firebase/firestore/remote/connectivity_monitor_noop.cc",
+    "Firestore/core/src/firebase/firestore/remote/grpc_root_certificate_finder_generated.cc",
+    "Firestore/core/src/firebase/firestore/util/filesystem_win.cc",
+    "Firestore/core/src/firebase/firestore/util/hard_assert_stdio.cc",
+    "Firestore/core/src/firebase/firestore/util/log_stdio.cc",
+    "Firestore/core/src/firebase/firestore/util/secure_random_openssl.cc"
+  ],
+  "public_header_files": "Firestore/Source/Public/*.h",
+  "dependencies": {
+    "FirebaseAuthInterop": [
+      "~> 1.0"
+    ],
+    "FirebaseCore": [
+      "~> 5.2"
+    ],
+    "gRPC-C++": [
+      "0.0.6"
+    ],
+    "leveldb-library": [
+      "~> 1.20"
+    ],
+    "Protobuf": [
+      "~> 3.1"
+    ],
+    "nanopb": [
+      "~> 0.3.901"
+    ]
+  },
+  "ios": {
+    "frameworks": [
+      "MobileCoreServices",
+      "SystemConfiguration"
+    ]
+  },
+  "osx": {
+    "frameworks": "SystemConfiguration"
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++0x",
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "GCC_PREPROCESSOR_DEFINITIONS": "FIRFirestore_VERSION=1.0.1 GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1 PB_FIELD_32BIT=1 PB_NO_PACKED_STRUCTS=1 PB_ENABLE_MALLOC=1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\" \"${PODS_TARGET_SRCROOT}/Firestore/third_party/abseil-cpp\" \"${PODS_ROOT}/nanopb\" \"${PODS_TARGET_SRCROOT}/Firestore/Protos/nanopb\""
+  },
+  "prepare_command": "sed '/^#cmakedefine/ d'         Firestore/core/src/firebase/firestore/util/config.h.in >         Firestore/core/src/firebase/firestore/util/config.h",
+  "compiler_flags": "$(inherited) -Wreorder -Werror=reorder",
+  "subspecs": [
+    {
+      "name": "abseil-cpp",
+      "preserve_paths": [
+        "Firestore/third_party/abseil-cpp/absl"
+      ],
+      "source_files": [
+        "Firestore/third_party/abseil-cpp/**/*.cc"
+      ],
+      "exclude_files": [
+        "Firestore/third_party/abseil-cpp/**/*_benchmark.cc",
+        "Firestore/third_party/abseil-cpp/**/*test*.cc",
+        "Firestore/third_party/abseil-cpp/absl/hash/internal/print_hash_of.cc",
+        "Firestore/third_party/abseil-cpp/absl/synchronization/internal/mutex_nonprod.cc"
+      ],
+      "libraries": "c++",
+      "compiler_flags": "$(inherited) -Wno-comma -Wno-range-loop-analysis -Wno-shorten-64-to-32"
+    }
+  ]
+}
