@@ -1,0 +1,63 @@
+{
+  "name": "TXTDB",
+  "version": "1.1.0",
+  "summary": "A lightweight sqlite database with ORM",
+  "homepage": "https://gitlab.p1staff.com/ios/iOS-TXTDB",
+  "license": "MIT",
+  "authors": {
+    "yuhan": "amazeyh2015@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://gitlab.p1staff.com/ios/iOS-TXTDB.git",
+    "tag": "1.1.0"
+  },
+  "source_files": "TXTDB/TXTDB.h",
+  "public_header_files": "TXTDB/TXTDB.h",
+  "xcconfig": {
+    "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2 -DSQLITE_THREADSAFE -DSQLCIPHER_CRYPTO_CC"
+  },
+  "subspecs": [
+    {
+      "name": "SQLCipher",
+      "source_files": "TXTDB/src/SQLCipher/*.{h,c}",
+      "public_header_files": "TXTDB/src/SQLCipher/*.h"
+    },
+    {
+      "name": "FMDB",
+      "dependencies": {
+        "TXTDB/SQLCipher": [
+
+        ]
+      },
+      "source_files": "TXTDB/src/FMDB/*.{h,m}",
+      "public_header_files": "TXTDB/src/FMDB/*.h"
+    },
+    {
+      "name": "Database",
+      "dependencies": {
+        "TXTDB/FMDB": [
+
+        ]
+      },
+      "source_files": [
+        "TXTDB/src/ORM/*.h",
+        "TXTDB/src/ORM/**/*.{h,m}",
+        "TXTDB/src/CRUD/*.h",
+        "TXTDB/src/CRUD/**/*.{h,m}",
+        "TXTDB/src/Engine/*.{h,m}",
+        "TXTDB/src/Database/*.{h,m}"
+      ],
+      "public_header_files": [
+        "TXTDB/src/ORM/*.h",
+        "TXTDB/src/ORM/**/*.h",
+        "TXTDB/src/CRUD/*.h",
+        "TXTDB/src/CRUD/**/*.h",
+        "TXTDB/src/Engine/*.h",
+        "TXTDB/src/Database/*.h"
+      ]
+    }
+  ]
+}
