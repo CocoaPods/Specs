@@ -1,0 +1,130 @@
+{
+  "name": "AppCenter",
+  "version": "1.13.2",
+  "summary": "Visual Studio App Center is your continuous integration, delivery and learning solution for iOS and macOS apps.",
+  "description": "Visual Studio App Center is your continuous integration, delivery and learning solution for iOS and macOS apps.\nGet faster release cycles, higher-quality apps, and the insights to build what users want.\n\nThe App Center SDK uses a modular architecture so you can use any or all of the following services:\n\n1. App Center Analytics (iOS and macOS):\nApp Center Analytics helps you understand user behavior and customer engagement to improve your app. The SDK automatically captures session count, device properties like model, OS version, etc. You can define your own custom events to measure things that matter to you. All the information captured is available in the App Center portal for you to analyze the data.\n\n2. App Center Crashes (iOS and macOS):\nApp Center Crashes will automatically generate a crash log every time your app crashes. The log is first written to the device's storage and when the user starts the app again, the crash report will be sent to App Center. Collecting crashes works for both beta and live apps, i.e. those submitted to the App Store. Crash logs contain valuable information for you to help fix the crash.\n\n3. App Center Distribute (iOS only):\nApp Center Distribute will let your users install a new version of the app when you distribute it via the App Center. With a new version of the app available, the SDK will present an update dialog to the users to either download or postpone the new version. Once they choose to update, the SDK will start to update your application. This feature will NOT work if your app is deployed to the app store.\n\n4. App Center Push (iOS and macOS):\nApp Center Push enables you to send push notifications to users of your app from the App Center portal. You can also segment your user base based on a set of properties and send them targeted notifications.",
+  "homepage": "https://appcenter.ms",
+  "documentation_url": "https://docs.microsoft.com/en-us/appcenter/sdk",
+  "social_media_url": "https://twitter.com/vsappcenter",
+  "license": {
+    "type": "MIT",
+    "file": "AppCenter-SDK-Apple/iOS/LICENSE"
+  },
+  "authors": {
+    "Microsoft": "appcentersdk@microsoft.com"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "http": "https://github.com/microsoft/AppCenter-SDK-Apple/releases/download/1.13.2/AppCenter-SDK-Apple-1.13.2.zip"
+  },
+  "ios": {
+    "preserve_paths": "AppCenter-SDK-Apple/iOS/README.md"
+  },
+  "osx": {
+    "preserve_paths": "AppCenter-SDK-Apple/macOS/README.md"
+  },
+  "default_subspecs": [
+    "Analytics",
+    "Crashes"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration"
+      ],
+      "ios": {
+        "frameworks": [
+          "CoreTelephony",
+          "UIKit"
+        ],
+        "vendored_frameworks": "AppCenter-SDK-Apple/iOS/AppCenter.framework"
+      },
+      "osx": {
+        "frameworks": "AppKit",
+        "vendored_frameworks": "AppCenter-SDK-Apple/macOS/AppCenter.framework"
+      },
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "Analytics",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "ios": {
+        "frameworks": "UIKit",
+        "vendored_frameworks": "AppCenter-SDK-Apple/iOS/AppCenterAnalytics.framework"
+      },
+      "osx": {
+        "frameworks": "AppKit",
+        "vendored_frameworks": "AppCenter-SDK-Apple/macOS/AppCenterAnalytics.framework"
+      }
+    },
+    {
+      "name": "Crashes",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "ios": {
+        "vendored_frameworks": "AppCenter-SDK-Apple/iOS/AppCenterCrashes.framework"
+      },
+      "osx": {
+        "vendored_frameworks": "AppCenter-SDK-Apple/macOS/AppCenterCrashes.framework"
+      }
+    },
+    {
+      "name": "Distribute",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "ios": {
+        "frameworks": "UIKit",
+        "weak_frameworks": "SafariServices",
+        "resource_bundles": {
+          "AppCenterDistributeResources": [
+            "AppCenter-SDK-Apple/iOS/AppCenterDistributeResources.bundle/*.lproj"
+          ]
+        },
+        "vendored_frameworks": "AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework"
+      }
+    },
+    {
+      "name": "Push",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "ios": {
+        "frameworks": "UIKit",
+        "weak_frameworks": "UserNotifications",
+        "vendored_frameworks": "AppCenter-SDK-Apple/iOS/AppCenterPush.framework"
+      },
+      "osx": {
+        "frameworks": "AppKit",
+        "vendored_frameworks": "AppCenter-SDK-Apple/macOS/AppCenterPush.framework"
+      }
+    }
+  ]
+}
