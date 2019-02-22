@@ -1,0 +1,108 @@
+{
+  "name": "SKYKit",
+  "version": "1.7.1",
+  "summary": "iOS SDK for Skygear",
+  "description": "This is the client library for Skygear backend.",
+  "homepage": "https://github.com/SkygearIO/skygear-SDK-iOS",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Oursky Ltd.": "hello@oursky.com"
+  },
+  "source": {
+    "git": "https://github.com/SkygearIO/skygear-SDK-iOS.git",
+    "tag": "1.7.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "ForgotPassword",
+    "SSO",
+    "RecordStorage"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.10"
+      },
+      "source_files": "Pod/Classes/**/*",
+      "private_header_files": "Pod/Classes/**/*_Private.h",
+      "dependencies": {
+        "SocketRocket": [
+          "~> 0.4"
+        ],
+        "MagicKit-Skygear": [
+          "~> 0.0.6"
+        ],
+        "UICKeyChainStore": [
+          "~> 2.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "Pod/Extensions/Facebook/**/*.{h,m}",
+      "requires_arc": true,
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      },
+      "dependencies": {
+        "SKYKit/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "ForgotPassword",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "Pod/Extensions/Forgot Password/**/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SKYKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SSO",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "Pod/Extensions/SSO/**/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SKYKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "RecordStorage",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "Pod/Extensions/Record Storage/**/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SKYKit/Core": [
+
+        ],
+        "FMDB": [
+          "~> 2.6.0"
+        ]
+      }
+    }
+  ]
+}
