@@ -1,0 +1,105 @@
+{
+  "name": "Emax_WiFiControl",
+  "version": "1.0.2",
+  "summary": "A pairing tool for Emax Wi-Fi smart device.",
+  "homepage": "https://github.com/chen0108/Emax_WiFiControl",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chen0108_mbp": "375735289@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/chen0108/Emax_WiFiControl.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "public_header_files": "Emax_WiFiControl/EMWiFiControl.h",
+  "source_files": "Emax_WiFiControl/EMWiFiControl.h",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/CommonCrypto"
+  },
+  "resources": "Emax_WiFiControl/Emaxwifi.bundle",
+  "subspecs": [
+    {
+      "name": "Lib",
+      "source_files": "Emax_WiFiControl/Lib/*",
+      "private_header_files": "Emax_WiFiControl/Lib/*.h"
+    },
+    {
+      "name": "Config",
+      "source_files": [
+        "Emax_WiFiControl/EMWiFiTool.{h,m}",
+        "Emax_WiFiControl/EMUIConfig.{h,m}",
+        "Emax_WiFiControl/EMCommand.{h,m}",
+        "Emax_WiFiControl/EMModeConfig.{h,m}"
+      ],
+      "public_header_files": [
+        "Emax_WiFiControl/EMWiFiTool.h",
+        "Emax_WiFiControl/EMUIConfig.h",
+        "Emax_WiFiControl/EMCommand.h",
+        "Emax_WiFiControl/EMModeConfig.h"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "Emax_WiFiControl/EMConnecter.{h,m}",
+        "Emax_WiFiControl/EMHTTPConnecter.{h,m}",
+        "Emax_WiFiControl/EMUDPConnecter.{h,m}"
+      ],
+      "public_header_files": [
+        "Emax_WiFiControl/EMConnecter.h",
+        "Emax_WiFiControl/EMHTTPConnecter.h",
+        "Emax_WiFiControl/EMUDPConnecter.h"
+      ],
+      "dependencies": {
+        "Emax_WiFiControl/Lib": [
+
+        ],
+        "Emax_WiFiControl/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Emax_WiFiControl/{EMStep}*.{h,m}",
+      "public_header_files": "Emax_WiFiControl/{EMStep}*.h",
+      "dependencies": {
+        "Emax_WiFiControl/Core": [
+
+        ],
+        "Emax_WiFiControl/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "Example",
+      "source_files": [
+        "Emax_WiFiControl/EMHTTP01Config.{h,m}",
+        "Emax_WiFiControl/EMUDP01Config.{h,m}",
+        "Emax_WiFiControl/EMUDP02Config.{h,m}"
+      ],
+      "public_header_files": [
+        "Emax_WiFiControl/EMHTTP01Config.h",
+        "Emax_WiFiControl/EMUDP01Config.h",
+        "Emax_WiFiControl/EMUDP02Config.h"
+      ],
+      "frameworks": "SystemConfiguration",
+      "dependencies": {
+        "Emax_WiFiControl/Lib": [
+
+        ],
+        "Emax_WiFiControl/Config": [
+
+        ]
+      }
+    }
+  ]
+}
