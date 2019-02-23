@@ -1,0 +1,105 @@
+{
+  "name": "SwiftyMocky",
+  "version": "3.1.1",
+  "summary": "Unit testing library for Swift, with mock generation. Adds a set of handy methods, simplifying testing.",
+  "description": "Library that uses metaprogramming technique to generate mocks based on sources, that makes testing for Swift Mockito-like.",
+  "homepage": "https://github.com/MakeAWishFoundation/SwiftyMocky",
+  "screenshots": "https://raw.githubusercontent.com/MakeAWishFoundation/SwiftyMocky/1.0.0/icon.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Przemysław Wośko": "przemyslaw.wosko@intive.com",
+    "Andrzej Michnia": "amichnia@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/MakeAWishFoundation/SwiftyMocky.git",
+    "tag": "3.1.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "preserve_paths": "*",
+  "swift_version": "3.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Classes/**/*",
+      "resources": "{Sources/Templates/*,get_sourcery.sh}",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DMocky"
+      },
+      "frameworks": "Foundation",
+      "weak_frameworks": "XCTest",
+      "dependencies": {
+        "Sourcery": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES",
+        "ENABLE_BITCODE": "NO",
+        "OTHER_LDFLAGS": "$(inherited) -weak-lswiftXCTest -Xlinker -no_application_extension",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -suppress-warnings",
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+        "DEFINES_MODULE": "YES"
+      },
+      "user_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+      }
+    },
+    {
+      "name": "StaticLibrary",
+      "dependencies": {
+        "SwiftyMocky/Core": [
+
+        ]
+      },
+      "exclude_files": [
+        "Sources/Classes/MockySetup.{h,m}"
+      ]
+    },
+    {
+      "name": "Custom",
+      "source_files": "Sources/Classes/**/*",
+      "exclude_files": [
+        "Sources/Classes/CustomAssertions.swift",
+        "Sources/Classes/SwiftyMockyTestObserver.swift",
+        "Sources/Classes/MockySetup.{h,m}"
+      ],
+      "resources": "{Sources/Templates/*,get_sourcery.sh}",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DMockyCustom"
+      },
+      "frameworks": "Foundation",
+      "dependencies": {
+        "Sourcery": [
+
+        ]
+      }
+    },
+    {
+      "name": "Prototyping",
+      "source_files": "Sources/Classes/**/*",
+      "exclude_files": [
+        "Sources/Classes/CustomAssertions.swift",
+        "Sources/Classes/SwiftyMockyTestObserver.swift",
+        "Sources/Classes/MockySetup.{h,m}"
+      ],
+      "resources": "{Sources/Templates/*,get_sourcery.sh}",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DMockyCustom"
+      },
+      "frameworks": "Foundation",
+      "dependencies": {
+        "Sourcery": [
+
+        ]
+      }
+    }
+  ]
+}
