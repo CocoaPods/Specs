@@ -1,0 +1,56 @@
+{
+  "name": "BBWebImage",
+  "version": "1.0.0",
+  "summary": "BBWebImage is a Swift library for downloading, caching and editing web images asynchronously.",
+  "description": "View extensions for `UIImageView`, `UIButton`, `MKAnnotationView` and `CALayer` to set image from URL.\nAsynchronous image downloader.\nAsynchronous memory + file + SQLite image cache with least recently used algorithm.\nAsynchronous image decompressing.\nAsynchronous image editing without modifying original image disk data.\nAnimated image smart decoding, decompressing, editing and caching.\nIndependent image cache, downloader, coder and editor for separate use.\nCustomized image cache, downloader and coder.",
+  "homepage": "https://github.com/Silence-GitHub/BBWebImage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kaibo Lu": "lukaibolkb@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.2",
+  "source": {
+    "git": "https://github.com/Silence-GitHub/BBWebImage.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BBWebImage/BBWebImage/BBWebImage.h",
+        "BBWebImage/BBWebImage/**/*.swift"
+      ],
+      "exclude_files": [
+        "BBWebImage/BBWebImage/Extensions/MKAnnotationView+BBWebCache.swift",
+        "BBWebImage/BBWebImage/Filter/*"
+      ]
+    },
+    {
+      "name": "MapKit",
+      "source_files": "BBWebImage/BBWebImage/Extensions/MKAnnotationView+BBWebCache.swift",
+      "dependencies": {
+        "BBWebImage/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Filter",
+      "source_files": "BBWebImage/BBWebImage/Filter",
+      "resources": "BBWebImage/BBWebImage/**/*.cikernel",
+      "dependencies": {
+        "BBWebImage/Core": [
+
+        ]
+      }
+    }
+  ]
+}
