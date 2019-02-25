@@ -1,0 +1,308 @@
+{
+  "name": "AppNexusSDK",
+  "version": "5.1.2",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "summary": "AppNexus iOS Mobile Advertising SDK",
+  "description": "Our mobile advertising SDK gives developers a fast and convenient way to monetize their apps.",
+  "homepage": "https://github.com/appnexus/mobile-sdk-ios",
+  "source": {
+    "git": "https://github.com/appnexus/mobile-sdk-ios.git",
+    "tag": "5.1.2"
+  },
+  "authors": {
+    "AppNexus Mobile Engineering": "sdk@appnexus.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "requires_arc": true,
+  "default_subspecs": "AppNexusSDK",
+  "subspecs": [
+    {
+      "name": "AppNexusSDK",
+      "source_files": "sdk/**/*.{h,m}",
+      "public_header_files": [
+        "sdk/*.h",
+        "sdk/native/*.h"
+      ],
+      "resources": "sdk/**/*.{png,bundle,xib,nib,js,html,strings}",
+      "vendored_libraries": "sdk/Viewability/**/*.a",
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "FacebookAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Facebook/*.{h,m}",
+      "private_header_files": "mediation/mediatedviews/Facebook/*.h",
+      "vendored_frameworks": "mediation/mediatedviews/Facebook/FacebookSDK/FBAudienceNetwork.framework",
+      "frameworks": "CoreMotion",
+      "libraries": [
+        "c++",
+        "xml2"
+      ]
+    },
+    {
+      "name": "AmazonAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Amazon/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/Amazon/ANAdAdapterBaseAmazon.h",
+      "vendored_frameworks": "mediation/mediatedviews/Amazon/AmazonSDK/AmazonAd.framework",
+      "frameworks": [
+        "JavaScriptCore",
+        "SafariServices",
+        "EventKit",
+        "EventKitUI",
+        "CoreLocation",
+        "MediaPlayer"
+      ]
+    },
+    {
+      "name": "GoogleAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/GoogleAdMob/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/GoogleAdMob/ANAdAdapterNativeAdMob.h",
+      "vendored_frameworks": "mediation/mediatedviews/GoogleAdMob/GoogleAdMobSDK/Frameworks/GoogleMobileAds.framework",
+      "vendored_libraries": "mediation/mediatedviews/GoogleAdMob/GoogleAdMobSDK/Libraries/libGoogleMobileAds.a",
+      "frameworks": [
+        "SafariServices",
+        "CoreBluetooth",
+        "GLKit",
+        "CoreMotion",
+        "MobileCoreServices",
+        "MediaPlayer"
+      ]
+    },
+    {
+      "name": "GoogleAdapterThatDependsOnGooglePod",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "source_files": "mediation/mediatedviews/GoogleAdMob/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/GoogleAdMob/ANAdAdapterNativeAdMob.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Google-Mobile-Ads-SDK/**"
+      }
+    },
+    {
+      "name": "MoPubAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ],
+        "mopub-ios-sdk": [
+          "~> 4.6.0"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/MoPub/*.{h,m}",
+      "private_header_files": "mediation/mediatedviews/MoPub/**/*.h"
+    },
+    {
+      "name": "MillennialMediaAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/MillennialMedia/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/MillennialMedia/ANAdAdapterMillennialMediaBase.h",
+      "vendored_frameworks": "mediation/mediatedviews/MillennialMedia/MillennialMediaSDK/MMAdSDK.framework",
+      "frameworks": [
+        "AVFoundation",
+        "AudioToolbox",
+        "EventKit",
+        "EventKitUI"
+      ],
+      "libraries": "xml2"
+    },
+    {
+      "name": "AdColonyAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/AdColony/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/AdColony/ANAdAdapterBaseAdColony.h",
+      "vendored_frameworks": "mediation/mediatedviews/AdColony/AdColonySDK/AdColony.framework",
+      "frameworks": [
+        "AVFoundation",
+        "Social",
+        "CoreMedia",
+        "WebKit",
+        "AudioToolbox"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "ChartboostAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Chartboost/*.{h,m}",
+      "prefix_header_contents": "#import <UIKit/UIKit.h>",
+      "public_header_files": "mediation/mediatedviews/Chartboost/ANAdAdapterBaseChartboost.h",
+      "vendored_frameworks": "mediation/mediatedviews/Chartboost/ChartboostSDK/Chartboost.framework"
+    },
+    {
+      "name": "InMobiAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/InMobi/**/*.{h,m}",
+      "public_header_files": [
+        "mediation/mediatedviews/InMobi/ANAdAdapterBaseInMobi.h",
+        "mediation/mediatedviews/InMobi/ANAdAdapterNativeInMobi.h"
+      ],
+      "vendored_frameworks": "mediation/mediatedviews/InMobi/InMobiSDK/InMobiSDK.framework",
+      "frameworks": [
+        "AVFoundation",
+        "AudioToolbox"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "VdopiaAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Vdopia/**/*.{h,m}",
+      "private_header_files": "mediation/mediatedviews/Vdopia/**/*.h",
+      "vendored_libraries": "mediation/mediatedviews/Vdopia/VdopiaSDK/libLWSDK.a",
+      "resources": "mediation/mediatedviews/Vdopia/VdopiaSDK/**/*.{png,txt}"
+    },
+    {
+      "name": "VungleAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Vungle/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/Vungle/ANAdAdapterBaseVungle.h",
+      "resources": "mediation/mediatedviews/Vungle/VungleSDK/Resources/*.*",
+      "vendored_frameworks": "mediation/mediatedviews/Vungle/VungleSDK/VungleSDK.framework",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "SmartAdAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ],
+        "Smart-Display-SDK": [
+
+        ]
+      },
+      "source_files": "mediation/mediatedviews/SmartAd/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/SmartAd/ANAdAdapterSmartAdBase.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Smart-Display-SDK/**"
+      }
+    },
+    {
+      "name": "AdMarvelAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/AdMarvel/**/*.{h,m}",
+      "public_header_files": [
+        "mediation/mediatedviews/AdMarvel/ANAdAdapterBaseAdMarvel.h",
+        "mediation/mediatedviews/AdMarvel/AdMarvelSDK/AdMarvelDelegate.h"
+      ],
+      "vendored_libraries": "mediation/mediatedviews/AdMarvel/AdMarvelSDK/libAdMarvelSDK.a",
+      "frameworks": [
+        "Social",
+        "Accounts",
+        "AssetsLibrary",
+        "CoreMotion",
+        "MobileCoreServices",
+        "EventKit",
+        "EventKitUI",
+        "MediaPlayer"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ]
+    },
+    {
+      "name": "YahooAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Yahoo/**/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/Yahoo/ANAdAdapterBaseYahoo.h",
+      "vendored_libraries": [
+        "mediation/mediatedviews/Yahoo/YahooSDK/Flurry/libFlurry.a",
+        "mediation/mediatedviews/Yahoo/YahooSDK/FlurryAds/libFlurryAds.a"
+      ],
+      "frameworks": "MediaPlayer",
+      "libraries": "z"
+    },
+    {
+      "name": "MoPubCustomEventAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ],
+        "mopub-ios-sdk": [
+
+        ]
+      },
+      "source_files": "mediation/mediating/MoPub/*.{h,m}",
+      "private_header_files": "mediation/mediating/MoPub/*.h"
+    },
+    {
+      "name": "AdMobCustomEventAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "5.1.2"
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Google-Mobile-Ads-SDK/**"
+      },
+      "source_files": "mediation/mediating/GoogleAdMob/*.{h,m}",
+      "private_header_files": "mediation/mediating/GoogleAdMob/*.h"
+    }
+  ]
+}
