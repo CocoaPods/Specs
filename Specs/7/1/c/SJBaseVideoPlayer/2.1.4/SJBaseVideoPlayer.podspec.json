@@ -1,0 +1,118 @@
+{
+  "name": "SJBaseVideoPlayer",
+  "version": "2.1.4",
+  "summary": "video player.",
+  "description": "https://github.com/changsanjiang/SJBaseVideoPlayer/blob/master/README.md",
+  "homepage": "https://github.com/changsanjiang/SJBaseVideoPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "SanJiang": "changsanjiang@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/changsanjiang/SJBaseVideoPlayer.git",
+    "tag": "v2.1.4"
+  },
+  "frameworks": [
+    "UIKit",
+    "AVFoundation"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "SJObserverHelper": [
+
+    ],
+    "Reachability": [
+
+    ]
+  },
+  "source_files": "SJBaseVideoPlayer/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "Header",
+      "source_files": "SJBaseVideoPlayer/Header/*.{h}"
+    },
+    {
+      "name": "Tool",
+      "source_files": "SJBaseVideoPlayer/Tool/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ],
+        "SJBaseVideoPlayer/Model": [
+
+        ]
+      }
+    },
+    {
+      "name": "Model",
+      "source_files": "SJBaseVideoPlayer/Model/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJAVMediaPlaybackController",
+      "source_files": "SJBaseVideoPlayer/SJAVMediaPlaybackController/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Tool": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/SJAVMediaPlaybackController/Core/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "SJPrompt",
+      "source_files": "SJBaseVideoPlayer/SJPrompt/*.{h,m}"
+    },
+    {
+      "name": "SJRotationManager",
+      "source_files": "SJBaseVideoPlayer/SJRotationManager/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJDeviceVolumeAndBrightnessManager",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      },
+      "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core/*.{h,m}",
+          "dependencies": {
+            "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader": [
+
+            ]
+          }
+        },
+        {
+          "name": "ResourceLoader",
+          "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader/*.{h,m}",
+          "resources": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader/SJDeviceVolumeAndBrightnessManager.bundle"
+        }
+      ]
+    }
+  ]
+}
