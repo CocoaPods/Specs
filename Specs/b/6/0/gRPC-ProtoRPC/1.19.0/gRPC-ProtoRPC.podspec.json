@@ -1,0 +1,59 @@
+{
+  "name": "gRPC-ProtoRPC",
+  "version": "1.19.0",
+  "summary": "RPC library for Protocol Buffers, based on gRPC",
+  "homepage": "https://grpc.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "git": "https://github.com/grpc/grpc.git",
+    "tag": "v1.19.0"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "tvos": "10.0"
+  },
+  "module_name": "ProtoRPC",
+  "header_dir": "ProtoRPC",
+  "default_subspecs": "Main",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Main",
+      "header_mappings_dir": "src/objective-c/ProtoRPC",
+      "dependencies": {
+        "gRPC": [
+          "1.19.0"
+        ],
+        "gRPC-RxLibrary": [
+          "1.19.0"
+        ],
+        "Protobuf": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": "src/objective-c/ProtoRPC/*.{h,m}"
+    },
+    {
+      "name": "CFStream",
+      "dependencies": {
+        "gRPC/CFStream": [
+          "1.19.0"
+        ],
+        "gRPC-ProtoRPC/Main": [
+          "1.19.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GRPC_CFSTREAM=1"
+      }
+    }
+  ]
+}
