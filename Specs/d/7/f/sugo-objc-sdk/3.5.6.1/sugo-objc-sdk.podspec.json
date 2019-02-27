@@ -1,0 +1,64 @@
+{
+  "name": "sugo-objc-sdk",
+  "module_name": "Sugo",
+  "version": "3.5.6.1",
+  "license": "Apache License, Version 2.0",
+  "summary": "Official Sugo SDK for iOS (Objective-C)",
+  "homepage": "https://github.com/Datafruit/sugo-objc-sdk",
+  "authors": {
+    "sugo.io": "developer@sugo.io"
+  },
+  "source": {
+    "git": "https://github.com/Datafruit/sugo-objc-sdk.git",
+    "tag": "3.5.6.1",
+    "branch": "infinitus"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "core",
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "Sugo/Core/Sources/**/*.{m,h}",
+      "resources": [
+        "Sugo/Core/Resources/**/*.js",
+        "Sugo/Core/Resources/**/Sugo*.plist",
+        "Sugo/Core/Resources/**/*.xcdatamodeld"
+      ],
+      "private_header_files": [
+        "Sugo/Core/Sources/Track/SugoPrivate.h",
+        "Sugo/Core/Sources/Track/People/SugoPeoplePrivate.h",
+        "Sugo/Core/Sources/Network/MPNetworkPrivate.h",
+        "Sugo/Core/Sources/MPLogger.h",
+        "Sugo/Core/Sources/Track/CoreData/SugoEvents+CoreDataProperties.h",
+        "Sugo/Core/Sources/Track/CoreData/SugoEvents+CoreDataClass.h"
+      ],
+      "libraries": "icucore",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "Accelerate",
+        "CoreGraphics",
+        "QuartzCore",
+        "WebKit",
+        "CoreData",
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "weex",
+      "source_files": "Sugo/Weex/*.{m,h}",
+      "dependencies": {
+        "sugo-objc-sdk/core": [
+
+        ],
+        "WeexSDK": [
+
+        ]
+      }
+    }
+  ]
+}
