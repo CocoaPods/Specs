@@ -1,0 +1,60 @@
+{
+  "name": "BluesnapSDK",
+  "version": "1.1.0",
+  "summary": "An iOS SDK for Bluesnap",
+  "description": "Integrate payment methods into your iOS native apps quickly and easily.\nBluesnap iOS SDK supports credit card and apple pay, currency conversions and more.",
+  "homepage": "http://www.bluesnap.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "snpori": "oribsnap@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "swift_version": "4.2",
+  "source": {
+    "git": "https://github.com/bluesnap/bluesnap-ios.git",
+    "tag": "release-1.1.0"
+  },
+  "source_files": "BluesnapSDK/**/*.{h,m,swift,a}",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.2",
+    "ONLY_ACTIVE_ARCH": "NO"
+  },
+  "resource_bundles": {
+    "BluesnapUI": [
+      "BluesnapSDK/**/*.xib",
+      "BluesnapSDK/**/*.storyboard",
+      "BluesnapSDK/**/Media.xcassets",
+      "BluesnapSDK/**/*.strings"
+    ]
+  },
+  "exclude_files": [
+    "BluesnapSDK/BluesnapSDKTests/**/*.*",
+    "BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*",
+    "BluesnapSDK/**/libKountDataCollector.a",
+    "BluesnapSDK/**/KDataCollector.{h,m}"
+  ],
+  "resources": "BluesnapSDK/**/Media.xcassets",
+  "frameworks": [
+    "Foundation",
+    "Security",
+    "WebKit",
+    "PassKit",
+    "AddressBook",
+    "UIKit"
+  ],
+  "weak_frameworks": "Contacts",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "DataCollector",
+      "source_files": "BluesnapSDK/**/KDataCollector.{h,m}",
+      "public_header_files": "BluesnapSDK/**/KDataCollector*.h",
+      "vendored_libraries": "BluesnapSDK/**/libKountDataCollector.a"
+    }
+  ]
+}
