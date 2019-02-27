@@ -1,0 +1,54 @@
+{
+  "name": "Pushwoosh",
+  "version": "5.13.0",
+  "summary": "Push notifications library by Pushwoosh.",
+  "platforms": {
+    "ios": null
+  },
+  "description": "Push notifications iOS library by Pushwoosh - cross platform push notifications service. http://www.pushwoosh.com",
+  "homepage": "http://www.pushwoosh.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Max Konev": "max@pushwoosh.com"
+  },
+  "source": {
+    "git": "https://github.com/Pushwoosh/pushwoosh-ios-sdk.git",
+    "tag": "5.13.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "Framework/Pushwoosh.framework"
+      },
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "frameworks": [
+        "Security",
+        "StoreKit"
+      ]
+    },
+    {
+      "name": "Geozones",
+      "ios": {
+        "vendored_frameworks": "Framework/PushwooshGeozones.framework"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "Pushwoosh/Core": [
+
+        ]
+      }
+    }
+  ]
+}
