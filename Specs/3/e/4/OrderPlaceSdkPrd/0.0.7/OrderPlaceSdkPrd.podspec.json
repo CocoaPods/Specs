@@ -1,0 +1,107 @@
+{
+  "name": "OrderPlaceSdkPrd",
+  "version": "0.0.7",
+  "summary": "Order Place Sdk Prd",
+  "description": "a pod that easily implements the order.place function",
+  "homepage": "https://github.com/AigensTechnology/OrderPlaceSdkPrd",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "风筝": "13286953452@126.com"
+  },
+  "source": {
+    "git": "https://github.com/AigensTechnology/OrderPlaceSdkPrd.git",
+    "tag": "0.0.7"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.0",
+  "static_framework": true,
+  "frameworks": [
+    "AVFoundation",
+    "WebKit",
+    "UIKit",
+    "Foundation",
+    "PassKit",
+    "AddressBook"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "Classess/frameworks/orderPlaceSDK/OrderPlaceSDK.framework"
+      }
+    },
+    {
+      "name": "Alipay",
+      "resources": [
+        "Classess/Assets/AlipaySDK.bundle"
+      ],
+      "ios": {
+        "vendored_frameworks": [
+          "Classess/frameworks/orderPlaceAlipaySDK/AlipaySDK.framework",
+          "Classess/frameworks/orderPlaceAlipaySDK/OrderPlaceAlipaySDK.framework"
+        ]
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "CFNetwork",
+        "CoreMotion"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "dependencies": {
+        "OrderPlaceSdkPrd/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wechat",
+      "ios": {
+        "vendored_frameworks": "Classess/frameworks/orderPlaceWechatPaySDK/OrderPlaceWechatPaySDK.framework",
+        "vendored_libraries": "Classess/frameworks/orderPlaceWechatPaySDK/libWeChatSDK.a"
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "Security",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3.0"
+      ],
+      "dependencies": {
+        "OrderPlaceSdkPrd/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "StripeApple",
+      "ios": {
+        "vendored_frameworks": [
+          "Classess/frameworks/orderPlaceStripeAppleSDK/Stripe.framework",
+          "Classess/frameworks/orderPlaceStripeAppleSDK/OrderPlaceStripeAppleSDK.framework"
+        ]
+      },
+      "dependencies": {
+        "OrderPlaceSdkPrd/Core": [
+
+        ]
+      }
+    }
+  ]
+}
