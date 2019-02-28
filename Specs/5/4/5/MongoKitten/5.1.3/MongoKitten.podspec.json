@@ -1,0 +1,82 @@
+{
+  "name": "MongoKitten",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "version": "5.1.3",
+  "summary": "A pure swift, native MongoDB driver",
+  "description": "High and low level APIs for interacting with MongoDB databases. Supports codable, transactions and all async.",
+  "swift_versions": "4.2",
+  "homepage": "https://github.com/OpenKitten/MongoKitten",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "joannis": "joannis@orlandos.nl"
+  },
+  "source": {
+    "git": "https://github.com/OpenKitten/MongoKitten.git",
+    "tag": "5.1.3"
+  },
+  "social_media_url": "https://twitter.com/joannisorlandos",
+  "dependencies": {
+    "BSON": [
+      ">= 6.0.2"
+    ]
+  },
+  "default_subspecs": [
+    "Core",
+    "GridFS",
+    "Mobile"
+  ],
+  "subspecs": [
+    {
+      "name": "_MongoKittenCrypto",
+      "source_files": "Sources/_MongoKittenCrypto/**/*"
+    },
+    {
+      "name": "GridFS",
+      "source_files": "Sources/GridFS/**/*",
+      "dependencies": {
+        "MongoKitten/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Networking",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "SwiftNIOTransportServices": [
+          ">= 0.5"
+        ],
+        "MongoKitten/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mobile",
+      "dependencies": {
+        "mongo_embedded": [
+          ">= 4.0.4"
+        ],
+        "MongoKitten/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/MongoKitten/**/*",
+      "dependencies": {
+        "MongoKitten/_MongoKittenCrypto": [
+
+        ]
+      }
+    }
+  ]
+}
