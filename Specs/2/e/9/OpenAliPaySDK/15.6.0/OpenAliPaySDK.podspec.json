@@ -1,0 +1,41 @@
+{
+  "name": "OpenAliPaySDK",
+  "version": "15.6.0",
+  "summary": "Mirror Of AliPaySDK.",
+  "description": "Mirror Of AliPaySDK. Make it easier.",
+  "homepage": "https://github.com/JarvanMo/OpenAliPaySDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "JarvanMo": "jarvan.mo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/JarvanMo/OpenAliPaySDK.git",
+    "tag": "15.6.0"
+  },
+  "exclude_files": "Classes/Exclude",
+  "resources": "AlipaySDK.bundle",
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "QuartzCore",
+    "CoreText",
+    "CoreGraphics",
+    "CFNetwork",
+    "CoreMotion"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "vendored_frameworks": "AlipaySDK.framework",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "prepare_command": "# 创建Base Module\nrm -rf AlipaySDK.framework/Modules\nmkdir AlipaySDK.framework/Modules\ntouch AlipaySDK.framework/Modules/module.modulemap\ncat <<-EOF > AlipaySDK.framework/Modules/module.modulemap\nframework module AlipaySDK {\n  umbrella header \"AlipaySDK.h\"\n  export *\n  link \"c++\"\n  link \"z\"\n}\nEOF"
+}
