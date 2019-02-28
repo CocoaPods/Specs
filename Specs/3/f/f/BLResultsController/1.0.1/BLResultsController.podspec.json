@@ -1,0 +1,46 @@
+{
+  "name": "BLResultsController",
+  "version": "1.0.1",
+  "summary": "BLResultsController is not a drop-in replacement for the `NSFetchedResultsController` to be used with Realm.",
+  "screenshots": "https://github.com/BellAppLab/BLResultsController/raw/master/Images/BLResultsController.png",
+  "description": "Contrary to popular belief, BLResultsController is **not** a drop-in replacement for the `NSFetchedResultsController` to be used with Realm. Oh no. It's _better_.\n\nA `ResultsController` takes a `Realm.Results` and divides its objects into sections based on the `sectionNameKeyPath` and the first `sortDescriptor`. It then calculates the relative positions of those objects and generates section indices and `IndexPath`s that are ready to be passed to `UITableView`s and `UICollectionView`s.\n\nBut **no expensive calculations are made on the main thread**. That's right. Everything is done in the background, so your UI will remain as smooth and responsive as always.\n\nAs with `Realm.Results`, the `ResultsController` is a live, auto-updating container that will keep notifying you of changes in the dataset for as long as you hold a strong reference to it. You register to receive those changes by calling `setChangeCallback(_:)` on your controller.\n\nChanges to the underlying dataset are calculated on a background queue, therefore the UI thread is not impacted by the `ResultsController`'s overhead.\n\n**Note**: As with `Realm` itself, the `ResultsController` is **not** thread-safe. You should only call most of its methods from the main thread.\n\n## Features\n\n- [X] Calculates everything on a **background thread**. 🏎\n- [X] No objects are retained, so memory footprint is minimal. 👾\n- [X] Calculates section index titles. 😲\n- [X] Allows for user-initiated search. 🕵️‍♀️🕵️‍♂️\n- [X] Most methods return in O(1). 😎\n- [X] Well documented. 🤓\n- [X] Well tested. 👩‍🔬👨‍🔬",
+  "homepage": "https://github.com/BellAppLab/BLResultsController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bell App Lab": "apps@bellapplab.com"
+  },
+  "social_media_url": "https://twitter.com/BellAppLab",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "10.0"
+  },
+  "module_name": "BLResultsController",
+  "source": {
+    "git": "https://github.com/BellAppLab/BLResultsController.git",
+    "tag": "1.0.1"
+  },
+  "source_files": "BLResultsController",
+  "frameworks": "Foundation",
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "osx": {
+    "frameworks": "AppKit"
+  },
+  "tvos": {
+    "frameworks": "UIKit"
+  },
+  "dependencies": {
+    "RealmSwift": [
+      "~> 3.0"
+    ],
+    "BackgroundRealm": [
+      "~> 1.0"
+    ]
+  },
+  "swift_version": "4.2"
+}
