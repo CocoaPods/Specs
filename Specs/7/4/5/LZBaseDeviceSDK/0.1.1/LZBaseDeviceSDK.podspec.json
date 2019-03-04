@@ -1,0 +1,75 @@
+{
+  "name": "LZBaseDeviceSDK",
+  "version": "0.1.1",
+  "summary": "LZBaseDeviceSDK for ios.",
+  "description": "LZBaseDeviceSDK是基于获取设备基础参数的SDK",
+  "homepage": "https://gitee.com/lin_zi_ios/LZBaseDeviceSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "panfei mao": "843158788@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/lin_zi_ios/LZBaseDeviceSDK.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LZBaseDeviceSDK/LZManager",
+  "libraries": "resolv",
+  "subspecs": [
+    {
+      "name": "LZCategory",
+      "public_header_files": "LZBaseDeviceSDK/LZCategory/LZCategory.h",
+      "source_files": "LZBaseDeviceSDK/LZCategory/LZCategory.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "SystemConfiguration"
+      ],
+      "subspecs": [
+        {
+          "name": "NSDictionary",
+          "public_header_files": "LZBaseDeviceSDK/LZCategory/NSDictionary/*.h",
+          "source_files": "LZBaseDeviceSDK/LZCategory/NSDictionary/*.{h,m}"
+        },
+        {
+          "name": "UIDevice",
+          "public_header_files": "LZBaseDeviceSDK/LZCategory/UIDevice/*.h",
+          "source_files": "LZBaseDeviceSDK/LZCategory/UIDevice/*.{h,m}"
+        },
+        {
+          "name": "UIViewController",
+          "public_header_files": "LZBaseDeviceSDK/LZCategory/UIViewController/*.h",
+          "source_files": "LZBaseDeviceSDK/LZCategory/UIViewController/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Tongdun",
+      "public_header_files": "LZBaseDeviceSDK/Tongdun/FMDeviceManager.h",
+      "source_files": "LZBaseDeviceSDK/Tongdun/*"
+    },
+    {
+      "name": "LZManager",
+      "public_header_files": "LZBaseDeviceSDK/LZManager/*.h",
+      "source_files": "LZBaseDeviceSDK/LZManager/*.{h,m}",
+      "dependencies": {
+        "LZBaseDeviceSDK/LZCategory": [
+
+        ],
+        "LZBaseDeviceSDK/Tongdun": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreLocation"
+      ],
+      "vendored_libraries": "LZBaseDeviceSDK/Tongdun/libFMDeviceManager.a"
+    }
+  ]
+}
