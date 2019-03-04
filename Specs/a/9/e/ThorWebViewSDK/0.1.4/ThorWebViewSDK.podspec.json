@@ -1,0 +1,178 @@
+{
+  "name": "ThorWebViewSDK",
+  "version": "0.1.4",
+  "summary": "ThorWebViewSDK for ios.",
+  "description": "索尔风控系统对外SDK for ios.",
+  "homepage": "https://gitee.com/lin_zi_ios/ThorWebViewSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "panfei mao": "843158788@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/lin_zi_ios/ThorWebViewSDK.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "public_header_files": "ThorWebViewSDK/ThorFramework.h",
+  "source_files": "ThorWebViewSDK/ThorFramework.h",
+  "libraries": "z",
+  "resource_bundles": {
+    "ThorFramework": [
+      "ThorWebViewSDK/Resources/*.png"
+    ]
+  },
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "YTKNetwork": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "MoxieSDK",
+      "public_header_files": "ThorWebViewSDK/MoxieSDK/include/MoxieSDK/MoxieSDK.h",
+      "source_files": "ThorWebViewSDK/MoxieSDK/**/*"
+    },
+    {
+      "name": "ThorCategory",
+      "public_header_files": "ThorWebViewSDK/ThorCategory/MarsCategory.h",
+      "source_files": "ThorWebViewSDK/ThorCategory/MarsCategory.h",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "subspecs": [
+        {
+          "name": "NSData",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/NSData/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/NSData/*.{h,m}"
+        },
+        {
+          "name": "NSDictionary",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/NSDictionary/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/NSDictionary/*.{h,m}"
+        },
+        {
+          "name": "UIDevice",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/UIDevice/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/UIDevice/*.{h,m}"
+        },
+        {
+          "name": "NSString",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/NSString/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/NSString/*.{h,m}",
+          "dependencies": {
+            "ThorWebViewSDK/ThorCategory/NSData": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSURL",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/NSURL/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/NSURL/*.{h,m}"
+        },
+        {
+          "name": "UIViewController",
+          "public_header_files": "ThorWebViewSDK/ThorCategory/UIViewController/*.h",
+          "source_files": "ThorWebViewSDK/ThorCategory/UIViewController/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "ThorManager",
+      "public_header_files": "ThorWebViewSDK/ThorManager/MarsManager.h",
+      "source_files": "ThorWebViewSDK/ThorManager/MarsManager.h",
+      "dependencies": {
+        "ThorWebViewSDK/ThorCategory": [
+
+        ]
+      },
+      "frameworks": [
+        "Contacts",
+        "ContactsUI",
+        "AddressBook",
+        "AddressBookUI",
+        "AVFoundation",
+        "CoreLocation"
+      ],
+      "subspecs": [
+        {
+          "name": "AddressBook",
+          "public_header_files": "ThorWebViewSDK/ThorManager/AddressBook/*.h",
+          "source_files": "ThorWebViewSDK/ThorManager/AddressBook/*.{h,m}"
+        },
+        {
+          "name": "Authorize",
+          "public_header_files": "ThorWebViewSDK/ThorManager/Authorize/*.h",
+          "source_files": "ThorWebViewSDK/ThorManager/Authorize/*.{h,m}"
+        },
+        {
+          "name": "Emergency",
+          "public_header_files": "ThorWebViewSDK/ThorManager/Emergency/*.h",
+          "source_files": "ThorWebViewSDK/ThorManager/Emergency/*.{h,m}"
+        },
+        {
+          "name": "Location",
+          "public_header_files": "ThorWebViewSDK/ThorManager/Location/*.h",
+          "source_files": "ThorWebViewSDK/ThorManager/Location/*.{h,m}",
+          "dependencies": {
+            "ThorWebViewSDK/ThorManager/Authorize": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseDevice",
+          "public_header_files": "ThorWebViewSDK/ThorManager/BaseDevice/*.h",
+          "source_files": "ThorWebViewSDK/ThorManager/BaseDevice/*.{h,m}",
+          "dependencies": {
+            "ThorWebViewSDK/ThorManager/Location": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ThorConfig",
+      "public_header_files": "ThorWebViewSDK/ThorConfig/*.h",
+      "source_files": "ThorWebViewSDK/ThorConfig/*.{h,m}"
+    },
+    {
+      "name": "ThorService",
+      "public_header_files": "ThorWebViewSDK/ThorService/*.h",
+      "source_files": "ThorWebViewSDK/ThorService/*.{h,m}"
+    },
+    {
+      "name": "ThorWebView",
+      "public_header_files": "ThorWebViewSDK/ThorWebView/ThorWebViewController.h",
+      "dependencies": {
+        "ThorWebViewSDK/ThorCategory": [
+
+        ],
+        "ThorWebViewSDK/ThorManager": [
+
+        ],
+        "ThorWebViewSDK/ThorConfig": [
+
+        ],
+        "ThorWebViewSDK/ThorService": [
+
+        ],
+        "ThorWebViewSDK/MoxieSDK": [
+
+        ]
+      },
+      "source_files": "ThorWebViewSDK/ThorWebView/*.{h,m}",
+      "vendored_libraries": "ThorWebViewSDK/MoxieSDK/libMoxieSDK.a"
+    }
+  ]
+}
