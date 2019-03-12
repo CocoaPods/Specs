@@ -1,0 +1,204 @@
+{
+  "name": "ZXRMap",
+  "version": "1.0.0",
+  "summary": "ZXRMap支持Cocoaspods subspec",
+  "homepage": "http://www.zhaoxiangru.cn",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CLASSNULLZXR": "1120887410@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/CLASSNULLZXR/ZXRMap.git",
+    "tag": "1.0.0",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "Cloud",
+    "Map",
+    "Search",
+    "Utils"
+  ],
+  "prepare_command": "# 创建Base Module\nrm -rf ZXRMap/BaiduMapAPI_Base.framework/Modules\nmkdir ZXRMap/BaiduMapAPI_Base.framework/Modules\ntouch ZXRMap/BaiduMapAPI_Base.framework/Modules/module.modulemap\ncat <<-EOF > ZXRMap/BaiduMapAPI_Base.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Base {\numbrella header \"BMKBaseComponent.h\"\nexport *\nlink \"sqlite3.0\"\nlink \"c++\"\n}\nEOF\n# 创建Cloud Module\nrm -rf ZXRMap/BaiduMapAPI_Cloud.framework/Modules\nmkdir ZXRMap/BaiduMapAPI_Cloud.framework/Modules\ntouch ZXRMap/BaiduMapAPI_Cloud.framework/Modules/module.modulemap\ncat <<-EOF > ZXRMap/BaiduMapAPI_Cloud.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Cloud {\numbrella header \"BMKCloudSearchComponent.h\"\nexport *\nlink \"sqlite3.0\"\nlink \"c++\"\n}\nEOF\n# 创建Map Module\nrm -rf ZXRMap/BaiduMapAPI_Map.framework/Modules\nmkdir ZXRMap/BaiduMapAPI_Map.framework/Modules\ntouch ZXRMap/BaiduMapAPI_Map.framework/Modules/module.modulemap\ncat <<-EOF > ZXRMap/BaiduMapAPI_Map.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Map {\numbrella header \"BMKMapComponent.h\"\n\nexport *\nlink \"sqlite3.0\"\nlink \"c++\"\n}\nEOF\n# 创建Search  Module\nrm -rf ZXRMap/BaiduMapAPI_Search.framework/Modules\nmkdir ZXRMap/BaiduMapAPI_Search.framework/Modules\ntouch ZXRMap/BaiduMapAPI_Search.framework/Modules/module.modulemap\ncat <<-EOF > ZXRMap/BaiduMapAPI_Search.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Search {\numbrella header \"BMKSearchComponent.h\"\nheader \"BMKSearchVersion.h\"\n\nexport *\nlink \"sqlite3.0\"\nlink \"c++\"\n}\nEOF\n# 创建Utils  Module\nrm -rf ZXRMap/BaiduMapAPI_Utils.framework/Modules\nmkdir ZXRMap/BaiduMapAPI_Utils.framework/Modules\ntouch ZXRMap/BaiduMapAPI_Utils.framework/Modules/module.modulemap\ncat <<-EOF > ZXRMap/BaiduMapAPI_Utils.framework/Modules/module.modulemap\nframework module BaiduMapAPI_Utils {\numbrella header \"BMKUtilsComponent.h\"\n\nexport *\nlink \"sqlite3.0\"\nlink \"c++\"\n}\nEOF",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "ZXRMap/BaiduMapAPI_Base.framework/Headers/**.h",
+      "public_header_files": "ZXRMap/BaiduMapAPI_Base.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony",
+        "MobileCoreServices"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++"
+      ],
+      "vendored_frameworks": "ZXRMap/BaiduMapAPI_Base.framework",
+      "vendored_libraries": "ZXRMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Cloud",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZXRMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZXRMap/Base": [
+
+          ]
+        }
+      },
+      "source_files": "ZXRMap/BaiduMapAPI_Cloud.framework/Headers/**.h",
+      "public_header_files": "ZXRMap/BaiduMapAPI_Cloud.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony",
+        "MobileCoreServices"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++"
+      ],
+      "vendored_frameworks": "ZXRMap/BaiduMapAPI_Cloud.framework",
+      "vendored_libraries": "ZXRMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Map",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZXRMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZXRMap/Base": [
+
+          ]
+        }
+      },
+      "source_files": "ZXRMap/BaiduMapAPI_Map.framework/Headers/**.h",
+      "public_header_files": "ZXRMap/BaiduMapAPI_Map.framework/Headers/**.h",
+      "resources": "ZXRMap/BaiduMapAPI_Map.framework/mapapi.bundle",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony",
+        "MobileCoreServices"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++"
+      ],
+      "vendored_frameworks": "ZXRMap/BaiduMapAPI_Map.framework",
+      "vendored_libraries": "ZXRMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Search",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZXRMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZXRMap/Base": [
+
+          ]
+        }
+      },
+      "source_files": "ZXRMap/BaiduMapAPI_Search.framework/Headers/**.h",
+      "public_header_files": "ZXRMap/BaiduMapAPI_Search.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony",
+        "MobileCoreServices"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++"
+      ],
+      "vendored_frameworks": "ZXRMap/BaiduMapAPI_Search.framework",
+      "vendored_libraries": "ZXRMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Utils",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZXRMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZXRMap/Base": [
+
+          ]
+        }
+      },
+      "source_files": "ZXRMap/BaiduMapAPI_Utils.framework/Headers/**.h",
+      "public_header_files": "ZXRMap/BaiduMapAPI_Utils.framework/Headers/**.h",
+      "frameworks": [
+        "CoreLocation",
+        "QuartzCore",
+        "OpenGLES",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Security",
+        "CoreTelephony",
+        "MobileCoreServices"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "c++"
+      ],
+      "vendored_frameworks": "ZXRMap/BaiduMapAPI_Utils.framework",
+      "vendored_libraries": "ZXRMap/thirdlibs/*.a"
+    }
+  ]
+}
