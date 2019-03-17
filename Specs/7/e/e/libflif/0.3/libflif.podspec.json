@@ -1,0 +1,69 @@
+{
+  "name": "libflif",
+  "version": "0.3",
+  "summary": "Free Lossless Image Format",
+  "description": "FLIF is a lossless image format based on MANIAC compression.",
+  "homepage": "https://flif.info/",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": {
+    "Jon Sneyers": "jonsneyers@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/FLIF-hub/FLIF.git",
+    "tag": "v0.3"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": [
+    "src/**/*.{h,c,cc,cpp,hpp}",
+    "extern/**/*.{h,c,cc,cpp,hpp}"
+  ],
+  "public_header_files": "src/library/*.h",
+  "exclude_files": [
+    "src/viewflif.c",
+    "src/flif.cpp"
+  ],
+  "preserve_paths": [
+    "src",
+    "extern"
+  ],
+  "prepare_command": "sed -i.bak 's/flif-interface_common.cpp/flif-interface_common.hpp/g' './src/library/flif-interface_dec.cpp'\nsed -i.bak 's/flif-interface_common.cpp/flif-interface_common.hpp/g' './src/library/flif-interface_enc.cpp'\nsed -i.bak 's/flif-interface_dec.cpp/flif-interface_dec.hpp/g' './src/library/flif-interface.cpp'\nsed -i.bak 's/flif-interface_enc.cpp/flif-interface_enc.hpp/g' './src/library/flif-interface.cpp'\nmv './src/library/flif-interface_common.cpp' './src/library/flif-interface_common.hpp'\nmv './src/library/flif-interface_dec.cpp' './src/library/flif-interface_dec.hpp'\nmv './src/library/flif-interface_enc.cpp' './src/library/flif-interface_enc.hpp'",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libpng",
+    "OTHER_CPLUSPLUSFLAGS": "$(inherited) -ftree-vectorize",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LODEPNG_NO_COMPILE_DISK"
+  },
+  "watchos": {
+    "xcconfig": {
+      "OTHER_CPLUSPLUSFLAGS": "$(inherited) -ftree-vectorize",
+      "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FLIF_USE_STB_IMAGE LODEPNG_NO_COMPILE_PNG LODEPNG_NO_COMPILE_DISK"
+    }
+  },
+  "tvos": {
+    "xcconfig": {
+      "OTHER_CPLUSPLUSFLAGS": "$(inherited) -ftree-vectorize",
+      "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FLIF_USE_STB_IMAGE LODEPNG_NO_COMPILE_PNG LODEPNG_NO_COMPILE_DISK"
+    }
+  },
+  "ios": {
+    "dependencies": {
+      "libpng": [
+
+      ]
+    }
+  },
+  "osx": {
+    "dependencies": {
+      "libpng": [
+
+      ]
+    }
+  },
+  "libraries": "c++"
+}
