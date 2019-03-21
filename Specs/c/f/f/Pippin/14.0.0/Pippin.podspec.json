@@ -1,0 +1,85 @@
+{
+  "name": "Pippin",
+  "version": "14.0.0",
+  "summary": "A Swift framework to scaffold an app and make development and maintenance easier.",
+  "description": "A collection of Swift and Objective-C utilities delivering reusable components of iOS applications and utilities to work with Apple frameworks.",
+  "homepage": "http://github.com/tworingsoft/Pippin",
+  "license": "MIT",
+  "authors": {
+    "Andrew McKnight": "andrew@tworingsoft.com"
+  },
+  "source": {
+    "git": "https://github.com/tworingsoft/Pippin.git",
+    "tag": "Pippin-14.0.0"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.12"
+  },
+  "swift_version": "4.2",
+  "default_subspecs": [
+    "Core",
+    "Extensions"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": [
+          "Sources/Pippin/Seeds/**/*.{h,m,swift}",
+          "Sources/Pippin/Sensors/**/*.{h,m,swift}",
+          "Sources/Pippin/Controls/**/*.{h,m,swift}",
+          "Sources/Pippin/CanIHaz/Camera/**/*.{h,m,swift}",
+          "Sources/Pippin/CanIHaz/Location/**/*.{h,m,swift}"
+        ],
+        "dependencies": {
+          "Result": [
+
+          ],
+          "Anchorage": [
+            "~> 4"
+          ]
+        }
+      },
+      "dependencies": {
+        "Pippin/Extensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extensions",
+      "ios": {
+        "source_files": [
+          "Sources/Pippin/Extensions/**/*.{h,m,swift}"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Sources/Pippin/Extensions/Foundation/**/*.{h,m,swift}"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "Tests/Pippin/Extensions/**/*.{h,m,swift}",
+          "dependencies": {
+            "Pippin/OperationTestHelpers": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "OperationTestHelpers",
+      "source_files": "Tests/Helpers/Operations/**/*.{swift}",
+      "dependencies": {
+        "Pippin/Extensions": [
+
+        ]
+      }
+    }
+  ]
+}
