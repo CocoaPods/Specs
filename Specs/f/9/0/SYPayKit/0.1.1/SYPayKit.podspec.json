@@ -1,0 +1,68 @@
+{
+  "name": "SYPayKit",
+  "version": "0.1.1",
+  "summary": "集成微信、银联、支付宝支付",
+  "description": "1. 集成微信、银联、支付宝三种支付方式\n2. 对外抽象统一接口\n3. 支持OC，Swift项目，可以打包成动态库",
+  "homepage": "https://github.com/isandboy/SYPayKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "isandboy": "sandboylu@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/isandboy/SYPayKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SYPayKit/SYPayKit.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SYPayKit/Core/*.{h,m,c,swift}",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration"
+      ]
+    },
+    {
+      "name": "Alipay",
+      "source_files": "SYPayKit/Channels/Alipay/*.{h,m}",
+      "dependencies": {
+        "SYPayKit/Core": [
+
+        ],
+        "SYAlipaySDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXPay",
+      "source_files": "SYPayKit/Channels/WxPay/**/*.{h,m}",
+      "dependencies": {
+        "SYPayKit/Core": [
+
+        ],
+        "SYWechatOpenSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "SYPayKit/Channels/UnionPay/**/*.{h,m}",
+      "dependencies": {
+        "SYPayKit/Core": [
+
+        ],
+        "SYUPPaySDK": [
+
+        ]
+      }
+    }
+  ]
+}
