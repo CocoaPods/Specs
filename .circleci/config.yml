@@ -1,0 +1,81 @@
+version: 2.1
+
+orbs:
+  queue: eddiewebb/queue@1.1.2
+
+commands:
+  checkout-indexes:
+    steps:
+      - run:
+          name: Checkout
+          command: |
+            mkdir -p ~/.ssh
+
+            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' >> ~/.ssh/known_hosts
+
+            if [ -e "/home/circleci/project/.git" ]
+            then
+              cd "/home/circleci/project"
+              git remote set-url origin "$CIRCLE_REPOSITORY_URL" || true
+
+              echo "Fetching indexes ..."
+              git fetch origin indexes
+
+              echo "Resetting to origin/indexes"
+              git reset --hard origin/indexes
+            else
+              mkdir -p "/home/circleci/project"
+              cd "/home/circleci/project"
+              echo "Cloning indexes ..."
+              git clone "$CIRCLE_REPOSITORY_URL" --single-branch --branch indexes .
+            fi
+
+            echo "Fetching '$CIRCLE_BRANCH' ..."
+            git fetch origin "$CIRCLE_BRANCH"
+
+jobs:
+  update-indexes:
+    docker:
+       - image: circleci/ruby:2.4.1
+    steps:
+      - queue/until_front_of_line
+      - restore_cache:
+          keys:
+            - spec-indexes-source-{{ .Branch }}-{{ .Revision }}
+            - spec-indexes-source-{{ .Branch }}-
+            - spec-indexes-source-
+      - checkout-indexes
+      - run:
+          name: Git config
+          command: |
+            git config --global user.email "$CIRCLE_USERNAME@users.noreply.github.com"
+            git config --global user.name "$CIRCLE_USERNAME"
+      - add_ssh_keys:
+          fingerprints:
+            - "39:12:25:06:c2:71:00:c6:7c:fe:40:a6:e7:0e:18:ed"
+      - run:
+          name: Merge latest changes into indexes branch
+          command: |
+            git merge --no-ff --log --no-edit "$CIRCLE_SHA1"
+            echo 'export MERGE_COMMIT="$(git rev-parse HEAD)"' >> $BASH_ENV
+      - run:
+          name: Generate indexes for the merge commit
+          command: ./Scripts/add_incremental_index.sh "$MERGE_COMMIT"
+      - run:
+          name: Commit and push the new indexes
+          command: |
+            git add -A
+            git commit --allow-empty -m "Updated indexes from $MERGE_COMMIT"
+            git push origin indexes
+      - save_cache:
+          key: spec-indexes-source-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
+workflows:
+  update-indexes:
+    jobs:
+      - update-indexes:
+          filters:
+            branches:
+              only: master
