@@ -1,0 +1,38 @@
+{
+  "name": "libbpg",
+  "version": "0.9.8",
+  "summary": "BPG Image library and utilities",
+  "description": "BPG (Better Portable Graphics) is a new image format. Its purpose is to replace the JPEG image format when quality or file size is an issue.",
+  "homepage": "https://bellard.org/bpg/",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": "Fabrice Bellard",
+  "source": {
+    "git": "https://github.com/mirrorer/libbpg.git",
+    "commit": "0e2aadb"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.6",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": [
+    "libavcodec/**/*.{h,c,cc}",
+    "libavutil/**/*.{h,c,cc}",
+    "libbpg.{h,c}",
+    "config.h"
+  ],
+  "public_header_files": "libbpg.h",
+  "exclude_files": "libavcodec/*template.c",
+  "preserve_paths": [
+    "libavcodec",
+    "libavutil"
+  ],
+  "prepare_command": "sed -i.bak 's/<inttypes.h>/<stdint.h>/g' './libbpg.h'",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libbpg/ ${PODS_TARGET_SRCROOT}/",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_AV_CONFIG_H=1 USE_VAR_BIT_DEPTH=1 USE_PRED=1"
+  }
+}
