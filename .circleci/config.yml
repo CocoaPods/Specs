@@ -18,25 +18,27 @@ commands:
               cd "/home/circleci/project"
               git remote set-url origin "$CIRCLE_REPOSITORY_URL" || true
 
-              echo "Fetching indexes ..."
-              git fetch origin indexes
+              echo "Fetching $INDEXES_BRANCH ..."
+              git fetch --force origin "$INDEXES_BRANCH:remotes/origin/$INDEXES_BRANCH"
 
-              echo "Resetting to origin/indexes"
-              git reset --hard origin/indexes
+              echo "Resetting to origin/$INDEXES_BRANCH"
+              git reset --hard "origin/$INDEXES_BRANCH"
             else
               mkdir -p "/home/circleci/project"
               cd "/home/circleci/project"
-              echo "Cloning indexes ..."
-              git clone "$CIRCLE_REPOSITORY_URL" --single-branch --branch indexes .
+              echo "Cloning $INDEXES_BRANCH ..."
+              git clone "$CIRCLE_REPOSITORY_URL" --single-branch --branch "$INDEXES_BRANCH" .
             fi
 
             echo "Fetching '$CIRCLE_BRANCH' ..."
-            git fetch origin "$CIRCLE_BRANCH"
+            git fetch --force origin "$CIRCLE_BRANCH:remotes/origin/$CIRCLE_BRANCH"
 
 jobs:
   update-indexes:
     docker:
        - image: circleci/ruby:2.4.1
+    environment:
+      INDEXES_BRANCH: indexes
     steps:
       - queue/until_front_of_line
       - restore_cache:
@@ -54,19 +56,18 @@ jobs:
           fingerprints:
             - "39:12:25:06:c2:71:00:c6:7c:fe:40:a6:e7:0e:18:ed"
       - run:
-          name: Merge latest changes into indexes branch
+          name: Merge latest changes into indexes branch without committing
           command: |
-            git merge --no-ff --log --no-edit "$CIRCLE_SHA1"
-            echo 'export MERGE_COMMIT="$(git rev-parse HEAD)"' >> $BASH_ENV
+            git merge --no-ff --no-commit "$CIRCLE_SHA1"
       - run:
           name: Generate indexes for the merge commit
-          command: ./Scripts/add_incremental_index.sh "$MERGE_COMMIT"
-      - run:
-          name: Commit and push the new indexes
           command: |
-            git add -A
-            git commit --allow-empty -m "Updated indexes from $MERGE_COMMIT"
-            git push origin indexes
+            ./Scripts/add_incremental_index.sh $INDEXES_BRANCH $CIRCLE_SHA1 | xargs git add
+      - run:
+          name: Commit and push the changes
+          command: |
+            git commit --allow-empty -m "Merge $CIRCLE_SHA1 and update indexes"
+            git push origin $INDEXES_BRANCH
       - save_cache:
           key: spec-indexes-source-{{ .Branch }}-{{ .Revision }}
           paths:
