@@ -43,9 +43,9 @@ jobs:
       - queue/until_front_of_line
       - restore_cache:
           keys:
-            - spec-indexes-source-{{ .Branch }}-{{ .Revision }}
-            - spec-indexes-source-{{ .Branch }}-
-            - spec-indexes-source-
+            - indexes-source-{{ .Branch }}-{{ .Revision }}
+            - indexes-source-{{ .Branch }}-
+            - indexes-source-
       - checkout-indexes
       - run:
           name: Git config
@@ -56,20 +56,21 @@ jobs:
           fingerprints:
             - "39:12:25:06:c2:71:00:c6:7c:fe:40:a6:e7:0e:18:ed"
       - run:
-          name: Merge latest changes into indexes branch without committing
+          name: Rebase latest changes
           command: |
-            git merge --no-ff --no-commit "$CIRCLE_SHA1"
+            echo 'export LAST_INDEXED_COMMIT="$(git rev-parse @~)"' >> $BASH_ENV
+            git rebase "$CIRCLE_SHA1"
       - run:
-          name: Generate indexes for the merge commit
+          name: Generate indexes for the changes
           command: |
-            ./Scripts/add_incremental_index.sh $INDEXES_BRANCH $CIRCLE_SHA1 | xargs git add
+            ./Scripts/add_incremental_index.sh origin/$INDEXES_BRANCH $CIRCLE_SHA1 | tee /dev/tty | xargs git add
       - run:
-          name: Commit and push the changes
+          name: Amend commit and force push the changes
           command: |
-            git commit --allow-empty -m "Merge $CIRCLE_SHA1 and update indexes"
-            git push origin $INDEXES_BRANCH
+            git commit --amend --date="$(date -R)" --no-edit --quiet
+            git push origin $INDEXES_BRANCH --force-with-lease
       - save_cache:
-          key: spec-indexes-source-{{ .Branch }}-{{ .Revision }}
+          key: indexes-source-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
 
