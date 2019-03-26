@@ -5,19 +5,17 @@ FIRST_COMMIT="$1"
 SECOND_COMMIT="$2"
 
 # Get the changed files from the given commits
+# Cut paths down to `Specs/9/f/e/MessagingSDK`
+# Insert versions in sorted order into `Specs/9/f/e/MessagingSDK/index.txt`
+# Delete `Specs/9/f/e/MessagingSDK/index.txt` if it is empty
 
-CHANGED_FILES=$(git diff --name-only $FIRST_COMMIT...$SECOND_COMMIT Specs)
+git diff --name-only $FIRST_COMMIT...$SECOND_COMMIT Specs | cut -d / -f 1,2,3,4,5 | \
+  xargs -I {} bash -c 'POD_INDEX="{}/index.txt"; ls -1 "{}" | grep -v "index.txt" > "$POD_INDEX" ; \
+                       [ -s "$POD_INDEX" ] || rm -f "$POD_INDEX" ; echo "$POD_INDEX"'
 
-# Cut paths down to `Specs/9/f/e/MessagingSDK/1.3.9`
-# Insert `1.3.9` in sorted order into `Specs/9/f/e/MessagingSDK/index.txt` if not already present
+# Loops through all known Podspec folders and pipes their name into a single all_pods.txt 
+# in the root.
 
-echo "$CHANGED_FILES" | cut -d / -f 1,2,3,4,5,6 | xargs -I {} \
-    bash -c 'POD_INDEX="$(dirname "{}")/index.txt" ; touch $POD_INDEX ; \
-             basename "{}" | sort -o "$POD_INDEX" -m -u - "$POD_INDEX" && echo "$POD_INDEX"'
-
-# Cut paths down to `MessagingSDK`
-# Insert `MessagingSDK` in sorted order into all_pods.txt if not already present
-
-echo "$CHANGED_FILES" | cut -d / -f 5 | xargs -I {} \
-    bash -c 'echo "{}" | sort -o all_pods.txt -m -u - all_pods.txt'
+find Specs -mindepth 4 -maxdepth 4 -type d -not -wholename '**/.git/**/*' | \
+  cut -d / -f 5 | sort > all_pods.txt
 echo "all_pods.txt"
