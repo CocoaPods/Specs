@@ -57,18 +57,16 @@ jobs:
             - "39:12:25:06:c2:71:00:c6:7c:fe:40:a6:e7:0e:18:ed"
       - run:
           name: Rebase latest changes
-          command: |
-            echo 'export LAST_INDEXED_COMMIT="$(git rev-parse @~)"' >> $BASH_ENV
-            git rebase "$CIRCLE_SHA1"
+          command: git rebase "$CIRCLE_SHA1"
       - run:
           name: Generate indexes for the changes
           command: |
-            ./Scripts/add_incremental_index.sh origin/$INDEXES_BRANCH $CIRCLE_SHA1 | tee /dev/tty | xargs git add
+            ./Scripts/add_incremental_index.sh "origin/$INDEXES_BRANCH" "$CIRCLE_SHA1" | tee /dev/tty | xargs git add
       - run:
           name: Amend commit and force push the changes
           command: |
             git commit --amend --date="$(date -R)" --no-edit --quiet
-            git push origin $INDEXES_BRANCH --force-with-lease
+            git push origin "$INDEXES_BRANCH" --force-with-lease
       - save_cache:
           key: indexes-source-{{ .Branch }}-{{ .Revision }}
           paths:
