@@ -1,0 +1,123 @@
+{
+  "name": "AXPhotoViewer",
+  "version": "1.7.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "summary": "An iOS/tvOS photo gallery viewer, useful for viewing a large number of photos.",
+  "homepage": "https://github.com/alexhillc/AXPhotoViewer",
+  "authors": {
+    "Alex Hill": "alexhill.c@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/alexhillc/AXPhotoViewer.git",
+    "tag": "v1.7.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "AXStateButton": [
+            ">= 1.1.3"
+          ],
+          "FLAnimatedImage": [
+            ">= 1.0.0"
+          ]
+        }
+      },
+      "tvos": {
+        "dependencies": {
+          "FLAnimatedImage-tvOS": [
+            ">= 1.0.16"
+          ]
+        }
+      },
+      "resources": "Assets/*.{xcassets}",
+      "source_files": [
+        "Source/*.{swift,h,m}",
+        "Source/Classes/**/*.{swift,h,m}",
+        "Source/Protocols/*.{swift,h,m}",
+        "Source/Extensions/*.{swift,h,m}",
+        "Source/Utilities/*.{swift,h,m}",
+        "Source/Integrations/SimpleNetworkIntegration.swift"
+      ],
+      "frameworks": [
+        "MobileCoreServices",
+        "ImageIO",
+        "UIKit",
+        "QuartzCore"
+      ]
+    },
+    {
+      "name": "SDWebImage",
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "SDWebImage": [
+          ">= 4.0.0"
+        ]
+      },
+      "source_files": "Source/Integrations/SDWebImageIntegration.swift"
+    },
+    {
+      "name": "PINRemoteImage",
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "PINRemoteImage": [
+          "~> 3.0.0-beta.9"
+        ]
+      },
+      "source_files": "Source/Integrations/PINRemoteImageIntegration.swift"
+    },
+    {
+      "name": "AFNetworking",
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "AFNetworking/NSURLSession": [
+          ">= 3.1.0"
+        ]
+      },
+      "source_files": "Source/Integrations/AFNetworkingIntegration.swift"
+    },
+    {
+      "name": "Kingfisher",
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "Kingfisher": [
+          ">= 3.10.0"
+        ]
+      },
+      "source_files": "Source/Integrations/KingfisherIntegration.swift"
+    },
+    {
+      "name": "Nuke",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "AXPhotoViewer/Core": [
+
+        ],
+        "Nuke": [
+          ">= 7.0"
+        ]
+      },
+      "source_files": "Source/Integrations/NukeIntegration.swift"
+    }
+  ]
+}
