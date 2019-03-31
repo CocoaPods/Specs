@@ -1,0 +1,74 @@
+{
+  "name": "LeanCloud",
+  "version": "16.0.0-beta.3",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "summary": "LeanCloud Swift SDK",
+  "homepage": "https://leancloud.cn/",
+  "authors": "LeanCloud",
+  "source": {
+    "git": "https://github.com/leancloud/swift-sdk.git",
+    "tag": "16.0.0-beta.3"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "subspecs": [
+    {
+      "name": "Foundation",
+      "source_files": "Sources/Foundation/**/*.{h,m,swift}",
+      "private_header_files": "Sources/Foundation/Polyfill/Polyfill.h",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "\"$(PODS_TARGET_SRCROOT)\"/**"
+      },
+      "preserve_paths": "Sources/Foundation/**/*.{modulemap}"
+    },
+    {
+      "name": "LocalStorage",
+      "dependencies": {
+        "LeanCloud/Foundation": [
+
+        ]
+      },
+      "source_files": "Sources/LocalStorage/**/*.swift"
+    },
+    {
+      "name": "Storage",
+      "dependencies": {
+        "Alamofire": [
+          "~> 4.8.0"
+        ],
+        "LeanCloud/Foundation": [
+
+        ],
+        "LeanCloud/LocalStorage": [
+
+        ]
+      },
+      "source_files": "Sources/Storage/**/*.swift",
+      "resources": "Sources/Storage/**/*.{xcdatamodeld}"
+    },
+    {
+      "name": "IM",
+      "dependencies": {
+        "SwiftProtobuf": [
+          "~> 1.4.0"
+        ],
+        "Starscream": [
+          "~> 3.1.0"
+        ],
+        "LeanCloud/Storage": [
+
+        ]
+      },
+      "source_files": "Sources/IM/**/*.swift",
+      "resources": "Sources/IM/**/*.{xcdatamodeld}"
+    }
+  ]
+}
