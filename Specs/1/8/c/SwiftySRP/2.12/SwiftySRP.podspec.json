@@ -1,0 +1,43 @@
+{
+  "name": "SwiftySRP",
+  "version": "2.12",
+  "platforms": {
+    "ios": "9.3"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "Swift implementation of SRP",
+  "homepage": "https://github.com/flockoffiles/SwiftySRP",
+  "authors": "Sergey Novitsky",
+  "source": {
+    "git": "https://github.com/flockoffiles/SwiftySRP.git",
+    "tag": "v2.12"
+  },
+  "source_files": [
+    "SwiftySRP/*.{h,swift}",
+    "imath/*.{c,h}"
+  ],
+  "module_map": "SwiftySRP/private.modulemap",
+  "exclude_files": "SwiftySRP/BigIntSpecific/*",
+  "public_header_files": "SwiftySRP/**/*.h",
+  "private_header_files": "imath/*.h",
+  "documentation_url": "https://github.com/serieuxchat/SwiftySRP/",
+  "dependencies": {
+    "FFDataWrapper": [
+      "~> 1.8"
+    ]
+  },
+  "swift_version": "4.2",
+  "script_phases": [
+    {
+      "name": "Fix Module Map",
+      "script": "rm -rf \"$TARGET_BUILD_DIR/$PRODUCT_NAME$WRAPPER_SUFFIX/PrivateHeaders\" ; function replace() { export SEARCH=\"$1\" && export REPLACE=\"$2\" && ruby -p -i -e \"gsub(ENV[\\\"SEARCH\\\"], ENV[\\\"REPLACE\\\"])\" \"$3\" ; } ; replace \"header \\\"imath.h\\\"\" \"\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}${WRAPPER_SUFFIX}/Modules/module.modulemap\" ; replace \"header \\\"imath+additions.h\\\"\" \"\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}${WRAPPER_SUFFIX}/Modules/module.modulemap\""
+    }
+  ],
+  "preserve_paths": [
+    "README",
+    "SwiftySRPTests/*.swift"
+  ]
+}
