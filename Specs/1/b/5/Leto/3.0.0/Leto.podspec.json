@@ -1,0 +1,201 @@
+{
+  "name": "Leto",
+  "version": "3.0.0",
+  "summary": "掌通无线旗下的小游戏工具库",
+  "description": "Leto使用了双WebView的结构, 在iOS/Android上都是这样. 一个WebView可以叫Service WebView, 这个就用来提供微信api的功能. 一个叫做Page WebView, 用来提供ui组件的那些功能. 在Page WebView里想要调用微信api的时候, 是通过释放一个PAGE EVENT这种间接的方式去调用Service WebView",
+  "homepage": "https://github.com/ztwireless",
+  "license": {
+    "type": "Copyright",
+    "text": "Ztwireless Inc. 2019"
+  },
+  "authors": {
+    "ztwireless": "zhangtong.tianjin@mgc-games.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://down.mgc-games.com/download3/sdk/iOS_Pods_LetoSDK_V3.0.0.zip"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "ENABLE_BITCODE": "No"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "iOS_Pods_LetoSDK_V3.0.0/Core/Leto.framework"
+    },
+    {
+      "name": "UI",
+      "vendored_frameworks": "iOS_Pods_LetoSDK_V3.0.0/UI/LetoUI.framework",
+      "dependencies": {
+        "Leto/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Ad",
+      "subspecs": [
+        {
+          "name": "TouTiao",
+          "vendored_frameworks": [
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/TouTiao/BUAdSDK.framework",
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/TouTiao/LetoAdTouTiao.framework"
+          ],
+          "resources": "iOS_Pods_LetoSDK_V3.0.0/Ad/TouTiao/BUAdSDK.bundle",
+          "frameworks": [
+            "UIKit",
+            "MapKit",
+            "WebKit",
+            "MediaPlayer",
+            "CoreLocation",
+            "AdSupport",
+            "CoreMedia",
+            "AVFoundation",
+            "CoreTelephony",
+            "StoreKit",
+            "SystemConfiguration",
+            "MobileCoreServices",
+            "CoreMotion"
+          ],
+          "libraries": [
+            "c++",
+            "resolv",
+            "z"
+          ],
+          "dependencies": {
+            "Leto/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "AppLovin",
+          "vendored_frameworks": [
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/AppLovin/LetoAdAppLovin.framework",
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/AppLovin/AppLovinSDK.framework"
+          ],
+          "frameworks": [
+            "AdSupport",
+            "AVFoundation",
+            "CoreGraphics",
+            "CoreMedia",
+            "CoreTelephony",
+            "SafariServices",
+            "StoreKit",
+            "SystemConfiguration",
+            "UIKit",
+            "WebKit"
+          ],
+          "libraries": "z",
+          "dependencies": {
+            "Leto/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Baidu",
+          "vendored_frameworks": [
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/Baidu/LetoAdBaidu.framework",
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/Baidu/BaiduMobAdSDK.framework"
+          ],
+          "resources": "iOS_Pods_LetoSDK_V3.0.0/Ad/Baidu/baidumobadsdk.bundle",
+          "frameworks": [
+            "AdSupport",
+            "StoreKit",
+            "CoreMotion",
+            "MessageUI",
+            "CoreLocation",
+            "CoreTelephony",
+            "SystemConfiguration",
+            "SafariServices",
+            "CoreMedia",
+            "AVFoundation",
+            "WebKit"
+          ],
+          "libraries": "c++",
+          "dependencies": {
+            "Leto/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "InMobi",
+          "vendored_frameworks": [
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/InMobi/LetoAdInMobi.framework",
+            "iOS_Pods_LetoSDK_V3.0.0/Ad/InMobi/InMobiSDK.framework"
+          ],
+          "frameworks": [
+            "AdSupport",
+            "AudioToolbox",
+            "AVFoundation",
+            "CoreTelephony",
+            "CoreLocation",
+            "Foundation",
+            "MediaPlayer",
+            "MessageUI",
+            "StoreKit",
+            "Social",
+            "SystemConfiguration",
+            "Security",
+            "SafariServices",
+            "UIKit",
+            "WebKit"
+          ],
+          "libraries": [
+            "sqlite3.0",
+            "z",
+            "xml2"
+          ],
+          "dependencies": {
+            "Leto/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "GDT",
+          "vendored_frameworks": "iOS_Pods_LetoSDK_V3.0.0/Ad/GDT/LetoAdGDT.framework",
+          "vendored_libraries": "iOS_Pods_LetoSDK_V3.0.0/Ad/GDT/libGDTMobSDK.a",
+          "source_files": "iOS_Pods_LetoSDK_V3.0.0/Ad/GDT/*.{h,m}",
+          "public_header_files": "iOS_Pods_LetoSDK_V3.0.0/Ad/GDT/*.h",
+          "frameworks": [
+            "AdSupport",
+            "AVFoundation",
+            "CoreTelephony",
+            "CoreLocation",
+            "Foundation",
+            "SystemConfiguration",
+            "Security",
+            "UIKit",
+            "WebKit",
+            "QuartzCore",
+            "CoreGraphics"
+          ],
+          "libraries": [
+            "z",
+            "xml2"
+          ],
+          "dependencies": {
+            "Leto/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Safe",
+      "vendored_frameworks": "iOS_Pods_LetoSDK_V3.0.0/Safe/LetoSafe.framework",
+      "dependencies": {
+        "Leto/Core": [
+
+        ]
+      }
+    }
+  ]
+}
