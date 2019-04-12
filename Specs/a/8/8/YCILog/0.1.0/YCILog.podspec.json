@@ -1,0 +1,66 @@
+{
+  "name": "YCILog",
+  "version": "0.1.0",
+  "summary": "日志收集上报。支持目标地扩展，崩溃收集，无埋点追踪",
+  "description": "日志组件\n1.支持分级调试日志\n2.支持全埋点式操作，业务日志收集\n3.支持移动平台目的地，并可扩展收集到目的地\n4.崩溃日志收集",
+  "homepage": "https://github.com/YanChen-ing/YCILog",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "YanChen-ing": "workforyc@163.com"
+  },
+  "source": {
+    "git": "https://github.com/YanChen-ing/YCILog.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_version": "4.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "YCIDeviceId": [
+
+        ]
+      },
+      "source_files": "YCILog/Core"
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "YCILog/Core": [
+
+        ]
+      },
+      "source_files": "YCILog/AutoTrack"
+    },
+    {
+      "name": "CrashReporter",
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "ios": {
+        "vendored_frameworks": "YCILog/CrashReporter/CrashReporter.framework"
+      },
+      "dependencies": {
+        "YCILog/Core": [
+
+        ]
+      },
+      "source_files": "YCILog/CrashReporter/*.{swift,h,m}"
+    },
+    {
+      "name": "Destinations",
+      "dependencies": {
+        "YCILog/Core": [
+
+        ]
+      },
+      "source_files": "YCILog/Destinations"
+    }
+  ]
+}
