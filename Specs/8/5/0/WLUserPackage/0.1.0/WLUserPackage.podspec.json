@@ -1,0 +1,594 @@
+{
+  "name": "WLUserPackage",
+  "version": "0.1.0",
+  "summary": "A Lib For user package.",
+  "description": "WLUserPackage一个对用户模块的封装",
+  "homepage": "https://github.com/StoneStoneStoneWang/WLUserPackage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "StoneStoneStoneWang": "yuanxingfu1314@163.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "source": {
+    "git": "https://github.com/StoneStoneStoneWang/WLUserPackage.git",
+    "tag": "0.1.0"
+  },
+  "subspecs": [
+    {
+      "name": "BaseVC",
+      "source_files": "Code/Base/BaseVC/*.{swift}",
+      "dependencies": {
+        "WLToolsKit/WLColor": [
+
+        ],
+        "WLBaseViewController/WLLoading": [
+
+        ],
+        "WLBaseViewController/WLInner": [
+
+        ],
+        "RxSwift": [
+
+        ]
+      }
+    },
+    {
+      "name": "RXCocoa",
+      "subspecs": [
+        {
+          "name": "Button",
+          "source_files": "Code/RXCocoa/Button/*.{swift}",
+          "dependencies": {
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ]
+          }
+        },
+        {
+          "name": "TextField",
+          "source_files": "Code/RXCocoa/TextField/*.{swift}",
+          "dependencies": {
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Welcome",
+      "subspecs": [
+        {
+          "name": "Style",
+          "source_files": "Code/Project/Welcome/Style/*.{swift}"
+        },
+        {
+          "name": "Delegate",
+          "source_files": "Code/Project/Welcome/Delegate/*.{swift}",
+          "dependencies": {
+            "WLBaseViewModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "Config",
+          "source_files": "Code/Project/Welcome/Config/*.{swift}"
+        },
+        {
+          "name": "VM",
+          "source_files": "Code/Project/Welcome/VM/*.{swift}",
+          "dependencies": {
+            "WLBaseViewModel": [
+
+            ],
+            "WLUserPackage/Welcome/Style": [
+
+            ],
+            "WLToolsKit/WLCommon": [
+
+            ],
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ]
+          }
+        },
+        {
+          "name": "View",
+          "source_files": "Code/Project/Welcome/View/*.{swift}",
+          "dependencies": {
+            "SnapKit": [
+
+            ],
+            "WLToolsKit/WLThen": [
+
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "Code/Project/Welcome/Base/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/BaseVC": [
+
+            ],
+            "WLUserPackage/Welcome/VM": [
+
+            ],
+            "WLUserPackage/Welcome/View": [
+
+            ],
+            "WLUserPackage/Welcome/Config": [
+
+            ],
+            "WLUserPackage/Welcome/Delegate": [
+
+            ],
+            "WLToolsKit/WLColor": [
+
+            ],
+            "WLBaseTableView/WLSectionModel": [
+
+            ],
+            "WLUserPackage/RXCocoa/Button": [
+
+            ],
+            "RxDataSources": [
+
+            ]
+          }
+        },
+        {
+          "name": "VC",
+          "source_files": "Code/Project/Welcome/VC/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Welcome/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Create",
+          "source_files": "Code/Project/Welcome/Create/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Welcome/VC": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WLPrepare",
+      "subspecs": [
+        {
+          "name": "WLBean",
+          "source_files": "Code/Project/Bean/*.{swift}",
+          "dependencies": {
+            "ObjectMapper": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLCache",
+          "source_files": "Code/Project/Cache/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLPrepare/WLBean": [
+
+            ],
+            "WLThirdUtil/Cache": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLConfig",
+          "source_files": "Code/Global/Config/*.{swift}"
+        },
+        {
+          "name": "WLManager",
+          "source_files": "Code/Global/Manager/*.{swift}",
+          "dependencies": {
+            "WLThirdUtil/Hud": [
+
+            ],
+            "WLThirdUtil/UM/Base": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLConfig": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLApi",
+          "source_files": "Code/Project/Api/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLPrepare/WLManager": [
+
+            ],
+            "Alamofire": [
+
+            ],
+            "WLReqKit": [
+
+            ],
+            "WLToolsKit/WLCommon": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLReq",
+          "source_files": "Code/Project/Req/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLPrepare/WLApi": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLCache": [
+
+            ],
+            "RxSwift": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WLProtocol",
+      "subspecs": [
+        {
+          "name": "WLProtocolVM",
+          "source_files": "Code/Project/Protocol/VM/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLPrepare/WLManager": [
+
+            ],
+            "RxSwift": [
+
+            ],
+            "WLBaseViewModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLProtocolVC",
+          "source_files": "Code/Project/Protocol/VC/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/BaseVC": [
+
+            ],
+            "WLUserPackage/WLProtocol/WLProtocolVM": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLProtocolCreate",
+          "source_files": "Code/Project/Protocol/Create/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLProtocol/WLProtocolVC": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WLUserResult",
+      "source_files": "Code/Project/Result/*.{swift}",
+      "dependencies": {
+        "ObjectMapper": [
+
+        ]
+      }
+    },
+    {
+      "name": "WLTextCheck",
+      "source_files": "Code/Project/TextCheck/*.{swift}",
+      "dependencies": {
+        "WLUserPackage/WLUserResult": [
+
+        ],
+        "WLToolsKit/WLString": [
+
+        ]
+      }
+    },
+    {
+      "name": "WLLoginStyle",
+      "source_files": "Code/Project/LoginStyle/*.{swift}"
+    },
+    {
+      "name": "WLLoginConfig",
+      "source_files": "Code/Project/LoginConfig/*.{swift}"
+    },
+    {
+      "name": "Password",
+      "subspecs": [
+        {
+          "name": "VM",
+          "source_files": "Code/Project/Pwd/VM/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLTextCheck": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLReq": [
+
+            ],
+            "WLBaseViewModel": [
+
+            ],
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ],
+            "WLReqKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "Code/Project/Pwd/Base/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/BaseVC": [
+
+            ],
+            "WLUserPackage/Password/VM": [
+
+            ],
+            "WLUserPackage/WLLoginConfig": [
+
+            ],
+            "WLUserPackage/WLLoginStyle": [
+
+            ],
+            "WLUserPackage/RXCocoa/Button": [
+
+            ],
+            "WLUserPackage/RXCocoa/TextField": [
+
+            ],
+            "WLToolsKit/WLColor": [
+
+            ],
+            "WLToolsKit/WLThen": [
+
+            ],
+            "WLToolsKit/WLCommon": [
+
+            ],
+            "WLComponentView/TextFeild/Vcode": [
+
+            ],
+            "WLComponentView/TextFeild/Password": [
+
+            ],
+            "WLThirdUtil/Hud": [
+
+            ]
+          }
+        },
+        {
+          "name": "VC",
+          "source_files": "Code/Project/Pwd/VC/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Password/Base": [
+
+            ],
+            "WLComponentView/Draw": [
+
+            ],
+            "SnapKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Create",
+          "source_files": "Code/Project/Pwd/Create/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Password/VC": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reg",
+      "subspecs": [
+        {
+          "name": "VM",
+          "source_files": "Code/Project/Reg/VM/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLTextCheck": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLReq": [
+
+            ],
+            "WLBaseViewModel": [
+
+            ],
+            "ObjectMapper": [
+
+            ],
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ],
+            "WLReqKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "Code/Project/Reg/Base/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Reg/VM": [
+
+            ],
+            "WLUserPackage/WLLoginConfig": [
+
+            ],
+            "WLUserPackage/WLLoginStyle": [
+
+            ],
+            "WLUserPackage/RXCocoa/Button": [
+
+            ],
+            "WLToolsKit/WLColor": [
+
+            ],
+            "WLToolsKit/WLThen": [
+
+            ],
+            "WLToolsKit/WLCommon": [
+
+            ],
+            "WLComponentView/TextFeild/Vcode": [
+
+            ],
+            "WLThirdUtil/Hud": [
+
+            ],
+            "WLThirdUtil/JPush": [
+
+            ],
+            "WLUserPackage/WLProtocol/WLProtocolCreate": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLCache": [
+
+            ]
+          }
+        },
+        {
+          "name": "VC",
+          "source_files": "Code/Project/Reg/VC/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Reg/Base": [
+
+            ],
+            "SnapKit": [
+
+            ],
+            "WLComponentView/Draw": [
+
+            ]
+          }
+        },
+        {
+          "name": "Create",
+          "source_files": "Code/Project/Reg/Create/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Reg/VC": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "subspecs": [
+        {
+          "name": "VM",
+          "source_files": "Code/Project/Login/VM/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/WLTextCheck": [
+
+            ],
+            "WLUserPackage/WLPrepare/WLReq": [
+
+            ],
+            "WLBaseViewModel": [
+
+            ],
+            "ObjectMapper": [
+
+            ],
+            "RxSwift": [
+
+            ],
+            "RxCocoa": [
+
+            ],
+            "WLReqKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "Code/Project/Login/Base/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Login/VM": [
+
+            ],
+            "WLUserPackage/Reg/Create": [
+
+            ],
+            "WLUserPackage/Password/Create": [
+
+            ]
+          }
+        },
+        {
+          "name": "VC",
+          "source_files": "Code/Project/Login/VC/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Login/Base": [
+
+            ],
+            "WLComponentView/Draw": [
+
+            ]
+          }
+        },
+        {
+          "name": "Create",
+          "source_files": "Code/Project/Login/Create/*.{swift}",
+          "dependencies": {
+            "WLUserPackage/Login/VC": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
