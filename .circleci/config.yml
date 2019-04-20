@@ -50,8 +50,8 @@ jobs:
       - run:
           name: Git config
           command: |
-            git config --global user.email "$CIRCLE_USERNAME@users.noreply.github.com"
-            git config --global user.name "$CIRCLE_USERNAME"
+            git config --global user.email "cocoapods@users.noreply.github.com"
+            git config --global user.name "cocoapods"
       - add_ssh_keys:
           fingerprints:
             - "d1:7c:fc:8a:17:63:75:8e:ee:01:13:05:2b:28:ca:49"
@@ -66,7 +66,7 @@ jobs:
           name: Amend commit and force push the changes
           command: |
             git commit --amend --date="$(date -R)" --no-edit --quiet
-            git push origin :"$INDEXES_BRANCH" # Temporary workaround for -f not working below
+			git push origin :"$INDEXES_BRANCH" # Temporary workaround for -f not working below
             git push origin "$INDEXES_BRANCH"
       - save_cache:
           key: indexes-source-{{ .Branch }}-{{ .Revision }}
