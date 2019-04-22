@@ -1,0 +1,60 @@
+{
+  "name": "MCAlipaySDK",
+  "version": "15.6.2",
+  "summary": "AlipaySDK的映射",
+  "description": "MCAlipaySDK是对AlipaySDK的映射，使用pod依赖管理，便于开发者快速集成AlipaySDK的支付授权等功能。",
+  "license": "MIT",
+  "authors": {
+    "littleplayer": "mailjiancheng@163.com"
+  },
+  "homepage": "https://github.com/poholo/MCAlipaySDK",
+  "source": {
+    "git": "https://github.com/poholo/MCAlipaySDK.git",
+    "tag": "15.6.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Base",
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64",
+    "USER_HEADER_SEARCH_PATHS": "${PROJECT_DIR}/Pods/**"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64"
+  },
+  "ios": {
+    "frameworks": [
+      "CoreTelephony",
+      "SystemConfiguration",
+      "QuartzCore",
+      "CoreText",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "CFNetwork",
+      "CoreMotion"
+    ],
+    "libraries": [
+      "z",
+      "c++"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": "SDK/AlipaySDK.framework",
+      "resources": [
+        "SDK/*.{bundle}"
+      ]
+    },
+    {
+      "name": "NO_UTDID",
+      "vendored_frameworks": "SDK_NO_UTDID/AlipaySDK.framework",
+      "resources": [
+        "SDK_NO_UTDID/*.{bundle}"
+      ]
+    }
+  ]
+}
