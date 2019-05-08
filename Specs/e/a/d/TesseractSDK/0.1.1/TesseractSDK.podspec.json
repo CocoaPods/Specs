@@ -1,0 +1,89 @@
+{
+  "name": "TesseractSDK",
+  "version": "0.1.1",
+  "summary": "Tesseract DApp Platform SDK for iOS and OSX",
+  "description": "Tesseract DApp Platform SDK for iOS and OSX. Entry point for all APIs.",
+  "homepage": "https://github.com/tesseract-one/Tesseract.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/Tesseract.swift.git",
+    "tag": "0.1.1"
+  },
+  "social_media_url": "https://twitter.com/tesseract_one",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "module_name": "Tesseract",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Tesseract/Core/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Client": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum.Core",
+      "source_files": "Sources/Tesseract/Ethereum/Core/**/*.swift",
+      "dependencies": {
+        "TesseractSDK/Core": [
+
+        ],
+        "Tesseract.OpenWallet/Ethereum": [
+          "~> 0.1"
+        ],
+        "Tesseract.EthereumTypes": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum.Web3",
+      "source_files": "Sources/Tesseract/Ethereum/Web3.swift",
+      "dependencies": {
+        "TesseractSDK/Ethereum.Core": [
+
+        ],
+        "Tesseract.EthereumWeb3": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum.Web3.PromiseKit",
+      "dependencies": {
+        "TesseractSDK/Ethereum.Web3": [
+
+        ],
+        "Tesseract.EthereumWeb3/PromiseKit": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum",
+      "dependencies": {
+        "TesseractSDK/Ethereum.Web3": [
+
+        ]
+      }
+    },
+    {
+      "name": "Ethereum.PromiseKit",
+      "dependencies": {
+        "TesseractSDK/Ethereum.Web3.PromiseKit": [
+
+        ]
+      }
+    }
+  ]
+}
