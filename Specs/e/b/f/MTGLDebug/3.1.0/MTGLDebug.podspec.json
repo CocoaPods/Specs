@@ -1,0 +1,75 @@
+{
+  "name": "MTGLDebug",
+  "version": "3.1.0",
+  "summary": "An OpenGL Debugging tool for iOS",
+  "description": "An OpenGL Debugging tool for iOS, provides the ability to track OpenGL resource memory usage and common incorrect usage of OpenGL API.",
+  "homepage": "https://github.com/meitu/MTGLDebug.git",
+  "license": {
+    "type": "Copyright",
+    "text": "  \t\t\t@ 2008 - present Meitu, Inc. All rights reserved.\n"
+  },
+  "authors": {
+    "Xiaojun Zhang": "124825961@qq.com",
+    "wzq": "wzq@meitu.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/meitu/MTGLDebug.git",
+    "tag": "3.1.0"
+  },
+  "dependencies": {
+    "fishhook": [
+      "~> 0.2"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "ARC",
+      "source_files": "MTGLDebug/iOS/*.{h,hpp,c,mm,m}",
+      "public_header_files": [
+        "MTGLDebug/iOS/MTGLDebug.h",
+        "MTGLDebug/iOS/MTGLDebugImpl.h",
+        "MTGLDebug/iOS/MTGLDebugObject.h",
+        "MTGLDebug/iOS/MTGLDebugObject+QuickLook.h"
+      ],
+      "dependencies": {
+        "MTGLDebug/MRC": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "MRC",
+      "public_header_files": [
+        "MTGLDebug/Core/MTGLDebug_GL.h",
+        "MTGLDebug/Core/MTGLDebug_Platform.h"
+      ],
+      "source_files": "MTGLDebug/Core/*.{hpp,cpp,h,mm,c,m}",
+      "ios": {
+        "frameworks": [
+          "OpenGLES",
+          "CoreVideo",
+          "AVFoundation",
+          "CoreMedia",
+          "AudioToolbox",
+          "CoreGraphics"
+        ]
+      },
+      "requires_arc": false,
+      "libraries": "c++",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+        "CLANG_CXX_LIBRARY": "libc++"
+      }
+    }
+  ]
+}
