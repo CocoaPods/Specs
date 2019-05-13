@@ -1,0 +1,94 @@
+{
+  "name": "TensorIO",
+  "version": "0.7.4",
+  "summary": "An Objective-C and Swift wrapper for TensorFlow Lite and TensorFlow.",
+  "description": "Perform inference with TensorFlow Lite or full TensorFlow models using all the conveniences of Objective-C or Swift",
+  "homepage": "https://github.com/doc-ai/tensorio-ios",
+  "license": {
+    "type": "Apache 2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "doc.ai": "philip@doc.ai"
+  },
+  "source": {
+    "git": "https://github.com/doc-ai/tensorio-ios.git",
+    "tag": "0.7.4"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreMedia",
+    "CoreVideo",
+    "Accelerate",
+    "VideoToolbox"
+  ],
+  "libraries": "c++",
+  "dependencies": {
+    "DSJSONSchemaValidation": [
+
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TensorIO/Classes/Core/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_CORE=1"
+      }
+    },
+    {
+      "name": "TFLite",
+      "dependencies": {
+        "TensorFlowLite": [
+
+        ],
+        "TensorIO/Core": [
+
+        ]
+      },
+      "source_files": "TensorIO/Classes/TFLite/**/*",
+      "resource_bundles": {
+        "TFLite": "TensorIO/Assets/TFLite/**/*"
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/TensorFlowLite/Frameworks/tensorflow_lite.framework/Headers\""
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_TFLITE=1"
+      }
+    },
+    {
+      "name": "TensorFlow",
+      "dependencies": {
+        "TensorIOTensorFlow": [
+
+        ],
+        "TensorIO/Core": [
+
+        ]
+      },
+      "source_files": "TensorIO/Classes/TensorFlow/**/*",
+      "private_header_files": [
+        "TensorIO/Classes/TensorFlow/SavedModel/**/*.h"
+      ],
+      "resource_bundles": {
+        "TensorFlow": "TensorIO/Assets/TensorFlow/**/*"
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/TensorIOTensorFlow/Frameworks/tensorflow.framework/Headers\"",
+        "OTHER_LDFLAGS": "-force_load \"${PODS_ROOT}/TensorIOTensorFlow/Frameworks/tensorflow.framework/tensorflow\" \"-L ${PODS_ROOT}/TensorIOTensorFlow/Frameworks/tensorflow.framework\""
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_TENSORFLOW=1"
+      }
+    }
+  ]
+}
