@@ -1,0 +1,79 @@
+{
+  "name": "TunnelKit",
+  "version": "1.7.1",
+  "summary": "Non-official OpenVPN client for Apple platforms.",
+  "homepage": "https://github.com/passepartoutvpn/tunnelkit",
+  "license": {
+    "type": "GPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Davide De Rosa": "keeshux@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/passepartoutvpn/tunnelkit.git",
+    "tag": "v1.7.1"
+  },
+  "swift_version": "5.0",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.11"
+  },
+  "default_subspecs": [
+    "Core",
+    "AppExtension"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TunnelKit/Sources/Core/**/*.{h,m,swift}",
+      "private_header_files": "TunnelKit/Sources/Core/**/*.h",
+      "preserve_paths": "TunnelKit/Sources/Core/*.modulemap",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-framework openssl",
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/TunnelKit/Sources/Core",
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "SwiftyBeaver": [
+
+        ],
+        "OpenSSL-Apple": [
+          "~> 1.1.0j.2"
+        ]
+      },
+      "libraries": "resolv"
+    },
+    {
+      "name": "AppExtension",
+      "source_files": "TunnelKit/Sources/AppExtension/**/*.swift",
+      "frameworks": "NetworkExtension",
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "dependencies": {
+        "TunnelKit/Core": [
+
+        ],
+        "SwiftyBeaver": [
+
+        ]
+      }
+    },
+    {
+      "name": "LZO",
+      "source_files": [
+        "TunnelKit/Sources/Core/LZO.h",
+        "TunnelKit/Sources/Core/Errors.{h,m}",
+        "TunnelKit/Sources/LZO/**/*lzo*.{h,m,c}"
+      ],
+      "private_header_files": [
+        "TunnelKit/Sources/Core/LZO.h",
+        "TunnelKit/Sources/LZO/lib/*lzo*.h"
+      ],
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      }
+    }
+  ]
+}
