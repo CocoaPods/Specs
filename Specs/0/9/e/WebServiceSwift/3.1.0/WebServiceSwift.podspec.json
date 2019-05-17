@@ -1,0 +1,62 @@
+{
+  "name": "WebServiceSwift",
+  "version": "3.1.0",
+  "summary": "Network layer as Service.",
+  "description": "Written in Swift.\nNetwork layer as Service. \nContained simple cache storages (on disk as files, used CoreData or in memory).\nContained mock endpoints for test response without API.",
+  "homepage": "https://github.com/ProVir/WebServiceSwift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ViR (Vitaliy Korotkiy)": "admin@provir.ru"
+  },
+  "source": {
+    "git": "https://github.com/ProVir/WebServiceSwift.git",
+    "tag": "3.1.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "General",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,swift}",
+      "public_header_files": "Source/*.h"
+    },
+    {
+      "name": "General",
+      "source_files": [
+        "Source/General/*.{swift,xcdatamodeld}",
+        "Source/General/*.xcdatamodeld/*.xcdatamodel"
+      ],
+      "resources": [
+        "Source/General/*.xcdatamodeld",
+        "Source/General/*.xcdatamodeld/*.xcdatamodel"
+      ],
+      "preserve_paths": "Source/General/*.xcdatamodeld",
+      "frameworks": "CoreData",
+      "dependencies": {
+        "WebServiceSwift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Alamofire",
+      "source_files": "Source/Alamofire/*.swift",
+      "dependencies": {
+        "WebServiceSwift/General": [
+
+        ],
+        "Alamofire": [
+
+        ]
+      }
+    }
+  ]
+}
