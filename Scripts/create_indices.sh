@@ -4,5 +4,6 @@ set -eo pipefail
 
 mkdir _site || true
 
-find Specs -mindepth 5 -maxdepth 5 -type d | cut -c13- | sort > _site/all_pods_versions.txt
+ruby Scripts/create_pods_and_versions_index.rb > _site/all_pods_versions.txt
+gzip < _site/all_pods_versions.txt > _site/all_pods_versions.gz
 cp Scripts/netlify_redirects.txt _site/_redirects
