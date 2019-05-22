@@ -1,0 +1,126 @@
+{
+  "name": "BuryingPoint",
+  "version": "0.0.1",
+  "summary": "埋点封装+阿里云日志数据上报集成",
+  "description": "无痕埋点封装和阿里云日志数据上报集成",
+  "homepage": "https://github.com/weskhen/BuryingPoint.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wujian": "wujian516411567@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/weskhen/BuryingPoint.git",
+    "tag": "0.0.1"
+  },
+  "module_name": "BuryingPoint",
+  "prefix_header_file": "Public/BuryingPoint/BuryingPoint.pch",
+  "dependencies": {
+    "Protobuf": [
+      "3.6.1"
+    ],
+    "LBaseDB": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+  },
+  "weak_frameworks": "UserNotifications",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "QuartzCore",
+    "CoreTelephony"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Util",
+      "source_files": "Public/BuryingPoint/Util/*.{h,m}"
+    },
+    {
+      "name": "Const",
+      "source_files": "Public/BuryingPoint/Const/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "Upload",
+      "source_files": "Public/BuryingPoint/Upload/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Model": [
+
+        ],
+        "BuryingPoint/Const": [
+
+        ],
+        "Protobuf": [
+
+        ],
+        "YYModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "Model",
+      "source_files": "Public/BuryingPoint/Model/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Const": [
+
+        ],
+        "YYModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": "Public/BuryingPoint/Base/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Upload": [
+
+        ],
+        "BuryingPoint/DB": [
+
+        ],
+        "BuryingPoint/Const": [
+
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "Public/BuryingPoint/Category/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Base": [
+
+        ],
+        "BuryingPoint/Const": [
+
+        ]
+      }
+    },
+    {
+      "name": "DB",
+      "source_files": "Public/BuryingPoint/DB/*.{h,m}",
+      "dependencies": {
+        "BuryingPoint/Model": [
+
+        ],
+        "LBaseDB": [
+
+        ]
+      }
+    }
+  ]
+}
