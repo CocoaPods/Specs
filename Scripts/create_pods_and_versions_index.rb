@@ -2,7 +2,9 @@
 
 pods_and_versions = {}
 
-Dir['Specs/*/*/*/*/*'].each do |dir|
+enumerator = ARGV[0].nil? ? Dir['Specs/*/*/*/*/*'] : Dir["#{ARGV[0]}/*/*"]
+
+enumerator.each do |dir|
   pod, version = dir.split('/')[-2, 2]
   pods_and_versions[pod] ||= []
   pods_and_versions[pod] << version
