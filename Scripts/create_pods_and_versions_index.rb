@@ -19,3 +19,9 @@ shards.each do |shard, pods_versions|
     end
   end
 end
+
+File.open("#{ARGV[0]}/all_pods.txt", 'w') do |file|
+  shards.values.map(&:keys).flatten.sort.each do |pod|
+    file.puts pod
+  end
+end
