@@ -1,0 +1,57 @@
+{
+  "name": "VVSequelize",
+  "version": "0.3.0-beta7",
+  "summary": "基于sqlite3的ORM模型封装.",
+  "description": "基于sqlite3的ORM模型封装.",
+  "homepage": "https://github.com/pozi119/VVSequelize",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Valo Lee": "pozi119@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pozi119/VVSequelize.git",
+    "tag": "0.3.0-beta7"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "cipher",
+  "subspecs": [
+    {
+      "name": "system",
+      "dependencies": {
+        "VVSequelize/common": [
+
+        ]
+      },
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "cipher",
+      "dependencies": {
+        "VVSequelize/common": [
+
+        ],
+        "SQLCipher": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1",
+        "HEADER_SEARCH_PATHS": "SQLCipher"
+      }
+    },
+    {
+      "name": "common",
+      "source_files": "VVSequelize/Classes/**/*",
+      "public_header_files": "VVSequelize/Classes/**/*.h",
+      "resources": [
+        "VVSequelize/Assets/VVJieba.bundle",
+        "VVSequelize/Assets/VVPinYin.bundle"
+      ]
+    }
+  ]
+}
