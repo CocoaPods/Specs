@@ -1,7 +1,6 @@
 ## Scripts
 
-The two scripts are a part of updating CocoaPods to work with a CDN instead of only via
-`git` repos.
+The two scripts are a part of updating CocoaPods to work with a CDN instead of only via [`git` repos.
 
-- [`add_indexes.sh`](add_indexes.sh) - Adds an index for every Pod, this should probably only need to be used once.
-- [`add_incremental_index.sh`](add_incremental_index.sh) - Uses git to update only Pods which have changed in the given commit range.
+- [`netlify_deploy.sh`](netlify_deploy.sh) - Ran by the Netlify deploy script to generate a `_site` folder which is uploaded for CDN support
+- [`create_pods_and_versions_index.rb`](create_pods_and_versions_index.rb) - Echos out the podspecs and their versions for gziping
