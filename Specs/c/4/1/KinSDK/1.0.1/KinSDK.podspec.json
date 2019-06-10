@@ -1,0 +1,85 @@
+{
+  "name": "KinSDK",
+  "version": "1.0.1",
+  "license": {
+    "type": "Kin Ecosystem SDK License"
+  },
+  "authors": {
+    "Kin Foundation": "info@kin.org"
+  },
+  "summary": "Pod for the Kin SDK.",
+  "homepage": "https://github.com/kinecosystem/kin-sdk-ios",
+  "documentation_url": "https://kinecosystem.github.io/kin-website-docs/docs/quick-start/hi-kin-ios",
+  "social_media_url": "https://twitter.com/kin_foundation",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/kinecosystem/kin-sdk-ios.git",
+    "tag": "1.0.1"
+  },
+  "source_files": [
+    "KinSDK/KinSDK/Core/**/*.swift",
+    "KinSDK/KinSDK/ThirdParty/SHA256.swift",
+    "KinSDK/KinSDK/ThirdParty/keychain-swift/KeychainSwift/*.swift"
+  ],
+  "dependencies": {
+    "KinUtil": [
+      "0.1.0"
+    ],
+    "Sodium": [
+      "0.8.0"
+    ]
+  },
+  "default_subspecs": "Core",
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "KinSDK/KinSDK/Core/**/*.swift",
+        "KinSDK/KinSDK/ThirdParty/SHA256.swift",
+        "KinSDK/KinSDK/ThirdParty/keychain-swift/KeychainSwift/*.swift"
+      ],
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "requires_app_host": true,
+          "source_files": "KinSDK/KinSDKTests/Core/*.swift"
+        }
+      ],
+      "appspecs": [
+        {
+          "name": "SampleApp",
+          "source_files": "SampleApps/KinSDKSampleApp/**/*"
+        }
+      ]
+    },
+    {
+      "name": "BackupRestore",
+      "source_files": "KinSDK/KinSDK/Modules/BackupRestore/**/*.{strings,swift}",
+      "resources": "KinSDK/KinSDK/Modules/BackupRestore/Assets.xcassets",
+      "dependencies": {
+        "KinSDK/Core": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "requires_app_host": true,
+          "source_files": "KinSDK/KinSDKTests/Modules/BackupRestore/*.swift"
+        }
+      ],
+      "appspecs": [
+        {
+          "name": "SampleApp",
+          "source_files": "SampleApps/KinBackupRestoreSampleApp/**/*"
+        }
+      ]
+    }
+  ]
+}
