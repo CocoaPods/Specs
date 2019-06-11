@@ -1,0 +1,668 @@
+{
+  "name": "MTHawkeye",
+  "version": "0.11.3",
+  "summary": "Profiling/Debugging assist tools for iOS.",
+  "description": "MTHawkeye is profiling/debugging assist tools for iOS. It's designed to help iOS developers improve development productivity and assist in optimizing the App performance.",
+  "homepage": "https://github.com/meitu/MTHawkeye",
+  "license": {
+    "type": "Copyright",
+    "text": "      © 2008-present, Meitu, Inc. All rights reserved.\n"
+  },
+  "authors": {
+    "Euan Chan": "cqh@meitu.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/meitu/MTHawkeye.git",
+    "tag": "0.11.3"
+  },
+  "default_subspecs": "DefaultPluginsExcludeGL",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "DefaultPlugins",
+      "dependencies": {
+        "MTHawkeye/DefaultPluginsWithoutLog": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      }
+    },
+    {
+      "name": "DefaultPluginsExcludeGL",
+      "dependencies": {
+        "MTHawkeye/DefaultPluginsWithoutLogAndGL": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      }
+    },
+    {
+      "name": "DefaultPluginsWithoutLog",
+      "dependencies": {
+        "MTHawkeye/DefaultPluginsWithoutLogAndGL": [
+
+        ],
+        "MTHawkeye/GraphicsPlugins": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MTH_INCLUDE_GLTRACE=1"
+      }
+    },
+    {
+      "name": "DefaultPluginsWithoutLogAndGL",
+      "public_header_files": "MTHawkeye/DefaultPlugins/**/*.{h}",
+      "source_files": "MTHawkeye/DefaultPlugins/**/*.{h,m,mm}",
+      "dependencies": {
+        "MTHawkeye/Core": [
+
+        ],
+        "MTHawkeye/UISkeleton": [
+
+        ],
+        "MTHawkeye/MemoryPlugins": [
+
+        ],
+        "MTHawkeye/TimeConsumingPlugins": [
+
+        ],
+        "MTHawkeye/EnergyPlugins": [
+
+        ],
+        "MTHawkeye/NetworkPlugins": [
+
+        ],
+        "MTHawkeye/StorageMonitorPlugins": [
+
+        ],
+        "MTHawkeye/FLEXExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "public_header_files": "MTHawkeye/Core/**/*.{h}",
+      "source_files": "MTHawkeye/Core/**/*.{h,m}",
+      "dependencies": {
+        "MTHawkeye/Utils": [
+
+        ]
+      }
+    },
+    {
+      "name": "UISkeleton",
+      "public_header_files": "MTHawkeye/UISkeleton/**/*.{h}",
+      "source_files": "MTHawkeye/UISkeleton/**/*.{h,m}",
+      "dependencies": {
+        "MTHawkeye/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "QuartzCore",
+        "UIKit",
+        "WebKit"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "Utils",
+      "public_header_files": "MTHawkeye/Utils/*.{h}",
+      "source_files": "MTHawkeye/Utils/**/*.{h,m,mm}",
+      "dependencies": {
+        "MTAppenderFile": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration"
+      ],
+      "exclude_files": "MTHawkeye/Utils/*.{cpp,hpp}",
+      "subspecs": [
+        {
+          "name": "cpp",
+          "public_header_files": "MTHawkeye/Utils/MTHawkeyeEmptyHeaderForCPP.hpp",
+          "source_files": "MTHawkeye/Utils/*.{cpp,hpp}",
+          "libraries": "stdc++"
+        }
+      ]
+    },
+    {
+      "name": "StackBacktrace",
+      "public_header_files": [
+        "MTHawkeye/StackBacktrace/MTHStackFrameSymbolicsRemote.h",
+        "MTHawkeye/StackBacktrace/mth_stack_backtrace.h"
+      ],
+      "source_files": "MTHawkeye/StackBacktrace/**/*.{h,m,mm,cpp}",
+      "dependencies": {
+        "MTHawkeye/Utils": [
+
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "MemoryPlugins",
+      "subspecs": [
+        {
+          "name": "LivingObjectSniffer",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/Core/*.{h}",
+              "source_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/Core/*.{h,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Utils": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/MemoryPlugins/LivingObjectSniffer/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/**/*.{h}",
+              "source_files": "MTHawkeye/MemoryPlugins/LivingObjectSniffer/**/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/MemoryPlugins/LivingObjectSniffer/HawkeyeCore": [
+
+                ],
+                "FBRetainCycleDetector": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Allocations",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/MemoryPlugins/Allocations/Core/MTHAllocations.h",
+              "source_files": "MTHawkeye/MemoryPlugins/Allocations/Core/*.{h,c,cpp,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Utils": [
+
+                ],
+                "MTHawkeye/StackBacktrace": [
+
+                ]
+              },
+              "libraries": "stdc++",
+              "exclude_files": "MTHawkeye/MemoryPlugins/Allocations/Core/NSObject+MTHAllocTrack.{h,m}",
+              "subspecs": [
+                {
+                  "name": "no-arc",
+                  "requires_arc": false,
+                  "source_files": "MTHawkeye/MemoryPlugins/Allocations/Core/NSObject+MTHAllocTrack.{h,m}",
+                  "dependencies": {
+                    "MTHawkeye/Utils": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/MemoryPlugins/Allocations/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/MemoryPlugins/Allocations/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/MemoryPlugins/Allocations/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/MemoryPlugins/Allocations/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/MemoryPlugins/Allocations/HawkeyeUI/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/MemoryPlugins/Allocations/Core": [
+
+                ],
+                "MTHawkeye/MemoryPlugins/Allocations/HawkeyeCore": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TimeConsumingPlugins",
+      "subspecs": [
+        {
+          "name": "FPSTrace",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/Core/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/Core/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ]
+              },
+              "frameworks": "QuartzCore"
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/FPSTrace/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/FPSTrace/HawkeyeUI/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/FPSTrace/Core": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/FPSTrace/HawkeyeCore": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ANRTrace",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/Core/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/Core/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Utils": [
+
+                ],
+                "MTHawkeye/StackBacktrace": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/ANRTrace/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/ANRTrace/HawkeyeUI/*.{h,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/ANRTrace/HawkeyeCore": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ObjcCallTrace",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace/Core/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace/Core/*.{h,m,c}",
+              "dependencies": {
+                "MTHawkeye/Utils": [
+
+                ],
+                "fishhook": [
+                  "~> 0.2"
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace/Core": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "UITimeProfiler",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/Core/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/Core/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/HawkeyeUI/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/ObjcCallTrace": [
+
+                ],
+                "MTHawkeye/TimeConsumingPlugins/UITimeProfiler/HawkeyeCore": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EnergyPlugins",
+      "subspecs": [
+        {
+          "name": "CPUTrace",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/EnergyPlugins/CPUTrace/Core/MTHCPUTracePublicHeader.{h}",
+              "source_files": "MTHawkeye/EnergyPlugins/CPUTrace/Core/*.{h,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/StackBacktrace": [
+
+                ]
+              },
+              "libraries": "stdc++"
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/EnergyPlugins/CPUTrace/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/EnergyPlugins/CPUTrace/HawkeyeCore/*.{h,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/EnergyPlugins/CPUTrace/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/EnergyPlugins/CPUTrace/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/EnergyPlugins/CPUTrace/HawkeyeUI/*.{h,m,mm}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/EnergyPlugins/CPUTrace/HawkeyeCore": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GraphicsPlugins",
+      "subspecs": [
+        {
+          "name": "OpenGLTrace",
+          "public_header_files": "MTHawkeye/GraphicsPlugins/OpenGLTrace/**/*.{h}",
+          "source_files": "MTHawkeye/GraphicsPlugins/OpenGLTrace/**/*.{h,m}",
+          "dependencies": {
+            "MTGLDebug": [
+
+            ],
+            "MTHawkeye/UISkeleton": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "NetworkPlugins",
+      "subspecs": [
+        {
+          "name": "Monitor",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/NetworkPlugins/Monitor/Core/**/*.{h}",
+              "source_files": "MTHawkeye/NetworkPlugins/Monitor/Core/**/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ]
+              },
+              "frameworks": [
+                "ImageIO",
+                "CFNetwork"
+              ],
+              "libraries": "z"
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/NetworkPlugins/Monitor/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/NetworkPlugins/Monitor/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/NetworkPlugins/Monitor/Core": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Inspect",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/NetworkPlugins/Inspect/Core/*.{h}",
+              "source_files": "MTHawkeye/NetworkPlugins/Inspect/Core/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/NetworkPlugins/Monitor": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/NetworkPlugins/Inspect/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/NetworkPlugins/Inspect/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/NetworkPlugins/Inspect/Core": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "HawkeyeUI",
+          "public_header_files": "MTHawkeye/NetworkPlugins/HawkeyeUI/**/*.{h}",
+          "source_files": "MTHawkeye/NetworkPlugins/HawkeyeUI/**/*.{h,m}",
+          "dependencies": {
+            "MTHawkeye/NetworkPlugins/Monitor": [
+
+            ],
+            "MTHawkeye/NetworkPlugins/Inspect": [
+
+            ],
+            "MTHawkeye/UISkeleton": [
+
+            ],
+            "FLEX": [
+
+            ]
+          },
+          "libraries": "sqlite3",
+          "frameworks": "QuartzCore"
+        }
+      ]
+    },
+    {
+      "name": "StorageMonitorPlugins",
+      "subspecs": [
+        {
+          "name": "DirectoryWatcher",
+          "subspecs": [
+            {
+              "name": "Core",
+              "public_header_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/Core/*.{h}",
+              "source_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/Core/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Utils": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeCore",
+              "public_header_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/HawkeyeCore/*.{h}",
+              "source_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/HawkeyeCore/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/Core": [
+
+                ],
+                "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "HawkeyeUI",
+              "public_header_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/HawkeyeUI/*.{h}",
+              "source_files": "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/HawkeyeUI/*.{h,m}",
+              "dependencies": {
+                "MTHawkeye/UISkeleton": [
+
+                ],
+                "MTHawkeye/StorageMonitorPlugins/DirectoryWatcher/HawkeyeCore": [
+
+                ],
+                "MTHawkeye/FLEXExtension": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FLEXExtension",
+      "public_header_files": "MTHawkeye/FLEXExtension/**/*.{h}",
+      "source_files": "MTHawkeye/FLEXExtension/**/*.{h,m}",
+      "dependencies": {
+        "FLEX": [
+
+        ],
+        "MTHawkeye/UISkeleton": [
+
+        ]
+      },
+      "libraries": "sqlite3"
+    }
+  ]
+}
