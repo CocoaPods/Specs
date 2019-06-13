@@ -1,0 +1,64 @@
+{
+  "name": "OpenBidSDK",
+  "version": "1.2.1",
+  "summary": "The OpenBidSDK iOS SDK makes it easy to incorporate ads into iOS applications & monetize your applications with ease",
+  "homepage": "https://community.pubmatic.com/display/IS",
+  "license": {
+    "type": "Pubmatic Inc. license",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "PubMatic": "pm-library@pubmatic.com"
+  },
+  "source": {
+    "http": "https://repo.pubmatic.com/artifactory/public-repos/ios/openbid-sdk/1.2.1/openbid-sdk-1.2.1.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "OpenBid",
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "MessageUI",
+    "CoreLocation",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "vendored_frameworks": "Common/Common.framework",
+      "source_files": "Common/Headers/*.h",
+      "public_header_files": "Common/Headers/*.h"
+    },
+    {
+      "name": "Webrendering",
+      "dependencies": {
+        "OpenBidSDK/Common": [
+
+        ]
+      },
+      "source_files": "Webrendering/Headers/*.h",
+      "public_header_files": "Webrendering/Headers/*.h",
+      "vendored_frameworks": "Webrendering/Webrendering.framework",
+      "resources": "Webrendering/Resources/*.{js}"
+    },
+    {
+      "name": "OpenBid",
+      "dependencies": {
+        "OpenBidSDK/Webrendering": [
+
+        ]
+      },
+      "vendored_frameworks": "OpenBid/OpenBid.framework",
+      "source_files": "OpenBid/Headers/*.h",
+      "public_header_files": "OpenBid/Headers/*.h"
+    }
+  ]
+}
