@@ -1,0 +1,63 @@
+{
+  "name": "TexturedMaaku",
+  "version": "0.7.0",
+  "summary": "Native iOS CommonMark rendering in Swift using Texture and Maaku",
+  "description": "Native iOS CommonMark rendering in Swift using Texture (AsyncDisplayKit) and Maaku.",
+  "homepage": "https://github.com/KristopherGBaker/TexturedMaaku",
+  "license": "MIT",
+  "authors": {
+    "Kristopher Baker": "Kristopher Baker"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/KristopherGBaker/TexturedMaaku.git",
+    "tag": "0.7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift",
+      "dependencies": {
+        "Maaku/Core": [
+
+        ],
+        "Texture": [
+
+        ]
+      }
+    },
+    {
+      "name": "Plugins",
+      "source_files": "Sources/Plugins/**/*.swift",
+      "dependencies": {
+        "Maaku/Plugins": [
+
+        ],
+        "TexturedMaaku/Core": [
+
+        ],
+        "youtube-ios-player-helper": [
+
+        ]
+      }
+    },
+    {
+      "name": "SyntaxColors",
+      "dependencies": {
+        "Highlightr": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DTEXTURED_MAAKU_SYNTAX_COLORS",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) TEXTURED_MAAKU_SYNTAX_COLORS=1"
+      }
+    }
+  ]
+}
