@@ -1,0 +1,68 @@
+{
+  "name": "LLMPay",
+  "version": "4.0.4",
+  "summary": "连连支付统一网关支付SDK，LLMPay SDK with gateway_url",
+  "description": "LLMPaySDK是一个统一网关支付SDK，支持连连支付的认证支付、快捷支付、分期付、银行APP支付等支付方式， 支持短信、TouchID、FaceID等验证方式",
+  "homepage": "https://gitee.com/LLPayiOS/LLMPay",
+  "license": {
+    "type": "Copyright",
+    "text": "© 2003-2019 Lianlian Yintong Electronic Payment Co., Ltd. All rights reserved."
+  },
+  "authors": {
+    "LLPayiOSDev": "iosdev@lianlianpay.com"
+  },
+  "source": {
+    "git": "https://gitee.com/LLPayiOS/LLMPay.git",
+    "tag": "4.0.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "MPay",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": "LLMPay/Core/libLLPaySDKCore.a",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "MPay",
+      "vendored_libraries": "LLMPay/MPay/libLLMobilePay.a",
+      "public_header_files": "LLMPay/MPay/*.h",
+      "resources": "LLMPay/MPay/LLMPayResources.bundle",
+      "dependencies": {
+        "LLMPay/Core": [
+
+        ]
+      },
+      "source_files": "LLMPay/MPay/*.h"
+    },
+    {
+      "name": "EBank",
+      "vendored_libraries": "LLMPay/EBank/libLLEBankPay.a",
+      "public_header_files": "LLMPay/EBank/*.h",
+      "resources": "LLMPay/EBank/LLEBankResources.bundle",
+      "dependencies": {
+        "LLMPay/Core": [
+
+        ]
+      },
+      "source_files": "LLMPay/EBank/*.h"
+    },
+    {
+      "name": "Wechat",
+      "vendored_libraries": "LLMPay/Wechat/libLLMWeChat.a",
+      "dependencies": {
+        "LLMPay/MPay": [
+
+        ],
+        "WechatOpenSDK": [
+
+        ]
+      }
+    }
+  ]
+}
