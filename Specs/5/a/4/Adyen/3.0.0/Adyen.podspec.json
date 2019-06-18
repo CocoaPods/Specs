@@ -1,0 +1,72 @@
+{
+  "name": "Adyen",
+  "version": "3.0.0",
+  "summary": "Adyen Components for iOS",
+  "description": "Adyen Components for iOS allows you to accept in-app payments by providing you with the building blocks you need to create a checkout experience.",
+  "homepage": "https://adyen.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Adyen": "support@adyen.com"
+  },
+  "source": {
+    "git": "https://github.com/Adyen/adyen-ios.git",
+    "tag": "3.0.0"
+  },
+  "platforms": {
+    "ios": "10.3"
+  },
+  "swift_versions": "5.0",
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Card",
+    "DropIn"
+  ],
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Adyen/**/*.swift",
+      "resource_bundles": {
+        "Adyen": [
+          "Adyen/Assets/**/*.strings"
+        ]
+      }
+    },
+    {
+      "name": "DropIn",
+      "source_files": "AdyenDropIn/**/*.swift",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/Card": [
+
+        ]
+      }
+    },
+    {
+      "name": "Card",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/AdyenCard/Utilities/AdyenCSE"
+      },
+      "preserve_paths": "AdyenCard/Utilities/AdyenCSE/module.modulemap",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen3DS2": [
+
+        ]
+      },
+      "source_files": [
+        "AdyenCard/**/*.swift",
+        "AdyenCard/Utilities/AdyenCSE/*.{h,m}"
+      ],
+      "private_header_files": "AdyenCard/Utilities/AdyenCSE/*.h"
+    }
+  ]
+}
