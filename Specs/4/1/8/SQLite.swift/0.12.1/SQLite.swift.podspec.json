@@ -1,0 +1,88 @@
+{
+  "name": "SQLite.swift",
+  "version": "0.12.1",
+  "summary": "A type-safe, Swift-language layer over SQLite3 for iOS and macOS.",
+  "description": "SQLite.swift provides compile-time confidence in SQL statement syntax and\nintent.",
+  "homepage": "https://github.com/stephencelis/SQLite.swift",
+  "license": "MIT",
+  "authors": {
+    "Stephen Celis": "stephen@stephencelis.com"
+  },
+  "source": {
+    "git": "https://github.com/stephencelis/SQLite.swift.git",
+    "tag": "0.12.1"
+  },
+  "social_media_url": "https://twitter.com/stephencelis",
+  "module_name": "SQLite",
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.1",
+    "osx": "10.10",
+    "watchos": "2.2"
+  },
+  "default_subspecs": "standard",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": "Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}",
+      "exclude_files": "Sources/**/Cipher.swift",
+      "private_header_files": "Sources/SQLiteObjc/*.h",
+      "libraries": "sqlite3",
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/fixtures/*",
+          "source_files": "Tests/SQLiteTests/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "standalone",
+      "source_files": "Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}",
+      "exclude_files": "Sources/**/Cipher.swift",
+      "private_header_files": "Sources/SQLiteObjc/*.h",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSQLITE_SWIFT_STANDALONE"
+      },
+      "dependencies": {
+        "sqlite3": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/fixtures/*",
+          "source_files": "Tests/SQLiteTests/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "SQLCipher",
+      "source_files": "Sources/{SQLite,SQLiteObjc}/**/*.{c,h,m,swift}",
+      "private_header_files": "Sources/SQLiteObjc/*.h",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSQLITE_SWIFT_SQLCIPHER",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1"
+      },
+      "dependencies": {
+        "SQLCipher": [
+          ">= 3.4.0"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/fixtures/*",
+          "source_files": "Tests/SQLiteTests/*.swift"
+        }
+      ]
+    }
+  ]
+}
