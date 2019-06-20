@@ -1,0 +1,73 @@
+{
+  "name": "SmarterStreaming",
+  "summary": "大牛直播移动端SDK",
+  "homepage": "https://github.com/daniulive/SmarterStreaming",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "daniulive",
+  "version": "2019.06.19",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/wbcyclist/SmarterStreaming-SDK-iOS.git",
+    "tag": "2019.06.19"
+  },
+  "requires_arc": true,
+  "default_subspecs": "common",
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": [
+        "SmarterStreaming/Frameworks/Headers/nt_common_media_define.h",
+        "SmarterStreaming/Frameworks/Headers/nt_event_define.h"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "AssetsLibrary",
+        "AudioToolbox",
+        "AVFoundation",
+        "CoreMedia",
+        "Foundation",
+        "UIKit",
+        "VideoToolbox"
+      ],
+      "libraries": [
+        "bz2",
+        "c++",
+        "iconv",
+        "z"
+      ]
+    },
+    {
+      "name": "Player",
+      "frameworks": [
+        "GLKit",
+        "OpenGLES",
+        "QuartzCore"
+      ],
+      "source_files": "SmarterStreaming/Frameworks/Headers/SmartPlayerSDK.h",
+      "vendored_libraries": "SmarterStreaming/Frameworks/libSmartPlayerSDK.a",
+      "dependencies": {
+        "SmarterStreaming/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Publisher",
+      "source_files": [
+        "SmarterStreaming/Frameworks/Headers/SmartPublisherSDK.h",
+        "SmarterStreaming/Frameworks/Headers/SmartRTSPSeverSDK.h"
+      ],
+      "vendored_libraries": "SmarterStreaming/Frameworks/libSmartPublisherSDK.a",
+      "dependencies": {
+        "SmarterStreaming/common": [
+
+        ]
+      }
+    }
+  ]
+}
