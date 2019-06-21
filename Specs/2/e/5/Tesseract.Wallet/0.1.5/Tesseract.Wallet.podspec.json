@@ -1,0 +1,81 @@
+{
+  "name": "Tesseract.Wallet",
+  "version": "0.1.5",
+  "summary": "Tesseract Wallet SDK for Swift",
+  "description": "Tesseract DApps Platform multi-network Wallet implementation for Swift",
+  "homepage": "https://github.com/tesseract-one/Wallet.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/Wallet.swift.git",
+    "tag": "0.1.5",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/tesseract_one",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "module_name": "Wallet",
+  "swift_versions": [
+    "5.0",
+    "5.0"
+  ],
+  "default_subspecs": "Core",
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "script_phases": {
+        "name": "Build Rust Binary",
+        "script": "bash \"${PODS_TARGET_SRCROOT}/Keychain/build.sh\"",
+        "execution_position": "before_compile"
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "\"${PODS_TARGET_SRCROOT}\"",
+        "ENABLE_BITCODE": "NO"
+      },
+      "preserve_paths": "Keychain/**/*",
+      "source_files": "Sources/Wallet/**/*.swift",
+      "dependencies": {
+        "Serializable.swift": [
+          "~> 0.1"
+        ],
+        "SQLite.swift": [
+          "~> 0.12.0"
+        ],
+        "SQLiteMigrationManager.swift": [
+          "~> 0.7.0"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum",
+      "source_files": "Sources/Ethereum/**/*.swift",
+      "dependencies": {
+        "Tesseract.Wallet/Core": [
+
+        ],
+        "Tesseract.EthereumTypes": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "PromiseKit",
+      "source_files": "Sources/PromiseKit/**/*.swift",
+      "dependencies": {
+        "Tesseract.Wallet/Core": [
+
+        ],
+        "PromiseKit/CorePromise": [
+          "~> 6.8.0"
+        ]
+      }
+    }
+  ]
+}
