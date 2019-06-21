@@ -1,0 +1,58 @@
+{
+  "name": "MoltenGL",
+  "version": "0.23.0",
+  "summary": "MoltenVK will run your OpenGL ES 2.0 application or game on iOS or macOS using Metal — and faster!",
+  "description": "MoltenGL is an implementation of the OpenGL ES 2.0 API that runs on Apple's Metal graphics framework. MoltenGL provides many of the performance benefits of the Metal framework, while maintaining compliance with the proven OpenGL ES 2.0 API. And MoltenGL will continue to run your OpenGL ES application or game on future versions of iOS and macOS, should Apple remove OpenGL ES in the future.",
+  "homepage": "https://moltengl.com/",
+  "license": {
+    "type": "custom",
+    "file": "LICENSE.md"
+  },
+  "authors": "MoltenGL",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/allenlinli/moltengl.git",
+    "tag": "0.23.0"
+  },
+  "ios": {
+    "source_files": [
+      "MoltenGL/iOS/**/*.{h,m}",
+      "MoltenGLShaderConverter/iOS/**/*.{h,m}",
+      "MoltenGL/RedirectHeaders/include/**/*.h"
+    ],
+    "frameworks": [
+      "Metal",
+      "OpenGLES",
+      "UIKit",
+      "GLKit",
+      "QuartzCore"
+    ],
+    "libraries": "c++",
+    "vendored_frameworks": [
+      "MoltenGL/iOS/MoltenGL.framework",
+      "MoltenGLShaderConverter/iOS/MoltenGLShaderConverter.framework"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "CLANG_ENABLE_MODULES": "NO",
+    "ALWAYS_SEARCH_USER_PATHS": "YES",
+    "USER_HEADER_SEARCH_PATHS": "MoltenGL/RedirectHeaders/include/**/*",
+    "FRAMEWORK_SEARCH_PATHS": [
+      "MoltenGL/iOS",
+      "MoltenGLShaderConverter/iOS"
+    ],
+    "VALID_ARCHS": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "",
+    "ARCHS": "arm64 armv7",
+    "ONLY_ACTIVE_ARCH": "YES",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "SWIFT_VERSION": "4.0"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7"
+  }
+}
