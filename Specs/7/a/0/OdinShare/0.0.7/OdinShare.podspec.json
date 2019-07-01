@@ -1,0 +1,142 @@
+{
+  "name": "OdinShare",
+  "version": "0.0.7",
+  "summary": "奥丁分享SDK",
+  "description": "奥丁分享SDK,一行代码实现分享各大主流平台",
+  "homepage": "https://github.com/odindata/OdinShare.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "odindata": "odindata@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/odindata/OdinShare.git",
+    "tag": "0.0.7"
+  },
+  "frameworks": "CoreGraphics",
+  "libraries": "sqlite3",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "OdinShare/Core/*.framework"
+    },
+    {
+      "name": "UI",
+      "vendored_frameworks": "OdinShare/UI/OdinShareSDKUI.framework",
+      "resource_bundles": {
+        "ShareSDKUI": "OdinShare/UI/ShareSDKUI.bundle"
+      },
+      "dependencies": {
+        "OdinShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Social",
+      "subspecs": [
+        {
+          "name": "SocialWeChat",
+          "source_files": "OdinShare/Social/SocialWeChat/**/*.h",
+          "vendored_libraries": "OdinShare/Social/SocialWeChat/**/*.a",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony"
+          ],
+          "libraries": [
+            "sqlite3",
+            "c++",
+            "z"
+          ],
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SocialQQ",
+          "source_files": "OdinShare/Social/SocialQQ/*.h",
+          "vendored_frameworks": "OdinShare/Social/SocialQQ/QQSDK/*.framework",
+          "vendored_libraries": "OdinShare/Social/SocialQQ/*.a",
+          "frameworks": "SystemConfiguration",
+          "libraries": "c++",
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SocialSina",
+          "source_files": "OdinShare/Social/SocialSina/**/*.h",
+          "vendored_libraries": "OdinShare/Social/SocialSina/**/**/*.a",
+          "resources": "OdinShare/Social/SocialSina/**/**/*.bundle",
+          "frameworks": [
+            "Photos",
+            "SystemConfiguration",
+            "CoreTelephony",
+            "ImageIO"
+          ],
+          "libraries": [
+            "sqlite3",
+            "z"
+          ],
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SocialAliPay",
+          "source_files": "OdinShare/Social/SocialAliPay/**/*.h",
+          "vendored_libraries": "OdinShare/Social/SocialAliPay/**/*.a",
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SocialFacebook",
+          "source_files": "OdinShare/Social/SocialFacebook/*.h",
+          "vendored_libraries": "OdinShare/Social/SocialFacebook/*.a",
+          "vendored_frameworks": "OdinShare/Social/SocialFacebook/**/*.framework",
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SocialTwitter",
+          "source_files": "OdinShare/Social/SocialTwitter/*.h",
+          "vendored_libraries": "OdinShare/Social/SocialTwitter/*.a",
+          "vendored_frameworks": "OdinShare/Social/SocialTwitter/**/*.framework",
+          "frameworks": "CoreData",
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "SoicalInstagram",
+          "source_files": "OdinShare/Social/SoicalInstagram/*.h",
+          "vendored_libraries": "OdinShare/Social/SoicalInstagram/*.a",
+          "dependencies": {
+            "OdinShare/Core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
