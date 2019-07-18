@@ -1,0 +1,138 @@
+{
+  "name": "WLBaseViewController",
+  "version": "1.1.8",
+  "summary": "A Lib For vc.",
+  "description": "A Lib For vc.",
+  "homepage": "https://github.com/StoneStoneStoneWang/WLBaseViewController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "StoneStoneStoneWang": "yuanxingfu1314@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "source": {
+    "git": "https://github.com/StoneStoneStoneWang/WLBaseViewController.git",
+    "tag": "1.1.8"
+  },
+  "subspecs": [
+    {
+      "name": "WLOrientation",
+      "source_files": "Code/Orientation/*.{swift}"
+    },
+    {
+      "name": "WLConfig",
+      "source_files": "Code/Config/*.{swift}"
+    },
+    {
+      "name": "WLNavi",
+      "subspecs": [
+        {
+          "name": "WLNaviItem",
+          "source_files": "Code/BarButtonItem/*.{swift}",
+          "dependencies": {
+            "WLToolsKit/WLThen": [
+
+            ]
+          }
+        },
+        {
+          "name": "WLNaviConfig",
+          "source_files": "Code/Navi/Config/*.{swift}"
+        },
+        {
+          "name": "WLNaviVC",
+          "source_files": "Code/Navi/VC/*.{swift}",
+          "dependencies": {
+            "WLBaseViewController/WLNavi/WLNaviConfig": [
+
+            ],
+            "WLBaseViewController/WLNavi/WLNaviItem": [
+
+            ],
+            "WLToolsKit/WLColor": [
+
+            ],
+            "WLToolsKit/WLNaviBar": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WLTab",
+      "source_files": "Code/Tab/*.{swift}",
+      "dependencies": {
+        "WLToolsKit/WLColor": [
+
+        ],
+        "WLBaseViewController/WLConfig": [
+
+        ],
+        "WLBaseViewController/WLOrientation": [
+
+        ],
+        "WLBaseViewController/WLNavi/WLNaviVC": [
+
+        ]
+      }
+    },
+    {
+      "name": "WLBaseVC",
+      "source_files": "Code/Base/*.{swift}",
+      "dependencies": {
+        "WLBaseViewController/WLNavi/WLNaviVC": [
+
+        ],
+        "WLBaseViewController/WLConfig": [
+
+        ]
+      }
+    },
+    {
+      "name": "WLLoading",
+      "source_files": "Code/Loading/*.{swift}",
+      "dependencies": {
+        "WLToolsKit/WLCommon": [
+
+        ],
+        "WLToolsKit/WLThen": [
+
+        ],
+        "WLToolsKit/WLColor": [
+
+        ],
+        "WLBaseViewController/WLConfig": [
+
+        ],
+        "WLBaseViewController/WLBaseVC": [
+
+        ]
+      }
+    },
+    {
+      "name": "WLInner",
+      "source_files": "Code/Inner/*.{swift}",
+      "dependencies": {
+        "WLToolsKit/WLCommon": [
+
+        ],
+        "WLToolsKit/WLThen": [
+
+        ],
+        "WLBaseViewController/WLLoading": [
+
+        ]
+      }
+    }
+  ]
+}

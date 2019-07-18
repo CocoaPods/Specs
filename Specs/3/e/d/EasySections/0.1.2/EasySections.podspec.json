@@ -1,0 +1,24 @@
+{
+  "name": "EasySections",
+  "version": "0.1.2",
+  "summary": "Easy Sections is a tiny wrapper around UITableView which makes working with reocurring sections easier.",
+  "description": "Using EasySections, you can declare your table view sections implementing the already familiar UITableViewDelegate and UITableViewDataSource methods. Then you can easily mix these sections in your implementation.\nHere's how that looks like:\nYou make a subclass of AbstractSectionDelegate for each section in your table view.\n\nclass BlueSectionDelegate: AbstractSectionDelegate {\n\nvar array: [Int]\n\ninit(_ array: [Int]) {\nself.array = array\nsuper.init()\n}\n\noverride func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {\nreturn self.array.count\n}\n\noverride func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {\nvar blueCell = tableView.dequeueReusableCell(withIdentifier: \"blueCell\")\nif blueCell == nil {\nblueCell = UITableViewCell.init(style: .default, reuseIdentifier: \"blueCell\")\n}\nblueCell?.backgroundColor = .blue\nblueCell?.textLabel?.text = String(array[indexPath.row])\nreturn blueCell!\n}\n}\n\nclass RedSectionDelegate: AbstractSectionDelegate {\n\nvar array: [String]\n\ninit(_ array: [String]) {\nself.array = array\nsuper.init()\n}\n\noverride func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {\nreturn array.count\n}\n\noverride func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {\nvar redCell = tableView.dequeueReusableCell(withIdentifier: \"redCell\")\nif redCell == nil {\nredCell = UITableViewCell.init(style: .default, reuseIdentifier: \"redCell\")\n}\nredCell?.backgroundColor = .red\nredCell?.textLabel?.text = array[indexPath.row]\nreturn redCell!\n}\n\nfunc tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {\nreturn CGFloat((indexPath.row + 1) * 40)\n}\n}\n\nAnd then in your controller just do:\nredSectionDelegate = RedSectionDelegate.init([\"Should\", \"I\", \"Stay\", \"Or\", \"Should\", \"I\", \"go\"])\nblueSectionDelegate = BlueSectionDelegate.init([10, 20, 30, 40, 50])\nlet delegates: [AbstractSectionDelegate] = [redSectionDelegate, blueSectionDelegate]\ntableViewDelegate = MainTableViewDelegate.init(delegates)\ntableView.delegate = tableViewDelegate\ntableView.dataSource = tableViewDelegate\ntableView.reloadData()",
+  "homepage": "https://github.com/AndrejTrajkovski/EasySections",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AndrejTrajkovski": "andrej.trajkovski@hotmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/AndrejTrajkovski/EasySections.git",
+    "tag": "0.1.2"
+  },
+  "source_files": "EasySections/**/*.{swift}",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

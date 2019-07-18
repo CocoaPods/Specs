@@ -1,0 +1,104 @@
+{
+  "name": "SmarterStreaming",
+  "summary": "大牛直播移动端SDK",
+  "homepage": "https://github.com/daniulive/SmarterStreaming",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "daniulive",
+  "version": "2019.06.27",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/wbcyclist/SmarterStreaming-SDK-iOS.git",
+    "tag": "2019.06.27"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "default_subspecs": "common",
+  "subspecs": [
+    {
+      "name": "common",
+      "source_files": [
+        "SmarterStreaming/Headers/nt_common_media_define.h",
+        "SmarterStreaming/Headers/nt_event_define.h"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "AssetsLibrary",
+        "AudioToolbox",
+        "AVFoundation",
+        "CoreMedia",
+        "Foundation",
+        "UIKit",
+        "VideoToolbox"
+      ],
+      "libraries": [
+        "bz2",
+        "c++",
+        "iconv",
+        "z"
+      ]
+    },
+    {
+      "name": "Player",
+      "script_phases": {
+        "name": "UNZIP SmarterStreaming SDK",
+        "script": "cd ${PODS_ROOT}/SmarterStreaming/SmarterStreaming/Frameworks; for n in \"libSmartPlayerSDK.a\" \"libSmartPublisherSDK.a\" \"libSmartPublisherSDK_NO_GPUImage.a\"; do if [ -f $n ] && [ ! -x $n ]; then unzip -o $n; fi; done;",
+        "execution_position": "before_compile"
+      },
+      "frameworks": [
+        "GLKit",
+        "OpenGLES",
+        "QuartzCore"
+      ],
+      "source_files": "SmarterStreaming/Headers/SmartPlayerSDK.h",
+      "vendored_libraries": "SmarterStreaming/Frameworks/libSmartPlayerSDK.a",
+      "dependencies": {
+        "SmarterStreaming/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Publisher",
+      "script_phases": {
+        "name": "UNZIP SmarterStreaming SDK",
+        "script": "cd ${PODS_ROOT}/SmarterStreaming/SmarterStreaming/Frameworks; for n in \"libSmartPlayerSDK.a\" \"libSmartPublisherSDK.a\" \"libSmartPublisherSDK_NO_GPUImage.a\"; do if [ -f $n ] && [ ! -x $n ]; then unzip -o $n; fi; done;",
+        "execution_position": "before_compile"
+      },
+      "source_files": [
+        "SmarterStreaming/Headers/SmartPublisherSDK.h",
+        "SmarterStreaming/Headers/SmartRTSPSeverSDK.h"
+      ],
+      "vendored_libraries": "SmarterStreaming/Frameworks/libSmartPublisherSDK.a",
+      "dependencies": {
+        "SmarterStreaming/common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Publisher_NO_GPUImage",
+      "script_phases": {
+        "name": "UNZIP SmarterStreaming SDK",
+        "script": "cd ${PODS_ROOT}/SmarterStreaming/SmarterStreaming/Frameworks; for n in \"libSmartPlayerSDK.a\" \"libSmartPublisherSDK.a\" \"libSmartPublisherSDK_NO_GPUImage.a\"; do if [ -f $n ] && [ ! -x $n ]; then unzip -o $n; fi; done;",
+        "execution_position": "before_compile"
+      },
+      "source_files": [
+        "SmarterStreaming/Headers/SmartPublisherSDK.h",
+        "SmarterStreaming/Headers/SmartRTSPSeverSDK.h"
+      ],
+      "vendored_libraries": "SmarterStreaming/Frameworks/libSmartPublisherSDK_NO_GPUImage.a",
+      "dependencies": {
+        "SmarterStreaming/common": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "name": "DigiMeSDK",
+  "version": "2.5.1",
+  "summary": "digi.me iOS Consent Access SDK",
+  "homepage": "https://github.com/digime/digime-sdk-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "digi.me Ltd.": "ios@digi.me"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "dependencies": {
+    "Brotli": [
+
+    ],
+    "GZIP": [
+
+    ]
+  },
+  "swift_versions": "4.2",
+  "source": {
+    "git": "https://github.com/digime/digime-sdk-ios.git",
+    "branch": "2.5.1",
+    "tag": "2.5.1"
+  },
+  "default_subspecs": "Core",
+  "swift_version": "4.2",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "DigiMeSDK/Core/Classes/**/*.{h,m,swift}",
+        "DigiMeSDK/DigiMeSDK.h"
+      ],
+      "resources": [
+        "DigiMeSDK/Core/Assets/*.{der}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "CoreGraphics",
+        "Security",
+        "StoreKit"
+      ],
+      "private_header_files": [
+        "DigiMeSDK/Core/Classes/Network/DMEOperation.h",
+        "DigiMeSDK/Core/Classes/Network/DMERequestFactory.h",
+        "DigiMeSDK/Core/Classes/Utility/*.h",
+        "DigiMeSDK/Core/Classes/Security/DME*.h",
+        "DigiMeSDK/Core/Classes/DMEAuthorizationManager.h",
+        "DigiMeSDK/Core/Classes/DMEClient+Private.h",
+        "DigiMeSDK/Core/Classes/Entities/CASession+Private.h",
+        "DigiMeSDK/Core/Classes/DMEAPIClient+Private.h"
+      ]
+    },
+    {
+      "name": "Postbox",
+      "source_files": "DigiMeSDK/Postbox/Classes/**/*.{h,m,swift}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "private_header_files": "DigiMeSDK/Postbox/Classes/DMEPostboxManager.h",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DDigiMeSDKPostbox"
+      },
+      "dependencies": {
+        "DigiMeSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Repository",
+      "source_files": "DigiMeSDK/Repository/Classes/**/*.{h,m,swift}",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "DigiMeSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "GuestConsent",
+      "source_files": "DigiMeSDK/GuestConsent/Classes/**/*.{h,m,swift}",
+      "resources": [
+        "DigiMeSDK/Core/Assets/*.xcassets"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "private_header_files": "DigiMeSDK/GuestConsent/Classes/DMEGuestConsentManager.h",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DDigiMeSDKGuestConsent"
+      },
+      "dependencies": {
+        "DigiMeSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}

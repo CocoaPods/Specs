@@ -1,0 +1,84 @@
+{
+  "name": "EFNetworking",
+  "version": "1.0.1",
+  "summary": "EFNetworking，iOS网络层组件，支持POST/GET/PUT/DELETE等网络请求和上传下载及断点续传功能，自带网络缓存处理机制、灵活设置接口签名、自定义HEADER和公共参数等功能",
+  "homepage": "https://github.com/DandreYang/EFNetworking.git",
+  "license": "MIT",
+  "authors": {
+    "‘Dandre’": "mkshow@126.com"
+  },
+  "social_media_url": "https://github.com/DandreYang/EFNetworking.git",
+  "source": {
+    "git": "https://github.com/DandreYang/EFNetworking.git",
+    "tag": "1.0.1"
+  },
+  "source_files": "EFNetworking/Core/*.{h,m}",
+  "public_header_files": "EFNetworking/Core/*.h",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Categories",
+      "public_header_files": "EFNetworking/Core/Categories/**.h",
+      "source_files": "EFNetworking/Core/Categories/*.{h,m}"
+    },
+    {
+      "name": "Request",
+      "public_header_files": [
+        "EFNetworking/Core/Request/**.h",
+        "EFNetworking/Core/EFNHeader.h"
+      ],
+      "source_files": [
+        "EFNetworking/Core/Request/*.{h,m}",
+        "EFNetworking/Core/EFNHeader.h"
+      ],
+      "dependencies": {
+        "EFNetworking/Response": [
+
+        ]
+      }
+    },
+    {
+      "name": "Response",
+      "public_header_files": "EFNetworking/Core/Response/**.h",
+      "source_files": "EFNetworking/Core/Response/*.{h,m}"
+    },
+    {
+      "name": "CacheHelper",
+      "public_header_files": "EFNetworking/Core/CacheHelper/**.h",
+      "source_files": "EFNetworking/Core/CacheHelper/*.{h,m}",
+      "dependencies": {
+        "EFNetworking/Categories": [
+
+        ],
+        "EFNetworking/Request": [
+
+        ],
+        "EFNetworking/Response": [
+
+        ],
+        "YYCache": [
+          "~> 1.0.4"
+        ]
+      }
+    },
+    {
+      "name": "NetProxy",
+      "public_header_files": "EFNetworking/Core/NetProxy/**.h",
+      "source_files": "EFNetworking/Core/NetProxy/*.{h,m}",
+      "dependencies": {
+        "EFNetworking/Request": [
+
+        ],
+        "EFNetworking/Response": [
+
+        ],
+        "AFNetworking": [
+          "~> 3.0"
+        ]
+      }
+    }
+  ]
+}

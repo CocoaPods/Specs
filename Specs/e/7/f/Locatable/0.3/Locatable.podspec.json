@@ -1,0 +1,25 @@
+{
+  "name": "Locatable",
+  "version": "0.3",
+  "summary": "Locatable is a micro framework that leverages Property Wrappers to implement the Service Locator pattern, through a custom attribute @Locatable",
+  "description": "Locatable is a Swift micro framework that leverages Property Wrappers to implement the Service Locator pattern, through a custom attribute `@Locatable`.\n\nHere's an example of how it can be used:\n\nprotocol Servicing {\n    func action()\n}\n\nclass Service: Servicing {\n    func action() {\n        print(\"I'm performing a service 😊\")\n    }\n}\n\nLocator.register(Servicing.self, { return Service() })\n\nclass MyController {\n    @Locatable var service: Servicing\n    \n    func work() {\n        self.service.action()\n    }\n}\n\nlet controller = MyController()\n\ncontroller.work() // I'm performing a service 😊",
+  "homepage": "https://github.com/vincent-pradeilles/locatable",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vincent Pradeilles": "vin.pradeilles+locatable@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/vincent-pradeilles/locatable.git",
+    "tag": "0.3"
+  },
+  "swift_versions": "5.1",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "Foundation",
+  "source_files": "Locatable/Locatable/**/*.swift",
+  "swift_version": "5.1"
+}

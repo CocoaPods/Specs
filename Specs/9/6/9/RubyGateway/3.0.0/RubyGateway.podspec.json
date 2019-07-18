@@ -1,0 +1,39 @@
+{
+  "name": "RubyGateway",
+  "version": "3.0.0",
+  "authors": {
+    "John Fairhurst": "johnfairh@gmail.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/johnfairh/RubyGateway",
+  "source": {
+    "git": "https://github.com/johnfairh/RubyGateway.git",
+    "tag": "v3.0.0",
+    "submodules": true
+  },
+  "summary": "Embed Ruby in Swift: load Gems, run scripts, invoke APIs seamlessly in both directions.",
+  "description": "A Swift framework built on the Ruby C API that lets Swift\nprograms painlessly and safely run and interact with Ruby\nprograms.  Easily pass Swift datatypes into Ruby and turn\nRuby objects back into Swift types.\n\nThe framework lets you call any Ruby method from Swift,\nincluding passing Swift closures as blocks. It lets you\ndefine Ruby classes and methods that are implemented in\nSwift.",
+  "documentation_url": "https://johnfairh.github.io/RubyGateway/",
+  "source_files": [
+    "Sources/RubyGateway/*swift",
+    "Sources/RubyGatewayHelpers/**/*.{h,m}"
+  ],
+  "platforms": {
+    "osx": "10.14"
+  },
+  "swift_versions": "5",
+  "frameworks": "Foundation",
+  "preserve_paths": [
+    "CRuby/*",
+    "RubyGatewayHelpers/*"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "\"${PODS_ROOT}/RubyGateway/CRuby\" \"${PODS_ROOT}/RubyGateway/RubyGatewayHelpers\"",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/RubyGateway/CRuby\""
+  },
+  "prepare_command": "mkdir RubyGatewayHelpers\necho 'module RubyGatewayHelpers [system] {}' > RubyGatewayHelpers/module.modulemap",
+  "swift_version": "5"
+}

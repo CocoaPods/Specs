@@ -1,0 +1,86 @@
+{
+  "name": "StarHttp",
+  "version": "3.0.2",
+  "license": "BSD-3-Clause",
+  "summary": "Base Tech Lib",
+  "homepage": "https://m.startimestv.com/",
+  "authors": {
+    "StarTimes, Inc.": "zhihui.zhao@foxmail.com"
+  },
+  "source": {
+    "git": "http://10.0.250.70:8088/startimesapp/StarHttp.git",
+    "tag": "3.0.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "FlooNetwork",
+    "FlooDataDeserializer"
+  ],
+  "subspecs": [
+    {
+      "name": "FlooNetwork",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "source_files": "FlooNetwork/*.swift"
+      },
+      "frameworks": "Foundation",
+      "dependencies": {
+        "StarHttp/Moya": [
+
+        ],
+        "YYCache": [
+
+        ]
+      }
+    },
+    {
+      "name": "HandJSON",
+      "source_files": "HandJSON/**/*.swift",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "FlooDataDeserializer",
+      "source_files": "JSONDataDeserializer/*.swift",
+      "dependencies": {
+        "StarHttp/HandJSON": [
+
+        ],
+        "StarHttp/FlooNetwork": [
+
+        ]
+      }
+    },
+    {
+      "name": "Moya",
+      "source_files": [
+        "Moya/",
+        "Moya/Plugins/"
+      ],
+      "dependencies": {
+        "Alamofire": [
+          "~> 4.1"
+        ],
+        "Result": [
+          "~> 3.0"
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "RxMoya",
+      "source_files": "RxMoya/",
+      "dependencies": {
+        "StarHttp/Moya": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ]
+      }
+    }
+  ]
+}

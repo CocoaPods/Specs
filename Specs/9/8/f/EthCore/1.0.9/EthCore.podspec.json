@@ -1,0 +1,54 @@
+{
+  "name": "EthCore",
+  "version": "1.0.9",
+  "summary": "EthCore is a subset of CoreBitcoin in Objective-C.",
+  "description": "EthCore provides helpful functions for deriving and signing with Ethereum keychains.",
+  "homepage": "https://github.com/wjmelements/EthCore",
+  "license": "WTFPL",
+  "authors": {
+    "William Morriss": "wjmelements@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/wjmelements/EthCore.git",
+    "tag": "1.0.9"
+  },
+  "source_files": [
+    "EthCore",
+    "openssl/**/*.c",
+    "openssl/include/**/*.h"
+  ],
+  "exclude_files": [
+    "EthCore/**/*+Tests.{h,m}",
+    "EthCore/BTCScriptTestData.h"
+  ],
+  "public_header_files": [
+    "EthCore/*.h",
+    "openssl/include/openssl/*.h"
+  ],
+  "private_header_files": "openssl/include/internal/*.h",
+  "header_mappings_dir": ".",
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/EthCore/openssl/include\"",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/EthCore/openssl/include\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/src/**\" \"${PODS_ROOT}/EthCore/openssl/src/**\"",
+    "OTHER_CFLAGS": "$(inherited) -DOPENSSL_NO_SEED -DOPENSSL_NO_IDEA -DOPENSSL_NO_RC2 -DOPENSSL_NO_RC4 -DOPENSSL_NO_DES -DOPENSSL_NO_SM4 -DOPENSSL_NO_SM4 -DOPENSSL_NO_BF -DOPENSSL_NO_CHACHA -DOPENSSL_NO_ASYNC"
+  },
+  "frameworks": "Foundation",
+  "preserve_paths": [
+    "openssl/LICENSE",
+    "openssl/**/*.h"
+  ],
+  "dependencies": {
+    "ISO8601DateFormatter": [
+
+    ]
+  }
+}

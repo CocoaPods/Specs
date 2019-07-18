@@ -1,0 +1,54 @@
+{
+  "name": "Culqi",
+  "version": "2.1.1",
+  "summary": "Recibe pagos con tarjeta de crédito, débito y prepagadas de todas las marcas.",
+  "description": "Acepta pagos con tarjetas de crédito o débito, dándole a tu cliente la experiencia de compra más simple en tu página web y aplicación móvil.",
+  "homepage": "https://www.culqi.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Guillermo Sáenz": "gsaenz@proatomicdev.com"
+  },
+  "source": {
+    "git": "https://github.com/942v/culqi-ios.git",
+    "tag": "2.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Models",
+      "source_files": "Culqi/CLQ{BaseModelObject,ResponseHeaders,Error,Token,IssuerIdentificationNumber,CardIssuer,Client}.{h,m}",
+      "public_header_files": "Culqi/CLQ{BaseModelObject,ResponseHeaders,Error,Token,IssuerIdentificationNumber,CardIssuer,Client}.h"
+    },
+    {
+      "name": "Networking",
+      "dependencies": {
+        "Culqi/Models": [
+
+        ],
+        "AFNetworking": [
+
+        ]
+      },
+      "source_files": "Culqi/CLQ{HTTPSessionManager,WebServices}.{h,m}",
+      "public_header_files": "Culqi/CLQ{HTTPSessionManager,WebServices}.h"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "Culqi/Networking": [
+
+        ]
+      },
+      "source_files": "Culqi/Culqi.{h,m}",
+      "public_header_files": "Culqi/Culqi.h"
+    }
+  ]
+}

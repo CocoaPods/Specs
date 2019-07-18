@@ -1,0 +1,146 @@
+{
+  "name": "AirMapSDK",
+  "module_name": "AirMap",
+  "authors": "AirMap, Inc.",
+  "version": "3.0.0.beta.3",
+  "summary": "AirMap SDK for iOS & macOS",
+  "description": "Create Flights, Send Telemetry Data, Get Realtime Traffic Alerts.",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "homepage": "https://www.airmap.com/makers/",
+  "documentation_url": "https://developers.airmap.com/docs/getting-started-ios",
+  "social_media_url": "https://twitter.com/AirMapIO",
+  "source": {
+    "git": "https://github.com/AirMap/AirMapSDK-Swift.git",
+    "tag": "3.0.0.beta.3"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "frameworks": "Foundation",
+  "swift_version": "4.1",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11"
+  },
+  "default_subspecs": [
+    "Core",
+    "Traffic",
+    "Telemetry",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      },
+      "source_files": [
+        "Source/Core/**/*.{h,m,swift}",
+        "Source/Rx/*"
+      ],
+      "dependencies": {
+        "Alamofire": [
+
+        ],
+        "AppAuth": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "SwiftTurf": [
+
+        ],
+        "KeychainAccess": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ],
+        "RxSwiftExt": [
+          "~> 3.4"
+        ],
+        "RxCocoa": [
+          "~> 4.0"
+        ],
+        "Log": [
+
+        ]
+      },
+      "resources": [
+        "Resources/Core/*.{cer,pdf,xcassets}",
+        "Resources/Core/Localizations/**/*"
+      ]
+    },
+    {
+      "name": "UI",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DAIRMAP_UI"
+      },
+      "platforms": {
+        "ios": "9.0"
+      },
+      "frameworks": "UIKit",
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "PhoneNumberKit": [
+
+        ],
+        "RxDataSources": [
+
+        ],
+        "Mapbox-iOS-SDK": [
+          "<4.0"
+        ]
+      },
+      "source_files": "Source/UI/**/{*.swift}",
+      "resources": [
+        "Resources/UI/*.{xcassets}",
+        "Resources/UI/Localizations/**/*"
+      ]
+    },
+    {
+      "name": "Traffic",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DAIRMAP_TRAFFIC"
+      },
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "SwiftMQTT": [
+          ">3.0.0",
+          "~> 3.0"
+        ]
+      },
+      "source_files": "Source/Traffic/*"
+    },
+    {
+      "name": "Telemetry",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DAIRMAP_TELEMETRY"
+      },
+      "dependencies": {
+        "AirMapSDK/Core": [
+
+        ],
+        "CocoaAsyncSocket": [
+
+        ],
+        "CryptoSwift": [
+          "~> 0.10.0"
+        ],
+        "ProtocolBuffers-Swift": [
+          "~> 4.0.6"
+        ]
+      },
+      "source_files": "Source/Telemetry/*"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "name": "JGSourceBase",
+  "version": "1.0.0",
+  "summary": "JGSourceCode 通用定义、功能模块。iOS项目常用功能，系统UIAlertController便捷方法封装(原项目：JGActionSheetAlert/JGAlertController)，Reachability网络状态监听(原项目：JGNetworkReachability)，Loading HUD显示，Toast显示。",
+  "description": "JGSourceCode 通用定义、功能模块。iOS项目常用功能，系统UIAlertController便捷方法封装(原项目：JGActionSheetAlert/JGAlertController)，Reachability网络状态监听(原项目：JGNetworkReachability)，Loading HUD显示，Toast显示。\n\n功能包括：\n\n    Base\n        1、常用宏定义、常用警告消除、SwizzledMethod的严谨实现\n        2、通用日志控制功能\n        3、字符串、URL常用方法\n        4、Block循环引用常用定义weak、strong快捷处理\n        5、NSDictionary便捷取指定类型值方法\n        6、NSJSONSerialization便捷方法封装\n        7、UIColor便捷方法封装\n    \n    AlertController\n        原项目：JGActionSheetAlert => https://github.com/dengni8023/JGActionSheetAlert.git\n        原项目：JGAlertController => https://github.com/dengni8023/JGAlertController.git\n        1、UIAlertController便捷方法封装\n    \n    Reachability\n        原项目：JGNetworkReachability => https://github.com/dengni8023/JGNetworkReachability.git\n        1、网络状态获取、监听，支持多监听者\n        \n    LoadingHUD\n        1、显示Loading HUD方法封装\n        \n    Toast\n        1、显示Toast",
+  "homepage": "https://github.com/dengni8023/JGSourceBase",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/dengni8023/JGSourceBase.git",
+    "tag": "1.0.0"
+  },
+  "authors": [
+    {
+      "等你8023": "945835664@qq.com"
+    },
+    {
+      "git": "https://github.com/dengni8023/JGSourceBase.git",
+      "tag": "1.0.0"
+    }
+  ],
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "JGSourceBase/*.{h,m}",
+  "public_header_files": "JGSourceBase/*.h",
+  "default_subspecs": "Base",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "JGSourceBase/Base/*.{h,m}",
+      "public_header_files": "JGSourceBase/Base/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "AlertController",
+      "source_files": "JGSourceBase/AlertController/*.{h,m}",
+      "public_header_files": "JGSourceBase/AlertController/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) JGS_AlertController"
+      }
+    },
+    {
+      "name": "Reachability",
+      "source_files": "JGSourceBase/Reachability/*.{h,m}",
+      "public_header_files": "JGSourceBase/Reachability/*.h",
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) JGS_Reachability"
+      }
+    },
+    {
+      "name": "Toast",
+      "source_files": "JGSourceBase/Toast/*.{h,m}",
+      "public_header_files": "JGSourceBase/Toast/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MBProgressHUD": [
+          "~> 1.1.0"
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) JGS_Toast"
+      }
+    },
+    {
+      "name": "LoadingHUD",
+      "source_files": "JGSourceBase/LoadingHUD/*.{h,m}",
+      "public_header_files": "JGSourceBase/LoadingHUD/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MBProgressHUD": [
+          "~> 1.1.0"
+        ],
+        "JGSourceBase/Base": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) JGS_LoadingHUD"
+      }
+    }
+  ]
+}

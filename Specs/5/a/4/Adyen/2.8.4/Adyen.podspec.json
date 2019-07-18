@@ -1,0 +1,114 @@
+{
+  "name": "Adyen",
+  "version": "2.8.4",
+  "summary": "Adyen SDK for iOS",
+  "description": "With Adyen SDK you can dynamically list all relevant payment methods for a specific transaction, so your shoppers can always pay with the method of their choice. The methods are listed based on the shopper's country, the transaction currency and amount.",
+  "homepage": "https://adyen.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Adyen": "support@adyen.com"
+  },
+  "source": {
+    "git": "https://github.com/Adyen/adyen-ios.git",
+    "tag": "2.8.4"
+  },
+  "platforms": {
+    "ios": "10.3"
+  },
+  "swift_versions": "5.0",
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Card",
+    "SEPA"
+  ],
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Adyen/**/*.swift",
+      "dependencies": {
+        "AdyenInternal": [
+          "2.8.4"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "AdyenApplePay/**/*.swift",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Card",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/AdyenCard/AdyenCSE"
+      },
+      "preserve_paths": "AdyenCard/AdyenCSE/module.modulemap",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen3DS2": [
+          "2.1.0-rc.1"
+        ]
+      },
+      "source_files": [
+        "AdyenCard/**/*.swift",
+        "AdyenCard/AdyenCSE/*.{h,m}"
+      ],
+      "private_header_files": "AdyenCard/AdyenCSE/*.h"
+    },
+    {
+      "name": "SEPA",
+      "source_files": "AdyenSEPA/**/*.swift",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatPay",
+      "source_files": [
+        "AdyenWeChatPay/**/*.swift",
+        "AdyenWeChatPay/WeChatSDK/*.h"
+      ],
+      "preserve_paths": "AdyenWeChatPay/WeChatSDK/module.modulemap",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      },
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/AdyenWeChatPay/WeChatSDK"
+      },
+      "private_header_files": "AdyenWeChatPay/WeChatSDK/*.h",
+      "vendored_libraries": "AdyenWeChatPay/WeChatSDK/libWeChatSDK.a",
+      "libraries": [
+        "z",
+        "stdc++",
+        "sqlite3.0"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "OpenInvoice",
+      "source_files": "AdyenOpenInvoice/**/*.swift",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      }
+    }
+  ]
+}

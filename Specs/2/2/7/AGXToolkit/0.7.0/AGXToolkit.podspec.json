@@ -1,0 +1,135 @@
+{
+  "name": "AGXToolkit",
+  "version": "0.7.0",
+  "summary": "Personal Toolkit.",
+  "description": "个人日常开发工具代码.\n\n  - AGXCore: 核心依赖包\n  - AGXRuntime: 运行时工具包\n  - AGXJson: JSON工具包\n  - AGXLayout: 视图自动布局\n  - AGXData: 本地数据存取工具包\n  - AGXWidget: 页面组件工具包\n  - AGXNetwork: 网络访问工具包\n  - AGXGcode: 条形码/二维码解析工具包\n  - AGXWidgetGcode: 页面组件扩展二维码/条形码解析\n  - AGXZip: Zip压缩/解压缩工具包",
+  "homepage": "https://github.com/CharLemAznable/AGXToolkit",
+  "license": {
+    "type": "MIT",
+    "file": "AGXToolkit/LICENSE"
+  },
+  "authors": "CharLemAznable",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": false,
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/AGXToolkit"
+  },
+  "source": {
+    "http": "https://raw.githubusercontent.com/CharLemAznable/AGXToolkit/master/Products/AGXToolkit-0.7.0.zip"
+  },
+  "subspecs": [
+    {
+      "name": "AGXCore",
+      "vendored_frameworks": "AGXToolkit/AGXCore.framework",
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics",
+        "UIKit",
+        "CoreText"
+      ],
+      "weak_frameworks": "UserNotifications"
+    },
+    {
+      "name": "AGXRuntime",
+      "vendored_frameworks": "AGXToolkit/AGXRuntime.framework",
+      "dependencies": {
+        "AGXToolkit/AGXCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "AGXJson",
+      "vendored_frameworks": "AGXToolkit/AGXJson.framework",
+      "dependencies": {
+        "AGXToolkit/AGXRuntime": [
+
+        ]
+      },
+      "frameworks": "CoreFoundation"
+    },
+    {
+      "name": "AGXLayout",
+      "vendored_frameworks": "AGXToolkit/AGXLayout.framework",
+      "dependencies": {
+        "AGXToolkit/AGXCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "AGXData",
+      "vendored_frameworks": "AGXToolkit/AGXData.framework",
+      "dependencies": {
+        "AGXToolkit/AGXJson": [
+
+        ]
+      },
+      "frameworks": "Security"
+    },
+    {
+      "name": "AGXWidget",
+      "vendored_frameworks": "AGXToolkit/AGXWidget.framework",
+      "dependencies": {
+        "AGXToolkit/AGXData": [
+
+        ]
+      },
+      "frameworks": [
+        "QuartzCore",
+        "CoreLocation",
+        "AssetsLibrary",
+        "AVFoundation",
+        "JavaScriptCore",
+        "Photos",
+        "PhotosUI",
+        "WebKit"
+      ],
+      "weak_frameworks": "LocalAuthentication"
+    },
+    {
+      "name": "AGXNetwork",
+      "vendored_frameworks": "AGXToolkit/AGXNetwork.framework",
+      "dependencies": {
+        "AGXToolkit/AGXJson": [
+
+        ]
+      },
+      "frameworks": "CoreBluetooth"
+    },
+    {
+      "name": "AGXGcode",
+      "vendored_frameworks": "AGXToolkit/AGXGcode.framework",
+      "dependencies": {
+        "AGXToolkit/AGXCore": [
+
+        ]
+      },
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "AGXWidgetGcode",
+      "vendored_frameworks": "AGXToolkit/AGXWidgetGcode.framework",
+      "dependencies": {
+        "AGXToolkit/AGXWidget": [
+
+        ],
+        "AGXToolkit/AGXGcode": [
+
+        ]
+      }
+    },
+    {
+      "name": "AGXZip",
+      "vendored_frameworks": "AGXToolkit/AGXZip.framework",
+      "dependencies": {
+        "AGXToolkit/AGXCore": [
+
+        ]
+      },
+      "libraries": "z"
+    }
+  ]
+}

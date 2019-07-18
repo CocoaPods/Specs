@@ -1,0 +1,366 @@
+{
+  "name": "ZFFramework",
+  "version": "0.8.0",
+  "summary": "cross-platform C++ app framework",
+  "description": "see http://ZFFramework.com for more info\n\nminimal steps to use in iOS with cocoapods to embed to existing projects:\n  1. in your Podfile:\n      pod 'ZFFramework'\n  2. add cpp files, with this as main entry\n      #include \"ZFUIKit.h\" // ZF module header\n      ZFMAIN_ENTRY(params)\n      {\n          // you cpp code\n          return 0;\n      }\n\nrecommended to use https://github.com/ZFFramework/ZFFramework/blob/master/tools/zfproj_creator/zfproj_creator.sh\nto create project files if you want to deploy to multiple platforms\n\npod list:\n  pod 'ZFFramework'              // include all modules\n  pod 'ZFFramework/ZF_MODULE_NAME'\nfor ZF_MODULE_NAME list, please refer to https://github.com/ZFFramework/ZFFramework/tree/master/ZF",
+  "homepage": "https://github.com/ZFFramework/ZFFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ZSaberLv0": "master@zsaber.com"
+  },
+  "source": {
+    "git": "https://github.com/ZFFrameworkDist/ZFFramework.git",
+    "tag": "0.8.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "libraries": "c++",
+  "prepare_command": "sh zfsetup.sh\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFAlgorithm.mm ZF/ZFAlgorithm/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFAlgorithm_impl.mm ZF/ZFAlgorithm_impl/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFCore.mm ZF/ZFCore/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFCore_impl.mm ZF/ZFCore_impl/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFLua.mm ZF/ZFLua/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFLua_impl.mm ZF/ZFLua_impl/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUIKit.mm ZF/ZFUIKit/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUIKit_impl.mm ZF/ZFUIKit_impl/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUIWebKit.mm ZF/ZFUIWebKit/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUIWebKit_impl.mm ZF/ZFUIWebKit_impl/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUIWidget.mm ZF/ZFUIWidget/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZFUtility.mm ZF/ZFUtility/zfsrc\nsh tools/common/unity_build.sh _tmp/cocoapods/zfgensrc_ZF_impl.mm ZF/ZF_impl/zfsrc",
+  "xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/Headers/Public/ZFFramework\"",
+    "OTHER_LDFLAGS": "-ObjC -force_load \"${TARGET_BUILD_DIR}/ZFFramework/libZFFramework.a\""
+  },
+  "preserve_paths": "**/*",
+  "subspecs": [
+    {
+      "name": "ZFCore",
+      "public_header_files": "ZF/ZFCore/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFCore/zfsrc",
+      "source_files": [
+        "ZF/ZFCore/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFCore/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFCore.mm"
+      ],
+      "resources": [
+        "ZF/ZFCore/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*"
+    },
+    {
+      "name": "ZFAlgorithm",
+      "public_header_files": "ZF/ZFAlgorithm/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFAlgorithm/zfsrc",
+      "source_files": [
+        "ZF/ZFAlgorithm/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFAlgorithm/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFAlgorithm.mm"
+      ],
+      "resources": [
+        "ZF/ZFAlgorithm/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFUtility",
+      "public_header_files": "ZF/ZFUtility/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUtility/zfsrc",
+      "source_files": [
+        "ZF/ZFUtility/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUtility/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUtility.mm"
+      ],
+      "resources": [
+        "ZF/ZFUtility/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFLua",
+      "public_header_files": "ZF/ZFLua/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFLua/zfsrc",
+      "source_files": [
+        "ZF/ZFLua/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFLua/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFLua.mm"
+      ],
+      "resources": [
+        "ZF/ZFLua/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFUIKit",
+      "public_header_files": "ZF/ZFUIKit/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUIKit/zfsrc",
+      "source_files": [
+        "ZF/ZFUIKit/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUIKit/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUIKit.mm"
+      ],
+      "resources": [
+        "ZF/ZFUIKit/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZFUtility": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFUIWidget",
+      "public_header_files": "ZF/ZFUIWidget/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUIWidget/zfsrc",
+      "source_files": [
+        "ZF/ZFUIWidget/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUIWidget/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUIWidget.mm"
+      ],
+      "resources": [
+        "ZF/ZFUIWidget/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZFUtility": [
+
+        ],
+        "ZFFramework/ZFUIKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFUIWebKit",
+      "public_header_files": "ZF/ZFUIWebKit/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUIWebKit/zfsrc",
+      "source_files": [
+        "ZF/ZFUIWebKit/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUIWebKit/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUIWebKit.mm"
+      ],
+      "resources": [
+        "ZF/ZFUIWebKit/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZFUtility": [
+
+        ],
+        "ZFFramework/ZFUIKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZF_impl",
+      "public_header_files": "ZF/ZF_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZF_impl/zfsrc",
+      "source_files": [
+        "ZF/ZF_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZF_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZF_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZF_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFCore_impl",
+      "public_header_files": "ZF/ZFCore_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFCore_impl/zfsrc",
+      "source_files": [
+        "ZF/ZFCore_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFCore_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFCore_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZFCore_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZF_impl": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFAlgorithm_impl",
+      "public_header_files": "ZF/ZFAlgorithm_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFAlgorithm_impl/zfsrc",
+      "source_files": [
+        "ZF/ZFAlgorithm_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFAlgorithm_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFAlgorithm_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZFAlgorithm_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZF_impl": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFLua_impl",
+      "public_header_files": "ZF/ZFLua_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFLua_impl/zfsrc",
+      "source_files": [
+        "ZF/ZFLua_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFLua_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFLua_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZFLua_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFLua": [
+
+        ],
+        "ZFFramework/ZF_impl": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZFUIKit_impl",
+      "public_header_files": "ZF/ZFUIKit_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUIKit_impl/zfsrc",
+      "source_files": [
+        "ZF/ZFUIKit_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUIKit_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUIKit_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZFUIKit_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZFUtility": [
+
+        ],
+        "ZFFramework/ZFUIKit": [
+
+        ],
+        "ZFFramework/ZF_impl": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "QuartzCore",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "ZFUIWebKit_impl",
+      "public_header_files": "ZF/ZFUIWebKit_impl/zfsrc/**/*.{h,hpp}",
+      "header_mappings_dir": "ZF/ZFUIWebKit_impl/zfsrc",
+      "source_files": [
+        "ZF/ZFUIWebKit_impl/zfsrc/**/*.{h,hpp}",
+        "ZF/ZFUIWebKit_impl/zfsrc_ext/**/*.{h,hpp,c,cpp,m,mm}",
+        "_tmp/cocoapods/zfgensrc_ZFUIWebKit_impl.mm"
+      ],
+      "resources": [
+        "ZF/ZFUIWebKit_impl/zfres"
+      ],
+      "exclude_files": "ZF/**/ZF_PUT_RES_FILES_HERE",
+      "preserve_paths": "**/*",
+      "dependencies": {
+        "ZFFramework/ZFCore": [
+
+        ],
+        "ZFFramework/ZFAlgorithm": [
+
+        ],
+        "ZFFramework/ZFUtility": [
+
+        ],
+        "ZFFramework/ZFUIKit": [
+
+        ],
+        "ZFFramework/ZFUIWebKit": [
+
+        ],
+        "ZFFramework/ZF_impl": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "QuartzCore",
+        "CoreGraphics",
+        "WebKit"
+      ]
+    }
+  ]
+}

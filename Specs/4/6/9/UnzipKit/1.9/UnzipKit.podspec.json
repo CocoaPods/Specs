@@ -1,0 +1,58 @@
+{
+  "name": "UnzipKit",
+  "version": "1.9",
+  "summary": "An Objective-C zlib wrapper for compressing and decompressing Zip files",
+  "license": "BSD",
+  "homepage": "https://github.com/abbeycode/UnzipKit",
+  "authors": {
+    "Dov Frankel": "dov@abbey-code.com"
+  },
+  "social_media_url": "https://twitter.com/dovfrankel",
+  "source": {
+    "git": "https://github.com/abbeycode/UnzipKit.git",
+    "tag": "1.9"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9"
+  },
+  "requires_arc": "Source/**/*",
+  "public_header_files": [
+    "Source/UnzipKit.h",
+    "Source/UZKArchive.h",
+    "Source/UZKFileInfo.h"
+  ],
+  "private_header_files": "Source/UZKFileInfo_Private.h",
+  "source_files": "Source/**/*.{h,m}",
+  "exclude_files": "Resources/**/Info.plist",
+  "resource_bundles": {
+    "UnzipKitResources": [
+      "Resources/**/*"
+    ]
+  },
+  "libraries": "z",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/*.{h,m}",
+      "exclude_files": "Tests/ExtractFilesTests.m",
+      "resources": [
+        "Tests/Test Data"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -Wno-unguarded-availability"
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "minizip-lib",
+      "private_header_files": "Lib/MiniZip/*.h",
+      "source_files": "Lib/MiniZip/*.{h,c}",
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -Wno-comma -Wno-strict-prototypes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "name": "CCLTIMSDK",
+  "version": "0.0.3",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "腾讯云通SDK合集",
+  "authors": {
+    "BY": "gushaokui"
+  },
+  "homepage": "http://192.168.110.22/Pods/CCLTIMSDK",
+  "source": {
+    "git": "http://192.168.110.22/Pods/CCLTIMSDK.git",
+    "tag": "0.0.3"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreTelephony",
+    "UIKit",
+    "Foundation",
+    "VideoToolbox",
+    "AVFoundation",
+    "CoreMedia"
+  ],
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "stdc++",
+    "z",
+    "iconv",
+    "resolv"
+  ],
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": [
+    "Base",
+    "Message",
+    "Group",
+    "Friendship",
+    "QALHttp",
+    "TXRTMP",
+    "UGC"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": [
+        "CCLTIMSDK/ImSDK.framework",
+        "CCLTIMSDK/QALSDK.framework",
+        "CCLTIMSDK/TLSSDK.framework"
+      ]
+    },
+    {
+      "name": "Message",
+      "vendored_frameworks": "CCLTIMSDK/IMMessageExt.framework",
+      "dependencies": {
+        "CCLTIMSDK/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Group",
+      "vendored_frameworks": "CCLTIMSDK/IMGroupExt.framework",
+      "dependencies": {
+        "CCLTIMSDK/Base": [
+
+        ],
+        "CCLTIMSDK/Message": [
+
+        ]
+      }
+    },
+    {
+      "name": "Friendship",
+      "vendored_frameworks": "CCLTIMSDK/IMFriendshipExt.framework",
+      "dependencies": {
+        "CCLTIMSDK/Base": [
+
+        ],
+        "CCLTIMSDK/Message": [
+
+        ]
+      }
+    },
+    {
+      "name": "QALHttp",
+      "vendored_frameworks": "CCLTIMSDK/QALHttpSDK.framework",
+      "dependencies": {
+        "CCLTIMSDK/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "TXRTMP",
+      "vendored_frameworks": "CCLTIMSDK/TXRTMPSDK.framework"
+    },
+    {
+      "name": "UGC",
+      "vendored_frameworks": "CCLTIMSDK/IMUGCExt.framework",
+      "dependencies": {
+        "CCLTIMSDK/Friendship": [
+
+        ],
+        "CCLTIMSDK/TXRTMP": [
+
+        ]
+      }
+    }
+  ]
+}

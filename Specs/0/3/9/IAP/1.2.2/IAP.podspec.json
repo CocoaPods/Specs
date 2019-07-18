@@ -1,0 +1,55 @@
+{
+  "name": "IAP",
+  "version": "1.2.2",
+  "summary": "IAP",
+  "description": "iOS In App Purchase helper",
+  "homepage": "https://github.com/wishWinds/IAP",
+  "license": "MIT",
+  "authors": {
+    "shupeng": "john.hi.gm@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/wishWinds/IAP.git",
+    "tag": "1.2.2"
+  },
+  "source_files": [
+    "IAP/*.{h,m}",
+    "IAP/openssl/include/**/*.h"
+  ],
+  "exclude_files": "IAP/Local",
+  "public_header_files": [
+    "IAP/IAP.h",
+    "IAP/LocalReceiptValidator.h",
+    "IAP/RMAppReceipt.h"
+  ],
+  "resources": "IAP/AppleIncRootCertificate.cer",
+  "vendored_libraries": [
+    "IAP/openssl/libcrypto.a",
+    "IAP/openssl/libssl.a"
+  ],
+  "private_header_files": "IAP/openssl/include/**/*.h",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/IAP/openssl/include"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "SystemServices": [
+
+    ],
+    "BlocksKit/Core": [
+
+    ],
+    "BlocksKit/DynamicDelegate": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "IAPDelegateTempate",
+      "resources": "IAP/IAPDelegateTemplate/*.{h,m}"
+    }
+  ]
+}

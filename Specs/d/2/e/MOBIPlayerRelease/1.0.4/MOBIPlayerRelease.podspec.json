@@ -1,0 +1,36 @@
+{
+  "name": "MOBIPlayerRelease",
+  "version": "1.0.4",
+  "summary": "Description of MOBIPlayer Framework.",
+  "description": "A bigger description of MOBIPlayer Framework.",
+  "homepage": "https://mobiotics.com",
+  "license": {
+    "type": "MIT",
+    "text": "The MIT license (MIT) \\n Copyright (c) Sasikumar <sasikumar.d@mobiotics.com>."
+  },
+  "authors": {
+    "Sasikumar": "sasikumar.d@mobiotics.com"
+  },
+  "source": {
+    "http": "https://firebasestorage.googleapis.com/v0/b/nucinema-vpremiere.appspot.com/o/Release%2FMOBIPlayerReleaseFramework.zip?alt=media&token=e6987a45-00c5-475a-aad7-9b92c68679fd"
+  },
+  "xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -DMOBIRELEASE"
+  },
+  "ios": {
+    "vendored_frameworks": "MOBIPlayerRelease.framework"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "script_phases": {
+    "name": "Code Sign In - Release",
+    "script": "pushd \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}\".app/Frameworks/MOBIPlayerRelease.framework/Frameworks/release/arm64-iphoneos\nfor EACH in *.framework; do\n/usr/bin/codesign --force --deep --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --entitlements \"${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent\" --timestamp=none $EACH\ndone\npopd\necho \"SUCCESS arm64-iphoneos\"\n\npushd \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}\".app/Frameworks/MOBIPlayerRelease.framework/Frameworks/release/armv7-iphoneos\nfor EACH in *.framework; do\n/usr/bin/codesign --force --deep --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --entitlements \"${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent\" --timestamp=none $EACH\ndone\npopd\necho \"SUCCESS armv7-iphoneos\"\n\npushd \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}\".app/Frameworks/MOBIPlayerRelease.framework/Frameworks/release/armv7s-iphoneos\nfor EACH in *.framework; do\n/usr/bin/codesign --force --deep --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" --entitlements \"${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent\" --timestamp=none $EACH\ndone\npopd\necho \"SUCCESS armv7s-iphoneos\"",
+    "execution_position": "after_compile"
+  },
+  "dependencies": {
+    "M3U8Kit": [
+
+    ]
+  }
+}

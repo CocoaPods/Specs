@@ -1,0 +1,150 @@
+{
+  "name": "iSimpleRest-iOS",
+  "version": "1.2.43",
+  "summary": "Rest service library",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "http://source.isimplelab.com/ios/isimple_ios_rest.git",
+  "authors": {
+    "Виктор": "v.dyachkov@isimplelab.com"
+  },
+  "source": {
+    "git": "http://source.isimplelab.com/ios/isimple_ios_rest.git",
+    "tag": "1.2.43"
+  },
+  "source_files": "Pod/Classes/ClientSDK.h",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Services",
+      "subspecs": [
+        {
+          "name": "Alert",
+          "source_files": "Pod/Classes/Services/Alert/*.*",
+          "public_header_files": "Pod/Classes/Services/Alert/AlertService.h",
+          "resource_bundles": {
+            "AlertControllerExt": "Pod/Classes/Services/Alert/*.png"
+          }
+        },
+        {
+          "name": "Crypto",
+          "source_files": "Pod/Classes/Services/Crypto/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/Crypto/*.{h}"
+        },
+        {
+          "name": "DataStorage",
+          "source_files": "Pod/Classes/Services/DataStorage/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/DataStorage/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Services/Crypto": [
+
+            ],
+            "iSimpleRest-iOS/Services/Utils": [
+
+            ]
+          }
+        },
+        {
+          "name": "Rest",
+          "source_files": "Pod/Classes/Services/Rest/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/Rest/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Services/Crypto": [
+
+            ],
+            "iSimpleRest-iOS/Services/DataStorage": [
+
+            ]
+          }
+        },
+        {
+          "name": "Biometric",
+          "source_files": "Pod/Classes/Services/Biometric/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/Biometric/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Services/DataStorage": [
+
+            ]
+          }
+        },
+        {
+          "name": "Certificate",
+          "source_files": "Pod/Classes/Services/Certificate/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/Certificate/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Models/Certificate": [
+
+            ],
+            "iSimpleRest-iOS/Services/Rest": [
+
+            ],
+            "iSimpleRest-iOS/Services/Utils": [
+
+            ]
+          }
+        },
+        {
+          "name": "Utils",
+          "source_files": "Pod/Classes/Services/Utils/*.{h,m}",
+          "public_header_files": "Pod/Classes/Services/Utils/*.{h}"
+        }
+      ]
+    },
+    {
+      "name": "Models",
+      "subspecs": [
+        {
+          "name": "ModelParser",
+          "source_files": "Pod/Classes/Models/ModelParser/*.{h,m}",
+          "public_header_files": "Pod/Classes/Models/ModelParser/*.{h}"
+        },
+        {
+          "name": "Organization",
+          "source_files": "Pod/Classes/Models/Organization/*.{h,m}",
+          "public_header_files": "Pod/Classes/Models/Organization/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Models/ModelParser": [
+
+            ]
+          }
+        },
+        {
+          "name": "Products",
+          "source_files": "Pod/Classes/Models/Products/*.{h,m}",
+          "public_header_files": "Pod/Classes/Models/Products/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Models/ModelParser": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "AdditionalInfo",
+              "source_files": "Pod/Classes/Models/Products/AdditionalInfo/*.{h,m}",
+              "public_header_files": "Pod/Classes/Models/Products/AdditionalInfo/*.{h}",
+              "dependencies": {
+                "iSimpleRest-iOS/Models/ModelParser": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Certificate",
+          "source_files": "Pod/Classes/Models/Certificate/*.{h,m}",
+          "public_header_files": "Pod/Classes/Models/Certificate/*.{h}",
+          "dependencies": {
+            "iSimpleRest-iOS/Models/ModelParser": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

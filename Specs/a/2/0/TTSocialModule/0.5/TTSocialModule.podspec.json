@@ -1,0 +1,80 @@
+{
+  "name": "TTSocialModule",
+  "version": "0.5",
+  "summary": "简单封装第三方平台的分享功能",
+  "description": "封装「微信」「微博」等第三方平台SDK，目前支持分享功能。",
+  "homepage": "https://github.com/keleyundou/TTSocialModule",
+  "license": "MIT",
+  "authors": {
+    "ColaBean": "colabean720@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/keleyundou/TTSocialModule.git",
+    "tag": "0.5"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": [
+        "TTSocialModule/TT{Behavior,SocialDefine}.h",
+        "TTSocialModule/TT{SocialMessageObject,SocialUtil,SocialResponse}.{h,m}"
+      ],
+      "public_header_files": "TTSocialModule/TT{Behavior,SocialDefine,SocialMessageObject,SocialResponse}.h"
+    },
+    {
+      "name": "Shared",
+      "source_files": "TTSocialModule/Shared",
+      "private_header_files": "TTSocialModule/Shared/*.h",
+      "dependencies": {
+        "TTSocialModule/Base": [
+
+        ],
+        "WechatOpenSDK": [
+          "~> 1.8.4"
+        ],
+        "Weibo_SDK": [
+          "~> 3.2.3"
+        ]
+      }
+    },
+    {
+      "name": "Handler",
+      "source_files": "TTSocialModule/Handler",
+      "private_header_files": "TTSocialModule/Handler/*.h",
+      "dependencies": {
+        "TTSocialModule/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "TTSocialModule/Shared": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Manager",
+      "source_files": "TTSocialModule/TTSocialManager.{h,m}",
+      "public_header_files": "TTSocialModule/TTSocialManager.h",
+      "dependencies": {
+        "TTSocialModule/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "TTSocialModule/Handler": [
+
+          ]
+        }
+      }
+    }
+  ]
+}

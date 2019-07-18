@@ -1,0 +1,42 @@
+{
+  "name": "IFLYMSCC",
+  "version": "1.1.3",
+  "summary": "讯飞语音",
+  "description": "科大讯飞 iOS",
+  "homepage": "https://github.com/chaopengCoder/IFLYSMC",
+  "license": "MIT",
+  "authors": {
+    "chaopengCoder": "chaopeng_coder@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/chaopengCoder/IFLYSMC.git",
+    "tag": "1.1.3"
+  },
+  "vendored_frameworks": "Source/iflyMSC.framework",
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/iflyMSCKit/**\""
+  },
+  "frameworks": [
+    "AVFoundation",
+    "SystemConfiguration",
+    "Foundation",
+    "CoreTelephony",
+    "AudioToolbox",
+    "UIKit",
+    "CoreLocation",
+    "Contacts",
+    "AddressBook",
+    "QuartzCore",
+    "CoreGraphics"
+  ],
+  "libraries": [
+    "z",
+    "c++",
+    "icucore"
+  ],
+  "requires_arc": false,
+  "prepare_command": "mkdir Source/iflyMSC.framework/Modules\ntouch Source/iflyMSC.framework/Modules/module.modulemap\ncat <<-EOF > Source/iflyMSC.framework/Modules/module.modulemap\nframework module iflyMSC {\n  header \"IFlyAudioSession.h\"\n  header \"IFlyDataUploader.h\"\n  header \"IFlyDebugLog.h\"\n  header \"IFlyISVDelegate.h\"\n  header \"IFlyISVRecognizer.h\"\n  header \"IFlyISVDelegate.h\"\n  header \"IFlyMSC.h\"\n  header \"IFlyPcmRecorder.h\"\n  header \"IFlyRecognizerView.h\"\n  header \"IFlyRecognizerViewDelegate.h\"\n  header \"IFlyResourceUtil.h\"\n  header \"IFlySetting.h\"\n  header \"IFlySpeechConstant.h\"\n  header \"IFlySpeechError.h\"\n  header \"IFlySpeechEvaluator.h\"\n  header \"IFlySpeechEvaluatorDelegate.h\"\n  header \"IFlySpeechEvent.h\"\n  header \"IFlySpeechRecognizer.h\"\n  header \"IFlySpeechRecognizerDelegate.h\"\n  header \"IFlySpeechSynthesizer.h\"\n  header \"IFlySpeechSynthesizerDelegate.h\"\n  header \"IFlySpeechUtility.h\"\n  header \"IFlyUserWords.h\"\n  header \"IFlyVoiceWakeuper.h\"\n  header \"IFlyVoiceWakeuperDelegate.h\"\n    export *\n    link \"z\"\n    link \"c++\"\n}\nEOF"
+}

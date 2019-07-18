@@ -1,0 +1,73 @@
+{
+  "name": "ESFramework",
+  "version": "3.14.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "An efficient, small framework for iOS, macOS, watchOS, and tvOS.",
+  "homepage": "https://github.com/ElfSundae/ESFramework",
+  "authors": {
+    "Elf Sundae": "https://0x123.com"
+  },
+  "source": {
+    "git": "https://github.com/ElfSundae/ESFramework.git",
+    "tag": "3.14.2"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": "ESFramework/ESFramework.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ESFramework/Core/**/*.{h,m}",
+      "frameworks": "CoreGraphics"
+    },
+    {
+      "name": "Foundation",
+      "source_files": "ESFramework/Foundation/**/*.{h,m}",
+      "frameworks": "Security",
+      "dependencies": {
+        "ESFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.11",
+        "tvos": "9.0"
+      },
+      "source_files": "ESFramework/Network/**/*.{h,m}",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "9.0",
+        "tvos": "9.0"
+      },
+      "source_files": "ESFramework/UIKit/**/*.{h,m}",
+      "dependencies": {
+        "ESFramework/Foundation": [
+
+        ],
+        "ESFramework/Network": [
+
+        ],
+        "AFNetworking/Reachability": [
+          ">= 2.0"
+        ]
+      }
+    }
+  ]
+}

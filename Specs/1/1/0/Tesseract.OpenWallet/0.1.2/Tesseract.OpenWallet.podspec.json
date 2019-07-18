@@ -1,0 +1,90 @@
+{
+  "name": "Tesseract.OpenWallet",
+  "version": "0.1.2",
+  "summary": "Tesseract Open Wallet Protocol implementation for Swift",
+  "description": "Tesseract Plaftorm Open Wallet Protocol implementation for Swift",
+  "homepage": "https://github.com/tesseract-one/OpenWallet.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/OpenWallet.swift.git",
+    "tag": "0.1.2"
+  },
+  "social_media_url": "https://twitter.com/tesseract_one",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "module_name": "OpenWallet",
+  "default_subspecs": [
+    "Core",
+    "Client"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift"
+    },
+    {
+      "name": "Client",
+      "source_files": "Sources/Client/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wallet",
+      "source_files": "Sources/Wallet/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Ethereum.Core",
+      "source_files": "Sources/Ethereum/Core/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Core": [
+
+        ],
+        "Tesseract.EthereumTypes": [
+          "~> 0.1"
+        ],
+        "Serializable.swift": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "Ethereum",
+      "source_files": "Sources/Ethereum/Client/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Client": [
+
+        ],
+        "Tesseract.OpenWallet/Ethereum.Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wallet.Ethereum",
+      "source_files": "Sources/Ethereum/Wallet/**/*.swift",
+      "dependencies": {
+        "Tesseract.OpenWallet/Wallet": [
+
+        ],
+        "Tesseract.OpenWallet/Ethereum.Core": [
+
+        ]
+      }
+    }
+  ]
+}

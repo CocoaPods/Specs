@@ -1,0 +1,99 @@
+{
+  "name": "ALLKit",
+  "version": "1.0",
+  "summary": "Async List Layout Kit",
+  "homepage": "https://github.com/geor-kasapidi/ALLKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Georgy Kasapidi": "geor.kasapidi@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/geor-kasapidi/ALLKit.git",
+    "tag": "v1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "default_subspecs": [
+    "ListKit",
+    "StringBuilder"
+  ],
+  "subspecs": [
+    {
+      "name": "FlexBox",
+      "source_files": "Sources/FlexBox/*.swift",
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "libraries": "c++",
+      "dependencies": {
+        "Yoga": [
+          "1.14"
+        ]
+      }
+    },
+    {
+      "name": "Diff",
+      "source_files": "Sources/Diff/*.swift"
+    },
+    {
+      "name": "StringBuilder",
+      "source_files": "Sources/StringBuilder/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Layout",
+      "source_files": "Sources/Layout/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "ALLKit/FlexBox": [
+
+        ]
+      }
+    },
+    {
+      "name": "Support",
+      "source_files": "Sources/Support/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "ALLKit/Layout": [
+
+        ]
+      }
+    },
+    {
+      "name": "ListKit",
+      "source_files": "Sources/ListKit/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "ALLKit/Layout": [
+
+        ],
+        "ALLKit/Diff": [
+
+        ],
+        "ALLKit/Support": [
+
+        ]
+      }
+    }
+  ]
+}

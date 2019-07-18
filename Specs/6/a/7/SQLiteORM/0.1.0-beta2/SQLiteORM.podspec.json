@@ -1,0 +1,67 @@
+{
+  "name": "SQLiteORM",
+  "version": "0.1.0-beta2",
+  "summary": "The swift version of VVSequelize.",
+  "description": "The swift version of VVSequelize.",
+  "homepage": "https://github.com/pozi119/SQLiteORM",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Valo Lee": "pozi119@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pozi119/SQLiteORM.git",
+    "tag": "0.1.0-beta2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "system",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "swift_versions": "5.0",
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "system",
+      "dependencies": {
+        "SQLiteORM/common": [
+
+        ]
+      },
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "cipher",
+      "dependencies": {
+        "SQLiteORM/common": [
+
+        ],
+        "SQLCipher": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1",
+        "HEADER_SEARCH_PATHS": "SQLCipher"
+      }
+    },
+    {
+      "name": "common",
+      "source_files": "SQLiteORM/Classes/**/*",
+      "public_header_files": "SQLiteORM/Classes/**/*.h",
+      "resources": [
+        "SQLiteORM/Assets/Jieba.bundle",
+        "SQLiteORM/Assets/PinYin.bundle"
+      ],
+      "dependencies": {
+        "Runtime": [
+
+        ]
+      }
+    }
+  ]
+}

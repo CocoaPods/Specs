@@ -1,0 +1,123 @@
+{
+  "name": "AerisWeather",
+  "version": "3.1.5",
+  "summary": "Quickly integrate AerisWeather API data and AerisWeather Mapping Platform imagery into your iOS apps.",
+  "description": "The AerisWeather SDK for iOS allows a developer to quickly and easily add weather content and functionality to their iOS applications quickly and easily without having to code anything themselves. It utilizes the AerisWeather API and AerisWeather Mapping Platform backend for data loading and is built on top of an object mapping system that efficiently loads requested weather content into third-party iOS applications, greatly reducing the amount of code and development needed on the developer end.",
+  "homepage": "https://github.com/aerisweather/Aeris-iOS-Library",
+  "documentation_url": "http://www.aerisweather.com/support/docs/toolkits/aeris-ios-sdk/",
+  "social_media_url": "https://twitter.com/AerisWeather",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "AerisWeather, LLC": "http://aerisweather.com"
+  },
+  "source": {
+    "http": "https://cdn.aerisapi.com/sdk/ios/builds/aerisweather-ios-sdk-3.1.5.zip",
+    "flatten": true
+  },
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Data",
+  "subspecs": [
+    {
+      "name": "Core",
+      "header_dir": "AerisCore",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisCore.framework"
+      },
+      "tvos": {
+        "vendored_frameworks": "tvOS/AerisCore.framework"
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "CoreUI",
+      "header_dir": "AerisCoreUI",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisCoreUI.framework"
+      },
+      "tvos": {
+        "vendored_frameworks": "tvOS/AerisCoreUI.framework"
+      },
+      "frameworks": "UIKit",
+      "dependencies": {
+        "AerisWeather/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Data",
+      "header_dir": "AerisWeatherKit",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisWeatherKit.framework"
+      },
+      "tvos": {
+        "vendored_frameworks": "tvOS/AerisWeatherKit.framework"
+      },
+      "dependencies": {
+        "AerisWeather/CoreUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Maps",
+      "header_dir": "AerisMapKit",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisMapKit.framework"
+      },
+      "tvos": {
+        "vendored_frameworks": "tvOS/AerisMapKit.framework"
+      },
+      "frameworks": "MapKit",
+      "dependencies": {
+        "AerisWeather/Data": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapbox",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "header_dir": "AerisMapboxMapKit",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisMapboxMapKit.framework"
+      },
+      "dependencies": {
+        "Mapbox-iOS-SDK": [
+          "~> 4.0"
+        ],
+        "AerisWeather/Maps": [
+
+        ]
+      }
+    },
+    {
+      "name": "Google",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "**",
+      "header_dir": "AerisGoogleMapKit",
+      "ios": {
+        "vendored_frameworks": "iOS/AerisGoogleMapKit.framework"
+      },
+      "dependencies": {
+        "GoogleMaps": [
+          "~> 2.5"
+        ],
+        "AerisWeather/Maps": [
+
+        ]
+      }
+    }
+  ]
+}

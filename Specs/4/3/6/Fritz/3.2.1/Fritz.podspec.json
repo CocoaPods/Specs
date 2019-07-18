@@ -1,0 +1,146 @@
+{
+  "name": "Fritz",
+  "version": "3.2.1",
+  "summary": "Official Fritz SDK for Swift 5.0 and Objective-C",
+  "homepage": "https://fritz.ai",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Chris Kelly": "engineering@fritz.ai"
+  },
+  "source": {
+    "git": "https://github.com/fritzlabs/swift-framework.git",
+    "tag": "3.2.1"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "Accelerate",
+    "CoreImage",
+    "VideoToolbox"
+  ],
+  "weak_frameworks": [
+    "CoreML",
+    "Vision"
+  ],
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_version": "5.0",
+  "default_subspecs": "ManagedModel",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Frameworks/FritzCore.framework",
+        "Frameworks/Fritz.framework"
+      ]
+    },
+    {
+      "name": "ManagedModel",
+      "dependencies": {
+        "Fritz/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzManagedModel.framework",
+      "preserve_paths": "Frameworks/FritzManagedModel.framework/build-encrypted-model.sh"
+    },
+    {
+      "name": "CoreMLHelpers",
+      "vendored_frameworks": "Frameworks/CoreMLHelpers.framework"
+    },
+    {
+      "name": "Vision",
+      "dependencies": {
+        "Fritz/Core": [
+
+        ],
+        "Fritz/CoreMLHelpers": [
+
+        ],
+        "Fritz/ManagedModel": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzVision.framework"
+    },
+    {
+      "name": "VisionLabelModel",
+      "dependencies": {
+        "Fritz/Vision": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzVisionLabelModel.framework"
+    },
+    {
+      "name": "VisionObjectModel",
+      "dependencies": {
+        "Fritz/Vision": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzVisionObjectModel.framework"
+    },
+    {
+      "name": "VisionPoseModel",
+      "dependencies": {
+        "Fritz/Vision": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzVisionPoseModel.framework"
+    },
+    {
+      "name": "VisionStyleModel",
+      "subspecs": [
+        {
+          "name": "Paintings",
+          "dependencies": {
+            "Fritz/Vision": [
+
+            ]
+          },
+          "vendored_frameworks": "Frameworks/FritzVisionStyleModelPaintings.framework"
+        }
+      ]
+    },
+    {
+      "name": "VisionSegmentationModel",
+      "subspecs": [
+        {
+          "name": "People",
+          "dependencies": {
+            "Fritz/Vision": [
+
+            ]
+          },
+          "vendored_frameworks": "Frameworks/FritzVisionPeopleSegmentationModel.framework"
+        },
+        {
+          "name": "LivingRoom",
+          "dependencies": {
+            "Fritz/Vision": [
+
+            ]
+          },
+          "vendored_frameworks": "Frameworks/FritzVisionLivingRoomSegmentationModel.framework"
+        },
+        {
+          "name": "Outdoor",
+          "dependencies": {
+            "Fritz/Vision": [
+
+            ]
+          },
+          "vendored_frameworks": "Frameworks/FritzVisionOutdoorSegmentationModel.framework"
+        }
+      ]
+    }
+  ]
+}
