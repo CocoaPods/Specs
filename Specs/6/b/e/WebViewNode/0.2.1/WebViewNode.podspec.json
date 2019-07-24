@@ -1,0 +1,79 @@
+{
+  "name": "WebViewNode",
+  "version": "0.2.1",
+  "summary": "A simple and useful WebView framework for iOS development on Swift.",
+  "description": "A simple and useful WebView framework for iOS development on Swift. \nIt is based on the subclass of WKWebView that bound with a JavaScript bridge. \nAnd display supports for Texture(AsyncDisplayKit) with the custom web node.",
+  "homepage": "https://github.com/dklinzh/WebViewNode",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dklinzh": "linzhdk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dklinzh/WebViewNode.git",
+    "tag": "0.2.1"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "Web",
+    "JSBridge"
+  ],
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Web",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "source_files": "WebViewNode/Classes/Web/*",
+      "resources": "WebViewNode/Assets/Web.xcassets"
+    },
+    {
+      "name": "JSBridge",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "WebViewJavascriptBridge": [
+          "~> 6.0"
+        ],
+        "WebViewNode/Web": [
+
+        ]
+      },
+      "source_files": "WebViewNode/Classes/JSBridge/*",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D WebViewNode_JSBridge"
+      }
+    },
+    {
+      "name": "Node",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "Texture/Core": [
+          "~> 2.8"
+        ],
+        "WebViewNode/Web": [
+
+        ]
+      },
+      "source_files": "WebViewNode/Classes/Node/*",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D WebViewNode_Node"
+      }
+    }
+  ]
+}
