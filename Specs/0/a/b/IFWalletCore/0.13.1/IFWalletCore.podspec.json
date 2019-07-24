@@ -1,0 +1,46 @@
+{
+  "name": "IFWalletCore",
+  "version": "0.13.1",
+  "summary": "IFWallet core data structures and algorithms.",
+  "homepage": "https://github.com/ifwallet/wallet-core",
+  "license": "MIT",
+  "authors": {
+    "bibodeng": "bibodeng@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.12"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "http": "https://ifwallet-core.s3-ap-southeast-1.amazonaws.com/IFWalletCore-iOS-0.13.1.zip"
+  },
+  "preserve_paths": "build/ios/*.a",
+  "vendored_libraries": [
+    "build/ios/libprotobuf.a",
+    "build/ios/libTrezorCrypto.a",
+    "build/ios/libTrustWalletCore.a"
+  ],
+  "source_files": [
+    "include/**/*.h",
+    "swift/Sources/**/*.{swift,h,m,cpp}"
+  ],
+  "public_header_files": [
+    "include/**/*.h",
+    "swift/Sources/*.h"
+  ],
+  "libraries": "c++",
+  "xcconfig": {
+    "SYSTEM_HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/IFWalletCore/include",
+    "OTHER_LDFLAGS": "$(inherited) -fprofile-instr-generate"
+  },
+  "pod_target_xcconfig": {
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "dependencies": {
+    "SwiftProtobuf": [
+      "~> 1.5.0"
+    ]
+  },
+  "swift_version": "5.0"
+}
