@@ -1,0 +1,59 @@
+{
+  "name": "TrezorFirmwareCrypto",
+  "version": "0.1.0",
+  "summary": "Heavily optimized cryptography algorithms for iOS.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ooozws/trezor-firmware-crypto-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ooozws": "weisaizhang@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ooozws/trezor-firmware-crypto-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "prepare_command": "sed -i '' -e 's:ed25519-donna/::g' ./**/*.c\nsed -i '' -e 's:ed25519-donna/::g' ./**/*.h\nsed -i '' -e 's:USE_ETHEREUM 0:USE_ETHEREUM 1:g' crypto/options.h",
+  "module_map": "TrezorFirmwareCrypto.modulemap",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${PODS_ROOT}",
+    "OTHER_CFLAGS": "-O3 -std=c99 -DRAND_PLATFORM_INDEPENDENT",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/crypto\" \"${PODS_ROOT}/crypto/aes\" \"${PODS_ROOT}/crypto/chacha20poly1305\" \"${PODS_ROOT}/crypto/ed25519-donna\""
+  },
+  "source_files": [
+    "TrezorFirmwareCrypto.h",
+    "util/SecRandom.m",
+    "crypto/*.{c,h}",
+    "crypto/aes/*.{c,h}",
+    "crypto/chacha20poly1305/*.{c,h}",
+    "crypto/ed25519-donna/*.{c,h}"
+  ],
+  "private_header_files": [
+    "crypto/aes/aesopt.h",
+    "crypto/aes/aestab.h",
+    "crypto/ed25519-donna/curve25519-donna-scalarmult-base.h",
+    "crypto/ed25519-donna/ed25519-hash-custom-keccak.h",
+    "crypto/ed25519-donna/ed25519-hash-custom-sha3.h",
+    "crypto/ed25519-donna/ed25519-hash-custom.h",
+    "crypto/ed25519-donna/ed25519-keccak.h",
+    "crypto/ed25519-donna/ed25519-sha3.h",
+    "crypto/bip39_english.h",
+    "crypto/blake2_common.h",
+    "crypto/check_mem.h",
+    "crypto/macros.h",
+    "crypto/nem_serialize.h"
+  ],
+  "exclude_files": [
+    "crypto/aes/aestst*.{c,h}",
+    "crypto/gui/*.{c,h}",
+    "crypto/test*.{c,h}",
+    "crypto/tools/*.{c,h}"
+  ],
+  "preserve_paths": "crypto/*.{table}",
+  "libraries": "c"
+}
