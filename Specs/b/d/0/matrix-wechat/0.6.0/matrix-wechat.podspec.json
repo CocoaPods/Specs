@@ -1,0 +1,101 @@
+{
+  "name": "matrix-wechat",
+  "version": "0.6.0",
+  "summary": "Matrix for iOS/macOS is a performance probe tool developed and used by WeChat.",
+  "description": "Matrix for iOS/macOS is a performance probe tool developed and used by WeChat. \nIt is currently integrated into the APM (Application Performance Manage) platform inside WeChat. \nThe monitoring scope of the current tool includes: crash, lag, and out-of-memory, which includes the following two plugins:\n\n1.WCCrashBlockMonitorPlugin: Based on [KSCrash](https://github.com/kstenerud/KSCrash) framework, it features cutting-edge lag stack capture capabilities with crash cpature.\n\n2.WCMemoryStatPlugin: A performance-optimized out-of-memory monitoring tool that captures memory allocation and the callstack of an application's out-of-memory event.",
+  "homepage": "https://github.com/Tencent/matrix",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "johnzjchen": "johnzjchen@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/Tencent/matrix.git",
+    "tag": "V0.6.0"
+  },
+  "module_name": "Matrix",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "frameworks": [
+    "CoreFoundation",
+    "Foundation"
+  ],
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "osx": {
+    "frameworks": "AppKit"
+  },
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++1y",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "matrixNonARC1",
+      "requires_arc": false,
+      "source_files": "matrix/matrix-iOS/Matrix/Matrix/Util/MatrixBaseModel.{h,mm}",
+      "public_header_files": [
+        "matrix/matrix-iOS/Matrix/Matrix/Util/MatrixBaseModel.h"
+      ]
+    },
+    {
+      "name": "matrixARC",
+      "requires_arc": true,
+      "source_files": "matrix/matrix-iOS/Matrix/**/*.{h,m,mm,c,cpp}",
+      "exclude_files": [
+        "matrix/matrix-iOS/Matrix/Matrix/Util/MatrixBaseModel.{h,mm}",
+        "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryLogger/ObjectEvent/nsobject_hook.{h,mm}"
+      ],
+      "public_header_files": [
+        "matrix/matrix-iOS/Matrix/Matrix/matrix.h",
+        "matrix/matrix-iOS/Matrix/Matrix/MatrixFramework.h",
+        "matrix/matrix-iOS/Matrix/Matrix/AppReboot/MatrixAppRebootType.h",
+        "matrix/matrix-iOS/Matrix/Matrix/Issue/MatrixIssue.h",
+        "matrix/matrix-iOS/Matrix/Matrix/Plugin/*.{h}",
+        "matrix/matrix-iOS/Matrix/Matrix/Log/MatrixAdapter.h",
+        "matrix/matrix-iOS/Matrix/Matrix/Test/*.{h}",
+        "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryStatPlugin/WCMemoryStatConfig.h",
+        "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryStatPlugin/WCMemoryStatPlugin.h",
+        "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryStatPlugin/Record/WCMemoryStatModel.h",
+        "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryLogger/memory_stat_err_code.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/WCCrashBlockMonitorPlugin.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/WCCrashBlockMonitorPlugin+Upload.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/WCCrashBlockMonitorConfig.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/WCCrashBlockMonitorDelegate.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/Utility/WCCrashReportInfoUtil.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/Utility/WCCrashReportInterpreter.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/File/WCCrashBlockFileHandler.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/BlockMonitor/WCBlockTypeDef.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/CrashBlockPlugin/Main/BlockMonitor/WCBlockMonitorConfiguration.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/KSCrash/Recording/KSCrashReportWriter.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/KSCrash/Recording/Tools/KSMachineContext.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/KSCrash/Recording/Tools/KSThread.h",
+        "matrix/matrix-iOS/Matrix/WCCrashBlockMonitor/KSCrash/Recording/Tools/KSStackCursor.h"
+      ],
+      "dependencies": {
+        "matrix-wechat/matrixNonARC1": [
+
+        ]
+      }
+    },
+    {
+      "name": "matrixNonARC2",
+      "requires_arc": false,
+      "source_files": "matrix/matrix-iOS/Matrix/WCMemoryStat/MemoryLogger/ObjectEvent/nsobject_hook.{h,mm}",
+      "dependencies": {
+        "matrix-wechat/matrixARC": [
+
+        ]
+      }
+    }
+  ]
+}
