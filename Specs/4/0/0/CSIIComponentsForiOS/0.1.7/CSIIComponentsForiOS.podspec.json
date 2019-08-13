@@ -1,0 +1,95 @@
+{
+  "name": "CSIIComponentsForiOS",
+  "version": "0.1.7",
+  "summary": "CSIIComponentsForiOS is a pod that CSII iOS development tools, includes Request, RSAPasswordTextField, openssl, and other tool classes.",
+  "requires_arc": true,
+  "description": "科蓝金信iOS客户端原生组件库合辑，目前用于云南农信手机银行iOS客户端，负责原生请求、加密、以及与h5交互。CSIIComponentsForiOS is a pod that CSII iOS development tools, includes Request, RSAPasswordTextField, openssl, and other tool classes.",
+  "homepage": "https://github.com/yang0123shu/CSIIComponentsForiOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yang0123shu": "yang0123shu@163.com"
+  },
+  "source": {
+    "git": "https://github.com/yang0123shu/CSIIComponentsForiOS.git",
+    "tag": "0.1.7"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "dependencies": {
+    "MXHUDManager": [
+
+    ],
+    "GTMBase64": [
+
+    ],
+    "SDWebImage": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "BaseTool",
+      "source_files": "CSIIComponentsForiOS/BaseTool",
+      "ios": {
+        "frameworks": [
+          "Security",
+          "Foundation"
+        ]
+      },
+      "dependencies": {
+        "CSIIComponentsForiOS/openssl": [
+
+        ]
+      }
+    },
+    {
+      "name": "openssl",
+      "source_files": "CSIIComponentsForiOS/openssl",
+      "vendored_libraries": "CSIIComponentsForiOS/openssl/lib*.{a}"
+    },
+    {
+      "name": "MXNetworkTool",
+      "source_files": "CSIIComponentsForiOS/MXNetworkTool",
+      "ios": {
+        "frameworks": "WebKit"
+      },
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "CSIIComponentsForiOS/BaseTool": [
+
+        ],
+        "CSIIComponentsForiOS/CSIIPasswordTextField": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSIIPasswordTextField",
+      "source_files": "CSIIComponentsForiOS/CSIIPasswordTextField",
+      "resource_bundles": {
+        "CSIIPasswordTextField": [
+          "CSIIComponentsForiOS/Resources/CSIIPasswordTextField.bundle"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "Security",
+          "AudioToolbox",
+          "WebKit"
+        ]
+      },
+      "dependencies": {
+        "CSIIComponentsForiOS/BaseTool": [
+
+        ]
+      }
+    }
+  ]
+}
