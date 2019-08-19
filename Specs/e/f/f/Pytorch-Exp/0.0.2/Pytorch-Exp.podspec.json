@@ -1,0 +1,49 @@
+{
+  "name": "Pytorch-Exp",
+  "version": "0.0.2",
+  "authors": "xta0",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/xta0/Pytorch-iOS",
+  "source": {
+    "git": "https://github.com/xta0/Pytorch-iOS.git",
+    "branch": "master"
+  },
+  "summary": "Pytorch iOS Beta",
+  "description": "An internal-only pod containing the Pytorch C++ code for iOS. This pod is not\nintended to be used directly.",
+  "platforms": {
+    "ios": "10.3"
+  },
+  "default_subspecs": "Core",
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "Pytorch-Exp/API": [
+
+        ]
+      },
+      "source_files": "src/*{.h,.m,.hh,.mm}",
+      "public_header_files": "src/Pytorch.h"
+    },
+    {
+      "name": "API",
+      "header_mappings_dir": "install/include/",
+      "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+        "CLANG_CXX_LIBRARY": "libc++"
+      },
+      "vendored_libraries": "install/lib/libtorch.a",
+      "libraries": [
+        "c++",
+        "stdc++"
+      ]
+    }
+  ]
+}
