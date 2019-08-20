@@ -1,0 +1,59 @@
+{
+  "name": "ParticleSetup",
+  "version": "0.9.1",
+  "summary": "Particle iOS Device Setup library for easy integration of setup process for Particle devices in your app",
+  "description": "Particle (formerly Spark) Device Setup library for integrating a customized setup process of Particle Photon (Wifi) devices in your app\nThis library will allow you to easily invoke a standalone setup wizard UI for setting up\nParticle devices (photon/P1) from within your app. Setup UI look & feel can be easily customized with custom brand\nlogos/colors/fonts/texts and instructional video. Further customization can be done by directly modifying the setup.storyboard file.",
+  "homepage": "https://github.com/spark/spark-setup-ios",
+  "screenshots": "http://i58.tinypic.com/15yhdeb.jpg",
+  "license": "Apache 2.0",
+  "authors": {
+    "Particle": "ido@particle.io"
+  },
+  "source": {
+    "git": "https://github.com/spark/particle-setup-ios.git",
+    "tag": "0.9.1"
+  },
+  "social_media_url": "https://twitter.com/particle",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "public_header_files": "ParticleSetup/*.h",
+  "source_files": "ParticleSetup/*.h",
+  "resource_bundles": {
+    "ParticleSetup": "ParticleSetupResources/**/*.{xcassets,storyboard}"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ParticleSetup/User/**/*.{h,m}",
+        "ParticleSetup/UI/**/*"
+      ],
+      "dependencies": {
+        "Particle-SDK": [
+
+        ],
+        "1PasswordExtension": [
+
+        ],
+        "ParticleSetup/Comm": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Comm",
+      "source_files": "ParticleSetup/Comm/**/*",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "Security"
+        ]
+      }
+    }
+  ]
+}
