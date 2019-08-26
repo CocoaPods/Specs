@@ -1,0 +1,58 @@
+{
+  "name": "RideOsApi",
+  "version": "0.1.1",
+  "summary": "iOS bindings for RideOSs API",
+  "description": "iOS bindings for RideOS's API",
+  "homepage": "https://github.com/rideOS/rideos-api-ios",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rideOS": "support@rideos.ai"
+  },
+  "source": {
+    "git": "https://github.com/rideOS/rideos-api-ios.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "dependencies": {
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.13.0"
+    ]
+  },
+  "source_files": "RideOsApi/**/*",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": "RideOsApiProto/**/*.pbobjc.{h,m}",
+      "header_mappings_dir": "RideOsApiProto",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": "RideOsApiProto/**/*.pbrpc.{h,m}",
+      "header_mappings_dir": "RideOsApiProto",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "RideOsApi/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
