@@ -1,0 +1,56 @@
+{
+  "name": "ZRouter",
+  "version": "1.1.1",
+  "summary": "Interface-Oriented iOS Swift router for discovering modules and injecting dependencies with protocol.",
+  "description": "Interface-Oriented iOS Swift router for discovering modules and injecting dependencies with protocol, designed for VIPER. The view router can perform all navigation types in UIKit through one method. The service router can discover service with protocol.",
+  "homepage": "https://github.com/Zuikyo/ZIKRouter",
+  "license": "MIT",
+  "authors": {
+    "Zuikyo": "zuikxyo@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0"
+  },
+  "swift_versions": "4.0",
+  "source": {
+    "git": "https://github.com/Zuikyo/ZIKRouter.git",
+    "tag": "swift-1.1.1"
+  },
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xcc -Wno-incomplete-umbrella"
+  },
+  "default_subspecs": [
+    "ServiceRouter",
+    "ViewRouter"
+  ],
+  "swift_version": "4.0",
+  "subspecs": [
+    {
+      "name": "ServiceRouter",
+      "dependencies": {
+        "ZIKRouter/ServiceRouter": [
+          ">= 1.1.1"
+        ]
+      },
+      "source_files": [
+        "ZRouter/*.swift",
+        "ZRouter/ServiceRouter/*.swift"
+      ]
+    },
+    {
+      "name": "ViewRouter",
+      "dependencies": {
+        "ZRouter/ServiceRouter": [
+
+        ],
+        "ZIKRouter/ViewRouter": [
+          ">= 1.1.1"
+        ]
+      },
+      "source_files": "ZRouter/ViewRouter/*.swift"
+    }
+  ]
+}
