@@ -1,0 +1,73 @@
+{
+  "name": "SCHTTPClient",
+  "version": "1.0.1",
+  "summary": "A modern HTTP client framework for iOS/OSX built on top of libcurl.",
+  "homepage": "https://github.com/debugly/SCHTTPClient.git",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "debugly": "qianlongxu@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/debugly/SCHTTPClient.git",
+    "tag": "1.0.1"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "ios": {
+    "preserve_paths": "External/libcurl.iOS"
+  },
+  "osx": {
+    "preserve_paths": "External/libcurl.OSX"
+  },
+  "subspecs": [
+    {
+      "name": "LibCurl",
+      "ios": {
+        "source_files": "External/libcurl.iOS/*.h",
+        "vendored_libraries": "External/libcurl.iOS/libcurl.iOS.a"
+      },
+      "osx": {
+        "source_files": "External/libcurl.OSX/*.h",
+        "vendored_libraries": [
+          "External/libcurl.OSX/libcrypto_Mac.a",
+          "External/libcurl.OSX/libcurl_Mac.a",
+          "External/libcurl.OSX/libnghttp2_Mac.a",
+          "External/libcurl.OSX/libssl_Mac.a"
+        ]
+      }
+    },
+    {
+      "name": "Client",
+      "source_files": "SCHTTPClient/**/*.{h,m}",
+      "libraries": "z",
+      "frameworks": [
+        "Security"
+      ],
+      "ios": {
+        "frameworks": [
+          "MobileCoreServices",
+          "UIKit"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "CoreServices",
+          "AppKit"
+        ]
+      },
+      "dependencies": {
+        "SCHTTPClient/LibCurl": [
+
+        ]
+      },
+      "private_header_files": "SCHTTPClient/Internal/*.h",
+      "prefix_header_contents": "#import <Availability.h>\n\n#if __IPHONE_OS_VERSION_MIN_REQUIRED\n    #import <MobileCoreServices/MobileCoreServices.h>\n#else\n    #import <CoreServices/CoreServices.h>\n#endif"
+    }
+  ]
+}
