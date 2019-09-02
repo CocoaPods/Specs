@@ -1,0 +1,68 @@
+{
+  "name": "Einstein",
+  "version": "0.4.0",
+  "source": {
+    "git": "https://github.com/ZhipingYang/Einstein.git",
+    "tag": "0.4.0"
+  },
+  "summary": "Einstein integrates the project and UItest through AccessibilityIdentified, and It supports chain function to make test coding understand easier and more concise",
+  "description": "This library have two parts,\nthe one supports assign AccessibilityIdentified to the UIElements easier and concise, \nanother one gets the elements by AccessibilityIdentified to writing uitest code in chain function way.\nhere we define EasyPredicate to avoid writing hard code when we use NSPredicate. \nin this way, EasyPredicate is more like OOP which we are familiar to use it.",
+  "homepage": "https://github.com/ZhipingYang/Einstein",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Yang": "xcodeyang@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.14"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "default_subspecs": [
+    "Identifier",
+    "UITest"
+  ],
+  "swift_version": "5.0",
+  "subspecs": [
+    {
+      "name": "Identifier",
+      "source_files": "class/identifier/*.swift",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      }
+    },
+    {
+      "name": "UITest",
+      "source_files": "class/uitest/**/*.swift",
+      "ios": {
+        "frameworks": [
+          "UIKit",
+          "XCTest"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "AppKit",
+          "XCTest"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "dependencies": {
+        "Einstein/Identifier": [
+
+        ],
+        "Then": [
+
+        ]
+      }
+    }
+  ]
+}
