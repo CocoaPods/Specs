@@ -1,0 +1,91 @@
+{
+  "name": "gjg-mopub-ios-sdk",
+  "module_name": "MoPub",
+  "version": "5.7.1.3",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/arkenthera/gjg-mopub-ios-sdk",
+  "authors": {
+    "MoPub": "support@mopub.com"
+  },
+  "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and native ads.",
+  "description": "MoPub is a hosted ad serving solution built specifically for mobile publishers.\n\nGrow your mobile advertising business with powerful ad management, optimization \n\nand reporting capabilities, and earn revenue by connecting to the world's largest \n\nmobile ad exchange. \n\n\nTo learn more or sign up for an account, go to http://www.mopub.com.",
+  "social_media_url": "https://twitter.com/mopub",
+  "source": {
+    "git": "https://github.com/arkenthera/gjg-mopub-ios-sdk.git",
+    "tag": "5.7.1.3"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreMedia",
+    "CoreTelephony",
+    "Foundation",
+    "MediaPlayer",
+    "QuartzCore",
+    "SystemConfiguration",
+    "UIKit",
+    "SafariServices"
+  ],
+  "weak_frameworks": [
+    "AdSupport",
+    "StoreKit",
+    "WebKit"
+  ],
+  "default_subspecs": "MoPubSDK",
+  "subspecs": [
+    {
+      "name": "MoPubSDK",
+      "dependencies": {
+        "gjg-mopub-ios-sdk/Core": [
+
+        ],
+        "gjg-mopub-ios-sdk/Avid": [
+
+        ],
+        "gjg-mopub-ios-sdk/Moat": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "MoPubSDK/**/*.{h,m}",
+      "resources": [
+        "MoPubSDK/**/*.{png,bundle,xib,nib}",
+        "MoPubSDK/**/MPAdapters.plist"
+      ],
+      "exclude_files": [
+        "MoPubSDK/Viewability/Moat",
+        "MoPubSDK/Viewability/Avid"
+      ]
+    },
+    {
+      "name": "Avid",
+      "dependencies": {
+        "gjg-mopub-ios-sdk/Core": [
+
+        ]
+      },
+      "source_files": "MoPubSDK/Viewability/Avid/*.{h,m}",
+      "vendored_libraries": "MoPubSDK/Viewability/Avid/*.{a}"
+    },
+    {
+      "name": "Moat",
+      "dependencies": {
+        "gjg-mopub-ios-sdk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MoPubSDK/Viewability/Moat/MPUBMoatMobileAppKit.framework",
+      "source_files": "MoPubSDK/Viewability/MOAT/*.{h,m}"
+    }
+  ]
+}
