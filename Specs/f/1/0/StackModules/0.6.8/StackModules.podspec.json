@@ -1,0 +1,64 @@
+{
+  "name": "StackModules",
+  "version": "0.6.8",
+  "summary": "Supported modules for Stack iOS products",
+  "description": "Supported modules for Stack iOS products. Used in Appodeal, BidMachine and DataCore",
+  "homepage": "http://www.appodeal.com",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackModules/v0.6.8/StackModules.zip"
+  },
+  "default_subspecs": "StackUIKit",
+  "swift_versions": "4.2",
+  "swift_version": "4.2",
+  "subspecs": [
+    {
+      "name": "StackFoundation",
+      "vendored_frameworks": "StackFoundation.framework",
+      "libraries": "z",
+      "frameworks": [
+        "SafariServices",
+        "StoreKit",
+        "WebKit",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "StackUIKit",
+      "vendored_frameworks": "StackUIKit.framework",
+      "dependencies": {
+        "StackModules/StackFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackConsentDialog",
+      "vendored_frameworks": "StackConsentDialog.framework",
+      "source_files": "Dummy.swift",
+      "dependencies": {
+        "StackModules/StackFoundation": [
+
+        ],
+        "StackModules/StackUIKit": [
+
+        ],
+        "PersonalizedAdConsent": [
+          "~> 1.0"
+        ]
+      }
+    }
+  ]
+}
