@@ -1,0 +1,29 @@
+{
+  "name": "shopAR",
+  "version": "1.5",
+  "summary": "shopAR enables retail-based iOS apps to easily integrate Augmented Reality product-viewing at the touch of a button.",
+  "screenshots": [
+    "./IMG_9023.JPG",
+    "./IMG_9024.JPG",
+    "./IMG_9025.JPG"
+  ],
+  "description": "shopAR for iOS\n\nOverview\n\t\nshopAR allows you to upload .scn files through our React app accessible at shoppar.herokuapp.com/. Files are stored by our API using AWS s3, and our CocoaPod enables interaction with these services for easy in-app retrieval and display.\n\nshopAR provides an example project that includes a ViewController that enables you to view .scn objects in Augmented Reality. If your app does not already have AR capabilities, instructions for easy integration of this file are below.\n\nPod Installation\n\n1. Add the following line to the Podfile:\n   pod \"ShopApp_Shopify\", \"~> 1.0\"\n2. Install the dependencies:\n   pod install\n\nAR ViewController Installation\n\n1. Drag ARPopUpViewController.swift into your build target directory.\n2. In Main.storyboard (or your app’s primary storyboard), add a new ViewController and set its class to ARPopUpViewController.\n3. Add the below tag to your app’s info.plist:\n   <key>NSCameraUsageDescription</key>\n   <string>For Augemented Reality</string>\n\nUsage\n\n1. Upload a .scn file at shoppar.herokuapp.com/\n2. Import shopAR atop your file and create an instance with var shop = shopAR()\n   **For the following steps, we highly recommend you closely follow the shopAR Example project included. There you can find code for the steps described here.**\n3. In your desired file’s viewDidLoad(), call shop.fetchObject(user_id, file_id) for each file_id that you uploaded online. Here, file_id refers to the exact name of the file you uploaded. User_id is a constant found in the shopAR example until login functionality is finalized at shoppar.herokuapp.com/.\n4. Save each returned url String from fetchObject(). All of this should be done in viewDidLoad().\n5. When an item’s button is pressed, create an instance of the ARPopUpViewController, pass it the desired url String, and present it",
+  "homepage": "https://github.com/thefishstick/shopAR",
+  "license": "MIT",
+  "authors": {
+    "Johan Todi": "johantodi1999@gmail.com",
+    "Max Model": "maxmodel99@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.3"
+  },
+  "source": {
+    "git": "https://github.com/thefishstick/shopAR.git",
+    "tag": "1.5"
+  },
+  "source_files": [
+    "shopAR",
+    "shopAR/**/*.{h,m}"
+  ],
+  "exclude_files": "shopAR/Exclude"
+}
