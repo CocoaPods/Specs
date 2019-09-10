@@ -1,0 +1,51 @@
+{
+  "name": "AdStir-Ads-SDK",
+  "version": "2.14.2",
+  "summary": "AdStir Ads SDK for iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2015-2019 UNITED, Inc. All Rights Reserved."
+  },
+  "homepage": "https://ad-stir.com",
+  "authors": "UNITED, Inc.",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "http": "https://dl.ad-stir.com/sdk/AdstirAdsSdkiOS-2.14.2.zip",
+    "sha256": "53180b6743582f88fadbcd45df56f59e81ef9792e2f790c71807385b8b547427"
+  },
+  "preserve_paths": "**/README.md",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "**/AdstirAds.framework",
+      "frameworks": [
+        "AdSupport",
+        "CoreTelephony",
+        "AVFoundation",
+        "CoreMedia",
+        "QuartzCore",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "AdMobMediationAdapter",
+      "dependencies": {
+        "AdStir-Ads-SDK/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      },
+      "vendored_frameworks": "**/AdstirAds.framework",
+      "vendored_libraries": "**/AdMobMediationAdapter/libAdMobMediationAdapter-AdstirAds.a"
+    }
+  ]
+}
