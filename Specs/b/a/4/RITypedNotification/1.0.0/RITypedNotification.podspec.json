@@ -1,0 +1,21 @@
+{
+  "name": "RITypedNotification",
+  "version": "1.0.0",
+  "summary": "RITypedNotification Library",
+  "description": "# TypedNotification\n\nThe `TypedNotification` microframework allows you to use `NotificationCenter` to post and receive strongly-typed notifications with associated data, without having to manually pack and unpack a `userInfo` dictionary.\n\nUsing a typed notification is simple. First, define a notification type:\n\n```\nstruct MyNotification: TypedNotification {\n    var value: String\n}\n```\n\nNext, use `NotificationCenter` to add an observer for that notification:\n\n```\nclass MyViewController: UIViewController {\n    private var token: NotificationToken?\n\n    override func viewDidLoad() {\n        super.viewDidLoad()\n\n        token = NotificationCenter.default.addObserver(for: MyNotification.self) { [weak self] (notification) in\n            self?.received(notification)\n        }\n    }\n\n    private func received(_ notification: MyNotification) {\n        print(notification.value)\n    }\n}\n```\n\nIn the example, `MyViewController` retains the `NotificationToken` returned by `NotificationCenter.addObserver()`. When the `MyViewController` instance is deallocated, the `NotificationToken` is deallocated and the observer is deregistered. **The `[weak self]` capture list is important. Without it, there _will_ be a retain cycle causing a memory leak.**\n\nFinally, use `NotificationCenter` to post notifications:\n\n```\nNotificationCenter.default.post(MyNotification(value: \"foobar\"), from: self)\n```",
+  "homepage": "https://www.rocketinsights.com",
+  "authors": "Paul Calnan",
+  "source": {
+    "git": "https://github.com/rocketinsights/RITypedNotification.git",
+    "tag": "1.0.0"
+  },
+  "license": {
+    "type": "MIT"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "Sources/TypedNotification/**/*.swift",
+  "swift_version": "5.0"
+}
