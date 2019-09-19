@@ -1,0 +1,55 @@
+{
+  "name": "Gini",
+  "version": "0.1.2",
+  "summary": "Gini library for scanning documents",
+  "description": "Gini provides an information extraction system for analyzing documents (e. g. invoices or\ncontracts), specifically information such as the document sender or the amount to pay in an invoice.",
+  "homepage": "https://www.gini.net/en/developer/",
+  "license": {
+    "type": "Private",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gini GmbH": "hello@gini.net"
+  },
+  "social_media_url": "https://twitter.com/Gini",
+  "source": {
+    "git": "https://github.com/gini/gini-ios.git",
+    "tag": "0.1.2"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "DocumentsAPI",
+  "swift_version": "5.0",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Gini/Tests/Classes/*.swift",
+      "resources": "Gini/Tests/Assets/*",
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "DocumentsAPI",
+      "source_files": "Gini/Classes/Documents/**/*"
+    },
+    {
+      "name": "Pinning",
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DPINNING_AVAILABLE"
+      },
+      "dependencies": {
+        "TrustKit": [
+          "~> 1.6"
+        ],
+        "Gini/DocumentsAPI": [
+
+        ]
+      },
+      "source_files": "Gini/Classes/Pinning/**/*"
+    }
+  ]
+}
