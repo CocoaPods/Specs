@@ -1,0 +1,64 @@
+{
+  "name": "IRPlayer",
+  "version": "0.1.6",
+  "summary": "A powerful video player of iOS.",
+  "description": "A powerful video player of iOS.",
+  "homepage": "https://github.com/irons163/IRPlayer.git",
+  "license": "MIT",
+  "authors": "irons163",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/irons163/IRPlayer.git",
+    "tag": "0.1.6"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include\" \"$(PODS_ROOT)/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers\"",
+    "USER_HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include\" \"$(PODS_ROOT)/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/IRPlayer/FFMpegLib\"",
+    "GCC_PREPROCESSOR_DEFINITIONS": "IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE",
+    "OTHER_LDFLAGS": "${inherited}",
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7"
+  },
+  "subspecs": [
+    {
+      "name": "ImpPublic",
+      "source_files": "IRPlayer/Class/Platform/**/*.{h,m}",
+      "header_mappings_dir": "."
+    },
+    {
+      "name": "Implementation",
+      "source_files": [
+        "IRPlayer/Class/*.{h,m}",
+        "IRPlayer/*.{h,m}",
+        "IRPlayer/Class/Core/**/*.{h,m}"
+      ],
+      "exclude_files": "**/ThirdParty/ffmpeg/include/**/*.h",
+      "dependencies": {
+        "IRPlayer/FFMpegLib": [
+
+        ],
+        "IRPlayer/ImpPublic": [
+
+        ]
+      },
+      "header_mappings_dir": "."
+    },
+    {
+      "name": "FFMpegLib",
+      "source_files": "IRPlayer/ThirdParty/ffmpeg/include/**/*.h",
+      "vendored_libraries": "IRPlayer/**/ThirdParty/ffmpeg/**/*.a",
+      "libraries": [
+        "z",
+        "iconv",
+        "bz2",
+        "lzma"
+      ],
+      "frameworks": "AVFoundation",
+      "header_mappings_dir": "IRPlayer/ThirdParty/ffmpeg/include"
+    }
+  ]
+}
