@@ -1,0 +1,98 @@
+{
+  "name": "ZPayManager",
+  "version": "0.1.1",
+  "summary": "ZPayManager 支付宝、微信支付 简便的管理类",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhwx600/ZPayManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhwx600": "zhwx600@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhwx600/ZPayManager.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ZPayManager.{h,m}",
+  "public_header_files": "ZPayManager.h",
+  "subspecs": [
+    {
+      "name": "OpenSSL",
+      "source_files": "OpenSSL/**/*.h",
+      "public_header_files": "OpenSSL/**/*.h",
+      "header_dir": "openssl",
+      "preserve_paths": [
+        "OpenSSL/libcrypto.a",
+        "OpenSSL/libssl.a"
+      ],
+      "vendored_libraries": [
+        "OpenSSL/libcrypto.a",
+        "OpenSSL/libssl.a"
+      ],
+      "header_mappings_dir": "OpenSSL/openssl"
+    },
+    {
+      "name": "ZWeChat",
+      "source_files": "ZWeChat/*.h",
+      "public_header_files": "ZWeChat/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "SystemConfiguration",
+        "Security",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3.0",
+        "c++"
+      ],
+      "requires_arc": true,
+      "vendored_libraries": "ZWeChat/libWeChatSDK.a"
+    },
+    {
+      "name": "ZAlipay",
+      "resources": "ZAlipay/AlipaySDK.bundle",
+      "vendored_frameworks": "ZAlipay/AlipaySDK.framework",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "UIKit",
+        "Foundation",
+        "CFNetwork",
+        "CoreMotion"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "requires_arc": true,
+      "subspecs": [
+        {
+          "name": "Model",
+          "source_files": "ZAlipay/Model/**/*",
+          "public_header_files": "ZAlipay/Model/**/*.h"
+        },
+        {
+          "name": "Utils",
+          "source_files": "ZAlipay/Utils/**/*",
+          "public_header_files": "ZAlipay/Utils/**/*.h",
+          "dependencies": {
+            "ZPayManager/OpenSSL": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
