@@ -1,0 +1,76 @@
+{
+  "name": "GiniVision",
+  "version": "5.0.0",
+  "summary": "Computer Vision Library for scanning documents.",
+  "description": "Gini provides an information extraction system for analyzing documents (e. g. invoices or\ncontracts), specifically information such as the document sender or the amount to pay in an invoice.\n\nThe Gini Vision Library for iOS provides functionality to capture documents with mobile phones.",
+  "homepage": "https://www.gini.net/en/developer/",
+  "license": {
+    "type": "Private",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gini GmbH": "hello@gini.net"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "CoreMotion",
+    "Photos"
+  ],
+  "source": {
+    "git": "https://github.com/gini/gini-vision-lib-ios.git",
+    "tag": "5.0.0"
+  },
+  "social_media_url": "https://twitter.com/gini",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Core",
+  "swift_version": "5.0",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "GiniVision/Tests/*.swift",
+      "resources": "GiniVision/Tests/Assets/*",
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GiniVision/Classes/Core/**/*",
+      "resources": "GiniVision/Assets/*"
+    },
+    {
+      "name": "Networking",
+      "source_files": [
+        "GiniVision/Classes/Networking/*.swift",
+        "GiniVision/Classes/Networking/Extensions/*.swift"
+      ],
+      "dependencies": {
+        "GiniVision/Core": [
+
+        ],
+        "Gini/DocumentsAPI": [
+
+        ],
+        "Gini/Pinning": [
+
+        ]
+      }
+    },
+    {
+      "name": "Networking+Pinning",
+      "source_files": "GiniVision/Classes/Networking/Pinning/*",
+      "dependencies": {
+        "GiniVision/Networking": [
+
+        ],
+        "Gini/Pinning": [
+
+        ]
+      }
+    }
+  ]
+}
