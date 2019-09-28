@@ -1,0 +1,154 @@
+{
+  "name": "FitpoloSDK-iOS",
+  "version": "0.1.2",
+  "summary": "A short description of FitpoloSDK-iOS.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Fitpolo/FitpoloSDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Chengang": "chengang@mokotechnology.com"
+  },
+  "source": {
+    "git": "https://github.com/Fitpolo/FitpoloSDK-iOS.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "FitpoloSDK-iOS/Classes/mk_fitpoloCentralGlobalHeader.h",
+  "subspecs": [
+    {
+      "name": "header",
+      "source_files": "FitpoloSDK-iOS/Classes/header/**"
+    },
+    {
+      "name": "adopter",
+      "source_files": "FitpoloSDK-iOS/Classes/adopter/**",
+      "dependencies": {
+        "FitpoloSDK-iOS/header": [
+
+        ]
+      }
+    },
+    {
+      "name": "log",
+      "source_files": "FitpoloSDK-iOS/Classes/log/**",
+      "dependencies": {
+        "FitpoloSDK-iOS/header": [
+
+        ]
+      }
+    },
+    {
+      "name": "category",
+      "source_files": "FitpoloSDK-iOS/Classes/category/**"
+    },
+    {
+      "name": "task",
+      "subspecs": [
+        {
+          "name": "fitpolo701",
+          "source_files": "FitpoloSDK-iOS/Classes/task/fitpolo701/**",
+          "dependencies": {
+            "FitpoloSDK-iOS/header": [
+
+            ],
+            "FitpoloSDK-iOS/adopter": [
+
+            ],
+            "FitpoloSDK-iOS/log": [
+
+            ]
+          }
+        },
+        {
+          "name": "fitpoloCurrent",
+          "source_files": "FitpoloSDK-iOS/Classes/task/fitpoloCurrent/**",
+          "dependencies": {
+            "FitpoloSDK-iOS/header": [
+
+            ],
+            "FitpoloSDK-iOS/adopter": [
+
+            ],
+            "FitpoloSDK-iOS/log": [
+
+            ]
+          }
+        },
+        {
+          "name": "operation",
+          "source_files": "FitpoloSDK-iOS/Classes/task/operation/**",
+          "dependencies": {
+            "FitpoloSDK-iOS/header": [
+
+            ],
+            "FitpoloSDK-iOS/task/fitpolo701": [
+
+            ],
+            "FitpoloSDK-iOS/task/fitpoloCurrent": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "centralManager",
+      "source_files": "FitpoloSDK-iOS/Classes/centralManager/**",
+      "dependencies": {
+        "FitpoloSDK-iOS/header": [
+
+        ],
+        "FitpoloSDK-iOS/adopter": [
+
+        ],
+        "FitpoloSDK-iOS/category": [
+
+        ],
+        "FitpoloSDK-iOS/log": [
+
+        ],
+        "FitpoloSDK-iOS/task/operation": [
+
+        ]
+      }
+    },
+    {
+      "name": "interface",
+      "dependencies": {
+        "FitpoloSDK-iOS/header": [
+
+        ],
+        "FitpoloSDK-iOS/adopter": [
+
+        ],
+        "FitpoloSDK-iOS/category": [
+
+        ],
+        "FitpoloSDK-iOS/log": [
+
+        ],
+        "FitpoloSDK-iOS/task/operation": [
+
+        ],
+        "FitpoloSDK-iOS/centralManager": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "device",
+          "source_files": "FitpoloSDK-iOS/Classes/interface/device/**"
+        },
+        {
+          "name": "userData",
+          "source_files": "FitpoloSDK-iOS/Classes/interface/userData/**"
+        }
+      ]
+    }
+  ]
+}
