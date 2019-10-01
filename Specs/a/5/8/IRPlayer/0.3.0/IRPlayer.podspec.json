@@ -1,0 +1,53 @@
+{
+  "name": "IRPlayer",
+  "version": "0.3.0",
+  "summary": "A powerful video player of iOS.",
+  "description": "A powerful video player of iOS.",
+  "homepage": "https://github.com/irons163/IRPlayer.git",
+  "license": "MIT",
+  "authors": "irons163",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/irons163/IRPlayer.git",
+    "tag": "0.1.1"
+  },
+  "source_files": [
+    "IRPlayer/Class/**/*.{h,m}",
+    "IRPlayer/*.{h,m}"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libavfilter\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libavutil\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libavdevice\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libavformat\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libswscale\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libavcodec\" \"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include/libswresample\" \"$(PODS_ROOT)/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers\"",
+    "USER_HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/IRPlayer/ThirdParty/ffmpeg/include\" \"$(PODS_ROOT)/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Private\" \"${PODS_ROOT}/Headers/Private/IRPlayer/FFMpegLib\" \"${PODS_ROOT}/Headers/Public\" \"${PODS_ROOT}/Headers/Public/IRPlayer/FFMpegLib\"",
+    "GCC_PREPROCESSOR_DEFINITIONS": "IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE",
+    "OTHER_LDFLAGS": "${inherited}",
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7"
+  },
+  "preserve_paths": [
+    "IRPlayer/ThirdParty/ffmpeg/include/libavfilter/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libavutil/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libavdevice/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libavformat/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libswscale/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libavcodec/**/*",
+    "IRPlayer/ThirdParty/ffmpeg/include/libswresample/**/*"
+  ],
+  "subspecs": [
+    {
+      "name": "FFMpegLib",
+      "preserve_paths": "IRPlayer/ThirdParty/ffmpeg/include/**/*",
+      "vendored_libraries": "IRPlayer/**/ThirdParty/ffmpeg/**/*.a",
+      "libraries": [
+        "z",
+        "iconv",
+        "bz2",
+        "lzma"
+      ],
+      "frameworks": "AVFoundation"
+    }
+  ]
+}
