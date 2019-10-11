@@ -1,0 +1,270 @@
+{
+  "name": "smaato-ios-sdk",
+  "version": "21.1.5",
+  "summary": "Smaato iOS SDK",
+  "homepage": "https://www.smaato.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Smaato": "viacheslav.leonov@smaato.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://s3.amazonaws.com/smaato-sdk-releases/ios/smaato-ios-sdk-21.1.5.zip"
+  },
+  "static_framework": true,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "smaato-ios-sdk/Banner": [
+
+        ],
+        "smaato-ios-sdk/Interstitial": [
+
+        ],
+        "smaato-ios-sdk/RewardedAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Core": [
+
+        ],
+        "smaato-ios-sdk/Modules/Banner": [
+
+        ],
+        "smaato-ios-sdk/Modules/RichMedia": [
+
+        ]
+      }
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Interstitial": [
+
+        ],
+        "smaato-ios-sdk/Modules/RichMedia": [
+
+        ],
+        "smaato-ios-sdk/Modules/Video": [
+
+        ]
+      }
+    },
+    {
+      "name": "RewardedAds",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/RewardedAds": [
+
+        ],
+        "smaato-ios-sdk/Modules/Video": [
+
+        ]
+      }
+    },
+    {
+      "name": "Modules",
+      "subspecs": [
+        {
+          "name": "Core",
+          "xcconfig": {
+            "OTHER_LDFLAGS": "-ObjC -lc++"
+          },
+          "vendored_frameworks": "SmaatoSDKCore.framework",
+          "frameworks": [
+            "StoreKit",
+            "AdSupport",
+            "SystemConfiguration",
+            "CoreTelephony",
+            "WebKit"
+          ],
+          "weak_frameworks": "SafariServices"
+        },
+        {
+          "name": "Banner",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKBanner.framework"
+        },
+        {
+          "name": "Interstitial",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKInterstitial.framework"
+        },
+        {
+          "name": "UnifiedBidding",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKUnifiedBidding.framework"
+        },
+        {
+          "name": "RewardedAds",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKRewardedAds.framework"
+        },
+        {
+          "name": "RichMedia",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ],
+            "smaato-ios-sdk/Modules/OpenMeasurement": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKRichMedia.framework"
+        },
+        {
+          "name": "Video",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ],
+            "smaato-ios-sdk/Modules/OpenMeasurement": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKVideo.framework",
+          "frameworks": [
+            "AVFoundation",
+            "CoreMedia"
+          ]
+        },
+        {
+          "name": "OpenMeasurement",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": [
+            "SmaatoSDKOpenMeasurement.framework",
+            "vendor/OMSDK_Smaato.framework"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Adapters",
+      "subspecs": [
+        {
+          "name": "MoPub",
+          "dependencies": {
+            "mopub-ios-sdk": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "Configuration",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/Core": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/MoPub/Configuration/*.{h,m}"
+            },
+            {
+              "name": "Banner",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/Banner": [
+
+                ],
+                "smaato-ios-sdk/Adapters/MoPub/Configuration": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/MoPub/Banner/*.{h,m}"
+            },
+            {
+              "name": "Interstitial",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/Interstitial": [
+
+                ],
+                "smaato-ios-sdk/Adapters/MoPub/Configuration": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/MoPub/Interstitial/*.{h,m}"
+            },
+            {
+              "name": "RewardedVideo",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/RewardedAds": [
+
+                ],
+                "smaato-ios-sdk/Adapters/MoPub/Configuration": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/MoPub/RewardedVideo/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "AdMob",
+          "dependencies": {
+            "Google-Mobile-Ads-SDK": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "Banner",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/Banner": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/AdMob/Banner/*.{h,m}"
+            },
+            {
+              "name": "Interstitial",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/Interstitial": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/AdMob/Interstitial/*.{h,m}"
+            },
+            {
+              "name": "RewardedVideo",
+              "dependencies": {
+                "smaato-ios-sdk/Modules/RewardedAds": [
+
+                ]
+              },
+              "source_files": "SmaatoSDKAdapters/AdMob/RewardedVideo/*.{h,m}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
