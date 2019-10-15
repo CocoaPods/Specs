@@ -1,0 +1,37 @@
+{
+  "name": "libnfs",
+  "version": "0.0.2",
+  "summary": "libnfs framework for Swift",
+  "swift_versions": "5.0",
+  "description": "A Swift framework for network file browsing. Built on top of libnfs.",
+  "homepage": "https://github.com/alexiscn/libnfs",
+  "license": "MIT",
+  "authors": {
+    "xushuifeng": "https://github.com/alexiscn"
+  },
+  "source": {
+    "git": "https://github.com/alexiscn/libnfs.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "Source/*.{swift,h}",
+    "Source/nfs/*.{c,h,modulemap}"
+  ],
+  "public_header_files": "Source/*.h",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": [
+      "HAVE_CONFIG_H",
+      "'_U_=__attribute__((unused))'"
+    ],
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Source/nfs/**",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Source/"
+  },
+  "libraries": "c++",
+  "preserve_paths": "Source/nfs/module.modulemap",
+  "swift_version": "5.0"
+}
