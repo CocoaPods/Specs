@@ -1,0 +1,62 @@
+{
+  "name": "JMAgoraSdk",
+  "version": "2.2.3.1",
+  "summary": "agora sdk jm版本，",
+  "description": "agora sdk jm版本，分为基础和PacketObserver两个库，基础库只包含agora的核心功能，PacketObserver库包括通过agora平台进行的自定义数据传输。",
+  "homepage": "git@coding.jiamiantech.com:ce/JMAgoraSdk.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bloack": "junchen.liu@jiamiantech.com"
+  },
+  "source": {
+    "git": "git@coding.jiamiantech.com:ce/JMAgoraSdk.git",
+    "tag": "2.2.3.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "libraries": [
+    "c++",
+    "resolv"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "JMAgoraSdk/libs/*.framework",
+        "vendored_libraries": "JMAgoraSdk/libs/*.a"
+      },
+      "public_header_files": "JMAgoraSdk/Classes/AgoraAudioKitHeader/JMAgoraKitHeader.h",
+      "source_files": "JMAgoraSdk/Classes/AgoraAudioKitHeader/**/*.{h,m}",
+      "frameworks": [
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreMedia",
+        "AudioToolbox",
+        "CoreTelephony",
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "PacketObserver",
+      "source_files": "JMAgoraSdk/Classes/AgoraPacketObserver/**/*.{h,mm}",
+      "dependencies": {
+        "JMAgoraSdk/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AudioFrameObserver",
+      "source_files": "JMAgoraSdk/Classes/AgoraCustomAudio/**/*.{h,mm}",
+      "dependencies": {
+        "JMAgoraSdk/Core": [
+
+        ]
+      }
+    }
+  ]
+}
