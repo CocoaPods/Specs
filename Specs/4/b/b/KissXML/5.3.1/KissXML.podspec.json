@@ -1,0 +1,60 @@
+{
+  "name": "KissXML",
+  "version": "5.3.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "summary": "A replacement for Cocoa's NSXML cluster of classes. Based on libxml.",
+  "homepage": "https://github.com/robbiehanson/KissXML",
+  "authors": {
+    "Robbie Hanson": "robbiehanson@deusty.com"
+  },
+  "source": {
+    "git": "https://github.com/robbiehanson/KissXML.git",
+    "tag": "5.3.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "All",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "KissXML/*.{h,m}",
+        "KissXML/Categories/*.{h,m}",
+        "KissXML/Private/*.h"
+      ],
+      "private_header_files": "KissXML/Private/**/*.h",
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "Additions",
+      "dependencies": {
+        "KissXML/Core": [
+
+        ]
+      },
+      "source_files": "KissXML/Additions/*.{h,m}"
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "KissXML/Core": [
+
+        ],
+        "KissXML/Additions": [
+
+        ]
+      }
+    }
+  ]
+}
