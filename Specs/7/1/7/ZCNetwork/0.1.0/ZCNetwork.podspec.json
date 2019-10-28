@@ -1,0 +1,70 @@
+{
+  "name": "ZCNetwork",
+  "version": "0.1.0",
+  "summary": "a network package by AFNetworking.",
+  "description": "\"a network package by AFNetworking, some request method not test.\"",
+  "homepage": "https://github.com/Fuqingshan/ZCNetwork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yier": "898310403@qq.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/Fuqingshan/ZCNetwork.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "ZCNetwork/ZCNetwork/HTTPNetwork/ZCNetwork.h",
+  "public_header_files": "ZCNetwork/ZCNetwork/HTTPNetwork/ZCNetwork.h",
+  "dependencies": {
+    "ReactiveObjC": [
+      "~> 3.1.1"
+    ],
+    "AFNetworking": [
+      "~> 3.2.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Serializer",
+      "source_files": "ZCNetwork/ZCNetwork/HTTPNetwork/Serializer/*.{h,m}",
+      "public_header_files": "ZCNetwork/ZCNetwork/HTTPNetwork/Serializer/*.h",
+      "dependencies": {
+        "ZCNetwork/Helper": [
+
+        ]
+      }
+    },
+    {
+      "name": "URLSession",
+      "source_files": "ZCNetwork/ZCNetwork/HTTPNetwork/URLSession/*.{h,m}",
+      "public_header_files": "ZCNetwork/ZCNetwork/HTTPNetwork/URLSession/{ZCHTTPSessionManager,ZCBaseAPI,ZCFileModel}.h",
+      "dependencies": {
+        "ZCNetwork/Serializer": [
+
+        ],
+        "ZCNetwork/Helper": [
+
+        ]
+      }
+    },
+    {
+      "name": "Socket"
+    },
+    {
+      "name": "Helper",
+      "source_files": [
+        "ZCNetwork/ZCNetwork/HTTPNetwork/{Cookies,Helper}/*.{h,m}",
+        "ZCNetwork/ZCNetwork/HTTPNetwork/ZCNetworkDefine.h"
+      ],
+      "private_header_files": [
+        "ZCNetwork/ZCNetwork/HTTPNetwork/{Cookies,Helper}/*.h",
+        "ZCNetwork/ZCNetwork/HTTPNetwork/ZCNetworkDefine.h"
+      ]
+    }
+  ]
+}
