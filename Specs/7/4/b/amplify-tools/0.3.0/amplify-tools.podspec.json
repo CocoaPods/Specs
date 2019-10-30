@@ -1,0 +1,29 @@
+{
+  "name": "amplify-tools",
+  "version": "0.3.0",
+  "summary": "Installs Amplify CLI",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/nikhname/amplify-tools",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nikhil Lingireddy": "nikling@amazon.com"
+  },
+  "source": {
+    "git": "https://github.com/nikhname/amplify-tools.git",
+    "tag": "0.3.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_versions": "4.0",
+  "source_files": "Classes/*",
+  "script_phases": {
+    "name": "Install Amplify CLI",
+    "script": "set -e\nGLOBALPATH=\"$(npm bin -g)\"\nexport PATH=$GLOBALPATH:$PATH\n\nif ! which node > /dev/null; then\n  echo \"warning: node is not installed. Vist https://nodejs.org/en/download/ to install it\"\nelif ! which amplify > /dev/null; then\n  npm install -g @aws-amplify/cli\nfi\n\necho \"skeleton and codegen goes here\"",
+    "execution_position": "before_compile"
+  },
+  "swift_version": "4.0"
+}
