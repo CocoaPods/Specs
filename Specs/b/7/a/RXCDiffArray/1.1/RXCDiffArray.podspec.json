@@ -1,0 +1,76 @@
+{
+  "name": "RXCDiffArray",
+  "version": "1.1",
+  "authors": {
+    "ruixingchen": "rxc@ruixingchen.com"
+  },
+  "summary": "an array that can notify its changes",
+  "description": "an array that can notify its changes to multi delegates",
+  "homepage": "https://github.com/ruixingchen/RXCDiffArray",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/ruixingchen/RXCDiffArray.git",
+    "tag": "1.1"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "UIKitExtension"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": "Source/*.swift",
+        "frameworks": "Foundation"
+      }
+    },
+    {
+      "name": "DifferenceKit",
+      "dependencies": {
+        "DifferenceKit": [
+          "~> 1.1"
+        ],
+        "RXCDiffArray/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "Source/DifferenceKit/*.swift",
+        "frameworks": "Foundation"
+      }
+    },
+    {
+      "name": "UIKitExtension",
+      "dependencies": {
+        "RXCDiffArray/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "Source/Extension/UIKit/*.swift",
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "ASDKExtension",
+      "dependencies": {
+        "Texture": [
+          "~> 2.8"
+        ],
+        "RXCDiffArray/Core": [
+
+        ]
+      },
+      "ios": {
+        "source_files": "Source/Extension/ASDK/*.swift",
+        "frameworks": "UIKit"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
