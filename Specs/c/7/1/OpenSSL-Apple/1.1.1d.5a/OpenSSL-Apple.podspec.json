@@ -1,0 +1,31 @@
+{
+  "name": "OpenSSL-Apple",
+  "version": "1.1.1d.5a",
+  "summary": "A script for compiling OpenSSL for Apple Devices",
+  "authors": [
+    "Felix Schulze",
+    "Davide De Rosa",
+    "Ezat Hashim"
+  ],
+  "homepage": "https://github.com/keeshux/openssl-apple.git",
+  "source": {
+    "git": "https://github.com/keeshux/openssl-apple.git",
+    "tag": "v5a"
+  },
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "prepare_command": "./build-libssl.sh --version=\"1.1.1d\" --targets=\"ios-sim-cross-x86_64 ios64-cross-arm64 macos64-x86_64\"\n./create-openssl-framework.sh dynamic",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.11"
+  },
+  "ios": {
+    "vendored_frameworks": "frameworks/iPhone/openssl.framework"
+  },
+  "osx": {
+    "vendored_frameworks": "frameworks/MacOSX/openssl.framework"
+  },
+  "requires_arc": false
+}
