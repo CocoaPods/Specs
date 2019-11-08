@@ -1,0 +1,162 @@
+{
+  "name": "SJBaseVideoPlayer",
+  "version": "3.0.9",
+  "summary": "video player.",
+  "description": "https://github.com/changsanjiang/SJBaseVideoPlayer/blob/master/README.md",
+  "homepage": "https://github.com/changsanjiang/SJBaseVideoPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "SanJiang": "changsanjiang@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/changsanjiang/SJBaseVideoPlayer.git",
+    "tag": "v3.0.9"
+  },
+  "frameworks": [
+    "UIKit",
+    "AVFoundation"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "SJUIKit/ObserverHelper": [
+      ">= 0.0.0.31"
+    ],
+    "SJUIKit/Queues": [
+      ">= 0.0.0.31"
+    ],
+    "Reachability": [
+
+    ]
+  },
+  "source_files": "SJBaseVideoPlayer/*.{h,m}",
+  "default_subspecs": [
+    "Header",
+    "Const",
+    "Tool",
+    "Model",
+    "SJDeviceVolumeAndBrightnessManager",
+    "AVPlayer"
+  ],
+  "subspecs": [
+    {
+      "name": "Header",
+      "source_files": "SJBaseVideoPlayer/Header/*.{h}"
+    },
+    {
+      "name": "Const",
+      "source_files": "SJBaseVideoPlayer/Const/*.{h,m}"
+    },
+    {
+      "name": "Tool",
+      "source_files": "SJBaseVideoPlayer/Tool/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ],
+        "SJBaseVideoPlayer/Model": [
+
+        ],
+        "SJBaseVideoPlayer/Const": [
+
+        ]
+      }
+    },
+    {
+      "name": "Model",
+      "source_files": "SJBaseVideoPlayer/Model/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SJDeviceVolumeAndBrightnessManager",
+      "dependencies": {
+        "SJBaseVideoPlayer/Header": [
+
+        ],
+        "SJBaseVideoPlayer/Const": [
+
+        ]
+      },
+      "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/Core/*.{h,m}",
+          "dependencies": {
+            "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader": [
+
+            ]
+          }
+        },
+        {
+          "name": "ResourceLoader",
+          "source_files": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader/*.{h,m}",
+          "resources": "SJBaseVideoPlayer/SJDeviceVolumeAndBrightnessManager/ResourceLoader/SJDeviceVolumeAndBrightnessManager.bundle"
+        }
+      ]
+    },
+    {
+      "name": "AVPlayer",
+      "source_files": "SJBaseVideoPlayer/AVPlayer/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/Tool": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/AVPlayer/Core/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "IJKPlayer",
+      "source_files": "SJBaseVideoPlayer/IJKPlayer/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/AVPlayer": [
+
+        ],
+        "ijkplayerssl": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/IJKPlayer/Core/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "AliPlayer",
+      "source_files": "SJBaseVideoPlayer/AliPlayer/*.{h,m}",
+      "dependencies": {
+        "SJBaseVideoPlayer/AVPlayer": [
+
+        ],
+        "AliPlayerSDK_iOS": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "SJBaseVideoPlayer/AliPlayer/Core/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
