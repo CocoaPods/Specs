@@ -1,0 +1,116 @@
+{
+  "name": "iOS-viewplus",
+  "version": "0.2.7",
+  "summary": "基于Hybrid混合开发架构思想的原生支持库，包含网络请求代发，webview控件，webview视图控制器，用户等",
+  "description": "为了利用 H5 强大的开发和迭代能力，又能赋予 H5 强大的底层能力和用户体验，同时能复用现有的成熟 Native组件，我们提供一个混合应用原生组件库iOS-viewplus,来快速开发高质量的web+native混合客户端，以解决纯原生应用开发的进度慢、成本高、不支持跨平台等难题。",
+  "homepage": "https://github.com/yang0123shu/iOS-viewplus",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yang0123shu": "yang0123shu@163.com"
+  },
+  "source": {
+    "git": "https://github.com/yang0123shu/iOS-viewplus.git",
+    "tag": "0.2.7"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "public_header_files": "iOS-viewplus/iOS-viewplus.h",
+  "source_files": "iOS-viewplus/*.h",
+  "prefix_header_file": "iOS-viewplus/MXMacros.h",
+  "subspecs": [
+    {
+      "name": "MXBaseTool",
+      "source_files": "iOS-viewplus/MXBaseTool/*.*",
+      "dependencies": {
+        "GTMBase64": [
+
+        ],
+        "iOS-viewplus/MXHUDManager": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "CoreLocation"
+      }
+    },
+    {
+      "name": "MXHUDManager",
+      "source_files": "iOS-viewplus/MXHUDManager",
+      "dependencies": {
+        "SVProgressHUD": [
+
+        ]
+      }
+    },
+    {
+      "name": "MXUserModel",
+      "source_files": "iOS-viewplus/MXUserModel",
+      "dependencies": {
+        "MJExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "MXWebView",
+      "source_files": "iOS-viewplus/MXWebView",
+      "ios": {
+        "frameworks": "WebKit"
+      },
+      "dependencies": {
+        "iOS-viewplus/MXNetworkTool": [
+
+        ]
+      }
+    },
+    {
+      "name": "MXWebViewController",
+      "source_files": "iOS-viewplus/MXWebViewController",
+      "dependencies": {
+        "iOS-viewplus/MXWebView": [
+
+        ],
+        "iOS-viewplus/MXBaseTool": [
+
+        ],
+        "iOS-viewplus/MXNetworkTool": [
+
+        ],
+        "iOS-viewplus/MXUserModel": [
+
+        ],
+        "Masonry": [
+
+        ]
+      },
+      "resource_bundles": {
+        "MXWebBundle": [
+          "iOS-viewplus/MXWebViewController/MXWebBundle.bundle"
+        ]
+      }
+    },
+    {
+      "name": "MXNetworkTool",
+      "source_files": [
+        "iOS-viewplus/MXNetworkTool",
+        "iOS-viewplus/MXNetworkTool/openssl"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "iOS-viewplus/MXHUDManager": [
+
+        ],
+        "iOS-viewplus/MXBaseTool": [
+
+        ]
+      },
+      "vendored_libraries": "iOS-viewplus/MXNetworkTool/openssl/lib*.{a}"
+    }
+  ]
+}
