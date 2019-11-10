@@ -1,0 +1,25 @@
+{
+  "name": "StyleDecorator",
+  "version": "1.0.0",
+  "summary": "Easy text styling",
+  "description": "Create `Decorator` with specific `Style` and link it at the end of needed string or wrap for styling:\n\n```swift\n\"Style\" + d1 + \"Decorator\" + d2 + \"!\"\n// or\nd1.wrap(\"Style\") + d2.wrap(\"Decorator\") + \"!\"\n```\n\nExample:\n```swift\nlet a = Decorator(style: Style().foregroundColor(.black).kerning(-0.5).backgroundColor(.darkGray))\nlet b = Decorator(style: Style().foregroundColor(.white))\nlet c = Decorator(style: Style().foregroundColor(.gray).alignment(.right))\n\n// You can write in syntax you prefer\nlet decoratedText = \"Bold\" + a + \"Heavy\" + b + \"Black\" + c\nlabel.attributedText = NSAttributedString(decorator: decoratedText)\n\n// or\nlet a1 = a.wrap, b1 = b.wrap, c1 = c.wrap\nlet decoratedText2 = a1(\"Bold\") + b1(\"Heavy\") + c1(\"Black\")\nlabel.attributedText = NSAttributedString(decorator: decoratedText2)\n```\n\nString can be designed dynamically:\n```swift\n// check Example for detailed code, where created 'd', 'e', 'f' etc\n\nlet titleText = \"! \" + (\"Bold\" + b + \"Heavy\" + c + \"Black\" + d)\nlet decoratedText = \"Decorate attributed string simply\" + a + \"\n\n\" + titleText + \"\n\n\" + \"Right\" + e + \"\n\" + \"below black rect with red line\" + f + \"\n\n\nwith default attributes\"\n\nlet defaultAttributes = Style()\n    .font(UIFont.systemFont(ofSize: 15, weight: UIFontWeightBlack))\n    .alignment(.center)\n    .attributes\n\nlabel.attributedText = NSAttributedString(decorator: decoratedText, attributes: defaultAttributes)\n```",
+  "homepage": "https://github.com/dimpiax/StyleDecorator",
+  "screenshots": "https://github.com/dimpiax/StyleDecorator/raw/master/thumbnail.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dmytro Pylypenko": "dimpiax@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dimpiax/StyleDecorator.git",
+    "tag": "1.0.0"
+  },
+  "social_media_url": "https://twitter.com/dimpiax",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Sources/StyleDecorator/**/*",
+  "swift_version": "5.0"
+}
