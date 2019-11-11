@@ -1,0 +1,70 @@
+{
+  "name": "SIRL",
+  "version": "1.1.15",
+  "summary": "SIRL SDKs",
+  "description": "This is the set of SDKs for the SIRL system.",
+  "homepage": "https://www.sirl.io",
+  "license": {
+    "type": "Copyright SIRL Inc. 2019"
+  },
+  "authors": {
+    "Wei Cai": "wei.cai@sirl.io"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "4.2",
+  "source": {
+    "git": "https://github.com/sirl-io/ios_sdk.git",
+    "tag": "1.1.15"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Core/SIRLCore.framework",
+      "preserve_paths": "Core/libs/include/module.modulemap",
+      "vendored_libraries": "Core/libs/*.a",
+      "source_files": "Core/libs/include/*.{h}",
+      "libraries": "c++",
+      "requires_arc": true,
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+        "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/SIRL/libs/include"
+      }
+    },
+    {
+      "name": "User",
+      "source_files": "User/**/*.swift",
+      "dependencies": {
+        "SIRL/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Map",
+      "resource_bundles": {
+        "SIRL_MapSDK": [
+          "Resource/*.xcassets"
+        ]
+      },
+      "source_files": "Map/**/*.swift",
+      "dependencies": {
+        "SIRL/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Retail",
+      "source_files": "Retail/**/*.swift",
+      "dependencies": {
+        "SIRL/Map": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "4.2"
+}
