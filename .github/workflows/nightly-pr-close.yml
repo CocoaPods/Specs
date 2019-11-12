@@ -1,0 +1,35 @@
+name: Close up open PRs on a nightly basis
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+
+on: pull_request
+
+jobs:
+  close PRs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{github.token}}
+          script: |
+            const msg =`Back in early 2014 we [launched CocoaPods Trunk](http://blog.cocoapods.org/CocoaPods-Trunk/). Trunk is the only way that you can submit pods to CocoaPods, we do not accept pull requests to the CocoaPods Specs repo, and so this is being auto-closed. Please see #12199 for more info.
+
+            - To push a new version to trunk, you can use `pod trunk push`.
+            - You cannot amend an existing pod, however you can delete and deprecate a pod. You need to be using CocoaPods 1.0 to have access to `pod trunk delete` and `pod trunk deprecate`. People may be relying on your pod version, so use these with caution.
+            - If you don't have permission to update a pod that you own, please [file a claim](http://blog.cocoapods.org/Claim-Your-Pods/) on trunk.
+            `
+
+            const pulls = await octokit.pulls.list({ owner: 'CocoaPods', repo: 'Specs', state: 'open' })
+
+            for (const pull of pulls.data) {
+              if (!pull.labels.find(l => l.name === "Keep")) {
+
+                // Close it
+                await octokit.pulls.update({ owner: 'CocoaPods', repo: 'Specs', state: "closed", pull_number: pull.number })
+
+                // Comment why
+                await github.issues.createComment({...context.issue, body: msg})
+              }
+            }
