@@ -1,0 +1,105 @@
+{
+  "name": "IOSMaven",
+  "version": "1.0.0",
+  "summary": "动能无限各模块仓库",
+  "description": "包含广告、统计、支付、推送、通知、appleLogin等功能模块",
+  "homepage": "http://dnsdk.vimedia.cn:8080/summary/IOSMaven.git",
+  "authors": "动能无限",
+  "social_media_url": "http://www.vimedia.cn",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "http://wy@dnsdk.vimedia.cn:8080/r/IOSMaven.git",
+    "tag": "1.0.0"
+  },
+  "libraries": [
+    "sqlite3",
+    "xml2",
+    "z",
+    "iconv",
+    "c++",
+    "resolv"
+  ],
+  "frameworks": [
+    "OpenGLES",
+    "OpenAL",
+    "iAd",
+    "WebKit",
+    "AVFoundation",
+    "Accelerate",
+    "MobileCoreServices",
+    "CoreMotion",
+    "CoreLocation",
+    "CoreTelephony",
+    "QuartzCore",
+    "StoreKit",
+    "AdSupport",
+    "UIKit",
+    "CoreFoundation",
+    "CoreGraphics",
+    "CoreMedia",
+    "CoreText",
+    "Security",
+    "MediaPlayer",
+    "SystemConfiguration",
+    "MessageUI",
+    "JavaScriptCore",
+    "AudioToolBox",
+    "GLKit"
+  ],
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "default_subspecs": "Tools",
+  "subspecs": [
+    {
+      "name": "Tools",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "IOSMaven/Tools/*.framework"
+    },
+    {
+      "name": "Ads",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Headline",
+          "platforms": {
+            "ios": "9.0"
+          },
+          "vendored_frameworks": "IOSMaven/Ads/Headline/*.framework",
+          "dependencies": {
+            "Bytedance-UnionAD": [
+              "~>2.4.6.7"
+            ],
+            "IOSMaven/Tools": [
+
+            ]
+          }
+        },
+        {
+          "name": "IronSource",
+          "platforms": {
+            "ios": "9.0"
+          },
+          "vendored_frameworks": "IOSMaven/Ads/IronSource/*.framework",
+          "dependencies": {
+            "IronSourceSDK": [
+              "6.8.6"
+            ],
+            "IOSMaven/Tools": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
