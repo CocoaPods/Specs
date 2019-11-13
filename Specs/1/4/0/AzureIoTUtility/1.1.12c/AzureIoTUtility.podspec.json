@@ -1,0 +1,57 @@
+{
+  "name": "AzureIoTUtility",
+  "version": "1.1.12c",
+  "summary": "AzureIoT C-Utility library for CocoaPods.",
+  "description": "This is a CocoaPods release of the Azure C Shared Utility library,\nwhich is part of the Microsoft Azure IoT C SDK.",
+  "homepage": "https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/sdk_cocoapods.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-c-shared-utility.git",
+    "branch": "jbobotek-test-cocoa"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "prepare_command": "# Keeping this script idempotent makes using it in a\n    # development situation much easier.\n    cp pal/generic/refcount_os.h inc/azure_c_shared_utility\n    cp adapters/linux_time.h inc\n    cp pal/ios-osx/*.h inc\n    rm -f src/etwlogger_driver.c\n    rm -f src/etwxlogging.c\n    rm -f src/dns_resolver_ares.c\n    rm -f src/tlsio_cy*.*\n#    rm -f src/*logg*.c\n#    rm -f src/logging*.c\n    rm -f src/logging_stacktrace.c\n    rm -f src/gballoc.c\n    rm -f src/gbnetwork.c\n    rm -f adapters/tlsio_wolf*.*\n    rm -f adapters/tlsio_bear*.*\n    rm -f adapters/tlsio_openssl.c\n    rm -f adapters/tlsio_schannel.c\n    rm -f adapters/x509_schannel.c\n    rm -f adapters/x509_openssl.c\n    rm -f adapters/timer.c\n    rm -f adapters/string_utils.c\n    rm -f src/http_proxy_stub.c\n\n    rm -R inc/azure_c_shared_utility/windowsce || true\n    rm -f inc/azure_c_shared_utility/etwlogger.h\n    rm -f inc/azure_c_shared_utility/etwlogger_driver.h\n #   rm -f inc/azure_c_shared_utility/consolelogger.h\n    rm -f inc/azure_c_shared_utility/logging_stacktrace.h\n    rm -f inc/**/timer.h\n    rm -f inc/**/string_utils.h\n    rm -f inc/azure_c_shared_utility/stdint_ce6.h\n    rm -f inc/azure_c_shared_utility/tlsio_cyclonessl_socket.h\n    rm -f inc/azure_c_shared_utility/tlsio_mbedtls.h\n    rm -f inc/azure_c_shared_utility/tlsio_openssl.h\n    rm -f inc/azure_c_shared_utility/tlsio_schannel.h\n    rm -f inc/azure_c_shared_utility/tlsio_wolfssl.h\n    rm -f inc/azure_c_shared_utility/tlsio_bearssl.h\n    rm -f inc/azure_c_shared_utility/x509_openssl.h\n    rm -f inc/azure_c_shared_utility/x509_schannel.h\n\n\n    # Assemble the module.modulemap file\n    pushd inc > /dev/null\n    echo \"module AzureIoTUtility [system][extern_c] {\" > module.modulemap\n    quote_thing='\"'\n    for filename in azure_c_shared_utility/*.h; do\n        echo \"    header $quote_thing$filename$quote_thing\" >> module.modulemap\n    done\n    echo \"    export *\" >> module.modulemap\n    echo \"}\" >> module.modulemap\n    popd > /dev/null\n    # Done assembling module.modulemap file",
+  "preserve_paths": "inc/module.modulemap",
+  "module_map": "inc/module.modulemap",
+  "source_files": [
+    "inc/**/*.h",
+    "src/*.c",
+    "pal/tlsio_options.c",
+    "pal/agenttime.c",
+    "pal/ios-osx/*.c",
+    "adapters/lock_pthreads.c",
+    "adapters/threadapi_pthreads.c",
+    "adapters/linux_time.c",
+    "adapters/tickcounter_linux.c",
+    "adapters/uniqueid_linux.c",
+    "adapters/httpapi_compact.c",
+    "adapters/threadapi_pthreads.c"
+  ],
+  "public_header_files": "inc/**/*.h",
+  "header_mappings_dir": "inc/",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "USE_HEADERMAP": "NO",
+    "USER_HEADER_SEARCH_PATHS": "${PODS_ROOT}/AzureIoTUtility/inc",
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/AzureIoTUtility/inc/",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureMacroUtils": [
+      "1.1.0"
+    ],
+    "AzureuMockC": [
+      "1.1.19c"
+    ]
+  }
+}
