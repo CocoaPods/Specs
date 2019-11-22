@@ -1,0 +1,85 @@
+{
+  "name": "RangersAppLog",
+  "version": "3.2.8",
+  "summary": "ByteDance Rangers AppLog.",
+  "description": "ByteDance Rangers AppLog SDK.",
+  "homepage": "https://github.com/bytedance/RangersAppLog",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "duanwenbin": "duanwenbin@bytedance.com"
+  },
+  "source": {
+    "git": "https://github.com/bytedance/RangersAppLog.git",
+    "tag": "3.2.8"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "default_subspecs": "UITracker",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "RangersAppLog/Core/*.h",
+      "vendored_libraries": "RangersAppLog/Core/*.a",
+      "frameworks": [
+        "Foundation",
+        "Security",
+        "AdSupport",
+        "CoreTelephony",
+        "CoreFoundation",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "public_header_files": "RangersAppLog/Core/*.h"
+    },
+    {
+      "name": "UITracker",
+      "vendored_libraries": "RangersAppLog/UITracker/*.a",
+      "source_files": "RangersAppLog/UITracker/*.h",
+      "frameworks": [
+        "UIKit",
+        "WebKit"
+      ],
+      "public_header_files": "RangersAppLog/UITracker/*.h",
+      "dependencies": {
+        "RangersAppLog/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "vendored_libraries": "RangersAppLog/Picker/*.a",
+      "source_files": "RangersAppLog/Picker/*.h",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreServices",
+        "MobileCoreServices",
+        "QuartzCore",
+        "CoreText"
+      ],
+      "dependencies": {
+        "RangersAppLog/UITracker": [
+
+        ]
+      },
+      "public_header_files": "RangersAppLog/Picker/*.h",
+      "resource_bundles": {
+        "RangersAppLog": [
+          "RangersAppLog/Assets/*.xcassets"
+        ]
+      }
+    }
+  ]
+}
