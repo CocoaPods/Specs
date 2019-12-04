@@ -1,0 +1,29 @@
+{
+  "name": "amplify-tools",
+  "version": "0.2.0",
+  "summary": "Installs Amplify CLI",
+  "description": "Creates an amplify project in your next build. Generate models by setting modelgen in amplifyxc.config to true and running the build. Push your resources to the cloud by setting amplifyPush in amplifyxc.config to true and running the build.",
+  "homepage": "https://github.com/aws-amplify/amplify-cli",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Amplify CLI": "amplify-cli@amazon.com"
+  },
+  "source": {
+    "git": "https://github.com/nikhname/amplify-tools-spec.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "4.0",
+  "source_files": "Classes/*",
+  "script_phases": {
+    "name": "Amplify",
+    "script": "set -e\nexport PATH=$PATH:`npm bin -g`\n\ncd ..\nif ! which node > /dev/null; then\n  echo \"warning: Node is not installed. Vist https://nodejs.org/en/download/ to install it\"\nelif [ ! -f ./amplifyxc.config ]; then\n  if ! which amplify-app > /dev/null; then \n    npm install -g amplify-app\n    sleep 1\n    amplify-app --platform ios --path $PWD\n  else \n    amplify-app --platfrom ios --path $PWD \n  fi\nfi\n\n. amplifyxc.config\namplifyPush=$push\namplifyModelgen=$modelgen\namplifyProfile=$profile\namplifyAccessKey=$accessKeyId\namplifySecretKey=$secretAccessKey\namplifyRegion=$region\namplifyEnvName=$envName\n\nif $amplifyModelgen; then \n  amplify codegen model\nfi\n\nif [ -z \"$amplifyAccessKey\" ] || [ -z \"$amplifySecretKey\" ] || [ -z \"$amplifyRegion\" ]; then\nAWSCLOUDFORMATIONCONFIG=\"{\\\n\\\"configLevel\\\":\\\"project\\\",\\\n\\\"useProfile\\\":true,\\\n\\\"profileName\\\":\\\"${amplifyProfile}\\\"\\\n}\"\nelse \nAWSCLOUDFORMATIONCONFIG=\"{\\\n\\\"configLevel\\\":\\\"project\\\",\\\n\\\"useProfile\\\":true,\\\n\\\"profileName\\\":\\\"${amplifyProfile}\\\",\\\n\\\"accessKeyId\\\":\\\"${amplifyAccessKeyId}\\\",\\\n\\\"secretAccessKey\\\":\\\"${amplifySecretAccessKey}\\\",\\\n\\\"region\\\":\\\"${amplifyRegion}\\\"\\\n}\"\nfi\n\nif [ -z \"$amplifyEnvName\" ]; then \nAMPLIFY=\"{\\\n\\\"envName\\\":\\\"amplify\\\"\\\n}\"\nelse\nAMPLIFY=\"{\\\n\\\"envName\\\":\\\"${amplifyEnvName}\\\"\\\n}\"\nfi\n\nPROVIDERS=\"{\\\n\\\"awscloudformation\\\":$AWSCLOUDFORMATIONCONFIG\\\n}\"\n\nif $amplifyPush; then\n    if test -f ./amplify/.config/local-env-info.json; then\n        amplify push --yes\n    else \n        amplify init --amplify $AMPLIFY --providers $PROVIDERS --yes\n    fi\nfi",
+    "execution_position": "before_compile"
+  },
+  "swift_version": "4.0"
+}
