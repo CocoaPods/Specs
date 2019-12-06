@@ -1,0 +1,94 @@
+{
+  "name": "VideoOS",
+  "version": "2.8.0",
+  "summary": "Official VideoPls SDK for iOS to access VideoPls Platform with features like video os, and live os",
+  "description": "The VideoPls SDK for iOS enables you to use VideoPls's Platform such as:\n*video os\n*live os",
+  "homepage": "http://videojj.com/videoos-open",
+  "license": {
+    "type": "GPL-3.0",
+    "file": "LICENSE"
+  },
+  "authors": "VideoPls",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/VideoOS/VideoOS-iOS-SDK.git",
+    "tag": "2.8.0"
+  },
+  "libraries": [
+    "z",
+    "sqlite3"
+  ],
+  "weak_frameworks": [
+    "UIKit",
+    "Foundation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "ImageIO",
+    "MobileCoreServices",
+    "WebKit",
+    "Photos",
+    "CoreData",
+    "WebKit",
+    "CoreMedia",
+    "Accelerate"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Interface",
+  "dependencies": {
+    "VPLuaViewSDK": [
+
+    ]
+  },
+  "resources": "Resources/VideoPlsResources.bundle",
+  "subspecs": [
+    {
+      "name": "Platform",
+      "source_files": "VideoPlsUtilsPlatformSDK/VideoPlsUtilsPlatformSDK/**/*.{h,m,c}",
+      "public_header_files": "VideoPlsUtilsPlatformSDK/VideoPlsUtilsPlatformSDK/**/*.{h}",
+      "header_dir": "VideoPlsUtilsPlatformSDK",
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "SDWebImage": [
+
+        ],
+        "SVGAPlayer": [
+          "2.1.4"
+        ],
+        "MQTTClient": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+      }
+    },
+    {
+      "name": "LuaManager",
+      "source_files": "VideoPlsLuaViewManagerSDK/VideoPlsLuaViewManagerSDK/**/*.{h,m}",
+      "public_header_files": "VideoPlsLuaViewManagerSDK/VideoPlsLuaViewManagerSDK/**/*.{h}",
+      "header_dir": "VideoPlsLuaViewManagerSDK",
+      "dependencies": {
+        "VideoOS/Platform": [
+
+        ]
+      }
+    },
+    {
+      "name": "Interface",
+      "source_files": "VideoPlsInterfaceControllerSDK/VideoPlsInterfaceControllerSDK/**/*.{h,m}",
+      "public_header_files": "VideoPlsInterfaceControllerSDK/VideoPlsInterfaceControllerSDK/**/*.{h}",
+      "exclude_files": "VideoPlsInterfaceControllerSDK/VideoPlsInterfaceControllerSDK/VideoPlsInterfaceControllerSDK/{VPIPubWebView,VPIStoreAPIConfig}.{h,m}",
+      "header_dir": "VideoPlsInterfaceControllerSDK",
+      "dependencies": {
+        "VideoOS/LuaManager": [
+
+        ]
+      }
+    }
+  ]
+}
