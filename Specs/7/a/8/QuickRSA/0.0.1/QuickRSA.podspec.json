@@ -1,0 +1,43 @@
+{
+  "name": "QuickRSA",
+  "version": "0.0.1",
+  "summary": "RSA Encrypt and Decrypt lib for iOS (Using Security.framework and OpenSSL)",
+  "description": "1. Run script of gen_rsa_key.sh to generate RSA keys\n2. Create a RSA SecKeyRef from data\n3. RSA Enc/Dec/Sign/Verify with SecKeyRef\n4. RSA Enc/Dec with OpenSSL\n5. Format conversion of PEM and DER",
+  "homepage": "https://github.com/liuyuning/QuickRSA",
+  "screenshots": "https://raw.githubusercontent.com/liuyuning/QuickRSA/master/ScreenShotDemo.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "liuyuning": "115709874@qq.com"
+  },
+  "social_media_url": "https://twitter.com/liuyuning",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/liuyuning/QuickRSA.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "Classes",
+    "QuickRSA/**/*.{h,m}"
+  ],
+  "public_header_files": "QuickRSA/**/*.h",
+  "subspecs": [
+    {
+      "name": "Static",
+      "source_files": "third-party/OpenSSL/include/openssl/**/*.h",
+      "public_header_files": "third-party/OpenSSL/include/openssl/**/*.h",
+      "header_dir": "openssl",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "/Users/liuyuning/Desktop/GitHub/QuickRSA/third-party/OpenSSL/include"
+      },
+      "vendored_libraries": [
+        "third-party/OpenSSL/lib/libcrypto.a",
+        "third-party/OpenSSL/lib/libssl.a"
+      ]
+    }
+  ]
+}
