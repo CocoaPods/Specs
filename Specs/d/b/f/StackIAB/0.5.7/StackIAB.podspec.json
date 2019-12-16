@@ -1,0 +1,87 @@
+{
+  "name": "StackIAB",
+  "version": "0.5.7",
+  "summary": "IAB Display Managers modules for Stack products",
+  "description": "Includes display managers for MRAID 2.0 (pending), VAST 3.0 and NAST 1.0",
+  "homepage": "http://www.appodeal.com",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackIAB/v0.5.7/StackIAB.zip"
+  },
+  "dependencies": {
+    "StackModules": [
+      "~> 0.6.3"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "StackXML",
+      "vendored_frameworks": "StackXML.framework",
+      "libraries": "xml2"
+    },
+    {
+      "name": "StackMRAIDKit",
+      "vendored_frameworks": "StackMRAIDKit.framework",
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "StackVideoPlayer",
+      "vendored_frameworks": "StackVideoPlayer.framework",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "StackRichMedia",
+      "vendored_frameworks": "StackRichMedia.framework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTAssets",
+      "vendored_frameworks": "StackVASTAssets.framework",
+      "dependencies": {
+        "StackIAB/StackXML": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTKit",
+      "vendored_frameworks": "StackVASTKit.framework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ],
+        "StackIAB/StackMRAIDKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackNASTKit",
+      "vendored_frameworks": "StackNASTKit.framework",
+      "dependencies": {
+        "StackIAB/StackVASTKit": [
+
+        ]
+      }
+    }
+  ]
+}
