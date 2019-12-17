@@ -1,0 +1,123 @@
+{
+  "name": "StraaS-iOS-SDK",
+  "version": "0.49.0",
+  "summary": "StraaS.io iOS SDK",
+  "description": "StraaS.io - Streaming as a Service, Your Best OTT Solution.",
+  "homepage": "https://github.com/StraaS/StraaS-iOS-sdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2018 StraaS.io. All rights reserved."
+  },
+  "authors": "StraaS.io",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/StraaS/StraaS-iOS-sdk.git",
+    "tag": "0.49.0"
+  },
+  "static_framework": true,
+  "resource_bundles": {
+    "StraaSPlayerSDK": [
+      "ios/StraaSPlayerSDK.framework/Assets.car",
+      "ios/StraaSPlayerSDK.framework/*.lproj"
+    ],
+    "StraaSMessagingSDK": [
+      "ios/StraaSMessagingSDK.framework/*.lproj"
+    ],
+    "StraaSCircallSDK": [
+      "ios/StraaSCircallSDK.framework/*.lproj"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Messaging",
+      "vendored_frameworks": "ios/StraaSMessagingSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "Socket.IO-Client-Swift": [
+          "~> 15.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "ios/StraaSCoreSDK.framework",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.2.1"
+        ],
+        "Socket.IO-Client-Swift": [
+          "~> 15.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Streaming",
+      "vendored_frameworks": "ios/StraaSStreamingSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "GPUImage-StraaS": [
+          "~> 0.1.9"
+        ]
+      }
+    },
+    {
+      "name": "Player",
+      "vendored_frameworks": "ios/StraaSPlayerSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "Socket.IO-Client-Swift": [
+          "~> 15.1.0"
+        ],
+        "GoogleAds-IMA-iOS-SDK": [
+          "~> 3.6.0"
+        ],
+        "KVOController": [
+          "~> 1.2.0"
+        ],
+        "AFNetworking": [
+          "~> 3.2.1"
+        ]
+      }
+    },
+    {
+      "name": "PlayerLowLatencyExtension",
+      "vendored_frameworks": "ios/StraaSPlayerLowLatencyExtensionSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Player": [
+
+        ]
+      }
+    },
+    {
+      "name": "Circall",
+      "vendored_frameworks": "ios/StraaSCircallSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "Socket.IO-Client-Swift": [
+          "~> 15.1.0"
+        ],
+        "PodRTC": [
+          "65.8.0.0"
+        ],
+        "AFNetworking": [
+          "~> 3.2.1"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO",
+        "SWIFT_VERSION": "4.0",
+        "VALID_ARCHS": "x86_64 arm64"
+      }
+    }
+  ]
+}
