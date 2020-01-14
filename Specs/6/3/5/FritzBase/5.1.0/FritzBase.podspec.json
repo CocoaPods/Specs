@@ -1,0 +1,76 @@
+{
+  "name": "FritzBase",
+  "version": "5.1.0",
+  "summary": "Official Fritz SDK for Swift 5.1 and Objective-C",
+  "homepage": "https://www.fritz.ai",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Chris Kelly": "engineering@fritz.ai"
+  },
+  "source": {
+    "http": "https://fritz-swift-sdk-release-production.s3.amazonaws.com/FritzBase/5.1.0/FritzBase.zip"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "Accelerate",
+    "CoreImage",
+    "VideoToolbox"
+  ],
+  "weak_frameworks": [
+    "CoreML",
+    "Vision"
+  ],
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.1",
+  "default_subspecs": "ManagedModel",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Frameworks/FritzCore.framework",
+        "Frameworks/Fritz.framework"
+      ]
+    },
+    {
+      "name": "ManagedModel",
+      "dependencies": {
+        "FritzBase/Core": [
+          "5.1.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzManagedModel.framework",
+      "preserve_paths": "Frameworks/FritzManagedModel.framework/build-encrypted-model.sh"
+    },
+    {
+      "name": "CoreMLHelpers",
+      "vendored_frameworks": [
+        "Frameworks/CoreMLHelpers.framework",
+        "5.1.0"
+      ]
+    },
+    {
+      "name": "Vision",
+      "dependencies": {
+        "FritzBase/Core": [
+          "5.1.0"
+        ],
+        "FritzBase/CoreMLHelpers": [
+          "5.1.0"
+        ],
+        "FritzBase/ManagedModel": [
+          "5.1.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/FritzVision.framework"
+    }
+  ],
+  "swift_version": "5.1"
+}
