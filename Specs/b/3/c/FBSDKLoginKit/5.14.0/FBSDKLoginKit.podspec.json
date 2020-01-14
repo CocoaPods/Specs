@@ -1,0 +1,100 @@
+{
+  "name": "FBSDKLoginKit",
+  "version": "5.14.0",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform with features like Login, Share and Message Dialog, App Links, and Graph API",
+  "description": "The Facebook SDK for iOS LoginKit framework provides:\n* Facebook Login to easily sign in users.\n* Sharing features like the Share or Message Dialog to grow your app.\n* Simpler Graph API access to provide more social context.",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "v5.14.0"
+  },
+  "ios": {
+    "weak_frameworks": [
+      "Accounts",
+      "CoreLocation",
+      "Social",
+      "Security",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": [
+      "AudioToolbox",
+      "CoreGraphics",
+      "CoreLocation",
+      "Foundation",
+      "QuartzCore",
+      "Security",
+      "UIKit"
+    ]
+  },
+  "requires_arc": true,
+  "default_subspecs": "Login",
+  "swift_versions": "5.0",
+  "prefix_header_contents": "#define FBSDKCOCOAPODS",
+  "subspecs": [
+    {
+      "name": "Login",
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "~> 5.0"
+        ]
+      },
+      "exclude_files": "FBSDKLoginKit/FBSDKLoginKit/include/**/*",
+      "ios": {
+        "source_files": "FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m}",
+        "public_header_files": "FBSDKLoginKit/FBSDKLoginKit/*.{h}"
+      },
+      "tvos": {
+        "source_files": [
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginConstants.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginCodeInfo.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManager.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManagerResult.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKError.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKDeviceLoginCodeInfo+Internal.h",
+          "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKDeviceLoginError.{h,m}",
+          "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKDeviceLoginManagerResult+Internal.h"
+        ],
+        "public_header_files": [
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginCodeInfo.h",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManager.h",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManagerResult.h",
+          "FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginConstants.h"
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "FBSDKCoreKit/Swift": [
+          "~> 5.14.0"
+        ],
+        "FBSDKLoginKit/Login": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0"
+      },
+      "ios": {
+        "exclude_files": "FBSDKLoginKit/FBSDKLoginKit/Swift/Exports.swift",
+        "source_files": "FBSDKLoginKit/FBSDKLoginKit/Swift/*.{swift}"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
