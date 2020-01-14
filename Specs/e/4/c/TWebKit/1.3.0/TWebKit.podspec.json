@@ -1,0 +1,67 @@
+{
+  "name": "TWebKit",
+  "version": "1.3.0",
+  "summary": "TWebKit unified the UIWebView and WKWebView",
+  "description": "TWebKit unified the UIWebView and WKWebView, \nyou can use TWebView instead, \nand you can set whether can slide back, change web size , block action sheet or 3D touch and so on.\ngithub : https://github.com/tobedefined/TWebKit",
+  "homepage": "https://github.com/tobedefined/TWebKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ToBeDefined": "weinanshao@163.com"
+  },
+  "social_media_url": "http://tbd.tech/",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/tobedefined/TWebKit.git",
+    "tag": "1.3.0"
+  },
+  "public_header_files": "TWebKit/TWebKit.h",
+  "source_files": "TWebKit/TWebKit.h",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "weak_frameworks": "WebKit",
+  "resources": "Source/TWebKit.bundle",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Setting",
+      "public_header_files": "Source/TWebKitSetting.h",
+      "source_files": "Source/TWebKitSetting.{h,m}"
+    },
+    {
+      "name": "Dependence",
+      "private_header_files": "Source/Dependence/*.h",
+      "source_files": "Source/Dependence/",
+      "dependencies": {
+        "TWebKit/Setting": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebView",
+      "private_header_files": [
+        "Source/WebView/TWebView_Inner.h",
+        "Source/WebViewDelegate/*.h"
+      ],
+      "source_files": [
+        "Source/WebView/",
+        "Source/WebViewDelegate/"
+      ],
+      "dependencies": {
+        "TWebKit/Setting": [
+
+        ],
+        "TWebKit/Dependence": [
+
+        ]
+      }
+    }
+  ]
+}
