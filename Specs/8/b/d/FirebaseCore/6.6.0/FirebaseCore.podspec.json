@@ -1,0 +1,92 @@
+{
+  "name": "FirebaseCore",
+  "version": "6.6.0",
+  "summary": "Firebase Core for iOS (plus community support for macOS and tvOS)",
+  "description": "Firebase Core includes FIRApp and FIROptions which provide central configuration for other Firebase services.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "Core-6.6.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "static_framework": true,
+  "prefix_header_file": false,
+  "source_files": "FirebaseCore/Sources/**/*.[mh]",
+  "public_header_files": [
+    "FirebaseCore/Sources/Public/*.h",
+    "FirebaseCore/Sources/Private/*.h"
+  ],
+  "private_header_files": "FirebaseCore/Sources/Private/*.h",
+  "frameworks": "Foundation",
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "osx": {
+    "frameworks": "AppKit"
+  },
+  "tvos": {
+    "frameworks": "UIKit"
+  },
+  "dependencies": {
+    "GoogleUtilities/Environment": [
+      "~> 6.5"
+    ],
+    "GoogleUtilities/Logger": [
+      "~> 6.5"
+    ],
+    "FirebaseCoreDiagnosticsInterop": [
+      "~> 1.2"
+    ],
+    "FirebaseCoreDiagnostics": [
+      "~> 1.2"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "GCC_PREPROCESSOR_DEFINITIONS": "FIRCore_VERSION=6.6.0 Firebase_VERSION=6.15.0",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\"",
+    "OTHER_CFLAGS": "-fno-autolink"
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "source_files": "FirebaseCore/Tests/Unit/**/*.[mh]",
+      "requires_app_host": true,
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      },
+      "resources": "FirebaseCore/Tests/Unit/Resources/GoogleService-Info.plist"
+    },
+    {
+      "name": "swift-unit",
+      "test_type": "unit",
+      "source_files": [
+        "FirebaseCore/Tests/Unit/Swift/**/*.swift",
+        "FirebaseCore/Tests/Unit/Swift/**/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/FirebaseCore/Tests/Unit/Swift/FirebaseCore-unit-Bridging-Header.h"
+      }
+    }
+  ]
+}
