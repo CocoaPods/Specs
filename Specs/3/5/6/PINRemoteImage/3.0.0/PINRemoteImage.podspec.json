@@ -1,0 +1,115 @@
+{
+  "name": "PINRemoteImage",
+  "version": "3.0.0",
+  "summary": "A thread safe, performant, feature rich image fetcher",
+  "homepage": "https://github.com/pinterest/PINRemoteImage",
+  "license": "Apache 2.0",
+  "authors": {
+    "Garrett Moon": "garrett@pinterest.com"
+  },
+  "source": {
+    "git": "https://github.com/pinterest/PINRemoteImage.git",
+    "tag": "3.0.0"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "PINCache",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PINOperation": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0",
+        "osx": "10.11"
+      },
+      "source_files": "Source/Classes/**/*.{h,m}",
+      "public_header_files": "Source/Classes/**/*.h",
+      "exclude_files": "Source/Classes/PINCache/*.{h,m}",
+      "frameworks": [
+        "ImageIO",
+        "Accelerate"
+      ]
+    },
+    {
+      "name": "iOS",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "OSX",
+      "platforms": {
+        "osx": "10.11"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "Cocoa",
+        "CoreServices"
+      ]
+    },
+    {
+      "name": "tvOS",
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebP",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0",
+        "osx": "10.11"
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PIN_WEBP=1",
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+      },
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      }
+    },
+    {
+      "name": "PINCache",
+      "dependencies": {
+        "PINRemoteImage/Core": [
+
+        ],
+        "PINCache": [
+          "=3.0.1-beta.8"
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0",
+        "osx": "10.11"
+      },
+      "source_files": "Source/Classes/PINCache/*.{h,m}"
+    }
+  ]
+}
