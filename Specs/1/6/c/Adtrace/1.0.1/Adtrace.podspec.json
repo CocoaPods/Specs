@@ -1,0 +1,88 @@
+{
+  "name": "Adtrace",
+  "version": "1.0.1",
+  "summary": "This is the iOS SDK of adtrace. You can read more about it at http://adtrace.io.",
+  "homepage": "https://github.com/adtrace/adtrace_sdk_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "MIT-LICENSE"
+  },
+  "authors": {
+    "Aref Hosseini": "info@adtrace.io"
+  },
+  "source": {
+    "git": "https://github.com/adtrace/adtrace_sdk_iOS.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "tvos": "9.0"
+  },
+  "frameworks": "SystemConfiguration",
+  "ios": {
+    "weak_frameworks": [
+      "AdSupport",
+      "iAd",
+      "CoreTelephony"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": "AdSupport"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "BITCODE_GENERATION_MODE": "bitcode"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Adtrace/*.{h,m}",
+        "Adtrace/ADTAdditions/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Sociomantic",
+      "source_files": "plugin/Sociomantic/*.{h,m}",
+      "dependencies": {
+        "Adtrace/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Criteo",
+      "source_files": "plugin/Criteo/*.{h,m}",
+      "dependencies": {
+        "Adtrace/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Trademob",
+      "source_files": "plugin/Trademob/*.{h,m}",
+      "dependencies": {
+        "Adtrace/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebBridge",
+      "source_files": [
+        "AdtraceBridge/*.{h,m}",
+        "AdtraceBridge/WebViewJavascriptBridge/*.{h,m}"
+      ],
+      "dependencies": {
+        "Adtrace/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "6.0"
+      }
+    }
+  ]
+}
