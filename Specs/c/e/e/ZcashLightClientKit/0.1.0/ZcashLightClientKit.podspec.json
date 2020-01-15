@@ -1,0 +1,73 @@
+{
+  "name": "ZcashLightClientKit",
+  "version": "0.1.0",
+  "summary": "Zcash Light Client wallet SDK for iOS",
+  "description": "Zcash Light Client wallet SDK for iOS",
+  "homepage": "https://github.com/zcash/ZcashLightClientKit",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Francisco Gindre": "francisco.gindre@gmail.com",
+    "Jack Grigg": "str4d@electriccoin.co"
+  },
+  "source": {
+    "git": "https://github.com/zcash/ZcashLightClientKit.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "ZcashLightClientKit/**/*.{swift,h,a}",
+  "module_map": "ZcashLightClientKit.modulemap",
+  "swift_versions": "5.1",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "dependencies": {
+    "SwiftGRPC": [
+      "~> 0.10.0"
+    ],
+    "SQLite.swift": [
+      "~> 0.12.2"
+    ]
+  },
+  "ios": {
+    "vendored_libraries": "lib/libzcashlc.a"
+  },
+  "preserve_paths": [
+    "Scripts",
+    "rust",
+    "docs",
+    "Cargo.*",
+    "ZcashLightClientKit/Stencil"
+  ],
+  "prepare_command": "sh Scripts/prepare_zcash_sdk.sh",
+  "script_phases": {
+    "name": "Build generate constants and build librustzcash",
+    "script": "sh ${PODS_TARGET_SRCROOT}/Scripts/generate_zcashsdk_constants.sh && sh ${PODS_TARGET_SRCROOT}/Scripts/build_librustzcash_xcode.sh",
+    "execution_position": "before_compile"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "ZcashLightClientKitTests/**/*.{swift}",
+      "ios": {
+        "resources": "ZcashLightClientKitTests/**/*.{db,params}"
+      },
+      "script_phases": {
+        "name": "Build generate constants and build librustzcash",
+        "script": "sh ${PODS_TARGET_SRCROOT}/Scripts/generate_test_constants.sh && ${PODS_TARGET_SRCROOT}/Scripts/build_librustzcash_xcode.sh --testing",
+        "execution_position": "before_compile"
+      },
+      "dependencies": {
+        "SwiftGRPC": [
+          "~> 0.10.0"
+        ],
+        "SQLite.swift": [
+          "~> 0.12.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
