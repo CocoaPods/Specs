@@ -1,0 +1,50 @@
+{
+  "name": "EJDB2",
+  "version": "1.0.17",
+  "summary": "Embeddable JSON Database engine",
+  "description": "EJDB2 is an embeddable JSON database engine published under MIT license.\n\n- Single file database\n- Online backups support\n\nSimple but powerful query language (JQL) as well as support of the following standards:\n  - rfc6902 JSON Patch\n  - rfc7386 JSON Merge patch\n  - rfc6901 JSON Path\n\nPowered by iowow.io - The persistent key/value storage engine\nProvides HTTP REST/Websockets network endpoints with help of facil.io\nJSON documents are stored in using fast and compact binn binary format",
+  "homepage": "https://ejdb.org",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Anton Adamansky": "adamansky@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/ejdblab",
+  "swift_versions": "5.1",
+  "static_framework": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/Softmotions/EJDB2Swift.git",
+    "tag": "v1.0.17"
+  },
+  "source_files": "Sources/EJDB2/**/*.{c,h,m,swift}",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": [
+      "$(PODS_ROOT)/EJDB2/include"
+    ],
+    "SWIFT_INCLUDE_PATHS": [
+      "$(PODS_ROOT)/EJDB2/Sources/CEJDB2"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "ARCHS": "$(ARCHS_STANDARD_64_BIT)",
+    "VALID_ARCHS": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "preserve_paths": [
+    "*.sh",
+    "Sources/**/*",
+    "lib/**",
+    "include/**"
+  ],
+  "vendored_libraries": "lib/IOS/*.a",
+  "script_phases": {
+    "name": "Build EJDB libs",
+    "execution_position": "before_compile",
+    "script": "test -f ${PODS_ROOT}/EJDB2/include/ejdb2/ejdb2.h || ${PODS_ROOT}/EJDB2/build-ios.sh"
+  },
+  "prepare_command": "./build-ios.sh",
+  "swift_version": "5.1"
+}
