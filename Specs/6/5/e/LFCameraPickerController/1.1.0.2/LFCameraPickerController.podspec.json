@@ -1,0 +1,60 @@
+{
+  "name": "LFCameraPickerController",
+  "version": "1.1.0.2",
+  "summary": "A clone of UIImagePickerController(UIImagePickerControllerSourceTypeCamera), support take photo and record video",
+  "homepage": "https://github.com/lincf0912/LFCameraPickerController",
+  "license": "MIT",
+  "authors": {
+    "lincf0912": "dayflyking@163.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/lincf0912/LFCameraPickerController.git",
+    "tag": "1.1.0.2",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "dependencies": {
+    "SCRecorder": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "resources": "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/class/*.bundle",
+      "source_files": [
+        "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/class/*.{h,m}",
+        "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/class/**/*.{h,m}"
+      ],
+      "public_header_files": "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/class/*.h",
+      "dependencies": {
+        "LFCameraPickerController/LFRecordButton": [
+
+        ]
+      }
+    },
+    {
+      "name": "LFRecordButton",
+      "source_files": "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/vendors/LFRecordButton/*.{h,m}",
+      "public_header_files": "LFCameraPickerControllerDEMO/LFCameraPickerControllerDEMO/vendors/LFRecordButton/LFRecordButton.h"
+    },
+    {
+      "name": "LFMediaEdit",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LF_MEDIAEDIT=1"
+      },
+      "dependencies": {
+        "LFCameraPickerController/Core": [
+
+        ],
+        "LFMediaEditingController": [
+
+        ]
+      }
+    }
+  ]
+}
