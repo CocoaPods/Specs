@@ -1,0 +1,114 @@
+{
+  "name": "MCDoraemonKit",
+  "version": "2.1.1",
+  "summary": "iOS各式各样的工具集合",
+  "description": "iOS各式各样的工具集合 Desc",
+  "homepage": "https://github.com/BinaryParadise/DoraemonKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yixiang": "javer_yi@163.com"
+  },
+  "source": {
+    "git": "https://github.com/BinaryParadise/DoraemonKit",
+    "tag": "2.1.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "dependencies": {
+    "BSBacktraceLogger": [
+
+    ],
+    "fishhook": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "iOS/DoraemonKit/Src/Core/**/*{.h,.m,.c,.mm}",
+      "resource_bundles": {
+        "DoraemonKit": "iOS/DoraemonKit/Resource/**/*"
+      },
+      "dependencies": {
+        "SDWebImage": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "WithLogger",
+      "source_files": "iOS/DoraemonKit/Src/Logger/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithLogger"
+      },
+      "dependencies": {
+        "MCDoraemonKit/Core": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      }
+    },
+    {
+      "name": "WithGPS",
+      "source_files": "iOS/DoraemonKit/Src/GPS/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithGPS"
+      },
+      "dependencies": {
+        "MCDoraemonKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WithLoad",
+      "source_files": "iOS/DoraemonKit/Src/MethodUseTime/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithLoad"
+      },
+      "dependencies": {
+        "MCDoraemonKit/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "iOS/DoraemonKit/Framework/*.framework"
+    },
+    {
+      "name": "WithDatabase",
+      "source_files": "iOS/DoraemonKit/Src/Database/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithDatabase"
+      },
+      "dependencies": {
+        "MCDoraemonKit/Core": [
+
+        ],
+        "YYDebugDatabase": [
+
+        ]
+      }
+    },
+    {
+      "name": "WithMLeaksFinder",
+      "source_files": "iOS/DoraemonKit/Src/MLeaksFinder/**/*{.h,.m}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) DoraemonWithMLeaksFinder"
+      },
+      "dependencies": {
+        "MCDoraemonKit/Core": [
+
+        ],
+        "FBRetainCycleDetector": [
+
+        ]
+      }
+    }
+  ]
+}
