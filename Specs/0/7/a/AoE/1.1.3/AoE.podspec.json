@@ -1,0 +1,92 @@
+{
+  "name": "AoE",
+  "version": "1.1.3",
+  "summary": "AoE",
+  "description": "AoE is AI on Edage",
+  "homepage": "https://github.com/didi/aoe/",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dingc": "dc328466990@163.com"
+  },
+  "source": {
+    "git": "https://github.com/didi/AoE.git",
+    "tag": "1.1.3"
+  },
+  "prefix_header_file": false,
+  "default_subspecs": "Loader",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "iOS/AoE/library/Core/Classes/**/*",
+      "public_header_files": "iOS/AoE/library/Core/Classes/**/*.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "Loader",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "iOS/AoE/library/Loader/Classes/**/*",
+      "public_header_files": "iOS/AoE/library/Loader/Classes/**/*.h",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreVideo"
+      ],
+      "dependencies": {
+        "AoE/Core": [
+
+        ],
+        "AoE/Crypto": [
+
+        ],
+        "JSONModel": [
+
+        ],
+        "SSZipArchive": [
+
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "iOS/AoE/library/Logger/Classes/**/*",
+      "public_header_files": "iOS/AoE/library/Logger/Classes/**/*.h",
+      "dependencies": {
+        "AoE/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": [
+        "iOS/AoE/library/Crypto/Classes/**/*",
+        "iOS/AoE/library/Crypto/Libraries/include/**/*.h"
+      ],
+      "public_header_files": "iOS/AoE/library/Crypto/Classes/**/*.h",
+      "dependencies": {
+        "AoE/Core": [
+
+        ]
+      },
+      "preserve_paths": "iOS/AoE/library/Crypto/Libraries/lib/libaoesign.a",
+      "vendored_libraries": "iOS/AoE/library/Crypto/Libraries/lib/libaoesign.a"
+    }
+  ]
+}
