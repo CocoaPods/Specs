@@ -1,0 +1,270 @@
+{
+  "name": "CYPlayer",
+  "version": "2.4.12",
+  "summary": "A iOS video player, using AVPlayer&FFmpeg. Libraries: CYSMBClient, CYfdkAAC, CYx264, CYFFmpeg",
+  "description": "A iOS video player, using AVFoundation&FFmpeg. Libraries: CYSMBClient, CYfdkAAC, CYx264, CYFFmpeg. https://github.com/yellowei/CYPlayer",
+  "homepage": "https://github.com/yellowei/CYPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yellowei": "me@yellowei.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/yellowei/CYPlayer.git",
+    "tag": "2.4.12"
+  },
+  "resources": [
+    "CYPlayer/CYVideoPlayer/Resource/CYVideoPlayer.bundle",
+    "CYPlayer/CYVideoPlayer/Player/FFMpegDecoder/cyplayer.bundle"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "CYFFmpeg": [
+
+    ]
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/CYPlayer\"",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/CYPlayer\"",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/CYPlayer\"",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/CYPlayer\"",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup -ObjC",
+    "ENABLE_BITCODE": "NO",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "CYAttributesFactory",
+      "source_files": "CYPlayer/CYAttributesFactory/*.{h,m}"
+    },
+    {
+      "name": "CYLoadingView",
+      "source_files": "CYPlayer/CYLoadingView/*.{h,m}"
+    },
+    {
+      "name": "CYBorderLineView",
+      "source_files": "CYPlayer/CYBorderLineView/*.{h,m}"
+    },
+    {
+      "name": "CYObserverHelper",
+      "source_files": "CYPlayer/CYObserverHelper/*.{h,m}"
+    },
+    {
+      "name": "CYOrentationObserver",
+      "source_files": "CYPlayer/CYOrentationObserver/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "UseNativeOrentation",
+          "source_files": "CYPlayer/CYOrentationObserver/UseNativeOrentation/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "CYPrompt",
+      "source_files": "CYPlayer/CYPrompt/*.{h,m}"
+    },
+    {
+      "name": "CYSlider",
+      "source_files": "CYPlayer/CYSlider/*.{h,m}"
+    },
+    {
+      "name": "CYUIFactory",
+      "dependencies": {
+        "CYPlayer/CYAttributesFactory": [
+
+        ]
+      },
+      "source_files": "CYPlayer/CYUIFactory/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "CYPlayer/CYUIFactory/Category/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "CYVideoPlayerBackGR",
+      "source_files": "CYPlayer/CYVideoPlayerBackGR/*.{h,m}",
+      "dependencies": {
+        "CYPlayer/CYObserverHelper": [
+
+        ]
+      }
+    },
+    {
+      "name": "CYVideoPlayer",
+      "source_files": "CYPlayer/CYVideoPlayer/*.{h}",
+      "dependencies": {
+        "CYPlayer/CYUIFactory/Category": [
+
+        ],
+        "CYPlayer/CYUIFactory": [
+
+        ],
+        "CYPlayer/CYPrompt": [
+
+        ],
+        "CYPlayer/CYAttributesFactory": [
+
+        ],
+        "CYPlayer/CYOrentationObserver": [
+
+        ],
+        "CYPlayer/CYSlider": [
+
+        ],
+        "CYPlayer/CYBorderLineView": [
+
+        ],
+        "CYPlayer/CYObserverHelper": [
+
+        ],
+        "CYPlayer/CYLoadingView": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Header",
+          "source_files": "CYPlayer/CYVideoPlayer/Header/*.{h}"
+        },
+        {
+          "name": "Model",
+          "source_files": "CYPlayer/CYVideoPlayer/Model/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Header": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/Resource": [
+
+            ],
+            "CYFFmpeg": [
+
+            ]
+          }
+        },
+        {
+          "name": "Resource",
+          "source_files": "CYPlayer/CYVideoPlayer/Resource/*.{h,m}"
+        },
+        {
+          "name": "Base",
+          "source_files": "CYPlayer/CYVideoPlayer/Base/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Model": [
+
+            ]
+          }
+        },
+        {
+          "name": "Other",
+          "source_files": "CYPlayer/CYVideoPlayer/Other/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Player",
+          "source_files": "CYPlayer/CYVideoPlayer/Player/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Control": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/MoreSetting": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/VolBrigControl": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/Present": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/Registrar": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/TimerControl": [
+
+            ],
+            "CYPlayer/CYVideoPlayer/GestureControl": [
+
+            ]
+          }
+        },
+        {
+          "name": "Control",
+          "source_files": "CYPlayer/CYVideoPlayer/Control/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Other": [
+
+            ]
+          }
+        },
+        {
+          "name": "GestureControl",
+          "source_files": "CYPlayer/CYVideoPlayer/GestureControl/*.{h,m}"
+        },
+        {
+          "name": "MoreSetting",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Other": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "MoreSetting",
+              "source_files": "CYPlayer/CYVideoPlayer/MoreSetting/MoreSetting/*.{h,m}"
+            },
+            {
+              "name": "Secondary",
+              "source_files": "CYPlayer/CYVideoPlayer/MoreSetting/Secondary/*.{h,m}"
+            }
+          ]
+        },
+        {
+          "name": "VolBrigControl",
+          "source_files": "CYPlayer/CYVideoPlayer/VolBrigControl/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Other": [
+
+            ]
+          }
+        },
+        {
+          "name": "Present",
+          "source_files": "CYPlayer/CYVideoPlayer/Present/*.{h,m}",
+          "dependencies": {
+            "CYPlayer/CYVideoPlayer/Other": [
+
+            ]
+          }
+        },
+        {
+          "name": "Registrar",
+          "source_files": "CYPlayer/CYVideoPlayer/Registrar/*.{h,m}"
+        },
+        {
+          "name": "TimerControl",
+          "source_files": "CYPlayer/CYVideoPlayer/TimerControl/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
