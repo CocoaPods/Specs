@@ -1,0 +1,148 @@
+{
+  "name": "WPAppKit",
+  "version": "0.5.9",
+  "summary": "搭建 Swift 项目常用类库整合",
+  "description": "Cocoa：Foundation,UIKit相关扩展\nTool：常用工具库\nThirdKit：常用第三方库",
+  "homepage": "https://github.com/WHeB/WPAppKit.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WHeB": "1193325271@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/WHeB/WPAppKit.git",
+    "tag": "0.5.9"
+  },
+  "swift_versions": "4.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "OftenLib",
+      "dependencies": {
+        "SnapKit": [
+          "~> 4.0.0"
+        ],
+        "Alamofire": [
+          "4.8.0"
+        ],
+        "Localize-Swift": [
+          "~> 2.0"
+        ],
+        "RealmSwift": [
+          "~> 3.17.3"
+        ]
+      }
+    },
+    {
+      "name": "Cocoa",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "WPAppKit/Classes/Cocoa/Foundation/*.swift"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "WPAppKit/Classes/Cocoa/UIKit/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "CustomView",
+      "source_files": "WPAppKit/Classes/CustomView/*.swift",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "dependencies": {
+        "WPAppKit/Cocoa": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tool",
+      "source_files": "WPAppKit/Classes/Tool/*.swift",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "dependencies": {
+        "WPAppKit/Cocoa": [
+
+        ]
+      }
+    },
+    {
+      "name": "EmptyView",
+      "source_files": "WPAppKit/Classes/EmptyView/*.swift"
+    },
+    {
+      "name": "WPPopupView",
+      "source_files": "WPAppKit/Classes/WPPopupView/*.swift",
+      "dependencies": {
+        "WPAppKit/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "WPWebView",
+      "ios": {
+        "frameworks": "WebKit"
+      },
+      "source_files": "WPAppKit/Classes/WPWebView/*.{swift,html}"
+    },
+    {
+      "name": "CodeScan",
+      "source_files": "WPAppKit/Classes/CodeScan/*.swift",
+      "resources": "WPAppKit/Assets/CodeScan.bundle"
+    },
+    {
+      "name": "ThirdKit",
+      "dependencies": {
+        "WPAppKit/Cocoa": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "MJRefresh",
+          "source_files": "WPAppKit/Classes/ThirdKit/MJRefresh/*.swift",
+          "dependencies": {
+            "MJRefresh": [
+              "3.2.2"
+            ]
+          }
+        },
+        {
+          "name": "Kingfisher",
+          "source_files": "WPAppKit/Classes/ThirdKit/Kingfisher/*.swift",
+          "dependencies": {
+            "Kingfisher": [
+              "~> 4.6.0"
+            ]
+          }
+        },
+        {
+          "name": "MBProgressHUD",
+          "source_files": "WPAppKit/Classes/ThirdKit/MBProgressHUD/*.{swift,h,m}"
+        },
+        {
+          "name": "HBDNavigationBar",
+          "source_files": "WPAppKit/Classes/ThirdKit/HBDNavigationBar/*.swift",
+          "dependencies": {
+            "HBDNavigationBar": [
+              "~> 1.5.2"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "4.0"
+}
