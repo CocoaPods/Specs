@@ -1,0 +1,59 @@
+{
+  "name": "GRDB.swift",
+  "version": "4.9.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A toolkit for SQLite databases, with a focus on application development.",
+  "homepage": "https://github.com/groue/GRDB.swift",
+  "authors": {
+    "Gwendal Roué": "gr@pierlis.com"
+  },
+  "source": {
+    "git": "https://github.com/groue/GRDB.swift.git",
+    "tag": "v4.9.0"
+  },
+  "module_name": "GRDB",
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": [
+        "GRDB/**/*.swift",
+        "Support/grdb_config.h"
+      ],
+      "frameworks": "Foundation",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "SQLCipher",
+      "source_files": [
+        "GRDB/**/*.swift",
+        "Support/grdb_config.h"
+      ],
+      "frameworks": "Foundation",
+      "dependencies": {
+        "SQLCipher": [
+          ">= 3.4.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D SQLITE_HAS_CODEC -D GRDBCIPHER -D SQLITE_ENABLE_FTS5",
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DGRDBCIPHER -DSQLITE_ENABLE_FTS5",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1 GRDBCIPHER=1 SQLITE_ENABLE_FTS5=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
