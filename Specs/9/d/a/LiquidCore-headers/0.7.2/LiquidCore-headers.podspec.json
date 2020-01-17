@@ -1,0 +1,36 @@
+{
+  "name": "LiquidCore-headers",
+  "version": "0.7.2",
+  "summary": "Header include files for LiquidCore.",
+  "description": "Header include files for LiquidCore.  To use in a native addon, add \"${PODS_CONFIGURATION_BUILD_DIR}/LiquidCore-headers/LiquidCore_headers.framework/PrivateHeaders\" to your header search path.",
+  "homepage": "https://github.com/LiquidPlayer/LiquidCore",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Eric Lange": "eric@flicket.tv"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/LiquidPlayer/LiquidCore.git",
+    "tag": "0.7.2"
+  },
+  "prepare_command": "bash LiquidCore/src/ios/copy_headers.sh",
+  "source_files": [
+    "LiquidCore/src/ios/gen/include/*.h",
+    "LiquidCore/src/ios/gen/include/**/*.h",
+    "LiquidCore/src/ios/header-dummy.cc"
+  ],
+  "private_header_files": [
+    "LiquidCore/src/ios/gen/include/*.h",
+    "LiquidCore/src/ios/gen/include/**/*.h"
+  ],
+  "header_mappings_dir": "LiquidCore/src/ios/gen/include",
+  "xcconfig": {
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/LiquidCore/src/ios/gen/include"
+  }
+}
