@@ -1,0 +1,51 @@
+{
+  "name": "libdav1d",
+  "version": "0.5.2",
+  "summary": "dav1d is an AV1 decoder :)",
+  "description": "dav1d is a new AV1 cross-platform decoder, open-source, and focused on speed and correctness.",
+  "homepage": "https://github.com/videolan/dav1d",
+  "license": {
+    "type": "BSD 2-clause"
+  },
+  "authors": {
+    "Alliance for Open Media": "https://aomedia.org"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/libdav1d-Xcode.git",
+    "tag": "0.5.2",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": [
+    "dav1d/src/**/*.{h,c}",
+    "dav1d/include/dav1d/*.h",
+    "dav1d/include/common/*.h",
+    "generate/*.h",
+    "generate/tmpl_16/*.c"
+  ],
+  "public_header_files": [
+    "dav1d/include/dav1d/*.h",
+    "generate/version.h"
+  ],
+  "exclude_files": [
+    "dav1d/src/arm",
+    "dav1d/src/ppc",
+    "dav1d/src/win32",
+    "dav1d/src/x86",
+    "dav1d/src/ext",
+    "dav1d/src/itx_1d.c"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libdav1d/dav1d ${PODS_TARGET_SRCROOT}/dav1d ${PODS_ROOT}/libdav1d/dav1d/include ${PODS_TARGET_SRCROOT}/dav1d/include ${PODS_ROOT}/libdav1d/generate ${PODS_TARGET_SRCROOT}/generate"
+  },
+  "prepare_command": "sed -i '' 's/\\\"common.h\\\"/\\\"dav1d\\/common.h\\\"/g' './dav1d/src/film_grain_tmpl.c'\nsed -i '' 's/\\\"common.h\\\"/\\\"dav1d\\/common.h\\\"/g' './dav1d/src/fg_apply_tmpl.c'",
+  "preserve_paths": [
+    "dav1d",
+    "generate"
+  ]
+}
