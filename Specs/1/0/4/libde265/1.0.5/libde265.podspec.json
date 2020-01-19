@@ -1,0 +1,39 @@
+{
+  "name": "libde265",
+  "version": "1.0.5",
+  "summary": "Open h.265 video codec implementation.",
+  "description": "libde265 is an open source implementation of the h.265 video codec.\nIt is written from scratch and has a plain C API to enable a simple integration into other software.",
+  "homepage": "https://www.libde265.org/",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": {
+    "Struktur AG": "farin@struktur.de"
+  },
+  "source": {
+    "git": "https://github.com/strukturag/libde265.git",
+    "tag": "v1.0.5"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": "libde265/**/*.{h,c,cc,cpp,hpp}",
+  "public_header_files": [
+    "libde265/de265.h",
+    "libde265/de265-version.h"
+  ],
+  "exclude_files": [
+    "libde265/arm",
+    "libde265/x86"
+  ],
+  "prepare_command": "cp './libde265/de265-version.h.in' './libde265/de265-version.h'\nsed -i.bak 's/@NUMERIC_VERSION@/0x01000500/g' './libde265/de265-version.h'\nsed -i.bak 's/@PACKAGE_VERSION@/1.0.5/g' './libde265/de265-version.h'\nsed -i.bak 's/<libde265\\/de265-version.h>/\"de265-version.h\"/g' './libde265/de265.h'",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_POSIX_MEMALIGN=1",
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libde265/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/libde265/libde265 ${PODS_TARGET_SRCROOT}/libde265"
+  },
+  "preserve_paths": "libde265",
+  "libraries": "c++"
+}
