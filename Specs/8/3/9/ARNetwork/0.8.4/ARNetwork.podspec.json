@@ -1,0 +1,105 @@
+{
+  "name": "ARNetwork",
+  "version": "0.8.4",
+  "summary": "An iOS network framework in combination with HTTP/HTTPS task and data cache. (AFNetworking+Realm)",
+  "description": "An iOS network framework in combination with HTTP/HTTPS task and data cache. (AFNetworking+Realm)",
+  "homepage": "https://github.com/dklinzh/ARNetwork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel": "linzhdk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dklinzh/ARNetwork.git",
+    "tag": "0.8.4",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "swift_versions": "5.0",
+  "prefix_header_file": "ARNetwork/Classes/ARNetwork-Prefix.pch",
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "dependencies": {
+        "ARNetwork/HTTP": [
+
+        ],
+        "ARNetwork/Cache/Core": [
+
+        ],
+        "ARNetwork/Detector": [
+
+        ]
+      }
+    },
+    {
+      "name": "HTTP",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 3.2"
+        ]
+      },
+      "private_header_files": "ARNetwork/Classes/HTTP/_*.h",
+      "source_files": "ARNetwork/Classes/HTTP/*.{h,m}"
+    },
+    {
+      "name": "Mock",
+      "dependencies": {
+        "OHHTTPStubs": [
+          "~> 8.0"
+        ]
+      },
+      "source_files": "ARNetwork/Classes/Mock/*.{h,m}",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ARNETWORK_MOCK=DEBUG",
+        "OTHER_SWIFT_FLAGS": "-D ARNETWORK_MOCK"
+      }
+    },
+    {
+      "name": "Cache",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "ARNetwork/HTTP": [
+
+            ],
+            "Realm": [
+              "3.21.0"
+            ]
+          },
+          "private_header_files": "ARNetwork/Classes/Cache/_*.h",
+          "source_files": "ARNetwork/Classes/Cache/*.{h,m}"
+        },
+        {
+          "name": "Swift",
+          "dependencies": {
+            "ARNetwork/Cache/Core": [
+
+            ]
+          },
+          "source_files": "ARNetwork/Classes/Cache/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Detector",
+      "dependencies": {
+        "AFNetworking/UIKit": [
+          "~> 3.2"
+        ],
+        "ARNetwork/HTTP": [
+
+        ]
+      },
+      "source_files": "ARNetwork/Classes/Detector/*.{h,m}"
+    }
+  ],
+  "swift_version": "5.0"
+}
