@@ -1,0 +1,85 @@
+{
+  "name": "Web3",
+  "version": "0.4.2",
+  "summary": "Web3 library for Swift. Sign transactions and interact with Smart Contracts in the Ethereum Network.",
+  "description": "Web3 library to sign transactions, interact with Smart Contracts, call\nSmart Contract methods and many things more, all through either a\nHTTP RPC interface provided by this library or a custom RPC interface\n(for example IPC,...).",
+  "homepage": "https://github.com/Boilertalk/Web3.swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Koray Koska": "koray@koska.at"
+  },
+  "source": {
+    "git": "https://github.com/Boilertalk/Web3.swift.git",
+    "tag": "0.4.2"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "swift_versions": [
+    "5.1.3",
+    "5.1.2",
+    "5.0",
+    "5.1"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-DWeb3CocoaPods"
+  },
+  "default_subspecs": [
+    "Core",
+    "HTTPExtension"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Web3/Classes/Core/**/*",
+      "dependencies": {
+        "BigInt": [
+          "~> 4.0"
+        ],
+        "CryptoSwift": [
+          "~> 1.0"
+        ],
+        "secp256k1.swift": [
+          "~> 0.1"
+        ]
+      }
+    },
+    {
+      "name": "HTTPExtension",
+      "source_files": "Web3/Classes/FoundationHTTP/**/*",
+      "dependencies": {
+        "Web3/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PromiseKit",
+      "source_files": "Web3/Classes/PromiseKit/**/*",
+      "dependencies": {
+        "Web3/Core": [
+
+        ],
+        "PromiseKit/CorePromise": [
+          "~> 6.0"
+        ]
+      }
+    },
+    {
+      "name": "ContractABI",
+      "source_files": "Web3/Classes/ContractABI/**/*",
+      "dependencies": {
+        "Web3/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1.3"
+}
