@@ -1,0 +1,51 @@
+{
+  "name": "IBMWatsonSpeechToTextV1",
+  "version": "3.2.0",
+  "summary": "Client framework for the IBM Watson Speech to Text service",
+  "description": "The IBM® Speech to Text leverages machine intelligence to transcribe the human voice accurately.\nThe service combines information about grammar and language structure with knowledge of the composition\nof the audio signal. It continuously returns and retroactively updates a transcription as more speech is heard.",
+  "homepage": "https://www.ibm.com/watson/services/speech-to-text/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jeff Arn": "jtarn@us.ibm.com",
+    "Mike Kistler": "mkistler@us.ibm.com"
+  },
+  "module_name": "SpeechToText",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/watson-developer-cloud/swift-sdk.git",
+    "tag": "v3.2.0"
+  },
+  "source_files": [
+    "Source/SpeechToTextV1/**/*.swift",
+    "Source/SupportingFiles/InsecureConnection.swift",
+    "Source/SupportingFiles/Shared.swift",
+    "Source/SupportingFiles/Dependencies/Source/**/*"
+  ],
+  "exclude_files": [
+    "Source/SpeechToTextV1/Shared.swift",
+    "**/config_types.h",
+    "**/opus_header.h",
+    "**/opus_header.c"
+  ],
+  "swift_versions": [
+    "4.2",
+    "5.0",
+    "5.1"
+  ],
+  "dependencies": {
+    "IBMSwiftSDKCore": [
+      "~> 1.0.0"
+    ],
+    "Starscream": [
+      "3.0.5"
+    ]
+  },
+  "vendored_libraries": "Source/SupportingFiles/Dependencies/Libraries/*.a",
+  "prepare_command": "cd Source/SupportingFiles/Dependencies/Libraries\nmv libogg.a libogg_stt.a\nmv libopus.a libopus_stt.a\ncd ../Source\nmv ogg/* .\nmv opus/* .\nrm -rf ogg\nrm -rf opus",
+  "swift_version": "5.1"
+}
