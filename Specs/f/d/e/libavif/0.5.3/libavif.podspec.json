@@ -1,0 +1,94 @@
+{
+  "name": "libavif",
+  "version": "0.5.3",
+  "summary": "libavif - Library for encoding and decoding .avif files",
+  "description": "This library aims to be a friendly, portable C implementation of the AV1 Image File Format, as described here:\nhttps://aomediacodec.github.io/av1-avif/\nIt is a work-in-progress, but can already encode and decode all AOM supported YUV formats and bit depths (with alpha).",
+  "homepage": "https://github.com/joedrago/avif/",
+  "license": {
+    "type": "BSD"
+  },
+  "authors": {
+    "Joe Drago": "joedrago@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/AOMediaCodec/libavif.git",
+    "tag": "v0.5.3"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "libaom",
+  "preserve_paths": [
+    "src",
+    "include/avif"
+  ],
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": [
+        "src/**/*.{h,c,cc}",
+        "include/avif/*.h"
+      ],
+      "public_header_files": "include/avif/avif.h",
+      "exclude_files": "src/codec_*.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/libavif/include $(PODS_TARGET_SRCROOT)/include"
+      }
+    },
+    {
+      "name": "libaom",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "libaom": [
+          ">= 1.0.2"
+        ]
+      },
+      "source_files": "src/codec_aom.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libaom/aom",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_AOM=1"
+      }
+    },
+    {
+      "name": "libdav1d",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "libdav1d": [
+          ">= 0.4.0"
+        ]
+      },
+      "source_files": "src/codec_dav1d.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libdav1d/dav1d/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_DAV1D=1"
+      }
+    },
+    {
+      "name": "librav1e",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "librav1e": [
+          ">= 0.1.0"
+        ]
+      },
+      "source_files": "src/codec_rav1e.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/librav1e/rav1e/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_RAV1E=1"
+      },
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.7"
+      }
+    }
+  ]
+}
