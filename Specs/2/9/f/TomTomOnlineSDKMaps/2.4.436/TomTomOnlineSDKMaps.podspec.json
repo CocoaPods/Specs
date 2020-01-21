@@ -1,0 +1,56 @@
+{
+  "name": "TomTomOnlineSDKMaps",
+  "version": "2.4.436",
+  "summary": "TomTom Online SDK Maps",
+  "homepage": "https://developer.tomtom.com/maps-sdk-ios/map",
+  "license": {
+    "type": "CUSTOM",
+    "file": "TomTomOnlineSDKMaps/LICENSE.md"
+  },
+  "authors": {
+    "TomTom Inc.": "developer@tomtom.com"
+  },
+  "source": {
+    "http": "https://dl.tomtom.com:8443/nexus/content/repositories/releases_ios/TomTomOnlineSDKMaps/TomTomOnlineSDKMaps_2.4.436.framework.zip"
+  },
+  "platforms": {
+    "ios": "9.1"
+  },
+  "ios": {
+    "requires_arc": true,
+    "frameworks": [
+      "Foundation",
+      "OpenGLES",
+      "QuartzCore",
+      "UIKit",
+      "CoreGraphics",
+      "CoreText",
+      "CoreLocation"
+    ],
+    "vendored_frameworks": "TomTomOnlineSDKMaps/TomTomOnlineSDKMaps.framework",
+    "dependencies": {
+      "TomTomOnlineUtils": [
+        "2.4.436"
+      ]
+    }
+  },
+  "default_subspecs": "Offline",
+  "subspecs": [
+    {
+      "name": "Online"
+    },
+    {
+      "name": "Offline",
+      "ios": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "$(inherited) -framework TomTomOnlineSDKMapsStyle"
+        },
+        "dependencies": {
+          "TomTomOnlineSDKMapsStyle": [
+            "2.4.436"
+          ]
+        }
+      }
+    }
+  ]
+}
