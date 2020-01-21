@@ -1,0 +1,112 @@
+{
+  "name": "ADAL",
+  "module_name": "ADAL",
+  "version": "2.7.17",
+  "summary": "The ADAL SDK for iOS gives you the ability to add Azure Identity authentication to your application",
+  "description": "The Azure Identity Library for Objective C. This library gives you the ability to add support for Work Accounts to your iOS and macOS applications with just a few lines of additional code. This SDK gives your application the full functionality of Microsoft Azure AD, including industry standard protocol support for OAuth2, Web API integration with user level consent, and two factor authentication support.",
+  "homepage": "https://github.com/AzureAD/azure-activedirectory-library-for-objc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Microsoft": "nugetaad@microsoft.com"
+  },
+  "social_media_url": "https://twitter.com/azuread",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/AzureAD/azure-activedirectory-library-for-objc.git",
+    "tag": "2.7.17",
+    "submodules": true
+  },
+  "pod_target_xcconfig": {
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
+  },
+  "default_subspecs": "app-lib",
+  "prefix_header_file": "ADAL/src/ADAL.pch",
+  "header_dir": "ADAL",
+  "module_map": "ADAL/resources/mac/adal_mac.modulemap",
+  "subspecs": [
+    {
+      "name": "app-lib",
+      "source_files": [
+        "ADAL/src/**/*.{h,m}",
+        "ADAL/IdentityCore/IdentityCore/src/**/*.{h,m}"
+      ],
+      "ios": {
+        "public_header_files": [
+          "ADAL/src/public/*.h",
+          "ADAL/src/public/ios/*.h"
+        ],
+        "exclude_files": [
+          "ADAL/src/**/mac/*",
+          "ADAL/IdentityCore/IdentityCore/src/**/mac/*"
+        ],
+        "dependencies": {
+          "ADAL/tokencacheheader": [
+
+          ]
+        }
+      },
+      "osx": {
+        "public_header_files": [
+          "ADAL/src/public/mac/*.h",
+          "ADAL/src/public/*.h"
+        ],
+        "exclude_files": [
+          "ADAL/src/**/ios/*",
+          "ADAL/IdentityCore/IdentityCore/src/**/ios/*"
+        ],
+        "resources": "ADAL/resources/mac/ADCredentialViewController.xib"
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "tokencacheheader",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "ios": {
+        "source_files": "ADAL/src/public/mac/ADTokenCache.h",
+        "private_header_files": "ADAL/src/public/mac/ADTokenCache.h"
+      }
+    },
+    {
+      "name": "extension",
+      "compiler_flags": "-DADAL_EXTENSION_SAFE=1",
+      "source_files": [
+        "ADAL/src/**/*.{h,m}",
+        "ADAL/IdentityCore/IdentityCore/src/**/*.{h,m}"
+      ],
+      "ios": {
+        "public_header_files": [
+          "ADAL/src/public/*.h",
+          "ADAL/src/public/ios/*.h"
+        ],
+        "exclude_files": [
+          "ADAL/src/**/mac/*",
+          "ADAL/IdentityCore/IdentityCore/src/**/mac/*"
+        ],
+        "dependencies": {
+          "ADAL/tokencacheheader": [
+
+          ]
+        }
+      },
+      "osx": {
+        "public_header_files": [
+          "ADAL/src/public/mac/*.h",
+          "ADAL/src/public/*.h"
+        ],
+        "exclude_files": [
+          "ADAL/src/**/ios/*",
+          "ADAL/IdentityCore/IdentityCore/src/**/ios/*"
+        ]
+      },
+      "requires_arc": true
+    }
+  ]
+}
