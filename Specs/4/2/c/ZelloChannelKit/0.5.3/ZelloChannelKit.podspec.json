@@ -1,0 +1,61 @@
+{
+  "name": "ZelloChannelKit",
+  "version": "0.5.3",
+  "summary": "WebSocket based API to connect to Zello channels",
+  "description": "The Zello Channels SDK allows you to integrate Zello push-to-talk into your own application. The SDK communicates with a Zello server over a web socket connection using a JSON-based protocol, and offers a simple API to send and receive audio, images, and text over Zello channels. Supported features include:\n\nSend voice messages from the device microphone\nPlay incoming voice messages through the device speaker\nSend voice messages from your own audio code, e.g. from a file\nReceive voice message data with your own audio code with optional pass-through to the device speaker\nSend and recieve text messages\nSend and receive images\nSend the device's current location, and receive location messages from other users\nThe protocol specification is also available if you prefer to develop your own client in-house.",
+  "homepage": "https://github.com/zelloptt/zello-channel-api/",
+  "license": "MIT",
+  "authors": {
+    "Zello, Inc.": "dev@zello.com"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "source": {
+    "git": "https://github.com/zelloptt/zello-ios-sdk.git",
+    "tag": "v0.5.3"
+  },
+  "source_files": "ZelloChannelKit/ZelloChannelKit/**/*.{h,m,mm}",
+  "public_header_files": [
+    "ZelloChannelKit/ZelloChannelKit/ZelloChannelKit.h",
+    "ZelloChannelKit/ZelloChannelKit/ZCCErrors.h",
+    "ZelloChannelKit/ZelloChannelKit/images/ZCCImageInfo.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/ZCCIncomingVoiceConfiguration.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/zCCIncomingVoiceStream.h",
+    "ZelloChannelKit/ZelloChannelKit/location/ZCCLocationInfo.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/ZCCOutgoingVoiceConfiguration.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/ZCCOutgoingVoiceStream.h",
+    "ZelloChannelKit/ZelloChannelKit/ZCCSession.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/ZCCStreamState.h",
+    "ZelloChannelKit/ZelloChannelKit/ZCCTypes.h",
+    "ZelloChannelKit/ZelloChannelKit/streams/ZCCVoiceStream.h"
+  ],
+  "libraries": [
+    "icucore",
+    "c++"
+  ],
+  "subspecs": [
+    {
+      "name": "libopus",
+      "source_files": "LibOpus/CSource/**/*.{h,cpp}",
+      "private_header_files": "LibOpus/CSource/**/*.h",
+      "preserve_paths": "LibOpus/CSource/include/opus/*.h",
+      "compiler_flags": "-Wno-implicit-retain-self",
+      "libraries": "c++",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+        "CLANG_CXX_LIBRARY": "libc++"
+      },
+      "vendored_libraries": "ZelloChannelKit/ZelloChannelKit/libopus.a"
+    },
+    {
+      "name": "SocketRocket",
+      "source_files": "ZelloChannelKit/ZelloChannelKit/network/SocketRocket/**/*.{h,m}",
+      "private_header_files": "ZelloChannelKit/ZelloChannelKit/network/SocketRocket/**/*.h",
+      "compiler_flags": [
+        "-Wno-implicit-retain-self",
+        "-Wno-switch"
+      ]
+    }
+  ]
+}
