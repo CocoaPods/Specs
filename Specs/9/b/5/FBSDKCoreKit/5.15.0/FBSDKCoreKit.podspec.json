@@ -1,0 +1,174 @@
+{
+  "name": "FBSDKCoreKit",
+  "version": "5.15.0",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform core features",
+  "description": "The Facebook SDK for iOS CoreKit framework provides:\n* App Events (for App Analytics)\n* Graph API Access and Error Recovery\n* Working with Access Tokens and User Profiles",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "8.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "v5.15.0"
+  },
+  "ios": {
+    "weak_frameworks": [
+      "Accelerate",
+      "Accounts",
+      "CoreLocation",
+      "Social",
+      "Security",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": [
+      "CoreLocation",
+      "Security",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "requires_arc": [
+    "FBSDKCoreKit/FBSDKCoreKit/*",
+    "FBSDKCoreKit/FBSDKCoreKit/AppEvents/**/*",
+    "FBSDKCoreKit/FBSDKCoreKit/AppLink/**/*",
+    "FBSDKCoreKit/FBSDKCoreKit/Basics/**/*",
+    "FBSDKCoreKit/FBSDKCoreKit/GraphAPI/*",
+    "FBSDKCoreKit/FBSDKCoreKit/Internal/**/*"
+  ],
+  "default_subspecs": [
+    "Core",
+    "Basics"
+  ],
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1"
+  },
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1"
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "subspecs": [
+    {
+      "name": "Basics",
+      "source_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/*.{h,m}",
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/Instrument/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/*.h"
+      ],
+      "private_header_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/Instrument/**/*.h"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "FBSDKCoreKit/Basics": [
+
+        ]
+      },
+      "exclude_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/*",
+        "FBSDKCoreKit/FBSDKCoreKit/Basics/**/*.{h,m}",
+        "FBSDKCoreKit/FBSDKCoreKit/include/**/*"
+      ],
+      "source_files": "FBSDKCoreKit/FBSDKCoreKit/**/*.{h,hpp,m,mm}",
+      "public_header_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/AppEvents/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/AppLink/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/GraphAPI/*.h"
+      ],
+      "private_header_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h"
+      ],
+      "resources": "FacebookSDKStrings.bundle",
+      "libraries": [
+        "c++",
+        "stdc++"
+      ],
+      "ios": {
+        "exclude_files": [
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKDeviceButton.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKDeviceViewControllerBase.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/Device/**/*",
+          "FBSDKCoreKit/FBSDKCoreKit/Swift/**/*"
+        ]
+      },
+      "tvos": {
+        "exclude_files": [
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/AAM/*",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/SuggestedEvents/*",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/RestrictiveDataFilter/FBSDKAddressInferencer.{h,mm}",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/RestrictiveDataFilter/FBSDKAddressFilterManager.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/Codeless/*",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/ViewHierarchy/*",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/FBSDKHybridAppEventsScriptMessageHandler.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/ML/*",
+          "FBSDKCoreKit/FBSDKCoreKit/AppLink/**/*",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKMeasurementEvent.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/FBSDKURL.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/**/*",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKAppLinkReturnToRefererView_Internal.h",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKAppLink_Internal.h",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKAudioResourceLoader.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKContainerViewController.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMeasurementEvent_Internal.h",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMonotonicTime.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKProfile+Internal.h",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKSystemAccountStoreAdapter.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKTriStateBOOL.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKURL_Internal.h",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKCloseIcon.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKColor.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKMaleSilhouetteIcon.{h,m}",
+          "FBSDKCoreKit/FBSDKCoreKit/Internal/WebDialog/**/*"
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "FBSDKCoreKit/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "8.0"
+      },
+      "source_files": "FBSDKCoreKit/FBSDKCoreKit/Swift/*.{h,m,swift}",
+      "exclude_files": "FBSDKCoreKit/FBSDKCoreKit/Swift/Exports.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
