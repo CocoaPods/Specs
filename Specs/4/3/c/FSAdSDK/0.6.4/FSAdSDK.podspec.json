@@ -1,0 +1,106 @@
+{
+  "name": "FSAdSDK",
+  "version": "0.6.4",
+  "summary": "Freestar iOS Mobile Advertising SDK.",
+  "description": "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info.",
+  "homepage": "https://freestar.io",
+  "authors": {
+    "Freestar - Dean Chang": "dean.chang@freestar.io"
+  },
+  "license": {
+    "type": "Freestar Limited License"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git",
+    "tag": "0.6.4"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FSAdSDK/Registration": [
+
+        ],
+        "FSCache": [
+
+        ],
+        "FSCommon": [
+
+        ],
+        "FSDFP": [
+
+        ],
+        "Protobuf": [
+          "~> 3.10.0"
+        ],
+        "PrebidMobileFS": [
+          "~> 0.6.1"
+        ]
+      }
+    },
+    {
+      "name": "Registration",
+      "source_files": "SDK/FSAdSDK.framework/Headers/*.{h}",
+      "vendored_frameworks": "SDK/FSAdSDK.framework",
+      "preserve_paths": "SDK/FSAdSDK.framework/*"
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "FSAdSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "FSAdSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mediation",
+      "subspecs": [
+        {
+          "name": "MoPub",
+          "source_files": "SDK/MoPubAdapter.framework/Versions/A/Headers/*.{h}",
+          "vendored_frameworks": "SDK/MoPubAdapter.framework",
+          "preserve_paths": "SDK/MoPubAdapter.framework/*",
+          "dependencies": {
+            "mopub-ios-sdk/Core": [
+              "5.8.0"
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "7.53.1"
+            ]
+          }
+        },
+        {
+          "name": "Facebook",
+          "source_files": "SDK/FacebookAdapter.framework/Versions/A/Headers/*.{h}",
+          "vendored_frameworks": "SDK/FacebookAdapter.framework",
+          "preserve_paths": "SDK/FacebookAdapter.framework/*",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "5.6.0"
+            ],
+            "Google-Mobile-Ads-SDK": [
+              "7.53.1"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
