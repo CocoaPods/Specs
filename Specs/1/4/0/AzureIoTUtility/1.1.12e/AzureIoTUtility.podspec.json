@@ -1,0 +1,56 @@
+{
+  "name": "AzureIoTUtility",
+  "version": "1.1.12e",
+  "summary": "AzureIoT C-Utility library for CocoaPods.",
+  "description": "This is a CocoaPods release of the Azure C Shared Utility library,\nwhich is part of the Microsoft Azure IoT C SDK.",
+  "homepage": "https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/sdk_cocoapods.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-c-shared-utility.git"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "prepare_command": "# Keeping this script idempotent makes using it in a\n# development situation much easier.\ncp pal/generic/refcount_os.h inc/azure_c_shared_utility\ncp adapters/linux_time.h inc\ncp pal/ios-osx/*.h inc\nrm -f src/etwlogger_driver.c\nrm -f src/etwxlogging.c\nrm -f src/dns_resolver_ares.c\nrm -f src/tlsio_cy*.*\nrm -f src/logging_stacktrace.c\nrm -f src/gballoc.c\nrm -f src/gbnetwork.c\nrm -f adapters/tlsio_wolf*.*\nrm -f adapters/tlsio_bear*.*\nrm -f adapters/tlsio_openssl.c\nrm -f adapters/tlsio_schannel.c\nrm -f adapters/x509_schannel.c\nrm -f adapters/x509_openssl.c\nrm -f adapters/timer.c\nrm -f adapters/string_utils.c\nrm -f src/http_proxy_stub.c\n\nrm -R inc/azure_c_shared_utility/windowsce || true\nrm -f inc/azure_c_shared_utility/etwlogger.h\nrm -f inc/azure_c_shared_utility/etwlogger_driver.h\nrm -f inc/azure_c_shared_utility/logging_stacktrace.h\nrm -f inc/**/timer.h\nrm -f inc/**/string_utils.h\nrm -f inc/azure_c_shared_utility/stdint_ce6.h\nrm -f inc/azure_c_shared_utility/tlsio_cyclonessl_socket.h\nrm -f inc/azure_c_shared_utility/tlsio_mbedtls.h\nrm -f inc/azure_c_shared_utility/tlsio_openssl.h\nrm -f inc/azure_c_shared_utility/tlsio_schannel.h\nrm -f inc/azure_c_shared_utility/tlsio_wolfssl.h\nrm -f inc/azure_c_shared_utility/tlsio_bearssl.h\nrm -f inc/azure_c_shared_utility/x509_openssl.h\nrm -f inc/azure_c_shared_utility/x509_schannel.h\n\n\n# Assemble the module.modulemap file\npushd inc > /dev/null\necho \"module AzureIoTUtility [system][extern_c] {\" > module.modulemap\nquote_thing='\"'\nfor filename in azure_c_shared_utility/*.h; do\n    echo \"    header $quote_thing$filename$quote_thing\" >> module.modulemap\ndone\necho \"    export *\" >> module.modulemap\necho \"}\" >> module.modulemap\npopd > /dev/null\n# Done assembling module.modulemap file",
+  "preserve_paths": "inc/module.modulemap",
+  "module_map": "inc/module.modulemap",
+  "source_files": [
+    "inc/**/*.h",
+    "src/*.c",
+    "pal/tlsio_options.c",
+    "pal/agenttime.c",
+    "pal/ios-osx/*.c",
+    "adapters/lock_pthreads.c",
+    "adapters/threadapi_pthreads.c",
+    "adapters/linux_time.c",
+    "adapters/tickcounter_linux.c",
+    "adapters/uniqueid_linux.c",
+    "adapters/httpapi_compact.c",
+    "adapters/threadapi_pthreads.c"
+  ],
+  "public_header_files": "inc/**/*.h",
+  "header_mappings_dir": "inc/",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "USE_HEADERMAP": "NO",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTUtility/inc\"",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTUtility/inc/\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureMacroUtils": [
+      "1.1.0"
+    ],
+    "AzureuMockC": [
+      "1.1.19c"
+    ]
+  }
+}
