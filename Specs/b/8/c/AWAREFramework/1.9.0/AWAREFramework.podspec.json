@@ -1,0 +1,189 @@
+{
+  "name": "AWAREFramework",
+  "version": "1.9.0",
+  "summary": "AWARE: An Open-source Context Instrumentation Framework",
+  "description": "AWARE is an Android and iOS framework dedicated to instrument, infer, log and share mobile context information, for application developers, researchers and smartphone users. AWARE captures hardware-, software-, and human-based data. They transform data into information you can understand.",
+  "homepage": "https://github.com/tetujin/AWAREFramework-iOS",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yuuki Nishiyama": "yuukin@iis.u-tokyo.ac.jp"
+  },
+  "source": {
+    "git": "https://github.com/tetujin/AWAREFramework-iOS.git",
+    "tag": "1.9.0"
+  },
+  "platforms": {
+    "ios": "10"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.2"
+  },
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "HealthKit",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/HealthKit/**/*.m",
+        "AWAREFramework/Classes/Plugins/HealthKit/**/*.h"
+      ],
+      "frameworks": "HealthKit",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_HEALTHKIT=1"
+      },
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Bluetooth",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/Bluetooth/**/*.m",
+        "AWAREFramework/Classes/Plugins/Bluetooth/**/*.h",
+        "AWAREFramework/Classes/Plugins/BLEHeartRate/**/*.h",
+        "AWAREFramework/Classes/Plugins/BLEHeartRate/**/*.m"
+      ],
+      "frameworks": "CoreBluetooth",
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_BLUETOOTH=1"
+      }
+    },
+    {
+      "name": "Calendar",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/Calendar/**/*.m",
+        "AWAREFramework/Classes/Plugins/Calendar/**/*.h",
+        "AWAREFramework/Classes/Plugins/CalendarESMScheduler/**/*.h",
+        "AWAREFramework/Classes/Plugins/CalendarESMScheduler/**/*.m"
+      ],
+      "frameworks": [
+        "EventKit",
+        "EventKitUI"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_CALENDAR=1"
+      },
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Contact",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/Contacts/**/*.m",
+        "AWAREFramework/Classes/Plugins/Contacts/**/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_CONTACT=1"
+      },
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Microphone",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/AmbientNoise/**/*.m",
+        "AWAREFramework/Classes/Plugins/AmbientNoise/**/*.h",
+        "AWAREFramework/Classes/Plugins/Conversation/**/*.m",
+        "AWAREFramework/Classes/Plugins/Conversation/**/*.h"
+      ],
+      "ios": {
+        "vendored_frameworks": "AWAREFramework/Frameworks/StudentLifeAudio.framework"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_MIC=1"
+      },
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MotionActivity",
+      "source_files": [
+        "AWAREFramework/Classes/Plugins/IOSActivityRecognition/**/*.m",
+        "AWAREFramework/Classes/Plugins/IOSActivityRecognition/**/*.h",
+        "AWAREFramework/Classes/Plugins/Pedometer/**/*.h",
+        "AWAREFramework/Classes/Plugins/Pedometer/**/*.m"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "IMPORT_MOTION_ACTIVITY=1"
+      },
+      "dependencies": {
+        "AWAREFramework/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "AWAREFramework/Classes/Core/**/*.m",
+        "AWAREFramework/Classes/Core/**/*.h",
+        "AWAREFramework/Classes/**/*.swift",
+        "AWAREFramework/Classes/Sensors/**/*.m",
+        "AWAREFramework/Classes/Sensors/**/*.h",
+        "AWAREFramework/Classes/ESM/**/*.h",
+        "AWAREFramework/Classes/ESM/**/*.m"
+      ],
+      "resources": [
+        "AWAREFramework/Assets/**/*.xcdatamodeld",
+        "AWAREFramework/Classes/**/*.xcdatamodeld"
+      ],
+      "resource_bundles": {
+        "AWAREFramework": [
+          "AWAREFramework/Assets/**/*.png",
+          "AWAREFramework/Assets/*.xib",
+          "AWAREFramework/Assets/**/*.jpg",
+          "AWAREFramework/Assets/**/*.mp3",
+          "AWAREFramework/Assets/**/*.xcdatamodeld",
+          "AWAREFramework/Assets/**/*.xcassets",
+          "AWAREFramework/Classes/**/*.xcdatamodeld"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "MapKit",
+        "CoreData",
+        "CoreTelephony",
+        "CoreLocation",
+        "CoreMotion",
+        "UserNotifications",
+        "Accelerate",
+        "AudioToolbox",
+        "AVFoundation",
+        "GLKit"
+      ],
+      "dependencies": {
+        "SCNetworkReachability": [
+          "~> 2.0"
+        ],
+        "GoogleSignIn": [
+          "~> 5.0"
+        ],
+        "ios-ntp": [
+          "~> 1.1"
+        ],
+        "TPCircularBuffer": [
+          "~> 1.6"
+        ]
+      }
+    }
+  ]
+}
