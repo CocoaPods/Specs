@@ -1,0 +1,73 @@
+{
+  "name": "SyncKit",
+  "version": "0.7.10",
+  "summary": "CloudKit synchronization for your Core Data or Realm model.",
+  "description": "SyncKit automates the process of synchronizing your Core Data/Realm models using CloudKit. It can easily be plugged into (and removed from) your existing stack.",
+  "homepage": "https://github.com/mentrena/SyncKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Manuel Entrena": "manuel@mentrena.com"
+  },
+  "source": {
+    "git": "https://github.com/mentrena/SyncKit.git",
+    "tag": "0.7.10"
+  },
+  "swift_versions": "5.0",
+  "module_name": "SyncKit",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "watchos": "3.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "SyncKit/Classes/QSSynchronizer/*.swift",
+        "SyncKit/Classes/QSSynchronizer/Operations/*.swift"
+      ],
+      "frameworks": "CloudKit"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "SyncKit/Core": [
+
+        ]
+      },
+      "source_files": "SyncKit/Classes/CoreData/*.swift",
+      "preserve_paths": "SyncKit/Classes/CoreData/*.xcdatamodeld",
+      "resources": "SyncKit/Classes/CoreData/*.xcdatamodeld",
+      "frameworks": "CoreData"
+    },
+    {
+      "name": "Realm",
+      "dependencies": {
+        "SyncKit/Core": [
+
+        ],
+        "Realm": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": "SyncKit/Classes/Realm/*.swift"
+    },
+    {
+      "name": "RealmSwift",
+      "dependencies": {
+        "SyncKit/Core": [
+
+        ],
+        "RealmSwift": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": "SyncKit/Classes/RealmSwift/*.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
