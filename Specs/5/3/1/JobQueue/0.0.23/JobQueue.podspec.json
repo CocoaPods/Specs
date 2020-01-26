@@ -1,0 +1,67 @@
+{
+  "name": "JobQueue",
+  "version": "0.0.23",
+  "summary": "A persistent and flexible job queue for Swift applications",
+  "description": "JobQueue is a persistent job queue with a simple API that does not depend on `Operation`/`OperationQueue`, is storage agnostic, supports for manual execution order, per job type concurrency limits, delayed jobs, and more.",
+  "homepage": "https://github.com/Tundaware/JobQueue",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "George Cox": "george@tundaware.com"
+  },
+  "social_media_url": "https://twitter.com/Tundaware",
+  "platforms": {
+    "ios": "11.0",
+    "tvos": "11.0",
+    "watchos": "4.0",
+    "osx": "10.13"
+  },
+  "source": {
+    "git": "https://github.com/Tundaware/JobQueue.git",
+    "tag": "0.0.23"
+  },
+  "swift_versions": "5.1",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift",
+      "dependencies": {
+        "ReactiveSwift": [
+          "~> 6.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Queue",
+      "source_files": "Sources/Queue/**/*.swift",
+      "dependencies": {
+        "JobQueue/Core": [
+
+        ],
+        "ReactiveSwift": [
+          "~> 6.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Storage",
+      "subspecs": [
+        {
+          "name": "InMemory",
+          "source_files": "Sources/Storage/InMemory/**/*.swift",
+          "dependencies": {
+            "JobQueue/Core": [
+
+            ],
+            "ReactiveSwift": [
+              "~> 6.2.0"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.1"
+}
