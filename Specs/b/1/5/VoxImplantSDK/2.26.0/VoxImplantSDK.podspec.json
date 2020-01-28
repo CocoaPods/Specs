@@ -1,0 +1,49 @@
+{
+  "name": "VoxImplantSDK",
+  "version": "2.26.0",
+  "summary": "VoxImplant SDK for iOS",
+  "description": "VoxImplant iOS SDK lets you embed voice communication into your native iOS applications. It is a framework\nthat contains the armv7, arm64, i386 and x86_64 slices.\nBitcode is __disabled__",
+  "homepage": "https://voximplant.com",
+  "documentation_url": "https://voximplant.com/docs/references/iossdk",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.txt"
+  },
+  "authors": "Zingaya, Inc.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://s3.eu-central-1.amazonaws.com/voximplant-releases/ios-sdk/2.26.0/VoxImplant.zip",
+    "sha256": "1eb831afc529636ae48b9787e5990a873349cea59854d4b0566acefcfcc45465"
+  },
+  "module_map": "VoxImplantSDK.modulemap",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "VoxImplantSDK.{h,m}",
+      "vendored_frameworks": "VoxImplant.framework",
+      "dependencies": {
+        "VoxImplantWebRTC": [
+          "= 78.0.0"
+        ]
+      }
+    },
+    {
+      "name": "CocoaLumberjackLogger",
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "VOXIMPLANT_COCOALUMBERJACK=1"
+      },
+      "source_files": "CocoaLumberjackLogger/VIClient+FileLogging.*",
+      "dependencies": {
+        "VoxImplantSDK/Core": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 3.4"
+        ]
+      }
+    }
+  ]
+}
