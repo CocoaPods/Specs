@@ -1,0 +1,116 @@
+{
+  "name": "TFY_LayoutModelTool",
+  "version": "3.0.1",
+  "summary": "完美布局模型解析，随意更改导航栏颜色，tabbar,选择器",
+  "description": "完美布局模型解析，随意更改导航栏颜色，tabbar,选择器",
+  "homepage": "https://github.com/13662049573/TFY_LayoutModelTool",
+  "license": "MIT",
+  "authors": {
+    "tianfengyou": "420144542@qq.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/13662049573/TFY_LayoutModelTool.git",
+    "tag": "3.0.1"
+  },
+  "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_LayoutModelTool.h",
+  "resources": [
+    "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_ProgressHUD/TFY_ProgressHUD.bundle",
+    "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_PickerView/TFY_CityBundle.bundle"
+  ],
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "dependencies": {
+    "SQLCipher": [
+
+    ]
+  },
+  "libraries": "sqlite3",
+  "xcconfig": {
+    "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "TFY_ProgressHUD",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_ProgressHUD/**/*.{h,m}"
+    },
+    {
+      "name": "TFY_AutoLayout",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_AutoLayout/TFY_AutoLayout.h",
+      "subspecs": [
+        {
+          "name": "Util",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_AutoLayout/Util/**/*.{h,m}"
+        },
+        {
+          "name": "IOS_Layout",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_AutoLayout/IOS_Layout/**/*.{h,m}",
+          "dependencies": {
+            "TFY_LayoutModelTool/TFY_AutoLayout/Util": [
+
+            ]
+          }
+        },
+        {
+          "name": "MAC_Layout",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_AutoLayout/MAC_Layout/**/*.{h,m}",
+          "dependencies": {
+            "TFY_LayoutModelTool/TFY_AutoLayout/Util": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "TFY_Models",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_Models/**/*.{h,m}"
+    },
+    {
+      "name": "TFY_Category",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_Category/**/*.{h,m}"
+    },
+    {
+      "name": "TFY_PickerView",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_PickerView/**/*.{h,m}"
+    },
+    {
+      "name": "TFY_Navigation",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_Navigation/TFY_Navigation.h",
+      "subspecs": [
+        {
+          "name": "TFY_NavControoler",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_Navigation/TFY_NavControoler/**/*.{h,m}",
+          "dependencies": {
+            "TFY_LayoutModelTool/TFY_Navigation/TFY_PopController": [
+
+            ]
+          }
+        },
+        {
+          "name": "TFY_PopController",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_Navigation/TFY_PopController/**/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "TFY_TabBarKit",
+      "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_TabBarKit/TFY_TabBarHeader.h",
+      "subspecs": [
+        {
+          "name": "TFY_CustomizeTabBar",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_TabBarKit/TFY_CustomizeTabBar/**/*.{h,m}"
+        },
+        {
+          "name": "TFY_SystemTabBar",
+          "source_files": "TFY_LayoutModelTool/TFY_LayoutModelTool/TFY_TabBarKit/TFY_SystemTabBar/**/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
