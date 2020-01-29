@@ -1,0 +1,233 @@
+{
+  "name": "BxObjC",
+  "version": "1.5.5",
+  "summary": "Objective-C library for all",
+  "description": "This framework will help iOS developers simplify development",
+  "homepage": "https://github.com/ByteriX/BxObjC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sergey Balalaev": "sof.bix@mail.ru"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/ByteriX/BxObjC.git",
+    "tag": "1.5.5"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "resources": "**/iBXCommon/Resources/**/*.strings",
+      "public_header_files": [
+        "**/iBXCommon/Frameworks/**/*.h",
+        "**/iBXCommon/Sources/**/*.h"
+      ],
+      "source_files": [
+        "**/iBXCommon/Frameworks/**/*.{h,m,c}",
+        "**/iBXCommon/Sources/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "**/**Tests/**/*.*",
+        "**/**Test/**/*.*"
+      ],
+      "requires_arc": [
+        "**/BxPushNotificationMessageQueue.m"
+      ]
+    },
+    {
+      "name": "Data",
+      "dependencies": {
+        "BxObjC/Common": [
+
+        ],
+        "XMLDictionary": [
+          "1.4"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "public_header_files": [
+        "**/iBXData/Frameworks/**/*.h",
+        "**/iBXData/Sources/**/*.h"
+      ],
+      "source_files": [
+        "**/iBXData/Frameworks/**/*.{h,m,c}",
+        "**/iBXData/Sources/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "**/**Tests/**/*.*",
+        "**/**Test/**/*.*"
+      ],
+      "requires_arc": [
+
+      ]
+    },
+    {
+      "name": "DB",
+      "dependencies": {
+        "BxObjC/Common": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_CORE=1 SQLITE_UNICODE_ENABLE=1 SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS4_PARENTHESIS=1"
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "public_header_files": [
+        "**/iBXDB/Frameworks/**/*.h",
+        "**/iBXDB/Sources/**/*.h"
+      ],
+      "source_files": [
+        "**/iBXDB/Frameworks/**/*.{h,m,c}",
+        "**/iBXDB/Sources/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "**/**Tests/**/*.*",
+        "**/**Test/**/*.*"
+      ],
+      "requires_arc": [
+
+      ]
+    },
+    {
+      "name": "Map",
+      "dependencies": {
+        "BxObjC/Common": [
+
+        ],
+        "BxObjC/Data": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "MapKit",
+        "CoreLocation"
+      ],
+      "public_header_files": [
+        "**/iBXMap/Frameworks/**/*.h",
+        "**/iBXMap/Sources/**/*.h"
+      ],
+      "source_files": [
+        "**/iBXMap/Frameworks/**/*.{h,m,c}",
+        "**/iBXMap/Sources/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "**/**Tests/**/*.*",
+        "**/**Test/**/*.*"
+      ],
+      "requires_arc": [
+
+      ]
+    },
+    {
+      "name": "Control",
+      "subspecs": [
+        {
+          "name": "Rate",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "public_header_files": "**/iBXVcl/Control/Rate/*.h",
+          "source_files": "**/iBXVcl/Control/Rate/*.{h,m,c}",
+          "requires_arc": [
+
+          ]
+        },
+        {
+          "name": "TextView",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "public_header_files": "**/iBXVcl/Control/TextView/*.h",
+          "source_files": "**/iBXVcl/Control/TextView/*.{h,m,c}",
+          "requires_arc": [
+
+          ]
+        },
+        {
+          "name": "ShakeAnimation",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "public_header_files": "**/iBXVcl/Control/ShakeAnimation/*.h",
+          "source_files": "**/iBXVcl/Control/ShakeAnimation/*.{h,m,c}"
+        },
+        {
+          "name": "Navigation",
+          "dependencies": {
+            "BxObjC/Common": [
+
+            ],
+            "BxObjC/Control/ShakeAnimation": [
+
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "public_header_files": "**/iBXVcl/Control/Navigation/**/*.h",
+          "source_files": "**/iBXVcl/Control/Navigation/**/*.{h,m,c}"
+        }
+      ]
+    },
+    {
+      "name": "Vcl",
+      "dependencies": {
+        "BxObjC/Common": [
+
+        ],
+        "BxObjC/Data": [
+
+        ],
+        "MBProgressHUD": [
+
+        ],
+        "BxObjC/Control": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "MapKit",
+        "CoreLocation"
+      ],
+      "resources": "**/iBXVcl/**/*.{png,xib}",
+      "public_header_files": [
+        "**/iBXVcl/Frameworks/**/*.h",
+        "**/iBXVcl/Sources/**/*.h"
+      ],
+      "source_files": [
+        "**/iBXVcl/Frameworks/**/*.{h,m,c}",
+        "**/iBXVcl/Sources/**/*.{h,m,c}"
+      ],
+      "exclude_files": [
+        "**/**Tests/**/*.*",
+        "**/**Test/**/*.*"
+      ],
+      "requires_arc": [
+        "**/BxIconWorkspace**.m",
+        "**/Navigation/**/*.*"
+      ]
+    }
+  ]
+}
