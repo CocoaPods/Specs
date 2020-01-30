@@ -1,0 +1,131 @@
+{
+  "name": "BVSDK",
+  "version": "8.1.1",
+  "homepage": "https://developer.bazaarvoice.com/",
+  "license": {
+    "type": "Commercial",
+    "text": "See https://developer.bazaarvoice.com/API_Terms_of_Use"
+  },
+  "authors": {
+    "Bazaarvoice": "support@bazaarvoice.com"
+  },
+  "source": {
+    "git": "https://github.com/bazaarvoice/bv-ios-sdk.git",
+    "tag": "8.1.1"
+  },
+  "social_media_url": "https://twitter.com/bazaarvoice",
+  "summary": "Simple iOS SDK to interact with the Bazaarvoice platform API.",
+  "description": "The Bazaarvoice software development kit (SDK) for iOS is an iOS static library that provides an easy way to generate REST calls to the Bazaarvoice Developer API. Using this SDK, mobile developers can quickly integrate Bazaarvoice content into their native iOS apps for iPhone and iPad on iOS 8.0 or newer.",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "BVCommon",
+  "subspecs": [
+    {
+      "name": "BVCommon",
+      "source_files": [
+        "BVSDK/BVCommon/**/*.{h,m}",
+        "BVSDK/BVAnalytics/**/*.{h,m}"
+      ],
+      "private_header_files": [
+        "BVSDK/BVCommon/**/Private/*.{h}",
+        "BVSDK/BVAnalytics/**/Private/*.{h}"
+      ]
+    },
+    {
+      "name": "BVCommonUI",
+      "source_files": "BVSDK/BVCommonUI/**/*.{h,m}",
+      "private_header_files": "BVSDK/BVCommonUI/**/Private/*.{h}"
+    },
+    {
+      "name": "BVAnalytics",
+      "dependencies": {
+        "BVSDK/BVCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVConversations",
+      "source_files": "BVSDK/BVConversations/**/*.{h,m}",
+      "private_header_files": "BVSDK/BVConversations/**/Private/*.{h}",
+      "dependencies": {
+        "BVSDK/BVCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVConversationsStores",
+      "source_files": "BVSDK/BVConversationsStores/**/*.{h,m}",
+      "private_header_files": "BVSDK/BVConversationsStores/**/Private/*.{h}",
+      "dependencies": {
+        "BVSDK/BVConversations": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVConversationsUI",
+      "source_files": "BVSDK/BVConversationsUI/**/*.{h,m}",
+      "dependencies": {
+        "BVSDK/BVCommonUI": [
+
+        ],
+        "BVSDK/BVConversationsStores": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVCurations",
+      "source_files": "BVSDK/BVCurations/**/*.{h,m}",
+      "dependencies": {
+        "BVSDK/BVCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVCurationsUI",
+      "source_files": "BVSDK/BVCurationsUI/**/*.{h,m}",
+      "dependencies": {
+        "BVSDK/BVCommon": [
+
+        ],
+        "BVSDK/BVCommonUI": [
+
+        ],
+        "BVSDK/BVCurations": [
+
+        ]
+      },
+      "resources": [
+        "BVSDK/BVCurationsUI/SocialMediaIcons/*.xcassets"
+      ]
+    },
+    {
+      "name": "BVNotifications",
+      "source_files": "BVSDK/BVNotifications/**/*.{h,m}",
+      "resources": [
+        "BVSDK/BVNotifications/mapThumbnail.png"
+      ],
+      "dependencies": {
+        "BVSDK/BVConversationsUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "BVRecommendations",
+      "source_files": "BVSDK/BVRecommendations/**/*.{h,m}",
+      "private_header_files": "BVSDK/BVRecommendations/**/Private/*.{h}",
+      "dependencies": {
+        "BVSDK/BVCommon": [
+
+        ]
+      }
+    }
+  ]
+}
