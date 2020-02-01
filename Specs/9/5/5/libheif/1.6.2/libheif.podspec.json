@@ -1,0 +1,82 @@
+{
+  "name": "libheif",
+  "version": "1.6.2",
+  "summary": "libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder.",
+  "description": "HEIF is a new image file format employing HEVC (h.265) image coding for the best compression ratios currently possible.",
+  "homepage": "https://www.libheif.org/",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": {
+    "struktur AG": "opensource@struktur.de"
+  },
+  "source": {
+    "git": "https://github.com/strukturag/libheif",
+    "tag": "v1.6.2"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "libde265",
+  "libraries": "c++",
+  "prepare_command": "cp './libheif/heif_version.h.in' './libheif/heif_version.h'\nsed -i.bak 's/#define[[:space:]]LIBHEIF_NUMERIC_VERSION.*/#define LIBHEIF_NUMERIC_VERSION 0x01060200/g' './libheif/heif_version.h'\nsed -i.bak 's/#define[[:space:]]LIBHEIF_VERSION.*/#define LIBHEIF_VERSION \"1.6.2\"/g' './libheif/heif_version.h'\nsed -i.bak 's/<libheif\\/heif_version.h>/\"heif_version.h\"/g' './libheif/heif.h'",
+  "subspecs": [
+    {
+      "name": "libheif",
+      "source_files": "libheif/*.{h,c,cc}",
+      "exclude_files": [
+        "libheif/*fuzzer.{h,c,cc}",
+        "libheif/heif_decoder_libde265.{h,c,cc}",
+        "libheif/heif_encoder_x265.{h,c,cc}"
+      ],
+      "public_header_files": [
+        "libheif/heif.h",
+        "libheif/heif_version.h"
+      ],
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_UNISTD_H=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/"
+      }
+    },
+    {
+      "name": "libde265",
+      "dependencies": {
+        "libde265": [
+
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/heif_decoder_libde265.{h,c,cc}",
+      "private_header_files": "libheif/heif_decoder_libde265.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_LIBDE265=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/"
+      }
+    },
+    {
+      "name": "libx265",
+      "dependencies": {
+        "libx265": [
+
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/heif_encoder_x265.{h,c,cc}",
+      "private_header_files": "libheif/heif_encoder_x265.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_X265=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/libx265/source/"
+      }
+    }
+  ]
+}
