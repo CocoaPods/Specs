@@ -1,0 +1,74 @@
+{
+  "name": "SDWebImageHEIFCoder",
+  "version": "0.7.0",
+  "summary": "A SDWebImage coder plugin to support HEIF image",
+  "description": "This is a SDWebImage coder plugin to add High Efficiency Image File Format (HEIF) support.\nWhich is built based on the open-sourced libheif codec.",
+  "homepage": "https://github.com/SDWebImage/SDWebImageHEIFCoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DreamPiggy": "lizhuoli1126@126.com"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/SDWebImageHEIFCoder.git",
+    "tag": "0.7.0",
+    "submodules": true
+  },
+  "platforms": {
+    "osx": "10.10",
+    "ios": "8.0",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "module_map": "SDWebImageHEIFCoder/Module/SDWebImageHEIFCoder.modulemap",
+  "default_subspecs": "libde265",
+  "dependencies": {
+    "SDWebImage/Core": [
+      "~> 5.5"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "libheif",
+      "dependencies": {
+        "libheif/libheif": [
+          ">= 1.6.0"
+        ]
+      },
+      "source_files": [
+        "SDWebImageHEIFCoder/Classes/**/*",
+        "SDWebImageHEIFCoder/Module/SDWebImageHEIFCoder.h"
+      ]
+    },
+    {
+      "name": "libde265",
+      "dependencies": {
+        "libheif/libde265": [
+
+        ],
+        "SDWebImageHEIFCoder/libheif": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_LIBDE265=1"
+      }
+    },
+    {
+      "name": "libx265",
+      "dependencies": {
+        "libheif/libx265": [
+
+        ],
+        "SDWebImageHEIFCoder/libheif": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_X265=1"
+      }
+    }
+  ]
+}
