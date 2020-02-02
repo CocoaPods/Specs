@@ -1,0 +1,50 @@
+{
+  "name": "Backtrace-PLCrashReporter",
+  "version": "1.5.2",
+  "summary": "Reliable, open-source crash reporting for iOS, tvOS and macOS.",
+  "description": "Plausible CrashReporter provides an in-process crash reporting\nframework for use on both iOS, tvOS and macOS, and powers many of\nthe crash reporting services available for iOS, tvOS, macOS, including\nBacktrace, HockeyApp, Flurry, Crittercism and FoglightAPM.",
+  "homepage": "https://github.com/backtrace-labs/plcrashreporter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Plausible Labs Cooperative, Inc.": "contact@plausible.coop"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/backtrace-labs/plcrashreporter.git",
+    "tag": "1.5.2"
+  },
+  "source_files": [
+    "Source/**/*.{h,hpp,c,cpp,m,mm,s}",
+    "Dependencies/protobuf-c-1.3.2/src/*.{h,c}"
+  ],
+  "exclude_files": [
+    "**/*Tests*",
+    "**/*TestCase*",
+    "**/*test.*",
+    "**/*_test_*",
+    "**/*main.m"
+  ],
+  "public_header_files": [
+    "Source/PLCrashReport*.h",
+    "Source/PLCrashNamespace*.h",
+    "Source/PLCrashMacros.h",
+    "Source/PLCrashFeatureConfig.h",
+    "Source/CrashReporter.h"
+  ],
+  "preserve_paths": "Dependencies/**",
+  "resources": "Resources/*.proto",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "PLCR_PRIVATE PLCF_RELEASE_BUILD"
+  },
+  "libraries": "c++",
+  "requires_arc": false,
+  "prefix_header_contents": "#import \"PLCrashNamespace.h\"",
+  "prepare_command": "cd \"Resources\" && \"../Dependencies/protobuf-c-1.3.2/bin/protoc-c\" --c_out=\"../Source\" \"crash_report.proto\" && cd ..\nfind . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#include <protobuf-c\\/protobuf-c.h>/#include <protobuf-c.h>/g' {} \\;\nfind . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#import \"CrashReporter\\/CrashReporter.h\"/#import \"CrashReporter.h\"/g' {} \\;\nSDKROOT=$(xcrun --sdk macosx --show-sdk-path)\nmig -arch \"i386\" -header \"Source/mach_exc_i386.h\" -server /dev/null -user \"Source/mach_exc_i386User.inc\" \"${SDKROOT}/usr/include/mach/mach_exc.defs\"\nmig -arch \"x86_64\" -header \"Source/mach_exc_x86_64.h\" -server /dev/null -user \"Source/mach_exc_x86_64User.inc\" \"${SDKROOT}/usr/include/mach/mach_exc.defs\"\necho '#ifdef __LP64__'                       > Source/mach_exc.h\necho '#include \"mach_exc_x86_64.h\"'         >> Source/mach_exc.h\necho '#else'                                >> Source/mach_exc.h\necho '#include \"mach_exc_i386.h\"'           >> Source/mach_exc.h\necho '#endif'                               >> Source/mach_exc.h\nFILE_86=$(cat Source/mach_exc_i386User.inc)\nFILE_64=$(cat Source/mach_exc_x86_64User.inc)\necho '#import \"PLCrashFeatureConfig.h\"'      > Source/mach_exc.c\necho '#if PLCRASH_FEATURE_MACH_EXCEPTIONS'  >> Source/mach_exc.c\necho '#ifdef __LP64__'                      >> Source/mach_exc.c\necho \"$FILE_64\"                             >> Source/mach_exc.c\necho '#else'                                >> Source/mach_exc.c\necho \"$FILE_86\"                             >> Source/mach_exc.c\necho '#endif'                               >> Source/mach_exc.c\necho '#endif'                               >> Source/mach_exc.c"
+}
