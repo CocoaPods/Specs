@@ -1,0 +1,148 @@
+{
+  "name": "WDePOS",
+  "version": "2.11.1",
+  "summary": "Wirecard epos - Accept Card, Cash, Alipay, Giftcard payments",
+  "description": "The library extends the Point of Sale and alternative payment methods to modern mobile environment.\nMajor Credit and Debit Card payment processing (Master, Visa, American Express, RuPay) and alternative Payment method support (Alipay)\n\nFully integrated with licensed Wirecard Payment infrastructure.\n\nOffering additional business support such as:\n* Sale Statistics\n* Cashier Management\n* SAP byDesign integration\n* Inventory Management\n\nSupporting wide range of hardware for accepting a Payment.\n\nTerminals:\n* Spire PosMate, SPm2, SPm20\n\nPrinters:\n* Datecs DPP-250\n* StarMicronics TSP650\n* AirPrint\n\nCash Drawers:\n* StarMicronics mPOP, SMD2\n\nBarcode scanners:\n* SocketMobile Series 7",
+  "homepage": "https://wirecardmobileservices.github.io/Wirecard-ePOS-Developer/",
+  "license": "MIT",
+  "authors": [
+    "Radoslav Danko",
+    "Francisco Fortes",
+    "Marek Timko",
+    "Jaroslav Pulik"
+  ],
+  "source": {
+    "git": "https://github.com/WirecardMobileServices/Wirecard-ePOS-iOS.git",
+    "tag": "2.11.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "libraries": [
+    "c++",
+    "z.1",
+    "xml2"
+  ],
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "MediaPlayer",
+    "AVFoundation",
+    "AudioToolbox",
+    "CoreAudio",
+    "ExternalAccessory"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Pod/Classes/frameworks/WDePOS.framework"
+      ],
+      "dependencies": {
+        "ZipArchive": [
+          "~> 1.4"
+        ],
+        "Overcoat": [
+          "~> 4.0.0-beta.2"
+        ],
+        "Lockbox": [
+
+        ],
+        "libextobjc/EXTScope": [
+          "~> 0.6"
+        ],
+        "BerTlv": [
+
+        ],
+        "CocoaLumberjack": [
+          "~> 3.5.2"
+        ],
+        "GRMustache": [
+          "~> 7.3.2"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "vendored_frameworks": "Pod/Classes/frameworks/WDePOSUI.framework",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ],
+        "WDePOS/WDBrand": [
+
+        ]
+      },
+      "xcconfig": {
+        "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES": "YES"
+      }
+    },
+    {
+      "name": "WDBrand",
+      "vendored_frameworks": "Pod/Classes/frameworks/WDBrand.framework"
+    },
+    {
+      "name": "Spire",
+      "vendored_frameworks": "Pod/Classes/frameworks/Spire_SDK.framework",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Datecs",
+      "vendored_frameworks": "Pod/Classes/frameworks/Datecs_SDK.framework",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Stario",
+      "vendored_frameworks": "Pod/Classes/frameworks/Stario_SDK.framework",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Socket",
+      "vendored_frameworks": "Pod/Classes/frameworks/Socket_SDK.framework",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "WDePOS/Core": [
+
+        ],
+        "WDePOS/UI": [
+
+        ],
+        "WDePOS/Spire": [
+
+        ],
+        "WDePOS/Datecs": [
+
+        ],
+        "WDePOS/Stario": [
+
+        ],
+        "WDePOS/Socket": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
