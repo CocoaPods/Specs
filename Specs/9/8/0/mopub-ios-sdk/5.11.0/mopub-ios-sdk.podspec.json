@@ -1,0 +1,109 @@
+{
+  "name": "mopub-ios-sdk",
+  "module_name": "MoPub",
+  "version": "5.11.0",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/mopub/mopub-ios-sdk",
+  "authors": {
+    "MoPub": "support@mopub.com"
+  },
+  "summary": "The Official MoPub Client SDK allows developers to easily monetize their apps by showing banner, interstitial, and native ads.",
+  "description": "MoPub is a hosted ad serving solution built specifically for mobile publishers.\n\nGrow your mobile advertising business with powerful ad management, optimization \n\nand reporting capabilities, and earn revenue by connecting to the world's largest \n\nmobile ad exchange. \n\n\nTo learn more or sign up for an account, go to http://www.mopub.com.",
+  "social_media_url": "http://twitter.com/mopub",
+  "source": {
+    "git": "https://github.com/mopub/mopub-ios-sdk.git",
+    "tag": "5.11.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "AVKit",
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreMedia",
+    "CoreTelephony",
+    "Foundation",
+    "MediaPlayer",
+    "QuartzCore",
+    "SystemConfiguration",
+    "UIKit",
+    "SafariServices"
+  ],
+  "weak_frameworks": [
+    "AdSupport",
+    "StoreKit",
+    "WebKit"
+  ],
+  "default_subspecs": "MoPubSDK",
+  "subspecs": [
+    {
+      "name": "MoPubSDK",
+      "dependencies": {
+        "mopub-ios-sdk/Core": [
+
+        ],
+        "mopub-ios-sdk/NativeAds": [
+
+        ],
+        "mopub-ios-sdk/Avid": [
+
+        ],
+        "mopub-ios-sdk/Moat": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "MoPubSDK/**/*.{h,m}",
+      "resources": [
+        "MoPubSDK/**/*.{png,bundle,xib,nib}",
+        "MoPubSDK/**/MPAdapters.plist"
+      ],
+      "exclude_files": [
+        "MoPubSDK/Viewability/Moat",
+        "MoPubSDK/Viewability/Avid",
+        "MoPubSDK/NativeAds",
+        "MoPubSDK/NativeVideo"
+      ]
+    },
+    {
+      "name": "NativeAds",
+      "dependencies": {
+        "mopub-ios-sdk/Core": [
+
+        ]
+      },
+      "source_files": [
+        "MoPubSDK/NativeAds/**/*.{h,m}",
+        "MoPubSDK/NativeVideo/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Avid",
+      "dependencies": {
+        "mopub-ios-sdk/Core": [
+
+        ]
+      },
+      "source_files": "MoPubSDK/Viewability/Avid/*.{h,m}",
+      "vendored_libraries": "MoPubSDK/Viewability/Avid/*.{a}"
+    },
+    {
+      "name": "Moat",
+      "dependencies": {
+        "mopub-ios-sdk/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MoPubSDK/Viewability/Moat/MPUBMoatMobileAppKit.framework",
+      "source_files": "MoPubSDK/Viewability/MOAT/*.{h,m}"
+    }
+  ]
+}
