@@ -1,0 +1,476 @@
+{
+  "name": "Krake",
+  "version": "11.0.2",
+  "summary": "Laser mobile framework.",
+  "homepage": "http://mykrake.com",
+  "description": "Libreria krake",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/LaserSrl/KrakeiOS.git",
+    "tag": "11.0.2"
+  },
+  "authors": {
+    "Patrick Negretto": "patrick.negretto@laser-group.com",
+    "Joël Gerbore": "joel.gerbore@laser-group.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "frameworks": [
+    "CoreLocation",
+    "AddressBook",
+    "AddressBookUI",
+    "MapKit",
+    "CoreData",
+    "WebKit",
+    "StoreKit"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-DDEBUG"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "AppleSignIn",
+      "source_files": [
+        "AppleSignIn",
+        "Krake/AppleSignIn/*.swift"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppUpdater",
+      "source_files": "Krake/AppUpdater/*.{h,m,swift}",
+      "dependencies": {
+        "Krake/Commons": [
+
+        ]
+      }
+    },
+    {
+      "name": "Beacons",
+      "source_files": "Krake/Beacons/*.{swift}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Braintree",
+      "source_files": "Krake/Braintree/*.{swift}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "Braintree": [
+          "4.30.0"
+        ]
+      }
+    },
+    {
+      "name": "Commons",
+      "source_files": "Krake/Commons/*.{swift}"
+    },
+    {
+      "name": "ContentManager",
+      "source_files": "Krake/ContentManager/**/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "ContentManager": [
+            "Krake/ContentManager/**/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "FDTake": [
+          "3.0.0"
+        ],
+        "LaserPicker": [
+          "1.0.0"
+        ],
+        "IQAudioRecorderController": [
+          "1.2.3"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "Krake/Core/*.{h,m,swift}",
+        "Krake/Krake.h",
+        "Krake/Mapper/**/*.{h,m,swift}",
+        "Krake/Content/**/*.{h,m,swift}",
+        "Krake/Extentions/*.{h,m,swift}",
+        "Krake/Mappe/*.{h,m,swift}",
+        "Krake/Analytics/*.{h,m,swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "OrchardGen": [
+            "Krake/Mapper/OGLMapperConfiguration.plist"
+          ],
+          "LoginManager": [
+            "Krake/Mapper/LoginManager/*.storyboard"
+          ],
+          "PrivacyManager": [
+            "Krake/Mapper/PrivacyManager/*.storyboard"
+          ],
+          "Content": [
+            "Krake/Content/**/*.{xib,storyboard}"
+          ],
+          "Location": [
+            "Krake/Mappe/*.storyboard"
+          ]
+        }
+      },
+      "resources": [
+        "Krake/*.{xcassets}",
+        "Krake/Core/*.xib",
+        "Krake/Mapper/**/*.{xcassets}"
+      ],
+      "dependencies": {
+        "Krake/Commons": [
+
+        ],
+        "Krake/Localization": [
+
+        ],
+        "Alamofire": [
+          "~> 5.0.0-rc.2"
+        ],
+        "AlamofireNetworkActivityIndicator": [
+          "~> 3.0.0-beta.3"
+        ],
+        "Crashlytics": [
+          "~> 3.13.1"
+        ],
+        "CryptoSwift": [
+          "1.0.0"
+        ],
+        "Fabric": [
+          "~> 1.10.1"
+        ],
+        "Firebase": [
+          "~> 6.10.0"
+        ],
+        "KNSemiModalViewController_hons82": [
+          "0.4.6"
+        ],
+        "libPhoneNumber-iOS": [
+          "~>0.9.15"
+        ],
+        "MBProgressHUD": [
+          "1.1.0"
+        ],
+        "NTPKit": [
+          "1.0.1"
+        ],
+        "SDWebImage": [
+          "~> 5.2.3"
+        ],
+        "SwiftyJSON": [
+          "5.0.0"
+        ],
+        "SwiftMessages": [
+          "~>7.0.0"
+        ],
+        "Cluster": [
+          "3.0.0"
+        ],
+        "Kml.swift": [
+          "0.3.2"
+        ],
+        "Segmentio": [
+          "~> 4.1"
+        ],
+        "LaserWebViewController": [
+          "2.0.1"
+        ],
+        "LaserFloatingTextField": [
+          "1.0.0"
+        ],
+        "LaserVideoPhotoGallery": [
+          "3.0.3"
+        ],
+        "LaserSwippableCell": [
+          "1.0.0"
+        ],
+        "LaserCalendarTimeSelector": [
+          "1.5.3"
+        ]
+      }
+    },
+    {
+      "name": "FacebookKit",
+      "source_files": [
+        "FacebookKit",
+        "Krake/FacebookKit/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 5.15.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 5.15.0"
+        ]
+      }
+    },
+    {
+      "name": "GameQuiz",
+      "source_files": [
+        "GameQuiz",
+        "Krake/GameQuiz/**/*.{h,m,swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "GameQuiz": [
+            "Krake/GameQuiz/*.storyboard"
+          ]
+        }
+      },
+      "resources": "Krake/GameQuiz/*.{xcassets}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "GoogleKit",
+      "source_files": [
+        "GoogleKit",
+        "Krake/GoogleKit/*.{swift}"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "GoogleSignIn": [
+          "4.4.0"
+        ]
+      }
+    },
+    {
+      "name": "InstagramKit",
+      "source_files": [
+        "InstagramKit",
+        "Krake/InstagramKit/*.{swift}"
+      ],
+      "resources": "Krake/InstagramKit/*.{xcassets}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "Krake/OAuth": [
+
+        ]
+      }
+    },
+    {
+      "name": "LinkedInKit",
+      "source_files": [
+        "LinkedInKit",
+        "Krake/LinkedInKit/*.{swift}"
+      ],
+      "resources": "Krake/LinkedInKit/*.{xcassets}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "Krake/OAuth": [
+
+        ]
+      }
+    },
+    {
+      "name": "Localization",
+      "source_files": [
+        "Localization",
+        "Krake/Localization/*.{swift}"
+      ],
+      "resources": "Krake/Localization/**/*.{lproj}"
+    },
+    {
+      "name": "OAuth",
+      "source_files": [
+        "OAuth",
+        "Krake/OAuth/*.{swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "OAuth": [
+            "Krake/OAuth/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Commons": [
+
+        ],
+        "MBProgressHUD": [
+          "1.1.0"
+        ]
+      }
+    },
+    {
+      "name": "OTP",
+      "source_files": [
+        "OTP",
+        "Krake/OTP/**/*.{h,m,swift}"
+      ],
+      "frameworks": "MapKit",
+      "ios": {
+        "resource_bundles": {
+          "OTP": [
+            "Krake/OTP/*.storyboard"
+          ]
+        }
+      },
+      "resources": "Krake/OTP/*.{xcassets}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "Polyline": [
+          "4.2.1"
+        ],
+        "DateTimePicker": [
+          "~>2.2.0"
+        ],
+        "EVReflection": [
+          "5.10.1"
+        ]
+      }
+    },
+    {
+      "name": "Policies",
+      "source_files": "Krake/Policies/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "Policies": [
+            "Krake/Policies/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PostCard",
+      "source_files": "Krake/PostCard/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "PostCard": [
+            "Krake/PostCard/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PuzzleGame",
+      "source_files": [
+        "PuzzleGame",
+        "Krake/PuzzleGame/**/*.{swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "PuzzleGame": [
+            "Krake/PuzzleGame/*.storyboard"
+          ]
+        }
+      },
+      "resources": "Krake/PuzzleGame/*.{xcassets}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Questionnaires",
+      "source_files": [
+        "Questionnaires",
+        "Krake/Questionnaires/*.swift"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "Questionnaires": [
+            "Krake/Questionnaires/**/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Reportages",
+      "source_files": [
+        "Reportages",
+        "Krake/Reportages/*.swift"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "Reportages": [
+            "Krake/Reportages/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "resources": "Krake/Reportages/*.xcassets",
+      "dependencies": {
+        "Krake/ContentManager": [
+
+        ],
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TwitterKit",
+      "source_files": [
+        "TwitterKit",
+        "Krake/TwitterKit/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "TwitterKit": [
+          "3.4.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
