@@ -1,0 +1,78 @@
+{
+  "name": "LZCamera",
+  "version": "0.4.4",
+  "summary": "基于 AVFoundation 实现的摄像机功能",
+  "description": "基于 AVFoundation 实现的摄像机功能，共有三部分内容：\n1.核心功能实现部分。\n2.基于 Core 模块实现多媒体捕捉功能，包括：静态图片、短视频、长视频。\n3.基于 Core 模块实现机器码识别功能，机器码类型支持自定义。",
+  "homepage": "https://github.com/liLeiBest",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lilei": "lilei0502@139.com"
+  },
+  "source": {
+    "git": "https://github.com/liLeiBest/LZCamera.git",
+    "tag": "0.4.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "Foundation",
+    "UIKit",
+    "Photos",
+    "CoreServices",
+    "CoreMedia"
+  ],
+  "source_files": "LZCamera/Classes/LZCamera.h",
+  "public_header_files": "LZCamera/Classes/LZCamera.h",
+  "prefix_header_contents": "#if DEBUG\n#define LZCameraLog(fmt, ...) NSLog((@\"%s [Line %d] \" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n#else\n#define LZCameraLog(fmt, ...)\n#endif\n#define LZCameraNSBundle(bundleName) bundleName.length ? [NSBundle bundleWithPath:[[NSBundle bundleForClass:NSClassFromString(@\"LZCameraController\")] pathForResource:bundleName ofType:@\"bundle\"]] :  [NSBundle bundleForClass:NSClassFromString(@\"LZCameraController\")]\n\n#import <AVFoundation/AVFoundation.h>\n#import <Photos/Photos.h>",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "LZCamera/Classes/Core/**/*.{h,m}",
+      "public_header_files": "LZCamera/Classes/Core/**/*.h"
+    },
+    {
+      "name": "MediaCapture",
+      "source_files": "LZCamera/Classes/Media/**/*.{h,m}",
+      "public_header_files": "LZCamera/Classes/Media/**/*.h",
+      "resources": "LZCamera/Classes/Media/Resources/LZCameraMedia.bundle",
+      "dependencies": {
+        "LZCamera/Core": [
+
+        ],
+        "LZCamera/Editor": [
+
+        ]
+      }
+    },
+    {
+      "name": "CodeCapture",
+      "source_files": "LZCamera/Classes/Code/**/*.{h,m}",
+      "public_header_files": "LZCamera/Classes/Code/**/*.h",
+      "resources": "LZCamera/Classes/Code/Resources/LZCameraCode.bundle",
+      "dependencies": {
+        "LZCamera/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Editor",
+      "source_files": "LZCamera/Classes/Editor/**/*.{h,m}",
+      "public_header_files": "LZCamera/Classes/Editor/**/*.h",
+      "resources": "LZCamera/Classes/Editor/Resources/LZCameraEditor.bundle",
+      "dependencies": {
+        "LZCamera/Core": [
+
+        ],
+        "LZDependencyToolkit/Object": [
+
+        ]
+      }
+    }
+  ]
+}
