@@ -1,0 +1,92 @@
+{
+  "name": "mob_adsdk",
+  "version": "2.0.6",
+  "summary": "A powerful ad sdk from MobTech.",
+  "homepage": "http://www.mob.com/",
+  "license": "MIT",
+  "authors": {
+    "lishzh": "lishzh@yoozoo.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://dev.ios.mob.com/files/download/mobad/MobAD_For_iOS_v2.0.6.zip"
+  },
+  "frameworks": [
+    "ImageIO",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate"
+  ],
+  "libraries": [
+    "xml2",
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3"
+  ],
+  "default_subspecs": "MobAD",
+  "dependencies": {
+    "MOBFoundation": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "MobAD",
+      "vendored_frameworks": "MobAD/MobAD.framework",
+      "resources": "MobAD/MobAD.bundle"
+    },
+    {
+      "name": "MobADPlat",
+      "subspecs": [
+        {
+          "name": "GDT",
+          "source_files": "MobAD/Channels/GDTMobSDK/*.h",
+          "vendored_frameworks": "MobAD/Channels/GDTMobSDK/MGADConnector.framework",
+          "vendored_libraries": "MobAD/Channels/GDTMobSDK/libGDTMobSDK.a",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        },
+        {
+          "name": "BUD",
+          "vendored_frameworks": [
+            "MobAD/Channels/BUAdSDK/MBADConnector.framework",
+            "MobAD/Channels/BUAdSDK/BUAdSDK.framework"
+          ],
+          "resources": "MobAD/Channels/BUAdSDK/BUAdSDK.bundle",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        },
+        {
+          "name": "KS",
+          "vendored_frameworks": [
+            "MobAD/Channels/KSAdSDK/MKADConnector.framework",
+            "MobAD/Channels/KSAdSDK/KSAdSDK.framework"
+          ],
+          "resources": "MobAD/Channels/KSAdSDK/KSAdSDK.bundle",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
