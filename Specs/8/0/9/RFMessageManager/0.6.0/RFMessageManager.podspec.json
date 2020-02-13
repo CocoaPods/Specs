@@ -1,0 +1,88 @@
+{
+  "name": "RFMessageManager",
+  "version": "0.6.0",
+  "summary": "An Abstract Message Manager.",
+  "homepage": "https://github.com/RFUI/RFMessageManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BB9z": "bb9z@me.com"
+  },
+  "source": {
+    "git": "https://github.com/RFUI/RFMessageManager.git",
+    "tag": "0.6.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "osx": "10.8",
+    "ios": "8.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Manager",
+  "pod_target_xcconfig": {
+  },
+  "subspecs": [
+    {
+      "name": "Manager",
+      "dependencies": {
+        "RFInitializing": [
+          ">= 1.1"
+        ],
+        "RFKit/Runtime": [
+          ">= 1.7"
+        ],
+        "RFKit/Category/NSArray": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/RFMessageManager/RFMessageManager.{h,m}",
+        "Sources/RFMessageManager/RFMessage.{h,m}"
+      ],
+      "public_header_files": [
+        "Sources/RFMessageManager/RFMessageManager.h",
+        "Sources/RFMessageManager/RFMessage.h"
+      ]
+    },
+    {
+      "name": "RFNetworkActivityMessage",
+      "dependencies": {
+        "RFMessageManager/Manager": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/RFMessageManager/RFNetworkActivityMessage.{h,m}",
+        "Sources/RFMessageManager/RFMessageManager+RFDisplay.{h,m}"
+      ],
+      "public_header_files": [
+        "Sources/RFMessageManager/RFNetworkActivityMessage.h",
+        "Sources/RFMessageManager/RFMessageManager+RFDisplay.h"
+      ]
+    },
+    {
+      "name": "SVProgressHUD",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0"
+      },
+      "dependencies": {
+        "RFMessageManager/Manager": [
+
+        ],
+        "RFMessageManager/RFNetworkActivityMessage": [
+
+        ],
+        "SVProgressHUD": [
+
+        ]
+      },
+      "source_files": "Sources/RFSVProgressMessageManager/*.{h,m}",
+      "public_header_files": [
+        "Sources/RFSVProgressMessageManager/*.h"
+      ]
+    }
+  ]
+}
