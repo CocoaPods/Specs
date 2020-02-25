@@ -1,0 +1,167 @@
+{
+  "name": "WCModule",
+  "version": "0.1.3",
+  "summary": "WCModule",
+  "description": "常用的开源组件",
+  "homepage": "https://github.com/394771176/WCModule",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "394771176": "394771176@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/394771176/WCModule.git",
+    "tag": "0.1.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "ASIHttpRequest",
+    "FMDB",
+    "SDWebImage",
+    "SDWebImageUtil"
+  ],
+  "frameworks": "Foundation",
+  "subspecs": [
+    {
+      "name": "Reachability",
+      "source_files": [
+        "WCModule/Classes/Reachability/*.h",
+        "WCModule/Classes/Reachability/*.m"
+      ],
+      "public_header_files": [
+        "WCModule/Classes/Reachability/*.h"
+      ]
+    },
+    {
+      "name": "ASIHttpRequest",
+      "source_files": [
+        "WCModule/Classes/ASIHttpRequest/*.h",
+        "WCModule/Classes/ASIHttpRequest/*.m",
+        "WCModule/Classes/ASIHttpRequest/ASIWebPageRequest/*.h",
+        "WCModule/Classes/ASIHttpRequest/ASIWebPageRequest/*.m",
+        "WCModule/Classes/ASIHttpRequest/CloudFiles/*.h",
+        "WCModule/Classes/ASIHttpRequest/CloudFiles/*.m",
+        "WCModule/Classes/ASIHttpRequest/S3/*.h",
+        "WCModule/Classes/ASIHttpRequest/S3/*.m"
+      ],
+      "public_header_files": [
+        "WCModule/Classes/ASIHttpRequest/*.h",
+        "WCModule/Classes/ASIHttpRequest/ASIWebPageRequest/*.h",
+        "WCModule/Classes/ASIHttpRequest/CloudFiles/*.h",
+        "WCModule/Classes/ASIHttpRequest/S3/*.h"
+      ],
+      "requires_arc": false,
+      "dependencies": {
+        "WCModule/Reachability": [
+
+        ]
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "CFNetwork",
+        "MobileCoreServices",
+        "CoreGraphics"
+      ],
+      "libraries": [
+        "xml2",
+        "z"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libz"
+      }
+    },
+    {
+      "name": "FMDB",
+      "source_files": [
+        "WCModule/Classes/FMDB/*.h",
+        "WCModule/Classes/FMDB/*.m"
+      ],
+      "public_header_files": [
+        "WCModule/Classes/FMDB/*.h"
+      ],
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "RegexKitLite",
+      "source_files": [
+        "WCModule/Classes/RegexKitLite/*.h",
+        "WCModule/Classes/RegexKitLite/*.m"
+      ],
+      "public_header_files": [
+        "WCModule/Classes/RegexKitLite/*.h"
+      ],
+      "requires_arc": false,
+      "libraries": "icucore"
+    },
+    {
+      "name": "ZipArchive",
+      "source_files": [
+        "WCModule/Classes/ZipArchive/*.h",
+        "WCModule/Classes/ZipArchive/*.m",
+        "WCModule/Classes/ZipArchive/minizip/*.h",
+        "WCModule/Classes/ZipArchive/minizip/*.c"
+      ],
+      "public_header_files": [
+        "WCModule/Classes/ZipArchive/*.h",
+        "WCModule/Classes/ZipArchive/minizip/*.h"
+      ],
+      "requires_arc": false,
+      "libraries": "z"
+    },
+    {
+      "name": "SDWebImage",
+      "source_files": [
+        "WCModule/Classes/SDWebImage/*.h",
+        "WCModule/Classes/SDWebImage/Core/*"
+      ],
+      "requires_arc": true,
+      "frameworks": "ImageIO"
+    },
+    {
+      "name": "SDWebImageMap",
+      "source_files": "WCModule/Classes/SDWebImage/MapKit/*",
+      "frameworks": "MapKit",
+      "dependencies": {
+        "WCModule/SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDWebImageWebP",
+      "source_files": "WCModule/Classes/SDWebImage/WebP/*",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SD_WEBP=1",
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+      },
+      "watchos": {
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SD_WEBP=1 WEBP_USE_INTRINSICS=1",
+          "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+        }
+      },
+      "dependencies": {
+        "WCModule/SDWebImage": [
+
+        ]
+      },
+      "vendored_frameworks": "WCModule/Classes/SDWebImage/WebP.framework"
+    },
+    {
+      "name": "SDWebImageUtil",
+      "source_files": "WCModule/Classes/SDWebImageUtil/*",
+      "dependencies": {
+        "WCModule/SDWebImage": [
+
+        ],
+        "WCCategory": [
+
+        ]
+      }
+    }
+  ]
+}
