@@ -1,0 +1,67 @@
+{
+  "name": "MOBIPlayer",
+  "version": "1.0.28",
+  "summary": "Description of MOBIPlayer Framework.",
+  "description": "A bigger description of MOBIPlayer Framework.",
+  "homepage": "https://mobiotics.com",
+  "license": {
+    "type": "MIT",
+    "text": "The MIT license (MIT) \\n Copyright (c) Sasikumar <sasikumar.d@mobiotics.com>."
+  },
+  "authors": {
+    "Sasikumar": "sasikumar.d@mobiotics.com"
+  },
+  "source": {
+    "git": "https://sasikumarMobi@bitbucket.org/sasikumarMobi/mobiplayerframework.git",
+    "tag": "1.0.28"
+  },
+  "xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -DMOBIDEBUG",
+    "OTHER_LDFLAGS": "-framework \"MOBIPlayer\" -framework \"widevine_cdm_secured_ios_tmux\"",
+    "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/MOBIPlayer/Widevine/${CURRENT_ARCH}-${PLATFORM_NAME}\"",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "preserve_paths": [
+    "Widevine/arm64-iphoneos/*",
+    "Widevine/armv7-iphoneos/*",
+    "Widevine/armv7s-iphoneos/*",
+    "Widevine/i386-iphonesimulator/*",
+    "Widevine/x86_64-iphonesimulator/*"
+  ],
+  "ios": {
+    "vendored_frameworks": "MOBIPlayer.xcframework"
+  },
+  "platforms": {
+    "ios": "10.3"
+  },
+  "dependencies": {
+    "M3U8Kit": [
+
+    ],
+    "GoogleAds-IMA-iOS-SDK": [
+
+    ]
+  },
+  "script_phases": [
+    {
+      "name": "Widevine arm64-iphoneos",
+      "script": "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\ncp -a \"${PODS_ROOT}/MOBIPlayer/Widevine/arm64-iphoneos/widevine_cdm_secured_ios_tmux.framework\" \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/widevine_cdm_secured_ios_tmux.framework\""
+    },
+    {
+      "name": "Widevine armv7-iphoneos",
+      "script": "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\ncp -a \"${PODS_ROOT}/MOBIPlayer/Widevine/armv7-iphoneos/widevine_cdm_secured_ios_tmux.framework\" \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/widevine_cdm_secured_ios_tmux.framework\""
+    },
+    {
+      "name": "Widevine armv7s-iphoneos",
+      "script": "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\ncp -a \"${PODS_ROOT}/MOBIPlayer/Widevine/armv7s-iphoneos/widevine_cdm_secured_ios_tmux.framework\" \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/widevine_cdm_secured_ios_tmux.framework\""
+    },
+    {
+      "name": "Widevine x86_64-iphonesimulator",
+      "script": "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\ncp -a \"${PODS_ROOT}/MOBIPlayer/Widevine/x86_64-iphonesimulator/widevine_cdm_secured_ios_tmux.framework\" \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/widevine_cdm_secured_ios_tmux.framework\""
+    },
+    {
+      "name": "Widevine i386-iphonesimulator",
+      "script": "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\ncp -a \"${PODS_ROOT}/MOBIPlayer/Widevine/i386-iphonesimulator/widevine_cdm_secured_ios_tmux.framework\" \"${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/widevine_cdm_secured_ios_tmux.framework\""
+    }
+  ]
+}
