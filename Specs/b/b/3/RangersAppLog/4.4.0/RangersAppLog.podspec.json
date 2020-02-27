@@ -1,0 +1,84 @@
+{
+  "name": "RangersAppLog",
+  "version": "4.4.0",
+  "summary": "ByteDance Rangers AppLog.",
+  "description": "ByteDance Rangers AppLog SDK.",
+  "homepage": "https://github.com/bytedance/RangersAppLog",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "duanwenbin": "duanwenbin@bytedance.com"
+  },
+  "source": {
+    "git": "https://github.com/bytedance/RangersAppLog.git",
+    "tag": "4.4.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "source_files": "RangersAppLog/*.{h,m}",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "RangersAppLog/Core/*.h",
+      "vendored_libraries": "RangersAppLog/Core/*.a",
+      "frameworks": [
+        "Foundation",
+        "Security",
+        "AdSupport",
+        "CoreTelephony",
+        "CoreFoundation",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "public_header_files": "RangersAppLog/Core/*.h"
+    },
+    {
+      "name": "UITracker",
+      "vendored_libraries": "RangersAppLog/UITracker/*.a",
+      "source_files": "RangersAppLog/UITracker/*.h",
+      "frameworks": [
+        "UIKit",
+        "WebKit"
+      ],
+      "public_header_files": "RangersAppLog/UITracker/*.h",
+      "dependencies": {
+        "RangersAppLog/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "vendored_libraries": "RangersAppLog/Picker/*.a",
+      "frameworks": [
+        "CoreGraphics",
+        "CoreServices",
+        "MobileCoreServices",
+        "QuartzCore",
+        "CoreText"
+      ],
+      "dependencies": {
+        "RangersAppLog/UITracker": [
+
+        ]
+      },
+      "resource_bundles": {
+        "RangersAppLog": [
+          "RangersAppLog/Assets/*.xcassets"
+        ]
+      }
+    }
+  ]
+}
