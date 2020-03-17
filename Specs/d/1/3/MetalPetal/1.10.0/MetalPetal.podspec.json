@@ -1,0 +1,55 @@
+{
+  "source": {
+    "tag": "1.10.0",
+    "git": "https://github.com/MetalPetal/MetalPetal.git"
+  },
+  "swift_versions": "5.0",
+  "homepage": "https://github.com/MetalPetal/MetalPetal",
+  "name": "MetalPetal",
+  "default_subspecs": "Core",
+  "authors": {
+    "YuAo": "me@imyuao.com"
+  },
+  "summary": "GPU-accelerated image and video processing framework based on Metal.",
+  "module_map": "Frameworks/MetalPetal/MetalPetal.modulemap",
+  "license": {
+    "type": "MIT"
+  },
+  "requires_arc": true,
+  "version": "1.10.0",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "prefix_header_file": false,
+  "subspecs": [
+    {
+      "name": "Core",
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "private_header_files": [
+        "Frameworks/MetalPetal/MTIPrint.h",
+        "Frameworks/MetalPetal/MTIDefer.h",
+        "Frameworks/MetalPetal/MTIHasher.h",
+        "Frameworks/MetalPetal/MTIImageRenderingContext+Internal.h"
+      ],
+      "source_files": "Frameworks/MetalPetal/**/*.{h,m,c,mm,metal}"
+    },
+    {
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "name": "Swift",
+      "source_files": "Frameworks/MetalPetal/**/*.{swift}"
+    }
+  ],
+  "swift_version": "5.0"
+}
