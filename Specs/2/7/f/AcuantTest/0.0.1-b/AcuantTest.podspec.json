@@ -1,0 +1,204 @@
+{
+  "name": "AcuantTest",
+  "platforms": {
+    "ios": "13.2"
+  },
+  "swift_versions": [
+    "5.2"
+  ],
+  "version": "0.0.1-b",
+  "summary": "Acuant's Test Library",
+  "description": "Acuant's Testing Library.",
+  "homepage": "https://github.com/jmoonacuant/TestCoco",
+  "license": {
+    "type": "commercial",
+    "text": "                  Copyright 2019 Acuant, Inc. All Rights Reserved.\n"
+  },
+  "authors": {
+    "Acuant Inc": "jmoon@acuantcorp.com"
+  },
+  "source": {
+    "git": "https://github.com/jmoonacuant/TestCoco.git",
+    "tag": "0.0.1-b"
+  },
+  "subspecs": [
+    {
+      "name": "AcuantCommon",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantCommon.framework"
+      }
+    },
+    {
+      "name": "AcuantImagePreparation",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantImagePreparation.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantDocumentProcessing",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantDocumentProcessing.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceMatch",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantFaceMatch.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantPassiveLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantPassiveLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantHGLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantHGLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantIPLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantIPLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ],
+        "iProov": [
+          "~> 7.3.0"
+        ]
+      }
+    },
+    {
+      "name": "AcuantEchipReader",
+      "platforms": {
+        "ios": "13.2"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantEchipReader.framework"
+      },
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceCapture",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "AcuantFaceCapture/AcuantFaceCapture/*.{h,swift}",
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantCamera",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "AcuantCamera/AcuantCamera/*.{h,swift}",
+      "resources": "AcuantCamera/AcuantCamera/Camera/Mrz/*.xcassets",
+      "dependencies": {
+        "AcuantTest/AcuantCommon": [
+
+        ],
+        "AcuantTest/AcuantImagePreparation": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Document",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Document/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Document/Delegate/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantTest/AcuantCamera/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Mrz",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Mrz/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/Utils/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantTest/AcuantCamera/Common": [
+
+            ],
+            "TesseractOCRiOS": [
+              "~> 5.0.1"
+            ]
+          }
+        },
+        {
+          "name": "Common",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/View/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Extension/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Constant/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/*.{h,swift}"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
