@@ -1,0 +1,128 @@
+{
+  "name": "OpenWrapSDK",
+  "version": "1.6.0",
+  "summary": "The OpenWrapSDK iOS SDK makes it easy to incorporate ads into iOS applications & monetize your applications with ease",
+  "homepage": "https://community.pubmatic.com/display/IS",
+  "license": {
+    "type": "Pubmatic Inc. license",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "PubMatic": "pm-library@pubmatic.com"
+  },
+  "source": {
+    "http": "https://repo.pubmatic.com/artifactory/public-repos/ios/openwrap-sdk/1.6.0/openwrap-sdk-1.6.0.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "OpenWrap",
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "MessageUI",
+    "CoreLocation",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "Common/Headers/*.h",
+      "vendored_frameworks": "Common/Common.framework",
+      "public_header_files": "Common/Headers/*.h"
+    },
+    {
+      "name": "Webrendering",
+      "dependencies": {
+        "OpenWrapSDK/Common": [
+
+        ]
+      },
+      "source_files": "Webrendering/Headers/*.h",
+      "public_header_files": "Webrendering/Headers/*.h",
+      "vendored_frameworks": "Webrendering/Webrendering.framework",
+      "resources": "Webrendering/Resources/*.{js,bundle}"
+    },
+    {
+      "name": "Video",
+      "dependencies": {
+        "OpenWrapSDK/Common": [
+
+        ]
+      },
+      "vendored_frameworks": "Video/Video.framework",
+      "resources": "Video/Resources/*.{bundle}"
+    },
+    {
+      "name": "Measurement",
+      "dependencies": {
+        "OpenWrapSDK/Common": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "OMSDK/OMSDK.framework",
+        "OMSDK/Frameworks/OMSDK_Pubmatic.framework"
+      ],
+      "resources": "OMSDK/Resources/*.{js}"
+    },
+    {
+      "name": "OpenWrap",
+      "dependencies": {
+        "OpenWrapSDK/Webrendering": [
+
+        ],
+        "OpenWrapSDK/Video": [
+
+        ],
+        "OpenWrapSDK/Measurement": [
+
+        ],
+        "OpenWrapSDK/Monitor": [
+
+        ]
+      },
+      "vendored_frameworks": "OpenWrap/OpenWrap.framework",
+      "source_files": "OpenWrap/Headers/*.h",
+      "public_header_files": "OpenWrap/Headers/*.h"
+    },
+    {
+      "name": "OpenWrap-Monitor-Excluded",
+      "dependencies": {
+        "OpenWrapSDK/Webrendering": [
+
+        ],
+        "OpenWrapSDK/Video": [
+
+        ],
+        "OpenWrapSDK/Measurement": [
+
+        ]
+      },
+      "vendored_frameworks": "OpenWrap/OpenWrap.framework",
+      "source_files": "OpenWrap/Headers/*.h",
+      "public_header_files": "OpenWrap/Headers/*.h"
+    },
+    {
+      "name": "Monitor",
+      "dependencies": {
+        "OpenWrapSDK/Common": [
+
+        ],
+        "OpenWrapSDK/Webrendering": [
+
+        ],
+        "OpenWrapSDK/Video": [
+
+        ]
+      },
+      "vendored_frameworks": "Monitor/Monitor.framework"
+    }
+  ]
+}
