@@ -3,6 +3,9 @@
 
 require 'cocoapods'
 require 'parallel'
+require 'pathname'
+require_relative 'parallel_source.rb'
+require_relative 'script_helper.rb'
 
 def parallel?
   ENV['COCOAPODS_PARALLEL']
@@ -25,60 +28,12 @@ class UI
   end
 end
 
-module Pod
-  class ParallelSource < Source
-    # @return [Array<String>] the list of the name of all the Pods.
-    #
-    #
-    def pods
-      if metadata.prefix_lengths.size > 1
-        dirs = Pathname.glob(specs_dir.join('*'))
-        Parallel.flat_map(dirs) do |dir|
-          glob = dir.join('*/' * (metadata.prefix_lengths.size - 1), '*')
-          Pathname.glob(glob).reduce([]) do |pods, entry|
-            pods << entry.basename.to_s if entry.directory?
-            pods
-          end
-        end.sort
-      else
-        glob = specs_dir.join('*/' * metadata.prefix_lengths.size, '*')
-        Pathname.glob(glob).reduce([]) do |pods, entry|
-          pods << entry.basename.to_s if entry.directory?
-          pods
-        end.sort
-      end
-    end
-  end
-end
-
-def parallel_map(iter, &block)
-  if parallel?
-    Parallel.map(iter) { |*args| block.call(*args) }
-  else
-    iter.map { |*args| block.call(*args) }
-  end
-end
-
-def parallel_flat_map(iter, &block)
-  if parallel?
-    Parallel.flat_map(iter) { |*args| block.call(*args) }
-  else
-    iter.flat_map { |*args| block.call(*args) }
-  end
-end
-
-def parallel_each(iter, &block)
-  if parallel?
-    Parallel.each(iter) { |*args| block.call(*args) }
-  else
-    iter.each { |*args| block.call(*args) }
-  end
-end
-
 PodMetadata = Struct.new(:name, :shard, :specs, :versions)
 
 base_dir = ARGV[0]
 raise "Missing base directory path!" if base_dir.nil? || base_dir.empty?
+base_dir = Pathname.new(base_dir)
+repo_root = Pathname.new('.').expand_path
 
 source = if parallel?
            Pod::ParallelSource.new('.')
@@ -110,9 +65,9 @@ UI.puts "Writing shard indices"
 # write all `all_pods_versions_2_2_2.txt` files that are structured like so:
 # DfPodTest/0.0.1/0.0.2
 parallel_each(shards) do |shard, pods|
-  File.open("#{base_dir}/all_pods_versions_#{shard}.txt", 'w') do |file|
+  File.open(base_dir + "all_pods_versions_#{shard}.txt", 'w') do |file|
     pods.sort_by(&:name).each do |pod|
-      row = [pod.name] + pod.versions
+      row = [pod.name] + pod.versions.sort
       file.puts row.join('/')
     end
   end
@@ -128,7 +83,7 @@ shards = Hash[parallel_map(shards) do |shard, pods|
 end]
 
 # # write a list of all pods, separated by newline
-File.open("#{ARGV[0]}/all_pods.txt", 'w') do |file|
+File.open(base_dir + 'all_pods.txt', 'w') do |file|
   file.puts pods
 end
 UI.puts "Total pod count: #{pods.count}"
@@ -139,13 +94,14 @@ deprecated_podspecs = parallel_flat_map(shards.values) do |pods|
   pods.flat_map do |pod|
     pod.specs.select(&:deprecated?)
   end
+end.map do |spec|
+  Pathname.new(spec.defined_in_file).relative_path_from(repo_root).to_s
 end
+
 
 UI.puts "Writing deprecated podspec index"
 # write a list of all deprecated podspecs, separated by newline
-File.open("#{ARGV[0]}/deprecated_podspecs.txt", 'w') do |file|
-  deprecated_podspecs.each do |spec|
-    file.puts spec.defined_in_file
-  end
+File.open(base_dir + 'deprecated_podspecs.txt', 'w') do |file|
+  file.puts deprecated_podspecs
 end
 UI.puts "Deprecated podspec count: #{deprecated_podspecs.count}"
