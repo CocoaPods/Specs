@@ -7,27 +7,6 @@ require 'pathname'
 require_relative 'parallel_source.rb'
 require_relative 'script_helper.rb'
 
-def parallel?
-  ENV['COCOAPODS_PARALLEL']
-end
-
-def netlify?
-  ENV['NETLIFY']
-end
-
-class UI
-  def self.puts(msg, io: nil)
-    if netlify?
-      io ||= STDERR
-      io.puts msg
-    else
-      io ||= STDOUT
-      timestamp = Time.now.strftime('%k:%M:%S')
-      io.puts "[#{timestamp}] #{msg}"
-    end
-  end
-end
-
 PodMetadata = Struct.new(:name, :shard, :specs, :versions)
 
 base_dir = ARGV[0]
