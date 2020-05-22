@@ -20,6 +20,7 @@ source = if parallel?
            Pod::Source.new('.')
          end
 
+UI.puts "Parallelism enabled" if parallel?
 UI.puts "Loading pods"
 pods = source.pods
 UI.puts "Loading shards"
@@ -56,6 +57,10 @@ UI.puts "Loading specs"
 
 shards = Hash[parallel_map(shards) do |shard, pods|
   [shard, pods.map do |pod|
+    name = pod.name
+    if name == 'Spark-SDK'
+      UI.puts "Spark-SDK versions: #{pod.versions}"
+    end
     specs = pod.versions.map { |v| source.specification(pod.name, v) }
     PodMetadata.new(pod.name, pod.shard, specs, pod.versions)
   end]
