@@ -58,10 +58,14 @@ UI.puts "Loading specs"
 shards = Hash[parallel_map(shards) do |shard, pods|
   [shard, pods.map do |pod|
     name = pod.name
-    if name == 'Spark-SDK'
-      UI.puts "Spark-SDK versions: #{pod.versions}"
+    specs = pod.versions.map do |v|
+      begin
+        source.specification(name, v)
+      rescue Pod::StandardError
+        # Attempt to recover case-sensitivity issues
+        source.specification(name.downcase, v)
+      end
     end
-    specs = pod.versions.map { |v| source.specification(pod.name, v) }
     PodMetadata.new(pod.name, pod.shard, specs, pod.versions)
   end]
 end]
