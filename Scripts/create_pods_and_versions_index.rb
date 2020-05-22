@@ -61,9 +61,11 @@ shards = Hash[parallel_map(shards) do |shard, pods|
     specs = pod.versions.map do |v|
       begin
         source.specification(name, v)
-      rescue Pod::StandardError
-        # Attempt to recover case-sensitivity issues
-        source.specification(name.downcase, v)
+      rescue Pod::StandardError => e
+        # Attempt to recover case-sensitivity issues. Some old pods were published with all-lowercase file names
+        glob = (source.pod_path(name) + v) + '*.podspec.json'
+        file = Pathname.glob(glob).first
+        Pod::Specification.from_file(file)
       end
     end
     PodMetadata.new(pod.name, pod.shard, specs, pod.versions)
