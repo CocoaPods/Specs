@@ -1,0 +1,202 @@
+{
+  "name": "GYDFoundation",
+  "version": "0.0.5",
+  "summary": "GYDFoundation",
+  "description": "平时积累的一些代码，\n也许有用，也许没用。",
+  "homepage": "https://github.com/pkgogai/GYDFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pkgogai": "pkgogai@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pkgogai/GYDFoundation.git",
+    "tag": "0.0.5"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "ios": {
+    "requires_arc": true,
+    "frameworks": "UIKit"
+  },
+  "default_subspecs": [
+    "GYDFoundation",
+    "GYDDatabase",
+    "GYDHTTPConnect",
+    "GYDJSONObject"
+  ],
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "GYDFoundation/Tests/Placeholder/**/*",
+      "testspecs": [
+        {
+          "name": "GYDFoundation",
+          "test_type": "unit",
+          "ios": {
+            "source_files": [
+              "GYDFoundation/Tests/Base/**/*",
+              "GYDFoundation/Tests/iOS/**/*"
+            ]
+          },
+          "osx": {
+            "source_files": [
+              "GYDFoundation/Tests/Base/**/*",
+              "GYDFoundation/Tests/MacOS/**/*"
+            ]
+          }
+        },
+        {
+          "name": "GYDDatabase",
+          "test_type": "unit",
+          "source_files": "GYDDatabase/Tests/**/*"
+        },
+        {
+          "name": "GYDHTTPConnect",
+          "test_type": "unit",
+          "source_files": "GYDHTTPConnect/Tests/**/*"
+        },
+        {
+          "name": "GYDJSONObject",
+          "test_type": "unit",
+          "source_files": "GYDJSONObject/Tests/**/*"
+        }
+      ]
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "GYDFoundation",
+      "ios": {
+        "source_files": [
+          "GYDFoundation/Code/Base/**/*",
+          "GYDFoundation/Code/iOS/**/*"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "GYDFoundation/Code/Base/**/*",
+          "GYDFoundation/Code/MacOS/**/*"
+        ]
+      }
+    },
+    {
+      "name": "GYDDatabase",
+      "source_files": "GYDDatabase/Code/**/*",
+      "dependencies": {
+        "FMDB": [
+
+        ],
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_DATABASE=1"
+      }
+    },
+    {
+      "name": "GYDHTTPConnect",
+      "source_files": "GYDHTTPConnect/Code/**/*",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_HTTPCONNECT=1"
+      }
+    },
+    {
+      "name": "GYDJSONObject",
+      "source_files": "GYDJSONObject/Code/**/*",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_JSON_OBJECT=1"
+      }
+    },
+    {
+      "name": "GYDJSONObjectNonatomic",
+      "dependencies": {
+        "GYDFoundation/GYDJSONObject": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_JSON_OBJECT_ATOMIC=0"
+      }
+    },
+    {
+      "name": "Development",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_DEVELOPMENT=1"
+      }
+    },
+    {
+      "name": "Demo",
+      "subspecs": [
+        {
+          "name": "GYDFoundation",
+          "dependencies": {
+            "GYDFoundation/GYDFoundation": [
+
+            ]
+          },
+          "ios": {
+            "source_files": [
+              "GYDFoundation/Demo/Base/**/*",
+              "GYDFoundation/Demo/iOS/**/*"
+            ]
+          },
+          "osx": {
+            "source_files": [
+              "GYDFoundation/Demo/Base/**/*",
+              "GYDFoundation/Demo/MacOS/**/*"
+            ]
+          }
+        },
+        {
+          "name": "GYDDatabase",
+          "dependencies": {
+            "GYDFoundation/GYDDatabase": [
+
+            ]
+          },
+          "source_files": "GYDDatabase/Demo/**/*"
+        },
+        {
+          "name": "GYDHTTPConnect",
+          "dependencies": {
+            "GYDFoundation/GYDHTTPConnect": [
+
+            ]
+          },
+          "source_files": "GYDHTTPConnect/Demo/**/*"
+        },
+        {
+          "name": "GYDJSONObject",
+          "dependencies": {
+            "GYDFoundation/GYDJSONObject": [
+
+            ]
+          },
+          "source_files": "GYDJSONObject/Demo/**/*"
+        }
+      ]
+    }
+  ]
+}
