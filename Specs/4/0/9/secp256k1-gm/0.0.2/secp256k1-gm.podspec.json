@@ -1,0 +1,40 @@
+{
+  "name": "secp256k1-gm",
+  "version": "0.0.2",
+  "summary": "Optimized C library for EC operations on curve secp256k1",
+  "homepage": "https://github.com/greymass/secp256k1",
+  "license": {
+    "type": "MIT",
+    "file": "COPYING"
+  },
+  "authors": {
+    "secp256k1 contributors": "https://github.com/bitcoin-core/secp256k1/graphs/contributors"
+  },
+  "source": {
+    "git": "https://github.com/greymass/secp256k1.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "public_header_files": "include/*.h",
+  "source_files": [
+    "src/secp256k1.c",
+    "src/**/*.h",
+    "include/*.h"
+  ],
+  "compiler_flags": [
+    "-DENABLE_MODULE_ECDH",
+    "-DENABLE_MODULE_RECOVERY",
+    "-DUSE_NUM_NONE",
+    "-DUSE_FIELD_INV_BUILTIN",
+    "-DUSE_SCALAR_INV_BUILTIN",
+    "-DUSE_FIELD_10X26",
+    "-DUSE_SCALAR_8X32",
+    "-DECMULT_GEN_PREC_BITS=4",
+    "-DECMULT_WINDOW_SIZE=15"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SRCROOT)/secp256k1-gm $(SRCROOT)/secp256k1-gm/src $(SRCROOT)/secp256k1-gm/include"
+  }
+}
