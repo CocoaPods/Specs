@@ -1,0 +1,44 @@
+{
+  "name": "HostMediaFramework",
+  "version": "0.0.2",
+  "summary": "HostMediaFramework for components",
+  "description": "HostMediaFramework for components",
+  "homepage": "https://github.com/bbrichard/HostMediaFramework",
+  "license": "MIT. Copyright (c) 2019年 BB. All rights reserved.",
+  "authors": {
+    "Richard": "Richard@seektopser.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://github.com/bbrichard/HostMediaFramework/releases/download/0.0.1/HostMediaFramework.zip"
+  },
+  "frameworks": [
+    "AudioToolbox",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreMedia",
+    "CoreVideo",
+    "MediaPlayer",
+    "MobileCoreServices",
+    "OpenGLES",
+    "QuartzCore",
+    "VideoToolbox"
+  ],
+  "libraries": [
+    "c++",
+    "z",
+    "bz2"
+  ],
+  "default_subspecs": "zip",
+  "prepare_command": "touch  HostMediaFramework.framework/Modules/module.modulemap\ncat <<-EOF > HostMediaFramework.framework/Modules/module.modulemap\nframework module HostMediaFramework {\n    header \"IJKAVMoviePlayerController.h\"\n    header \"IJKFFMonitor.h\"\n    header \"IJKFFOptions.h\"\n    header \"IJKKVOController.h\"\n    header \"IJKMediaFramework.h\"\n    header \"IJKMediaModule.h\"\n    header \"IJKMediaPlayback.h\"\n    header \"IJKMediaPlayer.h\"\n    header \"IJKNotificationManager.h\"\n    header \"IJKSDLGLViewProtocol.h\"\n    header \"IJKFFMoviePlayerController.h\"\n}\nEOF",
+  "subspecs": [
+    {
+      "name": "zip",
+      "ios": {
+        "vendored_frameworks": "*.framework"
+      }
+    }
+  ]
+}
