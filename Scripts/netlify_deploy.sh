@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
+bundle check &> /dev/null || bundle install
+
 mkdir _site || true
 
 # generate sharded index
