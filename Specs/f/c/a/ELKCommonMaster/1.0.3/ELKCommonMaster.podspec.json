@@ -1,0 +1,134 @@
+{
+  "name": "ELKCommonMaster",
+  "version": "1.0.3",
+  "summary": "简单易用通用三方库集成：1）微信登录、分享、支付；2）QQ登录、分享；3）新浪微博登录、分享",
+  "description": "简单易用通用三方库集成：\n1）微信登录、分享、支付功能；\n2）QQ登录、分享功能；\n3）新浪微博登录、分享功能。",
+  "homepage": "https://github.com/elkshrek/ELKCommon-master",
+  "license": "MIT",
+  "authors": {
+    "Jonathan": "Jonathan_dk@163.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/elkshrek/ELKCommon-master.git",
+    "tag": "1.0.3"
+  },
+  "frameworks": [
+    "Security",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit",
+    "Foundation",
+    "UIKit"
+  ],
+  "libraries": [
+    "iconv",
+    "z",
+    "c++",
+    "sqlite3"
+  ],
+  "source_files": "ELKCommonMaster/ELKCommonMaster.{h,m}",
+  "public_header_files": "ELKCommonMaster/ELKCommonMaster.h",
+  "subspecs": [
+    {
+      "name": "ELKModule",
+      "ios": {
+        "frameworks": [
+          "Foundation",
+          "UIKit"
+        ]
+      },
+      "source_files": "ELKCommonMaster/ELKModule/**/*.{h,m}",
+      "public_header_files": "ELKCommonMaster/ELKModule/**/*.h"
+    },
+    {
+      "name": "ELKTencent",
+      "dependencies": {
+        "ELKTencentOpenSDK": [
+
+        ],
+        "ELKCommonMaster/ELKModule": [
+
+        ]
+      },
+      "source_files": "ELKCommonMaster/ELKTencent/**/*.{h,m}",
+      "public_header_files": "ELKCommonMaster/ELKTencent/**/*.h"
+    },
+    {
+      "name": "ELKWeChatSDK",
+      "frameworks": [
+        "Photos",
+        "ImageIO",
+        "SystemConfiguration",
+        "CoreText",
+        "QuartzCore",
+        "Security",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "vendored_libraries": "ELKCommonSDK/ELKWechatSDK/*.a",
+      "source_files": "ELKCommonSDK/ELKWechatSDK/**/*.{h,m}",
+      "public_header_files": "ELKCommonSDK/ELKWechatSDK/**/*.h"
+    },
+    {
+      "name": "ELKWeChat",
+      "dependencies": {
+        "ELKCommonMaster/ELKWeChatSDK": [
+
+        ],
+        "ELKCommonMaster/ELKModule": [
+
+        ]
+      },
+      "source_files": "ELKCommonMaster/ELKWeChat/**/*.{h,m}",
+      "public_header_files": "ELKCommonMaster/ELKWeChat/**/*.h"
+    },
+    {
+      "name": "ELKSinaSDK",
+      "frameworks": [
+        "Photos",
+        "ImageIO",
+        "SystemConfiguration",
+        "CoreText",
+        "QuartzCore",
+        "Security",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreTelephony",
+        "WebKit"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ],
+      "requires_arc": false,
+      "vendored_libraries": "ELKCommonSDK/ELKSinaSDK/libWeiboSDK.a",
+      "resources": "ELKCommonSDK/ELKSinaSDK/WeiboSDK.bundle",
+      "source_files": "ELKCommonSDK/ELKSinaSDK/**/*.{h,m}"
+    },
+    {
+      "name": "ELKSina",
+      "dependencies": {
+        "ELKCommonMaster/ELKSinaSDK": [
+
+        ],
+        "ELKCommonMaster/ELKModule": [
+
+        ]
+      },
+      "source_files": "ELKCommonMaster/ELKSina/**/*.{h,m}",
+      "public_header_files": "ELKCommonMaster/ELKSina/**/*.h"
+    }
+  ]
+}
