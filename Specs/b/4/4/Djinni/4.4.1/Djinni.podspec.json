@@ -1,0 +1,50 @@
+{
+  "name": "Djinni",
+  "version": "4.4.1",
+  "summary": "Djinni is a tool for generating cross-language type declarations and interface bindings.",
+  "description": "Djinni is a tool for generating cross-language type declarations and interface bindings.\nIt's designed to connect C++ with either Java or Objective-C. Python support is experimental. \nFor more information see README.Python.md",
+  "homepage": "https://github.com/hiennguyenle/djinni",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Hien Nguyen": "hien.nguyenle.it@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/hiennguyenle/djinni.git",
+    "tag": "4.4.1"
+  },
+  "module_name": "Djinni",
+  "requires_arc": true,
+  "libraries": "c++",
+  "default_subspecs": "objc",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "subspecs": [
+    {
+      "name": "objc",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "support-lib/objc"
+        ],
+        "USER_HEADER_SEARCH_PATHS": [
+          "support-lib/extension/json/nlohmann"
+        ]
+      },
+      "source_files": [
+        "support-lib/extension/json/nlohmann/json.hpp",
+        "support-lib/extension/json/objc/DJIMarshal+Json.h",
+        "support-lib/objc/DJICppWrapperCache+Private.h",
+        "support-lib/objc/DJIError.h",
+        "support-lib/objc/DJIError.mm",
+        "support-lib/objc/DJIMarshal+Private.h",
+        "support-lib/objc/DJIObjcWrapperCache+Private.h",
+        "support-lib/objc/DJIProxyCaches.mm",
+        "support-lib/proxy_cache_impl.hpp",
+        "support-lib/proxy_cache_interface.hpp"
+      ]
+    }
+  ]
+}
