@@ -1,0 +1,46 @@
+{
+  "name": "C8oSDK",
+  "module_name": "C8o",
+  "version": "2.4.0-beta02",
+  "authors": "Convertigo",
+  "license": "Apache License 2.0",
+  "summary": "Convertigo client SDK for iOS.",
+  "description": "Convertigo Client SDK is a set of native libraries used by iOS applications to access Convertigo mBaaS services.\nAn application using the SDK can easily access Convertigo services such as Sequences and Transactions.\n\nEnterprises will use the Client SDK to abstract the programmer from handling the communication protocols, local cache, FullSync offline data management, UI thread management and remote logging.\nSo the developer can focus on building the application.",
+  "homepage": "http://www.convertigo.com/convertigo-sdk/",
+  "source": {
+    "git": "https://github.com/convertigo/c8osdk-ios.git",
+    "tag": "2.4.0-beta02"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": [
+    "C8oSDKiOS/*.swift",
+    "C8oSDKiOS/Internal/*.swift"
+  ],
+  "static_framework": true,
+  "script_phases": {
+    "name": "Hello World",
+    "script": "echo \"C8oSDK: Add umbrella header for CBL dependency\" && [ ! -d \"./couchbase-lite-ios/Couchbaselite.framework/Modules\" ] && mkdir ./couchbase-lite-ios/Couchbaselite.framework/Modules || echo \"path already exists\" && touch ./couchbase-lite-ios/Couchbaselite.framework/Modules/module.modulemap && echo 'framework module CouchbaseLite { module All { umbrella header \"../Headers/CouchbaseLite.h\" export * module * { export * }} module JSView { umbrella header \"../../Extras/CBLRegisterJSViewCompiler.h\" export * module * { export * }}}' > ./couchbase-lite-ios/Couchbaselite.framework/Modules/module.modulemap",
+    "execution_position": "before_compile"
+  },
+  "swift_versions": "5.0",
+  "dependencies": {
+    "SwiftyJSON": [
+      "5.0.0"
+    ],
+    "Alamofire": [
+      "5.2.1"
+    ],
+    "AEXML": [
+      "4.5.0"
+    ],
+    "couchbase-lite-ios": [
+      "1.4.4"
+    ],
+    "couchbase-lite-ios/ForestDB": [
+      "1.4.4"
+    ]
+  },
+  "swift_version": "5.0"
+}
