@@ -1,0 +1,21 @@
+{
+  "name": "XChanger",
+  "version": "0.0.6",
+  "summary": "XChanger can exchange to behavior for URL request and response",
+  "description": "XChanger can exchange to behavior for URL request and response\n\n## Usage\nFirst, XChanger should call to start with `XChanger.register()`.\n```swift\nXChanger.register()\n```\n\nSecond, define URL request and response.   \nFor example, It will return body of the response is `{\"id\": 10, name:\"bannzai\"}` and the response status code is 200, when you make a request to `https://exmaple.com/v1/users/10`.\n\nDefine exchange.\n```swift\nlet url = \"https://exmaple.com/v1/users/10\"\nlet json = try! JSONEncoder().encode(User(id: 10, name: \"bannzai\"))\nXChanger.exchange().request(url: url).response(data: json, statusCode: 200).enable()\n```\n\nRequest actually with URLSession.\n```swift\nlet request = URLRequest(url: URL(string: \"https://exmaple.com/v1/users/10\")!)\nlet session = URLSession(configuration: URLSessionConfiguration.default)\nsession.dataTask(with: request) { data, response, error in\n  guard let httpResponse = response as? HTTPURLResponse else {\n      return fatalError(\"Unexpected response type of HTTPURLResponse\")\n  }\n  print(httpResponse.statusCode) // 200\n  \n  let decoded = try! JSONDecoder().decode(User.self, from: data!)\n  print(decoded) // User(id: 10, name: \"bannzai\")\n}.resume()\n```",
+  "homepage": "https://github.com/bannzai/XChanger",
+  "license": "MIT",
+  "authors": {
+    "bannzai": "kingkong999yhirose@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bannzai/XChanger.git",
+    "tag": "0.0.6"
+  },
+  "source_files": "Sources/XChanger/*.swift",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.2",
+  "swift_version": "5.2"
+}
