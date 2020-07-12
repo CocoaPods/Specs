@@ -1,0 +1,41 @@
+{
+  "name": "Dynamic-OpenCV",
+  "version": "4.3.0",
+  "summary": "OpenCV dynamic framework",
+  "description": "From https://github.com/opencv/opencv",
+  "homepage": "https://github.com/alrikai/OpenCVFramework-Dynamic.git",
+  "license": {
+    "type": "3-clause BSD",
+    "file": "LICENSE"
+  },
+  "authors": "https://opencv.org/",
+  "platforms": {
+    "ios": "11.1"
+  },
+  "source": {
+    "git": "https://github.com/alrikai/OpenCVFramework-Dynamic.git",
+    "tag": "v4.3.0"
+  },
+  "prepare_command": "uuid=$(uuidgen)\ntarget_tag=\"4.3.0\"\nremote_name=\"opencv-${uuid}\"\nprefix_dir=\"opencv-${target_tag}-${uuid}\"\ngit remote add -f $remote_name https://github.com/opencv/opencv.git\ngit reset --hard\ngit subtree add --prefix $prefix_dir $remote_name ${target_tag} --squash\npython2.7 $prefix_dir/platforms/ios/build_framework.py opencv-ios-dynamic --dynamic\ncp -a opencv-ios-dynamic/opencv2.framework ./opencv2.framework\nrm -rf $prefix_dir\ngit remote rm $remote_name",
+  "source_files": "opencv2.framework/Headers/**/*{.h,.hpp}",
+  "preserve_paths": "opencv2.framework",
+  "vendored_frameworks": "opencv2.framework",
+  "requires_arc": false,
+  "ios": {
+    "frameworks": [
+      "AssetsLibrary",
+      "AVFoundation",
+      "CoreGraphics",
+      "CoreMedia",
+      "CoreVideo",
+      "Foundation",
+      "QuartzCore",
+      "UIKit"
+    ]
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++"
+  }
+}

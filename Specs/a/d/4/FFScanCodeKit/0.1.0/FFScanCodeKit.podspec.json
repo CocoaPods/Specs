@@ -1,0 +1,88 @@
+{
+  "name": "FFScanCodeKit",
+  "version": "0.1.0",
+  "summary": "FFScanCodeKit.扫码组件",
+  "description": "FFScanCodeKit是手动集成ZBar后自定义的扫码组件，包含二维码、条形码",
+  "homepage": "https://github.com/Cocoanerd/FFScanCodeKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Cocoanerd": "huifang@mamahao.com"
+  },
+  "source": {
+    "git": "https://github.com/Cocoanerd/FFScanCodeKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resource_bundles": {
+    "FFScanCodeKit": [
+      "FFScanCodeKit/Assets/*"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreMedia",
+    "CoreVideo",
+    "QuartzCore"
+  ],
+  "libraries": "iconv",
+  "dependencies": {
+    "Masonry": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "ZBar",
+      "public_header_files": "FFScanCodeKit/Classes/ZBarSDK/ZBarSDK.h",
+      "source_files": "FFScanCodeKit/Classes/**/*",
+      "requires_arc": false
+    },
+    {
+      "name": "View",
+      "public_header_files": [
+        "FFScanCodeKit/View/FFScanningView.h",
+        "FFScanCodeKit/View/FFScanWrapper.h",
+        "FFScanCodeKit/View/FFScanningPermissions.h"
+      ],
+      "source_files": [
+        "FFScanCodeKit/View/FFScanningView.{h,m}",
+        "FFScanCodeKit/View/FFScanWrapper.{h,m}",
+        "FFScanCodeKit/View/FFScanningPermissions.{h,m}"
+      ],
+      "dependencies": {
+        "FFScanCodeKit/Relative": [
+
+        ],
+        "FFScanCodeKit/ZBar": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Controller",
+      "public_header_files": "FFScanCodeKit/Controller/FFScanningViewController.h",
+      "source_files": "FFScanCodeKit/Controller/FFScanningViewController.{h,m}",
+      "dependencies": {
+        "FFScanCodeKit/View": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Relative",
+      "public_header_files": "FFScanCodeKit/Relative/FFScanRelative.h",
+      "source_files": "FFScanCodeKit/Relative/FFScanRelative.{h,m}",
+      "requires_arc": true
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Discoverable",
+  "version": "0.1.0",
+  "summary": "Automatically discover a service on the network and connect to it over UDP without IP addresses",
+  "description": "This package allows you to automatically connect to a service advertising on the local network, without having to know the IP address before hand.\nThis makes the system very easy to use for users, who can just add two devices to the same network and start communicating.\nThe service uses the Zeroconf/Bonjour protocol to discover the service, and resolves the IP to open a Discovery protocol connection. This protocol is built off UDP, however implements some TCP-like features to improve the connection resilience & feedback:\n* When a packet is sent to the server, the server must reply with an acknowledgement response.\n* If this acknowledgement is not received within the specified threshold (2 seconds), the strength is marked as 0. This will bring the average strength of the last 5 values down. Once the average strength is below the specified threshold (5%), the service will assume the connection has failed and will close the connetion.\n* All protocol messages relating to connecting to the server (Bonjour discovery, `discover` packets) expect a response back from the server - if the service is not discovered or a response is not received, the system will try again for a maximum of 5 seconds (Bonjour) or 5 sends (`discover`).\n    * If either time out, the connection will be marked as `failed`\n* When the connection is closed, either on the client (iOS) side or server (PC) side, each will send one last dying message to the other (`disconnect`). This will shut down the other member, closing both open connections and allowing each to accept a new connection, so that they are not stuck being bound to a dead connection.",
+  "homepage": "https://github.com/benmechen/Discoverable",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "benmechen": "psybm7@nottingham.ac.uk"
+  },
+  "source": {
+    "git": "https://github.com/benmechen/Discoverable.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "4.2",
+  "source_files": "Discoverable/Classes/**/*",
+  "swift_version": "4.2"
+}

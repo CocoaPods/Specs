@@ -1,0 +1,56 @@
+{
+  "name": "TensorFlowLiteSwift",
+  "version": "0.0.1-nightly.20200519",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "bfd37881017e49a75f9b9ac6600d0e95a93b4afe"
+  },
+  "summary": "TensorFlow Lite for Swift",
+  "description": "TensorFlow Lite is TensorFlow's lightweight solution for Swift developers. It\nenables low-latency inference of on-device machine learning models with a\nsmall binary size and fast performance supporting hardware acceleration.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "TensorFlowLite",
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "tensorflow/lite/experimental/swift/Tests/*.swift",
+      "resources": [
+        "tensorflow/lite/testdata/add.bin",
+        "tensorflow/lite/testdata/add_quantized.bin"
+      ]
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "TensorFlowLiteC": [
+          "0.0.1-nightly.20200519"
+        ]
+      },
+      "source_files": "tensorflow/lite/experimental/swift/Sources/*.swift",
+      "exclude_files": "tensorflow/lite/experimental/swift/Sources/CoreMLDelegate.swift"
+    },
+    {
+      "name": "CoreML",
+      "source_files": "tensorflow/lite/experimental/swift/Sources/CoreMLDelegate.swift",
+      "dependencies": {
+        "TensorFlowLiteC/CoreML": [
+          "0.0.1-nightly.20200519"
+        ],
+        "TensorFlowLiteSwift/Core": [
+          "0.0.1-nightly.20200519"
+        ]
+      }
+    }
+  ]
+}

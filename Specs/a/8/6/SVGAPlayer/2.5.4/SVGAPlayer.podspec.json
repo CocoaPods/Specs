@@ -1,0 +1,48 @@
+{
+  "name": "SVGAPlayer",
+  "version": "2.5.4",
+  "summary": "SVGAPlayer 是一个高性能的动画播放器",
+  "description": "SVGA 是一种全新的动画格式，由 YY UED 团队主导开发；\nSVGA 让动画开发分工明确，大大减少动画交互的沟通成本，提升开发效率；\nSVGA 可以在 iOS / Android / Web / Flutter 实现高性能的动画播放。",
+  "homepage": "http://code.yy.com/ued/SVGAPlayer",
+  "license": "Apache 2.0",
+  "authors": {
+    "PonyCui": "cuiminghui1@yy.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/svga/SVGAPlayer-iOS.git",
+    "tag": "2.5.4"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          ">= 1.8.1"
+        ],
+        "SVGAPlayer/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+      }
+    }
+  ]
+}

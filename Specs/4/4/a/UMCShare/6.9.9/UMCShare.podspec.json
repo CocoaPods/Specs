@@ -1,0 +1,371 @@
+{
+  "name": "UMCShare",
+  "version": "6.9.9",
+  "summary": "UMeng+ component SDK",
+  "description": "友盟社会化分享组件，可使得应用更方便的接入微信、QQ和微博等社交平台的分享功能及用户授权登录功能，支持多种分享类型，同时支持支付宝、钉钉、Facebook和Twitter等多个国内外平台。",
+  "homepage": "http://developer.umeng.com/docs/66632/detail/66825",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2011 - 2018 umeng.com. All rights reserved.\n"
+  },
+  "authors": {
+    "UMeng+": "support@umeng.com"
+  },
+  "source": {
+    "http": "https://umplus-sdk-download.oss-cn-shanghai.aliyuncs.com/iOS/UMShare/UMShare_6.9.9.zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "UMCCommon": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "UMShare/UMShare.framework"
+      },
+      "libraries": "sqlite3",
+      "frameworks": [
+        "CoreGraphics",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "UI",
+      "ios": {
+        "vendored_frameworks": "UMShare/UMSocialUI/UShareUI.framework"
+      },
+      "dependencies": {
+        "UMCShare/Core": [
+
+        ]
+      },
+      "resources": "UMShare/UMSocialUI/UMSocialSDKResources.bundle",
+      "frameworks": "QuartzCore"
+    },
+    {
+      "name": "Social",
+      "dependencies": {
+        "UMCShare/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ReducedWeChat",
+          "vendored_libraries": "UMShare/SocialLibraries/WeChat/*.a",
+          "source_files": "UMShare/SocialLibraries/WeChat/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/WeChat/*.h"
+        },
+        {
+          "name": "WeChat",
+          "vendored_libraries": "UMShare/SocialLibraries/WeChat/WechatSDK/*.a",
+          "source_files": "UMShare/SocialLibraries/WeChat/WechatSDK/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/WeChat/WechatSDK/*.h",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony"
+          ],
+          "libraries": [
+            "sqlite3",
+            "c++",
+            "z"
+          ],
+          "dependencies": {
+            "UMCShare/Social/ReducedWeChat": [
+
+            ]
+          }
+        },
+        {
+          "name": "ReducedSina",
+          "vendored_libraries": "UMShare/SocialLibraries/Sina/*.a",
+          "source_files": "UMShare/SocialLibraries/Sina/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Sina/*.h",
+          "frameworks": "Photos"
+        },
+        {
+          "name": "Sina",
+          "vendored_libraries": "UMShare/SocialLibraries/Sina/SinaSDK/*.a",
+          "source_files": "UMShare/SocialLibraries/Sina/SinaSDK/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Sina/SinaSDK/*.h",
+          "resources": "UMShare/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
+          "frameworks": [
+            "SystemConfiguration",
+            "CoreTelephony",
+            "ImageIO",
+            "Photos",
+            "ImageIO",
+            "Security",
+            "CoreText",
+            "QuartzCore",
+            "CoreGraphics",
+            "WebKit"
+          ],
+          "libraries": [
+            "sqlite3",
+            "z"
+          ],
+          "dependencies": {
+            "UMCShare/Social/ReducedSina": [
+
+            ]
+          }
+        },
+        {
+          "name": "ReducedQQ",
+          "vendored_libraries": "UMShare/SocialLibraries/QQ/*.a",
+          "source_files": "UMShare/SocialLibraries/QQ/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/QQ/*.h"
+        },
+        {
+          "name": "QQ",
+          "ios": {
+            "vendored_frameworks": "UMShare/SocialLibraries/QQ/QQSDK/TencentOpenAPI.framework"
+          },
+          "frameworks": "SystemConfiguration",
+          "libraries": "c++",
+          "dependencies": {
+            "UMCShare/Social/ReducedQQ": [
+
+            ]
+          }
+        },
+        {
+          "name": "AlipayShare",
+          "vendored_libraries": "UMShare/SocialLibraries/AlipayShare/*.a",
+          "source_files": "UMShare/SocialLibraries/AlipayShare/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/AlipayShare/*.h"
+        },
+        {
+          "name": "DingDing",
+          "vendored_libraries": "UMShare/SocialLibraries/DingDing/*.a",
+          "source_files": "UMShare/SocialLibraries/DingDing/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/DingDing/*.h",
+          "ios": {
+            "vendored_frameworks": "UMShare/SocialLibraries/DingDing/DTShareKit.framework"
+          }
+        },
+        {
+          "name": "YiXin",
+          "vendored_libraries": "UMShare/SocialLibraries/YiXin/*.a",
+          "source_files": "UMShare/SocialLibraries/YiXin/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/YiXin/*.h"
+        },
+        {
+          "name": "LaiWang",
+          "vendored_libraries": "UMShare/SocialLibraries/LaiWang/*.a",
+          "source_files": "UMShare/SocialLibraries/LaiWang/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/LaiWang/*.h"
+        },
+        {
+          "name": "TencentWeibo",
+          "vendored_libraries": [
+            "UMShare/SocialLibraries/TencentWeibo/*.a",
+            "UMShare/UMSocialSDKPlugin/libUMSocialCloudShare.a"
+          ],
+          "source_files": "UMShare/SocialLibraries/TencentWeibo/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/TencentWeibo/*.h"
+        },
+        {
+          "name": "Renren",
+          "vendored_libraries": [
+            "UMShare/SocialLibraries/Renren/*.a",
+            "UMShare/UMSocialSDKPlugin/libUMSocialCloudShare.a"
+          ],
+          "source_files": "UMShare/SocialLibraries/Renren/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Renren/*.h"
+        },
+        {
+          "name": "Douban",
+          "vendored_libraries": [
+            "UMShare/SocialLibraries/Douban/*.a",
+            "UMShare/UMSocialSDKPlugin/libUMSocialCloudShare.a"
+          ],
+          "source_files": "UMShare/SocialLibraries/Douban/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Douban/*.h"
+        },
+        {
+          "name": "Facebook",
+          "vendored_libraries": "UMShare/SocialLibraries/Facebook/*.a",
+          "source_files": "UMShare/SocialLibraries/Facebook/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Facebook/*.h",
+          "ios": {
+            "vendored_frameworks": [
+              "UMShare/SocialLibraries/Facebook/Bolts.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKCoreKit.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKLoginKit.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKShareKit.framework"
+            ]
+          }
+        },
+        {
+          "name": "FaceBookMessenger",
+          "vendored_libraries": "UMShare/SocialLibraries/Facebook/*.a",
+          "source_files": "UMShare/SocialLibraries/Facebook/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Facebook/*.h",
+          "ios": {
+            "vendored_frameworks": [
+              "UMShare/SocialLibraries/Facebook/Bolts.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKCoreKit.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKLoginKit.framework",
+              "UMShare/SocialLibraries/Facebook/FBSDKShareKit.framework"
+            ]
+          }
+        },
+        {
+          "name": "Twitter",
+          "vendored_libraries": "UMShare/SocialLibraries/Twitter/*.a",
+          "source_files": "UMShare/SocialLibraries/Twitter/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Twitter/*.h",
+          "ios": {
+            "vendored_frameworks": [
+              "UMShare/SocialLibraries/Twitter/TwitterCore.framework",
+              "UMShare/SocialLibraries/Twitter/TwitterKit.framework"
+            ]
+          },
+          "resources": [
+            "UMShare/SocialLibraries/Twitter/TwitterKitResources.bundle",
+            "UMShare/SocialLibraries/Twitter/TwitterShareExtensionUIResources.bundle"
+          ],
+          "frameworks": "CoreData"
+        },
+        {
+          "name": "Linkedin",
+          "vendored_libraries": "UMShare/SocialLibraries/Linkedin/*.a",
+          "source_files": "UMShare/SocialLibraries/Linkedin/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Linkedin/*.h",
+          "ios": {
+            "vendored_frameworks": "UMShare/SocialLibraries/Linkedin/linkedin-sdk.framework"
+          }
+        },
+        {
+          "name": "Kakao",
+          "vendored_libraries": "UMShare/SocialLibraries/Kakao/*.a",
+          "source_files": "UMShare/SocialLibraries/Kakao/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Kakao/*.h",
+          "ios": {
+            "vendored_frameworks": "UMShare/SocialLibraries/Kakao/KakaoOpenSDK.framework"
+          }
+        },
+        {
+          "name": "Tumblr",
+          "vendored_libraries": "UMShare/SocialLibraries/Tumblr/*.a",
+          "source_files": "UMShare/SocialLibraries/Tumblr/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Tumblr/*.h"
+        },
+        {
+          "name": "Pinterest",
+          "vendored_libraries": "UMShare/SocialLibraries/Pinterest/*.a",
+          "source_files": "UMShare/SocialLibraries/Pinterest/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Pinterest/*.h"
+        },
+        {
+          "name": "Line",
+          "vendored_libraries": "UMShare/SocialLibraries/Line/*.a",
+          "source_files": "UMShare/SocialLibraries/Line/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Line/*.h"
+        },
+        {
+          "name": "WhatsApp",
+          "vendored_libraries": "UMShare/SocialLibraries/WhatsApp/*.a",
+          "source_files": "UMShare/SocialLibraries/WhatsApp/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/WhatsApp/*.h"
+        },
+        {
+          "name": "Flickr",
+          "vendored_libraries": "UMShare/SocialLibraries/Flickr/*.a",
+          "source_files": "UMShare/SocialLibraries/Flickr/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Flickr/*.h"
+        },
+        {
+          "name": "Instagram",
+          "vendored_libraries": "UMShare/SocialLibraries/Instagram/*.a",
+          "source_files": "UMShare/SocialLibraries/Instagram/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Instagram/*.h"
+        },
+        {
+          "name": "SMS",
+          "vendored_libraries": "UMShare/SocialLibraries/SMS/*.a",
+          "source_files": "UMShare/SocialLibraries/SMS/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/SMS/*.h",
+          "frameworks": "MessageUI"
+        },
+        {
+          "name": "Email",
+          "vendored_libraries": "UMShare/SocialLibraries/Email/*.a",
+          "source_files": "UMShare/SocialLibraries/Email/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Email/*.h",
+          "frameworks": "MessageUI"
+        },
+        {
+          "name": "YouDao",
+          "vendored_libraries": "UMShare/SocialLibraries/YouDao/*.a",
+          "source_files": "UMShare/SocialLibraries/YouDao/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/YouDao/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "EverNote",
+          "vendored_libraries": "UMShare/SocialLibraries/EverNote/*.a",
+          "source_files": "UMShare/SocialLibraries/EverNote/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/EverNote/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "GooglePlus",
+          "vendored_libraries": "UMShare/SocialLibraries/GooglePlus/*.a",
+          "source_files": "UMShare/SocialLibraries/GooglePlus/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/GooglePlus/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "Pocket",
+          "vendored_libraries": "UMShare/SocialLibraries/Pocket/*.a",
+          "source_files": "UMShare/SocialLibraries/Pocket/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/Pocket/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "DropBox",
+          "vendored_libraries": "UMShare/SocialLibraries/DropBox/*.a",
+          "source_files": "UMShare/SocialLibraries/DropBox/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/DropBox/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ]
+        },
+        {
+          "name": "VKontakte",
+          "vendored_libraries": "UMShare/SocialLibraries/VKontakte/*.a",
+          "source_files": "UMShare/SocialLibraries/VKontakte/*.{h,m}",
+          "public_header_files": "UMShare/SocialLibraries/VKontakte/*.h",
+          "frameworks": [
+            "Foundation",
+            "UIKit",
+            "CoreGraphics",
+            "Security"
+          ]
+        }
+      ]
+    }
+  ]
+}

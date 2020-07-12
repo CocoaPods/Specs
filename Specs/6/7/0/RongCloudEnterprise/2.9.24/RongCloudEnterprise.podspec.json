@@ -1,0 +1,101 @@
+{
+  "name": "RongCloudEnterprise",
+  "version": "2.9.24",
+  "summary": "RongCloud IM SDK.(私有云专用，如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库)",
+  "description": "RongCloud IM SDK for iOS.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "dulizhao": "dulizhao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_v2_9_24_Stable.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RongIMLib",
+      "vendored_frameworks": "RongCloudIM/RongIMLib.framework",
+      "libraries": [
+        "stdc++",
+        "sqlite3",
+        "z"
+      ],
+      "frameworks": "WebKit",
+      "resources": "RongCloudIM/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "vendored_libraries": [
+        "RongCloudIM/libopencore-amrnb.a",
+        "RongCloudIM/libopencore-amrwb.a",
+        "RongCloudIM/libvo-amrwbenc.a"
+      ]
+    },
+    {
+      "name": "RongIMKit",
+      "resources": [
+        "RongCloudIM/RongCloud.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/Emoji.plist",
+        "RongCloudIM/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongIMKit.framework",
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+      ],
+      "dependencies": {
+        "RongCloudEnterprise/RongIMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongSticker",
+      "vendored_frameworks": "RongCloudIM/RongSticker.framework",
+      "resources": [
+        "RongCloudIM/RongSticker.bundle",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/en.lproj"
+      ],
+      "dependencies": {
+        "RongCloudEnterprise/RongIMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM/RongSight.framework",
+      "dependencies": {
+        "RongCloudEnterprise/RongIMLib": [
+
+        ]
+      }
+    }
+  ]
+}

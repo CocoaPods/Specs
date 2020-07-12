@@ -1,0 +1,92 @@
+{
+  "name": "ToTokGameSDK",
+  "version": "1.0.6",
+  "summary": "ToTokGame SDK for games",
+  "description": "ToTokGame SDK for games\nConvenient game access",
+  "homepage": "https://github.com/ToTokGames/ToTokGameSDK-iOS",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "ToTokGames Team": "huqingping@totok.ai"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/ToTokGames/ToTokGameSDK-iOS.git",
+    "tag": "1.0.6"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "static_framework": true,
+  "libraries": "sqlite3",
+  "frameworks": [
+    "UIKit",
+    "StoreKit",
+    "GameKit",
+    "WebKit",
+    "UserNotifications",
+    "Photos",
+    "ImageIO",
+    "Foundation",
+    "CoreFoundation",
+    "QuartzCore",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreTelephony",
+    "Security",
+    "AuthenticationServices"
+  ],
+  "vendored_frameworks": "SDK/ToTokGameSDK/Core/ToTokGameSDK.framework",
+  "resources": [
+    "SDK/ToTokGameSDK/Core/ToTokGame.bundle",
+    "SDK/ToTokGameSDK/Core/TTGCProgressHUD.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Facebook",
+      "source_files": "SDK/ToTokGameSDK/SocialLibraries/Facebook",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      },
+      "vendored_libraries": "SDK/ToTokGameSDK/SocialLibraries/Facebook/libTTGCSocialFacebook.a",
+      "vendored_frameworks": "SDK/ToTokGameSDK/Core/ToTokGameSDK.framework",
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "~> 6.5.1"
+        ],
+        "FBSDKLoginKit": [
+          "~> 6.5.1"
+        ],
+        "FBSDKShareKit": [
+          "~> 6.5.1"
+        ]
+      },
+      "resources": [
+        "SDK/ToTokGameSDK/Core/ToTokGame.bundle",
+        "SDK/ToTokGameSDK/Core/TTGCProgressHUD.bundle"
+      ]
+    },
+    {
+      "name": "Analytics",
+      "source_files": "SDK/ToTokGameSDK/SocialLibraries/TTGCAnalytics",
+      "vendored_libraries": "SDK/ToTokGameSDK/SocialLibraries/TTGCAnalytics/libTTGCAnalytics.a",
+      "vendored_frameworks": "SDK/ToTokGameSDK/Core/ToTokGameSDK.framework",
+      "dependencies": {
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/DynamicLinks": [
+
+        ]
+      },
+      "resources": [
+        "SDK/ToTokGameSDK/Core/ToTokGame.bundle",
+        "SDK/ToTokGameSDK/Core/TTGCProgressHUD.bundle"
+      ]
+    }
+  ]
+}

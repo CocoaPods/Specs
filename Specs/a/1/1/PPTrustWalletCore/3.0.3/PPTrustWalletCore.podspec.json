@@ -1,0 +1,66 @@
+{
+  "name": "PPTrustWalletCore",
+  "version": "3.0.3",
+  "summary": "Trust Wallet core data structures and algorithms.",
+  "homepage": "https://github.com/pumapayio/wallet-core",
+  "license": "MIT",
+  "authors": {
+    "Chirag Bhaiji": "cbhaiji@techracers.io"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.12"
+  },
+  "swift_versions": "5.1",
+  "source": {
+    "http": "https://github.com/pumapayio/wallet-core/releases/download/3.0.4/PPTrustWalletCore-iOS-3.0.3.zip"
+  },
+  "default_subspecs": "Core",
+  "source_files": [
+    "include/**/*.h",
+    "swift/Sources/*.{swift,h,m,cpp}",
+    "swift/Sources/Extensions/*.swift",
+    "swift/Sources/Generated/*.{swift,h}"
+  ],
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": [
+        "swift/Sources/Generated/Enums/*.swift",
+        "swift/Sources/Generated/Protobuf/*.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "preserve_paths": "build/ios/*.a",
+      "vendored_libraries": [
+        "build/ios/libprotobuf.a",
+        "build/ios/libTrezorCrypto.a",
+        "build/ios/libTrustWalletCore.a"
+      ],
+      "public_header_files": [
+        "include/**/*.h",
+        "swift/Sources/*.h"
+      ],
+      "libraries": "c++",
+      "xcconfig": {
+        "SYSTEM_HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/PPTrustWalletCore/include",
+        "OTHER_LDFLAGS": "$(inherited) -fprofile-instr-generate"
+      },
+      "pod_target_xcconfig": {
+        "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+      },
+      "dependencies": {
+        "PPTrustWalletCore/Types": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}

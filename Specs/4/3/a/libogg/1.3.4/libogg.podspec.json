@@ -1,0 +1,35 @@
+{
+  "name": "libogg",
+  "version": "1.3.4",
+  "summary": "Low-level media demuxer/muxer library",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8"
+  },
+  "description": "Xiph's C-based Ogg media stream demuxer/muxer library, packaged for iOS.\nNeeded for decoding or encoding of Ogg Theora video and Vorbis audio.",
+  "homepage": "https://xiph.org/ogg/",
+  "license": {
+    "type": "BSD",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Brion Vibber (packager)": "brion@pobox.com"
+  },
+  "social_media_url": "https://planet.xiph.org/",
+  "source": {
+    "http": "https://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.xz"
+  },
+  "prepare_command": "echo 'framework module ogg {' > ogg.modulemap\necho '  umbrella header \"ogg.h\"' >> ogg.modulemap\necho '  module ogg {' >> ogg.modulemap\necho '    header \"ogg.h\"' >> ogg.modulemap\necho '    export *' >> ogg.modulemap\necho '  }' >> ogg.modulemap\necho '}' >> ogg.modulemap",
+  "compiler_flags": [
+    "-O3",
+    "-Wno-shorten-64-to-32"
+  ],
+  "source_files": [
+    "src",
+    "include/**/*.h"
+  ],
+  "public_header_files": "include/**/*.h",
+  "header_dir": "ogg",
+  "module_name": "ogg",
+  "module_map": "ogg.modulemap"
+}

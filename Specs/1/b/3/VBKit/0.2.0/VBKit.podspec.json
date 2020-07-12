@@ -1,0 +1,107 @@
+{
+  "name": "VBKit",
+  "version": "0.2.0",
+  "summary": "VBKit is committed to rapid construction projects.",
+  "description": "VBKit for base project.VBKit is committed to rapid construction projects.",
+  "homepage": "https://github.com/VisionBao/VBKit/",
+  "license": "MIT",
+  "authors": {
+    "VisionBao": "visionbao@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/VisionBao/VBKit.git",
+    "tag": "0.2.0"
+  },
+  "requires_arc": true,
+  "source_files": "VBKit/VBKit.h",
+  "subspecs": [
+    {
+      "name": "VBConstants",
+      "source_files": "VBKit/VBConstants.h"
+    },
+    {
+      "name": "VBCategories",
+      "source_files": "VBKit/VBCategories/**/*"
+    },
+    {
+      "name": "VBFoundation",
+      "source_files": "VBKit/VBFoundation/**/*",
+      "dependencies": {
+        "CocoaLumberjack": [
+          "~> 3.0.0"
+        ]
+      }
+    },
+    {
+      "name": "VBManagers",
+      "source_files": "VBKit/VBManagers/VBManagers.h",
+      "subspecs": [
+        {
+          "name": "VBDBManager",
+          "source_files": "VBKit/VBManagers/VBDBManager/**/*",
+          "dependencies": {
+            "FMDB/SQLCipher": [
+              "~> 2.7.2"
+            ]
+          },
+          "libraries": "sqlite3"
+        },
+        {
+          "name": "VBFileManager",
+          "source_files": "VBKit/VBManagers/VBFileManager/**/*",
+          "dependencies": {
+            "ZipArchive": [
+              "~> 1.4.0"
+            ]
+          }
+        },
+        {
+          "name": "VBHTTPManager",
+          "source_files": "VBKit/VBManagers/VBHTTPManager/**/*",
+          "dependencies": {
+            "AFNetworking": [
+              "~> 4.0.0"
+            ],
+            "YYCache": [
+              "~> 1.0.4"
+            ]
+          }
+        },
+        {
+          "name": "VBLocationManager",
+          "source_files": "VBKit/VBManagers/VBLocationManager/**/*",
+          "frameworks": "CoreLocation"
+        }
+      ]
+    },
+    {
+      "name": "VBUI",
+      "source_files": "VBKit/VBUI/VBUI.h",
+      "subspecs": [
+        {
+          "name": "VBAlertView",
+          "source_files": "VBKit/VBUI/VBAlertView/**/*.{h,m}",
+          "resources": "VBKit/VBUI/VBAlertView/**/*.png",
+          "dependencies": {
+            "WSProgressHUD": [
+              "~> 1.1.1"
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "VBKit/VBUI/Base/**/*.{h,m}",
+          "resources": "VBKit/VBUI/Base/**/*.png",
+          "dependencies": {
+            "VBKit/VBConstants": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

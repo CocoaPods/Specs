@@ -1,0 +1,83 @@
+{
+  "homepage": "https://github.com/MetalPetal/MetalPetal",
+  "summary": "GPU-accelerated image and video processing framework based on Metal.",
+  "default_subspecs": "Core",
+  "source": {
+    "git": "https://github.com/MetalPetal/MetalPetal.git",
+    "tag": "1.10.3"
+  },
+  "swift_versions": "5.0",
+  "prefix_header_file": false,
+  "version": "1.10.3",
+  "requires_arc": true,
+  "authors": {
+    "YuAo": "me@imyuao.com"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "module_map": "Frameworks/MetalPetal/MetalPetal.modulemap",
+  "license": {
+    "type": "MIT"
+  },
+  "name": "MetalPetal",
+  "subspecs": [
+    {
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "source_files": "Frameworks/MetalPetal/**/*.{h,m,c,mm,metal}",
+      "name": "Core",
+      "private_header_files": [
+        "Frameworks/MetalPetal/MTIPrint.h",
+        "Frameworks/MetalPetal/MTIDefer.h",
+        "Frameworks/MetalPetal/MTIHasher.h",
+        "Frameworks/MetalPetal/MTIImageRenderingContext+Internal.h"
+      ]
+    },
+    {
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "name": "Swift",
+      "source_files": "Frameworks/MetalPetal/**/*.{swift}"
+    },
+    {
+      "ios": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/"
+        }
+      },
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "osx": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/Contents/Resources"
+        }
+      },
+      "resource_bundles": {
+        "MetalPetal": [
+          "Frameworks/MetalPetal/CocoaPodsBundledResourcePlaceholder"
+        ]
+      },
+      "prefix_header_contents": "#define SWIFTPM_MODULE_BUNDLE ([NSBundle bundleWithURL:[[NSBundle bundleForClass:MTIContext.class] URLForResource:@\"MetalPetal\" withExtension:@\"bundle\"]])",
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "name": "Static"
+    }
+  ],
+  "swift_version": "5.0"
+}

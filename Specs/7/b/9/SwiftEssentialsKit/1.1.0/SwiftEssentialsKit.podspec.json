@@ -1,0 +1,101 @@
+{
+  "name": "SwiftEssentialsKit",
+  "version": "1.1.0",
+  "summary": "My own set of convenience methods,functions and classes. Written in Swift.",
+  "description": "EssentialsKit is own set of convenience methods, functions and classes to speed up development. Written in Swift.",
+  "homepage": "https://github.com/andreadelfante/SwiftEssentialsKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Andrea Del Fante": "andreadelfante94@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/andreadelfante/SwiftEssentialsKit.git",
+    "tag": "1.1.0"
+  },
+  "social_media_url": "https://twitter.com/a_delfante",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.1",
+  "default_subspecs": "Basic",
+  "subspecs": [
+    {
+      "name": "Basic",
+      "dependencies": {
+        "SwiftEssentialsKit/PackageDTO": [
+
+        ],
+        "SwiftEssentialsKit/AlertControllerBuilder": [
+
+        ],
+        "SwiftEssentialsKit/Convenient": [
+
+        ]
+      }
+    },
+    {
+      "name": "PackageDTO",
+      "source_files": "SwiftEssentialsKit/PackageDTO/Classes/**/*"
+    },
+    {
+      "name": "AlertControllerBuilder",
+      "source_files": "SwiftEssentialsKit/AlertControllerBuilder/Classes/**/*"
+    },
+    {
+      "name": "Convenient",
+      "source_files": "SwiftEssentialsKit/Convenient/Classes/**/*"
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "SwiftEssentialsKit/PackageDTO": [
+
+        ],
+        "SwiftEssentialsKit/Convenient": [
+
+        ],
+        "JTAppleCalendar": [
+          "~> 8.0.0"
+        ],
+        "R.swift": [
+          "~> 5.1.0"
+        ]
+      },
+      "source_files": [
+        "SwiftEssentialsKit/UI/Classes/**/*",
+        "SwiftEssentialsKit/UI/Generated/**/*"
+      ],
+      "preserve_paths": [
+        "SwiftEssentialsKit/UI/Generated"
+      ],
+      "resources": [
+        "SwiftEssentialsKit/UI/Assets/**/*.{storyboard,xib,xcassets,lproj/*}"
+      ]
+    },
+    {
+      "name": "UI-Dev",
+      "dependencies": {
+        "SwiftEssentialsKit/UI": [
+
+        ]
+      },
+      "script_phases": [
+        {
+          "name": "R.swift for SwiftEssentialsKit/UI",
+          "script": "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/../../R.generated.swift\"",
+          "input_files": [
+            "$TEMP_DIR/rswift-lastrun"
+          ],
+          "output_files": [
+            "$SRCROOT/../../R.generated.swift"
+          ],
+          "execution_position": "before_compile"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.1"
+}

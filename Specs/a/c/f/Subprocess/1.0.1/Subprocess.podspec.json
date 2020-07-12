@@ -1,0 +1,71 @@
+{
+  "name": "Subprocess",
+  "version": "1.0.1",
+  "summary": "Wrapper for NSTask used for running processes and shell commands on macOS.",
+  "license": {
+    "type": "MIT",
+    "text": ""
+  },
+  "description": "Everything related to creating processes and running shell commands on macOS.",
+  "homepage": "https://github.com/jamf/Subprocess",
+  "authors": {
+    "Cyrus Ingraham": "cyrus.ingraham@jamf.com"
+  },
+  "source": {
+    "git": "https://github.com/jamf/Subprocess.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "osx": "10.12"
+  },
+  "swift_versions": "5.1",
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-DCOCOA_PODS"
+  },
+  "testspecs": [
+    {
+      "name": "UnitTests",
+      "test_type": "unit",
+      "source_files": [
+        "Tests/UnitTests/*.swift"
+      ],
+      "dependencies": {
+        "Subprocess/Core": [
+
+        ],
+        "Subprocess/Mocks": [
+
+        ]
+      }
+    },
+    {
+      "name": "SystemTests",
+      "test_type": "unit",
+      "source_files": [
+        "Tests/SystemTests/*.swift"
+      ],
+      "dependencies": {
+        "Subprocess/Core": [
+
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Subprocess/*.swift"
+    },
+    {
+      "name": "Mocks",
+      "source_files": "Sources/SubprocessMocks/*.swift",
+      "dependencies": {
+        "Subprocess/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}

@@ -1,0 +1,88 @@
+{
+  "homepage": "https://github.com/MetalPetal/MetalPetal",
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "summary": "GPU-accelerated image and video processing framework based on Metal.",
+  "source": {
+    "git": "https://github.com/MetalPetal/MetalPetal.git",
+    "tag": "1.10.4"
+  },
+  "prefix_header_file": false,
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "YuAo": "me@imyuao.com"
+  },
+  "module_map": "Frameworks/MetalPetal/MetalPetal.modulemap",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "default_subspecs": "Core",
+  "name": "MetalPetal",
+  "version": "1.10.4",
+  "subspecs": [
+    {
+      "source_files": "Frameworks/MetalPetal/**/*.{h,m,c,mm,metal}",
+      "private_header_files": [
+        "Frameworks/MetalPetal/MTIPrint.h",
+        "Frameworks/MetalPetal/MTIDefer.h",
+        "Frameworks/MetalPetal/MTIHasher.h",
+        "Frameworks/MetalPetal/MTIImageRenderingContext+Internal.h"
+      ],
+      "name": "Core",
+      "prefix_header_file": false,
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ]
+    },
+    {
+      "name": "Swift",
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "prefix_header_file": false,
+      "source_files": "Frameworks/MetalPetal/**/*.{swift}"
+    },
+    {
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "osx": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/Contents/Resources"
+        }
+      },
+      "prefix_header_file": false,
+      "name": "Static",
+      "ios": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/"
+        }
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "METALPETAL_DEFAULT_LIBRARY_IN_BUNDLE=1"
+      },
+      "resource_bundles": {
+        "MetalPetal": [
+          "Frameworks/MetalPetal/CocoaPodsBundledResourcePlaceholder"
+        ]
+      },
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

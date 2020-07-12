@@ -1,0 +1,106 @@
+{
+  "name": "mob_adsdk",
+  "version": "2.1.2",
+  "summary": "A powerful ad sdk from MobTech.",
+  "homepage": "http://www.mob.com/",
+  "license": "MIT",
+  "authors": {
+    "lishzh": "lishzh@yoozoo.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "http://dev.ios.mob.com/files/download/mobad/MobAD_For_iOS_v2.1.2.zip"
+  },
+  "frameworks": [
+    "CoreData",
+    "ImageIO",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "MessageUI"
+  ],
+  "libraries": [
+    "xml2",
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3"
+  ],
+  "default_subspecs": "MobAD",
+  "subspecs": [
+    {
+      "name": "MobAD",
+      "vendored_frameworks": [
+        "SDK/MobAD/MobAD.framework",
+        "SDK/Required/FCommon.framework"
+      ],
+      "resources": "SDK/MobAD/MobAD.bundle"
+    },
+    {
+      "name": "MobADPlat",
+      "subspecs": [
+        {
+          "name": "GDT",
+          "source_files": "SDK/MobAD/Channels/GDTMobSDK/*.h",
+          "vendored_frameworks": "SDK/MobAD/Channels/GDTMobSDK/MGADConnector.framework",
+          "vendored_libraries": "SDK/MobAD/Channels/GDTMobSDK/libGDTMobSDK.a",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        },
+        {
+          "name": "BUD",
+          "vendored_frameworks": [
+            "SDK/MobAD/Channels/BUAdSDK/MBADConnector.framework",
+            "SDK/MobAD/Channels/BUAdSDK/BUAdSDK.framework",
+            "SDK/MobAD/Channels/BUAdSDK/BUFoundation.framework"
+          ],
+          "resources": "SDK/MobAD/Channels/BUAdSDK/BUAdSDK.bundle",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        },
+        {
+          "name": "KS",
+          "vendored_frameworks": [
+            "SDK/MobAD/Channels/KSAdSDK/MKADConnector.framework",
+            "SDK/MobAD/Channels/KSAdSDK/KSAdSDK.framework"
+          ],
+          "resources": "SDK/MobAD/Channels/KSAdSDK/KSAdSDK.bundle",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        },
+        {
+          "name": "BQT",
+          "vendored_frameworks": [
+            "SDK/MobAD/Channels/BQTAdSDK/MDADConnector.framework",
+            "SDK/MobAD/Channels/BQTAdSDK/BaiduMobAdSDK.framework"
+          ],
+          "resources": "SDK/MobAD/Channels/BQTAdSDK/baidumobadsdk.bundle",
+          "dependencies": {
+            "mob_adsdk/MobAD": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
