@@ -1,0 +1,69 @@
+{
+  "name": "bls-signatures-pod",
+  "version": "0.3.0-alpha.1",
+  "summary": "BLS signatures in C++, using the relic toolkit",
+  "description": "Implements BLS signatures with aggregation as in Boneh, Drijvers, Neven 2018, using relic toolkit for cryptographic primitives (pairings, EC, hashing). The BLS12-381 curve is used.",
+  "homepage": "https://github.com/Chia-Network/bls-signatures",
+  "license": {
+    "type": "Apache License 2.0"
+  },
+  "authors": {
+    "Chia Network": "hello@chia.net"
+  },
+  "social_media_url": "https://twitter.com/ChiaNetworkInc",
+  "source": {
+    "git": "https://github.com/Chia-Network/bls-signatures.git",
+    "commit": "33c59d989fe00eb34352208a78d49d9a4b28fc03",
+    "submodules": false
+  },
+  "prepare_command": "set -x\n\n    git submodule update --init --recursive\n\n    MIN_IOS=\"10.0\"\n    MIN_WATCHOS=\"2.0\"\n    MIN_TVOS=$MIN_IOS\n    MIN_MACOS=\"10.10\"\n\n    IPHONEOS=iphoneos\n    IPHONESIMULATOR=iphonesimulator\n    WATCHOS=watchos\n    WATCHSIMULATOR=watchsimulator\n    TVOS=appletvos\n    TVSIMULATOR=appletvsimulator\n    MACOS=macosx\n\n    LOGICALCPU_MAX=`sysctl -n hw.logicalcpu_max`\n\n    GMP_DIR=\"`pwd`/gmp\"\n\n    version_min_flag()\n    {\n        PLATFORM=$1\n\n        FLAG=\"\"\n        if [[ $PLATFORM = $IPHONEOS ]]; then\n            FLAG=\"-miphoneos-version-min=${MIN_IOS}\"\n        elif [[ $PLATFORM = $IPHONESIMULATOR ]]; then\n            FLAG=\"-mios-simulator-version-min=${MIN_IOS}\"\n        elif [[ $PLATFORM = $WATCHOS ]]; then\n            FLAG=\"-mwatchos-version-min=${MIN_WATCHOS}\"\n        elif [[ $PLATFORM = $WATCHSIMULATOR ]]; then\n            FLAG=\"-mwatchos-simulator-version-min=${MIN_WATCHOS}\"\n        elif [[ $PLATFORM = $TVOS ]]; then\n            FLAG=\"-mtvos-version-min=${MIN_TVOS}\"\n        elif [[ $PLATFORM = $TVSIMULATOR ]]; then\n            FLAG=\"-mtvos-simulator-version-min=${MIN_TVOS}\"\n        elif [[ $PLATFORM = $MACOS ]]; then\n            FLAG=\"-mmacosx-version-min=${MIN_MACOS}\"\n        fi\n\n        echo $FLAG\n    }\n\n\n    prepare()\n    {\n        download_gmp()\n        {\n            GMP_VERSION=\"6.1.2\"\n            CURRENT_DIR=`pwd`\n\n            if [ ! -s ${CURRENT_DIR}/gmp-${GMP_VERSION}.tar.bz2 ]; then\n                curl -L -o ${CURRENT_DIR}/gmp-${GMP_VERSION}.tar.bz2 https://gmplib.org/download/gmp/gmp-${GMP_VERSION}.tar.bz2\n            fi\n\n            rm -rf gmp\n            tar xfj \"gmp-${GMP_VERSION}.tar.bz2\"\n            mv gmp-${GMP_VERSION} gmp\n        }\n\n        download_cmake_toolchain()\n        {\n            pushd contrib/relic\n\n            if [ ! -s ios.toolchain.cmake ]; then\n                SHA256_HASH=\"782853957073f8e7cfa21c94823c74519eaf75c93960f13fcef44cd9ec6eb10e\"\n                curl -o ios.toolchain.cmake https://raw.githubusercontent.com/leetal/ios-cmake/78da4171ba52d95403a1f600b79866324a6375d7/ios.toolchain.cmake\n                DOWNLOADED_HASH=`shasum -a 256 ios.toolchain.cmake | cut -f 1 -d \" \"`\n                if [ $SHA256_HASH != $DOWNLOADED_HASH ]; then\n                  echo \"Error: sha256 checksum of ios.toolchain.cmake mismatch\" >&2\n                  exit 1\n                fi\n            fi\n\n            popd # contrib/relic\n        }\n\n        download_gmp\n        download_cmake_toolchain\n\n        rm -rf artefacts\n        mkdir artefacts\n    }\n\n\n    build_gmp()\n    {\n        build_gmp_arch()\n        {\n            PLATFORM=$1\n            ARCH=$2\n\n            SDK=`xcrun --sdk $PLATFORM --show-sdk-path`\n            PLATFORM_PATH=`xcrun --sdk $PLATFORM --show-sdk-platform-path`\n            CLANG=`xcrun --sdk $PLATFORM --find clang`\n            CURRENT_DIR=`pwd`\n            DEVELOPER=`xcode-select --print-path`\n            export PATH=\"${PLATFORM_PATH}/Developer/usr/bin:${DEVELOPER}/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin\"\n\n            make clean || true\n            make distclean || true\n\n            mkdir gmplib-${PLATFORM}-${ARCH}\n\n            CFLAGS=\"-fembed-bitcode -arch ${ARCH} --sysroot=${SDK}\"\n            EXTRA_FLAGS=\"$(version_min_flag $PLATFORM)\"\n\n            CCARGS=\"${CLANG} ${CFLAGS}\"\n            CPPFLAGSARGS=\"${CFLAGS} ${EXTRA_FLAGS}\"\n\n            CONFIGURESCRIPT=\"gmp_configure_script.sh\"\n\n            cat >\"$CONFIGURESCRIPT\" << EOF\n#!/bin/sh\n\n./configure CC=\"$CCARGS\" CPPFLAGS=\"$CPPFLAGSARGS\" --disable-shared --enable-static --host=arm-apple-darwin --disable-assembly --prefix=\"${CURRENT_DIR}/gmplib-${PLATFORM}-${ARCH}\"\n\nEOF\n\n            chmod a+x \"$CONFIGURESCRIPT\"\n            sh \"$CONFIGURESCRIPT\"\n            rm \"$CONFIGURESCRIPT\"\n\n            make -j $LOGICALCPU_MAX &> \"${CURRENT_DIR}/gmplib-${PLATFORM}-${ARCH}-build.log\"\n            make install &> \"${CURRENT_DIR}/gmplib-${PLATFORM}-${ARCH}-install.log\"\n        }\n\n        BUILD_IN=$1\n        IFS='|' read -ra BUILD_PAIRS <<< \"$BUILD_IN\"\n\n        pushd gmp\n\n        LIPOARGS=\"\"\n        PLATFORM=\"\"\n        ARCH=\"\"\n        for BUILD_PAIR in \"${BUILD_PAIRS[@]}\"\n        do\n            IFS=';' read -ra PARSED_PAIR <<< \"$BUILD_PAIR\"\n            PLATFORM=${PARSED_PAIR[0]}\n            ARCH=${PARSED_PAIR[1]}\n\n            build_gmp_arch $PLATFORM $ARCH\n            LIPOARGS+=\"gmplib-${PLATFORM}-${ARCH}/lib/libgmp.a \"\n        done\n\n        cp -r gmplib-${PLATFORM}-${ARCH}/include .\n\n        rm -rf lib\n        mkdir lib\n\n        xcrun lipo $LIPOARGS -create -output lib/libgmp.a\n\n        popd # gmp\n    }\n\n\n    build_relic()\n    {\n        build_relic_arch()\n        {\n            PLATFORM=$1\n            ARCH=$2\n\n            SDK=`xcrun --sdk $PLATFORM --show-sdk-path`\n\n            BUILDDIR=\"relic-${PLATFORM}-${ARCH}\"\n            rm -rf $BUILDDIR\n            mkdir $BUILDDIR\n            pushd $BUILDDIR\n\n            unset CC\n            export CC=`xcrun --sdk ${PLATFORM} --find clang`\n\n            WSIZE=0\n            IOS_PLATFORM=\"\"\n            OPTIMIZATIONFLAGS=\"\"\n\n            if [[ $PLATFORM = $IPHONEOS ]]; then\n                if [[ $ARCH = \"arm64\" ]] || [[ $ARCH = \"arm64e\" ]]; then\n                    IOS_PLATFORM=OS64\n                    WSIZE=64\n                    OPTIMIZATIONFLAGS=-fomit-frame-pointer\n                else\n                    IOS_PLATFORM=OS\n                    WSIZE=32\n                fi\n            elif [[ $PLATFORM = $IPHONESIMULATOR ]]; then\n                if [[ $ARCH = \"x86_64\" ]]; then\n                    IOS_PLATFORM=SIMULATOR64\n                    WSIZE=64\n                    OPTIMIZATIONFLAGS=-fomit-frame-pointer\n                else\n                    IOS_PLATFORM=SIMULATOR\n                    WSIZE=32\n                fi\n            elif [[ $PLATFORM = $WATCHOS ]]; then\n                IOS_PLATFORM=WATCHOS\n                WSIZE=32\n            elif [[ $PLATFORM = $WATCHSIMULATOR ]]; then\n                IOS_PLATFORM=SIMULATOR_WATCHOS\n                WSIZE=32\n            elif [[ $PLATFORM = $TVOS ]]; then\n                IOS_PLATFORM=TVOS\n                WSIZE=64\n                OPTIMIZATIONFLAGS=-fomit-frame-pointer\n            elif [[ $PLATFORM = $TVSIMULATOR ]]; then\n                IOS_PLATFORM=SIMULATOR_TVOS\n                WSIZE=64\n                OPTIMIZATIONFLAGS=-fomit-frame-pointer\n            elif [[ $PLATFORM = $MACOS ]]; then\n                WSIZE=64\n                OPTIMIZATIONFLAGS=-fomit-frame-pointer\n            fi\n            \n            COMPILER_ARGS=\"\"\n            if [[ $ARCH != \"i386\" ]]; then\n                COMPILER_ARGS=$(version_min_flag $PLATFORM)\n            fi\n            \n            EXTRA_ARGS=\"\"\n            if [[ $PLATFORM = $MACOS ]]; then\n                EXTRA_ARGS=\"-DOPSYS=MACOSX\"    \n            else\n                EXTRA_ARGS=\"-DOPSYS=NONE -DIOS_PLATFORM=$IOS_PLATFORM -DCMAKE_TOOLCHAIN_FILE=../ios.toolchain.cmake\"\n            fi\n            \n            if [[ $ARCH = \"i386\" ]]; then\n                EXTRA_ARGS+=\" -DARCH=X86\"\n            elif [[ $ARCH = \"x86_64\" ]]; then\n                EXTRA_ARGS+=\" -DARCH=X64\"\n            else\n                EXTRA_ARGS+=\" -DARCH=ARM\"\n                if [[ $ARCH = \"armv7s\" ]]; then\n                    EXTRA_ARGS+=\" -DIOS_ARCH=armv7s\"\n                elif [[ $ARCH = \"armv7k\" ]]; then\n                    EXTRA_ARGS+=\" -DIOS_ARCH=armv7k\"\n                elif [[ $ARCH = \"arm64_32\" ]]; then\n                    EXTRA_ARGS+=\" -DIOS_ARCH=arm64_32\"\n                fi\n            fi\n\n            CURRENT_DIR=`pwd`\n\n            cmake -DCMAKE_PREFIX_PATH:PATH=\"${GMP_DIR}\" -DTESTS=0 -DBENCH=0 -DCHECK=off -DARITH=gmp -DFP_PRIME=381 -DMULTI=PTHREAD             -DFP_QNRES=off -DFP_METHD=\"INTEG;INTEG;INTEG;MONTY;LOWER;SLIDE\" -DFPX_METHD=\"INTEG;INTEG;LAZYR\" -DPP_METHD=\"LAZYR;OATEP\"             -DCOMP=\"-O3 -funroll-loops $OPTIMIZATIONFLAGS -isysroot $SDK -arch $ARCH -fembed-bitcode ${COMPILER_ARGS}\" -DWSIZE=$WSIZE             -DVERBS=off -DSHLIB=off -DALLOC=\"AUTO\" -DEP_PLAIN=off -DEP_SUPER=off -DPP_EXT=\"LAZYR\" -DTIMER=\"HREAL\" ${EXTRA_ARGS} ../\n\n            make -j $LOGICALCPU_MAX\n\n            popd # \"$BUILDDIR\"\n        }\n\n        BUILD_IN=$1\n        IFS='|' read -ra BUILD_PAIRS <<< \"$BUILD_IN\"\n        \n        pushd contrib/relic\n\n        LIPOARGS=\"\"\n        for BUILD_PAIR in \"${BUILD_PAIRS[@]}\"\n        do\n            IFS=';' read -ra PARSED_PAIR <<< \"$BUILD_PAIR\"\n            PLATFORM=${PARSED_PAIR[0]}\n            ARCH=${PARSED_PAIR[1]}\n\n            build_relic_arch $PLATFORM $ARCH\n            LIPOARGS+=\"relic-${PLATFORM}-${ARCH}/lib/librelic_s.a \"\n        done\n\n        xcrun lipo $LIPOARGS -create -output librelic.a\n\n        popd # contrib/relic\n    }\n\n\n    build_bls()\n    {\n        BLS_FILES=( \"bls\" \"elements\" \"privatekey\" \"schemes\" )\n        ALL_BLS_OBJ_FILES=$(printf \"%s.o \" \"${BLS_FILES[@]}\")\n\n        build_bls_arch()\n        {\n            PLATFORM=$1\n            ARCH=$2\n\n            SDK=`xcrun --sdk $PLATFORM --show-sdk-path`\n\n            BUILDDIR=\"bls-${PLATFORM}-${ARCH}\"\n            rm -rf $BUILDDIR\n            mkdir $BUILDDIR\n            pushd $BUILDDIR\n\n            EXTRA_ARGS=\"$(version_min_flag $PLATFORM)\"\n\n            CURRENT_DIR=`pwd`\n\n            for F in \"${BLS_FILES[@]}\"\n            do\n                clang -I\"../contrib/relic/include\" -I\"../contrib/relic/relic-${PLATFORM}-${ARCH}/include\" -I\"../src/\" -I\"${GMP_DIR}/include\"                 -x c++ -std=c++14 -stdlib=libc++ -fembed-bitcode -arch \"${ARCH}\" -isysroot \"${SDK}\" ${EXTRA_ARGS} -c \"../src/${F}.cpp\" -o \"${CURRENT_DIR}/${F}.o\"\n            done\n\n            ar -cvq libbls.a $ALL_BLS_OBJ_FILES\n\n            popd # \"$BUILDDIR\"\n        }\n\n        BUILD_IN=$1\n        IFS='|' read -ra BUILD_PAIRS <<< \"$BUILD_IN\"\n\n        LIPOARGS=\"\"\n        for BUILD_PAIR in \"${BUILD_PAIRS[@]}\"\n        do\n            IFS=';' read -ra PARSED_PAIR <<< \"$BUILD_PAIR\"\n            PLATFORM=${PARSED_PAIR[0]}\n            ARCH=${PARSED_PAIR[1]}\n\n            build_bls_arch $PLATFORM $ARCH\n            LIPOARGS+=\"bls-${PLATFORM}-${ARCH}/libbls.a \"\n        done\n\n        xcrun lipo $LIPOARGS -create -output libbls.a\n    }\n\n\n    build_all()\n    {\n        SUFFIX=$1\n        BUILD_IN=$2\n\n        build_gmp $BUILD_IN\n        build_relic $BUILD_IN\n        build_bls $BUILD_IN\n\n        mv gmp/lib/libgmp.a \"artefacts/libgmp_${SUFFIX}.a\"\n        mv contrib/relic/librelic.a \"artefacts/librelic_${SUFFIX}.a\"\n        mv libbls.a \"artefacts/libbls_${SUFFIX}.a\"\n    }\n\n\n    make_relic_universal()\n    {\n        RELIC_TARGET_DIR=relic-iphoneos-arm64\n\n        perl -p -e 's/#define WSIZE.*/#ifdef __LP64__\n#define WSIZE 64\n#else\n#define WSIZE 32\n#endif/'         \"contrib/relic/${RELIC_TARGET_DIR}/include/relic_conf.h\"         > \"contrib/relic/${RELIC_TARGET_DIR}/include/relic_conf.h.new\"\n\n        rm \"contrib/relic/${RELIC_TARGET_DIR}/include/relic_conf.h\"\n        mv \"contrib/relic/${RELIC_TARGET_DIR}/include/relic_conf.h.new\" \"contrib/relic/${RELIC_TARGET_DIR}/include/relic_conf.h\"   \n    }\n\n    prepare\n\n    build_all \"macos\" \"${MACOS};x86_64\"\n    build_all \"watchos\" \"${WATCHOS};armv7k|${WATCHOS};arm64_32|${WATCHSIMULATOR};i386\"\n    build_all \"tvos\" \"${TVOS};arm64|${TVSIMULATOR};x86_64\"\n    build_all \"ios\" \"${IPHONEOS};arm64|${IPHONESIMULATOR};i386|${IPHONESIMULATOR};x86_64\"\n\n    make_relic_universal",
+  "platforms": {
+    "ios": "10.0",
+    "watchos": "2.0",
+    "tvos": "10.0",
+    "osx": "10.10"
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "NO",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES"
+  },
+  "source_files": [
+    "src/*.hpp",
+    "gmp/include/gmp.h",
+    "contrib/relic/include/*.h",
+    "contrib/relic/include/low/*.h",
+    "contrib/relic/relic-iphoneos-arm64/include/*.h"
+  ],
+  "exclude_files": "src/test-utils.hpp",
+  "ios": {
+    "vendored_libraries": [
+      "artefacts/libgmp_ios.a",
+      "artefacts/librelic_ios.a",
+      "artefacts/libbls_ios.a"
+    ]
+  },
+  "watchos": {
+    "vendored_libraries": [
+      "artefacts/libgmp_watchos.a",
+      "artefacts/librelic_watchos.a",
+      "artefacts/libbls_watchos.a"
+    ]
+  },
+  "tvos": {
+    "vendored_libraries": [
+      "artefacts/libgmp_tvos.a",
+      "artefacts/librelic_tvos.a",
+      "artefacts/libbls_tvos.a"
+    ]
+  },
+  "osx": {
+    "vendored_libraries": [
+      "artefacts/libgmp_macos.a",
+      "artefacts/librelic_macos.a",
+      "artefacts/libbls_macos.a"
+    ]
+  }
+}
