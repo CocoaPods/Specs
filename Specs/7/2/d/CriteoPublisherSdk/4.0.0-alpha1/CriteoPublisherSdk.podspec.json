@@ -1,0 +1,69 @@
+{
+  "name": "CriteoPublisherSdk",
+  "version": "4.0.0-alpha1",
+  "summary": "Criteo Publisher SDK for iOS",
+  "description": "Criteo Publisher SDK maximizes revenue by directly connecting your premium\ninventory to our premium demand. That means you retain the full value of\nevery impression we buy.",
+  "homepage": "https://github.com/criteo/ios-publisher-sdk/",
+  "documentation_url": "https://publisherdocs.criteotilt.com/app/ios/get-started/",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Criteo": "opensource@criteo.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "static_framework": true,
+  "source": {
+    "git": "https://github.com/criteo/ios-publisher-sdk.git",
+    "tag": "4.0.0-alpha1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Sdk",
+  "subspecs": [
+    {
+      "name": "Sdk",
+      "source_files": "CriteoPublisherSdk/Sources/**/*.{h,m}",
+      "private_header_files": [
+        "**/{CR_,CAS}*.h",
+        "**/*+{Private,Internal}.h"
+      ],
+      "weak_frameworks": "WebKit",
+      "dependencies": {
+        "Cassette": [
+          "~> 1.0-beta"
+        ]
+      }
+    },
+    {
+      "name": "GoogleAdapter",
+      "source_files": "CriteoGoogleAdapter/Sources/**/*.{h,m}",
+      "dependencies": {
+        "CriteoPublisherSdk/Sdk": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 7.49.0"
+        ]
+      }
+    },
+    {
+      "name": "MoPubAdapter",
+      "source_files": "CriteoMoPubAdapter/Sources/**/*.{h,m}",
+      "exclude_files": "CriteoMoPubAdapter/Sources/CriteoMoPubAdapterTestApp",
+      "dependencies": {
+        "CriteoPublisherSdk/Sdk": [
+
+        ],
+        "mopub-ios-sdk/Core": [
+          "~> 5.13"
+        ]
+      },
+      "platforms": {
+        "ios": "10.0"
+      }
+    }
+  ]
+}
