@@ -1,0 +1,92 @@
+{
+  "name": "TTkGameLite",
+  "version": "1.0.3",
+  "summary": "TTkGame SDK for games",
+  "description": "TTkGame SDK for games\nConvenient game access",
+  "homepage": "https://github.com/ToTokGames/ToTokGameSDK-iOS",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "ToTokGames Team": "huqingping@totok.ai"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/ToTokGames/ToTokGameSDK-iOS.git",
+    "tag": "TTkGameLite-1.0.3"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "static_framework": true,
+  "libraries": "sqlite3",
+  "frameworks": [
+    "UIKit",
+    "StoreKit",
+    "GameKit",
+    "WebKit",
+    "UserNotifications",
+    "Photos",
+    "ImageIO",
+    "Foundation",
+    "CoreFoundation",
+    "QuartzCore",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreTelephony",
+    "Security",
+    "AuthenticationServices"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SDK/TTkGameLite/Core/TTkGameSDK.framework",
+      "resources": "SDK/TTkGameLite/Core/TTkGame.bundle"
+    },
+    {
+      "name": "Analytics",
+      "source_files": "SDK/TTkGameLite/SocialLibraries/TTGCAnalytics",
+      "vendored_libraries": "SDK/TTkGameLite/SocialLibraries/TTGCAnalytics/libTTGCAnalytics.a",
+      "dependencies": {
+        "TTkGameLite/Core": [
+
+        ],
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/DynamicLinks": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "source_files": "SDK/TTkGameLite/SocialLibraries/TTGCAppsFlyer",
+      "vendored_libraries": "SDK/TTkGameLite/SocialLibraries/TTGCAppsFlyer/libTTGCAppsFlyer.a",
+      "dependencies": {
+        "AppsFlyerFramework": [
+
+        ],
+        "TTkGameLite/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tapjoy",
+      "source_files": "SDK/TTkGameLite/SocialLibraries/TTGCTapjoy",
+      "vendored_libraries": "SDK/TTkGameLite/SocialLibraries/TTGCTapjoy/libTTGCTapjoy.a",
+      "dependencies": {
+        "TapjoySDK": [
+
+        ],
+        "TTkGameLite/Core": [
+
+        ]
+      }
+    }
+  ]
+}
