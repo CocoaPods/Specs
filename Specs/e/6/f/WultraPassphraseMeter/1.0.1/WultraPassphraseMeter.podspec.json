@@ -1,0 +1,62 @@
+{
+  "name": "WultraPassphraseMeter",
+  "version": "1.0.1",
+  "summary": "Streng tester for passwords and passcodes.",
+  "description": "A library that checks the strength of a pin or a password.",
+  "social_media_url": "https://twitter.com/wultra",
+  "homepage": "https://wultra.com",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Wultra s.r.o.": "support@wultra.com"
+  },
+  "source": {
+    "git": "https://github.com/wultra/passphrase-meter.git",
+    "tag": "1.0.1"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Source/src_native"
+      },
+      "preserve_paths": "Source/src_native/module.modulemap",
+      "source_files": [
+        "Source/src_native/*.{c,h}",
+        "Source/src_ios/PasswordTester.swift"
+      ],
+      "private_header_files": "Source/src_native/*.{h}"
+    },
+    {
+      "name": "Dictionary_czsk",
+      "resources": "dictionaries/czsk.dct",
+      "source_files": "Source/src_ios/PasswordTester_czsk.swift",
+      "dependencies": {
+        "WultraPassphraseMeter/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dictionary_en",
+      "resources": "dictionaries/en.dct",
+      "source_files": "Source/src_ios/PasswordTester_en.swift",
+      "dependencies": {
+        "WultraPassphraseMeter/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
