@@ -1,0 +1,65 @@
+{
+  "name": "XCUITestLiveReset",
+  "version": "0.1.0",
+  "summary": "Continue testing without relaunch application",
+  "description": "XCUITestLiveReset using NetService technique to broadcast an http endpoint for testcase\nto reset the target application state before testing.",
+  "homepage": "https://github.com/kinwahlai/XCUITestKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Darren Lai": "kinwah.lai@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/kinwahlai/XCUITestKit.git",
+    "tag": "LiveReset-0.1.0"
+  },
+  "social_media_url": "https://twitter.com/darrenkwlai",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.4"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "static_framework": true,
+  "default_subspecs": "Base",
+  "dependencies": {
+    "gRPC-Swift": [
+      "1.0.0-alpha.14"
+    ],
+    "XCUITestKit": [
+      "~> 0.1.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "XCUITestLiveReset/Classes/Shared/**/*.{swift, m, h}"
+    },
+    {
+      "name": "Client",
+      "frameworks": "XCTest",
+      "pod_target_xcconfig": {
+        "prebuild_configuration": "debug",
+        "ENABLE_BITCODE": "NO",
+        "OTHER_LDFLAGS": "-weak_framework XCTEST -weak-lXCTestSwiftSupport"
+      },
+      "dependencies": {
+        "XCUITestLiveReset/Base": [
+
+        ]
+      },
+      "source_files": "XCUITestLiveReset/Classes/Client/**/*.{swift, m, h}"
+    },
+    {
+      "name": "Host",
+      "dependencies": {
+        "XCUITestLiveReset/Base": [
+
+        ]
+      },
+      "source_files": "XCUITestLiveReset/Classes/Host/**/*.{swift, m, h}"
+    }
+  ],
+  "swift_version": "5.0"
+}
