@@ -1,0 +1,123 @@
+{
+  "name": "ZBJMap",
+  "version": "1.0.0",
+  "summary": "ZBJ地图",
+  "description": "ZBJ地图测试分库",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BJBJBJ": "719542086@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "http": "https://mapopen-website-wiki.bj.bcebos.com/DEMO/ZBJMapV1.0.0.zip"
+  },
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "MobileCoreServices"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "z"
+  ],
+  "xcconfig": {
+    "VALID_ARCHS": "armv7s arm64 x86_64"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": "ZBJMap/BaiduMapAPI_Base.framework",
+      "vendored_libraries": "ZBJMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Map",
+      "dependencies": {
+        "ZBJMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        }
+      },
+      "resources": "ZBJMap/*.framework/*.bundle",
+      "vendored_frameworks": "ZBJMap/BaiduMapAPI_Map.framework",
+      "vendored_libraries": "ZBJMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Search",
+      "dependencies": {
+        "ZBJMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        }
+      },
+      "vendored_frameworks": "ZBJMap/BaiduMapAPI_Search.framework",
+      "vendored_libraries": "ZBJMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Cloud",
+      "dependencies": {
+        "ZBJMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        }
+      },
+      "vendored_frameworks": "ZBJMap/BaiduMapAPI_Cloud.framework",
+      "vendored_libraries": "ZBJMap/thirdlibs/*.a"
+    },
+    {
+      "name": "Utils",
+      "dependencies": {
+        "ZBJMap/Base": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        }
+      },
+      "vendored_frameworks": "ZBJMap/BaiduMapAPI_Utils.framework",
+      "vendored_libraries": "ZBJMap/thirdlibs/*.a"
+    }
+  ]
+}
