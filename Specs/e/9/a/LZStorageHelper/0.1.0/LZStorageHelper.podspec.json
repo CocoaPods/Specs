@@ -1,0 +1,50 @@
+{
+  "name": "LZStorageHelper",
+  "version": "0.1.0",
+  "summary": "A short description of LZStorageHelper.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/liLeiBest",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lilei": "lilei_hapy@163.com"
+  },
+  "source": {
+    "git": "https://github.com/liLeiBest/LZStorageHelper.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": [
+    "UserDefaults",
+    "File"
+  ],
+  "source_files": "LZStorageHelper/Classes/LZStorageHelper.h",
+  "public_header_files": "LZStorageHelper/Classes/LZStorageHelper.h",
+  "prefix_header_contents": "#if DEBUG\n#define LZStorageLog(fmt, ...) NSLog((@\"%s [Line %d] \" fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);\n#else\n#define LZStorageLog(fmt, ...)\n#endif",
+  "subspecs": [
+    {
+      "name": "DatabaseSQL",
+      "source_files": "LZStorageHelper/Classes/Database/SQL/*.{h,m}",
+      "public_header_files": "LZStorageHelper/Classes/Database/SQL/*.h",
+      "dependencies": {
+        "FMDB": [
+
+        ]
+      }
+    },
+    {
+      "name": "UserDefaults",
+      "source_files": "LZStorageHelper/Classes/UserDefaults/*.{h,m}",
+      "public_header_files": "LZStorageHelper/Classes/UserDefaults/*.h"
+    },
+    {
+      "name": "File",
+      "source_files": "LZStorageHelper/Classes/File/*.{h,m}",
+      "public_header_files": "LZStorageHelper/Classes/File/*.h"
+    }
+  ]
+}
