@@ -1,0 +1,44 @@
+{
+  "name": "puzzl-iOS",
+  "version": "2.0.4",
+  "summary": "Puzzl iOS SDK",
+  "description": "<div  style=\"text-align:center\"><img src=\"/puzzl-logo.png\" alt=\"Puzzl\" width=\"200\"/></div>\n\n# Welcome to Puzzl's iOS SDK\nPuzzl iOS SDK for rendering Puzzl's Employee Onboarding flow\n\n## Add Puzzl SDK to a project\n\n### Using CocoaPods\n\n1. You can use CocoaPods (\"CocoaPods is an open source dependency manager for Swift and Objective-C Cocoa projects. CocoaPods makes it easy to install or update new SDKs when working with Xcode.\") \n\n```bash\n$ sudo gem install cocoapods\n```\n\n1. Create a Podfile in project directory (same directory as .xcodeproj file)\n2. Open Podfile and include the PuzzlIOS dependency. An example is shown here: \n\n```bash\ntarget \"YourProjectNameHere\" do\nuse_frameworks!\n  pod 'puzzl-iOS'\nend\n```\n\n1. Run 'pod install' in directory of Podfile\n\n```bash\n$ pod install\n```\n\n1. To update the SDK at any time, run 'pod update' to get the most recent version of the Puzzl iOS SDK.\n2. **After installation is done, use the newly created .xcworkspace file of your project.**\n\n## Using the Puzzl iOS SDK\n\n### Configure your app to work with the Veriff iOS SDK\n\n1. **Add usage descriptions to application Info.plist**\n\n> Not adding these usage descriptions causes the system to kill application when it requests the permissions when needed.\n\nVeriff iOS SDK requires camera and microphone permissions for capturing photos and video during identification. Your application is responsible to describe the reason why camera and microphone is used. You must add 2 descriptions listed below to `info.plist` of your application with the explanation of the usage.\n\n- `NSCameraUsageDescription`\n- `NSMicrophoneUsageDescription`\n\nIt should look like:\n\n<div  style=\"text-align:center\"><img src=\"/info_plist.png\" alt=\"plist.info_file\"/></div>\n<br /> \n\n2. **Remove any references to the Scene Delegate in App Delegate**\n\nYou will need to delete your `SceneDelegate.swift` file and remove any references to the Scene Delegate in your `AppDelegate.swift` file. You will also need to instantiate as the first line in your AppDelegate class definition: \n\n  ```swift\n  var window:UIWindow?\n  ```\n\n3. **Remove Scene Manifest references from info.plist**\n\nRemove UIApplicationSceneManifest from `info.plist`.\n\n\n### Add the Puzzl onboarding process\n\n1. Import Puzzl into your code. In order to use the Puzzl SDK, import it in the class that will use the SDK (typically a View Controller).\n\n    ```swift\n    import Puzzl_iOS\n    ```\n\n2. In the place you want to trigger Puzzl's onboarding, set the delegate in order to follow the Puzzl Onboarding SDK status and allow Puzzl to show onboarding. Example:\n\n    ```swift\n    Puzzl.setDelegate(from: <YOUR VIEW CONTROLLER>)\n    ```\n \n\n4. Call the 'showOnboardingWith' method from Puzzl. Example:\n\n    ```swift\n    Puzzl.showOnboardingWith(apiKey: <PUZZL LIVE KEY>,\n        companyID: <PUZZL COMPANY ID>,\n        employeeID: <PUZZL EMPLOYEE ID>,\n        from: <YOUR VIEW CONTROLLER>)\n    ```\n\n    Full Example:\n    ```swift\n    Puzzl.setDelegate(from: self)\n    Puzzl.showOnboardingWith(apiKey: <PUZZL LIVE KEY>,\n        companyID: <PUZZL COMPANY ID>,\n        employeeID: <PUZZL EMPLOYEE ID>,\n        from: self)\n    ```\n\n5. For the Puzzl Delegate to work and to track the status of the Puzzl onboarding process, create a new method:\n\n    ```swift\n    extension ViewController: PuzzlDelegate {\n        func getStatus(status: PuzzlStatus) {\n            switch status {\n            case .error:\n                print(status)\n                print(\"Error\")\n                            //handle error in onboarding\n            case .success:\n                print(\"Success\")\n                            //handle successful onboarding\n            }\n        }\n    }\n    ```\n\n    Once the worker onboards successfully, you can now run payroll for them! 🎉",
+  "homepage": "https://github.com/Puzzl/Puzzl-iOS-Pod",
+  "documentation_url": "https://github.com/Puzzl/Puzzl-iOS-Pod",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Puzzl": "support@joinpuzzl.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://puzzl-ios-cocoapod.s3.amazonaws.com/puzzl-iOS.zip"
+  },
+  "ios": {
+    "vendored_frameworks": "Puzzl_iOS.framework",
+    "frameworks": "Foundation"
+  },
+  "swift_versions": [
+    "5.1",
+    "5.2"
+  ],
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.9.0"
+    ],
+    "VeriffSDK": [
+      "2.9.3"
+    ],
+    "Eureka": [
+
+    ],
+    "TTTAttributedLabel": [
+
+    ]
+  },
+  "swift_version": "5.2"
+}
