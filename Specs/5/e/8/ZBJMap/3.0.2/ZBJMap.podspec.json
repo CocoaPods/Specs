@@ -1,0 +1,97 @@
+{
+  "name": "ZBJMap",
+  "version": "3.0.2",
+  "summary": "ZBJ地图",
+  "description": "ZBJ地图测试分库",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2015 BaiduLBS"
+  },
+  "authors": {
+    "BJBJBJ": "719542086@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://mapopen-website-wiki.bj.bcebos.com/DEMO/ZBJMapV3.0.0.zip"
+  },
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "MobileCoreServices"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "z"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "ZBJMap/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "ZBJMap/thirdlibs/*.{a}"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        },
+        "resources": "ZBJMap/*.framework/*.bundle",
+        "vendored_frameworks": "ZBJMap/BaiduMapAPI_Map.framework"
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJMap/BaiduMapAPI_Search.framework"
+      }
+    },
+    {
+      "name": "Cloud",
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJMap/BaiduMapAPI_Cloud.framework"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "ZBJMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJMap/BaiduMapAPI_Utils.framework"
+      }
+    }
+  ]
+}
