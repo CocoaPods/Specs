@@ -1,0 +1,119 @@
+{
+  "name": "ZBJWalkMap",
+  "version": "1.0.0",
+  "summary": "步骑行sdk",
+  "description": "ZBJ步骑行地图测试分库",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "BJBJBJ": "719542086@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://mapopen-website-wiki.bj.bcebos.com/DEMO/ZBJWalkMapV1.0.0.zip"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreMotion",
+    "CoreTelephony",
+    "MobileCoreServices",
+    "OpenGLES",
+    "QuartzCore",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "z"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "COMPILE_SOURCES_AS": "Objective-C++"
+  },
+  "default_subspecs": [
+    "Base",
+    "Map",
+    "walkNavi",
+    "Utils"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "ZBJWalkMap/thirdlibs/*.{a}"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "ZBJWalkMap/Base": [
+
+          ]
+        },
+        "resources": "ZBJWalkMap/BaiduMapAPI_Map_For_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_Map_For_WalkNavi.framework"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "ZBJWalkMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_Utils.framework"
+      }
+    },
+    {
+      "name": "walkNavi",
+      "ios": {
+        "dependencies": {
+          "ZBJWalkMap/Base": [
+
+          ],
+          "ZBJWalkMap/Map": [
+
+          ],
+          "ZBJWalkMap/Utils": [
+
+          ]
+        },
+        "resources": "ZBJWalkMap/BaiduMapAPI_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_WalkNavi.framework"
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "ZBJWalkMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_Search.framework"
+      }
+    },
+    {
+      "name": "Cloud",
+      "ios": {
+        "dependencies": {
+          "ZBJWalkMap/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "ZBJWalkMap/BaiduMapAPI_Cloud.framework"
+      }
+    }
+  ]
+}
