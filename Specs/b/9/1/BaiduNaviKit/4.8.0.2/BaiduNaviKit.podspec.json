@@ -1,0 +1,72 @@
+{
+  "name": "BaiduNaviKit",
+  "version": "4.8.0.2",
+  "summary": "百度导航iOS SDK（CocoaPods百度导航官方库）",
+  "description": "百度导航iOS SDK：百度导航官方CocoaPods.\n百度iOS导航SDK是一套基于iOS 8及以上版本设备的应用程序接口。\n您可以使用该套 SDK开发适用于iOS系统移动设备的导航应用，通过调用导航SDK接口，\n您可以轻松访问百度导航的服务和数据，构建功能丰富、交互性强的导航类应用程序\n百度iOS导航SDK提供的所有服务是免费的，接口使用无次数限制。",
+  "homepage": "https://lbsyun.baidu.com/index.php?title=ios-navsdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "baidu navi sdk": "dituapi_01@163.com"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/navi/4.8.0.2/BaiduNaviKitV4.8.0.2.zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-w",
+    "ENABLE_BITCODE": "NO"
+  },
+  "frameworks": [
+    "Accelerate",
+    "CallKit",
+    "AdSupport",
+    "AssetsLibrary",
+    "UserNotifications",
+    "MediaPlayer",
+    "CoreLocation",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "iconv"
+  ],
+  "default_subspecs": [
+    "Navi"
+  ],
+  "subspecs": [
+    {
+      "name": "Navi",
+      "ios": {
+        "source_files": "BaiduNaviKit/inc/*.{h}",
+        "vendored_libraries": "BaiduNaviKit/libbaiduNaviSDK.a",
+        "resources": [
+          "BaiduNaviKit/resource/bundle/*.bundle",
+          "BaiduNaviKit/resource/cfg/*.cfg",
+          "BaiduNaviKit/resource/sty/*.sty"
+        ]
+      }
+    },
+    {
+      "name": "TTS",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit/Navi": [
+
+          ]
+        },
+        "vendored_libraries": "BaiduNaviKit/libBNTTSComponentSDK.a"
+      }
+    }
+  ]
+}
