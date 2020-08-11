@@ -1,0 +1,119 @@
+{
+  "name": "BaiduWalkNaviKit",
+  "version": "5.4.0",
+  "summary": "百度步骑行iOS SDK（CocoaPods百度步骑行官方库, 已包含百度地图包）",
+  "description": "百度步骑行iOS SDK：百度步骑行官方CocoaPods(已包含百度地图包).\n自V4.2.0版本起新增步行、骑行导航功能，\n支持普通步行导航、步行AR导航、普通自行车骑行导航、电动车骑行导航、偏航纠偏等导航功能。",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "baidu walkNavi sdk": "dituapi_01@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/walkmap/5.4.0/BaiduWalkNaviKitV5.4.0.zip"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreMotion",
+    "CoreTelephony",
+    "MobileCoreServices",
+    "OpenGLES",
+    "QuartzCore",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "z"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-w"
+  },
+  "default_subspecs": [
+    "Base",
+    "Map",
+    "WalkNavi",
+    "Utils"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "BaiduWalkNaviKit/thirdlibs/*.{a}"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "resources": "BaiduWalkNaviKit/BaiduMapAPI_Map_For_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Map_For_WalkNavi.framework"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Utils.framework"
+      }
+    },
+    {
+      "name": "WalkNavi",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ],
+          "BaiduWalkNaviKit/Map": [
+
+          ],
+          "BaiduWalkNaviKit/Utils": [
+
+          ]
+        },
+        "resources": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework"
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Search.framework"
+      }
+    },
+    {
+      "name": "Cloud",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Cloud.framework"
+      }
+    }
+  ]
+}
