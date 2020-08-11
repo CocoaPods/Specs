@@ -1,0 +1,76 @@
+{
+  "name": "FWSwiftBridge",
+  "version": "1.0.0",
+  "summary": "Swift bridge for WechatOpenSDK and AlipaySDK",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWSwiftBridge.git",
+    "tag": "1.0.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": [
+    "WechatOpenSDK",
+    "AlipaySDK-iOS"
+  ],
+  "subspecs": [
+    {
+      "name": "WechatOpenSDK",
+      "source_files": [
+        "FWSwiftBridge/WechatOpenSDK/*.swift",
+        "FWSwiftBridge/WechatOpenSDK/*.h"
+      ],
+      "public_header_files": "FWSwiftBridge/WechatOpenSDK/*.h",
+      "vendored_libraries": "FWSwiftBridge/WechatOpenSDK/libWeChatSDK.a",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/FWSwiftBridge/WechatOpenSDK",
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "preserve_paths": "FWSwiftBridge/WechatOpenSDK/module.modulemap",
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3.0"
+      ],
+      "frameworks": [
+        "UIKit",
+        "WebKit",
+        "CoreGraphics",
+        "Security"
+      ]
+    },
+    {
+      "name": "AlipaySDK-iOS",
+      "vendored_frameworks": "FWSwiftBridge/AlipaySDK-iOS/AlipaySDK.framework",
+      "resources": "FWSwiftBridge/AlipaySDK-iOS/AlipaySDK.bundle",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/FWSwiftBridge/AlipaySDK-iOS",
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CFNetwork",
+        "SystemConfiguration",
+        "QuartzCore",
+        "CoreGraphics",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreText",
+        "WebKit"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
