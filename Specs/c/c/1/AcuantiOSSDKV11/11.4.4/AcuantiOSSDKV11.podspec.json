@@ -1,0 +1,207 @@
+{
+  "name": "AcuantiOSSDKV11",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": [
+    "5.2"
+  ],
+  "version": "11.4.4",
+  "summary": "Acuant's latest SDK with most advanced image capture technology and optimized user workflow",
+  "description": "Acuant's latest SDK with most advanced image capture technology and optimized user workflow.\n\n    Auto capture of documents\n    Feedback on image capture quality, does several check on the captured image to ensure its optimal quality\n    Optimized image capture and processing workflow (reduces bad captures and poor results)\n    SDK broken down in to small different modules so that developers can include only the modules they want",
+  "homepage": "https://github.com/Acuant/iOSSDKV11",
+  "license": {
+    "type": "commercial",
+    "text": "                  Copyright 2019 Acuant, Inc. All Rights Reserved.\n"
+  },
+  "authors": {
+    "Acuant Inc": "jmoon@acuantcorp.com"
+  },
+  "source": {
+    "git": "https://github.com/Acuant/iOSSDKV11.git",
+    "tag": "11.4.4"
+  },
+  "subspecs": [
+    {
+      "name": "AcuantCommon",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantCommon.framework"
+      }
+    },
+    {
+      "name": "AcuantImagePreparation",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantImagePreparation.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantDocumentProcessing",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantDocumentProcessing.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceMatch",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantFaceMatch.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantPassiveLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantPassiveLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantHGLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantHGLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantIPLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantIPLiveness.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "iProov": [
+          "~> 7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "AcuantEchipReader",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantEchipReader.framework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceCapture",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "AcuantFaceCapture/AcuantFaceCapture/*.{h,swift}",
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "AcuantiOSSDKV11/AcuantImagePreparation": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantCamera",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "AcuantCamera/AcuantCamera/*.{h,swift}",
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "AcuantiOSSDKV11/AcuantImagePreparation": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Document",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Document/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Document/Delegate/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantiOSSDKV11/AcuantCamera/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Mrz",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Mrz/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/Utils/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantiOSSDKV11/AcuantCamera/Common": [
+
+            ],
+            "TesseractOCRiOS": [
+              "~> 5.0.1"
+            ]
+          },
+          "resources": "AcuantCamera/AcuantCamera/Camera/Mrz/*.xcassets"
+        },
+        {
+          "name": "Common",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/View/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Extension/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Constant/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/*.{h,swift}"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
