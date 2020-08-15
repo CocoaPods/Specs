@@ -1,0 +1,48 @@
+{
+  "name": "TensorFlowLiteObjC",
+  "version": "0.0.1-nightly.20200815",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "c33dc04851638eddeb20207b1194eb702f70bd3d"
+  },
+  "summary": "TensorFlow Lite for Objective-C",
+  "description": "TensorFlow Lite is TensorFlow's lightweight solution for Objective-C\ndevelopers. It enables low-latency inference of on-device machine learning\nmodels with a small binary size and fast performance supporting hardware\nacceleration.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "TFLTensorFlowLite",
+  "static_framework": true,
+  "public_header_files": "tensorflow/lite/experimental/objc/apis/*.h",
+  "source_files": [
+    "tensorflow/lite/experimental/objc/{apis,sources}/*.{h,m,mm}",
+    "tensorflow/lite/c/c_api.h",
+    "tensorflow/lite/c/common.h",
+    "tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h"
+  ],
+  "module_map": "tensorflow/lite/experimental/objc/apis/framework.modulemap",
+  "dependencies": {
+    "TensorFlowLiteC": [
+      "~> 0.0.1-nightly"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\" \"${PODS_TARGET_SRCROOT}/tensorflow/lite/experimental/objc/apis\"",
+    "VALID_ARCHS": "i386 x86_64 armv7 arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "tensorflow/lite/experimental/objc/tests/*.m",
+      "resources": [
+        "tensorflow/lite/testdata/add.bin",
+        "tensorflow/lite/testdata/add_quantized.bin"
+      ]
+    }
+  ]
+}
