@@ -1,0 +1,63 @@
+{
+  "name": "Laigu",
+  "version": "3.6.0",
+  "summary": "来鼓官方 SDK for iOS",
+  "description": "来鼓官方的 iOS SDK",
+  "homepage": "https://github.com/laigukf/LaiguSDK-iOS",
+  "license": "MIT",
+  "authors": {
+    "laigu": "laigukf@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/laigukf/LaiguSDK-iOS.git",
+    "tag": "v3.6.0"
+  },
+  "social_media_url": "https://app.laigukf.com",
+  "documentation_url": "https://github.com/laigukf/LaiguSDK-iOS/wiki",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "LaiguSDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ],
+      "vendored_frameworks": "Laigu-SDK-files/LaiGuSDK.framework",
+      "libraries": [
+        "sqlite3",
+        "icucore",
+        "stdc++"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Laigu/Laigu-SDK-files"
+      }
+    },
+    {
+      "name": "LGChatViewController",
+      "dependencies": {
+        "Laigu/LaiguSDK": [
+
+        ]
+      },
+      "private_header_files": "Laigu-SDK-files/LGChatViewController/Vendors/VoiceConvert/amrwapper/wav.h",
+      "source_files": [
+        "Laigu-SDK-files/LaiguSDKViewInterface/*.{h,m}",
+        "Laigu-SDK-files/LGChatViewController/**/*.{h,m,mm,cpp}",
+        "Laigu-SDK-files/LGMessageForm/**/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "Laigu-SDK-files/LGChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrnb.a",
+        "Laigu-SDK-files/LGChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrwb.a"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/Laigu/Laigu-SDK-files\""
+      },
+      "resources": "Laigu-SDK-files/LGChatViewController/Assets/LGChatViewAsset.bundle"
+    }
+  ]
+}
