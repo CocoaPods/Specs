@@ -1,0 +1,89 @@
+{
+  "name": "TTkGameLite-Dynamic",
+  "version": "1.0.5",
+  "summary": "TTkGame SDK for games",
+  "description": "TTkGame SDK for games\nConvenient game access",
+  "homepage": "https://github.com/AmuseGames/GameSDK-iOS",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "AmuseGames Team",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/AmuseGames/GameSDK-iOS.git",
+    "tag": "TTkGameLite-Dynamic-1.0.5"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "libraries": "sqlite3",
+  "frameworks": [
+    "UIKit",
+    "StoreKit",
+    "GameKit",
+    "WebKit",
+    "UserNotifications",
+    "Photos",
+    "ImageIO",
+    "Foundation",
+    "CoreFoundation",
+    "QuartzCore",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreTelephony",
+    "Security",
+    "AuthenticationServices"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SDK/TTkGameLite-Dynamic/Core/TTkGameSDK.framework",
+      "resources": "SDK/TTkGameLite-Dynamic/Core/TTkGame.bundle"
+    },
+    {
+      "name": "Analytics",
+      "source_files": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCAnalytics",
+      "vendored_libraries": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCAnalytics/libTTGCAnalytics.a",
+      "dependencies": {
+        "TTkGameLite-Dynamic/Core": [
+
+        ],
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/DynamicLinks": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "source_files": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCAppsFlyer",
+      "vendored_libraries": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCAppsFlyer/libTTGCAppsFlyer.a",
+      "dependencies": {
+        "AppsFlyerFramework": [
+
+        ],
+        "TTkGameLite-Dynamic/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tapjoy",
+      "source_files": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCTapjoy",
+      "vendored_libraries": "SDK/TTkGameLite-Dynamic/SocialLibraries/TTGCTapjoy/libTTGCTapjoy.a",
+      "dependencies": {
+        "TapjoySDK": [
+
+        ],
+        "TTkGameLite-Dynamic/Core": [
+
+        ]
+      }
+    }
+  ]
+}
