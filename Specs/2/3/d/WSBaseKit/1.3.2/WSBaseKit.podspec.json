@@ -1,0 +1,114 @@
+{
+  "name": "WSBaseKit",
+  "version": "1.3.2",
+  "summary": "一套用于快速开发项目的框架",
+  "description": "WSBaseKit 是一套用于快速开发项目的框架",
+  "homepage": "https://gitee.com/taessica/WSBaseKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张聪": "971188623@qq.com.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://gitee.com/taessica/WSBaseKit.git",
+    "tag": "1.3.2"
+  },
+  "libraries": [
+    "iconv",
+    "xml2"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "subspecs": [
+    {
+      "name": "WSCommonTool",
+      "source_files": "WSBasekit/WSBaseKit/WSCommonTool/*",
+      "resources": "WSBaseKit/WSBaseKit/WSCommonTool/WSBaseKit.bundle",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MBProgressHUD": [
+
+        ]
+      }
+    },
+    {
+      "name": "WSBaseViewController",
+      "source_files": "WSBasekit/WSBaseKit/WSBaseViewController/*.{h,m}",
+      "dependencies": {
+        "WSBaseKit/WSCommonTool": [
+
+        ],
+        "WSBaseKit/WSBaseProtocol": [
+
+        ],
+        "WSBaseKit/WSBaseView": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "QuartzCore",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "WSBaseNetwork",
+      "source_files": "WSBaseKit/WSBaseKit/WSBaseNetwork/*.{h,m}",
+      "dependencies": {
+        "WSBaseKit/WSCommonTool": [
+
+        ],
+        "AFNetworking": [
+
+        ],
+        "YYKit": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "WSBaseProtocol",
+      "source_files": "WSBasekit/WSBaseKit/WSBaseProtocol/*.{h,m}",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "WSBaseView",
+      "source_files": "WSBasekit/WSBaseKit/WSBaseView/*.{h,m}",
+      "resources": "WSBaseKit/WSBaseKit/WSBaseView/*.{xib}",
+      "dependencies": {
+        "WSBaseKit/WSBaseProtocol": [
+
+        ],
+        "WSBaseKit/WSCommonTool": [
+
+        ],
+        "YYKit": [
+
+        ],
+        "MJRefresh": [
+          "~> 3.1.12"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    }
+  ]
+}
