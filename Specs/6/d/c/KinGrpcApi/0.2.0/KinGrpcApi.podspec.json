@@ -1,0 +1,65 @@
+{
+  "name": "KinGrpcApi",
+  "version": "0.2.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kik Engineering": "engineering@kik.com"
+  },
+  "homepage": "https://github.com/kinecosystem/kin-ios",
+  "summary": "Grpc Api for Kin SDK iOS",
+  "source": {
+    "git": "https://github.com/kinecosystem/kin-ios.git"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "dependencies": {
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.28.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "USE_HEADERMAP": "NO",
+    "ALWAYS_SEARCH_USER_PATHS": "NO",
+    "USER_HEADER_SEARCH_PATHS": "$(PODS_ROOT)/KinGrpcApi/KinGrpcApi/gen",
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/KinGrpcApi/KinGrpcApi/gen"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": [
+        "KinGrpcApi/gen/*.pbobjc.{h,m}",
+        "KinGrpcApi/gen/**/*.pbobjc.{h,m}"
+      ],
+      "header_mappings_dir": "KinGrpcApi/gen",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.11.4"
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "KinGrpcApi/gen/*.pbrpc.{h,m}",
+        "KinGrpcApi/gen/**/*.pbrpc.{h,m}"
+      ],
+      "header_mappings_dir": "KinGrpcApi/gen",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+          "~> 1.28.0"
+        ],
+        "KinGrpcApi/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
