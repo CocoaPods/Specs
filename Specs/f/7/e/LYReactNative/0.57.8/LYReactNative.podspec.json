@@ -1,0 +1,263 @@
+{
+  "name": "LYReactNative",
+  "version": "0.57.8",
+  "summary": "pod for ReactNative.",
+  "description": "pod for ReactNative with RN v0.57.8.",
+  "homepage": "https://github.com/liujungithup131477/LYReactNative",
+  "license": "MIT",
+  "authors": {
+    "admin": "liujun163131477@163.com"
+  },
+  "source": {
+    "git": "https://github.com/liujungithup131477/LYReactNative.git",
+    "tag": "0.57.8"
+  },
+  "header_dir": "React",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "OTHER_LDFLAGS": "-ObjC",
+    "HEADER_SEARCH_PATHS": "'$(PODS_ROOT)/Folly' '$(PODS_ROOT)/boost-for-react-native'  '$(PODS_ROOT)/DoubleConversion' '$(PODS_TARGET_SRCROOT)/BRCIotSmartLifeRN/CodePush'",
+    "VALID_ARCHS[sdk=iphonesimulator*]": ""
+  },
+  "cocoapods_version": ">= 1.2.0",
+  "subspecs": [
+    {
+      "name": "React",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "Yoga": [
+
+            ]
+          },
+          "header_dir": "React",
+          "frameworks": "JavaScriptCore",
+          "libraries": "stdc++",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/node_modules/react-native/ReactCommon\""
+          },
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "node_modules/react-native/React/Base/**/*.{c,h,m,mm,S,cpp}",
+              "ios": {
+                "exclude_files": "node_modules/react-native/React/**/RCTTV*.*"
+              }
+            },
+            {
+              "name": "Modules",
+              "source_files": "node_modules/react-native/React/Modules/*.{c,h,m,mm,S,cpp}",
+              "ios": {
+                "exclude_files": "node_modules/react-native/React/**/RCTTV*.*"
+              }
+            },
+            {
+              "name": "Profiler",
+              "source_files": "node_modules/react-native/React/Profiler/*.{c,h,m,mm,S,cpp}",
+              "ios": {
+                "exclude_files": "node_modules/react-native/React/**/RCTTV*.*"
+              }
+            },
+            {
+              "name": "UIUtils",
+              "source_files": "node_modules/react-native/React/UIUtils/*.{c,h,m,mm,S,cpp}",
+              "ios": {
+                "exclude_files": "node_modules/react-native/React/**/RCTTV*.*"
+              }
+            },
+            {
+              "name": "Views",
+              "source_files": "node_modules/react-native/React/Views/**/*.{c,h,m,mm,S,cpp}",
+              "ios": {
+                "exclude_files": "node_modules/react-native/React/Views/RCTTV*.*"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CxxBridge",
+          "dependencies": {
+            "Folly": [
+              "2016.09.26.00"
+            ],
+            "LYReactNative/React/Core": [
+
+            ],
+            "LYReactNative/React/cxxreact": [
+
+            ]
+          },
+          "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+          "private_header_files": "node_modules/react-native/React/Cxx*/*.h",
+          "source_files": "node_modules/react-native/React/Cxx*/*.{h,m,mm}"
+        },
+        {
+          "name": "DevSupport",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ],
+            "LYReactNative/React/RCTWebSocket": [
+
+            ]
+          },
+          "source_files": [
+            "node_modules/react-native/React/DevSupport/*",
+            "node_modules/react-native/React/Inspector/*"
+          ]
+        },
+        {
+          "name": "jschelpers",
+          "dependencies": {
+            "Folly": [
+              "2016.09.26.00"
+            ],
+            "LYReactNative/React/PrivateDatabase": [
+
+            ]
+          },
+          "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+          "source_files": "node_modules/react-native/ReactCommon/jschelpers/*.{cpp,h}",
+          "private_header_files": "node_modules/react-native/ReactCommon/jschelpers/*.h",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/node_modules/react-native/ReactCommon\""
+          },
+          "frameworks": "JavaScriptCore"
+        },
+        {
+          "name": "jsinspector",
+          "source_files": "node_modules/react-native/ReactCommon/jsinspector/*.{cpp,h}",
+          "private_header_files": "node_modules/react-native/ReactCommon/jsinspector/*.h",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/node_modules/react-native/ReactCommon\""
+          }
+        },
+        {
+          "name": "PrivateDatabase",
+          "source_files": "node_modules/react-native/ReactCommon/privatedata/*.{cpp,h}",
+          "private_header_files": "node_modules/react-native/ReactCommon/privatedata/*.h",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/node_modules/react-native/ReactCommon\""
+          }
+        },
+        {
+          "name": "cxxreact",
+          "dependencies": {
+            "LYReactNative/React/jschelpers": [
+
+            ],
+            "LYReactNative/React/jsinspector": [
+
+            ],
+            "boost-for-react-native": [
+              "1.63.0"
+            ],
+            "Folly": [
+              "2016.09.26.00"
+            ]
+          },
+          "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
+          "source_files": "node_modules/react-native/ReactCommon/cxxreact/*.{cpp,h}",
+          "exclude_files": "node_modules/react-native/ReactCommon/cxxreact/SampleCxxModule.*",
+          "private_header_files": "node_modules/react-native/ReactCommon/cxxreact/*.h",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/node_modules/react-native/ReactCommon\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/DoubleConversion\" \"$(PODS_ROOT)/Folly\""
+          }
+        },
+        {
+          "name": "RCTAnimation",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/NativeAnimation/{Drivers/*,Nodes/*,*}.{h,m}",
+          "header_dir": "RCTAnimation"
+        },
+        {
+          "name": "RCTBlob",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/Blob/*.{h,m,mm}",
+          "preserve_paths": "node_modules/react-native/Libraries/Blob/*.js"
+        },
+        {
+          "name": "RCTGeolocation",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/Geolocation/*.{h,m}"
+        },
+        {
+          "name": "RCTImage",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ],
+            "LYReactNative/React/RCTNetwork": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/Image/*.{h,m}"
+        },
+        {
+          "name": "RCTNetwork",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/Network/*.{h,m,mm}"
+        },
+        {
+          "name": "RCTText",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/Text/**/*.{h,m}"
+        },
+        {
+          "name": "RCTWebSocket",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ],
+            "LYReactNative/React/RCTBlob": [
+
+            ],
+            "LYReactNative/React/fishhook": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/WebSocket/*.{h,m}"
+        },
+        {
+          "name": "fishhook",
+          "header_dir": "fishhook",
+          "source_files": "node_modules/react-native/Libraries/fishhook/*.{h,c}"
+        },
+        {
+          "name": "RCTLinkingIOS",
+          "dependencies": {
+            "LYReactNative/React/Core": [
+
+            ]
+          },
+          "source_files": "node_modules/react-native/Libraries/LinkingIOS/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
