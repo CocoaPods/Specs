@@ -1,0 +1,52 @@
+{
+  "name": "LBXZBarSDK",
+  "version": "1.3.5",
+  "summary": "LBXZBarSDK",
+  "homepage": "https://github.com/MxABC/LBXZBarSDK",
+  "license": "MIT",
+  "authors": {
+    "MxABC": "lbxia20091227@foxmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/MxABC/LBXZBarSDK.git",
+    "tag": "1.3.5"
+  },
+  "prefix_header_file": "iphone/include/prefix.pch",
+  "source_files": [
+    "*.{h,m}",
+    "include/zbar.h",
+    "zbar/**/*.h",
+    "iphone/*.h",
+    "iphone/include/**/*.h",
+    "zbar/{config,decoder,error,image,img_scanner,refcnt,scanner,symbol}.c",
+    "zbar/decoder/{codabar,code39,code93,code128,databar,ean,i25,qr_finder}.c",
+    "zbar/qrcode/*.c",
+    "iphone/*.m"
+  ],
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "AVFoundation",
+      "CoreGraphics",
+      "CoreMedia",
+      "CoreVideo",
+      "QuartzCore"
+    ]
+  },
+  "libraries": "iconv",
+  "public_header_files": [
+    "iphone/**/**/*.h",
+    "include/*.h",
+    "LBXZBarWrapper.h"
+  ],
+  "requires_arc": false,
+  "compiler_flags": "-w",
+  "xcconfig": {
+    "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphoneos*][arch=*]": "ZBarReaderViewImpl_Simulator.m",
+    "EXCLUDED_SOURCE_FILE_NAMES[sdk=iphonesimulator*][arch=*]": "ZBarReaderViewImpl_Capture.m ZBarCaptureReader.m",
+    "GCC_PREPROCESSOR_DEFINITIONS": "NDEBUG=1"
+  }
+}
