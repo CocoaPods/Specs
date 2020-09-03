@@ -1,0 +1,130 @@
+{
+  "name": "XNNetwork",
+  "version": "1.0",
+  "swift_versions": [
+    "5.0"
+  ],
+  "summary": "犀鸟网络库",
+  "homepage": "https://github.com/xiniaogongkao/XNNetwork-Swift.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "f2yu": "470623403@qq.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/xiniaogongkao/XNNetwork-Swift.git",
+    "tag": "1.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Define",
+      "source_files": "XNNetwork/XNNetwork/Define/*.swift",
+      "dependencies": {
+        "Alamofire": [
+
+        ]
+      }
+    },
+    {
+      "name": "Configuration",
+      "dependencies": {
+        "XNNetwork/Define": [
+
+        ]
+      },
+      "source_files": "XNNetwork/XNNetwork/Configuration/*.swift"
+    },
+    {
+      "name": "Category",
+      "source_files": "XNNetwork/XNNetwork/Category/*.swift"
+    },
+    {
+      "name": "Model",
+      "dependencies": {
+        "XNNetwork/Define": [
+
+        ]
+      },
+      "source_files": "XNNetwork/XNNetwork/Model/*.swift"
+    },
+    {
+      "name": "Log",
+      "dependencies": {
+        "XNNetwork/Model": [
+
+        ],
+        "XNNetwork/Category": [
+
+        ]
+      },
+      "source_files": "XNNetwork/XNNetwork/Log/*.swift"
+    },
+    {
+      "name": "CoreNetwork",
+      "subspecs": [
+        {
+          "name": "Response",
+          "source_files": "XNNetwork/XNNetwork/CoreNetwork/Response/*.swift"
+        },
+        {
+          "name": "NetworkAgent",
+          "dependencies": {
+            "XNNetwork/CoreNetwork/Response": [
+
+            ],
+            "XNNetwork/Configuration": [
+
+            ],
+            "Alamofire": [
+
+            ]
+          },
+          "source_files": "XNNetwork/XNNetwork/CoreNetwork/NetworkAgent/*.swift"
+        },
+        {
+          "name": "Request",
+          "dependencies": {
+            "XNNetwork/CoreNetwork/Response": [
+
+            ],
+            "XNNetwork/CoreNetwork/NetworkAgent": [
+
+            ],
+            "XNNetwork/Configuration": [
+
+            ],
+            "XNNetwork/Model": [
+
+            ],
+            "XNNetwork/Define": [
+
+            ],
+            "XNNetwork/Log": [
+
+            ],
+            "Alamofire": [
+
+            ]
+          },
+          "source_files": "XNNetwork/XNNetwork/CoreNetwork/Request/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "APIManager",
+      "dependencies": {
+        "XNNetwork/CoreNetwork/Request": [
+
+        ]
+      },
+      "source_files": "XNNetwork/XNNetwork/APIManager/*.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
