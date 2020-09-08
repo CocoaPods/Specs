@@ -1,0 +1,69 @@
+{
+  "name": "DYEntireRealTimeSDK",
+  "version": "0.0.2",
+  "summary": "本SDK封装了多厂商的音视频SDK和相应的即时通讯SDK",
+  "description": "1. 简化和统一了各厂商服务注册和接口调用方式 2. 支持在各厂商SDK之间安全、高效地调度(目前支持声网、腾讯) 3. 多条通道并行发送自定义消息和消息去重 4. 封装了日志模块（厂商log，自定义log，DDLog），用于数据跟踪和后续分析 5. 解决多SDK引入和编译问题",
+  "homepage": "https://github.com/jackleemeta/DYEntireRealTimeSDK.git",
+  "license": "MIT",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "authors": {
+    "jack lee": "jackleemeta@outlook.com"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/jackleemeta/DYEntireRealTimeSDK.git",
+    "tag": "0.0.2"
+  },
+  "libraries": [
+    "c++",
+    "resolv",
+    "crypto"
+  ],
+  "default_subspecs": "Framework",
+  "dependencies": {
+    "CocoaLumberjack/Swift": [
+      "3.6.1"
+    ],
+    "Device": [
+
+    ],
+    "CocoaMQTT": [
+      "1.1.3"
+    ],
+    "TXLiteAVSDK_TRTC": [
+      "7.2.8961"
+    ],
+    "TXIMSDK_iOS": [
+      "4.7.2"
+    ],
+    "AgoraRtcEngine_iOS": [
+      "2.9.0.105"
+    ]
+  },
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64e armv7s arm64 x86_64",
+    "ENABLE_BITCODE": "NO"
+  },
+  "pod_target_xcconfig": {
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+  },
+  "subspecs": [
+    {
+      "name": "Framework",
+      "vendored_frameworks": [
+        "DYRealTimeSDK/Framewoks/*.framework",
+        "Carthage/Build/**/*.framework"
+      ],
+      "vendored_libraries": "DYRealTimeSDK/Libraries/*.a"
+    },
+    {
+      "name": "Source",
+      "vendored_frameworks": "DYRealTimeSDK/Framewoks/*.framework",
+      "source_files": "DYRealTimeSDK/Source/**/*.swift",
+      "vendored_libraries": "DYRealTimeSDK/Libraries/*.a"
+    }
+  ]
+}
