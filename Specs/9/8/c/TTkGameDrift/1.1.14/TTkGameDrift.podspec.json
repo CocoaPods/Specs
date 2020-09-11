@@ -1,0 +1,125 @@
+{
+  "name": "TTkGameDrift",
+  "version": "1.1.14",
+  "summary": "TTkGame SDK for games",
+  "description": "TTkGame SDK for games\nConvenient game access",
+  "homepage": "https://github.com/AmuseGames/GameSDK-iOS",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "AmuseGames Team",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/AmuseGames/GameSDK-iOS.git",
+    "tag": "Drift-1.1.14"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "static_framework": true,
+  "libraries": "sqlite3",
+  "frameworks": [
+    "UIKit",
+    "StoreKit",
+    "GameKit",
+    "WebKit",
+    "UserNotifications",
+    "Photos",
+    "ImageIO",
+    "Foundation",
+    "CoreFoundation",
+    "QuartzCore",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreTelephony",
+    "Security",
+    "AuthenticationServices"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SDK/TTkGameDrift/Core/TTkGameSDK.framework",
+      "resources": [
+        "SDK/TTkGameDrift/Core/TTkGame.bundle",
+        "SDK/TTkGameDrift/Core/TTGCProgressHUD.bundle"
+      ]
+    },
+    {
+      "name": "Facebook",
+      "source_files": "SDK/TTkGameDrift/SocialLibraries/Facebook",
+      "vendored_libraries": "SDK/TTkGameDrift/SocialLibraries/Facebook/libTTGCSocialFacebook.a",
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "~> 6.5.1"
+        ],
+        "FBSDKLoginKit": [
+          "~> 6.5.1"
+        ],
+        "FBSDKShareKit": [
+          "~> 6.5.1"
+        ],
+        "TTkGameDrift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "SDK/TTkGameDrift/SocialLibraries/TTGCSocialTwitter",
+      "vendored_libraries": "SDK/TTkGameDrift/SocialLibraries/TTGCSocialTwitter/libTTGCSocialTwitter.a",
+      "dependencies": {
+        "TwitterKit5": [
+
+        ],
+        "TTkGameDrift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "source_files": "SDK/TTkGameDrift/SocialLibraries/TTGCAnalytics",
+      "vendored_libraries": "SDK/TTkGameDrift/SocialLibraries/TTGCAnalytics/libTTGCAnalytics.a",
+      "dependencies": {
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/DynamicLinks": [
+
+        ],
+        "TTkGameDrift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "source_files": "SDK/TTkGameDrift/SocialLibraries/TTGCAppsFlyer",
+      "vendored_libraries": "SDK/TTkGameDrift/SocialLibraries/TTGCAppsFlyer/libTTGCAppsFlyer.a",
+      "dependencies": {
+        "AppsFlyerFramework": [
+          "~> 5.4.0"
+        ],
+        "TTkGameDrift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tapjoy",
+      "source_files": "SDK/TTkGameDrift/SocialLibraries/TTGCTapjoy",
+      "vendored_libraries": "SDK/TTkGameDrift/SocialLibraries/TTGCTapjoy/libTTGCTapjoy.a",
+      "dependencies": {
+        "TapjoySDK": [
+
+        ],
+        "TTkGameDrift/Core": [
+
+        ]
+      }
+    }
+  ]
+}
