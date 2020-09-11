@@ -1,0 +1,51 @@
+{
+  "name": "librlottie",
+  "version": "0.2.0",
+  "summary": "A platform independent standalone library that plays Lottie Animation.",
+  "description": "rlottie is a platform independent standalone c++ library for rendering vector based animations and art in realtime.",
+  "homepage": "https://github.com/Samsung/rlottie",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": {
+    "Subhransu Mohanty": "sub.mohanty@samsung.co"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/librlottie-Xcode.git",
+    "tag": "0.2.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": [
+    "rlottie/src/**/*.{h,c,cpp}",
+    "generate/**/*.{h,c,cpp}",
+    "include/**/*.h",
+    "Xcode/librlottie.h"
+  ],
+  "public_header_files": [
+    "include/rlottie/rlottie_capi.h",
+    "include/rlottie/rlottiecommon.h",
+    "Xcode/librlottie.h"
+  ],
+  "exclude_files": [
+    "rlottie/src/wasm",
+    "rlottie/src/lottie/rapidjson/msinttypes",
+    "rlottie/src/vector/pixman",
+    "rlottie/src/vector/vdrawhelper_neon.cpp"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_TARGET_SRCROOT}/generate"
+  },
+  "preserve_paths": [
+    "rlottie",
+    "include",
+    "generate"
+  ],
+  "libraries": "c++",
+  "prepare_command": "sed -i.bak 's/<rlottiecommon.h>/\"rlottiecommon.h\"/g' './rlottie/inc/rlottie_capi.h'"
+}
