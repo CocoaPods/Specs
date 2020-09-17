@@ -1,0 +1,94 @@
+{
+  "name": "OktaOidc",
+  "version": "3.9.1",
+  "summary": "SDK to easily integrate AppAuth with Okta",
+  "description": "Integrate your native app with Okta using the AppAuth library.",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.10"
+  },
+  "homepage": "https://github.com/okta/okta-oidc-ios",
+  "license": {
+    "type": "APACHE2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Okta Developers": "developer@okta.com"
+  },
+  "source": {
+    "git": "https://github.com/okta/okta-oidc-ios.git",
+    "tag": "3.9.1"
+  },
+  "swift_versions": "5.0",
+  "xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "${SRCROOT}/OktaOidc/**"
+  },
+  "subspecs": [
+    {
+      "name": "AppAuth",
+      "source_files": [
+        "Okta/AppAuth/*.{h,m}",
+        "Okta/OktaOidc/Internal/OktaUserAgent.{h,m}"
+      ],
+      "ios": {
+        "source_files": "Okta/AppAuth/iOS/*.{h,m}"
+      },
+      "platforms": {
+        "ios": "11.0",
+        "osx": "10.10"
+      },
+      "osx": {
+        "source_files": "Okta/AppAuth/macOS/**/*.{h,m}"
+      }
+    },
+    {
+      "name": "Okta",
+      "dependencies": {
+        "OktaOidc/AppAuth": [
+
+        ]
+      },
+      "source_files": "Okta/OktaOidc/OktaOidc.swift",
+      "ios": {
+        "source_files": "Okta/OktaOidc/iOS/OktaOidc+Browser.swift"
+      },
+      "osx": {
+        "source_files": "Okta/OktaOidc/macOS/OktaOidc+Browser.swift"
+      },
+      "subspecs": [
+        {
+          "name": "Classes",
+          "source_files": [
+            "Okta/OktaOidc/*.{h,m,swift}",
+            "Okta/OktaOidc/Internal/*.{h,m,swift}",
+            "Okta/OktaOidc/Internal/Tasks/*.{h,m,swift}"
+          ],
+          "exclude_files": [
+            "Okta/OktaOidc/OktaOidc.swift",
+            "Okta/OktaOidc/iOS/OktaOidc+Browser.swift",
+            "Okta/OktaOidc/macOS/OktaOidc+Browser.swift"
+          ],
+          "ios": {
+            "source_files": [
+              "Okta/OktaOidc/iOS/*.{swift}",
+              "Okta/OktaOidc/Internal/iOS/*.{swift}",
+              "Okta/OktaOidc/Internal/Tasks/iOS/*.{swift}"
+            ]
+          },
+          "platforms": {
+            "ios": "11.0",
+            "osx": "10.10"
+          },
+          "osx": {
+            "source_files": [
+              "Okta/OktaOidc/macOS/*.{swift}",
+              "Okta/OktaOidc/Internal/macOS/*.{swift}",
+              "Okta/OktaOidc/Internal/Tasks/macOS/*.{swift}"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
