@@ -1,0 +1,92 @@
+{
+  "name": "Longinus",
+  "version": "1.1.13",
+  "summary": "Longinus is a pure-Swift high-performance asynchronous web image loading and caching framework.",
+  "description": "Longinus is a pure-Swift high-performance asynchronous web image loading and caching framework.\n\n* Asynchronous image downloading and caching.\n* Preload images and cache them to disk for further showing.\n* Animated GIF support (dynamic buffer, lower memory usage).\n* Baseline/progressive/interlaced image decode support.\n* View extensions for UIImageView, UIButton, MKAnnotationView and CALayer to directly set an image from a URL.\n* Image loading category for UIImageView, UIButton and CALayer.\n* Built-in transition animation when setting images.(or you can set your custom image showing transion)\n* Image Transform after downloading supported: blur, round corner, resize, color tint, crop, rotate and more.\n* High performance memory and disk image cache. Use LRU algorithm to manage. For disk cache, it use file system and sqlite for better performance.\n* Use FIFO queue to handle image downloading operation.\n* Smooth sliding without UI lags. High performance image caching and decoding to avoid main thread blocked.",
+  "homepage": "https://github.com/KittenYang/Longinus",
+  "screenshots": "https://github.com/KittenYang/Longinus/raw/master/Assets/Logo.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "KittenYang": "kittenyang@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/KittenYang/Longinus.git",
+    "tag": "1.1.13"
+  },
+  "social_media_url": "https://twitter.com/KittenYang",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "General",
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "General",
+      "source_files": [
+        "Sources/General/*.swift"
+      ],
+      "dependencies": {
+        "Longinus/Networking": [
+
+        ]
+      }
+    },
+    {
+      "name": "Cache",
+      "source_files": "Sources/Cache/*.swift",
+      "dependencies": {
+        "Longinus/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "ImageCode",
+      "source_files": "Sources/ImageCode/*.swift",
+      "dependencies": {
+        "Longinus/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "Networking",
+      "source_files": "Sources/Networking/*.swift",
+      "dependencies": {
+        "Longinus/ImageCode": [
+
+        ],
+        "Longinus/Cache": [
+
+        ]
+      }
+    },
+    {
+      "name": "Utility",
+      "source_files": "Sources/Utility/*.swift"
+    },
+    {
+      "name": "SwiftUI",
+      "source_files": "Sources/SwiftUI/*.swift",
+      "dependencies": {
+        "Longinus/General": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-weak_framework SwiftUI"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
