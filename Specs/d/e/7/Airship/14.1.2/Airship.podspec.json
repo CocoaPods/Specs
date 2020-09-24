@@ -1,0 +1,206 @@
+{
+  "name": "Airship",
+  "version": "14.1.2",
+  "summary": "Airship iOS SDK",
+  "documentation_url": "https://docs.airship.com/platform/ios",
+  "homepage": "https://www.airship.com",
+  "authors": {
+    "Airship": "support@airship.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/urbanairship/ios-library.git",
+    "tag": "14.1.2"
+  },
+  "module_name": "Airship",
+  "platforms": {
+    "ios": "11.0",
+    "tvos": "11.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Automation",
+    "MessageCenter",
+    "ExtendedActions"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "Airship/AirshipCore/Source/Public/*.h",
+      "ios": {
+        "source_files": [
+          "Airship/AirshipCore/Source/ios/**/*.{h,m}",
+          "Airship/AirshipCore/Source/common/**/*.{h,m}",
+          "Airship/AirshipCore/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": [
+          "Airship/AirshipCore/Source/common/**/*+Internal*.h",
+          "Airship/AirshipCore/Source/ios/**/*+Internal*.h"
+        ],
+        "resources": [
+          "Airship/AirshipCore/Resources/common/*",
+          "Airship/AirshipCore/Resources/ios/*"
+        ],
+        "exclude_files": [
+          "Airship/AirshipCore/Resources/ios/Info.plist",
+          "Airship/AirshipCore/Source/common/AirshipCore.h"
+        ],
+        "frameworks": [
+          "WebKit",
+          "CoreTelephony"
+        ]
+      },
+      "tvos": {
+        "source_files": [
+          "Airship/AirshipCore/Source/tvos/**/*.{h,m}",
+          "Airship/AirshipCore/Source/common/**/*.{h,m}",
+          "Airship/AirshipCore/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": [
+          "Airship/AirshipCore/Source/common/**/*+Internal*.h",
+          "Airship/AirshipCore/Source/tvos/**/*+Internal*.h"
+        ],
+        "resources": [
+          "Airship/AirshipCore/Resources/common/*",
+          "Airship/AirshipCore/Resources/tvos/*"
+        ],
+        "exclude_files": [
+          "Airship/AirshipCore/Resources/tvos/Info.plist",
+          "Airship/AirshipCore/Source/common/AirshipCore.h",
+          "Airship/AirshipCore/Source/Public/UAActivityViewController.h",
+          "Airship/AirshipCore/Source/Public/UAChannelCapture.h",
+          "Airship/AirshipCore/Source/Public/UAJavaScriptCommand.h",
+          "Airship/AirshipCore/Source/Public/UAJavaScriptEnvironment.h",
+          "Airship/AirshipCore/Source/Public/UANativeBridge.h",
+          "Airship/AirshipCore/Source/Public/UANativeBridgeActionHandler.h",
+          "Airship/AirshipCore/Source/Public/UAPasteboardAction.h",
+          "Airship/AirshipCore/Source/Public/UAShareAction.h",
+          "Airship/AirshipCore/Source/Public/UAShareActionPredicate.h",
+          "Airship/AirshipCore/Source/Public/UAWalletAction.h",
+          "Airship/AirshipCore/Source/Public/UAWebView.h",
+          "Airship/AirshipCore/Source/Public/UANativeBridgeExtensionDelegate.h",
+          "Airship/AirshipCore/Source/Public/UAJavaScriptCommandDelegate.h",
+          "Airship/AirshipCore/Source/Public/UANativeBridgeDelegate.h"
+        ]
+      },
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "UserNotifications",
+        "CFNetwork",
+        "CoreGraphics",
+        "Foundation",
+        "Security",
+        "SystemConfiguration",
+        "UIKit",
+        "CoreData"
+      ]
+    },
+    {
+      "name": "ExtendedActions",
+      "ios": {
+        "public_header_files": "Airship/AirshipExtendedActions/Source/Public/*.h",
+        "source_files": [
+          "Airship/AirshipExtendedActions/Source/**/*.{h,m}",
+          "Airship/AirshipExtendedActions/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": "Airship/AirshipExtendedActions/Source/**/*+Internal*.h",
+        "resources": "Airship/AirshipExtendedActions/Resources/*",
+        "exclude_files": [
+          "Airship/AirshipExtendedActions/Resources/Info.plist",
+          "Airship/AirshipExtendedActions/Source/AirshipExtendedActions.h"
+        ],
+        "frameworks": "StoreKit"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "ios": {
+        "public_header_files": "Airship/AirshipLocation/Source/Public/*.h",
+        "source_files": [
+          "Airship/AirshipLocation/Source/*.{h,m}",
+          "Airship/AirshipLocation/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": "Airship/AirshipLocation/Source/*+Internal*.h",
+        "exclude_files": "Airship/AirshipLocation/Source/AirshipLocation.h",
+        "frameworks": "CoreLocation"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Automation",
+      "ios": {
+        "public_header_files": "Airship/AirshipAutomation/Source/Public/*.h",
+        "source_files": [
+          "Airship/AirshipAutomation/Source/**/*.{h,m}",
+          "Airship/AirshipAutomation/Source/Public/**/*.{h,m}"
+        ],
+        "resources": "Airship/AirshipAutomation/Resources/*",
+        "exclude_files": [
+          "Airship/AirshipAutomation/Resources/Info.plist",
+          "Airship/AirshipAutomation/Source/AirshipAutomation.h"
+        ],
+        "frameworks": "UIKit"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MessageCenter",
+      "ios": {
+        "public_header_files": "Airship/AirshipMessageCenter/Source/Public/*.h",
+        "source_files": [
+          "Airship/AirshipMessageCenter/Source/**/*.{h,m}",
+          "Airship/AirshipMessageCenter/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": "Airship/AirshipMessageCenter/Source/**/*+Internal*.h",
+        "resources": "Airship/AirshipMessageCenter/Resources/*",
+        "exclude_files": [
+          "Airship/AirshipMessageCenter/Resources/Info.plist",
+          "Airship/AirshipMessageCenter/Source/AirshipMessageCenter.h"
+        ]
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Accengage",
+      "ios": {
+        "public_header_files": "Airship/AirshipAccengage/Source/Public/*.h",
+        "source_files": [
+          "Airship/AirshipAccengage/Source/**/*.{h,m}",
+          "Airship/AirshipAccengage/Source/Public/**/*.{h,m}"
+        ],
+        "private_header_files": "Airship/AirshipAccengage/Source/**/*+Internal*.h",
+        "exclude_files": "Airship/AirshipAccengage/Source/AirshipAccengage.h",
+        "resources": "Airship/AirshipAccengage/Resources/**/*"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    }
+  ]
+}
