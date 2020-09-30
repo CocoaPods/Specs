@@ -1,0 +1,38 @@
+{
+  "name": "libserialport",
+  "version": "0.1.1",
+  "summary": "A serial port library.",
+  "description": "A minimal, cross-platform shared library written in C that is intended to take care of the OS-specific details when writing software that uses serial ports.",
+  "homepage": "https://sigrok.org/wiki/Libserialport",
+  "license": {
+    "type": "LGPL-3.0",
+    "file": "COPYING"
+  },
+  "authors": "See AUTHORS file",
+  "documentation_url": "https://sigrok.org/api/libserialport/unstable/index.html",
+  "source": {
+    "git": "https://github.com/sigrokproject/libserialport.git",
+    "tag": "libserialport-0.1.1"
+  },
+  "prepare_command": "((command -v automake && command -v glibtoolize) >/dev/null 2>&1 ||\n { echo >&2 'Please run `brew install automake libtool`.'; exit 1; }) &&\n./autogen.sh && ./configure",
+  "platforms": {
+    "osx": null
+  },
+  "source_files": "*.{c,h}",
+  "exclude_files": [
+    "freebsd.c",
+    "linux*.c",
+    "windows.c"
+  ],
+  "private_header_files": "libserialport_internal.h",
+  "module_name": "libserialport",
+  "compiler_flags": "-DLIBSERIALPORT_ATBUILD",
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  }
+}
