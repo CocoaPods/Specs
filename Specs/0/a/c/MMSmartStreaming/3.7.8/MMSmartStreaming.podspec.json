@@ -1,0 +1,73 @@
+{
+  "name": "MMSmartStreaming",
+  "version": "3.7.8",
+  "summary": "The MediaMelon Player SDK Provides SmartSight Analytics and QBR SmartStreaming.",
+  "description": "The MediaMelon Player SDK adds SmartSight Analytics and QBR SmartStreaming capability to any media player and is available for all ABR media players.",
+  "homepage": "https://bitbucket.org/mediameloninc/mmsmartstreaming-ios-cocoapods/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "vetri": "vetri@mediamelon.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/mediameloninc/mmsmartstreaming-ios-cocoapods",
+    "tag": "3.7.8"
+  },
+  "swift_versions": "4.0",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "AVPlayer",
+  "subspecs": [
+    {
+      "name": "AVPlayer",
+      "source_files": "MMSmartStreaming/Classes/Common/*.{h,swift}",
+      "ios": {
+        "source_files": "MMSmartStreaming/Classes/Wrapper/AVPlayer/iOS/*.swift",
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MMSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a"
+      },
+      "tvos": {
+        "source_files": "MMSmartStreaming/Classes/Wrapper/AVPlayer/tvOS/*.swift",
+        "vendored_libraries": "MMSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a"
+      },
+      "frameworks": [
+        "UIKit",
+        "AVFoundation"
+      ],
+      "libraries": "stdc++",
+      "public_header_files": "MMSmartStreaming/Classes/Common/*.h"
+    },
+    {
+      "name": "AVPlayerWithFreewheel",
+      "source_files": "MMSmartStreaming/Classes/Common/*.{h,swift}",
+      "ios": {
+        "source_files": "MMSmartStreaming/Classes/Wrapper/AVPlayerWithFreewheel/iOS/*.swift",
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MMSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a",
+        "vendored_frameworks": "MMSmartStreaming/Frameworks/Freewheel/iOS/AdManager.framework"
+      },
+      "tvos": {
+        "source_files": "MMSmartStreaming/Classes/Wrapper/AVPlayerWithFreewheel/tvOS/*.swift",
+        "vendored_libraries": "MMSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a",
+        "vendored_frameworks": "MMSmartStreaming/Frameworks/Freewheel/tvOS/AdManager.framework"
+      },
+      "frameworks": [
+        "UIKit",
+        "AVFoundation",
+        "AdSupport",
+        "SystemConfiguration"
+      ],
+      "libraries": "stdc++",
+      "public_header_files": "MMSmartStreaming/Classes/Common/*.h",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "",
+        "VALID_ARCHS[sdk=appletvsimulator*]": ""
+      }
+    }
+  ],
+  "swift_version": "4.0"
+}
