@@ -1,0 +1,77 @@
+{
+  "name": "STRVChat",
+  "module_name": "Chat",
+  "version": "0.0.6",
+  "summary": "Universal Modular Chat Component from STRV",
+  "description": "Universal Modular Chat Component from STRV. \nCore is an universal business logic that you can use with any UI and networking\nthat convorms to respective protocols.",
+  "homepage": "https://github.com/strvcom/ios-chat-component",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jan Schwarz": "jan.schwarz@strv.com",
+    "Tomáš Čejka": "tomas.cejka@strv.com",
+    "Daniel Pecher": "daniel.pecher@strv.com",
+    "Mireya Orta": "mireya.orta@strv.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/strvcom/ios-chat-component.git",
+    "tag": "0.0.6"
+  },
+  "static_framework": true,
+  "default_subspecs": "ChatMessageKitFirestore",
+  "cocoapods_version": ">= 1.4.0",
+  "swift_versions": "5.3",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "STRVChatCore": [
+          "~> 0.0.4"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "STRVChat/Core": [
+
+        ],
+        "STRVChatUI": [
+          "~> 0.0.5"
+        ]
+      }
+    },
+    {
+      "name": "NetworkingFirestore",
+      "dependencies": {
+        "STRVChat/Core": [
+
+        ],
+        "STRVChatNetworkingFirestore": [
+          "~> 0.0.4"
+        ]
+      }
+    },
+    {
+      "name": "ChatMessageKitFirestore",
+      "source_files": [
+        "Chat/*.swift",
+        "Chat/**/*.swift"
+      ],
+      "dependencies": {
+        "STRVChat/UI": [
+
+        ],
+        "STRVChat/NetworkingFirestore": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
