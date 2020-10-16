@@ -1,0 +1,43 @@
+{
+  "name": "j2objc-pod",
+  "version": "2.7",
+  "summary": "Integrates the pre-built J2ObjC frameworks into your project.",
+  "description": "Downloads the j2objc release and integrates the frameworks into your project.",
+  "homepage": "https://github.com/shim007/j2objc-pod",
+  "license": "private",
+  "authors": {
+    "Corey-Pett": "coreyallenpett@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/shim007/j2objc-pod.git",
+    "tag": "2.7"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": false,
+  "prepare_command": "scripts/download.sh",
+  "preserve_paths": "j2objc_lib/**/*",
+  "public_header_files": "j2objc_lib/include/**/*.h",
+  "source_files": "j2objc_lib/include/**/*.h",
+  "header_mappings_dir": "j2objc_lib/include",
+  "libraries": [
+    "jre_emul",
+    "icucore",
+    "z",
+    "iconv"
+  ],
+  "vendored_libraries": [
+    "j2objc_lib/lib/libjre_emul.a",
+    "j2objc_lib/lib/libjavax_inject.a"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/j2objc_lib/include\""
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  }
+}
