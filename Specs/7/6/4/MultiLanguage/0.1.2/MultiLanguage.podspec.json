@@ -1,0 +1,32 @@
+{
+  "name": "MultiLanguage",
+  "version": "0.1.2",
+  "summary": "A short description of MultiLanguage.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/feiduduhaha/MultiLanguage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lan_mailbox@163.com": "tianyun1201@163.com"
+  },
+  "source": {
+    "git": "https://github.com/feiduduhaha/MultiLanguage.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MultiLanguage/Classes/**/*",
+  "resource_bundles": {
+    "Multi_language": [
+      "MultiLanguage/Assets/*.png",
+      "MultiLanguage/Files/*.*"
+    ]
+  },
+  "script_phases": {
+    "name": "MultiLanguageScript",
+    "script": "\n      podsPath=${BUILT_PRODUCTS_DIR}\n      shortPath=\"/Multi_language.bundle/\"\n      plistPath=\"${podsPath}/${shortPath}Config.plist\"\n      pyScriptPath=\"${podsPath}/${shortPath}firstScript.py\"\n      echo \"我的工作目录\"\n      cho $podsPath\n      NeedRunScript=`/usr/libexec/PlistBuddy -c \"Print NeedRunScript\" $plistPath`\n      echo \"$NeedRunScript\"\n      if [ $NeedRunScript == \"true\" ]\n      then\n          echo \"执行python脚本\"\n          ${pyScriptPath}\n      else\n          echo \"未获取到配置文件\"\n      fi\n    "
+  }
+}
