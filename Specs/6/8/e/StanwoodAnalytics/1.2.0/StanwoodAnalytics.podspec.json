@@ -1,0 +1,151 @@
+{
+  "name": "StanwoodAnalytics",
+  "version": "1.2.0",
+  "swift_versions": "5.0",
+  "summary": "StanwoodAnalytics encapsulates the frameworks Stanwood uses from various vendors used in analytics and logging.",
+  "description": "A framework to encapsulate analytics and logging frameworks from Crashlytics, Google, and Firebase.",
+  "homepage": "https://github.com/stanwood/Stanwood_Analytics_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "stanwood": "ios.frameworks@stanwood.io"
+  },
+  "source": {
+    "git": "https://github.com/stanwood/Stanwood_Analytics_iOS.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "13.3"
+  },
+  "static_framework": true,
+  "default_subspecs": "Base",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited)"
+  },
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "resources": "StanwoodAnalytics/Assets/StanwoodAnalytics.bundle",
+  "frameworks": "UserNotifications",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "StanwoodAnalytics/Classes/Core/"
+    },
+    {
+      "name": "Base",
+      "dependencies": {
+        "StanwoodAnalytics/Core": [
+
+        ],
+        "StanwoodAnalytics/Crashlytics": [
+
+        ],
+        "StanwoodAnalytics/Firebase": [
+
+        ],
+        "StanwoodAnalytics/TestFairy": [
+
+        ]
+      }
+    },
+    {
+      "name": "Firebase",
+      "dependencies": {
+        "StanwoodAnalytics/Core": [
+
+        ],
+        "Firebase/Analytics": [
+
+        ]
+      },
+      "source_files": "StanwoodAnalytics/Classes/SubSpecs/Firebase/",
+      "frameworks": [
+        "FirebaseCore",
+        "FirebaseAnalytics",
+        "FirebaseCoreDiagnostics"
+      ]
+    },
+    {
+      "name": "Crashlytics",
+      "dependencies": {
+        "Firebase/Crashlytics": [
+
+        ],
+        "Firebase/Analytics": [
+
+        ],
+        "StanwoodAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "StanwoodAnalytics/Classes/SubSpecs/Crashlytics/",
+      "frameworks": [
+        "FirebaseCore",
+        "FirebaseAnalytics",
+        "FirebaseCrashlytics",
+        "FirebaseCoreDiagnostics"
+      ]
+    },
+    {
+      "name": "TestFairy",
+      "ios": {
+        "vendored_libraries": "Frameworks/libTestFairy.a"
+      },
+      "dependencies": {
+        "StanwoodAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "StanwoodAnalytics/Classes/SubSpecs/TestFairy/*.{swift,h,m}",
+      "frameworks": [
+        "CoreMedia",
+        "CoreMotion",
+        "AVFoundation",
+        "SystemConfiguration",
+        "OpenGLES"
+      ]
+    },
+    {
+      "name": "Mixpanel",
+      "dependencies": {
+        "Mixpanel-swift": [
+
+        ],
+        "StanwoodAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "StanwoodAnalytics/Classes/SubSpecs/Mixpanel/"
+    },
+    {
+      "name": "Google",
+      "dependencies": {
+        "StanwoodAnalytics/Core": [
+
+        ]
+      },
+      "vendored_libraries": [
+        "StanwoodAnalytics/Frameworks/GoogleAnalytics-3.17.0/Libraries/libGoogleAnalytics.a"
+      ],
+      "source_files": [
+        "StanwoodAnalytics/Frameworks/GoogleAnalytics-3.17.0/Sources/*.h",
+        "StanwoodAnalytics/Classes/SubSpecs/GoogleAnalytics/"
+      ],
+      "frameworks": [
+        "CoreData",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
