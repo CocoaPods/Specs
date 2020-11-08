@@ -1,0 +1,33 @@
+{
+  "name": "PMOSurvey",
+  "version": "0.1.0",
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "summary": "PMOSurvey is a library to present a survey view to your users. It uses Firebase config to collect the question and options.",
+  "description": "# PMOSurvey\n\n## Installation\n\n### Step 1: Download Mobile SDK\n\nPMOSurvey is available through [CocoaPods](https://cocoapods.org). To install\nit, simply add the following line to your Podfile:\n\n```ruby\npod 'PMOSurvey'\n```\n### Step 2: Configure Firebase Config\n\nOn the Firebase console navigation bar, click Remote Config. Add a parameter or choose a parameter to edit:\n\nTo add a parameter: Click Add Parameter.\nTo edit a parameter: Click the parameter you want to change.\n\n```json format\n{\n  \"active\": true,\n  \"question\": \"Where are you from?\",\n  \"options\": [\n    \"Konya\",\n    \"Izmir\",\n    \"Istanbul\",\n    \"Ankara\",\n    \"Edirne\"\n  ]\n}\n```\n<img src=https://github.com/plus-minus-one/PMOSurvey/blob/main/images/image_firebase.png />\n\n### Step 3: Integrate the PMOSurvey SDK with your app\n\n1. Import the SDK\n```swift\nimport PMOSurvey\n```\n\n2. Initialize the SDK with survey properties:\n```swift\n\nvar prop = PMOSurveyProperties()\nprop.plist_key = \"pmo_survey\"\nprop.duration = 10\nprop.enable_button_color = UIColor.green\nprop.disable_button_color = UIColor.red\nPMOSurvey.configure(prop)\n```\n3. Presenting a Survey to the User\n  \n```swift\nPMOSurvey.shared.isActive { [weak self] (active) in\nguard let strongSelf = self else { return }\n  if active{\n     PMOSurvey.shared.show(strongSelf, delegate: strongSelf)\n  }\n}\n``` \n4. Delegation : The survey respondent data is returned as an PMORespondent. Here's an example:\n  \n```swift\nextension ViewController:PMOSurveyDelegate{\n    func respondentDidEndSurvey(_ response: PMORespondent?, error: Error?) {\n        if let res = response{\n            print(\"question: \" + res.question)\n            print(\"answer: \" + res.answer)\n        }\n    }\n}\n```",
+  "homepage": "https://github.com/plus-minus-one/PMOSurvey",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ahmet": "ahmet@plusminusone.co"
+  },
+  "source": {
+    "git": "https://github.com/plus-minus-one/PMOSurvey.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PMOSurvey/Classes/**/*",
+  "static_framework": true,
+  "dependencies": {
+    "Firebase/RemoteConfig": [
+
+    ]
+  },
+  "swift_version": "5.0"
+}
