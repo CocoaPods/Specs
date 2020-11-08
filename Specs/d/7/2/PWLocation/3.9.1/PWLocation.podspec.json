@@ -1,0 +1,109 @@
+{
+  "name": "PWLocation",
+  "version": "3.9.1",
+  "summary": "Phunware's Location SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "http://phunware.github.io/maas-location-ios-sdk/",
+  "authors": {
+    "Phunware, Inc.": "http://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/Phunware",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-location-ios-sdk.git",
+    "tag": "v3.9.1"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "ios": {
+    "vendored_frameworks": "Frameworks/PWLocation.xcframework",
+    "dependencies": {
+      "TMCache": [
+
+      ],
+      "SSZipArchive": [
+
+      ]
+    },
+    "libraries": "c++",
+    "frameworks": [
+      "Security",
+      "QuartzCore",
+      "SystemConfiguration",
+      "MobileCoreServices",
+      "CoreTelephony",
+      "CoreBluetooth",
+      "CoreMotion",
+      "CoreLocation",
+      "MapKit"
+    ]
+  },
+  "default_subspecs": "all-frameworks",
+  "libraries": [
+    "sqlite3",
+    "z",
+    "xml2.2"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "all-frameworks",
+      "dependencies": {
+        "PWCore": [
+          "~> 3.9.1"
+        ],
+        "PWCore/DeviceIdentity": [
+          "~> 3.9.1"
+        ]
+      }
+    },
+    {
+      "name": "LimitedDeviceIdentity",
+      "ios": {
+        "vendored_frameworks": "Frameworks/PWLocation.xcframework"
+      },
+      "dependencies": {
+        "PWCore": [
+          "~> 3.9.1"
+        ]
+      }
+    },
+    {
+      "name": "MistProvider",
+      "ios": {
+        "vendored_frameworks": "Frameworks/MistProvider.xcframework"
+      },
+      "dependencies": {
+        "MistSDKDR": [
+          "1.5.272"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "BeaconPointProvider",
+      "ios": {
+        "vendored_frameworks": "Frameworks/BeaconPointProvider.xcframework"
+      },
+      "dependencies": {
+        "MistSDK": [
+          "1.5.58"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}
