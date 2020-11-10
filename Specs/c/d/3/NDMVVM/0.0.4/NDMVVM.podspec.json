@@ -1,0 +1,134 @@
+{
+  "name": "NDMVVM",
+  "version": "0.0.4",
+  "summary": "Support MVVM pattern.",
+  "description": "NDMVVM is a small framework that support MVVM pattern.",
+  "homepage": "https://github.com/hiep-nd/nd-mvvm.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nguyen Duc Hiep": "hiep.nd@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "5.1",
+    "5.2"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/hiep-nd/nd-mvvm.git",
+    "tag": "Pod-0.0.4"
+  },
+  "default_subspecs": "Swift",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/*.{h,m,mm,swift}"
+    },
+    {
+      "name": "Abstracts",
+      "source_files": [
+        "Sources/Abstracts/*.{h,m,mm,swift}",
+        "Sources/Abstracts/Privates/*.{h,m,mm,swift}"
+      ],
+      "private_header_files": "Sources/Abstracts/Privates/*.h",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "NDMVVM/Core": [
+
+        ],
+        "NDLog/ObjC": [
+          "~> 0.0.6"
+        ],
+        "NDUtils/objc": [
+          "~> 0.0.5"
+        ]
+      }
+    },
+    {
+      "name": "Abstracts_Swift",
+      "source_files": "Sources/Abstracts_Swift/*.{h,m,mm,swift}",
+      "dependencies": {
+        "NDMVVM/Abstracts": [
+
+        ]
+      }
+    },
+    {
+      "name": "ViewModels",
+      "source_files": [
+        "Sources/ViewModels/*.{h,m,mm,swift}",
+        "Sources/ViewModels/Privates/*.{h,m,mm,swift}"
+      ],
+      "private_header_files": "Sources/ViewModels/Privates/*.h",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "NDMVVM/Abstracts": [
+
+        ],
+        "NDLog/ObjC": [
+          "~> 0.0.6"
+        ],
+        "NDUtils/objc": [
+          "~> 0.0.5"
+        ]
+      }
+    },
+    {
+      "name": "Views",
+      "source_files": "Sources/Views/*.{h,m,mm,swift}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "NDMVVM/Abstracts": [
+
+        ],
+        "NDLog/ObjC": [
+          "~> 0.0.6"
+        ],
+        "NDManualObjects/ObjC": [
+          "~> 0.0.8"
+        ],
+        "NDUtils/objc": [
+          "~> 0.0.5"
+        ]
+      }
+    },
+    {
+      "name": "ObjC",
+      "dependencies": {
+        "NDMVVM/Core": [
+
+        ],
+        "NDMVVM/Abstracts": [
+
+        ],
+        "NDMVVM/ViewModels": [
+
+        ],
+        "NDMVVM/Views": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "NDMVVM/Abstracts_Swift": [
+
+        ],
+        "NDMVVM/ObjC": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
