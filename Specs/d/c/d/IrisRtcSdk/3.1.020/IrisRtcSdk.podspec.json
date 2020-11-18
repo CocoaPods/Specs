@@ -1,0 +1,51 @@
+{
+  "name": "IrisRtcSdk",
+  "version": "3.1.020",
+  "summary": "iOS SDK which leverages Comcast Iris Platform",
+  "description": "iOS SDK which leverages Comcast Iris Platform.",
+  "homepage": "https://www.555.comcast.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Name": "harish_gupta@cable.comcast.com"
+  },
+  "source": {
+    "http": "https://github.com/555platform/555-rtc-ios-pod/releases/download/v3.1.020/IrisRtcSdk.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  },
+  "ios": {
+    "vendored_frameworks": "IrisRtcSdk.framework"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS[arch=arm64]": "$(inherited) ",
+    "OTHER_LDFLAGS[arch=armv7]": "$(inherited) ",
+    "OTHER_LDFLAGS[arch=armv7s]": "$(inherited) ",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "dependencies": {
+    "XMPPFramework": [
+      "~> 3.7.0"
+    ],
+    "libPhoneNumber-iOS": [
+      "~> 0.9"
+    ]
+  },
+  "default_subspecs": "precompiled",
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+        "OTHER_LDFLAGS": "-ObjC",
+        "ENABLE_BITCODE": "NO"
+      }
+    }
+  ]
+}
