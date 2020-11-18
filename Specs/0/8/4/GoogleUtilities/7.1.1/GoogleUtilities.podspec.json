@@ -1,0 +1,202 @@
+{
+  "name": "GoogleUtilities",
+  "version": "7.1.1",
+  "summary": "Google Utilities for iOS (plus community support for macOS and tvOS)",
+  "description": "Internal Google Utilities including Network, Reachability Environment, Logger and Swizzling for\nother Google CocoaPods. They're not intended for direct public usage.",
+  "homepage": "https://github.com/firebase/firebase-ios-sdk/tree/master/GoogleUtilities",
+  "license": {
+    "type": "Apache",
+    "file": "GoogleUtilities/LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "Utilities-7.1.1"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "GoogleUtilities/Tests/Unit/**/*.[mh]",
+        "SharedTestUtilities/URLSession/*.[mh]"
+      ],
+      "requires_arc": "GoogleUtilities/Tests/Unit/*/*.[mh]",
+      "requires_app_host": true,
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    },
+    {
+      "name": "unit-swift",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "GoogleUtilities/Tests/SwiftUnit/**/*.swift",
+        "GoogleUtilities/Tests/SwiftUnit/**/*.h"
+      ],
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Environment",
+      "source_files": "GoogleUtilities/Environment/**/*.[mh]",
+      "public_header_files": "GoogleUtilities/Environment/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "PromisesObjC": [
+          "~> 1.2"
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "source_files": "GoogleUtilities/Logger/**/*.[mh]",
+      "public_header_files": "GoogleUtilities/Logger/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "GoogleUtilities/Environment": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "GoogleUtilities/Network/**/*.[mh]",
+      "public_header_files": "GoogleUtilities/Network/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "GoogleUtilities/NSData+zlib": [
+
+        ],
+        "GoogleUtilities/Logger": [
+
+        ],
+        "GoogleUtilities/Reachability": [
+
+        ]
+      },
+      "frameworks": [
+        "Security"
+      ]
+    },
+    {
+      "name": "NSData+zlib",
+      "source_files": "GoogleUtilities/NSData+zlib/**/*.[mh]",
+      "public_header_files": "GoogleUtilities/NSData+zlib/Public/GoogleUtilities/*.h",
+      "libraries": [
+        "z"
+      ]
+    },
+    {
+      "name": "Reachability",
+      "source_files": "GoogleUtilities/Reachability/**/*.[mh]",
+      "public_header_files": "GoogleUtilities/Reachability/Public/GoogleUtilities/*.h",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration"
+        ]
+      },
+      "osx": {
+        "frameworks": [
+          "SystemConfiguration"
+        ]
+      },
+      "tvos": {
+        "frameworks": [
+          "SystemConfiguration"
+        ]
+      },
+      "dependencies": {
+        "GoogleUtilities/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppDelegateSwizzler",
+      "source_files": [
+        "GoogleUtilities/AppDelegateSwizzler/Internal/*.h",
+        "GoogleUtilities/AppDelegateSwizzler/Public/**/*.h",
+        "GoogleUtilities/AppDelegateSwizzler/*.m",
+        "GoogleUtilities/Common/*.h"
+      ],
+      "public_header_files": [
+        "GoogleUtilities/AppDelegateSwizzler/Public/GoogleUtilities/*.h"
+      ],
+      "dependencies": {
+        "GoogleUtilities/Logger": [
+
+        ],
+        "GoogleUtilities/Network": [
+
+        ],
+        "GoogleUtilities/Environment": [
+
+        ]
+      }
+    },
+    {
+      "name": "ISASwizzler",
+      "source_files": [
+        "GoogleUtilities/ISASwizzler/**/*.[mh]",
+        "GoogleUtilities/Common/*.h"
+      ],
+      "public_header_files": "GoogleUtilities/ISASwizzler/Public/GoogleUtilities/*.h"
+    },
+    {
+      "name": "MethodSwizzler",
+      "source_files": [
+        "GoogleUtilities/MethodSwizzler/**/*.[mh]",
+        "GoogleUtilities/Common/*.h"
+      ],
+      "public_header_files": "GoogleUtilities/MethodSwizzler/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "GoogleUtilities/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "SwizzlerTestHelpers",
+      "source_files": "GoogleUtilities/SwizzlerTestHelpers/**/*.[hm]",
+      "public_header_files": "GoogleUtilities/SwizzlerTestHelpers/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "GoogleUtilities/MethodSwizzler": [
+
+        ]
+      }
+    },
+    {
+      "name": "UserDefaults",
+      "source_files": "GoogleUtilities/UserDefaults/**/*.[hm]",
+      "public_header_files": "GoogleUtilities/UserDefaults/Public/GoogleUtilities/*.h",
+      "dependencies": {
+        "GoogleUtilities/Logger": [
+
+        ]
+      }
+    }
+  ]
+}
