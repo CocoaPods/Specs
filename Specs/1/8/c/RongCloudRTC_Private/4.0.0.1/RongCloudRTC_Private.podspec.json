@@ -1,0 +1,107 @@
+{
+  "name": "RongCloudRTC_Private",
+  "version": "4.0.0.1",
+  "summary": "RongCloud RTC for private environment",
+  "homepage": "http://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2018 RongCloud"
+  },
+  "authors": {
+    "tanghaibing": "tanghaibing@bailingcloud.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_Private_V4_0_0_1.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": [
+        "RongCloudRTC_Private/RongCallLib.framework",
+        "RongCloudRTC_Private/RongRTCLib.framework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "bz2",
+        "iconv",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi",
+        "resolv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "VideoToolbox",
+        "GLKit",
+        "CoreMedia",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "UIKit",
+        "CoreMotion"
+      ],
+      "dependencies": {
+        "RongCloudIM_Private/IMLib": [
+          "~>4.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "vendored_frameworks": "RongCloudRTC_Private/RongCallKit.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "RongCloudRTC_Private/RongCallLib": [
+
+        ],
+        "RongCloudIM_Private/IMLib": [
+          "~>4.0.0.1"
+        ],
+        "RongCloudIM_Private/IMKit": [
+          "~>4.0.0.1"
+        ]
+      }
+    }
+  ]
+}
