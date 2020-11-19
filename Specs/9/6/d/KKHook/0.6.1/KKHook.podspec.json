@@ -1,0 +1,44 @@
+{
+  "name": "KKHook",
+  "version": "0.6.1",
+  "summary": "A short description of KKHook.",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": ""
+  },
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/rykeryin/KKHook",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rykeryin": "rykeryin@163.com"
+  },
+  "source": {
+    "git": "https://gitee.com/rykeryin/KKHook.git",
+    "tag": "0.6.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": [
+    "KKHook/Classes/**/*",
+    "KKHook/Frameworks/Dobby.framework/Headers/**.h"
+  ],
+  "vendored_frameworks": "KKHook/Frameworks/Dobby.framework",
+  "public_header_files": [
+    "KKHook/Frameworks/Dobby.framework/Headers/**.h",
+    "KKHook/Classes/**.h"
+  ],
+  "libraries": "c++",
+  "resources": "KKHook/scripts",
+  "script_phases": [
+    {
+      "name": "gen_hook_code",
+      "script": "      #Pods目录\n      podsPath=$(pwd)\n      echo $podsPath\n      function read_dir(){\n        for file in `ls $1` #注意此处这是两个反引号，表示运行系统命令\n          do\n           if [ -d $1\"/\"$file ] #注意此处之间一定要加上空格，否则会报错\n           then\n             read_dir $1\"/\"$file\n           else\n             echo $1\"/\"$file #在此处处理文件即可\n             py_name=\"gen_hook_code\"\n             if [[ $file == *$py_name* ]]\n             then\n                 echo \"包含\"\n                 py_path=$1\"/\"$file\n                 echo $py_path\n                 echo \"\n\"\n                 echo $SRCROOT/../../\n                 echo \"=============\"\n                 cmd=\"python3 $py_path $PODS_TARGET_SRCROOT\"\n                 echo $cmd\n                 $cmd\n             else\n                 echo \"不包含\"\n             fi\n           fi\n          done\n      }\n      #读取第一个参数\n      read_dir $podsPath\n",
+      "shell_path": "/bin/sh",
+      "execution_position": "before_compile"
+    }
+  ]
+}
