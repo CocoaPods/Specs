@@ -1,0 +1,66 @@
+{
+  "name": "LvyiiWalletCore",
+  "version": "2.3.11",
+  "summary": "Lvyii Wallet core data structures and algorithms.",
+  "homepage": "http://gitlab.lvyii.com/liutian/lvyii-wallet-core",
+  "license": "MIT",
+  "authors": {
+    "liutian": "435757679@qq.com"
+  },
+  "module_name": "WalletCore",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.1",
+  "source": {
+    "http": "http://bpp-dev.oss-cn-shenzhen.aliyuncs.com/LvyiiWalletCore-iOS-2.3.11.zip"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": [
+        "swift/Sources/Types/*.swift",
+        "swift/Sources/Generated/Enums/*.swift",
+        "swift/Sources/Generated/Protobuf/*.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "preserve_paths": "build/ios/*.a",
+      "vendored_libraries": "build/ios/*.a",
+      "exclude_files": "swift/Sources/Generated/WalletCore.h",
+      "source_files": [
+        "include/**/*.h",
+        "swift/Sources/*.{swift,h,m,cpp}",
+        "swift/Sources/Extensions/*.swift",
+        "swift/Sources/Generated/*.{swift,h}"
+      ],
+      "public_header_files": [
+        "include/**/*.h",
+        "swift/Sources/*.h"
+      ],
+      "libraries": "c++",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -fprofile-instr-generate"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "dependencies": {
+        "LvyiiWalletCore/Types": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
