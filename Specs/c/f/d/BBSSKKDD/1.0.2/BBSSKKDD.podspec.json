@@ -1,0 +1,112 @@
+{
+  "name": "BBSSKKDD",
+  "version": "1.0.2",
+  "summary": "summary",
+  "homepage": "homepage",
+  "license": "MIT",
+  "authors": {
+    "author": "support@BBSSKKDD.com"
+  },
+  "source": {
+    "git": "https://github.com/huqx-getui/BBSSKKDD-pod-spec.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "ios": {
+        "vendored_libraries": "Vendor/libGTCommonSDK-1.1.1.0.a",
+        "vendored_frameworks": "GetuiBXSdk.framework"
+      },
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreTelephony",
+        "CoreMotion",
+        "MessageUI",
+        "QuartzCore",
+        "SafariServices",
+        "Security",
+        "SystemConfiguration",
+        "WebKit",
+        "CoreMedia"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "sqlite3",
+        "xml2",
+        "z"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC",
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "csj",
+      "dependencies": {
+        "BBSSKKDD/core": [
+
+        ],
+        "Bytedance-UnionAD": [
+          "~> 3.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "gdt",
+      "dependencies": {
+        "BBSSKKDD/core": [
+
+        ],
+        "GDTMobSDK": [
+          "~> 4.11.9"
+        ]
+      }
+    },
+    {
+      "name": "bd",
+      "dependencies": {
+        "BBSSKKDD/core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "Vendor/BaiduMobAdSDK.framework"
+      }
+    },
+    {
+      "name": "inmobi",
+      "dependencies": {
+        "BBSSKKDD/core": [
+
+        ],
+        "InMobiSDK-China": [
+          "~> 7.4.6"
+        ]
+      }
+    },
+    {
+      "name": "bxm",
+      "dependencies": {
+        "BBSSKKDD/core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_libraries": "Vendor/BXMSDK/libBXMSDK.a"
+      },
+      "resources": "Vendor/BXMSDK/BXMAdSDK.bundle",
+      "source_files": "Vendor/BXMSDK/*.{h,m}"
+    }
+  ]
+}
