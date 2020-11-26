@@ -1,0 +1,63 @@
+{
+  "name": "KKJSBridge",
+  "version": "1.3.6",
+  "summary": "One-stop solution for WKWebView to support offline resource，ajax/fetch request and cookie sync issues.",
+  "description": "One-stop solution for WKWebView to support offline resource，ajax/fetch request and cookie sync issues",
+  "homepage": "https://github.com/karosLi/KKJSBridge",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Karosli": "karosli1314@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/karosLi/KKJSBridge.git",
+    "tag": "1.3.6"
+  },
+  "default_subspecs": "AjaxProtocolHook",
+  "frameworks": [
+    "WebKit",
+    "UIKit"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "KKJSBridge/KKJSBridge/**/*.{h,m}",
+      "exclude_files": [
+        "KKJSBridge/KKJSBridge/Modules/Ajax/AjaxHook/**/*.{h,m}",
+        "KKJSBridge/KKJSBridge/Modules/Ajax/AjaxProtocolHook/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "AjaxHook",
+      "source_files": "KKJSBridge/KKJSBridge/Modules/Ajax/AjaxHook/**/*.{h,m}",
+      "resources": "KKJSBridge/KKJSBridge/JS/KKJSBridgeAJAXHook.js",
+      "dependencies": {
+        "KKJSBridge/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "KKAjaxHook=1"
+      }
+    },
+    {
+      "name": "AjaxProtocolHook",
+      "source_files": "KKJSBridge/KKJSBridge/Modules/Ajax/AjaxProtocolHook/**/*.{h,m}",
+      "resources": "KKJSBridge/KKJSBridge/JS/KKJSBridgeAJAXProtocolHook.js",
+      "dependencies": {
+        "KKJSBridge/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "KKAjaxProtocolHook=1"
+      }
+    }
+  ]
+}
