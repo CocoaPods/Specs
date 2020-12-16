@@ -1,0 +1,71 @@
+{
+  "name": "UniMPSDK",
+  "version": "2.9.8",
+  "summary": "UniMPSDK",
+  "homepage": "https://github.com/moliya/UniMPSDK",
+  "license": "MIT",
+  "authors": {
+    "Carefree": "946715806@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/moliya/UniMPSDK.git",
+    "tag": "2.9.8"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "JavaScriptCore",
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "QuickLook",
+    "CoreTelephony",
+    "AssetsLibrary",
+    "CoreLocation",
+    "AddressBook"
+  ],
+  "libraries": "c++",
+  "default_subspecs": "Core",
+  "resources": [
+    "Core/Resources/*.js",
+    "Core/Resources/*.ttf",
+    "Core/Resources/*.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "Core/Libs/*.a",
+          "vendored_frameworks": "Core/Libs/*.framework"
+        }
+      ]
+    }
+  ]
+}
