@@ -1,0 +1,60 @@
+{
+  "name": "GrowingAnalytics",
+  "version": "0.0.1",
+  "summary": "A short description of GrowingIO.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": "WebKit"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker",
+  "subspecs": [
+    {
+      "name": "TrackerCore",
+      "source_files": "GrowingTrackerCore/**/*{.h,.m}"
+    },
+    {
+      "name": "Tracker",
+      "source_files": "GrowingTracker/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "AutotrackerCore",
+      "source_files": "GrowingAutotrackerCore/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      },
+      "private_header_files": "GrowingAutotrackerCore/Private/*{.h,.m}"
+    },
+    {
+      "name": "Autotracker",
+      "source_files": "GrowingAutotracker/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+
+        ]
+      }
+    }
+  ]
+}
