@@ -1,0 +1,81 @@
+{
+  "name": "AnyImageKit",
+  "version": "0.11.0",
+  "license": "MIT",
+  "summary": "AnyImageKit is a toolbox for picking and editing photos.",
+  "homepage": "https://github.com/AnyImageProject/AnyImageKit",
+  "authors": {
+    "anotheren": "liudong.edward@gmail.com",
+    "RayJiang16": "1184731421@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/AnyImageProject/AnyImageKit.git",
+    "tag": "0.11.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1"
+  ],
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Picker",
+    "Editor",
+    "Capture"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/AnyImageKit/Core/**/*.swift",
+      "resources": "Sources/AnyImageKit/Resources/Core/**/*",
+      "dependencies": {
+        "SnapKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "source_files": "Sources/AnyImageKit/Picker/**/*.swift",
+      "resources": "Sources/AnyImageKit/Resources/Picker/**/*",
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_PICKER"
+      }
+    },
+    {
+      "name": "Editor",
+      "source_files": "Sources/AnyImageKit/Editor/**/*.swift",
+      "resources": "Sources/AnyImageKit/Resources/Editor/**/*",
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_EDITOR"
+      }
+    },
+    {
+      "name": "Capture",
+      "source_files": "Sources/AnyImageKit/Capture/**/*.{swift,metal}",
+      "resources": "Sources/AnyImageKit/Resources/Capture/**/*",
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_CAPTURE"
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
