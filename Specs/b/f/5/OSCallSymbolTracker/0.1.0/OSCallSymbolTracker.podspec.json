@@ -1,0 +1,32 @@
+{
+  "name": "OSCallSymbolTracker",
+  "version": "0.1.0",
+  "summary": "call symbol tracker",
+  "homepage": "https://github.com/liushuzeng/OSCallSymbolTracker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liushuzeng": "794895276@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/liushuzeng/OSCallSymbolTracker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "ios": {
+    "source_files": "OSCallSymbolTracker/*.{h,m}",
+    "preserve_paths": "OSCallSymbolTracker/symbol_tracker.rb",
+    "pod_target_xcconfig": {
+      "ENABLE_BITCODE": "NO"
+    },
+    "user_target_xcconfig": {
+      "ENABLE_BITCODE": "NO",
+      "OTHER_CFLAGS": "$(inherited) -fsanitize-coverage=func,trace-pc-guard",
+      "OTHER_SWIFT_FLAGS": "$(inherited) -sanitize=undefined -sanitize-coverage=func"
+    }
+  }
+}
