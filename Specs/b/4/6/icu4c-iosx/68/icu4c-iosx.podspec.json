@@ -1,0 +1,45 @@
+{
+  "name": "icu4c-iosx",
+  "version": "68",
+  "summary": "ICU libraries",
+  "homepage": "https://github.com/apotocki/icu4c-iosx",
+  "license": "BSD",
+  "authors": {
+    "Alexander Pototskiy": "alex.a.potocki@gmail.com"
+  },
+  "social_media_url": "https://www.linkedin.com/in/alexander-pototskiy-62852a93",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "11.0"
+  },
+  "osx": {
+    "pod_target_xcconfig": {
+      "VALID_ARCHS": "macos-x86_64 macos-arm64"
+    }
+  },
+  "ios": {
+    "pod_target_xcconfig": {
+      "VALID_ARCHS": "ios-arm64 ios-x86_64-simulator ios-arm64-simulator"
+    }
+  },
+  "static_framework": true,
+  "prepare_command": "sh scripts/build.sh",
+  "source": {
+    "git": "https://github.com/apotocki/icu4c-iosx.git",
+    "branch": "68",
+    "submodules": "true"
+  },
+  "source_files": "product/include/**/*.{h}",
+  "header_mappings_dir": "product/include",
+  "public_header_files": "product/include/**/*.{h}",
+  "vendored_frameworks": [
+    "product/frameworks/icudata.xcframework",
+    "product/frameworks/icui18n.xcframework",
+    "product/frameworks/icuio.xcframework",
+    "product/frameworks/icuuc.xcframework"
+  ],
+  "preserve_paths": [
+    "product/include/**/*.{h}",
+    "product/frameworks/**/*"
+  ]
+}
