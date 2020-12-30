@@ -1,0 +1,328 @@
+{
+  "name": "MKTrackerPlus",
+  "version": "1.0.0",
+  "summary": "MokoTracker+ APP重新做了组件化处理",
+  "homepage": "https://github.com/MOKO-iOS-Base-Library/MKTrackerPlus_Module",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MOKO-iOS-Base-Library/MKTrackerPlus_Module.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resource_bundles": {
+    "MKTrackerPlus": [
+      "MKTrackerPlus/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "MKBaseBleModule": [
+
+    ],
+    "MKBaseModuleLibrary": [
+
+    ],
+    "MKCustomUIModule": [
+
+    ],
+    "HHTransition": [
+
+    ],
+    "FMDB": [
+
+    ],
+    "MLInputDodger": [
+
+    ],
+    "iOSDFULibrary": [
+      "4.6.1"
+    ],
+    "CTMediator": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "ApplicationModule",
+      "source_files": "MKTrackerPlus/Classes/ApplicationModule/**"
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "MKTrackerPlus/Classes/CTMediator/**"
+    },
+    {
+      "name": "Database",
+      "source_files": "MKTrackerPlus/Classes/Database/**"
+    },
+    {
+      "name": "SDK-TP",
+      "source_files": "MKTrackerPlus/Classes/SDK-TP/**"
+    },
+    {
+      "name": "DeviceTypeManager",
+      "source_files": "MKTrackerPlus/Classes/DeviceTypeManager/**",
+      "dependencies": {
+        "MKTrackerPlus/SDK-TP": [
+
+        ]
+      }
+    },
+    {
+      "name": "Target",
+      "source_files": "MKTrackerPlus/Classes/Target/**",
+      "dependencies": {
+        "MKTrackerPlus/Functions": [
+
+        ]
+      }
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKTrackerPlus/SDK-TP": [
+
+        ],
+        "MKTrackerPlus/Database": [
+
+        ],
+        "MKTrackerPlus/DeviceTypeManager": [
+
+        ],
+        "MKTrackerPlus/CTMediator": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ScanPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/ScanPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/ScanPage/Model": [
+
+                ],
+                "MKTrackerPlus/Functions/ScanPage/View": [
+
+                ],
+                "MKTrackerPlus/Functions/TabBarPage": [
+
+                ],
+                "MKTrackerPlus/Functions/UpdatePage": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/ScanPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/ScanPage/View/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/ScanPage/Model": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TabBarPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/TabBarPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/AdvertiserPage": [
+
+                ],
+                "MKTrackerPlus/Functions/DeviceInfoPage": [
+
+                ],
+                "MKTrackerPlus/Functions/SettingPage": [
+
+                ],
+                "MKTrackerPlus/Functions/TrackerConfigPage": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "AdvertiserPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/AdvertiserPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/AdvertiserPage/Model": [
+
+                ],
+                "MKTrackerPlus/Functions/AdvertiserPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/AdvertiserPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/AdvertiserPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "TrackerConfigPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/TrackerConfigPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/TrackerConfigPage/Model": [
+
+                ],
+                "MKTrackerPlus/Functions/TrackerConfigPage/View": [
+
+                ],
+                "MKTrackerPlus/Functions/TrackerDataPage": [
+
+                ],
+                "MKTrackerPlus/Functions/FilterOptionsPage": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/TrackerConfigPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/TrackerConfigPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "FilterOptionsPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/FilterOptionsPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/FilterOptionsPage/Model": [
+
+                ],
+                "MKTrackerPlus/Functions/FilterOptionsPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/FilterOptionsPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/FilterOptionsPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "TrackerDataPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/TrackerDataPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/TrackerDataPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/TrackerDataPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "SettingPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/SettingPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/SettingPage/Model": [
+
+                ],
+                "MKTrackerPlus/Functions/SettingPage/View": [
+
+                ],
+                "MKTrackerPlus/Functions/UpdatePage": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/SettingPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKTrackerPlus/Classes/Functions/SettingPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "DeviceInfoPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/DeviceInfoPage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/DeviceInfoPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/DeviceInfoPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "UpdatePage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKTrackerPlus/Classes/Functions/UpdatePage/Controller/**",
+              "dependencies": {
+                "MKTrackerPlus/Functions/UpdatePage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKTrackerPlus/Classes/Functions/UpdatePage/Model/**"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
