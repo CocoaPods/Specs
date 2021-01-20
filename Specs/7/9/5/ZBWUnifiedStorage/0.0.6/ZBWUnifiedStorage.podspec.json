@@ -1,0 +1,46 @@
+{
+  "name": "ZBWUnifiedStorage",
+  "version": "0.0.6",
+  "summary": "iOS 统一存储库",
+  "description": "统一存储，支持多种形式的持久化和内存存储方式，使用统一的API调用方式，降低各种存储方式的使用成本，提高效率。\n支持NSUserDefaults、NSCache、归档、钥匙串keychain等存储方式;\n支持过期时间设置;\n存储路径从 cache目录改成document目录",
+  "homepage": "https://github.com/HangZhouShuChengKeJi/ZBWUnifiedStorage",
+  "license": "BSD",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "authors": {
+    "bwzhu": "bowen.zhu@91chengguo.com"
+  },
+  "source": {
+    "git": "https://github.com/HangZhouShuChengKeJi/ZBWUnifiedStorage.git",
+    "tag": "0.0.6"
+  },
+  "default_subspecs": "UnifiedStorage",
+  "requires_arc": true,
+  "dependencies": {
+    "SSKeychain": [
+      "1.4.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "UnifiedStorage",
+      "source_files": [
+        "ZBWUnifiedStorage/ZBWUnifiedStorage.{h,m}",
+        "ZBWUnifiedStorage/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "UserDefaultsCompatible",
+      "source_files": "ZBWUnifiedStorage/UserDefaultsCompatible/*.{h,m}",
+      "dependencies": {
+        "ZBWUnifiedStorage/UnifiedStorage": [
+
+        ]
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) ZBW_US_Compatible_UserDefaults=1"
+      }
+    }
+  ]
+}
