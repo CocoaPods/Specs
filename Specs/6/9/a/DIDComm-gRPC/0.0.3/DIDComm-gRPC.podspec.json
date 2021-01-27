@@ -1,0 +1,66 @@
+{
+  "name": "DIDComm-gRPC",
+  "version": "0.0.3",
+  "summary": "DIDComm gRPC extension",
+  "description": "DIDComm extensions using gRPC and Protobuf definitions",
+  "homepage": "https://github.com/trinsic-id/didcomm-extension-grpc",
+  "license": {
+    "type": "Copyright",
+    "text": "                  Copyright 2018\n                  Permission is granted to...\n"
+  },
+  "authors": {
+    "$(git config user.name)": "$(git config user.email)"
+  },
+  "source": {
+    "git": "https://github.com/trinsic-id/didcomm-extension-grpc.git",
+    "tag": "0.0.3"
+  },
+  "source_files": "objc/Source/DIDComm-gRPC/*.{h,m,mm}",
+  "vendored_libraries": "libs/ios/libdidcommgrpc.a",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64"
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "VALID_ARCHS": "arm64 x86_64",
+    "HEADER_SEARCH_PATHS": "$(CONFIGURATION_BUILD_DIR)",
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": [
+        "objc/Generated/*.pbobjc.{h,m}",
+        "objc/Generated/**/*.pbobjc.{h,m}"
+      ],
+      "header_mappings_dir": "objc/Generated",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "objc/Generated/*.pbrpc.{h,m}",
+        "objc/Generated/**/*.pbrpc.{h,m}"
+      ],
+      "header_mappings_dir": "objc/Generated",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "DIDComm-gRPC/Messages": [
+
+        ]
+      }
+    }
+  ]
+}
