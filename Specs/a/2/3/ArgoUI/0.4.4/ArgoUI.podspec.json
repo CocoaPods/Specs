@@ -1,0 +1,66 @@
+{
+  "name": "ArgoUI",
+  "version": "0.4.4",
+  "summary": "A lib of Momo Lua UI.",
+  "description": "A lib of Momo Lua UI.",
+  "homepage": "https://mln.immomo.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "MoMo",
+  "source": {
+    "git": "https://github.com/momotech/MLN.git",
+    "tag": "ArgoUI/0.4.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "requires_arc": true,
+  "resources": "MLN-iOS/MLN/Resource/ArgoUISystem.bundle",
+  "module_map": "MLN-iOS/MLN/Classes/MUICore/module.modulemap",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "source_files": "MLN-iOS/MLN/Classes/MUICore/**/*.{h,m,c}",
+      "public_header_files": "MLN-iOS/MLN/Classes/MUICore/**/*.h",
+      "private_header_files": "MLN-iOS/MLN/Classes/MUICore/argo_db/**/*.h",
+      "dependencies": {
+        "MLN/LuaLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "Kit",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "CoreGraphics",
+        "AVFoundation"
+      ],
+      "source_files": "MLN-iOS/MLN/Classes/MUIKit/**/*.{h,m,c,cpp,mm}",
+      "public_header_files": "MLN-iOS/MLN/Classes/MUIKit/**/*.h",
+      "private_header_files": [
+        "MLN-iOS/MLN/Classes/MUIKit/ArgoBinding/Listener/**/*.h",
+        "MLN-iOS/MLN/Classes/MUIKit/ArgoBinding/Lua/**/*.h"
+      ],
+      "dependencies": {
+        "ArgoUI/Core": [
+
+        ],
+        "ArgoAnimation": [
+
+        ]
+      }
+    }
+  ]
+}
