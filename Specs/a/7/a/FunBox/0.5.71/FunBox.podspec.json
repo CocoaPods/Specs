@@ -1,0 +1,156 @@
+{
+  "name": "FunBox",
+  "version": "0.5.71",
+  "summary": "FunBox 饭盒？",
+  "swift_versions": "5.0",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/choarkinphe/FunBox",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "choarkinphe": "choarkinphe@outlook.com"
+  },
+  "source": {
+    "git": "https://github.com/choarkinphe/FunBox.git",
+    "tag": "0.5.71"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Sources/FunBox/Code/*",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FunBox/Fun": [
+
+        ],
+        "FunBox/Box": [
+
+        ]
+      }
+    },
+    {
+      "name": "Fun",
+      "source_files": [
+        "Sources/FunBox/Code/*",
+        "Sources/FunBox/Code/Core/**/*"
+      ],
+      "resource_bundles": {
+        "FunBox": [
+          "Sources/FunBox/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,md,strings}"
+        ]
+      }
+    },
+    {
+      "name": "Box",
+      "subspecs": [
+        {
+          "name": "Utils",
+          "source_files": "Sources/FunBox/Code/Utils/**/*",
+          "dependencies": {
+            "FunBox/Fun": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "Sources/FunBox/Code/UI/**/*",
+          "dependencies": {
+            "FunBox/Fun": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Modules",
+      "dependencies": {
+        "FunBox/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "FunAlamofire",
+          "source_files": "Sources/FunAlamofire/Code/**/*",
+          "dependencies": {
+            "Alamofire": [
+              "~> 5.2.2"
+            ]
+          }
+        },
+        {
+          "name": "FunUI",
+          "source_files": "Sources/FunUI/**/*"
+        },
+        {
+          "name": "RxFunBox",
+          "source_files": "Sources/RxFunBox/**/*",
+          "dependencies": {
+            "RxDataSources": [
+              "~> 4.0.1"
+            ],
+            "RxSwift": [
+              "~> 5.1.1"
+            ],
+            "RxCocoa": [
+              "~> 5.1.1"
+            ]
+          }
+        },
+        {
+          "name": "FunWebImage",
+          "source_files": "Sources/FunWebImage/**/*",
+          "dependencies": {
+            "Kingfisher": [
+              "~> 5.15.0"
+            ]
+          }
+        },
+        {
+          "name": "FunScan",
+          "source_files": "Sources/FunScan/Code/**/*",
+          "resource_bundles": {
+            "FunScan": [
+              "Sources/FunScan/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,js,gif,md,strings}"
+            ]
+          },
+          "dependencies": {
+            "FunBox/Modules/FunUI": [
+
+            ]
+          }
+        },
+        {
+          "name": "FunMediaHelper",
+          "source_files": "Sources/FunMediaHelper/Code/**/*",
+          "resource_bundles": {
+            "MediaHelper": [
+              "Sources/FunMediaHelper/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,gif,md,strings}"
+            ]
+          },
+          "dependencies": {
+            "FunBox/Modules/FunWebImage": [
+
+            ],
+            "FunBox/Modules/FunUI": [
+
+            ],
+            "JXPhotoBrowser": [
+              "~> 3.1.2"
+            ],
+            "TZImagePickerController": [
+              "3.4.8"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
