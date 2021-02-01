@@ -1,0 +1,43 @@
+{
+  "name": "kta-tesseract",
+  "header_dir": "TesseractOCR",
+  "version": "4.1.3",
+  "summary": "Maintained version Tesseract OCR (with LSTM) for Objective-C or Swift.",
+  "homepage": "https://github.com/kurzdigital/kta-tesseract-ios.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "KURZ Digital Solutions GmbH & Co. KG": "ios@kurzdigital.com"
+  },
+  "source": {
+    "git": "https://github.com/kurzdigital/kta-tesseract-ios.git",
+    "tag": "4.1.3"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": [
+    "TesseractOCR/*.{h,m,mm}",
+    "TesseractOCR/include/**/*.h"
+  ],
+  "private_header_files": "TesseractOCR/include/**/*.h",
+  "ios": {
+    "exclude_files": "TesseractOCR/include/leptonica/config_auto.h",
+    "vendored_libraries": "TesseractOCR/lib/*.a"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "xcconfig": {
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "OTHER_LDFLAGS": "-lc++ -lz",
+    "CLANG_CXX_LIBRARY": "compiler-default"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  }
+}
