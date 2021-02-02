@@ -1,0 +1,70 @@
+{
+  "name": "OptiDiff",
+  "version": "0.1.1",
+  "summary": "A library for fast calculating of optimal collection diffs.",
+  "description": "A library for calculating optimal collection diffs using an LIS-based algorithm with less than **O(n log₂ n)** worst case total time (approximately  **n log₂ n − n log₂log₂ n + O(n)**).\nThe result diff is a minimal required diff equivalent to the result of Myers algorithm (which has **O(n²)** complexity) used in Swift standard library.",
+  "homepage": "https://github.com/tarbayev/OptiDiff",
+  "license": {
+    "type": "Unlicense",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Nickolay Tarbayev": "tarbayev-n@yandex.ru"
+  },
+  "source": {
+    "git": "https://github.com/tarbayev/OptiDiff.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.3",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/*.swift"
+    },
+    {
+      "name": "UITests",
+      "test_type": "ui",
+      "source_files": "UITests/*.swift",
+      "requires_app_host": true,
+      "app_host_name": "OptiDiff/ExampleApp",
+      "dependencies": {
+        "OptiDiff/ExampleApp": [
+
+        ]
+      }
+    }
+  ],
+  "appspecs": [
+    {
+      "name": "ExampleApp",
+      "source_files": "ExampleApp/*.swift",
+      "resources": [
+        "ExampleApp/*.storyboard"
+      ],
+      "info_plist": {
+        "UIMainStoryboardFile": "Main"
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Diff",
+      "source_files": "Sources/Diff/**/*.swift"
+    },
+    {
+      "name": "UI",
+      "source_files": "Sources/UI/**/*.swift",
+      "dependencies": {
+        "OptiDiff/Diff": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    }
+  ],
+  "swift_version": "5.3"
+}
