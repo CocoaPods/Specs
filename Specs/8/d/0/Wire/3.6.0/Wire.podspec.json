@@ -1,0 +1,42 @@
+{
+  "name": "Wire",
+  "version": "3.6.0",
+  "license": {
+    "type": "apache2",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "https://github.com/square/wire",
+  "authors": {
+    "Eric Firestone": "@firetweet"
+  },
+  "summary": "Protocol buffers runtime for Swift.",
+  "source": {
+    "git": "https://github.com/square/wire.git",
+    "tag": "3.6.0"
+  },
+  "module_name": "Wire",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.15"
+  },
+  "source_files": "wire-library/wire-runtime-swift/src/main/swift/*.swift",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "11.0",
+        "osx": "10.15"
+      },
+      "script_phases": {
+        "name": "Compile Test Protos",
+        "execution_position": "before_compile",
+        "script": "        cd ${PODS_ROOT}/../..\n        if [ ! -f ./gradlew ]; then\n          # This is not development mode.\n          # This pod was installed via a Podfile (not from source) and ./gradlew was removed.\n          exit 0\n        fi\n        ./gradlew -p wire-library :wire-runtime-swift:generateTestProtos\n"
+      },
+      "preserve_paths": "wire-library/wire-runtime-swift/src/test/proto/**/*.proto",
+      "source_files": "wire-library/wire-runtime-swift/src/test/swift/**/*.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
