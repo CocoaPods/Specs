@@ -1,0 +1,169 @@
+{
+  "name": "Braintree",
+  "version": "5.0.0",
+  "summary": "Braintree iOS SDK: Helps you accept card and alternative payments in your iOS app.",
+  "description": "Braintree is a full-stack payments platform for developers\n\nThis CocoaPod will help you accept payments in your iOS app.\n\nCheck out our development portal at https://developers.braintreepayments.com.",
+  "homepage": "https://www.braintreepayments.com/how-braintree-works",
+  "documentation_url": "https://developers.braintreepayments.com/ios/start/hello-client",
+  "screenshots": "https://raw.githubusercontent.com/braintree/braintree_ios/master/Docs/screenshot.png",
+  "license": "MIT",
+  "authors": {
+    "Braintree": "code@getbraintree.com"
+  },
+  "source": {
+    "git": "https://github.com/braintree/braintree_ios.git",
+    "tag": "5.0.0"
+  },
+  "social_media_url": "https://twitter.com/braintree",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "compiler_flags": "-Wall -Werror -Wextra",
+  "swift_versions": "5.1",
+  "default_subspecs": [
+    "Core",
+    "Card",
+    "PayPal"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "AmericanExpress",
+      "source_files": "Sources/BraintreeAmericanExpress/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeAmericanExpress/Public/BraintreeAmericanExpress/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "Sources/BraintreeApplePay/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeApplePay/Public/BraintreeApplePay/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      },
+      "frameworks": "PassKit"
+    },
+    {
+      "name": "Card",
+      "source_files": "Sources/BraintreeCard/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeCard/Public/BraintreeCard/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/BraintreeCore/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeCore/Public/BraintreeCore/*.h"
+    },
+    {
+      "name": "DataCollector",
+      "source_files": "Sources/BraintreeDataCollector/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeDataCollector/Public/BraintreeDataCollector/*.h",
+      "vendored_frameworks": "Frameworks/KountDataCollector.xcframework",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PaymentFlow",
+      "source_files": "Sources/BraintreePaymentFlow/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreePaymentFlow/Public/BraintreePaymentFlow/*.h",
+      "weak_frameworks": "SafariServices",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ],
+        "Braintree/PayPalDataCollector": [
+
+        ]
+      }
+    },
+    {
+      "name": "PayPal",
+      "source_files": "Sources/BraintreePayPal/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreePayPal/Public/BraintreePayPal/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ],
+        "Braintree/PayPalDataCollector": [
+
+        ]
+      }
+    },
+    {
+      "name": "PayPalDataCollector",
+      "source_files": "Sources/PayPalDataCollector/**/*.{swift}",
+      "frameworks": [
+        "MessageUI",
+        "SystemConfiguration",
+        "CoreLocation",
+        "UIKit"
+      ],
+      "vendored_frameworks": "Frameworks/PPRiskMagnes.xcframework",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ThreeDSecure",
+      "source_files": "Sources/BraintreeThreeDSecure/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/*.h",
+      "dependencies": {
+        "Braintree/Card": [
+
+        ],
+        "Braintree/PaymentFlow": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/CardinalMobile.framework"
+    },
+    {
+      "name": "UnionPay",
+      "source_files": "Sources/BraintreeUnionPay/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeUnionPay/Public/BraintreeUnionPay/*.h",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "Braintree/Card": [
+
+        ],
+        "Braintree/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Venmo",
+      "source_files": "Sources/BraintreeVenmo/**/*.{h,m}",
+      "public_header_files": "Sources/BraintreeVenmo/Public/BraintreeVenmo/*.h",
+      "dependencies": {
+        "Braintree/Core": [
+
+        ],
+        "Braintree/PayPalDataCollector": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
