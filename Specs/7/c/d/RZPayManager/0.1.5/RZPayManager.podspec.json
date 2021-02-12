@@ -1,0 +1,73 @@
+{
+  "name": "RZPayManager",
+  "version": "0.1.5",
+  "summary": "RZPayManager 是整合了微信，支付宝等第三方支付的支付组件",
+  "description": "RZPayManager是对时下各第三方支付平台的整合，将支付的调用简单化，组件化。",
+  "homepage": "https://github.com/ReyZhang",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "reyzhang": "27196849@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ReyZhang/RZPayManager.git",
+    "tag": "0.1.5"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 armv7s arm64"
+  },
+  "source_files": "RZPayManager/Classes/**/*",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "dependencies": {
+    "AlipaySDK-iOS": [
+      "~> 15.7.4"
+    ],
+    "WechatOpenSDK": [
+      "~> 1.8.7.1"
+    ],
+    "MBProgressHUD": [
+      "~> 1.2.0"
+    ]
+  },
+  "static_framework": true,
+  "vendored_libraries": "RZPayManager/Classes/UPPay/*.a",
+  "subspecs": [
+    {
+      "name": "Category",
+      "source_files": "RZPayManager/Classes/Category/**/*",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ]
+    },
+    {
+      "name": "Core",
+      "source_files": "RZPayManager/Classes/Core/**/*",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "dependencies": {
+        "RZPayManager/Category": [
+
+        ],
+        "RZPayManager/UPPay": [
+
+        ]
+      }
+    },
+    {
+      "name": "UPPay",
+      "vendored_libraries": "RZPayManager/Classes/UPPay/*.a",
+      "source_files": "RZPayManager/Classes/UPPay/*.h"
+    }
+  ]
+}
