@@ -1,0 +1,410 @@
+{
+  "name": "Krake",
+  "version": "11.4.4",
+  "summary": "Laser mobile framework.",
+  "homepage": "https://www.laser-group.com",
+  "description": "This is a Laser Krake® libraries writted by our devs to integrate Krake® CMS features",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/LaserSrl/KrakeiOS.git",
+    "tag": "11.4.4"
+  },
+  "authors": {
+    "Patrick Negretto": "patrick.negretto@laser-group.com",
+    "Joël Gerbore": "joel.gerbore@laser-group.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "frameworks": [
+    "CoreLocation",
+    "AddressBook",
+    "AddressBookUI",
+    "MapKit",
+    "CoreData",
+    "WebKit",
+    "StoreKit"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-DDEBUG"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "AppleSignIn",
+      "frameworks": [
+        "AuthenticationServices",
+        "Foundation"
+      ],
+      "source_files": [
+        "AppleSignIn",
+        "Krake/AppleSignIn/*.swift"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppUpdater",
+      "source_files": "Krake/AppUpdater/*.{h,m,swift}",
+      "dependencies": {
+        "Krake/Commons": [
+
+        ]
+      }
+    },
+    {
+      "name": "Beacons",
+      "source_files": "Krake/Beacons/*.{swift}",
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Commons",
+      "source_files": "Krake/Commons/*.{swift}"
+    },
+    {
+      "name": "ContentManager",
+      "source_files": "Krake/ContentManager/**/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "ContentManager": [
+            "Krake/ContentManager/**/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "FDTake": [
+          "3.0.0"
+        ],
+        "LaserPicker": [
+          "1.0.0"
+        ],
+        "IQAudioRecorderController": [
+          "1.2.3"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "Krake/Core/*.{h,m,swift}",
+        "Krake/Krake.h",
+        "Krake/Mapper/**/*.{h,m,swift}",
+        "Krake/Content/**/*.{h,m,swift}",
+        "Krake/Extentions/*.{h,m,swift}",
+        "Krake/Mappe/*.{h,m,swift}",
+        "Krake/Analytics/*.{h,m,swift}",
+        "Krake/Localization/*.{swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "OrchardGen": [
+            "Krake/Mapper/OGLMapperConfiguration.plist"
+          ],
+          "LoginManager": [
+            "Krake/Mapper/LoginManager/*.storyboard"
+          ],
+          "PrivacyManager": [
+            "Krake/Mapper/PrivacyManager/*.storyboard"
+          ],
+          "Content": [
+            "Krake/Content/**/*.{xib,storyboard}"
+          ],
+          "Core": [
+            "Krake/Core/**/*.{xib}"
+          ],
+          "Location": [
+            "Krake/Mappe/*.storyboard"
+          ],
+          "Localization": [
+            "Krake/Localization/*.{lproj}"
+          ],
+          "KrakeImages": [
+            "Krake/*.{xcassets}",
+            "Krake/Mapper/**/*.{xcassets}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Commons": [
+
+        ],
+        "Alamofire": [
+          "~> 5.4.0"
+        ],
+        "AlamofireNetworkActivityIndicator": [
+          "~> 3.1.0"
+        ],
+        "CryptoSwift": [
+          "~> 1.3.2"
+        ],
+        "Firebase": [
+          "~> 7.0"
+        ],
+        "FirebaseCrashlytics": [
+
+        ],
+        "Firebase/Messaging": [
+
+        ],
+        "KNSemiModalViewController_hons82": [
+          "0.4.6"
+        ],
+        "libPhoneNumber-iOS": [
+          "~> 0.9.15"
+        ],
+        "MBProgressHUD": [
+          "1.2.0"
+        ],
+        "NTPKit": [
+          "1.0.1"
+        ],
+        "SDWebImage": [
+          "~> 5.9"
+        ],
+        "SwiftyJSON": [
+          "5.0.0"
+        ],
+        "SwiftMessages": [
+          "~> 9.0"
+        ],
+        "Cluster": [
+          "~> 3.0.3"
+        ],
+        "Kml.swift": [
+          "0.3.2"
+        ],
+        "Segmentio": [
+          "~> 4.1"
+        ],
+        "LaserWebViewController": [
+          "2.0.1"
+        ],
+        "LaserFloatingTextField": [
+          "1.0.0"
+        ],
+        "LaserVideoPhotoGallery": [
+          "3.0.3"
+        ],
+        "LaserSwippableCell": [
+          "1.0.0"
+        ],
+        "LaserCalendarTimeSelector": [
+          "1.5.3"
+        ]
+      }
+    },
+    {
+      "name": "FacebookKit",
+      "source_files": [
+        "FacebookKit",
+        "Krake/FacebookKit/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 9.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 9.0"
+        ]
+      }
+    },
+    {
+      "name": "GameQuiz",
+      "source_files": [
+        "GameQuiz",
+        "Krake/GameQuiz/**/*.{h,m,swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "GameQuiz": [
+            "Krake/GameQuiz/*.{storyboard,xcassets,lproj}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "OAuth",
+      "source_files": [
+        "OAuth",
+        "Krake/OAuth/*.{swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "OAuth": [
+            "Krake/OAuth/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Commons": [
+
+        ],
+        "MBProgressHUD": [
+          "1.2.0"
+        ]
+      }
+    },
+    {
+      "name": "OTP",
+      "source_files": [
+        "OTP",
+        "Krake/OTP/**/*.{h,m,swift}"
+      ],
+      "frameworks": "MapKit",
+      "ios": {
+        "resource_bundles": {
+          "OTP": [
+            "Krake/OTP/*.{storyboard,xcassets,lproj}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "Polyline": [
+          "~> 5.0"
+        ],
+        "DateTimePicker": [
+          "~> 2.5.0"
+        ],
+        "EVReflection": [
+          "5.10.1"
+        ]
+      }
+    },
+    {
+      "name": "Policies",
+      "source_files": "Krake/Policies/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "Policies": [
+            "Krake/Policies/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PostCard",
+      "source_files": "Krake/PostCard/*.{h,m,swift}",
+      "ios": {
+        "resource_bundles": {
+          "PostCard": [
+            "Krake/PostCard/*.storyboard"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PuzzleGame",
+      "source_files": [
+        "PuzzleGame",
+        "Krake/PuzzleGame/**/*.{swift}"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "PuzzleGame": [
+            "Krake/PuzzleGame/*.{storyboard,xcassets,lproj}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Questionnaires",
+      "source_files": [
+        "Questionnaires",
+        "Krake/Questionnaires/*.swift"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "Questionnaires": [
+            "Krake/Questionnaires/**/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Reportages",
+      "source_files": [
+        "Reportages",
+        "Krake/Reportages/*.swift"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "Reportages": [
+            "Krake/Reportages/*.{storyboard,xib}"
+          ]
+        }
+      },
+      "dependencies": {
+        "Krake/ContentManager": [
+
+        ],
+        "Krake/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TwitterKit",
+      "source_files": [
+        "TwitterKit",
+        "Krake/TwitterKit/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Krake/Core": [
+
+        ],
+        "TwitterKit": [
+          "3.4.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
