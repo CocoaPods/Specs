@@ -1,0 +1,116 @@
+{
+  "name": "ZDToolKit",
+  "version": "0.0.5",
+  "summary": "awesome iOS development tools（Objective-C）",
+  "description": "collect some iOS development tools, e.g: category、block、runtime、subclass、macro, and so on...",
+  "homepage": "https://github.com/faimin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zero.D.Saber": "fuxianchao@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "public_header_files": "ZDToolKit/ZDToolKit.h",
+  "module_name": "ZDToolKit",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "source": {
+    "git": "https://github.com/faimin/ZDToolKit.git",
+    "tag": "0.0.5"
+  },
+  "source_files": "ZDToolKit/ZDToolKit.h",
+  "subspecs": [
+    {
+      "name": "ZDMacros",
+      "source_files": "ZDToolKit/ZDMacros/*.{h,m}"
+    },
+    {
+      "name": "ZDAutoLayout",
+      "source_files": "ZDToolKit/ZDAutoLayout/*.{h,m}"
+    },
+    {
+      "name": "ZDCategory",
+      "dependencies": {
+        "ZDToolKit/ZDMacros": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "ZDToolKit/ZDCategory/Foundation/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "Foundation",
+            "CoreText"
+          ]
+        },
+        {
+          "name": "UIKit",
+          "source_files": "ZDToolKit/ZDCategory/UIKit/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "QuartzCore",
+            "CoreImage",
+            "CoreGraphics",
+            "ImageIO",
+            "CoreText",
+            "WebKit"
+          ],
+          "dependencies": {
+            "ZDToolKit/ZDTools/ZDProxy": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZDSubclass",
+      "source_files": "ZDToolKit/ZDSubclass/*.{h,m}",
+      "dependencies": {
+        "ZDToolKit/ZDTools/ZDProxy": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDRuntime",
+      "source_files": "ZDToolKit/ZDRuntime/*.{h,m}",
+      "exclude_files": "ZDToolKit/ZDRuntime/ZDBlockHook.{h,m}"
+    },
+    {
+      "name": "ZDTools",
+      "source_files": "ZDToolKit/ZDTools/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "ZDProxy",
+          "source_files": "ZDToolKit/ZDTools/ZDProxy/*.{h,m}"
+        },
+        {
+          "name": "ZDPromise",
+          "source_files": "ZDToolKit/ZDTools/ZDPromise/*.{h,m}"
+        },
+        {
+          "name": "ProtocolKit",
+          "source_files": "ZDToolKit/ZDTools/ProtocolKit/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "ZDDebug",
+      "source_files": "ZDToolKit/ZDDebug/*.{h,m}"
+    },
+    {
+      "name": "ZDMRC",
+      "requires_arc": false,
+      "source_files": "ZDToolKit/ZDMRC/ZDSafe.{h,m}"
+    }
+  ]
+}
