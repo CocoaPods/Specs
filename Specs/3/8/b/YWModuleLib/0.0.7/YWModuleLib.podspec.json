@@ -1,0 +1,210 @@
+{
+  "name": "YWModuleLib",
+  "version": "0.0.7",
+  "summary": "YWModuleLib.",
+  "description": "this is YWModuleLib",
+  "homepage": "http://new-gitlab.yiyaowang.com/yaowang/yiyao_rn.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CasaTaloyum": "yyw@111.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "http://new-gitlab.yiyaowang.com/yaowang/yiyao_rn.git",
+    "tag": "0.0.7"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Network",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Network/**/*.{h,m}",
+      "ios": {
+        "exclude_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Network/Utility/MRC/*.{h,m}"
+      },
+      "dependencies": {
+        "AFNetworking": [
+          "~> 4.0.1"
+        ],
+        "Reachability": [
+          "~> 3.2"
+        ],
+        "YWModuleLib/Base": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "requires_arc": false,
+          "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Network/Utility/MRC/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Base/**/*.{h,m}",
+      "dependencies": {
+        "YYModel": [
+          "~>1.0.4"
+        ],
+        "YWModuleLib/Until": [
+
+        ]
+      }
+    },
+    {
+      "name": "Until",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Until/**/*.{h,m}",
+      "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Until/Resources/*.png",
+      "ios": {
+        "exclude_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Until/Keychain/MRC/*.{h,m}"
+      },
+      "dependencies": {
+        "OpenSSL-Universal": [
+
+        ],
+        "ReactiveObjC": [
+          "~> 3.1.1"
+        ],
+        "Reachability": [
+          "~> 3.2"
+        ],
+        "Masonry": [
+          "~> 1.1.0"
+        ],
+        "MJRefresh": [
+
+        ],
+        "FMDB": [
+          "~> 2.5"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "requires_arc": false,
+          "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Until/Keychain/MRC/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "YWUIImageView",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/YWUIImageView/**/*.{h,m}",
+      "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/YWUIImageView/Resources/*.png",
+      "dependencies": {
+        "SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "CameraTool",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/CameraTool/**/*.{h,m}",
+      "ios": {
+        "frameworks": "AVFoundation"
+      },
+      "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/CameraTool/Audio/scan.mp3",
+      "dependencies": {
+        "YWModuleLib/Until": [
+
+        ]
+      }
+    },
+    {
+      "name": "YWShareKit",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/YWShareKit/**/*.{h,m}",
+      "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/YWShareKit/Resources/*.png",
+      "dependencies": {
+        "Weibo_SDK": [
+
+        ],
+        "WechatOpenSDK": [
+
+        ],
+        "YWModuleLib/Until": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "TencentAPI",
+          "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/TencentOpenApi_IOS_Bundle.bundle",
+          "ios": {
+            "vendored_frameworks": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/TencentOpenAPI.framework",
+            "frameworks": [
+              "UIKit",
+              "Foundation",
+              "WebKit"
+            ],
+            "libraries": [
+              "iconv",
+              "sqlite3",
+              "c++",
+              "z"
+            ]
+          },
+          "frameworks": [
+            "Security",
+            "SystemConfiguration",
+            "CoreGraphics",
+            "CoreTelephony",
+            "ExternalAccessory"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "YWLocationManager",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/YWLocationManager/**/*.{h,m}",
+      "ios": {
+        "vendored_frameworks": [
+          "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/AMapLocationKit.framework",
+          "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/AMapSearchKit.framework",
+          "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/AMapFoundationKit.framework",
+          "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Vendor/MAMapKit.framework"
+        ],
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreTelephony",
+        "ExternalAccessory",
+        "GLKit"
+      ],
+      "dependencies": {
+        "YWModuleLib/Base": [
+
+        ],
+        "YWModuleLib/Until": [
+
+        ]
+      }
+    },
+    {
+      "name": "Routes",
+      "source_files": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Routes/**/*.{h,m}",
+      "resources": "iOS/YWModuleLib/YWModuleLib/YWModuleLib/Routes/YWRoutes.plist",
+      "dependencies": {
+        "YWModuleLib/Until": [
+
+        ]
+      }
+    }
+  ]
+}
