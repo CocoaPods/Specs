@@ -1,0 +1,64 @@
+{
+  "name": "TGCUdeskSDK",
+  "version": "5.1.8",
+  "license": "MIT",
+  "summary": "Udesk SDK for iOS",
+  "homepage": "https://github.com/udesk/UdeskSDK-iOS",
+  "authors": {
+    "xuchen ": "xuc@udesk.cn"
+  },
+  "source": {
+    "http": "https://github.com/webeyemob/TGCenter_iOS_Pub/raw/master/TGCUdeskSDK/TGCUdeskSDK_5.1.8.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "SDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "WebKit",
+        "MapKit",
+        "AssetsLibrary",
+        "ImageIO",
+        "Accelerate",
+        "MediaPlayer",
+        "Photos",
+        "CoreText"
+      ],
+      "source_files": "TGCUdeskSDK_5.1.8/SDK/*.{h}",
+      "vendored_libraries": "TGCUdeskSDK_5.1.8/SDK/libUdesk.a",
+      "libraries": [
+        "z",
+        "xml2",
+        "resolv",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "TGCUdeskSDK_5.1.8/UDChatMessage/**/*.{h,m}",
+      "resources": "TGCUdeskSDK_5.1.8/UDChatMessage/UDResource/UdeskBundle.bundle",
+      "dependencies": {
+        "TGCUdeskSDK/SDK": [
+
+        ]
+      }
+    }
+  ]
+}
