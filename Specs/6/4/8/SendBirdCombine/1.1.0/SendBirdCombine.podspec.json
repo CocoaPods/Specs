@@ -1,0 +1,51 @@
+{
+  "name": "SendBirdCombine",
+  "version": "1.1.0",
+  "summary": "Provides Combine extensions for the SendBird chat service SDK",
+  "description": "This pod provides Combine extensions for the SendBird chat service SDK",
+  "homepage": "https://github.com/velos/SendBirdCombine",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "David Rajan": "david@velosmobile.com"
+  },
+  "source": {
+    "git": "https://github.com/velos/SendbirdCombine.git",
+    "tag": "1.1.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Messages",
+  "frameworks": "Combine",
+  "dependencies": {
+    "SendBirdSDK": [
+      "~> 3.0.218"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": "SendBirdCombine/Classes/Messages/**/*"
+    },
+    {
+      "name": "Calls",
+      "dependencies": {
+        "SendBirdCombine/Messages": [
+
+        ],
+        "SendBirdCalls": [
+          "~> 1.5.4"
+        ]
+      },
+      "source_files": "SendBirdCombine/Classes/Calls/**/*"
+    }
+  ],
+  "swift_version": "5.0"
+}
