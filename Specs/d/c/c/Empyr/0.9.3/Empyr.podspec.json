@@ -1,0 +1,60 @@
+{
+  "name": "Empyr",
+  "version": "0.9.3",
+  "summary": "Empyr: A foundation for card link offer platforms.",
+  "description": "Empyr is a full-stack card linked offer platform that enables companies to bring card linked offers to consumers and businesses.",
+  "homepage": "https://www.empyr.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Empyr": "developer@empyr.com"
+  },
+  "source": {
+    "git": "https://github.com/EmpyrNetwork/empyr_ios_swift.git",
+    "tag": "0.9.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "4.0",
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "EmpyrCore/**/*"
+    },
+    {
+      "name": "PPO",
+      "source_files": "EmpyrPPO/**/*",
+      "dependencies": {
+        "Empyr/Core": [
+
+        ],
+        "PlotPlugin": [
+          "= 2.1.0-beta2"
+        ]
+      },
+      "frameworks": "PlotProjects",
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Tracker",
+      "source_files": "EmpyrTracker/**/*",
+      "dependencies": {
+        "Empyr/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "4.0"
+}
