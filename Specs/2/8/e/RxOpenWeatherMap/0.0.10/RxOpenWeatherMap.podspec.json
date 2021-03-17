@@ -1,0 +1,36 @@
+{
+  "name": "RxOpenWeatherMap",
+  "version": "0.0.10",
+  "summary": "Basic Open Weather Map API handling response data to observable decodable objects with RxSwift",
+  "description": "## Installation\nSimply add RxOpenWeatherMap into your Podfile\n```\npod 'RxOpenWeatherMap'\n```\n\n## Usage\nDeclare a OpenWeatherClient with your api key, the specific temperature unit (.celsius, .fahrenheit, .kelvin), and the optional specific language code. Then message the client to request an API call. Currently OpenWeatherClient supports two API calls - one call to get weather data and direct geocoding to get location info. Each API call returns RxSwift.Observable<Decodable>, which you can subscribe.\n  \n```\nimport RxSwift\nimport RxCocoa\nimport RxOpenWeatherMap\n\nlet disposeBag = DisposeBag()\nlet weather = PublishSubject<OneCallResponse>()\n\ndo {\n  try OpenWeatherClient(apiKey: \"PUT_YOUR_API_KEY_HERE\",\n                        temperatureUnit: .celsius,\n                        language: Locale.current.languageCode)\n    .oneCall(latitude: 25.234, longitude: -123.432)\n    .bind(to: weather)\n    .disposed(by: disposeBag)\n  } catch {\n    print(error.localizedDescription)\n  }\n```",
+  "homepage": "https://github.com/greenerchen/RxOpenWeatherMap",
+  "license": "MIT",
+  "authors": {
+    "Greener Chen": "greener@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/greenerchen/RxOpenWeatherMap.git",
+    "tag": "0.0.10"
+  },
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m,swift}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "dependencies": {
+    "RxSwift": [
+      "~> 6.1.0"
+    ],
+    "RxCocoa": [
+      "~> 6.1.0"
+    ],
+    "RxAlamofire": [
+      "~> 6.1.1"
+    ]
+  },
+  "swift_version": "5.0"
+}
