@@ -1,0 +1,45 @@
+{
+  "name": "QJWeChatSDK1",
+  "version": "1.1.1",
+  "summary": "QJWeChatSDK1 version, based on V8.9.1",
+  "description": "QJWeChatSDK1 version, Based on YWWeChatSDK version V8.9.1",
+  "homepage": "https://gitee.com/concentrated/qjwechat.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "YWWeChatSDK": "YWWeChatSDK"
+  },
+  "source": {
+    "git": "https://gitee.com/concentrated/qjwechat.git",
+    "tag": "1.1.1"
+  },
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Vendor/WeChat/Framework/"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": "Vendor/WeChat/Framework/**/*.framework",
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "stdc++",
+    "z",
+    "iconv"
+  ],
+  "prepare_command": "rm -rf Vendor/WeChat/Framework/YWWeChatSDK.framework/Modules\nmkdir Vendor/WeChat/Framework/YWWeChatSDK.framework/Modules\ntouch Vendor/WeChat/Framework/YWWeChatSDK.framework/Modules/module.modulemap\ncat <<-EOF > Vendor/WeChat/Framework/YWWeChatSDK.framework/Modules/module.modulemap\nframework module YWWeChatSDK {\n  \n  umbrella header \"YWWeChatSDK.h\"\n\n  export *\n  module * { export * }\n}\nEOF"
+}
