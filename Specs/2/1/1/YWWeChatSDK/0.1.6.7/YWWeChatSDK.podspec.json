@@ -1,0 +1,45 @@
+{
+  "name": "YWWeChatSDK",
+  "version": "0.1.6.7",
+  "summary": "YWWeChatSDK version, based on V8.9.1",
+  "description": "YWWeChatSDK version, Based on YWWeChatSDK version V8.9.1",
+  "homepage": "https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "YWWeChatSDK": "YWWeChatSDK"
+  },
+  "source": {
+    "git": "http://new-gitlab.yiyaowang.com/yaowang/yw_private_pod.git",
+    "tag": "0.1.6.7"
+  },
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Vendor/YWWeChatSDK/Framework/"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": "Vendor/YWWeChatSDK/Framework/**/*.framework",
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "stdc++",
+    "z",
+    "iconv"
+  ],
+  "prepare_command": "rm -rf Vendor/YWWeChatSDK/Framework/YWWeChatSDK.framework/Modules\nmkdir Vendor/YWWeChatSDK/Framework/YWWeChatSDK.framework/Modules\ntouch Vendor/YWWeChatSDK/Framework/YWWeChatSDK.framework/Modules/module.modulemap\ncat <<-EOF > Vendor/YWWeChatSDK/Framework/YWWeChatSDK.framework/Modules/module.modulemap\nframework module YWWeChatSDK {\n  \n  umbrella header \"YWWeChatSDK.h\"\n\n  export *\n  module * { export * }\n}\nEOF"
+}
