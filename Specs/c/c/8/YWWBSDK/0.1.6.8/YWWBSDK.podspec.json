@@ -1,0 +1,48 @@
+{
+  "name": "YWWBSDK",
+  "version": "0.1.6.8",
+  "summary": "YWWBSDK version, based on V3.3.0",
+  "description": "YWWBSDK version, Based on YWWBSDK version V3.3.0",
+  "homepage": "https://github.com/sinaweibosdk/weibo_ios_sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "YWWBSDK": "YWWBSDK"
+  },
+  "source": {
+    "git": "http://new-gitlab.yiyaowang.com/yaowang/yw_private_pod.git",
+    "tag": "0.1.6.8"
+  },
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Vendor/WeiBoSDK/Framework/",
+    "OTHER_LDFLAGS": "-Objc"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resources": "Vendor/WeiBoSDK/Framework/YWWBSDK.framework/WeiboSDK.bundle",
+  "vendored_frameworks": "Vendor/WeiBoSDK/Framework/**/*.framework",
+  "frameworks": [
+    "Photos",
+    "ImageIO",
+    "SystemConfiguration",
+    "CoreText",
+    "QuartzCore",
+    "Security",
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "z"
+  ],
+  "prepare_command": "rm -rf Vendor/WeiBoSDK/Framework/YWWBSDK.framework/Modules\nmkdir Vendor/WeiBoSDK/Framework/YWWBSDK.framework/Modules\ntouch Vendor/WeiBoSDK/Framework/YWWBSDK.framework/Modules/module.modulemap\ncat <<-EOF > Vendor/WeiBoSDK/Framework/YWWBSDK.framework/Modules/module.modulemap\nframework module YWWBSDK {\n  \n  umbrella header \"YWWBSDK.h\"\n\n  export *\n  module * { export * }\n}\nEOF"
+}
