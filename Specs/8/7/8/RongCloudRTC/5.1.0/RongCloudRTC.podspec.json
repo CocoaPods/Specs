@@ -1,0 +1,113 @@
+{
+  "name": "RongCloudRTC",
+  "version": "5.1.0",
+  "summary": "RongCloud RTC",
+  "homepage": "http://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2018 RongCloud"
+  },
+  "authors": {
+    "tanghaibing": "tanghaibing@bailingcloud.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_iOS_SDK_v5_1_0_Dev.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": [
+        "RongCloudRTC/**/RongCallLib.framework",
+        "RongCloudRTC/**/RongRTCLib.framework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "bz2",
+        "iconv",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi",
+        "resolv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "VideoToolbox",
+        "GLKit",
+        "CoreMedia",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "UIKit",
+        "CoreMotion"
+      ],
+      "dependencies": {
+        "RongCloudIM/ChatRoom": [
+          "~>5.1.0"
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "resources": [
+        "RongCloudRTC/**/RongCallKit.bundle",
+        "RongCloudRTC/**/en.lproj",
+        "RongCloudRTC/**/zh-Hans.lproj",
+        "RongCloudRTC/**/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudRTC/**/RongCallKit.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "RongCloudRTC/RongCallLib": [
+
+        ],
+        "RongCloudIM/IMLib": [
+          "~>5.1.0"
+        ],
+        "RongCloudIM/IMKit": [
+          "~>5.1.0"
+        ]
+      }
+    }
+  ]
+}
