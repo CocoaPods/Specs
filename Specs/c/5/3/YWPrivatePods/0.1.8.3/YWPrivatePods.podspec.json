@@ -1,0 +1,212 @@
+{
+  "name": "YWPrivatePods",
+  "version": "0.1.8.3",
+  "summary": "YWPrivatePods.",
+  "description": "this is YWPrivatePods",
+  "homepage": "http://new-gitlab.yiyaowang.com/yaowang/yw_private_pod.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CasaTaloyum": "yyw@111.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "http://new-gitlab.yiyaowang.com/yaowang/yw_private_pod.git",
+    "tag": "0.1.8.3"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Util",
+      "source_files": "YWPrivatePods/YWPrivatePods/Utilities/**/*.{swift}",
+      "resources": "YWPrivatePods/YWPrivatePods/Utilities/Resource/*.png",
+      "dependencies": {
+        "SnapKit": [
+
+        ],
+        "Hue": [
+
+        ],
+        "SwiftyRSA": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "KeychainAccess": [
+
+        ]
+      }
+    },
+    {
+      "name": "Router",
+      "source_files": "YWPrivatePods/YWPrivatePods/Router/*.{swift}",
+      "dependencies": {
+        "YWPrivatePods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "YWPrivatePods/YWPrivatePods/Network/*.{swift}",
+      "dependencies": {
+        "Alamofire": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "SwiftyJSON": [
+
+        ],
+        "YWPrivatePods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "BI",
+      "source_files": "YWPrivatePods/YWPrivatePods/BI/*.{swift}",
+      "dependencies": {
+        "YWPrivatePods/Network": [
+
+        ],
+        "YWPrivatePods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": "YWPrivatePods/YWPrivatePods/Base/**/*.{swift}",
+      "resources": "YWPrivatePods/YWPrivatePods/Base/WebVC/WebKit.bundle",
+      "dependencies": {
+        "ObjectMapper": [
+
+        ],
+        "YWPrivatePods/BI": [
+
+        ],
+        "SnapKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "AddressDB",
+      "source_files": "YWPrivatePods/YWPrivatePods/AddressDB/*.{swift}",
+      "resources": "YWPrivatePods/YWPrivatePods/AddressDB/ywaddress.db",
+      "dependencies": {
+        "ObjectMapper": [
+
+        ],
+        "WCDB.swift": [
+
+        ],
+        "YWPrivatePods/Network": [
+
+        ],
+        "YWPrivatePods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "WXShare",
+      "source_files": "YWPrivatePods/YWPrivatePods/WXShare/*.swift",
+      "resources": "YWPrivatePods/YWPrivatePods/Share/Resource/*.png",
+      "dependencies": {
+        "YWPrivatePods/Network": [
+
+        ],
+        "YWPrivatePods/Util": [
+
+        ],
+        "YWPrivatePods/Router": [
+
+        ],
+        "YWWeChatSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "YWPrivatePods/YWPrivatePods/UIKit/*.{swift}",
+      "dependencies": {
+        "SnapKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "PackageManager",
+      "source_files": [
+        "YWPrivatePods/YWPrivatePods/PackageManager/*.{swift,h,m}",
+        "YWPrivatePods/YWPrivatePods/PackageManager/SSZipArchive/**/*.{c,h,m}"
+      ],
+      "public_header_files": [
+        "YWPrivatePods/YWPrivatePods/PackageManager/SSZipArchive/*.h",
+        "YWPrivatePods/YWPrivatePods/PackageManager/HJMD5Sha.h"
+      ],
+      "libraries": [
+        "z",
+        "iconv"
+      ],
+      "frameworks": "Security",
+      "pod_target_xcconfig": {
+        "DEFINES_MODULE": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_INTTYPES_H HAVE_PKCRYPT HAVE_STDINT_H HAVE_WZAES HAVE_ZLIB"
+      },
+      "dependencies": {
+        "YWPrivatePods/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "YWPrivatePods/YWPrivatePods/Location/*.{swift}",
+      "dependencies": {
+        "AMap3DMap": [
+
+        ],
+        "AMapSearch": [
+
+        ],
+        "AMapLocation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Update",
+      "source_files": "YWPrivatePods/YWPrivatePods/Update/*.{swift}",
+      "dependencies": {
+        "Alamofire": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "YWPrivatePods/Network": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
