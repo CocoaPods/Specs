@@ -1,0 +1,120 @@
+{
+  "name": "HyperwalletUISDK",
+  "version": "1.0.0-beta14",
+  "summary": "Hyperwallet UI SDK for iOS to integrate with Hyperwallet Platform",
+  "homepage": "https://github.com/hyperwallet/hyperwallet-ios-ui-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hyperwallet Systems Inc": "devsupport@hyperwallet.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/hyperwallet/hyperwallet-ios-ui-sdk.git",
+    "tag": "1.0.0-beta14"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "HyperwalletSDK": [
+      "1.0.0-beta13"
+    ]
+  },
+  "default_subspecs": [
+    "TransferMethod",
+    "Receipt",
+    "Transfer"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "resources": [
+        "Common/Sources/Resources/*",
+        "Common/**/*.xib",
+        "Common/**/*.strings"
+      ],
+      "source_files": "Common/Sources/**/*.{swift,h}",
+      "dependencies": {
+        "Insights": [
+          "1.0.0-beta04"
+        ]
+      }
+    },
+    {
+      "name": "TransferMethodRepository",
+      "source_files": "TransferMethodRepository/Sources/**/*.{swift,h}"
+    },
+    {
+      "name": "ReceiptRepository",
+      "source_files": "ReceiptRepository/Sources/**/*.{swift,h}"
+    },
+    {
+      "name": "TransferRepository",
+      "source_files": "TransferRepository/Sources/**/*.{swift,h}"
+    },
+    {
+      "name": "UserRepository",
+      "source_files": "UserRepository/Sources/**/*.{swift,h}"
+    },
+    {
+      "name": "BalanceRepository",
+      "source_files": "BalanceRepository/Sources/**/*.{swift,h}"
+    },
+    {
+      "name": "TransferMethod",
+      "source_files": "TransferMethod/Sources/**/*.{swift,h}",
+      "dependencies": {
+        "HyperwalletUISDK/Common": [
+
+        ],
+        "HyperwalletUISDK/UserRepository": [
+
+        ],
+        "HyperwalletUISDK/TransferMethodRepository": [
+
+        ]
+      }
+    },
+    {
+      "name": "Receipt",
+      "source_files": "Receipt/Sources/**/*.{swift,h}",
+      "dependencies": {
+        "HyperwalletUISDK/Common": [
+
+        ],
+        "HyperwalletUISDK/ReceiptRepository": [
+
+        ],
+        "HyperwalletUISDK/TransferMethodRepository": [
+
+        ]
+      }
+    },
+    {
+      "name": "Transfer",
+      "source_files": "Transfer/Sources/**/*.{swift,h}",
+      "dependencies": {
+        "HyperwalletUISDK/Common": [
+
+        ],
+        "HyperwalletUISDK/UserRepository": [
+
+        ],
+        "HyperwalletUISDK/TransferRepository": [
+
+        ],
+        "HyperwalletUISDK/TransferMethodRepository": [
+
+        ],
+        "HyperwalletUISDK/BalanceRepository": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
