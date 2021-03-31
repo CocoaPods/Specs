@@ -1,0 +1,84 @@
+{
+  "name": "ATInternet-Apple-SDK",
+  "version": "2.23.1",
+  "summary": "AT Internet mobile analytics solution for Apple devices",
+  "homepage": "https://github.com/at-internet/atinternet-apple-sdk",
+  "documentation_url": "https://developers.atinternet-solutions.com/apple-en/getting-started-apple-en/operating-principle-apple-en/",
+  "license": "MIT",
+  "authors": "AT Internet",
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/at-internet/atinternet-apple-sdk.git",
+    "tag": "2.23.1"
+  },
+  "module_name": "Tracker",
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "subspecs": [
+    {
+      "name": "Tracker",
+      "source_files": "ATInternetTracker/Sources/*.{h,m,swift}",
+      "resources": [
+        "ATInternetTracker/Sources/DefaultConfiguration*",
+        "ATInternetTracker/Sources/TrackerBundle.bundle"
+      ],
+      "platforms": {
+        "ios": "10.0"
+      }
+    },
+    {
+      "name": "AppExtension",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DAT_EXTENSION"
+      },
+      "source_files": "ATInternetTracker/Sources/*.{h,m,swift}",
+      "exclude_files": [
+        "ATInternetTracker/Sources/BackgroundTask.swift",
+        "ATInternetTracker/Sources/Debugger.swift",
+        "ATInternetTracker/Sources/TrackerTests-Bridging-Header.h"
+      ],
+      "platforms": {
+        "ios": "10.0"
+      },
+      "resources": [
+        "ATInternetTracker/Sources/DefaultConfiguration*",
+        "ATInternetTracker/Sources/TrackerBundle.bundle"
+      ]
+    },
+    {
+      "name": "watchOSTracker",
+      "source_files": "ATInternetTracker/Sources/*.{h,m,swift}",
+      "exclude_files": [
+        "ATInternetTracker/Sources/BackgroundTask.swift",
+        "ATInternetTracker/Sources/ATReachability.swift",
+        "ATInternetTracker/Sources/Debugger.swift",
+        "ATInternetTracker/Sources/TrackerTests-Bridging-Header.h"
+      ],
+      "platforms": {
+        "watchos": "3.0"
+      },
+      "resources": [
+        "ATInternetTracker/Sources/DefaultConfiguration.plist",
+        "ATInternetTracker/Sources/core.manifest.json"
+      ]
+    },
+    {
+      "name": "tvOSTracker",
+      "source_files": "ATInternetTracker/Sources/*.{h,m,swift}",
+      "exclude_files": [
+        "ATInternetTracker/Sources/TrackerTests-Bridging-Header.h",
+        "ATInternetTracker/Sources/watchOSTracker.h"
+      ],
+      "resources": [
+        "ATInternetTracker/Sources/DefaultConfiguration*",
+        "ATInternetTracker/Sources/TrackerBundle.bundle"
+      ],
+      "platforms": {
+        "tvos": "10.0"
+      }
+    }
+  ]
+}
