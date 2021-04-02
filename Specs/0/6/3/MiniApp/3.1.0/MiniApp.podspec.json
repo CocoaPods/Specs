@@ -1,0 +1,72 @@
+{
+  "name": "MiniApp",
+  "version": "3.1.0",
+  "authors": "Rakuten Ecosystem Mobile",
+  "summary": "Rakuten's Mini App SDK",
+  "description": "This open-source library allows you to integrate Mini App ecosystem into your iOS applications. Mini App SDK also facilitates communication between a mini app and the host app via a message bridge.",
+  "homepage": "https://github.com/rakutentech/ios-miniapp",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "xcconfig": {
+    "RMA_SDK_VERSION": "3.1.0"
+  },
+  "source": {
+    "git": "https://github.com/rakutentech/ios-miniapp.git",
+    "tag": "v3.1.0",
+    "submodules": true
+  },
+  "documentation_url": "https://rakutentech.github.io/ios-miniapp/",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "swift_versions": [
+    5.0,
+    5.3
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "MiniApp/Classes/core/**/*.{swift,h,m}",
+      "resource_bundles": {
+        "Localization": [
+          "MiniApp/*.lproj/*.strings"
+        ],
+        "MiniApp": [
+          "MiniApp/Classes/core/**/*.{xcassets,js,pdf,xib}",
+          "js-miniapp/bridge.js"
+        ]
+      },
+      "dependencies": {
+        "ZIPFoundation": [
+          "0.9.12"
+        ]
+      }
+    },
+    {
+      "name": "Admob",
+      "source_files": "MiniApp/Classes/admob7/**/*.{swift,h,m}",
+      "dependencies": {
+        "MiniApp/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 7.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D RMA_SDK_ADMOB"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
