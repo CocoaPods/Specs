@@ -1,0 +1,58 @@
+{
+  "name": "InMobiSDK",
+  "version": "9.1.7",
+  "summary": "InMobi iOS SDK",
+  "description": "This is the InMobi iOS SDK 9.1.7. Please proceed to http://www.inmobi.com/sdk for more information.",
+  "homepage": "https://www.inmobi.com",
+  "license": "Custom",
+  "authors": {
+    "InMobi": "sdk-dev-support@inmobi.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://dl.inmobi.com/inmobi-sdk/IM/InMobi-iOS-SDK-9.1.7.zip"
+  },
+  "preserve_paths": "InMobiSDK.xcframework",
+  "frameworks": "WebKit",
+  "libraries": "sqlite3.0",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "InMobiSDK",
+  "subspecs": [
+    {
+      "name": "InMobiSDK",
+      "dependencies": {
+        "InMobiSDK/Core": [
+
+        ],
+        "InMobiSDK/Moat": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "InMobiSDK.xcframework"
+    },
+    {
+      "name": "Moat",
+      "dependencies": {
+        "InMobiSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "INMMoatMobileAppKit.framework",
+      "preserve_paths": "INMMoatMobileAppKit.framework"
+    }
+  ]
+}
