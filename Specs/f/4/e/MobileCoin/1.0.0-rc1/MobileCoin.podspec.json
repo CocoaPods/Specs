@@ -1,0 +1,80 @@
+{
+  "name": "MobileCoin",
+  "version": "1.0.0-rc1",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/MobileCoin-Swift.git",
+    "tag": "1.0.0-rc1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "SUPPORTS_MACCATALYST": "NO",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "LibMobileCoin": [
+          "= 1.0.1-pre4"
+        ],
+        "gRPC-Swift": [
+          "~> 1.0.0"
+        ],
+        "Logging": [
+          "~> 1.4"
+        ],
+        "SwiftNIO": [
+          "~> 2.22"
+        ],
+        "SwiftNIOHPACK": [
+          "~> 1.16"
+        ],
+        "SwiftNIOHTTP1": [
+          "~> 2.18"
+        ],
+        "SwiftProtobuf": [
+          "~> 1.5"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "Tests/{Unit,Common}/**/*.swift",
+          "resources": [
+            "Tests/Common/FixtureData/**/*",
+            "Vendor/libmobilecoin-ios-artifacts/Vendor/fog/mobilecoin/test-vectors/vectors/**/*"
+          ]
+        },
+        {
+          "name": "IntegrationTests",
+          "test_type": "unit",
+          "source_files": "Tests/{Integration,Common}/**/*.swift",
+          "resources": "Tests/Common/FixtureData/**/*"
+        },
+        {
+          "name": "PerformanceTests",
+          "test_type": "ui",
+          "source_files": "Tests/{Performance,Common}/**/*.swift",
+          "requires_app_host": true
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
