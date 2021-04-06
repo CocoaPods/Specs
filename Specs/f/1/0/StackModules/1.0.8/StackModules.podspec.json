@@ -1,0 +1,57 @@
+{
+  "name": "StackModules",
+  "version": "1.0.8",
+  "summary": "Supported modules for Stack iOS products",
+  "description": "Supported modules for Stack iOS products. Used in Appodeal, BidMachine and DataCore",
+  "homepage": "http://www.appodeal.com",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackModules/v1.0.8/StackModules.zip"
+  },
+  "default_subspecs": "StackUIKit",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "StackFoundation",
+      "vendored_frameworks": "StackFoundation.framework",
+      "libraries": "z",
+      "frameworks": [
+        "SafariServices",
+        "StoreKit",
+        "WebKit",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "CoreLocation",
+        "MobileCoreServices",
+        "AVFoundation",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "StackUIKit",
+      "vendored_frameworks": "StackUIKit.framework",
+      "dependencies": {
+        "StackModules/StackFoundation": [
+
+        ]
+      }
+    }
+  ]
+}
