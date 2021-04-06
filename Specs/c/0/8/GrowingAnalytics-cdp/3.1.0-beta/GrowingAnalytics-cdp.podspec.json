@@ -1,0 +1,58 @@
+{
+  "name": "GrowingAnalytics-cdp",
+  "version": "3.1.0-beta",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAnalytics-cdp基于GrowingAnalytics,同样具备自动采集基本的用户行为事件，比如访问和行为数据等。\n目前支持代码埋点、无埋点、可视化圈选、热图等功能。适用于CDP客户。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker-cdp.git",
+    "tag": "3.1.0-beta"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": "WebKit"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker",
+  "subspecs": [
+    {
+      "name": "TrackerCore",
+      "source_files": "GrowingTrackerCore/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "3.1.0-beta"
+        ]
+      }
+    },
+    {
+      "name": "Tracker",
+      "source_files": "GrowingTracker/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics-cdp/TrackerCore": [
+          "3.1.0-beta"
+        ]
+      }
+    },
+    {
+      "name": "Autotracker",
+      "source_files": "GrowingAutotracker/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "3.1.0-beta"
+        ],
+        "GrowingAnalytics-cdp/TrackerCore": [
+          "3.1.0-beta"
+        ]
+      }
+    }
+  ]
+}
