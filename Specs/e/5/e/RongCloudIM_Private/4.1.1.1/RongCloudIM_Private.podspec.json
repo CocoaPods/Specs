@@ -1,0 +1,95 @@
+{
+  "name": "RongCloudIM_Private",
+  "version": "4.1.1.1",
+  "summary": "RongCloud IM SDK for private environment.(如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库)",
+  "description": "RongCloud IM SDK for private environment.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "litao": "litao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudIM_Private_v4_1_1_1.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM_Private/RongIMLib.framework",
+      "libraries": [
+        "stdc++",
+        "z"
+      ],
+      "frameworks": "WebKit",
+      "resources": "RongCloudIM_Private/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "vendored_libraries": [
+        "RongCloudIM_Private/libopencore-amrnb.a",
+        "RongCloudIM_Private/libopencore-amrwb.a",
+        "RongCloudIM_Private/libvo-amrwbenc.a"
+      ]
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM_Private/RongCloud.bundle",
+        "RongCloudIM_Private/en.lproj",
+        "RongCloudIM_Private/zh-Hans.lproj",
+        "RongCloudIM_Private/Emoji.plist",
+        "RongCloudIM_Private/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM_Private/RongIMKit.framework",
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+      ],
+      "dependencies": {
+        "RongCloudIM_Private/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM_Private/RongSight.framework",
+      "dependencies": {
+        "RongCloudIM_Private/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ContactCard",
+      "vendored_frameworks": "RongCloudIM_Private/RongContactCard.framework",
+      "dependencies": {
+        "RongCloudIM_Private/IMKit": [
+
+        ]
+      }
+    }
+  ]
+}
