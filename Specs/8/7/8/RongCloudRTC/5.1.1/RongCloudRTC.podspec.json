@@ -1,0 +1,115 @@
+{
+  "name": "RongCloudRTC",
+  "version": "5.1.1",
+  "summary": "融云音视频引擎 SDK RongCloudRTC",
+  "description": "RongCloud RTC SDK for iOS.\n如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库.",
+  "homepage": "https://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 RongCloud"
+  },
+  "authors": {
+    "RongCloud": "https://www.rongcloud.cn"
+  },
+  "social_media_url": "https://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_iOS_SDK_v5_1_1_Dev.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": [
+        "RongCloudRTC/**/RongCallLib.framework",
+        "RongCloudRTC/**/RongRTCLib.framework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "bz2",
+        "iconv",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi",
+        "resolv"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "VideoToolbox",
+        "GLKit",
+        "CoreMedia",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "UIKit",
+        "CoreMotion"
+      ],
+      "dependencies": {
+        "RongCloudIM/ChatRoom": [
+          "~>5.1.1"
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "resources": [
+        "RongCloudRTC/**/RongCallKit.bundle",
+        "RongCloudRTC/**/en.lproj",
+        "RongCloudRTC/**/zh-Hans.lproj",
+        "RongCloudRTC/**/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudRTC/**/RongCallKit.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS[arch=i386]": "-Wl,-read_only_relocs,suppress"
+      },
+      "libraries": [
+        "z",
+        "stdc++",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "RongCloudRTC/RongCallLib": [
+
+        ],
+        "RongCloudIM/IMLib": [
+          "~>5.1.1"
+        ],
+        "RongCloudIM/IMKit": [
+          "~>5.1.1"
+        ]
+      }
+    }
+  ]
+}
