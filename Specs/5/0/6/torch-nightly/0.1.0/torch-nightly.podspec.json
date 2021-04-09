@@ -1,0 +1,31 @@
+{
+  "name": "torch-nightly",
+  "version": "0.1.0",
+  "authors": "PyTorch Team",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://github.com/pytorch/pytorch",
+  "source": {
+    "http": "https://ossci-ios-build.s3.amazonaws.com/libtorch_ios_nightly_build.zip"
+  },
+  "summary": "The PyTorch C++ library for iOS",
+  "description": "The PyTorch C++ library for iOS.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "header_mappings_dir": "install/include/",
+  "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+  "vendored_libraries": "install/lib/*.a",
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/LibTorch/install/include/\"",
+    "OTHER_LDFLAGS": "-force_load \"$(PODS_ROOT)/vision-nightly/install/lib/libtorch.a\" -force_load \"$(PODS_ROOT)/vision-nightly/install/lib/libtorch_cpu.a\"",
+    "VALID_ARCHS": "x86_64 arm64",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_CXX_LIBRARY": "libc++"
+  }
+}
