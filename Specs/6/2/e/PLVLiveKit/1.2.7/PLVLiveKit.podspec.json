@@ -1,0 +1,121 @@
+{
+  "name": "PLVLiveKit",
+  "version": "1.2.7",
+  "summary": "Polyv iOS streamer.",
+  "homepage": "http://git.polyv.net/ios/PolyvLiveKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ftao": "fft1026@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "http://git.polyv.net/ios/PolyvLiveKit",
+    "tag": "1.2.7"
+  },
+  "source_files": "PLVLiveKit/LFLiveKit/LFLive*.{h,m}",
+  "public_header_files": "PLVLiveKit/LFLiveKit/*.h",
+  "frameworks": [
+    "VideoToolbox",
+    "AudioToolbox",
+    "AVFoundation",
+    "Foundation",
+    "UIKit"
+  ],
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "GPUImage",
+      "source_files": [
+        "PLVLiveKit/LFLiveKit/Vendor/GPUImage/*.{h,m}",
+        "PLVLiveKit/LFLiveKit/Vendor/GPUImage/iOS/*.{h,m}",
+        "PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h"
+      ],
+      "public_header_files": [
+        "PLVLiveKit/LFLiveKit/Vendor/GPUImage/*.h",
+        "PLVLiveKit/LFLiveKit/Vendor/GPUImage/iOS/*.h",
+        "PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h"
+      ]
+    },
+    {
+      "name": "pili-librtmp",
+      "source_files": [
+        "PLVLiveKit/LFLiveKit/Vendor/pili-librtmp/*",
+        "PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h"
+      ],
+      "public_header_files": "PLVLiveKit/LFLiveKit/Vendor/PLVHeader.h"
+    },
+    {
+      "name": "configuration",
+      "source_files": "PLVLiveKit/LFLiveKit/configuration/*",
+      "public_header_files": "PLVLiveKit/LFLiveKit/configuration/*.h"
+    },
+    {
+      "name": "objects",
+      "source_files": "PLVLiveKit/LFLiveKit/objects/*",
+      "public_header_files": "PLVLiveKit/LFLiveKit/objects/*.h",
+      "dependencies": {
+        "PLVLiveKit/configuration": [
+
+        ]
+      }
+    },
+    {
+      "name": "filter",
+      "dependencies": {
+        "PLVLiveKit/objects": [
+
+        ],
+        "PLVLiveKit/GPUImage": [
+
+        ]
+      },
+      "source_files": "PLVLiveKit/LFLiveKit/capture/filter/*",
+      "public_header_files": "PLVLiveKit/LFLiveKit/capture/filter/*.h"
+    },
+    {
+      "name": "capture",
+      "source_files": "PLVLiveKit/LFLiveKit/capture/*",
+      "public_header_files": "PLVLiveKit/LFLiveKit/capture/*.h",
+      "dependencies": {
+        "PLVLiveKit/filter": [
+
+        ]
+      }
+    },
+    {
+      "name": "coder",
+      "source_files": [
+        "PLVLiveKit/LFLiveKit/coder/*.{h,m,mm}",
+        "PLVLiveKit/LFLiveKit/coder/H264/*.{h,m,mm,cpp}"
+      ],
+      "public_header_files": "PLVLiveKit/LFLiveKit/coder/*.h",
+      "dependencies": {
+        "PLVLiveKit/objects": [
+
+        ]
+      }
+    },
+    {
+      "name": "publish",
+      "source_files": "PLVLiveKit/LFLiveKit/publish/*",
+      "public_header_files": "PLVLiveKit/LFLiveKit/publish/*.h",
+      "dependencies": {
+        "PLVLiveKit/objects": [
+
+        ],
+        "PLVLiveKit/pili-librtmp": [
+
+        ]
+      }
+    }
+  ]
+}
