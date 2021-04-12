@@ -1,0 +1,131 @@
+{
+  "name": "BLPublic",
+  "version": "1.1.5",
+  "summary": "BLPublic. hud && record voice min dura",
+  "description": "BLPublic description",
+  "homepage": "http://192.168.199.108/ios/project/biaoli/BLPublic",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xu": "252697349@qq.com"
+  },
+  "source": {
+    "git": "http://192.168.199.108/ios/project/biaoli/BLPublic.git",
+    "tag": "1.1.5"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "dependencies": {
+    "Masonry": [
+
+    ]
+  },
+  "source_files": "BLPublic/Classes/BLPublicHeader.h",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Category",
+      "source_files": "BLPublic/Classes/Category/*",
+      "dependencies": {
+        "MBProgressHUD": [
+
+        ],
+        "BLPublic/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "source_files": "BLPublic/Classes/Config/*"
+    },
+    {
+      "name": "Tools",
+      "source_files": "BLPublic/Classes/Tools/*",
+      "dependencies": {
+        "BLPublic/Config": [
+
+        ],
+        "BLPublic/Category": [
+
+        ],
+        "MWVoiceConverter": [
+
+        ]
+      }
+    },
+    {
+      "name": "ModuleService",
+      "source_files": "BLPublic/Classes/ModuleService/*",
+      "dependencies": {
+        "BLPublic/Category": [
+
+        ],
+        "BLPublic/Config": [
+
+        ],
+        "BLPublic/Lib/TZImagePickerController": [
+
+        ],
+        "BLPublic/Lib/BLSupViews": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lib",
+      "subspecs": [
+        {
+          "name": "BLSupViews",
+          "source_files": "BLPublic/Classes/Lib/BLSupViews/**/*",
+          "dependencies": {
+            "BLPublic/Config": [
+
+            ],
+            "BLPublic/Category": [
+
+            ],
+            "SDWebImage": [
+
+            ]
+          }
+        },
+        {
+          "name": "MGSwipeTableCell",
+          "source_files": "BLPublic/Classes/Lib/MGSwipeTableCell/*"
+        },
+        {
+          "name": "RMLoaderDisplay",
+          "source_files": "BLPublic/Classes/Lib/RMLoaderDisplay/*"
+        },
+        {
+          "name": "TZImagePickerController",
+          "source_files": "BLPublic/Classes/Lib/TZImagePickerController/**/*.{h,m}",
+          "resources": "BLPublic/Classes/Lib/TZImagePickerController/**/*.{bundle,lic}",
+          "dependencies": {
+            "BLPublic/Config": [
+
+            ],
+            "BLPublic/Category": [
+
+            ]
+          }
+        },
+        {
+          "name": "ZZCircleProgress",
+          "source_files": "BLPublic/Classes/Lib/ZZCircleProgress/*"
+        }
+      ]
+    }
+  ]
+}
