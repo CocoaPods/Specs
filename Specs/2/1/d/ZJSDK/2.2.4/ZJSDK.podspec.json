@@ -1,0 +1,129 @@
+{
+  "name": "ZJSDK",
+  "version": "2.2.4",
+  "summary": "ZJSDK广告",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/liqiqing/ZJSDK.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rare": "rarelv@163.com"
+  },
+  "source": {
+    "git": "https://github.com/liqiqing/ZJSDK.git",
+    "tag": "2.2.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "StoreKit",
+    "MobileCoreServices",
+    "WebKit",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "QuartzCore",
+    "Security",
+    "ImageIO"
+  ],
+  "libraries": [
+    "resolv.9",
+    "c++",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "c++abi"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "ZJSDKCore",
+      "vendored_frameworks": "ZJSDK/ZJSDKCore/*.framework",
+      "preserve_paths": "ZJSDK/ZJSDKCore/*.framework"
+    },
+    {
+      "name": "ZJSDKModuleGDT",
+      "vendored_libraries": "ZJSDK/ZJSDKModuleGDT/*.a",
+      "dependencies": {
+        "ZJSDK/ZJSDKCore": [
+
+        ],
+        "GDTMobSDK": [
+          "~> 4.12"
+        ]
+      }
+    },
+    {
+      "name": "ZJSDKModuleCSJ",
+      "vendored_libraries": "ZJSDK/ZJSDKModuleCSJ/*.a",
+      "dependencies": {
+        "ZJSDK/ZJSDKCore": [
+
+        ],
+        "Ads-CN": [
+          "~> 3.4"
+        ]
+      }
+    },
+    {
+      "name": "ZJSDKModuleKS",
+      "vendored_libraries": "ZJSDK/ZJSDKModuleKS/*.a",
+      "dependencies": {
+        "ZJSDK/ZJSDKCore": [
+
+        ],
+        "KSAdSDK": [
+          "~> 3.3"
+        ]
+      }
+    },
+    {
+      "name": "ZJSDKModuleMTG",
+      "vendored_libraries": "ZJSDK/ZJSDKModuleMTG/*.a",
+      "dependencies": {
+        "ZJSDK/ZJSDKCore": [
+
+        ],
+        "MintegralAdSDK": [
+          "~> 6.7"
+        ],
+        "MintegralAdSDK/RewardVideoAd": [
+
+        ],
+        "MintegralAdSDK/BannerAd": [
+
+        ],
+        "MintegralAdSDK/SplashAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZJSDKModuleDSP",
+      "vendored_libraries": "ZJSDK/ZJSDKModuleDSP/*.a",
+      "resources": "ZJSDK/ZJSDKModuleDSP/*.bundle",
+      "dependencies": {
+        "ZJSDK/ZJSDKCore": [
+
+        ]
+      }
+    }
+  ]
+}
