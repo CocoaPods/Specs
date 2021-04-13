@@ -1,0 +1,76 @@
+{
+  "name": "VGSCollectSDK",
+  "version": "1.7.10",
+  "summary": "VGS Collect - is a product suite that allows customers to collect information securely without possession of it.",
+  "swift_versions": "5.0",
+  "description": "VGS Collect iOS SDK allows you to securely collect data from your users without having to have that data pass through your systems. It provides customizable UI elements for collecting users’ sensitive data securely on mobile devices with iOS.",
+  "homepage": "https://github.com/verygoodsecurity/vgs-collect-ios",
+  "documentation_url": "https://www.verygoodsecurity.com/docs/vgs-collect/ios-sdk/index",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Very Good Security": "support@verygoodsecurity.com"
+  },
+  "social_media_url": "https://twitter.com/getvgs",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/verygoodsecurity/vgs-collect-ios.git",
+    "tag": "1.7.10"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/VGSCollectSDK",
+        "Sources/VGSCollectSDK/**/*.{swift}",
+        "Sources/VGSCollectSDK/**/*.{h, m}"
+      ],
+      "resource_bundles": {
+        "CardIcon": [
+          "Sources/VGSCollectSDK/Resources/*"
+        ]
+      }
+    },
+    {
+      "name": "CardScan",
+      "source_files": [
+        "Sources/VGSCardScanCollector",
+        "Sources/VGSCardScanCollector/**/*.{swift}"
+      ],
+      "dependencies": {
+        "VGSCollectSDK/Core": [
+
+        ],
+        "CardScan": [
+          "2.0.9"
+        ]
+      },
+      "platforms": {
+        "ios": "11.2"
+      }
+    },
+    {
+      "name": "CardIO",
+      "source_files": [
+        "Sources/VGSCardIOCollector",
+        "Sources/VGSCardIOCollector/**/*.{swift}",
+        "Sources/VGSCardIOCollector/**/*.{h, m}"
+      ],
+      "dependencies": {
+        "VGSCollectSDK/Core": [
+
+        ],
+        "CardIOSDK": [
+          "5.5.4"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
