@@ -1,0 +1,79 @@
+{
+  "name": "SCNRecorder",
+  "version": "2.5.1",
+  "summary": "A lags-free recorder of ARKit and SceneKit for iOS in Swift",
+  "homepage": "https://github.com/gorastudio/SCNRecorder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Vladislav Grigoryev": "dev.grigoriev@gmail.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/gorastudio/SCNRecorder.git",
+    "tag": "2.5.1"
+  },
+  "module_name": "SCNRecorder",
+  "module_map": "SCNRecorder.modulemap",
+  "swift_versions": "5.0",
+  "source_files": [
+    "SCNRecorder.h",
+    "Sources/**/*.{h,m,swift}"
+  ],
+  "public_header_files": [
+    "SCNRecorder.h",
+    "Sources/**/*.h"
+  ],
+  "private_header_files": "Sources/**/*.h",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "requires_app_host": true,
+      "app_host_name": "SCNRecorder/Example",
+      "source_files": [
+        "SCNRecorderTests/**/*.{m,swift,metal}",
+        "SCNRecorderTests/Metal/**/*.h"
+      ],
+      "preserve_paths": "SCNRecorderTests/SCNRecorderTests-Bridging-Header.h",
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/SCNRecorderTests/SCNRecorderTests-Bridging-Header.h"
+      },
+      "dependencies": {
+        "SCNRecorder/Example": [
+
+        ]
+      }
+    }
+  ],
+  "appspecs": [
+    {
+      "name": "Example",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "source_files": [
+        "Example/Source/**/*.{m,swift,metal}",
+        "Example/Source/Content/**/*.{h}"
+      ],
+      "preserve_paths": "Example/Source/Example-Bridging-Header.h",
+      "resources": "Example/Source/Resources/**/*.{scnassets,xcassets}",
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/Example/Source/Example-Bridging-Header.h"
+      },
+      "dependencies": {
+        "SnapKit": [
+          "~> 5.0.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
