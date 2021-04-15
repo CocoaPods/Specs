@@ -1,0 +1,48 @@
+{
+  "name": "SENTSDK",
+  "version": "5.10.0",
+  "summary": "Sentiance Platform helps to improve your app's user experience by learning and anticipating key moments that matter for end users.",
+  "description": "First, GPS and motion sensor data from a user's phone or IOT devices is collected via our SDK. Once the data is collected, we turn this into valuable insights about the user, grouped into EVENTS, MOMENTS, and SEGMENTS. In other words, we give you an understanding of where the user likes to go, what the user likes to do, and provide an insight into the persona of the user.",
+  "homepage": "https://docs.sentiance.com",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2020 Sentiance"
+  },
+  "authors": {
+    "Sentiance Inc": "dev@sentiance.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": [
+    "SENTSDK.xcframework",
+    "SENTSDK.xcframework/Frameworks/TensorFlowLiteC.framework"
+  ],
+  "source": {
+    "http": "https://sentiance-u1-sdk-downloads.s3-eu-west-1.amazonaws.com/ios/frameworks/SENTSDK-5.10.0.xcframework.zip"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "CoreLocation",
+    "Foundation",
+    "CallKit",
+    "CoreTelephony",
+    "CoreData"
+  ],
+  "libraries": "z",
+  "resources": "**/SENTSDK.bundle",
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_CFLAGS": "-fembed-bitcode",
+    "OTHER_LDFLAGS": "-lz -all_load -lc++",
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/SENTSDK/**\""
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  }
+}
