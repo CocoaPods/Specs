@@ -1,0 +1,74 @@
+{
+  "name": "ComScore",
+  "version": "6.8.0",
+  "summary": "Official analytics library for iOS and tvOS from comScore",
+  "description": "This library is used to collect analytics from iOS and tvOS applications. The library supports apps developed in native Objective C or Swift with Apple Xcode or in other languages/tools which can include and use native Objective C libraries.",
+  "homepage": "https://github.com/comscore/ComScore-iOS-watchOS-tvOS",
+  "license": "Custom",
+  "authors": {
+    "comScore": "www.comscore.com"
+  },
+  "source": {
+    "git": "https://github.com/comscore/ComScore-iOS-watchOS-tvOS.git",
+    "tag": "6.8.0"
+  },
+  "libraries": "c++",
+  "frameworks": "Security",
+  "prepare_command": "touch .pod\nrm -rf ComScore/dynamic/ComScore.xcframework/ios-arm64_armv7/ComScore.framework/strip-framework.sh\nrm -rf ComScore/dynamic/ComScore.xcframework/ios-arm64_i386_x86_64-simulator/ComScore.framework/strip-framework.sh\nrm -rf ComScore/dynamic/ComScore.xcframework/tvos-arm64/ComScore.framework/strip-framework.sh\nrm -rf ComScore/dynamic/ComScore.xcframework/tvos-arm64_x86_64-simulator/ComScore.framework/strip-framework.sh",
+  "default_subspecs": "Dynamic",
+  "module_name": "ComScore",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  },
+  "subspecs": [
+    {
+      "name": "Dynamic",
+      "platforms": {
+        "ios": "8.0",
+        "tvos": "9.0"
+      },
+      "ios": {
+        "vendored_frameworks": "ComScore/dynamic/ComScore.xcframework",
+        "preserve_paths": "ComScore/dynamic/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      },
+      "tvos": {
+        "vendored_frameworks": "ComScore/dynamic/ComScore.xcframework",
+        "preserve_paths": "ComScore/dynamic/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      }
+    },
+    {
+      "name": "Static",
+      "platforms": {
+        "ios": "9.0",
+        "tvos": "9.0"
+      },
+      "ios": {
+        "vendored_frameworks": "ComScore/static/ComScore.xcframework",
+        "preserve_paths": "ComScore/static/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      },
+      "tvos": {
+        "vendored_frameworks": "ComScore/static/ComScore.xcframework",
+        "preserve_paths": "ComScore/static/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      }
+    }
+  ]
+}
