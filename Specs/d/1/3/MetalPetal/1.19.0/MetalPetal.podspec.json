@@ -1,0 +1,129 @@
+{
+  "prefix_header_file": false,
+  "default_subspecs": "Core",
+  "version": "1.19.0",
+  "requires_arc": true,
+  "module_map": "Frameworks/MetalPetal/MetalPetal.modulemap",
+  "authors": {
+    "YuAo": "me@imyuao.com"
+  },
+  "homepage": "https://github.com/MetalPetal/MetalPetal",
+  "source": {
+    "git": "https://github.com/MetalPetal/MetalPetal.git",
+    "tag": "1.19.0"
+  },
+  "summary": "GPU-accelerated image and video processing framework based on Metal.",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13",
+    "tvos": "13.0"
+  },
+  "swift_versions": "5.0",
+  "name": "MetalPetal",
+  "license": {
+    "type": "MIT"
+  },
+  "subspecs": [
+    {
+      "private_header_files": [
+        "Frameworks/MetalPetal/MTIPrint.h",
+        "Frameworks/MetalPetal/MTIDefer.h",
+        "Frameworks/MetalPetal/MTIHasher.h",
+        "Frameworks/MetalPetal/MTIImageRenderingContext+Internal.h",
+        "Frameworks/MetalPetal/MTIBlendFormulaSupport.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++14"
+      },
+      "source_files": "Frameworks/MetalPetal/**/*.{h,m,c,mm,metal}",
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "libraries": "c++",
+      "name": "Core",
+      "prefix_header_file": false
+    },
+    {
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "prefix_header_file": false,
+      "source_files": "Frameworks/MetalPetal/**/*.{swift}",
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "name": "Swift"
+    },
+    {
+      "ios": {
+        "script_phases": {
+          "script": "set -e\nset -u\nset -o pipefail\ncd \"${PODS_TARGET_SRCROOT}/Frameworks/MetalPetal/Shaders/\"\nxcrun metal -target \"air64-${LLVM_TARGET_TRIPLE_VENDOR}-${LLVM_TARGET_TRIPLE_OS_VERSION}${LLVM_TARGET_TRIPLE_SUFFIX:-\"\"}\" -ffast-math -std=ios-metal2.3 -o \"${METAL_LIBRARY_OUTPUT_DIR}/default.msl23.metallib\" *.metal\n",
+          "name": "Build Metal Library - MSL 2.3",
+          "execution_position": "after_compile"
+        }
+      },
+      "name": "AppleSilicon",
+      "tvos": {
+        "script_phases": {
+          "execution_position": "after_compile",
+          "name": "Build Metal Library - MSL 2.3",
+          "script": "set -e\nset -u\nset -o pipefail\ncd \"${PODS_TARGET_SRCROOT}/Frameworks/MetalPetal/Shaders/\"\nxcrun metal -target \"air64-${LLVM_TARGET_TRIPLE_VENDOR}-${LLVM_TARGET_TRIPLE_OS_VERSION}${LLVM_TARGET_TRIPLE_SUFFIX:-\"\"}\" -ffast-math -std=ios-metal2.3 -o \"${METAL_LIBRARY_OUTPUT_DIR}/default.msl23.metallib\" *.metal\n"
+        }
+      },
+      "prefix_header_file": false,
+      "osx": {
+        "script_phases": {
+          "execution_position": "after_compile",
+          "name": "Build Metal Library - MSL 2.3",
+          "script": "set -e\nset -u\nset -o pipefail\ncd \"${PODS_TARGET_SRCROOT}/Frameworks/MetalPetal/Shaders/\"\nxcrun metal -target \"air64-${LLVM_TARGET_TRIPLE_VENDOR}-${LLVM_TARGET_TRIPLE_OS_VERSION}${LLVM_TARGET_TRIPLE_SUFFIX:-\"\"}\" -ffast-math -std=macos-metal2.3 -o \"${METAL_LIBRARY_OUTPUT_DIR}/default.msl23.metallib\" *.metal\n"
+        }
+      },
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      }
+    },
+    {
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "MetalKit"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "METALPETAL_DEFAULT_LIBRARY_IN_BUNDLE=1"
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/"
+        }
+      },
+      "tvos": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/"
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/MetalPetal.bundle/Contents/Resources"
+        }
+      },
+      "resource_bundles": {
+        "MetalPetal": [
+          "Frameworks/MetalPetal/CocoaPodsBundledResourcePlaceholder"
+        ]
+      },
+      "name": "Static",
+      "dependencies": {
+        "MetalPetal/Core": [
+
+        ]
+      },
+      "prefix_header_file": false
+    }
+  ],
+  "swift_version": "5.0"
+}
