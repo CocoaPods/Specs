@@ -1,0 +1,40 @@
+{
+  "name": "hippy",
+  "version": "2.6.0",
+  "summary": "hippy lib for ios",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mengyanluo": "mengyanluo@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "2.6.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ios/sdk/**/*.{h,m,c,mm,s,cpp,cc}",
+  "public_header_files": "ios/sdk/**/*.h",
+  "default_subspecs": "core",
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-force_load \"${PODS_CONFIGURATION_BUILD_DIR}/hippy/libhippy.a\""
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "core/**/*.{h,cc}",
+      "exclude_files": [
+        "core/include/core/napi/v8",
+        "core/src/napi/v8",
+        "core/js"
+      ],
+      "libraries": "c++",
+      "header_mappings_dir": "core/include/"
+    }
+  ]
+}
