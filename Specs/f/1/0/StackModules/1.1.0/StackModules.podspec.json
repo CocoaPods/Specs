@@ -1,0 +1,78 @@
+{
+  "name": "StackModules",
+  "version": "1.1.0",
+  "summary": "Supported modules for Stack iOS products",
+  "description": "Supported modules for Stack iOS products. Used in Appodeal, BidMachine and DataCore",
+  "homepage": "http://www.appodeal.com",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackModules/1.1.0/StackModules.zip"
+  },
+  "default_subspecs": "StackProductPresentation",
+  "static_framework": true,
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "StackFoundation",
+      "vendored_frameworks": "StackFoundation.xcframework",
+      "libraries": "z",
+      "frameworks": [
+        "SafariServices",
+        "StoreKit",
+        "WebKit",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "CoreLocation",
+        "MobileCoreServices",
+        "AVFoundation",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "StackUIKit",
+      "vendored_frameworks": "StackUIKit.xcframework",
+      "dependencies": {
+        "StackModules/StackFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackProductPresentation",
+      "vendored_frameworks": "StackProductPresentation.xcframework",
+      "source_files": "Dummy.swift",
+      "dependencies": {
+        "StackModules/StackUIKit": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
