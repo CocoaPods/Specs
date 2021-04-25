@@ -1,0 +1,140 @@
+{
+  "name": "YHKOpenSDK",
+  "version": "0.0.1",
+  "summary": "集成成熟三方平台SDK一体化",
+  "description": "集成成熟三方平台SDK一体化，主要包含微信开放平台，QQ开放平台，微博开放平台，支付宝开放平台，Google+开发平台，Facebook开发平台等，实现登录、分享和支付等功能。",
+  "homepage": "https://gitee.com/liu_chaolong/yhkopen-sdk.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "刘朝龙": "liuchl@yonyou.com"
+  },
+  "source": {
+    "git": "https://gitee.com/liu_chaolong/yhkopen-sdk.git",
+    "tag": "0.0.1"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "YHKOpenSourceSDK",
+  "subspecs": [
+    {
+      "name": "YHKOpenSourceSDK",
+      "dependencies": {
+        "YHKOpenSDK/YHKOpenWechatSDK": [
+
+        ],
+        "YHKOpenSDK/YHKOpenQQSDK": [
+
+        ],
+        "YHKOpenSDK/YHKOpenWeiboSDK": [
+
+        ],
+        "YHKOpenSDK/YHKOpenAlipaySDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "YHKOpenWechatSDK",
+      "source_files": "YHKOpenSDK/Source/Wechat/**/*",
+      "frameworks": [
+        "Security",
+        "CoreGraphics",
+        "WebKit",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3.0"
+      ],
+      "ios": {
+        "vendored_libraries": "YHKOpenSDK/Library/Wechat/libWeChatSDK.a"
+      }
+    },
+    {
+      "name": "YHKOpenQQSDK",
+      "resource_bundles": {
+        "TencentOpenApi_IOS_Bundle": [
+          "YHKOpenSDK/Assets/QQ/TencentOpenApi_IOS_Bundle.bundle"
+        ]
+      },
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "stdc++",
+        "z",
+        "sqlite3.0",
+        "iconv"
+      ],
+      "ios": {
+        "vendored_frameworks": "YHKOpenSDK/Framework/QQ/TencentOpenAPI.framework"
+      }
+    },
+    {
+      "name": "YHKOpenWeiboSDK",
+      "source_files": "YHKOpenSDK/Source/Weibo/**/*",
+      "resource_bundles": {
+        "WeiboSDK": [
+          "YHKOpenSDK/Assets/Weibo/WeiboSDK.bundle"
+        ]
+      },
+      "frameworks": [
+        "Security",
+        "CoreGraphics",
+        "WebKit",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3.0"
+      ],
+      "ios": {
+        "vendored_libraries": "YHKOpenSDK/Library/Weibo/libWeiboSDK.a"
+      }
+    },
+    {
+      "name": "YHKOpenAlipaySDK",
+      "resource_bundles": {
+        "AlipaySDK": [
+          "YHKOpenSDK/Assets/Alipay/AlipaySDK.bundle"
+        ]
+      },
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "QuartzCore",
+        "CoreTelephony",
+        "CFNetwork",
+        "CoreMotion",
+        "UIKit",
+        "Foundation",
+        "WebKit"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "ios": {
+        "vendored_frameworks": "YHKOpenSDK/Framework/Alipay/AlipaySDK.framework"
+      }
+    }
+  ]
+}
