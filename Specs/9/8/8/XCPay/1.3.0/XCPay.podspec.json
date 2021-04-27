@@ -1,0 +1,58 @@
+{
+  "name": "XCPay",
+  "version": "1.3.0",
+  "summary": "集成第三方支付，由于微信的SDK可能会出现在其他第三方SDK中（友盟、ShareSDK），因此如果不需要导入微信SDK，请在 pod install 的前面加如下：\n不导入微信SDK：    NO_WXPAY=1 pod install\n不导入支付宝SDK：  NO_ALIYPAY=1 pod install",
+  "description": "XCPay：集成第三方支付，由于微信的SDK可能会出现在其他第三方SDK中（友盟、ShareSDK），因此如果不需要导入微信SDK，请在 pod install 的前面加如下：\n不导入微信SDK：    NO_WXPAY=1 pod install\n不导入支付宝SDK：  NO_ALIYPAY=1 pod install",
+  "homepage": "https://github.com/fanxiaocong/XCPay",
+  "license": "MIT",
+  "authors": {
+    "樊小聪": "1016697223@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/fanxiaocong/XCPay.git",
+    "tag": "1.3.0"
+  },
+  "platforms": {
+    "ios": "9"
+  },
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "XCPay",
+      "source_files": [
+        "XCPay/Classes/XCPay/XCPay/*.{h,m}",
+        "XCPay/Classes/XCPay/XCPay/XCPayProtocol/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Alipay",
+      "source_files": "XCPay/Classes/XCPay/Alipay/*.{h,m}",
+      "dependencies": {
+        "XCPay/XCPay": [
+
+        ],
+        "AlipaySDK-iOS": [
+          "~> 15.7.9"
+        ]
+      }
+    },
+    {
+      "name": "WXPay",
+      "source_files": "XCPay/Classes/XCPay/WXPay/*.{h,m}",
+      "dependencies": {
+        "XCPay/XCPay": [
+
+        ],
+        "WechatOpenSDK": [
+          "~> 1.8.7.1"
+        ]
+      }
+    }
+  ]
+}
