@@ -1,0 +1,59 @@
+{
+  "name": "Flipper-RSocket",
+  "version": "1.4.3",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/rsocket/rsocket-cpp",
+  "summary": "C++ implementation of RSocket",
+  "authors": "Facebook",
+  "source": {
+    "git": "https://github.com/rsocket/rsocket-cpp.git",
+    "tag": "v2021.04.26.00"
+  },
+  "module_name": "RSocket",
+  "static_framework": true,
+  "source_files": [
+    "rsocket/benchmarks/*.{h,cpp,m,mm}",
+    "rsocket/framing/*.{h,cpp,m,mm}",
+    "rsocket/internal/*.{h,cpp,m,mm}",
+    "rsocket/statemachine/*.{h,cpp,m,mm}",
+    "rsocket/transports/*.{h,cpp,m,mm}",
+    "rsocket/transports/**/*.{h,cpp,m,mm}",
+    "yarpl/observable/*.{h,cpp,m,mm}",
+    "yarpl/flowable/*.{h,cpp,m,mm}",
+    "rsocket/*.{h,cpp,m,mm}"
+  ],
+  "libraries": "stdc++",
+  "compiler_flags": "-DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_HAVE_PTHREAD=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0\n  -frtti\n  -fexceptions\n  -std=c++14\n  -Wno-error\n  -Wno-unused-local-typedefs\n  -Wno-unused-variable\n  -Wno-sign-compare\n  -Wno-comment\n  -Wno-return-type\n  -Wno-global-constructors\n  -Wno-comma",
+  "dependencies": {
+    "Flipper-Folly": [
+      "~> 2.6"
+    ]
+  },
+  "preserve_paths": [
+    "rsocket/benchmarks/*.h",
+    "rsocket/framing/*.h",
+    "rsocket/internal/*.h",
+    "rsocket/statemachine/*.h",
+    "rsocket/transports/*.h",
+    "rsocket/*.h",
+    "yarpl/flowable/*.h",
+    "yarpl/observable/*.h",
+    "yarpl/perf/*.h",
+    "yarpl/single/*.h",
+    "yarpl/utils/*.h",
+    "yarpl/*.h",
+    "**/*.h"
+  ],
+  "header_mappings_dir": "./",
+  "header_dir": "./",
+  "pod_target_xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)\"/**  \"$(PODS_ROOT)/Flipper-Boost-iOSX\" \"$(PODS_ROOT)/glog\" \"$(PODS_ROOT)/libevent/include\" \"$(PODS_ROOT)/DoubleConversion\"/**"
+  },
+  "platforms": {
+    "ios": "10.0"
+  }
+}
