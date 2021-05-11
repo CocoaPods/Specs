@@ -1,0 +1,23 @@
+{
+  "name": "TBSWKWebViewJSBridge",
+  "version": "1.0.2",
+  "summary": "js和native通讯，只用于WKWebView.",
+  "description": "页面上的js已初始化时需要调用window.webkit.messageHandlers.Bridge.postMessage('{ \"handlerName\": \"bridgeLoaded\" }')\n1.js调用ios\n\nwindow.webkit.messageHandlers.Bridge在webkit初始化时已声明，js可直接调用，无需等待。\njs向ios发送消息: window.webkit.messageHandlers.Bridge.postMessage(message)\nmessage JSON\nhandlerName String 调用bridge的名字，如share、alert\ndata Object 传递给native的数据\ncallbackId String callback的id，ios回调时，改名为responseId\nios回调：window.WebViewJavascriptBridge._handleMessageFromNative(message)\nmessage JSON\nresponseData Object 给js的数据\nresponseId String 值为js传过来的callbackId\n2.ios调用js\n\nios调用：window.WebViewJavascriptBridge._handleMessageFromNative(message)\nmessage JSON\nhandlerName String 值为Events (JavaScript Handler)\ndata Object 传递给js的数据\ncallbackId String= 暂无",
+  "homepage": "https://github.com/fupenghua/TBSJSBridgeForWKWebView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fupenghua": "390908980@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/fupenghua/TBSJSBridgeForWKWebView.git",
+    "tag": "1.0.2"
+  },
+  "source_files": "TBSWKWebViewJSBridge/*.{h,m}",
+  "resources": "TBSWKWebViewJSBridge/JSBridge.bundle",
+  "platforms": {
+    "ios": "8.0"
+  }
+}

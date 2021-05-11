@@ -1,0 +1,97 @@
+{
+  "name": "WBSUtils",
+  "version": "0.2.1",
+  "summary": "iOS 第三方库优化 改bug工具库合集",
+  "description": "iOS OC框架下年久失修库完善版，目前包含：YYImage, YYCache, YYWebImage, YBImageBrowser 等。",
+  "homepage": "https://github.com/webersongao",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "卫博生": "gao@btbk.org"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/webersongao/WBSUtils.git",
+    "tag": "0.2.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "WBSUtils/Core/**/*.{h,m}"
+    },
+    {
+      "name": "YYImage",
+      "source_files": "WBSUtils/YYImage-master/YYImage/*.{h,m}",
+      "public_header_files": "WBSUtils/YYImage-master/YYImage/*.{h}",
+      "libraries": "z",
+      "frameworks": [
+        "UIKit",
+        "CoreFoundation",
+        "QuartzCore",
+        "AssetsLibrary",
+        "ImageIO",
+        "Accelerate",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "YYCache",
+      "source_files": "WBSUtils/YYCache-master/YYCache/*.{h,m}",
+      "public_header_files": "WBSUtils/YYCache-master/YYCache/*.{h}",
+      "libraries": "sqlite3",
+      "frameworks": [
+        "UIKit",
+        "CoreFoundation",
+        "QuartzCore"
+      ]
+    },
+    {
+      "name": "YYWebImage",
+      "source_files": [
+        "WBSUtils/YYWebImage-master/YYWebImage/*.{h,m}",
+        "WBSUtils/YYWebImage-master/YYWebImage/Categories/*.{h,m}"
+      ],
+      "public_header_files": [
+        "WBSUtils/YYWebImage-master/YYWebImage/*.{h}",
+        "WBSUtils/YYWebImage-master/YYWebImage/Categories/*.{h}"
+      ],
+      "private_header_files": "WBSUtils/YYWebImage-master/YYWebImage/Categories/_*.{h}",
+      "dependencies": {
+        "WBSUtils/YYImage": [
+
+        ],
+        "WBSUtils/YYCache": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreFoundation",
+        "QuartzCore",
+        "AssetsLibrary",
+        "ImageIO",
+        "Accelerate",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "YBImageBrowser",
+      "source_files": "WBSUtils/YBImageBrowser-master/YBImageBrowser/**/*.{h,m}",
+      "resources": "WBSUtils/YBImageBrowser-master/YBImageBrowser/YBImageBrowser.bundle",
+      "dependencies": {
+        "WBSUtils/YYImage": [
+
+        ],
+        "SDWebImage": [
+          ">= 5.0.0"
+        ]
+      }
+    }
+  ]
+}

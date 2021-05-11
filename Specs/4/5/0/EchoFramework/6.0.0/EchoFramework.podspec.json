@@ -1,0 +1,48 @@
+{
+  "name": "EchoFramework",
+  "version": "6.0.0",
+  "summary": "Echo iOS Framework",
+  "homepage": "https://github.com/echoprotocol/echo-ios-framework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Fedorenko Nikita": "n.fedorenko@pixelplex.io",
+    "Sharaev Vladimir": "v.sharaev@pixelplex.io"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/echoprotocol/echo-ios-framework"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_map": "EchoFramework/Supports Files/EchoFramework.modulemap",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "${SRCROOT} $(SRCROOT)/EchoFramework/Libraries",
+    "SWIFT_WHOLE_MODULE_OPTIMIZATION": "YES",
+    "HEADER_SEARCH_PATHS": "$(SRCROOT)/EchoFramework/Libraries/ed25519/include",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "$(SRCROOT)/EchoFramework/Libraries/ed25519/lib/OSRelease",
+    "LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]": "$(SRCROOT)/EchoFramework/Libraries/ed25519/lib/SimulatorRelease",
+    "ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "preserve_paths": [
+    "Libraries",
+    "EchoFramework/Supports Files/EchoFramework.modulemap"
+  ],
+  "source_files": "EchoFramework/**/*.{h,swift,m,a}",
+  "user_target_xcconfig": {
+    "ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "dependencies": {
+    "Starscream": [
+      "~> 3.0.2"
+    ],
+    "OpenSSL-Universal": [
+      "~> 1.1.1100"
+    ]
+  },
+  "swift_version": "5.0"
+}

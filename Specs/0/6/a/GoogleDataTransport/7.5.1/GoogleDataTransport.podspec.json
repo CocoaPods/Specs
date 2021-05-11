@@ -1,0 +1,164 @@
+{
+  "name": "GoogleDataTransport",
+  "version": "7.5.1",
+  "summary": "Google iOS SDK data transport.",
+  "description": "Shared library for iOS SDK data transport needs.",
+  "homepage": "https://developers.google.com/",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "DataTransport-7.5.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "static_framework": true,
+  "prefix_header_file": false,
+  "source_files": [
+    "GoogleDataTransport/GDTCORLibrary/**/*",
+    "GoogleDataTransport/GDTCCTLibrary/**/*"
+  ],
+  "public_header_files": "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/*.h",
+  "ios": {
+    "frameworks": [
+      "SystemConfiguration",
+      "CoreTelephony"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "SystemConfiguration",
+      "CoreTelephony"
+    ]
+  },
+  "tvos": {
+    "frameworks": "SystemConfiguration"
+  },
+  "libraries": [
+    "z"
+  ],
+  "dependencies": {
+    "nanopb": [
+      "~> 1.30906.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "GCC_TREAT_WARNINGS_AS_ERRORS": "YES",
+    "CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY": "YES",
+    "GCC_PREPROCESSOR_DEFINITIONS": "PB_FIELD_32BIT=1 PB_NO_PACKED_STRUCTS=1 PB_ENABLE_MALLOC=1 GDTCOR_VERSION=7.5.1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+  },
+  "testspecs": [
+    {
+      "name": "Tests-Unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "requires_app_host": false,
+      "source_files": [
+        "GoogleDataTransport/GDTCORTests/Unit/**/*.{h,m}",
+        "GoogleDataTransport/GDTCORTests/Common/**/*.{h,m}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+      }
+    },
+    {
+      "name": "Tests-Lifecycle",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "requires_app_host": false,
+      "source_files": [
+        "GoogleDataTransport/GDTCORTests/Lifecycle/**/*.{h,m}",
+        "GoogleDataTransport/GDTCORTests/Common/**/*.{h,m}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+      }
+    },
+    {
+      "name": "Tests-Integration",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "requires_app_host": false,
+      "source_files": [
+        "GoogleDataTransport/GDTCORTests/Integration/**/*.{h,m}",
+        "GoogleDataTransport/GDTCORTests/Common/**/*.{h,m}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+      },
+      "dependencies": {
+        "GCDWebServer": [
+
+        ]
+      }
+    },
+    {
+      "name": "CCT-Tests-Unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "requires_app_host": false,
+      "source_files": [
+        "GoogleDataTransport/GDTCCTTests/Unit/**/*.{h,m}",
+        "GoogleDataTransport/GDTCCTTests/Common/**/*.{h,m}",
+        "GoogleDataTransport/GDTCORTests/Common/**/*.{h,m}"
+      ],
+      "resources": [
+        "GoogleDataTransport/GDTCCTTests/Data/**/*"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+      },
+      "dependencies": {
+        "GCDWebServer": [
+
+        ]
+      }
+    },
+    {
+      "name": "CCT-Tests-Integration",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.11",
+        "tvos": "10.0"
+      },
+      "requires_app_host": false,
+      "source_files": [
+        "GoogleDataTransport/GDTCCTTests/Integration/**/*.{h,m}",
+        "GoogleDataTransport/GDTCCTTests/Common/**/*.{h,m}"
+      ],
+      "resources": [
+        "GoogleDataTransport/GDTCCTTests/Data/**/*"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/\""
+      }
+    }
+  ]
+}

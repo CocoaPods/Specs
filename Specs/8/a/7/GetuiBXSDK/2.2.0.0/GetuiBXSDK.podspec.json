@@ -1,0 +1,116 @@
+{
+  "name": "GetuiBXSDK",
+  "version": "2.2.0.0",
+  "summary": "个推变现 iOS SDK CocoaPods 集成库",
+  "homepage": "http://docs.getui.com/monetize/start/ios/",
+  "license": "MIT",
+  "authors": {
+    "个推": "support@getui.com"
+  },
+  "source": {
+    "git": "https://github.com/GetuiLaboratory/getui-bxsdk-ios-cocoapods.git",
+    "tag": "2.2.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "dependencies": {
+        "GTCommonSDK": [
+          ">=1.1.1.0"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "GetuiBXSdk.framework"
+      },
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreTelephony",
+        "CoreMotion",
+        "MessageUI",
+        "QuartzCore",
+        "SafariServices",
+        "Security",
+        "SystemConfiguration",
+        "WebKit",
+        "CoreMedia"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "sqlite3",
+        "xml2",
+        "z"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC",
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "csj",
+      "dependencies": {
+        "GetuiBXSDK/core": [
+
+        ],
+        "Bytedance-UnionAD": [
+          ">=3.3.1.5"
+        ]
+      }
+    },
+    {
+      "name": "gdt",
+      "dependencies": {
+        "GetuiBXSDK/core": [
+
+        ],
+        "GDTMobSDK": [
+          ">=4.11.12"
+        ]
+      }
+    },
+    {
+      "name": "inmobi",
+      "dependencies": {
+        "GetuiBXSDK/core": [
+
+        ],
+        "InMobiSDK-China": [
+          ">=7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "bd",
+      "dependencies": {
+        "GetuiBXSDK/core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "Vendor/BaiduMobAdSDK.framework"
+      }
+    },
+    {
+      "name": "bxm",
+      "dependencies": {
+        "GetuiBXSDK/core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_libraries": "Vendor/BXMSDK/libBXMSDK.a"
+      },
+      "resources": "Vendor/BXMSDK/BXMAdSDK.bundle",
+      "source_files": "Vendor/BXMSDK/*.h"
+    }
+  ]
+}

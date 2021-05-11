@@ -1,0 +1,105 @@
+{
+  "name": "TensorIO",
+  "version": "1.2.4",
+  "summary": "An Objective-C and Swift wrapper for TensorFlow Lite and TensorFlow, with support for on device training.",
+  "description": "On device inference with TensorFlow Lite or inference and training with full TensorFlow models using all the conveniences of Objective-C or Swift",
+  "homepage": "https://github.com/doc-ai/tensorio-ios",
+  "license": {
+    "type": "Apache 2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "doc.ai": "philip@doc.ai"
+  },
+  "source": {
+    "git": "https://github.com/doc-ai/tensorio-ios.git",
+    "tag": "1.2.4"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreMedia",
+    "CoreVideo",
+    "Accelerate",
+    "VideoToolbox"
+  ],
+  "libraries": "c++",
+  "dependencies": {
+    "DSJSONSchemaValidation": [
+
+    ]
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TensorIO/Classes/Core/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_CORE=1 TIO_VERSION=1.2.4"
+      }
+    },
+    {
+      "name": "TFLite",
+      "dependencies": {
+        "TensorIO/Core": [
+
+        ],
+        "TensorFlowLite": [
+
+        ]
+      },
+      "source_files": "TensorIO/Classes/TFLite/**/*",
+      "private_header_files": [
+        "TensorIO/Classes/TFLite/TIOTFLiteData/**/*.h"
+      ],
+      "resource_bundles": {
+        "TFLite": "TensorIO/Assets/TFLite/**/*"
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/TensorFlowLite/Frameworks/tensorflow_lite.framework/Headers\""
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_TFLITE=1"
+      }
+    },
+    {
+      "name": "TensorFlow",
+      "dependencies": {
+        "TensorIO/Core": [
+
+        ],
+        "TensorIOTensorFlow": [
+          "~> 2.0.8"
+        ]
+      },
+      "source_files": "TensorIO/Classes/TensorFlow/**/*",
+      "private_header_files": [
+        "TensorIO/Classes/TensorFlow/SavedModel/**/*.h",
+        "TensorIO/Classes/TensorFlow/TIOTensorFlowData/**/*.h"
+      ],
+      "resource_bundles": {
+        "TensorFlow": "TensorIO/Assets/TensorFlow/**/*"
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/TensorIOTensorFlow/Frameworks/tensorflow.framework/Headers\"",
+        "OTHER_LDFLAGS": "-force_load \"${PODS_ROOT}/TensorIOTensorFlow/Frameworks/tensorflow.framework/tensorflow\""
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "TIO_TENSORFLOW=1"
+      }
+    }
+  ]
+}

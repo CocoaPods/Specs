@@ -1,0 +1,70 @@
+{
+  "name": "Inngage",
+  "version": "1.0.0",
+  "license": "MIT",
+  "summary": "Inngage library",
+  "homepage": "https://inngage.readme.io/docs/tutorial-de-integracao-ios",
+  "authors": {
+    "Augusto Reis": "reis-augusto@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/inngage/inngage-ios.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Shared",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "WebKit"
+      ],
+      "source_files": "InngageIos/Shared/**/*.{h,m}",
+      "resources": [
+        "InngageIos/**/*.xib"
+      ]
+    },
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "WebKit"
+      ],
+      "source_files": "InngageIos/Core/**/*.{h,m}",
+      "resources": [
+        "InngageIos/**/*.xib"
+      ],
+      "dependencies": {
+        "Inngage/Shared": [
+
+        ]
+      }
+    },
+    {
+      "name": "NotificationExtension",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "weak_frameworks": [
+        "UserNotifications",
+        "UserNotificationsUI"
+      ],
+      "source_files": "InngageIos/NotificationExtension/**/*.{h,m}",
+      "dependencies": {
+        "Inngage/Shared": [
+
+        ],
+        "Inngage/Core": [
+
+        ]
+      }
+    }
+  ]
+}

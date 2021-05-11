@@ -1,0 +1,91 @@
+{
+  "name": "LTXiOSUtils",
+  "version": "0.0.3",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "summary": "通用工具类以及组件的整合、封装以及使用介绍",
+  "homepage": "https://github.com/Coder-Star/LTXiOSUtils",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CoderStar": "1340529758@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Coder-Star/LTXiOSUtils.git",
+    "tag": "0.0.3"
+  },
+  "requires_arc": true,
+  "swift_versions": [
+    "5",
+    "4.2"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Extension",
+          "frameworks": [
+            "UIKit",
+            "Foundation"
+          ],
+          "source_files": "LTXiOSUtils/Classes/Core/Extension/*.swift"
+        },
+        {
+          "name": "CoreUtil",
+          "frameworks": [
+            "UIKit",
+            "Foundation"
+          ],
+          "source_files": "LTXiOSUtils/Classes/Core/CoreUtil/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Network",
+      "dependencies": {
+        "LTXiOSUtils/Core": [
+
+        ],
+        "ReachabilitySwift": [
+          "5.0.0"
+        ],
+        "Moya": [
+          "14.0.0"
+        ]
+      },
+      "source_files": "LTXiOSUtils/Classes/Network/*.swift"
+    },
+    {
+      "name": "Util",
+      "source_files": "LTXiOSUtils/Classes/Util/**/*.swift"
+    },
+    {
+      "name": "Component",
+      "dependencies": {
+        "LTXiOSUtils/Core": [
+
+        ],
+        "MBProgressHUD": [
+          "1.2.0"
+        ]
+      },
+      "source_files": "LTXiOSUtils/Classes/Component/**/*.swift",
+      "subspecs": [
+        {
+          "name": "Resources",
+          "resource_bundles": {
+            "LTXiOSUtilsComponent": "LTXiOSUtils/Classes/Component/Resources/Resource/*"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5"
+}

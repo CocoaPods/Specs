@@ -1,0 +1,465 @@
+{
+  "name": "react-ios",
+  "version": "0.63.4.0",
+  "summary": "An runtime base on react-native.",
+  "description": "\"Introduce this library for your App, development by react-native code.\"",
+  "homepage": "https://github.com/beatjs/react-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Liam Xu": "liamxujia@outlook.com"
+  },
+  "source": {
+    "git": "https://github.com/beatjs/react-ios.git",
+    "tag": "0.63.4.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "resource_bundles": {
+    "AccessibilityResources": [
+      "React/AccessibilityResources/*.lproj"
+    ]
+  },
+  "header_dir": "React",
+  "libraries": "stdc++",
+  "frameworks": [
+    "JavaScriptCore",
+    "Photos",
+    "CoreServices"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "compiler_flags": "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32 -Wno-documentation -Wno-nullability-completeness",
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "All",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/callinvoker": [
+
+        ],
+        "react-ios/jsinspector": [
+
+        ],
+        "react-ios/cxxreact": [
+
+        ],
+        "react-ios/jsiexecutor": [
+
+        ],
+        "react-ios/RCTRequired": [
+
+        ],
+        "react-ios/FBLazyVector": [
+
+        ],
+        "react-ios/Default": [
+
+        ],
+        "react-ios/RCTAnimation": [
+
+        ],
+        "react-ios/RCTNetwork": [
+
+        ],
+        "react-ios/RCTBlob": [
+
+        ],
+        "react-ios/RCTImage": [
+
+        ],
+        "react-ios/RCTLinking": [
+
+        ],
+        "react-ios/RCTSettings": [
+
+        ],
+        "react-ios/RCTText": [
+
+        ],
+        "react-ios/RCTVibration": [
+
+        ]
+      }
+    },
+    {
+      "name": "folly",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES",
+        "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)\" \"$(PODS_ROOT)/boost-for-react-native\" \"$(PODS_ROOT)/DoubleConversion\""
+      },
+      "source_files": [
+        "folly/String.cpp",
+        "folly/Conv.cpp",
+        "folly/Demangle.cpp",
+        "folly/FileUtil.cpp",
+        "folly/Format.cpp",
+        "folly/lang/SafeAssert.cpp",
+        "folly/ScopeGuard.cpp",
+        "folly/Unicode.cpp",
+        "folly/dynamic.cpp",
+        "folly/json.cpp",
+        "folly/json_pointer.cpp",
+        "folly/container/detail/F14Table.cpp",
+        "folly/detail/Demangle.cpp",
+        "folly/detail/UniqueInstance.cpp",
+        "folly/hash/SpookyHashV2.cpp",
+        "folly/lang/Assume.cpp",
+        "folly/lang/CString.cpp",
+        "folly/memory/detail/MallocImpl.cpp",
+        "folly/net/NetOps.cpp",
+        "folly/portability/SysUio.cpp"
+      ],
+      "preserve_paths": [
+        "folly/*.h",
+        "folly/container/*.h",
+        "folly/container/detail/*.h",
+        "folly/detail/*.h",
+        "folly/functional/*.h",
+        "folly/hash/*.h",
+        "folly/lang/*.h",
+        "folly/memory/*.h",
+        "folly/memory/detail/*.h",
+        "folly/net/*.h",
+        "folly/net/detail/*.h",
+        "folly/portability/*.h"
+      ],
+      "dependencies": {
+        "boost-for-react-native": [
+          "1.63.0"
+        ],
+        "DoubleConversion": [
+          "1.1.5"
+        ],
+        "glog": [
+          "0.3.4"
+        ]
+      }
+    },
+    {
+      "name": "jsi",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "ReactCommon/jsi/**/*.{h,cpp}",
+      "private_header_files": "ReactCommon/jsi/**/*.{h}",
+      "exclude_files": "ReactCommon/jsi/jsi/test",
+      "dependencies": {
+        "boost-for-react-native": [
+          "1.63.0"
+        ],
+        "DoubleConversion": [
+          "1.1.5"
+        ],
+        "glog": [
+          "0.3.4"
+        ],
+        "react-ios/folly": [
+
+        ]
+      }
+    },
+    {
+      "name": "callinvoker",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "ReactCommon/callinvoker/ReactCommon/**/*.{h}",
+      "private_header_files": "ReactCommon/callinvoker/ReactCommon/**/*.{h}"
+    },
+    {
+      "name": "jsinspector",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "ReactCommon/jsinspector/**/*.{h,cpp}",
+      "private_header_files": "ReactCommon/jsinspector/**/*.{h}"
+    },
+    {
+      "name": "cxxreact",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "ReactCommon/cxxreact/**/*.{h,cpp}",
+      "private_header_files": "ReactCommon/cxxreact/**/*.{h}",
+      "exclude_files": "ReactCommon/cxxreact/tests",
+      "dependencies": {
+        "boost-for-react-native": [
+          "1.63.0"
+        ],
+        "DoubleConversion": [
+          "1.1.5"
+        ],
+        "glog": [
+          "0.3.4"
+        ],
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsinspector": [
+
+        ],
+        "react-ios/callinvoker": [
+
+        ]
+      }
+    },
+    {
+      "name": "jsiexecutor",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "ReactCommon/jsiexecutor/jsireact/**/*.{h,cpp}",
+      "private_header_files": "ReactCommon/jsiexecutor/jsireact/**/*.{h}",
+      "dependencies": {
+        "DoubleConversion": [
+          "1.1.5"
+        ],
+        "glog": [
+          "0.3.4"
+        ],
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/cxxreact": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTRequired",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/RCTRequired/**/*.{h,mm}",
+      "private_header_files": "Libraries/RCTRequired/RCTRequired/RCTRequired.h"
+    },
+    {
+      "name": "FBLazyVector",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/FBLazyVector/FBLazyVector/**/*.{h}",
+      "private_header_files": "Libraries/FBLazyVector/FBLazyVector/**/*.{h}"
+    },
+    {
+      "name": "Default",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": [
+        "React/**/*.{c,h,m,mm,S,cpp}",
+        "Libraries/TypeSafety/**/*.{h,mm}",
+        "Libraries/FBReactNativeSpec/FBReactNativeSpec/**/*.{h,mm,cpp}",
+        "ReactCommon/turbomodule/core/**/*.{h,mm,m,cpp}",
+        "Libraries/WebSocket/*.{h,m}",
+        "React/DevSupport/*.{h,mm,m}",
+        "React/Inspector/*.{h,mm,m}"
+      ],
+      "exclude_files": [
+        "React/Fabric/**/*",
+        "ReactCommon/turbomodule/core/platform/android/**/*"
+      ],
+      "private_header_files": [
+        "React/Cxx*/*.h",
+        "Libraries/TypeSafety/RCTConvertHelpers.h",
+        "Libraries/TypeSafety/RCTTypedModuleConstants.h",
+        "Libraries/FBReactNativeSpec/FBReactNativeSpec/**/*.{h}",
+        "ReactCommon/turbomodule/core/**/*.{h}"
+      ],
+      "dependencies": {
+        "Yoga": [
+          "1.14.0"
+        ],
+        "glog": [
+          "0.3.4"
+        ],
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/jsinspector": [
+
+        ],
+        "react-ios/cxxreact": [
+
+        ],
+        "react-ios/callinvoker": [
+
+        ],
+        "react-ios/jsiexecutor": [
+
+        ],
+        "react-ios/FBLazyVector": [
+
+        ],
+        "react-ios/RCTRequired": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTAnimation",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/NativeAnimation/{Drivers/*,Nodes/*,*}.{h}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTNetwork",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Network/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTBlob",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Blob/**/*.{h,m,mm}",
+      "private_header_files": [
+        "Libraries/Blob/RCTBlobCollector.h",
+        "Libraries/Blob/RCTBlobPlugins.h"
+      ],
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ],
+        "react-ios/RCTNetwork": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTImage",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Image/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ],
+        "react-ios/RCTNetwork": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTLinking",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/LinkingIOS/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTSettings",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Settings/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTText",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Text/**/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "RCTVibration",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "YES"
+      },
+      "source_files": "Libraries/Vibration/*.{h,m,mm}",
+      "dependencies": {
+        "react-ios/folly": [
+
+        ],
+        "react-ios/jsi": [
+
+        ],
+        "react-ios/Default": [
+
+        ]
+      }
+    }
+  ]
+}

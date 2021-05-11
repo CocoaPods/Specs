@@ -1,0 +1,66 @@
+{
+  "name": "CapellaClient-GRPC",
+  "version": "1.0.1",
+  "license": "Apache License, Version 2.0",
+  "summary": "CapellaClient-GRPC",
+  "source": {
+    "git": "https://gitlab.gmdp.io/gmdp/capella-client-api.git",
+    "tag": "1.0.1"
+  },
+  "authors": {
+    "Mikhail": "test@gmail.com"
+  },
+  "homepage": "https://github.com",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "dependencies": {
+    "SwiftGRPC": [
+
+    ],
+    "SwiftProtobuf": [
+
+    ]
+  },
+  "prepare_command": "mkdir -p CapellaClient-GRPC\n\t\nswift_dependency/!ProtoCompiler/protoc         --plugin=swift_dependency/GRPC/protoc-gen-swiftgrpc         --plugin=swift_dependency/Proto/protoc-gen-swift         --swift_out=Visibility=Public:CapellaClient-GRPC        --swiftgrpc_out=Client=true,Server=false,TestStubs=true,Visibility=Public:CapellaClient-GRPC         -I proto         -I swift_dependency/!ProtoCompiler         proto/*.proto  swift_dependency/!ProtoCompiler/google/protobuf/descriptor.proto",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": [
+        "CapellaClient-GRPC/*.pb.{h,m,swift}",
+        "CapellaClient-GRPC/**/*.pb.{h,m,swift}"
+      ],
+      "header_mappings_dir": "CapellaClient-GRPC",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ],
+        "SwiftProtobuf": [
+          "1.7.0"
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "CapellaClient-GRPC/*.grpc.{h,m,swift}",
+        "CapellaClient-GRPC/**/*.pb.{h,m,swift}"
+      ],
+      "header_mappings_dir": "CapellaClient-GRPC",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "CapellaClient-GRPC/Messages": [
+
+        ]
+      }
+    }
+  ]
+}

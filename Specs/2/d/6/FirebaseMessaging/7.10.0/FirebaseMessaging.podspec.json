@@ -1,0 +1,109 @@
+{
+  "name": "FirebaseMessaging",
+  "version": "7.10.0",
+  "summary": "Firebase Messaging",
+  "description": "Firebase Messaging is a service that allows you to send data from your server to your users'\niOS device, and also to receive messages from devices on the same connection. The service handles\nall aspects of queueing of messages and delivery to the target application running on the target\ndevice, and it is completely free.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-7.10.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebaseMessaging/Sources/**/*.[mh]",
+    "Interop/Analytics/Public/*.h",
+    "FirebaseCore/Sources/Private/*.h",
+    "Firebase/InstanceID/Private/*.h",
+    "Firebase/InstanceID/Public/*.h",
+    "FirebaseInstallations/Source/Library/Private/*.h"
+  ],
+  "requires_arc": "FirebaseMessaging/Sources/*.m",
+  "public_header_files": "FirebaseMessaging/Sources/Public/FirebaseMessaging/*.h",
+  "libraries": "sqlite3",
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "ios": {
+    "frameworks": "SystemConfiguration"
+  },
+  "tvos": {
+    "frameworks": "SystemConfiguration"
+  },
+  "osx": {
+    "frameworks": "SystemConfiguration"
+  },
+  "weak_frameworks": "UserNotifications",
+  "dependencies": {
+    "FirebaseCore": [
+      "~> 7.0"
+    ],
+    "FirebaseInstanceID": [
+      "~> 7.0"
+    ],
+    "GoogleUtilities/AppDelegateSwizzler": [
+      "~> 7.0"
+    ],
+    "GoogleUtilities/Reachability": [
+      "~> 7.0"
+    ],
+    "GoogleUtilities/Environment": [
+      "~> 7.0"
+    ],
+    "GoogleUtilities/UserDefaults": [
+      "~> 7.0"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": "FirebaseMessaging/Tests/UnitTests*/*.{m,h,swift}",
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "CLANG_ENABLE_OBJC_WEAK": "YES"
+      },
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    },
+    {
+      "name": "integration",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": "FirebaseMessaging/Tests/IntegrationTests/*.swift",
+      "requires_app_host": true,
+      "resources": "FirebaseMessaging/Tests/IntegrationTests/Resources/GoogleService-Info.plist"
+    }
+  ]
+}

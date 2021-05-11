@@ -1,0 +1,73 @@
+{
+  "name": "UnzipKit",
+  "version": "2.0-beta3",
+  "summary": "An Objective-C zlib wrapper for compressing and decompressing Zip files",
+  "license": "BSD",
+  "homepage": "https://github.com/abbeycode/UnzipKit",
+  "authors": {
+    "Dov Frankel": "dov@abbey-code.com"
+  },
+  "social_media_url": "https://twitter.com/dovfrankel",
+  "source": {
+    "git": "https://github.com/abbeycode/UnzipKit.git",
+    "tag": "2.0-beta3"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "swift_versions": "5.0",
+  "libraries": "z",
+  "requires_arc": "Source/**/*",
+  "public_header_files": [
+    "Source/UnzipKit.h",
+    "Source/UZKArchive.h",
+    "Source/UZKFileInfo.h"
+  ],
+  "private_header_files": "Source/UZKFileInfo_Private.h",
+  "source_files": "Source/**/*.{h,m,swift}",
+  "exclude_files": "Resources/**/Info.plist",
+  "preserve_paths": "Scripts/generate-swift-import-header.sh",
+  "resource_bundles": {
+    "UnzipKitResources": [
+      "Resources/**/*"
+    ]
+  },
+  "script_phases": {
+    "name": "Generate UnzipKit Swift Header",
+    "script": "\"${PODS_TARGET_SRCROOT}\"/Scripts/generate-swift-import-header.sh",
+    "execution_position": "before_compile"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/*.{h,m,swift}",
+      "exclude_files": "Tests/ExtractFilesTests.m",
+      "preserve_paths": "Tests/UnzipKitTests-Bridging-Header.h",
+      "resources": [
+        "Tests/Test Data"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -Wno-unguarded-availability",
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/Tests/UnzipKitTests-Bridging-Header.h"
+      },
+      "scheme": {
+        "environment_variables": {
+          "OS_ACTIVITY_MODE": "disable"
+        }
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "minizip-lib",
+      "private_header_files": "Lib/MiniZip/*.h",
+      "source_files": "Lib/MiniZip/*.{h,c}",
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -Wno-comma -Wno-strict-prototypes"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

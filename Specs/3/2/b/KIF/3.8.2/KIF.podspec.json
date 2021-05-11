@@ -1,0 +1,64 @@
+{
+  "name": "KIF",
+  "version": "3.8.2",
+  "summary": "Keep It Functional - iOS UI acceptance testing in an XCUnit harness.",
+  "homepage": "https://github.com/kif-framework/KIF/",
+  "license": "Apache 2.0",
+  "authors": [
+    "Michael Thole",
+    "Eric Firestone",
+    "Jim Puls",
+    "Brian Nickel"
+  ],
+  "source": {
+    "git": "https://github.com/kif-framework/KIF.git",
+    "tag": "v3.8.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "QuartzCore",
+    "IOKit",
+    "WebKit",
+    "XCTest"
+  ],
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "prefix_header_contents": "#import <CoreGraphics/CoreGraphics.h>",
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/KIF/Classes/**/*.{h,m}",
+        "Sources/KIF/Additions/**/*.{h,m}",
+        "Sources/KIF/Visualizer/**/*.{h,m}",
+        "Sources/KIF/ApplePrivateAPIs/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "Sources/KIF/Classes/**/*.h",
+        "Sources/KIF/Additions/**/*{-,+}KIFAdditions.h",
+        "Sources/KIF/Additions/UIView-Debugging.h"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "IdentifierTests",
+      "dependencies": {
+        "KIF/Core": [
+
+        ]
+      },
+      "source_files": "Sources/KIF/IdentifierTests",
+      "public_header_files": "Sources/KIF/IdentifierTests/**/*.h",
+      "requires_arc": true
+    }
+  ]
+}

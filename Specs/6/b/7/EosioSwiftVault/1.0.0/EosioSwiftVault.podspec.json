@@ -1,0 +1,74 @@
+{
+  "name": "EosioSwiftVault",
+  "version": "1.0.0",
+  "summary": "Keychain and Secure Enclave functions for EOSIO.",
+  "homepage": "https://github.com/EOSIO/eosio-swift-vault",
+  "license": {
+    "type": "MIT",
+    "text": "                           Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.\n"
+  },
+  "authors": {
+    "Todd Bowden": "todd.bowden@block.one",
+    "Serguei Vinnitskii": "serguei.vinnitskii@block.one",
+    "Farid Rahmani": "farid.rahmani@block.one",
+    "Brandon Fancher": "brandon.fancher@block.one",
+    "Mark Johnson": "mark.johnson@block.one",
+    "Paul Kim": "paul.kim@block.one",
+    "Steve McCoole": "steve.mccoole@objectpartners.com",
+    "Ben Martell": "ben.martell@objectpartners.com"
+  },
+  "source": {
+    "git": "https://github.com/EOSIO/eosio-swift-vault.git",
+    "tag": "1.0.0"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "subspecs": [
+    {
+      "name": "Vault",
+      "source_files": "Sources/EosioSwiftVault/**/*.swift",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      },
+      "ios": {
+        "dependencies": {
+          "EosioSwift/Core": [
+            "~> 1.0.0"
+          ],
+          "EosioSwift/Ecc": [
+            "~> 1.0.0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "VaultSignatureProvider",
+      "source_files": "Sources/EosioSwiftVaultSignatureProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      },
+      "ios": {
+        "dependencies": {
+          "EosioSwift/Core": [
+            "~> 1.0.0"
+          ],
+          "EosioSwift/Ecc": [
+            "~> 1.0.0"
+          ],
+          "EosioSwiftVault/Vault": [
+
+          ]
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

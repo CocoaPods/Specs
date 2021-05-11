@@ -1,0 +1,57 @@
+{
+  "name": "gRPC-ObjC-RxLibrary",
+  "version": "0.0.2-dev",
+  "summary": "Reactive Extensions library for iOS/OSX.",
+  "homepage": "https://grpc.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "git": "https://github.com/grpc/grpc-ios.git",
+    "tag": "v0.0.2-dev"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9",
+    "tvos": "10.0",
+    "watchos": "4.0"
+  },
+  "module_name": "RxLibrary",
+  "header_dir": "RxLibrary",
+  "default_subspecs": [
+    "Interface",
+    "Implementation"
+  ],
+  "source_files": [
+    "src/RxLibrary/*.{h,m}",
+    "src/RxLibrary/**/*.{h,m}"
+  ],
+  "private_header_files": "src/RxLibrary/private/*.h",
+  "header_mappings_dir": "src/RxLibrary",
+  "pod_target_xcconfig": {
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Interface",
+      "header_mappings_dir": "src/RxLibrary",
+      "source_files": "src/RxLibrary/*.h",
+      "public_header_files": "src/RxLibrary/*.h"
+    },
+    {
+      "name": "Implementation",
+      "header_mappings_dir": "src/RxLibrary",
+      "source_files": [
+        "src/RxLibrary/*.m",
+        "src/RxLibrary/**/*.{h,m}"
+      ],
+      "private_header_files": "src/RxLibrary/**/*.h",
+      "dependencies": {
+        "gRPC-ObjC-RxLibrary/Interface": [
+
+        ]
+      }
+    }
+  ]
+}

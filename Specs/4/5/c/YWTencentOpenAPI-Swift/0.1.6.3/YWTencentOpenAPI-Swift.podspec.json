@@ -1,0 +1,43 @@
+{
+  "name": "YWTencentOpenAPI-Swift",
+  "version": "0.1.6.3",
+  "summary": "YWTencentOpenAPI-Swift version, based on V3.5.1",
+  "description": "YWTencentOpenAPI-Swift version, Based on TencentOpenAPI version V3.5.1",
+  "homepage": "http://wiki.open.qq.com/",
+  "authors": {
+    "yw": "yw@111.com"
+  },
+  "source": {
+    "git": "http://new-gitlab.yiyaowang.com/yaowang/yw_private_pod.git",
+    "tag": "0.1.6.3"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/Vendor/Vendor/QQ/*.framework/Headers",
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Vendor/QQ/Framework/",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resources": "Vendor/QQ/Framework/TencentOpenApi_IOS_Bundle.bundle",
+  "vendored_frameworks": "Vendor/QQ/Framework/**/*.framework",
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "stdc++",
+    "z",
+    "iconv"
+  ],
+  "prepare_command": "rm -rf Vendor/QQ/Framework/TencentOpenAPI.framework/Modules\nmkdir Vendor/QQ/Framework/TencentOpenAPI.framework/Modules\ntouch Vendor/QQ/Framework/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > Vendor/QQ/Framework/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n    header \"QQApiInterface.h\"\n    header \"QQApiInterfaceObject.h\"\n    header \"TencentOAuth.h\"\n    header \"sdkdef.h\"\n\n    export *\n}\nEOF"
+}

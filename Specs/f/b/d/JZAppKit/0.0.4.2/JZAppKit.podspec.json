@@ -1,0 +1,512 @@
+{
+  "name": "JZAppKit",
+  "version": "0.0.4.2",
+  "summary": "JZJY iOS app 开发工具包",
+  "description": "JZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包\nJZJY iOS app 开发工具包",
+  "homepage": "http://git.jze100.com/saltclass/jzappkit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "0624pdy@sina.com": "pengduanyang@jze100.com"
+  },
+  "source": {
+    "git": "http://git.jze100.com:8000/saltclass/jzappkit.git",
+    "tag": "0.0.4.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "JZAppKit/Classes/*.{h,txt}",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "VALID_ARCHS": "x86_64 armv7 armv7s arm64",
+    "WARNING_CFLAGS": "-Wno-shorten-64-to-32 -Wstrict-prototypes -Wdocumentation -Wnonnull -Wstrict-prototypes"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreGraphics"
+  ],
+  "subspecs": [
+    {
+      "name": "JZFoundation",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "vendored_libraries": "JZAppKit/Frameworks/YZLog/*.a",
+      "source_files": [
+        "JZAppKit/Classes/JZFoundation/*.{h,m}",
+        "JZAppKit/Classes/JZFoundation/JZAppInfo/*",
+        "JZAppKit/Classes/JZFoundation/JZDeviceInfo/*",
+        "JZAppKit/Classes/JZFoundation/JZTemps/*"
+      ],
+      "subspecs": [
+        {
+          "name": "JZCategory",
+          "dependencies": {
+            "SDWebImage": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZFoundation/JZCategory/**/*"
+        },
+        {
+          "name": "JZAppearance",
+          "dependencies": {
+            "JZAppKit/JZFoundation/JZCategory": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZFoundation/JZAppearance/**/*",
+          "resources": [
+            "JZAppKit/Assets/JZAppearance/*.{bundle}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "JZNetworking",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+          "3.2.1"
+        ],
+        "JZAppKit/JZFoundation": [
+
+        ],
+        "JZAppKit/JZBase/Models": [
+
+        ]
+      },
+      "source_files": "JZAppKit/Classes/JZNetworking/**/*"
+    },
+    {
+      "name": "JZBase",
+      "dependencies": {
+        "JSONModel": [
+
+        ]
+      },
+      "source_files": "JZAppKit/Classes/JZBase/*",
+      "subspecs": [
+        {
+          "name": "Models",
+          "source_files": "JZAppKit/Classes/JZBase/Models/*"
+        },
+        {
+          "name": "Views",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZBase/Views/*",
+          "resource_bundles": {
+            "JZBaseViews": [
+              "JZAppKit/Assets/JZBase/JZBaseViews/*"
+            ]
+          }
+        },
+        {
+          "name": "VCs",
+          "frameworks": [
+            "WebKit",
+            "JavaScriptCore"
+          ],
+          "dependencies": {
+            "JZAppKit/JZNetworking": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZBase/VCs/*",
+          "resource_bundles": {
+            "JZBaseVCs": [
+              "JZAppKit/Assets/JZBase/JZBaseVCs/*"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "JZUtils",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "JZAppKit/JZFoundation": [
+
+        ]
+      },
+      "source_files": "JZAppKit/Classes/JZUtils/*.{h}",
+      "subspecs": [
+        {
+          "name": "HUDManager",
+          "dependencies": {
+            "MBProgressHUD": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUtils/HUDManager/*",
+          "resources": [
+            "JZAppKit/Assets/HUDManager/*.{bundle}"
+          ]
+        },
+        {
+          "name": "JZImagePicker",
+          "source_files": "JZAppKit/Classes/JZUtils/JZImagePicker/*"
+        },
+        {
+          "name": "JZListViewModel",
+          "source_files": "JZAppKit/Classes/JZUtils/JZListViewModel/*"
+        },
+        {
+          "name": "JZIAP",
+          "frameworks": "StoreKit",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "JZAppKit/JZUtils/HUDManager": [
+
+            ],
+            "JZAppKit/JZUtils/SAMKeyChain": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUtils/JZIAP/*"
+        },
+        {
+          "name": "HWProgress",
+          "source_files": "JZAppKit/Classes/JZUtils/HWProgress/*"
+        },
+        {
+          "name": "BRPickerView",
+          "dependencies": {
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUtils/BRPickerView/**/*",
+          "resources": [
+            "JZAppKit/Assets/BRPickerView/*.{bundle}"
+          ]
+        },
+        {
+          "name": "CodeTextView",
+          "source_files": "JZAppKit/Classes/JZUtils/CodeTextView/*"
+        },
+        {
+          "name": "HJTabViewController",
+          "source_files": "JZAppKit/Classes/JZUtils/HJTabViewController/*"
+        },
+        {
+          "name": "GSKeyChain",
+          "source_files": "JZAppKit/Classes/JZUtils/GSKeyChain/**/*"
+        },
+        {
+          "name": "SAMKeyChain",
+          "source_files": "JZAppKit/Classes/JZUtils/SAMKeyChain/**/*"
+        },
+        {
+          "name": "SFHFKeychainUtils",
+          "source_files": "JZAppKit/Classes/JZUtils/SFHFKeychainUtils/**/*"
+        },
+        {
+          "name": "镂空",
+          "source_files": "JZAppKit/Classes/JZUtils/镂空/**/*"
+        }
+      ]
+    },
+    {
+      "name": "JZVendor",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "source_files": "JZAppKit/Classes/JZVendor/*.{h}",
+      "subspecs": [
+        {
+          "name": "JZShare",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "JZAppKit/JZBase": [
+
+            ],
+            "UMCCommon": [
+              "2.1.4"
+            ],
+            "UMCSecurityPlugins": [
+              "1.0.6"
+            ],
+            "UMCPush": [
+              "3.2.5"
+            ],
+            "UMCAnalytics": [
+              "6.1.0"
+            ],
+            "UMCShare/UI": [
+              "6.9.10"
+            ],
+            "UMCShare/Social/ReducedWeChat": [
+              "6.9.10"
+            ],
+            "UMCShare/Social/ReducedQQ": [
+              "6.9.10"
+            ],
+            "UMCShare/Social/ReducedSina": [
+              "6.9.10"
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZVendor/JZShare/**/*",
+          "resource_bundles": {
+            "JZShare": [
+              "JZAppKit/Assets/JZShare/*"
+            ]
+          }
+        },
+        {
+          "name": "JZVerify",
+          "dependencies": {
+            "JZAppKit/JZNetworking": [
+
+            ],
+            "JZAppKit/JZUtils/HUDManager": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZVendor/UMVerify/**/*",
+          "resources": [
+            "JZAppKit/Assets/JZVerify/*.{bundle}"
+          ],
+          "resource_bundles": {
+            "JZVerify": [
+              "JZAppKit/Assets/JZVerify/*.{png}"
+            ]
+          },
+          "vendored_frameworks": "JZAppKit/Frameworks/JZVerify/UMVerify.framework"
+        }
+      ]
+    },
+    {
+      "name": "JZUIKit",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "JSONModel": [
+
+        ]
+      },
+      "source_files": "JZAppKit/Classes/JZUIKit/*",
+      "subspecs": [
+        {
+          "name": "JZBlankView",
+          "dependencies": {
+            "Masonry": [
+
+            ],
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZBlankView/*",
+          "resource_bundles": {
+            "JZBlankView": [
+              "JZAppKit/Assets/JZBlankView/*"
+            ]
+          }
+        },
+        {
+          "name": "JZHitTestView",
+          "source_files": "JZAppKit/Classes/JZUIKit/JZHitTestView/*"
+        },
+        {
+          "name": "JZShadowRadiusView",
+          "source_files": "JZAppKit/Classes/JZUIKit/阴影加圆角视图/*"
+        },
+        {
+          "name": "JZDottedLineView",
+          "source_files": "JZAppKit/Classes/JZUIKit/虚线/*"
+        },
+        {
+          "name": "JZBadgeView",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZBadgeView/*"
+        },
+        {
+          "name": "PlaceholderTextView",
+          "source_files": "JZAppKit/Classes/JZUIKit/PlaceholderTextView/*"
+        },
+        {
+          "name": "JZButton",
+          "source_files": "JZAppKit/Classes/JZUIKit/JZButton/*"
+        },
+        {
+          "name": "JZAccountPicker",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "JZAppKit/JZUIKit/JZShadowRadiusView": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/年级切换器/*",
+          "resource_bundles": {
+            "JZAccountPicker": [
+              "JZAppKit/Assets/JZAccountPicker/*"
+            ]
+          }
+        },
+        {
+          "name": "JZPopPicker",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/弹出选择器/*"
+        },
+        {
+          "name": "JZPasswordSetControl",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "JZAppKit/JZUtils/HUDManager": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZPasswordSetControl/*",
+          "resource_bundles": {
+            "JZPasswordSetControl": [
+              "JZAppKit/Assets/JZPasswordSetControl/*"
+            ]
+          }
+        },
+        {
+          "name": "JZMenuView",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZMenuView/*"
+        },
+        {
+          "name": "JZGradePicker",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/年级选择器/*"
+        },
+        {
+          "name": "JZDescribeButton",
+          "dependencies": {
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZDescribeButton/*"
+        },
+        {
+          "name": "JZDownloadButton",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ],
+            "Masonry": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZDownloadButton/*",
+          "resource_bundles": {
+            "JZDownloadButton": [
+              "JZAppKit/Assets/JZDownloadButton/*"
+            ]
+          }
+        },
+        {
+          "name": "JZGenderPicker",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZGenderPicker/*"
+        },
+        {
+          "name": "KLTNavigationController",
+          "source_files": "JZAppKit/Classes/JZUIKit/KLTNavigationController/*"
+        },
+        {
+          "name": "HJTabViewBar",
+          "dependencies": {
+            "JZAppKit/JZUtils/HJTabViewController": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/HJTabViewBar/*"
+        },
+        {
+          "name": "JZCommonPickerView",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/JZCommonPickerView/*"
+        },
+        {
+          "name": "JZRatingView",
+          "dependencies": {
+            "JZAppKit/JZFoundation": [
+
+            ]
+          },
+          "source_files": "JZAppKit/Classes/JZUIKit/打星/*"
+        }
+      ]
+    }
+  ]
+}

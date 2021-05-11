@@ -1,0 +1,61 @@
+{
+  "name": "DAPI-GRPC",
+  "version": "0.18.0-alpha.3",
+  "license": "MIT",
+  "authors": {
+    "Dash Core Group, Inc.": "contact@dash.org"
+  },
+  "homepage": "https://github.com/dashevo/dapi-grpc",
+  "summary": "Decentralized API GRPC",
+  "source": {
+    "git": "https://github.com/dashevo/dashsync-iOS.git",
+    "tag": "dapi-0.18.0-alpha.3"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.9"
+  },
+  "dependencies": {
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.0"
+    ]
+  },
+  "prepare_command": "pwd\ngit submodule update --init\n\npushd dapi-grpc-pod-installer\npod install\npopd\n\nmkdir -p dapi-grpc-pod-installer/Pods/DAPI-GRPC\ndapi-grpc-pod-installer/Pods/!ProtoCompiler/protoc         --plugin=protoc-gen-grpc=dapi-grpc-pod-installer/Pods/!ProtoCompiler-gRPCPlugin/grpc_objective_c_plugin         --objc_out=dapi-grpc-pod-installer/Pods/DAPI-GRPC         --grpc_out=dapi-grpc-pod-installer/Pods/DAPI-GRPC         -I dapi-grpc/protos/core/v0         -I dapi-grpc-pod-installer/Pods/!ProtoCompiler         dapi-grpc/protos/core/v0/core.proto\n    \ndapi-grpc-pod-installer/Pods/!ProtoCompiler/protoc         --plugin=protoc-gen-grpc=dapi-grpc-pod-installer/Pods/!ProtoCompiler-gRPCPlugin/grpc_objective_c_plugin         --objc_out=dapi-grpc-pod-installer/Pods/DAPI-GRPC         --grpc_out=dapi-grpc-pod-installer/Pods/DAPI-GRPC         -I dapi-grpc/protos/platform/v0         -I dapi-grpc-pod-installer/Pods/!ProtoCompiler         dapi-grpc/protos/platform/v0/platform.proto",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Messages",
+      "source_files": [
+        "dapi-grpc-pod-installer/Pods/DAPI-GRPC/*.pbobjc.{h,m}",
+        "dapi-grpc-pod-installer/Pods/DAPI-GRPC/**/*.pbobjc.{h,m}"
+      ],
+      "header_mappings_dir": "dapi-grpc-pod-installer/Pods/DAPI-GRPC",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": [
+        "dapi-grpc-pod-installer/Pods/DAPI-GRPC/*.pbrpc.{h,m}",
+        "dapi-grpc-pod-installer/Pods/DAPI-GRPC/**/*.pbrpc.{h,m}"
+      ],
+      "header_mappings_dir": "dapi-grpc-pod-installer/Pods/DAPI-GRPC",
+      "requires_arc": true,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "DAPI-GRPC/Messages": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Demo2",
+  "version": "0.1.0",
+  "authors": "tx2",
+  "license": "MIT",
+  "homepage": "http://www.example.com",
+  "source": {
+    "git": "https://github.com/J-Mendes/ios-pods-subspec-test.git",
+    "tag": "0.1.0"
+  },
+  "summary": "This is a demo xcframework pod with subspecs",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": "Calculator",
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit",
+      "WebKit",
+      "SafariServices"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Dep",
+      "frameworks": "UserNotifications",
+      "vendored_frameworks": "Demodep.xcframework"
+    },
+    {
+      "name": "Calculator",
+      "vendored_frameworks": "Demo.xcframework",
+      "dependencies": {
+        "Demo2/Dep": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "GASocialLogin",
+  "version": "2.6.4",
+  "summary": "Easy social media log in",
+  "description": "Easy social media log in.",
+  "homepage": "https://github.com/Gini-Apps/GASocialLogin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "idoMeirov": "idom@gini-apps.com"
+  },
+  "source": {
+    "git": "https://github.com/Gini-Apps/GASocialLogin.git",
+    "tag": "2.6.4"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GASocialLogin/Core/**/*"
+    },
+    {
+      "name": "Facebook",
+      "source_files": "GASocialLogin/Facebook/**/*",
+      "dependencies": {
+        "GASocialLogin/Core": [
+
+        ],
+        "FBSDKLoginKit": [
+          "~> 7.1.1"
+        ]
+      }
+    },
+    {
+      "name": "Google",
+      "source_files": "GASocialLogin/Google/**/*",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSYNCSERVER_GOOGLE_SIGNIN",
+        "OTHER_LDFLAGS": "$(inherited) -ObjC",
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s"
+      },
+      "resources": "GASocialLogin/Assets/Google/GoogleSignIn.bundle",
+      "preserve_paths": "GASocialLogin/ExternalVendors/Google/*.framework",
+      "vendored_frameworks": "GASocialLogin/ExternalVendors/Google/GoogleSignIn.framework",
+      "frameworks": [
+        "UIKit",
+        "CoreGraphics",
+        "CoreText",
+        "Foundation",
+        "LocalAuthentication",
+        "Security",
+        "SystemConfiguration",
+        "SafariServices"
+      ],
+      "dependencies": {
+        "GASocialLogin/Core": [
+
+        ],
+        "AppAuth": [
+          "~> 1.4.0"
+        ],
+        "GTMAppAuth": [
+          "~> 1.0.0"
+        ],
+        "GTMSessionFetcher/Core": [
+          "~> 1.4.0"
+        ]
+      }
+    },
+    {
+      "name": "Apple",
+      "source_files": "GASocialLogin/Apple/**/*",
+      "frameworks": "AuthenticationServices",
+      "dependencies": {
+        "GASocialLogin/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,0 +1,80 @@
+{
+  "name": "HAKit",
+  "version": "0.2.1",
+  "summary": "Communicate with a Home Assistant instance.",
+  "authors": "Home Assistant",
+  "homepage": "https://github.com/home-assistant/HAKit",
+  "license": {
+    "type": "Apache 2",
+    "file": "LICENSE.md"
+  },
+  "source": {
+    "git": "https://github.com/home-assistant/HAKit.git",
+    "tag": "0.2.1"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0",
+    "watchos": "5.0",
+    "osx": "10.14"
+  },
+  "swift_versions": [
+    "5.3"
+  ],
+  "default_subspecs": "Core",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14"
+      },
+      "dependencies": {
+        "HAKit/Core": [
+
+        ],
+        "HAKit/PromiseKit": [
+
+        ],
+        "HAKit/Mocks": [
+
+        ]
+      },
+      "source_files": "Tests/*.swift"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/**/*.swift",
+      "dependencies": {
+        "Starscream": [
+          "~> 4.0.4"
+        ]
+      }
+    },
+    {
+      "name": "PromiseKit",
+      "dependencies": {
+        "PromiseKit": [
+          "~> 6.13"
+        ],
+        "HAKit/Core": [
+
+        ]
+      },
+      "source_files": "Extensions/PromiseKit/**/*.swift"
+    },
+    {
+      "name": "Mocks",
+      "dependencies": {
+        "HAKit/Core": [
+
+        ]
+      },
+      "source_files": "Extensions/Mocks/**/*.swift"
+    }
+  ],
+  "swift_version": "5.3"
+}

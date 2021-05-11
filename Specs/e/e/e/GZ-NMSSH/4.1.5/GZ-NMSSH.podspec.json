@@ -1,0 +1,54 @@
+{
+  "name": "GZ-NMSSH",
+  "version": "4.1.5",
+  "summary": "NMSSH is a clean, easy-to-use, unit tested framework for iOS and OSX that wraps libssh2.",
+  "homepage": "https://github.com/gaetanzanella/NMSSH",
+  "license": "MIT",
+  "authors": {
+    "Christoffer Lejdborg": "hello@9muses.se",
+    "Tommaso Madonia": "tommaso@madonia.me"
+  },
+  "source": {
+    "git": "https://github.com/gaetanzanella/NMSSH.git",
+    "tag": "4.1.5"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": [
+    "NMSSH",
+    "NMSSH/**/*.{h,m}"
+  ],
+  "public_header_files": [
+    "NMSSH/*.h",
+    "NMSSH/Protocols/*.h",
+    "NMSSH/Config/NMSSHLogger.h"
+  ],
+  "private_header_files": [
+    "NMSSH/Config/NMSSH+Protected.h",
+    "NMSSH/Config/socket_helper.h"
+  ],
+  "libraries": "z",
+  "frameworks": "CFNetwork",
+  "ios": {
+    "preserve_paths": "NMSSH-iOS/libssh2",
+    "vendored_frameworks": [
+      "NMSSH-iOS/libssh2/libcrypto.xcframework",
+      "NMSSH-iOS/libssh2/libssl.xcframework",
+      "NMSSH-iOS/libssh2/libssh2.xcframework"
+    ],
+    "source_files": [
+      "NMSSH-iOS",
+      "NMSSH-iOS/libssh2/**/*.h"
+    ],
+    "public_header_files": "NMSSH-iOS/libssh2/**/*.h"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/GZ-NMSSH/NMSSH-iOS/libssh2",
+    "LIBRARY_SEARCH_PATHS": "$(PODS_ROOT)/GZ-NMSSH/NMSSH-iOS/libssh2",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/GZ-NMSSH/NMSSH-iOS/libssh2",
+    "OTHER_LDFLAGS": "-ObjC",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "name": "NDManualObjects",
+  "version": "0.0.8.4",
+  "summary": "Support create object by code instead of IB.",
+  "description": "NDManualObjects is a small framework that support create object by code instead of IB.",
+  "homepage": "https://github.com/hiep-nd/nd-manual-objects.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nguyen Duc Hiep": "hiep.nd@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "5.1",
+    "5.2"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/hiep-nd/nd-manual-objects.git",
+    "tag": "Pod-0.0.8.4"
+  },
+  "dependencies": {
+    "NDLog/ObjC": [
+      "~> 0.0.6"
+    ],
+    "NDUtils/objc_ObjC": [
+      "~> 0.0.5"
+    ]
+  },
+  "default_subspecs": "Swift",
+  "subspecs": [
+    {
+      "name": "Core_ObjC",
+      "source_files": "Sources/Core_ObjC/*.{h,m,mm,swift}",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Core_Swift",
+      "dependencies": {
+        "NDManualObjects/Core_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "NDManualObjects/Core_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts_ObjC",
+      "source_files": "Sources/Abstracts_ObjC/*.{h,m,mm,swift}",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "NDManualObjects/Core_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts_Swift",
+      "dependencies": {
+        "NDManualObjects/Abstracts_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts",
+      "dependencies": {
+        "NDManualObjects/Abstracts_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Objects_ObjC",
+      "source_files": "Sources/Objects_ObjC/*.{h,m,mm,swift}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "NDManualObjects/Abstracts_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Objects_Swift",
+      "dependencies": {
+        "NDManualObjects/Objects_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Objects",
+      "dependencies": {
+        "NDManualObjects/Objects_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "ObjC",
+      "dependencies": {
+        "NDManualObjects/Core_ObjC": [
+
+        ],
+        "NDManualObjects/Abstracts_ObjC": [
+
+        ],
+        "NDManualObjects/Objects_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "NDManualObjects/Core_Swift": [
+
+        ],
+        "NDManualObjects/Abstracts_Swift": [
+
+        ],
+        "NDManualObjects/Objects_Swift": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}

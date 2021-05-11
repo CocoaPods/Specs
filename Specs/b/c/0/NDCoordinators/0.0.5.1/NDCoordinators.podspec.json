@@ -1,0 +1,187 @@
+{
+  "name": "NDCoordinators",
+  "version": "0.0.5.1",
+  "summary": "A implementation of coordinator pattern.",
+  "description": "NDCoordinators is a small framework that support interface and a base class for coordinator pattern.",
+  "homepage": "https://github.com/hiep-nd/nd-coordinator.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nguyen Duc Hiep": "hiep.nd@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "5.1",
+    "5.2"
+  ],
+  "source": {
+    "git": "https://github.com/hiep-nd/nd-coordinator.git",
+    "tag": "Pod-0.0.5.1"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Swift",
+  "subspecs": [
+    {
+      "name": "Core_ObjC",
+      "source_files": "Sources/Core_ObjC/*.{h,m,mm}",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Core_Swift",
+      "dependencies": {
+        "NDCoordinators/Core_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "NDCoordinators/Core_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts_ObjC",
+      "source_files": "Sources/Abstracts_ObjC/*.{h,m,mm}",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "NDCoordinators/Core_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts_Swift",
+      "dependencies": {
+        "NDCoordinators/Abstracts_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Abstracts",
+      "dependencies": {
+        "NDCoordinators/Abstracts_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Coordinators_ObjC",
+      "source_files": "Sources/Coordinators_ObjC/*.{h,m,mm}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "NDCoordinators/Abstracts_ObjC": [
+
+        ],
+        "NDLog/ObjC": [
+          "~> 0.0.6"
+        ],
+        "NDUtils/objc_ObjC": [
+          "~> 0.0.5"
+        ]
+      }
+    },
+    {
+      "name": "Coordinators_Swift",
+      "dependencies": {
+        "NDCoordinators/Coordinators_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Coordinators",
+      "dependencies": {
+        "NDCoordinators/Coordinators_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "NDMVVM_ObjC",
+      "dependencies": {
+        "NDMVVM/ObjC": [
+          "~> 0.0.4.2"
+        ]
+      }
+    },
+    {
+      "name": "NDMVVM_Swift",
+      "source_files": "Sources/NDMVVM_Swift/*.{h,m,mm,swift}",
+      "dependencies": {
+        "NDCoordinators/Abstracts_Swift": [
+
+        ],
+        "NDCoordinators/NDMVVM_ObjC": [
+
+        ],
+        "NDLog/Swift": [
+
+        ],
+        "NDMVVM/Swift": [
+          "~> 0.0.4.2"
+        ],
+        "NDModificationOperators/Swift": [
+
+        ],
+        "NDUtils/UIKit_Swift": [
+          "~> 0.0.5.2"
+        ]
+      }
+    },
+    {
+      "name": "NDMVVM",
+      "dependencies": {
+        "NDCoordinators/NDMVVM_Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "ObjC",
+      "dependencies": {
+        "NDCoordinators/Core_ObjC": [
+
+        ],
+        "NDCoordinators/Abstracts_ObjC": [
+
+        ],
+        "NDCoordinators/Coordinators_ObjC": [
+
+        ],
+        "NDCoordinators/NDMVVM_ObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "NDCoordinators/Core": [
+
+        ],
+        "NDCoordinators/Abstracts": [
+
+        ],
+        "NDCoordinators/Coordinators": [
+
+        ],
+        "NDCoordinators/NDMVVM": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}

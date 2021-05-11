@@ -1,0 +1,156 @@
+{
+  "name": "IrohaCrypto",
+  "version": "0.7.4",
+  "summary": "Provides object oriented wrappers for C/C++ crypto functions used by blockchains.",
+  "homepage": "https://github.com/soramitsu",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ERussel": "emkil.russel@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/ERussel/IrohaCrypto.git",
+    "tag": "0.7.4"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "pod_target_xcconfig": {
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/**/*.{h,m}",
+      "resources": [
+        "Tests/**/*.json"
+      ]
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "IrohaCrypto/Classes/Common/**/*",
+      "public_header_files": "IrohaCrypto/Classes/Common/**/*.h"
+    },
+    {
+      "name": "Iroha",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "VALID_ARCHS": "x86_64 armv7 arm64"
+      },
+      "dependencies": {
+        "IrohaCrypto/Common": [
+
+        ]
+      },
+      "source_files": [
+        "IrohaCrypto/Classes/Iroha/**/*",
+        "IrohaCryptoImp/**/*.h"
+      ],
+      "public_header_files": "IrohaCrypto/Classes/Iroha/**/*.h",
+      "private_header_files": "IrohaCryptoImp/**/*.h",
+      "vendored_libraries": "IrohaCryptoImp/libed25519.a",
+      "preserve_paths": "IrohaCryptoImp/**/*.h"
+    },
+    {
+      "name": "BIP39",
+      "dependencies": {
+        "IrohaCrypto/Common": [
+
+        ]
+      },
+      "source_files": "IrohaCrypto/Classes/BIP39/**/*",
+      "public_header_files": "IrohaCrypto/Classes/BIP39/**/*.h"
+    },
+    {
+      "name": "Scrypt",
+      "dependencies": {
+        "IrohaCrypto/Common": [
+
+        ],
+        "scrypt.c": [
+          "~> 0.1"
+        ]
+      },
+      "source_files": "IrohaCrypto/Classes/Scrypt/**/*",
+      "public_header_files": "IrohaCrypto/Classes/Scrypt/**/*.h"
+    },
+    {
+      "name": "sr25519",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "VALID_ARCHS": "x86_64 armv7 arm64"
+      },
+      "dependencies": {
+        "IrohaCrypto/blake2": [
+
+        ],
+        "IrohaCrypto/Common": [
+
+        ],
+        "IrohaCrypto/BIP39": [
+
+        ]
+      },
+      "source_files": [
+        "IrohaCrypto/Classes/sr25519/**/*",
+        "sr25519Imp/**/*.h"
+      ],
+      "public_header_files": "IrohaCrypto/Classes/sr25519/**/*.h",
+      "private_header_files": "sr25519Imp/**/*.h",
+      "vendored_libraries": "sr25519Imp/libsr25519crust.a",
+      "preserve_paths": "sr25519Imp/**/*.h"
+    },
+    {
+      "name": "blake2",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "VALID_ARCHS": "x86_64 armv7 arm64"
+      },
+      "source_files": [
+        "IrohaCrypto/Classes/blake2/**/*",
+        "blake2Imp/**/*.h"
+      ],
+      "public_header_files": "IrohaCrypto/Classes/blake2/**/*.h",
+      "private_header_files": "blake2Imp/**/*.h",
+      "vendored_libraries": "blake2Imp/libblake2.a",
+      "preserve_paths": "blake2Imp/**/*.h"
+    },
+    {
+      "name": "secp256k1",
+      "dependencies": {
+        "IrohaCrypto/Common": [
+
+        ],
+        "secp256k1.c": [
+          "~> 0.1"
+        ]
+      },
+      "source_files": "IrohaCrypto/Classes/secp256k1/**/*"
+    },
+    {
+      "name": "ed25519",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "VALID_ARCHS": "x86_64 armv7 arm64"
+      },
+      "dependencies": {
+        "IrohaCrypto/Common": [
+
+        ]
+      },
+      "source_files": [
+        "IrohaCrypto/Classes/ed25519/**/*",
+        "ed25519Imp/**/*.h"
+      ],
+      "public_header_files": "IrohaCrypto/Classes/ed25519/**/*.h",
+      "private_header_files": "ed25519Imp/**/*.h",
+      "vendored_libraries": "ed25519Imp/libed25519_sha2.a",
+      "preserve_paths": "ed25519Imp/**/*.h"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "MultiLanguage",
+  "version": "1.0.6",
+  "summary": "A short description of MultiLanguage.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/feiduduhaha/MultiLanguage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lan_mailbox@163.com": "tianyun1201@163.com"
+  },
+  "source": {
+    "git": "https://github.com/feiduduhaha/MultiLanguage.git",
+    "tag": "1.0.6"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MultiLanguage/Classes/**/*",
+  "resource_bundles": {
+    "Multi_language": [
+      "MultiLanguage/Assets/*.png",
+      "MultiLanguage/Files/*.*"
+    ]
+  },
+  "script_phases": {
+    "name": "MultiLanguageScript",
+    "script": "\n      \n      echo \"\\n**********************判断是否需要执行多语言python脚本*********************************\"\n      \n      podsPath=${BUILT_PRODUCTS_DIR}\n      shortPath=\"/Multi_language.bundle/\"\n      plistPath=\"${podsPath}/${shortPath}Config.plist\"\n      filterScriptPath=\"${podsPath}/${shortPath}firstScript.py\"\n      transScriptPath=\"${podsPath}/${shortPath}secoundScript.py\"\n      \n      echo \"我的工作目录\"\n      cho $podsPath\n      \n      RunFilterScript=`/usr/libexec/PlistBuddy -c \"Print RunFilterScript\" $plistPath`\n      echo \"$RunFilterScript\"\n      if [ $RunFilterScript == \"true\" ]\n      then\n          echo \"执行过滤脚本，生成csv文件\"\n          ${filterScriptPath}\n      else\n          echo \"不需要执行过滤脚本\"\n      fi\n      \n      RunScvToJsonScScript=`/usr/libexec/PlistBuddy -c \"Print RunScvToJsonScScript\" $plistPath`\n      echo \"$RunScvToJsonScScript\"\n      if [ $RunScvToJsonScScript == \"true\" ]\n      then\n          echo \"执行转换csv到json脚本\"\n          ${transScriptPath}\n      else\n          echo \"不需要转换脚本\"\n      fi\n      echo \"\\n**********************MultiLanguage全部脚本运行完毕************************************\\n\"\n    "
+  }
+}

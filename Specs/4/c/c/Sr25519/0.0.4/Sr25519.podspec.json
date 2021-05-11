@@ -1,0 +1,69 @@
+{
+  "name": "Sr25519",
+  "version": "0.0.4",
+  "summary": "Swift wrapper for Rust sr25519 library",
+  "homepage": "https://github.com/tesseract-one/sr25519.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/sr25519.swift.git",
+    "tag": "0.0.4",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.12"
+  },
+  "swift_versions": [
+    "5.3"
+  ],
+  "module_name": "Sr25519",
+  "default_subspecs": "Binary",
+  "subspecs": [
+    {
+      "name": "Binary",
+      "source_files": "Sources/Sr25519/*.swift",
+      "dependencies": {
+        "Sr25519-Binaries": [
+          "~> 0.0.1"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_XCFRAMEWORKS_BUILD_DIR}/CSr25519\""
+      },
+      "testspecs": [
+        {
+          "name": "Sr25519Tests",
+          "test_type": "unit",
+          "source_files": "Tests/Sr25519Tests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Build",
+      "source_files": "Sources/Sr25519/*.swift",
+      "preserve_paths": [
+        "rust/**/*",
+        "scripts/*"
+      ],
+      "script_phases": {
+        "name": "Build Rust Binary",
+        "script": "bash \"${PODS_TARGET_SRCROOT}/scripts/xcode_build_step.sh\"",
+        "execution_position": "before_compile"
+      },
+      "testspecs": [
+        {
+          "name": "Sr25519Tests",
+          "test_type": "unit",
+          "source_files": "Tests/Sr25519Tests/**/*.swift"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.3"
+}

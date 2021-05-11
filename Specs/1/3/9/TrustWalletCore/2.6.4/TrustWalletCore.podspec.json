@@ -1,0 +1,66 @@
+{
+  "name": "TrustWalletCore",
+  "version": "2.6.4",
+  "summary": "Trust Wallet core data structures and algorithms.",
+  "homepage": "https://github.com/trustwallet/wallet-core",
+  "license": "MIT",
+  "authors": {
+    "Alejandro Isaza": "al@isaza.ca"
+  },
+  "module_name": "WalletCore",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.1",
+  "source": {
+    "http": "https://github.com/trustwallet/wallet-core/releases/download/2.6.4/TrustWalletCore-iOS-2.6.4.zip"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": [
+        "swift/Sources/Types/*.swift",
+        "swift/Sources/Generated/Enums/*.swift",
+        "swift/Sources/Generated/Protobuf/*.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "preserve_paths": "build/ios/*.a",
+      "vendored_libraries": "build/ios/*.a",
+      "exclude_files": "swift/Sources/Generated/WalletCore.h",
+      "source_files": [
+        "include/**/*.h",
+        "swift/Sources/*.{swift,h,m,cpp}",
+        "swift/Sources/Extensions/*.swift",
+        "swift/Sources/Generated/*.{swift,h}"
+      ],
+      "public_header_files": [
+        "include/**/*.h",
+        "swift/Sources/*.h"
+      ],
+      "libraries": "c++",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -fprofile-instr-generate"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "dependencies": {
+        "TrustWalletCore/Types": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}

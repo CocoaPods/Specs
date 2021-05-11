@@ -1,0 +1,128 @@
+{
+  "name": "HolisticSolutionSDK",
+  "version": "1.1.3",
+  "summary": "The HolisticSolutionSDK provides easy to use API for integration attribution, product testing and advertising platform.",
+  "description": "The Holistic Solution SDK is iOS framework. It provides easy to use API for integration attribution, product testing and advertising platform.\nIt contains AppsFlyer, Firebase Remote Config, Appodeal connectors. The framework allows to send all data to Stack Holistic Solution service without \nadditional synchronisation code.",
+  "homepage": "https://explorestack.com",
+  "license": {
+    "type": "GPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "appodeal": "https://appodeal.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/appodeal/Stack-HolisticSolutionSDK-iOS.git",
+    "tag": "v1.1.3"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0",
+    "5.1",
+    "5.2"
+  ],
+  "default_subspecs": "Full",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "HolisticSolutionSDK/**/*.{h,swift}",
+      "exclude_files": [
+        "HolisticSolutionSDK/Appodeal",
+        "HolisticSolutionSDK/AppsFlyer",
+        "HolisticSolutionSDK/Firebase",
+        "HolisticSolutionSDK/Facebook"
+      ]
+    },
+    {
+      "name": "Appodeal",
+      "source_files": "HolisticSolutionSDK/Appodeal",
+      "dependencies": {
+        "HolisticSolutionSDK/Core": [
+
+        ],
+        "Appodeal": [
+          ">= 2.8.1"
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "source_files": "HolisticSolutionSDK/AppsFlyer",
+      "dependencies": {
+        "HolisticSolutionSDK/Core": [
+
+        ],
+        "AppsFlyerFramework": [
+          "~> 6.0"
+        ]
+      }
+    },
+    {
+      "name": "Firebase",
+      "source_files": "HolisticSolutionSDK/Firebase",
+      "dependencies": {
+        "HolisticSolutionSDK/Core": [
+
+        ],
+        "Firebase/Core": [
+          ">= 7.0.0"
+        ],
+        "Firebase/Analytics": [
+          ">= 7.0.0"
+        ],
+        "Firebase/RemoteConfig": [
+          ">= 7.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "source_files": "HolisticSolutionSDK/Facebook",
+      "dependencies": {
+        "HolisticSolutionSDK/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          ">= 6.0"
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "HolisticSolutionSDK/Core": [
+
+        ],
+        "HolisticSolutionSDK/Appodeal": [
+
+        ],
+        "HolisticSolutionSDK/AppsFlyer": [
+
+        ],
+        "HolisticSolutionSDK/Firebase": [
+
+        ],
+        "HolisticSolutionSDK/Facebook": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}

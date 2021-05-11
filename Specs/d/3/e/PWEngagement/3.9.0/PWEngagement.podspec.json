@@ -1,0 +1,77 @@
+{
+  "name": "PWEngagement",
+  "version": "3.9.0",
+  "summary": "Phunware's Mobile Engagement SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "http://phunware.github.io/maas-engagement-ios-sdk/",
+  "authors": {
+    "Phunware, Inc.": "http://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/Phunware",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-engagement-ios-sdk.git",
+    "tag": "v3.9.0"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "ios": {
+    "vendored_frameworks": "Frameworks/PWEngagement.xcframework",
+    "dependencies": {
+      "FMDB": [
+
+      ]
+    },
+    "frameworks": "CoreLocation"
+  },
+  "default_subspecs": "all-frameworks",
+  "libraries": [
+    "sqlite3",
+    "z"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "all-frameworks",
+      "dependencies": {
+        "PWCore": [
+          "~> 3.10.0"
+        ],
+        "PWCore/DeviceIdentity": [
+          "~> 3.10.0"
+        ]
+      }
+    },
+    {
+      "name": "LimitedDeviceIdentity",
+      "ios": {
+        "vendored_frameworks": "Frameworks/PWEngagement.xcframework"
+      },
+      "dependencies": {
+        "PWCore": [
+          "~> 3.10.0"
+        ]
+      }
+    },
+    {
+      "name": "MistBeaconProvider",
+      "ios": {
+        "vendored_frameworks": "Frameworks/MistBeaconProvider.xcframework"
+      },
+      "dependencies": {
+        "MistSDKDR": [
+          "1.5.272"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}

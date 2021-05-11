@@ -1,0 +1,55 @@
+{
+  "name": "CurrencyText",
+  "version": "2.2.0",
+  "summary": "Currency text formatter for UIKit and SwiftUI text fields.",
+  "description": "Provides a CurrencyText formatter (CurrencyFormatter sub-spec).\n\nIt can be optionally used alongside `CurrencyUITextField` a custom\nUITextFieldDelegate to format UITextField inputs in UIKit.\n(CurrencyUITextField sub-spec).\n\nOr used in a `CurrencyTextField` for the same functionality in SwiftUI.\n(CurrencyTextField sub-spec).",
+  "homepage": "https://github.com/marinofelipe/CurrencyText",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Felipe Lefèvre Marino": "felipemarino91@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/marinofelipe/CurrencyText.git",
+    "tag": "2.2.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.3",
+  "source_files": "Sources/**/*.swift",
+  "exclude_files": "Sources/CurrencyTextFieldTestSupport/*.swift",
+  "subspecs": [
+    {
+      "name": "CurrencyFormatter",
+      "requires_arc": true,
+      "source_files": "Sources/Formatter"
+    },
+    {
+      "name": "CurrencyUITextField",
+      "requires_arc": true,
+      "source_files": "Sources/UITextFieldDelegate",
+      "dependencies": {
+        "CurrencyText/CurrencyFormatter": [
+
+        ]
+      }
+    },
+    {
+      "name": "CurrencyTextField",
+      "requires_arc": true,
+      "source_files": "Sources/SwiftUI",
+      "dependencies": {
+        "CurrencyText/CurrencyFormatter": [
+
+        ],
+        "CurrencyText/CurrencyUITextField": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}

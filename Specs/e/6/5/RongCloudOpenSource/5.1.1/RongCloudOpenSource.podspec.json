@@ -1,0 +1,156 @@
+{
+  "name": "RongCloudOpenSource",
+  "version": "5.1.1",
+  "summary": "RongCloud UI SDK SourceCode.",
+  "description": "RongCloud SDK for iOS.",
+  "homepage": "https://www.rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 RongCloud"
+  },
+  "authors": {
+    "qixinbing": "https://www.rongcloud.cn/"
+  },
+  "social_media_url": "https://www.rongcloud.cn/",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/rongcloud/ios-ui-sdk-set.git",
+    "tag": "5.1.1"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "IMKit",
+      "resources": [
+        "IMKit/Resource/ar.lproj/RongCloudKit.strings",
+        "IMKit/Resource/en.lproj/RongCloudKit.strings",
+        "IMKit/Resource/zh-Hans.lproj/RongCloudKit.strings",
+        "IMKit/Resource/Emoji.plist",
+        "IMKit/Resource/RCColor.plist",
+        "IMKit/Resource/RongCloud.bundle"
+      ],
+      "source_files": [
+        "IMKit/RongIMKit.h",
+        "IMKit/**/*.{h,m,c}"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "MapKit",
+        "ImageIO",
+        "CoreLocation",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreVideo",
+        "CoreTelephony",
+        "CoreMedia",
+        "CoreAudio",
+        "CFNetwork",
+        "AudioToolbox",
+        "AVFoundation",
+        "UIKit",
+        "CoreGraphics",
+        "SafariServices"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMLib": [
+          "5.1.1"
+        ]
+      }
+    },
+    {
+      "name": "RongSticker",
+      "resources": [
+        "Sticker/Resource/ar.lproj/RongSticker.strings",
+        "Sticker/Resource/en.lproj/RongSticker.strings",
+        "Sticker/Resource/zh-Hans.lproj/RongSticker.strings",
+        "Sticker/Resource/RongSticker.bundle"
+      ],
+      "source_files": [
+        "Sticker/RongSticker.h",
+        "Sticker/**/*.{h,m,c}"
+      ],
+      "dependencies": {
+        "RongCloudOpenSource/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "source_files": [
+        "Sight/RongSight.h",
+        "Sight/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "RongCloudOpenSource/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "IFly",
+      "libraries": "z",
+      "frameworks": [
+        "AddressBook",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreServices",
+        "Contacts"
+      ],
+      "resources": "iFlyKit/Resource/RongCloudiFly.bundle",
+      "source_files": [
+        "iFlyKit/RongiFlyKit.h",
+        "iFlyKit/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "RongCloudOpenSource/IMKit": [
+
+        ]
+      },
+      "vendored_frameworks": "iFlyKit/Engine/iflyMSC.framework"
+    },
+    {
+      "name": "ContactCard",
+      "source_files": [
+        "ContactCard/RongContactCard.h",
+        "ContactCard/**/*.{h,m,c}"
+      ],
+      "dependencies": {
+        "RongCloudOpenSource/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "source_files": [
+        "CallKit/RongCallKit.h",
+        "CallKit/**/*.{h,m,mm}"
+      ],
+      "resources": [
+        "CallKit/Resources/ar.lproj/RongCallKit.strings",
+        "CallKit/Resources/en.lproj/RongCallKit.strings",
+        "CallKit/Resources/zh-Hans.lproj/RongCallKit.strings",
+        "CallKit/Resources/RongCallKit.bundle"
+      ],
+      "dependencies": {
+        "RongCloudOpenSource/IMKit": [
+
+        ],
+        "RongCloudRTC/RongCallLib": [
+          "5.1.1"
+        ]
+      }
+    }
+  ]
+}

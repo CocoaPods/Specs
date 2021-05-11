@@ -1,0 +1,64 @@
+{
+  "name": "SnapSDK",
+  "version": "1.7.0",
+  "summary": "Snap Kit lets developers like you integrate some of Snapchat’s best features across your platform.",
+  "homepage": "https://kit.snapchat.com",
+  "license": {
+    "type": "Snap Developer Terms of Service",
+    "file": "LICENSE"
+  },
+  "authors": "Snap",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "documentation_url": "https://docs.snapchat.com/docs/",
+  "source": {
+    "http": "https://storage.googleapis.com/snap-kit-build/scsdk/ios/release/latest/SCSDK-1.7.0.tar.gz",
+    "type": "tgz"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "SCSDKCreativeKit",
+      "vendored_frameworks": [
+        "SCSDKCreativeKit.xcframework",
+        "SCSDKCoreKit.xcframework"
+      ]
+    },
+    {
+      "name": "SCSDKLoginKit",
+      "vendored_frameworks": [
+        "SCSDKLoginKit.xcframework",
+        "SCSDKCoreKit.xcframework"
+      ]
+    },
+    {
+      "name": "SCSDKBitmojiKit",
+      "vendored_frameworks": [
+        "SCSDKBitmojiKit.xcframework",
+        "SCSDKCoreKit.xcframework"
+      ],
+      "dependencies": {
+        "PINCache": [
+          ">= 2.3",
+          "< 3.1"
+        ],
+        "PINOperation": [
+          "~> 1.2.1"
+        ]
+      }
+    },
+    {
+      "name": "SCSDKStoryKit",
+      "vendored_frameworks": [
+        "SCSDKStoryKit.xcframework",
+        "SCSDKCoreKit.xcframework"
+      ]
+    }
+  ]
+}

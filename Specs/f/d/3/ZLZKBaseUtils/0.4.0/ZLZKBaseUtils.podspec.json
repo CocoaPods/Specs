@@ -1,0 +1,111 @@
+{
+  "name": "ZLZKBaseUtils",
+  "version": "0.4.0",
+  "summary": "基于dsBridge扩展",
+  "description": "扩展原生与h5交互功能,简化原生与h5开发\n相配套的前端框架地址:`https://github.com/ionuv/s-bridge.git`",
+  "homepage": "https://gitee.com/zlzk/ZLZKBaseUtils",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "1134548344@qq.com": "1134548344@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/zlzk/ZLZKBaseUtils.git",
+    "tag": "0.4.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "xcconfig": {
+    "ENABLE_BITCODE": "$(inherited)"
+  },
+  "source_files": "ZLZKBaseUtils/Classes/*.{h,m}",
+  "resource_bundles": {
+    "ZLZKBaseUtils": [
+      "ZLZKBaseUtils/Assets/*"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Utils",
+      "dependencies": {
+        "MBProgressHUD": [
+          "1.1.0"
+        ],
+        "SDWebImage": [
+          "5.9.2"
+        ]
+      },
+      "source_files": "ZLZKBaseUtils/Classes/Utils/*.{h,m}"
+    },
+    {
+      "name": "Protocol",
+      "dependencies": {
+        "ZLZKBaseUtils/Utils": [
+
+        ]
+      },
+      "source_files": "ZLZKBaseUtils/Classes/Protocol/*.{h,m}"
+    },
+    {
+      "name": "Dsbridge",
+      "source_files": "ZLZKBaseUtils/Classes/Dsbridge/*.{h,m,md}"
+    },
+    {
+      "name": "Ifly",
+      "vendored_frameworks": "ZLZKBaseUtils/Classes/Ifly/iflyMSC.framework",
+      "libraries": [
+        "c++",
+        "z",
+        "iconv"
+      ],
+      "frameworks": [
+        "AVFoundation",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "AudioToolbox",
+        "CoreLocation",
+        "Contacts",
+        "AddressBook",
+        "QuartzCore",
+        "CoreGraphics",
+        "Security"
+      ],
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "arm64 armv7 armv7s x86_64"
+      },
+      "dependencies": {
+        "ZLZKBaseUtils/Utils": [
+
+        ],
+        "ZLZKBaseUtils/Dsbridge": [
+
+        ]
+      },
+      "source_files": "ZLZKBaseUtils/Classes/Ifly/*.{h,m}"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "ZLPhotoBrowser": [
+          "3.2.0"
+        ],
+        "SSZipArchive": [
+          "2.2.2"
+        ],
+        "ZLZKBaseUtils/Utils": [
+
+        ],
+        "ZLZKBaseUtils/Ifly": [
+
+        ],
+        "ZLZKBaseUtils/Dsbridge": [
+
+        ]
+      },
+      "source_files": "ZLZKBaseUtils/Classes/Core/*.{h,m}"
+    }
+  ]
+}

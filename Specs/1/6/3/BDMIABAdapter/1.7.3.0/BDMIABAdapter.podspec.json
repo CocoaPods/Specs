@@ -1,0 +1,100 @@
+{
+  "name": "BDMIABAdapter",
+  "version": "1.7.3.0",
+  "summary": "Bidmachine adapter for IAB",
+  "description": "Appodeal’s supply-side platform is designed and built by veteran publishers,for publishers. Appodeal is not an ad network; it is a new approach to monetizing for publishers.\nThe platform is a large auction house, accompanied by a mediation layer, that exposes a publisher’s inventory to all available buyers on the market via relationships with every major ad network, RTB exchange, and DSP. Appodeal showcases publisher inventory to the advertiser, and offers the highest rate in real time.\nAppodeal's goal is to cater to the needs of the publisher, not the advertiser, so you always know that you're in good hands.",
+  "homepage": "https://bidmachine.io",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "https://explorestack.com/bidmachine/"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/bidmachine/BidMachine-iOS-Adaptors.git",
+    "tag": "vBDMIABAdapter-1.7.3.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "default_subspecs": "IAB",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "IAB",
+      "dependencies": {
+        "BDMIABAdapter/MRAID": [
+
+        ],
+        "BDMIABAdapter/VAST": [
+
+        ],
+        "BDMIABAdapter/NAST": [
+
+        ]
+      }
+    },
+    {
+      "name": "MRAID",
+      "dependencies": {
+        "BidMachine": [
+          "~> 1.7.3.0"
+        ],
+        "StackIAB/StackMRAIDKit": [
+          "~> 1.4.0"
+        ]
+      },
+      "source_files": [
+        "BDMIABAdapter/BDMMRAIDAdapter/*.{h,m}"
+      ]
+    },
+    {
+      "name": "VAST",
+      "dependencies": {
+        "BidMachine": [
+          "~> 1.7.3.0"
+        ],
+        "StackIAB/StackVASTKit": [
+          "~> 1.4.0"
+        ]
+      },
+      "source_files": [
+        "BDMIABAdapter/BDMVASTAdapter/*.{h,m}"
+      ]
+    },
+    {
+      "name": "NAST",
+      "dependencies": {
+        "BidMachine": [
+          "~> 1.7.3.0"
+        ],
+        "StackIAB/StackNASTKit": [
+          "~> 1.4.0"
+        ],
+        "StackIAB/StackRichMedia": [
+          "~> 1.4.0"
+        ]
+      },
+      "source_files": [
+        "BDMIABAdapter/BDMNASTAdapter/*.{h,m}"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}

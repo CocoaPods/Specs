@@ -1,0 +1,521 @@
+{
+  "name": "ee-x",
+  "version": "2.7.0",
+  "summary": "ee-x",
+  "description": "Cross-platform library for cocos2d-x",
+  "module_name": "ee",
+  "homepage": "https://github.com/Senspark/ee-x",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Hai Hoang",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "source": {
+    "git": "https://github.com/Senspark/ee-x.git",
+    "tag": "v2.7.0"
+  },
+  "frameworks": "Foundation",
+  "static_framework": true,
+  "requires_arc": false,
+  "subspecs": [
+    {
+      "name": "json",
+      "source_files": "third_party/nlohmann/include/**/*",
+      "private_header_files": "third_party/nlohmann/include/**/*",
+      "header_mappings_dir": "third_party/nlohmann/include"
+    },
+    {
+      "name": "cpp",
+      "source_files": [
+        "src/cpp/ee/Cpp*",
+        "src/cpp/ee/ad_colony/**/*",
+        "src/cpp/ee/ad_mob/**/*",
+        "src/cpp/ee/adjust/**/*",
+        "src/cpp/ee/ads/**/*",
+        "src/cpp/ee/app_lovin/**/*",
+        "src/cpp/ee/apps_flyer/**/*",
+        "src/cpp/ee/cocos/**/*",
+        "src/cpp/ee/core/**/*",
+        "src/cpp/ee/facebook/**/*",
+        "src/cpp/ee/facebook_ads/**/*",
+        "src/cpp/ee/firebase_analytics/**/*",
+        "src/cpp/ee/firebase_crashlytics/**/*",
+        "src/cpp/ee/firebase_performance/**/*",
+        "src/cpp/ee/firebase_remote_config/**/*",
+        "src/cpp/ee/iron_source/**/*",
+        "src/cpp/ee/notification/**/*",
+        "src/cpp/ee/play/**/*",
+        "src/cpp/ee/recorder/**/*",
+        "src/cpp/ee/services/**/*",
+        "src/cpp/ee/store/**/*",
+        "src/cpp/ee/unity_ads/**/*",
+        "src/cpp/ee/vungle/**/*"
+      ],
+      "private_header_files": [
+        "src/cpp/ee/**/internal/*",
+        "src/cpp/ee/**/private/*"
+      ],
+      "exclude_files": [
+        "src/cpp/ee/core/**/*Android*",
+        "src/cpp/ee/core/**/Jni*",
+        "src/cpp/ee/**/Android.mk",
+        "src/cpp/ee/**/CMakeLists.txt",
+        "src/cpp/ee/**/generate.sh",
+        "src/cpp/ee/**/sourcelist.cmake"
+      ],
+      "header_mappings_dir": "src/cpp",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++2a",
+        "OTHER_CPLUSPLUSFLAGS": "-fcoroutines-ts",
+        "GCC_PREPROCESSOR_DEFINITIONS": "USE_FILE32API",
+        "GCC_PREPROCESSOR_DEFINITIONS[config=Debug]": "$(inherited) COCOS2D_DEBUG=1",
+        "GCC_PREPROCESSOR_DEFINITIONS[config=Release]": "$(inherited) NDEBUG",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/../../cocos2d ${PODS_ROOT}/../../cocos2d/cocos ${PODS_ROOT}/../../cocos2d/cocos/editor-support ${PODS_ROOT}/../../cocos2d/external ${PODS_ROOT}/../../cocos2d/extensions ${PODS_ROOT}/../../cocos2d/external/mac/include/glfw3 ${PODS_ROOT}/../../cocos2d/external/glfw3/include/mac ${PODS_ROOT}/../../../cocos2d-x ${PODS_ROOT}/../../../cocos2d-x/cocos ${PODS_ROOT}/../../../cocos2d-x/external/sources ${PODS_ROOT}/../../../cocos2d-x/external/mac/include/v8"
+      },
+      "resources": "res/*",
+      "libraries": [
+        "iconv",
+        "z"
+      ],
+      "frameworks": [
+        "GameController",
+        "OpenAL"
+      ],
+      "ios": {
+        "frameworks": "CoreMotion"
+      },
+      "dependencies": {
+        "ee-x/json": [
+
+        ]
+      }
+    },
+    {
+      "name": "ad-colony",
+      "source_files": "src/ios/ee/ad_colony/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "AdColony": [
+          "4.4.1"
+        ]
+      }
+    },
+    {
+      "name": "ad-mob",
+      "source_files": "src/ios/ee/ad_mob/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.69.0"
+        ],
+        "GoogleMobileAdsMediationTestSuite": [
+          "1.4.0"
+        ]
+      }
+    },
+    {
+      "name": "ad-mob-mediation",
+      "dependencies": {
+        "ee-x/ad-mob": [
+
+        ],
+        "GoogleMobileAdsMediationAppLovin": [
+          "6.14.11"
+        ],
+        "GoogleMobileAdsMediationFacebook": [
+          "6.2.1"
+        ],
+        "GoogleMobileAdsMediationInMobi": [
+          "9.1.0"
+        ],
+        "GoogleMobileAdsMediationIronSource": [
+          "7.1.0"
+        ],
+        "GoogleMobileAdsMediationTapjoy": [
+          "12.7.1"
+        ],
+        "GoogleMobileAdsMediationUnity": [
+          "3.6.0"
+        ],
+        "GoogleMobileAdsMediationVungle": [
+          "6.8.1.1"
+        ]
+      }
+    },
+    {
+      "name": "ads",
+      "source_files": "src/ios/ee/ads/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "adjust",
+      "source_files": "src/ios/ee/adjust/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "Adjust": [
+          "4.23.2"
+        ]
+      }
+    },
+    {
+      "name": "app-lovin",
+      "source_files": "src/ios/ee/app_lovin/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "AppLovinSDK": [
+          "6.14.11"
+        ]
+      }
+    },
+    {
+      "name": "apps-flyer",
+      "source_files": "src/ios/ee/apps_flyer/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "AppsFlyerFramework": [
+          "6.1.1"
+        ]
+      }
+    },
+    {
+      "name": "core",
+      "source_files": "src/ios/ee/core/**/*",
+      "header_mappings_dir": "src/ios",
+      "user_target_xcconfig": {
+        "LD_RUNPATH_SEARCH_PATHS": "/usr/lib/swift @executable_path/Frameworks @loader_path/Frameworks",
+        "LIBRARY_SEARCH_PATHS": "$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME) $(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME) $(SDKROOT)/usr/lib/swift",
+        "DEAD_CODE_STRIPPING": "YES"
+      },
+      "libraries": "swiftCore",
+      "dependencies": {
+        "ReachabilitySwift": [
+
+        ],
+        "RxSwift": [
+          "5.1.1"
+        ]
+      }
+    },
+    {
+      "name": "facebook",
+      "source_files": "src/ios/ee/facebook/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "8.2.0"
+        ],
+        "FBSDKLoginKit": [
+          "8.2.0"
+        ],
+        "FBSDKShareKit": [
+          "8.2.0"
+        ]
+      }
+    },
+    {
+      "name": "facebook-ads",
+      "source_files": "src/ios/ee/facebook_ads/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "FBAudienceNetwork": [
+          "6.2.1"
+        ]
+      }
+    },
+    {
+      "name": "firebase-core",
+      "source_files": "src/ios/ee/firebase_core/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "Firebase/Core": [
+          "7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "firebase-analytics",
+      "source_files": "src/ios/ee/firebase_analytics/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/firebase-core": [
+
+        ],
+        "Firebase/Analytics": [
+          "7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "firebase-crashlytics",
+      "source_files": "src/ios/ee/firebase_crashlytics/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/firebase-core": [
+
+        ],
+        "Firebase/Crashlytics": [
+          "7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "firebase-performance",
+      "source_files": "src/ios/ee/firebase_performance/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/firebase-core": [
+
+        ],
+        "Firebase/Performance": [
+          "7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "firebase-remote-config",
+      "source_files": "src/ios/ee/firebase_remote_config/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/firebase-core": [
+
+        ],
+        "Firebase/RemoteConfig": [
+          "7.5.0"
+        ]
+      }
+    },
+    {
+      "name": "iron-source",
+      "source_files": "src/ios/ee/iron_source/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "IronSourceSDK": [
+          "7.1.0"
+        ]
+      }
+    },
+    {
+      "name": "iron-source-mediation",
+      "dependencies": {
+        "ee-x/iron-source": [
+
+        ],
+        "IronSourceAdColonyAdapter": [
+          "4.3.6"
+        ],
+        "IronSourceAdMobAdapter": [
+          "4.3.19.0"
+        ],
+        "IronSourceAppLovinAdapter": [
+          "4.3.21.1"
+        ],
+        "IronSourceFacebookAdapter": [
+          "4.3.22.1"
+        ],
+        "IronSourceInMobiAdapter": [
+          "4.3.8.3"
+        ],
+        "IronSourceTapjoyAdapter": [
+          "4.1.15.2"
+        ],
+        "IronSourceUnityAdsAdapter": [
+          "4.3.8.0"
+        ],
+        "IronSourceVungleAdapter": [
+          "4.3.8.2"
+        ]
+      }
+    },
+    {
+      "name": "notification",
+      "source_files": "src/ios/ee/notification/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "play",
+      "source_files": "src/ios/ee/play/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "recorder",
+      "source_files": "src/ios/ee/recorder/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "store",
+      "source_files": "src/ios/ee/store/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/core": [
+
+        ],
+        "TPInAppReceipt": [
+
+        ]
+      }
+    },
+    {
+      "name": "unity-ads",
+      "source_files": "src/ios/ee/unity_ads/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "UnityAds": [
+          "3.6.0"
+        ]
+      }
+    },
+    {
+      "name": "vungle",
+      "source_files": "src/ios/ee/vungle/**/*",
+      "header_mappings_dir": "src/ios",
+      "dependencies": {
+        "ee-x/ads": [
+
+        ],
+        "VungleSDK-iOS": [
+          "6.8.1"
+        ]
+      }
+    },
+    {
+      "name": "jansson",
+      "source_files": "third_party/jansson/src/**/*",
+      "private_header_files": "third_party/jansson/src/**/*.{h,hpp,inl}",
+      "header_mappings_dir": "third_party/jansson/src"
+    },
+    {
+      "name": "keeva",
+      "source_files": "third_party/keeva/src/**/*",
+      "private_header_files": "third_party/keeva/src/**/*.{h,hpp,inl}",
+      "header_mappings_dir": "third_party/keeva/src"
+    },
+    {
+      "name": "soomla-core-ios",
+      "source_files": "third_party/soomla/core/src/ios/**/*",
+      "private_header_files": "third_party/soomla/core/src/ios/**/*.{h,hpp,inl}",
+      "header_mappings_dir": "third_party/soomla/core/src",
+      "dependencies": {
+        "ee-x/keeva": [
+
+        ]
+      }
+    },
+    {
+      "name": "soomla-core-internal",
+      "source_files": "third_party/soomla/core/src/soomla/**/*",
+      "header_mappings_dir": "third_party/soomla/core/src",
+      "dependencies": {
+        "ee-x/json": [
+
+        ],
+        "ee-x/jansson": [
+
+        ],
+        "ee-x/cpp": [
+
+        ]
+      }
+    },
+    {
+      "name": "soomla-store-ios",
+      "source_files": "third_party/soomla/store/src/ios/**/*",
+      "private_header_files": "third_party/soomla/store/src/ios/**/*.{h,hpp,inl}",
+      "header_mappings_dir": "third_party/soomla/store/src",
+      "dependencies": {
+        "ee-x/soomla-core-ios": [
+
+        ]
+      }
+    },
+    {
+      "name": "soomla-store-internal",
+      "source_files": "third_party/soomla/store/src/soomla/**/*",
+      "header_mappings_dir": "third_party/soomla/store/src",
+      "dependencies": {
+        "ee-x/soomla-core-internal": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "ee-x/soomla-store-ios": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "soomla-store",
+      "source_files": "src/cpp/ee/soomla/**/*",
+      "private_header_files": "src/cpp/ee/**/internal/*",
+      "exclude_files": [
+        "src/cpp/ee/**/Android.mk",
+        "src/cpp/ee/**/CMakeLists.txt",
+        "src/cpp/ee/**/generate.sh",
+        "src/cpp/ee/**/sourcelist.cmake"
+      ],
+      "header_mappings_dir": "src/cpp",
+      "dependencies": {
+        "ee-x/soomla-store-internal": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

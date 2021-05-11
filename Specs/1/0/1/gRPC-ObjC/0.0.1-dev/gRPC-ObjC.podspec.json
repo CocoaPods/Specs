@@ -1,0 +1,213 @@
+{
+  "name": "gRPC-ObjC",
+  "version": "0.0.1-dev",
+  "summary": "gRPC client library for iOS/OSX",
+  "homepage": "https://grpc.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "git": "https://github.com/grpc/grpc-ios.git",
+    "tag": "v0.0.1-dev"
+  },
+  "module_name": "GRPCClient",
+  "header_dir": "GRPCClient",
+  "default_subspecs": [
+    "Interface",
+    "GRPCCore",
+    "Interface-Legacy"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "10.0",
+    "watchos": "4.0"
+  },
+  "subspecs": [
+    {
+      "name": "Interface-Legacy",
+      "header_mappings_dir": "src/GRPCClient",
+      "public_header_files": [
+        "src/GRPCClient/GRPCCall+ChannelArg.h",
+        "src/GRPCClient/GRPCCall+ChannelCredentials.h",
+        "src/GRPCClient/GRPCCall+Cronet.h",
+        "src/GRPCClient/GRPCCall+OAuth2.h",
+        "src/GRPCClient/GRPCCall+Tests.h",
+        "src/GRPCClient/GRPCCallLegacy.h",
+        "src/GRPCClient/GRPCTypes.h"
+      ],
+      "source_files": [
+        "src/GRPCClient/GRPCCall+ChannelArg.h",
+        "src/GRPCClient/GRPCCall+ChannelCredentials.h",
+        "src/GRPCClient/GRPCCall+Cronet.h",
+        "src/GRPCClient/GRPCCall+OAuth2.h",
+        "src/GRPCClient/GRPCCall+Tests.h",
+        "src/GRPCClient/GRPCCallLegacy.h",
+        "src/GRPCClient/GRPCTypes.h",
+        "src/GRPCClient/GRPCTypes.m"
+      ],
+      "dependencies": {
+        "gRPC-ObjC-RxLibrary/Interface": [
+          "0.0.1-dev"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "tvos": "10.0",
+        "watchos": "4.0"
+      }
+    },
+    {
+      "name": "Interface",
+      "header_mappings_dir": "src/GRPCClient",
+      "public_header_files": [
+        "src/GRPCClient/GRPCCall.h",
+        "src/GRPCClient/GRPCCall+Interceptor.h",
+        "src/GRPCClient/GRPCCallOptions.h",
+        "src/GRPCClient/GRPCInterceptor.h",
+        "src/GRPCClient/GRPCTransport.h",
+        "src/GRPCClient/GRPCDispatchable.h",
+        "src/GRPCClient/version.h"
+      ],
+      "source_files": [
+        "src/GRPCClient/GRPCCall.h",
+        "src/GRPCClient/GRPCCall.m",
+        "src/GRPCClient/GRPCCall+Interceptor.h",
+        "src/GRPCClient/GRPCCall+Interceptor.m",
+        "src/GRPCClient/GRPCCallOptions.h",
+        "src/GRPCClient/GRPCCallOptions.m",
+        "src/GRPCClient/GRPCDispatchable.h",
+        "src/GRPCClient/GRPCInterceptor.h",
+        "src/GRPCClient/GRPCInterceptor.m",
+        "src/GRPCClient/GRPCTransport.h",
+        "src/GRPCClient/GRPCTransport.m",
+        "src/GRPCClient/internal/*.h",
+        "src/GRPCClient/private/GRPCTransport+Private.h",
+        "src/GRPCClient/private/GRPCTransport+Private.m",
+        "src/GRPCClient/version.h"
+      ],
+      "dependencies": {
+        "gRPC-ObjC/Interface-Legacy": [
+          "0.0.1-dev"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "tvos": "10.0",
+        "watchos": "4.0"
+      }
+    },
+    {
+      "name": "GRPCCore",
+      "header_mappings_dir": "src/GRPCClient",
+      "public_header_files": [
+        "src/GRPCClient/GRPCCall+ChannelCredentials.h",
+        "src/GRPCClient/GRPCCall+Cronet.h",
+        "src/GRPCClient/GRPCCall+OAuth2.h",
+        "src/GRPCClient/GRPCCall+Tests.h",
+        "src/GRPCClient/GRPCCall+ChannelArg.h"
+      ],
+      "private_header_files": "src/GRPCClient/private/GRPCCore/*.h",
+      "source_files": [
+        "src/GRPCClient/private/GRPCCore/*.{h,m}",
+        "src/GRPCClient/GRPCCall+ChannelArg.h",
+        "src/GRPCClient/GRPCCall+ChannelArg.m",
+        "src/GRPCClient/GRPCCall+ChannelCredentials.h",
+        "src/GRPCClient/GRPCCall+ChannelCredentials.m",
+        "src/GRPCClient/GRPCCall+Cronet.h",
+        "src/GRPCClient/GRPCCall+Cronet.m",
+        "src/GRPCClient/GRPCCall+OAuth2.h",
+        "src/GRPCClient/GRPCCall+OAuth2.m",
+        "src/GRPCClient/GRPCCall+Tests.h",
+        "src/GRPCClient/GRPCCall+Tests.m",
+        "src/GRPCClient/GRPCCallLegacy.m"
+      ],
+      "resource_bundles": {
+        "gRPCCertificates": [
+          "etc/roots.pem"
+        ]
+      },
+      "dependencies": {
+        "gRPC-ObjC/Interface-Legacy": [
+          "0.0.1-dev"
+        ],
+        "gRPC-ObjC/Interface": [
+          "0.0.1-dev"
+        ],
+        "gRPC-Core": [
+          "1.34.0"
+        ],
+        "gRPC-ObjC-RxLibrary": [
+          "0.0.1-dev"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "tvos": "10.0",
+        "watchos": "4.0"
+      }
+    },
+    {
+      "name": "GRPCCoreCronet",
+      "header_mappings_dir": "src/GRPCClient",
+      "source_files": [
+        "src/GRPCClient/GRPCCall+Cronet.h",
+        "src/GRPCClient/GRPCCall+Cronet.m",
+        "src/GRPCClient/private/GRPCCore/GRPCCoreCronet/*.{h,m}"
+      ],
+      "dependencies": {
+        "gRPC-ObjC/GRPCCore": [
+          "0.0.1-dev"
+        ],
+        "gRPC-Core/Cronet-Implementation": [
+          "1.34.0"
+        ],
+        "CronetFramework": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "9.0"
+      }
+    },
+    {
+      "name": "CFStream",
+      "dependencies": {
+        "gRPC-ObjC/GRPCCore": [
+          "0.0.1-dev"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "tvos": "10.0",
+        "watchos": "4.0"
+      }
+    },
+    {
+      "name": "InternalTesting",
+      "dependencies": {
+        "gRPC-ObjC/GRPCCore": [
+          "0.0.1-dev"
+        ]
+      },
+      "public_header_files": "src/GRPCClient/internal_testing/*.h",
+      "source_files": "src/GRPCClient/internal_testing/*.{h,m}",
+      "header_mappings_dir": "src/GRPCClient",
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "tvos": "10.0",
+        "watchos": "4.0"
+      }
+    }
+  ]
+}

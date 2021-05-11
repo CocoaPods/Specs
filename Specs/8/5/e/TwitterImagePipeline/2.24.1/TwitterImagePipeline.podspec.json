@@ -1,0 +1,78 @@
+{
+  "name": "TwitterImagePipeline",
+  "version": "2.24.1",
+  "compiler_flags": "-DTIP_PROJECT_VERSION=2.24",
+  "summary": "Twitter Image Pipeline is a robust and performant image loading and caching framework for iOS",
+  "description": "Twitter created a framework for image loading/caching in order to fulfill the numerous needs of Twitter for iOS including being fast, safe, modular and versatile.",
+  "homepage": "https://github.com/twitter/ios-twitter-image-pipeline",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Twitter": "opensource@twitter.com"
+  },
+  "source": {
+    "git": "https://github.com/twitter/ios-twitter-image-pipeline.git",
+    "tag": "2.24.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    5.0
+  ],
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "source_files": "TwitterImagePipeline/**/*.{h,m}",
+      "public_header_files": "TwitterImagePipeline/*.h"
+    },
+    {
+      "name": "WebPCodec",
+      "subspecs": [
+        {
+          "name": "Default",
+          "source_files": [
+            "Extended/TIPXWebPCodec.{h,m}",
+            "Extended/TIPXUtils.{h,m}"
+          ],
+          "public_header_files": "Extended/TIPXWebPCodec.h",
+          "vendored_frameworks": "Extended/WebP.framework",
+          "dependencies": {
+            "TwitterImagePipeline/Default": [
+
+            ]
+          }
+        },
+        {
+          "name": "Animated",
+          "xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "TIPX_WEBP_ANIMATION_DECODING_ENABLED=1"
+          },
+          "vendored_frameworks": "Extended/WebPDemux.framework",
+          "dependencies": {
+            "TwitterImagePipeline/WebPCodec/Default": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MP4Codec",
+      "source_files": [
+        "Extended/TIPXMP4Codec.{h,m}",
+        "Extended/TIPXUtils.{h,m}"
+      ],
+      "public_header_files": "Extended/TIPXMP4Codec.h",
+      "dependencies": {
+        "TwitterImagePipeline/Default": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

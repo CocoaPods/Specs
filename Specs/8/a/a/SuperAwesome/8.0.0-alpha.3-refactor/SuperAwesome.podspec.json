@@ -1,0 +1,134 @@
+{
+  "name": "SuperAwesome",
+  "version": "8.0.0-alpha.3-refactor",
+  "summary": "SuperAwesome Mobile SDK for iOS",
+  "description": "The SuperAwesome Mobile SDK lets you to easily add COPPA compliant advertisements and other platform features, like user authentication and registration, to your apps. We try to make integration as easy as possible, so we provide all the necessary tools such as this guide, API documentation, screencasts and demo apps.",
+  "homepage": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "documentation_url": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "license": {
+    "type": "GNU GENERAL PUBLIC LICENSE Version 3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gabriel Coman": "gabriel.coman@superawesome.com",
+    "Gunhan Sancar": "gunhan.sancar@superawesome.com"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/SuperAwesomeLTD/sa-mobile-sdk-ios.git",
+    "branch": "refactor",
+    "tag": "8.0.0-alpha.3-refactor"
+  },
+  "static_framework": false,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "SuperAwesome/Base": [
+
+        ],
+        "SuperAwesome/Moat": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "Pod/Tests/Common/**/*",
+            "Pod/Tests/Network/**/*",
+            "Pod/Tests/Moat/**/*",
+            "Pod/Tests/UI/**/*"
+          ],
+          "resources": "Pod/Tests/Resources/*",
+          "dependencies": {
+            "Nimble": [
+
+            ],
+            "Mockingjay": [
+              "3.0.0-alpha.1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "Pod/Sources/Base/**/*",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ],
+        "SuperAwesome/UI": [
+
+        ],
+        "SuperAwesome/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "source_files": "Pod/Sources/Common/**/*",
+      "dependencies": {
+        "SwiftyXMLParser": [
+          "~> 5.0"
+        ],
+        "SAVideoPlayer": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "Moat",
+      "source_files": "Pod/Sources/Moat/**/*",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ]
+      },
+      "vendored_frameworks": "Pod/Libraries/SUPMoatMobileAppKit.framework",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MOAT_MODULE"
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Pod/Sources/UI/**/*",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Pod/Sources/Network/**/*",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ],
+        "Moya": [
+          "~> 14.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "SDWebImageBPGCoder",
+  "version": "0.7.1",
+  "summary": "BPG decoder for SDWebImage plugin coder.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/SDWebImage/SDWebImageBPGCoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DreamPiggy": "lizhuoli1126@126.com"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/SDWebImageBPGCoder.git",
+    "tag": "0.7.1"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "libbpg",
+  "module_map": "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.modulemap",
+  "dependencies": {
+    "SDWebImage/Core": [
+      "~> 5.10"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "libbpg",
+      "dependencies": {
+        "libbpg": [
+
+        ]
+      },
+      "source_files": [
+        "SDWebImageBPGCoder/Classes/SDImageBPGCoder.{h,m}",
+        "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.h"
+      ],
+      "public_header_files": [
+        "SDWebImageBPGCoder/Classes/SDImageBPGCoder.h",
+        "SDWebImageBPGCoder/Module/SDWebImageBPGCoder.h"
+      ]
+    },
+    {
+      "name": "bpgenc",
+      "dependencies": {
+        "SDWebImageBPGCoder/libbpg": [
+
+        ],
+        "libx265": [
+
+        ]
+      },
+      "source_files": "SDWebImageBPGCoder/Classes/bpgenc/*",
+      "public_header_files": "SDWebImageBPGCoder/Classes/bpgenc/*.h",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) USE_X265=1",
+        "WARNING_CFLAGS": "$(inherited) -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-variable"
+      }
+    }
+  ]
+}

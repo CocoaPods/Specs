@@ -1,0 +1,78 @@
+{
+  "name": "ZcashLightClientKit",
+  "version": "0.10.2",
+  "summary": "Zcash Light Client wallet SDK for iOS",
+  "description": "Zcash Light Client wallet SDK for iOS",
+  "homepage": "https://github.com/zcash/ZcashLightClientKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Francisco Gindre": "francisco.gindre@gmail.com",
+    "Jack Grigg": "str4d@electriccoin.co"
+  },
+  "source": {
+    "git": "https://github.com/zcash/ZcashLightClientKit.git",
+    "tag": "0.10.2"
+  },
+  "source_files": "ZcashLightClientKit/**/*.{swift,h,a}",
+  "swift_versions": "5.1",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "dependencies": {
+    "gRPC-Swift": [
+      "= 1.0.0-alpha.19"
+    ],
+    "SQLite.swift": [
+      "~> 0.12.2"
+    ]
+  },
+  "ios": {
+    "vendored_libraries": "lib/libzcashlc.a"
+  },
+  "preserve_paths": [
+    "Scripts",
+    "rust",
+    "docs",
+    "Cargo.*",
+    "ZcashLightClientKit/Stencil"
+  ],
+  "prepare_command": "sh Scripts/prepare_zcash_sdk.sh",
+  "script_phases": {
+    "name": "Build generate constants and build librustzcash",
+    "script": "sh ${PODS_TARGET_SRCROOT}/Scripts/generate_zcashsdk_constants.sh && sh ${PODS_TARGET_SRCROOT}/Scripts/build_librustzcash_xcode.sh",
+    "execution_position": "before_compile"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "ZcashLightClientKitTests/**/*.{swift}",
+      "ios": {
+        "resources": "ZcashLightClientKitTests/**/*.{db,params}"
+      },
+      "script_phases": {
+        "name": "Build generate constants and build librustzcash",
+        "script": "sh ${PODS_TARGET_SRCROOT}/Scripts/generate_test_constants.sh && ${PODS_TARGET_SRCROOT}/Scripts/build_librustzcash_xcode.sh --testing",
+        "execution_position": "before_compile"
+      },
+      "dependencies": {
+        "gRPC-Swift": [
+          "= 1.0.0-alpha.19"
+        ],
+        "SQLite.swift": [
+          "~> 0.12.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}

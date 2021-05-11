@@ -1,0 +1,93 @@
+{
+  "name": "gRPC-ObjC-ProtoRPC",
+  "version": "0.0.2-dev",
+  "summary": "RPC library for Protocol Buffers, based on gRPC",
+  "homepage": "https://grpc.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "The gRPC contributors": "grpc-packages@google.com"
+  },
+  "source": {
+    "git": "https://github.com/grpc/grpc-ios.git",
+    "tag": "v0.0.2-dev"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "10.0",
+    "watchos": "4.0"
+  },
+  "module_name": "ProtoRPC",
+  "header_dir": "ProtoRPC",
+  "default_subspecs": [
+    "Main",
+    "Legacy",
+    "Legacy-Header"
+  ],
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Legacy-Header",
+      "header_mappings_dir": "src/ProtoRPC",
+      "public_header_files": "src/ProtoRPC/ProtoRPCLegacy.h",
+      "source_files": "src/ProtoRPC/ProtoRPCLegacy.h"
+    },
+    {
+      "name": "Main",
+      "header_mappings_dir": "src/ProtoRPC",
+      "dependencies": {
+        "gRPC-ObjC-ProtoRPC/Legacy-Header": [
+          "0.0.2-dev"
+        ],
+        "gRPC-ObjC/Interface": [
+          "0.0.2-dev"
+        ],
+        "Protobuf": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": [
+        "src/ProtoRPC/ProtoMethod.{h,m}",
+        "src/ProtoRPC/ProtoRPC.{h,m}",
+        "src/ProtoRPC/ProtoService.{h,m}"
+      ]
+    },
+    {
+      "name": "Legacy",
+      "header_mappings_dir": "src/ProtoRPC",
+      "dependencies": {
+        "gRPC-ObjC-ProtoRPC/Main": [
+          "0.0.2-dev"
+        ],
+        "gRPC-ObjC-ProtoRPC/Legacy-Header": [
+          "0.0.2-dev"
+        ],
+        "gRPC-ObjC/GRPCCore": [
+          "0.0.2-dev"
+        ],
+        "gRPC-ObjC-RxLibrary": [
+          "0.0.2-dev"
+        ],
+        "Protobuf": [
+          "~> 3.0"
+        ]
+      },
+      "source_files": [
+        "src/ProtoRPC/ProtoRPCLegacy.m",
+        "src/ProtoRPC/ProtoServiceLegacy.m"
+      ]
+    },
+    {
+      "name": "CFStream",
+      "dependencies": {
+        "gRPC-ObjC-ProtoRPC/Legacy": [
+          "0.0.2-dev"
+        ]
+      }
+    }
+  ]
+}

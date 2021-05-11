@@ -1,0 +1,143 @@
+{
+  "name": "ComponentCoding",
+  "version": "0.1.1",
+  "summary": "一套面向组件编程的架构参考方案.",
+  "description": "1.支持面向组件编程；\n2.使用协议规范层级代码；\n3.弱交互页面支持自动载入组件；\n4.使用controller扩展来提供collectionView和tableView；\n5.使用属性设置来控制Setion内布局。\n6.**注意**真实环境下Components目录下的组件都应该是单独的pod，这里为了浏览方便，糅合在一起。\n7.组件的复用分为UIModel级高颗粒度复用、贴片View级细力度复用。\n8.组件遵循组合复用原则，支持多层级组件嵌套使用。\n9.项目使用了不少开源库和代码，感谢分享。\n\nTodo:\n1.一个demo控制器，包含一些组件；\n2.描述事件流传递；\n3.描述数据流传递；",
+  "homepage": "https://github.com/iBlackStone/ComponentCoding",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iStone": "gao375976821@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iBlackStone/ComponentCoding.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "UIModelGroup",
+      "subspecs": [
+        {
+          "name": "BaseModel",
+          "source_files": "ComponentCoding/Classes/UIModelGroup/BaseModel/*",
+          "dependencies": {
+            "Mantle": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseUIModel",
+          "source_files": "ComponentCoding/Classes/UIModelGroup/BaseUIModel/*",
+          "dependencies": {
+            "ComponentCoding/UIModelGroup/Protocol": [
+
+            ],
+            "ComponentCoding/UIModelGroup/BaseModel": [
+
+            ],
+            "ComponentCoding/UIModelGroup/Layout": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "ComponentCoding/Classes/UIModelGroup/Protocol/*"
+        },
+        {
+          "name": "Layout",
+          "source_files": "ComponentCoding/Classes/UIModelGroup/Layout/*",
+          "subspecs": [
+            {
+              "name": "CollectionLayout",
+              "source_files": "ComponentCoding/Classes/UIModelGroup/Layout/CollectionLayout/*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EasyCoding",
+      "dependencies": {
+        "ComponentCoding/UIModelGroup": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "EasyTableHelper",
+          "source_files": "ComponentCoding/Classes/EasyCoding/EasyTableHelper/*",
+          "dependencies": {
+            "ComponentCoding/Components/BaseComponents": [
+
+            ],
+            "ComponentCoding/Components/UIPoolCXIconTitleSubTitleView": [
+
+            ]
+          }
+        },
+        {
+          "name": "EasyCollectionHelper",
+          "source_files": "ComponentCoding/Classes/EasyCoding/EasyCollectionHelper/*",
+          "dependencies": {
+            "ComponentCoding/Components/BaseComponents": [
+
+            ],
+            "ComponentCoding/Components/UIPoolCXIconTitleSubTitleView": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utils",
+      "source_files": "ComponentCoding/Classes/Utils/*"
+    },
+    {
+      "name": "Components",
+      "subspecs": [
+        {
+          "name": "BaseComponents",
+          "source_files": "ComponentCoding/Classes/Components/BaseComponents/*",
+          "dependencies": {
+            "ComponentCoding/Utils": [
+
+            ],
+            "SDWebImage": [
+
+            ],
+            "SDWebImage/GIF": [
+
+            ],
+            "FLAnimatedImage": [
+
+            ],
+            "OHAttributedStringAdditions": [
+
+            ],
+            "Masonry": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIPoolCXIconTitleSubTitleView",
+          "source_files": "ComponentCoding/Classes/Components/UIPoolCXIconTitleSubTitleView/*",
+          "dependencies": {
+            "ComponentCoding/Components/BaseComponents": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

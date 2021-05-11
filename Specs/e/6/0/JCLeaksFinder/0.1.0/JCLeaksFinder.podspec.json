@@ -1,0 +1,46 @@
+{
+  "name": "JCLeaksFinder",
+  "version": "0.1.0",
+  "summary": "Find memory leaks in your iOS app at develop time.",
+  "description": "iOS 内存泄漏检测工具，支持检测内存泄漏并输出循环引用链/全局对象引用链。",
+  "authors": {
+    "": ""
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "homepage": "https://github.com/JerryChu/JCLeaksFinder",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/JerryChu/JCLeaksFinder",
+    "branch": "master"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "GlobalRetainDetector",
+      "requires_arc": false,
+      "source_files": "GlobalRetainDetector/JCGlobalObjectsFinder.{h,m}",
+      "public_header_files": "GlobalRetainDetector/JCGlobalObjectsFinder.h"
+    },
+    {
+      "name": "MLeaksFinder",
+      "source_files": [
+        "MLeaksFinder/**/*",
+        "JCLeaksConfig.{h,m}"
+      ],
+      "public_header_files": [
+        "JCLeaksConfig.h",
+        "MLeaksFinder/NSObject+MemoryLeak.h"
+      ],
+      "dependencies": {
+        "FBRetainCycleDetector": [
+
+        ],
+        "JCLeaksFinder/GlobalRetainDetector": [
+
+        ]
+      }
+    }
+  ]
+}

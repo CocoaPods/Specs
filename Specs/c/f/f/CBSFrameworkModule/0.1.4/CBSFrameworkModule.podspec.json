@@ -1,0 +1,103 @@
+{
+  "name": "CBSFrameworkModule",
+  "version": "0.1.4",
+  "summary": "A short description of CBSFrameworkModule.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://gitlab.it.5i5j.com/fnd/wiwork/wiworkmodulesios/cbsframeworkmodule",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "weixuetao": "weixuetao@5i5j.com"
+  },
+  "source": {
+    "git": "http://gitlab.it.5i5j.com/fnd/wiwork/wiworkmodulesios/cbsframeworkmodule.git",
+    "tag": "0.1.4",
+    "commit": "c19d9c423e65b715affc7eadf6aca08a713a40bb"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "ios": {
+    "exclude_files": [
+      "CBSFrameworkModule/Classes/JSONKit/*.{h,m}",
+      "CBSFrameworkModule/Classes/YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}",
+      "CBSFrameworkModule/Classes/YYKit/Base/Foundation/NSThread+YYAdd.{h,m}"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "WIWJWaterMark",
+      "vendored_frameworks": "CBSFrameworkModule/Classes/WIWJWaterMark/*.framework"
+    },
+    {
+      "name": "FreeStreamer",
+      "vendored_frameworks": "CBSFrameworkModule/Classes/FreeStreamer/*.framework"
+    },
+    {
+      "name": "WIWJIMSDK",
+      "vendored_frameworks": "CBSFrameworkModule/Classes/WIWJIMSDK/*.framework",
+      "dependencies": {
+        "ReactiveCocoa": [
+          "~> 2.5"
+        ]
+      }
+    },
+    {
+      "name": "FMDB",
+      "source_files": "CBSFrameworkModule/Classes/FMDB/*.{h,m}"
+    },
+    {
+      "name": "AvoidCrash",
+      "source_files": "CBSFrameworkModule/Classes/AvoidCrash/*.{h,m}"
+    },
+    {
+      "name": "HTProgressHUD",
+      "source_files": "CBSFrameworkModule/Classes/HTProgressHUD/**/*.{h,m}",
+      "resource_bundles": {
+        "CBSFrameworkModule": [
+          "CBSFrameworkModule/Assets/LodingHud/*"
+        ]
+      }
+    },
+    {
+      "name": "ZZCircleProgress",
+      "source_files": "CBSFrameworkModule/Classes/ZZCircleProgress/**/*.{h,m}",
+      "resource_bundles": {
+        "CBSFrameworkModule": [
+          "CBSFrameworkModule/Classes/ZZCircleProgress/ZZCircleProgress.bundle"
+        ]
+      }
+    },
+    {
+      "name": "PhotoBrowser",
+      "source_files": "CBSFrameworkModule/Classes/PhotoBrowser/**/*.{h,m}",
+      "resource_bundles": {
+        "CBSFrameworkModule": [
+          "CBSFrameworkModule/Classes/PhotoBrowser/resource/*.{bundle,png,xib}"
+        ]
+      }
+    },
+    {
+      "name": "JSONKit",
+      "requires_arc": false,
+      "source_files": "CBSFrameworkModule/Classes/JSONKit/*.{h,m}"
+    },
+    {
+      "name": "YYKit",
+      "source_files": "CBSFrameworkModule/Classes/YYKit/**/*.{h,m}",
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "requires_arc": false,
+          "source_files": [
+            "CBSFrameworkModule/Classes/JSONKit/*.{h,m}",
+            "CBSFrameworkModule/Classes/YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}",
+            "CBSFrameworkModule/Classes/YYKit/Base/Foundation/NSThread+YYAdd.{h,m}"
+          ]
+        }
+      ]
+    }
+  ]
+}

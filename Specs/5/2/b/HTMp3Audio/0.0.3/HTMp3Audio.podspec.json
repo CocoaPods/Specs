@@ -1,0 +1,72 @@
+{
+  "name": "HTMp3Audio",
+  "version": "0.0.3",
+  "summary": "Record mp3 format audio on iOS platform",
+  "description": "Useing lame for record mp3 format audio on iOS platform.",
+  "homepage": "http://github.com/HarveyTsang",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "HarveyTsang": "13025483658@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/HarveyTsang/HTMp3Audio.git",
+    "tag": "0.0.3"
+  },
+  "source_files": "HTMp3Audio/HTMp3Audio.h",
+  "frameworks": [
+    "Foundation",
+    "AVFoundation"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Lame",
+      "preserve_paths": "HTMp3Audio/lame/lame.h",
+      "vendored_libraries": "HTMp3Audio/lame/libmp3lame.a",
+      "libraries": "mp3lame",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/HTMp3Audio/HTMp3Audio/lame/lame.h"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Record",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "ios": {
+        "dependencies": {
+          "HTMp3Audio/Lame": [
+
+          ]
+        }
+      },
+      "source_files": "HTMp3Audio/HTMp3AudioRecorder.{h,m}"
+    },
+    {
+      "name": "File",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "ios": {
+        "dependencies": {
+          "HTMp3Audio/Lame": [
+
+          ]
+        }
+      },
+      "source_files": "HTMp3Audio/HTMp3FileConverter.{h,m}"
+    }
+  ]
+}

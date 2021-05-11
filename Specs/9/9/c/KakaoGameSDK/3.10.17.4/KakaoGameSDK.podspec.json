@@ -1,0 +1,72 @@
+{
+  "name": "KakaoGameSDK",
+  "version": "3.10.17.4",
+  "summary": "Kakao Game SDK for iOS",
+  "homepage": "https://developers.kakao.com/",
+  "license": "Apache",
+  "authors": "Kakaogames Corp",
+  "source": {
+    "http": "https://kakao-sdk-dev.s3.amazonaws.com/KakaoGameSDK/iOS/KakaoGameSDK_iOS_3.10.17.4_Channeling.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "KakaoGame",
+      "vendored_frameworks": "KakaoGameFramework/KakaoGame.framework",
+      "resources": "KakaoGameFramework/KakaoGameResources.bundle"
+    },
+    {
+      "name": "KakaoGameFacebook",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 7.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 7.0"
+        ],
+        "FBSDKShareKit": [
+          "~> 7.0"
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameFacebook.framework"
+    },
+    {
+      "name": "KakaoGameGoogle",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 5.0"
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameGoogle.framework"
+    },
+    {
+      "name": "KakaoGameKakao",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "IDPFramework/Kakao/KakaoOpenSDK.framework",
+        "KakaoGameFramework/KakaoGameKakao.framework"
+      ]
+    }
+  ]
+}

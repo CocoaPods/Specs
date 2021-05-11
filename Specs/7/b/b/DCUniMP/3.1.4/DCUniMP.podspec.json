@@ -1,0 +1,79 @@
+{
+  "name": "DCUniMP",
+  "version": "3.1.4",
+  "summary": "A short description of DCUniMP.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/qingShi-dot/DCUniMP",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "shunqiziran199202": "2405632981@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/qingShi-dot/DCUniMP.git",
+    "tag": "3.1.4"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "JavaScriptCore",
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "QuickLook",
+    "CoreTelephony",
+    "AssetsLibrary",
+    "CoreLocation",
+    "AddressBook"
+  ],
+  "libraries": "c++",
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resources": [
+    "DCUniMP/Classes/Core/Resources/*.js",
+    "DCUniMP/Classes/Core/Resources/*.ttf",
+    "DCUniMP/Classes/Core/Resources/*.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "DCUniMP/Classes/Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "DCUniMP/Classes/Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "DCUniMP/Classes/Core/Libs/*.a",
+          "vendored_frameworks": "DCUniMP/Classes/Core/Libs/*.framework"
+        }
+      ]
+    },
+    {
+      "name": "MiniAppToolManage",
+      "source_files": "DCUniMP/Classes/MiniAppToolManage/*.h"
+    }
+  ]
+}

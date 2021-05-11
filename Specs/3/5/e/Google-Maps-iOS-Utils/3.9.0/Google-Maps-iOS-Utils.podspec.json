@@ -1,0 +1,94 @@
+{
+  "name": "Google-Maps-iOS-Utils",
+  "version": "3.9.0",
+  "summary": "A utilities library for use with Google Maps SDK for iOS.",
+  "description": "This library contains classes that are useful for a wide range of applications\nusing the Google Maps SDK for iOS.\nIt is designed to be used with Google Maps SDK for iOS, but it is not\ndependent on it.",
+  "homepage": "https://github.com/googlemaps/google-maps-ios-utils",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Google Inc.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/googlemaps/google-maps-ios-utils.git",
+    "tag": "v3.9.0"
+  },
+  "requires_arc": true,
+  "module_name": "GoogleMapsUtils",
+  "swift_versions": "5.0",
+  "dependencies": {
+    "GoogleMaps": [
+
+    ]
+  },
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": [
+        "GoogleMapsUtils/GoogleMapsUtils.h",
+        "test/common/Model/*.{h,m,swift}",
+        "test/unit/**/*.{h,m,swift}"
+      ],
+      "resources": [
+        "test/resources/**/*.{geojson,kml}"
+      ],
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/test/unit/BridgingHeader/UnitTest-Bridging-Header.h"
+      },
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "QuadTree",
+      "public_header_files": "src/QuadTree/**/*.h",
+      "source_files": "src/QuadTree/**/*.{h,m,swift}"
+    },
+    {
+      "name": "Clustering",
+      "public_header_files": "src/Clustering/**/*.h",
+      "source_files": "src/Clustering/**/*.{h,m,swift}",
+      "exclude_files": "src/Clustering/GMUMarkerClustering.h",
+      "dependencies": {
+        "Google-Maps-iOS-Utils/QuadTree": [
+
+        ]
+      }
+    },
+    {
+      "name": "Geometry",
+      "public_header_files": "src/Geometry/**/*.h",
+      "source_files": "src/Geometry/**/*.{h,m,swift}"
+    },
+    {
+      "name": "Heatmap",
+      "public_header_files": "src/Heatmap/**/*.h",
+      "source_files": "src/Heatmap/**/*.{h,m,swift}",
+      "dependencies": {
+        "Google-Maps-iOS-Utils/QuadTree": [
+
+        ]
+      }
+    },
+    {
+      "name": "GeometryUtils",
+      "source_files": "src/GeometryUtils/**/*.{h,m,swift}"
+    }
+  ],
+  "swift_version": "5.0"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Sodium-Fork",
+  "version": "0.8.1",
+  "license": {
+    "type": "ISC",
+    "file": "LICENSE"
+  },
+  "summary": "A temporary fork of Swift-Sodium to workaround a CocoaPods validation issue",
+  "description": "There is an issue with the Sodium.podspec when working with the Xcode 12 toolchain due the build setting changes in preparation for Apple Silicon.\nIf you use Sodium as a consumer, you can work around it in the the `Podfile`, but if Sodium is one of the dependencies of your pod, it will fail to pass the `pod spec lint` validation until the fix is pushed upstream.\n\nIn the meantime, you can use this fork in your `.podspec`:\n\n```diff\n- spec.dependency \"Sodium\"\n+ spec.dependency \"Sodium-Fork\", \"0.8.1\"\n```\n\n**Warning** The `0.8.1` setup only works with CocoaPods 1.9.3 and Xcode 12.0.\nBoth CocoaPods 1.10.0 and Xcode 12.2 have changes that result in failed validation.",
+  "homepage": "https://github.com/mokagio/swift-sodium",
+  "social_media_url": "https://twitter.com/mokagio",
+  "authors": {
+    "Frank Denis": ""
+  },
+  "source": {
+    "git": "https://github.com/mokagio/swift-sodium.git",
+    "tag": "0.8.1"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.11",
+    "watchos": "5.0"
+  },
+  "ios": {
+    "vendored_libraries": "Sodium/libsodium/libsodium-ios.a"
+  },
+  "osx": {
+    "vendored_libraries": "Sodium/libsodium/libsodium-osx.a"
+  },
+  "watchos": {
+    "vendored_libraries": "Sodium/libsodium/libsodium-watchos.a"
+  },
+  "source_files": "Sodium/**/*.{swift,h}",
+  "private_header_files": "Sodium/libsodium/*.h",
+  "preserve_paths": "Sodium/libsodium/module.modulemap",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Sodium/libsodium",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=watchsimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=watchsimulator*]": "arm64"
+  },
+  "requires_arc": true
+}

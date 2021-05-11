@@ -1,0 +1,97 @@
+{
+  "name": "OrderPlaceSdkPrd11.6",
+  "version": "0.4.2",
+  "summary": "Order Place Sdk swift5 Prd with Xcode11.6",
+  "description": "a pod that easily implements the order.place function",
+  "homepage": "https://github.com/AigensTechnology/OrderPlaceSdkPrd11.6",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "风筝": "13286953452@126.com"
+  },
+  "source": {
+    "git": "https://github.com/AigensTechnology/OrderPlaceSdkPrd11.6.git",
+    "tag": "0.4.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "frameworks": [
+    "AVFoundation",
+    "WebKit",
+    "UIKit",
+    "Foundation",
+    "PassKit",
+    "AddressBook"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "Classess/frameworks/orderPlaceSDK/OrderPlaceSDK.framework"
+      }
+    },
+    {
+      "name": "Alipay",
+      "resources": [
+        "Classess/Assets/AlipaySDK.bundle"
+      ],
+      "ios": {
+        "vendored_frameworks": [
+          "Classess/frameworks/orderPlaceAlipaySDK/AlipaySDK.framework",
+          "Classess/frameworks/orderPlaceAlipaySDK/OrderPlaceAlipaySDK.framework"
+        ]
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "QuartzCore",
+        "CoreText",
+        "CoreGraphics",
+        "CFNetwork",
+        "CoreMotion"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "dependencies": {
+        "OrderPlaceSdkPrd11.6/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Wechat",
+      "ios": {
+        "vendored_frameworks": "Classess/frameworks/orderPlaceWechatPaySDK/OrderPlaceWechatPaySDK.framework",
+        "vendored_libraries": "Classess/frameworks/orderPlaceWechatPaySDK/libWeChatSDK.a"
+      },
+      "frameworks": [
+        "SystemConfiguration",
+        "Security",
+        "CoreTelephony",
+        "CFNetwork"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3.0"
+      ],
+      "dependencies": {
+        "OrderPlaceSdkPrd11.6/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-all_load"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

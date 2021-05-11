@@ -1,0 +1,45 @@
+{
+  "name": "YWTencentSDK",
+  "version": "0.1.5",
+  "summary": "YWTencentSDK version, based on V3.5.1",
+  "description": "YWTencentSDK version, Based on TencentOpenAPI version V3.5.1",
+  "homepage": "http://wiki.open.qq.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TencentOpenAPI": "TencentOpenAPI"
+  },
+  "source": {
+    "git": "https://gitee.com/concentrated/swift-pods.git",
+    "tag": "0.1.5"
+  },
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Framework/"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": "Vendor/QQ/Framework/**/*.framework",
+  "frameworks": [
+    "CoreLocation",
+    "QuartzCore",
+    "OpenGLES",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "stdc++",
+    "z",
+    "iconv"
+  ],
+  "prepare_command": "rm -rf Vendor/QQ/Framework/TencentOpenAPI.framework/Modules\nmkdir Vendor/QQ/Framework/TencentOpenAPI.framework/Modules\ntouch Vendor/QQ/Framework/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > Vendor/QQ/Framework/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n  header \"QQApiInterface.h\"\n  header \"QQApiInterfaceObject.h\"\n  header \"TencentOAuth.h\"\n  header \"TencentOpenApiUmbrellaHeader.h\"\n  header \"sdkdef.h\"\n\n  export *\n  #module * { export * }\n}\nEOF"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "SAKSDK",
+  "version": "1.0.8",
+  "summary": "Ad Kit by Snap Inc.",
+  "description": "Ad Kit by Snap Inc. allows developers a new way to monetize their apps by showing Snap Ads",
+  "homepage": "https://kit.snapchat.com",
+  "license": {
+    "type": "Copyright",
+    "text": "                    Any access or use of the included software, associated documentation, software\n                    code, or other materials made available by Snap Inc. (and its affiliates) is\n                    subject to your agreement and acceptance (by clicking the accept button) of the\n                    Snap Developer Terms of Service found at:\n\n                    https://www.snap.com/terms/developer/\n\n                    and the Snap Audience Network Terms found at:\n\n                    https://storage.googleapis.com/snap_ads_docs/snap_audience_network_terms.pdf\n\n                    If you do not wish to be a party to these terms or if you do not agree to all\n                    of these terms, then do not use or otherwise access any such software,\n                    documentation, software code, and other materials.\n"
+  },
+  "authors": {
+    "Snap Inc.": "ad-kit-support@snap.com"
+  },
+  "source": {
+    "git": "https://github.com/Snapchat/ad-kit-ios.git",
+    "tag": "1.0.8"
+  },
+  "public_header_files": "SAKSDK.framework/Headers/*.h",
+  "source_files": "SAKSDK.framework/Headers/*.h",
+  "vendored_frameworks": "SAKSDK.framework",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "ios": {
+    "script_phases": {
+      "name": "SAKSDK - Strip simulator architecture",
+      "script": "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nfind \"$APP_PATH\" -name 'SAKSDK.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n"
+    }
+  }
+}

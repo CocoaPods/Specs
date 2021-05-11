@@ -1,0 +1,196 @@
+{
+  "name": "MySwiftPods",
+  "version": "0.0.1.2",
+  "summary": "MySwiftPods.",
+  "description": "this is MySwiftPods",
+  "homepage": "https://gitee.com/concentrated/myswiftpods.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CasaTaloyum": "dddd@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://gitee.com/concentrated/myswiftpods.git",
+    "tag": "0.0.1.2"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Util",
+      "source_files": "YWPrivatePod/Utilities/**/*.{swift}",
+      "resources": "YWPrivatePod/Utilities/Resource/*.png",
+      "dependencies": {
+        "SnapKit": [
+
+        ],
+        "Hue": [
+
+        ],
+        "SwiftyRSA": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "KeychainAccess": [
+
+        ]
+      }
+    },
+    {
+      "name": "Router",
+      "source_files": "YWPrivatePod/Router/*.{swift}",
+      "dependencies": {
+        "MySwiftPods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "YWPrivatePod/Network/*.{swift}",
+      "dependencies": {
+        "Alamofire": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "SwiftyJSON": [
+
+        ],
+        "MySwiftPods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "BI",
+      "source_files": "YWPrivatePod/BI/*.{swift}",
+      "dependencies": {
+        "MySwiftPods/Network": [
+
+        ],
+        "MySwiftPods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": "YWPrivatePod/Base/**/*.{swift}",
+      "resources": "YWPrivatePod/Base/WebVC/WebKit.bundle",
+      "dependencies": {
+        "ObjectMapper": [
+
+        ],
+        "MySwiftPods/BI": [
+
+        ],
+        "SnapKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "AddressDB",
+      "source_files": "YWPrivatePod/AddressDB/*.{swift}",
+      "resources": "YWPrivatePod/AddressDB/ywaddress.db",
+      "dependencies": {
+        "ObjectMapper": [
+
+        ],
+        "WCDB.swift": [
+
+        ],
+        "MySwiftPods/Network": [
+
+        ],
+        "MySwiftPods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "YWPrivatePod/UIKit/**/*.{swift}",
+      "dependencies": {
+        "SnapKit": [
+
+        ],
+        "MySwiftPods/Util": [
+
+        ]
+      }
+    },
+    {
+      "name": "PackageManager",
+      "source_files": [
+        "YWPrivatePod/PackageManager/*.{swift,h,m}",
+        "YWPrivatePod/PackageManager/SSZipArchive/**/*.{c,h,m}"
+      ],
+      "public_header_files": [
+        "YWPrivatePod/PackageManager/SSZipArchive/*.h",
+        "YWPrivatePod/PackageManager/HJMD5Sha.h"
+      ],
+      "libraries": [
+        "z",
+        "iconv"
+      ],
+      "frameworks": "Security",
+      "pod_target_xcconfig": {
+        "DEFINES_MODULE": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "HAVE_INTTYPES_H HAVE_PKCRYPT HAVE_STDINT_H HAVE_WZAES HAVE_ZLIB"
+      },
+      "dependencies": {
+        "MySwiftPods/Network": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "YWPrivatePod/Location/*.{swift}",
+      "dependencies": {
+        "AMap3DMap": [
+
+        ],
+        "AMapSearch": [
+
+        ],
+        "AMapLocation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Update",
+      "source_files": "YWPrivatePod/Update/*.{swift}",
+      "dependencies": {
+        "Alamofire": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "MySwiftPods/Network": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

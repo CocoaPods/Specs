@@ -1,0 +1,109 @@
+{
+  "name": "VVSequelize",
+  "version": "0.4.3",
+  "summary": "ORM model based on SQLite3.",
+  "description": "ORM model based on SQLite3.",
+  "homepage": "https://github.com/pozi119/VVSequelize",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Valo Lee": "pozi119@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pozi119/VVSequelize.git",
+    "tag": "0.4.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "cipher",
+  "subspecs": [
+    {
+      "name": "system",
+      "dependencies": {
+        "VVSequelize/core": [
+
+        ],
+        "VVSequelize/fts": [
+
+        ],
+        "VVSequelize/util": [
+
+        ]
+      },
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "cipher",
+      "dependencies": {
+        "VVSequelize/core": [
+
+        ],
+        "VVSequelize/fts": [
+
+        ],
+        "VVSequelize/util": [
+
+        ],
+        "SQLCipher": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DSQLITE_HAS_CODEC",
+        "HEADER_SEARCH_PATHS": "{PODS_ROOT}/SQLCipher"
+      }
+    },
+    {
+      "name": "core",
+      "source_files": "VVSequelize/Core/**/*",
+      "public_header_files": "VVSequelize/Core/**/*.h",
+      "dependencies": {
+        "VVSequelize/header": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DVVSEQUELIZE_CORE"
+      }
+    },
+    {
+      "name": "fts",
+      "source_files": "VVSequelize/FTS/**/*",
+      "public_header_files": "VVSequelize/FTS/**/*.h",
+      "resources": [
+        "VVSequelize/Assets/VVPinYin.bundle"
+      ],
+      "dependencies": {
+        "VVSequelize/core": [
+
+        ],
+        "VVSequelize/header": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DVVSEQUELIZE_FTS"
+      }
+    },
+    {
+      "name": "util",
+      "source_files": "VVSequelize/Util/**/*",
+      "public_header_files": "VVSequelize/Util/**/*.h",
+      "dependencies": {
+        "VVSequelize/header": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DVVSEQUELIZE_UTIL"
+      }
+    },
+    {
+      "name": "header",
+      "source_files": "VVSequelize/VVSequelize.h"
+    }
+  ]
+}

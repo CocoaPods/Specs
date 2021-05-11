@@ -1,0 +1,246 @@
+{
+  "name": "BROKENPOD",
+  "version": "3",
+  "summary": "MNG Ads provides functionalities for monetizing your mobile application",
+  "description": "MNG Ads provides functionalities for monetizing your mobile application: from premium sales with reach media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. BlueStack SDK is a library that allow you to handle the following Ads servers with the easy way :\nSmart ad server\nFacebook Audience Network\nappsfire\nGoogle DFP\nMng-perf\nAppNexus\nAppLovin",
+  "homepage": "https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Home",
+  "license": "Commercial",
+  "authors": {
+    "MOBILENETWORKGROUP": "http://www.mobilenetworkgroup.com",
+    "Technical Assistance": "admin@mng-ads.com"
+  },
+  "source": {
+    "http": "https://install.anypli.com/mngads/BlueStackSDK-v3.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "QuartzCore",
+    "SystemConfiguration",
+    "MediaPlayer",
+    "CoreMotion",
+    "EventKitUI",
+    "EventKit",
+    "AdSupport",
+    "StoreKit",
+    "CoreLocation",
+    "Accelerate",
+    "CoreTelephony",
+    "MessageUI"
+  ],
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "BlueStackSDK.framework",
+      "preserve_paths": "BlueStackSDK.framework",
+      "source_files": "BlueStackSDK.framework/**/*.h",
+      "public_header_files": "BlueStackSDK.framework/**/*.h"
+    },
+    {
+      "name": "AppsFire",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "vendored_frameworks": "BlueStackFacebookAdapter.framework",
+      "preserve_paths": "BlueStackFacebookAdapter.framework",
+      "dependencies": {
+        "FBAudienceNetwork": [
+          "6.0.0"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppLovin",
+      "vendored_frameworks": "BlueStackApplovingAdapter.framework",
+      "preserve_paths": "BlueStackApplovingAdapter.framework",
+      "dependencies": {
+        "AppLovinSDK": [
+          "6.12.7"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Google-Mobile-Ads-SDK",
+      "vendored_frameworks": "BlueStackDFPAdapter.framework",
+      "preserve_paths": "BlueStackDFPAdapter.framework",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.66.0"
+        ]
+      }
+    },
+    {
+      "name": "Smart-Display-SDK",
+      "preserve_paths": "BlueStackSASAdapter.framework",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ],
+        "Smart-Display-SDK": [
+          "7.6.2"
+        ]
+      }
+    },
+    {
+      "name": "Flurry",
+      "vendored_frameworks": "BlueStackFlurryAdapter.framework",
+      "preserve_paths": "BlueStackFlurryAdapter.framework",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ],
+        "Flurry-iOS-SDK/FlurrySDK": [
+          "10.3.1"
+        ],
+        "Flurry-iOS-SDK/FlurryAds": [
+          "10.3.1"
+        ]
+      }
+    },
+    {
+      "name": "MoPub",
+      "preserve_paths": "BlueStackMoPubAdapter.framework",
+      "dependencies": {
+        "mopub-ios-sdk": [
+          "5.12.1"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdColony",
+      "vendored_frameworks": "BlueStackAdColonyAdapter.framework",
+      "preserve_paths": "BlueStackAdColonyAdapter.framework",
+      "dependencies": {
+        "AdColony": [
+          "4.4.1.1"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AmazonPublisherServicesSDK",
+      "vendored_frameworks": "BluestackBiddingHBAmazonAPS.framework",
+      "preserve_paths": "BluestackBiddingHBAmazonAPS.framework",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ],
+        "AmazonPublisherServicesSDK": [
+          "3.3.1"
+        ]
+      }
+    },
+    {
+      "name": "BluestackBiddingHBAmazonAPS",
+      "vendored_frameworks": "BluestackBiddingHBCriteo.framework",
+      "preserve_paths": "BluestackBiddingHBCriteo.framework",
+      "dependencies": {
+        "CriteoPublisherSdk": [
+          "3.7.0"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "OguryAds",
+      "vendored_frameworks": "BlueStackOguryAdapter.framework",
+      "preserve_paths": "BlueStackOguryAdapter.framework",
+      "dependencies": {
+        "OguryAds": [
+          "1.4.2"
+        ],
+        "OguryConsentManager": [
+          "1.2.7"
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "In-App-Bidding",
+      "dependencies": {
+        "BROKENPOD/BluestackBiddingHBAmazonAPS": [
+
+        ],
+        "BROKENPOD/Smart-Display-SDK": [
+
+        ],
+        "BROKENPOD/AmazonPublisherServicesSDK": [
+
+        ],
+        "BROKENPOD/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "BROKENPOD/Core": [
+
+        ],
+        "BROKENPOD/Facebook": [
+
+        ],
+        "BROKENPOD/Google-Mobile-Ads-SDK": [
+
+        ],
+        "BROKENPOD/Smart-Display-SDK": [
+
+        ],
+        "BROKENPOD/Flurry": [
+
+        ],
+        "BROKENPOD/MoPub": [
+
+        ],
+        "BROKENPOD/AdColony": [
+
+        ],
+        "BROKENPOD/AppLovin": [
+
+        ],
+        "BROKENPOD/OguryAds": [
+
+        ],
+        "BROKENPOD/In-App-Bidding": [
+
+        ]
+      }
+    }
+  ]
+}

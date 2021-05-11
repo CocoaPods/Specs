@@ -1,0 +1,181 @@
+{
+  "name": "JCToolKit",
+  "version": "1.1.2",
+  "summary": "JCToolKit快速开发框架",
+  "description": "JCToolKit快速开发框架是用于快速高效开发的工具库",
+  "homepage": "https://github.com/SerilesJam/JCToolKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "JiaMiao": "hxjiamiao@126.com"
+  },
+  "source": {
+    "git": "https://github.com/SerilesJam/JCToolKit.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "JCToolKit/Classes/JCToolKit.h",
+  "public_header_files": "JCToolKit/Classes/JCToolKit.h",
+  "resource_bundles": {
+    "JCToolKit": [
+      "JCToolKit/Assets/*.{xib,xcassets,imageset,png,json,storyboard}"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "ImageIO",
+    "CoreImage"
+  ],
+  "subspecs": [
+    {
+      "name": "JCDefine",
+      "source_files": "JCToolKit/Classes/JCDefine/*",
+      "public_header_files": "JCToolKit/Classes/JCDefine/*.h"
+    },
+    {
+      "name": "JCCore",
+      "source_files": "JCToolKit/Classes/JCCore/JCToolKit_Core.h",
+      "public_header_files": "JCToolKit/Classes/JCCore/JCToolKit_Core.h",
+      "prefix_header_contents": "#import <SAMKeychain/SAMKeychain.h>",
+      "frameworks": "Security",
+      "dependencies": {
+        "JCToolKit/JCDefine": [
+
+        ],
+        "SAMKeychain": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "JCToolKit/Classes/JCCore/Category/*",
+          "public_header_files": "JCToolKit/Classes/JCCore/Category/*.h"
+        },
+        {
+          "name": "ExtendClasses",
+          "source_files": "JCToolKit/Classes/JCCore/ExtendClasses/*",
+          "public_header_files": "JCToolKit/Classes/JCCore/ExtendClasses/*.h"
+        }
+      ]
+    },
+    {
+      "name": "JCUI",
+      "source_files": "JCToolKit/Classes/JCUI/JCToolKit_UI.h",
+      "public_header_files": "JCToolKit/Classes/JCUI/JCToolKit_UI.h",
+      "prefix_header_contents": "#import <Masonry/Masonry.h>",
+      "dependencies": {
+        "JCToolKit/JCCore": [
+
+        ],
+        "Masonry": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "JCToolKit/Classes/JCUI/Category/*",
+          "public_header_files": "JCToolKit/Classes/JCUI/Category/*.h"
+        },
+        {
+          "name": "JCTagCollectionView",
+          "source_files": "JCToolKit/Classes/JCUI/JCTagCollectionView/*",
+          "public_header_files": "JCToolKit/Classes/JCUI/JCTagCollectionView/JCTagCollectionView.h"
+        },
+        {
+          "name": "JCNavigationController",
+          "source_files": "JCToolKit/Classes/JCUI/JCNavigationController/*",
+          "public_header_files": "JCToolKit/Classes/JCUI/JCNavigationController/JCNavigationController.h"
+        }
+      ]
+    },
+    {
+      "name": "JCNetwork",
+      "source_files": "JCToolKit/Classes/JCNetwork/JCToolKit_Network.h",
+      "public_header_files": "JCToolKit/Classes/JCNetwork/JCToolKit_Network.h",
+      "prefix_header_contents": "#import <AFNetworking/AFNetworking.h>\n#import <AFNetworking/UIKit+AFNetworking.h>\n#import <YYModel/YYModel.h>\n#import <YYCache/YYCache.h>",
+      "frameworks": [
+        "Security",
+        "CoreServices",
+        "CoreGraphics",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "JCToolKit/JCCore": [
+
+        ],
+        "AFNetworking": [
+
+        ],
+        "YYModel": [
+
+        ],
+        "YYCache": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Define",
+          "source_files": "JCToolKit/Classes/JCNetwork/Define/*",
+          "public_header_files": "JCToolKit/Classes/JCNetwork/Define/*.h"
+        },
+        {
+          "name": "Products",
+          "source_files": "JCToolKit/Classes/JCNetwork/Products/*",
+          "public_header_files": "JCToolKit/Classes/JCNetwork/Products/JC{Request,Responed}Obj.h",
+          "dependencies": {
+            "JCToolKit/JCNetwork/Define": [
+
+            ]
+          }
+        },
+        {
+          "name": "Handle",
+          "source_files": "JCToolKit/Classes/JCNetwork/Handle/*",
+          "private_header_files": "JCToolKit/Classes/JCNetwork/Handle/*.h",
+          "dependencies": {
+            "JCToolKit/JCNetwork/Products": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "JCToolKit/Classes/JCNetwork/Service/*",
+          "public_header_files": "JCToolKit/Classes/JCNetwork/Service/JCRequestProxy.h",
+          "dependencies": {
+            "JCToolKit/JCNetwork/Handle": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "JCRouter",
+      "source_files": "JCToolKit/Classes/JCRouter/*",
+      "public_header_files": "JCToolKit/Classes/JCRouter/JCRouter.h",
+      "dependencies": {
+        "JCToolKit/JCDefine": [
+
+        ]
+      }
+    },
+    {
+      "name": "JCMediatorProtocol",
+      "source_files": "JCToolKit/Classes/JCMediatorProtocol/*",
+      "public_header_files": "JCToolKit/Classes/JCMediatorProtocol/JCMediatorProtocol.h",
+      "dependencies": {
+        "JCToolKit/JCDefine": [
+
+        ]
+      }
+    }
+  ]
+}

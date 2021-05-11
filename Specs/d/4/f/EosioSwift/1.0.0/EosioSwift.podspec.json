@@ -1,0 +1,130 @@
+{
+  "name": "EosioSwift",
+  "version": "1.0.0",
+  "summary": "EOSIO SDK for Swift - API for integrating with EOSIO-based blockchains.",
+  "homepage": "https://github.com/EOSIO/eosio-swift",
+  "license": {
+    "type": "MIT",
+    "text": "                           Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.\n"
+  },
+  "authors": {
+    "Todd Bowden": "todd.bowden@block.one",
+    "Serguei Vinnitskii": "serguei.vinnitskii@block.one",
+    "Farid Rahmani": "farid.rahmani@block.one",
+    "Brandon Fancher": "brandon.fancher@block.one",
+    "Mark Johnson": "mark.johnson@block.one",
+    "Paul Kim": "paul.kim@block.one",
+    "Steve McCoole": "steve.mccoole@objectpartners.com",
+    "Ben Martell": "ben.martell@objectpartners.com"
+  },
+  "source": {
+    "git": "https://github.com/EOSIO/eosio-swift.git",
+    "tag": "1.0.0"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/EosioSwift/**/*.swift",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      },
+      "ios": {
+        "dependencies": {
+          "BigInt": [
+            "~> 5.0"
+          ],
+          "PromiseKit": [
+            "~> 6.8"
+          ]
+        }
+      }
+    },
+    {
+      "name": "AbieosSerializationProvider",
+      "public_header_files": "Sources/Abieos/include/abieos.h",
+      "source_files": [
+        "Sources/Abieos/**/*.{c,h,m,cpp,hpp}",
+        "Sources/EosioSwiftAbieosSerializationProvider/**/*.swift"
+      ],
+      "preserve_paths": [
+        "Sources/EosioSwiftAbieosSerializationProvider/eosio.assert.abi.json",
+        "Sources/EosioSwiftAbieosSerializationProvider/transaction.abi.json"
+      ],
+      "ios": {
+        "resource_bundles": {
+          "EosioSwift": "Sources/EosioSwiftAbieosSerializationProvider/*.abi.json"
+        },
+        "dependencies": {
+          "EosioSwift/Core": [
+
+          ]
+        }
+      },
+      "resources": [
+        "Sources/EosioSwiftAbieosSerializationProvider/transaction.abi.json",
+        "Sources/EosioSwiftAbieosSerializationProvider/eosio.assert.abi.json"
+      ],
+      "libraries": "c++",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17",
+        "CLANG_CXX_LIBRARY": "libc++",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      }
+    },
+    {
+      "name": "Ecc",
+      "source_files": [
+        "Sources/libtom/**/*.{c,h}",
+        "Sources/EosioSwiftEcc/**/*.swift"
+      ],
+      "public_header_files": "Sources/libtom/libtomcrypt/headers/*.h",
+      "pod_target_xcconfig": {
+        "GCC_C_LANGUAGE_STANDARD": "c99",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DMP_NO_DEV_URANDOM -DLTM_DESC -DLTC_SOURCE -DLTC_NO_TEST",
+        "OTHER_CFLAGS": "$(inherited) -DMP_NO_DEV_URANDOM -DLTM_DESC -DLTC_SOURCE -DLTC_NO_TEST",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      },
+      "ios": {
+        "dependencies": {
+          "EosioSwift/Core": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "SoftkeySignatureProvider",
+      "source_files": "Sources/EosioSwiftSoftkeySignatureProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "CLANG_ENABLE_MODULES": "YES",
+        "SWIFT_COMPILATION_MODE": "wholemodule",
+        "ENABLE_BITCODE": "YES"
+      },
+      "ios": {
+        "dependencies": {
+          "EosioSwift/Ecc": [
+
+          ],
+          "EosioSwift/Core": [
+
+          ]
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

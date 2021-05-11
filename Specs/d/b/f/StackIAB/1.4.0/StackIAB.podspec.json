@@ -1,0 +1,127 @@
+{
+  "name": "StackIAB",
+  "version": "1.4.0",
+  "summary": "IAB Display Managers modules for Stack products",
+  "description": "Includes display managers for MRAID 2.0 (pending), VAST 3.0 and NAST 1.0",
+  "homepage": "http://www.appodeal.com",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackIAB/v1.4.0/StackIAB.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "dependencies": {
+    "StackModules": [
+      "~> 1.1.0"
+    ]
+  },
+  "source_files": "Dummy.swift",
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "StackXML",
+      "vendored_frameworks": "StackXML.framework",
+      "libraries": "xml2"
+    },
+    {
+      "name": "StackIABAssets",
+      "vendored_frameworks": "StackIABAssets.framework"
+    },
+    {
+      "name": "StackOpenMeasure",
+      "vendored_frameworks": "StackOpenMeasure.framework"
+    },
+    {
+      "name": "StackMRAIDKit",
+      "vendored_frameworks": "StackMRAIDKit.framework",
+      "frameworks": "WebKit",
+      "dependencies": {
+        "StackIAB/StackIABAssets": [
+
+        ],
+        "StackIAB/StackOpenMeasure": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVideoPlayer",
+      "vendored_frameworks": "StackVideoPlayer.framework",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "StackRichMedia",
+      "vendored_frameworks": "StackRichMedia.framework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ],
+        "StackIAB/StackIABAssets": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTAssets",
+      "vendored_frameworks": "StackVASTAssets.framework",
+      "dependencies": {
+        "StackIAB/StackXML": [
+
+        ],
+        "StackIAB/StackIABAssets": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTKit",
+      "vendored_frameworks": "StackVASTKit.framework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ],
+        "StackIAB/StackMRAIDKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackNASTKit",
+      "vendored_frameworks": "StackNASTKit.framework",
+      "dependencies": {
+        "StackIAB/StackVASTKit": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

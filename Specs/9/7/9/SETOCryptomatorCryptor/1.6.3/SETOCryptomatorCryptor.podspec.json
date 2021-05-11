@@ -1,0 +1,57 @@
+{
+  "name": "SETOCryptomatorCryptor",
+  "version": "1.6.3",
+  "license": "AGPLv3",
+  "summary": "SETOCryptomatorCryptor is an iOS crypto library to access Cryptomator vaults.",
+  "homepage": "https://github.com/cryptomator/cryptomator-objc-cryptor",
+  "authors": {
+    "Tobias Hagemann": "tobias.hagemann@skymatic.de",
+    "Sebastian Stenzel": "sebastian.stenzel@skymatic.de"
+  },
+  "source": {
+    "git": "https://github.com/cryptomator/cryptomator-objc-cryptor.git",
+    "tag": "1.6.3"
+  },
+  "requires_arc": true,
+  "public_header_files": [
+    "SETOCryptomatorCryptor/Core/*.h",
+    "SETOCryptomatorCryptor/Util/NSData+SETOBase64urlEncoding.h"
+  ],
+  "source_files": "SETOCryptomatorCryptor/**/*.{h,m,c}",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": "Security",
+  "dependencies": {
+    "Base32": [
+      "~> 1.1.0"
+    ],
+    "KZPropertyMapper": [
+      "~> 2.9.0"
+    ],
+    "OpenSSL-Universal": [
+      "~> 1.0.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "e_aeswrap",
+      "source_files": "e_aeswrap/*.{h,c}",
+      "dependencies": {
+        "OpenSSL-Universal": [
+          "~> 1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "scrypt",
+      "source_files": "scrypt/*.{h,c}"
+    }
+  ]
+}

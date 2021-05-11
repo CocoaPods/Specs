@@ -1,0 +1,211 @@
+{
+  "name": "smaato-ios-sdk",
+  "version": "21.6.13",
+  "summary": "Smaato iOS SDK",
+  "homepage": "https://www.smaato.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Smaato": "ankur.shivani@smaato.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://s3.amazonaws.com/smaato-sdk-releases/ios/smaato-ios-sdk-21.6.13.zip"
+  },
+  "static_framework": true,
+  "default_subspecs": "Full",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "smaato-ios-sdk/Banner": [
+
+        ],
+        "smaato-ios-sdk/Interstitial": [
+
+        ],
+        "smaato-ios-sdk/RewardedAds": [
+
+        ],
+        "smaato-ios-sdk/Native": [
+
+        ]
+      }
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Core": [
+
+        ],
+        "smaato-ios-sdk/Modules/Banner": [
+
+        ],
+        "smaato-ios-sdk/Modules/RichMedia": [
+
+        ]
+      }
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Interstitial": [
+
+        ],
+        "smaato-ios-sdk/Modules/RichMedia": [
+
+        ],
+        "smaato-ios-sdk/Modules/Video": [
+
+        ]
+      }
+    },
+    {
+      "name": "RewardedAds",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/RewardedAds": [
+
+        ],
+        "smaato-ios-sdk/Modules/Video": [
+
+        ]
+      }
+    },
+    {
+      "name": "Native",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Core": [
+
+        ],
+        "smaato-ios-sdk/Modules/Native": [
+
+        ]
+      }
+    },
+    {
+      "name": "InApp",
+      "dependencies": {
+        "smaato-ios-sdk/Modules/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "SmaatoSDKInAppBidding.framework"
+    },
+    {
+      "name": "Modules",
+      "subspecs": [
+        {
+          "name": "Core",
+          "xcconfig": {
+            "OTHER_LDFLAGS": "-ObjC"
+          },
+          "vendored_frameworks": "SmaatoSDKCore.framework",
+          "frameworks": [
+            "StoreKit",
+            "AdSupport",
+            "SystemConfiguration",
+            "CoreTelephony",
+            "WebKit"
+          ],
+          "weak_frameworks": "SafariServices"
+        },
+        {
+          "name": "Banner",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKBanner.framework"
+        },
+        {
+          "name": "Native",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKNative.framework"
+        },
+        {
+          "name": "Interstitial",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKInterstitial.framework"
+        },
+        {
+          "name": "UnifiedBidding",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKUnifiedBidding.framework"
+        },
+        {
+          "name": "RewardedAds",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKRewardedAds.framework"
+        },
+        {
+          "name": "RichMedia",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ],
+            "smaato-ios-sdk/Modules/OpenMeasurement": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKRichMedia.framework"
+        },
+        {
+          "name": "Video",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ],
+            "smaato-ios-sdk/Modules/OpenMeasurement": [
+
+            ]
+          },
+          "vendored_frameworks": "SmaatoSDKVideo.framework",
+          "frameworks": [
+            "AVFoundation",
+            "CoreMedia"
+          ]
+        },
+        {
+          "name": "OpenMeasurement",
+          "dependencies": {
+            "smaato-ios-sdk/Modules/Core": [
+
+            ]
+          },
+          "vendored_frameworks": [
+            "SmaatoSDKOpenMeasurement.framework",
+            "vendor/OMSDK_Smaato.framework"
+          ]
+        }
+      ]
+    }
+  ]
+}

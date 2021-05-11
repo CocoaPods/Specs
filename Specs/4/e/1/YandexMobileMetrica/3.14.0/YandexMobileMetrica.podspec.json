@@ -1,0 +1,211 @@
+{
+  "name": "YandexMobileMetrica",
+  "version": "3.14.0",
+  "summary": "This library is designed to be a part of mobile apps and provide app usage stats to Yandex AppMetrica",
+  "homepage": "https://appmetrica.yandex.com/",
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Yandex LLC": "appmetrica@yandex-team.com"
+  },
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-appmetrica-mobile-sdk/128534/YandexMobileMetrica-3.14.0-ios-972f25fa-9657-485c-a1a0-c14d2e8f5770.zip",
+    "sha1": "de4f129024c90b2e24f846b0eb53b7e0dae065c0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreLocation",
+    "CoreGraphics",
+    "AdSupport",
+    "SystemConfiguration"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Static",
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))",
+    "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))",
+    "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200": "arm64 arm64e armv7 armv7s armv6 armv8"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))",
+    "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))",
+    "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200": "arm64 arm64e armv7 armv7s armv6 armv8"
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "frameworks": [
+        "CoreTelephony"
+      ],
+      "platforms": {
+        "ios": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "preserve_paths": [
+            "ios/static/YandexMobileMetrica.framework"
+          ],
+          "vendored_frameworks": "ios/static/YandexMobileMetrica.framework",
+          "source_files": "ios/static/YandexMobileMetrica.framework/Versions/A/Headers/*.h",
+          "public_header_files": "ios/static/YandexMobileMetrica.framework/Versions/A/Headers/*.h",
+          "platforms": {
+            "ios": "9.0"
+          }
+        },
+        {
+          "name": "Crashes",
+          "preserve_paths": [
+            "ios/static/YandexMobileMetricaCrashes.framework",
+            "helper"
+          ],
+          "vendored_frameworks": "ios/static/YandexMobileMetricaCrashes.framework",
+          "source_files": "ios/static/YandexMobileMetricaCrashes.framework/Versions/A/Headers/*.h",
+          "public_header_files": "ios/static/YandexMobileMetricaCrashes.framework/Versions/A/Headers/*.h",
+          "platforms": {
+            "ios": "9.0"
+          },
+          "dependencies": {
+            "YandexMobileMetrica/Static/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dynamic",
+      "frameworks": [
+        "CoreTelephony"
+      ],
+      "platforms": {
+        "ios": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "preserve_paths": [
+            "ios/dynamic/YandexMobileMetrica.framework"
+          ],
+          "vendored_frameworks": "ios/dynamic/YandexMobileMetrica.framework",
+          "source_files": "ios/dynamic/YandexMobileMetrica.framework/Headers/*.h",
+          "public_header_files": "ios/dynamic/YandexMobileMetrica.framework/Headers/*.h",
+          "platforms": {
+            "ios": "9.0"
+          }
+        },
+        {
+          "name": "Crashes",
+          "preserve_paths": [
+            "ios/dynamic/YandexMobileMetricaCrashes.framework",
+            "helper"
+          ],
+          "vendored_frameworks": "ios/dynamic/YandexMobileMetricaCrashes.framework",
+          "source_files": "ios/dynamic/YandexMobileMetricaCrashes.framework/Headers/*.h",
+          "public_header_files": "ios/dynamic/YandexMobileMetricaCrashes.framework/Headers/*.h",
+          "platforms": {
+            "ios": "9.0"
+          },
+          "dependencies": {
+            "YandexMobileMetrica/Dynamic/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Static-TV",
+      "frameworks": [
+
+      ],
+      "platforms": {
+        "tvos": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "preserve_paths": [
+            "tvos/static/YandexMobileMetrica.framework"
+          ],
+          "vendored_frameworks": "tvos/static/YandexMobileMetrica.framework",
+          "source_files": "tvos/static/YandexMobileMetrica.framework/Versions/A/Headers/*.h",
+          "public_header_files": "tvos/static/YandexMobileMetrica.framework/Versions/A/Headers/*.h",
+          "platforms": {
+            "tvos": "9.0"
+          }
+        },
+        {
+          "name": "Crashes",
+          "preserve_paths": [
+            "tvos/static/YandexMobileMetricaCrashes.framework",
+            "helper"
+          ],
+          "vendored_frameworks": "tvos/static/YandexMobileMetricaCrashes.framework",
+          "source_files": "tvos/static/YandexMobileMetricaCrashes.framework/Versions/A/Headers/*.h",
+          "public_header_files": "tvos/static/YandexMobileMetricaCrashes.framework/Versions/A/Headers/*.h",
+          "platforms": {
+            "tvos": "9.0"
+          },
+          "dependencies": {
+            "YandexMobileMetrica/Static-TV/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dynamic-TV",
+      "frameworks": [
+
+      ],
+      "platforms": {
+        "tvos": "9.0"
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "preserve_paths": [
+            "tvos/dynamic/YandexMobileMetrica.framework"
+          ],
+          "vendored_frameworks": "tvos/dynamic/YandexMobileMetrica.framework",
+          "source_files": "tvos/dynamic/YandexMobileMetrica.framework/Headers/*.h",
+          "public_header_files": "tvos/dynamic/YandexMobileMetrica.framework/Headers/*.h",
+          "platforms": {
+            "tvos": "9.0"
+          }
+        },
+        {
+          "name": "Crashes",
+          "preserve_paths": [
+            "tvos/dynamic/YandexMobileMetricaCrashes.framework",
+            "helper"
+          ],
+          "vendored_frameworks": "tvos/dynamic/YandexMobileMetricaCrashes.framework",
+          "source_files": "tvos/dynamic/YandexMobileMetricaCrashes.framework/Headers/*.h",
+          "public_header_files": "tvos/dynamic/YandexMobileMetricaCrashes.framework/Headers/*.h",
+          "platforms": {
+            "tvos": "9.0"
+          },
+          "dependencies": {
+            "YandexMobileMetrica/Dynamic-TV/Core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "KJPlayer",
+  "version": "2.1.2",
+  "summary": "KJPlayer play and cache, AVPlayer / MIDIPlayer / IJKPlayer",
+  "homepage": "https://github.com/yangKJ/KJPlayerDemo",
+  "description": "https://github.com/yangKJ/KJPlayerDemo/blob/master/README.md",
+  "license": "Copyright (c) 2019 yangkejun",
+  "authors": {
+    "77": "ykj310@126.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/KJPlayerDemo.git",
+    "tag": "2.1.2"
+  },
+  "social_media_url": "https://www.jianshu.com/u/c84c00476ab6",
+  "requires_arc": true,
+  "default_subspecs": "Common",
+  "ios": {
+    "source_files": "KJPlayerDemo/KJPlayerHeader.h"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": [
+        "KJPlayerDemo/Core/*",
+        "KJPlayerDemo/View/*"
+      ],
+      "resources": "KJPlayerDemo/Core/*.{xcdatamodeld}",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "AVFoundation",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "AVPlayer",
+      "source_files": "KJPlayerDemo/KJAVPlayer/*",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "MIDI",
+      "source_files": "KJPlayerDemo/KJMidiPlayer/*",
+      "resources": "KJPlayerDemo/KJMidiPlayer/*.{bundle}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "IJKPlayer",
+      "source_files": "KJPlayerDemo/KJIJKPlayer/*",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "KJPlayerView",
+      "source_files": "KJPlayerDemo/KJPlayerView/*",
+      "resources": "KJPlayerDemo/KJPlayerView/*.{bundle}",
+      "frameworks": [
+        "QuartzCore",
+        "Accelerate",
+        "CoreGraphics"
+      ],
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    }
+  ]
+}

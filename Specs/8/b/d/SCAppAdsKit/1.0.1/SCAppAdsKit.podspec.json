@@ -1,0 +1,36 @@
+{
+  "name": "SCAppAdsKit",
+  "version": "1.0.1",
+  "summary": "App Ads Kit by Snap Inc.",
+  "description": "App Ads Kit by Snap Inc.",
+  "homepage": "https://kit.snapchat.com",
+  "license": {
+    "type": "Copyright",
+    "text": "                    Any access or use of the included software, associated documentation, software code, or other materials made available by Snap Inc. (and its affiliates) is subject to the Snap Developer Terms found at: \n\n                    https://www.snap.com/terms/developer/\n                    \n                    and the Snap Business Tools Terms found at:\n                    \n                    https://www.snap.com/terms/snap-business-tools\n                    \n                    Do not use or otherwise access any such software, documentation, software code, or other materials, and uninstall and delete any copies, unless you agree to those terms.\n"
+  },
+  "authors": {
+    "Snap Inc.": "ad-kit-support@snap.com"
+  },
+  "source": {
+    "git": "https://github.com/Snapchat/app-ads-kit-ios.git",
+    "tag": "1.0.1"
+  },
+  "public_header_files": "SCAppAdsKit.framework/Headers/*.h",
+  "source_files": "SCAppAdsKit.framework/Headers/*.h",
+  "vendored_frameworks": "SCAppAdsKit.framework",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "ios": {
+    "script_phases": {
+      "name": "SCAppAdsKit",
+      "script": "\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nfind \"$APP_PATH\" -name 'SCAppAdsKit.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n"
+    }
+  }
+}

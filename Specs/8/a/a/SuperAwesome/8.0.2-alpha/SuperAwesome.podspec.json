@@ -1,0 +1,109 @@
+{
+  "name": "SuperAwesome",
+  "version": "8.0.2-alpha",
+  "summary": "SuperAwesome Mobile SDK for iOS",
+  "description": "The SuperAwesome Mobile SDK lets you to easily add COPPA compliant advertisements and other platform features, like user authentication and registration, to your apps. We try to make integration as easy as possible, so we provide all the necessary tools such as this guide, API documentation, screencasts and demo apps.",
+  "homepage": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "documentation_url": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "license": {
+    "type": "GNU GENERAL PUBLIC LICENSE Version 3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gabriel Coman": "gabriel.coman@superawesome.tv"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/SuperAwesomeLTD/sa-mobile-sdk-ios.git",
+    "branch": "master",
+    "tag": "8.0.2-alpha"
+  },
+  "static_framework": false,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "SuperAwesome/Base": [
+
+        ],
+        "SuperAwesome/Moat": [
+
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": "Pod/Classes/**/*"
+    },
+    {
+      "name": "MoPub",
+      "dependencies": {
+        "SuperAwesome/Full": [
+
+        ],
+        "mopub-ios-sdk": [
+          "~> 5.14"
+        ]
+      },
+      "source_files": "Pod/Plugin/MoPub/*",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MOPUB_PLUGIN",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MOPUB_PLUGIN=1"
+      }
+    },
+    {
+      "name": "Moat",
+      "dependencies": {
+        "SuperAwesome/Base": [
+
+        ]
+      },
+      "vendored_frameworks": "Pod/Libraries/SUPMoatMobileAppKit.framework",
+      "source_files": "Pod/Plugin/Moat2/*"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "SuperAwesome/Full": [
+
+        ],
+        "SwiftyXMLParser": [
+          "~> 5.0"
+        ]
+      },
+      "source_files": "Pod/Plugin/Core/Classes/**/*"
+    },
+    {
+      "name": "Moya",
+      "dependencies": {
+        "SuperAwesome/Core": [
+
+        ],
+        "Moya": [
+          "~> 14.0"
+        ]
+      },
+      "source_files": "Pod/Plugin/Moya/Classes/**/*",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MOYA_PLUGIN"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

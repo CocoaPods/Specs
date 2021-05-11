@@ -1,0 +1,55 @@
+{
+  "name": "WebEngageAppEx",
+  "version": "0.11.0",
+  "summary": "App Extension Target SDK for WebEngage for Rich Push Notifications support.",
+  "description": "This pod includes various subspecs which are intended for use in Application Extensions, and depends on APIs which are App Extension Safe. The Core subspecs provides APIs which lets you track Users and Events from within Application Extensions.",
+  "license": "MIT",
+  "authors": [
+    "Saumitra Bhave",
+    "Uzma Sayyed",
+    "Unmesh Rathod"
+  ],
+  "homepage": "https://webengage.com",
+  "social_media_url": "http://twitter.com/webengage",
+  "documentation_url": "https://docs.webengage.com/docs/ios-getting-started",
+  "source": {
+    "git": "https://github.com/WebEngage/WebEngageAppEx.git",
+    "tag": "0.11.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "subspecs": [
+    {
+      "name": "CoreApi",
+      "source_files": "WebEngageAppEx/Classes/CoreApi/**/*.{h,m}",
+      "public_header_files": [
+        "WebEngageAppEx/Classes/CoreApi/WEXAnalytics.h",
+        "WebEngageAppEx/Classes/CoreApi/WEXUser.h"
+      ],
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "NotificationService",
+      "source_files": "WebEngageAppEx/Classes/NotificationService/WEXPushNotificationService.{h,m}",
+      "public_header_files": "WebEngageAppEx/Classes/NotificationService/WEXPushNotificationService.h",
+      "frameworks": "Foundation",
+      "weak_frameworks": "UserNotifications"
+    },
+    {
+      "name": "ContentExtension",
+      "source_files": "WebEngageAppEx/Classes/ContentExtension/**/*.{h,m}",
+      "public_header_files": "WebEngageAppEx/Classes/ContentExtension/WEXRichPushNotificationViewController.h",
+      "frameworks": "Foundation",
+      "weak_frameworks": [
+        "UserNotifications",
+        "UserNotificationsUI"
+      ],
+      "dependencies": {
+        "WebEngageAppEx/CoreApi": [
+
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "GuardianDynamic",
+  "version": "0.0.2",
+  "summary": "GuardianDynamic for components",
+  "description": "GuardianDynamic for components",
+  "homepage": "https://github.com/bbrichard/GuardianDynamic",
+  "license": "MIT. Copyright (c) 2019年 BB. All rights reserved.",
+  "authors": {
+    "Richard": "Richard@seektopser.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://github.com/bbrichard/GuardianDynamic/releases/download/0.0.1/Guardian.framework.zip"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "AdSupport",
+    "AvFoundation",
+    "CoreTelephony",
+    "SystemConfiguration"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "zip",
+  "static_framework": true,
+  "prepare_command": "pwd\nls -l\nmkdir Guardian.framework/Modules\ntouch  Guardian.framework/Modules/module.modulemap\ncat <<-EOF > Guardian.framework/Modules/module.modulemap\nframework module Guardian {\n    header \"NTESCSGuardian.h\"\n}\nEOF",
+  "subspecs": [
+    {
+      "name": "zip",
+      "ios": {
+        "vendored_frameworks": "*.framework"
+      }
+    }
+  ]
+}
