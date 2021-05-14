@@ -1,0 +1,122 @@
+{
+  "name": "UponSDKiOS",
+  "version": "1.0.0",
+  "summary": "云告U聚合SDK",
+  "description": "云告U聚合SDK，优化广告收益的得力助手。",
+  "homepage": "https://github.com/LongYunGit/Upon",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangbao": "zhangbao@ly.group"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/LongYunGit/Upon.git",
+    "tag": "1.0.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "AdSupport",
+    "WebKit",
+    "CoreTelephony",
+    "CoreMotion"
+  ],
+  "libraries": "sqlite3",
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "default_subspecs": "UponSDK",
+  "subspecs": [
+    {
+      "name": "UponSDK",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/{UponSDK,UponYunGaoAdapter}.framework",
+      "dependencies": {
+        "YGNet": [
+          "0.0.3"
+        ],
+        "YGAdSDK": [
+          "0.0.6"
+        ]
+      }
+    },
+    {
+      "name": "UponBaiduAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/UponBaiduAdapter.framework",
+      "dependencies": {
+        "BaiduMobAdSDK": [
+          "4.771"
+        ],
+        "UponSDKiOS/UponSDK": [
+          "1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "UponGDTAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "user_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "vendored_frameworks": "Frameworks/UponGDTAdapter.framework",
+      "dependencies": {
+        "GDTMobSDK": [
+          "4.12.61"
+        ],
+        "UponSDKiOS/UponSDK": [
+          "1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "UponKuaiShouAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/UponKuaiShouAdapter.framework",
+      "dependencies": {
+        "KSAdSDK": [
+          "3.3.9.1"
+        ],
+        "UponSDKiOS/UponSDK": [
+          "1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "UponTouTiaoAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/UponTouTiaoAdapter.framework",
+      "dependencies": {
+        "Ads-CN": [
+          "3.6.1.1"
+        ],
+        "UponSDKiOS/UponSDK": [
+          "1.0.0"
+        ]
+      }
+    }
+  ]
+}
