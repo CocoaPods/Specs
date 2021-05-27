@@ -1,0 +1,71 @@
+{
+  "name": "DataDomeAFNetworking",
+  "version": "4.0.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A DataDome plugin for Alamofire integration",
+  "authors": {
+    "Mohamed Hajlaoui": "mohamed.hajlaoui@datadome.co"
+  },
+  "homepage": "https://datadome.co",
+  "social_media_url": "https://twitter.com/data_dome",
+  "screenshots": "https://pbs.twimg.com/profile_banners/3654751215/1566203044/1500x500",
+  "documentation_url": "https://docs.datadome.co/docs/sdk-ios",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5",
+  "source": {
+    "http": "https://package.datadome.co/ios/DataDomeAFNetworking-4.0.1.zip"
+  },
+  "dependencies": {
+    "DataDomeSDK": [
+      "> 2.6.4"
+    ]
+  },
+  "source_files": "Classes/AFNetworking/AFNetworking.h",
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "Classes/AFNetworking/Serialization/AFURL{Request,Response}Serialization.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "Classes/AFNetworking/Security/AFSecurityPolicy.{h,m}"
+    },
+    {
+      "name": "Reachability",
+      "source_files": "Classes/AFNetworking/Reachability/AFNetworkReachabilityManager.{h,m}"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "DataDomeAFNetworking/Serialization": [
+
+        ],
+        "DataDomeAFNetworking/Reachability": [
+
+        ],
+        "DataDomeAFNetworking/Security": [
+
+        ]
+      },
+      "source_files": [
+        "Classes/AFNetworking/NSURLSession/AF{URL,HTTP}SessionManager.{h,m}",
+        "Classes/AFNetworking/NSURLSession/AFCompatibilityMacros.h"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "dependencies": {
+        "DataDomeAFNetworking/NSURLSession": [
+
+        ]
+      },
+      "source_files": "Classes/UIKit+AFNetworking/*.{h,m}"
+    }
+  ],
+  "swift_version": "5"
+}
