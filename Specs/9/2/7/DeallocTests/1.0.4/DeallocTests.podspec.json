@@ -1,0 +1,56 @@
+{
+  "name": "DeallocTests",
+  "version": "1.0.4",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "Easy-to-use framework for custom deallocation tests.",
+  "homepage": "http://strv.com",
+  "social_media_url": "https://twitter.com/DanielCech",
+  "authors": {
+    "Daniel Cech": "daniel.cech@strv.com",
+    "Jan Kaltoun": "jan.kaltoun@strv.com"
+  },
+  "source": {
+    "git": "https://github.com/strvcom/DeallocTests.git",
+    "tag": "v1.0.4"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "swift_versions": [
+    "5.0"
+  ],
+  "frameworks": [
+    "Foundation",
+    "XCTest"
+  ],
+  "pod_target_xcconfig": {
+    "APPLICATION_EXTENSION_API_ONLY": "YES",
+    "DEFINES_MODULE": "YES",
+    "ENABLE_BITCODE": "NO",
+    "OTHER_LDFLAGS": "$(inherited) -weak-lXCTestSwiftSupport -Xlinker -no_application_extension",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -suppress-warnings",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
+    "ENABLE_TESTING_SEARCH_PATHS": "YES"
+  },
+  "default_subspecs": "SwinjectBased",
+  "subspecs": [
+    {
+      "name": "SwinjectBased",
+      "source_files": "Sources/**/*.swift",
+      "dependencies": {
+        "Swinject": [
+          "~> 2.7.0"
+        ]
+      }
+    },
+    {
+      "name": "SwinjectFree",
+      "source_files": "Sources/**/*.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
