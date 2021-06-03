@@ -1,0 +1,61 @@
+{
+  "name": "onnxruntime-mobile-objc",
+  "version": "1.8.0-preview",
+  "summary": "ONNX Runtime Objective-C Pod",
+  "description": "Preview pod for the ONNX Runtime Objective-C API.",
+  "homepage": "https://github.com/microsoft/onnxruntime",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ONNX Runtime": "onnxruntime@microsoft.com"
+  },
+  "source": {
+    "http": "https://onnxruntimepackages.blob.core.windows.net/ortmobilestore/onnxruntime-mobile-objc-1.8.0-preview.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "preserve_paths": [
+    "LICENSE"
+  ],
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/objectivec\" \"${PODS_TARGET_SRCROOT}/cmake/external/SafeInt\"",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "requires_arc": true,
+  "compiler_flags": [
+    "-std=c++17",
+    "-fobjc-arc-exceptions",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "objectivec/include/*.h"
+      ],
+      "source_files": [
+        "objectivec/{include,src}/*.{h,m,mm}",
+        "cmake/external/SafeInt/safeint/SafeInt.hpp"
+      ],
+      "dependencies": {
+        "onnxruntime-mobile-c": [
+          "1.8.0"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "objectivec/test/*.{h,m,mm}",
+          "resources": "objectivec/test/testdata/*.ort"
+        }
+      ]
+    }
+  ]
+}
