@@ -1,0 +1,77 @@
+{
+  "name": "RongCloudRTC",
+  "version": "5.1.2.1",
+  "summary": "融云音视频引擎 SDK RongCloudRTC",
+  "description": "RongCloud RTC SDK for iOS.\n如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库.",
+  "homepage": "https://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 RongCloud"
+  },
+  "authors": {
+    "RongCloud": "https://www.rongcloud.cn"
+  },
+  "social_media_url": "https://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_iOS_SDK_v5_1_2_1_Dev.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "RongRTCLib",
+      "vendored_frameworks": "RongCloudRTC/**/RongRTCLib.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "libraries": "c++",
+      "frameworks": [
+        "VideoToolbox",
+        "GLKit"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+          ">=5.1.2"
+        ]
+      }
+    },
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": "RongCloudRTC/**/RongCallLib.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongRTCLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "resources": [
+        "RongCloudRTC/**/RongCallKit.bundle",
+        "RongCloudRTC/**/en.lproj",
+        "RongCloudRTC/**/zh-Hans.lproj",
+        "RongCloudRTC/**/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudRTC/**/RongCallKit.framework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongCallLib": [
+
+        ],
+        "RongCloudIM/IMLib": [
+          ">=5.1.2"
+        ],
+        "RongCloudIM/IMKit": [
+          ">=5.1.2"
+        ]
+      }
+    }
+  ]
+}
