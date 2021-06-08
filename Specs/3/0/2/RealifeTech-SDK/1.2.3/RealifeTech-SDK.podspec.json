@@ -1,0 +1,83 @@
+{
+  "name": "RealifeTech-SDK",
+  "module_name": "RealifeTech",
+  "version": "1.2.3",
+  "summary": "Providing integration with the RealifeTech Experience Automation Platform.",
+  "description": "This is RealifeTech SDK, it provides integration with RealifeTech backend services, providing functionality such as device notification management, audience membership, and analytics logging. Creating a better experience of the real world for every person.",
+  "homepage": "https://realifetech.com",
+  "authors": {
+    "Jonathon Albert": "jonathon.albert@live.com",
+    "Olivier Butler": "olivier.butler@gmail.com",
+    "Mickey Lee": "mickey.lee@realifetech.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/realifetech/ios-sdk.git",
+    "branch": "master",
+    "tag": "1.2.3"
+  },
+  "default_subspecs": "RealifeTech",
+  "dependencies": {
+    "SwiftLint": [
+      "~> 0.43.1"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Core/**/*.swift",
+        "RealifeTech/RealifeTech.h"
+      ],
+      "exclude_files": [
+        "Tests/*",
+        "**/Tests/**/*"
+      ],
+      "resource_bundles": {
+        "RealifeTech": [
+          "Core/Resources/*.lproj/*.strings"
+        ]
+      },
+      "dependencies": {
+        "RxSwift": [
+          "~> 6.1.0"
+        ],
+        "RxCocoa": [
+          "~> 6.1.0"
+        ],
+        "Apollo": [
+          "~> 0.40.0"
+        ],
+        "Apollo/SQLite": [
+
+        ]
+      }
+    },
+    {
+      "name": "RealifeTech",
+      "source_files": [
+        "**/*.swift",
+        "RealifeTech/RealifeTech.h"
+      ],
+      "exclude_files": [
+        "**/Tests/**/*",
+        "DummyProject/**/*",
+        "Pods/**/*"
+      ],
+      "resource_bundles": {
+        "RealifeTech": [
+          "Content/Resources/*.lproj/*.strings"
+        ]
+      },
+      "dependencies": {
+        "RealifeTech-SDK/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
