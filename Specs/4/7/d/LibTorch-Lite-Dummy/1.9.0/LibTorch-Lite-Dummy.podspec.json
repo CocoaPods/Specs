@@ -1,0 +1,56 @@
+{
+  "name": "LibTorch-Lite-Dummy",
+  "version": "1.9.0",
+  "authors": "PyTorch Team",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://github.com/pytorch/pytorch",
+  "source": {
+    "http": "https://ossci-ios.s3.amazonaws.com/libtorch_lite_ios_1.9.0.zip"
+  },
+  "summary": "The PyTorch C++ library for iOS",
+  "description": "The PyTorch C++ library for iOS.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/LibTorch-Lite-Dummy/install/include/\"",
+    "OTHER_LDFLAGS": "-force_load \"$(PODS_ROOT)/LibTorch-Lite-Dummy/install/lib/libtorch.a\" -force_load \"$(PODS_ROOT)/LibTorch-Lite-Dummy/install/lib/libtorch_cpu.a\"",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/LibTorch-Lite-Dummy/install/include/\"",
+    "VALID_ARCHS": "x86_64 arm64"
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "LibTorch-Lite-Dummy/Torch": [
+
+        ]
+      },
+      "source_files": "src/*.{h,cpp,c,cc}",
+      "public_header_files": [
+        "src/LibTorch-Lite.h"
+      ]
+    },
+    {
+      "name": "Torch",
+      "header_mappings_dir": "install/include/",
+      "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+      "vendored_libraries": "install/lib/*.a",
+      "libraries": [
+        "c++",
+        "stdc++"
+      ]
+    }
+  ]
+}
