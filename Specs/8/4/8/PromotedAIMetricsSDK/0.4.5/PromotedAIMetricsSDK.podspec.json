@@ -1,0 +1,103 @@
+{
+  "name": "PromotedAIMetricsSDK",
+  "version": "0.4.5",
+  "summary": "iOS client library for Promoted.ai metrics tracking.",
+  "description": "iOS client library for Promoted.ai metrics tracking.\nProvided as both a Cocoapod and Swift Package.",
+  "homepage": "https://github.com/promotedai/ios-metrics-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yu-Hong Wang": "yu-hong@promoted.ai"
+  },
+  "source": {
+    "git": "https://github.com/promotedai/ios-metrics-sdk.git",
+    "tag": "0.4.5"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.2",
+  "default_subspecs": "Metrics",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/PromotedCore/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+          "~> 1.15.0"
+        ]
+      }
+    },
+    {
+      "name": "Fetcher",
+      "source_files": [
+        "Sources/PromotedFetcher/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "GTMSessionFetcher/Core": [
+          "~> 1.5.0"
+        ],
+        "PromotedAIMetricsSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Metrics",
+      "source_files": [
+        "Sources/PromotedMetrics/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "PromotedAIMetricsSDK/Core": [
+
+        ],
+        "PromotedAIMetricsSDK/Fetcher": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebaseAnalytics",
+      "source_files": [
+        "Sources/PromotedFirebaseAnalytics/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Firebase/Analytics": [
+          "~> 7.11.0"
+        ],
+        "PromotedAIMetricsSDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/Firebase/CoreOnly/Sources\"",
+        "FRAMEWORK_SEARCH_PATHS": "\"${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseAnalytics\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleUtilities\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/nanopb\"",
+        "OTHER_LDFLAGS": "-framework \"FirebaseAnalytics\" -framework \"GoogleUtilities\" -framework \"nanopb\""
+      }
+    },
+    {
+      "name": "FirebaseAnalyticsWithoutAdIdSupport",
+      "source_files": [
+        "Sources/PromotedFirebaseAnalytics/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Firebase/AnalyticsWithoutAdIdSupport": [
+          "~> 7.11.0"
+        ],
+        "PromotedAIMetricsSDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/Firebase/CoreOnly/Sources\"",
+        "FRAMEWORK_SEARCH_PATHS": "\"${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseAnalytics\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleUtilities\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/nanopb\"",
+        "OTHER_LDFLAGS": "-framework \"FirebaseAnalytics\" -framework \"GoogleUtilities\" -framework \"nanopb\" -framework \"GoogleAppMeasurementWithoutAdIdSupport\""
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
