@@ -1,0 +1,243 @@
+{
+  "name": "FFmpeg-DS",
+  "version": "1.1.0",
+  "summary": "FFmpeg iOS static librs",
+  "description": "FFmpeg iOS static librs by DS",
+  "homepage": "https://github.com/swp-song/FFmpeg-DS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    " Dream": "396587868@qq.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/swp-song/FFmpeg-DS.git",
+    "tag": "1.1.0"
+  },
+  "default_subspecs": "ffmpeg",
+  "header_mappings_dir": "FFmpeg/include/",
+  "libraries": [
+    "z",
+    "bz2",
+    "iconv",
+    ""
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/FFmpeg/include/"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "libavutil",
+      "public_header_files": [
+        "FFmpeg/include/libavutil/*.h",
+        "FFmpeg/include/**/libavutil.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libavutil/*.h",
+        "FFmpeg/include/**/libavutil.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libavutil.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libswresample",
+      "dependencies": {
+        "FFmpeg-DS/libavutil": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libswresample/*.h",
+        "FFmpeg/include/**/libswresample.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libswresample/*.h",
+        "FFmpeg/include/**/libswresample.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libswresample.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libavcodec",
+      "dependencies": {
+        "FFmpeg-DS/libswresample": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libavcodec/*.h",
+        "FFmpeg/include/**/libavcodec.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libavcodec/*.h",
+        "FFmpeg/include/**/libavcodec.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libavcodec.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libavformat",
+      "dependencies": {
+        "FFmpeg-DS/libavcodec": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libavformat/*.h",
+        "FFmpeg/include/**/libavformat.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libavformat/*.h",
+        "FFmpeg/include/**/libavformat.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libavformat.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libswscale",
+      "dependencies": {
+        "FFmpeg-DS/libavutil": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libswscale/*.h",
+        "FFmpeg/include/**/libswscale.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libswscale/*.h",
+        "FFmpeg/include/**/libswscale.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libswscale.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libavfilter",
+      "dependencies": {
+        "FFmpeg-DS/libavformat": [
+
+        ],
+        "FFmpeg-DS/libswresample": [
+
+        ],
+        "FFmpeg-DS/libswscale": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libavfilter/*.h",
+        "FFmpeg/include/**/libavfilter.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libavfilter/*.h",
+        "FFmpeg/include/**/libavfilter.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libavfilter.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "libavdevice",
+      "dependencies": {
+        "FFmpeg-DS/libavformat": [
+
+        ],
+        "FFmpeg-DS/libavfilter": [
+
+        ],
+        "FFmpeg-DS/libswscale": [
+
+        ]
+      },
+      "public_header_files": [
+        "FFmpeg/include/libavdevice/*.h",
+        "FFmpeg/include/**/libavdevice.h"
+      ],
+      "source_files": [
+        "FFmpeg/include/libavdevice/*.h",
+        "FFmpeg/include/**/libavdevice.h"
+      ],
+      "vendored_libraries": "FFmpeg/library/libavdevice.a",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    },
+    {
+      "name": "ffmpeg",
+      "dependencies": {
+        "FFmpeg-DS/libavcodec": [
+
+        ],
+        "FFmpeg-DS/libavdevice": [
+
+        ],
+        "FFmpeg-DS/libavfilter": [
+
+        ],
+        "FFmpeg-DS/libavformat": [
+
+        ],
+        "FFmpeg-DS/libavutil": [
+
+        ],
+        "FFmpeg-DS/libswresample": [
+
+        ],
+        "FFmpeg-DS/libswscale": [
+
+        ]
+      },
+      "public_header_files": "FFmpeg/include/**/*.h",
+      "source_files": "FFmpeg/include/**/*.h",
+      "frameworks": [
+        "CoreMedia",
+        "AVFoundation",
+        "VideoToolbox",
+        "AudioToolbox"
+      ]
+    }
+  ]
+}
