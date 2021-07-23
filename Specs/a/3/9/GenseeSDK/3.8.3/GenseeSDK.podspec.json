@@ -1,0 +1,159 @@
+{
+  "name": "GenseeSDK",
+  "version": "3.8.3",
+  "summary": "Gensee SDK.",
+  "description": "All iOS framework for Gensee.",
+  "homepage": "http://www.gensee.com",
+  "static_framework": true,
+  "license": {
+    "type": "MIT",
+    "text": "    Copyright PPAbner 2016-2021\n"
+  },
+  "authors": {
+    "net263": "mobile-gensee@net263.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "GSPlayerSDK",
+  "source": {
+    "git": "https://gitee.com/gensee/GenseeSDK.git",
+    "tag": "3.8.3"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "VALID_ARCHS": "x86_64 armv7 arm64",
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "GSPlayerSDK",
+      "vendored_frameworks": [
+        "frameworks/PlayerSDK.framework"
+      ],
+      "resources": [
+        "bundles/PlayerSDK.bundle"
+      ],
+      "vendored_libraries": [
+        "Libs/libPlayerSDKLib.a"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSDocSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSRtSDK",
+      "vendored_frameworks": [
+        "frameworks/RtSDK.framework"
+      ],
+      "resources": [
+        "bundles/RtSDK.bundle"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSDocSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSVodSDK",
+      "vendored_frameworks": [
+        "frameworks/VodSDK.framework"
+      ],
+      "vendored_libraries": [
+        "Libs/libPlayerSDKLib.a"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSDocSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSFastSDK",
+      "vendored_frameworks": [
+        "frameworks/FASTSDK.framework"
+      ],
+      "resources": [
+        "bundles/FastSDK.bundle"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSRtSDK": [
+
+        ],
+        "GenseeSDK/GSPlayerSDK": [
+
+        ],
+        "MBProgressHUD": [
+          "~> 1.1.0"
+        ],
+        "Masonry": [
+          "~> 1.1.0"
+        ],
+        "MZTimerLabel": [
+          "~> 0.5.4"
+        ],
+        "IQKeyboardManager": [
+          "~> 6.1.1"
+        ],
+        "ThemeManager": [
+          "~> 1.0.1"
+        ],
+        "MJRefresh": [
+          "~> 3.1.15.7"
+        ]
+      }
+    },
+    {
+      "name": "GSHongbaoSDK",
+      "vendored_frameworks": [
+        "frameworks/GSHongbaoKit.framework"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSCommonSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSRewardSDK",
+      "vendored_frameworks": [
+        "frameworks/GSRewardKit.framework"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSCommonSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSDocSDK",
+      "vendored_frameworks": [
+        "frameworks/GSDocKit.framework"
+      ],
+      "dependencies": {
+        "GenseeSDK/GSCommonSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GSCommonSDK",
+      "vendored_frameworks": [
+        "frameworks/GSCommonKit.framework",
+        "frameworks/GSHeartbeatKit.framework",
+        "frameworks/GPUImage.framework"
+      ],
+      "libraries": "c++",
+      "frameworks": "GLKit",
+      "vendored_libraries": [
+        "Libs/liblibfaad.a",
+        "Libs/libx264.a",
+        "Libs/libaacplus.a",
+        "Libs/ffmpeg/*.a"
+      ]
+    }
+  ]
+}
