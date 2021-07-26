@@ -1,0 +1,226 @@
+{
+  "name": "themis",
+  "version": "0.13.12",
+  "summary": "Data security library for network communication and data storage for iOS and mac OS",
+  "description": "Themis is a convenient cryptographic library for data protection. It provides secure messaging with forward secrecy and secure data storage. Themis is aimed at modern development practices and has a unified API across 12 platforms, including iOS/macOS, Ruby, JavaScript, Python, and Java/Android.",
+  "homepage": "https://cossacklabs.com",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "source": {
+    "git": "https://github.com/cossacklabs/themis.git",
+    "tag": "0.13.12"
+  },
+  "authors": {
+    "cossacklabs": "info@cossacklabs.com"
+  },
+  "module_name": "themis",
+  "default_subspecs": "openssl-1.1.1",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.11"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "openssl-1.1.1",
+      "dependencies": {
+        "CLOpenSSL-XCF": [
+          "1.1.11101"
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_CFLAGS[config=Debug]": "$(inherited) -fembed-bitcode-marker",
+          "OTHER_CFLAGS[config=Release]": "$(inherited) -fembed-bitcode",
+          "BITCODE_GENERATION_MODE[config=Release]": "bitcode",
+          "BITCODE_GENERATION_MODE[config=Debug]": "bitcode-marker"
+        },
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DLIBRESSL",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "osx": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DLIBRESSL",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "subspecs": [
+        {
+          "name": "core",
+          "source_files": [
+            "src/themis/*.{c,h}",
+            "src/soter/*.{c,h}",
+            "src/soter/ed25519/*.{c,h}",
+            "src/soter/openssl/*.{c,h}"
+          ],
+          "header_dir": "src",
+          "header_mappings_dir": "src",
+          "private_header_files": [
+            "src/themis/*.h",
+            "src/soter/*.h",
+            "src/soter/ed25519/*.h",
+            "src/soter/openssl/*.h"
+          ]
+        },
+        {
+          "name": "objcwrapper",
+          "dependencies": {
+            "themis/openssl-1.1.1/core": [
+
+            ]
+          },
+          "source_files": "src/wrappers/themis/Obj-C/objcthemis/*.{m,h}",
+          "header_dir": "objcthemis",
+          "header_mappings_dir": "src/wrappers/themis/Obj-C/objcthemis",
+          "public_header_files": "src/wrappers/themis/Obj-C/objcthemis/*.h"
+        }
+      ]
+    },
+    {
+      "name": "themis-openssl",
+      "ios": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        },
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DLIBRESSL",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS": "arm64"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS": "arm64"
+        },
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DLIBRESSL",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "dependencies": {
+        "GRKOpenSSLFramework": [
+          "1.0.2.18"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "core",
+          "source_files": [
+            "src/themis/*.{h,c}",
+            "src/soter/*.{c,h}",
+            "src/soter/ed25519/*.{c,h}",
+            "src/soter/openssl/*.{c,h}"
+          ],
+          "header_mappings_dir": "src",
+          "header_dir": "src",
+          "preserve_paths": [
+            "src/themis/*.h",
+            "src/soter/*.h",
+            "src/soter/ed25519/*.h",
+            "src/soter/openssl/*.h"
+          ],
+          "private_header_files": [
+            "src/themis/*.h",
+            "src/soter/*.h",
+            "src/soter/ed25519/*.h",
+            "src/soter/openssl/*.h"
+          ]
+        },
+        {
+          "name": "objcwrapper",
+          "header_mappings_dir": "src/wrappers/themis/Obj-C/objcthemis",
+          "source_files": "src/wrappers/themis/Obj-C/objcthemis/*.{m,h}",
+          "public_header_files": "src/wrappers/themis/Obj-C/objcthemis/*.h",
+          "header_dir": "objcthemis",
+          "dependencies": {
+            "themis/themis-openssl/core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "themis-boringssl",
+      "dependencies": {
+        "BoringSSL": [
+          "~> 10.0"
+        ]
+      },
+      "ios": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DBORINGSSL -DCRYPTO_ENGINE_PATH=boringssl -DSOTER_BORINGSSL_DISABLE_XTS",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "osx": {
+        "xcconfig": {
+          "OTHER_CFLAGS": "-DBORINGSSL -DCRYPTO_ENGINE_PATH=boringssl -DSOTER_BORINGSSL_DISABLE_XTS",
+          "USE_HEADERMAP": "NO",
+          "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/themis/src\" \"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+          "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+        }
+      },
+      "subspecs": [
+        {
+          "name": "core",
+          "source_files": [
+            "src/themis/*.{h,c}",
+            "src/soter/*.{c,h}",
+            "src/soter/ed25519/*.{c,h}",
+            "src/soter/boringssl/*.{c,h}"
+          ],
+          "header_mappings_dir": "src",
+          "header_dir": "src",
+          "preserve_paths": [
+            "src/themis/*.h",
+            "src/soter/*.h",
+            "src/soter/ed25519/*.h",
+            "src/soter/boringssl/*.h"
+          ],
+          "private_header_files": [
+            "src/themis/*.h",
+            "src/soter/*.h",
+            "src/soter/ed25519/*.h",
+            "src/soter/boringssl/*.h"
+          ]
+        },
+        {
+          "name": "objcwrapper",
+          "header_mappings_dir": "src/wrappers/themis/Obj-C/objcthemis",
+          "source_files": "src/wrappers/themis/Obj-C/objcthemis/*.{m,h}",
+          "public_header_files": "src/wrappers/themis/Obj-C/objcthemis/*.h",
+          "header_dir": "objcthemis",
+          "dependencies": {
+            "themis/themis-boringssl/core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
