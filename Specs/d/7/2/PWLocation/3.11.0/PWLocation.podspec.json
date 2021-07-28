@@ -1,0 +1,153 @@
+{
+  "name": "PWLocation",
+  "version": "3.11.0",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "summary": "Phunware's Location SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "https://github.com/phunware/maas-location-ios-sdk/",
+  "authors": {
+    "Phunware, Inc.": "https://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/phunware",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-location-ios-sdk.git",
+    "tag": "v3.11.0"
+  },
+  "documentation_url": "https://phunware.github.io/maas-location-ios-sdk/",
+  "default_subspecs": [
+    "Core",
+    "DeviceIdentity"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PWCore": [
+          "~> 3.11.0"
+        ],
+        "SSZipArchive": [
+          "~> 2.4.0"
+        ],
+        "TMCache": [
+          "~> 2.1.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/PWLocation.xcframework",
+      "frameworks": [
+        "CoreBluetooth",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreServices",
+        "CoreTelephony",
+        "MapKit",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "xml2.2",
+        "z"
+      ]
+    },
+    {
+      "name": "DeviceIdentity",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ],
+        "PWCore/DeviceIdentity": [
+          "~> 3.11.0"
+        ]
+      }
+    },
+    {
+      "name": "LimitedDeviceIdentity",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MistProviderCore",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ],
+        "MistSDKDR": [
+          "1.5.280"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/MistProvider.xcframework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "MistProvider",
+      "dependencies": {
+        "PWLocation/MistProviderCore": [
+
+        ],
+        "PWLocation/DeviceIdentity": [
+
+        ]
+      }
+    },
+    {
+      "name": "MistProviderWithLimitedDeviceIdentity",
+      "dependencies": {
+        "PWLocation/MistProviderCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "BeaconPointProviderCore",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ],
+        "MistSDK": [
+          "1.5.58"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/BeaconPointProvider.xcframework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "BeaconPointProvider",
+      "dependencies": {
+        "PWLocation/BeaconPointProviderCore": [
+
+        ],
+        "PWLocation/DeviceIdentity": [
+
+        ]
+      }
+    },
+    {
+      "name": "BeaconPointProviderWithLimitedDeviceIdentity",
+      "dependencies": {
+        "PWLocation/BeaconPointProviderCore": [
+
+        ]
+      }
+    }
+  ]
+}
