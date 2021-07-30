@@ -1,0 +1,192 @@
+{
+  "name": "AdKleinSDK",
+  "version": "3.1.0",
+  "summary": "莫比乌斯广告聚合SDK",
+  "description": "聚合全球优质广告资源，一站式快速接入，轻松变现",
+  "homepage": "https://www.iusmob.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iusmob": "mobius@iusmob.com"
+  },
+  "source": {
+    "git": "https://github.com/iusmob/AdKleinSDK.git",
+    "tag": "v3.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "WebKit",
+    "Security",
+    "QuartzCore",
+    "CoreData",
+    "ImageIO",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "MessageUI",
+    "SafariServices",
+    "UIKit",
+    "MapKit",
+    "AudioToolbox",
+    "JavaScriptCore"
+  ],
+  "libraries": [
+    "xml2",
+    "c++",
+    "c++abi",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "resolv"
+  ],
+  "default_subspecs": "core",
+  "subspecs": [
+    {
+      "name": "AdKleinSDKFoundation",
+      "vendored_frameworks": "Frameworks/core/AdKleinSDKFoundation.xcframework"
+    },
+    {
+      "name": "NxPerfSDK",
+      "vendored_frameworks": "Frameworks/kit/NxPerfSDK.xcframework"
+    },
+    {
+      "name": "AdMobiusSDK",
+      "vendored_frameworks": "Frameworks/mobius/AdMobiusSDK.xcframework",
+      "resources": "Frameworks/mobius/AdMobiusSDKBundle.bundle"
+    },
+    {
+      "name": "core",
+      "vendored_frameworks": "Frameworks/core/AdKleinSDK.xcframework",
+      "dependencies": {
+        "AdKleinSDK/AdKleinSDKFoundation": [
+
+        ],
+        "AdKleinSDK/NxPerfSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdKleinSDKPlatforms",
+      "subspecs": [
+        {
+          "name": "Mobius",
+          "vendored_frameworks": "Frameworks/platforms/mobius/AdKleinMobiusAdapter.xcframework",
+          "dependencies": {
+            "AdKleinSDK/core": [
+
+            ],
+            "AdKleinSDK/AdMobiusSDK": [
+
+            ]
+          }
+        },
+        {
+          "name": "GDT",
+          "vendored_frameworks": "Frameworks/platforms/gdt/AdKleinGDTAdapter.xcframework",
+          "dependencies": {
+            "GDTMobSDK": [
+              "~> 4.12.61"
+            ],
+            "AdKleinSDK/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "CSJ",
+          "vendored_frameworks": "Frameworks/platforms/csj/AdKleinCSJAdapter.xcframework",
+          "dependencies": {
+            "Ads-CN": [
+              "~> 3.6.1.5"
+            ],
+            "AdKleinSDK/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaiDu",
+          "vendored_frameworks": "Frameworks/platforms/bqt/AdKleinBQTAdapter.xcframework",
+          "dependencies": {
+            "BaiduMobAdSDK": [
+              "~> 4.771"
+            ],
+            "AdKleinSDK/core": [
+
+            ]
+          },
+          "frameworks": [
+            "UIKit",
+            "MediaPlayer",
+            "CoreMedia",
+            "AVFoundation",
+            "CoreMotion",
+            "SafariServices",
+            "EventKit",
+            "EventKitUI",
+            "CoreGraphics",
+            "MessageUI",
+            "StoreKit",
+            "Security",
+            "WebKit",
+            "CoreTelephony",
+            "SystemConfiguration",
+            "QuartzCore",
+            "CoreLocation",
+            "AdSupport"
+          ],
+          "libraries": [
+            "c++",
+            "xml2",
+            "z"
+          ]
+        },
+        {
+          "name": "Google",
+          "vendored_frameworks": "Frameworks/platforms/google/AdKleinGoogleAdapter.xcframework",
+          "dependencies": {
+            "Google-Mobile-Ads-SDK": [
+              "~> 8.4.0"
+            ],
+            "AdKleinSDK/core": [
+
+            ]
+          },
+          "xcconfig": {
+            "OTHER_LDFLAGS": "-ObjC"
+          }
+        },
+        {
+          "name": "Smaato",
+          "vendored_frameworks": "Frameworks/platforms/smaato/AdKleinSmaatoAdapter.xcframework",
+          "dependencies": {
+            "smaato-ios-sdk": [
+              "~> 21.6.11"
+            ],
+            "AdKleinSDK/core": [
+
+            ]
+          },
+          "xcconfig": {
+            "OTHER_LDFLAGS": "-ObjC"
+          }
+        }
+      ]
+    }
+  ]
+}
