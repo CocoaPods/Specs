@@ -1,0 +1,95 @@
+{
+  "name": "libgav1",
+  "version": "0.16.3",
+  "summary": "libgav1 is a Main profile (0) & High profile (1) compliant AV1 decoder",
+  "description": "libgav1 is a Main profile (0) & High profile (1) compliant AV1 decoder. More information on the AV1 video format can be found at aomedia.org.",
+  "homepage": "https://chromium.googlesource.com/codecs/libgav1/",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "authors": {
+    "Google": "https://www.google.com"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/libgav1-Xcode.git",
+    "tag": "0.16.3",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libgav1/include"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libgav1/libgav1 ${PODS_TARGET_SRCROOT}/libgav1 ${PODS_ROOT}/libgav1/include ${PODS_TARGET_SRCROOT}/include",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LIBGAV1_THREADPOOL_USE_STD_MUTEX=1 LIBGAV1_MAX_BITDEPTH=10",
+    "WARNING_CFLAGS": "$(inherited) -Wno-documentation -Wno-conditional-uninitialized -Wno-strict-prototypes -Wno-comma"
+  },
+  "preserve_paths": [
+    "libgav1",
+    "include"
+  ],
+  "libraries": "c++",
+  "default_subspecs": [
+    "gav1",
+    "dsp",
+    "post_filter"
+  ],
+  "subspecs": [
+    {
+      "name": "gav1",
+      "source_files": "libgav1/src/**/*.{h,c,cc,cpp}",
+      "public_header_files": "libgav1/src/gav1/*.h",
+      "exclude_files": [
+        "libgav1/src/dsp",
+        "libgav1/src/post_filter"
+      ]
+    },
+    {
+      "name": "dsp",
+      "dependencies": {
+        "libgav1/gav1": [
+
+        ]
+      },
+      "source_files": "libgav1/src/dsp/**/*.{h,c,cc,cpp}",
+      "private_header_files": "libgav1/src/dsp/**/*.h",
+      "exclude_files": [
+        "libgav1/src/dsp/average_blend_test.cc",
+        "libgav1/src/dsp/cdef_test.cc",
+        "libgav1/src/dsp/convolve_test.cc",
+        "libgav1/src/dsp/distance_weighted_blend_test.cc",
+        "libgav1/src/dsp/dsp_test.cc",
+        "libgav1/src/dsp/intra_edge_test.cc",
+        "libgav1/src/dsp/intrapred_cfl_test.cc",
+        "libgav1/src/dsp/intrapred_directional_test.cc",
+        "libgav1/src/dsp/intrapred_filter_test.cc",
+        "libgav1/src/dsp/intrapred_test.cc",
+        "libgav1/src/dsp/inverse_transform_test.cc",
+        "libgav1/src/dsp/loop_filter_test.cc",
+        "libgav1/src/dsp/loop_restoration_test.cc",
+        "libgav1/src/dsp/mask_blend_test.cc",
+        "libgav1/src/dsp/motion_field_projection_test.cc",
+        "libgav1/src/dsp/motion_vector_search_test.cc",
+        "libgav1/src/dsp/obmc_test.cc",
+        "libgav1/src/dsp/super_res_test.cc",
+        "libgav1/src/dsp/warp_test.cc",
+        "libgav1/src/dsp/weight_mask_test.cc"
+      ]
+    },
+    {
+      "name": "post_filter",
+      "dependencies": {
+        "libgav1/gav1": [
+
+        ]
+      },
+      "source_files": "libgav1/src/post_filter/**/*.{h,c,cc,cpp}",
+      "private_header_files": "libgav1/src/post_filter/**/*.h"
+    }
+  ]
+}
