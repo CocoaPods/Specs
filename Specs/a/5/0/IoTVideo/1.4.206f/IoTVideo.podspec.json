@@ -1,0 +1,67 @@
+{
+  "name": "IoTVideo",
+  "version": "1.4.206f",
+  "summary": "IoTVideo SDK for iOS",
+  "description": "IoTVideo(Internet of Things Video) SDK for iOS",
+  "homepage": "https://github.com/GWTimes/IoTVideoSDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "JonorZhang": "zyx1507@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/GWTimes/IoTVideoSDK-iOS.git",
+    "tag": "1.4.206f"
+  },
+  "libraries": [
+    "c++",
+    "z",
+    "bz2",
+    "iconv"
+  ],
+  "frameworks": [
+    "AudioToolbox",
+    "VideoToolbox",
+    "CoreMedia"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "default_subspecs": [
+    "IoTVideo",
+    "IVVAS"
+  ],
+  "subspecs": [
+    {
+      "name": "libp2p",
+      "vendored_libraries": "Frameworks/P2P/libiot_video_p2p.a"
+    },
+    {
+      "name": "IoTVideo",
+      "dependencies": {
+        "IoTVideo/libp2p": [
+
+        ],
+        "libFFmpeg-SSL-iOS": [
+          "~> 3.4"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/IoTVideo.framework"
+    },
+    {
+      "name": "IVVAS",
+      "dependencies": {
+        "IoTVideo/IoTVideo": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/IVVAS.framework"
+    }
+  ]
+}
