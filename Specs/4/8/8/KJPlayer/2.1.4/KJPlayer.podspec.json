@@ -1,0 +1,92 @@
+{
+  "name": "KJPlayer",
+  "version": "2.1.4",
+  "summary": "KJPlayer play and cache, AVPlayer / MIDIPlayer / IJKPlayer",
+  "homepage": "https://github.com/yangKJ/KJPlayerDemo",
+  "description": "https://github.com/yangKJ/KJPlayerDemo/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "77": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/KJPlayerDemo.git",
+    "tag": "2.1.4"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "MediaPlayer"
+  ],
+  "default_subspecs": "AVPlayer/AVCore",
+  "ios": {
+    "source_files": "PlayerSource/KJPlayerHeader.h"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": [
+        "PlayerSource/Core/*.{h,m}",
+        "PlayerSource/View/*.{h,m}"
+      ],
+      "resources": "PlayerSource/Core/*.{xcdatamodeld}",
+      "resource_bundles": {
+        "KJPlayer": [
+          "PlayerSource/View/*.{ttf}"
+        ]
+      }
+    },
+    {
+      "name": "AVPlayer",
+      "subspecs": [
+        {
+          "name": "AVCore",
+          "source_files": "PlayerSource/KJAVPlayer/*.{h,m}",
+          "dependencies": {
+            "KJPlayer/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "AVDownloader",
+          "source_files": "PlayerSource/KJAVPlayer/KJAVDownloader/**/*",
+          "frameworks": "MobileCoreServices",
+          "dependencies": {
+            "KJPlayer/AVPlayer/AVCore": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MIDI",
+      "source_files": "PlayerSource/KJMidiPlayer/*.{h,m}",
+      "resources": "PlayerSource/KJMidiPlayer/*.{bundle}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "IJKPlayer",
+      "source_files": "PlayerSource/KJIJKPlayer/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    }
+  ]
+}
