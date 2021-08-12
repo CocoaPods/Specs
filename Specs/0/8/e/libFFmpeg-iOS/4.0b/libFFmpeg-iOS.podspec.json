@@ -1,0 +1,76 @@
+{
+  "name": "libFFmpeg-iOS",
+  "version": "4.0b",
+  "summary": "ffmpeg libraries for iOS.",
+  "homepage": "https://github.com/GWTimes/libFFmpeg-iOS",
+  "authors": {
+    "JonorZhang": "zyx1507@163.com"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://github.com/GWTimes/libFFmpeg-iOS/archive/refs/tags/4.0b.zip"
+  },
+  "prepare_command": "zipdir=\"libFFmpeg-iOS-4.0b\"\nif [ -d \"./include\" ] && [ -d \"./lib\" ]; then\n  echo \"local path\"\nelse\n  echo \"remote download\"\n  if [ -d ${zipdir} ]; then\n    mv ${zipdir}/* .\n    rm -rf ${zipdir}\n  else\n    echo \"error ${zipdir}\"\n  fi\nfi",
+  "default_subspecs": [
+    "avcodec",
+    "avfilter",
+    "avformat",
+    "avutil",
+    "swresample",
+    "swscale",
+    "openssl"
+  ],
+  "subspecs": [
+    {
+      "name": "avcodec",
+      "vendored_libraries": "lib/libavcodec.a",
+      "public_header_files": "include/{libavcodec,libffmpeg}/**/*.h",
+      "source_files": [
+        "include/{libavcodec,libffmpeg}/**/*.h",
+        "include/{libavcodec,libffmpeg}/**/*.h"
+      ]
+    },
+    {
+      "name": "avfilter",
+      "vendored_libraries": "lib/libavfilter.a",
+      "source_files": "include/{libavfilter,libffmpeg}/**/*.h",
+      "public_header_files": "include/{libavfilter,libffmpeg}/**/*.h"
+    },
+    {
+      "name": "avformat",
+      "vendored_libraries": "lib/libavformat.a",
+      "source_files": "include/{libavformat,libffmpeg}/**/*.h",
+      "public_header_files": "include/{libavformat,libffmpeg}/**/*.h"
+    },
+    {
+      "name": "avutil",
+      "vendored_libraries": "lib/libavutil.a",
+      "source_files": "include/{libavutil,libffmpeg}/**/*.h",
+      "public_header_files": "include/{libavutil,libffmpeg}/**/*.h"
+    },
+    {
+      "name": "swresample",
+      "vendored_libraries": "lib/libswresample.a",
+      "source_files": "include/{libswresample,libffmpeg}/**/*.h",
+      "public_header_files": "include/{libswresample,libffmpeg}/**/*.h"
+    },
+    {
+      "name": "swscale",
+      "vendored_libraries": "lib/libswscale.a",
+      "source_files": "include/{libswscale,libffmpeg}/**/*.h",
+      "public_header_files": "include/{libswscale,libffmpeg}/**/*.h"
+    },
+    {
+      "name": "openssl",
+      "vendored_libraries": "lib/{libssl,libcrypto}.a",
+      "source_files": "include/openssl/**/*.h",
+      "public_header_files": "include/openssl/**/*.h"
+    }
+  ]
+}
