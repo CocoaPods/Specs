@@ -1,0 +1,51 @@
+{
+  "name": "OctoFMDB",
+  "version": "1.0.0",
+  "summary": "A Cocoa / Objective-C wrapper around OctoDB & SQLite",
+  "homepage": "https://github.com/octodb/fmdb",
+  "license": "MIT",
+  "authors": {
+    "August Mueller": "gus@flyingmeat.com"
+  },
+  "source": {
+    "git": "https://github.com/octodb/fmdb.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "octodb",
+  "subspecs": [
+    {
+      "name": "octodb",
+      "source_files": "src/fmdb/FM*.{h,m}",
+      "exclude_files": "src/fmdb.m",
+      "header_dir": "fmdb",
+      "ios": {
+        "libraries": [
+          "octodb",
+          "binn",
+          "uv",
+          "secp256k1-vrf"
+        ],
+        "xcconfig": {
+          "LIBRARY_SEARCH_PATHS": "$(inherited) $(PROJECT_DIR)/octodb/lib/ $(PWD)/octodb/lib/",
+          "HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/octodb/include/"
+        }
+      },
+      "osx": {
+        "xcconfig": {
+          "LIBRARY_SEARCH_PATHS": "$(inherited) /usr/local/lib",
+          "HEADER_SEARCH_PATHS": "$(inherited) /usr/local/include/"
+        }
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}
