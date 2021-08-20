@@ -1,0 +1,138 @@
+{
+  "name": "VinBaseComponents",
+  "version": "0.2.1",
+  "summary": "基础组件库",
+  "description": "TODO: 基础组件库\n      CocoaExtentions：常用的Extentions\n      Components: 常用的工具类\n      NetWorking: 基于AFNetWorking的网络请求组件，支持缓存，配置灵活\n      StorageLib: 基于Realm数据库组件、基于MMKV的持久化组件\n      RACExtentions: 基于ReactCocoa封装的组件\n      BlockViewKit: UIScrollView、UITableView、UICollectionView基于Block的封装，支持链式调用，所有代理方法动态添加\n      CycleViewKit: 灵活的轮播组件",
+  "homepage": "https://github.com/BinBear/VinBaseComponents",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BinBear": "vin404@outlook.com"
+  },
+  "source": {
+    "git": "https://github.com/BinBear/VinBaseComponents.git",
+    "tag": "0.2.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "subspecs": [
+    {
+      "name": "CocoaExtentions",
+      "source_files": "VinBaseComponents/Classes/CocoaExtentions/VinCocoaExtention.h",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "VinBaseComponents/Classes/CocoaExtentions/Foundation/**/*"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "VinBaseComponents/Classes/CocoaExtentions/UIKit/**/*",
+          "dependencies": {
+            "VinBaseComponents/CocoaExtentions/Foundation": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "source_files": "VinBaseComponents/Classes/Components/**/*"
+    },
+    {
+      "name": "NetWorking",
+      "subspecs": [
+        {
+          "name": "TaskInfo",
+          "source_files": "VinBaseComponents/Classes/NetWorking/TaskInfo/**/*"
+        },
+        {
+          "name": "Cache",
+          "source_files": "VinBaseComponents/Classes/NetWorking/Cache/**/*",
+          "dependencies": {
+            "YYCache": [
+
+            ]
+          }
+        },
+        {
+          "name": "Base",
+          "source_files": "VinBaseComponents/Classes/NetWorking/Base/**/*",
+          "dependencies": {
+            "AFNetworking": [
+
+            ],
+            "VinBaseComponents/NetWorking/TaskInfo": [
+
+            ],
+            "VinBaseComponents/NetWorking/Cache": [
+
+            ],
+            "VinBaseComponents/RACExtentions": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "StorageLib",
+      "subspecs": [
+        {
+          "name": "MapKeyValueTool",
+          "source_files": "VinBaseComponents/Classes/StorageLib/MapKeyValueTool/**/*",
+          "dependencies": {
+            "MMKV": [
+
+            ],
+            "UICKeyChainStore": [
+
+            ]
+          }
+        },
+        {
+          "name": "RealmStore",
+          "source_files": "VinBaseComponents/Classes/StorageLib/RealmStore/**/*",
+          "dependencies": {
+            "Realm": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "RACExtentions",
+      "source_files": "VinBaseComponents/Classes/RACExtentions/**/*",
+      "dependencies": {
+        "ReactiveObjC": [
+
+        ]
+      }
+    },
+    {
+      "name": "BlockViewKit",
+      "source_files": "VinBaseComponents/Classes/BlockViewKit/**/*",
+      "dependencies": {
+        "VinBaseComponents/RACExtentions": [
+
+        ],
+        "VinBaseComponents/CocoaExtentions": [
+
+        ]
+      }
+    },
+    {
+      "name": "CycleViewKit",
+      "source_files": "VinBaseComponents/Classes/CycleViewKit/**/*",
+      "dependencies": {
+        "VinBaseComponents/RACExtentions": [
+
+        ]
+      }
+    }
+  ]
+}
