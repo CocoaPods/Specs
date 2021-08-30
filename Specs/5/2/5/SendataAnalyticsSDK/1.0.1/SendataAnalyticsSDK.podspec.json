@@ -1,0 +1,196 @@
+{
+  "name": "SendataAnalyticsSDK",
+  "version": "1.0.1",
+  "summary": "The official iOS SDK of Sendata Analytics.",
+  "homepage": "https://github.com/SmartHubAnalysis/sdk-ios",
+  "source": {
+    "git": "https://github.com/SmartHubAnalysis/sdk-ios.git",
+    "tag": "v1.0.1"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "hello": "hello@sendata.cn"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "sqlite3",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "SendataAnalyticsSDK/Core/**/*.{h,m}",
+      "public_header_files": [
+        "SendataAnalyticsSDK/Core/SendataAnalyticsSDK.h",
+        "SendataAnalyticsSDK/Core/SendataAnalyticsSDK+Public.h",
+        "SendataAnalyticsSDK/Core/SAAppExtensionDataManager.h",
+        "SendataAnalyticsSDK/Core/SASecurityPolicy.h",
+        "SendataAnalyticsSDK/Core/SAConfigOptions.h",
+        "SendataAnalyticsSDK/Core/SAConstants.h"
+      ],
+      "ios": {
+        "source_files": [
+          "SendataAnalyticsSDK/RemoteConfig/**/*.{h,m}",
+          "SendataAnalyticsSDK/ChannelMatch/**/*.{h,m}",
+          "SendataAnalyticsSDK/Encrypt/**/*.{h,m}",
+          "SendataAnalyticsSDK/Deeplink/**/*.{h,m}",
+          "SendataAnalyticsSDK/DebugMode/**/*.{h,m}"
+        ],
+        "public_header_files": [
+          "SendataAnalyticsSDK/Encrypt/SASecretKey.h",
+          "SendataAnalyticsSDK/ChannelMatch/SendataAnalyticsSDK+SAChannelMatch.h"
+        ],
+        "resources": "SendataAnalyticsSDK/SendataAnalyticsSDK.bundle",
+        "frameworks": "CoreTelephony"
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "SendataAnalyticsSDK/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "SendataAnalyticsSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "CAID",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/CAID/**/*.{h,m}",
+      "private_header_files": "SendataAnalyticsSDK/CAID/**/*.h"
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": "SendataAnalyticsSDK/AutoTrack/SendataAnalyticsSDK+SAAutoTrack.h",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/Visualized/**/*.{h,m}",
+      "public_header_files": "SendataAnalyticsSDK/Visualized/SendataAnalyticsSDK+Visualized.h"
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/Location/**/*.{h,m}",
+      "private_header_files": "SendataAnalyticsSDK/Location/**/*.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/DeviceOrientation/**/*.{h,m}",
+      "private_header_files": "SendataAnalyticsSDK/DeviceOrientation/**/*.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/AppPush/**/*.{h,m}",
+      "private_header_files": "SendataAnalyticsSDK/AppPush/**/*.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/Exception/**/*.{h,m}",
+      "private_header_files": "SendataAnalyticsSDK/Exception/**/*.h"
+    },
+    {
+      "name": "WebView",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/WebView/**/*.{h,m}",
+      "public_header_files": "SendataAnalyticsSDK/WebView/SendataAnalyticsSDK+WebView.h"
+    },
+    {
+      "name": "WKWebView",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SendataAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SendataAnalyticsSDK/WKWebView/**/*.{h,m}",
+      "public_header_files": "SendataAnalyticsSDK/WKWebView/SendataAnalyticsSDK+WKWebView.h"
+    }
+  ]
+}
