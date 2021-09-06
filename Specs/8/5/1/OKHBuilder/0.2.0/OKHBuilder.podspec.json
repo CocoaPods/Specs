@@ -1,0 +1,169 @@
+{
+  "name": "OKHBuilder",
+  "version": "0.2.0",
+  "summary": "A pod for ios uni-app",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/On1Key/OKHBuilder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "on1key": "on1key@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/On1Key/OKHBuilder.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "OKHBuilder/Classes/**/*",
+  "resources": [
+    "OKHBuilder/Resources/Bundles/*",
+    "*.{md,podspec}"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": [
+    "Base",
+    "Third",
+    "Tool"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_libraries": "OKHBuilder/Libraries/Base/*.{a}",
+      "frameworks": [
+        "CoreText",
+        "JavaScriptCore",
+        "WebKit",
+        "CoreTelephony",
+        "MobileCoreServices",
+        "SystemConfiguration",
+        "MediaPlayer",
+        "AudioToolbox",
+        "QuartzCore",
+        "CFNetwork",
+        "Foundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "UIKit",
+        "AVFoundation",
+        "AssetsLibrary",
+        "AddressBook",
+        "CoreLocation",
+        "QuickLook",
+        "UserNotifications"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Tool",
+      "vendored_libraries": "OKHBuilder/Libraries/Tool/*.{a}",
+      "vendored_frameworks": "OKHBuilder/Frameworks/Tool/*.{framework}",
+      "frameworks": [
+        "CoreMedia",
+        "CoreVideo",
+        "CoreMotion",
+        "CoreLocation"
+      ],
+      "libraries": "sqlite3.0",
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Third",
+      "vendored_libraries": "OKHBuilder/Libraries/Third/*.{a}",
+      "libraries": "xml2",
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ],
+        "OKHBuilder/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "Audio",
+      "vendored_libraries": "OKHBuilder/Libraries/Audio/*.{a}",
+      "frameworks": [
+        "AVFoundation"
+      ],
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ],
+        "OKHBuilder/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "vendored_libraries": "OKHBuilder/Libraries/Location/*.{a}",
+      "frameworks": [
+        "CoreLocation",
+        "CoreBluetooth"
+      ],
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ],
+        "OKHBuilder/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "Camera",
+      "vendored_libraries": "OKHBuilder/Libraries/Camera/*.{a}",
+      "frameworks": [
+        "Accelerate",
+        "AssetsLibrary",
+        "Photos",
+        "CoreMedia",
+        "MetalKit",
+        "GLKit"
+      ],
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ],
+        "OKHBuilder/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "Barcode",
+      "vendored_libraries": "OKHBuilder/Libraries/Barcode/*.{a}",
+      "frameworks": [
+        "AVFoundation",
+        "ImageIO",
+        "CoreVideo",
+        "CoreMedia"
+      ],
+      "libraries": "iconv.2",
+      "dependencies": {
+        "OKHBuilder/Base": [
+
+        ],
+        "OKHBuilder/Tool": [
+
+        ],
+        "OKHBuilder/Third": [
+
+        ]
+      }
+    }
+  ]
+}
