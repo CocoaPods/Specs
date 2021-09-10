@@ -1,0 +1,43 @@
+{
+  "name": "hippy",
+  "version": "2.9.0",
+  "summary": "Hippy library for iOS",
+  "description": "Hippy is a cross-platform development framework created by Tencent, aiming to help developers write once, run on three platforms(iOS, Android and Web). \nHippy is quite friendly to web developers, especially who are familiar with React or Vue. With Hippy, developers are able to create the cross platform app easily.",
+  "homepage": "http://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mengyanluo": "mengyanluo@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "2.9.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ios/sdk/**/*.{h,m,c,mm,s,cpp,cc}",
+  "public_header_files": "ios/sdk/**/*.h",
+  "default_subspecs": "core",
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-force_load \"${PODS_CONFIGURATION_BUILD_DIR}/hippy/libhippy.a\""
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "core/**/*.{h,cc}",
+      "exclude_files": [
+        "core/include/core/napi/v8",
+        "core/src/napi/v8",
+        "core/js",
+        "core/third_party/base/src/platform/adr"
+      ],
+      "libraries": "c++",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/core/third_party/base/include/ ${PODS_ROOT}/hippy/core/include/"
+      }
+    }
+  ]
+}
