@@ -1,0 +1,79 @@
+{
+  "name": "JSNetwork",
+  "version": "0.8.8",
+  "summary": "离散式网络框架，面向协议编程，类似Swift的Moya",
+  "homepage": "https://github.com/jiasongs/JSNetwork",
+  "authors": {
+    "jiasong": "593908937@qq.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "source": {
+    "git": "https://github.com/jiasongs/JSNetwork.git",
+    "tag": "0.8.8"
+  },
+  "frameworks": "Foundation",
+  "license": "MIT",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/**/*.{swift,h,m}",
+      "exclude_files": [
+        "Sources/Extension/Swift",
+        "Sources/Request/AFNetworking",
+        "Sources/Request/Alamofire",
+        "Sources/Plugins"
+      ]
+    },
+    {
+      "name": "ExtensionForSwift",
+      "source_files": "Sources/Extension/Swift/*.{swift,h,m}",
+      "dependencies": {
+        "JSNetwork/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "RequestForAFNetworking",
+      "source_files": "Sources/Request/AFNetworking/*.{swift,h,m}",
+      "dependencies": {
+        "JSNetwork/Core": [
+
+        ],
+        "AFNetworking": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "RequestForAlamofire",
+      "source_files": "Sources/Request/Alamofire/*.{swift,h,m}",
+      "dependencies": {
+        "JSNetwork/Core": [
+
+        ],
+        "Alamofire": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "Plugins",
+      "source_files": "Sources/Plugins/*.{swift,h,m}",
+      "dependencies": {
+        "JSNetwork/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
