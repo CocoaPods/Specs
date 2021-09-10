@@ -1,0 +1,102 @@
+{
+  "name": "Snabble",
+  "version": "0.17.8",
+  "summary": "The snabble iOS SDK",
+  "description": "snabble - the self-scanning and checkout platform\nThe SDK provides scanning, checkout and payment services and UI components based on the snabble SaaS platform.",
+  "homepage": "https://snabble.io/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "snabble GmbH": "info@snabble.io"
+  },
+  "source": {
+    "git": "https://github.com/snabble/iOS-SDK.git",
+    "tag": "0.17.8"
+  },
+  "social_media_url": "https://twitter.com/snabble_io",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "default_subspecs": [
+    "Core",
+    "UI"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Snabble/Core/**/*.swift",
+      "dependencies": {
+        "GRDB.swift": [
+          "~> 5"
+        ],
+        "Zip": [
+          "~> 2"
+        ],
+        "OneTimePassword": [
+          "~> 3"
+        ],
+        "TrustKit": [
+          "~> 1"
+        ],
+        "KeychainAccess": [
+          "~> 4"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Snabble/UI/**/*.swift",
+      "dependencies": {
+        "Snabble/Core": [
+
+        ],
+        "SDCAlertView": [
+          "~> 12"
+        ],
+        "ColorCompatibility": [
+
+        ],
+        "Capable/Colors": [
+
+        ],
+        "DeviceKit": [
+          "~> 4"
+        ],
+        "Pulley": [
+          "~> 2.9"
+        ]
+      },
+      "resource_bundles": {
+        "Snabble": [
+          "Snabble/UI/*.lproj/*.strings",
+          "Snabble/UI/**/*.xib",
+          "Snabble/UI/**/*.der",
+          "Snabble.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Datatrans",
+      "dependencies": {
+        "Snabble/UI": [
+
+        ],
+        "Datatrans": [
+
+        ]
+      },
+      "source_files": "Snabble/Datatrans/**/*.swift",
+      "resource_bundles": {
+        "SnabbleDT": [
+          "Snabble/Datatrans/**/*.xib"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
