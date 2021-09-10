@@ -1,0 +1,61 @@
+{
+  "name": "LibTorch-Lite-Nightly",
+  "version": "1.10.0.20210910",
+  "authors": "PyTorch Team",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://github.com/pytorch/pytorch",
+  "source": {
+    "http": "https://ossci-ios-build.s3.amazonaws.com/libtorch_lite_ios_nightly_1.10.0.20210910.zip"
+  },
+  "summary": "The nightly build version of PyTorch C++ library for iOS",
+  "description": "The nightly build version of PyTorch C++ library for iOS.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/LibTorch-Lite-Nightly/install/include/\"",
+    "OTHER_LDFLAGS": "-force_load \"$(PODS_ROOT)/LibTorch-Lite-Nightly/install/lib/libtorch.a\" -force_load \"$(PODS_ROOT)/LibTorch-Lite-Nightly/install/lib/libtorch_cpu.a\"",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/LibTorch-Lite-Nightly/install/include/\"",
+    "VALID_ARCHS": "x86_64 arm64"
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "frameworks": [
+    "Accelerate",
+    "MetalPerformanceShaders",
+    "CoreML"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "LibTorch-Lite-Nightly/Torch": [
+
+        ]
+      },
+      "source_files": "src/*.{h,cpp,c,cc}",
+      "public_header_files": [
+        "src/LibTorch-Lite.h"
+      ]
+    },
+    {
+      "name": "Torch",
+      "header_mappings_dir": "install/include/",
+      "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+      "vendored_libraries": "install/lib/*.a",
+      "libraries": [
+        "c++",
+        "stdc++"
+      ]
+    }
+  ]
+}
