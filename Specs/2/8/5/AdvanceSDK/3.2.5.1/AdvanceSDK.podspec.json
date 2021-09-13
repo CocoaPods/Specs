@@ -1,0 +1,235 @@
+{
+  "name": "AdvanceSDK",
+  "version": "3.2.5.1",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "bayescom iOS AdvabceSDK",
+  "description": "Blink倍联——免费透明的流量变现神器 \n600+ 移动媒体选择的广告商业化管理工具，定制私有的移动媒体商业化解决方案。优质上游资源一网打尽，接入方式快速透明稳定。支持流量分发、渠道策略、精准投放、数据报表、排期管理、广告审核等全流程业务场景。",
+  "homepage": "http://www.bayescom.com/",
+  "authors": {
+    "bayescom": "http://www.bayescom.com/"
+  },
+  "source": {
+    "git": "https://github.com/bayescom/AdvanceSDK.git",
+    "tag": "3.2.5.1"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "VALID_ARCHS": "i386 armv7 x86_64 arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 armv7s x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "AdvanceSDK/Core/**/*.{h,m}",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "Adspot",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adspot/**/*.{h,m}"
+    },
+    {
+      "name": "Mercury",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ],
+        "AdvanceSDK/Adspot": [
+
+        ],
+        "MercurySDK": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adapter/mercury/**/*.{h,m}",
+      "frameworks": [
+        "StoreKit",
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "CSJ",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ],
+        "AdvanceSDK/Adspot": [
+
+        ],
+        "Ads-CN": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adapter/csj/**/*.{h,m}",
+      "frameworks": [
+        "UIKit",
+        "MapKit",
+        "WebKit",
+        "MediaPlayer",
+        "CoreLocation",
+        "AdSupport",
+        "CoreMedia",
+        "AVFoundation",
+        "CoreTelephony",
+        "StoreKit",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "CoreMotion",
+        "Accelerate",
+        "AudioToolbox",
+        "JavaScriptCore",
+        "Security",
+        "CoreImage",
+        "AudioToolbox",
+        "ImageIO",
+        "QuartzCore",
+        "CoreGraphics",
+        "CoreText"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "z",
+        "sqlite3",
+        "bz2",
+        "xml2",
+        "iconv",
+        "c++abi"
+      ]
+    },
+    {
+      "name": "GDT",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ],
+        "AdvanceSDK/Adspot": [
+
+        ],
+        "GDTMobSDK": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adapter/gdt/**/*.{h,m}",
+      "frameworks": [
+        "AdSupport",
+        "CoreLocation",
+        "QuartzCore",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "Security",
+        "StoreKit",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "libraries": [
+        "xml2",
+        "z"
+      ]
+    },
+    {
+      "name": "KS",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ],
+        "AdvanceSDK/Adspot": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adapter/Kuaishou/**/*.{h,m}",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "MobileCoreServices",
+        "CoreGraphics",
+        "Security",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "AdSupport",
+        "CoreData",
+        "StoreKit",
+        "AVFoundation",
+        "MediaPlayer",
+        "CoreMedia",
+        "WebKit",
+        "Accelerate",
+        "CoreLocation",
+        "AVKit",
+        "MessageUI",
+        "QuickLook",
+        "AddressBook"
+      ],
+      "libraries": [
+        "z",
+        "resolv.9",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "ios": {
+        "vendored_frameworks": "AdvanceSDK/Adapter/Kuaishou/KuaishouFrameWork/KSAdSDK.framework"
+      },
+      "vendored_frameworks": "KSAdSDK.framework"
+    },
+    {
+      "name": "BD",
+      "dependencies": {
+        "AdvanceSDK/Core": [
+
+        ],
+        "AdvanceSDK/Adspot": [
+
+        ],
+        "BaiduMobAdSDK": [
+
+        ]
+      },
+      "source_files": "AdvanceSDK/Adapter/bd/**/*.{h,m}",
+      "frameworks": [
+        "CoreLocation",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreMotion",
+        "CoreTelephony",
+        "AdSupport",
+        "SystemConfiguration",
+        "QuartzCore",
+        "WebKit",
+        "MessageUI",
+        "SafariServices",
+        "AVFoundation",
+        "EventKit",
+        "QuartzCore",
+        "CoreMedia",
+        "StoreKit"
+      ],
+      "libraries": "c++",
+      "weak_frameworks": "WebKit"
+    }
+  ]
+}
