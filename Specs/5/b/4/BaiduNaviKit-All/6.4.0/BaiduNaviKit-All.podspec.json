@@ -1,0 +1,152 @@
+{
+  "name": "BaiduNaviKit-All",
+  "version": "6.4.0",
+  "summary": "百度导航iOS SDK（CocoaPods百度导航官方库, 导航+步骑行+基础地图包）",
+  "description": "百度导航iOS SDK：百度导航官方CocoaPods.\n百度iOS导航SDK是一套基于iOS 8及以上版本设备的应用程序接口。\n您可以使用该套 SDK开发适用于iOS系统移动设备的导航应用，通过调用导航SDK接口，\n您可以轻松访问百度导航的服务和数据，构建功能丰富、交互性强的导航类应用程序\n百度iOS导航SDK提供的所有服务是免费的，接口使用无次数限制。",
+  "homepage": "https://lbsyun.baidu.com/index.php?title=ios-navsdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "baidu navi sdk": "dituapi_01@163.com"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/naviall/6.4.0/BaiduNaviKit-AllV6.4.0.zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-w",
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "Accelerate",
+    "AdSupport",
+    "AssetsLibrary",
+    "UserNotifications",
+    "MediaPlayer",
+    "CoreLocation",
+    "CoreBluetooth",
+    "CoreTelephony",
+    "CoreMotion"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "iconv",
+    "z"
+  ],
+  "default_subspecs": [
+    "Base",
+    "Map",
+    "Navi",
+    "WalkNavi"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "BaiduNaviKit-All/MapSDK/thirdlibs/*.{a}",
+        "source_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Base.framework/Headers/*.h",
+        "public_header_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Base.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Base": [
+
+          ]
+        },
+        "resources": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Map.framework/*.bundle",
+        "vendored_frameworks": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Map.framework",
+        "source_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Map.framework/Headers/*.h",
+        "public_header_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Map.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Navi",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Map": [
+
+          ]
+        },
+        "source_files": "BaiduNaviKit-All/NaviSDK/inc/*.{h}",
+        "public_header_files": "BaiduNaviKit-All/NaviSDK/inc/*.{h}",
+        "vendored_libraries": "BaiduNaviKit-All/NaviSDK/lib/libbaiduNaviOpenSDK.a",
+        "resources": [
+          "BaiduNaviKit-All/NaviSDK/resource/baiduNaviSDK.bundle",
+          "BaiduNaviKit-All/NaviSDK/resource/mode.bundle",
+          "BaiduNaviKit-All/NaviSDK/resource/default.metallib"
+        ]
+      }
+    },
+    {
+      "name": "WalkNavi",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Map": [
+
+          ]
+        },
+        "resources": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_WalkNavi.framework",
+        "source_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_WalkNavi.framework/Headers/*.h",
+        "public_header_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_WalkNavi.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "TTS",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Navi": [
+
+          ]
+        },
+        "vendored_libraries": "BaiduNaviKit-All/NaviSDK/lib/libBNTTSComponent_OpenSDK.a",
+        "resources": [
+          "BaiduNaviKit-All/NaviSDK/resource/baiduTTSSDK.bundle"
+        ]
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Search.framework",
+        "source_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Search.framework/Headers/*.h",
+        "public_header_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Search.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviKit-All/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Utils.framework",
+        "source_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Utils.framework/Headers/*.h",
+        "public_header_files": "BaiduNaviKit-All/MapSDK/BaiduMapAPI_Utils.framework/Headers/*.h"
+      }
+    }
+  ]
+}
