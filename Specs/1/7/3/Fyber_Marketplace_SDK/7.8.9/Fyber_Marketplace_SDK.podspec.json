@@ -1,0 +1,71 @@
+{
+  "name": "Fyber_Marketplace_SDK",
+  "version": "7.8.9",
+  "authors": {
+    "Fyber": "publisher.support@fyber.com"
+  },
+  "summary": "Fyber Marketplace SDK",
+  "description": "Fyber Marketplace SDK - Video Audience Monetisation Platform for iOS devices",
+  "homepage": "https://marketplace-supply.fyber.com/docs/integrating-ios-sdk",
+  "license": {
+    "type": "Commercial",
+    "file": "license.md"
+  },
+  "social_media_url": "https://www.facebook.com/fybernv/",
+  "source": {
+    "git": "https://github.com/inner-active/InneractiveAdSDK-iOS.git",
+    "branch": "7.8.9",
+    "tag": "7.8.9"
+  },
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  },
+  "subspecs": [
+    {
+      "name": "IASDKCore",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics",
+          "MediaPlayer",
+          "CoreTelephony",
+          "StoreKit",
+          "AdSupport",
+          "AVFoundation",
+          "CoreMedia",
+          "WebKit"
+        ],
+        "libraries": "xml2.2",
+        "xcconfig": {
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      },
+      "vendored_frameworks": "IASDKCore/IASDKCore.xcframework",
+      "resources": "IASDKCore/IASDKCore.xcframework/IASDKResources.bundle",
+      "source_files": "IASDKCore/SwiftIntegration/IASDKCore-Bridging-Header.h"
+    },
+    {
+      "name": "IASDKMRAID",
+      "vendored_frameworks": "IASDKMRAID/IASDKMRAID.xcframework",
+      "dependencies": {
+        "Fyber_Marketplace_SDK/IASDKCore": [
+
+        ]
+      },
+      "source_files": "IASDKMRAID/SwiftIntegration/IASDKMRAID-Bridging-Header.h"
+    },
+    {
+      "name": "IASDKVideo",
+      "vendored_frameworks": "IASDKVideo/IASDKVideo.xcframework",
+      "dependencies": {
+        "Fyber_Marketplace_SDK/IASDKCore": [
+
+        ]
+      },
+      "source_files": "IASDKVideo/SwiftIntegration/IASDKVideo-Bridging-Header.h"
+    }
+  ]
+}
