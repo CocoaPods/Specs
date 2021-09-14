@@ -1,0 +1,43 @@
+{
+  "name": "Amplify",
+  "version": "1.13.5-unstable.2",
+  "summary": "Amazon Web Services Amplify for iOS.",
+  "description": "AWS Amplify for iOS provides a declarative library for application development using cloud services",
+  "homepage": "https://github.com/aws-amplify/amplify-ios",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Amazon Web Services": "amazonwebservices"
+  },
+  "source": {
+    "git": "https://github.com/aws-amplify/amplify-ios.git",
+    "tag": "v1.13.5-unstable.2"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "Amplify/**/*.swift",
+  "default_subspecs": "Default",
+  "weak_frameworks": "SwiftUI",
+  "subspecs": [
+    {
+      "name": "Default",
+      "preserve_paths": "AmplifyTools",
+      "script_phases": {
+        "name": "Default",
+        "script": "echo \"no-op\"",
+        "execution_position": "before_compile"
+      }
+    },
+    {
+      "name": "Tools",
+      "preserve_paths": "AmplifyTools",
+      "script_phases": {
+        "name": "AmplifyTools",
+        "script": "mkdir -p \"${PODS_ROOT}/AmplifyTools\"; cp -vf \"${PODS_TARGET_SRCROOT}/AmplifyTools/amplify-tools.sh\" \"${PODS_ROOT}/AmplifyTools/.\"",
+        "execution_position": "before_compile"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
