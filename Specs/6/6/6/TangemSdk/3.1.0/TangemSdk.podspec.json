@@ -1,0 +1,56 @@
+{
+  "name": "TangemSdk",
+  "version": "3.1.0",
+  "summary": "Use TangemSdk for Tangem cards integration",
+  "description": "Tangem is a Swiss-based secure hardware wallet manufacturer that enables blockchain-based assets to be kept in custody within smart physical banknotes and accessed via NFC technology. Tangem’s mission is to make digital assets accessible, affordable and convenient for consumers.",
+  "homepage": "https://github.com/Tangem/tangem-sdk-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tangem": "hello@tangem.com"
+  },
+  "source": {
+    "git": "https://github.com/Tangem/tangem-sdk-ios.git",
+    "tag": "3.1.0"
+  },
+  "social_media_url": "https://twitter.com/Tangem",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": [
+    "TangemSdk/TangemSdk/**/*.{swift}",
+    "TangemSdk/TangemSdk/TangemSdk.h",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/*.{h,c}",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/include/*.{h,c}",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/modules/{recovery,ecdh}/*.{h,c}"
+  ],
+  "exclude_files": [
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/*test*.{c,h}",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/gen_context.c",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/*bench*.{c,h}",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/contrib/*",
+    "TangemSdk/TangemSdk/Crypto/secp256k1/src/modules/{recovery,ecdh}/*test*.{c,h}"
+  ],
+  "preserve_paths": "TangemSdk/TangemSdk/module.modulemap",
+  "public_header_files": "TangemSdk/TangemSdk/TangemSdk.h",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/TangemSdk/**",
+    "OTHER_CFLAGS": "-pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-function -Wno-long-long -Wno-overlength-strings -O3"
+  },
+  "weak_frameworks": [
+    "CoreNFC",
+    "CryptoKit",
+    "Combine",
+    "SwiftUI"
+  ],
+  "resource_bundles": {
+    "TangemSdk": [
+      "TangemSdk/TangemSdk/**/*.lproj/*.strings",
+      "TangemSdk/TangemSdk/Haptics/*.ahap"
+    ]
+  },
+  "swift_version": "5.0"
+}
