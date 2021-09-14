@@ -1,0 +1,110 @@
+{
+  "name": "AppCenter",
+  "version": "4.3.0",
+  "summary": "Visual Studio App Center is your continuous integration, delivery and learning solution for iOS and macOS apps.",
+  "description": "Visual Studio App Center is your continuous integration, delivery and learning solution for iOS and macOS apps.\nGet faster release cycles, higher-quality apps, and the insights to build what users want.\n\nThe App Center SDK uses a modular architecture so you can use any or all of the following services:\n\n1. App Center Analytics (iOS, macOS and tvOS):\nApp Center Analytics helps you understand user behavior and customer engagement to improve your app. The SDK automatically captures session count, device properties like model, OS version, etc. You can define your own custom events to measure things that matter to you. All the information captured is available in the App Center portal for you to analyze the data.\n\n2. App Center Crashes (iOS, macOS and tvOS):\nApp Center Crashes will automatically generate a crash log every time your app crashes. The log is first written to the device's storage and when the user starts the app again, the crash report will be sent to App Center. Collecting crashes works for both beta and live apps, i.e. those submitted to the App Store. Crash logs contain valuable information for you to help fix the crash.\n\n3. App Center Distribute (iOS only):\nApp Center Distribute lets your users install a new version of the app when you distribute it with App Center. With a new version of the app available, the SDK will present an update dialog to the users to either download or postpone the new version. Once they choose to update, the SDK will start to update your application. This feature is automatically disabled on versions of your app deployed to the Apple App Store.",
+  "homepage": "https://appcenter.ms",
+  "documentation_url": "https://docs.microsoft.com/en-us/appcenter/sdk",
+  "social_media_url": "https://twitter.com/vsappcenter",
+  "license": {
+    "type": "MIT",
+    "file": "AppCenter-SDK-Apple/LICENSE"
+  },
+  "authors": {
+    "Microsoft": "appcentersdk@microsoft.com"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9",
+    "tvos": "11.0"
+  },
+  "source": {
+    "http": "https://github.com/microsoft/appcenter-sdk-apple/releases/download/4.3.0/AppCenter-SDK-Apple-XCFramework-4.3.0.zip"
+  },
+  "preserve_paths": "AppCenter-SDK-Apple/README.md",
+  "default_subspecs": [
+    "Analytics",
+    "Crashes"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration"
+      ],
+      "ios": {
+        "frameworks": [
+          "CoreTelephony",
+          "UIKit"
+        ]
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      },
+      "tvos": {
+        "frameworks": "UIKit"
+      },
+      "vendored_frameworks": "AppCenter-SDK-Apple/AppCenter.xcframework",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ]
+    },
+    {
+      "name": "Analytics",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "ios": {
+        "frameworks": "UIKit"
+      },
+      "osx": {
+        "frameworks": "AppKit"
+      },
+      "tvos": {
+        "frameworks": "UIKit"
+      },
+      "vendored_frameworks": "AppCenter-SDK-Apple/AppCenterAnalytics.xcframework"
+    },
+    {
+      "name": "Crashes",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "vendored_frameworks": "AppCenter-SDK-Apple/AppCenterCrashes.xcframework"
+    },
+    {
+      "name": "Distribute",
+      "dependencies": {
+        "AppCenter/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "ios": {
+        "frameworks": "UIKit",
+        "weak_frameworks": [
+          "SafariServices",
+          "AuthenticationServices"
+        ],
+        "resource_bundles": {
+          "AppCenterDistributeResources": [
+            "AppCenter-SDK-Apple/AppCenterDistributeResources.bundle/*.lproj"
+          ]
+        },
+        "vendored_frameworks": "AppCenter-SDK-Apple/AppCenterDistribute.xcframework"
+      }
+    }
+  ]
+}
