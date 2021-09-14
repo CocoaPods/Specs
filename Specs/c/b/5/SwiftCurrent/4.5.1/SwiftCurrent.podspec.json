@@ -1,0 +1,87 @@
+{
+  "name": "SwiftCurrent",
+  "version": "4.5.1",
+  "summary": "A library for complex workflows in Swift",
+  "description": "SwiftCurrent is a library that lets you easily manage journeys through your Swift application.",
+  "homepage": "https://github.com/wwt/SwiftCurrent",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "World Wide Technology, Inc.": "SwiftCurrent@wwt.com"
+  },
+  "source": {
+    "git": "https://github.com/wwt/SwiftCurrent.git",
+    "tag": "4.5.1"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "tvos": "14.0"
+  },
+  "swift_versions": "5.1",
+  "module_name": "SwiftCurrent",
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "11.0",
+        "osx": "11.0",
+        "tvos": "14.0",
+        "watchos": "7.0"
+      },
+      "source_files": "Sources/SwiftCurrent/**/*.{swift,h,m}"
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "11.0",
+        "tvos": "14.0"
+      },
+      "source_files": "Sources/SwiftCurrent_UIKit/**/*.{swift,h,m}",
+      "dependencies": {
+        "SwiftCurrent/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SwiftUI",
+      "platforms": {
+        "ios": "11.0",
+        "osx": "11.0",
+        "tvos": "14.0",
+        "watchos": "7.0"
+      },
+      "source_files": "Sources/SwiftCurrent_SwiftUI/**/*.{swift,h,m}",
+      "dependencies": {
+        "SwiftCurrent/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Testing",
+      "platforms": {
+        "ios": "11.0",
+        "osx": "11.0",
+        "tvos": "14.0"
+      },
+      "source_files": [
+        "Sources/SwiftCurrent_Testing/**/*.{swift,h,m}",
+        "Sources/SwiftCurrent_Testing_ObjC/**/*.{swift,h,m}"
+      ],
+      "exclude_files": "Sources/SwiftCurrent_Testing_ObjC/*-Bridging-Header.h",
+      "dependencies": {
+        "SwiftCurrent/Core": [
+
+        ]
+      },
+      "weak_frameworks": "XCTest",
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
