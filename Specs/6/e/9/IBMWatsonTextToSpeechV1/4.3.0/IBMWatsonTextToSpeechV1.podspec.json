@@ -1,0 +1,53 @@
+{
+  "name": "IBMWatsonTextToSpeechV1",
+  "version": "4.3.0",
+  "summary": "Client framework for the IBM Watson Text to Speech service",
+  "description": "IBM® Text to Speech uses IBM's speech-synthesis capabilities to convert written text to natural-sounding speech.\nThe service streams the results back to the client with minimal delay.",
+  "homepage": "https://www.ibm.com/watson/services/text-to-speech/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jeff Arn": "jtarn@us.ibm.com",
+    "Mike Kistler": "mkistler@us.ibm.com"
+  },
+  "module_name": "TextToSpeech",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/watson-developer-cloud/swift-sdk.git",
+    "tag": "v4.3.0"
+  },
+  "source_files": [
+    "Sources/TextToSpeechV1/**/*.swift",
+    "Sources/SupportingFiles/InsecureConnection.swift",
+    "Sources/SupportingFiles/Shared.swift",
+    "Sources/SupportingFiles/Dependencies/Source/**/*"
+  ],
+  "exclude_files": [
+    "Sources/TextToSpeechV1/Shared.swift",
+    "Sources/TextToSpeechV1/InsecureConnection.swift",
+    "**/config_types.h"
+  ],
+  "swift_versions": [
+    "4.2",
+    "5.0",
+    "5.1"
+  ],
+  "dependencies": {
+    "IBMSwiftSDKCore": [
+      "~> 1.0.0"
+    ]
+  },
+  "vendored_libraries": "Sources/SupportingFiles/Dependencies/Libraries/*.a",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "prepare_command": "cd Sources/SupportingFiles/Dependencies/Libraries\nmv libogg.a libogg_tts.a\nmv libopus.a libopus_tts.a\ncd ../Source\nmv ogg/* .\nmv opus/* .\nrm -rf ogg\nrm -rf opus",
+  "swift_version": "5.1"
+}
