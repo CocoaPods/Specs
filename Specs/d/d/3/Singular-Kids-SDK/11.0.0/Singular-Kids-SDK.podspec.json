@@ -1,0 +1,45 @@
+{
+  "name": "Singular-Kids-SDK",
+  "version": "11.0.0",
+  "summary": "Singular's iOS Kids SDK",
+  "description": "Singular's SDK integration for iOS",
+  "license": "MIT",
+  "homepage": "https://www.singular.net/",
+  "authors": "Singular Labs",
+  "source": {
+    "git": "https://github.com/singular-labs/Singular-Kids-SDK.git",
+    "tag": "11.0.0"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "source_files": "headers/*.h",
+    "resources": [
+      "headers/*.js"
+    ],
+    "vendored_frameworks": "frameworks/Singular.framework",
+    "frameworks": [
+      "Security",
+      "SystemConfiguration",
+      "iAd",
+      "StoreKit",
+      "WebKit"
+    ],
+    "libraries": [
+      "sqlite3.0",
+      "z"
+    ],
+    "pod_target_xcconfig": {
+      "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/Singular-SDK/frameworks/**",
+      "OTHER_LDFLAGS": "$(inherited) -framework \"Singular\""
+    }
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  }
+}
