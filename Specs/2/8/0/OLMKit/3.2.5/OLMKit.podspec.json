@@ -1,0 +1,57 @@
+{
+  "name": "OLMKit",
+  "version": "3.2.5",
+  "summary": "An Objective-C wrapper of olm (http://matrix.org/git/olm)",
+  "description": "olm is an implementation of the Double Ratchet cryptographic ratchet in C++",
+  "homepage": "https://gitlab.matrix.org/matrix-org/olm",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Chris Ballinger": "chrisballinger@gmail.com",
+    "matrix.org": "support@matrix.org"
+  },
+  "platforms": {
+    "ios": "6.0",
+    "osx": "10.9"
+  },
+  "public_header_files": "xcode/OLMKit/*.h",
+  "source": {
+    "git": "https://gitlab.matrix.org/matrix-org/olm.git",
+    "tag": "3.2.5"
+  },
+  "source_files": [
+    "xcode/OLMKit/*.{h,m}",
+    "include/**/*.{h,hh}",
+    "src/*.{c,cpp}",
+    "lib/crypto-algorithms/sha256.c",
+    "lib/crypto-algorithms/aes.c",
+    "lib/curve25519-donna/curve25519-donna.c"
+  ],
+  "private_header_files": "xcode/OLMKit/*_Private.h",
+  "preserve_paths": "lib/ed25519/**/*.{h,c}",
+  "libraries": "c++",
+  "compiler_flags": "-g -O3 -DOLMLIB_VERSION_MAJOR=3 -DOLMLIB_VERSION_MINOR=2 -DOLMLIB_VERSION_PATCH=5",
+  "xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "${PODS_ROOT}/OLMKit/include ${PODS_ROOT}/OLMKit/lib /Users/stefanceriu/Developer/olm/include /Users/stefanceriu/Developer/olm/lib"
+  },
+  "subspecs": [
+    {
+      "name": "olmc",
+      "source_files": [
+        "src/*.{c}",
+        "lib/curve25519-donna.h",
+        "lib/crypto-algorithms/sha256.{h,c}",
+        "lib/crypto-algorithms/aes.{h,c}",
+        "lib/curve25519-donna/curve25519-donna.c"
+      ],
+      "compiler_flags": "-std=c99 -fPIC"
+    },
+    {
+      "name": "olmcpp",
+      "source_files": "src/*.{cpp}",
+      "compiler_flags": "-std=c++11 -fPIC"
+    }
+  ]
+}
