@@ -1,0 +1,99 @@
+{
+  "name": "AdmixerSDK",
+  "version": "0.7.17",
+  "summary": "Admixer iOS Mobile Advertising SDK.",
+  "description": "AdmixerSDK supports banner and interstitial ad formats and can show AdMob ad through mediation.",
+  "homepage": "https://admixer.visualstudio.com/_git/Admixer.IOS.SDK.Examples",
+  "authors": {
+    "Admixer Mobile Team": "mobileteam@admixer.net"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://admixer.visualstudio.com/DefaultCollection/Admixer.IOS.SDK.Examples/_git/Admixer.IOS.SDK.Examples",
+    "tag": "0.7.17"
+  },
+  "requires_arc": true,
+  "default_subspecs": "AdmixerSDK",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "AdmixerSDK",
+      "source_files": "AdmixerSDK/AdmixerSDK/**/*.{swift,h}",
+      "public_header_files": "AdmixerSDK/AdmixerSDK/*.h",
+      "resources": "AdmixerSDK/AdmixerSDK/**/*.{png,bundle,xib,nib,js,html,strings}",
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "GoogleMediation",
+      "dependencies": {
+        "AdmixerSDK/AdmixerSDK": [
+          "0.7.17"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 8.0"
+        ]
+      },
+      "source_files": "mediation/mediation/GoogleMediation/GoogleMediation/*.{swift,h}",
+      "public_header_files": "mediation/mediation/GoogleMediation/Googlemediation/*.h",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+      }
+    },
+    {
+      "name": "GoogleMediationPre8",
+      "dependencies": {
+        "AdmixerSDK/AdmixerSDK": [
+          "0.7.17"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.69.0"
+        ]
+      },
+      "source_files": "mediation/mediation/GoogleMediationPre8/GoogleMediationPre8/*.{swift,h}",
+      "public_header_files": "mediation/mediaiton/GoogleMediationPre8/GoogleMediationPre8/*.h"
+    },
+    {
+      "name": "GoogleMediationAdapter",
+      "dependencies": {
+        "AdmixerSDK/AdmixerSDK": [
+          "0.7.17"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 8.0"
+        ]
+      },
+      "source_files": "mediation/mediation_adapter/GoogleMediationAdapter/GoogleMediationAdapter/*.{swift,h}",
+      "public_header_files": "mediation/mediation_adapter/GoogleMediationAdapter/GoogleMediationAdapter/*.h",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+      }
+    },
+    {
+      "name": "GoogleMediationAdapterPre8",
+      "dependencies": {
+        "AdmixerSDK/AdmixerSDK": [
+          "0.7.17"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "7.69.0"
+        ]
+      },
+      "source_files": "mediation/mediation_adapter/GoogleMediationAdapterPre8/GoogleMediationAdapterPre8/*.{swift,h}",
+      "public_header_files": "mediation/mediation_adapter/GoogleMediationAdapterPre8/GoogleMediationAdapterPre8/*.h"
+    }
+  ],
+  "swift_version": "5.0"
+}
