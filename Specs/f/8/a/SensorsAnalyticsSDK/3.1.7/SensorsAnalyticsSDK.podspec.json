@@ -1,0 +1,198 @@
+{
+  "name": "SensorsAnalyticsSDK",
+  "version": "3.1.7",
+  "summary": "The official iOS SDK of Sensors Analytics.",
+  "homepage": "http://www.sensorsdata.cn",
+  "source": {
+    "git": "https://github.com/sensorsdata/sa-sdk-ios.git",
+    "tag": "v3.1.7"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "Yuhan ZOU": "zouyuhan@sensorsdata.cn"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "sqlite3",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "SensorsAnalyticsSDK/Core/**/*.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK.h",
+        "SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK+Public.h",
+        "SensorsAnalyticsSDK/Core/SAAppExtensionDataManager.h",
+        "SensorsAnalyticsSDK/Core/SASecurityPolicy.h",
+        "SensorsAnalyticsSDK/Core/SAConfigOptions.h",
+        "SensorsAnalyticsSDK/Core/SAConstants.h"
+      ],
+      "ios": {
+        "source_files": [
+          "SensorsAnalyticsSDK/RemoteConfig/**/*.{h,m}",
+          "SensorsAnalyticsSDK/ChannelMatch/**/*.{h,m}",
+          "SensorsAnalyticsSDK/Encrypt/**/*.{h,m}",
+          "SensorsAnalyticsSDK/Deeplink/**/*.{h,m}",
+          "SensorsAnalyticsSDK/DebugMode/**/*.{h,m}"
+        ],
+        "public_header_files": [
+          "SensorsAnalyticsSDK/Encrypt/SAConfigOptions+Encrypt.h",
+          "SensorsAnalyticsSDK/Encrypt/SAEncryptProtocol.h",
+          "SensorsAnalyticsSDK/Encrypt/SASecretKey.h",
+          "SensorsAnalyticsSDK/ChannelMatch/SensorsAnalyticsSDK+SAChannelMatch.h"
+        ],
+        "resources": "SensorsAnalyticsSDK/SensorsAnalyticsSDK.bundle",
+        "frameworks": "CoreTelephony"
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "SensorsAnalyticsSDK/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "SensorsAnalyticsSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "CAID",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/CAID/**/*.{h,m}",
+      "private_header_files": "SensorsAnalyticsSDK/CAID/**/*.h"
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Visualized/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/Visualized/SensorsAnalyticsSDK+Visualized.h"
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Location/**/*.{h,m}",
+      "private_header_files": "SensorsAnalyticsSDK/Location/**/*.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/DeviceOrientation/**/*.{h,m}",
+      "private_header_files": "SensorsAnalyticsSDK/DeviceOrientation/**/*.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/AppPush/**/*.{h,m}",
+      "private_header_files": "SensorsAnalyticsSDK/AppPush/**/*.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Exception/**/*.{h,m}",
+      "private_header_files": "SensorsAnalyticsSDK/Exception/**/*.h"
+    },
+    {
+      "name": "WebView",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/WebView/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/WebView/SensorsAnalyticsSDK+WebView.h"
+    },
+    {
+      "name": "WKWebView",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/WKWebView/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h"
+    }
+  ]
+}
