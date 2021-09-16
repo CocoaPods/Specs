@@ -1,0 +1,351 @@
+{
+  "name": "FlipperKit",
+  "version": "0.109.0",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/facebook/flipper",
+  "summary": "Sonar iOS podspec",
+  "authors": "Facebook",
+  "static_framework": true,
+  "source": {
+    "git": "https://github.com/facebook/flipper.git",
+    "tag": "v0.109.0"
+  },
+  "module_name": "FlipperKit",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "FBDefines",
+      "header_dir": "FBDefines",
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/FBDefines/**/*.h",
+      "public_header_files": "iOS/FBDefines/**/*.h"
+    },
+    {
+      "name": "CppBridge",
+      "header_dir": "CppBridge",
+      "dependencies": {
+        "Flipper": [
+          "~>0.109.0"
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/FlipperKit/CppBridge/**/*.{h}",
+      "private_header_files": "iOS/FlipperKit/CppBridge/**/*.h",
+      "preserve_paths": "iOS/FlipperKit/CppBridge/**/*.h",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "NO",
+        "ONLY_ACTIVE_ARCH": "YES",
+        "DEFINES_MODULE": "YES",
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Flipper-Boost-iOSX\" \"$(PODS_ROOT)/Flipper-DoubleConversion\" \"$(PODS_ROOT)/FlipperKit/iOS/**/\" \"$(PODS_ROOT)/libevent/include\""
+      }
+    },
+    {
+      "name": "FBCxxFollyDynamicConvert",
+      "header_dir": "FBCxxFollyDynamicConvert",
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "dependencies": {
+        "Flipper-Folly": [
+          "~> 2.6"
+        ]
+      },
+      "source_files": "iOS/FlipperKit/FBCxxFollyDynamicConvert/**/*.{h,mm}",
+      "private_header_files": "iOS/FlipperKit/FBCxxFollyDynamicConvert/**/*.h",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "NO",
+        "ONLY_ACTIVE_ARCH": "YES",
+        "DEFINES_MODULE": "YES",
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/Flipper-Boost-iOSX\" \"$(PODS_ROOT)/Flipper-DoubleConversion\" \"$(PODS_ROOT)/libevent/include\""
+      }
+    },
+    {
+      "name": "FKPortForwarding",
+      "header_dir": "FKPortForwarding",
+      "dependencies": {
+        "CocoaAsyncSocket": [
+          "~> 7.6"
+        ],
+        "Flipper-PeerTalk": [
+          "~>0.0.4"
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/FlipperKit/FKPortForwarding/FKPortForwarding{Server,Common}.{h,m}",
+      "private_header_files": "iOS/FlipperKit/FKPortForwarding/FKPortForwarding{Server,Common}.h"
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "FlipperKit/FBDefines": [
+
+        ],
+        "FlipperKit/FBCxxFollyDynamicConvert": [
+
+        ],
+        "FlipperKit/CppBridge": [
+
+        ],
+        "FlipperKit/FKPortForwarding": [
+
+        ],
+        "Flipper": [
+          "~>0.109.0"
+        ],
+        "SocketRocket": [
+          "~> 0.6.0"
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": [
+        "iOS/FlipperKit/*.{h,m,mm}",
+        "iOS/FlipperKit/CppBridge/*.{h,mm}"
+      ],
+      "public_header_files": "iOS/FlipperKit/**/{FlipperDiagnosticsViewController,FlipperStateUpdateListener,FlipperClient,FlipperPlugin,FlipperConnection,FlipperResponder,SKMacros,FlipperKitCertificateProvider}.h",
+      "pod_target_xcconfig": {
+        "USE_HEADERMAP": "NO",
+        "ONLY_ACTIVE_ARCH": "YES",
+        "DEFINES_MODULE": "YES",
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/FlipperKit/iOS/FlipperKit/\" \"$(PODS_ROOT)/Headers/Private/FlipperKit/\" \"$(PODS_ROOT)/Flipper-Boost-iOSX\" \"$(PODS_ROOT)/SocketRocket\" \"$(PODS_ROOT)/libevent/include\""
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "FB_SONARKIT_ENABLED=1",
+        "OTHER_SWIFT_FLAGS": "-Xcc -DFB_SONARKIT_ENABLED=1"
+      }
+    },
+    {
+      "name": "FlipperKitHighlightOverlay",
+      "header_dir": "FlipperKitHighlightOverlay",
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/Plugins/FlipperKitPluginUtils/FlipperKitHighlightOverlay/SKHighlightOverlay.{h,mm}",
+      "public_header_files": "iOS/Plugins/FlipperKitPluginUtils/FlipperKitHighlightOverlay/SKHighlightOverlay.h"
+    },
+    {
+      "name": "FlipperKitLayoutTextSearchable",
+      "header_dir": "FlipperKitLayoutTextSearchable",
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutTextSearchable/FKTextSearchable.h",
+      "public_header_files": "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutTextSearchable/FKTextSearchable.h"
+    },
+    {
+      "name": "FlipperKitLayoutHelpers",
+      "header_dir": "FlipperKitLayoutHelpers",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutTextSearchable": [
+
+        ],
+        "FlipperKit/FlipperKitHighlightOverlay": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/**/**/*.{h,mm,m}",
+      "public_header_files": [
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKTapListener.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKInvalidation.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/FlipperKitLayoutDescriptorMapperProtocol.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKNodeDescriptor.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKTouch.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKNamed.h"
+      ],
+      "private_header_files": [
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/SKObject.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/UIColor+SKSonarValueCoder.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/utils/SKObjectHash.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/utils/SKSwizzle.h",
+        "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutHelpers/FlipperKitLayoutHelpers/utils/SKYogaKitHelper.h"
+      ]
+    },
+    {
+      "name": "FlipperKitLayoutIOSDescriptors",
+      "header_dir": "FlipperKitLayoutIOSDescriptors",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ],
+        "FlipperKit/FlipperKitHighlightOverlay": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutHelpers": [
+
+        ],
+        "YogaKit": [
+          "~> 1.18"
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "source_files": "iOS/Plugins/FlipperKitPluginUtils/FlipperKitLayoutIOSDescriptors/**/*.{h,mm,m}"
+    },
+    {
+      "name": "FlipperKitLayoutPlugin",
+      "header_dir": "FlipperKitLayoutPlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutTextSearchable": [
+
+        ],
+        "FlipperKit/FlipperKitHighlightOverlay": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutHelpers": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutIOSDescriptors": [
+
+        ],
+        "YogaKit": [
+          "~> 1.18"
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": [
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h",
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin/SKDescriptorMapper.h"
+      ],
+      "source_files": "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin/**/*.{h,cpp,m,mm}",
+      "exclude_files": [
+        "iOS/Plugins/FlipperKitLayoutPlugin/fb/*",
+        "iOS/Plugins/FlipperKitLayoutPlugin/facebook/*",
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin/fb/*",
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutPlugin/facebook/*"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**",
+        "ONLY_ACTIVE_ARCH": "YES"
+      }
+    },
+    {
+      "name": "FlipperKitLayoutComponentKitSupport",
+      "header_dir": "FlipperKitLayoutComponentKitSupport",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ],
+        "ComponentKit": [
+          "0.31"
+        ],
+        "RenderCore": [
+          "0.31"
+        ],
+        "FlipperKit/FlipperKitLayoutPlugin": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutTextSearchable": [
+
+        ],
+        "FlipperKit/FlipperKitHighlightOverlay": [
+
+        ],
+        "FlipperKit/FlipperKitLayoutHelpers": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": [
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutComponentKitSupport/FlipperKitLayoutComponentKitSupport.h",
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutComponentKitSupport/SKSubDescriptor.h"
+      ],
+      "source_files": "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutComponentKitSupport/**/*.{h,cpp,m,mm}",
+      "exclude_files": [
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutComponentKitSupport/fb/*",
+        "iOS/Plugins/FlipperKitLayoutPlugin/FlipperKitLayoutComponentKitSupport/facebook/*"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**",
+        "ONLY_ACTIVE_ARCH": "YES"
+      }
+    },
+    {
+      "name": "FlipperKitNetworkPlugin",
+      "header_dir": "FlipperKitNetworkPlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": [
+        "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/SKBufferingPlugin.h",
+        "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/SKNetworkReporter.h",
+        "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/SKRequestInfo.h",
+        "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/SKResponseInfo.h",
+        "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h"
+      ],
+      "source_files": "iOS/Plugins/FlipperKitNetworkPlugin/FlipperKitNetworkPlugin/*.{h,cpp,m,mm}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**"
+      }
+    },
+    {
+      "name": "SKIOSNetworkPlugin",
+      "header_dir": "SKIOSNetworkPlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ],
+        "FlipperKit/FlipperKitNetworkPlugin": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": "iOS/Plugins/FlipperKitNetworkPlugin/SKIOSNetworkPlugin/SKIOSNetworkAdapter.h",
+      "source_files": "iOS/Plugins/FlipperKitNetworkPlugin/SKIOSNetworkPlugin/**/*.{h,cpp,m,mm}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**"
+      }
+    },
+    {
+      "name": "FlipperKitUserDefaultsPlugin",
+      "header_dir": "FlipperKitUserDefaultsPlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": "iOS/Plugins/FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h",
+      "source_files": "iOS/Plugins/FlipperKitUserDefaultsPlugin/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**"
+      }
+    },
+    {
+      "name": "FlipperKitExamplePlugin",
+      "header_dir": "FlipperKitExamplePlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": "iOS/Plugins/FlipperKitExamplePlugin/FlipperKitExamplePlugin.h",
+      "source_files": "iOS/Plugins/FlipperKitExamplePlugin/**/*.{h,mm}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**"
+      }
+    },
+    {
+      "name": "FlipperKitReactPlugin",
+      "header_dir": "FlipperKitReactPlugin",
+      "dependencies": {
+        "FlipperKit/Core": [
+
+        ]
+      },
+      "compiler_flags": "-DDEBUG=1 -DFLIPPER_OSS=1 -DFB_SONARKIT_ENABLED=1 -DFOLLY_HAVE_BACKTRACE=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_HAVE_LIBGFLAGS=0 -DFOLLY_HAVE_LIBJEMALLOC=0 -DFOLLY_HAVE_PREADV=0 -DFOLLY_HAVE_PWRITEV=0 -DFOLLY_HAVE_TFO=0 -DFOLLY_USE_SYMBOLIZER=0",
+      "public_header_files": "iOS/Plugins/FlipperKitReactPlugin/FlipperKitReactPlugin.h",
+      "source_files": "iOS/Plugins/FlipperKitReactPlugin/**/FlipperKitReactPlugin.{h,m}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)\"/Headers/Private/FlipperKit/**"
+      }
+    }
+  ]
+}
