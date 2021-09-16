@@ -1,0 +1,273 @@
+{
+  "name": "WYBasisKit",
+  "version": "0.3.3",
+  "summary": "一个大幅提高开发效率的工具库",
+  "description": "WYBasisKit 不仅可以帮助开发者快速构建一个工程，还有基于常用网络框架和系统API而封装的方法，开发者只需简单的调用API就可以快速实现相应功能， 大幅提高开发效率。",
+  "homepage": "https://github.com/Jacke-xu/WYBasisKit-swift",
+  "license": {
+    "type": "MIT",
+    "file": "License.md"
+  },
+  "authors": {
+    "Jacke-xu": "mobileAppDvlp@icloud.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/Jacke-xu/WYBasisKit-swift.git",
+    "tag": "0.3.3"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Extension/System",
+    "Practical/System"
+  ],
+  "subspecs": [
+    {
+      "name": "Localizable",
+      "source_files": "WYBasisKit/Localizable/WYLocalizableManager.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Extension",
+      "subspecs": [
+        {
+          "name": "Refresh",
+          "source_files": [
+            "WYBasisKit/Extension/Refresh/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ],
+            "MJRefresh": [
+
+            ]
+          }
+        },
+        {
+          "name": "System",
+          "source_files": [
+            "WYBasisKit/Extension/System/**/*",
+            "WYBasisKit/Practical/System/ConstDefinition/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          },
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle"
+        }
+      ]
+    },
+    {
+      "name": "Practical",
+      "subspecs": [
+        {
+          "name": "BoolJudge",
+          "source_files": [
+            "WYBasisKit/Practical/BoolJudge/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift",
+            "WYBasisKit/Extension/System/String/String.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit",
+            "libPhoneNumber_iOS"
+          ],
+          "dependencies": {
+            "libPhoneNumber-iOS": [
+
+            ],
+            "WYBasisKit/Localizable": [
+
+            ]
+          },
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle"
+        },
+        {
+          "name": "System",
+          "source_files": [
+            "WYBasisKit/Practical/System/**/*",
+            "WYBasisKit/Extension/System/UIAlertController/**/*",
+            "WYBasisKit/Extension/System/NSObject/**/*",
+            "WYBasisKit/Extension/System/UIDevice/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit",
+            "LocalAuthentication",
+            "Photos",
+            "CoreFoundation"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          },
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle"
+        }
+      ]
+    },
+    {
+      "name": "Networking",
+      "source_files": [
+        "WYBasisKit/Networking/**/*",
+        "WYBasisKit/Extension/System/UIAlertController/**/*"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WYBasisKit/Localizable": [
+
+        ],
+        "Moya": [
+
+        ],
+        "HandyJSON": [
+
+        ]
+      },
+      "resources": "WYBasisKit/Localizable/WYLocalizable.bundle"
+    },
+    {
+      "name": "Activity",
+      "source_files": [
+        "WYBasisKit/Activity/WYActivity.swift",
+        "WYBasisKit/Extension/System/UIView/UIView.swift",
+        "WYBasisKit/Extension/System/NSAttributedString/NSAttributedString.swift",
+        "WYBasisKit/Extension/System/String/String.swift",
+        "WYBasisKit/Extension/System/UIImage/UIImage.swift",
+        "WYBasisKit/Config/WYBasisKitConfig.swift",
+        "WYBasisKit/Practical/System/ConstDefinition/**/*"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WYBasisKit/Localizable": [
+
+        ]
+      },
+      "resources": [
+        "WYBasisKit/Activity/WYActivity.bundle",
+        "WYBasisKit/Localizable/WYLocalizable.bundle"
+      ]
+    },
+    {
+      "name": "Layout",
+      "subspecs": [
+        {
+          "name": "FlowLayout",
+          "subspecs": [
+            {
+              "name": "WaterfallParagraph",
+              "source_files": "WYBasisKit/Layout/FlowLayout/WYWaterfallParagraphLayout.swift",
+              "frameworks": "UIKit"
+            },
+            {
+              "name": "WaterfallsFlow",
+              "source_files": "WYBasisKit/Layout/FlowLayout/WYWaterfallsFlowLayout.swift",
+              "frameworks": "UIKit"
+            },
+            {
+              "name": "AlignmentFlow",
+              "source_files": "WYBasisKit/Layout/FlowLayout/WYAlignmentFlowLayout.swift",
+              "frameworks": "UIKit"
+            }
+          ]
+        },
+        {
+          "name": "ScrollText",
+          "source_files": [
+            "WYBasisKit/Layout/ScrollText/**/*",
+            "WYBasisKit/Practical/System/ConstDefinition/WYConstDefinition.swift",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ],
+            "SnapKit": [
+
+            ]
+          },
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle"
+        },
+        {
+          "name": "PagingView",
+          "source_files": [
+            "WYBasisKit/Layout/PagingView/**/*",
+            "WYBasisKit/Extension/System/UIButton/**/*",
+            "WYBasisKit/Extension/System/UIColor/**/*",
+            "WYBasisKit/Extension/System/UIImage/**/*",
+            "WYBasisKit/Extension/System/UIView/**/*",
+            "WYBasisKit/Practical/System/ConstDefinition/WYConstDefinition.swift",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "SnapKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "BannerView",
+          "source_files": [
+            "WYBasisKit/Layout/BannerView/**/*.swift",
+            "WYBasisKit/Extension/System/UIView/**/*",
+            "WYBasisKit/Practical/System/ConstDefinition/WYConstDefinition.swift",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ],
+            "SnapKit": [
+
+            ],
+            "Kingfisher": [
+
+            ]
+          },
+          "resources": [
+            "WYBasisKit/Layout/BannerView/WYBannerView.bundle",
+            "WYBasisKit/Localizable/WYLocalizable.bundle"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
