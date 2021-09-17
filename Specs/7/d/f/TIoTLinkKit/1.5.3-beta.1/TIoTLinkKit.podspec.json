@@ -1,0 +1,58 @@
+{
+  "name": "TIoTLinkKit",
+  "version": "1.5.3-beta.1",
+  "summary": "腾讯连连APP SDK是腾讯云物联网平台提供，应用开发厂商可通过SDK将设备接入腾讯云物联网平台，来进行设备管理",
+  "description": "在腾讯云物联网开发平台中，APP通过接入APP SDK来实现与智能设备的配网，和通过物联网平台对智能设备进行管理。目前APP SDK中与设备配网方式提供了SmartConfig配网和Soft AP配网模式。",
+  "homepage": "https://github.com/tencentyun/iot-link-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iot-ios-sdk": "dev@goodow.com"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/iot-link-ios.git",
+    "tag": "v1.5.3-beta.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "LinkCore",
+  "subspecs": [
+    {
+      "name": "LinkCore",
+      "source_files": "Source/SDK/LinkCore/**/*.{h,m,c}",
+      "dependencies": {
+        "MBProgressHUD": [
+          "1.1.0"
+        ],
+        "CocoaAsyncSocket": [
+          "7.6.5"
+        ],
+        "CocoaLumberjack": [
+          "3.7.2"
+        ]
+      }
+    },
+    {
+      "name": "LinkRTC",
+      "source_files": "Source/SDK/LinkRTC/**/*.{h,m,c}",
+      "dependencies": {
+        "TXLiteAVSDK_TRTC": [
+          "8.0.9644"
+        ],
+        "YYModel": [
+          "1.0.4"
+        ],
+        "TIoTLinkKit/LinkCore": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "x86_64 armv7 arm64"
+      }
+    }
+  ]
+}
