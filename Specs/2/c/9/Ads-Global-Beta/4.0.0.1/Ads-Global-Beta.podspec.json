@@ -1,0 +1,110 @@
+{
+  "name": "Ads-Global-Beta",
+  "version": "4.0.0.1",
+  "summary": "Ads-Global-Beta is a SDK from Bytedance providing union AD service.",
+  "description": "Ads-Global-Beta provides ADs which include native、banner、RewardVideo、FullscreenVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "PangleSDK/LICENSE"
+  },
+  "authors": {
+    "bytedance-tech": "zywork@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD.git",
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/pangle-sdk-static-va/4.0.0.1/PangleSDK.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "preserve_paths": "PangleSDK/README.md",
+  "default_subspecs": [
+    "BUAdSDK",
+    "APM"
+  ],
+  "subspecs": [
+    {
+      "name": "APM",
+      "dependencies": {
+        "RangersAPM-Pangle/Crash": [
+          "2.3.2-pangle"
+        ],
+        "RangersAPM-Pangle/Global": [
+          "2.3.2-pangle"
+        ]
+      }
+    },
+    {
+      "name": "International",
+      "preserve_paths": "PangleSDK/BUVAAuxiliary.framework",
+      "vendored_frameworks": [
+        "PangleSDK/BUVAAuxiliary.framework"
+      ]
+    },
+    {
+      "name": "Domestic",
+      "vendored_frameworks": [
+        "PangleSDK/BUCNAuxiliary.framework"
+      ],
+      "preserve_paths": "PangleSDK/BUCNAuxiliary.framework"
+    },
+    {
+      "name": "BUAdSDK",
+      "preserve_paths": "PangleSDK/BUAdSDK.framework",
+      "vendored_frameworks": [
+        "PangleSDK/BUAdSDK.framework"
+      ],
+      "dependencies": {
+        "Ads-Global-Beta/BUFoundation": [
+
+        ],
+        "Ads-Global-Beta/International": [
+
+        ]
+      },
+      "resources": "PangleSDK/BUAdSDK.bundle"
+    },
+    {
+      "name": "BUFoundation",
+      "preserve_paths": "PangleSDK/BUFoundation.framework",
+      "vendored_frameworks": [
+        "PangleSDK/BUFoundation.framework"
+      ]
+    }
+  ]
+}
