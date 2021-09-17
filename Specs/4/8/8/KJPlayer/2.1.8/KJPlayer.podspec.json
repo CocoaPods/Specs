@@ -1,0 +1,200 @@
+{
+  "name": "KJPlayer",
+  "version": "2.1.8",
+  "summary": "KJPlayer play and cache, AVPlayer / MIDIPlayer / IJKPlayer",
+  "homepage": "https://github.com/yangKJ/KJPlayerDemo",
+  "description": "https://github.com/yangKJ/KJPlayerDemo/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "77": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/KJPlayerDemo.git",
+    "tag": "2.1.8"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "AVFoundation",
+    "MediaPlayer"
+  ],
+  "ios": {
+    "source_files": "PlayerSource/KJPlayerHeader.h"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "PlayerSource/Core/*.{h,m}"
+    },
+    {
+      "name": "AVPlayer",
+      "subspecs": [
+        {
+          "name": "AVCore",
+          "source_files": "PlayerSource/KJAVPlayer/*.{h,m}",
+          "dependencies": {
+            "KJPlayer/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "AVDownloader",
+          "source_files": "PlayerSource/KJAVPlayer/KJAVDownloader/**/*",
+          "frameworks": "MobileCoreServices",
+          "dependencies": {
+            "KJPlayer/AVPlayer/AVCore": [
+
+            ],
+            "KJPlayer/Database": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MIDI",
+      "source_files": "PlayerSource/KJMidiPlayer/*.{h,m}",
+      "resources": "PlayerSource/KJMidiPlayer/*.{bundle}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "IJKPlayer",
+      "source_files": "PlayerSource/KJIJKPlayer/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ],
+        "IJKMediaFramework": [
+
+        ]
+      },
+      "libraries": [
+        "c++",
+        "z",
+        "bz2",
+        "iconv"
+      ],
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": "PlayerSource/Function/Database/*.{h,m}",
+      "resources": "PlayerSource/Function/Database/*.{xcdatamodeld}"
+    },
+    {
+      "name": "Cache",
+      "source_files": "PlayerSource/Function/Cache/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ],
+        "KJPlayer/Database": [
+
+        ]
+      }
+    },
+    {
+      "name": "CustomView",
+      "source_files": "PlayerSource/View/*.{h,m}",
+      "resource_bundles": {
+        "KJPlayer": [
+          "PlayerSource/View/*.{ttf}"
+        ]
+      },
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "DynamicSource",
+      "source_files": "PlayerSource/Function/DynamicSource/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "PingTimer",
+      "source_files": "PlayerSource/Function/PingTimer/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "RecordTime",
+      "source_files": "PlayerSource/Function/RecordTime/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ],
+        "KJPlayer/Database": [
+
+        ]
+      }
+    },
+    {
+      "name": "SkipTime",
+      "source_files": "PlayerSource/Function/SkipTime/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "TryTime",
+      "source_files": "PlayerSource/Function/TryTime/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Screenshots",
+      "source_files": "PlayerSource/Function/Screenshots/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ],
+        "KJPlayer/Database": [
+
+        ]
+      }
+    },
+    {
+      "name": "BackgroundMonitoring",
+      "source_files": "PlayerSource/Function/BackgroundMonitoring/*.{h,m}",
+      "dependencies": {
+        "KJPlayer/Common": [
+
+        ]
+      }
+    }
+  ]
+}
