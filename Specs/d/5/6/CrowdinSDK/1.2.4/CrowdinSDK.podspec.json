@@ -1,0 +1,195 @@
+{
+  "name": "CrowdinSDK",
+  "version": "1.2.4",
+  "summary": "Crowdin iOS SDK delivers all new translations from Crowdin project to the application immediately",
+  "description": "Crowdin iOS SDK delivers all new translations from Crowdin project to the application immediately. So there is no need to update this application via App Store to get the new version with the localization.\n\nThe SDK provides:\n\nOver-The-Air Content Delivery – the localized files can be sent to the application from the project whenever needed\nReal-time Preview – all the translations that are done via Editor can be shown in the application in real-time\nScreenshots – all screenshots made in the application may be automatically sent to your Crowdin project with tagged source strings",
+  "homepage": "https://github.com/crowdin/mobile-sdk-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Crowdin": "support@crowdin.com"
+  },
+  "source": {
+    "git": "https://github.com/crowdin/mobile-sdk-ios.git",
+    "tag": "1.2.4"
+  },
+  "social_media_url": "https://twitter.com/crowdin",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "static_framework": false,
+  "swift_versions": "4.2",
+  "default_subspecs": [
+    "Core",
+    "CrowdinProvider"
+  ],
+  "testspecs": [
+    {
+      "name": "Core_Tests",
+      "test_type": "unit",
+      "source_files": "CrowdinSDK/Tests/Core/*.swift"
+    },
+    {
+      "name": "CrowdinProvider_Tests",
+      "test_type": "unit",
+      "source_files": "CrowdinSDK/Tests/CrowdinProvider/*.swift"
+    },
+    {
+      "name": "CrowdinAPI_Tests",
+      "test_type": "unit",
+      "source_files": "CrowdinSDK/Tests/CrowdinAPI/*.swift"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CrowdinSDK/Classes/CrowdinSDK/**/*"
+    },
+    {
+      "name": "CrowdinProvider",
+      "source_files": "CrowdinSDK/Classes/Providers/Crowdin/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrowdinAPI",
+      "source_files": "CrowdinSDK/Classes/CrowdinAPI/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "Starscream": [
+          "~> 3.1.0"
+        ],
+        "BaseAPI": [
+          "~> 0.1.12"
+        ]
+      }
+    },
+    {
+      "name": "Screenshots",
+      "source_files": "CrowdinSDK/Classes/Features/ScreenshotFeature/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ],
+        "CrowdinSDK/LoginFeature": [
+
+        ]
+      }
+    },
+    {
+      "name": "RealtimeUpdate",
+      "source_files": "CrowdinSDK/Classes/Features/RealtimeUpdateFeature/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ],
+        "CrowdinSDK/LoginFeature": [
+
+        ]
+      }
+    },
+    {
+      "name": "RefreshLocalization",
+      "source_files": "CrowdinSDK/Classes/Features/RefreshLocalizationFeature/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "LoginFeature",
+      "source_files": "CrowdinSDK/Classes/Features/LoginFeature/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ],
+        "BaseAPI": [
+          "~> 0.1.12"
+        ]
+      }
+    },
+    {
+      "name": "IntervalUpdate",
+      "source_files": "CrowdinSDK/Classes/Features/IntervalUpdateFeature/**/*.swift",
+      "dependencies": {
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Settings",
+      "source_files": "CrowdinSDK/Classes/Settings/**/*.swift",
+      "resources": "CrowdinSDK/Assets/Settings/*.{storyboard,xib,xcassets}",
+      "dependencies": {
+        "CrowdinSDK/Screenshots": [
+
+        ],
+        "CrowdinSDK/RealtimeUpdate": [
+
+        ],
+        "CrowdinSDK/RefreshLocalization": [
+
+        ],
+        "CrowdinSDK/IntervalUpdate": [
+
+        ],
+        "CrowdinSDK/Core": [
+
+        ],
+        "CrowdinSDK/CrowdinProvider": [
+
+        ],
+        "CrowdinSDK/CrowdinAPI": [
+
+        ],
+        "CrowdinSDK/LoginFeature": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "4.2"
+}
