@@ -1,0 +1,81 @@
+{
+  "name": "MobileCoin",
+  "version": "1.2.0-pre0",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/MobileCoin-Swift.git",
+    "tag": "v1.2.0-pre0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "SUPPORTS_MACCATALYST": "YES",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "LibMobileCoin": [
+          "~> 1.2.0-pre1"
+        ],
+        "gRPC-Swift": [
+
+        ],
+        "Logging": [
+          "~> 1.4"
+        ],
+        "SwiftNIO": [
+
+        ],
+        "SwiftNIOHPACK": [
+
+        ],
+        "SwiftNIOHTTP1": [
+
+        ],
+        "SwiftProtobuf": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "Tests/{Unit,Common}/**/*.swift",
+          "resources": [
+            "Tests/Common/FixtureData/**/*",
+            "Vendor/libmobilecoin-ios-artifacts/Vendor/mobilecoin/test-vectors/vectors/**/*"
+          ]
+        },
+        {
+          "name": "IntegrationTests",
+          "test_type": "unit",
+          "source_files": "Tests/{Integration,Common}/**/*.swift",
+          "resources": "Tests/Common/FixtureData/**/*"
+        },
+        {
+          "name": "PerformanceTests",
+          "test_type": "ui",
+          "source_files": "Tests/{Performance,Common}/**/*.swift",
+          "requires_app_host": true
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
