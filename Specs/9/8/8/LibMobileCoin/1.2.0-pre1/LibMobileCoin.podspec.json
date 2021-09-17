@@ -1,0 +1,79 @@
+{
+  "name": "LibMobileCoin",
+  "version": "1.2.0-pre1",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/libmobilecoin-ios-artifacts.git",
+    "tag": "v1.2.0-pre1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": [
+    "Artifacts/include/*.h",
+    "Sources/Generated/Proto/*.{grpc,pb}.swift"
+  ],
+  "preserve_paths": [
+    "Artifacts/**/libmobilecoin_stripped.a"
+  ],
+  "dependencies": {
+    "gRPC-Swift": [
+
+    ],
+    "SwiftProtobuf": [
+      "~> 1.5"
+    ]
+  },
+  "default_subspecs": "none",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "SUPPORTS_MACCATALYST": "YES",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Artifacts/include",
+    "SWIFT_INCLUDE_PATHS": "$(HEADER_SEARCH_PATHS)",
+    "LIBMOBILECOIN_LIB_IF_NEEDED": "$(PODS_TARGET_SRCROOT)/Artifacts/target/$(CARGO_BUILD_TARGET)/release/libmobilecoin_stripped.a",
+    "OTHER_LDFLAGS": "-u _mc_string_free $(LIBMOBILECOIN_LIB_IF_NEEDED)",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=arm64]": "aarch64-apple-ios-sim",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=*]": "x86_64-apple-ios",
+    "CARGO_BUILD_TARGET[sdk=iphoneos*]": "aarch64-apple-ios",
+    "CARGO_BUILD_TARGET_MAC_CATALYST_ARM_": "aarch64-apple-darwin",
+    "CARGO_BUILD_TARGET_MAC_CATALYST_ARM_YES": "aarch64-apple-ios-macabi",
+    "CARGO_BUILD_TARGET[sdk=macosx*][arch=arm64]": "$(CARGO_BUILD_TARGET_MAC_CATALYST_ARM_$(IS_MACCATALYST))",
+    "CARGO_BUILD_TARGET_MAC_CATALYST_X86_": "x86_64-apple-darwin",
+    "CARGO_BUILD_TARGET_MAC_CATALYST_X86_YES": "x86_64-apple-ios-macabi",
+    "CARGO_BUILD_TARGET[sdk=macosx*][arch=*]": "$(CARGO_BUILD_TARGET_MAC_CATALYST_X86_$(IS_MACCATALYST))",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64",
+    "ARCHS[sdk=iphonesimulator*]": "x86_64 arm64",
+    "ARCHS[sdk=iphoneos*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "SUPPORTS_MACCATALYST": "YES",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "TestVectors",
+      "source_files": "Sources/TestVector/**/*.swift",
+      "preserve_paths": [
+        "Artifacts/**/libmobilecoin_stripped.a"
+      ],
+      "resources": [
+        "Vendor/mobilecoin/test-vectors/vectors/**/*.*"
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
