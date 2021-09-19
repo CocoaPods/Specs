@@ -1,0 +1,49 @@
+{
+  "name": "ffmpeg-kit-tvos-min",
+  "version": "4.5.LTS",
+  "summary": "FFmpeg Kit tvOS Min Static Framework",
+  "description": "Includes FFmpeg without any external libraries enabled.",
+  "homepage": "https://github.com/tanersener/ffmpeg-kit",
+  "authors": {
+    "Taner Sener": "tanersener@gmail.com"
+  },
+  "license": {
+    "type": "LGPL-3.0",
+    "file": "ffmpegkit.framework/LICENSE"
+  },
+  "platforms": {
+    "tvos": "9.2"
+  },
+  "requires_arc": true,
+  "libraries": [
+    "z",
+    "bz2",
+    "c++",
+    "iconv"
+  ],
+  "source": {
+    "http": "https://github.com/tanersener/ffmpeg-kit/releases/download/v4.5.LTS/ffmpeg-kit-min-4.5.LTS-tvos-framework.zip"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+  },
+  "tvos": {
+    "frameworks": [
+      "AudioToolbox",
+      "CoreMedia"
+    ],
+    "vendored_frameworks": [
+      "ffmpegkit.framework",
+      "libavcodec.framework",
+      "libavdevice.framework",
+      "libavfilter.framework",
+      "libavformat.framework",
+      "libavutil.framework",
+      "libswresample.framework",
+      "libswscale.framework"
+    ]
+  }
+}
