@@ -1,0 +1,110 @@
+{
+  "name": "TensorFlowLiteObjC",
+  "version": "0.0.1-nightly.20210920",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "6ed3074f9017d6d7a925bb25b1ff86040d60be75"
+  },
+  "summary": "TensorFlow Lite for Objective-C",
+  "description": "TensorFlow Lite is TensorFlow's lightweight solution for Objective-C\ndevelopers. It enables low-latency inference of on-device machine learning\nmodels with a small binary size and fast performance supporting hardware\nacceleration.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "TFLTensorFlowLite",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\" \"${PODS_TARGET_SRCROOT}/tensorflow/lite/objc/apis\"",
+    "VALID_ARCHS": "i386 x86_64 armv7 arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "tensorflow/lite/objc/apis/*.h",
+      "source_files": [
+        "tensorflow/lite/objc/{apis,sources}/*.{h,m,mm}",
+        "tensorflow/lite/builtin_ops.h",
+        "tensorflow/lite/c/c_api.h",
+        "tensorflow/lite/c/c_api_types.h",
+        "tensorflow/lite/c/common.h",
+        "tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h"
+      ],
+      "exclude_files": [
+        "tensorflow/lite/objc/{apis,sources}/TFL{Metal,CoreML}Delegate.{h,m}"
+      ],
+      "dependencies": {
+        "TensorFlowLiteC": [
+          "0.0.1-nightly.20210920"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/objc/tests/*.m",
+          "exclude_files": "tensorflow/lite/objc/tests/TFL{Metal,CoreML}DelegateTests.m",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreML",
+      "source_files": [
+        "tensorflow/lite/objc/{apis,sources}/TFLCoreMLDelegate.{h,m}"
+      ],
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "TensorFlowLiteC/CoreML": [
+          "0.0.1-nightly.20210920"
+        ],
+        "TensorFlowLiteObjC/Core": [
+          "0.0.1-nightly.20210920"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/objc/tests/TFLCoreMLDelegateTests.m",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metal",
+      "source_files": [
+        "tensorflow/lite/objc/{apis,sources}/TFLMetalDelegate.{h,m}"
+      ],
+      "dependencies": {
+        "TensorFlowLiteC/Metal": [
+          "0.0.1-nightly.20210920"
+        ],
+        "TensorFlowLiteObjC/Core": [
+          "0.0.1-nightly.20210920"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/objc/tests/TFLMetalDelegateTests.m",
+          "resources": [
+            "tensorflow/lite/testdata/multi_add.bin"
+          ]
+        }
+      ]
+    }
+  ]
+}
