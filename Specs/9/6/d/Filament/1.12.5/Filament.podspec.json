@@ -1,0 +1,138 @@
+{
+  "name": "Filament",
+  "version": "1.12.5",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "homepage": "https://google.github.io/filament",
+  "authors": "Google LLC.",
+  "summary": "Filament is a real-time physically based rendering engine for Android, iOS, Windows, Linux, macOS, and WASM/WebGL.",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://github.com/google/filament/releases/download/v1.12.5/filament-v1.12.5-ios.tgz"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "filament",
+      "source_files": [
+        "include/filament/*.h",
+        "include/backend/*.h",
+        "include/filament/MaterialChunkType.h",
+        "include/filament/MaterialEnums.h",
+        "include/ibl/*.h",
+        "include/geometry/*.h"
+      ],
+      "header_mappings_dir": "include",
+      "vendored_libraries": [
+        "lib/universal/libfilament.a",
+        "lib/universal/libbackend.a",
+        "lib/universal/libfilabridge.a",
+        "lib/universal/libfilaflat.a",
+        "lib/universal/libibl.a",
+        "lib/universal/libgeometry.a"
+      ],
+      "dependencies": {
+        "Filament/utils": [
+
+        ],
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "filamat",
+      "source_files": [
+        "include/filamat/*.h",
+        "include/filament/MaterialChunkType.h",
+        "include/filament/MaterialEnums.h"
+      ],
+      "header_mappings_dir": "include",
+      "vendored_libraries": [
+        "lib/universal/libfilamat.a",
+        "lib/universal/libshaders.a",
+        "lib/universal/libsmol-v.a",
+        "lib/universal/libfilabridge.a"
+      ],
+      "dependencies": {
+        "Filament/utils": [
+
+        ],
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "gltfio_core",
+      "source_files": "include/gltfio/*.h",
+      "vendored_libraries": [
+        "lib/universal/libgltfio_core.a",
+        "lib/universal/libdracodec.a",
+        "lib/universal/libgltfio_resources.a"
+      ],
+      "header_dir": "gltfio",
+      "dependencies": {
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "camutils",
+      "source_files": "include/camutils/*.h",
+      "vendored_libraries": "lib/universal/libcamutils.a",
+      "header_dir": "camutils",
+      "dependencies": {
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "filameshio",
+      "source_files": "include/filameshio/*.h",
+      "vendored_libraries": [
+        "lib/universal/libfilameshio.a",
+        "lib/universal/libmeshoptimizer.a"
+      ],
+      "header_dir": "filameshio",
+      "dependencies": {
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "image",
+      "source_files": "include/image/*.h",
+      "vendored_libraries": "lib/universal/libimage.a",
+      "header_dir": "image",
+      "dependencies": {
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "utils",
+      "source_files": "include/utils/*.h",
+      "vendored_libraries": "lib/universal/libutils.a",
+      "header_dir": "utils"
+    },
+    {
+      "name": "math",
+      "source_files": "include/math/*.h",
+      "header_dir": "math"
+    }
+  ]
+}
