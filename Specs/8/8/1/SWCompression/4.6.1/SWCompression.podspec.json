@@ -1,0 +1,121 @@
+{
+  "name": "SWCompression",
+  "version": "4.6.1",
+  "summary": "A framework with functions for working with compression, archives and containers.",
+  "description": "A framework with (de)compression algorithms and functions for processing various archives and containers.",
+  "homepage": "https://github.com/tsolomko/SWCompression",
+  "documentation_url": "http://tsolomko.github.io/SWCompression",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Timofey Solomko": "tsolomko@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/tsolomko/SWCompression.git",
+    "tag": "4.6.1"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "dependencies": {
+    "BitByteData": [
+      "~> 2.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Deflate",
+      "source_files": "Sources/{Deflate/*,Common/*,Common/CodingTree/*}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMPRESSION_POD_DEFLATE"
+      }
+    },
+    {
+      "name": "GZip",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{GZip/*,Common/*}.swift"
+    },
+    {
+      "name": "Zlib",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{Zlib/*,Common/*}.swift"
+    },
+    {
+      "name": "BZip2",
+      "source_files": "Sources/{BZip2/*,Common/*,Common/CodingTree/*}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMPRESSION_POD_BZ2"
+      }
+    },
+    {
+      "name": "LZMA",
+      "source_files": "Sources/{LZMA/*,Common/*}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMPRESSION_POD_LZMA"
+      }
+    },
+    {
+      "name": "LZMA2",
+      "dependencies": {
+        "SWCompression/LZMA": [
+
+        ]
+      },
+      "source_files": "Sources/{LZMA2/*,Common/*}.swift"
+    },
+    {
+      "name": "XZ",
+      "dependencies": {
+        "SWCompression/LZMA2": [
+
+        ]
+      },
+      "source_files": "Sources/{XZ/*,Common/*}.swift"
+    },
+    {
+      "name": "ZIP",
+      "dependencies": {
+        "SWCompression/Deflate": [
+
+        ]
+      },
+      "source_files": "Sources/{Zip/*,Common/*,Common/Container/*}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMPRESSION_POD_ZIP"
+      }
+    },
+    {
+      "name": "TAR",
+      "source_files": "Sources/{TAR/*,Common/*,Common/Container/*}.swift"
+    },
+    {
+      "name": "SevenZip",
+      "dependencies": {
+        "SWCompression/LZMA2": [
+
+        ]
+      },
+      "source_files": "Sources/{7-Zip/*,Common/*,Common/Container/*}.swift",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DSWCOMPRESSION_POD_SEVENZIP"
+      }
+    }
+  ],
+  "swift_version": "5"
+}
