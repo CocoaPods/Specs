@@ -1,0 +1,81 @@
+{
+  "name": "TensorFlowLiteSwift",
+  "version": "0.0.1-nightly.20210921",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "5c46798e0f07795aed986fe88b2e626f9ed0774a"
+  },
+  "summary": "TensorFlow Lite for Swift",
+  "description": "TensorFlow Lite is TensorFlow's lightweight solution for Swift developers. It\nenables low-latency inference of on-device machine learning models with a\nsmall binary size and fast performance supporting hardware acceleration.",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "TensorFlowLite",
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "TensorFlowLiteC": [
+          "0.0.1-nightly.20210921"
+        ]
+      },
+      "source_files": "tensorflow/lite/swift/Sources/*.swift",
+      "exclude_files": "tensorflow/lite/swift/Sources/{CoreML,Metal}Delegate.swift",
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/*.swift",
+          "exclude_files": "tensorflow/lite/swift/Tests/MetalDelegateTests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreML",
+      "source_files": "tensorflow/lite/swift/Sources/CoreMLDelegate.swift",
+      "dependencies": {
+        "TensorFlowLiteC/CoreML": [
+          "0.0.1-nightly.20210921"
+        ],
+        "TensorFlowLiteSwift/Core": [
+          "0.0.1-nightly.20210921"
+        ]
+      }
+    },
+    {
+      "name": "Metal",
+      "source_files": "tensorflow/lite/swift/Sources/MetalDelegate.swift",
+      "dependencies": {
+        "TensorFlowLiteC/Metal": [
+          "0.0.1-nightly.20210921"
+        ],
+        "TensorFlowLiteSwift/Core": [
+          "0.0.1-nightly.20210921"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/{Interpreter,MetalDelegate}Tests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin",
+            "tensorflow/lite/testdata/multi_add.bin"
+          ]
+        }
+      ]
+    }
+  ]
+}
