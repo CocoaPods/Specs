@@ -1,0 +1,60 @@
+{
+  "name": "Apollo",
+  "version": "0.49.0",
+  "authors": "Meteor Development Group",
+  "homepage": "https://github.com/apollographql/apollo-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A GraphQL client for iOS, written in Swift.",
+  "source": {
+    "git": "https://github.com/apollographql/apollo-ios.git",
+    "tag": "0.49.0"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "12.0",
+    "watchos": "5.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Apollo/*.swift",
+        "Sources/ApolloUtils/*.swift",
+        "Sources/ApolloAPI/*.swift"
+      ],
+      "exclude_files": "Sources/ApolloAPI/CodegenV1/*.swift",
+      "preserve_paths": [
+        "scripts/run-bundled-codegen.sh"
+      ]
+    },
+    {
+      "name": "SQLite",
+      "source_files": "Sources/ApolloSQLite/*.swift",
+      "dependencies": {
+        "Apollo/Core": [
+
+        ],
+        "SQLite.swift": [
+          "~>0.12.2"
+        ]
+      }
+    },
+    {
+      "name": "WebSocket",
+      "source_files": "Sources/ApolloWebSocket/**/*.swift",
+      "dependencies": {
+        "Apollo/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
