@@ -1,0 +1,95 @@
+{
+  "name": "FBSDKCoreKit",
+  "version": "11.2.1",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform core features",
+  "description": "The Facebook SDK for iOS CoreKit framework provides:\n* App Events (for App Analytics)\n* Graph API Access and Error Recovery\n* Working with Access Tokens and User Profiles",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "v11.2.1"
+  },
+  "ios": {
+    "weak_frameworks": [
+      "Accelerate",
+      "Accounts",
+      "AdSupport",
+      "Social",
+      "Security",
+      "StoreKit",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": [
+      "CoreLocation",
+      "Security",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1",
+    "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1"
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "FBSDKCoreKit_Basics": [
+          "~> 11.2.1"
+        ],
+        "FBAEMKit": [
+          "~> 11.2.1"
+        ]
+      },
+      "exclude_files": [
+        "Sources/FacebookCore/Exports.swift",
+        "FBSDKCoreKit/FBSDKCoreKit/Swift/Exports.swift"
+      ],
+      "source_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/**/*.{h,hpp,m,mm}",
+        "Sources/FacebookCore/**/*.swift"
+      ],
+      "public_header_files": "FBSDKCoreKit/FBSDKCoreKit/include/*.h",
+      "private_header_files": [
+        "FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h",
+        "FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h"
+      ],
+      "resource_bundles": {
+        "FacebookSDKStrings": [
+          "FacebookSDKStrings.bundle/**/*.strings"
+        ]
+      },
+      "libraries": [
+        "c++",
+        "stdc++"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
