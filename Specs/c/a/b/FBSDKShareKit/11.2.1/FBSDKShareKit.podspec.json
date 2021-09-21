@@ -1,0 +1,73 @@
+{
+  "name": "FBSDKShareKit",
+  "version": "11.2.1",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform Sharing Features",
+  "description": "The Facebook SDK for iOS ShareKit framework provides:\n* Share content with Share Dialog and Message Dialog.\n* Send Game Requests or App Invites to grow your app.\n* Publish content and open graph stories with the Graph API",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "v11.2.1"
+  },
+  "ios": {
+    "weak_frameworks": [
+      "Accounts",
+      "AudioToolbox",
+      "CoreGraphics",
+      "Foundation",
+      "QuartzCore",
+      "Security",
+      "Social",
+      "UIKit"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": [
+      "AudioToolbox",
+      "CoreGraphics",
+      "Foundation",
+      "QuartzCore",
+      "Security",
+      "UIKit"
+    ]
+  },
+  "requires_arc": true,
+  "default_subspecs": "Share",
+  "swift_versions": "5.0",
+  "header_dir": "FBSDKShareKit",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -DFBSDKCOCOAPODS"
+  },
+  "subspecs": [
+    {
+      "name": "Share",
+      "dependencies": {
+        "FBSDKCoreKit_Basics": [
+          "~> 11.2.1"
+        ],
+        "FBSDKCoreKit": [
+          "~> 11.2.1"
+        ]
+      },
+      "exclude_files": [
+        "FBSDKShareKit/FBSDKShareKit/include/**/*",
+        "FBSDKShareKit/FBSDKShareKit/Swift/Exports.swift"
+      ],
+      "public_header_files": [
+        "FBSDKShareKit/FBSDKShareKit/*.{h}",
+        "FBSDKShareKit/FBSDKShareKit/Internal/FBSDKVideoUploader.h"
+      ],
+      "source_files": "FBSDKShareKit/FBSDKShareKit/**/*.{h,m,swift}"
+    }
+  ],
+  "swift_version": "5.0"
+}
