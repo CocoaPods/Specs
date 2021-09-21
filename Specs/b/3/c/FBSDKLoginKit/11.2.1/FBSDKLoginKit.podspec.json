@@ -1,0 +1,69 @@
+{
+  "name": "FBSDKLoginKit",
+  "version": "11.2.1",
+  "summary": "Official Facebook SDK for iOS to access Facebook Platform with features like Login, Share and Message Dialog, App Links, and Graph API",
+  "description": "The Facebook SDK for iOS LoginKit framework provides:\n* Facebook Login to easily sign in users.\n* Sharing features like the Share or Message Dialog to grow your app.\n* Simpler Graph API access to provide more social context.",
+  "homepage": "https://developers.facebook.com/docs/ios/",
+  "license": {
+    "type": "Facebook Platform License",
+    "file": "LICENSE"
+  },
+  "authors": "Facebook",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/facebook/facebook-ios-sdk.git",
+    "tag": "v11.2.1"
+  },
+  "ios": {
+    "weak_frameworks": [
+      "Accounts",
+      "Social",
+      "Security",
+      "QuartzCore",
+      "CoreGraphics",
+      "UIKit",
+      "Foundation",
+      "AudioToolbox"
+    ]
+  },
+  "tvos": {
+    "weak_frameworks": [
+      "AudioToolbox",
+      "CoreGraphics",
+      "Foundation",
+      "QuartzCore",
+      "Security",
+      "UIKit"
+    ]
+  },
+  "requires_arc": true,
+  "default_subspecs": "Login",
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FBSDKCOCOAPODS=1",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -DFBSDKCOCOAPODS"
+  },
+  "subspecs": [
+    {
+      "name": "Login",
+      "dependencies": {
+        "FBSDKCoreKit_Basics": [
+          "~> 11.2.1"
+        ],
+        "FBSDKCoreKit": [
+          "~> 11.2.1"
+        ]
+      },
+      "exclude_files": [
+        "FBSDKLoginKit/FBSDKLoginKit/include/**/*",
+        "FBSDKLoginKit/FBSDKLoginKit/Swift/Exports.swift"
+      ],
+      "source_files": "FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m,swift}",
+      "public_header_files": "FBSDKLoginKit/FBSDKLoginKit/*.{h}"
+    }
+  ],
+  "swift_version": "5.0"
+}
