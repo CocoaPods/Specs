@@ -1,0 +1,64 @@
+{
+  "name": "TealeafDebug",
+  "version": "10.6.125",
+  "authors": "Acoustic, L.P.",
+  "license": {
+    "type": "Proprietary, Acoustic, L.P.",
+    "text": "https://github.com/acoustic-analytics/Tealeaf/blob/master/Licenses/License"
+  },
+  "homepage": "https://github.com/acoustic-analytics/Tealeaf",
+  "summary": "Acoustic Tealeaf EOCore iOS SDK",
+  "cocoapods_version": ">= 1.10.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/acoustic-analytics/Tealeaf.git",
+    "tag": "10.6.125"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreLocation",
+        "WebKit"
+      ],
+      "libraries": "z",
+      "resources": "SDKs/iOS/Debug/TLFResources.bundle",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/SDKs/iOS/Debug/Tealeaf.xcframework/*/Tealeaf.framework/Headers/\"/** "
+      },
+      "vendored_frameworks": "SDKs/iOS/Debug/Tealeaf.xcframework",
+      "dependencies": {
+        "EOCoreDebug": [
+
+        ]
+      }
+    },
+    {
+      "name": "MD5",
+      "dependencies": {
+        "TealeafMD5Debug": [
+
+        ],
+        "TealeafDebug/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SHA512",
+      "dependencies": {
+        "TealeafSHA2Debug": [
+
+        ],
+        "TealeafDebug/Core": [
+
+        ]
+      }
+    }
+  ]
+}
