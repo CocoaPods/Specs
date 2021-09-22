@@ -1,0 +1,152 @@
+{
+  "name": "SuperAwesome",
+  "version": "8.0.16-refactor",
+  "summary": "SuperAwesome Mobile SDK for iOS",
+  "description": "The SuperAwesome Mobile SDK lets you to easily add COPPA compliant advertisements and other platform features, like user authentication and registration, to your apps. We try to make integration as easy as possible, so we provide all the necessary tools such as this guide, API documentation, screencasts and demo apps.",
+  "homepage": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "documentation_url": "https://doc.superawesome.tv/sa-mobile-sdk-ios/latest/",
+  "license": {
+    "type": "GNU GENERAL PUBLIC LICENSE Version 3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gabriel Coman": "gabriel.coman@superawesome.com",
+    "Gunhan Sancar": "gunhan.sancar@superawesome.com"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": [
+    "5.4"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/SuperAwesomeLTD/sa-mobile-sdk-ios.git",
+    "branch": "refactor",
+    "tag": "8.0.16-refactor"
+  },
+  "static_framework": false,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Full",
+      "dependencies": {
+        "SuperAwesome/Base": [
+
+        ],
+        "SuperAwesome/Moat": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "11.0"
+      },
+      "xcconfig": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "Pod/Tests/Common/**/*.{swift}",
+            "Pod/Tests/Network/**/*.{swift}",
+            "Pod/Tests/Moat/**/*.{swift}",
+            "Pod/Tests/UI/**/*.{swift}"
+          ],
+          "resources": "Pod/Tests/Resources/*",
+          "dependencies": {
+            "Nimble": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "Pod/Sources/Base/**/*.{swift}",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ],
+        "SuperAwesome/UI": [
+
+        ],
+        "SuperAwesome/Network": [
+
+        ]
+      },
+      "xcconfig": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      }
+    },
+    {
+      "name": "Common",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "Pod/Sources/Common/**/*.{swift}",
+      "xcconfig": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      }
+    },
+    {
+      "name": "Moat",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "Pod/Sources/Moat/**/*.{swift}",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ]
+      },
+      "vendored_frameworks": "Pod/Libraries/SUPMoatMobileAppKit.framework",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MOAT_MODULE",
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      }
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "Pod/Sources/UI/**/*.{swift}",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ]
+      },
+      "xcconfig": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      }
+    },
+    {
+      "name": "Network",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "Pod/Sources/Network/**/*.{swift}",
+      "dependencies": {
+        "SuperAwesome/Common": [
+
+        ]
+      },
+      "xcconfig": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "$(inherited)"
+      }
+    }
+  ],
+  "swift_version": "5.4"
+}
