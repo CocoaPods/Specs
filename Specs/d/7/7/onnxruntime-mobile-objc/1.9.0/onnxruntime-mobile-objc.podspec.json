@@ -1,0 +1,71 @@
+{
+  "name": "onnxruntime-mobile-objc",
+  "version": "1.9.0",
+  "summary": "ONNX Runtime Mobile Objective-C Pod",
+  "description": "A pod for the ONNX Runtime Mobile Objective-C API.",
+  "homepage": "https://github.com/microsoft/onnxruntime",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ONNX Runtime": "onnxruntime@microsoft.com"
+  },
+  "source": {
+    "http": "https://onnxruntimepackages.blob.core.windows.net/ortmobilestore/onnxruntime-mobile-objc-1.9.0.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "preserve_paths": [
+    "LICENSE"
+  ],
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "onnxruntime-mobile-c": [
+          "1.9.0"
+        ]
+      },
+      "requires_arc": true,
+      "compiler_flags": [
+        "-std=c++17",
+        "-fobjc-arc-exceptions",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/objectivec\" \"${PODS_TARGET_SRCROOT}/cmake/external/SafeInt\"",
+        "OTHER_CPLUSPLUSFLAGS": "-fvisibility=hidden -fvisibility-inlines-hidden"
+      },
+      "public_header_files": [
+        "objectivec/include/*.h"
+      ],
+      "source_files": [
+        "objectivec/include/*.h",
+        "objectivec/src/*.h",
+        "objectivec/src/*.m",
+        "objectivec/src/*.mm",
+        "cmake/external/SafeInt/safeint/SafeInt.hpp"
+      ],
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "objectivec/test/*.h",
+            "objectivec/test/*.m",
+            "objectivec/test/*.mm"
+          ],
+          "resources": [
+            "objectivec/test/testdata/*.ort"
+          ]
+        }
+      ]
+    }
+  ]
+}
