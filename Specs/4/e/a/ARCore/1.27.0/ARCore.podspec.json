@@ -1,0 +1,161 @@
+{
+  "authors": "Google, Inc.",
+  "changelog": "https://dl.google.com/dl/cpdc/5778d62cc88f73a9/ARCore-1.27.0-CHANGELOG.md",
+  "default_subspecs": [
+    "Base"
+  ],
+  "description": "The ARCore SDK for iOS enables apps to build AR experiences. The ARCore CocoaPod\n    contains the following features available as subspecs: Cloud Anchors allows for AR sharing between\n    devices. Augmented Faces lets you implement face-based AR even on devices without a depth sensor.\n    ",
+  "homepage": "https://developers.google.com/ar/",
+  "license": {
+    "file": "LICENSE",
+    "type": "Copyright"
+  },
+  "name": "ARCore",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "preserve_paths": [
+    "CHANGELOG",
+    "README.md",
+    "LICENSE"
+  ],
+  "readme": "https://dl.google.com/dl/cpdc/5778d62cc88f73a9/ARCore-1.27.0-README.md",
+  "source": {
+    "http": "https://dl.google.com/dl/cpdc/5778d62cc88f73a9/ARCore-1.27.0.tar.gz"
+  },
+  "summary": "ARCore SDK for iOS",
+  "version": "1.27.0",
+  "subspecs": [
+    {
+      "dependencies": {
+        "GTMSessionFetcher/Core": [
+          "~> 1.2"
+        ],
+        "GoogleDataTransport": [
+          "~> 9.0"
+        ],
+        "GoogleToolboxForMac/Logger": [
+          "~> 2.1"
+        ],
+        "GoogleToolboxForMac/NSData+zlib": [
+          "~> 2.1"
+        ],
+        "nanopb": [
+          "~> 2.30908.0"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "SystemConfiguration",
+        "Security",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "name": "Base",
+      "preserve_paths": [
+        "Base/Sources/module.modulemap"
+      ],
+      "source_files": [
+        "Base/Sources/ARCore.h"
+      ],
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/ARCore/Base/Sources"
+      },
+      "vendored_frameworks": [
+        "Base/Frameworks/ARCoreBase.framework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/Base": "~> 1.27",
+        "Firebase/RemoteConfig": [
+          "~> 8.0"
+        ],
+        "GTMSessionFetcher/Core": [
+          "~> 1.2"
+        ],
+        "GoogleToolboxForMac/Logger": [
+          "~> 2.1"
+        ],
+        "GoogleToolboxForMac/NSData+zlib": [
+          "~> 2.1"
+        ],
+        "nanopb": [
+          "~> 2.30908.0"
+        ]
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMotion",
+        "CoreVideo",
+        "CoreTelephony",
+        "Foundation",
+        "ImageIO",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "name": "CloudAnchors",
+      "resource_bundles": {
+        "ARCoreResources": [
+          "CloudAnchors/Resources/ARCoreResources/**"
+        ]
+      },
+      "vendored_frameworks": [
+        "CloudAnchors/Frameworks/ARCoreCloudAnchors.framework"
+      ],
+      "weak_frameworks": [
+        "ARKit"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/Base": "~> 1.27",
+        "nanopb": [
+          "~> 2.30908.0"
+        ]
+      },
+      "frameworks": [
+        "Accelerate",
+        "AVFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMedia",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "GLKit",
+        "Metal",
+        "OpenGLES",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z",
+        "c++"
+      ],
+      "name": "AugmentedFaces",
+      "resource_bundles": {
+        "ARCoreFaceResources": [
+          "AugmentedFaces/Resources/ARCoreFaceResources/**"
+        ]
+      },
+      "vendored_frameworks": [
+        "AugmentedFaces/Frameworks/ARCoreAugmentedFaces.framework"
+      ]
+    }
+  ]
+}
