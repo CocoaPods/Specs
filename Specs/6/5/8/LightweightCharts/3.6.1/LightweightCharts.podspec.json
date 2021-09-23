@@ -1,0 +1,29 @@
+{
+  "name": "LightweightCharts",
+  "version": "3.6.1",
+  "summary": "LightweightCharts for iOS.",
+  "description": "LightweightCharts pod. Swift wrapper above JavaScript library.",
+  "homepage": "https://tradingview.com",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TradingView, Inc.": "noreply@tradingview.com"
+  },
+  "source": {
+    "git": "https://github.com/tradingview/LightweightChartsIOS.git",
+    "tag": "3.6.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "LightweightCharts/**/*.swift",
+  "resources": "LightweightCharts/Assets/*",
+  "swift_versions": "5.0",
+  "script_phases": {
+    "name": "LightweightCharts",
+    "script": "LIBRARY=${TEMP_DIR}/lightweight-charts.js\n      \nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.6.1/dist/lightweight-charts.standalone.production.js\nelse\n    curl -o $LIBRARY https://unpkg.com/lightweight-charts@3.6.1/dist/lightweight-charts.standalone.development.js\nfi\n\ncp -f $LIBRARY ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lightweight-charts.js"
+  },
+  "swift_version": "5.0"
+}
