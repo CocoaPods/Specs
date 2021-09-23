@@ -1,0 +1,104 @@
+{
+  "name": "AnyImageKit",
+  "version": "0.13.4",
+  "license": "MIT",
+  "summary": "AnyImageKit is a toolbox for picking and editing photos.",
+  "homepage": "https://github.com/AnyImageProject/AnyImageKit",
+  "authors": {
+    "anotheren": "liudong.edward@gmail.com",
+    "RayJiang16": "1184731421@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/AnyImageProject/AnyImageKit.git",
+    "tag": "0.13.4"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": [
+    "5.3"
+  ],
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Picker",
+    "Editor",
+    "Capture"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/AnyImageKit/Core/**/*.swift",
+      "resource_bundles": {
+        "AnyImageKit_Core": [
+          "Sources/AnyImageKit/Resources/Core/**/*"
+        ]
+      },
+      "dependencies": {
+        "SnapKit": [
+
+        ],
+        "Kingfisher": [
+
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "source_files": "Sources/AnyImageKit/Picker/**/*.swift",
+      "resource_bundles": {
+        "AnyImageKit_Picker": [
+          "Sources/AnyImageKit/Resources/Picker/**/*"
+        ]
+      },
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_PICKER"
+      }
+    },
+    {
+      "name": "Editor",
+      "source_files": "Sources/AnyImageKit/Editor/**/*.swift",
+      "resource_bundles": {
+        "AnyImageKit_Editor": [
+          "Sources/AnyImageKit/Resources/Editor/**/*"
+        ]
+      },
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_EDITOR"
+      }
+    },
+    {
+      "name": "Capture",
+      "source_files": "Sources/AnyImageKit/Capture/**/*.{swift,metal}",
+      "resource_bundles": {
+        "AnyImageKit_Capture": [
+          "Sources/AnyImageKit/Resources/Capture/**/*"
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "METAL_LIBRARY_OUTPUT_DIR": "${TARGET_BUILD_DIR}/AnyImageKit_Capture.bundle/"
+        }
+      },
+      "dependencies": {
+        "AnyImageKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ANYIMAGEKIT_ENABLE_CAPTURE"
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
