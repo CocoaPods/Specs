@@ -1,0 +1,71 @@
+{
+  "name": "PlayKit",
+  "version": "3.22.0",
+  "summary": "PlayKit: Kaltura Mobile Player SDK - iOS",
+  "homepage": "https://github.com/kaltura/playkit-ios",
+  "license": {
+    "type": "AGPLv3",
+    "text": "AGPLv3"
+  },
+  "authors": {
+    "Kaltura": "community@kaltura.com"
+  },
+  "source": {
+    "git": "https://github.com/kaltura/playkit-ios.git",
+    "tag": "v3.22.0"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/**/*",
+      "dependencies": {
+        "SwiftyJSON": [
+          "5.0.0"
+        ],
+        "XCGLogger": [
+          "7.0.0"
+        ],
+        "KalturaNetKit": [
+          "~> 1.5.1"
+        ],
+        "PlayKitUtils": [
+          "~> 0.5"
+        ]
+      }
+    },
+    {
+      "name": "WidevineClassic",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "Widevine",
+      "dependencies": {
+        "PlayKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AnalyticsCommon",
+      "source_files": "Plugins/AnalyticsCommon",
+      "xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}\"/**",
+        "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}\"/**"
+      },
+      "dependencies": {
+        "PlayKit/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
