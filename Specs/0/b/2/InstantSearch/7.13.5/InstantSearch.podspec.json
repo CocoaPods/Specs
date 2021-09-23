@@ -1,0 +1,109 @@
+{
+  "name": "InstantSearch",
+  "version": "7.13.5",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "watchos": "3.0",
+    "tvos": "9.0"
+  },
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.md"
+  },
+  "summary": "A library of widgets and helpers to build instant-search applications on iOS.",
+  "homepage": "https://github.com/algolia/instantsearch-ios",
+  "authors": {
+    "Algolia": "contact@algolia.com"
+  },
+  "source": {
+    "git": "https://github.com/algolia/instantsearch-ios.git",
+    "tag": "7.13.5"
+  },
+  "swift_versions": "5.1",
+  "default_subspecs": "UI",
+  "subspecs": [
+    {
+      "name": "Insights",
+      "source_files": "Sources/InstantSearchInsights/**/*.{swift}",
+      "dependencies": {
+        "AlgoliaSearchClient": [
+          "~> 8.10"
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "watchos": "3.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/InstantSearchCore/**/*.{swift}",
+      "exclude_files": "Sources/InstantSearchCore/SwiftUI/**/*.{swift}",
+      "dependencies": {
+        "AlgoliaSearchClient": [
+          "~> 8.10"
+        ],
+        "InstantSearch/Insights": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "watchos": "3.0",
+        "tvos": "9.0"
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DInstantSearchCocoaPods"
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Sources/InstantSearch/**/*.{swift}",
+      "exclude_files": "Sources/InstantSearch/SwiftUI/**/*.{swift}",
+      "dependencies": {
+        "InstantSearch/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10",
+        "watchos": "3.0",
+        "tvos": "9.0"
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DInstantSearchCocoaPods"
+      }
+    },
+    {
+      "name": "SwiftUI",
+      "source_files": [
+        "Sources/InstantSearchCore/SwiftUI/**/*.{swift}",
+        "Sources/InstantSearch/SwiftUI/**/*.{swift}"
+      ],
+      "dependencies": {
+        "InstantSearch/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "13.0",
+        "osx": "10.15",
+        "watchos": "6.0",
+        "tvos": "13.0"
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DInstantSearchCocoaPods"
+      },
+      "weak_frameworks": [
+        "SwiftUI",
+        "Combine"
+      ]
+    }
+  ],
+  "swift_version": "5.1"
+}
