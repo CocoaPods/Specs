@@ -1,0 +1,99 @@
+{
+  "name": "HXPHPicker",
+  "version": "1.2.2",
+  "summary": "Photo selector - Support LivePhoto, GIF selection",
+  "homepage": "https://github.com/SilenceLove/HXPHPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "SilenceLove": "294005139@qq.com"
+  },
+  "swift_versions": [
+    "5.4"
+  ],
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/SilenceLove/HXPHPicker.git",
+    "tag": "1.2.2"
+  },
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "PhotosUI"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/HXPHPicker/Core/**/*.{swift}",
+      "resources": "Sources/HXPHPicker/Resources/*.{bundle}"
+    },
+    {
+      "name": "Picker",
+      "source_files": "Sources/HXPHPicker/Picker/**/*.{swift}",
+      "dependencies": {
+        "HXPHPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_PICKER"
+      }
+    },
+    {
+      "name": "Editor",
+      "source_files": "Sources/HXPHPicker/Editor/**/*.{swift}",
+      "dependencies": {
+        "HXPHPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR"
+      }
+    },
+    {
+      "name": "Camera",
+      "source_files": "Sources/HXPHPicker/Camera/**/*.{swift}",
+      "dependencies": {
+        "HXPHPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA"
+      }
+    },
+    {
+      "name": "Lite",
+      "dependencies": {
+        "HXPHPicker/Picker": [
+
+        ],
+        "HXPHPicker/Editor": [
+
+        ],
+        "HXPHPicker/Camera": [
+
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "HXPHPicker/Lite": [
+
+        ],
+        "Kingfisher": [
+          "~> 6.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.4"
+}
