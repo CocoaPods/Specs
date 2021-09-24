@@ -1,0 +1,76 @@
+{
+  "name": "AnalysysAgent",
+  "version": "4.5.14",
+  "summary": "易观 iOS PaaS 版本SDK，集成方法参考相关版本SDK集成文档。",
+  "homepage": "https://github.com/AnalysysSDK/Analysys_SDK_iOS",
+  "social_media_url": "https://ark.analysys.cn/",
+  "source": {
+    "git": "https://github.com/AnalysysSDK/Analysys_SDK_iOS.git",
+    "tag": "4.5.14"
+  },
+  "license": "MIT",
+  "authors": {
+    "analysys": "analysys@analysys.com.cn"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "AdSupport",
+    "WebKit"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3",
+    "icucore"
+  ],
+  "xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Agent",
+      "ios": {
+        "vendored_frameworks": "AnalysysSDK/AnalysysAgent.framework"
+      },
+      "resources": "AnalysysSDK/Resources/AnalysysAgent.bundle"
+    },
+    {
+      "name": "Encrypt",
+      "ios": {
+        "vendored_frameworks": "AnalysysSDK/AnalysysEncrypt.framework"
+      },
+      "dependencies": {
+        "AnalysysAgent/Agent": [
+
+        ]
+      }
+    },
+    {
+      "name": "Push",
+      "ios": {
+        "vendored_frameworks": "AnalysysSDK/AnalysysPush.framework"
+      },
+      "dependencies": {
+        "AnalysysAgent/Agent": [
+
+        ]
+      }
+    },
+    {
+      "name": "Visual",
+      "ios": {
+        "vendored_frameworks": "AnalysysSDK/AnalysysVisual.framework"
+      },
+      "dependencies": {
+        "AnalysysAgent/Agent": [
+
+        ]
+      }
+    }
+  ]
+}
