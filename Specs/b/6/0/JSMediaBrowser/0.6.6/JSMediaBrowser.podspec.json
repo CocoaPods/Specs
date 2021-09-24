@@ -1,0 +1,126 @@
+{
+  "name": "JSMediaBrowser",
+  "version": "0.6.6",
+  "summary": "图片、视频浏览器",
+  "homepage": "https://github.com/jiasongs/JSMediaBrowser",
+  "authors": {
+    "jiasong": "593908937@qq.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/jiasongs/JSMediaBrowser.git",
+    "tag": "0.6.6"
+  },
+  "frameworks": "UIKit",
+  "license": "MIT",
+  "dependencies": {
+    "JSCoreKit": [
+      "~> 0.2.1"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/*.{swift,h,m}"
+    },
+    {
+      "name": "MediaView",
+      "source_files": "Sources/MediaView/Basis/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediaImage",
+      "source_files": "Sources/MediaView/Image/*.{swift,h,m}",
+      "frameworks": "PhotosUI",
+      "dependencies": {
+        "JSMediaBrowser/MediaView": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediaImageForSDWebImage",
+      "source_files": "Sources/MediaView/Image/SDWebImage/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/MediaImage": [
+
+        ],
+        "SDWebImage": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "MediaVideo",
+      "source_files": "Sources/MediaView/Video/*.{swift,h,m}",
+      "frameworks": "AVKit",
+      "dependencies": {
+        "JSMediaBrowser/MediaView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Business",
+      "source_files": [
+        "Sources/Business/General/*.{swift,h,m}",
+        "Sources/Business/Transition/*.{swift,h,m}",
+        "Sources/Business/Basis/*.{swift,h,m}",
+        "Sources/Business/Protocol/*.{swift,h,m}"
+      ],
+      "frameworks": [
+        "PhotosUI",
+        "CoreGraphics",
+        "QuartzCore"
+      ],
+      "dependencies": {
+        "JSMediaBrowser/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BusinessForImage",
+      "source_files": "Sources/Business/Image/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/Business": [
+
+        ],
+        "JSMediaBrowser/MediaImage": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D BUSINESS_IMAGE"
+      }
+    },
+    {
+      "name": "BusinessForVideo",
+      "source_files": "Sources/Business/Video/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/Business": [
+
+        ],
+        "JSMediaBrowser/MediaVideo": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D BUSINESS_VIDEO"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
