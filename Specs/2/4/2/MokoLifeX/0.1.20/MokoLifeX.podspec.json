@@ -1,0 +1,1115 @@
+{
+  "name": "MokoLifeX",
+  "version": "0.1.20",
+  "summary": "A short description of MokoLifeX.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MokoLifeX/MokoLifeX_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MokoLifeX/MokoLifeX_iOS.git",
+    "tag": "0.1.20"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source_files": "MokoLifeX/Classes/**/*",
+  "resource_bundles": {
+    "MokoLifeX": [
+      "MokoLifeX/Assets/*.*"
+    ]
+  },
+  "dependencies": {
+    "MKBaseModuleLibrary": [
+
+    ],
+    "MKCustomUIModule": [
+
+    ],
+    "MLInputDodger": [
+
+    ],
+    "FLAnimatedImage": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "ApplicationModule",
+      "source_files": "MokoLifeX/Classes/ApplicationModule/**"
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "MokoLifeX/Classes/CTMediator/**",
+      "dependencies": {
+        "CTMediator": [
+
+        ],
+        "MokoLifeX/DeviceModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "Target",
+      "source_files": "MokoLifeX/Classes/Target/**"
+    },
+    {
+      "name": "SDK",
+      "subspecs": [
+        {
+          "name": "Socket",
+          "source_files": "MokoLifeX/Classes/SDK/Socket/**",
+          "dependencies": {
+            "CocoaAsyncSocket": [
+
+            ]
+          }
+        },
+        {
+          "name": "MQTT",
+          "source_files": "MokoLifeX/Classes/SDK/MQTT/**",
+          "dependencies": {
+            "MKBaseMQTTModule": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeviceModel",
+      "source_files": "MokoLifeX/Classes/DeviceModel/**",
+      "dependencies": {
+        "MokoLifeX/SDK/MQTT": [
+
+        ]
+      }
+    },
+    {
+      "name": "Expand",
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "PowerOnStatusCell",
+              "source_files": "MokoLifeX/Classes/Expand/Cell/PowerOnStatusCell/**"
+            }
+          ]
+        },
+        {
+          "name": "DatabaseManager",
+          "source_files": "MokoLifeX/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
+
+            ],
+            "MokoLifeX/DeviceModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "View",
+          "subspecs": [
+            {
+              "name": "CountdownPickerView",
+              "source_files": "MokoLifeX/Classes/Expand/View/CountdownPickerView/**"
+            },
+            {
+              "name": "EnergyViews",
+              "source_files": "MokoLifeX/Classes/Expand/View/EnergyViews/**"
+            }
+          ]
+        },
+        {
+          "name": "Controller",
+          "dependencies": {
+            "MokoLifeX/DeviceModel": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "BaseController",
+              "source_files": "MokoLifeX/Classes/Expand/Controller/BaseController/**"
+            },
+            {
+              "name": "1110X",
+              "subspecs": [
+                {
+                  "name": "DeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/1110X/DeviceInfoPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Expand/Controller/BaseController": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/1110X/DeviceInfoPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/1110X/DeviceInfoPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "PowerOnStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/1110X/PowerOnStatusPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Expand/Cell/PowerOnStatusCell": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/BaseController": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/1110X/PowerOnStatusPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/1110X/PowerOnStatusPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ElectricityPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/1110X/ElectricityPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Expand/Controller/BaseController": [
+
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Common",
+              "subspecs": [
+                {
+                  "name": "SaveDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/Common/SaveDevice/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Expand/DatabaseManager": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/BaseController": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "UpdatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/Common/UpdatePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Expand/Controller/BaseController": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/Common/UpdatePage/Protocol": [
+
+                        ],
+                        "MokoLifeX/Expand/Controller/Common/UpdatePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/Common/UpdatePage/Model/**"
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MokoLifeX/Classes/Expand/Controller/Common/UpdatePage/Protocol/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MokoLifeX/DeviceModel": [
+
+        ],
+        "MokoLifeX/Expand": [
+
+        ],
+        "MokoLifeX/SDK": [
+
+        ],
+        "MokoLifeX/CTMediator": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "LifeX",
+          "subspecs": [
+            {
+              "name": "MQTT",
+              "source_files": "MokoLifeX/Classes/Functions/LifeX/MQTT/**"
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MokoLifeX/Functions/LifeX/MQTT": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "AddDevicePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/AddDevicePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/LifeX/Functions/OperationStepsPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/LifeX/Functions/AddDevicePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/AddDevicePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceListPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/DeviceListPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/LifeX/Functions/AddDevicePage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/LifeX/Functions/ServerForAPP/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/LifeX/Functions/DeviceListPage/View": [
+
+                        ],
+                        "MokoLifeX/Functions/LifeX/Functions/DeviceListPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/DeviceListPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/DeviceListPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "OperationStepsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/OperationStepsPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/LifeX/Functions/OperationStepsPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/OperationStepsPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForAPP",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/ServerForAPP/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/LifeX/Functions/ServerForAPP/View": [
+
+                        ],
+                        "MokoLifeX/Functions/LifeX/Functions/ServerForAPP/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/ServerForAPP/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/LifeX/Functions/ServerForAPP/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MK10X",
+          "subspecs": [
+            {
+              "name": "MQTT",
+              "source_files": "MokoLifeX/Classes/Functions/MK10X/MQTT/**"
+            },
+            {
+              "name": "Socket",
+              "source_files": "MokoLifeX/Classes/Functions/MK10X/Socket/**"
+            },
+            {
+              "name": "Target",
+              "source_files": "MokoLifeX/Classes/Functions/MK10X/Target/**",
+              "dependencies": {
+                "MokoLifeX/Functions/MK10X/Functions/ServerForDevice/Controller": [
+
+                ],
+                "MokoLifeX/Functions/MK10X/Functions/SwitchStatePage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MokoLifeX/Functions/MK10X/MQTT": [
+
+                ],
+                "MokoLifeX/Functions/MK10X/Socket": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "MorePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/MorePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK10X/Functions/MorePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/MorePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK10X/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK10X/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/ServerForDevice/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/ServerForDevice/View/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK10X/Functions/ServerForDevice/Model": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "SwitchStatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/SwitchStatePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK10X/Functions/MorePage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK10X/Functions/SwitchStatePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK10X/Functions/SwitchStatePage/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MK11X",
+          "subspecs": [
+            {
+              "name": "MQTT",
+              "source_files": "MokoLifeX/Classes/Functions/MK11X/MQTT/**"
+            },
+            {
+              "name": "Socket",
+              "source_files": "MokoLifeX/Classes/Functions/MK11X/Socket/**"
+            },
+            {
+              "name": "Target",
+              "source_files": "MokoLifeX/Classes/Functions/MK11X/Target/**",
+              "dependencies": {
+                "MokoLifeX/Functions/MK11X/Functions/ServerForDevice/Controller": [
+
+                ],
+                "MokoLifeX/Functions/MK11X/Functions/SwitchStatePage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MokoLifeX/Functions/MK11X/MQTT": [
+
+                ],
+                "MokoLifeX/Functions/MK11X/Socket": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "ColorSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ColorSettingPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/ColorSettingPage/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/ColorSettingPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ColorSettingPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ColorSettingPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ConfigDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ConfigDataPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/ConfigDataPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ConfigDataPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "EnergyPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/EnergyPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/EnergyPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/EnergyPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MorePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/MorePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/MorePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/MorePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ServerForDevice/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/ServerForDevice/View/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/ServerForDevice/Model": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "SettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/SettingsPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/ConfigDataPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/ColorSettingPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/SettingsPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/SettingsPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SwitchStatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/SwitchStatePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK11X/Functions/MorePage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/SettingsPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/EnergyPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK11X/Functions/SwitchStatePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK11X/Functions/SwitchStatePage/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MK117",
+          "subspecs": [
+            {
+              "name": "MQTT",
+              "source_files": "MokoLifeX/Classes/Functions/MK117/MQTT/**"
+            },
+            {
+              "name": "Socket",
+              "source_files": "MokoLifeX/Classes/Functions/MK117/Socket/**"
+            },
+            {
+              "name": "Target",
+              "source_files": "MokoLifeX/Classes/Functions/MK117/Target/**",
+              "dependencies": {
+                "MokoLifeX/Functions/MK117/Functions/ServerForDevice/Controller": [
+
+                ],
+                "MokoLifeX/Functions/MK117/Functions/SwitchStatePage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Expand",
+              "subspecs": [
+                {
+                  "name": "BaseController",
+                  "source_files": "MokoLifeX/Classes/Functions/MK117/Expand/BaseController/**",
+                  "dependencies": {
+                    "MokoLifeX/Functions/MK117/MQTT": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MokoLifeX/Functions/MK117/Expand": [
+
+                ],
+                "MokoLifeX/Functions/MK117/MQTT": [
+
+                ],
+                "MokoLifeX/Functions/MK117/Socket": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "ColorSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ColorSettingPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/ColorSettingPage/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/ColorSettingPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ColorSettingPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ColorSettingPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ConnectionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ConnectionPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/DeviceInfoPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ElectricityPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ElectricityPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "EnergyPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/EnergyPage/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/EnergyPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "EnergyReportPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyReportPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/EnergyReportPage/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/EnergyReportPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyReportPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/EnergyReportPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "LEDSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/LEDSettingPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/ColorSettingPage/Controller": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "LoadStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/LoadStatusPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/LoadStatusPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/LoadStatusPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MQTTSettingForDevicePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/MQTTSettingForDevicePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/MQTTSettingForDevicePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/MQTTSettingForDevicePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NTPConfigPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/NTPConfigPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/NTPConfigPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/NTPConfigPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "OverThresholdPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/OverThresholdPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/OverThresholdPage/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/OverThresholdPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/OverThresholdPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/OverThresholdPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "PowerOnStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/PowerOnStatusPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "PowerReportPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/PowerReportPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ProtectionSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ProtectionSettingPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/OverThresholdPage/Controller": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ServerForDevice/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/ServerForDevice/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SettingsPage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/PowerOnStatusPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/LEDSettingPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/DeviceInfoPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/StatusReportPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/PowerReportPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/EnergyReportPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/ConnectionPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/LoadStatusPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/ProtectionSettingPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/MQTTSettingForDevicePage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/SystemTimePage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/SettingsPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SettingsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "StatusReportPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/StatusReportPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SwitchStatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SwitchStatePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/ElectricityPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/SettingsPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/EnergyPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/SwitchStatePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SwitchStatePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SystemTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SystemTimePage/Controller/**",
+                      "dependencies": {
+                        "MokoLifeX/Functions/MK117/Functions/NTPConfigPage/Controller": [
+
+                        ],
+                        "MokoLifeX/Functions/MK117/Functions/SystemTimePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MokoLifeX/Classes/Functions/MK117/Functions/SystemTimePage/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
