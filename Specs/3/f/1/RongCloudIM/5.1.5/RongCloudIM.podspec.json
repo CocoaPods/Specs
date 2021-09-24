@@ -1,0 +1,166 @@
+{
+  "name": "RongCloudIM",
+  "version": "5.1.5",
+  "summary": "RongCloud IM SDK.(如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库，从 2.9.0 版本开始这里不再包含 CallKit 和 CallLib 类库的管理，音视频服务升级为融云自有音视频，2.9.0 版本之前用户请根据站内信提示更新)",
+  "description": "RongCloud IM SDK for iOS.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "litao": "litao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "http://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_v5_1_5_Dev.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "IMLibCore",
+      "vendored_frameworks": "RongCloudIM/RongIMLibCore.xcframework",
+      "resources": "RongCloudIM/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "ChatRoom",
+      "vendored_frameworks": "RongCloudIM/RongChatRoom.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "CustomerService",
+      "vendored_frameworks": "RongCloudIM/RongCustomerService.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Discussion",
+      "vendored_frameworks": "RongCloudIM/RongDiscussion.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "PublicService",
+      "vendored_frameworks": "RongCloudIM/RongPublicService.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Location",
+      "vendored_frameworks": "RongCloudIM/RongLocation.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM/RongIMLib.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ],
+        "RongCloudIM/ChatRoom": [
+
+        ],
+        "RongCloudIM/Discussion": [
+
+        ],
+        "RongCloudIM/PublicService": [
+
+        ],
+        "RongCloudIM/CustomerService": [
+
+        ],
+        "RongCloudIM/Location": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM/RongCloud.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/ar.lproj",
+        "RongCloudIM/Emoji.plist",
+        "RongCloudIM/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongIMKit.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongSticker",
+      "resources": [
+        "RongCloudIM/RongSticker.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongSticker.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM/RongSight.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      }
+    }
+  ]
+}
