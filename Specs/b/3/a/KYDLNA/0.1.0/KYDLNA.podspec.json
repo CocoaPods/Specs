@@ -1,0 +1,60 @@
+{
+  "name": "KYDLNA",
+  "version": "0.1.0",
+  "summary": "A short description of KYDLNA.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/messy007/kydlna",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yxf0103": "yxfeng0103@hotmail.com"
+  },
+  "source": {
+    "git": "https://gitee.com/messy007/kydlna.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "exclude_files": "KYDLNA/Classes/LXDLNA/GDataXML/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "KYDLNA/Classes/LXDLNA/GDataXML/*.{h,m}",
+      "requires_arc": false
+    },
+    {
+      "name": "Core",
+      "source_files": "KYDLNA/Classes/**/*",
+      "libraries": [
+        "resolv",
+        "xml2"
+      ],
+      "dependencies": {
+        "GCDWebServer/WebDAV": [
+
+        ],
+        "CocoaAsyncSocket": [
+
+        ],
+        "KYDLNA/no-arc": [
+
+        ]
+      }
+    },
+    {
+      "name": "Transfer",
+      "source_files": "KYDLNA/Transfer/**/*",
+      "dependencies": {
+        "KYDLNA/Core": [
+
+        ],
+        "KTVHTTPCache": [
+
+        ]
+      }
+    }
+  ]
+}
