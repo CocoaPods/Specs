@@ -1,0 +1,52 @@
+{
+  "name": "TPInAppReceipt",
+  "version": "3.3.0",
+  "summary": "Reading and Validating In App Purchase Receipt Locally",
+  "description": "A lightweight iOS/OSX library for reading and validating Apple In App Purchase Receipt locally. Pure swift, No OpenSSL!",
+  "homepage": "https://github.com/tikhop/TPInAppReceipt",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/tikhop/TPInAppReceipt.git",
+    "tag": "3.3.0"
+  },
+  "authors": {
+    "Pavel Tikhonenko": "hi@tikhop.com"
+  },
+  "swift_versions": [
+    "5.3"
+  ],
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "6.2"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "exclude_files": "Sources/Objc/*.{swift}",
+      "source_files": "Sources/*.{swift}",
+      "resources": [
+        "Sources/AppleIncRootCertificate.cer",
+        "Sources/StoreKitTestCertificate.cer"
+      ],
+      "dependencies": {
+        "ASN1Swift": [
+          "~> 1.2.3"
+        ]
+      }
+    },
+    {
+      "name": "Objc",
+      "source_files": "Sources/Objc/*.{swift}",
+      "dependencies": {
+        "TPInAppReceipt/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
