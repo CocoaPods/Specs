@@ -1,0 +1,59 @@
+{
+  "name": "AzureIoTHubClient",
+  "version": "1.8.0",
+  "summary": "Azure IoT Hub Client library for CocoaPods.",
+  "description": "This is a CocoaPods release of the Azure C IoT Hub Client.",
+  "homepage": "https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/sdk_cocoapods.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Microsoft": ""
+  },
+  "source": {
+    "git": "https://github.com/Azure/azure-iot-sdk-c.git",
+    "commit": "8755147a04b6842c43ed2f596f36503b5e77a188"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "prepare_command": "# Keeping this script idempotent makes using it in a\n# development situation much easier.\ngit submodule update --init deps/parson\nrm -R inc > /dev/null 2>&1 || true\nmkdir -p inc\nmkdir -p inc/internal\ncp deps/parson/parson.h inc\ncp iothub_client/inc/internal/*.h inc/internal\ncp iothub_client/inc/*.h inc\ncp serializer/inc/*.h inc\n\n# Assemble the module.modulemap file\npushd inc > /dev/null\necho \"framework module AzureIoTHubClient [system][extern_c] {\" > module.modulemap\nquote_thing='\"'\nfor filename in *.h; do\n    echo \"    header $quote_thing$filename$quote_thing\" >> module.modulemap\ndone\necho \"    export *\" >> module.modulemap\necho \"}\" >> module.modulemap\npopd > /dev/null\n# Done assembling module.modulemap file",
+  "preserve_paths": "inc/module.modulemap",
+  "module_map": "inc/module.modulemap",
+  "source_files": [
+    "inc/*.h",
+    "inc/internal/*.h",
+    "deps/parson/parson.c",
+    "iothub_client/src/*.c",
+    "serializer/src/*.c"
+  ],
+  "header_mappings_dir": "inc/",
+  "public_header_files": "inc/*.h",
+  "xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "USE_HEADERMAP": "NO",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTHubClient/inc/\" \"${PODS_ROOT}/AzureIoTUtility/inc/\" \"${PODS_ROOT}/AzureIoTuMqtt/inc/\" \"${PODS_ROOT}/AzureIoTuAmqp/inc/\"",
+    "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/AzureIoTHubClient/inc/\" \"${PODS_ROOT}/AzureIoTUtility/inc/\" \"${PODS_ROOT}/AzureIoTuMqtt/inc/\" \"${PODS_ROOT}/AzureIoTuAmqp/inc/\"",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "dependencies": {
+    "AzureMacroUtils": [
+      "1.3.9-patch-2"
+    ],
+    "AzureuMockC": [
+      "1.3.9-patch-4"
+    ],
+    "AzureIoTUtility": [
+      "1.8.0"
+    ],
+    "AzureIoTuAmqp": [
+      "1.8.0"
+    ],
+    "AzureIoTuMqtt": [
+      "1.8.0"
+    ]
+  }
+}
