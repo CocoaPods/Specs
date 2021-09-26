@@ -1,0 +1,166 @@
+{
+  "name": "RongCloudIM_EN",
+  "version": "5.1.3",
+  "summary": "RongCloud IM SDK.",
+  "description": "RongCloud IM SDK for iOS.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "rongcloud": "jenkins@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "http://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_EN_v5_1_3_Stable.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "IMLibCore",
+      "vendored_frameworks": "RongCloudIM_EN/RongIMLibCore.xcframework",
+      "resources": "RongCloudIM_EN/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "ChatRoom",
+      "vendored_frameworks": "RongCloudIM_EN/RongChatRoom.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "CustomerService",
+      "vendored_frameworks": "RongCloudIM_EN/RongCustomerService.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Discussion",
+      "vendored_frameworks": "RongCloudIM_EN/RongDiscussion.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "PublicService",
+      "vendored_frameworks": "RongCloudIM_EN/RongPublicService.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Location",
+      "vendored_frameworks": "RongCloudIM_EN/RongLocation.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM_EN/RongIMLib.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLibCore": [
+
+        ],
+        "RongCloudIM_EN/ChatRoom": [
+
+        ],
+        "RongCloudIM_EN/Discussion": [
+
+        ],
+        "RongCloudIM_EN/PublicService": [
+
+        ],
+        "RongCloudIM_EN/CustomerService": [
+
+        ],
+        "RongCloudIM_EN/Location": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM_EN/RongCloud.bundle",
+        "RongCloudIM_EN/en.lproj",
+        "RongCloudIM_EN/zh-Hans.lproj",
+        "RongCloudIM_EN/ar.lproj",
+        "RongCloudIM_EN/Emoji.plist",
+        "RongCloudIM_EN/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM_EN/RongIMKit.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongSticker",
+      "resources": [
+        "RongCloudIM_EN/RongSticker.bundle",
+        "RongCloudIM_EN/en.lproj",
+        "RongCloudIM_EN/zh-Hans.lproj",
+        "RongCloudIM_EN/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudIM_EN/RongSticker.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM_EN/RongSight.xcframework",
+      "dependencies": {
+        "RongCloudIM_EN/IMKit": [
+
+        ]
+      }
+    }
+  ]
+}
