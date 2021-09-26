@@ -1,0 +1,73 @@
+{
+  "name": "Brightroom",
+  "version": "2.3.3",
+  "summary": "A component-oriented image editor on top of CoreImage.",
+  "homepage": "https://github.com/muukii/Brightroom",
+  "license": "MIT",
+  "authors": "muukii",
+  "source": {
+    "git": "https://github.com/muukii/Brightroom.git",
+    "tag": "2.3.3"
+  },
+  "swift_versions": "5.3",
+  "module_name": "Brightroom",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "12.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "CoreImage"
+    ],
+    "dependencies": {
+      "Verge/Store": [
+        ">= 8.9.1"
+      ]
+    }
+  },
+  "subspecs": [
+    {
+      "name": "Engine",
+      "source_files": "Sources/BrightroomEngine/**/*.swift"
+    },
+    {
+      "name": "UI-Classic",
+      "source_files": [
+        "Sources/BrightroomUI/Shared/**/*.swift",
+        "Sources/BrightroomUI/Built-in UI/ClassicImageEdit/**/*.swift"
+      ],
+      "dependencies": {
+        "Brightroom/Engine": [
+
+        ],
+        "TransitionPatch": [
+
+        ]
+      },
+      "resource_bundles": {
+        "BrightroomUI": [
+          "Sources/BrightroomUI/Media.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "UI-Crop",
+      "source_files": [
+        "Sources/BrightroomUI/Shared/**/*.swift",
+        "Sources/BrightroomUI/Built-in UI/PhotosCrop/**/*.swift"
+      ],
+      "dependencies": {
+        "Brightroom/Engine": [
+
+        ]
+      },
+      "resource_bundles": {
+        "BrightroomUI": [
+          "Sources/BrightroomUI/Media.xcassets"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
