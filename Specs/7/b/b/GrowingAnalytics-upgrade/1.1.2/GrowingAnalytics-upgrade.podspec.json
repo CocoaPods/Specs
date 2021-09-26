@@ -1,0 +1,67 @@
+{
+  "name": "GrowingAnalytics-upgrade",
+  "version": "1.1.2",
+  "summary": "GrowingIO SDK udgrade, support for 2.x to 3.x",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker-upgrade.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker-upgrade-2to3-cdp",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Upgrade-base",
+      "source_files": "Upgrade-base/**/*{.h,.m}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      },
+      "vendored_frameworks": "Upgrade-base/Frameworks/*.framework"
+    },
+    {
+      "name": "Autotracker-upgrade-2to3-cdp",
+      "source_files": "Autotracker-upgrade-2to3-cdp/**/*{.h}",
+      "dependencies": {
+        "GrowingAnalytics-upgrade/Upgrade-base": [
+
+        ],
+        "GrowingAnalytics-cdp/Autotracker": [
+
+        ]
+      },
+      "vendored_frameworks": "Autotracker-upgrade-2to3-cdp/Frameworks/*.framework"
+    },
+    {
+      "name": "Tracker-upgrade-2to3-cdp",
+      "source_files": "Tracker-upgrade-2to3-cdp/**/*{.h}",
+      "dependencies": {
+        "GrowingAnalytics-upgrade/Upgrade-base": [
+
+        ],
+        "GrowingAnalytics-cdp/Tracker": [
+
+        ]
+      },
+      "vendored_frameworks": "Tracker-upgrade-2to3-cdp/Frameworks/*.framework"
+    }
+  ]
+}
