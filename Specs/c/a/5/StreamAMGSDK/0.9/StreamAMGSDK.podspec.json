@@ -1,0 +1,84 @@
+{
+  "name": "StreamAMGSDK",
+  "version": "0.9",
+  "summary": "Stream AMG SDK",
+  "swift_versions": "5",
+  "description": "Core dependency for the Stream AMG SDK. Includes CloudMatrix, StreamPlay, Authentication and AMGPlayKit",
+  "homepage": "https://github.com/StreamAMG/streamamg-sdk-ios",
+  "license": {
+    "type": "AGPLv3",
+    "text": "AGPLv3"
+  },
+  "authors": "StreamAMG",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "Source/**/*.swift",
+  "source": {
+    "git": "https://github.com/StreamAMG/streamamg-sdk-ios.git",
+    "tag": "0.9"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/StreamSDKCore/**/*.swift"
+    },
+    {
+      "name": "StreamPlay",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKStreamPlay/**/*.*"
+    },
+    {
+      "name": "CloudMatrix",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKCloudMatrix/**/*.*"
+    },
+    {
+      "name": "Authentication",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKAuthentication/**/*.*"
+    },
+    {
+      "name": "PlayKit",
+      "source_files": "Source/StreamSDKPlayKit/**/*.*",
+      "dependencies": {
+        "PlayKit": [
+          "3.20.0"
+        ],
+        "PlayKit_IMA": [
+          "1.10.0"
+        ],
+        "PlayKitProviders": [
+          "1.11.0"
+        ],
+        "PlayKitYoubora": [
+          "1.9.0"
+        ]
+      },
+      "resource_bundles": {
+        "AMGPlayKitBundle": "Source/Media/*.*"
+      }
+    }
+  ],
+  "swift_version": "5"
+}
