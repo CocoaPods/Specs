@@ -1,0 +1,141 @@
+{
+  "name": "MediaMelonSmartStreaming",
+  "version": "1.1.2",
+  "summary": "The MediaMelon Player SDK Provides SmartSight Analytics and QBR SmartStreaming.",
+  "description": "The MediaMelon Player SDK adds SmartSight Analytics and QBR SmartStreaming capability to any media player and is available for all ABR media players.",
+  "homepage": "https://bitbucket.org/mediameloninc/mediamelonsmartstreaming-ios-cocoapods",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Samit": "samit@mediamelon.com"
+  },
+  "source": {
+    "git": "https://bitbucket.org/mediameloninc/mediamelonsmartstreaming-ios-cocoapods",
+    "tag": "1.1.2"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0"
+  },
+  "default_subspecs": "AVPlayer",
+  "subspecs": [
+    {
+      "name": "AVPlayer",
+      "source_files": [
+        "MediaMelonSmartStreaming/Classes/Common/*.{h,swift}",
+        "MediaMelonSmartStreaming/Classes/Wrapper/AVPlayer/*.swift"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AVFoundation"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a"
+      },
+      "tvos": {
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a"
+      },
+      "libraries": "stdc++",
+      "public_header_files": "MediaMelonSmartStreaming/Classes/Common/*.h"
+    },
+    {
+      "name": "AVPlayerWithFreewheel",
+      "source_files": [
+        "MediaMelonSmartStreaming/Classes/Common/*.{h,swift}",
+        "MediaMelonSmartStreaming/Classes/Wrapper/AVPlayerWithFreewheel/*.swift"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AVFoundation",
+        "AdSupport",
+        "SystemConfiguration"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a",
+        "vendored_frameworks": "MediaMelonSmartStreaming/Frameworks/Freewheel/iOS/AdManager.framework"
+      },
+      "tvos": {
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a",
+        "vendored_frameworks": "MediaMelonSmartStreaming/Frameworks/Freewheel/tvOS/AdManager.framework"
+      },
+      "libraries": "stdc++",
+      "public_header_files": "MediaMelonSmartStreaming/Classes/Common/*.h",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "armv7 arm64 x86_64",
+        "VALID_ARCHS[sdk=appletvsimulator*]": "armv7 arm64 x86_64"
+      }
+    },
+    {
+      "name": "BitmovinPlayerWithSSAIForNowtilus",
+      "source_files": [
+        "MediaMelonSmartStreaming/Classes/Common/*.{h,swift}",
+        "MediaMelonSmartStreaming/Classes/Wrapper/BitmovinPlayerWithSSAINowtilus/*.swift",
+        "MediaMelonSmartStreaming/Classes/Utilities/VastClient/*.swift",
+        "MediaMelonSmartStreaming/Classes/Utilities/M3U8Parser/*.{h,m}"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AVFoundation"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a",
+        "vendored_frameworks": "MediaMelonSmartStreaming/Frameworks/BitmovinPlayer/iOS/BitmovinPlayer.framework"
+      },
+      "tvos": {
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a",
+        "vendored_frameworks": "MediaMelonSmartStreaming/Frameworks/BitmovinPlayer/tvOS/BitmovinPlayer.framework"
+      },
+      "libraries": "stdc++",
+      "public_header_files": [
+        "MediaMelonSmartStreaming/Classes/Common/*.h",
+        "MediaMelonSmartStreaming/Classes/Utilities/M3U8Parser/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "armv7 arm64 x86_64",
+        "VALID_ARCHS[sdk=appletvsimulator*]": "armv7 arm64 x86_64"
+      }
+    },
+    {
+      "name": "AVPlayerWithGoogleIMA",
+      "source_files": [
+        "MediaMelonSmartStreaming/Classes/Common/*.{h,swift}",
+        "MediaMelonSmartStreaming/Classes/Wrapper/AVPlayerWithGoogleIMA/*.swift"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AVFoundation",
+        "SystemConfiguration"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony",
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/iOS/libmmsmartstreamer.a",
+        "dependencies": {
+          "GoogleAds-IMA-iOS-SDK": [
+
+          ]
+        }
+      },
+      "tvos": {
+        "vendored_libraries": "MediaMelonSmartStreaming/Classes/StaticLibrary/tvOS/libmmsmartstreaming-tvos.a",
+        "dependencies": {
+          "GoogleAds-IMA-tvOS-SDK": [
+            "~> 4.2"
+          ]
+        }
+      },
+      "libraries": "stdc++",
+      "public_header_files": "MediaMelonSmartStreaming/Classes/Common/*.h",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "armv7 arm64 x86_64",
+        "VALID_ARCHS[sdk=appletvsimulator*]": "armv7 arm64 x86_64"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
