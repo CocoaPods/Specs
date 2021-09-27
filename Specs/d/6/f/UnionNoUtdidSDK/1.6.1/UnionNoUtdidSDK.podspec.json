@@ -1,0 +1,133 @@
+{
+  "name": "UnionNoUtdidSDK",
+  "version": "1.6.1",
+  "summary": "云告U聚合SDK",
+  "description": "云告U聚合SDK，优化广告收益的得力助手。",
+  "homepage": "http://doc.uponad.com/#/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangbao": "zhangbao@ly.group"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://oss.static.yungaoad.com/sdk/depend/1.6.1/Union.zip?t=1"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "AdSupport",
+    "WebKit",
+    "CoreTelephony",
+    "CoreMotion"
+  ],
+  "libraries": "sqlite3",
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "default_subspecs": "UnionSDK",
+  "subspecs": [
+    {
+      "name": "UnionSDK",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/{UnionSDK,UnionYunGaoAdapter}.framework",
+      "dependencies": {
+        "YGNet": [
+          "0.0.3"
+        ],
+        "YGAdSDK": [
+          "0.0.8"
+        ]
+      }
+    },
+    {
+      "name": "UnionBaiduAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "user_target_xcconfig": {
+        "VALID_ARCHS": "x86_64 armv7 armv7s arm64"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "x86_64 armv7 armv7s arm64"
+      },
+      "vendored_frameworks": "Frameworks/UnionBaiduAdapter.framework",
+      "dependencies": {
+        "BaiduMobAdSDK": [
+          "4.81"
+        ],
+        "UnionNoUtdidSDK/UnionSDK": [
+          "1.6.1"
+        ]
+      }
+    },
+    {
+      "name": "UnionGDTAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "user_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "vendored_frameworks": "Frameworks/UnionGDTAdapter.framework",
+      "dependencies": {
+        "GDTMobSDK": [
+          "4.13.02"
+        ],
+        "UnionNoUtdidSDK/UnionSDK": [
+          "1.6.1"
+        ]
+      }
+    },
+    {
+      "name": "UnionKuaiShouAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "user_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "armv7 x86_64 arm64"
+      },
+      "vendored_frameworks": "Frameworks/UnionKuaiShouAdapter.framework",
+      "dependencies": {
+        "KSAdSDK": [
+          "3.3.14"
+        ],
+        "UnionNoUtdidSDK/UnionSDK": [
+          "1.6.1"
+        ]
+      }
+    },
+    {
+      "name": "UnionTouTiaoAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "Frameworks/UnionTouTiaoAdapter.framework",
+      "dependencies": {
+        "Ads-CN": [
+          "3.9.0.4"
+        ],
+        "UnionNoUtdidSDK/UnionSDK": [
+          "1.6.1"
+        ]
+      }
+    }
+  ]
+}
