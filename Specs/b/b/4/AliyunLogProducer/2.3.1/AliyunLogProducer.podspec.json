@@ -1,0 +1,83 @@
+{
+  "name": "AliyunLogProducer",
+  "version": "2.3.1",
+  "summary": "aliyun log service ios producer.",
+  "description": "log service ios producer.\nhttps://help.aliyun.com/document_detail/29063.html\nhttps://help.aliyun.com/product/28958.html",
+  "homepage": "https://github.com/aliyun/aliyun-log-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aliyun-log": "davidzhang.zc@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/aliyun/aliyun-log-ios-sdk.git",
+    "tag": "2.3.1"
+  },
+  "social_media_url": "http://t.cn/AiRpol8C",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "libraries": "z",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "AliyunLogProducer/AliyunLogProducer/*.{h,m}",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/*.{c,h}",
+        "AliyunLogProducer/AliyunLogProducer/utils/*.{m,h}"
+      ],
+      "public_header_files": [
+        "AliyunLogProducer/AliyunLogProducer/*.h",
+        "AliyunLogProducer/AliyunLogProducer/utils/*.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_define.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_http_interface.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_inner_include.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_multi_thread.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_producer_client.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_producer_common.h",
+        "AliyunLogProducer/aliyun-log-c-sdk/src/log_producer_config.h"
+      ]
+    },
+    {
+      "name": "Bricks",
+      "dependencies": {
+        "AliyunLogProducer/Core": [
+
+        ]
+      },
+      "source_files": "AliyunLogProducer/AliyunLogProducer/common/**/*.{m,h}",
+      "public_header_files": "AliyunLogProducer/AliyunLogProducer/common/**/*.h",
+      "frameworks": "SystemConfiguration"
+    },
+    {
+      "name": "CrashReporter",
+      "dependencies": {
+        "AliyunLogProducer/Bricks": [
+
+        ]
+      },
+      "source_files": "AliyunLogProducer/AliyunLogProducer/CrashReporter/**/*.{m,h}",
+      "public_header_files": "AliyunLogProducer/AliyunLogProducer/CrashReporter/**/*.h",
+      "vendored_frameworks": "AliyunLogProducer/AliyunLogProducer/CrashReporter/WPKMobi.framework",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreGraphics"
+      ],
+      "libraries": [
+        "z",
+        "c++"
+      ],
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}
