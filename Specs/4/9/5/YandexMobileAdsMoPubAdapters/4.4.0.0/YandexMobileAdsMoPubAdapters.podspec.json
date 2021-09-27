@@ -1,0 +1,67 @@
+{
+  "name": "YandexMobileAdsMoPubAdapters",
+  "version": "4.4.0.0",
+  "summary": "Yandex Mobile Ads adapters for MoPub",
+  "homepage": "https://tech.yandex.ru/mobile-ads/",
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Yandex LLC": "mobads@yandex-team.ru"
+  },
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-ads-mobile-sdk/223308/YandexMobileAdsMoPubAdapters-4.4.0.0-ios-b2f137a1-9ef0-4a26-88e4-95b6bf789f39.zip",
+    "sha1": "dadb57be65993bb4ac5ce3739dbb4cd3ae1900db"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Static",
+  "dependencies": {
+    "mopub-ios-sdk": [
+      "~> 5.17"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "dependencies": {
+        "YandexMobileAds": [
+          "~> 4.4.0"
+        ]
+      },
+      "preserve_paths": [
+        "YandexMobileAdsMoPubAdapters.framework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "YandexMobileAdsMoPubAdapters.framework",
+      "source_files": "YandexMobileAdsMoPubAdapters.framework/Versions/A/Headers/*.h",
+      "public_header_files": "YandexMobileAdsMoPubAdapters.framework/Versions/A/Headers/*.h"
+    },
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "YandexMobileAds/Dynamic": [
+          "~> 4.4.0"
+        ]
+      },
+      "preserve_paths": [
+        "YandexMobileAdsMoPubAdapters.framework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "YandexMobileAdsMoPubAdapters.framework",
+      "source_files": "YandexMobileAdsMoPubAdapters.framework/Versions/A/Headers/*.h",
+      "public_header_files": "YandexMobileAdsMoPubAdapters.framework/Versions/A/Headers/*.h"
+    }
+  ]
+}
