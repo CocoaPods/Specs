@@ -1,0 +1,125 @@
+{
+  "name": "AmuseGameSDK",
+  "version": "2.0.0",
+  "summary": "AmuseGame SDK for games",
+  "description": "AmuseGame SDK for games\nConvenient game access",
+  "homepage": "https://github.com/AmuseGames/GameSDK-iOS",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "AmuseGames Team",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/AmuseGames/GameSDK-iOS.git",
+    "tag": "2.0.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "static_framework": true,
+  "libraries": "sqlite3",
+  "frameworks": [
+    "UIKit",
+    "StoreKit",
+    "GameKit",
+    "WebKit",
+    "UserNotifications",
+    "Photos",
+    "ImageIO",
+    "Foundation",
+    "CoreFoundation",
+    "QuartzCore",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreTelephony",
+    "Security",
+    "AuthenticationServices"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SDK/AmuseGameSDK/Core/AmuseGameSDK.framework",
+      "resources": [
+        "SDK/AmuseGameSDK/Core/TTkGame.bundle",
+        "SDK/AmuseGameSDK/Core/TTGCProgressHUD.bundle"
+      ]
+    },
+    {
+      "name": "Facebook",
+      "source_files": "SDK/AmuseGameSDK/SocialLibraries/Facebook",
+      "vendored_libraries": "SDK/AmuseGameSDK/SocialLibraries/Facebook/libTTGCSocialFacebook.a",
+      "dependencies": {
+        "FBSDKCoreKit": [
+
+        ],
+        "FBSDKLoginKit": [
+
+        ],
+        "FBSDKShareKit": [
+
+        ],
+        "AmuseGameSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "SDK/AmuseGameSDK/SocialLibraries/TTGCSocialTwitter",
+      "vendored_libraries": "SDK/AmuseGameSDK/SocialLibraries/TTGCSocialTwitter/libTTGCSocialTwitter.a",
+      "dependencies": {
+        "TwitterKit5": [
+          "~> 5.2.0"
+        ],
+        "AmuseGameSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "source_files": "SDK/AmuseGameSDK/SocialLibraries/TTGCAnalytics",
+      "vendored_libraries": "SDK/AmuseGameSDK/SocialLibraries/TTGCAnalytics/libTTGCAnalytics.a",
+      "dependencies": {
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/DynamicLinks": [
+
+        ],
+        "AmuseGameSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "source_files": "SDK/AmuseGameSDK/SocialLibraries/TTGCAppsFlyer",
+      "vendored_libraries": "SDK/AmuseGameSDK/SocialLibraries/TTGCAppsFlyer/libTTGCAppsFlyer.a",
+      "dependencies": {
+        "AppsFlyerFramework": [
+
+        ],
+        "AmuseGameSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tapjoy",
+      "source_files": "SDK/AmuseGameSDK/SocialLibraries/TTGCTapjoy",
+      "vendored_libraries": "SDK/AmuseGameSDK/SocialLibraries/TTGCTapjoy/libTTGCTapjoy.a",
+      "dependencies": {
+        "TapjoySDK": [
+
+        ],
+        "AmuseGameSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
