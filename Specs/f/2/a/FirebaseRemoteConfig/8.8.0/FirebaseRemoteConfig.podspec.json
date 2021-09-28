@@ -1,0 +1,146 @@
+{
+  "name": "FirebaseRemoteConfig",
+  "version": "8.8.0",
+  "summary": "Firebase Remote Config",
+  "description": "Firebase Remote Config is a cloud service that lets you change the\nappearance and behavior of your app without requiring users to download an\napp update.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-8.8.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebaseRemoteConfig/Sources/**/*.[mh]",
+    "Interop/Analytics/Public/*.h",
+    "FirebaseABTesting/Sources/Private/*.h",
+    "FirebaseCore/Sources/Private/*.h",
+    "FirebaseInstallations/Source/Library/Private/*.h"
+  ],
+  "public_header_files": "FirebaseRemoteConfig/Sources/Public/FirebaseRemoteConfig/*.h",
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "dependencies": {
+    "FirebaseABTesting": [
+      "~> 8.0"
+    ],
+    "FirebaseCore": [
+      "~> 8.0"
+    ],
+    "FirebaseInstallations": [
+      "~> 8.0"
+    ],
+    "GoogleUtilities/Environment": [
+      "~> 7.4"
+    ],
+    "GoogleUtilities/NSData+zlib": [
+      "~> 7.4"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "source_files": [
+        "FirebaseRemoteConfig/Tests/Unit/FIRRemoteConfigComponentTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNConfigContentTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNConfigDBManagerTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNConfigExperimentTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNConfigValueTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNPersonalizationTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNRemoteConfigTest.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNTestUtilities.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNUserDefaultsManagerTests.m",
+        "FirebaseRemoteConfig/Tests/Unit/RCNTestUtilities.h",
+        "FirebaseRemoteConfig/Tests/Unit/RCNInstanceIDTest.m"
+      ],
+      "resources": [
+        "FirebaseRemoteConfig/Tests/Unit/Defaults-testInfo.plist",
+        "FirebaseRemoteConfig/Tests/Unit/SecondApp-GoogleService-Info.plist",
+        "FirebaseRemoteConfig/Tests/Unit/TestABTPayload.txt"
+      ],
+      "requires_app_host": true,
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "swift-api-tests",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "FirebaseRemoteConfig/Tests/SwiftAPI/*.swift",
+        "FirebaseRemoteConfig/Tests/FakeUtils/*.[hm]",
+        "FirebaseRemoteConfig/Tests/FakeUtils/*.swift"
+      ],
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/FirebaseRemoteConfig/Tests/FakeUtils/Bridging-Header.h"
+      },
+      "resources": [
+        "FirebaseRemoteConfig/Tests/SwiftAPI/GoogleService-Info.plist",
+        "FirebaseRemoteConfig/Tests/SwiftAPI/AccessToken.json"
+      ],
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    },
+    {
+      "name": "fake-console-tests",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "FirebaseRemoteConfig/Tests/SwiftAPI/*.swift",
+        "FirebaseRemoteConfig/Tests/FakeUtils/*.[hm]",
+        "FirebaseRemoteConfig/Tests/FakeUtils/*.swift",
+        "FirebaseRemoteConfig/Tests/FakeConsole/*.swift"
+      ],
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/FirebaseRemoteConfig/Tests/FakeUtils/Bridging-Header.h"
+      },
+      "resources": "FirebaseRemoteConfig/Tests/FakeUtils/GoogleService-Info.plist",
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    }
+  ]
+}
