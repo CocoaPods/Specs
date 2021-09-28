@@ -1,0 +1,65 @@
+{
+  "name": "YDAvoidCrashKit",
+  "version": "0.1.1",
+  "summary": "防崩溃、性能检测等",
+  "homepage": "https://github.com/chong2vv/YDAvoidCrashKit",
+  "license": "MIT",
+  "authors": {
+    "王远东": "chong2vv@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/chong2vv/YDAvoidCrashKit.git",
+    "tag": "0.1.1"
+  },
+  "source_files": "YDAvoidCrashKit/*",
+  "static_framework": true,
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "subspecs": [
+    {
+      "name": "YDLogger",
+      "libraries": "c++",
+      "source_files": "YDAvoidCrashKit/YDLogger/**/*"
+    },
+    {
+      "name": "YDLoggerUI",
+      "source_files": "YDAvoidCrashKit/YDLoggerUI/**/*",
+      "dependencies": {
+        "YDAvoidCrashKit/YDLogger": [
+
+        ]
+      }
+    },
+    {
+      "name": "YDAvoidCrash",
+      "source_files": "YDAvoidCrashKit/YDAvoidCrash/**/*",
+      "dependencies": {
+        "YDAvoidCrashKit/YDLogger": [
+
+        ],
+        "YDAvoidCrashKit/YDSafeThread": [
+
+        ]
+      }
+    },
+    {
+      "name": "YDMonitor",
+      "source_files": "YDAvoidCrashKit/YDMonitor/**/*",
+      "dependencies": {
+        "YDAvoidCrashKit/YDLogger": [
+
+        ]
+      }
+    },
+    {
+      "name": "YDSafeThread",
+      "source_files": "YDAvoidCrashKit/YDSafeThread/**/*"
+    }
+  ]
+}
