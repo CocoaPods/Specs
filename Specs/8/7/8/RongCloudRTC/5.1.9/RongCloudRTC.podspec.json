@@ -1,0 +1,116 @@
+{
+  "name": "RongCloudRTC",
+  "version": "5.1.9",
+  "summary": "融云音视频引擎 SDK RongCloudRTC",
+  "description": "RongCloud RTC SDK for iOS.\n如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库.",
+  "homepage": "https://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 RongCloud"
+  },
+  "authors": {
+    "RongCloud": "https://www.rongcloud.cn"
+  },
+  "social_media_url": "https://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_iOS_SDK_v5_1_9_Stable.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS": "arm64 armv7 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "RongRTCLib",
+      "vendored_frameworks": "RongCloudRTC/**/RongRTCLib.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "libraries": "c++",
+      "frameworks": [
+        "VideoToolbox",
+        "GLKit"
+      ],
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+          ">=5.1.3"
+        ]
+      }
+    },
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": "RongCloudRTC/**/RongCallLib.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongRTCLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "resources": [
+        "RongCloudRTC/**/RongCallKit.bundle",
+        "RongCloudRTC/**/en.lproj",
+        "RongCloudRTC/**/zh-Hans.lproj",
+        "RongCloudRTC/**/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudRTC/**/RongCallKit.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongCallLib": [
+
+        ],
+        "RongCloudIM/IMLib": [
+          ">=5.1.3"
+        ],
+        "RongCloudIM/IMKit": [
+          ">=5.1.3"
+        ]
+      }
+    },
+    {
+      "name": "RongFaceBeautifier",
+      "resources": "RongCloudRTC/**/MHSDK.bundle",
+      "vendored_frameworks": "RongCloudRTC/**/RongFaceBeautifier.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongRTCLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongRTCPlayer",
+      "vendored_frameworks": "RongCloudRTC/**/RongRTCPlayer.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC/RongRTCLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongRTCReplayKitExt",
+      "vendored_frameworks": "RongCloudRTC/**/RongRTCReplayKitExt.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    }
+  ]
+}
