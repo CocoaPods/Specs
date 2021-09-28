@@ -1,0 +1,205 @@
+{
+  "name": "WavelyKanzhunLibForDev",
+  "version": "0.0.6",
+  "summary": "This is a pods containing kanzhun private libraries",
+  "homepage": "https://github.com/Wavely-California/wavely-iOS-kanzhunLib.git",
+  "authors": {
+    "yixiong": "yixiong@kanzhun.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "git@github.com:Wavely-California/wavely-iOS-kanzhunLib.git",
+    "tag": "0.0.6"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64",
+    "ENABLE_BITCODE": "NO"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "KZPhotoBrowser",
+      "resource_bundles": {
+        "KZPhotoBrowser": [
+          "kanzhunLib/kzphotobrowserexample/KZPhotoBrowser/Resources/*"
+        ]
+      },
+      "source_files": [
+        "kanzhunLib/kzphotobrowserexample/KZPhotoBrowser/KZPhotoBrowserUtilities/**/*.{h,m}",
+        "kanzhunLib/kzphotobrowserexample/KZPhotoBrowser/KZImagePreview/**/*.{h,m}",
+        "kanzhunLib/kzphotobrowserexample/KZPhotoBrowser/KZPhotoPicker/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "KZTools",
+      "resources": "kanzhunLib/kztools/kztools/resources/*",
+      "vendored_libraries": [
+        "kanzhunLib/kztools/kztools/Tools/Audio/opencore-amrnb/libopencore-amrnb.a",
+        "kanzhunLib/kztools/kztools/Tools/Audio/opencore-mp3/libmp3lame.a"
+      ],
+      "source_files": [
+        "kanzhunLib/kztools/kztools/Tools/*.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/Audio/**/*.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyBase/**/*.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeNetwork.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeNotification.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeCamera.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypePhotoLibrary.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeMicrophone.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeLocation.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeCalendar.{h,m}",
+        "kanzhunLib/kztools/kztools/Tools/PrivacyType/KZPrivacyTypeAppTracking.{h,m}"
+      ]
+    },
+    {
+      "name": "KZAlert",
+      "source_files": [
+        "kanzhunLib/kzalert/KZAlert/KZAlert.h",
+        "kanzhunLib/kzalert/KZAlert/KZSystemAlert/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "KZExtensions",
+      "source_files": "kanzhunLib/kzextensions/KZExtensions/Extensions/*.{h,m}"
+    },
+    {
+      "name": "KZLogger",
+      "source_files": "kanzhunLib/kzlogger/KZLogger/Logger/*.{h,mm,cc}",
+      "vendored_frameworks": "kanzhunLib/kzlogger/KZLogger/mars.framework",
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "SystemConfiguration"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "KZMarkdownView",
+      "source_files": "kanzhunLib/kzmarkdown/KZMarkdownView/Classes/**/*",
+      "vendored_frameworks": [
+        "kanzhunLib/kzmarkdown/KZMarkdownView/CommonMark.framework"
+      ],
+      "dependencies": {
+        "WavelyKanzhunLibForDev/KZSeniorLabel": [
+
+        ],
+        "WavelyKanzhunLibForDev/KZWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "KZSeniorLabel",
+      "source_files": "kanzhunLib/kzseniorlabel/YPSeniorLabel/YPSeniorLabel/**/*.{h,m}",
+      "frameworks": [
+        "Foundation",
+        "CoreText",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WavelyKanzhunLibForDev/KZMenuController": [
+
+        ],
+        "WavelyKanzhunLibForDev/KZWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "KZWebImage",
+      "source_files": "kanzhunLib/kzwebimage/YPWebImage/YPWebImage/**/*.{h,m}",
+      "vendored_frameworks": "kanzhunLib/kzwebimage/YPWebImage/WebP/WebP.framework",
+      "frameworks": [
+        "Foundation",
+        "CoreServices",
+        "UIKit",
+        "CoreGraphics",
+        "Accelerate",
+        "ImageIO",
+        "QuartzCore"
+      ]
+    },
+    {
+      "name": "KZMenuController",
+      "source_files": "kanzhunLib/kzmenucontroller/YPMenuController/Classes/**/*"
+    },
+    {
+      "name": "KZStoreManager",
+      "source_files": "kanzhunLib/kzstoremanager/StoreManager/*.{h,m}",
+      "dependencies": {
+        "MMKV": [
+          "1.0.22"
+        ]
+      }
+    },
+    {
+      "name": "KZModelCast",
+      "source_files": "kanzhunLib/kzmodelcast/KZModelCast/ModelCast/*.{h,m}"
+    },
+    {
+      "name": "KZURLCache",
+      "source_files": "kanzhunLib/kzurlcache/KZURLCache/KZURLCache/**/*.{h,m}",
+      "dependencies": {
+        "AFNetworking/NSURLSession": [
+
+        ]
+      }
+    },
+    {
+      "name": "KZMqttSDK",
+      "source_files": "kanzhunLib/kzmqttsdk/KZMqttSDK/MqttSDK/*.{h,m}"
+    },
+    {
+      "name": "KZMenuAssistor",
+      "source_files": "kanzhunLib/kzmenuassistor/KZMenuAssistor/KZMenuAssistor/**/*.{h,m}",
+      "resource_bundles": {
+        "KZMenuAssistorResourceBundle": [
+          "kanzhunLib/kzmenuassistor/KZMenuAssistor/KZMenuAssistor/**/*.{xib,png,html,css,js,svg}"
+        ]
+      },
+      "dependencies": {
+        "WavelyKanzhunLibForDev/KZMenuController": [
+
+        ],
+        "WavelyKanzhunLibForDev/KZPerformanceWolf": [
+
+        ]
+      }
+    },
+    {
+      "name": "KZPerformanceWolf",
+      "source_files": "kanzhunLib/kzperformancewolf/KZPerformanceWolf/Classes/**/*",
+      "libraries": "c++"
+    },
+    {
+      "name": "KZAltmanManager",
+      "source_files": "kanzhunLib/kzaltmanmanager/KZAltmanManager/**/*.{h,m}",
+      "libraries": "resolv",
+      "frameworks": "Network",
+      "dependencies": {
+        "FMDB/FTS": [
+
+        ],
+        "FMDB/SQLCipher": [
+
+        ],
+        "SSZipArchive": [
+
+        ]
+      }
+    }
+  ]
+}
