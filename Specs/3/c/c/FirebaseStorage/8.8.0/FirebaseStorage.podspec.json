@@ -1,0 +1,115 @@
+{
+  "name": "FirebaseStorage",
+  "version": "8.8.0",
+  "summary": "Firebase Storage",
+  "description": "Firebase Storage provides robust, secure file uploads and downloads from Firebase SDKs, powered by Google Cloud Storage.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-8.8.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebaseStorage/Sources/**/*.[mh]",
+    "Interop/Auth/Public/*.h",
+    "FirebaseCore/Sources/Private/*.h",
+    "FirebaseAppCheck/Sources/Interop/*.h"
+  ],
+  "public_header_files": "FirebaseStorage/Sources/Public/FirebaseStorage/*.h",
+  "osx": {
+    "frameworks": "CoreServices"
+  },
+  "dependencies": {
+    "FirebaseCore": [
+      "~> 8.0"
+    ],
+    "GTMSessionFetcher/Core": [
+      "~> 1.5"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "FirebaseStorage/Tests/Unit/*.[mh]",
+        "SharedTestUtilities/FIRComponentTestUtilities.*",
+        "SharedTestUtilities/FIRAuthInteropFake.*",
+        "SharedTestUtilities/AppCheckFake/*.[mh]"
+      ],
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    },
+    {
+      "name": "integration",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": "FirebaseStorage/Tests/Integration/*.[mh]",
+      "requires_app_host": true,
+      "resources": [
+        "FirebaseStorage/Tests/Integration/Resources/1mb.dat",
+        "FirebaseStorage/Tests/Integration/Resources/GoogleService-Info.plist"
+      ],
+      "dependencies": {
+        "FirebaseAuth": [
+          "~> 8.0"
+        ]
+      }
+    },
+    {
+      "name": "swift-integration",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0"
+      },
+      "source_files": "FirebaseStorage/Tests/SwiftIntegration/*.swift",
+      "requires_app_host": true,
+      "resources": [
+        "FirebaseStorage/Tests/Integration/Resources/1mb.dat",
+        "FirebaseStorage/Tests/Integration/Resources/GoogleService-Info.plist"
+      ],
+      "dependencies": {
+        "FirebaseAuth": [
+          "~> 8.0"
+        ]
+      }
+    }
+  ]
+}
