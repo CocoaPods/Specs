@@ -1,0 +1,117 @@
+{
+  "name": "FirebaseFirestore",
+  "version": "8.8.0",
+  "summary": "Google Cloud Firestore",
+  "description": "Google Cloud Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development.",
+  "homepage": "https://developers.google.com/",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-8.8.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "public_header_files": "Firestore/Source/Public/FirebaseFirestore/*.h",
+  "source_files": [
+    "FirebaseCore/Sources/Private/*.h",
+    "Firestore/Source/Public/FirebaseFirestore/*.h",
+    "Firestore/Source/**/*.{m,mm}",
+    "Firestore/Protos/nanopb/**/*.cc",
+    "Firestore/core/include/**/*.{cc,mm}",
+    "Firestore/core/src/**/*.{cc,mm}",
+    "Interop/Auth/Public/*.h"
+  ],
+  "preserve_paths": [
+    "Firestore/Source/API/*.h",
+    "Firestore/Source/Core/*.h",
+    "Firestore/Source/Local/*.h",
+    "Firestore/Source/Remote/*.h",
+    "Firestore/Source/Util/*.h",
+    "Firestore/Protos/nanopb/**/*.h",
+    "Firestore/core/include/**/*.h",
+    "Firestore/core/src/**/*.h",
+    "Firestore/third_party/nlohmann_json/json.hpp"
+  ],
+  "requires_arc": [
+    "Firestore/Source/**/*",
+    "Firestore/core/src/**/*.mm"
+  ],
+  "exclude_files": [
+    "Firestore/core/src/api/input_validation_std.cc",
+    "Firestore/core/src/remote/connectivity_monitor_noop.cc",
+    "Firestore/core/src/util/filesystem_win.cc",
+    "Firestore/core/src/util/hard_assert_stdio.cc",
+    "Firestore/core/src/util/log_stdio.cc",
+    "Firestore/core/src/util/secure_random_openssl.cc"
+  ],
+  "dependencies": {
+    "FirebaseCore": [
+      "~> 8.0"
+    ],
+    "abseil/algorithm": [
+      "0.20200225.0"
+    ],
+    "abseil/base": [
+      "0.20200225.0"
+    ],
+    "abseil/container/flat_hash_map": [
+      "0.20200225.0"
+    ],
+    "abseil/memory": [
+      "0.20200225.0"
+    ],
+    "abseil/meta": [
+      "0.20200225.0"
+    ],
+    "abseil/strings/strings": [
+      "0.20200225.0"
+    ],
+    "abseil/time": [
+      "0.20200225.0"
+    ],
+    "abseil/types": [
+      "0.20200225.0"
+    ],
+    "gRPC-C++": [
+      "~> 1.28.0"
+    ],
+    "leveldb-library": [
+      "~> 1.22"
+    ],
+    "nanopb": [
+      "~> 2.30908.0"
+    ]
+  },
+  "ios": {
+    "frameworks": [
+      "SystemConfiguration",
+      "UIKit"
+    ]
+  },
+  "osx": {
+    "frameworks": "SystemConfiguration"
+  },
+  "tvos": {
+    "frameworks": [
+      "SystemConfiguration",
+      "UIKit"
+    ]
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++0x",
+    "GCC_C_LANGUAGE_STANDARD": "c99",
+    "GCC_PREPROCESSOR_DEFINITIONS": "FIRFirestore_VERSION=8.8.0 PB_FIELD_32BIT=1 PB_NO_PACKED_STRUCTS=1 PB_ENABLE_MALLOC=1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\" \"${PODS_TARGET_SRCROOT}/Firestore/Source/Public/FirebaseFirestore\" \"${PODS_ROOT}/nanopb\" \"${PODS_TARGET_SRCROOT}/Firestore/Protos/nanopb\""
+  },
+  "compiler_flags": "$(inherited) -Wreorder -Werror=reorder -Wno-comma"
+}
