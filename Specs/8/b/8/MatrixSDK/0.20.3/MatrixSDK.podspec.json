@@ -1,0 +1,92 @@
+{
+  "name": "MatrixSDK",
+  "version": "0.20.3",
+  "summary": "The iOS SDK to build apps compatible with Matrix (https://www.matrix.org)",
+  "description": "Matrix is a new open standard for interoperable Instant Messaging and VoIP, providing pragmatic HTTP APIs and open source reference implementations for creating and running your own real-time communication infrastructure.\n\nOur hope is to make VoIP/IM as universal and interoperable as email.",
+  "homepage": "https://www.matrix.org",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "matrix.org": "support@matrix.org"
+  },
+  "social_media_url": "http://twitter.com/matrixdotorg",
+  "source": {
+    "git": "https://github.com/matrix-org/matrix-ios-sdk.git",
+    "tag": "v0.20.3"
+  },
+  "requires_arc": true,
+  "swift_versions": [
+    "5.1",
+    "5.2"
+  ],
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10"
+      },
+      "source_files": [
+        "MatrixSDK",
+        "MatrixSDK/**/*.{h,m}",
+        "MatrixSDK/**/*.{swift}"
+      ],
+      "osx": {
+        "exclude_files": "MatrixSDK/VoIP/MXiOSAudioOutputRoute*.swift"
+      },
+      "dependencies": {
+        "AFNetworking": [
+          "~> 4.0.0"
+        ],
+        "GZIP": [
+          "~> 1.3.0"
+        ],
+        "SwiftyBeaver": [
+          "1.9.5"
+        ],
+        "OLMKit": [
+          "~> 3.2.5"
+        ],
+        "Realm": [
+          "10.7.6"
+        ],
+        "libbase58": [
+          "~> 0.1.4"
+        ]
+      }
+    },
+    {
+      "name": "JingleCallStack",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "MatrixSDKExtensions/VoIP/Jingle/**/*.{h,m}",
+      "dependencies": {
+        "MatrixSDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "JitsiMeetSDK": [
+            " 3.5.0"
+          ]
+        }
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
