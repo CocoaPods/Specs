@@ -1,0 +1,59 @@
+{
+  "name": "GigyaNss",
+  "version": "1.4.0",
+  "license": "Apache 2.0",
+  "homepage": "https://developers.gigya.com/display/GD/Native+Screen-Sets",
+  "authors": "Gigya SAP",
+  "summary": "This library enables you to use additional \nauthentication methods from the standard login flow",
+  "source": {
+    "git": "https://github.com/SAP/gigya-swift-sdk.git",
+    "tag": "nss/v1.4.0"
+  },
+  "module_name": "GigyaNss",
+  "swift_versions": "5.2",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "GigyaNss/GigyaNss/*.swift",
+        "GigyaNss/GigyaNss/*/*.swift",
+        "GigyaNss/GigyaNss/*/*/*.swift"
+      ],
+      "exclude_files": "GigyaNss/GigyaNss/services/Otp/OtpService.swift",
+      "dependencies": {
+        "Gigya": [
+          ">= 1.2.3"
+        ]
+      },
+      "frameworks": "SystemConfiguration",
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "vendored_frameworks": [
+        "GigyaNss/Flutter/Debug/Flutter.xcframework",
+        "GigyaNss/Flutter/Debug/App.xcframework"
+      ]
+    },
+    {
+      "name": "Auth",
+      "source_files": "GigyaNss/GigyaNss/services/*/*.swift",
+      "dependencies": {
+        "GigyaAuth": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
