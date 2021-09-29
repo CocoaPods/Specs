@@ -1,0 +1,47 @@
+{
+  "name": "RescueSDK",
+  "version": "5.12",
+  "summary": "LogMeIn Rescue SDK for iOS.",
+  "description": "The Rescue In-App Support iOS SDK allows your customers to establish a Rescue support session within your app.",
+  "homepage": "https://www.logmeinrescue.com/",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": "LogMeIn Inc.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://github.com/LogmeinRescue/iOS-SDK/releases/download/5.12/rescue-ios-sdk-5.12-frameworks.zip"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EMBEDDED_CONTENT_CONTAINS_SWIFT": "YES",
+    "CLANG_MODULES_AUTOLINK": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "documentation_url": "https://secure.logmeinrescue.com/welcome/webhelp/EN/SDKi/MobileSDK/c_riossdk_overview.html",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/RescueCore.xcframework"
+    },
+    {
+      "name": "LMICoreMedia",
+      "vendored_frameworks": "Frameworks/LMICoreMedia.xcframework",
+      "dependencies": {
+        "RescueSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Broadcast",
+      "vendored_frameworks": "Frameworks/RescueBroadcast.xcframework"
+    }
+  ]
+}
