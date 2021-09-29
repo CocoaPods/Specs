@@ -1,0 +1,73 @@
+{
+  "name": "KakaoOpenSDK",
+  "version": "1.23.9",
+  "license": "Apache",
+  "summary": "Kakao Open SDK for iOS.",
+  "homepage": "https://developers.kakao.com/",
+  "authors": {
+    "Kakao": "apiteam@kakaocorp.com"
+  },
+  "source": {
+    "http": "https://devrepo.kakao.com/nexus/content/groups/public/com/kakao/sdk/KakaoOpenSDK/1.23.9/KakaoOpenSDK-1.23.9.zip"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "KakaoOpenSDK",
+      "dependencies": {
+        "KakaoOpenSDK/KakaoMessageTemplate": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoOpenSDK.framework"
+    },
+    {
+      "name": "KakaoCommon",
+      "vendored_frameworks": "KakaoCommon.framework"
+    },
+    {
+      "name": "KakaoNavi",
+      "dependencies": {
+        "KakaoOpenSDK/KakaoCommon": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoNavi.framework"
+    },
+    {
+      "name": "KakaoLink",
+      "dependencies": {
+        "KakaoOpenSDK/KakaoCommon": [
+
+        ],
+        "KakaoOpenSDK/KakaoMessageTemplate": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoLink.framework"
+    },
+    {
+      "name": "KakaoPlusFriend",
+      "dependencies": {
+        "KakaoOpenSDK/KakaoCommon": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoPlusFriend.framework"
+    },
+    {
+      "name": "KakaoMessageTemplate",
+      "vendored_frameworks": "KakaoMessageTemplate.framework"
+    }
+  ]
+}
