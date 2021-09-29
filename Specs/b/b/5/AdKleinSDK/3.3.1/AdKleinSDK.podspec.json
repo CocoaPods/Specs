@@ -1,0 +1,130 @@
+{
+  "name": "AdKleinSDK",
+  "version": "3.3.1",
+  "summary": "莫比乌斯广告聚合SDK",
+  "description": "聚合全球优质广告资源，一站式快速接入，轻松变现",
+  "homepage": "https://www.iusmob.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iusmob": "mobius@iusmob.com"
+  },
+  "source": {
+    "git": "https://github.com/iusmob/AdKleinSDK.git",
+    "tag": "v3.3.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "cocoapods_version": ">= 1.10.2",
+  "requires_arc": true,
+  "default_subspecs": "AdKleinSDKCore",
+  "subspecs": [
+    {
+      "name": "AdKleinSDKFoundation",
+      "vendored_frameworks": "Frameworks/core/AdKleinSDKFoundation.xcframework"
+    },
+    {
+      "name": "NxPerfSDK",
+      "vendored_frameworks": "Frameworks/kit/NxPerfSDK.xcframework"
+    },
+    {
+      "name": "AdMobiusSDK",
+      "vendored_frameworks": "Frameworks/mobius/AdMobiusSDK.xcframework",
+      "resources": "Frameworks/mobius/AdMobiusSDKBundle.bundle"
+    },
+    {
+      "name": "AdKleinSDKCore",
+      "vendored_frameworks": "Frameworks/core/AdKleinSDK.xcframework",
+      "dependencies": {
+        "AdKleinSDK/AdKleinSDKFoundation": [
+
+        ],
+        "AdKleinSDK/NxPerfSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdKleinSDKPlatforms",
+      "subspecs": [
+        {
+          "name": "Mobius",
+          "vendored_frameworks": "Frameworks/platforms/mobius/AdKleinMobiusAdapter.xcframework",
+          "dependencies": {
+            "AdKleinSDK/AdMobiusSDK": [
+
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "GDT",
+          "vendored_frameworks": "Frameworks/platforms/gdt/AdKleinGDTAdapter.xcframework",
+          "dependencies": {
+            "GDTMobSDK": [
+              "~> 4.13.01"
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "CSJ",
+          "vendored_frameworks": "Frameworks/platforms/csj/AdKleinCSJAdapter.xcframework",
+          "dependencies": {
+            "Ads-CN": [
+              "~> 3.8.1.0"
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaiDu",
+          "vendored_frameworks": "Frameworks/platforms/bqt/AdKleinBQTAdapter.xcframework",
+          "dependencies": {
+            "BaiduMobAdSDK": [
+              "~> 4.81"
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "Google",
+          "vendored_frameworks": "Frameworks/platforms/google/AdKleinGoogleAdapter.xcframework",
+          "resources": "Frameworks/platforms/google/AdKleinGoogleAdapterBundle.bundle",
+          "dependencies": {
+            "Google-Mobile-Ads-SDK": [
+              "~> 8.9.0"
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "Smaato",
+          "vendored_frameworks": "Frameworks/platforms/smaato/AdKleinSmaatoAdapter.xcframework",
+          "dependencies": {
+            "smaato-ios-sdk": [
+              "~> 21.6.16"
+            ],
+            "AdKleinSDK/AdKleinSDKCore": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
