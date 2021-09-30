@@ -1,0 +1,135 @@
+{
+  "name": "AppwiseCore",
+  "version": "2.0.0",
+  "summary": "Just a library of some stuff we use internally.",
+  "description": "Contains a few generic types (appdelegate, config, router, client) and some helper methods.",
+  "homepage": "https://github.com/appwise-labs/AppwiseCore",
+  "authors": {
+    "David Jennes": "david.jennes@gmail.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/appwise-labs/AppwiseCore.git",
+    "tag": "2.0.0",
+    "submodules": true
+  },
+  "preserve_paths": [
+    "Scripts/*",
+    "Sourcery/*",
+    "SwiftGen/*",
+    "XcodeGen/*",
+    "Fastlane Actions/*"
+  ],
+  "default_subspecs": [
+    "Core",
+    "Behaviours",
+    "UI",
+    "UIApplication"
+  ],
+  "subspecs": [
+    {
+      "name": "Behaviours",
+      "source_files": "Sources/Behaviours/**/*.swift",
+      "dependencies": {
+        "AppwiseCore/Common": [
+
+        ],
+        "Then": [
+          "~> 2.6"
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "source_files": "Sources/Common/**/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug]": "DEBUG"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift",
+      "resource_bundles": {
+        "AppwiseCore-Core": [
+          "Resources/Core/*.lproj"
+        ]
+      },
+      "dependencies": {
+        "AppwiseCore/Common": [
+
+        ],
+        "Alamofire": [
+          "> 5.2"
+        ],
+        "CocoaLumberjack/Swift": [
+          "~> 3.6"
+        ],
+        "Sentry": [
+          "~> 7.0"
+        ],
+        "Then": [
+          "~> 2.6"
+        ]
+      }
+    },
+    {
+      "name": "CoreData",
+      "source_files": "Sources/CoreData/**/*.swift",
+      "dependencies": {
+        "AppwiseCore/Common": [
+
+        ],
+        "AppwiseCore/Core": [
+
+        ],
+        "Groot": [
+          "~> 3.0"
+        ]
+      }
+    },
+    {
+      "name": "DeepLink",
+      "source_files": "Sources/DeepLink/**/*.swift",
+      "dependencies": {
+        "AppwiseCore/Behaviours": [
+
+        ],
+        "AppwiseCore/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Sources/UI/**/*.swift",
+      "dependencies": {
+        "AppwiseCore/Core": [
+
+        ],
+        "AppwiseCore/Behaviours": [
+
+        ],
+        "IBAnimatable": [
+          "~> 6.1"
+        ]
+      }
+    },
+    {
+      "name": "UIApplication",
+      "source_files": "Sources/UIApplication/**/*.swift",
+      "dependencies": {
+        "AppwiseCore/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
