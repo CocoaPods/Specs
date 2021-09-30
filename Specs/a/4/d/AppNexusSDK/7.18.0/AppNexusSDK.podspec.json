@@ -1,0 +1,105 @@
+{
+  "name": "AppNexusSDK",
+  "version": "7.18.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "summary": "AppNexus iOS Mobile Advertising SDK",
+  "description": "Our mobile advertising SDK gives developers a fast and convenient way to monetize their apps.",
+  "homepage": "https://github.com/appnexus/mobile-sdk-ios",
+  "source": {
+    "git": "https://github.com/appnexus/mobile-sdk-ios.git",
+    "tag": "7.18.0"
+  },
+  "authors": {
+    "AppNexus Mobile Engineering": "sdk@appnexus.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "default_subspecs": "AppNexusSDK",
+  "subspecs": [
+    {
+      "name": "AppNexusSDK",
+      "source_files": "sdk/sourcefiles/**/*.{h,m}",
+      "public_header_files": "sdk/sourcefiles/public-headers/*.h",
+      "resources": [
+        "sdk/sourcefiles/**/*.{png,bundle,xib,nib,js,html,strings}",
+        "sdk/AppNexusSDK/SDK-Info.plist"
+      ],
+      "vendored_frameworks": "sdk/sourcefiles/Viewability/OMSDK_Appnexus.xcframework",
+      "frameworks": "WebKit",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+        "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+      }
+    },
+    {
+      "name": "GoogleAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "7.18.0"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "8.5.0"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/GoogleAdMob/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/GoogleAdMob/ANAdAdapterNativeAdMob.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Google-Mobile-Ads-SDK/**"
+      }
+    },
+    {
+      "name": "FacebookCSRAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "7.18.0"
+        ],
+        "FBAudienceNetwork": [
+          "6.5.0"
+        ]
+      },
+      "source_files": "csr/Facebook/*.{h,m}",
+      "public_header_files": "csr/Facebook/*.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/FBAudienceNetwork/**"
+      }
+    },
+    {
+      "name": "FacebookAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "7.18.0"
+        ],
+        "FBAudienceNetwork": [
+          "6.5.0"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/Facebook/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/Facebook/ANAdAdapterNativeFacebook.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/FBAudienceNetwork/**"
+      }
+    },
+    {
+      "name": "SmartAdAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "7.18.0"
+        ],
+        "Smart-Display-SDK": [
+          "7.10.1"
+        ]
+      },
+      "source_files": "mediation/mediatedviews/SmartAd/*.{h,m}",
+      "public_header_files": "mediation/mediatedviews/SmartAd/ANAdAdapterSmartAdBase.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Smart-Display-SDK/**"
+      }
+    }
+  ]
+}
