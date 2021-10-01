@@ -1,0 +1,103 @@
+{
+  "name": "Libuv-gRPC",
+  "version": "0.0.1",
+  "summary": "Cross-platform asynchronous I/O",
+  "description": "libuv is a multi-platform support library with a focus on asynchronous I/O.\nIt was primarily developed for use by Node.js, but it's also used by Luvit,\nJulia, pyuv, and others.",
+  "homepage": "https://libuv.org/",
+  "license": {
+    "type": "Mixed",
+    "file": "LICENSE"
+  },
+  "authors": "libuv",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "10.0",
+    "watchos": "4.0"
+  },
+  "source": {
+    "git": "https://github.com/libuv/libuv.git",
+    "tag": "v1.34.0"
+  },
+  "module_name": "uv",
+  "header_mappings_dir": "include",
+  "header_dir": "uv",
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"$(inherited)\" \"$(PODS_TARGET_SRCROOT)/include\"",
+    "USER_HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)\" \"$(PODS_TARGET_SRCROOT)/src\"",
+    "GCC_PREPROCESSOR_DEFINITIONS": "\"$(inherited)\" \"COCOAPODS=1\"",
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "USE_HEADERMAP": "NO",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "libraries": "c++",
+  "compiler_flags": "-Wno-comma -Wno-unreachable-code -Wno-shorten-64-to-32",
+  "subspecs": [
+    {
+      "name": "Interface",
+      "header_mappings_dir": "include",
+      "source_files": [
+        "include/uv.h",
+        "include/uv/errno.h",
+        "include/uv/threadpool.h",
+        "include/uv/version.h",
+        "include/uv/tree.h",
+        "include/uv/unix.h",
+        "include/uv/darwin.h"
+      ]
+    },
+    {
+      "name": "Implementation",
+      "header_mappings_dir": "src",
+      "source_files": [
+        "src/fs-poll.c",
+        "src/idna.c",
+        "src/inet.c",
+        "src/strscpy.c",
+        "src/threadpool.c",
+        "src/timer.c",
+        "src/uv-data-getter-setters.c",
+        "src/uv-common.c",
+        "src/version.c",
+        "src/unix/async.c",
+        "src/unix/core.c",
+        "src/unix/dl.c",
+        "src/unix/fs.c",
+        "src/unix/getaddrinfo.c",
+        "src/unix/getnameinfo.c",
+        "src/unix/loop.c",
+        "src/unix/loop-watcher.c",
+        "src/unix/pipe.c",
+        "src/unix/poll.c",
+        "src/unix/process.c",
+        "src/unix/signal.c",
+        "src/unix/stream.c",
+        "src/unix/tcp.c",
+        "src/unix/thread.c",
+        "src/unix/tty.c",
+        "src/unix/udp.c",
+        "src/unix/bsd-ifaddrs.c",
+        "src/unix/darwin.c",
+        "src/unix/fsevents.c",
+        "src/unix/kqueue.c",
+        "src/unix/darwin-proctitle.c",
+        "src/unix/proctitle.c",
+        "src/heap-inl.h",
+        "src/idna.h",
+        "src/queue.h",
+        "src/strscpy.h",
+        "src/uv-common.h",
+        "src/unix/atomic-ops.h",
+        "src/unix/internal.h",
+        "src/unix/spinlock.h"
+      ],
+      "dependencies": {
+        "Libuv-gRPC/Interface": [
+          "0.0.1"
+        ]
+      }
+    }
+  ]
+}
