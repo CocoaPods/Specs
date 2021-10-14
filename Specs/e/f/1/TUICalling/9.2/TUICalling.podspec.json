@@ -1,0 +1,125 @@
+{
+  "name": "TUICalling",
+  "version": "9.2",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/647",
+  "documentation_url": "https://cloud.tencent.com/document/product/647",
+  "authors": "tencent video cloud",
+  "summary": "TUICalling",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "TXIMSDK_Plus_iOS": [
+      "5.7.1435"
+    ],
+    "TUICore": [
+      "~> 5.7.1435"
+    ]
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "source": {
+    "git": "https://github.com/tencentyun/TUICalling.git",
+    "tag": "v9.2"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "TRTC",
+  "subspecs": [
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TXLiteAVSDK_TRTC": [
+          "9.2.10637"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "$(PODS_TARGET_SRCROOT)/../../SDK/TXLiteAVSDK_TRTC.framework/Headers"
+        ]
+      },
+      "source_files": [
+        "iOS/Source/localized/**/*.{h,m,mm}",
+        "iOS/Source/Model/**/*.{h,m,mm}",
+        "iOS/Source/Service/**/*.{h,m,mm}",
+        "iOS/Source/UI/**/*.{h,m,mm}",
+        "iOS/Source/TUICallingKit_TRTC/*.{h,m,mm}"
+      ],
+      "ios": {
+        "frameworks": [
+          "AVFoundation",
+          "Accelerate"
+        ]
+      },
+      "libraries": [
+        "c++",
+        "resolv"
+      ],
+      "resource_bundles": {
+        "TUICallingKitBundle": [
+          "iOS/Resources/Localized/**/*.strings",
+          "iOS/Resources/AudioFile",
+          "iOS/Resources/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TXLiteAVSDK_Professional": [
+          "9.2.10637"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "$(PODS_TARGET_SRCROOT)/../../SDK/TXLiteAVSDK_Professional.framework/Headers"
+        ]
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${SRCROOT}/../SDK/TXLiteAVSDK_Professional.framework/Headers/"
+      },
+      "source_files": [
+        "iOS/Source/localized/**/*.{h,m,mm}",
+        "iOS/Source/Model/**/*.{h,m,mm}",
+        "iOS/Source/Service/**/*.{h,m,mm}",
+        "iOS/Source/UI/**/*.{h,m,mm}",
+        "iOS/Source/TUICallingKit_Professional/*.{h,m,mm}"
+      ],
+      "ios": {
+        "frameworks": [
+          "AVFoundation",
+          "Accelerate",
+          "AssetsLibrary"
+        ]
+      },
+      "libraries": [
+        "c++",
+        "resolv",
+        "sqlite3"
+      ],
+      "resource_bundles": {
+        "TUICallingKitBundle": [
+          "iOS/Resources/Localized/**/*.strings",
+          "iOS/Resources/AudioFile",
+          "iOS/Resources/*.xcassets"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
