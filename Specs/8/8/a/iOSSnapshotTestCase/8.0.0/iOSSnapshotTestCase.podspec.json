@@ -1,0 +1,63 @@
+{
+  "name": "iOSSnapshotTestCase",
+  "module_name": "FBSnapshotTestCase",
+  "version": "8.0.0",
+  "summary": "Snapshot view unit tests for iOS",
+  "description": "A \"snapshot test case\" takes a configured UIView or CALayer\nand uses the renderInContext: method to get an image snapshot\nof its contents. It compares this snapshot to a \"reference image\"\nstored in your source code repository and fails the test if the\ntwo images don't match.",
+  "homepage": "https://github.com/uber/ios-snapshot-test-case",
+  "license": "MIT",
+  "authors": "Uber",
+  "source": {
+    "git": "https://github.com/uber/ios-snapshot-test-case.git",
+    "tag": "8.0.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0"
+  },
+  "swift_versions": "5.4",
+  "requires_arc": true,
+  "frameworks": [
+    "XCTest",
+    "UIKit",
+    "Foundation",
+    "QuartzCore"
+  ],
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+  },
+  "default_subspecs": "SwiftSupport",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "src/iOSSnapshotTestCaseCore/**/*.{h,m}",
+        "src/iOSSnapshotTestCaseCore/*.{h,m}"
+      ],
+      "public_header_files": [
+        "src/iOSSnapshotTestCaseCore/Public/FBSnapshotTestCase.h",
+        "src/iOSSnapshotTestCaseCore/Public/FBSnapshotTestCasePlatform.h",
+        "src/iOSSnapshotTestCaseCore/Public/FBSnapshotTestController.h"
+      ],
+      "private_header_files": [
+        "src/iOSSnapshotTestCaseCore/Categories/UIImage+Compare.h",
+        "src/iOSSnapshotTestCaseCore/Categories/UIImage+Diff.h",
+        "src/iOSSnapshotTestCaseCore/Categories/UIImage+Snapshot.h",
+        "src/iOSSnapshotTestCaseCore/Categories/UIApplication+KeyWindow.h"
+      ]
+    },
+    {
+      "name": "SwiftSupport",
+      "dependencies": {
+        "iOSSnapshotTestCase/Core": [
+
+        ]
+      },
+      "source_files": "src/iOSSnapshotTestCase/SwiftSupport.swift"
+    }
+  ],
+  "swift_version": "5.4"
+}
