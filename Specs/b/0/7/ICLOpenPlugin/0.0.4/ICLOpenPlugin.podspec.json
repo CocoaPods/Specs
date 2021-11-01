@@ -1,0 +1,119 @@
+{
+  "name": "ICLOpenPlugin",
+  "version": "0.0.4",
+  "license": "MIT",
+  "summary": "A delightful networking framework for Apple platforms.",
+  "homepage": "https://gitee.com/liu_chaolong/iclopen-api.git",
+  "authors": {
+    "Liuchl": "liuchaolongcharly@163.com"
+  },
+  "source": {
+    "git": "https://gitee.com/liu_chaolong/iclopen-api.git",
+    "tag": "0.0.4"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "3.0",
+    "4.0",
+    "4.2"
+  ],
+  "subspecs": [
+    {
+      "name": "ICLWechat",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "ICLOpenPlugin/Plugin/Social/Wechat/*.{h}",
+      "vendored_libraries": "ICLOpenPlugin/Plugin/Social/Wechat/libWeChatSDK.a",
+      "frameworks": [
+        "Security",
+        "WebKit",
+        "CoreGraphics",
+        "UIKit"
+      ],
+      "libraries": "c++",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "ICLFacebook",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "subspecs": [
+        {
+          "name": "ICLFBSDKLoginKit",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "vendored_frameworks": "ICLOpenPlugin/Plugin/Social/Facebook/XCFrameworks/FBSDKLoginKit.xcframework",
+          "dependencies": {
+            "ICLOpenPlugin/ICLFacebook/ICLFBSDKCoreKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "ICLFBSDKShareKit",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "vendored_frameworks": "ICLOpenPlugin/Plugin/Social/Facebook/XCFrameworks/FBSDKShareKit.xcframework",
+          "dependencies": {
+            "ICLOpenPlugin/ICLFacebook/ICLFBSDKCoreKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "ICLFBSDKCoreKit",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "vendored_frameworks": "ICLOpenPlugin/Plugin/Social/Facebook/XCFrameworks/FBSDKCoreKit.xcframework",
+          "dependencies": {
+            "ICLOpenPlugin/ICLFacebook/ICLFBSDKCoreKit_Basics": [
+
+            ],
+            "ICLOpenPlugin/ICLFacebook/ICLFBAEMKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "ICLFBAEMKit",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "vendored_frameworks": "ICLOpenPlugin/Plugin/Social/Facebook/XCFrameworks/FBAEMKit.xcframework",
+          "dependencies": {
+            "ICLOpenPlugin/ICLFacebook/ICLFBSDKCoreKit_Basics": [
+
+            ]
+          }
+        },
+        {
+          "name": "ICLFBSDKCoreKit_Basics",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "libraries": "z",
+          "vendored_frameworks": "ICLOpenPlugin/Plugin/Social/Facebook/XCFrameworks/FBSDKCoreKit_Basics.xcframework"
+        }
+      ]
+    }
+  ],
+  "swift_version": "4.2"
+}
