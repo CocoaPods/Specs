@@ -1,0 +1,99 @@
+{
+  "name": "MetaWear",
+  "version": "4.1.0",
+  "license": {
+    "type": "Commercial",
+    "text": "See https://www.mbientlab.com/terms/",
+    "file": "LICENSE.md"
+  },
+  "homepage": "https://mbientlab.com",
+  "summary": "iOS/macOS/tvOS/watchOS API and documentation for the MetaWear platform",
+  "description": "This library allows for simple interfacing with the MetaWear Bluetooth (BLE)\nsensor platform.  Stream or log a variety of sensor data via simple API calls.\nContact us at hello@mbientlab.com if you need custom hardware or help with App development.\nSee www.mbientlab.com for details.",
+  "authors": {
+    "Laura Kassovic": "laura@mbientlab.com"
+  },
+  "source": {
+    "git": "https://github.com/mbientlab/MetaWear-SDK-iOS-macOS-tvOS.git",
+    "tag": "4.1.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "14.0",
+    "osx": "11.0",
+    "tvos": "14.0",
+    "watchos": "7.0"
+  },
+  "swift_versions": "5.0",
+  "social_media_url": "https://twitter.com/mbientLab",
+  "documentation_url": "https://mbientlab.com/tutorials/",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "preserve_paths": "MetaWear/MetaWear-SDK-Cpp/src/**/*",
+      "source_files": [
+        "MetaWear/Core/**/*",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/core/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/dfu/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/impl/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/peripheral/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/platform/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/processor/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/src/metawear/sensor/*/*.cpp",
+        "MetaWear/MetaWear-SDK-Cpp/bindings/swift/**/*"
+      ],
+      "compiler_flags": [
+        "-Wno-documentation",
+        "-Wno-comma"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src",
+        "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/MetaWear/MetaWear-SDK-Cpp/src"
+      },
+      "frameworks": "CoreBluetooth",
+      "dependencies": {
+        "Bolts-Swift": [
+          "~> 1"
+        ]
+      }
+    },
+    {
+      "name": "AsyncUtils",
+      "source_files": "MetaWear/AsyncUtils/**/*",
+      "dependencies": {
+        "MetaWear/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "MetaWear/UI/**/*",
+      "dependencies": {
+        "MetaWear/Core": [
+
+        ],
+        "MetaWear/AsyncUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "DFU",
+      "platforms": {
+        "ios": "14.0",
+        "osx": "11.0"
+      },
+      "source_files": "MetaWear/DFU/**/*",
+      "dependencies": {
+        "MetaWear/Core": [
+
+        ],
+        "iOSDFULibrary": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
