@@ -1,0 +1,215 @@
+{
+  "name": "GrowingAnalytics",
+  "version": "3.3.2-beta",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAnalytics具备自动采集基本的用户行为事件，比如访问和行为数据等。目前支持代码埋点、无埋点、可视化圈选、热图等功能。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker.git",
+    "tag": "3.3.2-beta"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": "WebKit"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker",
+  "subspecs": [
+    {
+      "name": "TrackerCore",
+      "source_files": "GrowingTrackerCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "libraries": "c++"
+    },
+    {
+      "name": "Tracker",
+      "source_files": "GrowingTracker/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ],
+        "GrowingAnalytics/MobileDebugger": [
+
+        ],
+        "GrowingAnalytics/Database": [
+
+        ],
+        "GrowingAnalytics/Network": [
+
+        ],
+        "GrowingAnalytics/Encryption": [
+
+        ],
+        "GrowingAnalytics/Compression": [
+
+        ]
+      }
+    },
+    {
+      "name": "AutotrackerCore",
+      "source_files": "GrowingAutotrackerCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      },
+      "private_header_files": "GrowingAutotrackerCore/Private/*{.h,.m,.c,.cpp,.mm}",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_ANALYSIS_AUTOTRACKERCORE=1"
+      }
+    },
+    {
+      "name": "Autotracker",
+      "source_files": "GrowingAutotracker/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+
+        ],
+        "GrowingAnalytics/Hybrid": [
+
+        ],
+        "GrowingAnalytics/MobileDebugger": [
+
+        ],
+        "GrowingAnalytics/WebCircle": [
+
+        ],
+        "GrowingAnalytics/Database": [
+
+        ],
+        "GrowingAnalytics/Network": [
+
+        ],
+        "GrowingAnalytics/Encryption": [
+
+        ],
+        "GrowingAnalytics/Compression": [
+
+        ]
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": "Services/Database/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Services/Network/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebSocket",
+      "source_files": "Services/WebSocket/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "source_files": "Services/Compression/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "Services/Encryption/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "MobileDebugger",
+      "source_files": "Modules/MobileDebugger/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ],
+        "GrowingAnalytics/WebSocket": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebCircle",
+      "source_files": "Modules/WebCircle/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+
+        ],
+        "GrowingAnalytics/Hybrid": [
+
+        ],
+        "GrowingAnalytics/WebSocket": [
+
+        ]
+      }
+    },
+    {
+      "name": "Hybrid",
+      "source_files": "Modules/Hybrid/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Flutter",
+      "source_files": "Modules/Flutter/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingAnalytics/WebCircle": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_ANALYSIS_FLUTTER_MIX=1"
+      }
+    },
+    {
+      "name": "DISABLE_IDFA",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_ANALYSIS_DISABLE_IDFA=1"
+      }
+    },
+    {
+      "name": "ENABLE_ENCRYPTION",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_ANALYSIS_ENABLE_ENCRYPTION=1"
+      }
+    }
+  ]
+}
