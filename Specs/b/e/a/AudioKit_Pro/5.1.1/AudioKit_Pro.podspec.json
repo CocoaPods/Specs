@@ -1,0 +1,66 @@
+{
+  "name": "AudioKit_Pro",
+  "version": "5.1.1",
+  "summary": "A short description of AudioKit_Pro.",
+  "description": "基于 AudioKit 5.1.0 的 Pod 库封装",
+  "homepage": "https://github.com/swiftdo/AudioKit_Pro",
+  "license": "MIT",
+  "authors": {
+    "lai": "1164258202@qq.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/swiftdo/AudioKit_Pro.git",
+    "tag": "5.1.1"
+  },
+  "libraries": "c++",
+  "frameworks": "AVFoundation",
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "soundpipe",
+      "source_files": "AudioKit-5.1.0/Sources/soundpipe/**/*.{h, c, cpp}"
+    },
+    {
+      "name": "sportch",
+      "source_files": "AudioKit-5.1.0/Sources/sporth/**/*.{h, c, cpp}",
+      "dependencies": {
+        "AudioKit_Pro/soundpipe": [
+
+        ]
+      }
+    },
+    {
+      "name": "Stk",
+      "libraries": "c++",
+      "source_files": "AudioKit-5.1.0/Sources/Stk/**/*.{h, c, cpp}"
+    },
+    {
+      "name": "CAudioKit",
+      "dependencies": {
+        "AudioKit_Pro/soundpipe": [
+
+        ],
+        "AudioKit_Pro/sportch": [
+
+        ],
+        "AudioKit_Pro/Stk": [
+
+        ]
+      },
+      "source_files": "AudioKit-5.1.0/Sources/CAudioKit/**/*.{h, c, cpp, m, mm}"
+    },
+    {
+      "name": "AudioKit",
+      "dependencies": {
+        "AudioKit_Pro/CAudioKit": [
+
+        ]
+      },
+      "source_files": "AudioKit-5.1.0/Sources/AudioKit/**/*.{h, c, cpp, m, mm, swift}"
+    }
+  ],
+  "swift_version": "5.0"
+}
