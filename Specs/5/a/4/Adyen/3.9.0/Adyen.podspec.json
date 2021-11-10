@@ -1,0 +1,116 @@
+{
+  "name": "Adyen",
+  "version": "3.9.0",
+  "summary": "Adyen Components for iOS",
+  "description": "Adyen Components for iOS allows you to accept in-app payments by providing you with the building blocks you need to create a checkout experience.",
+  "homepage": "https://adyen.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Adyen": "support@adyen.com"
+  },
+  "source": {
+    "git": "https://github.com/Adyen/adyen-ios.git",
+    "tag": "3.9.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.1",
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Card",
+    "DropIn"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "SWIFT_SUPPRESS_WARNINGS": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Adyen/**/*.swift",
+      "exclude_files": "Adyen/**/BundleSPMExtension.swift",
+      "resource_bundles": {
+        "Adyen": [
+          "Adyen/Assets/**/*.strings",
+          "Adyen/Assets/**/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "DropIn",
+      "source_files": "AdyenDropIn/**/*.swift",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen/Card": [
+
+        ]
+      }
+    },
+    {
+      "name": "WeChatPay",
+      "source_files": [
+        "AdyenWeChatPay/**/*.swift",
+        "AdyenWeChatPay/WeChatSDK/*.h"
+      ],
+      "private_header_files": "AdyenWeChatPay/WeChatSDK/*.h",
+      "vendored_libraries": "AdyenWeChatPay/WeChatSDK/libWeChatSDK.a",
+      "xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "${PODS_TARGET_SRCROOT}/AdyenWeChatPay/WeChatSDK",
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "preserve_paths": "AdyenWeChatPay/WeChatSDK/module.modulemap",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ]
+      },
+      "libraries": [
+        "z",
+        "stdc++",
+        "sqlite3.0"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CFNetwork",
+        "CoreGraphics",
+        "Security"
+      ]
+    },
+    {
+      "name": "Card",
+      "dependencies": {
+        "Adyen/Core": [
+
+        ],
+        "Adyen3DS2": [
+          "2.2.4"
+        ]
+      },
+      "source_files": [
+        "AdyenCard/**/*.swift",
+        "AdyenCard/Utilities/Encryption/AdyenCSE/*.{h,m}",
+        "AdyenCard/Utilities/Encryption/*.{h,m}"
+      ],
+      "exclude_files": "AdyenCard/**/BundleSPMExtension.swift",
+      "private_header_files": "AdyenCard/Utilities/Encryption/AdyenCSE/*.h",
+      "resource_bundles": {
+        "AdyenCard": [
+          "AdyenCard/Assets/**/*.strings",
+          "AdyenCard/Assets/**/*.xcassets"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
