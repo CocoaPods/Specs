@@ -1,0 +1,41 @@
+{
+  "name": "ConnectSDK-AM",
+  "version": "1.4",
+  "summary": "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms.",
+  "description": "Connect SDK is an open source framework that connects your mobile apps with multiple TV platforms. Because most TV platforms support a variety of protocols, Connect SDK integrates and abstracts the discovery and connectivity between all supported protocols. To discover supported platforms and protocols, Connect SDK uses SSDP to discover services such as DIAL, DLNA, UDAP, and Roku's External Control Guide (ECG). Connect SDK also supports ZeroConf to discover devices such as Chromecast and Apple TV. Even while supporting multiple discovery protocols, Connect SDK is able to generate one unified list of discovered devices from the same network. To communicate with discovered devices, Connect SDK integrates support for protocols such as DLNA, DIAL, SSAP, ECG, AirPlay, Chromecast, UDAP, and webOS second screen protocol. Connect SDK intelligently picks which protocol to use depending on the feature being used. For example, when connecting to a 2013 LG Smart TV, Connect SDK uses DLNA for media playback, DIAL for YouTube launching, and UDAP for system controls. On Roku, media playback and system controls are made available through ECG, and YouTube launching through DIAL. On Chromecast, media playback occurs through the Cast protocol and YouTube is launched via DIAL. To support the aforementioned use case without Connect SDK, a developer would need to implement DIAL, ECG, Chromecast, and DLNA in their app. With Connect SDK, discovering the three devices is handled for you. Furthermore, the method calls between each protocol is abstracted. That means you can use one method call to beam a video to Roku, 3 generations of LG Smart TVs, Apple TV, and Chromecast.",
+  "homepage": "https://github.com/ArtMouseCorp/ConnectSDK-iOS-Custom",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Connect SDK": "support@connectsdk.com"
+  },
+  "source": {
+    "git": "https://github.com/ArtMouseCorp/ConnectSDK-iOS-Custom.git",
+    "tag": "1.4"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "libraries": [
+    "z",
+    "icucore"
+  ],
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": [
+        "core/Frameworks/asi-http-request/External/Reachability/*.{h,m}",
+        "core/Frameworks/asi-http-request/Classes/*.{h,m}"
+      ],
+      "requires_arc": false,
+      "compiler_flags": "-w"
+    }
+  ],
+  "swift_version": "5.0"
+}
