@@ -1,0 +1,134 @@
+{
+  "name": "HXPHPicker",
+  "version": "1.2.6",
+  "summary": "Photo selector - Support LivePhoto, GIF selection",
+  "homepage": "https://github.com/SilenceLove/HXPHPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "SilenceLove": "294005139@qq.com"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/SilenceLove/HXPHPicker.git",
+    "tag": "1.2.6"
+  },
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "PhotosUI"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/HXPHPicker/Core/**/*.{swift}",
+      "resources": "Sources/HXPHPicker/Resources/*.{bundle}"
+    },
+    {
+      "name": "Picker",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPHPicker/Picker/**/*.{swift}",
+          "dependencies": {
+            "HXPHPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_PICKER"
+          }
+        },
+        {
+          "name": "KF",
+          "dependencies": {
+            "HXPHPicker/Picker/Lite": [
+
+            ],
+            "Kingfisher": [
+              "~> 7.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Editor",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPHPicker/Editor/**/*.{swift}",
+          "dependencies": {
+            "HXPHPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR"
+          }
+        },
+        {
+          "name": "KF",
+          "dependencies": {
+            "HXPHPicker/Editor/Lite": [
+
+            ],
+            "Kingfisher": [
+              "~> 7.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Camera",
+      "source_files": "Sources/HXPHPicker/Camera/**/*.{swift}",
+      "dependencies": {
+        "HXPHPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA"
+      }
+    },
+    {
+      "name": "Lite",
+      "dependencies": {
+        "HXPHPicker/Picker/Lite": [
+
+        ],
+        "HXPHPicker/Editor/Lite": [
+
+        ],
+        "HXPHPicker/Camera": [
+
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "HXPHPicker/Picker": [
+
+        ],
+        "HXPHPicker/Editor": [
+
+        ],
+        "HXPHPicker/Camera": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
