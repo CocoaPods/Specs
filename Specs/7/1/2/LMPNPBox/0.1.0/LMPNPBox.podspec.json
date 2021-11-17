@@ -1,0 +1,127 @@
+{
+  "name": "LMPNPBox",
+  "version": "0.1.0",
+  "summary": "LMPNPBox.",
+  "description": "TODO: Plug and pull fast communication box， Nim Tim aliyunMQTT integration is provided，LMPNPBOX ADAPTS multiple communication modes to one library",
+  "homepage": "https://github.com/SSLiam/LMPNPBox",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Liam Lincoln": "brickerdev@163.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "git@github.com:SSLiam/LMPNPBox.git",
+    "tag": "0.1.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "LMPNPBox/**/*.{swift}",
+        "LMPNPBox/Classes/LMPNPBox.h",
+        "LMPNPBox/**/*-swift.{swift}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "MQTTClient": [
+          "~> 0.15.3"
+        ],
+        "TXIMSDK_iOS": [
+          "~> 4.4.900"
+        ],
+        "NIMSDK_LITE": [
+          "~> 4.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": [
+        "LMPNPBox/Classes/base/*.swift",
+        "LMPNPBox/Classes/config/*.swift",
+        "LMPNPBox/Classes/protocols/*.swift",
+        "LMPNPBox/Classes/LMPNPBox.h",
+        "LMPNPBox/Classes/LMPNPIMBoxClient.swift"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "pod_target_xcconfig": {
+        "DEFINES_MODULE": "YES"
+      }
+    },
+    {
+      "name": "AliyunMQTT",
+      "source_files": [
+        "LMPNPBox/Classes/AliyunMQTT/*.swift",
+        "LMPNPBox/Classes/LMPNPIMBoxClient+Aliyun.swift"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_CONFIGURATION_BUILD_DIR}/MQTTClient"
+      },
+      "dependencies": {
+        "LMPNPBox/Base": [
+
+        ],
+        "MQTTClient": [
+          "~> 0.15.3"
+        ]
+      }
+    },
+    {
+      "name": "TIM",
+      "source_files": [
+        "LMPNPBox/Classes/TIM/*.swift",
+        "LMPNPBox/Classes/LMPNPIMBoxClient+TIM.swift"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/TXIMSDK_iOS"
+      },
+      "dependencies": {
+        "LMPNPBox/Base": [
+
+        ],
+        "TXIMSDK_iOS": [
+          "~> 4.4.900"
+        ]
+      }
+    },
+    {
+      "name": "NIM",
+      "source_files": [
+        "LMPNPBox/Classes/NIM/*.swift",
+        "LMPNPBox/Classes/LMPNPIMBoxClient+NIM.swift"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/NIMSDK_LITE/NIMSDK"
+      },
+      "dependencies": {
+        "LMPNPBox/Base": [
+
+        ],
+        "NIMSDK_LITE": [
+          "~> 4.2.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
