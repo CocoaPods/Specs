@@ -1,0 +1,56 @@
+{
+  "name": "TuyaSmartDeviceKit",
+  "version": "3.32.7",
+  "summary": "A short description of TuyaSmartDeviceKit.",
+  "homepage": "https://tuya.com",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "0x5e": "gaosen@tuya.com"
+  },
+  "source": {
+    "http": "https://images.tuyacn.com/smart/app/package/developer/sdk/1637250249-TuyaSmartDeviceKit-3.32.7.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "watchos": "2.0"
+  },
+  "prefix_header_contents": "#ifdef __OBJC__\n  #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>\n  #import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>\n  #undef TYLog\n  #undef TYSDKLogDebug\n  #undef TYSDKLogInfo\n  #undef TYSDKLogWarn\n  #undef TYSDKLogError\n  #define TYSDKLogDebug(...)         TYSDKLog(0, @\"TuyaSmartDeviceKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogInfo(...)         TYSDKLog(1, @\"TuyaSmartDeviceKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogWarn(...)         TYSDKLog(2, @\"TuyaSmartDeviceKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogError(...)         TYSDKLog(3, @\"TuyaSmartDeviceKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n\n  #import <YYModel/YYModel.h>\n  #import \"TYHomeNotificationUtils.h\"\n  #import \"TuyaSmartDeviceKit.h\"\n#endif",
+  "dependencies": {
+    "TuyaSmartBaseKit": [
+
+    ],
+    "TuyaSmartDeviceCoreKit": [
+      ">= 3.32.0-rc1"
+    ],
+    "TuyaSmartShareKit": [
+
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "watchos": {
+    "pod_target_xcconfig": {
+      "ENABLE_BITCODE": "YES",
+      "OTHER_CFLAGS": "-fembed-bitcode -Qunused-arguments"
+    },
+    "source_files": [
+      "Build/TuyaSmartDeviceKit.xcframework/watchos-arm64_32_armv7k/TuyaSmartDeviceKit.framework/Headers/*"
+    ]
+  },
+  "cocoapods_version": ">= 1.10",
+  "ios": {
+    "source_files": [
+      "Build/TuyaSmartDeviceKit.xcframework/ios-arm64_armv7/TuyaSmartDeviceKit.framework/Headers/*"
+    ]
+  },
+  "vendored_frameworks": [
+    "Build/TuyaSmartDeviceKit.xcframework"
+  ]
+}
