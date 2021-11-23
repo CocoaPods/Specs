@@ -1,0 +1,114 @@
+{
+  "name": "BlueshiftSDK",
+  "version": "0.0.20",
+  "summary": "Official Blueshift SDK for developing iOS application.",
+  "description": "The Blueshift SDK for iOS enables you to develoip iOS application more easily using funtions such as:\n* Social Login to easily sign in users.\n* Sharing features like the Share or Message Dialog to grow your app.\n* Simpler Other API access to provide more social context.",
+  "homepage": "https://github.com/blueshiftcorp/BlueshiftSDK",
+  "license": {
+    "type": "Blueshift SDK License",
+    "file": "LICENSE"
+  },
+  "authors": "Blueshift",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/blueshiftcorp/BlueshiftSDK.git",
+    "tag": "0.0.20"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": [
+    "Common",
+    "API",
+    "UI",
+    "Login",
+    "Messaging",
+    "WebView"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "Source/Common/**/*"
+    },
+    {
+      "name": "API",
+      "source_files": "Source/API/**/*",
+      "dependencies": {
+        "BlueshiftSDK/Common": [
+
+        ],
+        "Alamofire": [
+          "~> 5.4"
+        ],
+        "PromisedFuture": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "Source/UI/**/*",
+      "dependencies": {
+        "BlueshiftSDK/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Login",
+      "source_files": "Source/Login/**/*",
+      "dependencies": {
+        "BlueshiftSDK/API": [
+
+        ],
+        "GoogleSignIn": [
+
+        ],
+        "naveridlogin-sdk-ios": [
+
+        ],
+        "KakaoSDKAuth": [
+
+        ],
+        "KakaoSDKUser": [
+
+        ]
+      }
+    },
+    {
+      "name": "Messaging",
+      "source_files": "Source/Messaging/**/*",
+      "dependencies": {
+        "BlueshiftSDK/API": [
+
+        ],
+        "Firebase/Messaging": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebView",
+      "source_files": "Source/WebView/**/*",
+      "dependencies": {
+        "Alamofire": [
+          "~> 5.4"
+        ],
+        "BlueshiftSDK/UI": [
+
+        ]
+      }
+    },
+    {
+      "name": "BLE",
+      "source_files": "Source/BLE/**/*"
+    }
+  ],
+  "swift_version": "5.0"
+}
