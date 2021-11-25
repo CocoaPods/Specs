@@ -1,0 +1,151 @@
+{
+  "name": "Cardano.swift",
+  "version": "0.1.2",
+  "summary": "Swift APIs for Cardano network.",
+  "homepage": "https://github.com/tesseract-one/Cardano.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/Cardano.swift.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15"
+  },
+  "swift_versions": [
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "module_name": "Cardano",
+  "default_subspecs": "Binary",
+  "subspecs": [
+    {
+      "name": "OrderedCollections",
+      "source_files": "Sources/OrderedCollections/**/*.swift"
+    },
+    {
+      "name": "CoreBinary",
+      "source_files": "Sources/Core/**/*.swift",
+      "dependencies": {
+        "Cardano-Binaries": [
+          "~> 0.1.2"
+        ],
+        "BigInt": [
+          "~> 5.2"
+        ],
+        "Cardano.swift/OrderedCollections": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_XCFRAMEWORKS_BUILD_DIR}/Cardano-Binaries\"",
+        "ENABLE_BITCODE": "NO"
+      },
+      "testspecs": [
+        {
+          "name": "CoreTests",
+          "test_type": "unit",
+          "source_files": "Tests/CoreTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "CoreBuild",
+      "source_files": "Sources/Core/**/*.swift",
+      "preserve_paths": "rust/**/*",
+      "dependencies": {
+        "BigInt": [
+          "~> 5.2"
+        ],
+        "Cardano.swift/OrderedCollections": [
+
+        ]
+      },
+      "script_phases": {
+        "name": "Build Rust Binary",
+        "script": "bash \"${PODS_TARGET_SRCROOT}/rust/scripts/xcode_build_step.sh\"",
+        "execution_position": "before_compile"
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "testspecs": [
+        {
+          "name": "CoreTests",
+          "test_type": "unit",
+          "source_files": "Tests/CoreTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Binary",
+      "source_files": "Sources/Cardano/**/*.swift",
+      "dependencies": {
+        "Bip39.swift": [
+          "~> 0.1"
+        ],
+        "Cardano.swift/CoreBinary": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "CardanoTests",
+          "test_type": "unit",
+          "source_files": "Tests/CardanoTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Build",
+      "source_files": "Sources/Cardano/**/*.swift",
+      "dependencies": {
+        "Bip39.swift": [
+          "~> 0.1"
+        ],
+        "Cardano.swift/CoreBuild": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "CardanoTests",
+          "test_type": "unit",
+          "source_files": "Tests/CardanoTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Blockfrost",
+      "source_files": "Sources/Blockfrost/**/*.swift",
+      "dependencies": {
+        "BlockfrostSwiftSDK": [
+          "~> 0.0.5"
+        ],
+        "Cardano.swift/Binary": [
+
+        ]
+      }
+    },
+    {
+      "name": "BlockfrostBuild",
+      "source_files": "Sources/Blockfrost/**/*.swift",
+      "dependencies": {
+        "BlockfrostSwiftSDK": [
+          "~> 0.0.5"
+        ],
+        "Cardano.swift/Build": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.5"
+}
