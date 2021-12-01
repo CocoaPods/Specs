@@ -1,0 +1,71 @@
+{
+  "name": "TSYPay",
+  "version": "0.1.36",
+  "summary": "TSYPay.",
+  "homepage": "https://gitlab.com/allinpay/tsypay",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lengyc": "lengyc@allinpay.com"
+  },
+  "source": {
+    "git": "git@gitlab.com:allinpay/tsypay.git",
+    "tag": "0.1.36"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "dependencies": {
+    "AlipaySDK-iOS": [
+      "~> 15.6"
+    ],
+    "WechatOpenSDK": [
+      "~> 1.8"
+    ],
+    "MJRefresh": [
+      "~> 3.3.1"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "CFNetwork",
+    "SystemConfiguration"
+  ],
+  "libraries": "z",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "paymentcontrol",
+      "source_files": "TSYPay/paymentcontrol/*{.h}",
+      "ios": {
+        "preserve_paths": "TSYPay/paymentcontrol/libPaymentControl.a",
+        "vendored_libraries": "TSYPay/paymentcontrol/libPaymentControl.a"
+      },
+      "libraries": "PaymentControl",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/TSYPay/TSYPay/paymentcontrol/**"
+      }
+    },
+    {
+      "name": "Classes",
+      "source_files": "TSYPay/Classes/*.{h,m}",
+      "resource_bundles": {
+        "TSYPayResources": "TSYPay/Assets/**/*"
+      },
+      "public_header_files": "TSPay/Classes/TSYPay.h",
+      "dependencies": {
+        "TSYPay/paymentcontrol": [
+
+        ]
+      }
+    }
+  ]
+}
