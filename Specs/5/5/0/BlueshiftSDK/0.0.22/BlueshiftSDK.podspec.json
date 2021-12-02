@@ -1,0 +1,104 @@
+{
+  "name": "BlueshiftSDK",
+  "version": "0.0.22",
+  "summary": "Official Blueshift SDK for developing iOS application.",
+  "description": "BlueshiftSDK는 Swift, Interface Builder(xib) 기반의 어플리케이션 개발에 적합하도록 개발되었으며, 블루시프트 내부 개발자를 위한 iOS 어플리케이션 개발용 소프트웨어개발툴킷입니다.\n일반 개발자를 위해 일부 프레임워크를 공개하고 있으나, 예고없이 기능의 일부 혹은 전부를 비공개로 전환하거나 수정 혹은 삭제될 수 있음을 양해해주십시오.\nBlueshiftSDK는 하단메뉴를 포함하는 네비게이션, 테이블뷰 등으로 구성된 어플리케이션 개발에 특히 최적화되어 있습니다. 기본적으로 제공되는 기능은 아래와 같습니다.\n* BSTabBarController\n* BSViewController\n* BSTableViewController\n* API Module\n* Common Utilities",
+  "homepage": "https://github.com/blueshiftcorp/BlueshiftSDK",
+  "license": {
+    "type": "Blueshift SDK License",
+    "file": "LICENSE"
+  },
+  "authors": "Blueshift",
+  "platforms": {
+    "ios": "13.5"
+  },
+  "source": {
+    "git": "https://github.com/blueshiftcorp/BlueshiftSDK.git",
+    "tag": "0.0.22"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": [
+    "Common",
+    "API",
+    "Login",
+    "Messaging",
+    "WebView"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "Source/Common/**/*"
+    },
+    {
+      "name": "API",
+      "source_files": "Source/API/**/*",
+      "dependencies": {
+        "BlueshiftSDK/Common": [
+
+        ],
+        "Alamofire": [
+          "~> 5.4"
+        ],
+        "PromisedFuture": [
+
+        ]
+      }
+    },
+    {
+      "name": "Login",
+      "source_files": "Source/Login/**/*",
+      "dependencies": {
+        "BlueshiftSDK/API": [
+
+        ],
+        "GoogleSignIn": [
+
+        ],
+        "naveridlogin-sdk-ios": [
+
+        ],
+        "KakaoSDKAuth": [
+
+        ],
+        "KakaoSDKUser": [
+
+        ]
+      }
+    },
+    {
+      "name": "Messaging",
+      "source_files": "Source/Messaging/**/*",
+      "dependencies": {
+        "BlueshiftSDK/API": [
+
+        ],
+        "Firebase/Messaging": [
+
+        ]
+      }
+    },
+    {
+      "name": "WebView",
+      "source_files": "Source/WebView/**/*",
+      "dependencies": {
+        "Alamofire": [
+          "~> 5.4"
+        ],
+        "BlueshiftSDK/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "BLE",
+      "source_files": "Source/BLE/**/*"
+    }
+  ],
+  "swift_version": "5.0"
+}
