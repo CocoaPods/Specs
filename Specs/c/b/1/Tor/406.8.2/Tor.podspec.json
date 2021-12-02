@@ -1,0 +1,59 @@
+{
+  "name": "Tor",
+  "version": "406.8.2",
+  "summary": "Tor.framework is the easiest way to embed Tor in your iOS application.",
+  "description": "Tor.framework is the easiest way to embed Tor in your iOS application. Currently, the framework compiles in static versions of tor, libevent, openssl, and liblzma.",
+  "homepage": "https://github.com/iCepa/Tor.framework",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Conrad Kramer": "conrad@conradkramer.com",
+    "Chris Ballinger": "chris@chatsecure.org",
+    "Mike Tigas": "mike@tig.as",
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "http": "https://github.com/iCepa/Tor.framework/releases/download/v406.8.2/Tor.framework.zip",
+    "flatten": true
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9"
+  },
+  "module_name": "Tor",
+  "prepare_command": "touch geoip\ntouch geoip6",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "ios": {
+        "vendored_frameworks": "Build/iOS/Tor.framework"
+      },
+      "osx": {
+        "vendored_frameworks": "Build/Mac/Tor.framework"
+      },
+      "preserve_paths": "**/*.bcsymbolmap"
+    },
+    {
+      "name": "GeoIP",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "script_phases": {
+        "name": "Load GeoIP files",
+        "execution_position": "before_compile",
+        "script": "      if [ ! -f \"$PODS_TARGET_SRCROOT/geoip\" ] ||           test `find \"$PODS_TARGET_SRCROOT\" -name geoip -empty` ||           test `find \"$PODS_TARGET_SRCROOT\" -name geoip -mtime +1`\n      then\n        curl -Lo \"$PODS_TARGET_SRCROOT/geoip\" https://gitweb.torproject.org/tor.git/plain/src/config/geoip?h=tor-0.4.6.8\n      fi\n\n      if [ ! -f \"$PODS_TARGET_SRCROOT/geoip6\" ] ||           test `find \"$PODS_TARGET_SRCROOT\" -name geoip6 -empty` ||           test `find \"$PODS_TARGET_SRCROOT\" -name geoip6 -mtime +1`\n      then\n        curl -Lo \"$PODS_TARGET_SRCROOT/geoip6\" https://gitweb.torproject.org/tor.git/plain/src/config/geoip6?h=tor-0.4.6.8\n      fi\n"
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "geoip",
+          "geoip6"
+        ]
+      }
+    }
+  ]
+}
