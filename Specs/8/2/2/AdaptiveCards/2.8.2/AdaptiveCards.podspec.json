@@ -1,0 +1,58 @@
+{
+  "name": "AdaptiveCards",
+  "version": "2.8.2",
+  "license": {
+    "type": "Adaptive Cards Binary EULA",
+    "file": "source/EULA-Non-Windows.txt"
+  },
+  "homepage": "https://adaptivecards.io",
+  "authors": {
+    "AdaptiveCards": "Joseph.Woo@microsoft.com"
+  },
+  "summary": "Adaptive Cards are a new way for developers to exchange card content in a common and consistent way",
+  "source": {
+    "git": "https://github.com/microsoft/AdaptiveCards.git",
+    "tag": "ios-v2.8.2"
+  },
+  "source_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/*.{h,m,mm}",
+  "platforms": {
+    "ios": "14"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "AVKit",
+    "CoreGraphics",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "public_header_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/*.h",
+  "resource_bundles": {
+    "AdaptiveCards": [
+      "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/Resources/**/*"
+    ]
+  },
+  "exclude_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/include/**/*",
+  "dependencies": {
+    "MicrosoftFluentUI": [
+      "~> 0.3.6"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "ObjectModel",
+      "source_files": "source/shared/cpp/ObjectModel/**/*.{h,cpp}",
+      "header_mappings_dir": "source/shared/cpp/ObjectModel/",
+      "private_header_files": "source/shared/cpp/ObjectModel/**/*.{h}",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "CLANG_CXX_LIBRARY": "libc++"
+      }
+    },
+    {
+      "name": "AdaptiveCardsPrivate",
+      "source_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/*.h",
+      "header_mappings_dir": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/",
+      "private_header_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/*.h"
+    }
+  ]
+}
