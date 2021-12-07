@@ -1,0 +1,26 @@
+{
+  "name": "WireCompiler",
+  "version": "4.0.1",
+  "license": {
+    "type": "apache2",
+    "file": "LICENSE.txt"
+  },
+  "homepage": "https://github.com/square/wire",
+  "authors": {
+    "Eric Firestone": "@firetweet"
+  },
+  "summary": "gRPC and protocol buffer compiler for Android, Kotlin, Java, and Swift.",
+  "source": {
+    "git": "https://github.com/square/wire.git",
+    "tag": "4.0.1"
+  },
+  "module_name": "WireCompiler",
+  "prepare_command": "JAVA_HOME=\"$(/usr/libexec/java_home -v 1.8)\"\n./gradlew -p wire-library :wire-compiler:shadowJar\nMOST_RECENT_ARTIFACT=\"$(ls -t ./wire-library/wire-compiler/build/libs/wire-compiler-*-jar-with-dependencies.jar | head -n1)\"\ncp \"$MOST_RECENT_ARTIFACT\" ./compiler.jar",
+  "preserve_paths": "compiler.jar",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
