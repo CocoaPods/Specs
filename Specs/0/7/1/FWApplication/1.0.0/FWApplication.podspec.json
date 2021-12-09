@@ -1,0 +1,121 @@
+{
+  "name": "FWApplication",
+  "version": "1.0.0",
+  "summary": "ios application framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWApplication.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": "FWApplication",
+  "subspecs": [
+    {
+      "name": "FWApplication",
+      "dependencies": {
+        "FWApplication/App": [
+
+        ],
+        "FWApplication/Controller": [
+
+        ],
+        "FWApplication/Model": [
+
+        ],
+        "FWApplication/Service": [
+
+        ],
+        "FWApplication/View": [
+
+        ]
+      }
+    },
+    {
+      "name": "App",
+      "source_files": "FWApplication/Classes/App/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWFramework": [
+
+        ]
+      }
+    },
+    {
+      "name": "Controller",
+      "source_files": "FWApplication/Classes/Controller/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWApplication/App": [
+
+        ]
+      }
+    },
+    {
+      "name": "Model",
+      "source_files": "FWApplication/Classes/Model/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWApplication/App": [
+
+        ]
+      }
+    },
+    {
+      "name": "View",
+      "source_files": "FWApplication/Classes/View/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWApplication/App": [
+
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "libraries": "sqlite3",
+      "source_files": "FWApplication/Classes/Service/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWApplication/App": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "dependencies": {
+        "SDWebImage": [
+
+        ],
+        "FWApplication/Service": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "FWCOMPONENT_SDWEBIMAGE_ENABLED=1"
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+
+        ],
+        "FWApplication/Service": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
