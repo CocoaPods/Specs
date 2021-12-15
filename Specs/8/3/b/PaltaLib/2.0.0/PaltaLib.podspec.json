@@ -1,0 +1,75 @@
+{
+  "name": "PaltaLib",
+  "version": "2.0.0",
+  "license": "MIT",
+  "summary": "PaltaLib iOS SDK",
+  "homepage": "https://github.com/Palta-Data-Platform/paltalib-ios",
+  "authors": {
+    "Palta": "dev@palta.com"
+  },
+  "source": {
+    "git": "https://github.com/Palta-Data-Platform/paltalib-ios.git",
+    "tag": "v2.0.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.3",
+  "default_subspecs": [
+    "Core",
+    "Analytics",
+    "Purchases",
+    "Attribution"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift"
+    },
+    {
+      "name": "Analytics",
+      "source_files": "Sources/Analytics/**/*.swift",
+      "dependencies": {
+        "PaltaLib/Core": [
+
+        ],
+        "Amplitude": [
+          "~> 8.5.0"
+        ]
+      }
+    },
+    {
+      "name": "Purchases",
+      "source_files": "Sources/Purchases/**/*.swift",
+      "dependencies": {
+        "PaltaLib/Core": [
+
+        ],
+        "PaltaLib/Analytics": [
+
+        ],
+        "PaltaLib/Attribution": [
+
+        ],
+        "Purchases": [
+          "~> 3.13.0"
+        ]
+      }
+    },
+    {
+      "name": "Attribution",
+      "source_files": "Sources/Attribution/**/*.swift",
+      "dependencies": {
+        "PaltaLib/Core": [
+
+        ],
+        "AppsFlyerFramework": [
+          "~> 6.4.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
