@@ -1,0 +1,40 @@
+{
+  "name": "chiatk-bls-signatures-shared-pod",
+  "version": "1.0.84",
+  "summary": "BLS signatures in C++, using the relic toolkit",
+  "description": "Implements BLS signatures with aggregation as in Boneh, Drijvers, Neven 2018, using relic toolkit for cryptographic primitives (pairings, EC, hashing). The BLS12-381 curve is used.",
+  "homepage": "https://github.com/Chia-Network/bls-signatures",
+  "license": {
+    "type": "Apache License 2.0"
+  },
+  "authors": {
+    "Chia Network": "hello@chia.net"
+  },
+  "social_media_url": "https://twitter.com/ChiaNetworkInc",
+  "source": {
+    "git": "https://github.com/chiatk/bls-signatures.git",
+    "submodules": false
+  },
+  "prepare_command": "set -x\n\ngit submodule update --init\n\nMIN_IOS=\"12.0\"\nMIN_WATCHOS=\"2.0\"\nMIN_TVOS=$MIN_IOS\nMIN_MACOS=\"10.10\"\n\nIPHONEOS=iphoneos\nIPHONESIMULATOR=iphonesimulator\nWATCHOS=watchos\nWATCHSIMULATOR=watchsimulator\nTVOS=appletvos\nTVSIMULATOR=appletvsimulator\nMACOS=macosx\n\nLOGICALCPU_MAX=`sysctl -n hw.logicalcpu_max`\n\nGMP_DIR=\"`pwd`/gmp\"\n \n   \n    download_gmp()\n    {\n        GMP_VERSION=\"6.2.1\"\n        CURRENT_DIR=`pwd`\n\n        if [ ! -s ${CURRENT_DIR}/gmp-${GMP_VERSION}.tar.bz2 ]; then\n            curl -L -o ${CURRENT_DIR}/gmp-${GMP_VERSION}.tar.bz2 https://gmplib.org/download/gmp/gmp-${GMP_VERSION}.tar.bz2\n        fi\n\n        rm -rf gmp\n        tar xfj \"gmp-${GMP_VERSION}.tar.bz2\"\n        mv gmp-${GMP_VERSION} gmp\n        mv contrib/gmp-patch-6.2.1/compat.c gmp/compac.c\n        mv contrib/gmp-patch-6.2.1/longlong.h gmp/longlong.h\n    }\n\n    download_relic()\n    {\n         \n        CURRENT_DIR=`pwd`\n\n        if [ ! -s ${CURRENT_DIR}/relic.zip ]; then\n            curl -L -o ${CURRENT_DIR}/relic.zip https://github.com/Chia-Network/relic/archive/1d98e5abf3ca5b14fd729bd5bcced88ea70ecfd7.zip\n        fi\n\n        rm -rf contrib/relic\n        unzip  \"relic.zip\" -d relic_temp\n        mv relic_temp/relic-1d98e5abf3ca5b14fd729bd5bcced88ea70ecfd7 contrib/relic\n        rm -rf relic_temp\n        \n    }\n\n    #replace the import of gmp.h becouse Xcode failed with it import type\n    find ./src/ -name '*.hpp' -print0 | xargs -0 sed -i '' 's/#include <gmp.h>/#include \"gmp.h\"/g'\n    download_relic\n    download_gmp",
+  "platforms": {
+    "ios": "9.0",
+    "watchos": "2.0",
+    "tvos": "10.0",
+    "osx": "10.10"
+  },
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "NO",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES"
+  },
+  "source_files": [
+    "src/*.hpp",
+    "gmp/gmp.h",
+    "contrib/relic/include/*.h",
+    "contrib/relic/include/low/*.h",
+    "contrib/relic/relic-iphoneos-arm64/include/*.h"
+  ],
+  "exclude_files": "src/test-utils.hpp"
+}
