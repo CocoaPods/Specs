@@ -1,0 +1,94 @@
+{
+  "name": "CommonWallet",
+  "version": "1.16.0",
+  "summary": "Soramitsu Common Wallet Implementation",
+  "description": "Library allow fast integration of Soramitsu Wallet implementation into client applications for payment purpose. Implemetation includes both customizable UI and logic to communicate with Iroha blockchain.",
+  "homepage": "https://github.com/soramitsu",
+  "license": {
+    "type": "GPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Soramitsu": "admin@soramitsu.co.jp"
+  },
+  "source": {
+    "git": "https://github.com/soramitsu/Capital-iOS.git",
+    "tag": "1.16.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/**/*",
+      "dependencies": {
+        "Cuckoo": [
+
+        ],
+        "OHHTTPStubs/Swift": [
+          "~> 8.0.0"
+        ]
+      },
+      "resources": [
+        "Tests/**/*.json"
+      ]
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CommonWallet/Core/Classes/**/*.swift",
+      "resources": [
+        "CommonWallet/Core/**/*.xcdatamodeld",
+        "CommonWallet/Core/**/*.xib",
+        "CommonWallet/Core/Assets/**/*"
+      ],
+      "frameworks": [
+        "UIKit",
+        "CoreImage"
+      ],
+      "dependencies": {
+        "RobinHood": [
+          "~> 2.6.1"
+        ],
+        "SoraUI": [
+          "~> 1.10.0"
+        ],
+        "SoraFoundation/DateProcessing": [
+          "~> 1.0.0"
+        ],
+        "SoraFoundation/NumberProcessing": [
+          "~> 1.0.0"
+        ],
+        "SoraFoundation/NotificationHandlers": [
+          "~> 1.0.0"
+        ],
+        "SoraFoundation/Localization": [
+          "~> 1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "IrohaMiddleware",
+      "source_files": "CommonWallet/IrohaMiddleware/**/*.swift",
+      "dependencies": {
+        "CommonWallet/Core": [
+
+        ],
+        "IrohaCommunication": [
+          "~> 4.0.0"
+        ],
+        "RobinHood": [
+          "~> 2.6.1"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
