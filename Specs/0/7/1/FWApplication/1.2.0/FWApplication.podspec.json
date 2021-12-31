@@ -1,0 +1,75 @@
+{
+  "name": "FWApplication",
+  "version": "1.2.0",
+  "summary": "ios application framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWApplication.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "FWApplication",
+    "Compatible"
+  ],
+  "subspecs": [
+    {
+      "name": "FWApplication",
+      "source_files": "FWApplication/Classes/FWApplication/**/*.{h,m,swift}",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "FWFramework": [
+          "~> 2.1"
+        ]
+      }
+    },
+    {
+      "name": "Compatible",
+      "source_files": "FWApplication/Classes/Module/Compatible/**/*.{h,m,swift}",
+      "dependencies": {
+        "FWApplication/FWApplication": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "source_files": "FWApplication/Classes/Module/SDWebImage/**/*.{h,m,swift}",
+      "dependencies": {
+        "SDWebImage": [
+
+        ],
+        "FWApplication/FWApplication": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+
+        ],
+        "FWApplication/FWApplication": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
