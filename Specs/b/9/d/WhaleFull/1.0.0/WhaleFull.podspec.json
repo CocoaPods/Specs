@@ -1,0 +1,117 @@
+{
+  "name": "WhaleFull",
+  "version": "1.0.0",
+  "summary": "👌. MVVM + RxSwift + CTMediatror + MJRefresh + DZNEmptyDataSet",
+  "homepage": "https://github.com/yangKJ/WhaleFull",
+  "description": "https://github.com/yangKJ/WhaleFull/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangkejun": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/WhaleFull.git",
+    "tag": "1.0.0"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "module_name": "WhaleFull",
+  "subspecs": [
+    {
+      "name": "Resources",
+      "source_files": "Sources/Resources/*.swift",
+      "resource_bundles": {
+        "WhaleFull": [
+          "Sources/Resources/*.{xcassets,lproj}"
+        ]
+      }
+    },
+    {
+      "name": "Adapter",
+      "dependencies": {
+        "WhaleFull/Resources": [
+
+        ],
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Controller",
+          "source_files": "Sources/Adapter/Controller/*.swift",
+          "dependencies": {
+            "WhaleFull/Adapter/ViewModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "ViewModel",
+          "source_files": "Sources/Adapter/ViewModel/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "CTMediator",
+      "source_files": [
+        "Sources/CTMediator/*.swift",
+        "Sources/WhaleFull-Bridging-Header.h"
+      ],
+      "prefix_header_contents": "#import \"WhaleFull-Bridging-Header.h\"",
+      "dependencies": {
+        "CTMediator": [
+
+        ]
+      }
+    },
+    {
+      "name": "HBDNavigationBar",
+      "source_files": [
+        "Sources/HBDNavigationBar/*.swift",
+        "Sources/WhaleFull-Bridging-Header.h"
+      ],
+      "prefix_header_contents": "#import \"WhaleFull-Bridging-Header.h\"",
+      "dependencies": {
+        "HBDNavigationBar": [
+
+        ]
+      }
+    },
+    {
+      "name": "MJRefresh",
+      "source_files": "Sources/MJRefresh/*.swift",
+      "dependencies": {
+        "WhaleFull/Adapter": [
+
+        ],
+        "MJRefresh": [
+
+        ]
+      }
+    },
+    {
+      "name": "DZNEmptyDataSet",
+      "source_files": "Sources/DZNEmptyDataSet/*.swift",
+      "dependencies": {
+        "WhaleFull/Adapter": [
+
+        ],
+        "EmptyDataSet-Swift": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
