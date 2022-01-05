@@ -1,0 +1,65 @@
+{
+  "name": "ABTestSDK",
+  "version": "1.3.3",
+  "summary": "ABTest SDK for statistics",
+  "description": "discription",
+  "homepage": "http://10.71.94.97:7990/scm/at/ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "王鹏飞": "pengfei.wang.sh@verystar.net"
+  },
+  "source": {
+    "git": "http://10.71.94.97:7990/scm/at/ios-sdk.git",
+    "tag": "1.3.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ABTestSDK/Classes/ABTestSDK.h",
+  "public_header_files": "ABTestSDK/Classes/ABTestSDK.h",
+  "subspecs": [
+    {
+      "name": "Basic",
+      "source_files": "ABTestSDK/Classes/Basic/**/*.{h,m}",
+      "ios": {
+        "frameworks": "CoreTelephony"
+      },
+      "private_header_files": "ABTestSDK/Classes/Basic/**/*.h"
+    },
+    {
+      "name": "DataSource",
+      "source_files": "ABTestSDK/Classes/DataSource/**/*.{h,m}",
+      "dependencies": {
+        "ABTestSDK/Basic": [
+
+        ]
+      },
+      "private_header_files": "ABTestSDK/Classes/DataSource/**/*.h"
+    },
+    {
+      "name": "NetworkApi",
+      "source_files": "ABTestSDK/Classes/NetworkApi/**/*.{h,m}",
+      "dependencies": {
+        "ABTestSDK/Basic": [
+
+        ]
+      },
+      "private_header_files": "ABTestSDK/Classes/NetworkApi/**/*.h"
+    },
+    {
+      "name": "Header",
+      "source_files": "ABTestSDK/Classes/Header/**/*.{h,m}",
+      "dependencies": {
+        "ABTestSDK/NetworkApi": [
+
+        ],
+        "ABTestSDK/DataSource": [
+
+        ]
+      }
+    }
+  ]
+}
