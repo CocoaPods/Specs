@@ -1,0 +1,103 @@
+{
+  "name": "SHWMixMobile",
+  "version": "0.2.6",
+  "summary": "新华智云 mix 引擎 iOS 端.",
+  "description": "mix: 随心所欲的视频编辑引擎,新华智云 mix 引擎 iOS 端",
+  "homepage": "https://github.com/newsdata/SHWMixMobile",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yehot": "yehao@shuwen.com"
+  },
+  "source": {
+    "git": "https://github.com/newsdata/SHWMixMobile.git",
+    "tag": "0.2.6"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": [
+    "ffmpeg",
+    "libyuv",
+    "x264",
+    "fdk-aac",
+    "Skia",
+    "libheif"
+  ],
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "VideoToolbox",
+    "CoreMedia",
+    "AVFoundation",
+    "AudioToolbox",
+    "Accelerate",
+    "GLKit"
+  ],
+  "libraries": [
+    "z",
+    "bz2",
+    "iconv",
+    "c++"
+  ],
+  "subspecs": [
+    {
+      "name": "x264",
+      "source_files": "SHWMixMobile/mix/x264/include/**/*.h",
+      "header_mappings_dir": "SHWMixMobile/mix/x264/include",
+      "vendored_libraries": "SHWMixMobile/mix/x264/lib/*.a"
+    },
+    {
+      "name": "libyuv",
+      "source_files": "SHWMixMobile/mix/libyuv/include/**/*.h",
+      "vendored_libraries": "SHWMixMobile/mix/libyuv/lib/*.a",
+      "header_mappings_dir": "SHWMixMobile/mix/libyuv/include"
+    },
+    {
+      "name": "fdk-aac",
+      "source_files": "SHWMixMobile/mix/fdk-aac/include/**/*.h",
+      "vendored_libraries": "SHWMixMobile/mix/fdk-aac/lib/*.a",
+      "header_mappings_dir": "SHWMixMobile/mix/fdk-aac/include"
+    },
+    {
+      "name": "libheif",
+      "source_files": "SHWMixMobile/mix/libheif/**/*.h",
+      "vendored_libraries": "SHWMixMobile/mix/libheif/*.a"
+    },
+    {
+      "name": "Skia",
+      "source_files": [
+        "SHWMixMobile/mix/Skia/include/**/*.h",
+        "SHWMixMobile/mix/Skia/third_party/**/*.h"
+      ],
+      "vendored_libraries": "SHWMixMobile/mix/Skia/lib/*.a",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LIBRARY": "libc++",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++14"
+      }
+    },
+    {
+      "name": "ffmpeg",
+      "source_files": "SHWMixMobile/mix/ffmpeg/include/**/*.h",
+      "public_header_files": "SHWMixMobile/mix/ffmpeg/include/**/*.h",
+      "header_mappings_dir": "SHWMixMobile/mix/ffmpeg/include",
+      "vendored_libraries": "SHWMixMobile/mix/ffmpeg/lib/*.a",
+      "libraries": [
+        "avcodec",
+        "avdevice",
+        "avfilter",
+        "avformat",
+        "avutil",
+        "postproc",
+        "swresample",
+        "swscale",
+        "iconv",
+        "z",
+        "bz2"
+      ]
+    }
+  ]
+}
