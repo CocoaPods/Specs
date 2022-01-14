@@ -1,0 +1,109 @@
+{
+  "name": "Ads-CN-Beta",
+  "version": "4.2.5.2",
+  "summary": "Ads-CN-Beta is a SDK from Bytedance providing union AD service.",
+  "description": "Ads-CN-Beta provides ADs which include native、banner、feed、splash、RewardVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "bytedance-tech": "zywork@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD.git",
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/csj-sdk-static/4.2.5.2/SDK.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "weak_frameworks": "AppTrackingTransparency",
+  "resources": "SDK/LICENSE",
+  "preserve_paths": "SDK/README.md",
+  "default_subspecs": "BUAdSDK",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "International",
+      "vendored_frameworks": [
+        "SDK/BUVAAuxiliary.framework"
+      ],
+      "preserve_paths": "SDK/BUVAAuxiliary.framework",
+      "dependencies": {
+        "Ads-CN-Beta/BUFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Domestic",
+      "vendored_frameworks": [
+        "SDK/BUCNAuxiliary.framework"
+      ],
+      "preserve_paths": "SDK/BUCNAuxiliary.framework"
+    },
+    {
+      "name": "BUAdSDK",
+      "vendored_frameworks": [
+        "SDK/BUAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/BUAdSDK.framework",
+      "dependencies": {
+        "Ads-CN-Beta/BUFoundation": [
+
+        ],
+        "Ads-CN-Beta/Domestic": [
+
+        ]
+      },
+      "resources": "SDK/BUAdSDK.bundle"
+    },
+    {
+      "name": "BUFoundation",
+      "vendored_frameworks": [
+        "SDK/BUFoundation.framework"
+      ],
+      "preserve_paths": "SDK/BUFoundation.framework"
+    }
+  ]
+}
