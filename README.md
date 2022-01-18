@@ -12,4 +12,3 @@ This repository contains the public [CocoaPods](https://github.com/CocoaPods/Coc
 
 These specifications and CocoaPods are available under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
-
