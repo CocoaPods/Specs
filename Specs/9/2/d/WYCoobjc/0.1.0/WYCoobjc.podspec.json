@@ -1,0 +1,44 @@
+{
+  "name": "WYCoobjc",
+  "version": "0.1.0",
+  "summary": "A coroutine framework for Objective-C",
+  "description": "This library provides coroutine support for Objective-C and Swift. We added await method、generator and actor model like C#、Javascript and Kotlin. For convenience, we added coroutine categories for some Foundation and UIKit API in cokit framework like NSFileManager, JSON, NSData, UIImage etc. We also add tuple support in coobjc",
+  "homepage": "https://github.com/alibaba/coobjc",
+  "license": {
+    "type": "Copyright",
+    "text": "           Alibaba-INC copyright\n"
+  },
+  "authors": {
+    "pengyutang125": "pengyutang125@sina.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "git@github.com:Wavely-California/WYCoobjc.git",
+    "tag": "0.1.0"
+  },
+  "subspecs": [
+    {
+      "name": "cocore",
+      "source_files": "cocore/*.{h,m,s,c,mm}",
+      "requires_arc": "WYCoobjc/cocore/*.m",
+      "libraries": "c++"
+    },
+    {
+      "name": "coobjc",
+      "source_files": "coobjc/**/*.{h,m}",
+      "requires_arc": [
+        "coobjc/co/*.m",
+        "coobjc/generator/*.m",
+        "coobjc/actor/*.m",
+        "coobjc/promise/*.m"
+      ],
+      "dependencies": {
+        "WYCoobjc/cocore": [
+
+        ]
+      }
+    }
+  ]
+}
