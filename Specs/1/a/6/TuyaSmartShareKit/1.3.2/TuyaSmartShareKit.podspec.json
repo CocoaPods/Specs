@@ -1,0 +1,51 @@
+{
+  "name": "TuyaSmartShareKit",
+  "version": "1.3.2",
+  "summary": "A short description of TuyaSmartShareKit.",
+  "homepage": "https://tuya.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tuya": "developer@tuya.com"
+  },
+  "source": {
+    "http": "https://images.tuyacn.com/smart/app/package/developer/sdk/1642558332-TuyaSmartShareKit-1.3.2.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "watchos": "2.0"
+  },
+  "prefix_header_contents": "#ifdef __OBJC__\n  #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>\n  #undef TYLog\n  #undef TYSDKLogDebug\n  #undef TYSDKLogInfo\n  #undef TYSDKLogWarn\n  #undef TYSDKLogError\n  #define TYSDKLogDebug(...)         TYSDKLog(0, @\"TuyaSmartShareKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogInfo(...)         TYSDKLog(1, @\"TuyaSmartShareKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogWarn(...)         TYSDKLog(2, @\"TuyaSmartShareKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n  #define TYSDKLogError(...)         TYSDKLog(3, @\"TuyaSmartShareKit\", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)\n\n  #import <YYModel/YYModel.h>\n  #import \"TuyaSmartShareKit.h\"\n#endif",
+  "dependencies": {
+    "TuyaSmartBaseKit": [
+
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "watchos": {
+    "pod_target_xcconfig": {
+      "ENABLE_BITCODE": "YES",
+      "OTHER_CFLAGS": "-fembed-bitcode -Qunused-arguments"
+    },
+    "source_files": [
+      "Build/TuyaSmartShareKit.xcframework/watchos-arm64_32_armv7k/TuyaSmartShareKit.framework/Headers/*"
+    ]
+  },
+  "cocoapods_version": ">= 1.10",
+  "ios": {
+    "source_files": [
+      "Build/TuyaSmartShareKit.xcframework/ios-arm64_armv7/TuyaSmartShareKit.framework/Headers/*"
+    ]
+  },
+  "vendored_frameworks": [
+    "Build/TuyaSmartShareKit.xcframework"
+  ]
+}
