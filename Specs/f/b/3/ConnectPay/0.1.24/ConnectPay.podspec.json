@@ -1,0 +1,99 @@
+{
+  "name": "ConnectPay",
+  "version": "0.1.24",
+  "summary": "ConnectPay SDK from TossPayments",
+  "description": "ConnectPay SDK from TossPayments\n\nYou can install Pay module easily.",
+  "homepage": "https://www.tosspayments.com",
+  "license": {
+    "type": "Proprietary",
+    "text": "Copyright 2021 TossPayments Ltd. All rights reserved."
+  },
+  "authors": {
+    "Jinkyu Kim": "mqz@toss.im"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/tosspayments/ConnectPay.git",
+    "tag": "0.1.24"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "preserve_paths": [
+          "Library/ConnectPayBase.xcframework"
+        ],
+        "vendored_frameworks": [
+          "Library/ConnectPayBase.xcframework"
+        ]
+      }
+    },
+    {
+      "name": "Biometric",
+      "ios": {
+        "preserve_paths": [
+          "Library/BiometricInterface.xcframework"
+        ],
+        "vendored_frameworks": [
+          "Library/BiometricInterface.xcframework"
+        ]
+      },
+      "dependencies": {
+        "ConnectPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "OCR",
+      "ios": {
+        "preserve_paths": [
+          "Library/FinCubeOcrSDK.xcframework",
+          "Library/OCRInterface.xcframework"
+        ],
+        "vendored_frameworks": [
+          "Library/FinCubeOcrSDK.xcframework",
+          "Library/OCRInterface.xcframework"
+        ]
+      },
+      "dependencies": {
+        "ConnectPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "ios": {
+        "preserve_paths": [
+          "Library/ConnectPayCore.xcframework",
+          "Library/TossPaymentsCore.xcframework"
+        ],
+        "vendored_frameworks": [
+          "Library/ConnectPayCore.xcframework",
+          "Library/TossPaymentsCore.xcframework"
+        ]
+      },
+      "dependencies": {
+        "ConnectPay/Core": [
+
+        ],
+        "ConnectPay/Biometric": [
+
+        ],
+        "ConnectPay/OCR": [
+
+        ]
+      }
+    }
+  ]
+}
