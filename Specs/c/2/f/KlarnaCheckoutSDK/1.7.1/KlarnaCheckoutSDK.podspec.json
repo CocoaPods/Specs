@@ -1,0 +1,50 @@
+{
+  "name": "KlarnaCheckoutSDK",
+  "version": "1.7.1",
+  "summary": "Klarna Checkout iOS SDK",
+  "description": "Simple integration of Klarna Checkout for native and hybrid iOS apps.",
+  "homepage": "https://github.com/klarna/kco-mobile-sdk.git",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Klarna Mobile SDK Team": "mobile.sdk@klarna.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/klarna/kco-mobile-sdk.git",
+    "tag": "v1.7.1"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "xcframework",
+  "frameworks": [
+    "UIKit",
+    "WebKit",
+    "Security",
+    "CFNetwork",
+    "MobileCoreServices",
+    "SystemConfiguration",
+    "JavaScriptCore"
+  ],
+  "subspecs": [
+    {
+      "name": "legacy",
+      "source_files": "ios/KlarnaCheckoutSDK.framework/Headers/*.h",
+      "public_header_files": "ios/KlarnaCheckoutSDK.framework/Headers/*.h",
+      "vendored_frameworks": "ios/KlarnaCheckoutSDK.framework"
+    },
+    {
+      "name": "xcframework",
+      "vendored_frameworks": "ios/XCFramework/KlarnaCheckoutSDK.xcframework"
+    }
+  ]
+}
