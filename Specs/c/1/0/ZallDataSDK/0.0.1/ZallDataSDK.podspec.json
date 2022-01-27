@@ -1,0 +1,100 @@
+{
+  "name": "ZallDataSDK",
+  "version": "0.0.1",
+  "summary": "The official iOS SDK of zall Digital.",
+  "homepage": "https://www.zalldigital.cn",
+  "source": {
+    "git": "https://github.com/zalldata/ZallDataSDK.git",
+    "tag": "v0.0.1"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "郭振涛": "guozhentao@zalldigital.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Base",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "UIKit"
+  ],
+  "libraries": [
+    "icucore",
+    "sqlite3",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "ZallDataSDK/Core/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Core/**/ZallDataSDK.h",
+        "ZallDataSDK/Core/**/ZallDataSDK+Business.h",
+        "ZallDataSDK/Core/**/ZAConfigOptions.h",
+        "ZallDataSDK/Core/**/ZallDataSDK+ZATrack.h",
+        "ZallDataSDK/Core/**/ZAConstantsDefin.h",
+        "ZallDataSDK/Core/**/ZAConstants.h",
+        "ZallDataSDK/Core/**/ZAConstantsEnum.h",
+        "ZallDataSDK/Core/**/ZASecurityPolicy.h"
+      ],
+      "ios": {
+        "resources": "ZallDataSDK/ZallDataSDK.bundle",
+        "frameworks": "CoreTelephony"
+      }
+    },
+    {
+      "name": "all",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      }
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "ZallDataSDK/Base": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Modules/AutoTrack/**/ZallDataSDK+ZAAutoTrack.h",
+        "ZallDataSDK/Modules/AutoTrack/**/UIView+ZAProperty.h"
+      ]
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZallDataSDK/JSBridge": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Visualized/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/Visualized/ZallDataSDK+ZAVisualized.h"
+    },
+    {
+      "name": "JSBridge",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/JSBridge/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Modules/JSBridge/ZallDataSDK+ZAJSBridge.h",
+        "ZallDataSDK/Modules/JSBridge/WKWebView+ZABridge.h"
+      ]
+    }
+  ]
+}
