@@ -1,0 +1,126 @@
+{
+  "name": "Rickenbacker",
+  "version": "0.0.3",
+  "summary": "MVVM + RxSwift Project Architecture.",
+  "homepage": "https://github.com/yangKJ/Rickenbacker",
+  "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangkejun": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/Rickenbacker.git",
+    "tag": "0.0.3"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "module_name": "Rickenbacker",
+  "subspecs": [
+    {
+      "name": "CatHome",
+      "source_files": "Sources/CatHome/*.swift",
+      "resource_bundles": {
+        "Rickenbacker": [
+          "Sources/CatHome/*.{xcassets,lproj}"
+        ]
+      }
+    },
+    {
+      "name": "BeeBox",
+      "source_files": "Sources/BeeBox/*.swift",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
+
+        ]
+      }
+    },
+    {
+      "name": "Adapter",
+      "dependencies": {
+        "Rickenbacker/CatHome": [
+
+        ],
+        "Rickenbacker/BeeBox": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Controller",
+          "source_files": "Sources/Adapter/Controller/*.swift",
+          "dependencies": {
+            "Rickenbacker/Adapter/ViewModel": [
+
+            ],
+            "Rickenbacker/Adapter/View": [
+
+            ]
+          }
+        },
+        {
+          "name": "ViewModel",
+          "source_files": "Sources/Adapter/ViewModel/*.swift"
+        },
+        {
+          "name": "View",
+          "source_files": "Sources/Adapter/View/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "Sources/CTMediator/*.{h,swift}",
+      "prefix_header_contents": "#import \"Rickenbacker-Bridging-Header.h\"",
+      "dependencies": {
+        "CTMediator": [
+
+        ]
+      }
+    },
+    {
+      "name": "HBDNavigationBar",
+      "source_files": "Sources/HBDNavigationBar/*.swift",
+      "dependencies": {
+        "HBDNavigationBar": [
+
+        ]
+      }
+    },
+    {
+      "name": "MJRefresh",
+      "source_files": "Sources/MJRefresh/*.swift",
+      "dependencies": {
+        "Rickenbacker/Adapter": [
+
+        ],
+        "MJRefresh": [
+
+        ]
+      }
+    },
+    {
+      "name": "DZNEmptyDataSet",
+      "source_files": "Sources/DZNEmptyDataSet/*.swift",
+      "dependencies": {
+        "Rickenbacker/Adapter": [
+
+        ],
+        "EmptyDataSet-Swift": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
