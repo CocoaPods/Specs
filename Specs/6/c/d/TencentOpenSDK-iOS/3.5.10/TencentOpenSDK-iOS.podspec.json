@@ -1,0 +1,41 @@
+{
+  "name": "TencentOpenSDK-iOS",
+  "version": "3.5.10",
+  "homepage": "https://github.com/liujunliuhong/TencentOpenSDK",
+  "source": {
+    "git": "https://github.com/liujunliuhong/TencentOpenSDK.git",
+    "tag": "3.5.10"
+  },
+  "summary": "Tencent open SDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liujunliuhong": "1035841713@qq.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "vendored_frameworks": "Sources/TencentOpenAPI.framework",
+  "resources": "Sources/TencentOpenApi_IOS_Bundle.bundle",
+  "frameworks": [
+    "Security",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "CoreGraphics",
+    "WebKit"
+  ],
+  "libraries": [
+    "iconv",
+    "z",
+    "stdc++",
+    "sqlite3",
+    "c++"
+  ],
+  "prepare_command": "rm -rf Sources/TencentOpenAPI.framework/Headers/TencentOpenApiUmbrellaHeader.h\ntouch Sources/TencentOpenAPI.framework/Headers/TencentOpenAPI.h\ncat <<-EOF > Sources/TencentOpenAPI.framework/Headers/TencentOpenAPI.h\n// 这个文件是我自己创建的，QQ原来的'TencentOpenApiUmbrellaHeader.h'里，把'#import \"SDKDef.h\"'拼写错了\n#import \"QQApiInterface.h\"\n#import \"QQApiInterfaceObject.h\"\n#import \"sdkdef.h\"\n#import \"TencentOAuth.h\"\nEOF\n\nrm -rf Sources/TencentOpenAPI.framework/Headers/*.modulemap\nrm -rf Sources/TencentOpenAPI.framework/Modules\nmkdir Sources/TencentOpenAPI.framework/Modules\ntouch Sources/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > Sources/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n  umbrella header \"TencentOpenAPI.h\"\n  export *\n  module * { export * }\n}\nEOF",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  }
+}
