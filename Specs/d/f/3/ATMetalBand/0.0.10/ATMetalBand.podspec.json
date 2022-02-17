@@ -1,0 +1,106 @@
+{
+  "name": "ATMetalBand",
+  "version": "0.0.10",
+  "summary": "About Metal graphics processing.",
+  "homepage": "https://github.com/yangKJ/ATMetalBand",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Condy": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/ATMetalBand.git",
+    "tag": "0.0.10"
+  },
+  "module_name": "ATMetalBand",
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "MetalKit",
+      "ImageIO",
+      "CoreImage"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "subspecs": [
+    {
+      "name": "Basic",
+      "source_files": "Sources/Basic/**/*.swift",
+      "resource_bundles": {
+        "ATMetalLibrary": [
+          "Sources/Compute/**/*.metal"
+        ]
+      }
+    },
+    {
+      "name": "Compute",
+      "subspecs": [
+        {
+          "name": "ColorProcess",
+          "source_files": "Sources/Compute/ColorProcess/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lookup",
+          "source_files": "Sources/Compute/Lookup/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        },
+        {
+          "name": "Blur",
+          "source_files": "Sources/Compute/Blur/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        },
+        {
+          "name": "Blend",
+          "source_files": "Sources/Compute/Blend/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        },
+        {
+          "name": "Effect",
+          "source_files": "Sources/Compute/Effect/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        },
+        {
+          "name": "Shape",
+          "source_files": "Sources/Compute/Shape/*",
+          "dependencies": {
+            "ATMetalBand/Basic": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
