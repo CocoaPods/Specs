@@ -1,0 +1,78 @@
+{
+  "name": "TuyaCameraSDK",
+  "version": "3.32.5",
+  "summary": "open SDK code for tuya smart camera.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://developer.tuya.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tuya": "developer@tuya.com"
+  },
+  "source": {
+    "http": "https://images.tuyacn.com/smart/app/package/developer/sdk/1645176691-TuyaCameraSDK-3.32.5.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "exclude_files": [
+    "TuyaCameraSDK/**/Android/*.*",
+    "TuyaCameraSDK/DataStatistic/{TYMediaCodecStatistic}.*",
+    "TuyaCameraSDK/Mp4Recorder/{TYMediaFormatWrapper,TYMediaMuxerWrapper,TYMediaMuxerWriter,TYMp4RecorderCAPI}.*",
+    "TuyaCameraSDK/Utils/rapidjson/msinttypes/*.*"
+  ],
+  "ios": {
+    "vendored_libraries": [
+      "Build/ios/VendorsLibrary/libcrypto.a",
+      "Build/ios/VendorsLibrary/libyuv.a",
+      "Build/ios/VendorsLibrary/libopenh264.a",
+      "Build/ios/VendorsLibrary/libssl.a",
+      "Build/ios/VendorsLibrary/libcurl.a",
+      "Build/ios/VendorsLibrary/libPPCS_API.a"
+    ]
+  },
+  "dependencies": {
+    "TuyaP2PSDK": [
+
+    ],
+    "TuyaFFmpegWrapper": [
+
+    ],
+    "TuyaAudioEngineSDK": [
+
+    ]
+  },
+  "libraries": [
+    "c++",
+    "z",
+    "iconv",
+    "bz2",
+    "resolv"
+  ],
+  "frameworks": [
+    "Foundation",
+    "AVFoundation",
+    "Foundation",
+    "CoreAudio",
+    "CoreMedia",
+    "CoreVideo",
+    "VideoToolbox",
+    "AudioToolbox"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_CFLAGS": "-DLINUX",
+    "OTHER_LDFLAGS": "-read_only_relocs suppress",
+    "GCC_PREPROCESSOR_DEFINITIONS": "WEBRTC_POSIX $(inherited)",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/ffmpeg $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libyuv/libyuv $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libyuv $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libcurl $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/tuyap2p $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/ppcs $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/openH264",
+    "ENABLE_BITCODE": "NO"
+  },
+  "vendored_frameworks": [
+    "Build/TuyaCameraSDK.xcframework"
+  ],
+  "source_files": [
+    "Build/TuyaCameraSDK.xcframework/ios-arm64_armv7/TuyaCameraSDK.framework/Headers/*"
+  ]
+}
