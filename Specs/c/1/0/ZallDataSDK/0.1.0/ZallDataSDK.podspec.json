@@ -1,0 +1,273 @@
+{
+  "name": "ZallDataSDK",
+  "version": "0.1.0",
+  "summary": "The official iOS SDK of zall Digital.",
+  "homepage": "https://www.zalldigital.cn",
+  "source": {
+    "git": "https://github.com/zalldata/ZallDataSDK.git",
+    "tag": "v0.1.0",
+    "submodules": true
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "郭振涛": "guozhentao@zalldigital.com"
+  },
+  "default_subspecs": "Default",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "sqlite3",
+    "z"
+  ],
+  "platforms": {
+    "ios": "8.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ZallDataSDK/Core/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Core/**/ZallDataSDK.h",
+        "ZallDataSDK/Core/**/ZallDataSDK+Business.h",
+        "ZallDataSDK/Core/**/ZAConfigOptions.h",
+        "ZallDataSDK/Core/**/ZallDataSDK+ZATrack.h",
+        "ZallDataSDK/Core/**/ZAConstantsDefin.h",
+        "ZallDataSDK/Core/**/ZAConstants.h",
+        "ZallDataSDK/Core/**/ZAConstantsEnum.h",
+        "ZallDataSDK/Core/**/ZASecurityPolicy.h"
+      ],
+      "exclude_files": [
+        "ZallDataSDK/Core/**/ZAAlertViewController.{h,m}",
+        "ZallDataSDK/Core/**/UIView*.{h,m}"
+      ],
+      "ios": {
+        "resources": "ZallDataSDK/ZallDataSDK.bundle",
+        "frameworks": "CoreTelephony"
+      }
+    },
+    {
+      "name": "CoreApp",
+      "dependencies": {
+        "ZallDataSDK/Core": [
+
+        ]
+      },
+      "source_files": [
+        "ZallDataSDK/Core/**/ZAAlertViewController.{h,m}",
+        "ZallDataSDK/Core/**/UIView*.{h,m}"
+      ]
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ],
+        "ZallDataSDK/Channel": [
+
+        ],
+        "ZallDataSDK/Encrypt": [
+
+        ],
+        "ZallDataSDK/Extension": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "ZallDataSDK/Default": [
+
+        ],
+        "ZallDataSDK/RemoteConfig": [
+
+        ],
+        "ZallDataSDK/DebugMode": [
+
+        ],
+        "ZallDataSDK/Visualized": [
+
+        ],
+        "ZallDataSDK/Location": [
+
+        ],
+        "ZallDataSDK/DeviceOrientation": [
+
+        ],
+        "ZallDataSDK/AppPush": [
+
+        ],
+        "ZallDataSDK/Exception": [
+
+        ],
+        "ZallDataSDK/Deeplink": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "dependencies": {
+        "ZallDataSDK/Core": [
+
+        ]
+      },
+      "source_files": "ZallDataSDKExtension/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDKExtension/ZAAppExtensionDataManager.h",
+        "ZallDataSDKExtension/ZallDataSDKExtension.h"
+      ]
+    },
+    {
+      "name": "AutoTrack",
+      "dependencies": {
+        "ZallDataSDK/CoreApp": [
+
+        ],
+        "ZallDataSDK/Extension": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Modules/AutoTrack/**/ZallDataSDK+ZAAutoTrack.h",
+        "ZallDataSDK/Modules/AutoTrack/**/UIView+ZAProperty.h"
+      ],
+      "ios": {
+        "frameworks": "UIKit"
+      }
+    },
+    {
+      "name": "Channel",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/ChannelMatch/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/ChannelMatch/ZallDataSDK+ZAChannelMatch.h"
+    },
+    {
+      "name": "JSBridge",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/JSBridge/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Modules/JSBridge/ZallDataSDK+ZAJSBridge.h",
+        "ZallDataSDK/Modules/JSBridge/WKWebView+ZABridge.h",
+        "ZallDataSDK/Modules/JSBridge/**/ZallDataSDK+WKWebView.h"
+      ]
+    },
+    {
+      "name": "Visualized",
+      "dependencies": {
+        "ZallDataSDK/JSBridge": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Visualized/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/Visualized/ZallDataSDK+ZAVisualized.h"
+    },
+    {
+      "name": "Location",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "ZallDataSDK/CoreApp": [
+
+        ],
+        "ZallDataSDK/Extension": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Location/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/Location/ZallDataSDK+ZALocation.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "dependencies": {
+        "ZallDataSDK/CoreApp": [
+
+        ],
+        "ZallDataSDK/Extension": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/DeviceOrientation/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/DeviceOrientation/ZallDataSDK+ZADeviceOrientation.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/AppPush/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/AppPush/ZallDataSDK+ZAAppPush.h"
+    },
+    {
+      "name": "Exception",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Exception/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/Exception/ZallDataSDK+ZAException.h"
+    },
+    {
+      "name": "DebugMode",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/DebugMode/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/DebugMode/ZallDataSDK+ZADebugMode.h"
+    },
+    {
+      "name": "Deeplink",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Deeplink/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/Deeplink/ZallDataSDK+ZADeeplink.h"
+    },
+    {
+      "name": "Encrypt",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/Encrypt/**/*.{h,m}",
+      "public_header_files": [
+        "ZallDataSDK/Modules/Encrypt/ZallDataSDK+ZAEncrypt.h",
+        "ZallDataSDK/Modules/Encrypt/ZAEncryptProtocol.h",
+        "ZallDataSDK/Modules/Encrypt/ZASecretKey.h"
+      ]
+    },
+    {
+      "name": "RemoteConfig",
+      "dependencies": {
+        "ZallDataSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "ZallDataSDK/Modules/RemoteConfig/**/*.{h,m}",
+      "public_header_files": "ZallDataSDK/Modules/RemoteConfig/ZallDataSDK+ZARemoteConfig.h"
+    }
+  ]
+}
