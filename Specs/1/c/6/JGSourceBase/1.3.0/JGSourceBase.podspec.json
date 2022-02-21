@@ -1,0 +1,195 @@
+{
+  "name": "JGSourceBase",
+  "version": "1.3.0",
+  "summary": "JGSourceBase functional component library.",
+  "description": "JGSourceBase 通用功能组件库。\n功能包括：\n1. Base - 通用定义、功能模块、iOS项目常用功能\n2. AlertController - 系统UIAlertController便捷方法封装\n3. Category - 通用扩展方法定义\n4. DataStorage - 通用数据持久化功能\n5. Device - iOS设备相关方法\n6. Encryption - 常用加解密方法\n7. HUD - Loading-HUD、Toast-HUD显示\n8. Reachability - 网络状态监听，支持多观察着/监听者\n9. SecurityKeyboard - 自定义安全键盘",
+  "homepage": "https://github.com/dengni8023/JGSourceBase",
+  "license": "MIT (LICENSE.md)",
+  "authors": {
+    "Dengni8023": "945835664@qq.com",
+    "MeiJiGao": "945835664@qq.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/dengni8023/JGSourceBase.git",
+    "tag": "1.3.0"
+  },
+  "source_files": "JGSourceBase/*.{h,m}",
+  "public_header_files": "JGSourceBase/*.h",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Base",
+    "Category",
+    "DataStorage",
+    "Device",
+    "Encryption",
+    "Reachability",
+    "SecurityKeyboard"
+  ],
+  "subspecs": [
+    {
+      "name": "AlertController",
+      "source_files": "JGSourceBase/AlertController/*.{h,m}",
+      "public_header_files": "JGSourceBase/AlertController/*.h",
+      "dependencies": {
+        "JGSourceBase/Category/UIAlertController": [
+
+        ]
+      }
+    },
+    {
+      "name": "Base",
+      "source_files": "JGSBase/**/*.{h,m}",
+      "public_header_files": "JGSBase/**/*.h",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSUserAgent='\"JGSourceBase/1.3.0\"' JGSVersion='1.3.0'"
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "JGSCategory/JGSCategory/*.{h,m}",
+      "public_header_files": "JGSCategory/JGSCategory/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "NSDate",
+          "source_files": "JGSCategory/JGSCategory/NSDate/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/NSDate/*.h"
+        },
+        {
+          "name": "NSDictionary",
+          "source_files": "JGSCategory/JGSCategory/NSDictionary/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/NSDictionary/*.h"
+        },
+        {
+          "name": "NSObject",
+          "source_files": "JGSCategory/JGSCategory/NSObject/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/NSObject/*.h"
+        },
+        {
+          "name": "NSString",
+          "source_files": "JGSCategory/JGSCategory/NSString/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/NSString/*.h"
+        },
+        {
+          "name": "NSURL",
+          "source_files": "JGSCategory/JGSCategory/NSURL/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/NSURL/*.h"
+        },
+        {
+          "name": "UIAlertController",
+          "source_files": "JGSCategory/JGSCategory/UIAlertController/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/UIAlertController/*.h"
+        },
+        {
+          "name": "UIApplication",
+          "source_files": "JGSCategory/JGSCategory/UIApplication/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/UIApplication/*.h"
+        },
+        {
+          "name": "UIColor",
+          "source_files": "JGSCategory/JGSCategory/UIColor/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/UIColor/*.h"
+        },
+        {
+          "name": "UIImage",
+          "source_files": "JGSCategory/JGSCategory/UIImage/*.{h,m}",
+          "public_header_files": "JGSCategory/JGSCategory/UIImage/*.h"
+        }
+      ]
+    },
+    {
+      "name": "DataStorage",
+      "source_files": "JGSDataStorage/**/*.{h,m}",
+      "public_header_files": "JGSDataStorage/**/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Device",
+      "source_files": "JGSDevice/JGSDevice/*.{h,m}",
+      "public_header_files": "JGSDevice/JGSDevice/*.h",
+      "resources": "JGSDevice/JGSDevice/*.json",
+      "dependencies": {
+        "JGSourceBase/Reachability": [
+
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "JGSEncryption/**/*.{h,m}",
+      "public_header_files": "JGSEncryption/**/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "HUD",
+      "source_files": "JGSHUD/JGSHUD/*.{h,m}",
+      "public_header_files": "JGSHUD/JGSHUD/*.h",
+      "subspecs": [
+        {
+          "name": "Loading",
+          "source_files": "JGSHUD/JGSHUD/Loading/*.{h,m}",
+          "public_header_files": "JGSHUD/JGSHUD/Loading/*.h",
+          "dependencies": {
+            "MBProgressHUD": [
+
+            ],
+            "JGSourceBase/Category/UIColor": [
+
+            ]
+          }
+        },
+        {
+          "name": "Toast",
+          "source_files": "JGSHUD/JGSHUD/Toast/*.{h,m}",
+          "public_header_files": "JGSHUD/JGSHUD/Toast/*.h",
+          "dependencies": {
+            "MBProgressHUD": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reachability",
+      "source_files": "JGSReachability/**/*.{h,m}",
+      "public_header_files": "JGSReachability/**/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "SecurityKeyboard",
+      "source_files": "JGSSecurityKeyboard/**/*.{h,m}",
+      "public_header_files": [
+        "JGSSecurityKeyboard/**/**JGSSecurityKeyboard.h"
+      ],
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ],
+        "JGSourceBase/Category/UIColor": [
+
+        ]
+      }
+    }
+  ]
+}
