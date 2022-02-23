@@ -1,0 +1,68 @@
+{
+  "name": "SwifterSwiftSSH",
+  "version": "1.1.18",
+  "summary": "A swift ssh client with libssh",
+  "description": "This swift ssh client is build on top of libssh and uses swift's new async/await concurrency feature.",
+  "homepage": "https://github.com/ridenui/swifter-swift-ssh",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nils Bergmann": "nilsbergmann@noim.io"
+  },
+  "social_media_url": "https://twitter.com/EpicNilo",
+  "platforms": {
+    "osx": "11.0",
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/ridenui/swifter-swift-ssh.git",
+    "tag": "1.1.18"
+  },
+  "source_files": [
+    "SwifterSwiftSSH",
+    "SwifterSwiftSSH/**/*.{h,m,swift}"
+  ],
+  "preserve_paths": [
+    "Libraries/lib/**/*.a",
+    "Libraries-iOS/lib/**/*.a"
+  ],
+  "frameworks": "CFNetwork",
+  "swift_versions": "5.3",
+  "requires_arc": true,
+  "ios": {
+    "vendored_libraries": [
+      "Libraries-iOS/lib/libssh.a",
+      "Libraries-iOS/lib/libssl.a",
+      "Libraries-iOS/lib/libcrypto.a"
+    ],
+    "source_files": [
+      "Libraries-iOS",
+      "Libraries-iOS/**/*.h"
+    ],
+    "public_header_files": "Libraries-iOS/**/*.h",
+    "header_mappings_dir": "Libraries-iOS/include"
+  },
+  "osx": {
+    "vendored_libraries": [
+      "Libraries/lib/libssh.a",
+      "Libraries/lib/libssl.a",
+      "Libraries/lib/libcrypto.a"
+    ],
+    "source_files": [
+      "Libraries",
+      "Libraries/**/*.h"
+    ],
+    "public_header_files": "Libraries/**/*.h",
+    "header_mappings_dir": "Libraries/include"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "swift_version": "5.3"
+}
