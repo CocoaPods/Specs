@@ -1,0 +1,150 @@
+{
+  "name": "Ver-ID",
+  "module_name": "VerIDUI",
+  "version": "2.4.1",
+  "summary": "Face detection and recognition",
+  "homepage": "https://github.com/AppliedRecognition",
+  "license": {
+    "type": "COMMERCIAL",
+    "file": "LICENCE.txt"
+  },
+  "authors": "Jakub Dolejs",
+  "platforms": {
+    "ios": "11"
+  },
+  "swift_versions": "5",
+  "documentation_url": "https://appliedrecognition.github.io/Ver-ID-Core-Apple",
+  "source": {
+    "git": "https://github.com/AppliedRecognition/Ver-ID-UI-iOS.git",
+    "tag": "v2.4.1"
+  },
+  "default_subspecs": [
+    "Core",
+    "UI"
+  ],
+  "static_framework": true,
+  "cocoapods_version": ">= 1.10",
+  "preserve_paths": "VerIDUI/*.xcconfig",
+  "script_phases": {
+    "name": "Check Ver-ID fully downloaded",
+    "script": "filesize=$(wc -c <\"${PODS_XCFRAMEWORKS_BUILD_DIR}/VerIDCore/VerIDCore.framework/VerIDCore\"); if [ $filesize -lt 1000000 ]; then echo \"error: Ver-ID framework files not fully downloaded. Please install Git LFS, clear the Ver-ID pod cache using pod cache clean Ver-ID and run pod install.\"; exit 1; else echo \"Ver-ID installed successfully\"; fi",
+    "execution_position": "before_compile"
+  },
+  "subspecs": [
+    {
+      "name": "UI",
+      "source_files": "VerIDUI/*.swift",
+      "resource_bundles": {
+        "VerIDUIResources": [
+          "VerIDUI/Resources/Video/*.mp4",
+          "VerIDUI/Resources/Localization/*.xml",
+          "VerIDUI/Resources/*.xcassets",
+          "VerIDUI/Resources/**.{storyboard,xib}"
+        ]
+      },
+      "dependencies": {
+        "Ver-ID/Core": [
+
+        ],
+        "RxSwift": [
+          "~> 5"
+        ],
+        "RxCocoa": [
+          "~> 5"
+        ],
+        "DeviceKit": [
+          "~> 4.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "YES"
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "OpenCV2": [
+          "~> 4.1"
+        ],
+        "ZIPFoundation": [
+          "~> 0.9"
+        ],
+        "Ver-ID-SDK-Identity": [
+          ">= 3.0.2",
+          "< 4.0"
+        ],
+        "RxSwift": [
+          "~> 5"
+        ],
+        "RxCocoa": [
+          "~> 5"
+        ],
+        "DeviceKit": [
+          "~> 4.4"
+        ],
+        "ASN1Decoder": [
+          "~> 1.8"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/VerIDCore/bitcode/VerIDCore.xcframework"
+    },
+    {
+      "name": "UI-no-bitcode",
+      "source_files": "VerIDUI/*.swift",
+      "resource_bundles": {
+        "VerIDUIResources": [
+          "VerIDUI/Resources/Video/*.mp4",
+          "VerIDUI/Resources/Localization/*.xml",
+          "VerIDUI/Resources/*.xcassets",
+          "VerIDUI/Resources/**.{storyboard,xib}"
+        ]
+      },
+      "dependencies": {
+        "Ver-ID/Core-no-bitcode": [
+
+        ],
+        "RxSwift": [
+          "~> 5"
+        ],
+        "RxCocoa": [
+          "~> 5"
+        ],
+        "DeviceKit": [
+          "~> 4.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      }
+    },
+    {
+      "name": "Core-no-bitcode",
+      "dependencies": {
+        "OpenCV2": [
+          "~> 4.1"
+        ],
+        "ZIPFoundation": [
+          "~> 0.9"
+        ],
+        "Ver-ID-SDK-Identity": [
+          ">= 3.0.2",
+          "< 4.0"
+        ],
+        "RxSwift": [
+          "~> 5"
+        ],
+        "RxCocoa": [
+          "~> 5"
+        ],
+        "DeviceKit": [
+          "~> 4.4"
+        ],
+        "ASN1Decoder": [
+          "~> 1.8"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/VerIDCore/no-bitcode/VerIDCore.xcframework"
+    }
+  ],
+  "swift_version": "5"
+}
