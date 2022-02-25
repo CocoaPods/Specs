@@ -1,0 +1,95 @@
+{
+  "name": "HDKit",
+  "version": "1.0.3",
+  "summary": "个人调用工具类，播放器",
+  "description": "自己定义的播放器，附带3中类型的UI可选，基于FFmpeg与VLC,使用时可以自由选择",
+  "homepage": "https://github.com/peisonglin/HDKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "PSL": "345455211@qq.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/peisonglin/HDKit.git",
+    "tag": "1.0.3"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "Main",
+    "Base",
+    "Player"
+  ],
+  "subspecs": [
+    {
+      "name": "Main",
+      "source_files": "FrameWork/HDKit.framework/Headers/*.h",
+      "vendored_frameworks": "FrameWork/HDKit.framework",
+      "public_header_files": "FrameWork/HDKit.framework/Headers/*.h"
+    },
+    {
+      "name": "Base",
+      "source_files": "FrameWork/HDKitBase.framework/Headers/*.h",
+      "vendored_frameworks": "FrameWork/HDKitBase.framework",
+      "public_header_files": "FrameWork/HDKitBase.framework/Headers/*.h",
+      "frameworks": [
+        "CoreTelephony",
+        "Photos"
+      ],
+      "libraries": "iconv",
+      "dependencies": {
+        "HDKit/Main": [
+
+        ]
+      }
+    },
+    {
+      "name": "Player",
+      "source_files": "FrameWork/HDKitPlayer.framework/Headers/*.h",
+      "vendored_frameworks": "FrameWork/HDKitPlayer.framework",
+      "public_header_files": "FrameWork/HDKitPlayer.framework/Headers/*.h",
+      "libraries": [
+        "iconv",
+        "z",
+        "bz2"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "Photos",
+        "CoreMedia",
+        "VideoToolbox",
+        "AudioToolbox"
+      ],
+      "resources": "FrameWork/HDKitPlayer.framework/*.bundle",
+      "dependencies": {
+        "HDKit/Base": [
+
+        ],
+        "MobileVLCKit": [
+          "3.3.16.3"
+        ],
+        "Masonry": [
+          "1.1.0"
+        ],
+        "ReactiveObjC": [
+          "3.1.1"
+        ]
+      }
+    }
+  ]
+}
