@@ -1,0 +1,73 @@
+{
+  "name": "AdMobYandexMobileAdsAdapters",
+  "version": "9.0.0.0",
+  "summary": "AdMob adapters for Yandex Mobile Ads SDK",
+  "homepage": "https://tech.yandex.ru/mobile-ads/",
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Yandex LLC": "mobads@yandex-team.ru"
+  },
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-ads-mobile-sdk/224062/AdMobYandexMobileAdsAdapters-9.0.0.0-ios-c6724f6a-4a1a-4b75-83d0-bf77a5f29c8f.zip",
+    "sha1": "c70eca02719078b7029ad9ef3c45d202db07191c"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Static",
+  "dependencies": {
+    "Google-Mobile-Ads-SDK": [
+      "~> 9.0.0"
+    ]
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "dependencies": {
+        "YandexMobileAds": [
+          "~> 5.0.0-alpha.2"
+        ]
+      },
+      "preserve_paths": [
+        "AdMobYandexMobileAdsAdapters.xcframework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "AdMobYandexMobileAdsAdapters.xcframework",
+      "source_files": "AdMobYandexMobileAdsAdapters.xcframework/**/*.h",
+      "public_header_files": "AdMobYandexMobileAdsAdapters.xcframework/**/*.h"
+    },
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "YandexMobileAds/Dynamic": [
+          "~> 5.0.0-alpha.2"
+        ]
+      },
+      "preserve_paths": [
+        "AdMobYandexMobileAdsAdapters.xcframework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "AdMobYandexMobileAdsAdapters.xcframework",
+      "source_files": "AdMobYandexMobileAdsAdapters.xcframework/**/*.h",
+      "public_header_files": "AdMobYandexMobileAdsAdapters.xcframework/**/*.h"
+    }
+  ]
+}
