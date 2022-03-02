@@ -1,0 +1,73 @@
+{
+  "name": "AppLovinYandexMobileAdsAdapters",
+  "version": "11.0.0.0",
+  "summary": "AppLovin adapters for Yandex Mobile Ads SDK",
+  "homepage": "https://tech.yandex.ru/mobile-ads/",
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Yandex LLC": "mobads@yandex-team.ru"
+  },
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-ads-mobile-sdk/224062/AppLovinYandexMobileAdsAdapters-11.0.0.0-ios-1965ae38-6c50-4b8e-ae50-b5122b5da9f3.zip",
+    "sha1": "32a07bc6338e1f9d9fde2a9f748171e754c6f9f3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Static",
+  "dependencies": {
+    "AppLovinSDK": [
+      "~> 11.0.0"
+    ]
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "dependencies": {
+        "YandexMobileAds": [
+          "~> 5.0.0-alpha.2"
+        ]
+      },
+      "preserve_paths": [
+        "AppLovinYandexMobileAdsAdapters.xcframework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "AppLovinYandexMobileAdsAdapters.xcframework",
+      "source_files": "AppLovinYandexMobileAdsAdapters.xcframework/**/*.h",
+      "public_header_files": "AppLovinYandexMobileAdsAdapters.xcframework/**/*.h"
+    },
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "YandexMobileAds/Dynamic": [
+          "~> 5.0.0-alpha.2"
+        ]
+      },
+      "preserve_paths": [
+        "AppLovinYandexMobileAdsAdapters.xcframework",
+        "CHANGELOG.md",
+        "README.md"
+      ],
+      "vendored_frameworks": "AppLovinYandexMobileAdsAdapters.xcframework",
+      "source_files": "AppLovinYandexMobileAdsAdapters.xcframework/**/*.h",
+      "public_header_files": "AppLovinYandexMobileAdsAdapters.xcframework/**/*.h"
+    }
+  ]
+}
