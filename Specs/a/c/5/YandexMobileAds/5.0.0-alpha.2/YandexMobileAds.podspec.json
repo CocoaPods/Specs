@@ -1,0 +1,75 @@
+{
+  "name": "YandexMobileAds",
+  "version": "5.0.0-alpha.2",
+  "summary": "The Yandex Mobile Ads SDK provides mobile interfaces for Yandex Advertising Network",
+  "homepage": "https://tech.yandex.ru/mobile-ads/",
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Yandex LLC": "mobads@yandex-team.ru"
+  },
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-ads-mobile-sdk/2799512/YandexMobileAds-5.0.0-ios-9fa7556d-4a9f-4bde-8d21-43c796a3d8ea.zip",
+    "sha1": "613d75b845e9ae36c483477be3733db8e07c927c"
+  },
+  "libraries": "xml2",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreTelephony",
+    "CoreLocation",
+    "CoreGraphics",
+    "AdSupport",
+    "StoreKit",
+    "SystemConfiguration",
+    "QuartzCore",
+    "AVFoundation",
+    "CoreImage",
+    "CoreMedia"
+  ],
+  "weak_frameworks": "WebKit",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Static",
+  "preserve_paths": "static/YandexMobileAds.xcframework",
+  "source_files": "static/YandexMobileAds.xcframework/**/*.h",
+  "public_header_files": "static/YandexMobileAds.xcframework/**/*.h",
+  "vendored_frameworks": "static/YandexMobileAds.xcframework",
+  "resources": "static/YandexMobileAds.xcframework/YandexMobileAdsBundle.bundle",
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -all_load",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "i386 x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "dependencies": {
+        "YandexMobileMetrica": [
+          ">= 4.0.0",
+          "< 5.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "YandexMobileMetrica/Dynamic": [
+          ">= 4.0.0",
+          "< 5.0.0"
+        ]
+      }
+    }
+  ]
+}
