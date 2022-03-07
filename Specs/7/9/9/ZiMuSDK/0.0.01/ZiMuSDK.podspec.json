@@ -1,0 +1,67 @@
+{
+  "name": "ZiMuSDK",
+  "version": "0.0.01",
+  "summary": "A short description of ZiMuSDK.",
+  "description": "自牧SDK",
+  "homepage": "https://github.com/TianJinZiMu/ZiMuSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ZiMu": "iOS@xyqb.com"
+  },
+  "source": {
+    "git": "https://github.com/TianJinZiMu/ZiMuSDK.git",
+    "tag": "0.0.01"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ZiMuSDK/Classes/**/*",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "ZiMuPayChannels",
+      "source_files": "ZiMuSDK/Classes/ZiMuPayChannels/**/*.{h,m}",
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreMotion"
+      ],
+      "dependencies": {
+        "WechatOpenSDK": [
+
+        ],
+        "AliPay": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZiMuPayBasic",
+      "source_files": "ZiMuSDK/Classes/ZiMuPayBasic/*.{h,m}",
+      "frameworks": [
+        "SystemConfiguration",
+        "CFNetwork"
+      ],
+      "dependencies": {
+        "ZiMuSDK/ZiMuPayChannels": [
+
+        ]
+      }
+    }
+  ]
+}
