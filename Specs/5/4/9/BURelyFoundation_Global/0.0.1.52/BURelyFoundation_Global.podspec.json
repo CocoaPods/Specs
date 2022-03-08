@@ -1,0 +1,87 @@
+{
+  "name": "BURelyFoundation_Global",
+  "version": "0.0.1.52",
+  "license": "MIT",
+  "summary": "BURelyFoundation_Global is the basic library for byte ads",
+  "description": "BURelyFoundation_Global is the basic library for byte ads",
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "authors": {
+    "zhangtianhao": "zhangtianhao.1230@bytedance.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/bu-rely-framework-sg/0.0.1.52/Rely.zip"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreFoundation",
+    "WebKit",
+    "StoreKit",
+    "CoreServices",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "Security"
+  ],
+  "weak_frameworks": "AppTrackingTransparency",
+  "libraries": [
+    "z",
+    "bz2",
+    "resolv.9",
+    "c++",
+    "sqlite3",
+    "xml2",
+    "c++abi"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "-ObjC",
+    "COMPILER_INDEX_STORE_ENABLE": "NO",
+    "LLVM_LTO[config=Debug][sdk=*][arch=*]": "NO",
+    "LLVM_LTO[config=Release][sdk=*][arch=*]": "YES_THIN",
+    "GCC_OPTIMIZATION_LEVEL[config=Debug][sdk=*][arch=*]": "0",
+    "GCC_OPTIMIZATION_LEVEL[config=Release][sdk=*][arch=*]": "z",
+    "DEFINES_MODULE": "YES",
+    "MODULEMAP_FILE": "Rely/Modules/module.modulemap",
+    "PRODUCT_MODULE_NAME": "BURelyFoundation",
+    "SWIFT_INCLUDE_PATHS": [
+      "$(PODS_ROOT)/Rely/Modules",
+      "$(PODS_TARGET_SRCROOT)/Rely/Modules"
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "default_subspecs": [
+    "NETWork"
+  ],
+  "source_files": "Rely/BURelyFoundation.h",
+  "public_header_files": "Rely/BURelyFoundation.h",
+  "module_name": "BURelyFoundation",
+  "preserve_paths": [
+    "Rely/Modules/module.modulemap",
+    "Rely/BURelyFoundation.h"
+  ],
+  "subspecs": [
+    {
+      "name": "NETWork",
+      "public_header_files": [
+        "Rely/BUNETWork/*.h",
+        "Rely/AFNetworking/*.h"
+      ],
+      "source_files": [
+        "Rely/BUNETWork/*.{h,m}",
+        "Rely/AFNetworking/*.{h,m}"
+      ]
+    }
+  ]
+}
