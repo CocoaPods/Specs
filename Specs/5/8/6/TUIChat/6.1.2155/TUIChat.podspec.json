@@ -1,0 +1,230 @@
+{
+  "name": "TUIChat",
+  "version": "6.1.2155",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUIChat",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "libraries": "stdc++",
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/6.1.2155/ios/professional/TUIChat.zip"
+  },
+  "dependencies": {
+    "TUICore": [
+      "6.1.2155"
+    ]
+  },
+  "resources": [
+    "**/TUIChat/Resources/*.bundle"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "**/TUIChat/Common/*.{h,m,mm}"
+    },
+    {
+      "name": "VoiceConvert",
+      "vendored_libraries": "**/TUIChat/VoiceConvert/*.a",
+      "source_files": "**/TUIChat/VoiceConvert/*.{h,m,mm}"
+    },
+    {
+      "name": "Cell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "**/TUIChat/Cell/CellData/Base/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/VoiceConvert": [
+
+                ],
+                "TUIChat/Common": [
+
+                ]
+              }
+            },
+            {
+              "name": "Chat",
+              "source_files": "**/TUIChat/Cell/CellData/Chat/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellData/Base": [
+
+                ]
+              }
+            },
+            {
+              "name": "Custom",
+              "source_files": "**/TUIChat/Cell/CellData/Custom/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellData/Chat": [
+
+                ]
+              }
+            },
+            {
+              "name": "Reply",
+              "source_files": "**/TUIChat/Cell/CellData/Reply/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellData/Chat": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CellUI",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "**/TUIChat/Cell/CellUI/Base/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellData": [
+
+                ]
+              }
+            },
+            {
+              "name": "Chat",
+              "source_files": "**/TUIChat/Cell/CellUI/Chat/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellUI/Base": [
+
+                ]
+              }
+            },
+            {
+              "name": "Custom",
+              "source_files": "**/TUIChat/Cell/CellUI/Custom/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellUI/Chat": [
+
+                ]
+              }
+            },
+            {
+              "name": "Reply",
+              "source_files": "**/TUIChat/Cell/CellUI/Reply/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/Cell/CellUI/Chat": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DataProvider",
+      "source_files": "**/TUIChat/DataProvider/*.{h,m,mm}",
+      "dependencies": {
+        "TUIChat/Cell": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "subspecs": [
+        {
+          "name": "Base",
+          "subspecs": [
+            {
+              "name": "Camera",
+              "source_files": "**/TUIChat/UI/Base/Camera/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/DataProvider": [
+
+                ]
+              }
+            },
+            {
+              "name": "Media",
+              "source_files": "**/TUIChat/UI/Base/Media/*.{h,m,mm}",
+              "dependencies": {
+                "TUIChat/UI/Base/Camera": [
+
+                ]
+              }
+            },
+            {
+              "name": "Pop",
+              "source_files": "**/TUIChat/UI/Base/Pop/*.{h,m,mm}"
+            }
+          ]
+        },
+        {
+          "name": "Forward",
+          "source_files": "**/TUIChat/UI/Forward/*.{h,m,mm}",
+          "dependencies": {
+            "TUIChat/UI/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Input",
+          "source_files": "**/TUIChat/UI/Input/*.{h,m,mm}",
+          "dependencies": {
+            "TUIChat/UI/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Pendency",
+          "source_files": "**/TUIChat/UI/Pendency/*.{h,m,mm}",
+          "dependencies": {
+            "TUIChat/UI/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Chat",
+          "source_files": "**/TUIChat/UI/Chat/*.{h,m,mm}",
+          "dependencies": {
+            "TUIChat/UI/Forward": [
+
+            ],
+            "TUIChat/UI/Input": [
+
+            ],
+            "TUIChat/UI/Pendency": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "source_files": "**/TUIChat/Service/*.{h,m,mm}",
+      "dependencies": {
+        "TUIChat/UI": [
+
+        ]
+      }
+    }
+  ]
+}
