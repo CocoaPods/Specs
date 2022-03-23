@@ -1,0 +1,83 @@
+{
+  "name": "TUIConversation",
+  "version": "6.1.2155",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUIConversation",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/6.1.2155/ios/TUIConversation.zip"
+  },
+  "resources": [
+    "**/TUIConversation/Resources/*.bundle"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Cell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUIConversation/Cell/CellData/*.{h,m,mm}",
+          "dependencies": {
+            "TUICore": [
+              "6.1.2155"
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUIConversation/Cell/CellUI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/Cell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DataProvider",
+      "source_files": "**/TUIConversation/DataProvider/*.{h,m,mm}",
+      "dependencies": {
+        "TUIConversation/Cell": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "**/TUIConversation/UI/*.{h,m,mm}",
+      "dependencies": {
+        "TUIConversation/DataProvider": [
+
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "source_files": "**/TUIConversation/Service/*.{h,m,mm}",
+      "dependencies": {
+        "TUIConversation/UI": [
+
+        ]
+      }
+    }
+  ]
+}
