@@ -1,0 +1,108 @@
+{
+  "name": "PPILibrary",
+  "version": "0.0.4",
+  "homepage": "https://github.com/ShenYj/PPILibrary",
+  "license": {
+    "type": "MIT",
+    "file": "License"
+  },
+  "authors": {
+    "ShenYj": "shenyanjie123@foxmail.com"
+  },
+  "social_media_url": "https://github.com/ShenYj/ShenYj",
+  "requires_arc": true,
+  "swift_versions": [
+    "5.0",
+    "5.6"
+  ],
+  "cocoapods_version": ">= 1.10.0",
+  "source": {
+    "git": "https://github.com/ShenYj/PPILibrary.git",
+    "tag": "0.0.4"
+  },
+  "summary": "基础工具扩展库.",
+  "description": "个人开发的基础工具扩展库, 通过 subspec 增加了一些依赖库的扩展支持\n\n* Core: 基础扩展\n* Rx: 包含 RxSwift、RxCocoa、RxSwiftExt、RxOptional、NSObject+Rx、RxGesture、RxDataSources\n* UI: 包含 RxUIAlert、RxAlertViewable、RxKingfisher、RxAppState、RxViewController\n  * Animate: 包含 RxAnimated\n* LBS: 包含 RxCoreLocation",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Core/",
+        "Sources/Core/Protocol/",
+        "Sources/Core/Extension/"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Rx",
+      "source_files": [
+        "Sources/Rx/*.swift",
+        "Sources/Rx/RxErrorTracker/",
+        "Sources/Rx/RxActivityIndicator/"
+      ],
+      "dependencies": {
+        "PPILibrary/Core": [
+
+        ],
+        "RxSwift": [
+          "~> 6.0"
+        ],
+        "RxCocoa": [
+          "~> 6.0"
+        ],
+        "RxSwiftExt": [
+          "~> 6.0"
+        ],
+        "RxOptional": [
+          "~> 5.0"
+        ],
+        "NSObject+Rx": [
+          "~> 5.0"
+        ],
+        "RxGesture": [
+          "~> 4.0"
+        ],
+        "RxDataSources": [
+          "~> 5.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "UI",
+          "source_files": "Sources/Rx/UI/",
+          "dependencies": {
+            "RxUIAlert": [
+              "~> 1.5"
+            ],
+            "RxAlertViewable": [
+              "~> 1.0"
+            ],
+            "RxKingfisher": [
+              "~> 2.0"
+            ],
+            "RxAppState": [
+              "~> 1.7"
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "Animate",
+              "dependencies": {
+                "RxAnimated": [
+                  "~> 0.9"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.6"
+}
