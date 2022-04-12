@@ -1,0 +1,258 @@
+{
+  "name": "WindmillAd-iOS",
+  "version": "1.4.2",
+  "summary": "WindSDK is a SDK from Sigmob providing AD service.",
+  "description": "WindmillAd-iOS provides ADs which include native、banner、splash、RewardVideo、intersititial etc.",
+  "homepage": "http://www.sigmob.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Codi": "codi.zhao@sigmob.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "source": {
+    "http": "https://sdkres.sigmob.cn/windmill/ios/1.4.2_905e7935f9badc5872248f7cb7e0d527/windmill_release_ios_1.4.2_20220407.zip"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "requires_arc": true,
+  "default_subspecs": "WindmillSDK",
+  "subspecs": [
+    {
+      "name": "WindmillSDK",
+      "frameworks": [
+        "ImageIO",
+        "StoreKit",
+        "CFNetwork",
+        "CoreMedia",
+        "AdSupport",
+        "CoreMotion",
+        "MediaPlayer",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreTelephony",
+        "SafariServices",
+        "MobileCoreServices",
+        "SystemConfiguration",
+        "AudioToolbox"
+      ],
+      "weak_frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "vendored_frameworks": [
+        "windmill-sdk-ios/Core/WindMillSDK.xcframework"
+      ],
+      "preserve_paths": "windmill-sdk-ios/Core/WindMillSDK.xcframework",
+      "dependencies": {
+        "WindmillAd-iOS/SigmobAd-iOS": [
+
+        ]
+      }
+    },
+    {
+      "name": "SigmobAd-iOS",
+      "vendored_frameworks": [
+        "windmill-sdk-ios/Core/WindSDK.xcframework"
+      ],
+      "preserve_paths": "windmill-sdk-ios/Core/WindSDK.xcframework",
+      "dependencies": {
+        "WindmillAd-iOS/WindFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "WindFoundation",
+      "vendored_frameworks": [
+        "windmill-sdk-ios/Core/WindFoundation.xcframework"
+      ],
+      "preserve_paths": "windmill-sdk-ios/Core/WindFoundation.xcframework"
+    },
+    {
+      "name": "TouTiaoAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/csj/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "Ads-CN": [
+          "4.2.5.6"
+        ]
+      }
+    },
+    {
+      "name": "AdmobAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/admob/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "9.0.0"
+        ]
+      }
+    },
+    {
+      "name": "AppLovinAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/applovin/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "AppLovinSDK": [
+          "11.3.1"
+        ]
+      }
+    },
+    {
+      "name": "MintegralAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/mintegral_global/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "MintegralAdSDK/SplashAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BidSplashAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/InterstitialAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/InterstitialVideoAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BidInterstitialVideoAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/NewInterstitialAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BidNewInterstitialAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/RewardVideoAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BidRewardVideoAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BannerAd": [
+          "7.1.0.0"
+        ],
+        "MintegralAdSDK/BidBannerAd": [
+          "7.1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "GDTAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/gdt/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "GDTMobSDK": [
+          "4.13.50"
+        ]
+      }
+    },
+    {
+      "name": "IronSourceAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/ironSource/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "IronSourceSDK": [
+          "7.2.1.0"
+        ]
+      }
+    },
+    {
+      "name": "VungleAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/vungle/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "VungleSDK-iOS": [
+          "6.10.6"
+        ]
+      }
+    },
+    {
+      "name": "UnityAdsAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/unity/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "UnityAds": [
+          "3.7.2"
+        ]
+      }
+    },
+    {
+      "name": "KSAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/kuaishou/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "KSAdSDK": [
+          "3.3.22"
+        ]
+      }
+    },
+    {
+      "name": "BaiduAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/baidu/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "BaiduMobAdSDK": [
+          "4.843"
+        ]
+      }
+    },
+    {
+      "name": "KlevinAdapter",
+      "vendored_libraries": "windmill-sdk-ios/AdNetworks/klevin/*.a",
+      "dependencies": {
+        "WindmillAd-iOS/WindmillSDK": [
+
+        ],
+        "KlevinAdSDK": [
+          "2.5.0.230"
+        ]
+      }
+    }
+  ]
+}
