@@ -1,0 +1,45 @@
+{
+  "name": "FlexLibOsx",
+  "version": "2.7.0",
+  "summary": "An obj-c flex layout framework for mac",
+  "description": "It's a layout framework based on yoga engine. The main purpose is to provide easy and fast usage.",
+  "homepage": "https://github.com/zhenglibao/FlexLibOsx",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "798393829@qq.com": "798393829@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhenglibao/FlexLibOsx.git",
+    "tag": "2.7.0"
+  },
+  "platforms": {
+    "osx": "10.10"
+  },
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": "macosx/Classes/**/*",
+      "dependencies": {
+        "Yoga": [
+          "1.14.0"
+        ]
+      },
+      "libraries": "xml2",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "/usr/include/libxml2"
+      },
+      "exclude_files": "macosx/Classes/GDataXMLNode.{h,m}",
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "requires_arc": false,
+          "source_files": "macosx/Classes/GDataXMLNode.{h,m}"
+        }
+      ]
+    }
+  ]
+}
