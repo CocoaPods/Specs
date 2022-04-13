@@ -1,0 +1,90 @@
+{
+  "name": "BURelyFoundation",
+  "version": "0.0.1.57",
+  "license": "MIT",
+  "summary": "BURelyFoundation is the basic library for byte ads",
+  "description": "BURelyFoundation is the basic library for byte ads",
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "authors": {
+    "zhangtianhao": "zhangtianhao.1230@bytedance.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/0.0.1.57/Rely.zip"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreFoundation",
+    "WebKit",
+    "StoreKit",
+    "CoreServices",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "Security"
+  ],
+  "weak_frameworks": "AppTrackingTransparency",
+  "libraries": [
+    "z",
+    "bz2",
+    "resolv.9",
+    "c++",
+    "sqlite3",
+    "xml2",
+    "c++abi"
+  ],
+  "requires_arc": true,
+  "script_phases": [
+    {
+      "name": "Check dependency",
+      "script": "sh -c \"$(curl -fsSL https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/CheckRely/0.0.1.47/check_dependency.sh)\"",
+      "execution_position": "before_compile"
+    }
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "-ObjC",
+    "COMPILER_INDEX_STORE_ENABLE": "NO",
+    "LLVM_LTO[config=Debug][sdk=*][arch=*]": "NO",
+    "LLVM_LTO[config=Release][sdk=*][arch=*]": "YES_THIN",
+    "GCC_OPTIMIZATION_LEVEL[config=Debug][sdk=*][arch=*]": "0",
+    "GCC_OPTIMIZATION_LEVEL[config=Release][sdk=*][arch=*]": "z"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "default_subspecs": [
+    "NETWork",
+    "HM"
+  ],
+  "source_files": "Rely/BURelyFoundation.h",
+  "public_header_files": "Rely/BURelyFoundation.h",
+  "subspecs": [
+    {
+      "name": "HM",
+      "vendored_frameworks": [
+        "Rely/HM.framework"
+      ],
+      "preserve_paths": "Rely/HM.framework"
+    },
+    {
+      "name": "NETWork",
+      "public_header_files": [
+        "Rely/BUNETWork/*.h",
+        "Rely/AFNetworking/*.h"
+      ],
+      "source_files": [
+        "Rely/BUNETWork/*.{h,m}",
+        "Rely/AFNetworking/*.{h,m}"
+      ]
+    }
+  ]
+}
