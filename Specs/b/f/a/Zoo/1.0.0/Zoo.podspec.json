@@ -1,0 +1,78 @@
+{
+  "name": "Zoo",
+  "version": "1.0.0",
+  "summary": "A development tools for developer",
+  "description": "A utils for developer",
+  "homepage": "https://github.com/lzackx/Zoo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lzackx": "lzackx@lzackx.com"
+  },
+  "source": {
+    "git": "https://github.com/lzackx/Zoo.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Zoo/Classes/Core/**/*.{h,m,c,mm}",
+      "resource_bundles": {
+        "Zoo": "Zoo/Assets/**/*"
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) ZooWithPlatform ZooWithPerformance ZooWithUI"
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "Zoo/Core": [
+
+        ],
+        "Zoo/Logger": [
+
+        ],
+        "Zoo/GPS": [
+
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "source_files": "Zoo/Classes/Logger/**/*{.h,.m}",
+      "dependencies": {
+        "Zoo/Core": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) ZooWithLogger"
+      }
+    },
+    {
+      "name": "GPS",
+      "source_files": "Zoo/Classes/GPS/**/*{.h,.m}",
+      "dependencies": {
+        "Zoo/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) ZooWithGPS"
+      }
+    }
+  ]
+}
