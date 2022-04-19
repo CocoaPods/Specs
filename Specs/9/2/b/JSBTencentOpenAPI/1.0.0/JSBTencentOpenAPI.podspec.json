@@ -1,0 +1,40 @@
+{
+  "name": "JSBTencentOpenAPI",
+  "version": "1.0.0",
+  "summary": "TencentOpenAPI Swift version, based on 3.5.11",
+  "description": "TencentOpenAPI Swift version, Based on TencentOpenAPI version V3.5.11",
+  "homepage": "http://wiki.open.qq.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TencentOpenAPI": "TencentOpenAPI"
+  },
+  "source": {
+    "git": "https://github.com/52kg/JSBTencentOpenAPI.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": "Framework/**/*.framework",
+  "pod_target_xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "$(PODS_ROOT)/Framework/",
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "frameworks": [
+    "Security",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "iconv",
+    "sqlite3",
+    "stdc++",
+    "z"
+  ],
+  "prepare_command": "rm -rf Framework/TencentOpenAPI.framework/Headers/module.modulemap\nif [ ! -d \"Framework/TencentOpenAPI.framework/Modules/\" ]; then\n    mkdir Framework/TencentOpenAPI.framework/Modules\nfi\ntouch Framework/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > Framework/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n  umbrella header \"TencentOpenApiUmbrellaHeader.h\"\n  export *\n  module * { export * }\n}\nEOF"
+}
