@@ -1,0 +1,39 @@
+{
+  "name": "INSRetrofit",
+  "version": "1.0.0",
+  "summary": "Network Manager By Swift.",
+  "description": "Swift网络库，用法如下：\n\t\n\t初始化\n\tlet ret = INS_RetrofitUtil.initWithKey(\"12345678\", baseURL: URL.init(string: \"https://uat-jk.jlflove.com\")!, enableLog: true, parseEngine: nil)\n\n\n\t发送单个请求\n\tINS_RetrofitUtil\n            .create(serviceClass: LoginService.self)\n            .loginRequest(params)\n            .subscribe(on: .instance)\n            .observe(on: .asyncInstance)\n            .onResult { result, err in\n                \n            }\n\t//2个请求串发， 请求的返回model可以不一致\n\tlet req3 = INS_RetrofitUtil\n            .create(serviceClass: LoginService.self)\n            .loginRequest(params)\n            .subscribe(on: .instance)\n            .observe(on: .asyncInstance)\n\n        req3.compat { loginModel, err -> INS_Observable<BaseResult<InfoModel>> in\n            let req4 = INS_RetrofitUtil\n                .create(serviceClass: LoginService.self)\n                .loginRequest2(params)\n                .subscribe(on: .instance)\n                .observe(on: .asyncInstance)\n            return req4\n        } resultHandler: { login2Model, err in\n           \n        }\n\n\t自定义请求\n\tclass LoginService: INS_ApiCourseService {\n    \t\tfunc loginRequest(_ param: Dictionary<String, String>) -> INS_Observable<PlainResult> {\n        \tlet req = INS_RequestBuilder.create()\n            \t.setURL(URL.init(string: \"https://uat-jk.jlflove.com\")!)\n            \t.setPath(\"flove/user/login\")\n            \t.setHttpMethod(.post)\n            \t.setBodyParameters(param)\n            \t.builder()\n        \treturn Self.loadRequest(req)\n    \t}",
+  "homepage": "https://github.com/FicentAlanZeng/INSRetrofit",
+  "license": "MIT",
+  "authors": {
+    "Alan": "876224031@qq.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/FicentAlanZeng/INSRetrofit.git",
+    "tag": "v1.0.0"
+  },
+  "vendored_frameworks": "Source/*.framework",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.6.1"
+    ],
+    "Moya/RxSwift": [
+      "~> 15.0.0"
+    ],
+    "ObjectMapper": [
+      "~> 4.2.0"
+    ],
+    "RxSwift": [
+      "~> 6.2.0"
+    ]
+  },
+  "swift_version": "5.0"
+}
