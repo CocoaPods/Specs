@@ -1,0 +1,32 @@
+{
+  "name": "MessageKit",
+  "version": "3.8.0",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "summary": "An elegant messages UI library for iOS.",
+  "homepage": "https://github.com/MessageKit/MessageKit",
+  "social_media_url": "https://twitter.com/_SD10_",
+  "authors": {
+    "Steven Deutsch": "stevensdeutsch@yahoo.com"
+  },
+  "source": {
+    "git": "https://github.com/MessageKit/MessageKit.git",
+    "tag": "3.8.0"
+  },
+  "source_files": "Sources/**/*.swift",
+  "swift_versions": "5.5",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "ios": {
+    "resources": "Sources/Assets.xcassets"
+  },
+  "dependencies": {
+    "InputBarAccessoryView": [
+      "~> 5.5.0"
+    ]
+  },
+  "swift_version": "5.5"
+}
