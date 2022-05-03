@@ -1,0 +1,56 @@
+{
+  "name": "KinBase",
+  "version": "2.1.3",
+  "summary": "Kin SDK for iOS",
+  "description": "Use the Kin SDK for iOS to enable the use of Kin inside of your app. Include only the functionality you need to provide the right experience to your users. Use just the base library to access the lightest-weight wrapper over the Kin crytocurrency.",
+  "homepage": "https://github.com/kinecosystem/kin-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kik Engineering": "engineering@kik.com"
+  },
+  "source": {
+    "git": "https://github.com/kinecosystem/kin-ios.git",
+    "tag": "2.1.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "KinBase/KinBase/**/*.{h,c,swift}",
+  "resources": "KinBase/KinBase/Src/KinBackupRestoreModule/*.{strings,xcassets}",
+  "dependencies": {
+    "PromisesSwift": [
+      "~> 1.2.8"
+    ],
+    "!ProtoCompiler-gRPCPlugin": [
+      "~> 1.40.0"
+    ],
+    "Protobuf": [
+      "~> 3.17"
+    ],
+    "gRPC-ProtoRPC": [
+      "~> 1.40.0"
+    ],
+    "KinSodium": [
+      "~> 0.9.2"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": [
+        "KinBase/KinBase/Src/Storage/Gen/*.{h,m}",
+        "KinBase/KinBase/Src/Vendor/gen/**/*.{h,m}"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
