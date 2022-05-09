@@ -1,0 +1,58 @@
+{
+  "name": "DRACOON-Crypto-SDK",
+  "version": "2.2.1",
+  "summary": "Official DRACOON Crypto SDK",
+  "description": "This SDK implements client-side encryption for DRACOON.",
+  "homepage": "https://github.com/dracoon/dracoon-swift-crypto-sdk",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mathias Schreiner": "m.schreiner@dracoon.com"
+  },
+  "source": {
+    "git": "https://github.com/dracoon/dracoon-swift-crypto-sdk.git",
+    "tag": "v2.2.1"
+  },
+  "module_name": "crypto_sdk",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.5",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "crypto_sdk_objc",
+      "source_files": [
+        "crypto-sdk/crypto/include/*",
+        "crypto-sdk-objc/*",
+        "crypto-sdk/crypto/OpenSslCrypto.m"
+      ],
+      "public_header_files": "crypto-sdk/crypto/include/*",
+      "vendored_frameworks": "OpenSSL/openssl.xcframework"
+    },
+    {
+      "name": "crypto_sdk_swift",
+      "dependencies": {
+        "DRACOON-Crypto-SDK/crypto_sdk_objc": [
+
+        ]
+      },
+      "source_files": [
+        "crypto-sdk/crypto/include/*",
+        "crypto-sdk-objc/crypto_sdk_objc.h",
+        "crypto-sdk/**/*"
+      ],
+      "exclude_files": "crypto-sdk/swift-wrapper/Exports.swift",
+      "public_header_files": [
+        "crypto-sdk/crypto/include/*",
+        "crypto-sdk-objc/crypto_sdk_objc.h"
+      ],
+      "vendored_frameworks": "OpenSSL/openssl.xcframework"
+    }
+  ],
+  "swift_version": "5.5"
+}
