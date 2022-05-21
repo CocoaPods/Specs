@@ -1,0 +1,100 @@
+{
+  "name": "JDFlipNumberView",
+  "version": "3.0",
+  "authors": {
+    "Markus Emrich": "markus.emrich@gmail.com"
+  },
+  "homepage": "https://github.com/calimarkus/JDFlipNumberView",
+  "license": "MIT",
+  "summary": "Simulates an analog flip display (like at airports / train stations). Simple, powerful & customizable.",
+  "description": "The FlipNumberView is simulating an analog flip display (e.g. like those at an airport / train station). It's well abstracted and easy to use. Use it display numbers of any kind, e.g. countdowns, timers, clocks, etc. An example project is given. SwiftUI wrappers are available too.",
+  "screenshots": "https://user-images.githubusercontent.com/807039/169299475-7dd36912-7eeb-4f30-a7c7-459b11e7099e.png",
+  "source": {
+    "git": "https://github.com/calimarkus/JDFlipNumberView.git",
+    "tag": "pod-3.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.1"
+  ],
+  "frameworks": "QuartzCore",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "JDFlipNumberView/Private/*.{h,m}",
+        "JDFlipNumberView/FlipNumberView/*.{h,m}"
+      ],
+      "private_header_files": [
+        "JDFlipNumberView/JDFlipNumberDigitView.h",
+        "JDFlipNumberView/Private/*.{h}"
+      ]
+    },
+    {
+      "name": "FlipImageView",
+      "source_files": [
+        "JDFlipNumberView/Private/*.{h,m}",
+        "JDFlipNumberView/FlipImageView/*.{h,m}",
+        "JDFlipNumberView/FlipNumberView/JDFlipNumberViewImageBundle.{h,m}"
+      ],
+      "exclude_files": "JDFlipNumberView/Private/JDFlipNumberViewImageCache.{h,m}",
+      "private_header_files": "JDFlipNumberView/Private/*.{h}"
+    },
+    {
+      "name": "FlipClockView",
+      "source_files": "JDFlipNumberView/FlipClockView/*.{h,m}",
+      "dependencies": {
+        "JDFlipNumberView/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DateCountdownFlipView",
+      "source_files": "JDFlipNumberView/DateCountdownFlipView/*.{h,m}",
+      "dependencies": {
+        "JDFlipNumberView/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DefaultImageBundle",
+      "resources": "JDFlipNumberView/DefaultImageBundle/JDFlipNumberView.bundle",
+      "dependencies": {
+        "JDFlipNumberView/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoImageBundle-NoSwiftUI",
+      "dependencies": {
+        "JDFlipNumberView/Core": [
+
+        ],
+        "JDFlipNumberView/FlipImageView": [
+
+        ],
+        "JDFlipNumberView/FlipClockView": [
+
+        ],
+        "JDFlipNumberView/DateCountdownFlipView": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoImageBundle",
+      "source_files": "JDFlipNumberView/**/*.{h,m,swift}",
+      "dependencies": {
+        "JDFlipNumberView/NoImageBundle-NoSwiftUI": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
