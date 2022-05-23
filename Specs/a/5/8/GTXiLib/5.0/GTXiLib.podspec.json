@@ -1,0 +1,65 @@
+{
+  "name": "GTXiLib",
+  "version": "5.0",
+  "summary": "iOS Accessibility testing library.",
+  "description": "iOS Accessibility testing library that works with XCTest based frameworks.",
+  "homepage": "https://github.com/google/GTXiLib",
+  "license": "Apache License 2.0",
+  "authors": "j-sid",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/google/GTXiLib.git",
+    "tag": "5.0.0"
+  },
+  "default_subspecs": "GTXiLib",
+  "subspecs": [
+    {
+      "name": "GTXiLib",
+      "source_files": "{Classes,OOPClasses}/**/*.{h,m,swift,mm,cc}",
+      "public_header_files": "{Classes,OOPClasses}/**/*.h",
+      "private_header_files": [
+        "Classes/GTXImageRGBAData+GTXOOPAdditions.h",
+        "Classes/GTXToolKit+GTXOOPAdditions.h",
+        "Classes/NSObject+GTXAdditions.h",
+        "Classes/NSString+GTXAdditions.h",
+        "Classes/UIColor+GTXOOPAdditions.h"
+      ],
+      "exclude_files": [
+        "Classes/XCTest/*.{h,m,mm}"
+      ],
+      "resources": [
+        "ios_translations.bundle"
+      ],
+      "platforms": {
+        "ios": "9.0"
+      },
+      "ios": {
+        "frameworks": "Vision"
+      },
+      "libraries": "c++",
+      "dependencies": {
+        "abseil": [
+
+        ],
+        "tinyxml": [
+
+        ]
+      }
+    },
+    {
+      "name": "XCTestLib",
+      "source_files": "Classes/XCTest/*.{h,m,swift,mm,cc}",
+      "public_header_files": "Classes/XCTest/*.h",
+      "ios": {
+        "frameworks": "XCTest"
+      },
+      "dependencies": {
+        "GTXiLib/GTXiLib": [
+
+        ]
+      }
+    }
+  ]
+}
