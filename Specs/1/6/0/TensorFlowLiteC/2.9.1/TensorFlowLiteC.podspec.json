@@ -1,0 +1,53 @@
+{
+  "name": "TensorFlowLiteC",
+  "version": "2.9.1",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "http": "https://dl.google.com/tflite-release/ios/prod/tensorflow/lite/release/ios/release/17/20220523-193421/TensorFlowLiteC/2.9.1/6f82a8ae452ae95b/TensorFlowLiteC-2.9.1.tar.gz"
+  },
+  "summary": "TensorFlow Lite",
+  "description": "An internal-only pod containing the TensorFlow Lite C library that the public\n`TensorFlowLiteSwift` and `TensorFlowLiteObjC` pods depend on. This pod is not\nintended to be used directly. Swift developers should use the\n`TensorFlowLiteSwift` pod and Objective-C developers should use the\n`TensorFlowLiteObjC` pod.",
+  "cocoapods_version": ">= 1.9.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "TensorFlowLiteC",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/TensorFlowLiteC.xcframework"
+    },
+    {
+      "name": "CoreML",
+      "weak_frameworks": "CoreML",
+      "dependencies": {
+        "TensorFlowLiteC/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/TensorFlowLiteCCoreML.xcframework"
+    },
+    {
+      "name": "Metal",
+      "weak_frameworks": "Metal",
+      "dependencies": {
+        "TensorFlowLiteC/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/TensorFlowLiteCMetal.xcframework"
+    }
+  ]
+}
