@@ -1,0 +1,1134 @@
+{
+  "name": "MKScannerPro",
+  "version": "2.1.0",
+  "summary": "A short description of MKScannerPro.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MKScannerPro/MKScannerPro_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MKScannerPro/MKScannerPro_iOS.git",
+    "tag": "2.1.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resource_bundles": {
+    "MKScannerPro": [
+      "MKScannerPro/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Expand",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKScannerPro/DeviceModel": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "DatabaseManager",
+          "source_files": "MKScannerPro/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseController",
+          "source_files": "MKScannerPro/Classes/Expand/BaseController/**"
+        }
+      ]
+    },
+    {
+      "name": "DeviceModel",
+      "source_files": "MKScannerPro/Classes/DeviceModel/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKScannerPro/SDK/MQTT": [
+
+        ]
+      }
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "MKScannerPro/Classes/CTMediator/**",
+      "dependencies": {
+        "CTMediator": [
+
+        ],
+        "MKScannerPro/DeviceModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDK",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKBaseMQTTModule": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "BLE",
+          "source_files": "MKScannerPro/Classes/SDK/BLE/**",
+          "dependencies": {
+            "MKBaseBleModule": [
+
+            ]
+          }
+        },
+        {
+          "name": "MQTT",
+          "source_files": "MKScannerPro/Classes/SDK/MQTT/**"
+        }
+      ]
+    },
+    {
+      "name": "Modules",
+      "dependencies": {
+        "MKScannerPro/DeviceModel": [
+
+        ],
+        "MKScannerPro/Expand": [
+
+        ],
+        "MKScannerPro/SDK": [
+
+        ],
+        "MKScannerPro/CTMediator": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "MLInputDodger": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "107PModule",
+          "subspecs": [
+            {
+              "name": "SDK",
+              "subspecs": [
+                {
+                  "name": "MQTT",
+                  "source_files": "MKScannerPro/Classes/Modules/107PModule/SDK/MQTT/**"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKScannerPro/Classes/Modules/107PModule/Target/**",
+              "dependencies": {
+                "MKScannerPro/Modules/107PModule/Functions": [
+
+                ]
+              }
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MKScannerPro/Modules/CommonModule": [
+
+                ],
+                "MKScannerPro/Modules/107PModule/SDK": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "DeviceDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/DeviceDataPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/SettingPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/UploadOptionPage/Controller": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/DeviceInfoPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/DeviceInfoPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/DeviceInfoPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DuplicateDataFilterPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/DuplicateDataFilterPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/DuplicateDataFilterPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/DuplicateDataFilterPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ModifyMQTTServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ModifyMQTTServerPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/ModifyMQTTServerPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/ModifyMQTTServerPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ModifyMQTTServerPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ModifyMQTTServerPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NTPServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/NTPServerPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/NTPServerPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/NTPServerPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "OTAPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/OTAPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/OTAPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/OTAPage/View": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/SlaveFileSelectPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/OTAPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/OTAPage/Model/**",
+                      "dependencies": {
+                        "iOSDFULibrary": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDevice/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDevice/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDPPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDPPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/ServerForDPPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/ServerForDPPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDPPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/ServerForDPPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/SettingPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/SettingPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/DeviceInfoPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/SystemTimePage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/ModifyMQTTServerPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/OTAPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/SettingPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SlaveFileSelectPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/SlaveFileSelectPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SystemTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/SystemTimePage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/SystemTimePage/View": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/NTPServerPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/SystemTimePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadDataOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/UploadDataOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/UploadDataOptionPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/UploadDataOptionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/UploadOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107PModule/Functions/UploadOptionPage/View": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/UploadOptionPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/UploadDataOptionPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/DuplicateDataFilterPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107PModule/Functions/FilterPages": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/UploadOptionPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/UploadOptionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "FilterPages",
+                  "subspecs": [
+                    {
+                      "name": "FilterByAdvNamePage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByAdvNamePage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByAdvNamePage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByAdvNamePage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByBeaconPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Model": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Header",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Header/**"
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Model/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByMacPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByMacPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByMacPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByMacPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByOtherPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByOtherPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByOtherPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByOtherPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByRawDataPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByRawDataPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByRawDataPage/Model": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByBeaconPage/Controller": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByUIDPage/Controller": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByURLPage/Controller": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByTLMPage/Controller": [
+
+                            ],
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByOtherPage/Controller": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByRawDataPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByTLMPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByTLMPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByTLMPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByTLMPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByUIDPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByUIDPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByUIDPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByUIDPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByURLPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByURLPage/Controller/**",
+                          "dependencies": {
+                            "MKScannerPro/Modules/107PModule/Functions/FilterPages/FilterByURLPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKScannerPro/Classes/Modules/107PModule/Functions/FilterPages/FilterByURLPage/Model/**"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "107Module",
+          "subspecs": [
+            {
+              "name": "SDK",
+              "subspecs": [
+                {
+                  "name": "MQTT",
+                  "source_files": "MKScannerPro/Classes/Modules/107Module/SDK/MQTT/**"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKScannerPro/Classes/Modules/107Module/Target/**",
+              "dependencies": {
+                "MKScannerPro/Modules/107Module/Functions": [
+
+                ]
+              }
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MKScannerPro/Modules/CommonModule": [
+
+                ],
+                "MKScannerPro/Modules/107Module/SDK": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "DeviceDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/DeviceDataPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/SettingPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/UploadOptionPage/Controller": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/DeviceInfoPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DuplicateDataFilterPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/DuplicateDataFilterPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/DuplicateDataFilterPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/DuplicateDataFilterPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "FilterConditionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/FilterConditionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/FilterConditionPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/FilterConditionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "OTAPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/OTAPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/ServerForDevice/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/ServerForDevice/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/SettingPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/SettingPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/DeviceInfoPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/SystemTimePage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/OTAPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/SettingPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SystemTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/SystemTimePage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "TypeFilterPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/TypeFilterPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/TypeFilterPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/TypeFilterPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadDataOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/UploadDataOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/UploadDataOptionPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/UploadDataOptionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/UploadOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/107Module/Functions/UploadOptionPage/Model": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/TypeFilterPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/FilterConditionPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/DuplicateDataFilterPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/107Module/Functions/UploadDataOptionPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/107Module/Functions/UploadOptionPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MainModule",
+          "dependencies": {
+            "MKScannerPro/Modules/CommonModule": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "SDK",
+              "source_files": "MKScannerPro/Classes/Modules/MainModule/SDK/**"
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MKScannerPro/Modules/MainModule/SDK": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "DeviceListPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/DeviceListPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/MainModule/Functions/DeviceListPage/View": [
+
+                        ],
+                        "MKScannerPro/Modules/MainModule/Functions/ScanPage/Controller": [
+
+                        ],
+                        "MKScannerPro/Modules/MainModule/Functions/ServerForAPP/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/DeviceListPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ScanPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ScanPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/MainModule/Functions/ScanPage/View": [
+
+                        ],
+                        "MKScannerPro/Modules/MainModule/Functions/ScanPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ScanPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ScanPage/View/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/MainModule/Functions/ScanPage/Model": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForAPP",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ServerForAPP/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/MainModule/Functions/ServerForAPP/View": [
+
+                        ],
+                        "MKScannerPro/Modules/MainModule/Functions/ServerForAPP/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ServerForAPP/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/MainModule/Functions/ServerForAPP/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CommonModule",
+          "subspecs": [
+            {
+              "name": "Pages",
+              "subspecs": [
+                {
+                  "name": "ConnectionSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/ConnectionSettingPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/ConnectionSettingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/ConnectionSettingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ConnectSuccessPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/ConnectSuccessPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DataReportingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/DataReportingPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/DataReportingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/DataReportingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "LEDSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/LEDSettingPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/LEDSettingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/LEDSettingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MQTTSettingForDevicePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Protocol": [
+
+                        ],
+                        "MKScannerPro/Modules/CommonModule/Pages/MQTTSettingForDevicePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Protocol/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NetworkStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/NetworkStatusPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/NetworkStatusPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/NetworkStatusPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ScanTimeoutOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKScannerPro/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKScannerPro/Classes/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Protocol/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Views",
+              "subspecs": [
+                {
+                  "name": "DeviceDataPageView",
+                  "source_files": "MKScannerPro/Classes/Modules/CommonModule/Views/DeviceDataPageView/**"
+                },
+                {
+                  "name": "FilterBeaconCell",
+                  "source_files": "MKScannerPro/Classes/Modules/CommonModule/Views/FilterBeaconCell/**"
+                },
+                {
+                  "name": "FilterByRawDataCell",
+                  "source_files": "MKScannerPro/Classes/Modules/CommonModule/Views/FilterByRawDataCell/**"
+                },
+                {
+                  "name": "FilterEditSectionHeaderView",
+                  "source_files": "MKScannerPro/Classes/Modules/CommonModule/Views/FilterEditSectionHeaderView/**"
+                },
+                {
+                  "name": "FilterNormalTextFieldCell",
+                  "source_files": "MKScannerPro/Classes/Modules/CommonModule/Views/FilterNormalTextFieldCell/**"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
