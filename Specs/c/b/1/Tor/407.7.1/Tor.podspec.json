@@ -1,0 +1,103 @@
+{
+  "name": "Tor",
+  "version": "407.7.1",
+  "summary": "Tor.framework is the easiest way to embed Tor in your iOS application.",
+  "description": "Tor.framework is the easiest way to embed Tor in your iOS application. Currently, the framework compiles in static versions of tor, libevent, openssl, and liblzma.",
+  "homepage": "https://github.com/iCepa/Tor.framework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Conrad Kramer": "conrad@conradkramer.com",
+    "Chris Ballinger": "chris@chatsecure.org",
+    "Mike Tigas": "mike@tig.as",
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/iCepa/Tor.framework.git",
+    "branch": "pure_pod",
+    "tag": "v407.7.1",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/tladesignz",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.9"
+  },
+  "prepare_command": "touch 'geoip'\ntouch 'geoip6'",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Tor/tor\" \"${PODS_TARGET_SRCROOT}/Tor/tor/src\" \"${PODS_TARGET_SRCROOT}/Tor/openssl/include\" \"${BUILT_PRODUCTS_DIR}/openssl\" \"${PODS_TARGET_SRCROOT}/Tor/libevent/include\"",
+        "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor\" -l\"z\" -l\"lzma\" -l\"crypto\" -l\"ssl\" -l\"event_core\" -l\"event_extra\" -l\"event_pthreads\" -l\"event\" -l\"tor\""
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-iOS\""
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-macOS\""
+        }
+      },
+      "script_phases": [
+        {
+          "name": "Build XZ",
+          "execution_position": "before_compile",
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/xz\"\n../xz.sh\n"
+        },
+        {
+          "name": "Build OpenSSL",
+          "execution_position": "before_compile",
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/openssl\"\n../openssl.sh\n"
+        },
+        {
+          "name": "Build libevent",
+          "execution_position": "before_compile",
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/libevent\"\n../libevent.sh\n"
+        },
+        {
+          "name": "Build Tor",
+          "execution_position": "before_compile",
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/tor\"\n../tor.sh\n"
+        }
+      ],
+      "requires_arc": true,
+      "source_files": "Tor/Classes/**/*",
+      "preserve_paths": [
+        "Tor/include",
+        "Tor/libevent",
+        "Tor/libevent.sh",
+        "Tor/openssl",
+        "Tor/openssl.sh",
+        "Tor/tor",
+        "Tor/tor.sh",
+        "Tor/xz",
+        "Tor/xz.sh"
+      ]
+    },
+    {
+      "name": "GeoIP",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "script_phases": {
+        "name": "Load GeoIP files",
+        "execution_position": "before_compile",
+        "script": "cd \"${PODS_TARGET_SRCROOT}\"\nif [ ! -f geoip ] || [ `find . -name geoip -empty -maxdepth 1` ] || [ `find . -name geoip -mtime +1 -maxdepth 1` ]\nthen\n  curl -Lo 'geoip' 'https://gitweb.torproject.org/tor.git/plain/src/config/geoip?h=tor-0.4.7.7'\nfi\n\nif [ ! -f geoip6 ] || [ `find . -name geoip6 -empty -maxdepth 1` ] || [ `find . -name geoip6 -mtime +1 -maxdepth 1` ]\nthen\n  curl -Lo 'geoip6' 'https://gitweb.torproject.org/tor.git/plain/src/config/geoip6?h=tor-0.4.7.7'\nfi\n"
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "geoip",
+          "geoip6"
+        ]
+      }
+    }
+  ]
+}
