@@ -1,0 +1,101 @@
+{
+  "name": "PWEngagement",
+  "version": "3.11.1",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "summary": "Phunware's Mobile Engagement SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "https://github.com/phunware/maas-engagement-ios-sdk/",
+  "authors": {
+    "Phunware, Inc.": "https://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/phunware",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-engagement-ios-sdk.git",
+    "tag": "v3.11.1"
+  },
+  "documentation_url": "https://phunware.github.io/maas-engagement-ios-sdk/",
+  "default_subspecs": [
+    "Core",
+    "DeviceIdentity"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PWCore": [
+          "~> 3.12.0"
+        ],
+        "FMDB/SQLCipher": [
+          "~> 2.7.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/PWEngagement.xcframework",
+      "frameworks": "CoreLocation",
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "DeviceIdentity",
+      "dependencies": {
+        "PWEngagement/Core": [
+
+        ],
+        "PWCore/DeviceIdentity": [
+          "~> 3.12.0"
+        ]
+      }
+    },
+    {
+      "name": "LimitedDeviceIdentity",
+      "dependencies": {
+        "PWEngagement/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MistBeaconProviderCore",
+      "dependencies": {
+        "PWEngagement/Core": [
+
+        ],
+        "MistSDKDR": [
+          "1.5.280"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/MistBeaconProvider.xcframework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "MistBeaconProvider",
+      "dependencies": {
+        "PWEngagement/MistBeaconProviderCore": [
+
+        ],
+        "PWEngagement/DeviceIdentity": [
+
+        ]
+      }
+    },
+    {
+      "name": "MistBeaconProviderWithLimitedDeviceIdentity",
+      "dependencies": {
+        "PWEngagement/MistBeaconProviderCore": [
+
+        ]
+      }
+    }
+  ]
+}
