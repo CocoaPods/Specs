@@ -1,0 +1,69 @@
+{
+  "name": "LiveLikeSceenicVideoPlugin",
+  "version": "0.0.1-alpha",
+  "summary": "Co-Viewing and Audience Engagement Platform for Broadcasters",
+  "description": "LiveLike and Sceenic's Watch Together services combined to support audience engagement during watch parties",
+  "homepage": "https://www.livelike.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "LiveLike Inc.": "contact@livelike.com"
+  },
+  "social_media_url": "https://twitter.com/LiveLikeInc",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0.1",
+  "source": {
+    "git": "https://bitbucket.org/livelike/livelike-ios-video-plugin.git",
+    "tag": "0.0.1-alpha"
+  },
+  "source_files": [
+    "LiveLikeSceenicVideoPlugin/Sources/**/*.{swift}",
+    "LiveLikeSceenicVideoPlugin/Sources/LiveLikeSceenicPlugin.swift"
+  ],
+  "resource_bundles": {
+    "LiveLikeSceenicPlugin": [
+      "LiveLikeSceenicVideoPlugin/Sources/**/*.{storyboard,xib}",
+      "LiveLikeSceenicVideoPlugin/Sources/Common/Views/VideoRoomMemberViewCell.xib"
+    ]
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "dependencies": {
+    "PubNubSwift": [
+      "~> 4.0"
+    ],
+    "lottie-ios": [
+      "~> 3.0"
+    ]
+  },
+  "ios": {
+    "frameworks": "Foundation"
+  },
+  "subspecs": [
+    {
+      "name": "WatchTogether",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "WatchTogether/WatchTogether.framework/Headers/*.h",
+      "vendored_frameworks": "WatchTogether/WatchTogether.framework",
+      "dependencies": {
+        "Starscream": [
+
+        ],
+        "GoogleWebRTC": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0.1"
+}
