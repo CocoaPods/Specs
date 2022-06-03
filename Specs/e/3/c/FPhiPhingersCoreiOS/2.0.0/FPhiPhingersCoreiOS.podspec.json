@@ -1,0 +1,62 @@
+{
+  "name": "FPhiPhingersCoreiOS",
+  "version": "2.0.0",
+  "summary": "Phingers widget for Fingerprint detection and recognition",
+  "description": "Phingers widget for Fingerprint detection and recognition.",
+  "homepage": "http://www.facephi.com",
+  "license": {
+    "type": "Commercial",
+    "text": "                    © Facephi 2022. All rights reserved.\n"
+  },
+  "authors": {
+    "FacePhi": "support@facephi.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://dev-ctlzip-s3.s3.eu-west-1.amazonaws.com/Phingers/2.0.0/phingers.framework.zip"
+  },
+  "vendored_frameworks": "*.framework",
+  "preserve_paths": [
+    "OnyxCamera.framework",
+    "onyx-core.framework"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 armv7"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "OTHER_LDFLAGS": "-lObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 armv7"
+  },
+  "source_files": [
+    "OnyxCamera.framework/Versions/A/Headers/**/*.h",
+    "OnyxCore.framework/Versions/A/Headers/**/*.h"
+  ],
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "LD_RUNPATH_SEARCH_PATHS": "/usr/lib/swift $(inherited)",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 armv7"
+  },
+  "resource_bundles": {
+    "Resources": [
+      "OnyxCamera.framework/Resources/*.tflite",
+      "onyx-core.framework/Resources/Assets.car"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreText",
+    "CoreMedia",
+    "AVFoundation",
+    "AssetsLibrary"
+  ],
+  "dependencies": {
+    "TensorFlowLiteObjC": [
+
+    ]
+  }
+}
