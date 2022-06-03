@@ -1,0 +1,229 @@
+{
+  "name": "MFAdsSDK",
+  "version": "1.4.1",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "MFAdsSDK for iOS",
+  "description": "欢迎大家使用MFAdsSDK, 提供成熟聚合方案。\n为开发者提供便利，快速集成。",
+  "homepage": "https://github.com/zuocai1993",
+  "authors": {
+    "cc": "zuo_cai@163.com"
+  },
+  "source": {
+    "git": "https://e.coding.net/qq79788570/MFAdsSDK_iOS/MFAdsSDK.git",
+    "tag": "1.4.1"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "VALID_ARCHS": "armv7 x86_64 arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport"
+      ],
+      "vendored_frameworks": "MFAdsSDK/Core/**"
+    },
+    {
+      "name": "Adspot",
+      "dependencies": {
+        "MFAdsSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "MFAdsSDK/Adspot/**"
+    },
+    {
+      "name": "Adapter",
+      "dependencies": {
+        "MFAdsSDK/Adspot": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "CSJ",
+          "dependencies": {
+            "Ads-CN": [
+              "4.4.0.7"
+            ]
+          },
+          "frameworks": [
+            "UIKit",
+            "MapKit",
+            "WebKit",
+            "MediaPlayer",
+            "CoreLocation",
+            "AdSupport",
+            "CoreMedia",
+            "AVFoundation",
+            "CoreTelephony",
+            "StoreKit",
+            "SystemConfiguration",
+            "MobileCoreServices",
+            "CoreMotion",
+            "Accelerate",
+            "AudioToolbox",
+            "JavaScriptCore",
+            "Security",
+            "CoreImage",
+            "AudioToolbox",
+            "ImageIO",
+            "QuartzCore",
+            "CoreGraphics",
+            "CoreText"
+          ],
+          "libraries": [
+            "c++",
+            "resolv",
+            "z",
+            "sqlite3",
+            "bz2",
+            "xml2",
+            "iconv",
+            "c++abi"
+          ],
+          "vendored_frameworks": "MFAdsSDK/Adapter/CSJ/**"
+        },
+        {
+          "name": "GDT",
+          "dependencies": {
+            "GDTMobSDK": [
+              "4.13.66"
+            ]
+          },
+          "frameworks": [
+            "AdSupport",
+            "CoreLocation",
+            "QuartzCore",
+            "SystemConfiguration",
+            "CoreTelephony",
+            "Security",
+            "StoreKit",
+            "AVFoundation",
+            "WebKit"
+          ],
+          "libraries": [
+            "xml2",
+            "z"
+          ],
+          "vendored_frameworks": "MFAdsSDK/Adapter/GDT/**"
+        },
+        {
+          "name": "BD",
+          "dependencies": {
+            "BaiduMobAdSDK": [
+              "4.861"
+            ]
+          },
+          "frameworks": [
+            "CoreLocation",
+            "SystemConfiguration",
+            "CoreGraphics",
+            "CoreMotion",
+            "CoreTelephony",
+            "AdSupport",
+            "SystemConfiguration",
+            "QuartzCore",
+            "WebKit",
+            "MessageUI",
+            "SafariServices",
+            "AVFoundation",
+            "EventKit",
+            "QuartzCore",
+            "CoreMedia",
+            "StoreKit"
+          ],
+          "libraries": "c++",
+          "weak_frameworks": "WebKit",
+          "vendored_frameworks": "MFAdsSDK/Adapter/BD/**"
+        },
+        {
+          "name": "KS",
+          "dependencies": {
+            "KSAdSDK": [
+              "3.3.24.1"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit",
+            "MobileCoreServices",
+            "CoreGraphics",
+            "Security",
+            "SystemConfiguration",
+            "CoreTelephony",
+            "AdSupport",
+            "CoreData",
+            "StoreKit",
+            "AVFoundation",
+            "MediaPlayer",
+            "CoreMedia",
+            "WebKit",
+            "Accelerate",
+            "CoreLocation",
+            "AVKit",
+            "MessageUI",
+            "QuickLook",
+            "AudioToolBox",
+            "AddressBook"
+          ],
+          "libraries": [
+            "z",
+            "resolv.9",
+            "sqlite3",
+            "c++",
+            "c++abi"
+          ],
+          "vendored_frameworks": "MFAdsSDK/Adapter/KS/**"
+        },
+        {
+          "name": "GG",
+          "dependencies": {
+            "Google-Mobile-Ads-SDK": [
+              "9.5.0"
+            ]
+          },
+          "vendored_frameworks": "MFAdsSDK/Adapter/GG/**"
+        },
+        {
+          "name": "IS",
+          "dependencies": {
+            "IronSourceSDK": [
+              "7.2.2.0"
+            ]
+          },
+          "vendored_frameworks": "MFAdsSDK/Adapter/IS/**"
+        },
+        {
+          "name": "FB",
+          "dependencies": {
+            "FBAudienceNetwork": [
+              "6.9.0"
+            ]
+          },
+          "source_files": "MFAdsSDK/Adapter/FB/**/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
