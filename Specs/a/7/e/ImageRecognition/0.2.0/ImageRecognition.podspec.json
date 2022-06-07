@@ -1,0 +1,57 @@
+{
+  "name": "ImageRecognition",
+  "version": "0.2.0",
+  "summary": "A library to recognize objects and faces from image",
+  "homepage": "https://github.com/stingle/image-recognition-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Stingle",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/stingle/image-recognition-ios.git",
+    "tag": "0.2.0"
+  },
+  "static_framework": true,
+  "dependencies": {
+    "TensorFlowLiteSwift": [
+      "~> 2.9.1"
+    ],
+    "TensorFlowLiteSwift/CoreML": [
+      "~> 2.9.1"
+    ]
+  },
+  "ios": {
+    "frameworks": [
+      "Vision",
+      "UIKit",
+      "Photos"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Common",
+      "source_files": "ImageRecognition/Classes/Common/**/*.swift"
+    },
+    {
+      "name": "TensorFlow",
+      "source_files": "ImageRecognition/Classes/TensorFlow/**/*.swift",
+      "dependencies": {
+        "ImageRecognition/Common": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Models",
+          "resources": "ImageRecognition/Classes/TensorFlow/Models/*.{tflite,txt}"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
