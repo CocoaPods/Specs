@@ -1,0 +1,45 @@
+{
+  "name": "ins_mframe",
+  "version": "1.1.2",
+  "summary": "include moduledframe, moduleH5, moduleUI, moduleUser framework",
+  "description": "moduledframe: Swift网络库，用法如下：\n  \n  初始化\n  let ret = INS_RetrofitUtil.initWithKey(\"12345678\", baseURL: URL.init(string: \"https://uat-jk.jlflove.com\")!, enableLog: true, parseEngine: nil)\n\n\n  发送单个请求\n  INS_RetrofitUtil\n          .create(serviceClass: LoginService.self)\n          .loginRequest(params)\n          .subscribe(on: .instance)\n          .observe(on: .asyncInstance)\n          .onResult { result, err in\n              \n          }\n  //2个请求串发， 请求的返回model可以不一致\n  let req3 = INS_RetrofitUtil\n          .create(serviceClass: LoginService.self)\n          .loginRequest(params)\n          .subscribe(on: .instance)\n          .observe(on: .asyncInstance)\n\n      req3.compat { loginModel, err -> INS_Observable<BaseResult<InfoModel>> in\n          let req4 = INS_RetrofitUtil\n              .create(serviceClass: LoginService.self)\n              .loginRequest2(params)\n              .subscribe(on: .instance)\n              .observe(on: .asyncInstance)\n          return req4\n      } resultHandler: { login2Model, err in\n         \n      }\n\n  自定义请求\n  class LoginService: INS_ApiCourseService {\n          func loginRequest(_ param: Dictionary<String, String>) -> INS_Observable<PlainResult> {\n          let req = INS_RequestBuilder.create()\n              .setURL(URL.init(string: \"https://uat-jk.jlflove.com\")!)\n              .setPath(\"flove/user/login\")\n              .setHttpMethod(.post)\n              .setBodyParameters(param)\n              .builder()\n          return Self.loadRequest(req)\n      }",
+  "homepage": "https://github.com/FicentAlanZeng/ins_mframe",
+  "license": "MIT",
+  "authors": {
+    "Alan": "876224031@qq.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "xcconfig": {
+    "VALID_ARCHS": "x86_64 arm64"
+  },
+  "source": {
+    "git": "https://github.com/FicentAlanZeng/ins_mframe.git",
+    "tag": "v1.1.2"
+  },
+  "vendored_frameworks": "Source/*.framework",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.6.1"
+    ],
+    "Moya/RxSwift": [
+      "~> 15.0.0"
+    ],
+    "ObjectMapper": [
+      "~> 4.2.0"
+    ],
+    "RxSwift": [
+      "~> 6.5.0"
+    ],
+    "SnapKit": [
+      "~> 5.6.0"
+    ]
+  },
+  "swift_version": "5.0"
+}
