@@ -1,0 +1,59 @@
+{
+  "name": "TencentCloudLogProducer",
+  "version": "0.1.0",
+  "summary": "TencentCloudLogProducer ios",
+  "description": "log service ios producer.\nhttps://cloud.tencent.com/product/cls",
+  "homepage": "https://cloud.tencent.com/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "text": "  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n"
+  },
+  "authors": {
+    "herrylv": "herrylv@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/TencentCloud/tencentcloud-cls-demo.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "http://t.cn/AiRpol8C",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_libraries": "TencentCloudLogProducer/tencentCloud-log-c-sdk/curl/lib/libcurl.a",
+      "source_files": [
+        "TencentCloudLogProducer/TencentCloudLogProducer/*.{h,m}",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/*.{c,h}",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/curl/include/curl/*.{c,h}",
+        "TencentCloudLogProducer/TencentCloudLogProducer/utils/*.{m,h}"
+      ],
+      "public_header_files": [
+        "TencentCloudLogProducer/TencentCloudLogProducer/*.h",
+        "TencentCloudLogProducer/TencentCloudLogProducer/utils/*.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_define.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_adaptor.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_inner_include.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_multi_thread.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_producer_client.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_error.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/ProducerConfig.h",
+        "TencentCloudLogProducer/tencentCloud-log-c-sdk/src/log_producer_config.h"
+      ],
+      "dependencies": {
+        "GMOpenSSL": [
+          "~> 2.2.6"
+        ]
+      }
+    }
+  ]
+}
