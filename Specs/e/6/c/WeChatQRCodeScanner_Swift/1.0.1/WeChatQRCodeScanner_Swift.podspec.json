@@ -1,0 +1,72 @@
+{
+  "name": "WeChatQRCodeScanner_Swift",
+  "version": "1.0.1",
+  "summary": "WeChatQRCodeScanner_Swift.",
+  "description": "微信开源二维码识别引擎Swift版本",
+  "homepage": "https://github.com/MrBugDou/WeChatQRCodeScanner_Swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MrBugDou": "bg1859710@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/MrBugDou/WeChatQRCodeScanner_Swift.git",
+    "tag": "1.0.1"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": [
+    "WeChatQRCodeScanner/Classes/*.{swift,h}"
+  ],
+  "preserve_paths": [
+    "WeChatQRCodeScanner/Frameworks",
+    "WeChatQRCodeScanner/Models",
+    "script/downloadlib.sh"
+  ],
+  "prepare_command": "script/downloadlib.sh \"lib-v1\"",
+  "vendored_frameworks": [
+    "WeChatQRCodeScanner/Frameworks/*.framework"
+  ],
+  "resource_bundles": {
+    "WeChatQRCodeScanner": [
+      "WeChatQRCodeScanner/Models/*/**"
+    ]
+  },
+  "script_phases": [
+    {
+      "name": "R.swift",
+      "execution_position": "before_compile",
+      "script": "POD_SRC_DIR=\"$PODS_TARGET_SRCROOT/WeChatQRCodeScanner\"\n [ ! -d \"$POD_SRC_DIR\" ] && echo \"Can't find SourcesDir of WeChatQRCodeScanner_Swift\" && exit 1\n if [ $ACTION != \"indexbuild\" ]; then\n \"$PODS_ROOT/R.swift/rswift\" generate --target \"WeChatQRCodeScanner_Swift-WeChatQRCodeScanner\" \"$PODS_TARGET_SRCROOT/WeChatQRCodeScanner/Classes/WeChatQRCodeScanner.generated.swift\"\n sed -i '' -e \"s/Bundle(for: R.Class.self)/Bundle.codeScanner/g\" \"$PODS_TARGET_SRCROOT/WeChatQRCodeScanner/Classes/WeChatQRCodeScanner.generated.swift\"\n fi",
+      "output_files": [
+        "$PODS_TARGET_SRCROOT/WeChatQRCodeScanner/Classes/WeChatQRCodeScanner.generated.swift"
+      ]
+    }
+  ],
+  "dependencies": {
+    "R.swift": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "VALID_ARCHS": "arm64 x86_64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "CoreImage",
+    "CoreGraphics",
+    "QuartzCore",
+    "Accelerate",
+    "CoreVideo",
+    "CoreMedia"
+  ],
+  "libraries": [
+    "c++"
+  ],
+  "swift_version": "5.0"
+}
