@@ -1,0 +1,102 @@
+{
+  "name": "Cardano.swift",
+  "version": "0.1.4",
+  "summary": "Swift APIs for Cardano network.",
+  "homepage": "https://github.com/tesseract-one/Cardano.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/Cardano.swift.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15"
+  },
+  "swift_versions": "5.4",
+  "module_name": "Cardano",
+  "default_subspecs": [
+    "Cardano/Binary",
+    "Blockfrost"
+  ],
+  "subspecs": [
+    {
+      "name": "OrderedCollections",
+      "source_files": "Sources/OrderedCollections/**/*.swift"
+    },
+    {
+      "name": "Cardano",
+      "dependencies": {
+        "Cardano.swift/OrderedCollections": [
+
+        ],
+        "BigInt": [
+          "~> 5.2"
+        ],
+        "Bip39.swift": [
+          "~> 0.1.1"
+        ]
+      },
+      "source_files": [
+        "Sources/Cardano/**/*.swift",
+        "Sources/Core/**/*.swift"
+      ],
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "testspecs": [
+        {
+          "name": "CoreTests",
+          "test_type": "unit",
+          "source_files": "Tests/CoreTests/**/*.swift"
+        },
+        {
+          "name": "CardanoTests",
+          "test_type": "unit",
+          "source_files": "Tests/CardanoTests/**/*.swift"
+        }
+      ],
+      "subspecs": [
+        {
+          "name": "Binary",
+          "dependencies": {
+            "Cardano-Binaries": [
+              "~> 0.1.4"
+            ]
+          },
+          "pod_target_xcconfig": {
+            "LIBRARY_SEARCH_PATHS": "$(inherited) \"${PODS_XCFRAMEWORKS_BUILD_DIR}/Cardano-Binaries\"",
+            "CARDANO_USES_BINARY_RUST_XCFRAMEWORK": "YES"
+          }
+        },
+        {
+          "name": "Build",
+          "preserve_paths": "rust/**/*",
+          "script_phases": {
+            "name": "Build Rust Binary",
+            "script": "bash \"${PODS_TARGET_SRCROOT}/rust/scripts/xcode_build_step.sh\"",
+            "execution_position": "before_compile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blockfrost",
+      "source_files": "Sources/Blockfrost/**/*.swift",
+      "dependencies": {
+        "BlockfrostSwiftSDK": [
+          "~> 0.0.7"
+        ],
+        "Cardano.swift/Cardano": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.4"
+}
