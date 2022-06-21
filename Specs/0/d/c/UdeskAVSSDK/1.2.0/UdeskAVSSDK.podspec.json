@@ -1,0 +1,72 @@
+{
+  "name": "UdeskAVSSDK",
+  "version": "1.2.0",
+  "license": "MIT",
+  "summary": "UdeskAVSSDK SDK for iOS",
+  "homepage": "https://github.com/udesk/UdeskAVSSDK-iOS",
+  "authors": {
+    "zhangshuangyi ": "zhangshuangyi@udesk.cn"
+  },
+  "source": {
+    "git": "https://github.com/udesk/UdeskAVSSDK-iOS.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "static_framework": true,
+  "source_files": "lib/UdeskAVSSDK/UIKit/*.{h,m}",
+  "public_header_files": "lib/UdeskAVSSDK/UIKit*.{h}",
+  "subspecs": [
+    {
+      "name": "SDK",
+      "source_files": "lib/UdeskAVSSDK/SDK/**/*.h",
+      "vendored_libraries": "lib/UdeskAVSSDK/SDK/libUdeskAVS.a",
+      "public_header_files": "lib/UdeskAVSSDK/SDK/**/*.h"
+    },
+    {
+      "name": "AVSKit",
+      "source_files": "lib/UdeskAVSSDK/UIKit/**/*.{h,m}",
+      "resources": "lib/UdeskAVSSDK/UIKit/Resources/UdeskAVSBundle.bundle",
+      "public_header_files": "lib/UdeskAVSSDK/UIKit/**/*.{h}",
+      "frameworks": [
+        "Accelerate",
+        "OpenAL"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "resolv",
+        "sqlite3"
+      ],
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      },
+      "dependencies": {
+        "UdeskAVSSDK/SDK": [
+
+        ],
+        "YYText": [
+          "~> 1.0.7"
+        ],
+        "SDWebImage": [
+          "~> 5.11.1"
+        ],
+        "MJRefresh": [
+          "~> 3.7.5"
+        ],
+        "TXLiteAVSDK_TRTC": [
+          "8.7.10102"
+        ]
+      }
+    }
+  ]
+}
