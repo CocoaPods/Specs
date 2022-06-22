@@ -1,0 +1,112 @@
+{
+  "name": "mini_mnwsdk",
+  "version": "0.1.3",
+  "summary": "MNWSDK is use to easily login with mini1 and other plaforms",
+  "description": "MNWSDK is make to login easily for mini1 and other plaforms\nlike: facebook, google, apple...",
+  "homepage": "https://github.com/THandsonwu/MNWSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Taki": "tanzhiwu@mini1.cn"
+  },
+  "source": {
+    "git": "https://github.com/THandsonwu/MNWSDK.git",
+    "tag": "0.1.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "MNWSDK",
+  "subspecs": [
+    {
+      "name": "MNWSDK",
+      "frameworks": "Foundation",
+      "vendored_frameworks": "MNWSDK/MNWSDK.framework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "MNWSDKPlatforms",
+      "subspecs": [
+        {
+          "name": "Facebook",
+          "vendored_frameworks": "MNWSDK/PlatformComm/FacebookComm.framework",
+          "libraries": [
+            "c++",
+            "stdc++",
+            "z"
+          ],
+          "ios": {
+            "weak_frameworks": [
+              "Accelerate",
+              "Accounts",
+              "CoreLocation",
+              "Social",
+              "Security",
+              "QuartzCore",
+              "CoreGraphics",
+              "UIKit",
+              "AudioToolbox",
+              "AuthenticationServices",
+              "SafariServices",
+              "CoreServices"
+            ]
+          },
+          "dependencies": {
+            "mini_mnwsdk/MNWSDK": [
+
+            ],
+            "FBSDKLoginKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "GooglePlus",
+          "vendored_frameworks": "MNWSDK/PlatformComm/GooglePlusComm.framework",
+          "ios": {
+            "weak_frameworks": "LocalAuthentication"
+          },
+          "dependencies": {
+            "mini_mnwsdk/MNWSDK": [
+
+            ],
+            "GoogleSignIn": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+          },
+          "user_target_xcconfig": {
+            "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+          }
+        },
+        {
+          "name": "Apple",
+          "vendored_frameworks": "MNWSDK/PlatformComm/AppleComm.framework",
+          "ios": {
+            "weak_frameworks": "AuthenticationServices"
+          },
+          "dependencies": {
+            "mini_mnwsdk/MNWSDK": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+          },
+          "user_target_xcconfig": {
+            "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+          }
+        }
+      ]
+    }
+  ]
+}
