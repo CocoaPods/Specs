@@ -1,0 +1,196 @@
+{
+  "name": "Ads-Global",
+  "version": "4.5.2.4",
+  "summary": "Ads-Global is a SDK from Bytedance providing union AD service.",
+  "description": "Ads-Global provides ADs which include native、banner、RewardVideo、FullscreenVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "Siwant": "yuanhuan@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD.git",
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/pangle-sdk-static-va/4.5.2.4/SDK.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "weak_frameworks": [
+    "AppTrackingTransparency",
+    "CoreML"
+  ],
+  "resources": "SDK/LICENSE",
+  "default_subspecs": [
+    "BUAdSDK"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "APM",
+      "dependencies": {
+        "RangersAPM-Pangle/Crash": [
+          "2.3.2-pangle"
+        ],
+        "RangersAPM-Pangle/Global": [
+          "2.3.2-pangle"
+        ],
+        "RangersAPM-Pangle/SessionTracker": [
+          "2.3.2-pangle"
+        ]
+      }
+    },
+    {
+      "name": "International",
+      "preserve_paths": "SDK/BUVAAuxiliary.framework",
+      "vendored_frameworks": [
+        "SDK/BUVAAuxiliary.framework"
+      ],
+      "dependencies": {
+        "Ads-Global/BUFoundation": [
+
+        ],
+        "Ads-Global/PAGAdSDK": [
+
+        ],
+        "Ads-Global/APM": [
+
+        ],
+        "Ads-Global/BURelyAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BURelyAdSDK",
+      "preserve_paths": "SDK/BURelyAdSDK.framework",
+      "vendored_frameworks": [
+        "SDK/BURelyAdSDK.framework"
+      ]
+    },
+    {
+      "name": "International-noAPM",
+      "preserve_paths": "SDK/BUVAAuxiliary.framework",
+      "vendored_frameworks": [
+        "SDK/BUVAAuxiliary.framework"
+      ],
+      "dependencies": {
+        "Ads-Global/BUFoundation": [
+
+        ],
+        "Ads-Global/PAGAdSDK": [
+
+        ],
+        "Ads-Global/BURelyAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Domestic",
+      "vendored_frameworks": [
+        "SDK/BUCNAuxiliary.framework"
+      ],
+      "preserve_paths": "SDK/BUCNAuxiliary.framework",
+      "dependencies": {
+        "Ads-Global/BUFoundation": [
+
+        ],
+        "Ads-Global/CSJAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BUAdSDK",
+      "preserve_paths": "SDK/BUAdSDK.framework",
+      "vendored_frameworks": [
+        "SDK/BUAdSDK.framework"
+      ],
+      "dependencies": {
+        "Ads-Global/International": [
+
+        ]
+      }
+    },
+    {
+      "name": "BUFoundation",
+      "preserve_paths": "SDK/BUFoundation.framework",
+      "vendored_frameworks": [
+        "SDK/BUFoundation.framework"
+      ],
+      "dependencies": {
+        "BURelyFoundation_Global": [
+          "0.0.1.58"
+        ]
+      }
+    },
+    {
+      "name": "PAGAdSDK",
+      "vendored_frameworks": [
+        "SDK/PAGAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/PAGAdSDK.framework",
+      "resources": "SDK/PAGAdSDK.bundle",
+      "dependencies": {
+        "Ads-Global/BUFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJAdSDK",
+      "vendored_frameworks": [
+        "SDK/CSJAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/CSJAdSDK.framework",
+      "resources": "SDK/CSJAdSDK.bundle",
+      "dependencies": {
+        "Ads-Global/BUFoundation": [
+
+        ]
+      }
+    }
+  ]
+}
