@@ -1,0 +1,64 @@
+{
+  "name": "DDCardScanner",
+  "version": "1.0.0",
+  "summary": "DDCardScanner.",
+  "description": "身份证、银行卡扫描",
+  "homepage": "https://github.com/MrBugDou/CardScanner",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DouDou": "bg1859710@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/MrBugDou/CardScanner.git",
+    "tag": "1.0.0"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "default_subspecs": [
+    "Core",
+    "Swift"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "user_target_xcconfig": {
+        "ENABLE_TESTABILITY": "NO"
+      },
+      "pod_target_xcconfig": {
+        "ENABLE_TESTABILITY": "NO"
+      },
+      "resource_bundles": {
+        "CoreBundle": [
+          "CardScanner/Src/lib/libIDcard/dicts/zocr0.lib"
+        ]
+      },
+      "source_files": [
+        "CardScanner/Src/lib/libIDcard/*.h",
+        "CardScanner/Src/lib/libBankcard/exbankcard.h"
+      ],
+      "vendored_libraries": [
+        "CardScanner/Src/lib/libIDcard/**/*.a",
+        "CardScanner/Src/lib/libBankcard/**/*.a"
+      ]
+    },
+    {
+      "name": "Swift",
+      "source_files": [
+        "CardScanner/Src/Swift/*.swift"
+      ],
+      "dependencies": {
+        "DDCardScanner/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
