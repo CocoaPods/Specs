@@ -1,0 +1,70 @@
+{
+  "name": "AccessibilitySnapshot",
+  "version": "0.5.1",
+  "summary": "Easy regression testing for iOS accessibility",
+  "homepage": "https://github.com/CashApp/AccessibilitySnapshot",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Square",
+  "source": {
+    "git": "https://github.com/CashApp/AccessibilitySnapshot.git",
+    "tag": "0.5.1"
+  },
+  "swift_versions": "5.0.1",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "SnapshotTesting"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/AccessibilitySnapshot/Core/Swift/Classes/**/*.swift",
+        "Sources/AccessibilitySnapshot/Core/ObjC/**/*.{h,m}"
+      ],
+      "public_header_files": "Sources/AccessibilitySnapshot/Core/ObjC/include/*.h",
+      "resource_bundles": {
+        "AccessibilitySnapshot": [
+          "Sources/AccessibilitySnapshot/Core/Swift/Assets/**/*.{strings,xcassets}"
+        ]
+      }
+    },
+    {
+      "name": "iOSSnapshotTestCase",
+      "source_files": "Sources/AccessibilitySnapshot/iOSSnapshotTestCase/**/*.{swift,h,m}",
+      "public_header_files": [
+        "Sources/AccessibilitySnapshot/iOSSnapshotTestCase/FBSnapshotTestCase_Accessibility.h"
+      ],
+      "dependencies": {
+        "AccessibilitySnapshot/Core": [
+
+        ],
+        "iOSSnapshotTestCase": [
+          "~> 6.0"
+        ]
+      },
+      "frameworks": "XCTest",
+      "weak_frameworks": "XCTest"
+    },
+    {
+      "name": "SnapshotTesting",
+      "source_files": "Sources/AccessibilitySnapshot/SnapshotTesting/**/*.{swift,h,m}",
+      "dependencies": {
+        "AccessibilitySnapshot/Core": [
+
+        ],
+        "SnapshotTesting": [
+          "~> 1.0"
+        ]
+      },
+      "frameworks": "XCTest",
+      "weak_frameworks": "XCTest"
+    }
+  ],
+  "swift_version": "5.0.1"
+}
