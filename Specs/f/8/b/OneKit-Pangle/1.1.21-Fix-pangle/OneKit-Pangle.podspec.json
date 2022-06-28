@@ -1,0 +1,199 @@
+{
+  "name": "OneKit-Pangle",
+  "version": "1.1.21-Fix-pangle",
+  "summary": "OneSDK Kit.",
+  "description": "an iOS base Framework.",
+  "homepage": "https://github.com/bytedance/panglead-specs/OneKit",
+  "license": {
+    "type": "Copyright",
+    "text": "                Bytedance copyright\n"
+  },
+  "authors": {
+    "chenyi": "chenyi.0@bytedance.com"
+  },
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/pangle-sdk-static-va/OneKit/1.1.21-Fix/OneKit-Pangle.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "BITCODE_GENERATION_MODE": "bitcode"
+  },
+  "subspecs": [
+    {
+      "name": "BaseKit",
+      "frameworks": "Foundation",
+      "libraries": "z",
+      "source_files": "OneKit-Pangle/BaseKit/**/*.{h,m}",
+      "public_header_files": "OneKit-Pangle/BaseKit/**/*.h",
+      "vendored_libraries": "OneKit-Pangle/BaseKit/**/*.a"
+    },
+    {
+      "name": "BDMantle",
+      "frameworks": "Foundation",
+      "source_files": "OneKit-Pangle/BDMantle/**/*.h",
+      "public_header_files": "OneKit-Pangle/BDMantle/**/*.h",
+      "vendored_libraries": "OneKit-Pangle/BDMantle/**/*.a"
+    },
+    {
+      "name": "boringssl",
+      "vendored_libraries": [
+        "OneKit-Pangle/boringssl/libcrcrypto.a",
+        "OneKit-Pangle/boringssl/libboringssl.a",
+        "OneKit-Pangle/boringssl/libboringssl_asm.a"
+      ],
+      "libraries": [
+        "boringssl",
+        "crcrypto",
+        "boringssl_asm"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/OneKit-Pangle/boringssl/include\""
+      }
+    },
+    {
+      "name": "ByteDanceKit",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "frameworks": "Foundation",
+          "source_files": [
+            "OneKit-Pangle/ByteDanceKit/Foundation/*.h"
+          ],
+          "public_header_files": [
+            "OneKit-Pangle/ByteDanceKit/Foundation/*.h"
+          ],
+          "vendored_libraries": "OneKit-Pangle/ByteDanceKit/Foundation/*.a"
+        },
+        {
+          "name": "UIKit",
+          "dependencies": {
+            "OneKit-Pangle/ByteDanceKit/Foundation": [
+
+            ]
+          },
+          "frameworks": [
+            "UIKit",
+            "QuartzCore",
+            "Accelerate",
+            "CoreTelephony"
+          ],
+          "vendored_libraries": "OneKit-Pangle/ByteDanceKit/UIKit/*.a",
+          "source_files": "OneKit-Pangle/ByteDanceKit/UIKit/*.h",
+          "public_header_files": "OneKit-Pangle/ByteDanceKit/UIKit/*.h"
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "frameworks": "Foundation",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "OneKit-Pangle/Service": [
+
+        ]
+      },
+      "source_files": "OneKit-Pangle/Database/*.h",
+      "public_header_files": "OneKit-Pangle/Database/*.h",
+      "vendored_libraries": "OneKit-Pangle/Database/*.a"
+    },
+    {
+      "name": "Defaults",
+      "dependencies": {
+        "OneKit-Pangle/BaseKit": [
+
+        ]
+      },
+      "frameworks": "Foundation",
+      "source_files": "OneKit-Pangle/Defaults/*.h",
+      "public_header_files": "OneKit-Pangle/Defaults/*.h",
+      "vendored_libraries": "OneKit-Pangle/Defaults/*.a"
+    },
+    {
+      "name": "IDFA",
+      "frameworks": "AdSupport",
+      "dependencies": {
+        "OneKit-Pangle/Service": [
+
+        ],
+        "OneKit-Pangle/StartUp": [
+
+        ]
+      },
+      "source_files": "OneKit-Pangle/IDFA/*.h",
+      "public_header_files": "OneKit-Pangle/IDFA/*.h",
+      "vendored_libraries": "OneKit-Pangle/IDFA/*.a"
+    },
+    {
+      "name": "MARS",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "OneKit-Pangle/BaseKit": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Auth",
+          "source_files": "OneKit-Pangle/MARS/Auth/*.h",
+          "public_header_files": "OneKit-Pangle/MARS/Auth/*.h",
+          "vendored_libraries": "OneKit-Pangle/MARS/Auth/*.a",
+          "dependencies": {
+            "OneKit-Pangle/BaseKit": [
+
+            ],
+            "OneKit-Pangle/StartUp": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reachability",
+      "frameworks": [
+        "Foundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreFoundation",
+        "UIKit"
+      ],
+      "source_files": "OneKit-Pangle/Reachability/*.h",
+      "public_header_files": "OneKit-Pangle/Reachability/*.h",
+      "vendored_libraries": "OneKit-Pangle/Reachability/*.a"
+    },
+    {
+      "name": "Screenshot",
+      "frameworks": "Foundation",
+      "source_files": "OneKit-Pangle/Screenshot/**/*.h",
+      "public_header_files": "OneKit-Pangle/Screenshot/**/*.h",
+      "vendored_libraries": "OneKit-Pangle/Screenshot/*.a"
+    },
+    {
+      "name": "Service",
+      "frameworks": "Foundation",
+      "source_files": "OneKit-Pangle/Service/*.h",
+      "public_header_files": "OneKit-Pangle/Service/*.h",
+      "vendored_libraries": "OneKit-Pangle/Service/*.a"
+    },
+    {
+      "name": "StartUp",
+      "frameworks": "Foundation",
+      "dependencies": {
+        "OneKit-Pangle/BaseKit": [
+
+        ],
+        "OneKit-Pangle/Reachability": [
+
+        ]
+      },
+      "source_files": "OneKit-Pangle/StartUp/**/*.h",
+      "public_header_files": "OneKit-Pangle/StartUp/**/*.h",
+      "vendored_libraries": "OneKit-Pangle/StartUp/*.a"
+    }
+  ]
+}
