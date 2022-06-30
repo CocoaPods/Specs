@@ -1,0 +1,317 @@
+{
+  "name": "RangersAPM-Pangle",
+  "version": "2.3.2-Fix-pangle",
+  "summary": "RangersAPM by ByteDance",
+  "description": "APMInsight iOS SDK, a tool to monitor APP performance.",
+  "homepage": "https://github.com/bytedance/panglead-specs/RangersAPM",
+  "license": {
+    "type": "MIT",
+    "file": "RangersAPM-Pangle/LICENSE"
+  },
+  "authors": "ByteDance",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "static_framework": true,
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/pangle-sdk-static-va/RangersAPM-Pangle/2.3.2/RangersAPM-Pangle.zip"
+  },
+  "subspecs": [
+    {
+      "name": "Public",
+      "vendored_libraries": "RangersAPM-Pangle/Public/**/*.a",
+      "source_files": "RangersAPM-Pangle/Public/**/*.{h,m}",
+      "public_header_files": "RangersAPM-Pangle/Public/**/*.h",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_libraries": "RangersAPM-Pangle/Core/**/*.a",
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreFoundation"
+      ],
+      "preserve_paths": "RangersAPM-Pangle/*.sh",
+      "resources": [
+        "RangersAPM-Pangle/Assets/Core/**/APMInsightCore.bundle"
+      ],
+      "dependencies": {
+        "OneKit-Pangle/BaseKit": [
+          "1.1.21-Fix-pangle"
+        ]
+      }
+    },
+    {
+      "name": "Crash",
+      "source_files": "RangersAPM-Pangle/Crash/**/*.{h,m}",
+      "public_header_files": "RangersAPM-Pangle/Crash/**/*.h",
+      "vendored_libraries": "RangersAPM-Pangle/Crash/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ]
+      },
+      "resources": [
+        "RangersAPM-Pangle/Assets/Crash/**/APMInsightCrash.bundle"
+      ],
+      "libraries": "c++abi"
+    },
+    {
+      "name": "WatchDog",
+      "vendored_libraries": "RangersAPM-Pangle/WatchDog/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "OOM",
+      "vendored_libraries": "RangersAPM-Pangle/OOM/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/Crash": [
+
+        ],
+        "RangersAPM-Pangle/WatchDog": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "HMD",
+      "vendored_libraries": "RangersAPM-Pangle/HMD/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "OneKit-Pangle/Database": [
+          "1.1.21-Fix-pangle"
+        ]
+      }
+    },
+    {
+      "name": "LAG",
+      "vendored_libraries": "RangersAPM-Pangle/LAG/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "UserException",
+      "source_files": "RangersAPM-Pangle/UserException/**/*.{h,m}",
+      "public_header_files": "RangersAPM-Pangle/UserException/**/*.h",
+      "vendored_libraries": "RangersAPM-Pangle/UserException/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "UITrackers",
+      "vendored_libraries": "RangersAPM-Pangle/UITrackers/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "Monitors",
+      "source_files": "RangersAPM-Pangle/Monitors/**/*.{h,m}",
+      "vendored_libraries": "RangersAPM-Pangle/Monitors/**/*.a",
+      "public_header_files": "RangersAPM-Pangle/Monitors/**/*.h",
+      "dependencies": {
+        "RangersAPM-Pangle/UITrackers": [
+
+        ]
+      }
+    },
+    {
+      "name": "Hybrid",
+      "vendored_libraries": "RangersAPM-Pangle/Hybrid/**/*.a",
+      "resources": [
+        "RangersAPM-Pangle/Assets/Hybrid/**/APMInsightHybrid.bundle"
+      ],
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      },
+      "frameworks": "WebKit"
+    },
+    {
+      "name": "MemoryGraph",
+      "vendored_libraries": "RangersAPM-Pangle/MemoryGraph/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ],
+        "RangersAPM-Pangle/Zip": [
+
+        ]
+      }
+    },
+    {
+      "name": "Zip",
+      "vendored_libraries": "RangersAPM-Pangle/Zip/**/*.a",
+      "libraries": "z"
+    },
+    {
+      "name": "Network",
+      "source_files": "RangersAPM-Pangle/Network/**/*.{h,m}",
+      "vendored_libraries": "RangersAPM-Pangle/Network/**/*.a",
+      "public_header_files": "RangersAPM-Pangle/Network/**/*.h",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "EventMonitor",
+      "source_files": "RangersAPM-Pangle/EventMonitor/**/*.{h,m}",
+      "vendored_libraries": "RangersAPM-Pangle/EventMonitor/**/*.a",
+      "public_header_files": "RangersAPM-Pangle/EventMonitor/**/*.h",
+      "libraries": "c++",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "CN",
+      "vendored_libraries": "RangersAPM-Pangle/CN/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "Global",
+      "vendored_libraries": "RangersAPM-Pangle/Global/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    },
+    {
+      "name": "Flutter",
+      "source_files": "RangersAPM-Pangle/Flutter/**/*.{h,m}",
+      "vendored_libraries": "RangersAPM-Pangle/Flutter/**/*.a",
+      "public_header_files": "RangersAPM-Pangle/Flutter/**/*.h",
+      "dependencies": {
+        "RangersAPM-Pangle/EventMonitor": [
+
+        ]
+      }
+    },
+    {
+      "name": "SessionTracker",
+      "vendored_libraries": "RangersAPM-Pangle/SessionTracker/**/*.a",
+      "dependencies": {
+        "RangersAPM-Pangle/Core": [
+
+        ],
+        "RangersAPM-Pangle/HMD": [
+
+        ],
+        "RangersAPM-Pangle/Public": [
+
+        ]
+      }
+    }
+  ]
+}
