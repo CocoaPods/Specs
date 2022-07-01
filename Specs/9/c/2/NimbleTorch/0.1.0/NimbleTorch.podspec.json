@@ -1,0 +1,63 @@
+{
+  "name": "NimbleTorch",
+  "version": "0.1.0",
+  "summary": "Torch custom build for supporting bit code on iOS",
+  "description": "We have custom built our torch module by disablingn qnnpack to enable bitcode on sdk.",
+  "homepage": "https://github.com/NimbleEdge/NimbleTorch",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "noreply": "noreply@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/NimbleEdge/NimbleTorch.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"/Users/ayushb/tmp/NimbleTorch/install/include/\"",
+    "OTHER_LDFLAGS": "-force_load \"/Users/ayushb/tmp/NimbleTorch/install/lib/libtorch.a\" -force_load \"/Users/ayushb/tmp/NimbleTorch/install/lib/libtorch_cpu.a\"",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"/Users/ayushb/tmp/NimbleTorch/install/include/\"",
+    "VALID_ARCHS": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "ENABLE_BITCODE": "YES"
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "NimbleTorch/Torch": [
+
+        ]
+      },
+      "source_files": "src/*.{h,cpp,c,cc}",
+      "public_header_files": [
+        "src/LibTorch.h"
+      ]
+    },
+    {
+      "name": "Torch",
+      "header_mappings_dir": "install/include/",
+      "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+      "vendored_libraries": "install/lib/*.a",
+      "libraries": [
+        "c++",
+        "stdc++"
+      ]
+    }
+  ]
+}
