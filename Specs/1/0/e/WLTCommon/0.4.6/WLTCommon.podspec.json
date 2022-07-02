@@ -1,0 +1,227 @@
+{
+  "name": "WLTCommon",
+  "version": "0.4.6",
+  "summary": "物联通公共代码库",
+  "description": "物联通公共代码库，物联通程序使用",
+  "homepage": "http://www.wltrj.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liuliangliang": "356334756@qq.com"
+  },
+  "source": {
+    "git": "http://192.168.1.33:7777/r/WLTCommon.git",
+    "tag": "0.4.6"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "subspecs": [
+    {
+      "name": "WLTBaseFrameWork",
+      "subspecs": [
+        {
+          "name": "Definition",
+          "source_files": "WLTCommon/Classes/WLTBaseFrameWork/Definition/**/*.{h,m,mm,c}"
+        },
+        {
+          "name": "Foundation",
+          "dependencies": {
+            "WLTCommon/WLTBaseFrameWork/Definition": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "NSFoundation",
+              "source_files": "WLTCommon/Classes/WLTBaseFrameWork/Foundation/NSFoundation/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "WLTFoundation",
+              "source_files": "WLTCommon/Classes/WLTBaseFrameWork/Foundation/WLTFoundation/**/*.{h,m,mm,c}"
+            }
+          ]
+        },
+        {
+          "name": "UIKit",
+          "dependencies": {
+            "WLTCommon/WLTBaseFrameWork/Foundation": [
+
+            ],
+            "WLTCommon/WLTBaseFrameWork/Definition": [
+
+            ],
+            "Masonry": [
+              "~> 1.1.0"
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "BasicUIKit",
+              "source_files": "WLTCommon/Classes/WLTBaseFrameWork/UIKit/BasicUIKit/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "SystemUIKit",
+              "source_files": "WLTCommon/Classes/WLTBaseFrameWork/UIKit/SystemUIKit/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "WLTCommon/WLTBaseFrameWork/UIKit/BasicUIKit": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Protocol",
+          "source_files": "WLTCommon/Classes/WLTBaseFrameWork/Protocol/**/*.{h,m,mm,c}"
+        },
+        {
+          "name": "Header",
+          "source_files": "WLTCommon/Classes/WLTBaseFrameWork/Header/WLTBaseFrameWork.h"
+        }
+      ]
+    },
+    {
+      "name": "WLTKit",
+      "dependencies": {
+        "WLTCommon/WLTBaseFrameWork": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "UIKit",
+          "subspecs": [
+            {
+              "name": "KeyboardHelp",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/KeyboardHelp/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "WLTDatePicker",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/WLTDatePicker/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "ScreenShot",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/ScreenShot/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "ComSelectionView",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/ComSelectionView/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "OverrideFont",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/OverrideFont/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "WLTCommon/WLTLibrary/Aspects": [
+
+                ]
+              }
+            },
+            {
+              "name": "WLTTextInputView",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/WLTTextInputView/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "WLTCommon/WLTKit/UIKit/KeyboardHelp": [
+
+                ],
+                "Masonry": [
+                  "~> 1.1.0"
+                ]
+              }
+            },
+            {
+              "name": "WLTQRCodeScanView",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/WLTQRCodeScanView/**/*.{h,m,mm,c}",
+              "resource_bundles": {
+                "WLTQRCodeScanView": "WLTCommon/Assets/WLTQRCodeScanView/*.png"
+              },
+              "dependencies": {
+                "Masonry": [
+                  "~> 1.1.0"
+                ]
+              },
+              "frameworks": "AVFoundation"
+            },
+            {
+              "name": "WLTProgress",
+              "source_files": "WLTCommon/Classes/WLTKit/UIKit/WLTProgress/**/*.{h,m,mm,c}"
+            }
+          ]
+        },
+        {
+          "name": "ObjectKit",
+          "subspecs": [
+            {
+              "name": "AuthorizationStatusCheckUtil",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/AuthorizationStatusCheckUtil/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "NavigationBarButtonItemsCreater",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/NavigationBarButtonItemsCreater/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "PinYin",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/PinYin/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "JsonHelper",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/JsonHelper/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "MJExtension": [
+                  "~> 3.0.13"
+                ]
+              }
+            },
+            {
+              "name": "ButtonsSingleSelectionManager",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/ButtonsSingleSelectionManager/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "WLTNetManager",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/WLTNetManager/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "WLTCommon/WLTKit/ObjectKit/JsonHelper": [
+
+                ],
+                "AFNetworking": [
+                  "~> 4.0.0"
+                ],
+                "MBProgressHUD": [
+                  "~> 1.1.0"
+                ]
+              }
+            },
+            {
+              "name": "WLTRunLoopWorkDistribution",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/WLTRunLoopWorkDistribution/**/*.{h,m,mm,c}"
+            },
+            {
+              "name": "WLTExtendedDataLoadingHandler",
+              "source_files": "WLTCommon/Classes/WLTKit/ObjectKit/WLTExtendedDataLoadingHandler/**/*.{h,m,mm,c}",
+              "dependencies": {
+                "WLTCommon/WLTKit/ObjectKit/WLTRunLoopWorkDistribution": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WLTLibrary",
+      "subspecs": [
+        {
+          "name": "Aspects",
+          "source_files": "WLTCommon/Classes/WLTLibrary/Aspects/**/*.{h,m,mm,c}"
+        }
+      ]
+    }
+  ]
+}
