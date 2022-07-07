@@ -1,0 +1,180 @@
+{
+  "name": "EMSDK",
+  "summary": "Easy Mobile SDK",
+  "version": "1.0.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "description": "Easy Mobile SDK",
+  "homepage": "https://www.yd-mobile.cn",
+  "authors": {
+    "徐畅": "xuchang@supcon.com"
+  },
+  "source": {
+    "git": "https://github.com/team-ezm/EMSDK.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "*.{h,m}",
+      "resources": [
+        "Frameworks/*.bundle",
+        "Resources/**"
+      ],
+      "vendored_frameworks": "Frameworks/*.framework",
+      "dependencies": {
+        "YYCache": [
+          "1.0.4"
+        ],
+        "FDFullscreenPopGesture": [
+          "1.1"
+        ],
+        "YYCategories": [
+          "1.0.4"
+        ],
+        "MBProgressHUD": [
+          "1.2.0"
+        ],
+        "SAMKeychain": [
+          "1.5.3"
+        ],
+        "Reachability": [
+          "3.2"
+        ],
+        "AFNetworking": [
+          "4.0.0"
+        ],
+        "SDWebImage": [
+          "4.4.3"
+        ],
+        "IQKeyboardManager": [
+          "6.5.5"
+        ],
+        "Masonry": [
+          "1.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Debug",
+      "vendored_frameworks": "Frameworks/Debug/*.framework",
+      "resources": "Frameworks/Debug/*.bundle",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppInfo",
+      "vendored_frameworks": "Frameworks/AppInfo/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Scanner",
+      "vendored_frameworks": "Frameworks/Scanner/*.framework",
+      "dependencies": {
+        "LBXScan/LBXZXing": [
+
+        ],
+        "LBXScan/UI": [
+
+        ],
+        "EMSDK/Core": [
+
+        ]
+      },
+      "resources": [
+        "Frameworks/Scanner/*.bundle"
+      ]
+    },
+    {
+      "name": "FileTransfer",
+      "vendored_frameworks": "Frameworks/FileTransfer/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DocumentPreviewer",
+      "vendored_frameworks": "Frameworks/DocumentPreviewer/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Camera",
+      "vendored_frameworks": "Frameworks/Camera/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Modal",
+      "vendored_frameworks": "Frameworks/Modal/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DocumentPreviewer",
+      "vendored_frameworks": "Frameworks/DocumentPreviewer/*.framework",
+      "dependencies": {
+        "EMSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "EMSDK/AppInfo": [
+
+        ],
+        "EMSDK/Scanner": [
+
+        ],
+        "EMSDK/FileTransfer": [
+
+        ],
+        "EMSDK/DocumentPreviewer": [
+
+        ],
+        "EMSDK/Camera": [
+
+        ],
+        "EMSDK/Modal": [
+
+        ]
+      }
+    }
+  ]
+}
