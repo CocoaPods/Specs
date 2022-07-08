@@ -1,0 +1,81 @@
+{
+  "name": "FSOCNetworking",
+  "version": "1.0.3",
+  "summary": "在AFNetworking基础上，封装YTKRequest，提供更面向业务处理的网络层",
+  "description": "主要用于定制网络数据，进行业务处理。提供打印定义、参数定义、状态码定义，面向移动端业务。",
+  "homepage": "https://github.com/zhangzhongyan/FSOCNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张忠燕": "749994100@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhangzhongyan/FSOCNetworking.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "source_files": "FSOCNetworking/FSOCNetworking.h",
+  "subspecs": [
+    {
+      "name": "YTKNetwork",
+      "source_files": "FSOCNetworking/Classes/YTKNetwork/*{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 4.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Model",
+      "source_files": "FSOCNetworking/Classes/Model/*{h,m}"
+    },
+    {
+      "name": "Request",
+      "source_files": "FSOCNetworking/Classes/Request/*{h,m}",
+      "dependencies": {
+        "FSOCNetworking/YTKNetwork": [
+
+        ],
+        "FSOCNetworking/Model": [
+
+        ]
+      }
+    },
+    {
+      "name": "Utils",
+      "source_files": "FSOCNetworking/Classes/Utils/*{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "FSOCNetworking/Classes/Security/*{h,m}",
+      "dependencies": {
+        "AFNetworking": [
+
+        ]
+      }
+    },
+    {
+      "name": "Client",
+      "source_files": "FSOCNetworking/Classes/Client/*{h,m}",
+      "dependencies": {
+        "MJExtension": [
+
+        ],
+        "FSOCNetworking/Request": [
+
+        ],
+        "FSOCNetworking/Utils": [
+
+        ],
+        "FSOCUtils/JSONUtils": [
+
+        ]
+      }
+    }
+  ]
+}
