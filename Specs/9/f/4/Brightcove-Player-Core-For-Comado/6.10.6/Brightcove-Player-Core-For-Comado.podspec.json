@@ -1,0 +1,60 @@
+{
+  "name": "Brightcove-Player-Core-For-Comado",
+  "version": "6.10.6",
+  "summary": "Brightcove Player SDK for iOS",
+  "homepage": "https://sdks.support.brightcove.com/",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Brightcove": "brightcove-native-player-sdks@googlegroups.com"
+  },
+  "source": {
+    "git": "https://github.com/ThachNN5/brightcove-player-sdk-ios.git",
+    "tag": "v6.10.6"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "tvos": "11.0"
+  },
+  "default_subspecs": "Framework",
+  "subspecs": [
+    {
+      "name": "Framework",
+      "ios": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        },
+        "resource_bundles": {
+          "BCOVPUIResources": "ios/dynamic/BrightcovePlayerSDK.framework/bcovpuiiconfont.ttf"
+        },
+        "vendored_frameworks": "ios/dynamic/BrightcovePlayerSDK.framework"
+      },
+      "tvos": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+        },
+        "vendored_frameworks": "tvos/BrightcovePlayerSDK.framework"
+      }
+    },
+    {
+      "name": "XCFramework",
+      "ios": {
+        "pod_target_xcconfig": {
+          "CODE_SIGN_IDENTITY[sdk=macosx*]": "-"
+        },
+        "resource_bundles": {
+          "BCOVPUIResources": "xcframework/dynamic/BrightcovePlayerSDK.xcframework/ios-arm64/BrightcovePlayerSDK.framework/bcovpuiiconfont.ttf"
+        }
+      },
+      "vendored_frameworks": "xcframework/dynamic/BrightcovePlayerSDK.xcframework"
+    }
+  ]
+}
