@@ -1,0 +1,234 @@
+{
+  "name": "AcuantiOSSDKV11",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": [
+    "5.5.2"
+  ],
+  "version": "11.5.6",
+  "summary": "Acuant's latest SDK with most advanced image capture technology and optimized user workflow",
+  "description": "Acuant's latest SDK with most advanced image capture technology and optimized user workflow.\n\n    Auto capture of documents\n    Feedback on image capture quality, does several check on the captured image to ensure its optimal quality\n    Optimized image capture and processing workflow (reduces bad captures and poor results)\n    SDK broken down in to small different modules so that developers can include only the modules they want",
+  "homepage": "https://github.com/Acuant/iOSSDKV11",
+  "license": {
+    "type": "commercial",
+    "text": "                  Copyright 2021 Acuant, Inc. All Rights Reserved.\n"
+  },
+  "authors": {
+    "Acuant Inc": "smaltsev@acuant.com"
+  },
+  "source": {
+    "git": "https://github.com/Acuant/iOSSDKV11.git",
+    "tag": "11.5.6"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "AcuantCommon",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantCommon.xcframework"
+      }
+    },
+    {
+      "name": "AcuantImagePreparation",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantImagePreparation.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantDocumentProcessing",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantDocumentProcessing.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceMatch",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantFaceMatch.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantPassiveLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantPassiveLiveness.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantHGLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantHGLiveness.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantIPLiveness",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantIPLiveness.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "iProov": [
+          "~> 9.2.0"
+        ]
+      }
+    },
+    {
+      "name": "AcuantEchipReader",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "EmbeddedFrameworks/AcuantEchipReader.xcframework"
+      },
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "OpenSSL-Universal": [
+          "1.1.1400"
+        ]
+      }
+    },
+    {
+      "name": "AcuantFaceCapture",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": [
+        "AcuantFaceCapture/AcuantFaceCapture/*.{h,swift}",
+        "AcuantFaceCapture/AcuantFaceCapture/View/*.{h,swift}",
+        "AcuantFaceCapture/AcuantFaceCapture/Models/*.{h,swift}",
+        "AcuantFaceCapture/AcuantFaceCapture/Extension/*.{h,swift}"
+      ],
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "AcuantiOSSDKV11/AcuantImagePreparation": [
+
+        ]
+      }
+    },
+    {
+      "name": "AcuantCamera",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "source_files": "AcuantCamera/AcuantCamera/*.{h,swift}",
+      "dependencies": {
+        "AcuantiOSSDKV11/AcuantCommon": [
+
+        ],
+        "AcuantiOSSDKV11/AcuantImagePreparation": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Document",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Document/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Document/Delegate/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantiOSSDKV11/AcuantCamera/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Mrz",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/Camera/Mrz/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/Mrz/OCR/Utils/*.{h,swift}"
+          ],
+          "dependencies": {
+            "AcuantiOSSDKV11/AcuantCamera/Common": [
+
+            ]
+          },
+          "ios": {
+            "vendored_frameworks": "EmbeddedFrameworks/TesseractOCR.framework"
+          }
+        },
+        {
+          "name": "Barcode",
+          "source_files": "AcuantCamera/AcuantCamera/Camera/Barcode/*.{h,swift}",
+          "dependencies": {
+            "AcuantiOSSDKV11/AcuantCamera/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Common",
+          "source_files": [
+            "AcuantCamera/AcuantCamera/View/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Extension/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Constant/*.{h,swift}",
+            "AcuantCamera/AcuantCamera/Camera/*.{h,swift}"
+          ],
+          "resource_bundles": {
+            "AcuantCameraAssets": [
+              "AcuantCamera/AcuantCamera/*.xcassets"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.5.2"
+}
