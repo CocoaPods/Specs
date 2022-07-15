@@ -1,0 +1,194 @@
+{
+  "name": "Ads-CN",
+  "version": "4.6.0.7",
+  "summary": "Ads-CN is a SDK from Bytedance providing AD service.",
+  "description": "Ads-CN provides ADs which include native、banner、feed、splash、RewardVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "Siwant": "yuanhuan@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/csj-sdk-static/4.6.0.7/SDK.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "weak_frameworks": [
+    "AppTrackingTransparency",
+    "CoreML"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "resources": "SDK/LICENSE",
+  "default_subspecs": "BUAdSDK",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "APM",
+      "dependencies": {
+        "RangersAPM-Pangle/Crash": [
+          "2.3.2-pangle"
+        ],
+        "RangersAPM-Pangle/Global": [
+          "2.3.2-pangle"
+        ],
+        "RangersAPM-Pangle/SessionTracker": [
+          "2.3.2-pangle"
+        ]
+      }
+    },
+    {
+      "name": "International",
+      "vendored_frameworks": [
+        "SDK/BUVAAuxiliary.framework"
+      ],
+      "preserve_paths": "SDK/BUVAAuxiliary.framework",
+      "dependencies": {
+        "Ads-CN/BUFoundation": [
+
+        ],
+        "Ads-CN/PAGAdSDK": [
+
+        ],
+        "Ads-CN/APM": [
+
+        ],
+        "Ads-CN/BURelyAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BURelyAdSDK",
+      "preserve_paths": "SDK/BURelyAdSDK.framework",
+      "vendored_frameworks": [
+        "SDK/BURelyAdSDK.framework"
+      ]
+    },
+    {
+      "name": "International-noAPM",
+      "preserve_paths": "SDK/BUVAAuxiliary.framework",
+      "vendored_frameworks": [
+        "SDK/BUVAAuxiliary.framework"
+      ],
+      "dependencies": {
+        "Ads-CN/BUFoundation": [
+
+        ],
+        "Ads-CN/PAGAdSDK": [
+
+        ],
+        "Ads-CN/BURelyAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Domestic",
+      "vendored_frameworks": [
+        "SDK/BUCNAuxiliary.framework"
+      ],
+      "preserve_paths": "SDK/BUCNAuxiliary.framework",
+      "dependencies": {
+        "Ads-CN/BUFoundation": [
+
+        ],
+        "Ads-CN/CSJAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BUAdSDK",
+      "vendored_frameworks": [
+        "SDK/BUAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/BUAdSDK.framework",
+      "dependencies": {
+        "Ads-CN/Domestic": [
+
+        ]
+      }
+    },
+    {
+      "name": "BUFoundation",
+      "vendored_frameworks": [
+        "SDK/BUFoundation.framework"
+      ],
+      "preserve_paths": "SDK/BUFoundation.framework",
+      "dependencies": {
+        "BURelyFoundation": [
+          "0.0.1.58"
+        ]
+      }
+    },
+    {
+      "name": "PAGAdSDK",
+      "vendored_frameworks": [
+        "SDK/PAGAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/PAGAdSDK.framework",
+      "resources": "SDK/PAGAdSDK.bundle",
+      "dependencies": {
+        "Ads-CN/BUFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJAdSDK",
+      "vendored_frameworks": [
+        "SDK/CSJAdSDK.framework"
+      ],
+      "preserve_paths": "SDK/CSJAdSDK.framework",
+      "resources": "SDK/CSJAdSDK.bundle",
+      "dependencies": {
+        "Ads-CN/BUFoundation": [
+
+        ]
+      }
+    }
+  ]
+}
