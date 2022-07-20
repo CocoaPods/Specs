@@ -1,0 +1,103 @@
+{
+  "name": "DSBridge-ZCS",
+  "version": "3.2.1",
+  "summary": "An ios bridge for calling functions synchronously and asynchronously between JavaScript and Object-C in WKWebView",
+  "description": "fix: 'An ios bridge for calling functions synchronously and asynchronously between JavaScript and Object-C in WKWebView'",
+  "homepage": "http://172.18.80.22/iOS/DSBridge-IOS",
+  "license": "MIT",
+  "authors": {
+    "yzh115": "yzh115@zcsmart.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "http://172.18.80.22/iOS/DSBridge-IOS.git",
+    "tag": "3.2.1"
+  },
+  "source_files": "DSBridge/DSBridge.h",
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "DSBridge/Core/*.{h,m}"
+    },
+    {
+      "name": "Utils",
+      "subspecs": [
+        {
+          "name": "SelectPicture",
+          "dependencies": {
+            "HXPhotoPicker": [
+              "~> 3.3.1"
+            ]
+          },
+          "source_files": "DSBridge/Utils/SelectPicture/SelectPictureTool.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "ApiFactory",
+      "dependencies": {
+        "DSBridge-ZCS/Core": [
+
+        ]
+      },
+      "source_files": "DSBridge/ApiFactory/*.{h,m}"
+    },
+    {
+      "name": "Api",
+      "dependencies": {
+        "YZHFactory": [
+          "~> 1.1.0"
+        ],
+        "DSBridge-ZCS/ApiFactory": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Device",
+          "dependencies": {
+            "DSBridge-ZCS/Utils/SelectPicture": [
+
+            ]
+          },
+          "source_files": "DSBridge/Api/Device/*.{h,m}"
+        },
+        {
+          "name": "Navi",
+          "source_files": "DSBridge/Api/Navi/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "WebViewController",
+      "resources": "DSBridge/WebViewController/QuickHybridBundle.bundle",
+      "subspecs": [
+        {
+          "name": "Utils",
+          "source_files": "DSBridge/WebViewController/Utils/*.{h,m}"
+        },
+        {
+          "name": "Core",
+          "dependencies": {
+            "FDFullscreenPopGesture": [
+              "~> 1.1"
+            ],
+            "WSProgressHUD": [
+              "~> 1.1.5"
+            ],
+            "DSBridge-ZCS/Api": [
+
+            ],
+            "DSBridge-ZCS/WebViewController/Utils": [
+
+            ]
+          },
+          "source_files": "DSBridge/WebViewController/Core/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
