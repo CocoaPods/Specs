@@ -1,0 +1,80 @@
+{
+  "name": "BeeTalkSDK",
+  "version": "4.0.11.2-flutter",
+  "summary": "A Mobile SDK for game developers to integrate garena services.",
+  "description": "A Mobile SDK for game developers to integrate garena services.",
+  "homepage": "http://developer.garena.com/docs/msdk/ios/getting/started/Setup/",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Carolyn Foo": "fooc@seagroup.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "ssh://gitlab@git.garena.com:2222/ios-dev/msdk.git",
+    "tag": "4.0.11.2-flutter"
+  },
+  "static_framework": true,
+  "public_header_files": [
+    "BeeTalkSDK/BeeTalkSDK.h",
+    "BeeTalkSDK/Headers/SDK/Header/*.h"
+  ],
+  "prefix_header_file": "BeeTalkSDK/BeeTalkSDK-Prefix.pch",
+  "source_files": [
+    "BeeTalkSDK/**/*.{h,m,mm}",
+    "BeeTalkSDK/*.{h,m,mm}"
+  ],
+  "resource_bundles": {
+    "BeeTalkSDK": [
+      "BeeTalkSDK/**/*.{xcassets}",
+      "BeeTalkSDK/Language/*.json"
+    ]
+  },
+  "frameworks": [
+    "Accelerate",
+    "MapKit"
+  ],
+  "xcconfig": {
+    "CLANG_CXX_LIBRARY": "libc++",
+    "GCC_PREPROCESSOR_DEFINITIONS": "LINE=1 VK=1 GOOGLE=1 WECHAT=1 TWITTER=1 FBSDKCOCOAPODS=1",
+    "OTHER_LDFLAGS": "-ObjC -all_load -weak_framework ReplayKit",
+    "OTHER_CFLAGS": "-fembed-bitcode"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_CFLAGS": "-fembed-bitcode"
+  },
+  "ios": {
+    "dependencies": {
+      "LineSDK": [
+        "4.1.1"
+      ],
+      "AppAuth": [
+        "1.2.0"
+      ],
+      "GTMAppAuth": [
+        "1.0.0"
+      ],
+      "GTMSessionFetcher": [
+        "1.6.1"
+      ],
+      "GoogleSignIn": [
+        "5.0.2"
+      ]
+    },
+    "vendored_libraries": [
+      "BeeTalkSDK/WeChat/WeChatSDK/libWeChatSDK.a",
+      "BeeTalkSDK/Twitter/TwitterSDK/libTwitterCore.a",
+      "BeeTalkSDK/Twitter/TwitterSDK/libTwitterKit.a"
+    ],
+    "vendored_frameworks": [
+      "FBSDKCoreKit.framework",
+      "FBSDKLoginKit.framework",
+      "FBSDKShareKit.framework"
+    ]
+  },
+  "libraries": "stdc++",
+  "requires_arc": true
+}
