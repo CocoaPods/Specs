@@ -1,0 +1,85 @@
+{
+  "name": "RCPrivateTensorFlowLiteSwift",
+  "version": "0.1.7",
+  "authors": "Ryan Cha",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/ryan-cha/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "d8ce9f9c301d021a69953134185ab728c1c248d3"
+  },
+  "summary": "Forked version of TensorFlow Lite for Swift",
+  "description": "Forked version of TensorFlow Lite for Swift",
+  "swift_versions": "5.0",
+  "cocoapods_version": ">= 1.9.0",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "module_name": "TensorFlowLite",
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "TensorFlowLiteC": [
+          "2.9.1"
+        ]
+      },
+      "source_files": "tensorflow/lite/swift/Sources/*.swift",
+      "exclude_files": "tensorflow/lite/swift/Sources/{CoreML,Metal}Delegate.swift",
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/*.swift",
+          "exclude_files": "tensorflow/lite/swift/Tests/MetalDelegateTests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin",
+            "tensorflow/lite/testdata/multi_signatures.bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreML",
+      "source_files": "tensorflow/lite/swift/Sources/CoreMLDelegate.swift",
+      "dependencies": {
+        "TensorFlowLiteC/CoreML": [
+          "2.9.1"
+        ],
+        "RCPrivateTensorFlowLiteSwift/Core": [
+          "2.9.1"
+        ]
+      }
+    },
+    {
+      "name": "Metal",
+      "source_files": "tensorflow/lite/swift/Sources/MetalDelegate.swift",
+      "dependencies": {
+        "TensorFlowLiteC/Metal": [
+          "2.9.1"
+        ],
+        "RCPrivateTensorFlowLiteSwift/Core": [
+          "2.9.1"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/{Interpreter,MetalDelegate}Tests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin",
+            "tensorflow/lite/testdata/multi_add.bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
