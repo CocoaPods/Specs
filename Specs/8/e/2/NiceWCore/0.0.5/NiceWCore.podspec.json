@@ -1,0 +1,57 @@
+{
+  "name": "NiceWCore",
+  "version": "0.0.5",
+  "summary": "NiceW core data structures and algorithms.",
+  "homepage": "https://github.com/miharek/nicew-core",
+  "license": "MIT",
+  "authors": {
+    "Mihael Rek": "rek.mihael@gmail.com"
+  },
+  "module_name": "WalletCore",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "swift_versions": "5.1",
+  "source": {
+    "http": "https://github.com/miharek/nicew-core/releases/download/0.0.5/NiceWCore-0.0.5.tar.xz"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": [
+        "Sources/Types/*.swift",
+        "Sources/Generated/Enums/*.swift",
+        "Sources/Generated/Protobuf/*.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "*.xcframework",
+      "exclude_files": "Sources/Generated/WalletCore.h",
+      "source_files": [
+        "include/**/*.h",
+        "Sources/*.{swift,h,m,cpp}",
+        "Sources/Extensions/*.swift",
+        "Sources/Generated/*.{swift,h}"
+      ],
+      "public_header_files": [
+        "include/**/*.h",
+        "Sources/*.h"
+      ],
+      "libraries": "c++",
+      "dependencies": {
+        "NiceWCore/Types": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
