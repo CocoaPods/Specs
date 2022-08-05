@@ -1,0 +1,52 @@
+{
+  "name": "DoricThree",
+  "version": "0.1.5",
+  "summary": "Doric extension library to use three.js in doric",
+  "description": "This is a extension library that allows developers use three.js library in doric.",
+  "homepage": "https://github.com/doric-pub/DoricThree",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "dev": "dev@doric.pub"
+  },
+  "source": {
+    "git": "https://github.com/doric-pub/DoricThree.git",
+    "tag": "0.1.5"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "subspecs": [
+    {
+      "name": "Draco",
+      "source_files": "third_party/draco/include/**/*.{h,cc}",
+      "vendored_libraries": "third_party/draco/iOS/libdraco.a",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "/Users/runner/work/DoricThree/DoricThree/third_party/draco/include/**",
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "public_header_files": "third_party/draco/decoder_webidl_wrapper.h",
+      "private_header_files": "third_party/draco/include/**/*.h",
+      "header_mappings_dir": "third_party/draco/include",
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Main",
+      "source_files": "iOS/Classes/**/*",
+      "public_header_files": "iOS/Classes/**/*.h",
+      "resources": "dist/**/*",
+      "dependencies": {
+        "DoricThree/Draco": [
+
+        ],
+        "DoricCore": [
+
+        ]
+      }
+    }
+  ]
+}
