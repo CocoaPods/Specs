@@ -1,0 +1,99 @@
+{
+  "name": "AnyThinkiOS-Beta",
+  "version": "5.9.95.1",
+  "summary": "A short description of AnyThink SDK for iOS.",
+  "description": "TopOn SDK for developer",
+  "homepage": "https://github.com/anythinkteam/sdk_ios_cocoapod",
+  "license": {
+    "type": "MIT",
+    "file": "AnyThinkiOS/LICENSE"
+  },
+  "authors": {
+    "topon": "developer@toponad.com"
+  },
+  "source": {
+    "http": "http://topon-sdk-release.oss-cn-hangzhou.aliyuncs.com/SDK_Release/iOS_test/v5.9.95/AnyThinkiOS.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Foundation",
+    "UIKit"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 arm64e armv7 armv7s x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 arm64e armv7 armv7s",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e x86_64"
+  },
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3",
+    "xml2",
+    "resolv"
+  ],
+  "resources": "AnyThinkiOS/LICENSE",
+  "default_subspecs": "AnyThinkSDK",
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "AnyThinkSDK",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "AnyThinkiOS/AnyThink{Banner,Splash,SDK,RewardedVideo,Interstitial,Native}.framework",
+      "resources": "AnyThinkiOS/AnyThinkSDK.bundle"
+    },
+    {
+      "name": "AnyThinkGDTAdapter",
+      "dependencies": {
+        "GDTMobSDK": [
+          "4.13.80"
+        ],
+        "AnyThinkiOS-Beta/AnyThinkSDK": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "AnyThinkiOS/AnyThinkGDTAdapter.framework"
+    },
+    {
+      "name": "AnyThinkAdColonyAdapter",
+      "dependencies": {
+        "AdColony": [
+          "4.9.0"
+        ],
+        "AnyThinkiOS-Beta/AnyThinkSDK": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "AnyThinkiOS/AnyThinkAdColonyAdapter.framework"
+    },
+    {
+      "name": "AnyThinkMyTargetAdapter",
+      "dependencies": {
+        "myTargetSDK": [
+          "5.15.2"
+        ],
+        "AnyThinkiOS-Beta/AnyThinkSDK": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "AnyThinkiOS/AnyThinkMyTargetAdapter.framework"
+    }
+  ],
+  "swift_version": "5.0"
+}
