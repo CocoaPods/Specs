@@ -1,0 +1,121 @@
+{
+  "name": "SYMoyaNetwork",
+  "version": "1.1.2",
+  "summary": "Network abstraction layer based on Moya extension",
+  "description": "Network abstraction layer based on Moya extension. You only need to care about what kind of data you want to get, and implement network data caching with different strategies. You don't need to spend a lot of time doing such work, and obtaining network data will become so simple.",
+  "homepage": "https://github.com/Shannon-Yang/SYMoyaNetwork",
+  "screenshots": "https://raw.githubusercontent.com/Shannon-Yang/SYMoyaNetwork/master/images/logo.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ShannonYang": "shannonyang0805@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Shannon-Yang/SYMoyaNetwork.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.3",
+  "cocoapods_version": ">= 1.4.0",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Core/Utility/",
+        "Sources/Core/SYMoyaURLCache/",
+        "Sources/Core/SYMoyaChainRequestProvider/",
+        "Sources/Core/SYMoyaBatchRequestProvider/",
+        "Sources/Core/SYMoya/",
+        "Sources/Core/String/",
+        "Sources/Core/Response/",
+        "Sources/Core/Log/",
+        "Sources/Core/JSON/",
+        "Sources/Core/Image/",
+        "Sources/Core/Error/",
+        "Sources/Core/Config/",
+        "Sources/Core/Cache/",
+        "Sources/Core/SwiftyJSON/",
+        "Sources/Core/Codable/"
+      ],
+      "dependencies": {
+        "Moya": [
+          "~> 15.0"
+        ],
+        "SwiftyJSON": [
+          "~> 5.0"
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "SYObjectMapper",
+      "source_files": "Sources/ObjectMapper/",
+      "dependencies": {
+        "SYMoyaNetwork/Core": [
+
+        ],
+        "ObjectMapper": [
+          "~> 4.0"
+        ]
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0",
+        "watchos": "3.0"
+      }
+    },
+    {
+      "name": "SYHandyJSON",
+      "source_files": "Sources/HandyJSON/",
+      "dependencies": {
+        "SYMoyaNetwork/Core": [
+
+        ],
+        "HandyJSON": [
+          "~> 5.0.2"
+        ]
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0",
+        "watchos": "3.0"
+      }
+    },
+    {
+      "name": "SYMJExtension",
+      "source_files": "Sources/MJExtension/",
+      "dependencies": {
+        "SYMoyaNetwork/Core": [
+
+        ],
+        "MJExtension": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12",
+        "tvos": "10.0",
+        "watchos": "3.0"
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
