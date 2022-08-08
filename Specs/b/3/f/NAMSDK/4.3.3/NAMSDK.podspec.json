@@ -1,0 +1,126 @@
+{
+  "name": "NAMSDK",
+  "version": "4.3.3",
+  "summary": "Naver Mobile Ads Mediation SDK",
+  "description": "NAM wiil find the best available ad network to fill your ad slots.",
+  "homepage": "https://github.com/naver/nam-sdk-ios",
+  "license": {
+    "type": "Naver",
+    "text": "Copyright 2022 NAVER Corp."
+  },
+  "authors": {
+    "Sanghun.han": "sanghun.han@navercorp.com",
+    "Sodam.kim": "sodam.k@navercorp.com",
+    "Dojin.park": "dojin.park@navercorp.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/naver/nam-sdk-ios",
+    "tag": "4.3.3"
+  },
+  "default_subspecs": "GFPSDK",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "QuartzCore",
+    "AdSupport",
+    "AVFoundation",
+    "AVKit",
+    "MobileCoreServices",
+    "SystemConfiguration",
+    "WebKit",
+    "CoreLocation"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "swift_versions": [
+    "5.0"
+  ],
+  "subspecs": [
+    {
+      "name": "GFPSDK",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDK.xcframework",
+      "dependencies": {
+        "KissXML": [
+          "~> 5.2"
+        ]
+      },
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPSDKResource.bundle"
+      ]
+    },
+    {
+      "name": "GFPSDKInternal",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKInternal.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediationDFP",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationDFP.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "8.12.0"
+        ]
+      }
+    },
+    {
+      "name": "MediationNDA",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationNDA.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ]
+      },
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPNDAMraidResource.bundle",
+        "NAMSDK/ResourceBundle/GFPNDANativeResource.bundle"
+      ]
+    },
+    {
+      "name": "MediationFAN",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationFAN.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "FBAudienceNetwork": [
+          "6.11.2"
+        ]
+      }
+    },
+    {
+      "name": "MediationInMobi",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationInMobi.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "InMobiSDK": [
+          "10.0.1"
+        ]
+      }
+    },
+    {
+      "name": "MediationUnity",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationUnity.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "UnityAds": [
+          "4.2.1"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
