@@ -1,0 +1,157 @@
+{
+  "name": "FYFShare",
+  "version": "0.1.1",
+  "summary": "A short description of FYFShare.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lookingforfanyunfei/FYFShare",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "786452470@qq.com": "fyf786452470@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lookingforfanyunfei/FYFShare.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64e arm64 armv7 armv7s x86_64",
+    "DEFINES_MODULE": "YES"
+  },
+  "swift_versions": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "default_subspecs": [
+    "FYFShareBase"
+  ],
+  "static_framework": true,
+  "frameworks": [
+    "Photos",
+    "ImageIO",
+    "SystemConfiguration",
+    "CoreText",
+    "QuartzCore",
+    "Security",
+    "UIKit",
+    "Foundation",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "FYFShareBase",
+      "source_files": "FYFShare/Classes/Common/*.{h,m}",
+      "public_header_files": "FYFShare/Classes/Common/*.h",
+      "dependencies": {
+        "YYModel": [
+
+        ],
+        "FYFCategory": [
+          "~> 0.1.6"
+        ]
+      }
+    },
+    {
+      "name": "FYFShareUI",
+      "source_files": [
+        "FYFShare/Classes/ShareUI/*.{h,m}",
+        "FYFShare/Classes/Support/ShareUI/*.{h,m}"
+      ],
+      "public_header_files": "FYFShare/Classes/ShareUI/*.h",
+      "resources": "FYFShare/Assets/Share/*.bundle",
+      "dependencies": {
+        "FYFShare/FYFShareBase": [
+
+        ],
+        "FYFTableCollectionMiddleWare": [
+          "~> 0.1.6"
+        ],
+        "FYFDefines": [
+          "~> 0.2.2"
+        ]
+      },
+      "resource_bundles": {
+        "FYFShareUIBundle": "FYFShare/Assets/Share/*"
+      }
+    },
+    {
+      "name": "FYFAuthorizationUI",
+      "source_files": [
+        "FYFShare/Classes/AuthorizationUI/*.{h,m}",
+        "FYFShare/Classes/Support/AuthorizationUI/*.{h,m}"
+      ],
+      "public_header_files": "FYFShare/Classes/AuthorizationUI/*.h",
+      "resources": "FYFShare/Assets/Authorization/*.bundle",
+      "dependencies": {
+        "FYFShare/FYFShareBase": [
+
+        ],
+        "FYFTableCollectionMiddleWare": [
+          "~> 0.1.6"
+        ],
+        "FYFDefines": [
+          "~> 0.2.2"
+        ]
+      },
+      "resource_bundles": {
+        "FYFAuthorizationResource": "FYFShare/Assets/Authorization/*"
+      }
+    },
+    {
+      "name": "FYFShareSDKPlatforms",
+      "subspecs": [
+        {
+          "name": "QQ",
+          "dependencies": {
+            "FYFTencentOpenAPI": [
+              "~> 3.5.11"
+            ],
+            "FYFShare/FYFShareBase": [
+
+            ]
+          },
+          "source_files": "FYFShare/Classes/Support/QQ/*.{h,m}"
+        },
+        {
+          "name": "SinaWeibo",
+          "dependencies": {
+            "FYFLibWeiboSDK": [
+              "~> 3.3.3"
+            ],
+            "FYFShare/FYFShareBase": [
+
+            ]
+          },
+          "source_files": "FYFShare/Classes/Support/WeiBo/*.{h,m}"
+        },
+        {
+          "name": "WeChat",
+          "dependencies": {
+            "FYFOpenSDK": [
+              "~> 1.9.2"
+            ],
+            "FYFShare/FYFShareBase": [
+
+            ]
+          },
+          "source_files": "FYFShare/Classes/Support/WeChat/*.{h,m}"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.5"
+}
