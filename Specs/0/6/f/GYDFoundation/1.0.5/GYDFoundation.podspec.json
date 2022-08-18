@@ -1,0 +1,197 @@
+{
+  "name": "GYDFoundation",
+  "version": "1.0.5",
+  "summary": "GYDFoundation",
+  "description": "平时积累的一些代码，\n也许有用，也许没用。",
+  "homepage": "https://github.com/pkgogai/GYDFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pkgogai": "pkgogai@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pkgogai/GYDFoundation.git",
+    "tag": "1.0.5"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.13"
+  },
+  "ios": {
+    "requires_arc": true,
+    "frameworks": "UIKit"
+  },
+  "default_subspecs": [
+    "GYDFoundation",
+    "GYDDatabase",
+    "GYDHTTPConnect",
+    "GYDJSONObject",
+    "GYDModuleInterface"
+  ],
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/Placeholder/**/*",
+      "testspecs": [
+        {
+          "name": "GYDFoundation",
+          "test_type": "unit",
+          "ios": {
+            "source_files": [
+              "Tests/GYDFoundation/Base/**/*",
+              "Tests/GYDFoundation/iOS/**/*"
+            ]
+          },
+          "osx": {
+            "source_files": [
+              "Tests/GYDFoundation/Base/**/*",
+              "Tests/GYDFoundation/MacOS/**/*"
+            ]
+          }
+        },
+        {
+          "name": "GYDDatabase",
+          "test_type": "unit",
+          "source_files": "Tests/GYDDatabase/**/*"
+        },
+        {
+          "name": "GYDHTTPConnect",
+          "test_type": "unit",
+          "source_files": "Tests/GYDHTTPConnect/**/*"
+        },
+        {
+          "name": "GYDJSONObject",
+          "test_type": "unit",
+          "source_files": "Tests/GYDJSONObject/**/*"
+        }
+      ]
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "GYDFoundation",
+      "ios": {
+        "source_files": [
+          "Code/GYDFoundation/Base/**/*",
+          "Code/GYDFoundation/iOS/**/*"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Code/GYDFoundation/Base/**/*",
+          "Code/GYDFoundation/MacOS/**/*"
+        ]
+      }
+    },
+    {
+      "name": "GYDDatabase",
+      "source_files": "Code/GYDDatabase/**/*",
+      "dependencies": {
+        "FMDB": [
+
+        ],
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_DATABASE=1"
+      }
+    },
+    {
+      "name": "GYDHTTPConnect",
+      "source_files": "Code/GYDHTTPConnect/**/*",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_HTTPCONNECT=1"
+      }
+    },
+    {
+      "name": "GYDJSONObject",
+      "source_files": "Code/GYDJSONObject/**/*",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_JSON_OBJECT=1"
+      }
+    },
+    {
+      "name": "GYDModuleInterface",
+      "source_files": "Code/GYDModuleInterface/**/*",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_USED_MODULE_INTERFACE=1"
+      }
+    },
+    {
+      "name": "GYDShellTools",
+      "osx": {
+        "source_files": "Code/GYDShellTools/**/*"
+      },
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ],
+        "GYDFoundation/GYDDatabase": [
+
+        ],
+        "GYDFoundation/GYDHTTPConnect": [
+
+        ],
+        "GYDFoundation/GYDJSONObject": [
+
+        ],
+        "GYDFoundation/GYDModuleInterface": [
+
+        ]
+      }
+    },
+    {
+      "name": "GYDJSONObjectNonatomic",
+      "dependencies": {
+        "GYDFoundation/GYDJSONObject": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_JSON_OBJECT_ATOMIC=0"
+      }
+    },
+    {
+      "name": "GYDDatabaseNoEscape",
+      "dependencies": {
+        "GYDFoundation/GYDDatabase": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_DATABASE_NEED_ESCAPE=0"
+      }
+    },
+    {
+      "name": "Development",
+      "dependencies": {
+        "GYDFoundation/GYDFoundation": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GYD_FOUNDATION_DEVELOPMENT=1"
+      }
+    }
+  ]
+}
