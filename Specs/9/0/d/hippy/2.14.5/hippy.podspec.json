@@ -1,0 +1,39 @@
+{
+  "name": "hippy",
+  "version": "2.14.5",
+  "summary": "Hippy Cross Platform Framework",
+  "description": "Hippy is designed for developers to easily build cross-platform and high-performance awesome apps.",
+  "homepage": "https://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": "OpenHippy Team",
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "2.14.5"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ios/sdk/**/*.{h,m,c,mm,s,cpp,cc}",
+  "public_header_files": "ios/sdk/**/*.h",
+  "default_subspecs": "core",
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "core/**/*.{h,cc}",
+      "public_header_files": "core/include/**/*.h",
+      "exclude_files": [
+        "core/include/core/napi/v8",
+        "core/src/napi/v8",
+        "core/js",
+        "core/third_party/base/src/platform/adr"
+      ],
+      "libraries": "c++",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/core/third_party/base/include/ ${PODS_ROOT}/hippy/core/include/"
+      }
+    }
+  ]
+}
