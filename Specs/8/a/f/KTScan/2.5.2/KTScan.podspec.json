@@ -1,0 +1,103 @@
+{
+  "name": "KTScan",
+  "version": "2.5.2",
+  "summary": "ios scan wrapper, fork from LBXScan",
+  "homepage": "https://github.com/yjling2019/LBXScan",
+  "license": "MIT",
+  "authors": {
+    "lbxia": "yjling2019@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/yjling2019/LBXScan.git",
+    "tag": "2.5.2"
+  },
+  "requires_arc": true,
+  "prefix_header_contents": "#import <Foundation/Foundation.h>",
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": "LBXScan/*.{h,m}"
+    },
+    {
+      "name": "All",
+      "source_files": [
+        "LBXScan/LBXNative/*.{h,m}",
+        "LBXScan/LBXZXing/**/*.{h,m}",
+        "LBXScan/UI/*.{h,m}"
+      ],
+      "libraries": [
+        "iconv",
+        "z"
+      ],
+      "resources": "LBXScan/UI/CodeScan.bundle",
+      "dependencies": {
+        "KTScan/Types": [
+          "~> 2.2"
+        ]
+      },
+      "ios": {
+        "frameworks": [
+          "AVFoundation",
+          "CoreGraphics",
+          "CoreMedia",
+          "CoreVideo",
+          "ImageIO",
+          "QuartzCore"
+        ]
+      },
+      "prefix_header_contents": [
+        "#import \"LBXScanNative.h\"",
+        "#import \"ZXingWrapper.h\"",
+        "#import \"LBXScanView.h\""
+      ]
+    },
+    {
+      "name": "LBXNative",
+      "source_files": "LBXScan/LBXNative/*.{h,m}",
+      "ios": {
+        "frameworks": "AVFoundation"
+      },
+      "prefix_header_contents": "#import \"LBXScanNative.h\"",
+      "dependencies": {
+        "KTScan/Types": [
+          "~> 2.2"
+        ]
+      }
+    },
+    {
+      "name": "LBXZXing",
+      "source_files": "LBXScan/LBXZXing/**/*.{h,m}",
+      "ios": {
+        "frameworks": [
+          "AVFoundation",
+          "CoreGraphics",
+          "CoreMedia",
+          "CoreVideo",
+          "ImageIO",
+          "QuartzCore"
+        ]
+      },
+      "prefix_header_contents": "#import \"ZXingWrapper.h\"",
+      "dependencies": {
+        "KTScan/Types": [
+          "~> 2.2"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "source_files": "LBXScan/UI/*.{h,m}",
+      "resources": "LBXScan/UI/CodeScan.bundle",
+      "prefix_header_contents": "#import \"LBXScanView.h\"",
+      "dependencies": {
+        "KTScan/Types": [
+          "~> 2.2"
+        ]
+      }
+    }
+  ]
+}
