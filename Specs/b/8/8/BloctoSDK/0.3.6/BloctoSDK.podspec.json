@@ -1,0 +1,93 @@
+{
+  "name": "BloctoSDK",
+  "version": "0.3.6",
+  "summary": "A SDK to interact with Blockchain through Blocto Wallet App.",
+  "homepage": "https://github.com/portto/blocto-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dawson": "dawson@portto.com",
+    "Scott": "scott@portto.com"
+  },
+  "source": {
+    "git": "https://github.com/portto/blocto-ios-sdk.git",
+    "tag": "0.3.6"
+  },
+  "default_subspecs": "Core",
+  "social_media_url": "https://twitter.com/BloctoApp",
+  "swift_versions": "5.0.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Solana",
+      "source_files": "Sources/Solana/**/*",
+      "dependencies": {
+        "BloctoSDK/Core": [
+
+        ],
+        "SolanaWeb3": [
+          "~> 0.0.4"
+        ]
+      }
+    },
+    {
+      "name": "EVMBase",
+      "source_files": "Sources/EVMBase/**/*",
+      "dependencies": {
+        "BloctoSDK/Core": [
+          "~> 0.3.6"
+        ],
+        "BigInt": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "Flow",
+      "source_files": "Sources/Flow/**/*",
+      "dependencies": {
+        "BloctoSDK/Core": [
+          "~> 0.3.6"
+        ],
+        "FlowSDK": [
+          "~> 0.4.0"
+        ]
+      }
+    },
+    {
+      "name": "Wallet",
+      "source_files": [
+        "Sources/Wallet/**/*",
+        "Sources/Solana/Models/SolanaMethodType.swift",
+        "Sources/Solana/Models/SolanaMethodContentType.swift",
+        "Sources/Solana/Models/SolanaTransactionInfo.swift",
+        "Sources/EVMBase/Models/EVMBaseMethodType.swift",
+        "Sources/EVMBase/Models/EVMBaseMethodContentType.swift",
+        "Sources/EVMBase/Models/EVMBaseTransaction.swift",
+        "Sources/EVMBase/Models/SignType.swift",
+        "Sources/Flow/Models/**/*"
+      ],
+      "dependencies": {
+        "BloctoSDK/Core": [
+          "~> 0.3.6"
+        ],
+        "BigInt": [
+          "~> 5.0"
+        ],
+        "FlowSDK": [
+          "~> 0.4.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0.0"
+}
