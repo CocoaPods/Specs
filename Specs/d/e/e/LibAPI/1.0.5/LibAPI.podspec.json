@@ -1,0 +1,59 @@
+{
+  "name": "LibAPI",
+  "version": "1.0.5",
+  "license": {
+    "type": "GPLv3",
+    "file": "License.md"
+  },
+  "homepage": "https://github.com/MatrixSenpai/libapi.git",
+  "authors": {
+    "Mason Phillips": "math.matrix@icloud.com"
+  },
+  "summary": "A base package for writing simple HTTP REST-compatible libraries",
+  "source": {
+    "git": "https://github.com/MatrixSenpai/libapi.git",
+    "tag": "1.0.5"
+  },
+  "module_name": "libapi",
+  "swift_versions": "5.3",
+  "platforms": {
+    "ios": "14.0",
+    "osx": "11.0",
+    "watchos": "6.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "LibAPI+RxSwift"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/libapi/**/*.swift",
+      "exclude_files": "Sources/libapi+rxswift/**"
+    },
+    {
+      "name": "LibAPI+RxSwift",
+      "dependencies": {
+        "LibAPI/Core": [
+          "1.0.5"
+        ],
+        "RxSwift": [
+          "~> 6.5.0"
+        ]
+      },
+      "source_files": "Sources/libapi+rxswift/**/*.swift",
+      "exclude_files": "Sources/libapi/**"
+    },
+    {
+      "name": "LibAPI+Combine",
+      "dependencies": {
+        "LibAPI/Core": [
+          "1.0.5"
+        ]
+      },
+      "source_files": "Sources/libapi+combine/**/*.swift",
+      "exclude_files": "Sources/libapi/**"
+    }
+  ],
+  "swift_version": "5.3"
+}
