@@ -1,0 +1,72 @@
+{
+  "name": "TjekSDK",
+  "version": "5.0.3",
+  "summary": "Tjek SDK for iOS.",
+  "description": "An SDK that makes it easy to talk to the Tjek API.\nAlso allows you to easily embed an interactive publication view into your own iOS app.",
+  "homepage": "https://github.com/tjek/tjek-swift-sdk",
+  "license": "MIT",
+  "authors": "Tjek",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0.1",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "source": {
+    "git": "https://github.com/tjek/tjek-swift-sdk.git",
+    "tag": "v5.0.3"
+  },
+  "subspecs": [
+    {
+      "name": "API",
+      "source_files": [
+        "Sources/TjekAPI/**/*.swift",
+        "Sources/TjekUtils/**/*.swift",
+        "Sources/TjekEventsTracker/**/*.swift",
+        "Sources/TjekSDK/**/*.swift"
+      ],
+      "frameworks": [
+        "Foundation",
+        "CoreLocation"
+      ],
+      "dependencies": {
+        "Tjek-Future": [
+          "~> 0.5"
+        ],
+        "Valet": [
+          "~> 4.1.1"
+        ]
+      }
+    },
+    {
+      "name": "PublicationViewer",
+      "dependencies": {
+        "TjekSDK/API": [
+
+        ],
+        "Incito": [
+          "~> 1.0"
+        ],
+        "Tjek-Future": [
+          "~> 0.5"
+        ],
+        "Verso": [
+          "~> 1.0"
+        ],
+        "Kingfisher": [
+          "~> 7.0"
+        ]
+      },
+      "source_files": "Sources/TjekPublicationViewer/**/*.swift",
+      "resources": [
+        "Sources/TjekPublicationViewer/PagedPublication/Resources/**/*"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    }
+  ],
+  "swift_version": "5.0.1"
+}
