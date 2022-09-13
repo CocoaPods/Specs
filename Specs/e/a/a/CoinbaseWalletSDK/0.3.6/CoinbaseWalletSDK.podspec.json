@@ -1,0 +1,49 @@
+{
+  "name": "CoinbaseWalletSDK",
+  "version": "0.3.6",
+  "summary": "Swift implementation of WalletSegue protocol to interact with Coinbase Wallet iOS app",
+  "source": {
+    "git": "https://github.com/coinbase/wallet-mobile-sdk.git",
+    "tag": "0.3.6"
+  },
+  "authors": "Coinbase Wallet",
+  "social_media_url": "https://twitter.com/CoinbaseWallet",
+  "homepage": "https://github.com/coinbase/wallet-mobile-sdk",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "Client",
+  "subspecs": [
+    {
+      "name": "Client",
+      "source_files": "ios/CoinbaseWalletSDK/**/*.swift",
+      "exclude_files": "ios/CoinbaseWalletSDK/Host/**/*.swift"
+    },
+    {
+      "name": "Host",
+      "dependencies": {
+        "CoinbaseWalletSDK/Client": [
+
+        ]
+      },
+      "source_files": "ios/CoinbaseWalletSDK/Host/**/*.swift"
+    },
+    {
+      "name": "CrossPlatform",
+      "dependencies": {
+        "CoinbaseWalletSDK/Client": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DCROSS_PLATFORM"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
