@@ -1,0 +1,105 @@
+{
+  "name": "SQLiteORM",
+  "version": "0.1.5",
+  "summary": "The swift version of VVSequelize.",
+  "description": "The swift version of VVSequelize.",
+  "homepage": "https://github.com/pozi119/SQLiteORM",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Valo Lee": "pozi119@163.com"
+  },
+  "source": {
+    "git": "https://github.com/pozi119/SQLiteORM.git",
+    "tag": "0.1.5"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0",
+    "osx": "10.12",
+    "watchos": "3.0"
+  },
+  "default_subspecs": "cipher",
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "system",
+      "dependencies": {
+        "SQLiteORM/core": [
+
+        ],
+        "SQLiteORM/fts": [
+
+        ],
+        "SQLiteORM/util": [
+
+        ]
+      },
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "cipher",
+      "dependencies": {
+        "SQLiteORM/core": [
+
+        ],
+        "SQLiteORM/fts": [
+
+        ],
+        "SQLiteORM/util": [
+
+        ],
+        "SQLCipher": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D SQLITE_HAS_CODEC -D SQLITE_ENABLE_FTS5",
+        "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS5",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1 SQLITE_ENABLE_FTS5=1",
+        "HEADER_SEARCH_PATHS": "{PODS_ROOT}/SQLCipher"
+      }
+    },
+    {
+      "name": "core",
+      "source_files": "SQLiteORM/Core/**/*",
+      "dependencies": {
+        "AnyCoder": [
+          "~> 0.1.1-beta1"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_VERSION": "5.0"
+      }
+    },
+    {
+      "name": "fts",
+      "source_files": "SQLiteORM/FTS/**/*",
+      "public_header_files": "SQLiteORM/FTS/**/*.h",
+      "resources": [
+        "SQLiteORM/Assets/PinYin.bundle"
+      ],
+      "dependencies": {
+        "SQLiteORM/core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_VERSION": "5.0",
+        "OTHER_SWIFT_FLAGS": "-D SQLITEORM_FTS",
+        "OTHER_CFLAGS": "-DSQLITEORM_FTS",
+        "GCC_PREPROCESSOR_DEFINITIONS": "SQLITEORM_FTS=1"
+      }
+    },
+    {
+      "name": "util",
+      "source_files": "SQLiteORM/Util/**/*",
+      "pod_target_xcconfig": {
+        "SWIFT_VERSION": "5.0"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
