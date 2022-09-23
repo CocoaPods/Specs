@@ -1,0 +1,75 @@
+{
+  "name": "DIY_UniMPSDK",
+  "version": "3.4.18.1",
+  "summary": "DIY_UniMPSDK 将官方小程序 UniMPSDK_iOS@3.4.18 制作成 cocoaPods 仓库",
+  "description": "将官方小程序 UniMPSDK (iOS 版本) 制作成 cocaoPods 仓库 \n通过 pod install 形式,进行一键集成 (更方便,开发更友好) \n(官方的 UniMPSDK 是手动依赖的,集成不够友好灵活) \n官方 UniMPSDK 地址: https://nativesupport.dcloud.net.cn/UniMPDocs/UseSdk/ios",
+  "homepage": "https://gitee.com/Qiujunjie/diy_uni-mpsdk",
+  "license": "MIT",
+  "authors": {
+    "qiujun": "1359702808@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/Qiujunjie/diy_uni-mpsdk.git",
+    "tag": "3.4.18.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "JavaScriptCore",
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "QuickLook",
+    "CoreTelephony",
+    "AssetsLibrary",
+    "CoreLocation",
+    "AddressBook"
+  ],
+  "libraries": [
+    "c++",
+    "iconv"
+  ],
+  "default_subspecs": "Core",
+  "resources": [
+    "Core/Resources/*.js",
+    "Core/Resources/*.ttf",
+    "Core/Resources/*.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "Core/Libs/*.a",
+          "vendored_frameworks": "Core/Libs/*.framework"
+        }
+      ]
+    }
+  ]
+}
