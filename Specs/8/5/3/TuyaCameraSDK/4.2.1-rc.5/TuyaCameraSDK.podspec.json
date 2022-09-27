@@ -1,0 +1,80 @@
+{
+  "name": "TuyaCameraSDK",
+  "version": "4.2.1-rc.5",
+  "summary": "open SDK code for tuya smart camera.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://developer.tuya.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tuya": "developer@tuya.com"
+  },
+  "source": {
+    "http": "https://images.tuyacn.com/smart/app/package/developer/sdk/1664283312-TuyaCameraSDK-4.2.1-rc.5.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "exclude_files": [
+    "TuyaCameraSDK/**/Android/*.*",
+    "TuyaCameraSDK/DataStatistic/{TYMediaCodecStatistic}.*",
+    "TuyaCameraSDK/Mp4Recorder/{TYMediaFormatWrapper,TYMediaMuxerWrapper,TYMediaMuxerWriter,TYMp4RecorderCAPI}.*",
+    "TuyaCameraSDK/Utils/rapidjson/msinttypes/*.*"
+  ],
+  "ios": {
+  },
+  "dependencies": {
+    "TuyaP2PSDK": [
+
+    ],
+    "TuyaFFmpegWrapper": [
+
+    ],
+    "TuyaVideoCodecSDK": [
+
+    ],
+    "TuyaAudioEngineSDK": [
+
+    ],
+    "TuyaAvLoggerSDK": [
+
+    ]
+  },
+  "libraries": [
+    "c++",
+    "z",
+    "iconv",
+    "bz2",
+    "resolv"
+  ],
+  "frameworks": [
+    "Foundation",
+    "AVFoundation",
+    "Foundation",
+    "CoreAudio",
+    "CoreMedia",
+    "CoreVideo",
+    "VideoToolbox",
+    "AudioToolbox"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_CFLAGS": "-DLINUX",
+    "OTHER_LDFLAGS": "-read_only_relocs suppress",
+    "GCC_PREPROCESSOR_DEFINITIONS": "WEBRTC_POSIX __STDC_CONSTANT_MACROS $(inherited)",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/ffmpeg $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libyuv/libyuv $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libyuv $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/libcurl $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/tuyap2p $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/ppcs $(PODS_TARGET_SRCROOT)/TuyaCameraSDK/ThirdPartLibrary/openH264",
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "vendored_frameworks": [
+    "Build/TuyaCameraSDK.xcframework"
+  ],
+  "source_files": [
+    "Build/TuyaCameraSDK.xcframework/ios-arm64_armv7/TuyaCameraSDK.framework/Headers/*"
+  ]
+}
