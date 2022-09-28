@@ -1,0 +1,286 @@
+{
+  "name": "BURelyFoundation",
+  "version": "0.0.3.13",
+  "license": "MIT",
+  "summary": "BURelyFoundation is the basic library for byte ads",
+  "description": "BURelyFoundation is the basic library for byte ads",
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "authors": {
+    "zhangtianhao": "zhangtianhao.1230@bytedance.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/0.0.3.13/Frameworks.zip"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreFoundation",
+    "WebKit",
+    "StoreKit",
+    "CoreServices",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "Security",
+    "AudioToolbox"
+  ],
+  "weak_frameworks": "AppTrackingTransparency",
+  "libraries": [
+    "z",
+    "bz2",
+    "resolv.9",
+    "c++",
+    "sqlite3",
+    "xml2",
+    "c++abi",
+    "iconv"
+  ],
+  "requires_arc": true,
+  "script_phases": [
+    {
+      "name": "Check dependency",
+      "script": "sh -c \"$(curl -fsSL https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/CheckRely/0.0.1.47/check_dependency.sh)\"",
+      "execution_position": "before_compile"
+    }
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++11",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "-ObjC",
+    "COMPILER_INDEX_STORE_ENABLE": "NO",
+    "LLVM_LTO[config=Debug][sdk=*][arch=*]": "NO",
+    "LLVM_LTO[config=Release][sdk=*][arch=*]": "YES_THIN",
+    "GCC_OPTIMIZATION_LEVEL[config=Debug][sdk=*][arch=*]": "0",
+    "GCC_OPTIMIZATION_LEVEL[config=Release][sdk=*][arch=*]": "z",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_INTTYPES_H HAVE_PKCRYPT HAVE_STDINT_H HAVE_WZAES HAVE_ZLIB",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "OTHER_CPLUSPLUSFLAGS": [
+      "-fno-c++-static-destructors",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables"
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": [
+    "GM"
+  ],
+  "subspecs": [
+    {
+      "name": "GM",
+      "dependencies": {
+        "BURelyFoundation/HM": [
+
+        ],
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJ",
+      "dependencies": {
+        "BURelyFoundation/HM": [
+
+        ],
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/Zip": [
+
+        ],
+        "BURelyFoundation/Gecko": [
+
+        ],
+        "BURelyFoundation/SDWebImage": [
+
+        ],
+        "BURelyFoundation/YYModel": [
+
+        ],
+        "BURelyFoundation/ZFPlayer": [
+
+        ],
+        "BURelyFoundation/Foundation": [
+
+        ],
+        "BURelyFoundation/AFNetworking": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Pangle",
+      "dependencies": {
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/Zip": [
+
+        ],
+        "BURelyFoundation/Gecko": [
+
+        ],
+        "BURelyFoundation/SDWebImage": [
+
+        ],
+        "BURelyFoundation/YYModel": [
+
+        ],
+        "BURelyFoundation/ZFPlayer": [
+
+        ],
+        "BURelyFoundation/Foundation": [
+
+        ],
+        "BURelyFoundation/AFNetworking": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoIdfa",
+      "dependencies": {
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/Zip": [
+
+        ],
+        "BURelyFoundation/Gecko": [
+
+        ],
+        "BURelyFoundation/SDWebImage": [
+
+        ],
+        "BURelyFoundation/YYModel": [
+
+        ],
+        "BURelyFoundation/ZFPlayer": [
+
+        ],
+        "BURelyFoundation/Foundation": [
+
+        ],
+        "BURelyFoundation/AFNetworking": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Foundation",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationFoundation/libBURelyFoundationFoundation.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationFoundation/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationFoundation/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/NETWork": [
+
+        ]
+      }
+    },
+    {
+      "name": "NETWork",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationNETWork/libBURelyFoundationNETWork.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationNETWork/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationNETWork/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/AFNetworking": [
+
+        ]
+      }
+    },
+    {
+      "name": "Zip",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationZip/libBURelyFoundationZip.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationZip/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationZip/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Gecko",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationGecko/libBURelyFoundationGecko.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationGecko/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationGecko/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationSDWebImage/libBURelyFoundationSDWebImage.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationSDWebImage/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationSDWebImage/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "YYModel",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationYYModel/libBURelyFoundationYYModel.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationYYModel/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationYYModel/Headers/*.h"
+    },
+    {
+      "name": "ZFPlayer",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationZFPlayer/libBURelyFoundationZFPlayer.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationZFPlayer/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationZFPlayer/Headers/*.h",
+      "dependencies": {
+        "BURelyFoundation/Foundation": [
+
+        ],
+        "BURelyFoundation/Zip": [
+
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationAFN/libBURelyFoundationAFN.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationAFN/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationAFN/Headers/*.h"
+    },
+    {
+      "name": "HM",
+      "vendored_libraries": "Frameworks/SDK/HM/libHM.a"
+    },
+    {
+      "name": "BURelyFoundation",
+      "vendored_libraries": "Frameworks/SDK/BURelyFoundationHeader/libBURelyFoundationHeader.a",
+      "source_files": "Frameworks/SDK/BURelyFoundationHeader/Headers/*.{h}",
+      "public_header_files": "Frameworks/SDK/BURelyFoundationHeader/Headers/*.h"
+    }
+  ]
+}
