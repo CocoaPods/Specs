@@ -1,0 +1,235 @@
+{
+  "name": "mobilePaymentSDK",
+  "version": "1.0.0",
+  "summary": "Getneteurope paymentSDK - online payments",
+  "description": "The library allows online payments processing.\nSupported payment methods:\n- Card payments (Mastercard, Visa, American Express)\n- PayPal payments\n- SEPA processing\n- POI/PIA Wire Transfer\n- AliPay Cross-border WAP\n- P24 payments\nFully integrated with licensed GetNetEurope Payment infrastructure.",
+  "homepage": "https://github.com/getneteurope/mobilePaymentSDK-iOS",
+  "documentation_url": "https://docs.getneteurope.com/_mobile_payment_sdk.html#_ios_sdk",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Get Net Europe": "connect@getneteurope.com"
+  },
+  "source": {
+    "git": "https://github.com/getneteurope/mobilePaymentSDK-iOS.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": [
+    "All",
+    "CardScannerGallery"
+  ],
+  "subspecs": [
+    {
+      "name": "All",
+      "dependencies": {
+        "mobilePaymentSDK/Card": [
+
+        ],
+        "mobilePaymentSDK/PayPal": [
+
+        ],
+        "mobilePaymentSDK/SEPA": [
+
+        ],
+        "mobilePaymentSDK/WireTransfer": [
+
+        ],
+        "mobilePaymentSDK/Alipay": [
+
+        ],
+        "mobilePaymentSDK/P24": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "eCom/SDKPayeCom.framework",
+      "resources": "eCom/SDKPayeCom.framework/SDKPayeCom.bundle",
+      "dependencies": {
+        "AFNetworking": [
+          "~> 4.0.1"
+        ],
+        "CocoaLumberjack": [
+          "~> 3.6.1"
+        ],
+        "Mantle": [
+          "~> 2.1.1"
+        ],
+        "libextobjc/EXTScope": [
+          "~> 0.6.0"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "Lockbox": [
+            "~> 3.0.6"
+          ],
+          "MBProgressHUD": [
+            "~> 1.2.0"
+          ],
+          "TPKeyboardAvoiding": [
+            "~> 1.3.3"
+          ]
+        },
+        "frameworks": [
+          "Foundation",
+          "UIKit",
+          "Security"
+        ]
+      },
+      "libraries": "xml2"
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "eCom/SDKPayeComAlipay.framework",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreCard",
+      "vendored_frameworks": "eCom/SDKPayeComCoreCard.framework",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Card",
+      "vendored_frameworks": "eCom/SDKPayeComCard.framework",
+      "resources": "eCom/SDKPayeComCard.framework/SDKPayeComCard.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/CoreCard": [
+
+        ]
+      }
+    },
+    {
+      "name": "PhotoGallery",
+      "vendored_frameworks": "eCom/SDKPayeComPhotoGallery.framework",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Scanner",
+      "vendored_frameworks": "eCom/SDKPayeComScanner.framework",
+      "resources": "eCom/SDKPayeComScanner.framework/SDKPayeComScanner.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/Card": [
+
+        ],
+        "GoogleMLKit/TextRecognition": [
+
+        ]
+      }
+    },
+    {
+      "name": "CardScanner",
+      "vendored_frameworks": "eCom/SDKPayeComCardScanner.framework",
+      "resources": "eCom/SDKPayeComCardScanner.framework/SDKPayeComCardScanner.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/Scanner": [
+
+        ]
+      }
+    },
+    {
+      "name": "CardScannerGallery",
+      "vendored_frameworks": "eCom/SDKPayeComCardScannerGallery.framework",
+      "resources": "eCom/SDKPayeComCardScannerGallery.framework/SDKPayeComCardScannerGallery.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/CardScanner": [
+
+        ],
+        "mobilePaymentSDK/PhotoGallery": [
+
+        ]
+      }
+    },
+    {
+      "name": "P24",
+      "vendored_frameworks": "eCom/SDKPayeComP24.framework",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PayPal",
+      "vendored_frameworks": "eCom/SDKPayeComPayPal.framework",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "SEPA",
+      "vendored_frameworks": "eCom/SDKPayeComSEPA.framework",
+      "resources": "eCom/SDKPayeComSEPA.framework/SDKPayeComSEPA.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ],
+        "IBAN": [
+          "~> 1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "IBANScanner",
+      "vendored_frameworks": "eCom/SDKPayeComIBANScanner.framework",
+      "resources": "eCom/SDKPayeComIBANScanner.framework/SDKPayeComIBANScanner.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/SEPA": [
+
+        ],
+        "mobilePaymentSDK/Scanner": [
+
+        ]
+      }
+    },
+    {
+      "name": "IBANScannerGallery",
+      "vendored_frameworks": "eCom/SDKPayeComIBANScannerGallery.framework",
+      "resources": "eCom/SDKPayeComIBANScannerGallery.framework/SDKPayeComIBANScannerGallery.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/IBANScanner": [
+
+        ],
+        "mobilePaymentSDK/PhotoGallery": [
+
+        ]
+      }
+    },
+    {
+      "name": "WireTransfer",
+      "vendored_frameworks": "eCom/SDKPayeComWireTransfer.framework",
+      "resources": "eCom/SDKPayeComWireTransfer.framework/SDKPayeComWireTransfer.bundle",
+      "dependencies": {
+        "mobilePaymentSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
