@@ -1,0 +1,139 @@
+{
+  "name": "CYBaseKit",
+  "version": "0.3.0",
+  "summary": "A short description of CYBaseKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/zfr-project/cybase-kit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "122674287@qq.com": "122674287@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/zfr-project/cybase-kit.git",
+    "tag": "0.3.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "CYBaseKit/CYBaseKit.h",
+  "subspecs": [
+    {
+      "name": "Classes",
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "CYBaseKit/Classes/Category/*.{h,m}",
+          "dependencies": {
+            "CYBaseKit/Classes/Commons": [
+
+            ]
+          }
+        },
+        {
+          "name": "Commons",
+          "source_files": "CYBaseKit/Classes/Commons/*.{h,m}",
+          "pod_target_xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS[config=Debug]": "CY_BASE_KIT_DEBUG=1"
+          }
+        },
+        {
+          "name": "Tools",
+          "source_files": "CYBaseKit/Classes/Tools/*.{h,m}"
+        },
+        {
+          "name": "Model",
+          "source_files": "CYBaseKit/Classes/Model/*.{h,m}",
+          "dependencies": {
+            "MJExtension": [
+
+            ]
+          }
+        },
+        {
+          "name": "View",
+          "source_files": "CYBaseKit/Classes/View/*.{h,m}"
+        },
+        {
+          "name": "ViewController",
+          "source_files": "CYBaseKit/Classes/ViewController/*.{h,m}",
+          "dependencies": {
+            "CYBaseKit/Classes/Category": [
+
+            ],
+            "CYBaseKit/Classes/Tools": [
+
+            ],
+            "CYBaseKit/Classes/Commons": [
+
+            ],
+            "Masonry": [
+
+            ],
+            "FDFullscreenPopGesture": [
+
+            ]
+          }
+        },
+        {
+          "name": "Modules",
+          "subspecs": [
+            {
+              "name": "Refresh",
+              "source_files": "CYBaseKit/Classes/Modules/Refresh/**/*.{h,m}",
+              "dependencies": {
+                "CYBaseKit/Classes/Tools": [
+
+                ],
+                "MJRefresh": [
+
+                ]
+              }
+            },
+            {
+              "name": "CYHUD",
+              "source_files": "CYBaseKit/Classes/Modules/CYHUD/**/*.{h,m}",
+              "dependencies": {
+                "SVProgressHUD": [
+
+                ]
+              }
+            },
+            {
+              "name": "CYEmptyView",
+              "source_files": "CYBaseKit/Classes/Modules/CYEmptyView/**/*.{h,m}",
+              "dependencies": {
+                "CYBaseKit/Classes/Tools": [
+
+                ],
+                "LYEmptyView": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Assets",
+      "subspecs": [
+        {
+          "name": "Images",
+          "resource_bundles": {
+            "Images": [
+              "CYBaseKit/Assets/Images/*.png"
+            ]
+          },
+          "pod_target_xcconfig": {
+            "EXPANDED_CODE_SIGN_IDENTITY": "",
+            "CODE_SIGNING_REQUIRED": "NO",
+            "CODE_SIGNING_ALLOWED": "NO"
+          }
+        }
+      ]
+    }
+  ]
+}
