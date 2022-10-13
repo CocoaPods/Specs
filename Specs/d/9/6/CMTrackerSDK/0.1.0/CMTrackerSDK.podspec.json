@@ -1,0 +1,231 @@
+{
+  "name": "CMTrackerSDK",
+  "version": "0.1.0",
+  "summary": "A short description of CMTrackerSDK.",
+  "description": "Add long description of the pod here.",
+  "homepage": "http://172.21.48.2:8000/zrgj-pengpeng/iostrackersdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pengpeng": "pengpeng075@chinasoftinc.com"
+  },
+  "source": {
+    "git": "http://172.21.48.2:8000/zrgj-pengpeng/iostrackersdk.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "__Store",
+      "source_files": "CMTrackerSDK/Store/*.{h,m}",
+      "public_header_files": [
+        "CMTrackerSDK/Store/SABaseStoreManager.h",
+        "CMTrackerSDK/Store/SAStorePlugin.h",
+        "CMTrackerSDK/Store/SAAESStorePlugin.h"
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "CMTrackerSDK/Core/**/*.{h,m}",
+      "exclude_files": [
+        "CMTrackerSDK/Core/SAAlertController.h",
+        "CMTrackerSDK/Core/SAAlertController.m"
+      ],
+      "public_header_files": [
+        "CMTrackerSDK/Core/SensorsAnalyticsSDK.h",
+        "CMTrackerSDK/Core/SensorsAnalyticsSDK+Public.h",
+        "CMTrackerSDK/Core/SASecurityPolicy.h",
+        "CMTrackerSDK/Core/SAConfigOptions.h",
+        "CMTrackerSDK/Core/SAConstants.h",
+        "CMTrackerSDK/Core/PropertyPlugin/SAPropertyPlugin.h"
+      ],
+      "resources": "CMTrackerSDK/SensorsAnalyticsSDK.bundle",
+      "ios": {
+        "frameworks": "CoreTelephony"
+      },
+      "dependencies": {
+        "CMTrackerSDK/__Store": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "dependencies": {
+        "CMTrackerSDK/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "dependencies": {
+        "CMTrackerSDK/Extension": [
+
+        ]
+      },
+      "public_header_files": "CMTrackerSDK/JSBridge/SensorsAnalyticsSDK+JavaScriptBridge.h",
+      "source_files": [
+        "CMTrackerSDK/Core/SAAlertController.{h,m}",
+        "CMTrackerSDK/JSBridge/**/*.{h,m}"
+      ],
+      "ios": {
+        "source_files": [
+          "CMTrackerSDK/RemoteConfig/**/*.{h,m}",
+          "CMTrackerSDK/ChannelMatch/**/*.{h,m}",
+          "CMTrackerSDK/Encrypt/**/*.{h,m}",
+          "CMTrackerSDK/Deeplink/**/*.{h,m}",
+          "CMTrackerSDK/DebugMode/**/*.{h,m}",
+          "CMTrackerSDK/Core/SAAlertController.h"
+        ],
+        "public_header_files": [
+          "CMTrackerSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,SensorsAnalyticsSDK}+*.h",
+          "CMTrackerSDK/Encrypt/SAEncryptProtocol.h",
+          "CMTrackerSDK/Encrypt/SASecretKey.h",
+          "CMTrackerSDK/Deeplink/SASlinkCreator.h"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "CMTrackerSDK/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "CMTrackerSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/Common": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "CMTrackerSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h",
+        "CMTrackerSDK/AutoTrack/SAConfigOptions+AutoTrack.h"
+      ],
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/Visualized/**/*.{h,m}",
+      "public_header_files": [
+        "CMTrackerSDK/Visualized/SensorsAnalyticsSDK+Visualized.h",
+        "CMTrackerSDK/Visualized/SAConfigOptions+Visualized.h"
+      ]
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "CMTrackerSDK/Core": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/Location/**/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/Location/SensorsAnalyticsSDK+Location.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/Core": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/DeviceOrientation/**/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/DeviceOrientation/SensorsAnalyticsSDK+DeviceOrientation.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/Core": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/AppPush/**/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/AppPush/SAConfigOptions+AppPush.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/Common": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/Exception/**/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/Exception/SAConfigOptions+Exception.h"
+    },
+    {
+      "name": "WKWebView",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CMTrackerSDK/Core": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/WKWebView/**/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h"
+    },
+    {
+      "name": "ApplicationExtension",
+      "dependencies": {
+        "CMTrackerSDK/Extension": [
+
+        ]
+      },
+      "source_files": "CMTrackerSDK/AppExtension/*.{h,m}",
+      "public_header_files": "CMTrackerSDK/AppExtension/SensorsAnalyticsSDK+SAAppExtension.h"
+    }
+  ]
+}
