@@ -1,0 +1,53 @@
+{
+  "name": "JMNYTPhotoViewer",
+  "version": "5.0.5",
+  "description": "We just fixed some things to serve us, go to NYTPhotoViewer if you need to use the original!!!\nNYTPhotoViewer is a slideshow and image viewer that includes double tap to zoom, captions, support for multiple images, interactive flick to dismiss, animated zooming presentation, and more.",
+  "summary": "NYTPhotoViewer is a slideshow and image viewer that includes double tap to zoom, flick to dismiss, animated presentation, and more.",
+  "homepage": "git@gitlab.jmango360.com:native-module/NYTPhotoViewer.git",
+  "authors": "The New York Times",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "source": {
+    "git": "git@gitlab.jmango360.com:native-module/NYTPhotoViewer.git",
+    "branch": "develop"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "resource_bundles": {
+          "JMNYTPhotoViewer": [
+            "JMNYTPhotoViewer/Media.xcassets"
+          ]
+        }
+      },
+      "source_files": "JMNYTPhotoViewer/**/*.{h,m,swift}",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ]
+    },
+    {
+      "name": "AnimatedGifSupport",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ANIMATED_GIF_SUPPORT=1"
+      },
+      "dependencies": {
+        "JMNYTPhotoViewer/Core": [
+
+        ],
+        "PINRemoteImage/iOS": [
+
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ]
+      }
+    }
+  ]
+}
