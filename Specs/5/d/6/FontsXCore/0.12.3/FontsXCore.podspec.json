@@ -1,0 +1,164 @@
+{
+  "name": "FontsXCore",
+  "version": "0.12.3",
+  "summary": "Core library for analytics implementation.",
+  "description": "Core library easy analytics implementation for some Nogamelabs projects.",
+  "homepage": "https://bitbucket.org/idanogamelabs/fonts-core/src/master/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Dmitry Yaskel": "dmitry.yaskel@nogamelabs.com"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "source": {
+    "git": "git@bitbucket.org:idanogamelabs/fonts-core.git",
+    "tag": "0.12.3"
+  },
+  "static_framework": true,
+  "source_files": [
+    "Sources",
+    "Sources/**/*.swift"
+  ],
+  "swift_versions": "5.6",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Coordinator",
+      "source_files": [
+        "Sources",
+        "Sources/Coordinator/**/*.swift"
+      ]
+    },
+    {
+      "name": "Logs",
+      "source_files": [
+        "Sources",
+        "Sources/Logs/**/*.swift"
+      ],
+      "dependencies": {
+        "SSZipArchive": [
+
+        ],
+        "CocoaLumberjack/Swift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "source_files": [
+        "Sources",
+        "Sources/Analytics/**/*.swift"
+      ],
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "14.1.0"
+        ],
+        "FirebaseAnalytics": [
+          "9.3.0"
+        ],
+        "FirebaseCore": [
+          "9.2.0"
+        ],
+        "Amplitude": [
+          "8.10.2"
+        ],
+        "FontsXCore/Logs": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppDelegateListener",
+      "source_files": [
+        "Sources",
+        "Sources/AppDelegateListener/**/*.swift"
+      ],
+      "dependencies": {
+        "FBSDKCoreKit": [
+          "14.1.0"
+        ],
+        "FontsXCore/Logs": [
+
+        ]
+      }
+    },
+    {
+      "name": "Conversion",
+      "source_files": [
+        "Sources",
+        "Sources/Conversion/**/*.swift"
+      ],
+      "dependencies": {
+        "AppsFlyerFramework": [
+          "6.8.0"
+        ],
+        "FontsXCore/AppDelegateListener": [
+
+        ],
+        "FontsXCore/Logs": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetworkMonitor",
+      "source_files": [
+        "Sources",
+        "Sources/NetworkMonitor/**/*.swift"
+      ],
+      "dependencies": {
+        "FontsXCore/Logs": [
+
+        ]
+      }
+    },
+    {
+      "name": "RemoteConfiguration",
+      "source_files": [
+        "Sources",
+        "Sources/RemoteConfiguration/**/*.swift"
+      ],
+      "dependencies": {
+        "FontsXCore/Logs": [
+
+        ],
+        "FirebaseRemoteConfig": [
+          "9.4.0"
+        ],
+        "FirebaseAnalytics": [
+          "9.3.0"
+        ]
+      }
+    },
+    {
+      "name": "PaywallAssistant",
+      "source_files": [
+        "Sources",
+        "Sources/PaywallAssistant/**/*.swift"
+      ],
+      "dependencies": {
+        "FontsXCore/Logs": [
+
+        ],
+        "FontsXCore/Analytics": [
+
+        ],
+        "FontsXCore/Conversion": [
+
+        ],
+        "FontsXCore/NetworkMonitor": [
+
+        ],
+        "ApphudSDK": [
+          "2.8.3"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.6"
+}
