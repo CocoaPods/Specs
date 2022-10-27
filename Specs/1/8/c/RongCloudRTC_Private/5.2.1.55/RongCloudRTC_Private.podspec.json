@@ -1,0 +1,89 @@
+{
+  "name": "RongCloudRTC_Private",
+  "version": "5.2.1.55",
+  "summary": "RongCloud RTC for private environment",
+  "homepage": "http://www.rongcloud.cn",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2018 RongCloud"
+  },
+  "authors": {
+    "tanghaibing": "tanghaibing@bailingcloud.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudRTC_Private_V5_2_1_55.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS": "arm64 armv7 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "RongRTCLib",
+      "vendored_frameworks": "RongCloudRTC_Private/RongRTCLib.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "libraries": "c++",
+      "frameworks": [
+        "VideoToolbox",
+        "GLKit"
+      ],
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+          ">=5.2.1.52"
+        ]
+      }
+    },
+    {
+      "name": "RongCallLib",
+      "vendored_frameworks": "RongCloudRTC_Private/RongCallLib.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC_Private/RongRTCLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "RongCallKit",
+      "resources": [
+        "RongCloudRTC_Private/RongCallKit.bundle",
+        "RongCloudRTC_Private/en.lproj",
+        "RongCloudRTC_Private/zh-Hans.lproj",
+        "RongCloudRTC/**/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudRTC_Private/RongCallKit.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "RongCloudRTC_Private/RongCallLib": [
+
+        ],
+        "RongCloudIM_Private/IMLib": [
+          ">=5.2.1.52"
+        ],
+        "RongCloudIM_Private/IMKit": [
+          ">=5.2.1.52"
+        ]
+      }
+    },
+    {
+      "name": "RongRTCReplayKitExt",
+      "vendored_frameworks": "RongCloudRTC_Private/RongRTCReplayKitExt.xcframework",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    }
+  ]
+}
