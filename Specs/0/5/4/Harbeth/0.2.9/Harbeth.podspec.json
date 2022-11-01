@@ -1,0 +1,67 @@
+{
+  "name": "Harbeth",
+  "version": "0.2.9",
+  "summary": "About Metal graphics processing.",
+  "homepage": "https://github.com/yangKJ/Harbeth",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Condy": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/Harbeth.git",
+    "tag": "0.2.9"
+  },
+  "screenshots": [
+    "https://github.com/yangKJ/Harbeth/blob/master/Screenshot/EdgeGlow.gif"
+  ],
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "MetalKit",
+      "ImageIO",
+      "CoreImage"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "subspecs": [
+    {
+      "name": "Basic",
+      "source_files": "Sources/Basic/**/*.swift"
+    },
+    {
+      "name": "Compute",
+      "source_files": "Sources/Compute/**/*.swift",
+      "resource_bundles": {
+        "Harbeth": [
+          "Sources/Compute/**/*.metal"
+        ]
+      },
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreImage",
+      "source_files": "Sources/CoreImage/**/*.swift",
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
