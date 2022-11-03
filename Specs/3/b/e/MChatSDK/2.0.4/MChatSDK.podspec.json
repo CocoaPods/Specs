@@ -1,0 +1,66 @@
+{
+  "name": "MChatSDK",
+  "version": "2.0.4",
+  "summary": "This is Pod for MChatSDK.",
+  "description": "Uesk 多商户即时通信SDK，方便用户集成，欢迎访问www.udesk.com了解详情.",
+  "homepage": "https://github.com/udesk/udesk_mchat_ios.git",
+  "license": "MIT",
+  "authors": {
+    "zhangshuangyi ": "zhangshuangyi@udesk.cn"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/udesk/udesk_mchat_ios.git",
+    "tag": "2.0.4"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "subspecs": [
+    {
+      "name": "SDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "WebKit",
+        "MapKit",
+        "AssetsLibrary",
+        "ImageIO",
+        "Accelerate",
+        "MediaPlayer",
+        "Photos",
+        "CoreText",
+        "AVKit"
+      ],
+      "vendored_frameworks": "UdeskMChat/MChatSDK/UdeskMChatSDK.framework",
+      "libraries": [
+        "z",
+        "xml2",
+        "resolv",
+        "sqlite3"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC",
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "UdeskMChat/MChatSDK/UdeskMChatUIKit/**/*.{h,m}",
+      "resources": "UdeskMChat/MChatSDK/UdeskMChatUIKit/Assets/UdeskMChatBundle.bundle",
+      "dependencies": {
+        "MChatSDK/SDK": [
+
+        ]
+      }
+    }
+  ]
+}
