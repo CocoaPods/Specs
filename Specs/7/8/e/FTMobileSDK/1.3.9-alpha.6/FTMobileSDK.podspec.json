@@ -1,0 +1,206 @@
+{
+  "name": "FTMobileSDK",
+  "version": "1.3.9-alpha.6",
+  "summary": "观测云 DataFlux iOS 数据采集 SDK",
+  "description": "观测云 DataFlux iOS 数据采集 SDK",
+  "homepage": "https://github.com/GuanceCloud/datakit-ios.git",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "hulilei@jiagouyun.com",
+    "Brandon Zhang": "zhangbo@jiagouyun.com"
+  },
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/GuanceCloud/datakit-ios.git",
+    "tag": "1.3.9-alpha.6"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "FTMobileSDK/FTMobileAgent": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "FTMobileSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "FTMobileAgent",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": [
+        "FTMobileSDK/FTMobileAgent/FTMobileAgent.{h,m}",
+        "FTMobileSDK/FTMobileAgent/FTMobileAgent+Public.h",
+        "FTMobileSDK/FTMobileAgent/FTMobileAgent+Private.h",
+        "FTMobileSDK/FTMobileAgent/FTMobileAgentVersion.h",
+        "FTMobileSDK/FTMobileAgent/FTPresetProperty.{h,m}",
+        "FTMobileSDK/FTMobileAgent/FTUserInfo.{h,m}",
+        "FTMobileSDK/FTMobileAgent/FTGlobalManager.{h,m}",
+        "FTMobileSDK/FTMobileAgent/FTGlobalRumManager.{h,m}",
+        "FTMobileSDK/FTMobileAgent/FTTraceManager.{h,m}"
+      ],
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": "FTMobileSDK/FTMobileAgent/FTRUM/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common/Base": [
+
+            ],
+            "FTMobileSDK/Common/Thread": [
+
+            ],
+            "FTMobileSDK/FTMobileAgent/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "FTMobileSDK/FTMobileAgent/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "JSBridge",
+          "source_files": "FTMobileSDK/FTMobileAgent/JSBridge/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "AutoTrack",
+          "source_files": "FTMobileSDK/FTMobileAgent/AutoTrack/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common": [
+
+            ],
+            "FTMobileSDK/FTMobileAgent/Protocol": [
+
+            ],
+            "FTMobileSDK/FTMobileAgent/JSBridge": [
+
+            ]
+          }
+        },
+        {
+          "name": "LongTask",
+          "source_files": "FTMobileSDK/FTMobileAgent/LongTask/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "ExternalData",
+          "source_files": "FTMobileSDK/FTMobileAgent/ExternalData/*{.h,.m}",
+          "public_header_files": "FTMobileSDK/FTMobileAgent/ExternalData/FTExternalDataManager.h",
+          "dependencies": {
+            "FTMobileSDK/FTMobileAgent/Protocol": [
+
+            ],
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "FTMobileSDK/FTMobileAgent/URLSessionAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTMobileAgent/Protocol": [
+
+            ],
+            "FTMobileSDK/Common/Base": [
+
+            ],
+            "FTMobileSDK/Common/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "ExtensionDataManager",
+          "source_files": "FTMobileSDK/FTMobileAgent/Extension/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Exception",
+          "source_files": "FTMobileSDK/FTMobileAgent/Exception/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTMobileAgent/Protocol": [
+
+            ],
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Common",
+      "subspecs": [
+        {
+          "name": "Base",
+          "source_files": "FTMobileSDK/BaseUtils/Base/*{.h,.m}"
+        },
+        {
+          "name": "Thread",
+          "source_files": "FTMobileSDK/BaseUtils/Thread/*{.h,.m}"
+        },
+        {
+          "name": "Network",
+          "source_files": "FTMobileSDK/BaseUtils/Network/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common/Thread": [
+
+            ],
+            "FTMobileSDK/Common/FTDataBase": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTDataBase",
+          "source_files": "FTMobileSDK/BaseUtils/FTDataBase/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Swizzle",
+          "source_files": "FTMobileSDK/BaseUtils/Swizzle/*{.h,.m,.c}",
+          "dependencies": {
+            "FTMobileSDK/Common/Base": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
