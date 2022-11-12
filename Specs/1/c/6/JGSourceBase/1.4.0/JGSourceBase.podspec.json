@@ -1,0 +1,291 @@
+{
+  "name": "JGSourceBase",
+  "version": "1.4.0",
+  "summary": "JGSourceBase functional component library.",
+  "description": "JGSourceBase 通用功能组件库。\n功能包括：\n1. Base - 通用定义、功能模块、iOS项目常用功能\n2. Category - 通用扩展方法定义\n3. DataStorage - 通用数据持久化功能\n4. Device - iOS设备相关方法\n5. Encryption - 常用加解密方法\n6. HUD - Loading-HUD、Toast-HUD显示\n7. IntegrityCheck - iOS应用完整性校验\n8. Reachability - 网络状态监听，支持多观察着/监听者\n9. SecurityKeyboard - 自定义安全键盘",
+  "homepage": "https://gitee.com/dengni8023/JGSourceBase",
+  "license": "MIT (LICENSE.md)",
+  "authors": {
+    "Dengni8023": "945835664@qq.com",
+    "MeiJiGao": "945835664@qq.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://gitee.com/dengni8023/JGSourceBase.git",
+    "tag": "1.4.0"
+  },
+  "source_files": "JGSourceBase/*.{h,m}",
+  "public_header_files": "JGSourceBase/*.h",
+  "static_framework": true,
+  "requires_arc": true,
+  "user_target_xcconfig": {
+    "GENERATE_INFOPLIST_FILE": "YES"
+  },
+  "pod_target_xcconfig": {
+    "PRODUCT_BUNDLE_IDENTIFIER": "com.meijigao.JGSourceBase",
+    "MARKETING_VERSION": "1.4.0",
+    "CURRENT_PROJECT_VERSION": "1.4.0"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "JGSourceBase/JGSBase/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSBase/*.h",
+      "private_header_files": "JGSourceBase/JGSBase/*Private.h",
+      "resource_bundles": {
+        "JGSourceBase": [
+          "JGSourceBase/JGSBase/**/*.{xcassets,png,jpg,gif}",
+          "JGSourceBase/JGSDevice/**/JGSiOSDeviceList.json-v20221110.sec",
+          "JGSourceBase/JGSIntegrityCheck/**/JGSIntegrityCheckRecordResourcesHash.sh"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "pod_target_xcconfig": {
+        "JGSVersion": "1.4.0",
+        "JGSBuild": "20221112",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSUserAgent='\"JGSourceBase/${JGSVersion}\"' JGSVersion='\"${JGSVersion}\"' JGSBuild='\"${JGSBuild}\"'"
+      },
+      "script_phases": {
+        "name": "RemoveUnInstalledJGSResource",
+        "script": "      # echo \"移除构建产出物 JGSourceBase.bundle 中未安装 subspec 的资源文件\"\n      ProductDir=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.bundle\"\n      echo \"JGSourceBase.bundle: ${ProductDir}\"\n      function RemoveUninstalledSubspecResource() {\n        FileInBundle=\"${ProductDir}/$1\"\n        rm -fr \"${FileInBundle}\"\n      }\n      # JGSDevice 资源清理\n      if [[ ''${JGSDeviceInstalled} != 'YES' ]]; then\n        RemoveUninstalledSubspecResource \"JGSiOSDeviceList.json-v20221110.sec\"\n      fi\n      # JGSIntegrityCheck 资源清理\n      if [[ ''${JGSIntegrityCheckInstalled} != 'YES' ]]; then\n        RemoveUninstalledSubspecResource \"JGSIntegrityCheckRecordResourcesHash.sh\"\n      fi\n",
+        "execution_position": "after_compile"
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": "JGSourceBase/JGSCategory/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSCategory/*.h",
+      "subspecs": [
+        {
+          "name": "NSArray",
+          "source_files": "JGSourceBase/JGSCategory/NSArray/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSArray/*.h",
+          "dependencies": {
+            "JGSourceBase/Category/NSDictionary": [
+
+            ],
+            "JGSourceBase/Category/NSObject": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSData",
+          "source_files": "JGSourceBase/JGSCategory/NSData/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSData/*.h",
+          "dependencies": {
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSDate",
+          "source_files": "JGSourceBase/JGSCategory/NSDate/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSDate/*.h"
+        },
+        {
+          "name": "NSDictionary",
+          "source_files": "JGSourceBase/JGSCategory/NSDictionary/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSDictionary/*.h",
+          "dependencies": {
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSObject",
+          "source_files": "JGSourceBase/JGSCategory/NSObject/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSObject/*.h",
+          "dependencies": {
+            "JGSourceBase/Category/NSData": [
+
+            ],
+            "JGSourceBase/Category/NSString": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSString",
+          "source_files": "JGSourceBase/JGSCategory/NSString/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSString/*.h",
+          "dependencies": {
+            "JGSourceBase/Category/NSData": [
+
+            ]
+          }
+        },
+        {
+          "name": "NSURL",
+          "source_files": "JGSourceBase/JGSCategory/NSURL/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/NSURL/*.h"
+        },
+        {
+          "name": "UIAlertController",
+          "source_files": "JGSourceBase/JGSCategory/UIAlertController/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/UIAlertController/*.h",
+          "dependencies": {
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIApplication",
+          "source_files": "JGSourceBase/JGSCategory/UIApplication/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/UIApplication/*.h",
+          "dependencies": {
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIColor",
+          "source_files": "JGSourceBase/JGSCategory/UIColor/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/UIColor/*.h"
+        },
+        {
+          "name": "UIImage",
+          "source_files": "JGSourceBase/JGSCategory/UIImage/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSCategory/UIImage/*.h",
+          "dependencies": {
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DataStorage",
+      "source_files": "JGSourceBase/JGSDataStorage/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSDataStorage/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Device",
+      "source_files": "JGSourceBase/JGSDevice/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSDevice/*.h",
+      "pod_target_xcconfig": {
+        "JGSDeviceInstalled": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSDeviceInstalled='\"${JGSDeviceInstalled}\"'"
+      },
+      "dependencies": {
+        "JGSourceBase/Reachability": [
+
+        ],
+        "JGSourceBase/Category/NSData": [
+
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "JGSourceBase/JGSEncryption/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSEncryption/*.h",
+      "dependencies": {
+        "JGSourceBase/Category/NSData": [
+
+        ],
+        "JGSourceBase/Category/NSString": [
+
+        ]
+      }
+    },
+    {
+      "name": "HUD",
+      "source_files": "JGSourceBase/JGSHUD/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSHUD/*.h",
+      "subspecs": [
+        {
+          "name": "Loading",
+          "source_files": "JGSourceBase/JGSHUD/Loading/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSHUD/Loading/*.h",
+          "dependencies": {
+            "MBProgressHUD": [
+
+            ],
+            "JGSourceBase/Base": [
+
+            ],
+            "JGSourceBase/Category/UIColor": [
+
+            ]
+          }
+        },
+        {
+          "name": "Toast",
+          "source_files": "JGSourceBase/JGSHUD/Toast/*.{h,m}",
+          "public_header_files": "JGSourceBase/JGSHUD/Toast/*.h",
+          "dependencies": {
+            "MBProgressHUD": [
+
+            ],
+            "JGSourceBase/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntegrityCheck",
+      "source_files": "JGSourceBase/JGSIntegrityCheck/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSIntegrityCheck/*.h",
+      "pod_target_xcconfig": {
+        "JGSIntegrityCheckInstalled": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSIntegrityCheckInstalled='\"${JGSIntegrityCheckInstalled}\"' JGSResourcesCheckFileHashSecuritySalt='\"JGSIntegrityCheck\"' JGSApplicationIntegrityCheckFileHashFile='\"JGSApplicationIntegrityCheckFileHashFile\"'"
+      },
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ],
+        "JGSourceBase/Encryption": [
+
+        ]
+      }
+    },
+    {
+      "name": "Reachability",
+      "source_files": "JGSourceBase/JGSReachability/*.{h,m}",
+      "public_header_files": "JGSourceBase/JGSReachability/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "SecurityKeyboard",
+      "source_files": "JGSourceBase/JGSSecurityKeyboard/*.{h,m}",
+      "public_header_files": [
+        "JGSourceBase/JGSSecurityKeyboard/**JGSSecurityKeyboard.h"
+      ],
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ],
+        "JGSourceBase/Category/NSData": [
+
+        ],
+        "JGSourceBase/Category/NSString": [
+
+        ],
+        "JGSourceBase/Category/UIColor": [
+
+        ]
+      }
+    }
+  ]
+}
