@@ -1,0 +1,75 @@
+{
+  "name": "BDUniMPSDK",
+  "version": "3.6.4",
+  "summary": "BDUniMPSDK",
+  "description": "将官方小程序 UniMPSDK (iOS 版本) 制作成 cocaoPods 仓库",
+  "homepage": "https://gitee.com/mccreee/bd-uni-mpsdk",
+  "license": "MIT",
+  "authors": {
+    "mccree": "301063915@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/mccreee/bd-uni-mpsdk.git",
+    "tag": "3.6.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "JavaScriptCore",
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "QuickLook",
+    "CoreTelephony",
+    "AssetsLibrary",
+    "CoreLocation",
+    "AddressBook"
+  ],
+  "libraries": [
+    "c++",
+    "iconv"
+  ],
+  "default_subspecs": "Core",
+  "resources": [
+    "Core/Resources/*.js",
+    "Core/Resources/*.ttf",
+    "Core/Resources/*.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "Core/Libs/*.a",
+          "vendored_frameworks": "Core/Libs/*.framework"
+        }
+      ]
+    }
+  ]
+}
