@@ -1,0 +1,81 @@
+{
+  "name": "HLTWebView",
+  "version": "0.1.2",
+  "summary": "HTWebView is a wrapper of WKWebView with JavaScriptBridge supported. We Make a new JavaScriptBridge inspired by WebViewJavascriptBridge.",
+  "description": "HLTWebView is a wrapper of WKWebView with JavaScriptBridge supported. We Make a new JavaScriptBridge inspired by WebViewJavascriptBridge. Try it.",
+  "homepage": "https://github.com/nscribble/HLTWebView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "nscribble": "x201710216@163.com"
+  },
+  "source": {
+    "git": "git@github.com:nscribble/HLTWebView.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HLTWebView/Classes/**/*.{h,m}",
+  "requires_arc": true,
+  "frameworks": [
+    "WebKit",
+    "UIKit",
+    "Foundation"
+  ],
+  "exclude_files": [
+    "HLTWebView/Classes/WebView/WKScriptMessage+BoBo_WKScriptMessageLeakFix.{h,m}"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "non-arc",
+      "source_files": [
+        "HLTWebView/Classes/WebView/WKScriptMessage+BoBo_WKScriptMessageLeakFix.{h,m}"
+      ],
+      "requires_arc": false
+    },
+    {
+      "name": "JavaScriptBridge",
+      "source_files": [
+        "HLTWebView/Classes/JavaScriptBridge/*.{h,m}",
+        "HLTWebView/Classes/*.{h,m}"
+      ],
+      "frameworks": [
+        "WebKit",
+        "Foundation"
+      ],
+      "resources": [
+        "HLTWebView/Assets/*.png",
+        "HLTWebView/Classes/**/*.{html,js}"
+      ]
+    },
+    {
+      "name": "WebView",
+      "source_files": "HLTWebView/Classes/WebView/*.{h,m}",
+      "dependencies": {
+        "HLTWebView/JavaScriptBridge": [
+
+        ],
+        "HLTWebView/non-arc": [
+
+        ]
+      },
+      "frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "exclude_files": [
+        "HLTWebView/Classes/WebView/WKScriptMessage+BoBo_WKScriptMessageLeakFix.{h,m}"
+      ]
+    }
+  ]
+}
