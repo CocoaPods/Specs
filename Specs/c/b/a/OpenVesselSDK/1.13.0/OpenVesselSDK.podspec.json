@@ -1,0 +1,34 @@
+{
+  "name": "OpenVesselSDK",
+  "version": "1.13.0",
+  "summary": "This SDK enables connection with Vessel Wallet",
+  "homepage": "https://openvessel.io",
+  "license": "OpenVessel SDK EULA",
+  "authors": {
+    "OpenVessel": "support@openvessel.io"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "module_name": "OpenVessel",
+  "swift_versions": "5.1",
+  "frameworks": [
+    "StoreKit",
+    "Combine",
+    "UIKit"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "$(inherited) arm64"
+  },
+  "source": {
+    "http": "https://artifacts.openvessel.io/pods/sdk/OpenVessel-1.13.0.xcframework.zip"
+  },
+  "vendored_frameworks": "Pod Binary/OpenVessel.xcframework",
+  "script_phases": {
+    "name": "Validate Project",
+    "script": "abort \"\\n\\nPlease ensure that you installed the `cocoapods-openvessel` plugin:\\n\\n1. Run the following command in Terminal: `sudo gem install cocoapods-openvessel`\\n2. Add the following line to the Podfile: `plugin 'cocoapods-openvessel'`\\n3. Install pods once again\\n\\n\" if not ENV[\"OVL_PATCHED\"]&.casecmp?(\"YES\")",
+    "shell_path": "/usr/bin/env ruby",
+    "execution_position": "before_compile"
+  },
+  "swift_version": "5.1"
+}
