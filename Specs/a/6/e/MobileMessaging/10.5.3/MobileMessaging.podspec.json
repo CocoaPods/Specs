@@ -1,0 +1,106 @@
+{
+  "name": "MobileMessaging",
+  "version": "10.5.3",
+  "summary": "Mobile Messaging SDK for iOS",
+  "description": "Mobile Messaging SDK is designed and developed to easily enable push notification channel in your mobile application. In almost no time of implementation you get push notification in you application and access to the features of Infobip IP Messaging Platform.",
+  "homepage": "https://github.com/infobip/mobile-messaging-sdk-ios",
+  "license": "MIT",
+  "authors": {
+    "Andrey Kadochnikov": "andrey.kadochnikov@infobip.com",
+    "Olga Koroleva": "olga.koroleva@infobip.com"
+  },
+  "source": {
+    "git": "https://github.com/infobip/mobile-messaging-sdk-ios.git",
+    "tag": "10.5.3"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "$(inherited) -DDEBUG"
+  },
+  "default_subspecs": "CocoaLumberjack",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "CoreData",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "resource_bundles": {
+        "MMCore": [
+          "Classes/InteractiveNotifications/MessageAlert/*.xib",
+          "Classes/InteractiveNotifications/*.plist",
+          "Classes/Core/Localization/**/*.strings",
+          "Classes/MessageStorage/*.xcdatamodeld",
+          "Classes/Core/InternalStorage/*.xcdatamodeld",
+          "Classes/Core/InternalStorage/*.xcmappingmodel"
+        ]
+      },
+      "public_header_files": [
+        "Classes/Core/**/*.h",
+        "Classes/Vendor/SwiftTryCatch/*.h"
+      ],
+      "private_header_files": [
+        "Classes/Vendor/Alamofire/*.h",
+        "Classes/Vendor/CryptoSwift/*.h",
+        "Classes/Vendor/Keychain/*.h",
+        "Classes/Vendor/Kingsfisher/*.h",
+        "Classes/Vendor/PSOperations/*.h",
+        "Classes/Vendor/SwiftyJSON/*.h"
+      ],
+      "source_files": [
+        "Classes/Core/**/*.{h,m,swift}",
+        "Classes/Vendor/**/*.{h,m,swift}",
+        "Classes/MessageStorage/**/*.{h,m,swift}",
+        "Classes/RichNotifications/**",
+        "Classes/UserSession/**",
+        "Classes/InteractiveNotifications/**/*.{h,m,swift}",
+        "Headers/Public/MobileMessaging/MobileMessaging-umbrella.h"
+      ]
+    },
+    {
+      "name": "CocoaLumberjack",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ],
+        "CocoaLumberjack/Swift": [
+          "3.7.4"
+        ]
+      },
+      "source_files": "Classes/Logging/CocoaLumberjack/**/*.{h,m,swift}"
+    },
+    {
+      "name": "Geofencing",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      },
+      "frameworks": "CoreLocation",
+      "source_files": "Classes/Geofencing/**/*.{h,m,swift}"
+    },
+    {
+      "name": "InAppChat",
+      "frameworks": "AudioToolbox",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      },
+      "source_files": "Classes/Chat/**/*.{h,m,swift}",
+      "resource_bundles": {
+        "MMInAppChat": [
+          "Classes/Chat/Resources/**/*.{xcassets,png,html}",
+          "Classes/Chat/Localization/**/*.strings"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}
