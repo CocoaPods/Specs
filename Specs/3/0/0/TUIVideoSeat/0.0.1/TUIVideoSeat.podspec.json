@@ -1,0 +1,88 @@
+{
+  "name": "TUIVideoSeat",
+  "version": "0.0.1",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "音视频会议、娱乐房麦位组件",
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/One-time/TUIVideoSeat.git",
+    "tag": "0.0.1"
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "TUICore/ImSDK_Scenario": [
+
+    ]
+  },
+  "default_subspecs": "TRTC",
+  "subspecs": [
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TUIRoomEngine/Professional": [
+
+        ]
+      },
+      "source_files": [
+        "Source/*.swift",
+        "Source/Localized/*.swift",
+        "Source/View/*.swift",
+        "Source/Presenter/*.swift",
+        "Source/Model/*.swift",
+        "Source/Extension/*.*"
+      ],
+      "resource_bundles": {
+        "TUIVideoSeatKitBundle": [
+          "Resources/*.xcassets",
+          "Resources/Localized/**/*.strings"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D TXLiteAVSDK_Professional",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 TXLiteAVSDK_Professional=1"
+      }
+    },
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TUIRoomEngine/TRTC": [
+
+        ]
+      },
+      "source_files": [
+        "Source/*.swift",
+        "Source/Localized/*.swift",
+        "Source/View/*.swift",
+        "Source/Presenter/*.swift",
+        "Source/Model/*.swift",
+        "Source/Extension/*.*"
+      ],
+      "resource_bundles": {
+        "TUIVideoSeatKitBundle": [
+          "Resources/*.xcassets",
+          "Resources/Localized/**/*.strings"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D TXLiteAVSDK_TRTC",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 TXLiteAVSDK_TRTC=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
