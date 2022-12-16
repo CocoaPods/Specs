@@ -1,0 +1,45 @@
+{
+  "name": "secp",
+  "version": "0.0.8",
+  "summary": "Optimized C library for EC operations on curve secp256k1",
+  "homepage": "https://github.com/portto/secp256k1",
+  "license": {
+    "type": "MIT",
+    "file": "COPYING"
+  },
+  "authors": {
+    "secp256k1 contributors": "https://github.com/bitcoin-core/secp256k1/graphs/contributors"
+  },
+  "source": {
+    "git": "https://github.com/mattiaferrari02/secp256k1.swift.git",
+    "tag": "0.0.8"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "public_header_files": "include/*.h",
+  "source_files": [
+    "src/**/*.{c,h}",
+    "include/*.h"
+  ],
+  "compiler_flags": [
+    "-DENABLE_MODULE_ECDH",
+    "-DENABLE_MODULE_EXTRAKEYS",
+    "-DENABLE_MODULE_RECOVERY",
+    "-DENABLE_MODULE_SCHNORRSIG",
+    "-DECMULT_GEN_PREC_BITS=4",
+    "-DECMULT_WINDOW_SIZE=15",
+    "-DENABLE_MODULE_ECDSA_ADAPTOR",
+    "-DENABLE_MODULE_ECDSA_S2C",
+    "-DENABLE_MODULE_GENERATOR",
+    "-DENABLE_MODULE_RANGEPROOF",
+    "-DENABLE_MODULE_SURJECTIONPROOF",
+    "-DENABLE_MODULE_WHITELIST",
+    "-DENABLE_MODULE_MUSIG"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "HEADER_SEARCH_PATHS": "$(SRCROOT)/secp $(SRCROOT)/secp/src $(SRCROOT)/secp/include",
+    "OTHER_CFLAGS": "-pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-unused-function -Wno-long-long -Wno-overlength-strings -O3"
+  }
+}
