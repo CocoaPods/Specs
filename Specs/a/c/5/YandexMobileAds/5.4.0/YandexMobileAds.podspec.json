@@ -1,0 +1,81 @@
+{
+  "name": "YandexMobileAds",
+  "version": "5.4.0",
+  "swift_versions": "5.7.0",
+  "authors": {
+    "Yandex LLC": "mobads@yandex-team.ru"
+  },
+  "license": {
+    "type": "PROPRIETARY",
+    "file": "static/LICENSE.txt"
+  },
+  "homepage": "https://tech.yandex.ru/mobile-ads/",
+  "source": {
+    "http": "https://storage.mds.yandex.net/get-ads-mobile-sdk/332493/YandexMobileAds-5c3b165f-6430-4368-95a6-6aa3c58d58fd.zip",
+    "sha1": "f18b3bafed5d74bbb8b77bacfcc19541fe687f8a"
+  },
+  "summary": "The Yandex Mobile Ads SDK provides mobile interfaces for Yandex Advertising Network",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "dependencies": {
+    "DivKit": [
+      "~> 13.0"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreTelephony",
+    "CoreLocation",
+    "CoreGraphics",
+    "AdSupport",
+    "StoreKit",
+    "SystemConfiguration",
+    "QuartzCore",
+    "AVFoundation",
+    "CoreImage",
+    "CoreMedia"
+  ],
+  "weak_frameworks": "WebKit",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "GENERATE_INFOPLIST_FILE": "YES"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "source_files": "static/YandexMobileAds.xcframework/**/*.h",
+  "public_header_files": "static/YandexMobileAds.xcframework/**/*.h",
+  "vendored_frameworks": "static/YandexMobileAds.xcframework",
+  "resources": "static/YandexMobileAds.xcframework/YandexMobileAdsBundle.bundle",
+  "preserve_paths": [
+    "static/YandexMobileAds.xcframework",
+    "README.md",
+    "LICENSE.txt",
+    "CHANGELOG.md"
+  ],
+  "default_subspecs": "Static",
+  "subspecs": [
+    {
+      "name": "Static",
+      "dependencies": {
+        "YandexMobileMetrica": [
+          ">= 4.0.0",
+          "< 5.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "YandexMobileMetrica/Dynamic": [
+          ">= 4.0.0",
+          "< 5.0.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7.0"
+}
