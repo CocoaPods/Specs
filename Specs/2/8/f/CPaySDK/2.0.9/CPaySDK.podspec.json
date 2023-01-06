@@ -1,0 +1,51 @@
+{
+  "name": "CPaySDK",
+  "version": "2.0.9",
+  "summary": "UPI mobile SDK for iOS.",
+  "description": "Release UPI mobile SDK for iOS.\n\nThe Citcon’s iOS app payment solution provides a convenient, safe, and reliable payment services to third-party applications. By using the SDK, merchant developers can focus on business logics without having to understand the pluming of payment transactions. The payment experience will be totally transparent and seamless to end consumers.",
+  "homepage": "https://github.com/Citcon/citcon_upi_sdk_ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yansheng.ao@citcon.cn": "yansheng.ao@citcon.cn"
+  },
+  "source": {
+    "git": "https://github.com/Citcon/citcon_upi_sdk_ios.git",
+    "tag": "v2.0.9"
+  },
+  "pod_target_xcconfig": {
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": true,
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "stdc++",
+  "requires_arc": true,
+  "static_framework": false,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Ext"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "CPaySDK/Core/*.{framework,xcframework}"
+    },
+    {
+      "name": "Ext",
+      "subspecs": [
+        {
+          "name": "CardinalMobile",
+          "vendored_frameworks": "CPaySDK/Ext/CardinalMobile.{framework,xcframework}"
+        },
+        {
+          "name": "PPRiskMagnes",
+          "vendored_frameworks": "CPaySDK/Ext/PPRiskMagnes.{framework,xcframework}"
+        }
+      ]
+    }
+  ]
+}
