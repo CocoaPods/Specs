@@ -1,0 +1,102 @@
+{
+  "name": "AsyncObjects",
+  "version": "2.0.0",
+  "homepage": "https://github.com/SwiftyLab/AsyncObjects",
+  "summary": "Synchronization objects for modern swift concurrency.",
+  "description": "Several synchronization primitives and task synchronization mechanisms introduced to aid in modern swift concurrency.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "social_media_url": "https://twitter.com/soumya_mahunt",
+  "readme": "https://github.com/SwiftyLab/AsyncObjects/blob/main/README.md",
+  "changelog": "https://github.com/SwiftyLab/AsyncObjects/blob/main/CHANGELOG.md",
+  "documentation_url": "https://swiftylab.github.io/AsyncObjects/2.0.0/documentation/asyncobjects/",
+  "source": {
+    "git": "https://github.com/SwiftyLab/AsyncObjects.git",
+    "tag": "v2.0.0"
+  },
+  "authors": {
+    "Soumya Ranjan Mahunt": "soumya.mahunt@gmail.com"
+  },
+  "swift_versions": "5.6",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "tvos": "13.0",
+    "watchos": "6.0"
+  },
+  "source_files": [
+    "Sources/AsyncObjects/**/*.swift",
+    "Sources/AsyncObjects/*.docc"
+  ],
+  "preserve_paths": [
+    "{Sources,Tests}/AsyncObjects*/**/*",
+    "*.md"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "YES",
+    "RUN_DOCUMENTATION_COMPILER": "YES"
+  },
+  "dependencies": {
+    "OrderedCollections": [
+      "~> 1.0.0"
+    ]
+  },
+  "default_subspecs": "none",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/AsyncObjectsTests/**/*.swift",
+      "dependencies": {
+        "AsyncObjects/Checked": [
+
+        ],
+        "AsyncObjects/Logging": [
+
+        ]
+      },
+      "scheme": {
+        "parallelizable": true
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Checked",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D ASYNCOBJECTS_USE_CHECKEDCONTINUATION"
+      }
+    },
+    {
+      "name": "Logging",
+      "dependencies": {
+        "Logging": [
+          "~> 1.0.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Debug",
+          "pod_target_xcconfig": {
+            "OTHER_SWIFT_FLAGS": "-D ASYNCOBJECTS_ENABLE_LOGGING_LEVEL_DEBUG"
+          }
+        },
+        {
+          "name": "Info",
+          "pod_target_xcconfig": {
+            "OTHER_SWIFT_FLAGS": "-D ASYNCOBJECTS_ENABLE_LOGGING_LEVEL_INFO"
+          }
+        },
+        {
+          "name": "Trace",
+          "pod_target_xcconfig": {
+            "OTHER_SWIFT_FLAGS": "-D ASYNCOBJECTS_ENABLE_LOGGING_LEVEL_TRACE"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.6"
+}
