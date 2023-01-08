@@ -1,0 +1,172 @@
+{
+  "name": "TYSMBaseKit",
+  "version": "0.1.8",
+  "summary": "TYSMBaseKit",
+  "description": "1. 引入基础组件库，UI、系统工具、日志系统、路由\n2. 详情看 TYSMBaseKit.h\n3. 兼容 osx （少部分）\n4. 引入 WCDB\n5. 兼容 YYKit (感谢，愿身体健康)",
+  "homepage": "https://github.com/cookies-J/TYSMBaseKit",
+  "license": "GPL",
+  "authors": {
+    "Cookies": "cooljele@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/cookies-J/TYSMBaseKit.git",
+    "tag": "0.1.8"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.14"
+  },
+  "source_files": "TYSMBaseKit/Classes/TYSMBaseKit.h",
+  "resource_bundles": {
+    "TYSMBaseKit": [
+      "TYSMBaseKit/Assets/*"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "public_header_files": "TYSMBaseKit/Classes/TYSMBaseKit.h",
+  "subspecs": [
+    {
+      "name": "TYSMYYKit",
+      "ios": {
+        "requires_arc": true,
+        "source_files": "TYSMBaseKit/Classes/TYSMYYKit/**/*.{h,m}",
+        "public_header_files": "TYSMBaseKit/Classes/TYSMYYKit/**/*.{h}",
+        "exclude_files": [
+          "TYSMBaseKit/Classes/TYSMYYKit/Base/Foundation/NSObject+TYSMAddForARC.{h,m}",
+          "TYSMBaseKit/Classes/TYSMYYKit/Base/Foundation/NSThread+TYSMAdd.{h,m}"
+        ],
+        "libraries": [
+          "z",
+          "sqlite3"
+        ],
+        "frameworks": [
+          "UIKit",
+          "CoreFoundation",
+          "CoreText",
+          "CoreGraphics",
+          "CoreImage",
+          "QuartzCore",
+          "ImageIO",
+          "AssetsLibrary",
+          "Accelerate",
+          "CoreServices",
+          "SystemConfiguration"
+        ]
+      },
+      "osx": {
+        "source_files": "TYSMBaseKit/Classes/TYSMYYKit/Model/*.{h,m}",
+        "public_header_files": "TYSMBaseKit/Classes/TYSMYYKit/Model/*.{h}",
+        "frameworks": "Cocoa"
+      },
+      "subspecs": [
+        {
+          "name": "arc",
+          "requires_arc": false,
+          "source_files": [
+            "TYSMBaseKit/Classes/TYSMYYKit/Base/Foundation/NSObject+TYSMAddForARC.{h,m}",
+            "TYSMBaseKit/Classes/TYSMYYKit/Base/Foundation/NSThread+TYSMAdd.{h,m}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TYSMGBDeviceInfo",
+      "ios": {
+        "source_files": [
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_iOS.{h,m}",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_Common.{h,m}",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfoInterface.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo_Subclass.h"
+        ],
+        "public_header_files": [
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_iOS.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_Common.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfoInterface.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo_Subclass.h"
+        ],
+        "frameworks": "Foundation"
+      },
+      "osx": {
+        "source_files": [
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_OSX.{h,m}",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_Common.{h,m}",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfoInterface.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo_Subclass.h"
+        ],
+        "public_header_files": [
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_OSX.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/*_Common.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfoInterface.h",
+          "TYSMBaseKit/Classes/Multi Platform/TYSMGBDeviceInfo/TYSMDeviceInfo_Subclass.h"
+        ],
+        "frameworks": [
+          "Cocoa",
+          "CoreServices",
+          "Foundation"
+        ]
+      }
+    },
+    {
+      "name": "src",
+      "osx": {
+        "source_files": [
+          "TYSMBaseKit/Classes/src/TYSMLog/*",
+          "TYSMBaseKit/Classes/src/TYSMDeviceInfo"
+        ],
+        "frameworks": [
+          "Cocoa",
+          "CoreServices",
+          "Foundation"
+        ]
+      },
+      "ios": {
+        "source_files": "TYSMBaseKit/Classes/src/**/*",
+        "frameworks": [
+          "UIKit",
+          "Foundation"
+        ],
+        "dependencies": {
+          "XXNibBridge": [
+
+          ],
+          "TYSMBaseKit/TYSMYYKit": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "TYSMCTMediator",
+      "source_files": "TYSMBaseKit/Classes/TYSM_CTMediator/*"
+    },
+    {
+      "name": "TYSMNetwork",
+      "requires_arc": true,
+      "ios": {
+        "source_files": "TYSMBaseKit/Classes/TYSMNetwork/**/*.{h,m}",
+        "public_header_files": "TYSMBaseKit/Classes/TYSMNetwork/**/*.{h}"
+      },
+      "osx": {
+        "source_files": "TYSMBaseKit/Classes/TYSMNetwork/Models/*.{h,m}",
+        "public_header_files": "TYSMBaseKit/Classes/TYSMNetwork/Models/*.{h}"
+      },
+      "dependencies": {
+        "TYSMBaseKit/TYSMYYKit": [
+
+        ],
+        "AFNetworking": [
+
+        ]
+      }
+    }
+  ]
+}
