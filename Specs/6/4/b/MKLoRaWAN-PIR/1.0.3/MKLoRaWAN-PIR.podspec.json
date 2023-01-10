@@ -1,0 +1,494 @@
+{
+  "name": "MKLoRaWAN-PIR",
+  "version": "1.0.3",
+  "summary": "A short description of MKLoRaWAN-PIR.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MKLoRa/MKLoRa-LW007-PIR-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MKLoRa/MKLoRa-LW007-PIR-iOS.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resource_bundles": {
+    "MKLoRaWAN-PIR": [
+      "MKLoRaWAN-PIR/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "CTMediator",
+      "source_files": "MKLoRaWAN-PIR/Classes/CTMediator/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "CTMediator": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDK",
+      "source_files": "MKLoRaWAN-PIR/Classes/SDK/**",
+      "dependencies": {
+        "MKBaseBleModule": [
+
+        ]
+      }
+    },
+    {
+      "name": "Target",
+      "source_files": "MKLoRaWAN-PIR/Classes/Target/**",
+      "dependencies": {
+        "MKLoRaWAN-PIR/Functions": [
+
+        ]
+      }
+    },
+    {
+      "name": "ConnectModule",
+      "source_files": "MKLoRaWAN-PIR/Classes/ConnectModule/**",
+      "dependencies": {
+        "MKLoRaWAN-PIR/SDK": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ]
+      }
+    },
+    {
+      "name": "Expand",
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "TextButtonCell",
+              "source_files": "MKLoRaWAN-PIR/Classes/Expand/Cell/TextButtonCell/**",
+              "dependencies": {
+                "MKBaseModuleLibrary": [
+
+                ],
+                "MKCustomUIModule": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DatabaseManager",
+          "source_files": "MKLoRaWAN-PIR/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
+
+            ],
+            "MKBaseModuleLibrary": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKLoRaWAN-PIR/SDK": [
+
+        ],
+        "MKLoRaWAN-PIR/CTMediator": [
+
+        ],
+        "MKLoRaWAN-PIR/ConnectModule": [
+
+        ],
+        "MKLoRaWAN-PIR/Expand": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "HHTransition": [
+
+        ],
+        "MLInputDodger": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "AboutPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/AboutPage/Controller/**"
+            }
+          ]
+        },
+        {
+          "name": "BleSettingPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/BleSettingPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/BleSettingPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/BleSettingPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/BleSettingPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/BleSettingPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "DebuggerPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DebuggerPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/DebuggerPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DebuggerPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "DeviceInfoPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DeviceInfoPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/DeviceInfoPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/DebuggerPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/UpdatePage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/SelftestPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DeviceInfoPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "DeviceSettingPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DeviceSettingPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/DeviceSettingPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/DeviceInfoPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/DeviceSettingPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "GeneralPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/GeneralPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/GeneralPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/HallSettingsPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/PIRSettingsPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/THSettingsPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/GeneralPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "HallSettingsPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/HallSettingsPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/HallSettingsPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/HallSettingsPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "LoRaApplicationPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaApplicationPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/LoRaApplicationPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaApplicationPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "LoRaPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/LoRaPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/LoRaApplicationPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/LoRaSettingPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "LoRaSettingPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaSettingPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/LoRaSettingPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/LoRaSettingPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "PIRSettingsPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/PIRSettingsPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/PIRSettingsPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/PIRSettingsPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/PIRSettingsPage/View/**"
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/PIRSettingsPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "ScanPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/ScanPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/ScanPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/ScanPage/View": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/TabBarPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/ScanPage/View/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/ScanPage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/ScanPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "SelftestPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/SelftestPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/SelftestPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/SelftestPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/SelftestPage/View/**"
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/SelftestPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "TabBarPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/TabBarPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/LoRaPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/GeneralPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/BleSettingPage/Controller": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/DeviceSettingPage/Controller": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "THSettingsPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/THSettingsPage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/THSettingsPage/Model": [
+
+                ],
+                "MKLoRaWAN-PIR/Functions/THSettingsPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/THSettingsPage/View/**"
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/THSettingsPage/Model/**"
+            }
+          ]
+        },
+        {
+          "name": "UpdatePage",
+          "dependencies": {
+            "iOSDFULibrary": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/UpdatePage/Controller/**",
+              "dependencies": {
+                "MKLoRaWAN-PIR/Functions/UpdatePage/Model": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKLoRaWAN-PIR/Classes/Functions/UpdatePage/Model/**"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
