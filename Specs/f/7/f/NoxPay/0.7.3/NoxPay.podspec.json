@@ -1,0 +1,89 @@
+{
+  "name": "NoxPay",
+  "version": "0.7.3",
+  "summary": "A aggregate payment SDK provided Nox.",
+  "homepage": "https://github.com/NoxmobiSDK/NoxPay",
+  "license": "MIT",
+  "authors": {
+    "gaochong": "gaochong@noxgroup.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/NoxmobiSDK/NoxPay.git",
+    "tag": "0.7.3"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Tool",
+      "source_files": "NPTool.framework/Headers/*.{h}",
+      "ios": {
+        "vendored_frameworks": "NPTool.framework"
+      },
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "GTMBase64": [
+
+        ],
+        "Firebase/Analytics": [
+
+        ],
+        "Firebase/RemoteConfig": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "NPCore.framework/Headers/*.{h}",
+      "ios": {
+        "vendored_frameworks": "NPCore.framework"
+      },
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "NoxPay/Tool": [
+
+        ]
+      }
+    },
+    {
+      "name": "IAP",
+      "source_files": "NPInAppPurchase.framework/Headers/*.{h}",
+      "ios": {
+        "vendored_frameworks": "NPInAppPurchase.framework"
+      },
+      "dependencies": {
+        "YYCache": [
+
+        ],
+        "MJExtension": [
+
+        ],
+        "NoxPay/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MaterialControl",
+      "source_files": "NPMaterialControl.framework/Headers/*.{h}",
+      "ios": {
+        "vendored_frameworks": "NPMaterialControl.framework"
+      },
+      "dependencies": {
+        "NoxPay/Core": [
+
+        ]
+      }
+    }
+  ]
+}
