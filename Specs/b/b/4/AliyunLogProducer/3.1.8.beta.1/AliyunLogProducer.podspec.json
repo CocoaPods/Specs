@@ -1,0 +1,240 @@
+{
+  "name": "AliyunLogProducer",
+  "version": "3.1.8.beta.1",
+  "summary": "aliyun log service ios producer.",
+  "description": "log service ios producer.\nhttps://help.aliyun.com/document_detail/29063.html\nhttps://help.aliyun.com/product/28958.html",
+  "homepage": "https://github.com/aliyun/aliyun-log-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aliyun-log": "yulong.gyl@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://github.com/aliyun/aliyun-log-ios-sdk.git",
+    "tag": "3.1.8.beta.1"
+  },
+  "social_media_url": "http://t.cn/AiRpol8C",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "libraries": "z",
+  "swift_versions": "5.0",
+  "default_subspecs": "Producer",
+  "subspecs": [
+    {
+      "name": "Producer",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "source_files": [
+        "Sources/Producer/**/*.{h,m}",
+        "Sources/aliyun-log-c-sdk/**/*.{c,h}"
+      ],
+      "public_header_files": [
+        "Sources/Producer/include/*.h",
+        "Sources/aliyun-log-c-sdk/include/*.h"
+      ]
+    },
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "dependencies": {
+        "AliyunLogProducer/Producer": [
+
+        ],
+        "AliyunLogProducer/OT": [
+
+        ]
+      },
+      "source_files": "Sources/Core/**/*.{m,h}",
+      "public_header_files": "Sources/Core/include/*.h"
+    },
+    {
+      "name": "OTSwift",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "source_files": "Sources/OTSwift/**/*.{m,h,swift}"
+    },
+    {
+      "name": "OT",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "source_files": "Sources/OT/**/*.{m,h}",
+      "public_header_files": "Sources/OT/**/include/*.h",
+      "dependencies": {
+        "AliyunLogProducer/OTSwift": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrashReporter",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "dependencies": {
+        "AliyunLogProducer/Core": [
+
+        ],
+        "AliyunLogProducer/OT": [
+
+        ],
+        "AliyunLogProducer/Trace": [
+
+        ]
+      },
+      "source_files": "Sources/CrashReporter/**/*.{m,h}",
+      "public_header_files": "Sources/CrashReporter/include/*.h",
+      "vendored_frameworks": "Sources/WPKMobi/WPKMobi.xcframework",
+      "exclude_files": "Sources/WPKMobi/WPKMobi.xcframework/**/Headers/*.h",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics"
+        ],
+        "libraries": [
+          "z",
+          "c++"
+        ],
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        }
+      },
+      "tvos": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics"
+        ],
+        "libraries": [
+          "z",
+          "c++"
+        ],
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+        }
+      },
+      "osx": {
+        "frameworks": [
+          "SystemConfiguration",
+          "Cocoa"
+        ],
+        "libraries": [
+          "z",
+          "c++"
+        ],
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      }
+    },
+    {
+      "name": "NetworkDiagnosis",
+      "dependencies": {
+        "AliyunLogProducer/Core": [
+
+        ],
+        "AliyunLogProducer/OT": [
+
+        ]
+      },
+      "source_files": "Sources/NetworkDiagnosis/**/*.{m,h}",
+      "public_header_files": "Sources/NetworkDiagnosis/include/*.h",
+      "vendored_frameworks": "Sources/AliNetworkDiagnosis/AliNetworkDiagnosis.xcframework",
+      "exclude_files": "Sources/AliNetworkDiagnosis/AliNetworkDiagnosis.xcframework/**/Headers/*.h",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreGraphics"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "resolv"
+      ],
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Trace",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "dependencies": {
+        "AliyunLogProducer/Producer": [
+
+        ],
+        "AliyunLogProducer/Core": [
+
+        ],
+        "AliyunLogProducer/OT": [
+
+        ]
+      },
+      "source_files": "Sources/Trace/**/*.{m,h}",
+      "public_header_files": "Sources/Trace/include/*.h",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "URLSessionInstrumentation",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0",
+        "osx": "10.12"
+      },
+      "dependencies": {
+        "AliyunLogProducer/OT": [
+
+        ],
+        "AliyunLogProducer/Trace": [
+
+        ]
+      },
+      "source_files": "Sources/Instrumentation/URLSession/**/*.{m,h,swift}",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
