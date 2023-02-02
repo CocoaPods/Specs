@@ -1,0 +1,71 @@
+{
+  "name": "XROCSupport",
+  "version": "1.0.1",
+  "summary": "公有库使用",
+  "description": "创建、上传、pod、打包、脚本等",
+  "homepage": "https://github.com/MissSunday/XROCSupport",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MissSunday": "963217127@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/MissSunday/XROCSupport.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "XROCSupport/Classes/XROCSupport.h",
+  "frameworks": [
+    "UIKit",
+    "ImageIO",
+    "Accelerate",
+    "Foundation"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Resources",
+      "source_files": "XROCSupport/Classes/Base/XRResourcesIndex.{h,m}",
+      "resources": "XROCSupport/Classes/Base/XROCSupport.bundle"
+    },
+    {
+      "name": "A",
+      "source_files": "XROCSupport/Classes/Tools/*"
+    },
+    {
+      "name": "Category",
+      "dependencies": {
+        "XROCSupport/A": [
+
+        ],
+        "XROCSupport/Resources": [
+
+        ]
+      },
+      "source_files": "XROCSupport/Classes/Category/*"
+    },
+    {
+      "name": "Base",
+      "dependencies": {
+        "XROCSupport/A": [
+
+        ],
+        "XROCSupport/Category": [
+
+        ]
+      },
+      "source_files": "XROCSupport/Classes/Base/XRBase*.{h,m}"
+    }
+  ]
+}
