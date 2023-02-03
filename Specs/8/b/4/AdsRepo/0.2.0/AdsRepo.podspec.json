@@ -1,0 +1,84 @@
+{
+  "name": "AdsRepo",
+  "version": "0.2.0",
+  "summary": "Advertise management system",
+  "documentation_url": "https://github.com/SwiftLand/AdsRepo",
+  "description": "AdsRepo is a Swift base library for managing and loading different ad units simultaneously and controlling all of them under repository options and functions. the repository will load ads and keep them fresh base on developer-specific conditions and you only communicate with the repository to get ads.",
+  "homepage": "https://github.com/SwiftLand/AdsRepo",
+  "screenshots": [
+    "https://raw.githubusercontent.com/SwiftLand/AdsRepo/master/Screenshots/auto-update-screenshot.gif",
+    "https://raw.githubusercontent.com/SwiftLand/AdsRepo/master/Screenshots/fast-load-screenshot.gif",
+    "https://raw.githubusercontent.com/SwiftLand/AdsRepo/master/Screenshots/notify-expire-sceenshot.png",
+    "https://raw.githubusercontent.com/SwiftLand/AdsRepo/master/Screenshots/multi-repo-screenshot.gif"
+  ],
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ali khajehpour": "alikhajepur@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/SwiftLand/AdsRepo.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/Core/**/*",
+      "dependencies": {
+        "Nimble": [
+          "10.0.0"
+        ],
+        "Quick": [
+          "5.0.1"
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/AdsRepo/Core/**/*"
+    },
+    {
+      "name": "GoogleMobileAds",
+      "source_files": "Sources/AdsRepo/GoogleMobileAds/**/*",
+      "dependencies": {
+        "AdsRepo/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "Tests/GoogleMobileAds/**/*",
+            "Tests/Core/**/*"
+          ],
+          "dependencies": {
+            "Nimble": [
+              "10.0.0"
+            ],
+            "Quick": [
+              "5.0.1"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
