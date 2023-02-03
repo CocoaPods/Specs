@@ -1,0 +1,102 @@
+{
+  "name": "OktaLogger",
+  "version": "1.3.14",
+  "summary": "Logging proxy for standardized logging interface across products",
+  "description": "Standard interface for all logging in Okta apps + SDK. Supports file, console, firebase logging destinations.",
+  "homepage": "https://github.com/okta/okta-logger-swift",
+  "license": {
+    "type": "APACHE2",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Okta Developers": "developer@okta.com"
+  },
+  "source": {
+    "git": "https://github.com/okta/okta-logger-swift.git",
+    "tag": "1.3.14"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.14",
+    "watchos": "6.0"
+  },
+  "swift_versions": "5.0",
+  "dependencies": {
+    "SwiftLint": [
+
+    ]
+  },
+  "default_subspecs": "Complete",
+  "subspecs": [
+    {
+      "name": "Complete",
+      "dependencies": {
+        "OktaLogger/FileLogger": [
+
+        ],
+        "OktaLogger/FirebaseCrashlytics": [
+
+        ],
+        "OktaLogger/InstabugLogger": [
+
+        ]
+      }
+    },
+    {
+      "name": "FileLogger",
+      "source_files": [
+        "Sources/OktaLogger/FileLoggers/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "CocoaLumberjack/Swift": [
+          "~>3.6.0"
+        ],
+        "OktaLogger/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebaseCrashlytics",
+      "source_files": [
+        "Sources/OktaLogger/FirebaseCrashlyticsLogger/OktaLoggerFirebaseCrashlyticsLogger.swift"
+      ],
+      "dependencies": {
+        "Firebase/Crashlytics": [
+          "~> 10.3"
+        ],
+        "OktaLogger/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "InstabugLogger",
+      "ios": {
+        "source_files": [
+          "Sources/OktaLogger/InstabugLogger/*"
+        ],
+        "dependencies": {
+          "Instabug": [
+            "~> 11.5"
+          ],
+          "OktaLogger/Core": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/OktaLogger/LoggerCore/*.{h,m,swift}",
+      "exclude_files": [
+        "Sources/OktaAnalytics",
+        "Sources/OktaLogger/FileLoggers",
+        "Sources/OktaLogger/FirebaseCrashlyticsLogger",
+        "Sources/OktaLogger/Info.plist",
+        "Sources/OktaLogger/InstabugLogger"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
