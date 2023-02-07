@@ -1,0 +1,65 @@
+{
+  "name": "NextYYImage",
+  "summary": "Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more. YYImage based, but support Apple Silicon arm64 simulator.",
+  "version": "1.0.9",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pcjbird": "pcjbird@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pcjbird/NextYYImage.git",
+    "tag": "1.0.9"
+  },
+  "social_media_url": "http://blog.ibireme.com",
+  "homepage": "https://github.com/pcjbird/NextYYImage",
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "YYImage/*.{h,m}",
+      "public_header_files": "YYImage/*.{h}",
+      "libraries": "z",
+      "frameworks": [
+        "UIKit",
+        "CoreFoundation",
+        "QuartzCore",
+        "AssetsLibrary",
+        "ImageIO",
+        "Accelerate",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "WebP",
+      "dependencies": {
+        "NextYYImage/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "WebP/WebP.xcframework"
+      }
+    },
+    {
+      "name": "libwebp",
+      "dependencies": {
+        "NextYYImage/Core": [
+
+        ],
+        "libwebp": [
+
+        ]
+      },
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/libwebp/src"
+      }
+    }
+  ]
+}
