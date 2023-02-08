@@ -1,0 +1,110 @@
+{
+  "name": "BarCode",
+  "version": "0.0.3",
+  "summary": "BarCode是一个提供各种barcode相关功能的工具开源库",
+  "description": "BarCode是一个提供各种barcode相关功能的工具开源库，包括UPC-A、UPC-E、EAN13、EAN8等BarCode提供了一些常用的方法，使用方便",
+  "homepage": "https://github.com/iyongzai/BarCode",
+  "license": "MIT",
+  "authors": {
+    "ayong": "iyongzai@qq.com"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.13"
+  },
+  "source": {
+    "git": "https://github.com/iyongzai/BarCode.git",
+    "tag": "0.0.3"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "BarCodeFoundation",
+      "subspecs": [
+        {
+          "name": "EX",
+          "source_files": "Classes/BarCodeFoundation/EX/*.{swift}",
+          "frameworks": "Foundation"
+        },
+        {
+          "name": "Core",
+          "source_files": "Classes/BarCodeFoundation/Core/*.{swift}",
+          "frameworks": "Foundation",
+          "subspecs": [
+            {
+              "name": "Define",
+              "source_files": "Classes/BarCodeFoundation/Core/Define/*.{swift}"
+            },
+            {
+              "name": "Validate",
+              "source_files": "Classes/BarCodeFoundation/Core/Validate/*.{swift}",
+              "dependencies": {
+                "BarCode/BarCodeFoundation/Core/Define": [
+
+                ]
+              }
+            },
+            {
+              "name": "BarCode",
+              "source_files": "Classes/BarCodeFoundation/Core/BarCode/*.{swift}",
+              "dependencies": {
+                "BarCode/BarCodeFoundation/Core/Define": [
+
+                ],
+                "BarCode/BarCodeFoundation/Core/Validate": [
+
+                ],
+                "BarCode/BarCodeFoundation/EX": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BarCodeKit",
+      "ios": {
+        "source_files": [
+          "Classes/BarCodeKit/EX/Common/*.{swift}",
+          "Classes/BarCodeKit/Core/Common/*.{swift}",
+          "Classes/BarCodeKit/Core/iOS/*.{swift}"
+        ],
+        "frameworks": [
+          "UIKit",
+          "CoreText",
+          "CoreGraphics"
+        ]
+      },
+      "osx": {
+        "source_files": [
+          "Classes/BarCodeKit/EX/Common/*.{swift}",
+          "Classes/BarCodeKit/EX/macOS/*.{swift}",
+          "Classes/BarCodeKit/Core/Common/*.{swift}"
+        ],
+        "frameworks": [
+          "AppKit",
+          "CoreText",
+          "CoreGraphics"
+        ]
+      },
+      "dependencies": {
+        "BarCode/BarCodeFoundation/Core/Define": [
+
+        ],
+        "BarCode/BarCodeFoundation/Core/Validate": [
+
+        ],
+        "BarCode/BarCodeFoundation/Core/BarCode": [
+
+        ],
+        "BarCode/BarCodeFoundation/EX": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
