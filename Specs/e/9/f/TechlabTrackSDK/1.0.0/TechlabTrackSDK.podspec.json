@@ -1,0 +1,250 @@
+{
+  "name": "TechlabTrackSDK",
+  "version": "1.0.0",
+  "summary": "The official iOS SDK of TechLab Track.",
+  "homepage": "https://www.pns.hk/zh-hk/",
+  "source": {
+    "git": "https://github.com/wangchao3/ios-techlab-track.git",
+    "tag": "v1.0.0"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "Wang Chao": "chao.wang@aswatson.com"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "default_subspecs": "Core",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "__Store",
+      "source_files": "TechlabTrackSDK/Store/*.{h,m}",
+      "public_header_files": [
+        "TechlabTrackSDK/Store/SABaseStoreManager.h",
+        "TechlabTrackSDK/Store/SAStorePlugin.h",
+        "TechlabTrackSDK/Store/SAAESStorePlugin.h"
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "TechlabTrackSDK/Core/**/*.{h,m}",
+      "exclude_files": [
+        "TechlabTrackSDK/Core/SAAlertController.h",
+        "TechlabTrackSDK/Core/SAAlertController.m"
+      ],
+      "public_header_files": [
+        "TechlabTrackSDK/Core/TechlabTrackSDK.h",
+        "TechlabTrackSDK/Core/TechlabTrackSDK+Public.h",
+        "TechlabTrackSDK/Core/SASecurityPolicy.h",
+        "TechlabTrackSDK/Core/SAConfigOptions.h",
+        "TechlabTrackSDK/Core/SAConstants.h",
+        "TechlabTrackSDK/Core/PropertyPlugin/SAPropertyPlugin.h"
+      ],
+      "resources": "TechlabTrackSDK/TechlabTrackSDK.bundle",
+      "ios": {
+        "frameworks": "CoreTelephony"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/__Store": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "dependencies": {
+        "TechlabTrackSDK/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "dependencies": {
+        "TechlabTrackSDK/Extension": [
+
+        ]
+      },
+      "public_header_files": "TechlabTrackSDK/JSBridge/TechlabTrackSDK+JavaScriptBridge.h",
+      "source_files": [
+        "TechlabTrackSDK/Core/SAAlertController.{h,m}",
+        "TechlabTrackSDK/JSBridge/**/*.{h,m}"
+      ],
+      "ios": {
+        "source_files": [
+          "TechlabTrackSDK/RemoteConfig/**/*.{h,m}",
+          "TechlabTrackSDK/ChannelMatch/**/*.{h,m}",
+          "TechlabTrackSDK/Encrypt/**/*.{h,m}",
+          "TechlabTrackSDK/Deeplink/**/*.{h,m}",
+          "TechlabTrackSDK/DebugMode/**/*.{h,m}",
+          "TechlabTrackSDK/Core/SAAlertController.h",
+          "TechlabTrackSDK/UIRelated/**/*.{h,m}"
+        ],
+        "public_header_files": [
+          "TechlabTrackSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,TechlabTrackSDK}+*.h",
+          "TechlabTrackSDK/Encrypt/SAEncryptProtocol.h",
+          "TechlabTrackSDK/Encrypt/SASecretKey.h",
+          "TechlabTrackSDK/Deeplink/SASlinkCreator.h",
+          "TechlabTrackSDK/UIRelated/UIView+TechlabTrack.h"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "TechlabTrackSDK/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "TechlabTrackSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Common": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "TechlabTrackSDK/AutoTrack/TechlabTrackSDK+SAAutoTrack.h",
+        "TechlabTrackSDK/AutoTrack/SAConfigOptions+AutoTrack.h"
+      ],
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/Visualized/**/*.{h,m}",
+      "public_header_files": [
+        "TechlabTrackSDK/Visualized/TechlabTrackSDK+Visualized.h",
+        "TechlabTrackSDK/Visualized/SAConfigOptions+Visualized.h"
+      ]
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "TechlabTrackSDK/Core": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/Location/**/*.{h,m}",
+      "public_header_files": "TechlabTrackSDK/Location/TechlabTrackSDK+Location.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Core": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/DeviceOrientation/**/*.{h,m}",
+      "public_header_files": "TechlabTrackSDK/DeviceOrientation/TechlabTrackSDK+DeviceOrientation.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Core": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/AppPush/**/*.{h,m}",
+      "public_header_files": "TechlabTrackSDK/AppPush/SAConfigOptions+AppPush.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Common": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/Exception/**/*.{h,m}",
+      "public_header_files": "TechlabTrackSDK/Exception/SAConfigOptions+Exception.h"
+    },
+    {
+      "name": "ApplicationExtension",
+      "dependencies": {
+        "TechlabTrackSDK/Extension": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/AppExtension/*.{h,m}",
+      "public_header_files": "TechlabTrackSDK/AppExtension/TechlabTrackSDK+SAAppExtension.h"
+    },
+    {
+      "name": "DeprecatedCellClick",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Core": [
+
+        ]
+      },
+      "source_files": "CellClick_HookDelegate_Deprecated/*.{h,m}",
+      "project_header_files": "CellClick_HookDelegate_Deprecated/*.h"
+    },
+    {
+      "name": "Exposure",
+      "platforms": {
+        "ios": "8.0"
+      },
+      "dependencies": {
+        "TechlabTrackSDK/Common": [
+
+        ]
+      },
+      "source_files": "TechlabTrackSDK/Exposure/**/*.{h,m}",
+      "public_header_files": [
+        "TechlabTrackSDK/Exposure/SAConfigOptions+Exposure.h",
+        "TechlabTrackSDK/Exposure/SAExposureConfig.h",
+        "TechlabTrackSDK/Exposure/SAExposureData.h",
+        "TechlabTrackSDK/Exposure/TechlabTrackSDK+Exposure.h",
+        "TechlabTrackSDK/Exposure/UIView+ExposureIdentifier.h"
+      ]
+    }
+  ]
+}
