@@ -1,0 +1,204 @@
+{
+  "name": "Decele",
+  "version": "0.2.2",
+  "summary": "The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.",
+  "description": "This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.",
+  "homepage": "https://github.com/MacKevinCE/Decele",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mac Kevin C. E.": "mac.kevin.c.e@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/MacKevinCE",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "source": {
+    "git": "https://github.com/MacKevinCE/Decele.git",
+    "tag": "0.2.2",
+    "submodules": true
+  },
+  "default_subspecs": [
+    "Contacts",
+    "Persistent",
+    "Crypto",
+    "Chuck",
+    "Repository",
+    "Components"
+  ],
+  "requires_arc": true,
+  "ios": {
+    "frameworks": "UIKit"
+  },
+  "frameworks": "Foundation",
+  "subspecs": [
+    {
+      "name": "Contacts",
+      "source_files": "Decele/Classes/Contacts/**/*"
+    },
+    {
+      "name": "Persistent",
+      "source_files": "Decele/Classes/Persistent/**/*",
+      "dependencies": {
+        "Decele/Shared/Foundation": [
+
+        ],
+        "SwiftKeychainWrapper": [
+          "~> 4.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "source_files": "Decele/Classes/Crypto/**/*",
+      "dependencies": {
+        "Decele/Shared/Foundation": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "CryptoKit"
+      }
+    },
+    {
+      "name": "Chuck",
+      "source_files": "Decele/Classes/Chuck/**/*",
+      "dependencies": {
+        "Decele/Shared": [
+
+        ],
+        "SnapKit": [
+          "~> 5.0.1"
+        ]
+      },
+      "resource_bundles": {
+        "Chuck": [
+          "Decele/Assets/Chuck/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Repository",
+      "source_files": "Decele/Classes/Repository/**/*",
+      "dependencies": {
+        "Decele/Shared/Foundation": [
+
+        ],
+        "Alamofire": [
+          "~> 5.6.4"
+        ],
+        "PromiseKit": [
+          "~> 6.18.1"
+        ]
+      }
+    },
+    {
+      "name": "Components",
+      "subspecs": [
+        {
+          "name": "NibView",
+          "source_files": "Decele/Classes/Components/NibView/NibView.swift",
+          "dependencies": {
+            "Decele/Shared/Foundation": [
+
+            ],
+            "SnapKit": [
+              "~> 5.0.1"
+            ]
+          }
+        },
+        {
+          "name": "FloatingPanel",
+          "source_files": "Decele/Classes/Components/FloatingPanel/**/*",
+          "dependencies": {
+            "Decele/Components/NibView": [
+
+            ],
+            "FloatingPanel": [
+              "~> 2.5.5"
+            ]
+          }
+        },
+        {
+          "name": "SideMenu",
+          "source_files": "Decele/Classes/Components/SideMenu/**/*",
+          "dependencies": {
+            "Decele/Shared/UIKit": [
+
+            ],
+            "SideMenu": [
+              "~> 6.5.0"
+            ]
+          }
+        },
+        {
+          "name": "Button",
+          "source_files": "Decele/Classes/Components/Button/**/*",
+          "dependencies": {
+            "Decele/Shared/UIKit": [
+
+            ],
+            "SnapKit": [
+              "~> 5.0.1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shared",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "Decele/Classes/Shared/Foundation/**/*",
+          "dependencies": {
+            "Decele/Shared/Private": [
+
+            ],
+            "SwifterSwift/SwiftStdlib": [
+
+            ],
+            "SwifterSwift/Dispatch": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIKit",
+          "source_files": "Decele/Classes/Shared/UIKit/**/*",
+          "dependencies": {
+            "Decele/Shared/Private": [
+
+            ],
+            "SwifterSwift/UIKit": [
+
+            ],
+            "SnapKit": [
+              "~> 5.0.1"
+            ]
+          }
+        },
+        {
+          "name": "Private",
+          "source_files": "Decele/Classes/Shared/Private/**/*",
+          "dependencies": {
+            "SwifterSwift/Foundation": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.5"
+}
