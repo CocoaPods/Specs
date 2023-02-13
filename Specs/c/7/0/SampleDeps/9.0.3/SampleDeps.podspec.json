@@ -1,0 +1,63 @@
+{
+  "name": "SampleDeps",
+  "version": "9.0.3",
+  "summary": "Sample Deps",
+  "homepage": "http://www.cocoapods.org",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Anon": "anon"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "cocoapods_version": ">= 1.9.0",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/SagarSDagdu/testcocoapodsspecs.git",
+    "tag": "9.0.3"
+  },
+  "libraries": [
+    "z.1.1.3",
+    "sqlite3",
+    "c++"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Standard",
+  "subspecs": [
+    {
+      "name": "Standard",
+      "vendored_frameworks": "ZendriveSDK.xcframework",
+      "frameworks": [
+        "Accelerate",
+        "SystemConfiguration",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "AWSCore": [
+          "~>2.23.2"
+        ],
+        "AWSSQS": [
+          "~>2.23.2"
+        ],
+        "SQLite.swift": [
+          "~>0.12.2"
+        ]
+      }
+    },
+    {
+      "name": "Testing",
+      "dependencies": {
+        "SampleDeps/Standard": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "ZendriveSDKTesting.xcframework"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
