@@ -1,0 +1,75 @@
+{
+  "name": "QYHEspBlufi",
+  "version": "0.1.2",
+  "summary": "EspBlufi",
+  "description": "EspBlufi 封装",
+  "homepage": "https://github.com/qiuyh/QYHEspBlufi",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "QiuM1Pro": "1039724903@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/qiuyh/QYHEspBlufi.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "ios": {
+    "vendored_libraries": [
+      "QYHEspBlufi/Classes/Openssl/Lib/libcrypto.a",
+      "QYHEspBlufi/Classes/Openssl/Lib/libssl.a"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "QYHEspBlufi/Classes/Openssl/include"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 armv7s x86_64"
+  },
+  "subspecs": [
+    {
+      "name": "Classes",
+      "subspecs": [
+        {
+          "name": "Openssl",
+          "subspecs": [
+            {
+              "name": "include",
+              "source_files": "QYHEspBlufi/Classes/Openssl/include/*.h",
+              "subspecs": [
+                {
+                  "name": "openssl",
+                  "source_files": "QYHEspBlufi/Classes/Openssl/include/openssl/**/*"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Security",
+          "source_files": "QYHEspBlufi/Classes/Security/**/*",
+          "dependencies": {
+            "QYHEspBlufi/Classes/Openssl": [
+
+            ]
+          }
+        },
+        {
+          "name": "Center",
+          "source_files": "QYHEspBlufi/Classes/Center/**/*",
+          "dependencies": {
+            "QYHEspBlufi/Classes/Security": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
