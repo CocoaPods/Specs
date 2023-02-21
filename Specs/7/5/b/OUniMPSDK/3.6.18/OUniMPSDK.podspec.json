@@ -1,0 +1,76 @@
+{
+  "name": "OUniMPSDK",
+  "version": "3.6.18",
+  "summary": "OUniMPSDK 将官方小程序 UniMPSDK_iOS@3.6.18 制作成 cocoaPods 仓库",
+  "description": "将官方小程序 OUniMPSDK (iOS 版本) 制作成 cocaoPods 仓库",
+  "homepage": "https://github.com/std-s/OUniMPSDK",
+  "license": "MIT",
+  "authors": {
+    "OUniMPSDK": ""
+  },
+  "source": {
+    "git": "https://github.com/std-s/OUniMPSDK.git",
+    "tag": "3.6.18"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "JavaScriptCore",
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "QuickLook",
+    "CoreTelephony",
+    "AssetsLibrary",
+    "CoreLocation",
+    "AddressBook"
+  ],
+  "libraries": [
+    "c++",
+    "iconv"
+  ],
+  "default_subspecs": "Core",
+  "resources": [
+    "OUniMPSDK/Core/Resources/*.js",
+    "OUniMPSDK/Core/Resources/*.ttf",
+    "OUniMPSDK/Core/Resources/*.bundle"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "OUniMPSDK/Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "OUniMPSDK/Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "OUniMPSDK/Core/Libs/*.a",
+          "vendored_frameworks": "OUniMPSDK/Core/Libs/*.framework"
+        }
+      ]
+    }
+  ]
+}
