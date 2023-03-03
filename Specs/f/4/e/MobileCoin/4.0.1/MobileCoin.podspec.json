@@ -1,0 +1,124 @@
+{
+  "name": "MobileCoin",
+  "version": "4.0.1",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/MobileCoin-Swift.git",
+    "tag": "v4.0.1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "none",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "GCC_OPTIMIZATION_LEVEL": "z",
+    "ENABLE_BITCODE": "YES",
+    "SUPPORTS_MACCATALYST": "YES",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/{Unit,Common,Fixtures,Mocks}/**/*.swift",
+      "resources": [
+        "Tests/Common/FixtureData/**/*",
+        "Vendor/libmobilecoin-ios-artifacts/Vendor/mobilecoin/test-vectors/vectors/**/*"
+      ]
+    },
+    {
+      "name": "IntegrationTests",
+      "test_type": "unit",
+      "source_files": "Tests/{Integration,Common}/**/*.swift",
+      "resources": "Tests/Common/FixtureData/**/*"
+    },
+    {
+      "name": "PerformanceTests",
+      "test_type": "ui",
+      "source_files": "Tests/{Performance,Common}/**/*.swift",
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/*.{h,m,swift}",
+        "Sources/{Account,Common,Crypto,Encodings,Fog,Ledger}/**/*.{h,m,swift}",
+        "Sources/{LibMobileCoin,Mnemonic,Storage,Transaction,Utils}/**/*.{h,m,swift}",
+        "Sources/Network/{Attestation,Authorization,Connection,Service,Url}/**/*.{h,m,swift}",
+        "Sources/Network/{GRPC,HTTPS}/**/*.{h,m,swift}",
+        "Sources/Network/ProtocolSpecific/Combined/**/*.{h,m,swift}",
+        "Sources/Network/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "LibMobileCoin/Core": [
+          "~> 4.0.0-pre3"
+        ],
+        "gRPC-Swift": [
+          "1.0.0"
+        ],
+        "Logging": [
+          "~> 1.4"
+        ],
+        "SwiftNIO": [
+          "~> 2.40.0"
+        ],
+        "SwiftNIOHPACK": [
+          "~> 1.16.3"
+        ],
+        "SwiftNIOHTTP1": [
+          "~> 2.40.0"
+        ],
+        "SwiftProtobuf": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "ProtocolUnitTests",
+          "test_type": "unit",
+          "source_files": "Tests/{Http,Grpc}/**/*.swift",
+          "resources": "Tests/{Http,Grpc}/FixtureData/**/*"
+        }
+      ]
+    },
+    {
+      "name": "CoreHTTP",
+      "source_files": [
+        "Sources/*.{h,m,swift}",
+        "Sources/{Account,Common,Crypto,Encodings,Fog,Ledger}/**/*.{h,m,swift}",
+        "Sources/{LibMobileCoin,Mnemonic,Storage,Transaction,Utils}/**/*.{h,m,swift}",
+        "Sources/Network/{Attestation,Authorization,Connection,Service,Url}/**/*.{h,m,swift}",
+        "Sources/Network/HTTPS/**/*.{h,m,swift}",
+        "Sources/Network/ProtocolSpecific/HTTPOnly/**/*.{h,m,swift}",
+        "Sources/Network/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "LibMobileCoin/CoreHTTP": [
+          "~> 4.0.0-pre3"
+        ],
+        "Logging": [
+          "~> 1.4"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "HttpProtocolUnitTests",
+          "test_type": "unit",
+          "source_files": "Tests/Http/**/*.swift",
+          "resources": "Tests/Http/FixtureData/**/*"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
