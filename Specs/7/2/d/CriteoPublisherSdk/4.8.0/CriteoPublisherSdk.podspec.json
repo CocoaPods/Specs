@@ -1,0 +1,55 @@
+{
+  "name": "CriteoPublisherSdk",
+  "version": "4.8.0",
+  "summary": "Criteo Publisher SDK for iOS",
+  "description": "Criteo Publisher SDK maximizes revenue by directly connecting your premium\ninventory to our premium demand. That means you retain the full value of\nevery impression we buy.",
+  "homepage": "https://github.com/criteo/ios-publisher-sdk/",
+  "documentation_url": "https://publisherdocs.criteotilt.com/app/ios/get-started/",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Criteo": "opensource@criteo.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "source": {
+    "git": "https://github.com/criteo/ios-publisher-sdk.git",
+    "tag": "4.8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Sdk",
+  "subspecs": [
+    {
+      "name": "Sdk",
+      "source_files": "CriteoPublisherSdk/Sources/**/*.{h,m,swift}",
+      "public_header_files": "CriteoPublisherSdk/Sources/Public/*.h",
+      "weak_frameworks": "WebKit"
+    },
+    {
+      "name": "GoogleAdapter",
+      "source_files": "CriteoGoogleAdapter/Sources/**/*.{h,m}",
+      "dependencies": {
+        "CriteoPublisherSdk/Sdk": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 10.1.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s i386",
+        "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e armv7 armv7s i386",
+        "EXCLUDED_ARCHS[sdk=iphoneos*]": "i386 x86_64"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
