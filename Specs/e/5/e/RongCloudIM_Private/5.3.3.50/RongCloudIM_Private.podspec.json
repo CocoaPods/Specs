@@ -1,0 +1,169 @@
+{
+  "name": "RongCloudIM_Private",
+  "version": "5.3.3.50",
+  "summary": "RongCloud IM SDK for private environment.(如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库)",
+  "description": "RongCloud IM SDK for private environment.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "litao": "litao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/RongCloudIM_Private_v5_3_3_50.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "IMLibCore",
+      "vendored_frameworks": "RongCloudIM_Private/RongIMLibCore.xcframework",
+      "resources": "RongCloudIM_Private/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "ChatRoom",
+      "vendored_frameworks": "RongCloudIM_Private/RongChatRoom.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "CustomerService",
+      "vendored_frameworks": "RongCloudIM_Private/RongCustomerService.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Discussion",
+      "vendored_frameworks": "RongCloudIM_Private/RongDiscussion.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "PublicService",
+      "vendored_frameworks": "RongCloudIM_Private/RongPublicService.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Location",
+      "vendored_frameworks": "RongCloudIM_Private/RongLocation.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM_Private/RongIMLib.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLibCore": [
+
+        ],
+        "RongCloudIM_Private/ChatRoom": [
+
+        ],
+        "RongCloudIM_Private/Discussion": [
+
+        ],
+        "RongCloudIM_Private/PublicService": [
+
+        ],
+        "RongCloudIM_Private/CustomerService": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM_Private/RongCloud.bundle",
+        "RongCloudIM_Private/en.lproj",
+        "RongCloudIM_Private/zh-Hans.lproj",
+        "RongCloudIM_Private/ar.lproj",
+        "RongCloudIM_Private/Emoji.plist",
+        "RongCloudIM_Private/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM_Private/RongIMKit.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMLib": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM_Private/RongSight.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ContactCard",
+      "vendored_frameworks": "RongCloudIM_Private/RongContactCard.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "LocationKit",
+      "vendored_frameworks": "RongCloudIM_Private/RongLocationKit.xcframework",
+      "dependencies": {
+        "RongCloudIM_Private/IMKit": [
+
+        ],
+        "RongCloudIM_Private/Location": [
+
+        ]
+      }
+    }
+  ]
+}
