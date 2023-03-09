@@ -1,0 +1,53 @@
+{
+  "name": "SensoryCloud",
+  "version": "1.0.0",
+  "summary": "Objective C version of the Sensory Cloud SDK",
+  "description": "Sensory Cloud Objective C SDK. Created to make communicating with Sensory Cloud easy on an iOS app!",
+  "homepage": "https://github.com/Sensory-Cloud/objc-sdk",
+  "license": {
+    "type": "APACHE 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Niles Hacking": "nhacking@sensoryinc.com"
+  },
+  "source": {
+    "git": "https://github.com/Sensory-Cloud/objc-sdk.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "SensoryCloud/Classes/**/*",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "ProtoMessages",
+      "source_files": "SensoryCloud/Generated/**/*.pbobjc.{h,m}",
+      "header_mappings_dir": "SensoryCloud/Generated",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "ProtoServices",
+      "source_files": "SensoryCloud/Generated/**/*.pbrpc.{h,m}",
+      "header_mappings_dir": "SensoryCloud/Generated",
+      "requires_arc": false,
+      "dependencies": {
+        "gRPC-ProtoRPC": [
+
+        ],
+        "SensoryCloud/ProtoMessages": [
+
+        ]
+      }
+    }
+  ]
+}
