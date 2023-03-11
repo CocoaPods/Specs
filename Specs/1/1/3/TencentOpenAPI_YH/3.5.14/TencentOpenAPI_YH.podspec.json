@@ -1,0 +1,41 @@
+{
+  "name": "TencentOpenAPI_YH",
+  "version": "3.5.14",
+  "summary": "Pod of TencentOpenAPI_YH.",
+  "homepage": "https://wiki.connect.qq.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zeze": "158771505@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/zezeCode/tencent-open-api.git",
+    "tag": "3.5.14"
+  },
+  "frameworks": [
+    "Security",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "libraries": [
+    "iconv",
+    "sqlite3",
+    "stdc++",
+    "z"
+  ],
+  "platforms": {
+    "ios": "11.0"
+  },
+  "vendored_frameworks": "TencentOpenAPI_YH/*.framework",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "prepare_command": "rm -rf TencentOpenAPI_YH/TencentOpenAPI.framework/Modules\nmkdir TencentOpenAPI_YH/TencentOpenAPI.framework/Modules\ntouch TencentOpenAPI_YH/TencentOpenAPI.framework/Modules/module.modulemap\ncat <<-EOF > TencentOpenAPI_YH/TencentOpenAPI.framework/Modules/module.modulemap\nframework module TencentOpenAPI {\n  umbrella header \"TencentOpenApiUmbrellaHeader.h\"\n  export *\n  module * { export * }\n}\nEOF"
+}
