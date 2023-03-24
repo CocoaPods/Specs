@@ -1,0 +1,125 @@
+{
+  "name": "SJMAdSDK",
+  "version": "1.2.3",
+  "summary": "SJM广告SDK",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/rare1020/sjmad-sdk_-pod.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sjm": "sjm@163.com"
+  },
+  "source": {
+    "git": "https://gitee.com/rare1020/sjmad-sdk_-pod.git",
+    "tag": "1.2.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "StoreKit",
+    "MobileCoreServices",
+    "WebKit",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "QuartzCore",
+    "Security",
+    "ImageIO"
+  ],
+  "libraries": [
+    "resolv.9",
+    "c++",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "c++abi"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "SJMAd",
+      "vendored_frameworks": "SJMAdSDK/SJMAd/*.framework",
+      "preserve_paths": "SJMAdSDK/SJMAd/*.framework"
+    },
+    {
+      "name": "SJMGDT",
+      "vendored_libraries": "SJMAdSDK/SJMGDT/libSJMAdModuleGDT.a",
+      "dependencies": {
+        "SJMAdSDK/SJMAd": [
+
+        ],
+        "GDTMobSDK": [
+          "4.13.33"
+        ]
+      }
+    },
+    {
+      "name": "SJMCSJ",
+      "vendored_libraries": "SJMAdSDK/SJMCSJ/*.a",
+      "dependencies": {
+        "SJMAdSDK/SJMAd": [
+
+        ],
+        "Ads-CN": [
+          "~> 4.9"
+        ]
+      }
+    },
+    {
+      "name": "SJMKS",
+      "vendored_libraries": "SJMAdSDK/SJMKS/*.a",
+      "dependencies": {
+        "SJMAdSDK/SJMAd": [
+
+        ]
+      },
+      "vendored_frameworks": "SJMAdSDK/SJMKS/KSAdSDK.framework",
+      "preserve_paths": "SJMAdSDK/SJMKS/KSAdSDK.framework"
+    },
+    {
+      "name": "SJMMTG",
+      "vendored_libraries": "SJMAdSDK/SJMMTG/*.a",
+      "dependencies": {
+        "SJMAdSDK/SJMAd": [
+
+        ],
+        "MintegralAdSDK": [
+          "~> 6.9"
+        ],
+        "MintegralAdSDK/RewardVideoAd": [
+
+        ],
+        "MintegralAdSDK/BannerAd": [
+
+        ],
+        "MintegralAdSDK/SplashAd": [
+
+        ],
+        "MintegralAdSDK/InterstitialAd": [
+
+        ],
+        "MintegralAdSDK/NativeAdvancedAd": [
+
+        ]
+      }
+    }
+  ]
+}
