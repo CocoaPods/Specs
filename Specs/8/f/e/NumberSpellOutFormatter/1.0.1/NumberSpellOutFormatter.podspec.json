@@ -1,0 +1,51 @@
+{
+  "name": "NumberSpellOutFormatter",
+  "version": "1.0.1",
+  "summary": "Spell out numbers in any language",
+  "description": "Allows to spell out numbers in different languages and with many options. Unlike the standard NSNumberFormatter it\nalso supports ordinal numbers with any additional modes that are applicable for specific language, such as gender\n(feminine and masculine) and grammatical cases.",
+  "homepage": "https://github.com/dimat/DMNumberSpellOutFormatter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dmitry Matyukhin": "dimatu@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/dimat/DMNumberSpellOutFormatter.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.2",
+  "source_files": [
+    "NumberSpellOutFormatter/Classes/**/*"
+  ],
+  "public_header_files": "NumberSpellOutFormatter/Classes/*.h",
+  "default_subspecs": "precompiled",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "NumberSpellOutFormatter/Tests/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_VERSION": "3.2"
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "source_files": "icu4c-static-lib/include/**/*.h",
+      "private_header_files": "icu4c-static-lib/include/**/*.h",
+      "vendored_frameworks": "icu4c-static-lib/frameworks/**/*.xcframework",
+      "header_mappings_dir": "icu4c-static-lib/include",
+      "libraries": "c++",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-l\"c++\""
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
