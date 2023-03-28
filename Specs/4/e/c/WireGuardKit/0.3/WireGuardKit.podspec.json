@@ -1,0 +1,51 @@
+{
+  "name": "WireGuardKit",
+  "version": "0.3",
+  "summary": "WireGuard for iOS and macOS",
+  "description": "This project contains an application for iOS and for macOS, as well as many components shared between the two of them.\nYou may toggle between the two platforms by selecting the target from within Xcode.",
+  "homepage": "https://mysterium.network",
+  "license": {
+    "type": "MIT",
+    "file": "COPYING"
+  },
+  "authors": "Mysterium Network",
+  "platforms": {
+    "ios": "15.0",
+    "osx": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/mysteriumnetwork/wireguard-apple.git",
+    "tag": "0.3"
+  },
+  "prepare_command": "./build-libwg.sh",
+  "vendored_frameworks": "Frameworks/wg-go.xcframework",
+  "swift_versions": "5.7",
+  "source_files": [
+    "Sources/WireGuardKitC/**/*.{c,h}",
+    "Sources/WireGuardKit/**/*.{swift}",
+    "Sources/Shared/**/*.{c,h,swift}",
+    "Sources/WireGuardKitGo/wireguard.h",
+    "Sources/WireGuardNetworkExtension/**/*.{c,h,swift}"
+  ],
+  "exclude_files": [
+    "Sources/Shared/**/test*.*",
+    "Sources/WireGuardKitGo/out/**"
+  ],
+  "preserve_paths": [
+    "Sources/WireGuardKitC/module.modulemap"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": [
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitC/**",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKit/**",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitGo/wireguard.h",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/Shared/**/*",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardNetworkExtension/**/*"
+    ],
+    "HEADER_SEARCH_PATHS": [
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitGo/wireguard.h"
+    ],
+    "APPLICATION_EXTENSION_API_ONLY": "YES"
+  },
+  "swift_version": "5.7"
+}
