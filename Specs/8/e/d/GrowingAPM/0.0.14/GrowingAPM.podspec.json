@@ -1,0 +1,62 @@
+{
+  "name": "GrowingAPM",
+  "version": "0.0.14",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAPM提供移动端性能采集分析功能，包括崩溃分析、启动分析、页面加载分析等。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-performance-ext.git",
+    "tag": "0.0.14"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "Foundation",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "GrowingUtils/TrackerCore": [
+
+        ]
+      },
+      "source_files": "Core/**/*.{h,m,mm,c,cpp}"
+    },
+    {
+      "name": "CrashMonitor",
+      "vendored_frameworks": "CrashMonitor/GrowingAPMCrashMonitor.xcframework",
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
+      },
+      "dependencies": {
+        "GrowingAPM/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIMonitor",
+      "vendored_frameworks": "UIMonitor/GrowingAPMUIMonitor.xcframework",
+      "dependencies": {
+        "GrowingAPM/Core": [
+
+        ]
+      }
+    }
+  ]
+}
