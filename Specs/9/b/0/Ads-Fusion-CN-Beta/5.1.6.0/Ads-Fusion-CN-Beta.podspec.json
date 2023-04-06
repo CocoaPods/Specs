@@ -1,0 +1,130 @@
+{
+  "name": "Ads-Fusion-CN-Beta",
+  "version": "5.1.6.0",
+  "summary": "Ads-Fusion-CN-Beta is a SDK from Bytedance providing union AD service.",
+  "description": "Ads-Fusion-CN-Beta provides ADs which include native、banner、feed、splash、RewardVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "guanguan": "guanfengyi.gc@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD.git",
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/csj-sdk-static/5.1.6.0/SDK.zip"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "weak_frameworks": [
+    "AppTrackingTransparency",
+    "DeviceCheck"
+  ],
+  "default_subspecs": "Ads-CN",
+  "subspecs": [
+    {
+      "name": "Ads-CSJ",
+      "vendored_frameworks": [
+        "SDK/CSJAdSDK.xcframework"
+      ],
+      "preserve_paths": "SDK/CSJAdSDK.xcframework",
+      "resources": "SDK/CSJAdSDK.bundle"
+    },
+    {
+      "name": "Ads-CN",
+      "dependencies": {
+        "Ads-Fusion-CN-Beta/BURelyFoundation": [
+
+        ],
+        "Ads-Fusion-CN-Beta/BUAdSDK": [
+
+        ],
+        "Ads-Fusion-CN-Beta/Ads-CSJ": [
+
+        ]
+      }
+    },
+    {
+      "name": "BURelyFoundation",
+      "dependencies": {
+        "BURelyFoundation/CSJ": [
+          "0.1.0.21"
+        ]
+      }
+    },
+    {
+      "name": "BUAdSDK",
+      "dependencies": {
+        "BUAdSDK": [
+          "0.3.0.2"
+        ]
+      }
+    },
+    {
+      "name": "CSJMediation",
+      "ios": {
+        "vendored_frameworks": "SDK/CSJMediation/CSJMediation.xcframework"
+      },
+      "dependencies": {
+        "Ads-Fusion-CN-Beta/BURelyFoundation": [
+
+        ],
+        "Ads-Fusion-CN-Beta/BUAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJMDebugTools",
+      "vendored_frameworks": [
+        "SDK/CSJMDebugTools/CSJMDebugTools.xcframework"
+      ],
+      "preserve_paths": "SDK/CSJMDebugTools/CSJMDebugTools.xcframework",
+      "resources": "SDK/CSJMDebugTools/CSJMDebugTools.bundle",
+      "dependencies": {
+        "Ads-Fusion-CN-Beta/BURelyFoundation": [
+
+        ],
+        "Ads-Fusion-CN-Beta/BUAdSDK": [
+
+        ]
+      }
+    }
+  ]
+}
