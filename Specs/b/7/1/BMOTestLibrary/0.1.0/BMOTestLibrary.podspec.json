@@ -1,0 +1,82 @@
+{
+  "name": "BMOTestLibrary",
+  "version": "0.1.0",
+  "summary": "A short description of BMOTestLibrary.",
+  "description": "This is long long long description of BMOTestLibrary",
+  "homepage": "https://github.com/bmo.lee/BMOTestLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bmo.lee": "bmo.lee@kakaocorp.com"
+  },
+  "source": {
+    "http": "https://kakao-sdk-dev.s3.amazonaws.com/testRule/SDKsPodTest.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "BMOTestSDK",
+      "vendored_frameworks": "SDKs/TestSDK.framework"
+    },
+    {
+      "name": "BMOTestSDKKakao",
+      "dependencies": {
+        "BMOTestLibrary/BMOTestSDK": [
+
+        ],
+        "KakaoSDKAuth": [
+
+        ],
+        "KakaoSDKUser": [
+
+        ],
+        "KakaoSDKCommon": [
+
+        ],
+        "KakaoPartnerSDKFriend": [
+
+        ]
+      },
+      "vendored_frameworks": "SDKs/TestSDKKakao.framework"
+    },
+    {
+      "name": "BMOTestSDKFacebook",
+      "dependencies": {
+        "BMOTestLibrary/BMOTestSDK": [
+
+        ],
+        "FBSDKCoreKit": [
+
+        ]
+      },
+      "vendored_frameworks": "SDKs/TestSDKFacebook.framework"
+    },
+    {
+      "name": "BMOTestSDKFirebase",
+      "dependencies": {
+        "BMOTestLibrary/BMOTestSDK": [
+
+        ],
+        "Firebase/CoreOnly": [
+
+        ]
+      },
+      "vendored_frameworks": "SDKs/TestSDKFirebase.framework"
+    }
+  ],
+  "swift_version": "5.0"
+}
