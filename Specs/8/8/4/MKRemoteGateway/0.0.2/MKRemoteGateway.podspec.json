@@ -1,0 +1,1259 @@
+{
+  "name": "MKRemoteGateway",
+  "version": "0.0.2",
+  "summary": "A short description of MKRemoteGateway.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MKScannerPro/MKScannerPro_Remote_Gateway_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MKScannerPro/MKScannerPro_Remote_Gateway_iOS.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resource_bundles": {
+    "MKRemoteGateway": [
+      "MKRemoteGateway/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Target",
+      "source_files": "MKRemoteGateway/Classes/Target/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKRemoteGateway/Functions": [
+
+        ]
+      }
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "MKRemoteGateway/Classes/CTMediator/**",
+      "dependencies": {
+        "CTMediator": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ]
+      }
+    },
+    {
+      "name": "DeviceModel",
+      "source_files": "MKRemoteGateway/Classes/DeviceModel/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKRemoteGateway/SDK/MQTT": [
+
+        ]
+      }
+    },
+    {
+      "name": "Expand",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "BleBaseController",
+          "source_files": "MKRemoteGateway/Classes/Expand/BleBaseController/**",
+          "dependencies": {
+            "MKRemoteGateway/SDK/BLE": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseController",
+          "source_files": "MKRemoteGateway/Classes/Expand/BaseController/**",
+          "dependencies": {
+            "MKRemoteGateway/SDK/MQTT": [
+
+            ],
+            "MKRemoteGateway/DeviceModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "DatabaseManager",
+          "source_files": "MKRemoteGateway/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
+
+            ],
+            "MKRemoteGateway/DeviceModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "ExcelManager",
+          "source_files": "MKRemoteGateway/Classes/Expand/ExcelManager/**",
+          "dependencies": {
+            "libxlsxwriter": [
+
+            ],
+            "SSZipArchive": [
+
+            ]
+          }
+        },
+        {
+          "name": "View",
+          "subspecs": [
+            {
+              "name": "AlertView",
+              "source_files": "MKRemoteGateway/Classes/Expand/View/AlertView/**"
+            },
+            {
+              "name": "FilterCell",
+              "subspecs": [
+                {
+                  "name": "FilterBeaconCell",
+                  "source_files": "MKRemoteGateway/Classes/Expand/View/FilterCell/FilterBeaconCell/**"
+                },
+                {
+                  "name": "FilterByRawDataCell",
+                  "source_files": "MKRemoteGateway/Classes/Expand/View/FilterCell/FilterByRawDataCell/**"
+                },
+                {
+                  "name": "FilterEditSectionHeaderView",
+                  "source_files": "MKRemoteGateway/Classes/Expand/View/FilterCell/FilterEditSectionHeaderView/**"
+                },
+                {
+                  "name": "FilterNormalTextFieldCell",
+                  "source_files": "MKRemoteGateway/Classes/Expand/View/FilterCell/FilterNormalTextFieldCell/**"
+                }
+              ]
+            },
+            {
+              "name": "UserCredentialsView",
+              "source_files": "MKRemoteGateway/Classes/Expand/View/UserCredentialsView/**"
+            }
+          ]
+        },
+        {
+          "name": "ImportServerPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKRemoteGateway/Classes/Expand/ImportServerPage/Controller/**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SDK",
+      "subspecs": [
+        {
+          "name": "BLE",
+          "source_files": "MKRemoteGateway/Classes/SDK/BLE/**",
+          "dependencies": {
+            "MKBaseBleModule": [
+
+            ]
+          }
+        },
+        {
+          "name": "MQTT",
+          "subspecs": [
+            {
+              "name": "Manager",
+              "source_files": "MKRemoteGateway/Classes/SDK/MQTT/Manager/**",
+              "dependencies": {
+                "MKBaseModuleLibrary": [
+
+                ],
+                "MKBaseMQTTModule": [
+
+                ]
+              }
+            },
+            {
+              "name": "SDK",
+              "source_files": "MKRemoteGateway/Classes/SDK/MQTT/SDK/**",
+              "dependencies": {
+                "MKBaseModuleLibrary": [
+
+                ],
+                "MKRemoteGateway/SDK/MQTT/Manager": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKRemoteGateway/SDK": [
+
+        ],
+        "MKRemoteGateway/Expand": [
+
+        ],
+        "MKRemoteGateway/CTMediator": [
+
+        ],
+        "MKRemoteGateway/DeviceModel": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "MLInputDodger": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "AddDeviceModules",
+          "subspecs": [
+            {
+              "name": "ParamsModel",
+              "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/ParamsModel/**"
+            },
+            {
+              "name": "Pages",
+              "dependencies": {
+                "MKRemoteGateway/Functions/AddDeviceModules/ParamsModel": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "BleDeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleDeviceInfoPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BleNetworkSettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BleScannerFilterPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleScannerFilterPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "BleWifiSettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/BleWifiSettingsPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ConnectSuccessPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/ConnectSuccessPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceParamsListPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/DeviceParamsListPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleDeviceInfoPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleNetworkSettingsPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleScannerFilterPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/BleWifiSettingsPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/ConnectSuccessPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/NTPTimezonePage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/ServerForDevice": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "NTPTimezonePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/NTPTimezonePage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/NTPTimezonePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/NTPTimezonePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/ServerForDevice/Model": [
+
+                        ],
+                        "MKRemoteGateway/Functions/AddDeviceModules/Pages/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/ServerForDevice/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKRemoteGateway/Classes/Functions/AddDeviceModules/Pages/ServerForDevice/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DeviceDataPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKRemoteGateway/Classes/Functions/DeviceDataPage/Controller/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/DeviceDataPage/View": [
+
+                ],
+                "MKRemoteGateway/Functions/SettingPages": [
+
+                ],
+                "MKRemoteGateway/Functions/FilterPages/UploadOptionPage": [
+
+                ],
+                "MKRemoteGateway/Functions/ManageBleModules": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKRemoteGateway/Classes/Functions/DeviceDataPage/View/**"
+            }
+          ]
+        },
+        {
+          "name": "DeviceListPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKRemoteGateway/Classes/Functions/DeviceListPage/Controller/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/DeviceListPage/View": [
+
+                ],
+                "MKRemoteGateway/Functions/DeviceListPage/Model": [
+
+                ],
+                "MKRemoteGateway/Functions/ServerForApp": [
+
+                ],
+                "MKRemoteGateway/Functions/ScanPage": [
+
+                ],
+                "MKRemoteGateway/Functions/DeviceDataPage": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKRemoteGateway/Classes/Functions/DeviceListPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKRemoteGateway/Classes/Functions/DeviceListPage/View/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/DeviceListPage/Model": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "FilterPages",
+          "subspecs": [
+            {
+              "name": "DuplicateDataFilterPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/DuplicateDataFilterPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/DuplicateDataFilterPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/DuplicateDataFilterPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByAdvNamePage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByAdvNamePage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByAdvNamePage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByAdvNamePage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByBeaconPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByBeaconPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByBeaconPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Header",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByBeaconPage/Header/**"
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByBeaconPage/Model/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "FilterByButtonPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByButtonPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByButtonPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByButtonPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByMacPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByMacPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByMacPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByMacPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByOtherPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByOtherPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByOtherPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByOtherPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByPirPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByPirPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByPirPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByPirPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByRawDataPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByRawDataPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByRawDataPage/Model": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByBeaconPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByUIDPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByURLPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByTLMPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByButtonPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByTag": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByPirPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByOtherPage": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByRawDataPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByTag",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByTag/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByTag/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByTag/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByTLMPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByTLMPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByTLMPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByTLMPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByUIDPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByUIDPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByUIDPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByUIDPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "FilterByURLPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByURLPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/FilterByURLPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/FilterByURLPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "UploadDataOptionPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/UploadDataOptionPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/UploadDataOptionPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/UploadDataOptionPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "UploadOptionPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/UploadOptionPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/FilterPages/UploadOptionPage/Model": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/UploadOptionPage/View": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/DuplicateDataFilterPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/UploadDataOptionPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByMacPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByAdvNamePage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/FilterPages/FilterByRawDataPage": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/UploadOptionPage/Model/**"
+                },
+                {
+                  "name": "View",
+                  "source_files": "MKRemoteGateway/Classes/Functions/FilterPages/UploadOptionPage/View/**"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ManageBleModules",
+          "subspecs": [
+            {
+              "name": "ButtonDFUPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/ButtonDFUPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/ManageBleModules/ButtonDFUPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/ButtonDFUPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "BXPButtonPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/BXPButtonPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/ManageBleModules/BXPButtonPage/View": [
+
+                    ],
+                    "MKRemoteGateway/Functions/ManageBleModules/ButtonDFUPage": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "View",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/BXPButtonPage/View/**"
+                }
+              ]
+            },
+            {
+              "name": "ManageBleDevicesPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/ManageBleDevicesPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/ManageBleModules/ManageBleDevicesPage/View": [
+
+                    ],
+                    "MKRemoteGateway/Functions/ManageBleModules/BXPButtonPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/ManageBleModules/NormalConnectedPage": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "View",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/ManageBleDevicesPage/View/**"
+                }
+              ]
+            },
+            {
+              "name": "NormalConnectedPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/NormalConnectedPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/ManageBleModules/NormalConnectedPage/View": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "View",
+                  "source_files": "MKRemoteGateway/Classes/Functions/ManageBleModules/NormalConnectedPage/View/**"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ScanPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKRemoteGateway/Classes/Functions/ScanPage/Controller/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/ScanPage/Model": [
+
+                ],
+                "MKRemoteGateway/Functions/ScanPage/View": [
+
+                ],
+                "MKRemoteGateway/Functions/AddDeviceModules": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKRemoteGateway/Classes/Functions/ScanPage/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKRemoteGateway/Classes/Functions/ScanPage/View/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/ScanPage/Model": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ServerForApp",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKRemoteGateway/Classes/Functions/ServerForApp/Controller/**",
+              "dependencies": {
+                "MKRemoteGateway/Functions/ServerForApp/Model": [
+
+                ],
+                "MKRemoteGateway/Functions/ServerForApp/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKRemoteGateway/Classes/Functions/ServerForApp/Model/**"
+            },
+            {
+              "name": "View",
+              "source_files": "MKRemoteGateway/Classes/Functions/ServerForApp/View/**"
+            }
+          ]
+        },
+        {
+          "name": "SettingPages",
+          "subspecs": [
+            {
+              "name": "DeviceInfoPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/DeviceInfoPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/SettingPages/DeviceInfoPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/DeviceInfoPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "ModifyNetworkPages",
+              "subspecs": [
+                {
+                  "name": "MqttNetworkSettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MqttParamsListPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Model": [
+
+                        ],
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttNetworkSettingsPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttServerPage": [
+
+                        ],
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttParamsListPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MqttServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Model": [
+
+                        ],
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttServerPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MqttWifiSettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/ModifyNetworkPages/MqttWifiSettingsPage/Model/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "NormalSettings",
+              "subspecs": [
+                {
+                  "name": "CommunicatePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/CommunicatePage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/CommunicatePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/CommunicatePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DataReportPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/DataReportPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/DataReportPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/DataReportPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "IndicatorSettingsPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/IndicatorSettingsPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NetworkStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/NetworkStatusPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/NetworkStatusPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/NetworkStatusPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NTPServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/NTPServerPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/NTPServerPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/NTPServerPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ReconnectTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/ReconnectTimePage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/ReconnectTimePage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/ReconnectTimePage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ResetByButtonPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/ResetByButtonPage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/ResetByButtonPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/ResetByButtonPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SystemTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/SystemTimePage/Controller/**",
+                      "dependencies": {
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/SystemTimePage/View": [
+
+                        ],
+                        "MKRemoteGateway/Functions/SettingPages/NormalSettings/NTPServerPage": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/NormalSettings/SystemTimePage/View/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "OTAPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/OTAPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/SettingPages/OTAPage/Model": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/OTAPage/Model/**"
+                }
+              ]
+            },
+            {
+              "name": "SettingPage",
+              "subspecs": [
+                {
+                  "name": "Controller",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/SettingPage/Controller/**",
+                  "dependencies": {
+                    "MKRemoteGateway/Functions/SettingPages/SettingPage/Model": [
+
+                    ],
+                    "MKRemoteGateway/Functions/SettingPages/DeviceInfoPage": [
+
+                    ],
+                    "MKRemoteGateway/Functions/SettingPages/ModifyNetworkPages": [
+
+                    ],
+                    "MKRemoteGateway/Functions/SettingPages/NormalSettings": [
+
+                    ],
+                    "MKRemoteGateway/Functions/SettingPages/OTAPage": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "Model",
+                  "source_files": "MKRemoteGateway/Classes/Functions/SettingPages/SettingPage/Model/**"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
