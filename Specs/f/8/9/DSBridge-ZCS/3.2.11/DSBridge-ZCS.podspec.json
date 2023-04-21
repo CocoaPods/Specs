@@ -1,0 +1,183 @@
+{
+  "name": "DSBridge-ZCS",
+  "version": "3.2.11",
+  "summary": "An ios bridge for calling functions synchronously and asynchronously between JavaScript and Object-C in WKWebView",
+  "description": "\"An ios bridge for calling functions synchronously and asynchronously between JavaScript and Object-C in WKWebView，并在此基础上拓展了webviewController、ApiFactory、Apis，细分subspec，集成者可以根据需要子库\"",
+  "homepage": "http://172.18.80.22/iOS/DSBridge-IOS",
+  "license": "MIT",
+  "authors": {
+    "yzh115": "yzh115@zcsmart.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "http://172.18.80.22/iOS/DSBridge-IOS.git",
+    "tag": "3.2.11"
+  },
+  "source_files": "DSBridge/DSBridge.h",
+  "static_framework": true,
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "DSBridge/Core/*.{h,m}"
+    },
+    {
+      "name": "Utils",
+      "subspecs": [
+        {
+          "name": "HUD",
+          "dependencies": {
+            "WSProgressHUD": [
+              "~> 1.1.5"
+            ],
+            "Toast": [
+
+            ]
+          },
+          "source_files": "DSBridge/Utils/HUD/ZCHUD.{h,m}"
+        },
+        {
+          "name": "SelectPicture",
+          "dependencies": {
+            "DSBridge-ZCS/Utils/HUD": [
+
+            ]
+          },
+          "source_files": "DSBridge/Utils/SelectPicture/SelectPictureTool.{h,m}"
+        },
+        {
+          "name": "Location",
+          "dependencies": {
+            "AMapLocation": [
+
+            ]
+          },
+          "source_files": "DSBridge/Utils/Location/*.{h,m}"
+        },
+        {
+          "name": "WXApi",
+          "dependencies": {
+            "WechatOpenSDK": [
+
+            ]
+          },
+          "source_files": "DSBridge/Utils/WXApi/WXApiTool.{h,m}"
+        },
+        {
+          "name": "SendMessage",
+          "source_files": "DSBridge/Utils/SendMessage/MessageTool.{h,m}"
+        },
+        {
+          "name": "DLAddToDesktopLib",
+          "dependencies": {
+            "CocoaHTTPServer": [
+
+            ],
+            "GTMBase64": [
+
+            ],
+            "CocoaLumberjack": [
+
+            ]
+          },
+          "source_files": "DSBridge/Utils/DLAddToDesktopLib/*.{h,m}",
+          "resources": "DSBridge/Utils/DLAddToDesktopLib/HTMLTemplet/WebHtml.bundle"
+        }
+      ]
+    },
+    {
+      "name": "ApiFactory",
+      "dependencies": {
+        "DSBridge-ZCS/Core": [
+
+        ]
+      },
+      "source_files": "DSBridge/ApiFactory/*.{h,m}"
+    },
+    {
+      "name": "Api",
+      "dependencies": {
+        "YZHFactory": [
+          "~> 1.1.0"
+        ],
+        "DSBridge-ZCS/ApiFactory": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "CoreApi",
+          "dependencies": {
+            "DSBridge-ZCS/Utils/SendMessage": [
+
+            ],
+            "DSBridge-ZCS/Utils/Location": [
+
+            ],
+            "DSBridge-ZCS/Utils/WXApi": [
+
+            ],
+            "DSBridge-ZCS/Utils/DLAddToDesktopLib": [
+
+            ]
+          },
+          "source_files": "DSBridge/Api/CoreApi/*.{h,m}"
+        },
+        {
+          "name": "Device",
+          "dependencies": {
+            "BATouchID": [
+
+            ],
+            "DSBridge-ZCS/Utils/SelectPicture": [
+
+            ]
+          },
+          "source_files": "DSBridge/Api/Device/*.{h,m}"
+        },
+        {
+          "name": "Navi",
+          "dependencies": {
+            "DSBridge-ZCS/WebViewController/Core": [
+
+            ]
+          },
+          "source_files": "DSBridge/Api/Navi/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "WebViewController",
+      "resources": "DSBridge/WebViewController/QuickHybridBundle.bundle",
+      "subspecs": [
+        {
+          "name": "Utils",
+          "source_files": "DSBridge/WebViewController/Utils/*.{h,m}"
+        },
+        {
+          "name": "Core",
+          "dependencies": {
+            "FDFullscreenPopGesture": [
+              "~> 1.1"
+            ],
+            "WSProgressHUD": [
+              "~> 1.1.5"
+            ],
+            "Toast": [
+
+            ],
+            "DSBridge-ZCS/ApiFactory": [
+
+            ],
+            "DSBridge-ZCS/WebViewController/Utils": [
+
+            ]
+          },
+          "source_files": "DSBridge/WebViewController/Core/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
