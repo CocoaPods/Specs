@@ -1,0 +1,73 @@
+{
+  "name": "TUIVideoSeat",
+  "version": "1.2.0",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "iOS/TUIVideoSeat/LICENSE"
+  },
+  "homepage": "https://github.com/tencentyun/TUIRoomKit",
+  "authors": "tencent video cloud",
+  "summary": "针对企业会议、在线课堂、网络沙龙等多人音视频场景的麦位挂件.",
+  "static_framework": true,
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/tencentyun/TUIRoomKit.git",
+    "tag": "v1.2.0"
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "TUICore": [
+
+    ]
+  },
+  "default_subspecs": "TRTC",
+  "subspecs": [
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TUIRoomEngine/Professional": [
+
+        ]
+      },
+      "source_files": "iOS/TUIVideoSeat/Source/**/*.{h,m,mm,swift}",
+      "resource_bundles": {
+        "TUIVideoSeatKitBundle": [
+          "iOS/TUIVideoSeat/Resources/*.xcassets",
+          "iOS/TUIVideoSeat/Resources/Localized/**/*.strings"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D TXLiteAVSDK_Professional",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 TXLiteAVSDK_Professional=1"
+      }
+    },
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TUIRoomEngine/TRTC": [
+
+        ]
+      },
+      "source_files": "iOS/TUIVideoSeat/Source/**/*.{h,m,mm,swift}",
+      "resource_bundles": {
+        "TUIVideoSeatKitBundle": [
+          "iOS/TUIVideoSeat/Resources/*.xcassets",
+          "iOS/TUIVideoSeat/Resources/Localized/**/*.strings"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-D TXLiteAVSDK_TRTC",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 TXLiteAVSDK_TRTC=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
