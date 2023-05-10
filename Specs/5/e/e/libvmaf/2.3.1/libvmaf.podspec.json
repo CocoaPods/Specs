@@ -1,0 +1,47 @@
+{
+  "name": "libvmaf",
+  "version": "2.3.1",
+  "summary": "VMAF is a perceptual video quality assessment algorithm developed by Netflix.",
+  "description": "VMAF is a perceptual video quality assessment algorithm developed by Netflix.\nThis software package includes a stand-alone C library libvmaf and its wrapping Python library.",
+  "homepage": "https://github.com/Netflix/vmaf",
+  "license": {
+    "type": "BSD-2-Clause-Patent"
+  },
+  "authors": {
+    "Netflix": "https://netflixtechblog.com/"
+  },
+  "source": {
+    "git": "https://github.com/SDWebImage/libvmaf-Xcode.git",
+    "tag": "2.3.1",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source_files": [
+    "vmaf/libvmaf/src/**/*.{h,c,cpp}",
+    "vmaf/libvmaf/include/**/*.h",
+    "generate/**/*.{h,c,cpp}"
+  ],
+  "public_header_files": "vmaf/libvmaf/include/**/*.h",
+  "exclude_files": [
+    "vmaf/libvmaf/src/x86",
+    "vmaf/libvmaf/src/ext",
+    "vmaf/libvmaf/src/compat",
+    "vmaf/libvmaf/src/feature/x86",
+    "vmaf/libvmaf/src/feature/common/convolution_avx.c",
+    "vmaf/libvmaf/src/libvmaf.cpp"
+  ],
+  "pod_target_xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libvmaf/vmaf/libvmaf/src ${PODS_TARGET_SRCROOT}/vmaf/libvmaf/src ${PODS_ROOT}/libvmaf/vmaf/libvmaf/src/feature ${PODS_TARGET_SRCROOT}/vmaf/libvmaf/src/feature ${PODS_ROOT}/libvmaf/vmaf/libvmaf/include ${PODS_TARGET_SRCROOT}/vmaf/libvmaf/include ${PODS_ROOT}/libvmaf/generate ${PODS_TARGET_SRCROOT}/generate"
+  },
+  "preserve_paths": [
+    "vmaf",
+    "generate"
+  ],
+  "libraries": "c++"
+}
