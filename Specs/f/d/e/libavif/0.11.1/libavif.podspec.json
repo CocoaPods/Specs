@@ -1,0 +1,139 @@
+{
+  "name": "libavif",
+  "version": "0.11.1",
+  "summary": "libavif - Library for encoding and decoding .avif files",
+  "description": "This library aims to be a friendly, portable C implementation of the AV1 Image File Format, as described here:\nhttps://aomediacodec.github.io/av1-avif/\nIt is a work-in-progress, but can already encode and decode all AOM supported YUV formats and bit depths (with alpha).",
+  "homepage": "https://github.com/joedrago/avif/",
+  "license": {
+    "type": "BSD"
+  },
+  "authors": {
+    "Joe Drago": "joedrago@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/AOMediaCodec/libavif.git",
+    "tag": "v0.11.1"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "prepare_command": "sed -i '' 's/\\\"rav1e\\/rav1e.h\\\"/\\\"librav1e\\/rav1e.h\\\"/g' './src/codec_rav1e.c' || true\nsed -i '' 's/\\\"rav1e.h\\\"/\\\"librav1e\\/rav1e.h\\\"/g' './src/codec_rav1e.c' || true",
+  "default_subspecs": "libaom",
+  "preserve_paths": [
+    "src",
+    "include/avif"
+  ],
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": [
+        "src/**/*.{h,c,cc}",
+        "include/avif/*.h"
+      ],
+      "public_header_files": "include/avif/*.h",
+      "exclude_files": "src/codec_*.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/libavif/include $(PODS_TARGET_SRCROOT)/include"
+      }
+    },
+    {
+      "name": "libaom",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "libaom": [
+          ">= 2.0.0"
+        ]
+      },
+      "source_files": "src/codec_aom.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libaom/aom",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_AOM=1 AVIF_CODEC_AOM_DECODE=1 AVIF_CODEC_AOM_ENCODE=1"
+      }
+    },
+    {
+      "name": "libdav1d",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "libdav1d": [
+          ">= 0.6.0"
+        ]
+      },
+      "source_files": "src/codec_dav1d.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libdav1d/dav1d/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_DAV1D=1 AVIF_CODEC_AOM_DECODE=0"
+      }
+    },
+    {
+      "name": "libgav1",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "libgav1": [
+          ">= 0.16.3"
+        ]
+      },
+      "source_files": "src/codec_libgav1.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libgav1/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_LIBGAV1=1 AVIF_CODEC_AOM_DECODE=0"
+      }
+    },
+    {
+      "name": "librav1e",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "librav1e": [
+          ">= 0.3.0"
+        ]
+      },
+      "source_files": "src/codec_rav1e.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/librav1e/rav1e/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_RAV1E=1 AVIF_CODEC_AOM_ENCODE=0"
+      },
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.10"
+      }
+    },
+    {
+      "name": "svt-av1",
+      "dependencies": {
+        "libavif/core": [
+
+        ],
+        "svt-av1": [
+          ">= 0.8.7"
+        ]
+      },
+      "source_files": "src/codec_svt.c",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/svt-av1/include",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_CODEC_SVT=1 AVIF_CODEC_AOM_ENCODE=0"
+      }
+    },
+    {
+      "name": "sharpyuv",
+      "dependencies": {
+        "libwebp": [
+          ">= 1.2.3"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libwebp",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AVIF_LIBSHARPYUV_ENABLED=1"
+      }
+    }
+  ]
+}
