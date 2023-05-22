@@ -1,0 +1,53 @@
+{
+  "name": "ZSPINCache",
+  "version": "3.1.1",
+  "homepage": "https://github.com/Zandor300/ZSPINCache",
+  "summary": "Fast, thread safe, parallel object cache for iOS and OS X.",
+  "authors": {
+    "Zandor Smith": "info@zsinfo.nl"
+  },
+  "source": {
+    "git": "https://github.com/Zandor300/ZSPINCache.git",
+    "tag": "3.1.1"
+  },
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE.txt"
+  },
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "ios": {
+    "weak_frameworks": "UIKit"
+  },
+  "osx": {
+    "weak_frameworks": "AppKit"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "11.0",
+    "tvos": "11.0",
+    "watchos": "4.0"
+  },
+  "prefix_header_contents": "#ifndef TARGET_OS_WATCH\n  #define TARGET_OS_WATCH 0\n#endif",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "dependencies": {
+        "ZSPINOperation": [
+          "~> 1.3.1"
+        ]
+      }
+    },
+    {
+      "name": "Arc-exception-safe",
+      "dependencies": {
+        "ZSPINCache/Core": [
+
+        ]
+      },
+      "source_files": "Source/PINDiskCache.m",
+      "compiler_flags": "-fobjc-arc-exceptions"
+    }
+  ]
+}
