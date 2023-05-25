@@ -1,0 +1,106 @@
+{
+  "name": "ThinkingSDK",
+  "version": "2.8.4-beta.4",
+  "summary": "Official ThinkingData SDK for iOS.",
+  "homepage": "https://github.com/ThinkingDataAnalytics/ios-sdk",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "ThinkingData, Inc": "sdk@thinkingdata.cn"
+  },
+  "source": {
+    "git": "https://github.com/ThinkingDataAnalytics/ios-sdk.git",
+    "tag": "v2.8.4-beta.4"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Security"
+  ],
+  "libraries": [
+    "sqlite3",
+    "z"
+  ],
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "OSX",
+      "platforms": {
+        "osx": "10.10"
+      },
+      "source_files": [
+        "ThinkingSDK/Source/EventTracker/**/*.{h,m}",
+        "ThinkingSDK/Source/TDRuntime/**/*.{h,m}",
+        "ThinkingSDK/Source/Config/**/*.{h,m}",
+        "ThinkingSDK/Source/DeviceInfo/**/*.{h,m}",
+        "ThinkingSDK/Source/main/**/*.{h,m}",
+        "ThinkingSDK/Source/Store/*.{h,m}",
+        "ThinkingSDK/Source/Network/**/*.{h,m}",
+        "ThinkingSDK/Source/Core/**/*.{h,m,c}",
+        "ThinkingSDK/Source/AppLifeCycle/**/*.{h,m}",
+        "ThinkingSDK/Source/Util/**/*.{h,m}",
+        "ThinkingSDK/Source/Extension/**/*.{h,m}"
+      ],
+      "osx": {
+        "exclude_files": [
+          "ThinkingSDK/Source/DeviceInfo/TDFPSMonitor.{h,m}",
+          "ThinkingSDK/Source/DeviceInfo/TDPerformance.{h,m}",
+          "ThinkingSDK/Source/Util/Toast/*.{h,m}"
+        ]
+      }
+    },
+    {
+      "name": "iOS",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": [
+        "ThinkingSDK/Source/EventTracker/**/**/*.{h,m}",
+        "ThinkingSDK/Source/TDRuntime/**/*.{h,m}",
+        "ThinkingSDK/Source/Config/**/*.{h,m}",
+        "ThinkingSDK/Source/DeviceInfo/**/*.{h,m}",
+        "ThinkingSDK/Source/Router/*.{h,m}",
+        "ThinkingSDK/Source/main/**/*.{h,m}",
+        "ThinkingSDK/Source/Store/**/*.{h,m}",
+        "ThinkingSDK/Source/Network/**/*.{h,m}",
+        "ThinkingSDK/Source/AppLaunch/**/*.{h,m}",
+        "ThinkingSDK/Source/AutoTrack/**/*.{h,m}",
+        "ThinkingSDK/Source/Encrypt/**/*.{h,m}",
+        "ThinkingSDK/Source/Exception/**/*.{h,m}",
+        "ThinkingSDK/Source/AppLifeCycle/**/*.{h,m}",
+        "ThinkingSDK/Source/Core/**/*.{h,m,c}",
+        "ThinkingSDK/Source/Util/**/*.{h,m}",
+        "ThinkingSDK/Source/Util/Toast/*.{h,m}",
+        "ThinkingSDK/Source/Extension/**/*.{h,m}"
+      ],
+      "ios": {
+        "frameworks": [
+          "CoreTelephony",
+          "UIKit"
+        ]
+      }
+    },
+    {
+      "name": "Main",
+      "ios": {
+        "dependencies": {
+          "ThinkingSDK/iOS": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "ThinkingSDK/OSX": [
+
+          ]
+        }
+      }
+    }
+  ]
+}
