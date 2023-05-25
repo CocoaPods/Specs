@@ -1,0 +1,63 @@
+{
+  "name": "WuKongIMSDK",
+  "version": "1.0.0",
+  "summary": "悟空IM是一款简单，高效，支持完全私有化的即时通讯.",
+  "description": "悟空IM是一款简单，高效，支持完全私有化的即时通讯，提供群聊，点对点通讯解决方案.",
+  "homepage": "https://github.com/WuKongIM/WuKongIMiOSSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "tangtaoit": "tt@tgo.ai"
+  },
+  "source": {
+    "git": "https://gitee.com/WuKongIM/WuKongIMiOSSDK.git"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "vendored_libraries": "WuKongIMSDK/Classes/private/arm/lib/*.a",
+  "preserve_paths": [
+    "WuKongIMSDK/Classes/private/arm/lib/*.a",
+    "WuKongIMSDK/Classes/private/curve25519/ed25519/**/*.{c,h}"
+  ],
+  "libraries": [
+    "opencore-amrnb",
+    "opencore-amrwb",
+    "vo-amrwbenc"
+  ],
+  "source_files": "WuKongIMSDK/Classes/**/*",
+  "public_header_files": "WuKongIMSDK/Classes/**/*.h",
+  "private_header_files": "WuKongIMSDK/Classes/private/**/*.h",
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "Security"
+  ],
+  "resource_bundles": {
+    "WuKongIMSDK": [
+      "WuKongIMSDK/Assets/*.png",
+      "WuKongIMSDK/Assets/Migrations/*"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "dependencies": {
+    "CocoaAsyncSocket": [
+      "~> 7.6.4"
+    ],
+    "FMDB/SQLCipher": [
+      "~>2.7.5"
+    ],
+    "25519": [
+      "~>2.0.2"
+    ]
+  }
+}
