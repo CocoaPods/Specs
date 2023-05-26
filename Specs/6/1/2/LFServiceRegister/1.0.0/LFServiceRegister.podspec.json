@@ -1,0 +1,22 @@
+{
+  "name": "LFServiceRegister",
+  "version": "1.0.0",
+  "summary": "Build for decomposition. To avoid dependency disaster. Service regsiter helps you decompose function module in your app.",
+  "description": "# LFServiceRegister\n\nBuild for decomposition. To avoid dependency disaster. Service regsiter helps you decompose function module in your app.\n\n## What it does\n\nWhen xcode compile a project, it will try to figure out the dependency relationship of each file. For example, a PCH (precompile header) file is referenced by almost every class within this prioject, if a PCH file was changed. Xcode will force every .o file to be rebuilt again. Thus, if we are talking about a project with over 10 thousand classes,  it will cause more than 30min to finished the building process.\n\nTo aviod the xcode from frequently rebuilding the whole project, it is better to keep such dependency as simple and straight as possible. Which is this repo trying to approach.\n\n## How this work\n\nIf a moudle class needs call method from another class. We need to import it first, but in the mean while we also imported another class's dependency. \n\nHow about we don't import that class directly? As an alternative, we state a protocol to tell what the class is capable of, and import the protocol header file instead?\n\n1. State a protocol as header file for the acutal class.\n\n```objc\n// the method and class we need\n@interface LFHelloWorldImpClass : NSObject <LFHelloWorldService>\n\n+ (void)printHelloWorldClassMethod;\n\n+ (id<LFHelloWorldService>)impClassInstance;\n\n- (void)printHelloWorldInstanceMethod;\n\n@end\n\n// the protocol header file we state\n@protocol LFHelloWorldService <NSObject>\n\n+ (void)printHelloWorldClassMethod;\n\n+ (id<LFHelloWorldService>)impClassInstance;\n\n- (void)printHelloWorldInstanceMethod;\n\n@end\n```\n\n2. In the protocol file, use predefined marco to write the relationship between actual class name and the protocol into data segment as a custom section.\n\n```objc\nLFR_SERVICE(LFHelloWorldService, LFHelloWorldImpClass)\n\n@protocol LFHelloWorldService <NSObject>\n\n+ (void)printHelloWorldClassMethod;\n\n+ (id<LFHelloWorldService>)impClassInstance;\n\n- (void)printHelloWorldInstanceMethod;\n\n@end\n```\n\n    3. When application launched, before the main function was called, C++ __attribute((constructor))__function will called, read the mapping relationships and register them into global memory as a map hashtable.\n\n```objc\n// tell complier to call this function before main function started\n__attribute__((constructor)) void preloadLFRegister(void) {\n    _dyld_register_func_for_add_image(lf_dyld_callback);\n}\nstatic void lf_dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) {\n    loadServiceAndImpClassMapping(LFR_SECTION_NAME, mhp);\n}\n```\n\n4. When we need to call the method, we impose the protocol as the actual class. The marco will get the actual classname according to the hashtable then alloc an instance if nesscessary.\n\n```objc\n#import \"LFHelloWorldService.h\"\n\n@interface LFViewController ()\n\n@end\n\n@implementation LFViewController\n\n- (void)viewDidLoad {\n    [super viewDidLoad];\n    // Do any additional setup after loading the view, typically from a nib.\n    [LFRImpClassConformToProtocol(LFHelloWorldService) printHelloWorldClassMethod];\n    [[LFRImpClassConformToProtocol(LFHelloWorldService) impClassInstance] printHelloWorldInstanceMethod];\n}\n\n@end\n```\n\n5. The method called perfectly and there is no dependency were made!\n\n## Example\n\nTo run the example project, clone the repo, and run `pod install` from the Example directory first.\n\n## Requirements\n\niOS 9.0 or later\n\n## Installation\n\nLFServiceRegister is available through [CocoaPods](https://cocoapods.org). To install\nit, simply add the following line to your Podfile:\n\n```ruby\npod 'LFServiceRegister'\n```\n\n## Author\n\nravendeng, dlfkid@icloud.com\n\n## License\n\nLFServiceRegister is available under the MIT license. See the LICENSE file for more info.",
+  "homepage": "https://github.com/dlfkid/LFServiceRegister",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ravendeng": "dlfkid@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/dlfkid/LFServiceRegister.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "LFServiceRegister/Classes/**/*"
+}
