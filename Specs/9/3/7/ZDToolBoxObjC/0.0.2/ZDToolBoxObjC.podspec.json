@@ -1,0 +1,94 @@
+{
+  "name": "ZDToolBoxObjC",
+  "version": "0.0.2",
+  "summary": "iOS开发工具箱",
+  "description": "iOS开发工具箱，包含子类、分类、工具类",
+  "homepage": "https://github.com/faimin/ZDToolBoxObjC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zero.D.Saber": "fuxianchao@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/faimin/ZDToolBoxObjC.git",
+    "tag": "0.0.2"
+  },
+  "module_name": "ZDToolBoxObjC",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "subspecs": [
+    {
+      "name": "ZDCommonTool",
+      "source_files": "ZDToolBoxObjC/Classes/ZDCommonTool/*.{h,m}"
+    },
+    {
+      "name": "ZDMacros",
+      "source_files": "ZDToolBoxObjC/Classes/ZDMacros/*.{h,m}",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDCommonTool": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDProxy",
+      "source_files": "ZDToolBoxObjC/Classes/ZDProxy/*.{h,m}"
+    },
+    {
+      "name": "ZDCategory",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDMacros": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "ZDToolBoxObjC/Classes/ZDCategory/Foundation/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "Foundation",
+            "CoreText"
+          ]
+        },
+        {
+          "name": "UIKit",
+          "source_files": "ZDToolBoxObjC/Classes/ZDCategory/UIKit/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "QuartzCore",
+            "CoreImage",
+            "CoreGraphics",
+            "ImageIO",
+            "CoreText",
+            "WebKit"
+          ],
+          "dependencies": {
+            "ZDToolBoxObjC/ZDProxy": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZDSubclass",
+      "source_files": "ZDToolBoxObjC/Classes/ZDSubclass/*.{h,m}",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDProxy": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDTools",
+      "source_files": "ZDToolBoxObjC/Classes/ZDTools/*.{h,m}"
+    }
+  ]
+}
