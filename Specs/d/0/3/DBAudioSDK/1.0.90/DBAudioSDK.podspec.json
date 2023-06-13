@@ -1,0 +1,64 @@
+{
+  "name": "DBAudioSDK",
+  "version": "1.0.90",
+  "summary": "标贝科技语音SDK库",
+  "description": "标贝科技语音SDK库",
+  "homepage": "https://github.com/data-baker/BakerIosSdks",
+  "license": "MIT",
+  "authors": {
+    "linxi": "linxi@data-baker.com"
+  },
+  "source": {
+    "git": "https://github.com/data-baker/BakerIosSdks.git",
+    "tag": "1.0.90"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "DBAudioSDK/Classes/DBToolKit/**/*.{h,m}",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "DBLongASRKit",
+      "source_files": "DBAudioSDK/Classes/{DBLongASRKit,DBToolKit}/**/*.{h,m}"
+    },
+    {
+      "name": "DBShortASRKit",
+      "source_files": "DBAudioSDK/Classes/{DBToolKit,DBShortASRKit}/**/*.{h,m}"
+    },
+    {
+      "name": "DBOnlineTTSKit",
+      "source_files": "DBAudioSDK/Classes/{DBToolKit,DBOnlineTTSKit}/**/*.{h,m}"
+    },
+    {
+      "name": "DBVoiceTransferKit",
+      "source_files": "DBAudioSDK/Classes/{DBToolKit,DBVoiceTransferKit}/**/*.{h,m}"
+    },
+    {
+      "name": "DBVoiceEngraverKit",
+      "source_files": "DBAudioSDK/Classes/{DBToolKit,DBVoiceEngraverKit}/**/*.{h,m}"
+    },
+    {
+      "name": "DBOfflineVCKit",
+      "vendored_frameworks": "DBAudioSDK/Classes/DBOfflineVCKit/*.framework",
+      "pod_target_xcconfig": {
+        "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)"
+      },
+      "libraries": "c++",
+      "dependencies": {
+        "DBAudioSDK/DBVoiceTransferKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "DBVocalPrintKit",
+      "source_files": "DBAudioSDK/Classes/{DBToolKit,DBVocalPrintKit}/**/*.{h,m}"
+    }
+  ]
+}
