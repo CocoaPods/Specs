@@ -1,0 +1,107 @@
+{
+  "name": "UTelCPP-dev",
+  "version": "0.1.100",
+  "summary": "Unified Telemetry SDK for Objective-C.",
+  "description": "[DEV POD] UTelCPP is a C++ version of UTel (Unified Telemetry) SDK. This CocoaPod contains the ObjC wrappers implemented with the C++ layer as core.",
+  "homepage": "https://aka.ms/UTel",
+  "license": {
+    "type": "Microsoft",
+    "text": "    Copyright (c) 2022 Microsoft Corporation. All Rights Reserved.\n"
+  },
+  "authors": {
+    "Unified Telemetry Experiences for Developers (United)": "unitedet@microsoft.com"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "12.0"
+  },
+  "compiler_flags": "-DAPPLE_HTTP=1",
+  "source": {
+    "git": "https://office@dev.azure.com/office/OE/_git/OTEL-OTelCPP",
+    "submodules": true,
+    "branch": "main",
+    "commit": "f58dd7ed02381ea92f1c0600916ea0144003e6e0"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/UTelCPP-dev/src/include/** $(PODS_ROOT)/UTelCPP-dev/third_party/stduuid/include/ $(PODS_ROOT)/UTelCPP-dev/third_party/stduuid/gsl/ $(PODS_ROOT)/UTelCPP-dev/third_party/cpp_client_telemetry/lib/include/** $(PODS_ROOT)/UTelCPP-dev/third_party/cpp_client_telemetry/lib/ $(PODS_ROOT)/UTelCPP-dev/third_party/cpp_client_telemetry/lib/modules/**",
+    "USER_HEADER_SEARCH_PATHS": "$(PODS_ROOT)/UTelCPP-dev/third_party/cpp_client_telemetry/third_party/Reachability/",
+    "USE_HEADERMAP": "NO",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "static_framework": true,
+  "source_files": [
+    "src/**/*.{cpp,h,mmm}",
+    "third_party/cpp_client_telemetry/lib/**/*.{cpp,h,hpp,m,mm}",
+    "wrappers/objc",
+    "third_party/cpp_client_telemetry/third_party/Reachability/*.{h,m}",
+    "third_party/stduuid/include/uuid.h",
+    "third_party/stduuid/gsl/*"
+  ],
+  "osx": {
+    "exclude_files": [
+      "third_party/cpp_client_telemetry/lib/pal/posix/sysinfo_utils_ios.*",
+      "src/impl/CrossPlatformOperationHelpers_MSVC.cpp"
+    ],
+    "frameworks": "IOKit"
+  },
+  "ios": {
+    "exclude_files": [
+      "third_party/cpp_client_telemetry/lib/pal/posix/sysinfo_utils_mac.*",
+      "src/impl/CrossPlatformOperationHelpers_MSVC.cpp"
+    ],
+    "frameworks": "UIKit"
+  },
+  "exclude_files": [
+    "third_party/stduuid/test",
+    "third_party/cpp_client_telemetry/lib/android_build/",
+    "third_party/cpp_client_telemetry/lib/bwcontrol/",
+    "third_party/cpp_client_telemetry/lib/http/HttpClient_Android*",
+    "third_party/cpp_client_telemetry/lib/**/*CX.cpp",
+    "third_party/cpp_client_telemetry/lib/http/HttpClient_Win*",
+    "third_party/cpp_client_telemetry/lib/jni",
+    "third_party/cpp_client_telemetry/lib/modules/bondlite",
+    "third_party/cpp_client_telemetry/lib/modules/dataviewer/tests",
+    "third_party/cpp_client_telemetry/lib/modules/examples",
+    "third_party/cpp_client_telemetry/lib/modules/privacy",
+    "third_party/cpp_client_telemetry/lib/modules/privacyguard/tests/",
+    "third_party/cpp_client_telemetry/lib/modules/utc/",
+    "third_party/cpp_client_telemetry/lib/modules/exp/examples/",
+    "third_party/cpp_client_telemetry/lib/offline/OfflineStorage_Room.*",
+    "third_party/cpp_client_telemetry/lib/pal/desktop/",
+    "third_party/cpp_client_telemetry/lib/pal/universal/",
+    "third_party/cpp_client_telemetry/lib/pal/posix/*Android.cpp",
+    "third_party/cpp_client_telemetry/lib/pal/posix/NetworkInformationImpl.cpp",
+    "third_party/cpp_client_telemetry/lib/shared/dllmain.cpp",
+    "third_party/cpp_client_telemetry/lib/shared/TimedEvent.cpp",
+    "third_party/cpp_client_telemetry/lib/shared/WindowsDesktopHelpers.cpp",
+    "third_party/cpp_client_telemetry/lib/include/mat/IBandwidthController.hpp",
+    "third_party/cpp_client_telemetry/wrappers/obj-c/main.mm",
+    "third_party/cpp_client_telemetry/lib/http/HttpClient_Curl.*",
+    "third_party/cpp_client_telemetry/lib/modules/liveeventinspector/tests/",
+    "src/impl/GuidHelpers_Android.cpp",
+    "wrappers/java"
+  ],
+  "public_header_files": "wrappers/objc/OBJC*.h",
+  "private_header_files": [
+    "third_party/stduuid/include/uuid.h",
+    "src/include/**/*.h",
+    "third_party/cpp_client_telemetry/lib/**/*.{h,hpp}",
+    "wrappers/objc/*private.h",
+    "third_party/cpp_client_telemetry/third_party/Reachability/*.h",
+    "wrappers/objc/*.h"
+  ],
+  "frameworks": [
+    "Network",
+    "SystemConfiguration",
+    "CoreFoundation",
+    "Foundation"
+  ],
+  "libraries": [
+    "sqlite3",
+    "stdc++",
+    "z",
+    "dl"
+  ],
+  "requires_arc": true
+}
