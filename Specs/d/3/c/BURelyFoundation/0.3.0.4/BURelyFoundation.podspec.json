@@ -1,0 +1,139 @@
+{
+  "name": "BURelyFoundation",
+  "version": "0.3.0.4",
+  "license": "MIT",
+  "summary": "BURelyFoundation is the basic library for byte ads",
+  "description": "BURelyFoundation is the basic library for byte ads",
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "authors": {
+    "zhangtianhao": "zhangtianhao.1230@bytedance.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/0.3.0.4/Frameworks.zip"
+  },
+  "frameworks": [
+    "UIKit",
+    "CoreFoundation",
+    "WebKit",
+    "StoreKit",
+    "CoreServices",
+    "MediaPlayer",
+    "CoreMedia",
+    "CoreLocation",
+    "AVFoundation",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreMotion",
+    "Accelerate",
+    "Security",
+    "AudioToolbox"
+  ],
+  "weak_frameworks": "AppTrackingTransparency",
+  "libraries": [
+    "z",
+    "bz2",
+    "resolv.9",
+    "c++",
+    "sqlite3",
+    "xml2",
+    "c++abi",
+    "iconv"
+  ],
+  "requires_arc": true,
+  "script_phases": [
+    {
+      "name": "Check dependency",
+      "script": "sh -c \"$(curl -fsSL https://sf3-fe-tos.pglstatp-toutiao.com/obj/bu-rely-framework/CheckRely/0.0.1.47/check_dependency.sh)\"",
+      "execution_position": "before_compile"
+    }
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++11",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-ObjC",
+    "COMPILER_INDEX_STORE_ENABLE": "NO",
+    "GCC_OPTIMIZATION_LEVEL[config=Debug][sdk=*][arch=*]": "0",
+    "GCC_OPTIMIZATION_LEVEL[config=Release][sdk=*][arch=*]": "z",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_INTTYPES_H HAVE_PKCRYPT HAVE_STDINT_H HAVE_WZAES HAVE_ZLIB",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "OTHER_CPLUSPLUSFLAGS": [
+      "-fno-c++-static-destructors",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "$(inherited)"
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "default_subspecs": [
+    "GM"
+  ],
+  "subspecs": [
+    {
+      "name": "GM",
+      "dependencies": {
+        "BURelyFoundation/HM": [
+
+        ],
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJ",
+      "dependencies": {
+        "BURelyFoundation/HM": [
+
+        ],
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoIdfa",
+      "dependencies": {
+        "BURelyFoundation/NETWork": [
+
+        ],
+        "BURelyFoundation/BURelyFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "NETWork",
+      "vendored_frameworks": "Frameworks/SDK/BURelyFoundationNETWork/BURelyFoundationNETWork.xcframework",
+      "dependencies": {
+        "BURelyFoundation/AFNetworking": [
+
+        ]
+      }
+    },
+    {
+      "name": "AFNetworking",
+      "vendored_frameworks": "Frameworks/SDK/BURelyFoundationAFN/BURelyFoundationAFN.xcframework"
+    },
+    {
+      "name": "HM",
+      "vendored_frameworks": "Frameworks/SDK/HM/HM.xcframework"
+    },
+    {
+      "name": "BURelyFoundation",
+      "vendored_frameworks": "Frameworks/SDK/BURelyFoundationHeader/BURelyFoundationHeader.xcframework"
+    }
+  ]
+}
