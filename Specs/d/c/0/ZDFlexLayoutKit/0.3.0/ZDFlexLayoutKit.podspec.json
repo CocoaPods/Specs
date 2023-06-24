@@ -1,0 +1,86 @@
+{
+  "name": "ZDFlexLayoutKit",
+  "version": "0.3.0",
+  "summary": "Flex Layout for iOS",
+  "description": "flex layout for iOS powered by yoga",
+  "homepage": "https://github.com/faimin/ZDFlexLayoutKit",
+  "license": "MIT",
+  "authors": {
+    "faimin": "fuxianchao@gmail.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/faimin/ZDFlexLayoutKit.git",
+    "tag": "0.3.0"
+  },
+  "prefix_header_file": false,
+  "header_dir": "./",
+  "module_name": "ZDFlexLayoutKit",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "GCC_PREPROCESSOR_DEFINITIONS": "ZDFL=1",
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "ZDFL"
+  },
+  "swift_versions": [
+    "5.1"
+  ],
+  "subspecs": [
+    {
+      "name": "Header",
+      "source_files": "Sources/Header/ZDFlexLayoutKit.{h,m}"
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.{h,m}",
+      "public_header_files": "Sources/Core/Public/*.h",
+      "private_header_files": "Sources/Core/Private/*.h",
+      "dependencies": {
+        "ZDYoga": [
+
+        ],
+        "ZDFlexLayoutKit/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "OCMaker",
+      "source_files": "Sources/OCMaker/*.{h,m}",
+      "dependencies": {
+        "ZDFlexLayoutKit/Core": [
+
+        ],
+        "ZDFlexLayoutKit/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "Helper",
+      "source_files": "Sources/Helper/*.{h,m}",
+      "dependencies": {
+        "ZDFlexLayoutKit/Core": [
+
+        ],
+        "ZDFlexLayoutKit/Header": [
+
+        ]
+      }
+    },
+    {
+      "name": "SwiftMaker",
+      "source_files": "Sources/SwiftMaker/*.swift",
+      "exclude_files": "Sources/SwiftMaker/ZDSFlexLayoutChain.swift",
+      "dependencies": {
+        "ZDFlexLayoutKit/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
