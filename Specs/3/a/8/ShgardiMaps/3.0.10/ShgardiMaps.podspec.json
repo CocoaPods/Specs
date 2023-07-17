@@ -1,0 +1,106 @@
+{
+  "name": "ShgardiMaps",
+  "version": "3.0.10",
+  "summary": "A short description of ShgardiMaps.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Shgardi/shgardi-iOS-maps",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Shgardi": "https://shgardi.app"
+  },
+  "source": {
+    "git": "git@github.com:Shgardi/shgardi-iOS-maps",
+    "branch": "master"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ShgardiMaps/Core/Classes/**/*",
+      "resources": [
+        "ShgardiMaps/Core/Assets/**/*"
+      ],
+      "frameworks": "UIKit",
+      "dependencies": {
+        "ShgardiFoundation/Rx": [
+
+        ],
+        "ShgardiUIBuilder": [
+
+        ],
+        "GooglePlaces": [
+          "~>  7.2.0"
+        ],
+        "GoogleMaps": [
+          "~>  7.2.0"
+        ],
+        "Google-Maps-iOS-Utils": [
+
+        ]
+      }
+    },
+    {
+      "name": "Navigation",
+      "source_files": "ShgardiMaps/Navigation/Classes/**/*",
+      "ios": {
+        "vendored_frameworks": "ShgardiMaps/Navigation/Frameworks/GoogleNavigation.framework"
+      },
+      "resources": [
+        "ShgardiMaps/Navigation/Frameworks/GoogleNavigation.framework/Resources/*"
+      ],
+      "dependencies": {
+        "ShgardiMaps/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "RSDriver",
+      "source_files": "ShgardiMaps/RSDriver/Classes/**/*",
+      "ios": {
+        "vendored_frameworks": "ShgardiMaps/RSDriver/Frameworks/GoogleRidesharingDriver.framework"
+      },
+      "resources": [
+        "ShgardiMaps/RSDriver/Frameworks/GoogleRidesharingDriver.framework/Resources/*"
+      ],
+      "dependencies": {
+        "ShgardiMaps/Navigation": [
+
+        ]
+      }
+    },
+    {
+      "name": "RSConsumer",
+      "source_files": "ShgardiMaps/RSConsumer/Classes/**/*",
+      "ios": {
+        "vendored_frameworks": "ShgardiMaps/RSConsumer/Frameworks/GoogleRidesharingConsumer.framework"
+      },
+      "resources": [
+        "ShgardiMaps/RSConsumer/Frameworks/GoogleRidesharingConsumer.framework/Resources/*"
+      ],
+      "dependencies": {
+        "ShgardiMaps/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
