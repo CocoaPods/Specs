@@ -1,0 +1,102 @@
+{
+  "name": "KakaoGameTubeSDK",
+  "version": "0.9.3",
+  "summary": "Kakao Game Tube SDK for iOS",
+  "homepage": "https://developers.kakao.com/",
+  "license": "Apache",
+  "authors": "Kakaogames Corp",
+  "source": {
+    "http": "https://kakao-sdk-dev.s3.amazonaws.com/testRule/TubeSDK.zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "KakaoGame",
+      "vendored_frameworks": "TubeSDK/KakaoGameTube.framework",
+      "resources": "TubeSDK/KakaoGameTubeResources.bundle"
+    },
+    {
+      "name": "KakaoGameKakao",
+      "dependencies": {
+        "KakaoGameTubeSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "TubeSDK/IDPFramework/Kakao/Alamofire.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKAuth.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKCommon.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKFriendStatic.xcframework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKShare.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKTalk.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoPartnerSDKUser.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKAuth.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKCommon.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKShare.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKTalk.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKTemplate.framework",
+        "TubeSDK/IDPFramework/Kakao/KakaoSDKUser.framework",
+        "TubeSDK/KakaoGameTubeKakao.framework"
+      ],
+      "resources": "TubeSDK/IDPFramework/Kakao/KakaoSDKFriendResources.bundle"
+    },
+    {
+      "name": "KakaoGameGuest",
+      "dependencies": {
+        "KakaoGameTubeSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeGuest.framework"
+    },
+    {
+      "name": "KakaoGameSIWA",
+      "dependencies": {
+        "KakaoGameTubeSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeSIWA.framework"
+    },
+    {
+      "name": "KakaoGameGoogle",
+      "dependencies": {
+        "KakaoGameTubeSDK/KakaoGame": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 7.0"
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeGoogle.framework"
+    },
+    {
+      "name": "KakaoGameFacebook",
+      "dependencies": {
+        "KakaoGameTubeSDK/KakaoGame": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 15.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 15.0"
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeFacebook.framework"
+    }
+  ],
+  "swift_version": "5.0"
+}
