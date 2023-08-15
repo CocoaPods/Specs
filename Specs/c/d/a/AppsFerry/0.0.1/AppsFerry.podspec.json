@@ -1,0 +1,164 @@
+{
+  "name": "AppsFerry",
+  "version": "0.0.1",
+  "summary": "The AppsFerry SDK for iOS data statistics and user authentication.",
+  "description": "The AppsFerry SDK for iOS provides:\n* The Data Kit mainly includes two key capabilities: autotrack data statistics and custom data statistics.\n* The Login Kit is an application scenario of the AppsFerrySDK.It includes user login, through mobile phone number, email, tourist mode and other thirdparty platforms such as Google, Facebook, Snapchat and Tiktok.",
+  "homepage": "https://developers.appinfra.io",
+  "license": {
+    "type": "AppsFerry Platform License",
+    "text": "    Copyright (c) 2023 AppsFerry. All rights reserved.\n\n    You are hereby granted a non-exclusive, worldwide, royalty-free license to use,\n    copy, modify, and distribute this software in source code or binary form for use\n    in connection with APIs provided by AppsFerry.\n\n    As with any software that integrates with the AppsFerry platform, your use of\n    this software is subject to the AppsFerry Platform Policy\n    [https://developers.appinfra.io/policy/]. This copyright notice shall be\n    included in all copies or substantial portions of the software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\n    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\n    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\n    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\n    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"
+  },
+  "authors": "AppsFerry",
+  "source": {
+    "git": "git@github.com:AppInf/appsferry-ios.git",
+    "tag": "0.0.1"
+  },
+  "default_subspecs": "none",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "MMKV": [
+          "~> 1.2.10"
+        ],
+        "YYModel": [
+          "~> 1.0.4"
+        ],
+        "YYCache": [
+          "~> 1.0.4"
+        ],
+        "AFNetworking": [
+          "~> 4.0.1"
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryCore.xcframework"
+    },
+    {
+      "name": "Config",
+      "dependencies": {
+        "AppsFerry/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryConfig.xcframework"
+    },
+    {
+      "name": "User",
+      "dependencies": {
+        "AppsFerry/Config": [
+
+        ],
+        "MIHCrypto": [
+          "~> 0.4.1"
+        ],
+        "UICKeyChainStore": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "XCFrameworks/AppsFerryUser.xcframework",
+        "XCFrameworks/IKCrypt.framework"
+      ]
+    },
+    {
+      "name": "User-Apple",
+      "dependencies": {
+        "AppsFerry/User": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryApple.xcframework",
+      "resource_bundles": {
+        "AppsFerryApple": [
+          "Bundles/AFUApple.bundle"
+        ]
+      }
+    },
+    {
+      "name": "User-Facebook",
+      "dependencies": {
+        "AppsFerry/User": [
+
+        ],
+        "FBSDKCoreKit": [
+          "11.2.0"
+        ],
+        "FBSDKLoginKit": [
+          "11.2.0"
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryFacebook.xcframework",
+      "resource_bundles": {
+        "AppsFerryFacebook": [
+          "Bundles/AFUFacebook.bundle"
+        ]
+      }
+    },
+    {
+      "name": "User-Google",
+      "dependencies": {
+        "AppsFerry/User": [
+
+        ],
+        "GoogleSignIn": [
+          "5.0.2"
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryGoogle.xcframework",
+      "resource_bundles": {
+        "AppsFerryGoogle": [
+          "Bundles/AFUGoogle.bundle"
+        ]
+      }
+    },
+    {
+      "name": "User-Snapchat",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "dependencies": {
+        "AppsFerry/User": [
+
+        ],
+        "SnapSDK/SCSDKLoginKit": [
+          "1.15.0"
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerrySnapchat.xcframework",
+      "resource_bundles": {
+        "AppsFerrySnapchat": [
+          "Bundles/AFUSnapchat.bundle"
+        ]
+      }
+    },
+    {
+      "name": "User-Tiktok",
+      "dependencies": {
+        "AppsFerry/User": [
+
+        ],
+        "TikTokOpenSDK": [
+          "5.0.0"
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryTiktok.xcframework",
+      "resource_bundles": {
+        "AppsFerryTiktok": [
+          "Bundles/AFUTiktok.bundle"
+        ]
+      }
+    },
+    {
+      "name": "Analytics",
+      "dependencies": {
+        "AppsFerry/Config": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFrameworks/AppsFerryData.xcframework"
+    }
+  ]
+}
