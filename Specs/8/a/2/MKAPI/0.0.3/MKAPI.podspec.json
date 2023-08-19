@@ -1,0 +1,72 @@
+{
+  "name": "MKAPI",
+  "version": "0.0.3",
+  "summary": "iOS上，提供异步任务封装工具，可用于网络请求的封装",
+  "description": "* 提供异步任务封装工具，可用于网络请求的封装",
+  "homepage": "https://gitee.com/sushangjin/MKAPI",
+  "license": {
+    "type": "MIT",
+    "file": "MKAPI/LICENSE"
+  },
+  "authors": {
+    "sushangjin": "381130632@qq.com"
+  },
+  "source": {
+    "git": "ssh://git@fz.gitlab.cibt:30039/j047x0/cibmobilespecs/mkapi.git",
+    "tag": "0.0.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "MKAPI/*.h",
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "MKAPI/Core/*.{h,m}",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Http",
+      "source_files": "MKAPI/Http/*.{h,m}",
+      "dependencies": {
+        "MKAPI/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Security"
+      ]
+    },
+    {
+      "name": "API_AFNetworking",
+      "source_files": "MKAPI/API_AFNetworking/*.{h,m}",
+      "dependencies": {
+        "MKAPI/Core": [
+
+        ],
+        "MKAPI/Http": [
+
+        ],
+        "AFNetworking": [
+          "~> 4"
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "ServiceApi",
+      "source_files": "MKAPI/ServiceApi/*.{h,m}",
+      "dependencies": {
+        "MKAPI/Core": [
+
+        ],
+        "MKAPI/Http": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    }
+  ]
+}

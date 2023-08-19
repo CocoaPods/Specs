@@ -1,0 +1,363 @@
+{
+  "name": "hippy",
+  "version": "3.0.1",
+  "summary": "Hippy Cross Platform Framework",
+  "description": "Hippy is designed for developers to easily build cross-platform and high-performance awesome apps.",
+  "homepage": "https://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": "OpenHippy Team",
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "3.0.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "prepare_command": "./xcodeinitscript.sh \"Taitank\" \"jsc\"",
+  "subspecs": [
+    {
+      "name": "Framework",
+      "source_files": "framework/ios/**/*.{h,m,c,mm,s,cpp,cc}",
+      "public_header_files": "framework/ios/**/*.h",
+      "exclude_files": [
+        "framework/ios/base/enginewrapper/v8",
+        "framework/ios/utils/v8"
+      ],
+      "libraries": "c++",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Base": [
+
+        ],
+        "hippy/JSDriver": [
+
+        ],
+        "hippy/Image": [
+
+        ]
+      }
+    },
+    {
+      "name": "Footstone",
+      "libraries": "c++",
+      "source_files": [
+        "modules/footstone/**/*.{h,cc}"
+      ],
+      "public_header_files": [
+        "modules/footstone/**/*.h"
+      ],
+      "exclude_files": [
+        "modules/footstone/include/footstone/platform/adr",
+        "modules/footstone/src/platform/adr"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_PREPROCESSOR_DEFINITIONS[config=Release]": "${inherited} NDEBUG=1",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false,
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/modules/footstone/include ${PODS_ROOT}/hippy/modules/footstone"
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/modules/footstone/include ${PODS_ROOT}/hippy/modules/footstone"
+      },
+      "preserve_paths": "modules/footstone"
+    },
+    {
+      "name": "FootstoneUtils",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/footstoneutils/*.{h,mm}"
+      ],
+      "public_header_files": [
+        "modules/ios/footstoneutils/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Image",
+      "libraries": "c++",
+      "frameworks": "CoreServices",
+      "public_header_files": "modules/ios/image/*.h",
+      "source_files": "modules/ios/image/*.{h,m,mm}"
+    },
+    {
+      "name": "Base",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/base/*.{h,m,mm}",
+        "modules/ios/logutils/*.{h,mm}"
+      ],
+      "public_header_files": [
+        "modules/ios/base/*.h",
+        "modules/ios/logutils/*.h"
+      ],
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ]
+      }
+    },
+    {
+      "name": "VFS",
+      "libraries": "c++",
+      "source_files": [
+        "modules/vfs/native/**/*.{h,cc}"
+      ],
+      "public_header_files": [
+        "modules/vfs/native/include/vfs/**/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/modules/vfs/native/include",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/modules/vfs/native/include"
+      },
+      "preserve_paths": "modules/vfs/native",
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ]
+      }
+    },
+    {
+      "name": "iOSVFS",
+      "libraries": "c++",
+      "source_files": [
+        "modules/vfs/ios/*.{h,m,mm}"
+      ],
+      "public_header_files": [
+        "modules/vfs/ios/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/VFS": [
+
+        ],
+        "hippy/Footstone": [
+
+        ],
+        "hippy/FootstoneUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSDriver",
+      "libraries": "c++",
+      "frameworks": "JavaScriptCore",
+      "source_files": [
+        "driver/js/include/**/*.h",
+        "driver/js/src/**/*.cc"
+      ],
+      "public_header_files": "driver/js/include/**/*.h",
+      "exclude_files": [
+        "driver/js/include/driver/napi/v8",
+        "driver/js/src/napi/v8",
+        "driver/js/include/driver/runtime",
+        "driver/js/src/runtime",
+        "driver/js/include/driver/vm/v8",
+        "driver/js/src/vm/v8"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/driver/js/include/",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JS_JSC=1",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/driver/js/include/"
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Dom": [
+
+        ],
+        "hippy/iOSVFS": [
+
+        ]
+      },
+      "preserve_paths": "driver/js"
+    },
+    {
+      "name": "NativeRenderer",
+      "libraries": "c++",
+      "source_files": "renderer/native/ios/**/*.{h,m,mm}",
+      "public_header_files": "renderer/native/ios/**/*.h",
+      "dependencies": {
+        "hippy/Base": [
+
+        ],
+        "hippy/DomUtils": [
+
+        ],
+        "hippy/Image": [
+
+        ],
+        "hippy/iOSVFS": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dom",
+      "libraries": "c++",
+      "source_files": [
+        "dom/include/**/*.h",
+        "dom/src/**/*.cc"
+      ],
+      "public_header_files": [
+        "dom/include/**/*.h"
+      ],
+      "exclude_files": [
+        "dom/src/dom/*unittests.cc",
+        "dom/src/dom/tools",
+        "dom/include/dom/yoga_layout_node.h",
+        "dom/src/dom/yoga_layout_node.cc"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/dom/include/",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/dom/include/"
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Taitank": [
+
+        ]
+      },
+      "preserve_paths": "dom"
+    },
+    {
+      "name": "DomUtils",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/domutils/*.{h,mm}"
+      ],
+      "public_header_files": [
+        "modules/ios/domutils/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Dom": [
+
+        ],
+        "hippy/FootstoneUtils": [
+
+        ],
+        "hippy/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Taitank",
+      "source_files": [
+        "dom/dom_project/_deps/taitank-src/src/*.{h,cc}"
+      ],
+      "public_header_files": [
+        "dom/include/dom/taitank_layout_node.h",
+        "dom/dom_project/_deps/taitank-src/src/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/dom/dom_project/_deps/taitank-src/src",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "libraries": "c++",
+      "preserve_paths": "dom/dom_project"
+    },
+    {
+      "name": "DevTools",
+      "libraries": "c++",
+      "exclude_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/**/*test*/**/*",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/**/*test*",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/**/benchmark/**",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/**/javascript/**",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/taitank-*/**/*",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/lib/lib_openmp.c",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/lib/tables/table_generator.c",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/lib/arch/**/{dec,enc}_*.c",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/bin/base64.c",
+        "devtools/devtools-integration/native/include/devtools/v8",
+        "devtools/devtools-integration/native/src/v8"
+      ],
+      "public_header_files": [
+        "devtools/devtools-integration/native/include/devtools/devtools_data_source.h",
+        "devtools/devtools-integration/native/**/*.h",
+        "devtools/devtools-backend/**/*.{h,hpp}",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/*-src/**/*.{h,hpp,ipp}",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/lib/tables/*.h",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-build/config.h"
+      ],
+      "source_files": [
+        "devtools/devtools-integration/native/**/*.{h,cc}",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/*-src/**/*.{h,hpp,c,cc,ipp}",
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-build/config.h",
+        "devtools/devtools-backend/**/*.{h,hpp,cc}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/hippy/devtools/devtools-integration/ios/DevtoolsBackend/_deps/asio-src/asio/include ${PODS_ROOT}/hippy/devtools/devtools-integration/ios/DevtoolsBackend/_deps/json-src/include ${PODS_ROOT}/hippy/devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/include ${PODS_ROOT}/hippy/devtools/devtools-integration/ios/DevtoolsBackend/_deps/websocketpp-src ${PODS_ROOT}/hippy/devtools/devtools-integration/native/include ${PODS_ROOT}/hippy/devtools/devtools-backend/include ${PODS_ROOT}/hippy/devtools/devtools-integration/ios/DevtoolsBackend/_deps/base64-src/lib/arch",
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_INSPECTOR=1 ASIO_NO_TYPEID ASIO_NO_EXCEPTIONS ASIO_DISABLE_ALIGNOF _WEBSOCKETPP_NO_EXCEPTIONS_ JSON_NOEXCEPTION BASE64_STATIC_DEFINE",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_INSPECTOR=1"
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Dom": [
+
+        ],
+        "hippy/VFS": [
+
+        ]
+      },
+      "preserve_paths": "devtools"
+    }
+  ]
+}

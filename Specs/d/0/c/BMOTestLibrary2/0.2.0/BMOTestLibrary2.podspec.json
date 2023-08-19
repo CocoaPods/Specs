@@ -1,0 +1,107 @@
+{
+  "name": "BMOTestLibrary2",
+  "version": "0.2.0",
+  "summary": "A short description of BMOTestLibrary2.",
+  "description": "This is long long test description",
+  "homepage": "https://developers.kakao.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bmo.lee": "bmo.lee@kakaocorp.com"
+  },
+  "source": {
+    "http": "https://kakao-sdk-dev.s3.amazonaws.com/testRule/BMOTestLibrary3.zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "BMOTestSDK",
+      "vendored_frameworks": "TubeSDK/KakaoGameTube.framework"
+    },
+    {
+      "name": "BMOTestSDKKakao",
+      "dependencies": {
+        "BMOTestLibrary2/BMOTestSDK": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "TubeSDK/Alamofire.framework",
+        "TubeSDK/KakaoPartnerSDKAuth.framework",
+        "TubeSDK/KakaoPartnerSDKCommon.framework",
+        "TubeSDK/KakaoPartnerSDKFriendStatic.xcframework",
+        "TubeSDK/KakaoPartnerSDKShare.framework",
+        "TubeSDK/KakaoPartnerSDKTalk.framework",
+        "TubeSDK/KakaoPartnerSDKUser.framework",
+        "TubeSDK/KakaoSDKAuth.framework",
+        "TubeSDK/KakaoSDKCommon.framework",
+        "TubeSDK/KakaoSDKShare.framework",
+        "TubeSDK/KakaoSDKTalk.framework",
+        "TubeSDK/KakaoSDKTemplate.framework",
+        "TubeSDK/KakaoSDKUser.framework",
+        "TubeSDK/KakaoGameTubeKakao.framework"
+      ],
+      "resources": "TubeSDK/KakaoSDKFriendResources.bundle"
+    },
+    {
+      "name": "BMOTestSDKGuest",
+      "dependencies": {
+        "BMOTestLibrary2/BMOTestSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeGuest.framework"
+    },
+    {
+      "name": "BMOTestSDKSIWA",
+      "dependencies": {
+        "BMOTestLibrary2/BMOTestSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeSIWA.framework"
+    },
+    {
+      "name": "BMOTestSDKGoogle",
+      "dependencies": {
+        "BMOTestLibrary2/BMOTestSDK": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 7.0"
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeGoogle.framework"
+    },
+    {
+      "name": "BMOTestSDKFacebook",
+      "dependencies": {
+        "BMOTestLibrary2/BMOTestSDK": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 15.0"
+        ],
+        "FBSDKLoginKit": [
+          "~> 15.0"
+        ]
+      },
+      "vendored_frameworks": "TubeSDK/KakaoGameTubeFacebook.framework"
+    }
+  ],
+  "swift_version": "5.0"
+}

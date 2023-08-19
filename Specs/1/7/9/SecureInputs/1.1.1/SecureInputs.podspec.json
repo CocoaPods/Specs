@@ -1,0 +1,79 @@
+{
+  "name": "SecureInputs",
+  "version": "1.1.1",
+  "summary": "SecureInputs library for ios app.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mercadolibre/fury_secure-inputs-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "douglas eiki": "douglas.eiki@mercadolivre.com"
+  },
+  "source": {
+    "git": "git@github.com:mercadolibre/fury_secure-inputs-ios.git",
+    "tag": "1.1.1"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.7",
+  "default_subspecs": "SecureInputs",
+  "resource_bundles": {
+    "SecureInputsResources": [
+      "LibraryComponents/Assets/*.*"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "requires_app_host": false,
+      "source_files": "LibraryComponents/Tests/**/*.{swift}",
+      "frameworks": "XCTest"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Networking",
+      "source_files": [
+        "LibraryComponents/Sources/Networking/**/*.{swift}"
+      ]
+    },
+    {
+      "name": "Tokenization",
+      "source_files": [
+        "LibraryComponents/Sources/Tokenization/**/*.{swift}"
+      ],
+      "dependencies": {
+        "SecureInputs/Networking": [
+
+        ]
+      }
+    },
+    {
+      "name": "SecureInputs",
+      "resources": [
+        "LibraryComponents/Assets/*.*",
+        "LibraryComponents/Assets/**/*.xcassets"
+      ],
+      "source_files": [
+        "LibraryComponents/Sources/SecureInputs/**/*.{swift}"
+      ],
+      "dependencies": {
+        "SecureInputs/Tokenization": [
+
+        ],
+        "AndesUI": [
+          "~> 3.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7"
+}

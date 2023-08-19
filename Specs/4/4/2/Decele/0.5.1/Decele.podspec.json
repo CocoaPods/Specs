@@ -1,0 +1,966 @@
+{
+  "name": "Decele",
+  "version": "0.5.1",
+  "summary": "The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.",
+  "description": "This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.",
+  "homepage": "https://github.com/MacKevinCE/Decele",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mac Kevin C. E.": "mac.kevin.c.e@gmail.com"
+  },
+  "social_media_url": "https://twitter.com/MacKevinCE",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "source": {
+    "git": "https://github.com/MacKevinCE/Decele.git",
+    "tag": "0.5.1",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "CFNetwork",
+      "CryptoKit",
+      "UIKit"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Contacts",
+      "source_files": "Decele/Classes/Contacts/**/*"
+    },
+    {
+      "name": "Persistent",
+      "source_files": "Decele/Classes/Persistent/**/*",
+      "dependencies": {
+        "Decele/SwifterSwift/SwiftStdlib/Decodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Encodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/StringProtocol": [
+
+        ],
+        "SwiftKeychainWrapper": [
+          "~> 4.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "source_files": "Decele/Classes/Crypto/**/*",
+      "dependencies": {
+        "Decele/SwifterSwift/SwiftStdlib/Decodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Encodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/String": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "CryptoKit"
+      }
+    },
+    {
+      "name": "Chuck",
+      "source_files": "Decele/Classes/Chuck/**/*",
+      "dependencies": {
+        "Decele/Components/NameClass": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Array": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/String": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Encodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/StringProtocol": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Optional": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/Collection": [
+
+        ],
+        "Decele/SwifterSwift/Foundation/Bundle": [
+
+        ],
+        "Decele/SwifterSwift/Foundation/Data": [
+
+        ],
+        "Decele/SwifterSwift/Foundation/Date": [
+
+        ],
+        "Decele/SwifterSwift/Foundation/NSAttributedString": [
+
+        ],
+        "Decele/SwifterSwift/UIKit/UIApplication": [
+
+        ],
+        "Decele/SwifterSwift/UIKit/UIView": [
+
+        ],
+        "Decele/SwifterSwift/UIKit/UIButton": [
+
+        ],
+        "Decele/SwifterSwift/UIKit/UITableView": [
+
+        ],
+        "SnapKit": [
+          "~> 5.6.0"
+        ]
+      },
+      "resource_bundles": {
+        "Chuck": [
+          "Decele/Assets/Chuck/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Repository",
+      "source_files": "Decele/Classes/Repository/**/*",
+      "dependencies": {
+        "Decele/SwifterSwift/SwiftStdlib/Encodable": [
+
+        ],
+        "Decele/SwifterSwift/SwiftStdlib/StringProtocol": [
+
+        ],
+        "Decele/SwifterSwift/Foundation/Data": [
+
+        ],
+        "Alamofire": [
+          "~> 5.6.4"
+        ]
+      }
+    },
+    {
+      "name": "Components",
+      "dependencies": {
+        "Decele/SwifterSwift/UIKit/UITableView": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "NameClass",
+          "source_files": "Decele/Classes/Components/NameClass/NameClass.swift"
+        },
+        {
+          "name": "NibView",
+          "source_files": "Decele/Classes/Components/NibView/NibView.swift",
+          "dependencies": {
+            "Decele/Components/NameClass": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/Array": [
+
+            ],
+            "SnapKit": [
+              "~> 5.6.0"
+            ]
+          }
+        },
+        {
+          "name": "FloatingPanel",
+          "source_files": "Decele/Classes/Components/FloatingPanel/**/*",
+          "dependencies": {
+            "Decele/Components/NibView": [
+
+            ],
+            "FloatingPanel": [
+              "~> 2.6.2"
+            ]
+          }
+        },
+        {
+          "name": "SideMenu",
+          "source_files": "Decele/Classes/Components/SideMenu/**/*",
+          "dependencies": {
+            "Decele/Components/NameClass": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/Array": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/Character": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/SignedNumeric": [
+
+            ],
+            "SideMenu": [
+              "~> 6.5.0"
+            ]
+          }
+        },
+        {
+          "name": "Button",
+          "source_files": "Decele/Classes/Components/Button/**/*",
+          "dependencies": {
+            "SnapKit": [
+              "~> 5.6.0"
+            ]
+          }
+        },
+        {
+          "name": "TextField",
+          "source_files": "Decele/Classes/Components/TextField/**/*",
+          "dependencies": {
+            "Decele/Components/Button": [
+
+            ],
+            "Decele/Components/NameClass": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/Optional": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/Character": [
+
+            ],
+            "Decele/SwifterSwift/SwiftStdlib/SignedNumeric": [
+
+            ],
+            "Decele/SwifterSwift/UIKit/UIView": [
+
+            ],
+            "SnapKit": [
+              "~> 5.6.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fonts",
+      "subspecs": [
+        {
+          "name": "Tools",
+          "source_files": "Decele/Classes/Fonts/*.swift",
+          "dependencies": {
+            "Decele/SwifterSwift/SwiftStdlib/String": [
+
+            ],
+            "Decele/SwifterSwift/UIKit/UIView": [
+
+            ]
+          },
+          "preserve_paths": "FontsTools"
+        },
+        {
+          "name": "BootstrapIcons",
+          "source_files": [
+            "Decele/Classes/Fonts/styles/BootstrapIconsStyle.swift",
+            "Decele/Classes/Fonts/enums/BootstrapIcons.swift"
+          ],
+          "dependencies": {
+            "Decele/Fonts/Tools": [
+
+            ]
+          },
+          "resource_bundles": {
+            "BootstrapIcons": [
+              "FontLibraries/BootstrapIcons/font/fonts/*.woff"
+            ]
+          }
+        },
+        {
+          "name": "FontawesomeBrands",
+          "source_files": [
+            "Decele/Classes/Fonts/styles/FontawesomeBrandsStyle.swift",
+            "Decele/Classes/Fonts/enums/FontawesomeBrands.swift"
+          ],
+          "dependencies": {
+            "Decele/Fonts/Tools": [
+
+            ]
+          },
+          "resource_bundles": {
+            "FontawesomeBrands": [
+              "FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Brands-Regular-400.otf"
+            ]
+          }
+        },
+        {
+          "name": "FontawesomeFree",
+          "source_files": [
+            "Decele/Classes/Fonts/styles/FontawesomeFreeStyle.swift",
+            "Decele/Classes/Fonts/enums/FontawesomeFree.swift"
+          ],
+          "dependencies": {
+            "Decele/Fonts/Tools": [
+
+            ]
+          },
+          "resource_bundles": {
+            "FontawesomeFree": [
+              "FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Free-Regular-400.otf",
+              "FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Free-Solid-900.otf"
+            ]
+          }
+        },
+        {
+          "name": "MaterialIcons",
+          "source_files": [
+            "Decele/Classes/Fonts/styles/MaterialIconsStyle.swift",
+            "Decele/Classes/Fonts/enums/MaterialIcons.swift"
+          ],
+          "dependencies": {
+            "Decele/Fonts/Tools": [
+
+            ]
+          },
+          "resource_bundles": {
+            "MaterialIcons": [
+              "FontLibraries/MaterialIcons/iconfont/*.woff"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SwifterSwift",
+      "subspecs": [
+        {
+          "name": "Shared",
+          "subspecs": [
+            {
+              "name": "Color",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Shared/ColorExtensions.swift"
+            },
+            {
+              "name": "EdgeInsets",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Shared/EdgeInsetsExtensions.swift"
+            },
+            {
+              "name": "Font",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Shared/FontExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "SwiftStdlib",
+          "subspecs": [
+            {
+              "name": "Array",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/ArrayExtensions.swift"
+            },
+            {
+              "name": "BidirectionalCollection",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/BidirectionalCollectionExtensions.swift"
+            },
+            {
+              "name": "BinaryFloatingPoint",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/BinaryFloatingPointExtensions.swift"
+            },
+            {
+              "name": "BinaryInteger",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/BinaryIntegerExtensions.swift"
+            },
+            {
+              "name": "Bool",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/BoolExtensions.swift"
+            },
+            {
+              "name": "Character",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/CharacterExtensions.swift"
+            },
+            {
+              "name": "Collection",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/CollectionExtensions.swift"
+            },
+            {
+              "name": "Comparable",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/ComparableExtensions.swift"
+            },
+            {
+              "name": "Decodable",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/DecodableExtensions.swift"
+            },
+            {
+              "name": "DefaultStringInterpolation",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/DefaultStringInterpolationExtensions.swift"
+            },
+            {
+              "name": "Dictionary",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/DictionaryExtensions.swift"
+            },
+            {
+              "name": "Double",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/DoubleExtensions.swift"
+            },
+            {
+              "name": "Encodable",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/EncodableExtensions.swift"
+            },
+            {
+              "name": "Float",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/FloatExtensions.swift"
+            },
+            {
+              "name": "FloatingPoint",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/FloatingPointExtensions.swift"
+            },
+            {
+              "name": "Int",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/IntExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SwiftStdlib/SignedInteger": [
+
+                ]
+              }
+            },
+            {
+              "name": "KeyedDecodingContainer",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/KeyedDecodingContainerExtensions.swift"
+            },
+            {
+              "name": "MutableCollection",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/MutableCollectionExtensions.swift"
+            },
+            {
+              "name": "Optional",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/OptionalExtensions.swift"
+            },
+            {
+              "name": "RangeReplaceableCollection",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/RangeReplaceableCollectionExtensions.swift"
+            },
+            {
+              "name": "Sequence",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/SequenceExtensions.swift"
+            },
+            {
+              "name": "SignedInteger",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/SignedIntegerExtensions.swift"
+            },
+            {
+              "name": "SignedNumeric",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/SignedNumericExtensions.swift"
+            },
+            {
+              "name": "String",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/StringExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Font": [
+
+                ]
+              }
+            },
+            {
+              "name": "StringProtocol",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SwiftStdlib/StringProtocolExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "Foundation",
+          "subspecs": [
+            {
+              "name": "Bundle",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/BundleExtensions.swift"
+            },
+            {
+              "name": "Calendar",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/CalendarExtensions.swift"
+            },
+            {
+              "name": "Data",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/DataExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SwiftStdlib/Decodable": [
+
+                ]
+              }
+            },
+            {
+              "name": "Date",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/DateExtensions.swift"
+            },
+            {
+              "name": "FileManager",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/FileManagerExtensions.swift"
+            },
+            {
+              "name": "Locale",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/LocaleExtensions.swift"
+            },
+            {
+              "name": "Measurement",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/MeasurementExtensions.swift"
+            },
+            {
+              "name": "NotificationCenter",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/NotificationCenterExtensions.swift"
+            },
+            {
+              "name": "NSAttributedString",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/NSAttributedStringExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Font": [
+
+                ]
+              }
+            },
+            {
+              "name": "NSPredicate",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/NSPredicateExtensions.swift"
+            },
+            {
+              "name": "NSRegularExpression",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/NSRegularExpressionExtensions.swift"
+            },
+            {
+              "name": "URL",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/URLExtensions.swift"
+            },
+            {
+              "name": "URLRequest",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/URLRequestExtensions.swift"
+            },
+            {
+              "name": "URLSession",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/URLSessionExtensions.swift"
+            },
+            {
+              "name": "UserDefaults",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/Foundation/UserDefaultsExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "UIKit",
+          "dependencies": {
+            "Decele/SwifterSwift/Shared/Color": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "UIActivity",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIActivityExtensions.swift"
+            },
+            {
+              "name": "UIAlertController",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIAlertControllerExtensions.swift"
+            },
+            {
+              "name": "UIApplication",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIApplicationExtensions.swift"
+            },
+            {
+              "name": "UIBarButtonItem",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIBarButtonItemExtensions.swift"
+            },
+            {
+              "name": "UIBezierPath",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIBezierPathExtensions.swift"
+            },
+            {
+              "name": "UIButton",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIButtonExtensions.swift"
+            },
+            {
+              "name": "UICollectionView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UICollectionViewExtensions.swift"
+            },
+            {
+              "name": "UIColor",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIColorExtensions.swift"
+            },
+            {
+              "name": "UIDatePicker",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIDatePickerExtensions.swift"
+            },
+            {
+              "name": "UIFont",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIFontExtensions.swift"
+            },
+            {
+              "name": "UIGestureRecognizer",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIGestureRecognizerExtensions.swift"
+            },
+            {
+              "name": "UIImage",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIImageExtensions.swift"
+            },
+            {
+              "name": "UIImageView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIImageViewExtensions.swift"
+            },
+            {
+              "name": "UILabel",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UILabelExtensions.swift"
+            },
+            {
+              "name": "UILayoutPriority",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UILayoutPriorityExtensions.swift"
+            },
+            {
+              "name": "UINavigationBar",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UINavigationBarExtensions.swift"
+            },
+            {
+              "name": "UINavigationController",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UINavigationControllerExtensions.swift"
+            },
+            {
+              "name": "UINavigationItem",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UINavigationItemExtensions.swift"
+            },
+            {
+              "name": "UIRefreshControl",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIRefreshControlExtensions.swift"
+            },
+            {
+              "name": "UIScrollView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIScrollViewExtensions.swift"
+            },
+            {
+              "name": "UISearchBar",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UISearchBarExtensions.swift"
+            },
+            {
+              "name": "UISegmentedControl",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UISegmentedControlExtensions.swift"
+            },
+            {
+              "name": "UISlider",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UISliderExtensions.swift"
+            },
+            {
+              "name": "UIStackView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIStackViewExtensions.swift"
+            },
+            {
+              "name": "UIStoryboard",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIStoryboardExtensions.swift"
+            },
+            {
+              "name": "UISwitch",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UISwitchExtensions.swift"
+            },
+            {
+              "name": "UITabBar",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UITabBarExtensions.swift"
+            },
+            {
+              "name": "UITableView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UITableViewExtensions.swift"
+            },
+            {
+              "name": "UITextField",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UITextFieldExtensions.swift"
+            },
+            {
+              "name": "UITextView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UITextViewExtensions.swift"
+            },
+            {
+              "name": "UIViewController",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIViewControllerExtensions.swift"
+            },
+            {
+              "name": "UIView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIViewExtensions.swift"
+            },
+            {
+              "name": "UIWindow",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/UIKit/UIWindowExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "AppKit",
+          "subspecs": [
+            {
+              "name": "NSColor",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/AppKit/NSColorExtensions.swift"
+            },
+            {
+              "name": "NSImage",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/AppKit/NSImageExtensions.swift"
+            },
+            {
+              "name": "NSView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/AppKit/NSViewExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "CoreGraphics",
+          "dependencies": {
+            "Decele/SwifterSwift/Shared/Color": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "CGAffineTransform",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGAffineTransformExtensions.swift"
+            },
+            {
+              "name": "CGColor",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGColorExtensions.swift"
+            },
+            {
+              "name": "CGFloat",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGFloatExtensions.swift"
+            },
+            {
+              "name": "CGPoint",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGPointExtensions.swift"
+            },
+            {
+              "name": "CGRect",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGRectExtensions.swift"
+            },
+            {
+              "name": "CGSize",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGSizeExtensions.swift"
+            },
+            {
+              "name": "CGVector",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGVectorExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "CoreLocation",
+          "dependencies": {
+            "Decele/SwifterSwift/Shared/Color": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "CLLocationArray",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreLocation/CLLocationArrayExtensions.swift"
+            },
+            {
+              "name": "CLLocation",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"
+            },
+            {
+              "name": "CLVisit",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreLocation/CLVisitExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "CoreAnimation",
+          "subspecs": [
+            {
+              "name": "CAGradientLayer",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "CATransform3D",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/CoreAnimation/CATransform3DExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "CryptoKit",
+          "source_files": "SwifterSwift/Sources/SwifterSwift/CryptoKit/*.swift"
+        },
+        {
+          "name": "MapKit",
+          "subspecs": [
+            {
+              "name": "MKMapView",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/MapKit/MKMapViewExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/Shared/EdgeInsets": [
+
+                ]
+              }
+            },
+            {
+              "name": "MKMultiPoint",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/MapKit/MKMultiPointExtensions.swift"
+            },
+            {
+              "name": "MKPolyline",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/MapKit/MKPolylineExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "SpriteKit",
+          "subspecs": [
+            {
+              "name": "SKNode",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SpriteKit/SKNodeExtensions.swift"
+            },
+            {
+              "name": "SKSpriteNode",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SpriteKit/SKSpriteNodeExtensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "SceneKit",
+          "subspecs": [
+            {
+              "name": "SCNBox",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNBoxExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNCapsule",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNCapsuleExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNCone",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNConeExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNCylinder",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNCylinderExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNGeometry",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNGeometryExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNVector3": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNMaterial",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNMaterialExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNPlane",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNPlaneExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNShape",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNShapeExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNSphere",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNSphereExtensions.swift",
+              "dependencies": {
+                "Decele/SwifterSwift/SceneKit/SCNMaterial": [
+
+                ],
+                "Decele/SwifterSwift/Shared/Color": [
+
+                ]
+              }
+            },
+            {
+              "name": "SCNVector3",
+              "source_files": "SwifterSwift/Sources/SwifterSwift/SceneKit/SCNVector3Extensions.swift"
+            }
+          ]
+        },
+        {
+          "name": "StoreKit",
+          "source_files": "SwifterSwift/Sources/SwifterSwift/StoreKit/*.swift"
+        },
+        {
+          "name": "Dispatch",
+          "source_files": "SwifterSwift/Sources/SwifterSwift/Dispatch/*.swift"
+        },
+        {
+          "name": "WebKit",
+          "source_files": "SwifterSwift/Sources/SwifterSwift/WebKit/*.swift"
+        },
+        {
+          "name": "HealthKit",
+          "source_files": "SwifterSwift/Sources/SwifterSwift/HealthKit/*.swift"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.5"
+}
