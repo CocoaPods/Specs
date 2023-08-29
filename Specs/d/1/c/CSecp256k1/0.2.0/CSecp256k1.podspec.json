@@ -1,0 +1,62 @@
+{
+  "name": "CSecp256k1",
+  "version": "0.2.0",
+  "summary": "Swift C module for bitcoin secp256k1 library.",
+  "description": "Swift C module for bitcoin secp256k1 library. Exports C methods for Swift.",
+  "homepage": "https://github.com/tesseract-one/CSecp256k1.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/CSecp256k1.swift.git",
+    "tag": "0.2.0",
+    "submodules": true
+  },
+  "swift_versions": "5.4",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.13",
+    "tvos": "11.0",
+    "watchos": "6.0"
+  },
+  "module_name": "CSecp256k1",
+  "source_files": [
+    "Sources/CSecp256k1/config/*.h",
+    "Sources/CSecp256k1/secp256k1/include/*.h",
+    "Sources/CSecp256k1/secp256k1/src/*.h",
+    "Sources/CSecp256k1/secp256k1/src/modules/ecdh/main_impl.h",
+    "Sources/CSecp256k1/secp256k1/src/modules/recovery/main_impl.h",
+    "Sources/CSecp256k1/secp256k1/src/secp256k1.c"
+  ],
+  "public_header_files": "Sources/CSecp256k1/secp256k1/include/*.h",
+  "exclude_files": [
+    "Sources/CSecp256k1/secp256k1/src/test*",
+    "Sources/CSecp256k1/secp256k1/src/asm/*",
+    "Sources/CSecp256k1/secp256k1/src/bench*",
+    "Sources/CSecp256k1/secp256k1/include/secp256k1_schnorrsig.h",
+    "Sources/CSecp256k1/secp256k1/include/secp256k1_extrakeys.h"
+  ],
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_CONFIG_H",
+    "GCC_WARN_UNUSED_FUNCTION": "NO",
+    "GCC_WARN_UNUSED_VARIABLE": "NO",
+    "GCC_WARN_64_TO_32_BIT_CONVERSION": "NO"
+  },
+  "testspecs": [
+    {
+      "name": "CSecp256k1Tests",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "11.0",
+        "osx": "10.13",
+        "tvos": "11.0"
+      },
+      "source_files": "Tests/CSecp256k1Tests/**/*.swift"
+    }
+  ],
+  "swift_version": "5.4"
+}
