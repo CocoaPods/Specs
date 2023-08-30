@@ -1,0 +1,96 @@
+{
+  "name": "PWLocation",
+  "version": "3.13.1",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "summary": "Phunware's Location SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "https://github.com/phunware/maas-location-ios-sdk/",
+  "authors": {
+    "Phunware, Inc.": "https://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/phunware",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-location-ios-sdk.git",
+    "tag": "3.13.1"
+  },
+  "documentation_url": "https://phunware.github.io/maas-location-ios-sdk/",
+  "default_subspecs": [
+    "Core",
+    "DeviceIdentity"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "PWCore": [
+          "~> 3.12.2"
+        ],
+        "SSZipArchive": [
+          "~> 2.4.0"
+        ],
+        "TMCache": [
+          "~> 2.1.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/PWLocation.xcframework",
+      "frameworks": [
+        "CoreBluetooth",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreServices",
+        "CoreTelephony",
+        "MapKit",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "xml2.2",
+        "z"
+      ]
+    },
+    {
+      "name": "DeviceIdentity",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ],
+        "PWCore/DeviceIdentity": [
+          "~> 3.12.2"
+        ]
+      }
+    },
+    {
+      "name": "LimitedDeviceIdentity",
+      "dependencies": {
+        "PWLocation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreStaticLinks",
+      "dependencies": {
+        "PWCore/CoreStaticLinks": [
+          "~> 3.12.2"
+        ]
+      },
+      "vendored_frameworks": "FrameworksStaticLinks/PWLocation.xcframework"
+    },
+    {
+      "name": "LimitedDeviceIdentityStaticLinks",
+      "dependencies": {
+        "PWLocation/CoreStaticLinks": [
+
+        ]
+      }
+    }
+  ]
+}
