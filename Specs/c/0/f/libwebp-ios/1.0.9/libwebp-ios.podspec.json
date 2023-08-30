@@ -1,0 +1,51 @@
+{
+  "name": "libwebp-ios",
+  "version": "1.0.9",
+  "summary": "Prebuilt binaries for libwebp",
+  "description": "Simple provider for libwebp for iOS with prebuild binaries",
+  "homepage": "https://github.com/awxkee/libwebp-ios",
+  "license": {
+    "type": "CC0-1.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Radzivon Bartoshyk": "radzivon.bartoshyk@proton.me"
+  },
+  "source": {
+    "git": "https://github.com/awxkee/libwebp-ios.git",
+    "tag": "1.0.9"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0",
+    "watchos": "6.0",
+    "tvos": "11.0"
+  },
+  "source_files": [
+    "Sources/libsharpyuv.xcframework/ios-arm64/Headers/*.h",
+    "Sources/libwebp.xcframework/ios-arm64/Headers/*.h"
+  ],
+  "public_header_files": [
+    "Sources/libsharpyuv.xcframework/ios-arm64/Headers/*.h",
+    "Sources/libwebp.xcframework/ios-arm64/Headers/*.h"
+  ],
+  "vendored_frameworks": [
+    "Sources/libsharpyuv.xcframework",
+    "Sources/libwebp.xcframework",
+    "Sources/libwebpdemux.xcframework",
+    "Sources/libwebpmux.xcframework"
+  ],
+  "preserve_paths": [
+    "Sources/libsharpyuv.xcframework",
+    "Sources/libwebp.xcframework",
+    "Sources/libwebpdemux.xcframework",
+    "Sources/libwebpmux.xcframework"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_CXXFLAGS": "$(inherited) -std=c++20",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/Sources/libsharpyuv.xcframework/ios-arm64/Headers/*.h\" \"$(PODS_TARGET_SRCROOT)/Sources/libwebp.xcframework/ios-arm64/Headers/*.h\"",
+    "EXCLUDED_ARCHS[sdk=watchsimulator*]": "i386"
+  },
+  "libraries": "c++",
+  "requires_arc": true
+}
