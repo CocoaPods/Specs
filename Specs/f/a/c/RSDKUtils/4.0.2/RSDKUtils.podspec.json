@@ -1,0 +1,97 @@
+{
+  "name": "RSDKUtils",
+  "version": "4.0.2",
+  "authors": "Rakuten Ecosystem Mobile",
+  "summary": "Rakuten's SDK Team internal utilities module.",
+  "homepage": "https://github.com/rakutentech/ios-sdkutils",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/rakutentech/ios-sdkutils.git",
+    "tag": "4.0.2"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "watchos": "6.0"
+  },
+  "swift_versions": [
+    "5.4",
+    "5.5"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "CLANG_ENABLE_MODULES": "YES",
+    "CLANG_MODULES_AUTOLINK": "YES",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "GCC_C_LANGUAGE_STANDARD": "gnu11",
+    "OTHER_CFLAGS": "'-DRPT_SDK_VERSION=4.0.2'"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ENABLE_MODULES": "YES",
+    "CLANG_MODULES_AUTOLINK": "YES",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "weak_frameworks": [
+    "Foundation"
+  ],
+  "module_map": "./RSDKUtils.modulemap",
+  "default_subspecs": "Main",
+  "source_files": "Sources/*.h",
+  "public_header_files": "Sources/*.h",
+  "subspecs": [
+    {
+      "name": "Main",
+      "source_files": [
+        "Sources/RSDKUtilsMain/**/*.swift",
+        "Sources/*.h"
+      ],
+      "dependencies": {
+        "RSDKUtils/RLogger": [
+
+        ]
+      }
+    },
+    {
+      "name": "TestHelpers",
+      "source_files": "Sources/RSDKUtilsTestHelpers/**/*.swift",
+      "weak_frameworks": [
+        "XCTest"
+      ],
+      "pod_target_xcconfig": {
+        "ENABLE_TESTING_SEARCH_PATHS": "YES",
+        "OTHER_LDFLAGS": "$(inherited) -weak-lXCTestSwiftSupport"
+      },
+      "dependencies": {
+        "RSDKUtils/Main": [
+
+        ]
+      }
+    },
+    {
+      "name": "Nimble",
+      "ios": {
+        "source_files": "Sources/RSDKUtilsNimble/**/*.swift",
+        "dependencies": {
+          "Nimble": [
+
+          ]
+        }
+      },
+      "dependencies": {
+        "RSDKUtils/Main": [
+
+        ]
+      }
+    },
+    {
+      "name": "RLogger",
+      "source_files": [
+        "Sources/RLogger/**/*.swift",
+        "Sources/*.h"
+      ]
+    }
+  ],
+  "swift_version": "5.5"
+}
