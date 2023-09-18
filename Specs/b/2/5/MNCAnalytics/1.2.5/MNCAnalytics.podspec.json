@@ -1,0 +1,57 @@
+{
+  "name": "MNCAnalytics",
+  "version": "1.2.5",
+  "summary": "This is POD version of MNC Analytics",
+  "description": "TODO: Add long description of the pod here",
+  "homepage": "https://repo.mncinnovation.id/dac/video-analytics/sdk/mobile-sdk/source/ios/pod/MNCAnalytics",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fepriyadihrp": "fepriyadi.harahap@mncgroup.com"
+  },
+  "source": {
+    "git": "https://repo.mncinnovation.id/dac/video-analytics/sdk/mobile-sdk/source/ios/pod/MNCAnalytics.git",
+    "tag": "1.2.5"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": false,
+  "static_framework": true,
+  "libraries": [
+    "icucore",
+    "z",
+    "iconv",
+    "jre_emul",
+    "json"
+  ],
+  "source_files": [
+    "MNCAnalytics/include/**/*.h",
+    "MNCAnalytics/public/*.h"
+  ],
+  "public_header_files": "MNCAnalytics/public/*.h",
+  "private_header_files": "MNCAnalytics/include/*.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreFoundation"
+  ],
+  "prepare_command": "XCODEPROJECT=MNCAnalytics\nXCODETARGET=MNCAnalytics\nBUILDDIR=build\nBUILDROOT=${BUILDDIR}\nCONFIG=Release\nOUTDIR=${BUILDDIR}/${CONFIG}\n\nif [ -d \"MNCAnalytics/lib\" ]; then\n  rm -rf \"MNCAnalytics/lib\"\nfi\n\nif [ ! -d \"MNCAnalytics/lib\" ]; then\n  echo \"fetching j2objc lib\"\n  mkdir MNCAnalytics/lib\n  curl -OL https://github.com/fepriyadi/MNCAnalytics/releases/download/1.2.3/lib.zip\n  unzip -d MNCAnalytics/lib lib.zip\n  rm lib.zip\nfi\n\necho \"Creating framework\"\n  \nif [ -d \"${BUILDDIR}\" ]; then\n  rm -rf \"${BUILDDIR}\"\nfi\n\nmkdir -p \"${OUTDIR}\"\n\nif [ -f \"${OUTDIR}/lib${XCODEPROJECT}.a\" ]; then\n    rm \"${OUTDIR}/lib${XCODEPROJECT}.a\"\nfi\n\nif [ -f \"MNCAnalytics/lib\" ]; then\n  rm \"MNCAnalytics/lib/*.a\"\nfi\n\n# cp ${PWD}/j2objc_lib/lib/libjre_emul.a MNCAnalytics/lib\n# cp ${PWD}/j2objc_lib/lib/libjson.a MNCAnalytics/lib\n\n\necho \"=======> Building devices...\"\nxcodebuild -project ${XCODEPROJECT}.xcodeproj -target ${XCODETARGET} ONLY_ACTIVE_ARCH=YES -configuration ${CONFIG} -sdk iphoneos  \nBUILD_DIR=\"${BUILDDIR}\" BUILD_ROOT=\"${BUILDROOT}\" BITCODE_GENERATION_MODE=bitcode\nif [ $? -gt 0 ]; then\n  echo \"ERROR! when try to build...\"\n  exit 1\nfi\n\necho \"=======> Building x86_64...\"\nxcodebuild -project ${XCODEPROJECT}.xcodeproj -target ${XCODETARGET} -configuration ${CONFIG} -sdk iphonesimulator -arch x86_64 \nBUILD_DIR=\"${BUILDDIR}\" BUILD_ROOT=\"${BUILDROOT}\" BITCODE_GENERATION_MODE=bitcode\nif [ $? -gt 0 ]; then\n  echo \"ERROR! when try to build...\"\n  exit 1\nfi\n\necho \"=======> Building all...\"\nlipo -create -output \"${OUTDIR}/lib${XCODEPROJECT}.a\" \"${BUILDDIR}/${CONFIG}-iphoneos/lib${XCODEPROJECT}.a\" \"${BUILDDIR}/${CONFIG}-iphonesimulator/lib${XCODEPROJECT}.a\"\nif [ $? -gt 0 ]; then\n  echo \"ERROR! when try to build...\"\n  exit 1\nfi\n\necho \"=======> Copying headers...\"\n\ncp \"j2objc/objc/TTask.h\" \"MNCAnalytics/public/\"\ncp \"j2objc/objc/Core.h\" \"MNCAnalytics/public/\"\ncp \"j2objc/objc/MncDigitalAnalytics.h\" \"MNCAnalytics/public/\"\n\ncp \"${OUTDIR}/lib${XCODEPROJECT}.a\" \"MNCAnalytics/lib/\"\n\necho \"=======> Done\"",
+  "vendored_libraries": "MNCAnalytics/lib/*.a",
+  "xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "ALWAYS_SEARCH_USER_PATHS": "NO",
+    "ONLY_ACTIVE_ARCH": "NO",
+    "OTHER_LDFLAGS": "$(inherited) -liconv -ljson"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "USER_HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Headers/Private/MNCAnalytics\"",
+    "SWIFT_OBJC_BRIDGING_HEADER": "${PODS_ROOT}/Headers/Public/MNCAnalytics/MncDigitalAnalytics.h"
+  }
+}
