@@ -1,0 +1,72 @@
+{
+  "name": "JMSmartMediaPlayer",
+  "version": "1.2.2",
+  "summary": "Jimi meida Player SDK for iOS at CocoaPods.",
+  "description": "Jimi meida Player SDK for iOS at CocoaPods.",
+  "homepage": "http://git.i-jimi.com.cn/COMM/app/jmsmartmediaplayer-cpp",
+  "license": {
+    "type": "Apache License 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jason": "lizhijian@jimilab.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "libraries": [
+    "c++",
+    "z",
+    "bz2",
+    "iconv"
+  ],
+  "frameworks": [
+    "CoreMedia",
+    "VideoToolbox",
+    "AudioToolbox"
+  ],
+  "dependencies": {
+    "JMMonitorView": [
+      "~> 1.0.8"
+    ]
+  },
+  "vendored_libraries": "iOS/JMSmartMediaPlayer/Libs/**/*.a",
+  "resources": "iOS/JMSmartMediaPlayer/Libs/**/*.a",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": [
+      "$(PODS_ROOT)/JMSmartMediaPlayer/iOS/JMSmartMediaPlayer/Libs/FFmpeg-iOS/include",
+      "$(PODS_ROOT)/JMSmartMediaPlayer/iOS/JMSmartMediaPlayer/Libs/opencore-amr-iOS/include",
+      "$(PODS_ROOT)/JMSmartMediaPlayer/iOS/JMSmartMediaPlayer/Libs/x264-iOS/include",
+      "$(PODS_ROOT)/JMSmartMediaPlayer/iOS/JMSmartMediaPlayer/Libs/openssl-iOS/include"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "source": {
+    "git": "http://git.i-jimi.com.cn/COMM/app/jmsmartmediaplayer-cpp.git",
+    "tag": "v1.2.2",
+    "submodules": true
+  },
+  "exclude_files": [
+    "src/main/cpp/**/JMGlDraw.{hpp,cpp}",
+    "src/main/cpp/**/JMShaderUtils.{hpp,cpp}"
+  ],
+  "source_files": [
+    "iOS/JMSmartMediaPlayer/**/*.{h,m,mm,c,hpp,cpp}",
+    "src/main/cpp/**/*.{h,m,mm,c,hpp,cpp}"
+  ],
+  "public_header_files": [
+    "src/main/cpp/CMain/JMMediaPlayerEnum.h",
+    "iOS/JMSmartMediaPlayer/*.h",
+    "iOS/JMSmartMediaPlayer/Video/JMMediaNetworkPlayer.h",
+    "iOS/JMSmartMediaPlayer/Audio/JMMediaNetworkTalker.h",
+    "iOS/JMSmartMediaPlayer/Video/JMMediaPlayInfo.h",
+    "iOS/JMSmartMediaPlayer/Video/JMMediaConverter.h",
+    "iOS/JMSmartMediaPlayer/Video/JMMediaLocalPlayer.h"
+  ]
+}
