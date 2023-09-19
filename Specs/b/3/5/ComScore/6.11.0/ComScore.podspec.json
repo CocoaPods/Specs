@@ -1,0 +1,76 @@
+{
+  "name": "ComScore",
+  "version": "6.11.0",
+  "summary": "Official analytics library for iOS and tvOS from Comscore",
+  "description": "This library is used to collect analytics from iOS and tvOS applications. The library supports apps developed in native Objective C or Swift with Apple Xcode or in other languages/tools which can include and use native Objective C libraries.",
+  "homepage": "https://github.com/comscore/ComScore-iOS-watchOS-tvOS",
+  "license": "Custom",
+  "authors": {
+    "Comscore": "www.comscore.com"
+  },
+  "source": {
+    "git": "https://github.com/comscore/ComScore-iOS-watchOS-tvOS.git",
+    "tag": "6.11.0"
+  },
+  "platforms": {
+    "ios": "11.0",
+    "osx": "11.0",
+    "tvos": "11.0"
+  },
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "frameworks": "Security",
+  "prepare_command": "touch .pod\nfind ComScore/dynamic/ComScore.xcframework/ -type f -name \"strip-framework.sh\" -delete",
+  "default_subspecs": "Dynamic",
+  "module_name": "ComScore",
+  "subspecs": [
+    {
+      "name": "Dynamic",
+      "platforms": {
+        "ios": "11.0",
+        "tvos": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "ComScore/dynamic/ComScore.xcframework",
+        "preserve_paths": "ComScore/dynamic/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      },
+      "tvos": {
+        "vendored_frameworks": "ComScore/dynamic/ComScore.xcframework",
+        "preserve_paths": "ComScore/dynamic/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      }
+    },
+    {
+      "name": "Static",
+      "platforms": {
+        "ios": "11.0",
+        "tvos": "11.0"
+      },
+      "ios": {
+        "vendored_frameworks": "ComScore/static/ComScore.xcframework",
+        "preserve_paths": "ComScore/static/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      },
+      "tvos": {
+        "vendored_frameworks": "ComScore/static/ComScore.xcframework",
+        "preserve_paths": "ComScore/static/ComScore.xcframework",
+        "frameworks": "SystemConfiguration",
+        "resource_bundles": {
+          "SCORBundle": ".pod"
+        }
+      }
+    }
+  ]
+}
