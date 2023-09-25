@@ -1,0 +1,110 @@
+{
+  "name": "LetsViewIOSSDK",
+  "version": "1.3.0",
+  "summary": "A short description of LetsViewIOSSDK.",
+  "description": "LetsviewSDK",
+  "homepage": "https://letsview.com/sdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright ©2023 Wangxutech.com. All rights reserved.\n"
+  },
+  "authors": {
+    "wangxutech": "moblie@wangxutech.com"
+  },
+  "source": {
+    "git": "https://github.com/wangxutech/letsviewiossdk.git",
+    "tag": "1.3.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "framework/WXMirrorCore.framework"
+      ],
+      "dependencies": {
+        "SocketRocket": [
+
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "VALID_ARCHS[sdk=iphonesimulator*]": ""
+        }
+      }
+    },
+    {
+      "name": "DLNA",
+      "vendored_frameworks": [
+        "framework/WXDLNASender.framework"
+      ],
+      "dependencies": {
+        "LetsViewIOSSDK/Core": [
+
+        ]
+      },
+      "libraries": "xml2",
+      "ios": {
+        "pod_target_xcconfig": {
+          "VALID_ARCHS[sdk=iphonesimulator*]": ""
+        }
+      }
+    },
+    {
+      "name": "Airplay",
+      "vendored_frameworks": [
+        "framework/WXAirplaySender.framework"
+      ],
+      "dependencies": {
+        "LetsViewIOSSDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "VALID_ARCHS[sdk=iphonesimulator*]": ""
+        }
+      }
+    },
+    {
+      "name": "Sender",
+      "vendored_frameworks": [
+        "framework/WXCastiOSSender.framework"
+      ],
+      "dependencies": {
+        "MMWormhole": [
+
+        ],
+        "LetsViewIOSSDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "VALID_ARCHS[sdk=iphonesimulator*]": ""
+        }
+      }
+    },
+    {
+      "name": "Receiver",
+      "vendored_frameworks": [
+        "framework/WXCastiOSReceiver.framework",
+        "framework/WXCastFFMpeg.framework"
+      ],
+      "dependencies": {
+        "LetsViewIOSSDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "VALID_ARCHS[sdk=iphonesimulator*]": ""
+        }
+      }
+    }
+  ]
+}
