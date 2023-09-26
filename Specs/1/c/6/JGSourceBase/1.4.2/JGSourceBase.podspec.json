@@ -1,0 +1,195 @@
+{
+  "name": "JGSourceBase",
+  "version": "1.4.2",
+  "summary": "JGSourceBase functional component library.",
+  "description": "JGSourceBase 通用功能组件库。\n功能包括：\n1. Base - 通用定义、功能模块、iOS项目常用功能\n2. Category - 通用扩展方法定义\n3. DataStorage - 通用数据持久化功能\n4. Device - iOS设备相关方法\n5. Encryption - 常用加解密方法\n6. HUD - Loading-HUD、Toast-HUD显示\n7. IntegrityCheck - iOS应用完整性校验\n8. Reachability - 网络状态监听，支持多观察着/监听者\n9. SecurityKeyboard - 自定义安全键盘",
+  "homepage": "https://github.com/dengni8023/JGSourceBase",
+  "license": "MIT (LICENSE.md)",
+  "authors": {
+    "Dengni8023": "945835664@qq.com",
+    "MeiJiGao": "945835664@qq.com"
+  },
+  "swift_versions": [
+    "5.6",
+    "5.7",
+    "5.8",
+    "5.9"
+  ],
+  "cocoapods_version": ">= 1.10",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/dengni8023/JGSourceBase.git",
+    "tag": "1.4.2"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "PRODUCT_BUNDLE_IDENTIFIER": "com.meijigao.JGSourceBase",
+    "MARKETING_VERSION": "1.4.2",
+    "CURRENT_PROJECT_VERSION": "1.4.2",
+    "GENERATE_INFOPLIST_FILE": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": [
+        "JGSourceBase/*.{h,m,swift}",
+        "JGSourceBase/JGSBase/*.{h,m,swift}"
+      ],
+      "public_header_files": [
+        "JGSourceBase/*.h",
+        "JGSourceBase/JGSBase/*.h"
+      ],
+      "resource_bundles": {
+        "JGSourceBase": [
+          "JGSourceBase/JGSBase/**/*.{xcassets,png,jpg,gif}",
+          "JGSourceBase/JGSDevice/**/JGSiOSDeviceList.json.sec",
+          "JGSourceBase/JGSIntegrityCheck/**/JGSIntegrityCheckRecordResourcesHash.sh"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "pod_target_xcconfig": {
+        "JGSVersion": "1.4.2",
+        "JGSBuild": "20230925",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSUserAgent='\"JGSourceBase/${JGSVersion}\"' JGSVersion='\"${JGSVersion}\"' JGSBuild='\"${JGSBuild}\"'"
+      },
+      "script_phases": {
+        "name": "RemoveUnInstalledJGSResource",
+        "script": "      # echo \"移除构建产出物 JGSourceBase.bundle 中未安装 subspec 的资源文件\"\n      ProductDir=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.bundle\"\n      echo \"JGSourceBase.bundle: ${ProductDir}\"\n      function RemoveUninstalledSubspecResource() {\n        FileInBundle=\"${ProductDir}/$1\"\n        rm -fr \"${FileInBundle}\"\n      }\n      # JGSDevice 资源清理\n      if [[ ''${JGSDeviceInstalled} != 'YES' ]]; then\n        RemoveUninstalledSubspecResource \"JGSiOSDeviceList.json.sec\"\n      fi\n      # JGSIntegrityCheck 资源清理\n      if [[ ''${JGSIntegrityCheckInstalled} != 'YES' ]]; then\n        RemoveUninstalledSubspecResource \"JGSIntegrityCheckRecordResourcesHash.sh\"\n      fi\n",
+        "execution_position": "after_compile",
+        "input_files": [
+          "${BUILT_PRODUCTS_DIR}/$(PRODUCT_NAME)/$(PRODUCT_NAME).bundle"
+        ],
+        "output_files": [
+          "$(DERIVED_FILE_DIR)/$(PRODUCT_NAME)/$(PRODUCT_NAME).bundle"
+        ]
+      }
+    },
+    {
+      "name": "Category",
+      "source_files": [
+        "JGSourceBase/JGSCategory/**/*.{h,m,swift}"
+      ],
+      "public_header_files": [
+        "JGSourceBase/JGSCategory/**/*.h"
+      ],
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ],
+        "JGSourceBase/JSON": [
+
+        ]
+      }
+    },
+    {
+      "name": "DataStorage",
+      "source_files": "JGSourceBase/JGSDataStorage/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSDataStorage/*.h",
+      "dependencies": {
+        "JGSourceBase/Encryption": [
+
+        ]
+      }
+    },
+    {
+      "name": "Device",
+      "source_files": "JGSourceBase/JGSDevice/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSDevice/*.h",
+      "pod_target_xcconfig": {
+        "JGSDeviceInstalled": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSDeviceInstalled='\"${JGSDeviceInstalled}\"'"
+      },
+      "dependencies": {
+        "JGSourceBase/Category": [
+
+        ],
+        "JGSourceBase/Reachability": [
+
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "JGSourceBase/JGSEncryption/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSEncryption/*.h",
+      "dependencies": {
+        "JGSourceBase/Category": [
+
+        ]
+      }
+    },
+    {
+      "name": "HUD",
+      "source_files": [
+        "JGSourceBase/JGSHUD/*.{h,m}",
+        "JGSourceBase/JGSHUD/Loading/*.{h,m}",
+        "JGSourceBase/JGSHUD/Toast/*.{h,m}"
+      ],
+      "public_header_files": [
+        "JGSourceBase/JGSHUD/*.h",
+        "JGSourceBase/JGSHUD/Loading/*.h",
+        "JGSourceBase/JGSHUD/Toast/*.h"
+      ],
+      "dependencies": {
+        "MBProgressHUD": [
+          ">= 1.2.0"
+        ],
+        "JGSourceBase/Category": [
+
+        ]
+      }
+    },
+    {
+      "name": "IntegrityCheck",
+      "source_files": "JGSourceBase/JGSIntegrityCheck/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSIntegrityCheck/*.h",
+      "pod_target_xcconfig": {
+        "JGSIntegrityCheckInstalled": "YES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JGSIntegrityCheckInstalled='\"${JGSIntegrityCheckInstalled}\"' JGSResourcesCheckFileHashSecuritySalt='\"JGSIntegrityCheck\"' JGSApplicationIntegrityCheckFileHashFile='\"JGSApplicationIntegrityCheckFileHashFile\"'"
+      },
+      "dependencies": {
+        "JGSourceBase/Encryption": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSON",
+      "source_files": "JGSourceBase/JGSJSON/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSJSON/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Reachability",
+      "source_files": "JGSourceBase/JGSReachability/*.{h,m,swift}",
+      "public_header_files": "JGSourceBase/JGSReachability/*.h",
+      "dependencies": {
+        "JGSourceBase/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "SecurityKeyboard",
+      "source_files": "JGSourceBase/JGSSecurityKeyboard/*.{h,m,swift}",
+      "public_header_files": [
+        "JGSourceBase/JGSSecurityKeyboard/**JGSSecurityKeyboard.h"
+      ],
+      "dependencies": {
+        "JGSourceBase/Category": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
