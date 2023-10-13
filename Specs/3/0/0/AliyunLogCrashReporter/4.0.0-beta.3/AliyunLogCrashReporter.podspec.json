@@ -1,0 +1,95 @@
+{
+  "name": "AliyunLogCrashReporter",
+  "version": "4.0.0-beta.3",
+  "summary": "aliyun log service ios CrashReporter.",
+  "description": "log service ios producer.\nhttps://help.aliyun.com/document_detail/29063.html\nhttps://help.aliyun.com/product/28958.html",
+  "homepage": "https://github.com/aliyun/aliyun-log-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aliyun-log": "yulong.gyl@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://gitee.com/aliyun-sls/aliyun-log-ios-sdk.git",
+    "tag": "4.0.0-beta.3"
+  },
+  "social_media_url": "http://t.cn/AiRpol8C",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "libraries": "z",
+  "swift_versions": "5.0",
+  "default_subspecs": "AliyunLogCrashReporter",
+  "subspecs": [
+    {
+      "name": "AliyunLogCrashReporter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "dependencies": {
+        "AliyunLogOtlpExporter": [
+          "4.0.0-beta.3"
+        ],
+        "AliyunLogOTelCommon": [
+          "4.0.0-beta.3"
+        ],
+        "AliyunLogCrashReporter/WPKMobiWrapper": [
+
+        ]
+      },
+      "source_files": "Sources/CrashReporter2/**/*.{m,h,swift}",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "WPKMobiWrapper",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Sources/WPKMobiWrapper/**/*.{m,h}",
+      "public_header_files": "Sources/WPKMobiWrapper/include/*.h",
+      "vendored_frameworks": "Sources/WPKMobi/WPKMobi.xcframework",
+      "exclude_files": "Sources/WPKMobi/WPKMobi.xcframework/**/Headers/*.h",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics"
+        ],
+        "libraries": [
+          "z",
+          "c++"
+        ],
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        }
+      },
+      "tvos": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        },
+        "user_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
