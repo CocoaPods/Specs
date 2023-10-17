@@ -1,0 +1,38 @@
+{
+  "name": "JuiceboxSdk",
+  "license": "MIT",
+  "authors": {
+    "Nora Trapp": "nora@juicebox.me"
+  },
+  "version": "0.2.1-alpha.3+sdk.auth",
+  "summary": "A Swift wrapper library for interfacing with the Juicebox service.",
+  "homepage": "https://github.com/juicebox-systems/juicebox-sdk",
+  "source": {
+    "git": "git@github.com:juicebox-systems/juicebox-sdk.git",
+    "tag": "0.2.1-alpha.3+sdk.auth"
+  },
+  "swift_versions": "5",
+  "platforms": {
+    "ios": "13"
+  },
+  "source_files": [
+    "swift/Sources/**/*.swift"
+  ],
+  "preserve_paths": [
+    "target/*/release/libjuicebox_sdk_ffi.a",
+    "target/*/release/include",
+    "swift/Sources/JuiceboxSdkFfi"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/swift/Sources/JuiceboxSdkFfi $(PODS_TARGET_SRCROOT)/target/${CARGO_BUILD_TARGET}/release/include",
+    "SWIFT_INCLUDE_PATHS": "$(HEADER_SEARCH_PATHS)",
+    "OTHER_LDFLAGS": "$(PODS_TARGET_SRCROOT)/target/$(CARGO_BUILD_TARGET)/release/libjuicebox_sdk_ffi.a",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=arm64]": "aarch64-apple-ios-sim",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=*]": "x86_64-apple-ios",
+    "CARGO_BUILD_TARGET[sdk=iphoneos*]": "aarch64-apple-ios",
+    "ARCHS[sdk=iphonesimulator*]": "x86_64 arm64",
+    "ARCHS[sdk=iphoneos*]": "arm64"
+  },
+  "prepare_command": "set -euo pipefail\nCARGO_BUILD_TARGET=aarch64-apple-ios swift/ffi.sh --release\nCARGO_BUILD_TARGET=x86_64-apple-ios swift/ffi.sh --release\nCARGO_BUILD_TARGET=aarch64-apple-ios-sim swift/ffi.sh --release",
+  "swift_version": "5"
+}
