@@ -1,0 +1,74 @@
+{
+  "name": "AliyunLogOTelCommon",
+  "version": "4.0.0-beta.4",
+  "summary": "aliyun log service ios otel common library.",
+  "description": "log service ios producer.\nhttps://help.aliyun.com/document_detail/29063.html\nhttps://help.aliyun.com/product/28958.html",
+  "homepage": "https://github.com/aliyun/aliyun-log-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aliyun-log": "yulong.gyl@alibaba-inc.com"
+  },
+  "source": {
+    "git": "https://gitee.com/aliyun-sls/aliyun-log-ios-sdk.git",
+    "tag": "4.0.0-beta.4"
+  },
+  "social_media_url": "http://t.cn/AiRpol8C",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "libraries": "z",
+  "swift_versions": "5.0",
+  "default_subspecs": "AliyunLogOTelCommon",
+  "subspecs": [
+    {
+      "name": "AliyunLogOTelCommon",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "dependencies": {
+        "AliyunLogOTelCommon/OpenTelemetrySdk": [
+
+        ]
+      },
+      "source_files": "Sources/OTelCommon/**/*.{m,h,swift}",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386",
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+      }
+    },
+    {
+      "name": "OpenTelemetryApi",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "Sources/OpenTelemetryApi/OpenTelemetryApi.xcframework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+      }
+    },
+    {
+      "name": "OpenTelemetrySdk",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_frameworks": "Sources/OpenTelemetrySdk/OpenTelemetrySdk.xcframework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
