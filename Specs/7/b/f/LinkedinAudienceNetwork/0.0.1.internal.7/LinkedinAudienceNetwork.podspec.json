@@ -1,0 +1,93 @@
+{
+  "name": "LinkedinAudienceNetwork",
+  "version": "0.0.1.internal.7",
+  "authors": "LinkedIn",
+  "license": {
+    "type": "2-clause BSD",
+    "file": "LICENSE"
+  },
+  "summary": "LinkedinAudienceNetwork SDK",
+  "homepage": "https://www.linkedin.com/help/lms/answer/a1311400",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://github.com/linkedin/audience-network-ios-sdk/raw/main/binaries/0.0.1.internal.7/LinkedinAudienceNetwork-0.0.1.internal.7.zip"
+  },
+  "swift_versions": "5.5",
+  "default_subspecs": "Release",
+  "subspecs": [
+    {
+      "name": "Release",
+      "vendored_frameworks": [
+        "LinkedinAudienceNetwork.xcframework",
+        "_LinkedinAudienceNetworkCoreInternal.xcframework",
+        "_LinkedinAudienceNetworkExperimentationInternal.xcframework",
+        "_LinkedinAudienceNetworkIdentityInternal.xcframework"
+      ]
+    },
+    {
+      "name": "Internal",
+      "vendored_frameworks": [
+        "LinkedinAudienceNetwork.xcframework",
+        "_LinkedinAudienceNetworkCoreInternal.xcframework",
+        "_LinkedinAudienceNetworkExperimentationInternal.xcframework",
+        "_LinkedinAudienceNetworkIdentityInternal.xcframework",
+        "LinkedinAudienceNetworkOnDeviceIdentity.xcframework",
+        "LinkedinAudienceNetworkOnDeviceProcessing.xcframework",
+        "LinkedinAudienceNetworkFederatedLearning.xcframework",
+        "_LinkedinAudienceNetworkMLRuntimeInternal.xcframework"
+      ],
+      "dependencies": {
+        "LinkedinAudienceNetwork/Zip": [
+
+        ],
+        "LinkedinAudienceNetwork/OnnxRuntimeC": [
+
+        ],
+        "LinkedinAudienceNetwork/OnnxRuntimeObjc": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_CPLUSPLUSFLAGS": "-fvisibility=hidden -fvisibility-inlines-hidden",
+        "OTHER_CFLAGS": "-Wno-error",
+        "OTHER_LDFLAGS": "-dead_strip"
+      }
+    },
+    {
+      "name": "OnnxRuntimeC",
+      "vendored_frameworks": [
+        "onnxruntime.xcframework"
+      ],
+      "source_files": "OnnxSourceFiles/*.{h}",
+      "libraries": "c++"
+    },
+    {
+      "name": "OnnxRuntimeObjc",
+      "requires_arc": true,
+      "compiler_flags": [
+        "-std=c++17",
+        "-fobjc-arc-exceptions",
+        "-Wall",
+        "-Wextra"
+      ],
+      "vendored_frameworks": [
+        "onnxruntime_training_objc.xcframework"
+      ],
+      "dependencies": {
+        "LinkedinAudienceNetwork/OnnxRuntimeC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Zip",
+      "vendored_frameworks": [
+        "Zip.xcframework"
+      ],
+      "libraries": "z"
+    }
+  ],
+  "swift_version": "5.5"
+}
