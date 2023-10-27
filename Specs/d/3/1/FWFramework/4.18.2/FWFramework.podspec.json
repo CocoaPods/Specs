@@ -1,0 +1,158 @@
+{
+  "name": "FWFramework",
+  "version": "4.18.2",
+  "summary": "ios develop framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWFramework.git",
+    "tag": "4.18.2"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "FWFramework"
+  ],
+  "subspecs": [
+    {
+      "name": "FWObjC",
+      "source_files": "Sources/FWObjC/**/*.{h,m}",
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "FWFramework",
+      "source_files": "Sources/FWFramework/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWObjC": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "FWSwiftUI",
+      "weak_frameworks": [
+        "SwiftUI",
+        "Combine"
+      ],
+      "source_files": "Sources/FWSwiftUI/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWFramework": [
+
+        ]
+      }
+    },
+    {
+      "name": "FWVendor",
+      "subspecs": [
+        {
+          "name": "SDWebImage",
+          "source_files": "Sources/FWVendor/SDWebImage/**/*.{h,m,swift}",
+          "dependencies": {
+            "SDWebImage": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lottie",
+          "source_files": "Sources/FWVendor/Lottie/**/*.{h,m,swift}",
+          "dependencies": {
+            "lottie-ios": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "SQLCipher",
+          "dependencies": {
+            "SQLCipher": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "xcconfig": {
+            "OTHER_CFLAGS": "$(inherited) -DSQLITE_HAS_CODEC -DHAVE_USLEEP=1"
+          }
+        },
+        {
+          "name": "Contacts",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroContacts"
+          }
+        },
+        {
+          "name": "Microphone",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroMicrophone"
+          }
+        },
+        {
+          "name": "Calendar",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroCalendar"
+          }
+        },
+        {
+          "name": "AppleMusic",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroAppleMusic"
+          }
+        },
+        {
+          "name": "Tracking",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroTracking",
+            "GCC_PREPROCESSOR_DEFINITIONS": "FWMacroTracking=1"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
