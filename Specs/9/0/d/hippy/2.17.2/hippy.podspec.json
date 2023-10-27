@@ -1,0 +1,115 @@
+{
+  "name": "hippy",
+  "version": "2.17.2",
+  "summary": "Hippy Cross Platform Framework",
+  "description": "Hippy is designed for developers to easily build cross-platform and high-performance awesome apps.",
+  "homepage": "https://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": "OpenHippy Team",
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "2.17.2"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "iOSSDK",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "GCC_ENABLE_CPP_EXCEPTIONS": false,
+    "GCC_ENABLE_CPP_RTTI": false,
+    "GCC_PREPROCESSOR_DEFINITIONS[config=Release]": "${inherited} NDEBUG=1"
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "libraries": "c++",
+      "frameworks": "JavaScriptCore",
+      "dependencies": {
+        "hippy/coreThirdParty": [
+
+        ]
+      },
+      "source_files": [
+        "core/include/**/*.{h,cc}",
+        "core/src/**/*.{h,cc}"
+      ],
+      "public_header_files": "core/include/**/*.h",
+      "project_header_files": "core/include/**/*.h",
+      "exclude_files": [
+        "core/include/core/napi/v8",
+        "core/include/core/vm/v8",
+        "core/include/core/inspector",
+        "core/src/napi/v8",
+        "core/src/inspector",
+        "core/src/vm/v8",
+        "core/third_party/base/src/platform/adr"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/core/include/"
+      }
+    },
+    {
+      "name": "coreThirdParty",
+      "libraries": "c++",
+      "frameworks": "JavaScriptCore",
+      "public_header_files": "core/third_party/**/*.h",
+      "project_header_files": "core/third_party/**/*.h",
+      "source_files": "core/third_party/**/*.{h,cc}",
+      "exclude_files": [
+        "core/third_party/base/src/platform/adr"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/core/third_party/base/include/"
+      }
+    },
+    {
+      "name": "MTTLayout",
+      "libraries": "c++",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "source_files": "ios/sdk/layout/**/*.{h,m,c,mm,s,cpp,cc}",
+      "public_header_files": "ios/sdk/layout/**/MTTFlex.h"
+    },
+    {
+      "name": "iOSSDK",
+      "dependencies": {
+        "hippy/core": [
+
+        ],
+        "hippy/coreThirdParty": [
+
+        ],
+        "hippy/MTTLayout": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "QuartzCore",
+        "CFNetwork",
+        "CoreGraphics",
+        "CoreTelephony",
+        "ImageIO",
+        "WebKit",
+        "SystemConfiguration",
+        "Security",
+        "CoreServices",
+        "Accelerate"
+      ],
+      "public_header_files": "ios/sdk/**/*.h",
+      "project_header_files": [
+        "ios/sdk/**/HippyJSEnginesMapper.h"
+      ],
+      "source_files": "ios/sdk/**/*.{h,m,c,mm,s,cpp,cc}",
+      "exclude_files": "ios/sdk/layout/**/*.{h,m,c,mm,s,cpp,cc}"
+    }
+  ]
+}
