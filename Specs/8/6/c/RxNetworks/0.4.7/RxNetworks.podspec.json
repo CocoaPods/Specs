@@ -1,0 +1,208 @@
+{
+  "name": "RxNetworks",
+  "version": "0.4.7",
+  "summary": "Network Architecture API RxSwift + Moya + HandyJSON + Plugins.",
+  "homepage": "https://github.com/yangKJ/RxNetworks",
+  "description": "https://github.com/yangKJ/RxNetworks/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangkejun": "yangkj310@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/RxNetworks.git",
+    "tag": "0.4.7"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "module_name": "RxNetworks",
+  "ios": {
+    "source_files": "Sources/RxNetworks.h"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_WHOLE_MODULE_OPTIMIZATION": "YES",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-D DEBUG"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/*.swift",
+      "dependencies": {
+        "Moya": [
+
+        ]
+      }
+    },
+    {
+      "name": "RxSwift",
+      "source_files": "Sources/RxSwift/*.swift",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxNetworks/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "HandyJSON",
+      "source_files": "Sources/HandyJSON/*.swift",
+      "dependencies": {
+        "HandyJSON": [
+
+        ],
+        "RxSwift": [
+
+        ]
+      }
+    },
+    {
+      "name": "Plugins",
+      "subspecs": [
+        {
+          "name": "Indicator",
+          "source_files": "Sources/Plugins/Indicator/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_INDICATOR",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_INDICATOR=1"
+          }
+        },
+        {
+          "name": "Debugging",
+          "source_files": "Sources/Plugins/Debugging/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_DEBUGGING",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_DEBUGGING=1"
+          }
+        },
+        {
+          "name": "Loading",
+          "source_files": "Sources/Plugins/Loading/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "ios": {
+            "dependencies": {
+              "MBProgressHUD": [
+
+              ]
+            }
+          }
+        },
+        {
+          "name": "AnimatedLoading",
+          "source_files": "Sources/Plugins/AnimatedLoading/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ],
+            "lottie-ios": [
+
+            ]
+          }
+        },
+        {
+          "name": "Warning",
+          "source_files": "Sources/Plugins/Warning/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "ios": {
+            "dependencies": {
+              "MBProgressHUD": [
+
+              ]
+            }
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_WARNING",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_WARNING=1"
+          }
+        },
+        {
+          "name": "Cache",
+          "source_files": "Sources/Plugins/Cache/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ],
+            "CacheX": [
+
+            ]
+          }
+        },
+        {
+          "name": "GZip",
+          "source_files": "Sources/Plugins/GZip/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Shared",
+          "source_files": "Sources/Plugins/Shared/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_SHARED",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_SHARED=1"
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "Sources/Plugins/Header/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_HTTPHEADER",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_HTTPHEADER=1"
+          }
+        },
+        {
+          "name": "Files",
+          "source_files": "Sources/Plugins/Files/*.swift",
+          "dependencies": {
+            "RxNetworks/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RXNETWORKS_PLUGINGS_DOWNLOAD_UPLOAD",
+            "GCC_PREPROCESSOR_DEFINITIONS": "RXNETWORKS_PLUGINGS_DOWNLOAD_UPLOAD=1"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
