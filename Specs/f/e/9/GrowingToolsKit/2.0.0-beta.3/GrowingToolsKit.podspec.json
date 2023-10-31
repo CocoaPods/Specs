@@ -1,0 +1,220 @@
+{
+  "name": "GrowingToolsKit",
+  "version": "2.0.0-beta.3",
+  "summary": "GrowingToolsKit for iOS GrowingIO SDK",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-toolskit.git",
+    "tag": "2.0.0-beta.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "WebKit"
+    ]
+  },
+  "source_files": "Sources/GrowingToolsKit/GrowingToolsKit{.h,.m}",
+  "public_header_files": "Sources/GrowingToolsKit/GrowingToolsKit.h",
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "UseInRelease",
+      "source_files": [
+        "Sources/GrowingToolsKit/GrowingToolsKit{.h,.m}",
+        "Sources/Core/UseInRelease/GrowingTKUseInRelease.m"
+      ],
+      "public_header_files": "Sources/GrowingToolsKit/GrowingToolsKit.h",
+      "dependencies": {
+        "GrowingToolsKit/Default": [
+
+        ]
+      }
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ],
+        "GrowingToolsKit/SDKInfo": [
+
+        ],
+        "GrowingToolsKit/EventsList": [
+
+        ],
+        "GrowingToolsKit/XPathTrack": [
+
+        ],
+        "GrowingToolsKit/NetFlow": [
+
+        ],
+        "GrowingToolsKit/Realtime": [
+
+        ],
+        "GrowingToolsKit/Settings": [
+
+        ],
+        "GrowingToolsKit/CrashMonitor": [
+
+        ],
+        "GrowingToolsKit/LaunchTime": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDK30202",
+      "source_files": "Sources/GrowingToolsKit/GrowingToolsKit{.h,.m}",
+      "public_header_files": "Sources/GrowingToolsKit/GrowingToolsKit.h",
+      "dependencies": {
+        "GrowingToolsKit/Default": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_SDK30202=1",
+        "OTHER_LDFLAGS": "-Wl,-U,_GrowingTrackerVersionName -Wl,-U,_GrowingTrackerVersionCode"
+      },
+      "xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      }
+    },
+    {
+      "name": "SDK2nd",
+      "source_files": "Sources/GrowingToolsKit/GrowingToolsKit{.h,.m}",
+      "public_header_files": "Sources/GrowingToolsKit/GrowingToolsKit.h",
+      "dependencies": {
+        "GrowingToolsKit/Default": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_SDK2nd=1",
+        "OTHER_LDFLAGS": "-Wl,-U,_g_GDPRFlag -Wl,-U,_g_readClipBoardEnable -Wl,-U,_g_asaEnabled"
+      },
+      "xcconfig": {
+        "ENABLE_BITCODE": "NO"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/Core/Public/*.h",
+      "exclude_files": "Sources/Core/UseInRelease/GrowingTKUseInRelease.m",
+      "resource_bundles": {
+        "GrowingToolsKit": [
+          "Sources/Core/Resources/**/*"
+        ]
+      }
+    },
+    {
+      "name": "SDKInfo",
+      "source_files": "Sources/SDKInfo/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/SDKInfo/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "EventsList",
+      "source_files": "Sources/EventsList/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/EventsList/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XPathTrack",
+      "source_files": "Sources/XPathTrack/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/XPathTrack/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetFlow",
+      "source_files": "Sources/NetFlow/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/NetFlow/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Realtime",
+      "source_files": "Sources/Realtime/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/Realtime/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "APMCore",
+      "source_files": "Sources/APMCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ],
+        "GrowingAPM/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrashMonitor",
+      "source_files": "Sources/CrashMonitor/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/CrashMonitor/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/APMCore": [
+
+        ],
+        "GrowingAPM/CrashMonitor": [
+
+        ]
+      }
+    },
+    {
+      "name": "LaunchTime",
+      "source_files": "Sources/LaunchTime/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/LaunchTime/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/APMCore": [
+
+        ],
+        "GrowingAPM/UIMonitor": [
+
+        ]
+      }
+    },
+    {
+      "name": "Settings",
+      "source_files": "Sources/Settings/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Sources/Settings/Public/*.h",
+      "dependencies": {
+        "GrowingToolsKit/Core": [
+
+        ]
+      }
+    }
+  ]
+}
