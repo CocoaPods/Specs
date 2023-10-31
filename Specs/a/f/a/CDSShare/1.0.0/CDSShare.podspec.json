@@ -1,0 +1,106 @@
+{
+  "name": "CDSShare",
+  "version": "1.0.0",
+  "summary": "A tool of share.",
+  "description": "TODO: Add long description of the pod here.\nshare of QQ、微信、新浪微博",
+  "homepage": "https://itest.changan.com.cn:8091/BCDT/marketing/dizuo_app/native/ios/cds/frameworks/CDSShare.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jianglin": "1033553441@qq.com"
+  },
+  "source": {
+    "git": "https://itest.changan.com.cn:8091/BCDT/marketing/dizuo_app/native/ios/cds/frameworks/CDSShare.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "12.1"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "Core",
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CDSShare/Classes/Core/**/*"
+    },
+    {
+      "name": "Wechat",
+      "source_files": [
+        "CDSShare/Classes/Wechat/**/*",
+        "CDSShare/Libraries/WeChatSDK/**/*.h"
+      ],
+      "vendored_libraries": "CDSShare/Libraries/WeChatSDK/libWeChatSDK.a",
+      "public_header_files": "CDSShare/Libraries/WeChatSDK/*.h",
+      "frameworks": [
+        "Security",
+        "UIKit",
+        "CoreGraphics",
+        "WebKit"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3.0"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "armv7 arm64"
+      },
+      "dependencies": {
+        "CDSShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Sina",
+      "source_files": [
+        "CDSShare/Classes/Sina/**/*",
+        "CDSShare/Libraries/WeiboSDK/**/*.h"
+      ],
+      "vendored_libraries": "CDSShare/Libraries/WeiboSDK/libWeiboSDK.a",
+      "public_header_files": "CDSShare/Libraries/WeiboSDK/*.h",
+      "frameworks": [
+        "Security",
+        "UIKit",
+        "CoreGraphics",
+        "WebKit"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3.0"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC -all_load"
+      },
+      "pod_target_xcconfig": {
+        "VALID_ARCHS": "armv7 arm64"
+      },
+      "dependencies": {
+        "CDSShare/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "QQ",
+      "source_files": "CDSShare/Classes/QQ/**/*",
+      "dependencies": {
+        "CDSQQSDK": [
+
+        ],
+        "CDSShare/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
