@@ -1,0 +1,78 @@
+{
+  "name": "EIMiniProgramSDK",
+  "version": "1.0.1",
+  "summary": "基于UniApp的小程序SDK实现快速集成方式",
+  "description": "官网集成方式过于复杂，目前通过Pod方式集成简单方便",
+  "homepage": "https://github.com/xiayy0328/EIMiniProgramSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xiayy0328": "xyy_ios@163.com"
+  },
+  "source": {
+    "git": "https://github.com/xiayy0328/EIMiniProgramSDK.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "libraries": [
+        "c++",
+        "iconv"
+      ],
+      "resources": [
+        "EIMiniProgramSDK/Core/Resources/PandoraApi.bundle",
+        "EIMiniProgramSDK/Core/Resources/*.js",
+        "EIMiniProgramSDK/Core/Resources/*.ttf"
+      ],
+      "frameworks": [
+        "JavaScriptCore",
+        "CoreMedia",
+        "MediaPlayer",
+        "AVFoundation",
+        "AVKit",
+        "GLKit",
+        "OpenGLES",
+        "CoreText",
+        "QuartzCore",
+        "CoreGraphics",
+        "QuickLook",
+        "CoreTelephony",
+        "AssetsLibrary",
+        "CoreLocation",
+        "AddressBook"
+      ],
+      "subspecs": [
+        {
+          "name": "Headers",
+          "source_files": "EIMiniProgramSDK/Core/Headers/*.h",
+          "subspecs": [
+            {
+              "name": "weexHeader",
+              "source_files": "EIMiniProgramSDK/Core/Headers/weexHeader/*.h"
+            }
+          ]
+        },
+        {
+          "name": "Libs",
+          "vendored_libraries": "EIMiniProgramSDK/Core/Libs/*.a",
+          "vendored_frameworks": "EIMiniProgramSDK/Core/Libs/*.framework"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
