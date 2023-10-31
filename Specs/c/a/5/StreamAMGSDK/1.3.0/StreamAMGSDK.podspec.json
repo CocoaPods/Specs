@@ -1,0 +1,103 @@
+{
+  "name": "StreamAMGSDK",
+  "version": "1.3.0",
+  "summary": "Stream AMG SDK",
+  "swift_versions": "5",
+  "description": "Core dependency for the Stream AMG SDK. Includes CloudMatrix, StreamPlay, Authentication, Purchases, PlayKit and PlayKit2Go",
+  "homepage": "https://github.com/StreamAMG/streamamg-sdk-ios",
+  "license": {
+    "type": "AGPLv3",
+    "text": "AGPLv3"
+  },
+  "authors": "StreamAMG",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source_files": "Source/**/*.swift",
+  "source": {
+    "git": "https://github.com/StreamAMG/streamamg-sdk-ios",
+    "branch": "master",
+    "submodules": true
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/StreamSDKCore/**/*.swift"
+    },
+    {
+      "name": "StreamPlay",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKStreamPlay/**/*.*"
+    },
+    {
+      "name": "CloudMatrix",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKCloudMatrix/**/*.*"
+    },
+    {
+      "name": "Authentication",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKAuthentication/**/*.*"
+    },
+    {
+      "name": "Purchases",
+      "dependencies": {
+        "StreamAMGSDK/Core": [
+
+        ],
+        "StreamAMGSDK/Authentication": [
+
+        ]
+      },
+      "source_files": "Source/StreamSDKPurchases/**/*.*"
+    },
+    {
+      "name": "PlayKit",
+      "source_files": "Source/StreamSDKPlayKit/**/*.*",
+      "dependencies": {
+        "PlayKit": [
+          "3.27.2"
+        ],
+        "PlayKit_IMA": [
+          "1.14.0"
+        ],
+        "PlayKitProviders": [
+          "1.18.2"
+        ],
+        "PlayKitYoubora": [
+          "1.15.0"
+        ]
+      },
+      "resource_bundles": {
+        "AMGPlayKitBundle": "Source/Media/*.*"
+      }
+    },
+    {
+      "name": "PlayKit2Go",
+      "source_files": "Source/StreamSDKPlayKit2Go/**/*.*",
+      "dependencies": {
+        "StreamAMGSDK/PlayKit": [
+
+        ],
+        "DownloadToGo": [
+          "3.18.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}
