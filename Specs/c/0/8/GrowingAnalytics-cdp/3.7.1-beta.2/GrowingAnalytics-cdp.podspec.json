@@ -1,0 +1,82 @@
+{
+  "name": "GrowingAnalytics-cdp",
+  "version": "3.7.1-beta.2",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAnalytics-cdp基于GrowingAnalytics，同样具备自动采集基本的用户行为事件，比如访问和行为数据等。\n目前支持代码埋点、无埋点、可视化圈选、热图等功能。适用于CDP客户。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker.git",
+    "tag": "3.7.1-beta.2"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12"
+  },
+  "ios": {
+    "frameworks": "WebKit"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker",
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_TARGET_SRCROOT} ${PODS_ROOT}/GrowingAnalytics",
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Autotracker",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "GrowingAutotracker-cdp/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingAutotracker-cdp/*.h",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "3.7.1-beta.2"
+        ],
+        "GrowingAnalytics/DefaultServices": [
+          "3.7.1-beta.2"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "GrowingAnalytics/Hybrid": [
+            "3.7.1-beta.2"
+          ],
+          "GrowingAnalytics/MobileDebugger": [
+            "3.7.1-beta.2"
+          ],
+          "GrowingAnalytics/WebCircle": [
+            "3.7.1-beta.2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Tracker",
+      "source_files": "GrowingTracker-cdp/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingTracker-cdp/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "3.7.1-beta.2"
+        ],
+        "GrowingAnalytics/DefaultServices": [
+          "3.7.1-beta.2"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "GrowingAnalytics/MobileDebugger": [
+            "3.7.1-beta.2"
+          ]
+        }
+      }
+    }
+  ]
+}
