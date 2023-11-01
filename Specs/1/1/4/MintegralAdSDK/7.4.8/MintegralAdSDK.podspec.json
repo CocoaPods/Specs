@@ -1,0 +1,309 @@
+{
+  "name": "MintegralAdSDK",
+  "version": "7.4.8",
+  "summary": "Mintegral Network Mobile App Ad SDK",
+  "homepage": "http://cdn-adn.rayjump.com/cdn-adn/v2/markdown_v2/index.html?file=sdk-m_sdk-ios&lang=en",
+  "description": "Mintegral's  AdSDK allows you to monetize your iOS and Android apps with Mintegral ads.",
+  "license": {
+    "type": "Mintegral",
+    "file": "Fmk/LICENSE.txt"
+  },
+  "authors": "Mintegral",
+  "social_media_url": "https://www.facebook.com/mintegral.official",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://github.com/Mintegral-official/MintegralAdSDK-iOS-new/releases/download/7.4.8/Mintegral_M_SDK.zip"
+  },
+  "libraries": [
+    "sqlite3",
+    "xml2",
+    "z"
+  ],
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Foundation",
+    "UIKit",
+    "AdSupport",
+    "StoreKit",
+    "QuartzCore",
+    "CoreTelephony",
+    "MobileCoreServices",
+    "Accelerate",
+    "AVFoundation",
+    "WebKit"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "default_subspecs": [
+    "RewardVideoAd",
+    "BidRewardVideoAd",
+    "NewInterstitialAd",
+    "BidNewInterstitialAd",
+    "InterstitialVideoAd",
+    "BidInterstitialVideoAd",
+    "BannerAd",
+    "BidBannerAd",
+    "NativeAd",
+    "BidNativeAd"
+  ],
+  "subspecs": [
+    {
+      "name": "NativeAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDK.xcframework"
+    },
+    {
+      "name": "BidNativeAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKBidding.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "NewInterstitialAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKNewInterstitial.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ],
+        "MintegralAdSDK/InterstitialVideoAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidNewInterstitialAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NewInterstitialAd": [
+
+        ],
+        "MintegralAdSDK/BidNativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "InterstitialVideoAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKInterstitialVideo.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidInterstitialVideoAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/InterstitialVideoAd": [
+
+        ],
+        "MintegralAdSDK/BidNativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "RewardVideoAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKReward.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidRewardVideoAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/BidNativeAd": [
+
+        ],
+        "MintegralAdSDK/RewardVideoAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "InterstitialAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKInterstitial.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BannerAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKBanner.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidBannerAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "MintegralAdSDK/BidNativeAd": [
+
+        ],
+        "MintegralAdSDK/BannerAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "SplashAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKSplash.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidSplashAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "MintegralAdSDK/BidNativeAd": [
+
+        ],
+        "MintegralAdSDK/SplashAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "NativeAdvancedAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKNativeAdvanced.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "BidNativeAdvancedAd",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "MintegralAdSDK/BidNativeAd": [
+
+        ],
+        "MintegralAdSDK/NativeAdvancedAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "CNAddition",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "preserve_paths": "Fmk/*.xcframework",
+      "vendored_frameworks": "Fmk/MTGSDKCNAddition.xcframework",
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "MintegralAdSDK/NativeAd": [
+
+        ],
+        "MintegralAdSDK/BidNativeAd": [
+
+        ],
+        "MintegralAdSDK/RewardVideoAd": [
+
+        ],
+        "MintegralAdSDK/NewInterstitialAd": [
+
+        ],
+        "MintegralAdSDK/InterstitialVideoAd": [
+
+        ],
+        "MintegralAdSDK/InterstitialAd": [
+
+        ],
+        "MintegralAdSDK/BannerAd": [
+
+        ],
+        "MintegralAdSDK/SplashAd": [
+
+        ],
+        "MintegralAdSDK/NativeAdvancedAd": [
+
+        ]
+      }
+    }
+  ]
+}
