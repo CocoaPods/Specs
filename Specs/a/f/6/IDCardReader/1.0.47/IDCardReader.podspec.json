@@ -1,0 +1,56 @@
+{
+  "name": "IDCardReader",
+  "version": "1.0.47",
+  "summary": "This package handles reading an NFC Enabled passport using iOS 13 CoreNFC APIS",
+  "homepage": "https://github.com/trungnguyen1791/CardReader",
+  "authors": {
+    "My Name": "myemail@example.com"
+  },
+  "license": "MIT",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://github.com/trungnguyen1791/CardReader/releases/download/1.0.47/IDCardReader.zip"
+  },
+  "default_subspecs": [
+    "Full"
+  ],
+  "swift_versions": "5.0",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-weak_framework CryptoKit -weak_framework CoreNFC -weak_framework CryptoTokenKit"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Full",
+      "vendored_frameworks": "IDCardReader/Full/IDCardReader.xcframework",
+      "dependencies": {
+        "ObjectMapper": [
+          "~> 4.2"
+        ],
+        "OpenSSL-Universal": [
+          "1.1.1100"
+        ]
+      }
+    },
+    {
+      "name": "Lite",
+      "vendored_frameworks": "IDCardReader/Lite/IDCardReader.xcframework",
+      "dependencies": {
+        "ObjectMapper": [
+          "~> 4.2"
+        ],
+        "OpenSSL-Universal": [
+          "1.1.1100"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
