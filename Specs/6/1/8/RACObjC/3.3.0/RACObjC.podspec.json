@@ -1,0 +1,37 @@
+{
+  "name": "RACObjC",
+  "version": "3.3.0",
+  "summary": "The 2.x ReactiveCocoa Objective-C API: Streams of values over time",
+  "description": "ReactiveObjC (formally ReactiveCocoa or RAC) is an Objective-C\nframework inspired by [Functional Reactive Programming](\nhttp://en.wikipedia.org/wiki/Functional_reactive_programming).\nIt provides APIs for composing and **transforming streams of values**.",
+  "homepage": "https://github.com/sdkdimon/RACObjC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "documentation_url": "https://github.com/sdkdimon/RACObjC/tree/master/Documentation#readme",
+  "authors": "Dmitry Lizin",
+  "source": {
+    "git": "https://github.com/sdkdimon/RACObjC.git",
+    "tag": "3.3.0"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.13",
+    "watchos": "2.0",
+    "tvos": "12.0"
+  },
+  "module_map": "Core/RACObjC/RACObjC.modulemap",
+  "source_files": [
+    "Core/RACObjC/Classes/EXTObjC/*.{h,m}",
+    "Core/RACObjC/Classes/**/*.{h,m,d}",
+    "Core/RACObjC/RACObjC.h"
+  ],
+  "private_header_files": [
+    "Core/RACObjC/Classes/**/*Private.h",
+    "Core/RACObjC/Classes/**/*EXTRuntimeExtensions.h",
+    "Core/RACObjC/Classes/**/RACEmpty*.h"
+  ],
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "prepare_command": "find -E . -type f -not -name 'RAC*' -regex '.*(EXT.*|metamacros)\\.[hm]$' \\\n          -execdir mv '{}' RAC'{}' \\;\nfind . -regex '.*\\.[hm]' \\\n       -exec perl -pi \\\n                  -e 's@\"(?:(?!RAC)(EXT.*|metamacros))\\.h\"@\"RAC\\1.h\"@' '{}' \\;\nfind . -regex '.*\\.[hm]' \\\n       -exec perl -pi \\\n                  -e 's@<RACObjC/(?:(?!RAC)(EXT.*|metamacros))\\.h>@<RACObjC/RAC\\1.h>@' '{}' \\;"
+}
