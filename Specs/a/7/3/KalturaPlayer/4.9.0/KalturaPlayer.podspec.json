@@ -1,0 +1,184 @@
+{
+  "name": "KalturaPlayer",
+  "version": "4.9.0",
+  "summary": "KalturaPlayer -- Kaltura Player for iOS and tvOS",
+  "homepage": "https://github.com/kaltura/kaltura-player-ios",
+  "license": {
+    "type": "AGPLv3",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kaltura": "community@kaltura.com"
+  },
+  "source": {
+    "git": "https://github.com/kaltura/kaltura-player-ios.git",
+    "tag": "v4.9.0"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0"
+  },
+  "xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Interceptor",
+      "source_files": "Sources/Interceptor/*",
+      "dependencies": {
+        "PlayKit": [
+          "~> 3.28"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "10.0"
+      },
+      "source_files": [
+        "Sources/*",
+        "Sources/Basic/*",
+        "Sources/Playlist/*"
+      ],
+      "dependencies": {
+        "KalturaPlayer/Interceptor": [
+
+        ]
+      }
+    },
+    {
+      "name": "OTT",
+      "source_files": [
+        "Sources/OTT/*",
+        "Sources/Common"
+      ],
+      "resources": "Sources/OTT/*.xcdatamodeld",
+      "dependencies": {
+        "KalturaPlayer/Core": [
+
+        ],
+        "PlayKitProviders": [
+          "~> 1.18"
+        ],
+        "PlayKitKava": [
+          "~> 1.10"
+        ]
+      }
+    },
+    {
+      "name": "OVP",
+      "source_files": [
+        "Sources/OVP/*",
+        "Sources/Common"
+      ],
+      "resources": "Sources/OVP/*.xcdatamodeld",
+      "dependencies": {
+        "KalturaPlayer/Core": [
+
+        ],
+        "PlayKitProviders": [
+          "~> 1.18"
+        ],
+        "PlayKitKava": [
+          "~> 1.10"
+        ]
+      }
+    },
+    {
+      "name": "Offline",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "Sources/Offline/*",
+        "Sources/*",
+        "Sources/Basic/*",
+        "Sources/Interceptor/*",
+        "Sources/Playlist/*"
+      ],
+      "dependencies": {
+        "DownloadToGo": [
+          "~> 3.18"
+        ],
+        "PlayKit": [
+          "~> 3.28"
+        ]
+      },
+      "xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Offline_OTT",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "Sources/Offline/OTT/*",
+        "Sources/OTT/*",
+        "Sources/Common"
+      ],
+      "resources": "Sources/OTT/*.xcdatamodeld",
+      "dependencies": {
+        "KalturaPlayer/Offline": [
+
+        ],
+        "PlayKitProviders": [
+          "~> 1.18"
+        ],
+        "PlayKitKava": [
+          "~> 1.10"
+        ]
+      },
+      "xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "Offline_OVP",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "Sources/Offline/OVP/*",
+        "Sources/OVP/*",
+        "Sources/Common"
+      ],
+      "resources": "Sources/OVP/*.xcdatamodeld",
+      "dependencies": {
+        "KalturaPlayer/Offline": [
+
+        ],
+        "PlayKitProviders": [
+          "~> 1.18"
+        ],
+        "PlayKitKava": [
+          "~> 1.10"
+        ]
+      },
+      "xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "UI",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Sources/UI/*",
+      "resources": [
+        "Sources/UI/Assets/*"
+      ],
+      "dependencies": {
+        "KalturaPlayer/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
