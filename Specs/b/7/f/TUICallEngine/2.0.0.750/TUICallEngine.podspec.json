@@ -1,0 +1,57 @@
+{
+  "name": "TUICallEngine",
+  "version": "2.0.0.750",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/product/trtc",
+  "documentation_url": "https://cloud.tencent.com/document/product/647/71930",
+  "authors": "tencent video cloud",
+  "summary": "TUICallEngine",
+  "ios": {
+    "frameworks": [
+      "AVFoundation"
+    ]
+  },
+  "libraries": [
+    "c++",
+    "resolv"
+  ],
+  "requires_arc": true,
+  "source": {
+    "http": "https://liteav.sdk.qcloud.com/app/tuikit/download/release/2.0/TUICallEngine_iOS_2.0.0.750.framework.zip"
+  },
+  "dependencies": {
+    "TXIMSDK_Plus_iOS": [
+      "~> 7.6.5011"
+    ]
+  },
+  "default_subspecs": "TRTC",
+  "subspecs": [
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TXLiteAVSDK_TRTC": [
+          "~> 11.4.14445"
+        ]
+      },
+      "vendored_frameworks": "TUICallEngine.framework"
+    },
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TXLiteAVSDK_Professional": [
+          "~> 11.4.14445"
+        ]
+      },
+      "vendored_frameworks": "TUICallEngine.framework",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) TUI_CALL_ENGINE_TXLITEAVSDK_PROFESSIONAL=1"
+      }
+    }
+  ]
+}
