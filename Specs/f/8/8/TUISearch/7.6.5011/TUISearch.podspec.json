@@ -1,0 +1,164 @@
+{
+  "name": "TUISearch",
+  "version": "7.6.5011",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUISearch",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/7.6.5011/ios/TUISearch.zip?time=2"
+  },
+  "default_subspecs": "ALL",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "BaseCell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUISearch/BaseCell/CellData/*.{h,m,mm}",
+          "dependencies": {
+            "TXIMSDK_Plus_iOS": [
+              "7.6.5011"
+            ],
+            "TUICore": [
+              "7.6.5011"
+            ],
+            "TIMCommon": [
+              "7.6.5011"
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUISearch/BaseCell/CellUI/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/BaseCell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseDataProvider",
+      "source_files": "**/TUISearch/BaseDataProvider/*.{h,m,mm}",
+      "dependencies": {
+        "TUISearch/BaseCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUISearch/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "UI",
+          "source_files": "**/TUISearch/UI_Classic/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/BaseDataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUISearch/UI_Classic/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/UI_Classic/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUISearch/UI_Classic/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/UI_Classic/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "resources": [
+        "**/TUISearch/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "CellUI",
+              "source_files": "**/TUISearch/UI_Minimalist/Cell/CellUI/*.{h,m,mm}",
+              "dependencies": {
+                "TUISearch/BaseDataProvider": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUISearch/UI_Minimalist/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/UI_Minimalist/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUISearch/UI_Minimalist/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/UI_Minimalist/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUISearch/UI_Minimalist/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUISearch/UI_Minimalist/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUISearch/UI_Classic": [
+
+        ],
+        "TUISearch/UI_Minimalist": [
+
+        ]
+      }
+    }
+  ]
+}
