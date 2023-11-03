@@ -1,0 +1,206 @@
+{
+  "name": "TUIConversation",
+  "version": "7.6.5011",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUIConversation",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/7.6.5011/ios/TUIConversation.zip?time=3"
+  },
+  "default_subspecs": "ALL",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUIConversation/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TXIMSDK_Plus_iOS": [
+          "7.6.5011"
+        ],
+        "TUICore": [
+          "7.6.5011"
+        ],
+        "TIMCommon": [
+          "7.6.5011"
+        ],
+        "ReactiveObjC": [
+
+        ],
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUIConversation/BaseCell/CellData/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUIConversation/BaseCell/CellUI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/BaseCell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseDataProvider",
+      "source_files": "**/TUIConversation/BaseDataProvider/*.{h,m,mm}",
+      "dependencies": {
+        "TUIConversation/BaseCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUIConversation/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIConversation/UI_Classic/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/BaseDataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIConversation/UI_Classic/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIConversation/UI_Classic/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIConversation/UI_Classic/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "resources": [
+        "**/TUIConversation/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "CellData",
+              "source_files": "**/TUIConversation/UI_Minimalist/Cell/CellData/*.{h,m,mm}",
+              "dependencies": {
+                "TUIConversation/BaseDataProvider": [
+
+                ]
+              }
+            },
+            {
+              "name": "CellUI",
+              "source_files": "**/TUIConversation/UI_Minimalist/Cell/CellUI/*.{h,m,mm}",
+              "dependencies": {
+                "TUIConversation/UI_Minimalist/Cell/CellData": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIConversation/UI_Minimalist/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIConversation/UI_Minimalist/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIConversation/UI_Minimalist/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIConversation/UI_Minimalist/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUIConversation/UI_Classic": [
+
+        ],
+        "TUIConversation/UI_Minimalist": [
+
+        ]
+      }
+    }
+  ]
+}
