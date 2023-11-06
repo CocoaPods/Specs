@@ -1,0 +1,83 @@
+{
+  "name": "SVPPlayer",
+  "version": "0.0.37-4kpremium",
+  "summary": "请简单的介绍一下你的组件 SmartVideoPlayeriOS.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "svp_official": "svp_official@tencent.com"
+  },
+  "homepage": "https://github.com/TencentSvpOfficial/SmartVideoPlayeriOS",
+  "source": {
+    "http": "https://dldir1.qq.com/qqmi/SVP/SVPPlayer/framework/0.0.37-4kpremium/QMTPluginKitiOS.framework.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "QMTPluginKitiOS",
+  "frameworks": [
+    "UIKit",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics",
+    "MediaPlayer",
+    "VideoToolbox",
+    "Photos"
+  ],
+  "subspecs": [
+    {
+      "name": "VMTPlayeriOS",
+      "vendored_frameworks": [
+        "QMTPluginKitiOS.framework"
+      ],
+      "resources": "QMTPluginKitiOS.framework/Versions/A/Resources/QMTPluginKitiOS.bundle",
+      "source_files": [
+        "QMTPluginKitiOS.framework/Versions/A/Headers/VMTPlayeriOS/*.h"
+      ],
+      "public_header_files": [
+        "QMTPluginKitiOS.framework/Versions/A/Headers/VMTPlayeriOS/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC",
+        "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+      },
+      "user_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+      },
+      "frameworks": [
+        "VideoToolbox"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "iconv",
+        "xml2"
+      ]
+    },
+    {
+      "name": "QMTPluginKitiOS",
+      "dependencies": {
+        "SVPPlayer/VMTPlayeriOS": [
+
+        ],
+        "ReactiveObjC": [
+          "~> 3.0.0"
+        ],
+        "MMKV": [
+          "~> 1.2.0"
+        ],
+        "Protobuf": [
+          "~> 3.0.0"
+        ]
+      },
+      "source_files": [
+        "QMTPluginKitiOS.framework/Versions/A/Headers/QMTPluginKitiOS/*.h"
+      ],
+      "public_header_files": [
+        "QMTPluginKitiOS.framework/Versions/A/Headers/QMTPluginKitiOS/*.h"
+      ]
+    }
+  ]
+}
