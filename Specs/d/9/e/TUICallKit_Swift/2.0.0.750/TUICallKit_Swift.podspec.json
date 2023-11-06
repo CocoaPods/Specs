@@ -1,0 +1,82 @@
+{
+  "name": "TUICallKit_Swift",
+  "version": "2.0.0.750",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "    copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/product/trtc",
+  "documentation_url": "https://cloud.tencent.com/document/product/647/78730",
+  "authors": "tencent video cloud",
+  "summary": "TUICallKit",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "source": {
+    "http": "https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/app/tuikit/download/release/2.0/TUICallKit_iOS_Swift_2.0.0.750.zip"
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "TUICore": [
+      "~> 7.6.5011"
+    ]
+  },
+  "default_subspecs": "TRTC",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TXLiteAVSDK_TRTC": [
+
+        ],
+        "TUICallEngine/TRTC": [
+          "~> 2.0.0.750"
+        ]
+      },
+      "resource_bundles": {
+        "TUICallingKitBundle": [
+          "TUICallKit-Swift/Resources/*.gif",
+          "TUICallKit-Swift/Resources/Localized/**/*.strings",
+          "TUICallKit-Swift/Resources/AudioFile",
+          "TUICallKit-Swift/Resources/*.xcassets"
+        ]
+      },
+      "source_files": "TUICallKit-Swift/TUICallKit-Swift/**/*.{h,m,mm,swift}",
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D USE_TRTC",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 USE_TRTC=1"
+      }
+    },
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TXLiteAVSDK_Professional": [
+
+        ],
+        "TUICallEngine/Professional": [
+          "~> 2.0.0.750"
+        ]
+      },
+      "resource_bundles": {
+        "TUICallingKitBundle": [
+          "TUICallKit-Swift/Resources/*.gif",
+          "TUICallKit-Swift/Resources/Localized/**/*.strings",
+          "TUICallKit-Swift/Resources/AudioFile",
+          "TUICallKit-Swift/Resources/*.xcassets"
+        ]
+      },
+      "source_files": "TUICallKit-Swift/TUICallKit-Swift/**/*.{h,m,mm,swift}"
+    }
+  ],
+  "swift_version": "5.0"
+}
