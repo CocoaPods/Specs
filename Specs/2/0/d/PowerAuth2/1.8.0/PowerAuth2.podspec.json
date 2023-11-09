@@ -1,0 +1,44 @@
+{
+  "name": "PowerAuth2",
+  "cocoapods_version": ">= 1.10",
+  "version": "1.8.0",
+  "summary": "PowerAuth Mobile SDK for iOS",
+  "homepage": "https://github.com/wultra/powerauth-mobile-sdk",
+  "social_media_url": "https://twitter.com/wultra",
+  "documentation_url": "https://github.com/wultra/powerauth-mobile-sdk/blob/develop/docs/PowerAuth-SDK-for-iOS.md",
+  "authors": {
+    "Wultra s.r.o.": "support@wultra.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "dependencies": {
+    "PowerAuthCore": [
+      "~> 1.8.0"
+    ]
+  },
+  "source": {
+    "git": "https://github.com/wultra/powerauth-mobile-sdk.git",
+    "tag": "1.8.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0"
+  },
+  "prepare_command": "./scripts/ios-build-sdk.sh copySdk --out-dir Build/PowerAuth2",
+  "source_files": "Build/PowerAuth2/**/*.{h,m}",
+  "private_header_files": "Build/PowerAuth2/Private/*.h",
+  "tvos": {
+    "exclude_files": [
+      "Build/PowerAuth2/Private/PA2WC*.{h,m}",
+      "Build/PowerAuth2/Private/PowerAuthWC*.{h,m}"
+    ]
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
+  }
+}
