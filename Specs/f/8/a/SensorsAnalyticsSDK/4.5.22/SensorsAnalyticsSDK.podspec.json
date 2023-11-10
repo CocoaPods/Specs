@@ -1,0 +1,277 @@
+{
+  "name": "SensorsAnalyticsSDK",
+  "version": "4.5.22",
+  "summary": "The official iOS SDK of Sensors Analytics.",
+  "homepage": "http://www.sensorsdata.cn",
+  "source": {
+    "git": "https://github.com/sensorsdata/sa-sdk-ios.git",
+    "tag": "v4.5.22"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0"
+  },
+  "authors": {
+    "Yuhan ZOU": "zouyuhan@sensorsdata.cn"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.13"
+  },
+  "default_subspecs": "Core",
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "__Store",
+      "source_files": "SensorsAnalyticsSDK/Store/*.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/Store/SABaseStoreManager.h",
+        "SensorsAnalyticsSDK/Store/SAStorePlugin.h",
+        "SensorsAnalyticsSDK/Store/SAAESStorePlugin.h"
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "SensorsAnalyticsSDK/Core/**/*.{h,m}",
+      "exclude_files": "SensorsAnalyticsSDK/Core/SAAlertController.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK.h",
+        "SensorsAnalyticsSDK/Core/SensorsAnalyticsExtension.h",
+        "SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK+Public.h",
+        "SensorsAnalyticsSDK/Core/SASecurityPolicy.h",
+        "SensorsAnalyticsSDK/Core/SAConfigOptions.h",
+        "SensorsAnalyticsSDK/Core/SAConstants.h",
+        "SensorsAnalyticsSDK/Core/PropertyPlugin/SAPropertyPlugin.h"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/__Store": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "dependencies": {
+        "SensorsAnalyticsSDK/Base": [
+
+        ]
+      },
+      "public_header_files": "SensorsAnalyticsSDK/JSBridge/SensorsAnalyticsSDK+JavaScriptBridge.h",
+      "source_files": [
+        "SensorsAnalyticsSDK/Core/SAAlertController.{h,m}",
+        "SensorsAnalyticsSDK/JSBridge/**/*.{h,m}"
+      ],
+      "ios": {
+        "source_files": [
+          "SensorsAnalyticsSDK/RemoteConfig/**/*.{h,m}",
+          "SensorsAnalyticsSDK/ChannelMatch/**/*.{h,m}",
+          "SensorsAnalyticsSDK/Encrypt/**/*.{h,m}",
+          "SensorsAnalyticsSDK/Deeplink/**/*.{h,m}",
+          "SensorsAnalyticsSDK/DebugMode/**/*.{h,m}",
+          "SensorsAnalyticsSDK/Core/SAAlertController.h",
+          "SensorsAnalyticsSDK/UIRelated/**/*.{h,m}"
+        ],
+        "public_header_files": [
+          "SensorsAnalyticsSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,SensorsAnalyticsSDK}+*.h",
+          "SensorsAnalyticsSDK/Encrypt/SAEncryptProtocol.h",
+          "SensorsAnalyticsSDK/Encrypt/SASecretKey.h",
+          "SensorsAnalyticsSDK/Deeplink/SASlinkCreator.h",
+          "SensorsAnalyticsSDK/UIRelated/UIView+SensorsAnalytics.h",
+          "SensorsAnalyticsSDK/Deeplink/SAAdvertisingConfig.h"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "SensorsAnalyticsSDK/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "SensorsAnalyticsSDK/Common": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h",
+        "SensorsAnalyticsSDK/AutoTrack/SAConfigOptions+AutoTrack.h"
+      ],
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/AutoTrack": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Visualized/**/*.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/Visualized/SensorsAnalyticsSDK+Visualized.h",
+        "SensorsAnalyticsSDK/Visualized/SAConfigOptions+Visualized.h"
+      ]
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Location/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/Location/SensorsAnalyticsSDK+Location.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/DeviceOrientation/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/DeviceOrientation/SensorsAnalyticsSDK+DeviceOrientation.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/AppPush/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/AppPush/SAConfigOptions+AppPush.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Exception/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/Exception/SAConfigOptions+Exception.h"
+    },
+    {
+      "name": "WebView",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/WebView/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/WebView/SensorsAnalyticsSDK+WebView.h"
+    },
+    {
+      "name": "WKWebView",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/WKWebView/**/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h"
+    },
+    {
+      "name": "ApplicationExtension",
+      "dependencies": {
+        "SensorsAnalyticsSDK/Base": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/AppExtension/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsSDK/AppExtension/SensorsAnalyticsSDK+SAAppExtension.h"
+    },
+    {
+      "name": "DeprecatedCellClick",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Core": [
+
+        ]
+      },
+      "source_files": "CellClick_HookDelegate_Deprecated/*.{h,m}",
+      "project_header_files": "CellClick_HookDelegate_Deprecated/*.h"
+    },
+    {
+      "name": "Exposure",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "SensorsAnalyticsSDK/Common": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsSDK/Exposure/**/*.{h,m}",
+      "public_header_files": [
+        "SensorsAnalyticsSDK/Exposure/SAConfigOptions+Exposure.h",
+        "SensorsAnalyticsSDK/Exposure/SAExposureConfig.h",
+        "SensorsAnalyticsSDK/Exposure/SAExposureData.h",
+        "SensorsAnalyticsSDK/Exposure/SensorsAnalyticsSDK+Exposure.h",
+        "SensorsAnalyticsSDK/Exposure/UIView+ExposureIdentifier.h",
+        "SensorsAnalyticsSDK/Exposure/SAExposureListener.h"
+      ]
+    },
+    {
+      "name": "EnglishResources",
+      "dependencies": {
+        "SensorsAnalyticsSDK/Base": [
+
+        ]
+      },
+      "source_files": "SpecialFileSources/SACoreResources+English.{h,m}",
+      "project_header_files": "SpecialFileSources/SACoreResources+English.h"
+    }
+  ]
+}
