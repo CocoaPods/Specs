@@ -1,0 +1,92 @@
+{
+  "name": "KakaoGameSDK",
+  "version": "3.17.12",
+  "summary": "Kakao Game SDK for iOS",
+  "homepage": "https://developers.kakao.com/",
+  "license": "Apache",
+  "authors": "Kakaogames Corp",
+  "source": {
+    "http": "https://kakao-sdk-release.s3.amazonaws.com/KakaoGameSDK/iOS/KakaoGameSDK_iOS_3.17.12_Channeling.zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "KakaoGame",
+      "vendored_frameworks": "KakaoGameFramework/KakaoGame.framework",
+      "resources": "KakaoGameFramework/KakaoGameResources.bundle"
+    },
+    {
+      "name": "KakaoGameFacebook",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 14.1"
+        ],
+        "FBSDKLoginKit": [
+          "~> 14.1"
+        ],
+        "FBSDKShareKit": [
+          "~> 14.1"
+        ],
+        "FBSDKGamingServicesKit": [
+          "~> 14.1"
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameFacebook.framework"
+    },
+    {
+      "name": "KakaoGameGoogle",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ],
+        "GoogleSignIn": [
+          "~> 5.0"
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameGoogle.framework"
+    },
+    {
+      "name": "KakaoGameKakao",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "IDPFramework/Kakao/Alamofire.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKAuth.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKCommon.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKFriend.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKTalk.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKUser.framework",
+        "IDPFramework/Kakao/KakaoPartnerSDKShare.framework",
+        "IDPFramework/Kakao/KakaoSDKShare.framework",
+        "IDPFramework/Kakao/KakaoSDKAuth.framework",
+        "IDPFramework/Kakao/KakaoSDKCommon.framework",
+        "IDPFramework/Kakao/KakaoSDKFriend.framework",
+        "IDPFramework/Kakao/KakaoSDKFriendCore.xcframework",
+        "IDPFramework/Kakao/KakaoSDKTalk.framework",
+        "IDPFramework/Kakao/KakaoSDKTemplate.framework",
+        "IDPFramework/Kakao/KakaoSDKUser.framework",
+        "KakaoGameFramework/KakaoGameKakao.framework"
+      ],
+      "resources": "IDPFramework/Kakao/KakaoSDKFriendResources.bundle"
+    }
+  ],
+  "swift_version": "5.0"
+}
