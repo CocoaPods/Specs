@@ -1,0 +1,101 @@
+{
+  "name": "Rickenbacker",
+  "version": "1.1.4",
+  "summary": "MVVM + RxSwift Project Architecture.",
+  "homepage": "https://github.com/yangKJ/Rickenbacker",
+  "description": "https://github.com/yangKJ/Rickenbacker/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangkejun": "ykj310@126.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/Rickenbacker.git",
+    "tag": "1.1.4"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": false,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "module_name": "Rickenbacker",
+  "ios": {
+    "source_files": "Sources/Rickenbacker.h"
+  },
+  "subspecs": [
+    {
+      "name": "Boxs",
+      "source_files": "Sources/Boxs/*.swift",
+      "resources": "Sources/Boxs/Rickenbacker.bundle"
+    },
+    {
+      "name": "Rx",
+      "source_files": "Sources/Rx/*.swift",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
+
+        ],
+        "Rickenbacker/Boxs": [
+
+        ]
+      }
+    },
+    {
+      "name": "Adapter",
+      "source_files": "Sources/Adapter/*.swift",
+      "dependencies": {
+        "Rickenbacker/Rx": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mediator",
+      "source_files": "Sources/Mediator/*.{h,mm,swift}",
+      "libraries": "c++"
+    },
+    {
+      "name": "MJRefresh",
+      "source_files": "Sources/MJRefresh/*.swift",
+      "dependencies": {
+        "Rickenbacker/Adapter": [
+
+        ],
+        "MJRefresh": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RICKENBACKER_MJREFRESH",
+        "GCC_PREPROCESSOR_DEFINITIONS": "RICKENBACKER_MJREFRESH=1"
+      }
+    },
+    {
+      "name": "DZNEmptyDataSet",
+      "source_files": "Sources/DZNEmptyDataSet/*.swift",
+      "dependencies": {
+        "Rickenbacker/Adapter": [
+
+        ],
+        "DZNEmptyDataSet": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "RICKENBACKER_DZNEMPTYDATASET",
+        "GCC_PREPROCESSOR_DEFINITIONS": "RICKENBACKER_DZNEMPTYDATASET=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
