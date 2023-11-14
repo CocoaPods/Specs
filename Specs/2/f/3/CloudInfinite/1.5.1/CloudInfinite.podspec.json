@@ -1,0 +1,163 @@
+{
+  "name": "CloudInfinite",
+  "version": "1.5.1",
+  "summary": "CloudInfinite 腾讯云iOS-SDK组件",
+  "description": "数据万象sdk",
+  "homepage": "https://cloud.tencent.com/",
+  "license": "MIT",
+  "authors": {
+    "garenwang": "garenwang@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/cloud-Infinite-sdk-ios.git",
+    "tag": "1.5.1"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "ImageIO"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "default_subspecs": "CloudInfinite",
+  "subspecs": [
+    {
+      "name": "CloudInfinite",
+      "source_files": [
+        "CloudInfinite/Classes/CloudInfinite/*",
+        "CloudInfinite/Classes/CloudInfinite/CITransformItem/*"
+      ]
+    },
+    {
+      "name": "Loader",
+      "source_files": "CloudInfinite/Classes/Loader/*",
+      "dependencies": {
+        "QCloudCore/WithoutMTA": [
+
+        ],
+        "CloudInfinite/CloudInfinite": [
+
+        ]
+      }
+    },
+    {
+      "name": "TPG",
+      "source_files": [
+        "CloudInfinite/Classes/TPG/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/include/*",
+        "CloudInfinite/Classes/Quality/*"
+      ],
+      "vendored_libraries": [
+        "CloudInfinite/Classes/TPG/TPGDecoder/*.a",
+        "CloudInfinite/Classes/Lib/*.a"
+      ],
+      "vendored_frameworks": [
+        "CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework",
+        "CloudInfinite/Classes/BeaconFramework/BeaconAPI_Base.framework",
+        "CloudInfinite/Classes/BeaconFramework/QimeiSDK.framework"
+      ]
+    },
+    {
+      "name": "TPGSlim",
+      "source_files": [
+        "CloudInfinite/Classes/TPG/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/*",
+        "CloudInfinite/Classes/TPG/TPGDecoder/include/*",
+        "CloudInfinite/Classes/Quality/*"
+      ],
+      "vendored_libraries": [
+        "CloudInfinite/Classes/TPG/TPGDecoder/*.a",
+        "CloudInfinite/Classes/Lib/*.a"
+      ],
+      "vendored_frameworks": "CloudInfinite/Classes/TPG/TPGDecoder/libpng.framework"
+    },
+    {
+      "name": "AVIF",
+      "source_files": [
+        "CloudInfinite/Classes/AVIF/*",
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/*",
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/include/*",
+        "CloudInfinite/Classes/Quality/*"
+      ],
+      "vendored_libraries": [
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/*.a",
+        "CloudInfinite/Classes/Lib/*.a"
+      ],
+      "vendored_frameworks": [
+        "CloudInfinite/Classes/BeaconFramework/BeaconAPI_Base.framework",
+        "CloudInfinite/Classes/BeaconFramework/QimeiSDK.framework"
+      ]
+    },
+    {
+      "name": "AVIFSlim",
+      "source_files": [
+        "CloudInfinite/Classes/AVIF/*",
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/*",
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/include/*",
+        "CloudInfinite/Classes/Quality/*"
+      ],
+      "vendored_libraries": [
+        "CloudInfinite/Classes/AVIF/AVIFDecoder/*.a",
+        "CloudInfinite/Classes/Lib/*.a"
+      ]
+    },
+    {
+      "name": "SDWebImage-CloudInfinite",
+      "source_files": "CloudInfinite/Classes/SDWebImage-CloudInfinite/*",
+      "public_header_files": "CloudInfinite/Classes/SDWebImage-CloudInfinite/*.h",
+      "dependencies": {
+        "CloudInfinite/CloudInfinite": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "CIDownloader",
+      "dependencies": {
+        "QCloudCore/WithoutMTA": [
+
+        ],
+        "CloudInfinite/SDWebImage-CloudInfinite": [
+
+        ]
+      },
+      "source_files": "CloudInfinite/Classes/CIDownloader/*"
+    },
+    {
+      "name": "CIDNS",
+      "dependencies": {
+        "MSDKDns_C11": [
+
+        ],
+        "QCloudCore/WithoutMTA": [
+
+        ]
+      },
+      "source_files": "CloudInfinite/Classes/CIDNS/*"
+    },
+    {
+      "name": "Quic",
+      "dependencies": {
+        "QCloudQuic": [
+
+        ]
+      }
+    }
+  ]
+}
