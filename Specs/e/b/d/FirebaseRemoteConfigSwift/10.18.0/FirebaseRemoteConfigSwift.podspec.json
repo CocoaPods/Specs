@@ -1,0 +1,97 @@
+{
+  "name": "FirebaseRemoteConfigSwift",
+  "version": "10.18.0",
+  "summary": "Swift Extensions for Firebase Remote Config",
+  "description": "Firebase Remote Config is a cloud service that lets you change the\nappearance and behavior of your app without requiring users to download an\napp update.",
+  "homepage": "https://developers.google.com/",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/Firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-10.18.0"
+  },
+  "swift_versions": "5.3",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.13",
+    "tvos": "12.0",
+    "watchos": "6.0"
+  },
+  "cocoapods_version": ">= 1.4.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebaseRemoteConfigSwift/Sources/**/*.swift"
+  ],
+  "dependencies": {
+    "FirebaseRemoteConfig": [
+      "~> 10.17"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "swift-api-tests",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "11.0",
+        "osx": "10.13",
+        "tvos": "12.0"
+      },
+      "source_files": [
+        "FirebaseRemoteConfigSwift/Tests/SwiftAPI/*.swift",
+        "FirebaseRemoteConfigSwift/Tests/FakeUtils/*.swift",
+        "FirebaseRemoteConfigSwift/Tests/ObjC/*.[hm]"
+      ],
+      "exclude_files": [
+        "FirebaseRemoteConfigSwift/Tests/SwiftAPI/PropertyWrapperTests.swift"
+      ],
+      "resources": "FirebaseRemoteConfigSwift/Tests/Defaults-testInfo.plist",
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/FirebaseRemoteConfigSwift/Tests/ObjC/Bridging-Header.h",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D USE_REAL_CONSOLE",
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+      },
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    },
+    {
+      "name": "fake-console-tests",
+      "test_type": "unit",
+      "scheme": {
+        "code_coverage": true
+      },
+      "platforms": {
+        "ios": "11.0",
+        "osx": "10.13",
+        "tvos": "12.0"
+      },
+      "source_files": [
+        "FirebaseRemoteConfigSwift/Tests/SwiftAPI/*.swift",
+        "FirebaseRemoteConfigSwift/Tests/FakeUtils/*.swift",
+        "FirebaseRemoteConfigSwift/Tests/FakeConsole/*.swift",
+        "FirebaseRemoteConfigSwift/Tests/ObjC/*.[hm]"
+      ],
+      "resources": "FirebaseRemoteConfigSwift/Tests/Defaults-testInfo.plist",
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(PODS_TARGET_SRCROOT)/FirebaseRemoteConfigSwift/Tests/ObjC/Bridging-Header.h",
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+      },
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
