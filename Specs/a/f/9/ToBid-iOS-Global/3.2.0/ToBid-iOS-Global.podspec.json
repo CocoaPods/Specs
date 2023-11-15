@@ -1,0 +1,569 @@
+{
+  "name": "ToBid-iOS-Global",
+  "version": "3.2.0",
+  "summary": "ToBid-iOS is a SDK from Sigmob providing AD service.",
+  "description": "ToBid-iOS provides ADs which include native、banner、splash、RewardVideo、Interstitial etc.",
+  "homepage": "https://www.sigmob.com/",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Codi": "codi.zhao@sigmob.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://sdkres.sigmob.cn/ToBid/ios/3.2.0_3a7c35133cca25bec47377faeffbad18/tobid_release_ios_global_3.2.0_20231115.zip"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "requires_arc": true,
+  "default_subspecs": "ToBidSDK",
+  "subspecs": [
+    {
+      "name": "ToBidSDK",
+      "frameworks": [
+        "ImageIO",
+        "StoreKit",
+        "CFNetwork",
+        "CoreMedia",
+        "AdSupport",
+        "CoreMotion",
+        "MediaPlayer",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreTelephony",
+        "SafariServices",
+        "MobileCoreServices",
+        "SystemConfiguration",
+        "AudioToolbox"
+      ],
+      "weak_frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "vendored_frameworks": [
+        "tobid-sdk-ios-global/Core/*.xcframework"
+      ],
+      "preserve_paths": "tobid-sdk-ios-global/Core/**/*"
+    },
+    {
+      "name": "PangleAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/pangle/*.a",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ],
+        "Ads-Global": [
+          "5.5.0.5"
+        ]
+      }
+    },
+    {
+      "name": "AdmobAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/admob/*.a",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/admob/**/*",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "10.12.0"
+        ]
+      }
+    },
+    {
+      "name": "AppLovinAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/applovin/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/applovin/*.xcframework",
+      "resources": "tobid-sdk-ios-global/AdNetworks/applovin/*.bundle",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/applovin/**/*",
+      "frameworks": [
+        "AdSupport",
+        "AudioToolbox",
+        "AVFoundation",
+        "CFNetwork",
+        "CoreGraphics",
+        "CoreMedia",
+        "CoreMotion",
+        "CoreTelephony",
+        "MessageUI",
+        "SafariServices",
+        "StoreKit",
+        "SystemConfiguration",
+        "UIKit",
+        "WebKit"
+      ],
+      "weak_frameworks": "AppTrackingTransparency",
+      "libraries": [
+        "z",
+        "sqlite3",
+        "xml2"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MintegralAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/mintegral-global/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/mintegral-global/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/mintegral-global/**/*",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreGraphics",
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "StoreKit",
+        "QuartzCore",
+        "CoreTelephony",
+        "MobileCoreServices",
+        "Accelerate",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "weak_frameworks": "AppTrackingTransparency",
+      "libraries": "z",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "IronSourceAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/ironSource/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/ironSource/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/ironSource/**/*",
+      "frameworks": [
+        "AdSupport",
+        "AudioToolbox",
+        "AVFoundation",
+        "CFNetwork",
+        "CoreGraphics",
+        "CoreLocation",
+        "CoreMedia",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "MobileCoreServices",
+        "QuartzCore",
+        "Security",
+        "StoreKit",
+        "SystemConfiguration"
+      ],
+      "libraries": "z",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "VungleAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/vungle/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/vungle/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/vungle/**/*",
+      "frameworks": [
+        "AdSupport",
+        "AudioToolbox",
+        "AVFoundation",
+        "CFNetwork",
+        "CoreGraphics",
+        "CoreMedia",
+        "MediaPlayer",
+        "QuartzCore",
+        "StoreKit",
+        "SystemConfiguration"
+      ],
+      "weak_frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "libraries": "z",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnityAdsAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/unity/*.a",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/unity/**/*",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ],
+        "UnityAds": [
+          "4.9.2"
+        ]
+      }
+    },
+    {
+      "name": "TouTiaoAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/csj/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/csj/*.xcframework",
+      "resources": "tobid-sdk-ios-global/AdNetworks/csj/*.bundle",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/csj/**/*",
+      "frameworks": [
+        "UIKit",
+        "MapKit",
+        "WebKit",
+        "MediaPlayer",
+        "CoreLocation",
+        "AdSupport",
+        "CoreMedia",
+        "AVFoundation",
+        "CoreTelephony",
+        "StoreKit",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "CoreMotion",
+        "Accelerate",
+        "AudioToolbox",
+        "JavaScriptCore",
+        "Security",
+        "CoreImage",
+        "AudioToolbox",
+        "ImageIO",
+        "QuartzCore",
+        "CoreGraphics",
+        "CoreText",
+        "DeviceCheck"
+      ],
+      "weak_frameworks": [
+        "AppTrackingTransparency",
+        "DeviceCheck"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "z",
+        "sqlite3",
+        "bz2",
+        "xml2",
+        "iconv",
+        "c++abi"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJMediationAdapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/gromore/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/gromore/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/gromore/**/*",
+      "frameworks": [
+        "UIKit",
+        "MapKit",
+        "WebKit",
+        "MediaPlayer",
+        "CoreLocation",
+        "AdSupport",
+        "CoreMedia",
+        "AVFoundation",
+        "CoreTelephony",
+        "StoreKit",
+        "SystemConfiguration",
+        "MobileCoreServices",
+        "CoreMotion",
+        "Accelerate",
+        "AudioToolbox",
+        "JavaScriptCore",
+        "Security",
+        "CoreImage",
+        "AudioToolbox",
+        "ImageIO",
+        "QuartzCore",
+        "CoreGraphics",
+        "CoreText",
+        "DeviceCheck"
+      ],
+      "weak_frameworks": [
+        "AppTrackingTransparency",
+        "DeviceCheck"
+      ],
+      "libraries": [
+        "c++",
+        "resolv",
+        "z",
+        "sqlite3",
+        "bz2",
+        "xml2",
+        "iconv",
+        "c++abi"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/TouTiaoAdapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "GDTAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": [
+        "tobid-sdk-ios-global/AdNetworks/gdt/*.a",
+        "tobid-sdk-ios-global/AdNetworks/gdt/lib/*.a"
+      ],
+      "source_files": "tobid-sdk-ios-global/AdNetworks/gdt/lib/*.h",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/gdt/**/*",
+      "frameworks": [
+        "StoreKit",
+        "Security",
+        "CoreTelephony",
+        "AdSupport",
+        "CoreLocation",
+        "QuartzCore",
+        "SystemConfiguration",
+        "AVFoundation"
+      ],
+      "weak_frameworks": "WebKit",
+      "libraries": [
+        "z",
+        "xml2"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "KSAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/kuaishou/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/kuaishou/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/kuaishou/**/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "MobileCoreServices",
+        "CoreGraphics",
+        "Security",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "AdSupport",
+        "CoreData",
+        "StoreKit",
+        "AVFoundation",
+        "MediaPlayer",
+        "CoreMedia",
+        "WebKit",
+        "Accelerate",
+        "CoreLocation",
+        "AVKit",
+        "MessageUI",
+        "QuickLook",
+        "AudioToolBox",
+        "JavaScriptCore",
+        "CoreMotion"
+      ],
+      "libraries": [
+        "z",
+        "resolv.9",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaiduAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/baidu/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/baidu/*.framework",
+      "resources": "tobid-sdk-ios-global/AdNetworks/baidu/*.bundle",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/baidu/**/*",
+      "frameworks": [
+        "CoreLocation",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreMotion",
+        "CoreTelephony",
+        "AdSupport",
+        "SystemConfiguration",
+        "QuartzCore",
+        "WebKit",
+        "MessageUI",
+        "SafariServices",
+        "AVFoundation",
+        "EventKit",
+        "QuartzCore",
+        "CoreMedia",
+        "StoreKit"
+      ],
+      "libraries": "c++",
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "KlevinAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/klevin/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/klevin/*.framework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/klevin/**/*",
+      "frameworks": [
+        "StoreKit",
+        "SystemConfiguration",
+        "CoreTelephony",
+        "AVKit",
+        "AVFoundation",
+        "CoreMedia"
+      ],
+      "weak_frameworks": [
+        "AdSupport",
+        "AppTrackingTransparency",
+        "WebKit"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdScopeAdapter",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/adscope/*.a",
+      "vendored_frameworks": "tobid-sdk-ios-global/AdNetworks/adscope/*.framework",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/adscope/**/*",
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "AVKit",
+        "Accelerate",
+        "AudioToolbox",
+        "AppTrackingTransparency",
+        "CoreData",
+        "CoreLocation",
+        "CoreMedia",
+        "CoreMotion",
+        "CoreGraphics",
+        "CoreTelephony",
+        "CoreImage",
+        "CoreText",
+        "Foundation",
+        "MediaPlayer",
+        "MessageUI",
+        "MobileCoreServices",
+        "MapKit",
+        "QuartzCore",
+        "QuickLook",
+        "SystemConfiguration",
+        "Security",
+        "StoreKit",
+        "WebKit",
+        "UIKit",
+        "ImageIO",
+        "SafariServices",
+        "JavaScriptCore",
+        "DeviceCheck"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "sqlite3",
+        "xml2",
+        "bz2",
+        "c++abi",
+        "resolv.9",
+        "iconv",
+        "c"
+      ],
+      "dependencies": {
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "InMobiAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "tobid-sdk-ios-global/AdNetworks/inMobi/*.a",
+      "preserve_paths": "tobid-sdk-ios-global/AdNetworks/inMobi/**/*",
+      "dependencies": {
+        "InMobiSDK": [
+          "10.5.8"
+        ],
+        "ToBid-iOS-Global/ToBidSDK": [
+
+        ]
+      }
+    }
+  ]
+}
