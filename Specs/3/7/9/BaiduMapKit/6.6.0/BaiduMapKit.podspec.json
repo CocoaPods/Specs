@@ -1,0 +1,118 @@
+{
+  "name": "BaiduMapKit",
+  "version": "6.6.0",
+  "summary": "百度地图iOS SDK（CocoaPods百度地图官方库）",
+  "description": "百度地图iOS SDK：百度地图官方CocoaPods.\n百度地图iOS SDK是一套基于iOS 8.0及以上版本设备的应用程序接口，不仅提供展示地图的基本接口，还提供POI检索、路径规划、地图标注、离线地图、步骑行导航等丰富的LBS能力。",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2015 BaiduLBS"
+  },
+  "authors": {
+    "baidu map sdk": "dituapi_01@163.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/map/6.6.0/BaiduMapKitV6.6.0.zip"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreTelephony",
+    "OpenGLES",
+    "QuartzCore",
+    "Security",
+    "SystemConfiguration",
+    "Accelerate"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "z"
+  ],
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": [
+      "-ObjC",
+      "-w"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "default_subspecs": [
+    "Base",
+    "Map",
+    "Search",
+    "Utils"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "BaiduMapKit/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "BaiduMapKit/thirdlibs/*.{a}",
+        "source_files": "BaiduMapKit/BaiduMapAPI_Base.framework/Headers/*.h",
+        "public_header_files": "BaiduMapKit/BaiduMapAPI_Base.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit/Base": [
+
+          ]
+        },
+        "resources": "BaiduMapKit/BaiduMapAPI_Map.framework/*.bundle",
+        "vendored_frameworks": "BaiduMapKit/BaiduMapAPI_Map.framework",
+        "source_files": "BaiduMapKit/BaiduMapAPI_Map.framework/Headers/*.h",
+        "public_header_files": "BaiduMapKit/BaiduMapAPI_Map.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduMapKit/BaiduMapAPI_Search.framework",
+        "source_files": "BaiduMapKit/BaiduMapAPI_Search.framework/Headers/*.h",
+        "public_header_files": "BaiduMapKit/BaiduMapAPI_Search.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduMapKit/BaiduMapAPI_Utils.framework",
+        "source_files": "BaiduMapKit/BaiduMapAPI_Utils.framework/Headers/*.h",
+        "public_header_files": "BaiduMapKit/BaiduMapAPI_Utils.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Bus",
+      "ios": {
+        "dependencies": {
+          "BaiduMapKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduMapKit/BaiduMapAPI_Bus.framework",
+        "source_files": "BaiduMapKit/BaiduMapAPI_Bus.framework/Headers/*.h",
+        "public_header_files": "BaiduMapKit/BaiduMapAPI_Bus.framework/Headers/*.h"
+      }
+    }
+  ]
+}
