@@ -1,0 +1,161 @@
+{
+  "name": "BaiduWalkNaviKit",
+  "version": "6.6.0",
+  "summary": "百度步骑行iOS SDK（CocoaPods百度步骑行官方库, 已包含百度地图包）",
+  "description": "百度步骑行iOS SDK：百度步骑行官方CocoaPods(已包含百度地图包).\n自V4.2.0版本起新增步行、骑行导航功能，\n支持普通步行导航、步行AR导航、普通自行车骑行导航、电动车骑行导航、偏航纠偏等导航功能。",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "baidu walkNavi sdk": "dituapi_01@163.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/walkmap/6.6.0/BaiduWalkNaviKitV6.6.0.zip"
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "CoreLocation",
+    "CoreMotion",
+    "CoreTelephony",
+    "MobileCoreServices",
+    "OpenGLES",
+    "QuartzCore",
+    "Security",
+    "SystemConfiguration",
+    "Accelerate",
+    "WebKit",
+    "MapKit"
+  ],
+  "libraries": [
+    "sqlite3.0",
+    "c++",
+    "iconv",
+    "z"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": [
+      "-ObjC",
+      "-w"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "default_subspecs": [
+    "Base",
+    "Map",
+    "WalkNavi"
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "ios": {
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Base.framework",
+        "vendored_libraries": "BaiduWalkNaviKit/thirdlibs/*.{a}",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_Base.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_Base.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Map",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "resources": "BaiduWalkNaviKit/BaiduMapAPI_Map.framework/*.bundle",
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Map.framework",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_Map.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_Map.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Utils",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Utils.framework",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_Utils.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_Utils.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "WalkNavi",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ],
+          "BaiduWalkNaviKit/Map": [
+
+          ],
+          "Masonry": [
+            "~> 1.1.0"
+          ],
+          "OpenCV": [
+            "~> 3.4.0"
+          ]
+        },
+        "resources": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework/*.bundle",
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_WalkNavi.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "Search",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Search.framework",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_Search.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_Search.framework/Headers/*.h"
+      }
+    },
+    {
+      "name": "TTS",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/WalkNavi": [
+
+          ]
+        },
+        "vendored_libraries": "BaiduWalkNaviKit/tts/*.{a}",
+        "resources": [
+          "BaiduWalkNaviKit/tts/baiduTTSSDK.bundle"
+        ],
+        "source_files": "BaiduWalkNaviKit/tts/*.{h}",
+        "public_header_files": "BaiduWalkNaviKit/tts/*.{h}"
+      }
+    },
+    {
+      "name": "Bus",
+      "ios": {
+        "dependencies": {
+          "BaiduWalkNaviKit/Base": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduWalkNaviKit/BaiduMapAPI_Bus.framework",
+        "source_files": "BaiduWalkNaviKit/BaiduMapAPI_Bus.framework/Headers/*.h",
+        "public_header_files": "BaiduWalkNaviKit/BaiduMapAPI_Bus.framework/Headers/*.h"
+      }
+    }
+  ]
+}
