@@ -1,0 +1,168 @@
+{
+  "name": "libheif",
+  "version": "1.16.2",
+  "summary": "libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder.",
+  "description": "HEIF is a new image file format employing HEVC (h.265) image coding for the best compression ratios currently possible.",
+  "homepage": "https://www.libheif.org/",
+  "license": {
+    "type": "LGPL"
+  },
+  "authors": {
+    "struktur AG": "opensource@struktur.de"
+  },
+  "source": {
+    "git": "https://github.com/strukturag/libheif",
+    "tag": "v1.16.2"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "default_subspecs": "libde265",
+  "libraries": "c++",
+  "prepare_command": "cp './libheif/heif_version.h.in' './libheif/heif_version.h'\nsed -i.bak 's/#define[[:space:]]LIBHEIF_NUMERIC_VERSION.*/#define LIBHEIF_NUMERIC_VERSION 0x01162000/g' './libheif/heif_version.h'\nsed -i.bak 's/#define[[:space:]]LIBHEIF_VERSION.*/#define LIBHEIF_VERSION \"1.16.2\"/g' './libheif/heif_version.h'\nsed -i.bak 's/<libheif\\/heif_version.h>/\"heif_version.h\"/g' './libheif/heif.h'\nsed -i.bak 's/\\\"rav1e.h\\\"/\\\"librav1e\\/rav1e.h\\\"/g' './libheif/plugins/encoder_rav1e.cc' || true",
+  "subspecs": [
+    {
+      "name": "libheif",
+      "source_files": "libheif/**/*.{h,c,cc}",
+      "exclude_files": [
+        "libheif/plugins/decoder_libde265.{h,c,cc}",
+        "libheif/plugins/encoder_x265.{h,c,cc}",
+        "libheif/plugins/encoder_aom.{h,c,cc}",
+        "libheif/plugins/decoder_aom.{h,c,cc}",
+        "libheif/plugins/decoder_dav1d.{h,c,cc}",
+        "libheif/plugins/encoder_rav1e.{h,c,cc}",
+        "libheif/plugins/encoder_svt.{h,c,cc}",
+        "libheif/plugins_windows.{h,c,cc}",
+        "libheif/plugins_unix.{h,c,cc}"
+      ],
+      "public_header_files": [
+        "libheif/heif.h",
+        "libheif/heif_version.h"
+      ],
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_UNISTD_H=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/"
+      }
+    },
+    {
+      "name": "libde265",
+      "dependencies": {
+        "libde265": [
+          ">= 1.0.9-beta"
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/plugins/decoder_libde265.{h,c,cc}",
+      "private_header_files": "libheif/plugins/decoder_libde265.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_LIBDE265=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/"
+      }
+    },
+    {
+      "name": "libx265",
+      "dependencies": {
+        "libx265": [
+
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/plugins/encoder_x265.{h,c,cc}",
+      "private_header_files": "libheif/plugins/encoder_x265.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_X265=1",
+        "WARNING_CFLAGS": "$(inherited) -Wno-module-import-in-extern-c",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/libx265/source/"
+      }
+    },
+    {
+      "name": "libaom",
+      "dependencies": {
+        "libaom": [
+
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": [
+        "libheif/plugins/encoder_aom.{h,c,cc}",
+        "libheif/plugins/decoder_aom.{h,c,cc}"
+      ],
+      "private_header_files": "libheif/plugins/encoder_aom.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_AOM_DECODER=1 HAVE_AOM_ENCODER=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/libaom/aom/"
+      }
+    },
+    {
+      "name": "libdav1d",
+      "dependencies": {
+        "libdav1d": [
+          ">= 0.7.1"
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/plugins/decoder_dav1d.{h,c,cc}",
+      "private_header_files": "libheif/plugins/decoder_dav1d.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_DAV1D=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/libdav1d/dav1d/include"
+      }
+    },
+    {
+      "name": "librav1e",
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.10"
+      },
+      "dependencies": {
+        "librav1e": [
+
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/plugins/encoder_rav1e.{h,c,cc}",
+      "private_header_files": "libheif/plugins/encoder_rav1e.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_RAV1E=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/librav1e/"
+      }
+    },
+    {
+      "name": "svt-av1",
+      "dependencies": {
+        "svt-av1": [
+          ">= 0.9.0"
+        ],
+        "libheif/libheif": [
+
+        ]
+      },
+      "source_files": "libheif/plugins/encoder_svt.{h,c,cc}",
+      "private_header_files": "libheif/plugins/encoder_svt.h",
+      "preserve_paths": "libheif",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) HAVE_SvtEnc=1",
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/libheif/ ${PODS_TARGET_SRCROOT}/ ${PODS_ROOT}/svt-av1/include/"
+      }
+    }
+  ]
+}
