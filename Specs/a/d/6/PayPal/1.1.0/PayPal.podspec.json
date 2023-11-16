@@ -1,0 +1,80 @@
+{
+  "name": "PayPal",
+  "version": "1.1.0",
+  "summary": "The PayPal iOS SDK: Helps you accept card, PayPal, and alternative payment methods in your iOS app.",
+  "homepage": "https://developer.paypal.com/home",
+  "license": "MIT",
+  "authors": {
+    "PayPal": "sdks@paypal.com"
+  },
+  "source": {
+    "git": "https://github.com/paypal/paypal-ios.git",
+    "tag": "1.1.0"
+  },
+  "swift_versions": "5.8",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "compiler_flags": "-Wall -Werror -Wextra",
+  "subspecs": [
+    {
+      "name": "CardPayments",
+      "source_files": "Sources/CardPayments/**/*.swift",
+      "dependencies": {
+        "PayPal/CorePayments": [
+
+        ]
+      }
+    },
+    {
+      "name": "PayPalNativePayments",
+      "source_files": "Sources/PayPalNativePayments/**/*.swift",
+      "dependencies": {
+        "PayPal/CorePayments": [
+
+        ],
+        "PayPalCheckout": [
+          "1.2.0"
+        ]
+      }
+    },
+    {
+      "name": "PaymentButtons",
+      "source_files": "Sources/PaymentButtons/*.swift",
+      "dependencies": {
+        "PayPal/CorePayments": [
+
+        ]
+      },
+      "resource_bundles": {
+        "PayPalSDK": [
+          "Sources/PaymentButtons/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "PayPalWebPayments",
+      "source_files": "Sources/PayPalWebPayments/*.swift",
+      "dependencies": {
+        "PayPal/CorePayments": [
+
+        ]
+      }
+    },
+    {
+      "name": "FraudProtection",
+      "source_files": "Sources/FraudProtection/*.swift",
+      "dependencies": {
+        "PayPal/CorePayments": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/XCFrameworks/PPRiskMagnes.xcframework"
+    },
+    {
+      "name": "CorePayments",
+      "source_files": "Sources/CorePayments/**/*.swift"
+    }
+  ],
+  "swift_version": "5.8"
+}
