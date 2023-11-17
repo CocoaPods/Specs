@@ -1,0 +1,190 @@
+{
+  "name": "Tor",
+  "version": "408.9.1",
+  "summary": "Tor.framework is the easiest way to embed Tor in your iOS application.",
+  "description": "Tor.framework is the easiest way to embed Tor in your iOS application. Currently, the framework compiles in static versions of tor, libevent, openssl, and liblzma.",
+  "homepage": "https://github.com/iCepa/Tor.framework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Conrad Kramer": "conrad@conradkramer.com",
+    "Chris Ballinger": "chris@chatsecure.org",
+    "Mike Tigas": "mike@tig.as",
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/iCepa/Tor.framework.git",
+    "branch": "pure_pod",
+    "tag": "v408.9.1",
+    "submodules": true
+  },
+  "social_media_url": "https://twitter.com/tladesignz",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.13"
+  },
+  "default_subspecs": "CTor",
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "source_files": "Tor/Classes/Core/**/*"
+    },
+    {
+      "name": "CTor",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "source_files": "Tor/Classes/CTor/**/*",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Tor/tor\" \"${PODS_TARGET_SRCROOT}/Tor/tor/src\" \"${PODS_TARGET_SRCROOT}/Tor/openssl/include\" \"${BUILT_PRODUCTS_DIR}/openssl\" \"${PODS_TARGET_SRCROOT}/Tor/libevent/include\"",
+        "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor\" -l\"z\" -l\"lzma\" -l\"crypto\" -l\"ssl\" -l\"event_core\" -l\"event_extra\" -l\"event_pthreads\" -l\"event\" -l\"tor\""
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-iOS\""
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-macOS\""
+        }
+      },
+      "script_phases": [
+        {
+          "name": "Build LZMA",
+          "execution_position": "before_compile",
+          "output_files": [
+            "lzma-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/xz\"\n../xz.sh\n"
+        },
+        {
+          "name": "Build OpenSSL",
+          "execution_position": "before_compile",
+          "output_files": [
+            "openssl-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/openssl\"\n../openssl.sh\n"
+        },
+        {
+          "name": "Build libevent",
+          "execution_position": "before_compile",
+          "output_files": [
+            "libevent-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/libevent\"\n../libevent.sh\n"
+        },
+        {
+          "name": "Build Tor",
+          "execution_position": "before_compile",
+          "output_files": [
+            "tor-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/tor\"\n../tor.sh\n"
+        }
+      ],
+      "preserve_paths": [
+        "Tor/include",
+        "Tor/libevent",
+        "Tor/libevent.sh",
+        "Tor/openssl",
+        "Tor/openssl.sh",
+        "Tor/tor",
+        "Tor/tor.sh",
+        "Tor/xz",
+        "Tor/xz.sh"
+      ]
+    },
+    {
+      "name": "CTor-NoLZMA",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "source_files": "Tor/Classes/CTor/**/*",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Tor/tor\" \"${PODS_TARGET_SRCROOT}/Tor/tor/src\" \"${PODS_TARGET_SRCROOT}/Tor/openssl/include\" \"${BUILT_PRODUCTS_DIR}/openssl\" \"${PODS_TARGET_SRCROOT}/Tor/libevent/include\"",
+        "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor\" -l\"z\" -l\"crypto\" -l\"ssl\" -l\"event_core\" -l\"event_extra\" -l\"event_pthreads\" -l\"event\" -l\"tor\""
+      },
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-iOS\""
+        }
+      },
+      "osx": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "$(inherited) -L\"${BUILT_PRODUCTS_DIR}/Tor-macOS\""
+        }
+      },
+      "script_phases": [
+        {
+          "name": "Build OpenSSL",
+          "execution_position": "before_compile",
+          "output_files": [
+            "openssl-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/openssl\"\n../openssl.sh\n"
+        },
+        {
+          "name": "Build libevent",
+          "execution_position": "before_compile",
+          "output_files": [
+            "libevent-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/libevent\"\n../libevent.sh\n"
+        },
+        {
+          "name": "Build Tor",
+          "execution_position": "before_compile",
+          "output_files": [
+            "tor-always-execute-this-but-supress-warning"
+          ],
+          "script": "cd \"${PODS_TARGET_SRCROOT}/Tor/tor\"\n../tor.sh --no-lzma\n"
+        }
+      ],
+      "preserve_paths": [
+        "Tor/include",
+        "Tor/libevent",
+        "Tor/libevent.sh",
+        "Tor/openssl",
+        "Tor/openssl.sh",
+        "Tor/tor",
+        "Tor/tor.sh"
+      ]
+    },
+    {
+      "name": "GeoIP",
+      "dependencies": {
+        "Tor/CTor": [
+
+        ]
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "Tor/tor/src/config/geoip",
+          "Tor/tor/src/config/geoip6"
+        ]
+      }
+    },
+    {
+      "name": "GeoIP-NoLZMA",
+      "dependencies": {
+        "Tor/CTor-NoLZMA": [
+
+        ]
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "Tor/tor/src/config/geoip",
+          "Tor/tor/src/config/geoip6"
+        ]
+      }
+    }
+  ]
+}
