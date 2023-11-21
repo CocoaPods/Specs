@@ -1,0 +1,127 @@
+{
+  "name": "CmgeSDK",
+  "version": "1.19.0",
+  "summary": "A short description of CmgeSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/WakeyWoo/CmgeSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WakeyWoo": "hjw728uow@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/WakeyWoo/CmgeSDK.git",
+    "tag": "1.19.0"
+  },
+  "libraries": "sqlite3",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "CmgeCore",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": [
+        "CmgeSDK/Frameworks/CmgeCore/CmgeStandardKit.xcframework",
+        "CmgeSDK/Frameworks/CmgeCore/JtlyAnalyticsKit.xcframework",
+        "CmgeSDK/Frameworks/CmgeCore/CmgeDeviceInfoKit.xcframework",
+        "CmgeSDK/Frameworks/CmgeCore/CmgeIdentifierKit.xcframework",
+        "CmgeSDK/Frameworks/CmgeCore/CmgeShareKit.xcframework"
+      ],
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      }
+    },
+    {
+      "name": "AliyunLog",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": [
+        "CmgeSDK/Frameworks/AliyunLog/AliNetworkDiagnosis.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogCore.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogCrashReporter.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogNetworkDiagnosis.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogOT.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogOTSwift.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogProducer.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogTrace.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/AliyunLogURLSession.xcframework",
+        "CmgeSDK/Frameworks/AliyunLog/WPKMobi.xcframework"
+      ],
+      "resources": "CmgeSDK/Frameworks/AliyunLog/JtlyAliyunLog-info.plist",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics"
+        ],
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      },
+      "libraries": [
+        "z",
+        "c++",
+        "resolv"
+      ],
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": [
+          "\"$(SDKROOT)/usr/lib/swift\"",
+          "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\""
+        ],
+        "LD_RUNPATH_SEARCH_PATHS": [
+          "/usr/lib/swift",
+          "\"@executable_path/Frameworks\""
+        ]
+      }
+    },
+    {
+      "name": "AliAuth",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": [
+        "CmgeSDK/Frameworks/AliAuth/ATAuthSDK.framework",
+        "CmgeSDK/Frameworks/AliAuth/YTXMonitor.framework",
+        "CmgeSDK/Frameworks/AliAuth/YTXOperators.framework"
+      ],
+      "ios": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        }
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "ThinkingSDK",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "vendored_frameworks": "CmgeSDK/Frameworks/ThinkingSDK/ThinkingSDK.framework",
+      "ios": {
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+        }
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}
