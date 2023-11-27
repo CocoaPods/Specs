@@ -1,0 +1,102 @@
+{
+  "name": "Sr25519Clone",
+  "version": "0.2.0",
+  "summary": "Swift wrapper for sr25519-donna C library",
+  "description": "Swift wrapper for sr25519-donna C library. Provides Sr25519 and Ed25519 wrappers.",
+  "homepage": "https://github.com/tesseract-one/Sr25519.swift",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tesseract Systems, Inc.": "info@tesseract.one"
+  },
+  "source": {
+    "git": "https://github.com/tesseract-one/Sr25519.swift.git",
+    "tag": "0.2.0"
+  },
+  "swift_versions": "5.4",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.13"
+  },
+  "module_name": "Sr25519",
+  "default_subspecs": "Sr25519",
+  "subspecs": [
+    {
+      "name": "CSr25519",
+      "source_files": "Sources/CSr25519/src/**/*.{h,c}",
+      "public_header_files": [
+        "Sources/CSr25519/src/sr25519.h",
+        "Sources/CSr25519/src/sr25519-random*.h",
+        "Sources/CSr25519/src/ed25519-donna/ed25519.h"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) ED25519_CUSTOMRANDOM ED25519_CUSTOMHASH ED25519_NO_INLINE_ASM SR25519_CUSTOMHASH",
+        "GCC_WARN_UNUSED_FUNCTION": "NO",
+        "GCC_WARN_UNUSED_VARIABLE": "NO"
+      },
+      "dependencies": {
+        "UncommonCrypto": [
+          "~> 0.2.1"
+        ]
+      }
+    },
+    {
+      "name": "Helpers",
+      "source_files": "Sources/Sr25519Helpers/*.swift",
+      "dependencies": {
+        "Sr25519Clone/CSr25519": [
+
+        ]
+      }
+    },
+    {
+      "name": "Ed25519",
+      "source_files": "Sources/Ed25519/*.swift",
+      "dependencies": {
+        "Sr25519Clone/Helpers": [
+
+        ],
+        "Sr25519Clone/CSr25519": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Ed25519Tests",
+          "test_type": "unit",
+          "platforms": {
+            "ios": "11.0",
+            "osx": "10.13"
+          },
+          "source_files": "Tests/Ed25519Tests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "Sr25519",
+      "source_files": "Sources/Sr25519/*.swift",
+      "dependencies": {
+        "Sr25519Clone/Helpers": [
+
+        ],
+        "Sr25519Clone/CSr25519": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Sr25519Tests",
+          "test_type": "unit",
+          "platforms": {
+            "ios": "11.0",
+            "osx": "10.13"
+          },
+          "source_files": "Tests/Sr25519Tests/**/*.swift"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.4"
+}
