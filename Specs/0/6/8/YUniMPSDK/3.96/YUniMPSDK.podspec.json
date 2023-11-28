@@ -1,0 +1,437 @@
+{
+  "name": "YUniMPSDK",
+  "version": "3.96",
+  "summary": "uniapp 原生小程序SDK",
+  "homepage": "https://github.com/dgyiheda/YUniMPSDK",
+  "license": "MIT",
+  "authors": {
+    "tanhao": "1779084072@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/dgyiheda/YUniMPSDK.git",
+    "tag": "3.96"
+  },
+  "swift_versions": "5.7",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "module_name": "YUniMPSDK",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "-ld64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_LDFLAGS": "-ld64"
+  },
+  "requires_arc": false,
+  "default_subspecs": [
+    "Core",
+    "Barcode",
+    "NativeJs",
+    "Audio",
+    "Camera",
+    "Contacts",
+    "Video",
+    "Zip"
+  ],
+  "subspecs": [
+    {
+      "name": "Basic",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "public_header_files": [
+        "UniMPSDK/Core/Headers/**/*.h",
+        "UniMPSDK/Core/Headers/*.h"
+      ],
+      "source_files": [
+        "UniMPSDK/Core/Headers/**/*.h",
+        "UniMPSDK/Core/Headers/**/*.h"
+      ],
+      "libraries": [
+        "c++",
+        "iconv"
+      ],
+      "vendored_frameworks": [
+        "UniMPSDK/Core/Libs/storage.framework"
+      ],
+      "vendored_libraries": [
+        "UniMPSDK/Core/Libs/libcoreSupport.a",
+        "UniMPSDK/Core/Libs/liblibIO.a",
+        "UniMPSDK/Core/Libs/liblibNativeObj.a",
+        "UniMPSDK/Core/Libs/liblibNativeUI.a",
+        "UniMPSDK/Core/Libs/liblibNavigator.a",
+        "UniMPSDK/Core/Libs/liblibPDRCore.a",
+        "UniMPSDK/Core/Libs/liblibStorage.a",
+        "UniMPSDK/Core/Libs/liblibUI.a",
+        "UniMPSDK/Core/Libs/liblibWeex.a",
+        "UniMPSDK/Core/Libs/libSDWebImage.a"
+      ],
+      "resources": [
+        "UniMPSDK/Core/Resources/PandoraApi.bundle",
+        "UniMPSDK/Core/Resources/__uniappes6.js",
+        "UniMPSDK/Core/Resources/uni-jsframework-vue3.js",
+        "UniMPSDK/Core/Resources/uni-jsframework.js",
+        "UniMPSDK/Core/Resources/unincomponents.ttf",
+        "UniMPSDK/Core/Resources/weex-polyfill.js",
+        "UniMPSDK/Core/Resources/weexUniJs.js"
+      ],
+      "frameworks": [
+        "JavaScriptCore",
+        "CoreMedia",
+        "MediaPlayer",
+        "AVFoundation",
+        "AVKit",
+        "GLKit",
+        "OpenGLES",
+        "CoreText",
+        "QuartzCore",
+        "CoreGraphics",
+        "QuickLook",
+        "CoreTelephony",
+        "Foundation",
+        "WebKit",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ]
+    },
+    {
+      "name": "Barcode",
+      "source_files": "YUniMPSDK/Barcode/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/libDCUniBarcode.a",
+        "UniMPSDK/Features/Libs/liblibBarcode.a",
+        "UniMPSDK/Features/Libs/libDCUniZXing.a",
+        "UniMPSDK/Features/Libs/libuchardet.a"
+      ],
+      "frameworks": [
+        "AVFoundation",
+        "ImageIO",
+        "CoreVideo",
+        "CoreMedia"
+      ],
+      "libraries": [
+        "iconv.2"
+      ]
+    },
+    {
+      "name": "NativeJs",
+      "source_files": "YUniMPSDK/NativeJS/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibPGInvocation.a"
+      ]
+    },
+    {
+      "name": "iBeacon",
+      "source_files": "YUniMPSDK/IBeacon/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibBeacon.a"
+      ],
+      "frameworks": [
+        "CoreBluetooth",
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "Accelerometer",
+      "source_files": "YUniMPSDK/Accelerometer/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibAccelerometer.a"
+      ],
+      "frameworks": [
+        "Accelerate"
+      ]
+    },
+    {
+      "name": "Audio",
+      "source_files": "YUniMPSDK/Audio/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibMedia.a",
+        "UniMPSDK/Features/Libs/libopencore-amrnb.a",
+        "UniMPSDK/Features/Libs/libmp3lame.a"
+      ],
+      "frameworks": [
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "Camera",
+      "source_files": "YUniMPSDK/Camera/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibCamera.a"
+      ],
+      "frameworks": [
+        "AssetsLibrary",
+        "Photos",
+        "CoreMedia",
+        "MetalKit",
+        "GLKit"
+      ],
+      "resources": [
+        "UniMPSDK/Features/Resources/DCTZImagePickerController.bundle",
+        "UniMPSDK/Features/Resources/DCMediaEditingController.bundle"
+      ]
+    },
+    {
+      "name": "Contacts",
+      "source_files": "YUniMPSDK/Contacts/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibContacts.a"
+      ],
+      "frameworks": [
+        "AddressBookUI",
+        "AddressBook",
+        "AVFoundation",
+        "CoreVideo",
+        "CoreMedia"
+      ]
+    },
+    {
+      "name": "BaiduSDK",
+      "source_files": "YUniMPSDK/BaiduSDK/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibGeolocation.a",
+        "UniMPSDK/Features/Libs/libBaiduLocationPlugin.a",
+        "UniMPSDK/Features/Libs/libBaiduKeyVerify.a",
+        "UniMPSDK/Features/Libs/liblibMap.a",
+        "UniMPSDK/Features/Libs/libbmapimp.a",
+        "UniMPSDK/Features/Libs/libssl.a",
+        "UniMPSDK/Features/Libs/libcrypto.a"
+      ],
+      "vendored_frameworks": [
+        "UniMPSDK/Features/Libs/BaiduMapAPI_Utils.framework",
+        "UniMPSDK/Features/Libs/BaiduMapAPI_Base.framework",
+        "UniMPSDK/Features/Libs/BaiduMapAPI_Search.framework",
+        "UniMPSDK/Features/Libs/BaiduMapAPI_Map.framework",
+        "UniMPSDK/Features/Libs/BMKLocationKit.framework"
+      ],
+      "frameworks": [
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation",
+        "MapKit",
+        "QuartzCore",
+        "OpenGLES",
+        "CoreGraphics",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "c++",
+        "sqlite3.0"
+      ],
+      "resources": [
+        "UniMPSDK/Features/Resources/mapapi.bundle"
+      ]
+    },
+    {
+      "name": "Messaging",
+      "source_files": "YUniMPSDK/Messaging/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibMessage.a"
+      ],
+      "frameworks": [
+        "MessageUI"
+      ]
+    },
+    {
+      "name": "Orientation",
+      "source_files": "YUniMPSDK/Orientation/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibOrientation.a"
+      ],
+      "frameworks": [
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "Proximity",
+      "source_files": "YUniMPSDK/Proximity/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibPGProximity.a"
+      ]
+    },
+    {
+      "name": "XMLHttpRequest",
+      "source_files": "YUniMPSDK/XMLHttpRequest/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibXHR.a"
+      ]
+    },
+    {
+      "name": "Zip",
+      "source_files": "YUniMPSDK/Zip/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibZip.a"
+      ]
+    },
+    {
+      "name": "WeChatSDK",
+      "source_files": "YUniMPSDK/WeChatSDK/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibShare.a",
+        "UniMPSDK/Features/Libs/libweixinShare.a",
+        "UniMPSDK/Features/Libs/libWeChatSDK_pay.a",
+        "UniMPSDK/Features/Libs/liblibPayment.a",
+        "UniMPSDK/Features/Libs/libwxpay.a",
+        "UniMPSDK/Features/Libs/liblibOauth.a",
+        "UniMPSDK/Features/Libs/libWXOauth.a"
+      ],
+      "libraries": [
+        "sqlite3.0",
+        "z"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration"
+      ]
+    },
+    {
+      "name": "AlipaySDK",
+      "source_files": "YUniMPSDK/AlipaySDK/*.{swift}",
+      "vendored_frameworks": [
+        "UniMPSDK/Features/Libs/AlipaySDK.framework"
+      ],
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibPayment.a",
+        "UniMPSDK/Features/Libs/libalixpayment.a"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "CoreMotion",
+        "Security",
+        "WebKit"
+      ],
+      "resources": [
+        "UniMPSDK/Features/Resources/AlipaySDK.bundle"
+      ]
+    },
+    {
+      "name": "TencentQQSDK",
+      "source_files": "YUniMPSDK/TencentQQSDK/*.{swift}",
+      "vendored_frameworks": [
+        "UniMPSDK/Features/Libs/TencentOpenAPI.framework"
+      ],
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibShare.a",
+        "UniMPSDK/Features/Libs/libQQShare.a",
+        "UniMPSDK/Features/Libs/liblibOauth.a",
+        "UniMPSDK/Features/Libs/libQQOauth.a"
+      ]
+    },
+    {
+      "name": "WeiBoSDK",
+      "source_files": "YUniMPSDK/WeiBoSDK/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/libWeiboSDK.a",
+        "UniMPSDK/Features/Libs/liblibShare.a",
+        "UniMPSDK/Features/Libs/libSinaShare.a",
+        "UniMPSDK/Features/Libs/liblibOauth.a",
+        "UniMPSDK/Features/Libs/libSinaWBOauth.a"
+      ],
+      "libraries": [
+        "sqlite3.0"
+      ],
+      "frameworks": [
+        "ImageIO"
+      ],
+      "resources": [
+        "UniMPSDK/Features/Resources/WeiboSDK.bundle"
+      ]
+    },
+    {
+      "name": "Video",
+      "source_files": "YUniMPSDK/Video/*.{swift}",
+      "vendored_frameworks": [
+        "UniMPSDK/Features/Libs/IJKMediaFrameworkWithSSL.framework",
+        "UniMPSDK/Features/Libs/DCUniVideoPublic.framework",
+        "UniMPSDK/Features/Libs/Masonry.framework"
+      ],
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibVideo.a",
+        "UniMPSDK/Features/Libs/libDCUniVideo.a"
+      ],
+      "libraries": [
+        "c++",
+        "bz2",
+        "z"
+      ],
+      "frameworks": [
+        "AudioToolbox",
+        "AVFoundation",
+        "CoreGraphics",
+        "CoreMedia",
+        "CoreVideo",
+        "VideoToolbox",
+        "MediaPlayer",
+        "MobileCoreServices",
+        "OpenGLES",
+        "QuartzCore",
+        "UIKit"
+      ],
+      "resources": [
+        "UniMPSDK/Features/Resources/DCSVProgressHUD.bundle",
+        "UniMPSDK/Features/Resources/DCPGVideo.bundle"
+      ]
+    },
+    {
+      "name": "Fingerprint",
+      "source_files": "YUniMPSDK/Fingerprint/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibFingerprint.a"
+      ],
+      "frameworks": [
+        "LocalAuthentication"
+      ]
+    },
+    {
+      "name": "FaceId",
+      "source_files": "YUniMPSDK/FaceId/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/libDCUniFaceId.a"
+      ],
+      "frameworks": [
+        "LocalAuthentication"
+      ]
+    },
+    {
+      "name": "BlueTooth",
+      "source_files": "YUniMPSDK/BlueTooth/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibBlueTooth.a"
+      ],
+      "frameworks": [
+        "CoreBluetooth"
+      ]
+    },
+    {
+      "name": "Sqlite",
+      "source_files": "YUniMPSDK/Sqlite/*.{swift}",
+      "vendored_libraries": [
+        "UniMPSDK/Features/Libs/liblibSqlite.a"
+      ],
+      "libraries": [
+        "sqlite3.0"
+      ]
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "YUniMPSDK/Basic": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "YUniMPSDK/Core/*.{swift,h}"
+      ]
+    }
+  ],
+  "swift_version": "5.7"
+}
