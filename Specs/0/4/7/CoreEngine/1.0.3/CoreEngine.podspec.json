@@ -1,0 +1,23 @@
+{
+  "name": "CoreEngine",
+  "version": "1.0.3",
+  "summary": "🌪️ Simple and light-weighted unidirectional Data Flow in Swift",
+  "description": "# CoreKit\n\nCore is a framework for making more reactive applications inspired by [ReactorKit](https://github.com/ReactorKit/ReactorKit), [Redux](http://redux.js.org/docs/basics/index.html) with Combine. It's a very light weigthed and simple architecture, so you can either use CocoaPods or SPM to stay up to date, or just drag and drop into your project and go. Or you can look through it and roll your own.\n\n## Example\n\nSee details on Example\n\n```swift\n// on ViewController\n let label = UILabel()\n let increaseButton = UIButton()\n let decreaseButton = UIButton()\n var core: MainCore = .init()\n \n func increaseButtonTapped() {\n   self.core.action(.increase)\n }\n \n func decreaseButtonTapped() {\n   self.core.action(.decrease)\n }\n \n func bind() {\n   core.$state.map(.count)\n       .sink { [weak self] count in\n           self?.label.text = \"(count)\"\n       }\n       .store(in: &subscription)\n }\n ...\n ```\n \n ```swift\n class MainCore: Core {\n     var action: Action? = nil\n     \n     var subscription: Set<AnyCancellable> = .init()\n     \n     enum Action: Equatable, Hashable {\n         case increase\n         case decrease\n     }\n     \n     struct State: Equatable {\n         var count = 0\n     }\n\n     @Published var state: State = .init()\n\n     func reduce(state: State, action: Action) -> State {\n         var newState = state\n         switch action {\n         case .decrease:\n             newState.count -= 1\n         case .increase:\n             newState.count += 1\n         }\n         return newState\n     }\n }\n \n ```",
+  "homepage": "https://github.com/stareta1202/CoreEngine",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "stareta1202": "stareta1202@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/stareta1202/CoreEngine.git",
+    "tag": "1.0.3"
+  },
+  "social_media_url": "https://www.sobabear.com",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "Sources/CoreEngine/Classes/**/*"
+}
