@@ -1,0 +1,202 @@
+{
+  "name": "PlatformOne-Ads-SDK",
+  "version": "2.15.35",
+  "summary": "PlatformOne Ads SDK for iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2015-2023 UNITED Marketing Technologies, Inc. All rights reserved."
+  },
+  "homepage": "https://yieldone.com/service/",
+  "authors": "UNITED Marketing Technologies, Inc.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://dl.ad-stir.com/p1_sdk/PlatformOneAdsSdkiOS-2.15.35-MediationAdapter.zip",
+    "sha256": "10f061924dc9028149347514094dc54a250bb7a2fba437430467b4bf388b3197"
+  },
+  "preserve_paths": "**/README.md",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "cocoapods_version": ">= 1.9.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "**/PlatformOneAds.framework",
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreTelephony",
+        "CoreMedia",
+        "QuartzCore",
+        "SystemConfiguration",
+        "SafariServices",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "Mediation",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "GADMediationAdapter",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "vendored_libraries": "**/GADMediationAdapter/libGADMAdapter-PlatformOneAds.a"
+    },
+    {
+      "name": "AdColony",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "AdColony": [
+          "4.9.0"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-AdColony.a"
+    },
+    {
+      "name": "AppLovin",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "AppLovinSDK": [
+          "11.11.2"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-AppLovin.a"
+    },
+    {
+      "name": "IMobile",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "ImobileSdkAds": [
+          "2.3.2"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-IMobile.a"
+    },
+    {
+      "name": "Maio",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "MaioSDK-v2": [
+          "2.0.0"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-Maio.a"
+    },
+    {
+      "name": "Nend",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "NendSDK_iOS": [
+          "8.1.0"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-Nend.a"
+    },
+    {
+      "name": "TikTok",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "Ads-Global/BUAdSDK": [
+          "5.4.1.0"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-TikTok.a"
+    },
+    {
+      "name": "UnityAds",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "UnityAds": [
+          "4.8.0"
+        ]
+      },
+      "vendored_libraries": "**/libPlatformOneAdsMediationAdapter-UnityAds.a"
+    },
+    {
+      "name": "All-Incentivized",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/AdColony": [
+
+        ],
+        "PlatformOne-Ads-SDK/AppLovin": [
+
+        ],
+        "PlatformOne-Ads-SDK/Maio": [
+
+        ],
+        "PlatformOne-Ads-SDK/Nend": [
+
+        ],
+        "PlatformOne-Ads-SDK/TikTok": [
+
+        ],
+        "PlatformOne-Ads-SDK/UnityAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-Interstitial",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/AppLovin": [
+
+        ],
+        "PlatformOne-Ads-SDK/IMobile": [
+
+        ],
+        "PlatformOne-Ads-SDK/Maio": [
+
+        ],
+        "PlatformOne-Ads-SDK/Nend": [
+
+        ],
+        "PlatformOne-Ads-SDK/TikTok": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-PlatformOne",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/GADMediationAdapter": [
+
+        ],
+        "PlatformOne-Ads-SDK/All-Incentivized": [
+
+        ],
+        "PlatformOne-Ads-SDK/All-Interstitial": [
+
+        ]
+      }
+    }
+  ]
+}
