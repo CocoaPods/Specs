@@ -1,0 +1,48 @@
+{
+  "name": "ZWSVGAPlayer",
+  "version": "2.5.8",
+  "summary": "SVGAPlayer 是一个高性能的动画播放器, 可惜已经停止维护了，ZWSVGAPlayer是对SVGAPlayer的一些编译问题的修复",
+  "description": "SVGA 是一种全新的动画格式，由 YY UED 团队主导开发；\nSVGA 让动画开发分工明确，大大减少动画交互的沟通成本，提升开发效率；\nSVGA 可以在 iOS / Android / Web / Flutter 实现高性能的动画播放。",
+  "homepage": "SVGAPlayer: http://code.yy.com/ued/SVGAPlayer, ZWSVGAPlayer: https://gitee.com/weng-jinshan/zwsvgaplayer",
+  "license": "Apache 2.0",
+  "authors": {
+    "PonyCui": "cuiminghui1@yy.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://gitee.com/weng-jinshan/zwsvgaplayer.git",
+    "tag": "2.5.8"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          ">= 1.8.1"
+        ],
+        "SVGAPlayer/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+      }
+    }
+  ]
+}
