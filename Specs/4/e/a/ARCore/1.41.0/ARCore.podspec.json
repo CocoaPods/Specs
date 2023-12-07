@@ -1,0 +1,315 @@
+{
+  "authors": "Google, Inc.",
+  "changelog": "https://dl.google.com/dl/cpdc/a456d0a0eb00efed/ARCore-1.41.0-CHANGELOG.md",
+  "cocoapods_version": ">= 1.10.0",
+  "default_subspecs": [
+    "Base"
+  ],
+  "description": "The ARCore SDK for iOS enables apps to build AR experiences using Google's\n        cross-platform AR features.",
+  "homepage": "https://developers.google.com/ar/",
+  "license": {
+    "file": "LICENSE",
+    "type": "Copyright"
+  },
+  "name": "ARCore",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "preserve_paths": [
+    "CHANGELOG",
+    "README.md",
+    "LICENSE",
+    "Package.swift"
+  ],
+  "readme": "https://dl.google.com/dl/cpdc/a456d0a0eb00efed/ARCore-1.41.0-README.md",
+  "source": {
+    "http": "https://dl.google.com/dl/cpdc/a456d0a0eb00efed/ARCore-1.41.0.tar.gz"
+  },
+  "summary": "ARCore SDK for iOS",
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "version": "1.41.0",
+  "subspecs": [
+    {
+      "dependencies": {
+        "GoogleDataTransport": [
+          "~> 9.2"
+        ],
+        "nanopb": [
+          ">= 2.30908.0",
+          " < 2.30910.0"
+        ]
+      },
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "SystemConfiguration",
+        "Security",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "name": "Base",
+      "preserve_paths": [
+        "Base/dummy.m",
+        "Base/Sources/ARCore/module.modulemap"
+      ],
+      "source_files": [
+        "Base/Sources/dummy.h",
+        "Base/Sources/ARCore/ARCore.h"
+      ],
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/ARCore/Base/Sources"
+      },
+      "vendored_frameworks": [
+        "Base/Frameworks/ARCoreBase.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/GARSession": "~> 1.41",
+        "GTMSessionFetcher/Core": [
+          ">= 1.5",
+          " < 4.0"
+        ],
+        "nanopb": [
+          ">= 2.30908.0",
+          " < 2.30910.0"
+        ]
+      },
+      "frameworks": [
+        "ARKit",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMotion",
+        "CoreVideo",
+        "CoreTelephony",
+        "Foundation",
+        "ImageIO",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3",
+        "m"
+      ],
+      "name": "CloudAnchors",
+      "preserve_paths": [
+        "CloudAnchors/dummy.m"
+      ],
+      "source_files": [
+        "CloudAnchors/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "CloudAnchors/Frameworks/ARCoreCloudAnchors.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/GARSession": "~> 1.41"
+      },
+      "frameworks": [
+        "ARKit",
+        "AVFoundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreLocation",
+        "CoreMedia",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "ImageIO",
+        "SceneKit",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3",
+        "dl",
+        "m"
+      ],
+      "name": "Geospatial",
+      "preserve_paths": [
+        "Geospatial/dummy.m"
+      ],
+      "source_files": [
+        "Geospatial/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "Geospatial/Frameworks/ARCoreGeospatial.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/Base": "~> 1.41",
+        "Firebase/RemoteConfig": [
+          ">= 8.0",
+          " < 11.0"
+        ],
+        "nanopb": [
+          ">= 2.30908.0",
+          " < 2.30910.0"
+        ]
+      },
+      "frameworks": [
+        "ARKit",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "ImageIO",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "name": "GARSession",
+      "preserve_paths": [
+        "GARSession/dummy.m"
+      ],
+      "resource_bundles": {
+        "ARCoreResources": [
+          "GARSession/Resources/ARCoreResources/**"
+        ]
+      },
+      "source_files": [
+        "GARSession/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "GARSession/Frameworks/ARCoreGARSession.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/Base": "~> 1.41",
+        "ARCore/TFShared": "~> 1.41",
+        "nanopb": [
+          ">= 2.30908.0",
+          " < 2.30910.0"
+        ]
+      },
+      "frameworks": [
+        "Accelerate",
+        "AVFoundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreMedia",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "GLKit",
+        "ImageIO",
+        "Metal",
+        "MobileCoreServices",
+        "OpenGLES",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "dl",
+        "m"
+      ],
+      "name": "AugmentedFaces",
+      "preserve_paths": [
+        "AugmentedFaces/dummy.m"
+      ],
+      "resource_bundles": {
+        "ARCoreFaceResources": [
+          "AugmentedFaces/Resources/ARCoreFaceResources/**"
+        ]
+      },
+      "source_files": [
+        "AugmentedFaces/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "AugmentedFaces/Frameworks/ARCoreAugmentedFaces.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/GARSession": "~> 1.41",
+        "ARCore/TFShared": "~> 1.41"
+      },
+      "frameworks": [
+        "Accelerate",
+        "ARKit",
+        "CoreVideo",
+        "Foundation"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "dl",
+        "m"
+      ],
+      "name": "Semantics",
+      "preserve_paths": [
+        "Semantics/dummy.m"
+      ],
+      "resource_bundles": {
+        "ARCoreCoreMLSemanticsResources": [
+          "Semantics/Resources/ARCoreCoreMLSemanticsResources/**"
+        ]
+      },
+      "source_files": [
+        "Semantics/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "Semantics/Frameworks/ARCoreSemantics.xcframework"
+      ]
+    },
+    {
+      "dependencies": {
+        "ARCore/Base": "~> 1.41"
+      },
+      "frameworks": [
+        "Accelerate"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "name": "TFShared",
+      "preserve_paths": [
+        "TFShared/dummy.m"
+      ],
+      "source_files": [
+        "TFShared/Sources/dummy.h"
+      ],
+      "vendored_frameworks": [
+        "TFShared/Frameworks/ARCoreTFShared.xcframework"
+      ]
+    }
+  ],
+  "swift_version": "4.0"
+}
