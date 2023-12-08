@@ -1,0 +1,81 @@
+{
+  "name": "SensorsAnalyticsEncrypt",
+  "version": "0.0.8",
+  "summary": "The official iOS Encrypt of Sensors Analytics.",
+  "homepage": "http://www.sensorsdata.cn",
+  "source": {
+    "git": "https://github.com/sensorsdata/sa-sdk-ios-encrypt.git",
+    "tag": "v0.0.8"
+  },
+  "license": {
+    "type": "Boost Software License, Version 1.0"
+  },
+  "authors": {
+    "Quan Wen": "wenquan@sensorsdata.cn"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "dependencies": {
+    "SensorsAnalyticsSDK": [
+      ">= 3.1.1"
+    ]
+  },
+  "static_framework": true,
+  "libraries": "c++",
+  "default_subspecs": "Default",
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 arm64"
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "SENSORS_ANALYTICS_ENABLE_CUSTOM_CRYPTOPP=1",
+    "OTHER_CPLUSPLUSFLAGS[sdk=iphonesimulator*]": "$(OTHER_CFLAGS) -DCRYPTOPP_DISABLE_ASM=1",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++14",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "GCC_WARN_INHIBIT_ALL_WARNINGS": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": [
+        "SensorsAnalyticsEncrypt/ECC/*.{h,m,mm}",
+        "SensorsAnalyticsEncrypt/OAEP/*.{h,m}",
+        "SensorsAnalyticsEncrypt/SACryptopp/*.{h,m,mm,cpp}"
+      ],
+      "public_header_files": [
+        "SensorsAnalyticsEncrypt/ECC/SACryptoppECC.h",
+        "SensorsAnalyticsEncrypt/OAEP/SARSAOAEPEncryptor.h"
+      ]
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "SensorsAnalyticsEncrypt/Base": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsEncrypt/SM/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsEncrypt/SM/SASMEncryptor.h",
+      "vendored_frameworks": [
+        "SensorsAnalyticsEncrypt/SM/openssl.framework"
+      ]
+    },
+    {
+      "name": "SAOpenSSL",
+      "dependencies": {
+        "SensorsAnalyticsEncrypt/Base": [
+
+        ]
+      },
+      "source_files": "SensorsAnalyticsEncrypt/SM/*.{h,m}",
+      "public_header_files": "SensorsAnalyticsEncrypt/SM/SASMEncryptor.h",
+      "vendored_frameworks": [
+        "SensorsAnalyticsEncrypt/SM/sensors_openssl.framework"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "SENSORS_ANALYTICS_ENABLE_SENSORS_OPENSSL=1"
+      }
+    }
+  ]
+}
