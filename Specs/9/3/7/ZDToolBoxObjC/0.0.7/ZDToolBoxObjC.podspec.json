@@ -1,0 +1,140 @@
+{
+  "name": "ZDToolBoxObjC",
+  "version": "0.0.7",
+  "summary": "iOS开发工具箱",
+  "description": "iOS开发工具箱，包含子类、分类、工具类",
+  "homepage": "https://github.com/faimin/ZDToolBoxObjC",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zero.D.Saber": "fuxianchao@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/faimin/ZDToolBoxObjC.git",
+    "tag": "0.0.7"
+  },
+  "prefix_header_file": false,
+  "module_name": "ZDToolBoxObjC",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": [
+    "ZDCommonTool",
+    "ZDMacros",
+    "ZDProxy",
+    "ZDCategory",
+    "ZDSubclass",
+    "ZDTools",
+    "ZDHeader"
+  ],
+  "subspecs": [
+    {
+      "name": "ZDCommonTool",
+      "source_files": "ZDToolBoxObjC/Classes/ZDCommonTool/*.{h,m}"
+    },
+    {
+      "name": "ZDMacros",
+      "source_files": "ZDToolBoxObjC/Classes/ZDMacros/*.{h,m}",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDCommonTool": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDProxy",
+      "source_files": "ZDToolBoxObjC/Classes/ZDProxy/*.{h,m}"
+    },
+    {
+      "name": "ZDCategory",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "source_files": "ZDToolBoxObjC/Classes/ZDCategory/Foundation/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "Foundation",
+            "CoreText"
+          ]
+        },
+        {
+          "name": "UIKit",
+          "source_files": "ZDToolBoxObjC/Classes/ZDCategory/UIKit/*.{h,m}",
+          "frameworks": [
+            "UIKit",
+            "QuartzCore",
+            "CoreImage",
+            "CoreGraphics",
+            "ImageIO",
+            "CoreText",
+            "WebKit"
+          ],
+          "dependencies": {
+            "ZDToolBoxObjC/ZDProxy": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZDSubclass",
+      "source_files": "ZDToolBoxObjC/Classes/ZDSubclass/*.{h,m}",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDProxy": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDTools",
+      "source_files": "ZDToolBoxObjC/Classes/ZDTools/*.{h,m}",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "ZDHook",
+      "source_files": "ZDToolBoxObjC/Classes/ZDHook/*.{h,m}"
+    },
+    {
+      "name": "All",
+      "source_files": "ZDToolBoxObjC/Classes/ZDAll/*",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDHeader": [
+
+        ],
+        "ZDToolBoxObjC/ZDHook": [
+
+        ]
+      }
+    },
+    {
+      "name": "ZDHeader",
+      "source_files": "ZDToolBoxObjC/Classes/ZDHeader/*.{h}",
+      "dependencies": {
+        "ZDToolBoxObjC/ZDCommonTool": [
+
+        ],
+        "ZDToolBoxObjC/ZDMacros": [
+
+        ],
+        "ZDToolBoxObjC/ZDProxy": [
+
+        ],
+        "ZDToolBoxObjC/ZDCategory": [
+
+        ],
+        "ZDToolBoxObjC/ZDSubclass": [
+
+        ],
+        "ZDToolBoxObjC/ZDTools": [
+
+        ]
+      }
+    }
+  ]
+}
