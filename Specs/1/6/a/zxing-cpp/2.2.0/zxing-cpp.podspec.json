@@ -1,0 +1,54 @@
+{
+  "name": "zxing-cpp",
+  "version": "2.2.0",
+  "summary": "C++ port of ZXing",
+  "homepage": "https://github.com/zxing-cpp/zxing-cpp",
+  "authors": "axxel",
+  "readme": "https://raw.githubusercontent.com/zxing-cpp/zxing-cpp/master/wrappers/ios/README.md",
+  "license": {
+    "type": "Apache License 2.0",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/zxing-cpp/zxing-cpp.git",
+    "tag": "v2.2.0"
+  },
+  "module_name": "ZXingCpp",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "libraries": [
+    "c++"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++20"
+  },
+  "default_subspecs": "Wrapper",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "core/src/**/*.{h,c,cpp}",
+      "private_header_files": "core/src/**/*.h"
+    },
+    {
+      "name": "Wrapper",
+      "dependencies": {
+        "zxing-cpp/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "CoreImage",
+        "CoreVideo"
+      ],
+      "source_files": "wrappers/ios/Sources/Wrapper/**/*.{h,m,mm}",
+      "public_header_files": [
+        "wrappers/ios/Sources/Wrapper/Reader/{ZXIBarcodeReader,ZXIResult,ZXIPosition,ZXIPoint,ZXIGTIN,ZXIReaderOptions}.h",
+        "wrappers/ios/Sources/Wrapper/Writer/{ZXIBarcodeWriter,ZXIWriterOptions}.h",
+        "wrappers/ios/Sources/Wrapper/{ZXIErrors,ZXIFormat}.h"
+      ],
+      "exclude_files": "wrappers/ios/Sources/Wrapper/UmbrellaHeader.h"
+    }
+  ]
+}
