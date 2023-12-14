@@ -1,0 +1,267 @@
+{
+  "name": "LZIOSCommon",
+  "version": "0.1.2",
+  "summary": "A short description of LZIOSCommon.",
+  "requires_arc": true,
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/rookielz93/LZIOSCommon",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rookie": "3538290757@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/rookielz93/LZIOSCommon.git",
+    "tag": "0.1.2"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "public_header_files": "LZIOSCommon/Classes/*.h",
+  "source_files": "LZIOSCommon/Classes/*.{h,m}",
+  "subspecs": [
+    {
+      "name": "AppInfo",
+      "source_files": "LZIOSCommon/Classes/AppInfo/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ],
+        "LZIOSCommon/Define": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseStruct",
+      "source_files": "LZIOSCommon/Classes/BaseStruct/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ]
+      }
+    },
+    {
+      "name": "Define",
+      "source_files": "LZIOSCommon/Classes/Define/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lock",
+      "source_files": "LZIOSCommon/Classes/Lock/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ]
+      }
+    },
+    {
+      "name": "Log",
+      "source_files": "LZIOSCommon/Classes/Log/**/*"
+    },
+    {
+      "name": "Segue",
+      "source_files": "LZIOSCommon/Classes/Segue/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ]
+      }
+    },
+    {
+      "name": "Thread",
+      "source_files": "LZIOSCommon/Classes/Thread/**/*",
+      "dependencies": {
+        "LZIOSCommon/Log": [
+
+        ]
+      }
+    },
+    {
+      "name": "Modules",
+      "dependencies": {
+        "LZIOSCommon/Define": [
+
+        ],
+        "LZIOSCommon/BaseStruct": [
+
+        ],
+        "LZIOSCommon/Lock": [
+
+        ],
+        "LZIOSCommon/Thread": [
+
+        ],
+        "LZIOSCommon/Log": [
+
+        ],
+        "LZIOSCommon/Segue": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "LZAlert",
+          "source_files": "LZIOSCommon/Classes/Modules/LZAlert/**/*"
+        },
+        {
+          "name": "LZCategory",
+          "source_files": "LZIOSCommon/Classes/Modules/LZCategory/**/*"
+        },
+        {
+          "name": "LZLocalNotification",
+          "source_files": "LZIOSCommon/Classes/Modules/LZLocalNotification/**/*",
+          "dependencies": {
+            "LZIOSCommon/Modules/LZAlert": [
+
+            ]
+          }
+        },
+        {
+          "name": "LZMVCBase",
+          "source_files": "LZIOSCommon/Classes/Modules/LZMVCBase/**/*"
+        },
+        {
+          "name": "LZPasteboardManager",
+          "source_files": "LZIOSCommon/Classes/Modules/LZPasteboardManager/**/*"
+        },
+        {
+          "name": "LZVideoTool",
+          "source_files": "LZIOSCommon/Classes/Modules/LZVideoTool/**/*",
+          "dependencies": {
+            "LZIOSCommon/Modules/LZStorage/LZFile": [
+
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "AVFoundation"
+          ]
+        },
+        {
+          "name": "LZStorage",
+          "subspecs": [
+            {
+              "name": "LZFile",
+              "source_files": "LZIOSCommon/Classes/Modules/LZStorage/LZFile/**/*"
+            },
+            {
+              "name": "LZUserDefault",
+              "source_files": "LZIOSCommon/Classes/Modules/LZStorage/LZUserDefault/**/*"
+            },
+            {
+              "name": "LZSqlite",
+              "source_files": "LZIOSCommon/Classes/Modules/LZStorage/LZSqlite/**/*",
+              "dependencies": {
+                "LZIOSCommon/Log": [
+
+                ],
+                "LZIOSCommon/Modules/LZCategory": [
+
+                ],
+                "LZIOSCommon/Modules/LZStorage/LZFile": [
+
+                ],
+                "FMDB": [
+                  "2.7.5"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "LZInPurchase",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "source_files": "LZIOSCommon/Classes/Modules/LZInPurchase/**/*",
+          "dependencies": {
+            "LZIOSCommon/Modules/LZCategory": [
+
+            ],
+            "LZIOSCommon/Modules/LZStorage/LZUserDefault": [
+
+            ],
+            "YYModel": [
+              "1.0.4"
+            ]
+          }
+        },
+        {
+          "name": "LZTaskQueue",
+          "source_files": "LZIOSCommon/Classes/Modules/LZTaskQueue/**/*",
+          "dependencies": {
+            "LZIOSCommon/Log": [
+
+            ]
+          }
+        },
+        {
+          "name": "LZNet",
+          "subspecs": [
+            {
+              "name": "LZNetCore",
+              "source_files": "LZIOSCommon/Classes/Modules/LZNet/LZNetCore/**/*",
+              "dependencies": {
+                "LZIOSCommon/Log": [
+
+                ],
+                "AFNetworking": [
+                  "4.0.0"
+                ]
+              }
+            },
+            {
+              "name": "LZCookie",
+              "source_files": "LZIOSCommon/Classes/Modules/LZNet/LZCookie/**/*",
+              "dependencies": {
+                "LZIOSCommon/Log": [
+
+                ]
+              }
+            },
+            {
+              "name": "LZAPI",
+              "source_files": "LZIOSCommon/Classes/Modules/LZNet/LZAPI/**/*",
+              "dependencies": {
+                "LZIOSCommon/Log": [
+
+                ],
+                "LZIOSCommon/Modules/LZNet/LZNetCore": [
+
+                ]
+              }
+            },
+            {
+              "name": "LZFileDownloader",
+              "source_files": "LZIOSCommon/Classes/Modules/LZNet/LZFileDownloader/**/*",
+              "dependencies": {
+                "LZIOSCommon/Log": [
+
+                ],
+                "LZIOSCommon/Modules/LZTaskQueue": [
+
+                ],
+                "LZIOSCommon/Modules/LZNet/LZNetCore": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
