@@ -1,0 +1,118 @@
+{
+  "name": "CmgeOverseaSDK",
+  "version": "1.21.0",
+  "summary": "A short description of CmgeOverseaSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/WakeyWoo/CmgeOverseaSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Huajie Woo": "wu.huajie@cmge.com"
+  },
+  "source": {
+    "git": "https://github.com/WakeyWoo/CmgeOverseaSDK.git",
+    "tag": "1.21.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "dependencies": {
+    "JtlyAnalyticsSDK": [
+      "= 1.5.1"
+    ],
+    "AppsFlyerFramework": [
+      "= 6.11.0"
+    ],
+    "FBSDKLoginKit": [
+      "= 16.2.0"
+    ],
+    "FBSDKShareKit": [
+      "= 16.2.0"
+    ],
+    "FBSDKGamingServicesKit": [
+      "= 16.2.0"
+    ],
+    "FirebaseMessaging": [
+      "= 10.9.0"
+    ],
+    "FirebaseAnalytics": [
+      "= 10.9.0"
+    ],
+    "GoogleAppMeasurement": [
+      "= 10.9.0"
+    ],
+    "FirebaseAnalyticsOnDeviceConversion": [
+      "= 10.9.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "CmgeCore",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "CmgeOverseaSDK/Frameworks/CmgeCore/CmgeStandardKit.xcframework",
+        "CmgeOverseaSDK/Frameworks/CmgeCore/CmgeIdentifierKit.xcframework",
+        "CmgeOverseaSDK/Frameworks/CmgeCore/CmgeShareKit.xcframework"
+      ],
+      "ios": {
+        "pod_target_xcconfig": {
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      }
+    },
+    {
+      "name": "AliyunLog",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliNetworkDiagnosis.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogCore.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogCrashReporter.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogNetworkDiagnosis.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogOT.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogOTSwift.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogProducer.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogTrace.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/AliyunLogURLSession.xcframework",
+        "CmgeOverseaSDK/Frameworks/AliyunLog/WPKMobi.xcframework"
+      ],
+      "resources": "CmgeOverseaSDK/Frameworks/AliyunLog/JtlyAliyunLog.txt",
+      "ios": {
+        "frameworks": [
+          "SystemConfiguration",
+          "CoreGraphics"
+        ],
+        "pod_target_xcconfig": {
+          "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+          "OTHER_LDFLAGS": "-ObjC"
+        }
+      },
+      "libraries": [
+        "z",
+        "c++",
+        "resolv"
+      ],
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": [
+          "\"$(SDKROOT)/usr/lib/swift\"",
+          "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\""
+        ],
+        "LD_RUNPATH_SEARCH_PATHS": [
+          "/usr/lib/swift",
+          "\"@executable_path/Frameworks\""
+        ]
+      }
+    }
+  ]
+}
