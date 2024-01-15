@@ -1,0 +1,41 @@
+{
+  "name": "InjectionSlave",
+  "version": "0.0.1",
+  "summary": "auto load injectionIII.",
+  "homepage": "https://github.com/OneSlave/InjectionSlave",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "oneslave": "OneSlave@github.com"
+  },
+  "source": {
+    "git": "https://github.com/OneSlave/InjectionSlave.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "InjectionSlave/Classes/*.{h,m}",
+  "public_header_files": [
+    "InjectionSlave/Classes/UIViewController+Injection.h"
+  ],
+  "resources": [
+    "InjectionSlave/Assets/iOSInjection.bundle"
+  ],
+  "script_phases": [
+    {
+      "name": "pod compile before",
+      "script": "    injectPath=$(pwd)/InjectionSlave/InjectionSlave/Assets/iOSInjection.bundle\n    filePath=$(pwd)/InjectionSlave/InjectionSlave/Classes/Injection.h\n    if [[ ! -e $injectPath ]];then\n    \tinjectPath=$(dirname $(dirname \"$PWD\"))/InjectionSlave/Assets/iOSInjection.bundle\n        filePath=$(dirname $(dirname \"$PWD\"))/InjectionSlave/Classes/Injection.h\n    fi\n    if [[ -e $injectPath ]];then\n        chmod +w $filePath\n        cat /dev/null > $filePath\n        echo '#define InjectionBundlePath @\"'$injectPath'\"' >> $filePath\n    fi\n",
+      "shell_path": "/bin/sh",
+      "execution_position": "before_compile"
+    },
+    {
+      "name": "pod compile after",
+      "script": "    injectPath=$(pwd)/InjectionSlave/InjectionSlave/Assets/iOSInjection.bundle\n    filePath=$(pwd)/InjectionSlave/InjectionSlave/Classes/Injection.h\n    if [[ ! -e $injectPath ]];then\n    \tinjectPath=$(dirname $(dirname \"$PWD\"))/InjectionSlave/Assets/iOSInjection.bundle\n        filePath=$(dirname $(dirname \"$PWD\"))/InjectionSlave/Classes/Injection.h\n    fi\n    if [[ -e $injectPath ]];then\n        chmod +w $filePath\n        cat /dev/null > $filePath\n        echo '#define InjectionBundlePath @\"\"' >> $filePath\n    fi\n",
+      "shell_path": "/bin/sh",
+      "execution_position": "after_compile"
+    }
+  ]
+}
