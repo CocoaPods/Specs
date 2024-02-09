@@ -1,0 +1,95 @@
+{
+  "name": "NovaMetrics",
+  "version": "0.1.0",
+  "summary": "APM SDK",
+  "description": "iOS performance monitoring tool designed to empower developers with comprehensive insights into their apps' performance.",
+  "homepage": "https://github.com/jayden320/nova",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jayden Liu": "jaydenliu320@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jayden320/nova.git",
+    "tag": "0.1.0"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "default_subspecs": [
+    "Core",
+    "MemoryLeaksPlugin",
+    "AnrMonitorPlugin",
+    "UIThreadMonitorPlugin",
+    "PageMonitorPlugin"
+  ],
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "NovaMetrics/Tests/**/*",
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "NovaMetrics/Core/Classes/**/*"
+    },
+    {
+      "name": "MemoryLeaksPlugin",
+      "dependencies": {
+        "NovaMetrics/MLeaksFinder": [
+
+        ],
+        "NovaMetrics/Core": [
+
+        ]
+      },
+      "source_files": "NovaMetrics/MemoryLeaksPlugin/Classes/**/*"
+    },
+    {
+      "name": "AnrMonitorPlugin",
+      "dependencies": {
+        "NovaMetrics/Core": [
+
+        ]
+      },
+      "source_files": "NovaMetrics/AnrMonitorPlugin/Classes/**/*"
+    },
+    {
+      "name": "UIThreadMonitorPlugin",
+      "dependencies": {
+        "NovaMetrics/Core": [
+
+        ]
+      },
+      "source_files": "NovaMetrics/UIThreadMonitorPlugin/Classes/**/*"
+    },
+    {
+      "name": "PageMonitorPlugin",
+      "dependencies": {
+        "NovaMetrics/Core": [
+
+        ],
+        "NovaMetrics/VCProfiler": [
+
+        ]
+      },
+      "source_files": "NovaMetrics/PageMonitorPlugin/Classes/**/*"
+    },
+    {
+      "name": "MLeaksFinder",
+      "source_files": "NovaMetrics/MLeaksFinder/Classes/**/*"
+    },
+    {
+      "name": "VCProfiler",
+      "source_files": "NovaMetrics/VCProfiler/Classes/**/*"
+    }
+  ],
+  "swift_version": "5.0"
+}
