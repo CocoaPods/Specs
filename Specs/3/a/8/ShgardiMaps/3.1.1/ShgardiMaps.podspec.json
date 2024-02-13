@@ -1,0 +1,100 @@
+{
+  "name": "ShgardiMaps",
+  "version": "3.1.1",
+  "summary": "A short description of ShgardiMaps.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Shgardi/shgardi-iOS-maps",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Shgardi": "https://shgardi.app"
+  },
+  "source": {
+    "git": "git@github.com:Shgardi/shgardi-iOS-maps",
+    "tag": "3.1.1"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ShgardiMaps/Core/Classes/**/*",
+      "resources": [
+        "ShgardiMaps/Core/Assets/**/*"
+      ],
+      "frameworks": "UIKit",
+      "dependencies": {
+        "ShgardiFoundation/Rx": [
+
+        ],
+        "ShgardiUIBuilder": [
+
+        ],
+        "GooglePlaces": [
+
+        ],
+        "GoogleMaps": [
+
+        ],
+        "Google-Maps-iOS-Utils": [
+
+        ]
+      }
+    },
+    {
+      "name": "Navigation",
+      "source_files": "ShgardiMaps/Navigation/Classes/**/*",
+      "dependencies": {
+        "ShgardiMaps/Core": [
+
+        ],
+        "GoogleNavigation": [
+
+        ],
+        "ShgardiUIComponents": [
+
+        ]
+      }
+    },
+    {
+      "name": "RSDriver",
+      "source_files": "ShgardiMaps/RSDriver/Classes/**/*",
+      "dependencies": {
+        "ShgardiMaps/Navigation": [
+
+        ],
+        "GoogleRidesharingDriver": [
+
+        ]
+      }
+    },
+    {
+      "name": "RSConsumer",
+      "source_files": "ShgardiMaps/RSConsumer/Classes/**/*",
+      "dependencies": {
+        "ShgardiMaps/Core": [
+
+        ],
+        "GoogleRidesharingConsumer": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
