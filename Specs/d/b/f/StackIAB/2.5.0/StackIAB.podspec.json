@@ -1,0 +1,133 @@
+{
+  "name": "StackIAB",
+  "version": "2.5.0",
+  "summary": "IAB Display Managers modules for Stack products",
+  "homepage": "https://bidmachine.io",
+  "license": {
+    "type": "Commercial",
+    "text": "https://bidmachine.io/sdk-license-agreement/"
+  },
+  "authors": {
+    "Stack": "https://explorestack.com/bidmachine/"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.1",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackIAB/2.5.0/StackIAB.zip"
+  },
+  "dependencies": {
+    "StackModules": [
+      "~> 1.7.0"
+    ]
+  },
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "StackXML",
+      "resources": "StackXML.bundle",
+      "vendored_frameworks": "StackXML.xcframework",
+      "libraries": "xml2"
+    },
+    {
+      "name": "StackIABAssets",
+      "resources": "StackIABAssets.bundle",
+      "vendored_frameworks": "StackIABAssets.xcframework"
+    },
+    {
+      "name": "StackOpenMeasure",
+      "resources": "StackOpenMeasure.bundle",
+      "vendored_frameworks": "StackOpenMeasure.xcframework",
+      "dependencies": {
+        "OMSDK_Appodeal": [
+          "~> 1.4.2.0"
+        ]
+      }
+    },
+    {
+      "name": "StackMRAIDKit",
+      "resources": "StackMRAIDKit.bundle",
+      "vendored_frameworks": "StackMRAIDKit.xcframework",
+      "frameworks": "WebKit",
+      "dependencies": {
+        "StackIAB/StackIABAssets": [
+
+        ],
+        "StackIAB/StackOpenMeasure": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVideoPlayer",
+      "resources": "StackVideoPlayer.bundle",
+      "vendored_frameworks": "StackVideoPlayer.xcframework",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "StackRichMedia",
+      "resources": "StackRichMedia.bundle",
+      "vendored_frameworks": "StackRichMedia.xcframework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ],
+        "StackIAB/StackIABAssets": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTAssets",
+      "resources": "StackVASTAssets.bundle",
+      "vendored_frameworks": "StackVASTAssets.xcframework",
+      "dependencies": {
+        "StackIAB/StackXML": [
+
+        ],
+        "StackIAB/StackIABAssets": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackVASTKit",
+      "resources": "StackVASTKit.bundle",
+      "vendored_frameworks": "StackVASTKit.xcframework",
+      "dependencies": {
+        "StackIAB/StackVASTAssets": [
+
+        ],
+        "StackIAB/StackVideoPlayer": [
+
+        ],
+        "StackIAB/StackMRAIDKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackNASTKit",
+      "resources": "StackNASTKit.bundle",
+      "vendored_frameworks": "StackNASTKit.xcframework",
+      "dependencies": {
+        "StackIAB/StackVASTKit": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
