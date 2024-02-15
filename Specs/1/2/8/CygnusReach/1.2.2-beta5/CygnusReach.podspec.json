@@ -1,0 +1,80 @@
+{
+  "name": "CygnusReach",
+  "version": "1.2.2-beta5",
+  "source": {
+    "http": "https://github.com/cygnus-technology/reach-ios-framework/blob/1.2.2-beta5/CygnusReach.zip?raw=true"
+  },
+  "license": {
+    "type": "PRIVATE",
+    "file": "CygnusReach/LICENSE"
+  },
+  "summary": "SDK to enable easy remote support sessions",
+  "description": "Reduce support call time and increase customer satisfaction for your internet of things solutions with Reach℠ remote support.",
+  "platforms": {
+    "ios": "13"
+  },
+  "authors": "Cygnus",
+  "homepage": "https://cygnustechnology.com",
+  "social_media_url": "https://www.linkedin.com/company/cygnus-iot",
+  "default_subspecs": "Core",
+  "dependencies": {
+    "PromiseKit": [
+      "~> 8"
+    ]
+  },
+  "swift_versions": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "static_framework": false,
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "DEFINES_MODULE": "YES",
+    "OTHER_SWIFT_FLAGS": "-no-verify-emitted-module-interface"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "CygnusReach/Frameworks/RemoteSupport.framework",
+      "dependencies": {
+        "CocoaMQTT": [
+          "~> 2.1.3"
+        ],
+        "WebRTC-lib": [
+          "~> 120.0.0"
+        ]
+      }
+    },
+    {
+      "name": "ReachProtocol",
+      "vendored_frameworks": "CygnusReach/Frameworks/ReachProtocol.framework",
+      "dependencies": {
+        "SwiftProtobuf": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "vendored_frameworks": "CygnusReach/Frameworks/CygnusUI.framework",
+      "dependencies": {
+        "CygnusReach/Core": [
+
+        ],
+        "CygnusReach/ReachProtocol": [
+
+        ],
+        "SwiftMessages": [
+          "~> 10.0.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.5"
+}
