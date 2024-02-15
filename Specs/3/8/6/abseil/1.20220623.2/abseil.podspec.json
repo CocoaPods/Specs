@@ -1,0 +1,3234 @@
+{
+  "name": "abseil",
+  "version": "1.20220623.2",
+  "summary": "Abseil Common Libraries (C++) from Google",
+  "homepage": "https://abseil.io",
+  "license": "Apache License, Version 2.0",
+  "authors": {
+    "Abseil Team": "abseil-io@googlegroups.com"
+  },
+  "source": {
+    "git": "https://github.com/abseil/abseil-cpp.git",
+    "tag": "20220623.2"
+  },
+  "resource_bundles": {
+    "abseil": "PrivacyInfo.xcprivacy"
+  },
+  "module_name": "absl",
+  "header_mappings_dir": "absl",
+  "header_dir": "absl",
+  "libraries": "c++",
+  "compiler_flags": "-Wno-everything",
+  "pod_target_xcconfig": {
+    "USER_HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)\"",
+    "USE_HEADERMAP": "NO",
+    "ALWAYS_SEARCH_USER_PATHS": "NO"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "subspecs": [
+    {
+      "name": "algorithm",
+      "subspecs": [
+        {
+          "name": "algorithm",
+          "source_files": "absl/algorithm/algorithm.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "container",
+          "source_files": "absl/algorithm/container.h",
+          "dependencies": {
+            "abseil/algorithm/algorithm": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "subspecs": [
+        {
+          "name": "atomic_hook",
+          "source_files": "absl/base/internal/atomic_hook.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "base",
+          "source_files": [
+            "absl/base/call_once.h",
+            "absl/base/casts.h",
+            "absl/base/internal/cycleclock.cc",
+            "absl/base/internal/cycleclock.h",
+            "absl/base/internal/low_level_scheduling.h",
+            "absl/base/internal/per_thread_tls.h",
+            "absl/base/internal/spinlock.cc",
+            "absl/base/internal/spinlock.h",
+            "absl/base/internal/sysinfo.cc",
+            "absl/base/internal/sysinfo.h",
+            "absl/base/internal/thread_identity.cc",
+            "absl/base/internal/thread_identity.h",
+            "absl/base/internal/tsan_mutex_interface.h",
+            "absl/base/internal/unscaledcycleclock.cc",
+            "absl/base/internal/unscaledcycleclock.h"
+          ],
+          "dependencies": {
+            "abseil/base/atomic_hook": [
+
+            ],
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/log_severity": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/base/spinlock_wait": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "base_internal",
+          "source_files": [
+            "absl/base/internal/hide_ptr.h",
+            "absl/base/internal/identity.h",
+            "absl/base/internal/inline_variable.h",
+            "absl/base/internal/invoke.h",
+            "absl/base/internal/scheduling_mode.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "source_files": [
+            "absl/base/config.h",
+            "absl/base/options.h",
+            "absl/base/policy_checks.h"
+          ]
+        },
+        {
+          "name": "core_headers",
+          "source_files": [
+            "absl/base/attributes.h",
+            "absl/base/const_init.h",
+            "absl/base/internal/thread_annotations.h",
+            "absl/base/macros.h",
+            "absl/base/optimization.h",
+            "absl/base/port.h",
+            "absl/base/thread_annotations.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "dynamic_annotations",
+          "source_files": [
+            "absl/base/dynamic_annotations.h",
+            "absl/base/internal/dynamic_annotations.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "endian",
+          "source_files": [
+            "absl/base/internal/endian.h",
+            "absl/base/internal/unaligned_access.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "errno_saver",
+          "source_files": "absl/base/internal/errno_saver.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "fast_type_id",
+          "source_files": "absl/base/internal/fast_type_id.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "log_severity",
+          "source_files": [
+            "absl/base/log_severity.cc",
+            "absl/base/log_severity.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "malloc_internal",
+          "source_files": [
+            "absl/base/internal/direct_mmap.h",
+            "absl/base/internal/low_level_alloc.cc",
+            "absl/base/internal/low_level_alloc.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "prefetch",
+          "source_files": "absl/base/internal/prefetch.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "pretty_function",
+          "source_files": "absl/base/internal/pretty_function.h"
+        },
+        {
+          "name": "raw_logging_internal",
+          "source_files": [
+            "absl/base/internal/raw_logging.cc",
+            "absl/base/internal/raw_logging.h"
+          ],
+          "dependencies": {
+            "abseil/base/atomic_hook": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/errno_saver": [
+
+            ],
+            "abseil/base/log_severity": [
+
+            ]
+          }
+        },
+        {
+          "name": "spinlock_wait",
+          "source_files": [
+            "absl/base/internal/spinlock_akaros.inc",
+            "absl/base/internal/spinlock_linux.inc",
+            "absl/base/internal/spinlock_posix.inc",
+            "absl/base/internal/spinlock_wait.cc",
+            "absl/base/internal/spinlock_wait.h",
+            "absl/base/internal/spinlock_win32.inc"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/errno_saver": [
+
+            ]
+          }
+        },
+        {
+          "name": "strerror",
+          "source_files": [
+            "absl/base/internal/strerror.cc",
+            "absl/base/internal/strerror.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/errno_saver": [
+
+            ]
+          }
+        },
+        {
+          "name": "throw_delegate",
+          "source_files": [
+            "absl/base/internal/throw_delegate.cc",
+            "absl/base/internal/throw_delegate.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cleanup",
+      "subspecs": [
+        {
+          "name": "cleanup",
+          "source_files": "absl/cleanup/cleanup.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/cleanup/cleanup_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "cleanup_internal",
+          "source_files": "absl/cleanup/internal/cleanup.h",
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "container",
+      "subspecs": [
+        {
+          "name": "btree",
+          "source_files": [
+            "absl/container/btree_map.h",
+            "absl/container/btree_set.h",
+            "absl/container/internal/btree.h",
+            "absl/container/internal/btree_container.h"
+          ],
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/container/common": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/layout": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/strings/cord": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/compare": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "common",
+          "source_files": "absl/container/internal/common.h",
+          "dependencies": {
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/types/optional": [
+
+            ]
+          }
+        },
+        {
+          "name": "compressed_tuple",
+          "source_files": "absl/container/internal/compressed_tuple.h",
+          "dependencies": {
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "container_memory",
+          "source_files": "absl/container/internal/container_memory.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "fixed_array",
+          "source_files": "absl/container/fixed_array.h",
+          "dependencies": {
+            "abseil/algorithm/algorithm": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "flat_hash_map",
+          "source_files": "absl/container/flat_hash_map.h",
+          "dependencies": {
+            "abseil/algorithm/container": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/hash_function_defaults": [
+
+            ],
+            "abseil/container/raw_hash_map": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "flat_hash_set",
+          "source_files": "absl/container/flat_hash_set.h",
+          "dependencies": {
+            "abseil/algorithm/container": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/hash_function_defaults": [
+
+            ],
+            "abseil/container/raw_hash_set": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "hash_function_defaults",
+          "source_files": "absl/container/internal/hash_function_defaults.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/hash/hash": [
+
+            ],
+            "abseil/strings/cord": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        },
+        {
+          "name": "hash_policy_traits",
+          "source_files": "absl/container/internal/hash_policy_traits.h",
+          "dependencies": {
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "hashtable_debug",
+          "source_files": "absl/container/internal/hashtable_debug.h",
+          "dependencies": {
+            "abseil/container/hashtable_debug_hooks": [
+
+            ]
+          }
+        },
+        {
+          "name": "hashtable_debug_hooks",
+          "source_files": "absl/container/internal/hashtable_debug_hooks.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "hashtablez_sampler",
+          "source_files": [
+            "absl/container/internal/hashtablez_sampler.cc",
+            "absl/container/internal/hashtablez_sampler.h",
+            "absl/container/internal/hashtablez_sampler_force_weak_definition.cc"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/profiling/exponential_biased": [
+
+            ],
+            "abseil/profiling/sample_recorder": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "inlined_vector",
+          "source_files": "absl/container/inlined_vector.h",
+          "dependencies": {
+            "abseil/algorithm/algorithm": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/container/inlined_vector_internal": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "inlined_vector_internal",
+          "source_files": "absl/container/internal/inlined_vector.h",
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/types/span": [
+
+            ]
+          }
+        },
+        {
+          "name": "layout",
+          "source_files": "absl/container/internal/layout.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/span": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "node_hash_map",
+          "source_files": "absl/container/node_hash_map.h",
+          "dependencies": {
+            "abseil/algorithm/container": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/hash_function_defaults": [
+
+            ],
+            "abseil/container/node_slot_policy": [
+
+            ],
+            "abseil/container/raw_hash_map": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "node_hash_set",
+          "source_files": "absl/container/node_hash_set.h",
+          "dependencies": {
+            "abseil/algorithm/container": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/hash_function_defaults": [
+
+            ],
+            "abseil/container/node_slot_policy": [
+
+            ],
+            "abseil/container/raw_hash_set": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ]
+          }
+        },
+        {
+          "name": "node_slot_policy",
+          "source_files": "absl/container/internal/node_slot_policy.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "raw_hash_map",
+          "source_files": "absl/container/internal/raw_hash_map.h",
+          "dependencies": {
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/raw_hash_set": [
+
+            ]
+          }
+        },
+        {
+          "name": "raw_hash_set",
+          "source_files": [
+            "absl/container/internal/raw_hash_set.cc",
+            "absl/container/internal/raw_hash_set.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/base/prefetch": [
+
+            ],
+            "abseil/container/common": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/container/container_memory": [
+
+            ],
+            "abseil/container/hash_policy_traits": [
+
+            ],
+            "abseil/container/hashtable_debug_hooks": [
+
+            ],
+            "abseil/container/hashtablez_sampler": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "debugging",
+      "subspecs": [
+        {
+          "name": "debugging_internal",
+          "source_files": [
+            "absl/debugging/internal/address_is_readable.cc",
+            "absl/debugging/internal/address_is_readable.h",
+            "absl/debugging/internal/elf_mem_image.cc",
+            "absl/debugging/internal/elf_mem_image.h",
+            "absl/debugging/internal/vdso_support.cc",
+            "absl/debugging/internal/vdso_support.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/errno_saver": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "demangle_internal",
+          "source_files": [
+            "absl/debugging/internal/demangle.cc",
+            "absl/debugging/internal/demangle.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "examine_stack",
+          "source_files": [
+            "absl/debugging/internal/examine_stack.cc",
+            "absl/debugging/internal/examine_stack.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ],
+            "abseil/debugging/symbolize": [
+
+            ]
+          }
+        },
+        {
+          "name": "failure_signal_handler",
+          "source_files": [
+            "absl/debugging/failure_signal_handler.cc",
+            "absl/debugging/failure_signal_handler.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/debugging/examine_stack": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ]
+          }
+        },
+        {
+          "name": "leak_check",
+          "source_files": [
+            "absl/debugging/leak_check.cc",
+            "absl/debugging/leak_check.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "stacktrace",
+          "source_files": [
+            "absl/debugging/internal/stacktrace_aarch64-inl.inc",
+            "absl/debugging/internal/stacktrace_arm-inl.inc",
+            "absl/debugging/internal/stacktrace_config.h",
+            "absl/debugging/internal/stacktrace_emscripten-inl.inc",
+            "absl/debugging/internal/stacktrace_generic-inl.inc",
+            "absl/debugging/internal/stacktrace_powerpc-inl.inc",
+            "absl/debugging/internal/stacktrace_riscv-inl.inc",
+            "absl/debugging/internal/stacktrace_unimplemented-inl.inc",
+            "absl/debugging/internal/stacktrace_win32-inl.inc",
+            "absl/debugging/internal/stacktrace_x86-inl.inc",
+            "absl/debugging/stacktrace.cc",
+            "absl/debugging/stacktrace.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/debugging/debugging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "symbolize",
+          "source_files": [
+            "absl/debugging/internal/symbolize.h",
+            "absl/debugging/symbolize.cc",
+            "absl/debugging/symbolize.h",
+            "absl/debugging/symbolize_darwin.inc",
+            "absl/debugging/symbolize_elf.inc",
+            "absl/debugging/symbolize_emscripten.inc",
+            "absl/debugging/symbolize_unimplemented.inc",
+            "absl/debugging/symbolize_win32.inc"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/malloc_internal": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/debugging/debugging_internal": [
+
+            ],
+            "abseil/debugging/demangle_internal": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "flags",
+      "subspecs": [
+        {
+          "name": "commandlineflag",
+          "source_files": [
+            "absl/flags/commandlineflag.cc",
+            "absl/flags/commandlineflag.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/fast_type_id": [
+
+            ],
+            "abseil/flags/commandlineflag_internal": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ]
+          }
+        },
+        {
+          "name": "commandlineflag_internal",
+          "source_files": [
+            "absl/flags/internal/commandlineflag.cc",
+            "absl/flags/internal/commandlineflag.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/fast_type_id": [
+
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "source_files": [
+            "absl/flags/config.h",
+            "absl/flags/usage_config.cc",
+            "absl/flags/usage_config.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/flags/path_util": [
+
+            ],
+            "abseil/flags/program_name": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "flag",
+          "source_files": [
+            "absl/flags/declare.h",
+            "absl/flags/flag.cc",
+            "absl/flags/flag.h",
+            "absl/flags/internal/flag_msvc.inc"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/flags/config": [
+
+            ],
+            "abseil/flags/flag_internal": [
+
+            ],
+            "abseil/flags/reflection": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        },
+        {
+          "name": "flag_internal",
+          "source_files": [
+            "absl/flags/internal/flag.cc",
+            "absl/flags/internal/flag.h",
+            "absl/flags/internal/sequence_lock.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/flags/commandlineflag": [
+
+            ],
+            "abseil/flags/commandlineflag_internal": [
+
+            ],
+            "abseil/flags/config": [
+
+            ],
+            "abseil/flags/marshalling": [
+
+            ],
+            "abseil/flags/reflection": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "marshalling",
+          "source_files": [
+            "absl/flags/marshalling.cc",
+            "absl/flags/marshalling.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/log_severity": [
+
+            ],
+            "abseil/strings/str_format": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ]
+          }
+        },
+        {
+          "name": "parse",
+          "source_files": [
+            "absl/flags/internal/parse.h",
+            "absl/flags/parse.cc",
+            "absl/flags/parse.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/flags/commandlineflag": [
+
+            ],
+            "abseil/flags/commandlineflag_internal": [
+
+            ],
+            "abseil/flags/config": [
+
+            ],
+            "abseil/flags/flag": [
+
+            ],
+            "abseil/flags/flag_internal": [
+
+            ],
+            "abseil/flags/private_handle_accessor": [
+
+            ],
+            "abseil/flags/program_name": [
+
+            ],
+            "abseil/flags/reflection": [
+
+            ],
+            "abseil/flags/usage": [
+
+            ],
+            "abseil/flags/usage_internal": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "path_util",
+          "source_files": "absl/flags/internal/path_util.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        },
+        {
+          "name": "private_handle_accessor",
+          "source_files": [
+            "absl/flags/internal/private_handle_accessor.cc",
+            "absl/flags/internal/private_handle_accessor.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/flags/commandlineflag": [
+
+            ],
+            "abseil/flags/commandlineflag_internal": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        },
+        {
+          "name": "program_name",
+          "source_files": [
+            "absl/flags/internal/program_name.cc",
+            "absl/flags/internal/program_name.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/flags/path_util": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "reflection",
+          "source_files": [
+            "absl/flags/internal/registry.h",
+            "absl/flags/reflection.cc",
+            "absl/flags/reflection.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/flat_hash_map": [
+
+            ],
+            "abseil/flags/commandlineflag": [
+
+            ],
+            "abseil/flags/commandlineflag_internal": [
+
+            ],
+            "abseil/flags/config": [
+
+            ],
+            "abseil/flags/private_handle_accessor": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "usage",
+          "source_files": [
+            "absl/flags/usage.cc",
+            "absl/flags/usage.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/flags/usage_internal": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "usage_internal",
+          "source_files": [
+            "absl/flags/internal/usage.cc",
+            "absl/flags/internal/usage.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/container/flat_hash_map": [
+
+            ],
+            "abseil/flags/commandlineflag": [
+
+            ],
+            "abseil/flags/config": [
+
+            ],
+            "abseil/flags/flag": [
+
+            ],
+            "abseil/flags/flag_internal": [
+
+            ],
+            "abseil/flags/path_util": [
+
+            ],
+            "abseil/flags/private_handle_accessor": [
+
+            ],
+            "abseil/flags/program_name": [
+
+            ],
+            "abseil/flags/reflection": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "functional",
+      "subspecs": [
+        {
+          "name": "any_invocable",
+          "source_files": [
+            "absl/functional/any_invocable.h",
+            "absl/functional/internal/any_invocable.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "bind_front",
+          "source_files": [
+            "absl/functional/bind_front.h",
+            "absl/functional/internal/front_binder.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "function_ref",
+          "source_files": [
+            "absl/functional/function_ref.h",
+            "absl/functional/internal/function_ref.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "hash",
+      "subspecs": [
+        {
+          "name": "city",
+          "source_files": [
+            "absl/hash/internal/city.cc",
+            "absl/hash/internal/city.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ]
+          }
+        },
+        {
+          "name": "hash",
+          "source_files": [
+            "absl/hash/hash.h",
+            "absl/hash/internal/hash.cc",
+            "absl/hash/internal/hash.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/container/fixed_array": [
+
+            ],
+            "abseil/functional/function_ref": [
+
+            ],
+            "abseil/hash/city": [
+
+            ],
+            "abseil/hash/low_level_hash": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/int128": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ],
+            "abseil/types/variant": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "low_level_hash",
+          "source_files": [
+            "absl/hash/internal/low_level_hash.cc",
+            "absl/hash/internal/low_level_hash.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/numeric/int128": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "memory",
+      "subspecs": [
+        {
+          "name": "memory",
+          "source_files": "absl/memory/memory.h",
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "meta",
+      "subspecs": [
+        {
+          "name": "type_traits",
+          "source_files": "absl/meta/type_traits.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "numeric",
+      "subspecs": [
+        {
+          "name": "bits",
+          "source_files": [
+            "absl/numeric/bits.h",
+            "absl/numeric/internal/bits.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "int128",
+          "source_files": [
+            "absl/numeric/int128.cc",
+            "absl/numeric/int128.h",
+            "absl/numeric/int128_have_intrinsic.inc",
+            "absl/numeric/int128_no_intrinsic.inc"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ]
+          }
+        },
+        {
+          "name": "representation",
+          "source_files": "absl/numeric/internal/representation.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "profiling",
+      "subspecs": [
+        {
+          "name": "exponential_biased",
+          "source_files": [
+            "absl/profiling/internal/exponential_biased.cc",
+            "absl/profiling/internal/exponential_biased.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ]
+          }
+        },
+        {
+          "name": "periodic_sampler",
+          "source_files": [
+            "absl/profiling/internal/periodic_sampler.cc",
+            "absl/profiling/internal/periodic_sampler.h"
+          ],
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/profiling/exponential_biased": [
+
+            ]
+          }
+        },
+        {
+          "name": "sample_recorder",
+          "source_files": "absl/profiling/internal/sample_recorder.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ],
+            "abseil/time/time": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "random",
+      "subspecs": [
+        {
+          "name": "bit_gen_ref",
+          "source_files": "absl/random/bit_gen_ref.h",
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/fast_type_id": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/random/internal/distribution_caller": [
+
+            ],
+            "abseil/random/internal/fast_uniform_bits": [
+
+            ],
+            "abseil/random/random": [
+
+            ]
+          }
+        },
+        {
+          "name": "distributions",
+          "source_files": [
+            "absl/random/bernoulli_distribution.h",
+            "absl/random/beta_distribution.h",
+            "absl/random/discrete_distribution.cc",
+            "absl/random/discrete_distribution.h",
+            "absl/random/distributions.h",
+            "absl/random/exponential_distribution.h",
+            "absl/random/gaussian_distribution.cc",
+            "absl/random/gaussian_distribution.h",
+            "absl/random/log_uniform_int_distribution.h",
+            "absl/random/poisson_distribution.h",
+            "absl/random/uniform_int_distribution.h",
+            "absl/random/uniform_real_distribution.h",
+            "absl/random/zipf_distribution.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/random/internal/distribution_caller": [
+
+            ],
+            "abseil/random/internal/fast_uniform_bits": [
+
+            ],
+            "abseil/random/internal/fastmath": [
+
+            ],
+            "abseil/random/internal/generate_real": [
+
+            ],
+            "abseil/random/internal/iostream_state_saver": [
+
+            ],
+            "abseil/random/internal/traits": [
+
+            ],
+            "abseil/random/internal/uniform_helper": [
+
+            ],
+            "abseil/random/internal/wide_multiply": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ]
+          }
+        },
+        {
+          "name": "internal",
+          "subspecs": [
+            {
+              "name": "distribution_caller",
+              "source_files": "absl/random/internal/distribution_caller.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/base/fast_type_id": [
+
+                ],
+                "abseil/utility/utility": [
+
+                ]
+              }
+            },
+            {
+              "name": "fast_uniform_bits",
+              "source_files": "absl/random/internal/fast_uniform_bits.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/random/internal/traits": [
+
+                ]
+              }
+            },
+            {
+              "name": "fastmath",
+              "source_files": "absl/random/internal/fastmath.h",
+              "dependencies": {
+                "abseil/numeric/bits": [
+
+                ]
+              }
+            },
+            {
+              "name": "generate_real",
+              "source_files": "absl/random/internal/generate_real.h",
+              "dependencies": {
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/numeric/bits": [
+
+                ],
+                "abseil/random/internal/fastmath": [
+
+                ],
+                "abseil/random/internal/traits": [
+
+                ]
+              }
+            },
+            {
+              "name": "iostream_state_saver",
+              "source_files": "absl/random/internal/iostream_state_saver.h",
+              "dependencies": {
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ]
+              }
+            },
+            {
+              "name": "mock_helpers",
+              "source_files": "absl/random/internal/mock_helpers.h",
+              "dependencies": {
+                "abseil/base/fast_type_id": [
+
+                ],
+                "abseil/types/optional": [
+
+                ]
+              }
+            },
+            {
+              "name": "nanobenchmark",
+              "source_files": [
+                "absl/random/internal/nanobenchmark.cc",
+                "absl/random/internal/nanobenchmark.h"
+              ],
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/base/raw_logging_internal": [
+
+                ],
+                "abseil/random/internal/platform": [
+
+                ],
+                "abseil/random/internal/randen_engine": [
+
+                ]
+              }
+            },
+            {
+              "name": "nonsecure_base",
+              "source_files": "absl/random/internal/nonsecure_base.h",
+              "dependencies": {
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/container/inlined_vector": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/random/internal/pool_urbg": [
+
+                ],
+                "abseil/random/internal/salted_seed_seq": [
+
+                ],
+                "abseil/random/internal/seed_material": [
+
+                ],
+                "abseil/types/span": [
+
+                ]
+              }
+            },
+            {
+              "name": "pcg_engine",
+              "source_files": "absl/random/internal/pcg_engine.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/numeric/bits": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ],
+                "abseil/random/internal/fastmath": [
+
+                ],
+                "abseil/random/internal/iostream_state_saver": [
+
+                ]
+              }
+            },
+            {
+              "name": "platform",
+              "source_files": [
+                "absl/random/internal/platform.h",
+                "absl/random/internal/randen_round_keys.cc",
+                "absl/random/internal/randen_traits.h"
+              ],
+              "dependencies": {
+                "abseil/base/config": [
+
+                ]
+              }
+            },
+            {
+              "name": "pool_urbg",
+              "source_files": [
+                "absl/random/internal/pool_urbg.cc",
+                "absl/random/internal/pool_urbg.h"
+              ],
+              "dependencies": {
+                "abseil/base/base": [
+
+                ],
+                "abseil/base/config": [
+
+                ],
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/base/endian": [
+
+                ],
+                "abseil/base/raw_logging_internal": [
+
+                ],
+                "abseil/random/internal/randen": [
+
+                ],
+                "abseil/random/internal/seed_material": [
+
+                ],
+                "abseil/random/internal/traits": [
+
+                ],
+                "abseil/random/seed_gen_exception": [
+
+                ],
+                "abseil/types/span": [
+
+                ]
+              }
+            },
+            {
+              "name": "randen",
+              "source_files": [
+                "absl/random/internal/randen.cc",
+                "absl/random/internal/randen.h"
+              ],
+              "dependencies": {
+                "abseil/base/raw_logging_internal": [
+
+                ],
+                "abseil/random/internal/platform": [
+
+                ],
+                "abseil/random/internal/randen_hwaes": [
+
+                ],
+                "abseil/random/internal/randen_slow": [
+
+                ]
+              }
+            },
+            {
+              "name": "randen_engine",
+              "source_files": "absl/random/internal/randen_engine.h",
+              "dependencies": {
+                "abseil/base/endian": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/random/internal/iostream_state_saver": [
+
+                ],
+                "abseil/random/internal/randen": [
+
+                ]
+              }
+            },
+            {
+              "name": "randen_hwaes",
+              "source_files": [
+                "absl/random/internal/randen_detect.cc",
+                "absl/random/internal/randen_detect.h",
+                "absl/random/internal/randen_hwaes.h"
+              ],
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/random/internal/platform": [
+
+                ],
+                "abseil/random/internal/randen_hwaes_impl": [
+
+                ]
+              }
+            },
+            {
+              "name": "randen_hwaes_impl",
+              "source_files": [
+                "absl/random/internal/randen_hwaes.cc",
+                "absl/random/internal/randen_hwaes.h"
+              ],
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ],
+                "abseil/random/internal/platform": [
+
+                ]
+              }
+            },
+            {
+              "name": "randen_slow",
+              "source_files": [
+                "absl/random/internal/randen_slow.cc",
+                "absl/random/internal/randen_slow.h"
+              ],
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/base/endian": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ],
+                "abseil/random/internal/platform": [
+
+                ]
+              }
+            },
+            {
+              "name": "salted_seed_seq",
+              "source_files": "absl/random/internal/salted_seed_seq.h",
+              "dependencies": {
+                "abseil/container/inlined_vector": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/random/internal/seed_material": [
+
+                ],
+                "abseil/types/optional": [
+
+                ],
+                "abseil/types/span": [
+
+                ]
+              }
+            },
+            {
+              "name": "seed_material",
+              "source_files": [
+                "absl/random/internal/seed_material.cc",
+                "absl/random/internal/seed_material.h"
+              ],
+              "dependencies": {
+                "abseil/base/core_headers": [
+
+                ],
+                "abseil/base/dynamic_annotations": [
+
+                ],
+                "abseil/base/raw_logging_internal": [
+
+                ],
+                "abseil/random/internal/fast_uniform_bits": [
+
+                ],
+                "abseil/strings/strings": [
+
+                ],
+                "abseil/types/optional": [
+
+                ],
+                "abseil/types/span": [
+
+                ]
+              }
+            },
+            {
+              "name": "traits",
+              "source_files": "absl/random/internal/traits.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/numeric/bits": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ]
+              }
+            },
+            {
+              "name": "uniform_helper",
+              "source_files": "absl/random/internal/uniform_helper.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/meta/type_traits": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ],
+                "abseil/random/internal/traits": [
+
+                ]
+              }
+            },
+            {
+              "name": "wide_multiply",
+              "source_files": "absl/random/internal/wide_multiply.h",
+              "dependencies": {
+                "abseil/base/config": [
+
+                ],
+                "abseil/numeric/bits": [
+
+                ],
+                "abseil/numeric/int128": [
+
+                ],
+                "abseil/random/internal/traits": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "random",
+          "source_files": "absl/random/random.h",
+          "dependencies": {
+            "abseil/random/internal/nonsecure_base": [
+
+            ],
+            "abseil/random/internal/pcg_engine": [
+
+            ],
+            "abseil/random/internal/pool_urbg": [
+
+            ],
+            "abseil/random/internal/randen_engine": [
+
+            ],
+            "abseil/random/distributions": [
+
+            ],
+            "abseil/random/seed_sequences": [
+
+            ]
+          }
+        },
+        {
+          "name": "seed_gen_exception",
+          "source_files": [
+            "absl/random/seed_gen_exception.cc",
+            "absl/random/seed_gen_exception.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "seed_sequences",
+          "source_files": [
+            "absl/random/seed_sequences.cc",
+            "absl/random/seed_sequences.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/random/internal/pool_urbg": [
+
+            ],
+            "abseil/random/internal/salted_seed_seq": [
+
+            ],
+            "abseil/random/internal/seed_material": [
+
+            ],
+            "abseil/random/seed_gen_exception": [
+
+            ],
+            "abseil/types/span": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "subspecs": [
+        {
+          "name": "status",
+          "source_files": [
+            "absl/status/internal/status_internal.h",
+            "absl/status/status.cc",
+            "absl/status/status.h",
+            "absl/status/status_payload_printer.cc",
+            "absl/status/status_payload_printer.h"
+          ],
+          "dependencies": {
+            "abseil/base/atomic_hook": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/base/strerror": [
+
+            ],
+            "abseil/container/inlined_vector": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ],
+            "abseil/debugging/symbolize": [
+
+            ],
+            "abseil/functional/function_ref": [
+
+            ],
+            "abseil/strings/cord": [
+
+            ],
+            "abseil/strings/str_format": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ]
+          }
+        },
+        {
+          "name": "statusor",
+          "source_files": [
+            "absl/status/internal/statusor_internal.h",
+            "absl/status/statusor.cc",
+            "absl/status/statusor.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/status/status": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/variant": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "strings",
+      "subspecs": [
+        {
+          "name": "cord",
+          "source_files": [
+            "absl/strings/cord.cc",
+            "absl/strings/cord.h",
+            "absl/strings/cord_analysis.cc",
+            "absl/strings/cord_analysis.h",
+            "absl/strings/cord_buffer.cc",
+            "absl/strings/cord_buffer.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/container/fixed_array": [
+
+            ],
+            "abseil/container/inlined_vector": [
+
+            ],
+            "abseil/functional/function_ref": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/strings/cord_internal": [
+
+            ],
+            "abseil/strings/cordz_functions": [
+
+            ],
+            "abseil/strings/cordz_info": [
+
+            ],
+            "abseil/strings/cordz_statistics": [
+
+            ],
+            "abseil/strings/cordz_update_scope": [
+
+            ],
+            "abseil/strings/cordz_update_tracker": [
+
+            ],
+            "abseil/strings/internal": [
+
+            ],
+            "abseil/strings/str_format": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ],
+            "abseil/types/span": [
+
+            ]
+          }
+        },
+        {
+          "name": "cord_internal",
+          "source_files": [
+            "absl/strings/internal/cord_data_edge.h",
+            "absl/strings/internal/cord_internal.cc",
+            "absl/strings/internal/cord_internal.h",
+            "absl/strings/internal/cord_rep_btree.cc",
+            "absl/strings/internal/cord_rep_btree.h",
+            "absl/strings/internal/cord_rep_btree_navigator.cc",
+            "absl/strings/internal/cord_rep_btree_navigator.h",
+            "absl/strings/internal/cord_rep_btree_reader.cc",
+            "absl/strings/internal/cord_rep_btree_reader.h",
+            "absl/strings/internal/cord_rep_consume.cc",
+            "absl/strings/internal/cord_rep_consume.h",
+            "absl/strings/internal/cord_rep_crc.cc",
+            "absl/strings/internal/cord_rep_crc.h",
+            "absl/strings/internal/cord_rep_flat.h",
+            "absl/strings/internal/cord_rep_ring.cc",
+            "absl/strings/internal/cord_rep_ring.h",
+            "absl/strings/internal/cord_rep_ring_reader.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/container/compressed_tuple": [
+
+            ],
+            "abseil/container/inlined_vector": [
+
+            ],
+            "abseil/container/layout": [
+
+            ],
+            "abseil/functional/function_ref": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/span": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_functions",
+          "source_files": [
+            "absl/strings/internal/cordz_functions.cc",
+            "absl/strings/internal/cordz_functions.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/profiling/exponential_biased": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_handle",
+          "source_files": [
+            "absl/strings/internal/cordz_handle.cc",
+            "absl/strings/internal/cordz_handle.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_info",
+          "source_files": [
+            "absl/strings/internal/cordz_info.cc",
+            "absl/strings/internal/cordz_info.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/container/inlined_vector": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ],
+            "abseil/strings/cord_internal": [
+
+            ],
+            "abseil/strings/cordz_functions": [
+
+            ],
+            "abseil/strings/cordz_handle": [
+
+            ],
+            "abseil/strings/cordz_statistics": [
+
+            ],
+            "abseil/strings/cordz_update_tracker": [
+
+            ],
+            "abseil/synchronization/synchronization": [
+
+            ],
+            "abseil/types/span": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_sample_token",
+          "source_files": [
+            "absl/strings/internal/cordz_sample_token.cc",
+            "absl/strings/internal/cordz_sample_token.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/strings/cordz_handle": [
+
+            ],
+            "abseil/strings/cordz_info": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_statistics",
+          "source_files": "absl/strings/internal/cordz_statistics.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/strings/cordz_update_tracker": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_update_scope",
+          "source_files": "absl/strings/internal/cordz_update_scope.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/strings/cord_internal": [
+
+            ],
+            "abseil/strings/cordz_info": [
+
+            ],
+            "abseil/strings/cordz_update_tracker": [
+
+            ]
+          }
+        },
+        {
+          "name": "cordz_update_tracker",
+          "source_files": "absl/strings/internal/cordz_update_tracker.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ]
+          }
+        },
+        {
+          "name": "internal",
+          "source_files": [
+            "absl/strings/internal/char_map.h",
+            "absl/strings/internal/escaping.cc",
+            "absl/strings/internal/escaping.h",
+            "absl/strings/internal/ostringstream.cc",
+            "absl/strings/internal/ostringstream.h",
+            "absl/strings/internal/resize_uninitialized.h",
+            "absl/strings/internal/utf8.cc",
+            "absl/strings/internal/utf8.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "str_format",
+          "source_files": "absl/strings/str_format.h",
+          "dependencies": {
+            "abseil/strings/str_format_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "str_format_internal",
+          "source_files": [
+            "absl/strings/internal/str_format/arg.cc",
+            "absl/strings/internal/str_format/arg.h",
+            "absl/strings/internal/str_format/bind.cc",
+            "absl/strings/internal/str_format/bind.h",
+            "absl/strings/internal/str_format/checker.h",
+            "absl/strings/internal/str_format/extension.cc",
+            "absl/strings/internal/str_format/extension.h",
+            "absl/strings/internal/str_format/float_conversion.cc",
+            "absl/strings/internal/str_format/float_conversion.h",
+            "absl/strings/internal/str_format/output.cc",
+            "absl/strings/internal/str_format/output.h",
+            "absl/strings/internal/str_format/parser.cc",
+            "absl/strings/internal/str_format/parser.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/functional/function_ref": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/numeric/int128": [
+
+            ],
+            "abseil/numeric/representation": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/types/optional": [
+
+            ],
+            "abseil/types/span": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "strings",
+          "source_files": [
+            "absl/strings/ascii.cc",
+            "absl/strings/ascii.h",
+            "absl/strings/charconv.cc",
+            "absl/strings/charconv.h",
+            "absl/strings/escaping.cc",
+            "absl/strings/escaping.h",
+            "absl/strings/internal/charconv_bigint.cc",
+            "absl/strings/internal/charconv_bigint.h",
+            "absl/strings/internal/charconv_parse.cc",
+            "absl/strings/internal/charconv_parse.h",
+            "absl/strings/internal/memutil.cc",
+            "absl/strings/internal/memutil.h",
+            "absl/strings/internal/stl_type_traits.h",
+            "absl/strings/internal/str_join_internal.h",
+            "absl/strings/internal/str_split_internal.h",
+            "absl/strings/internal/string_constant.h",
+            "absl/strings/match.cc",
+            "absl/strings/match.h",
+            "absl/strings/numbers.cc",
+            "absl/strings/numbers.h",
+            "absl/strings/str_cat.cc",
+            "absl/strings/str_cat.h",
+            "absl/strings/str_join.h",
+            "absl/strings/str_replace.cc",
+            "absl/strings/str_replace.h",
+            "absl/strings/str_split.cc",
+            "absl/strings/str_split.h",
+            "absl/strings/string_view.cc",
+            "absl/strings/string_view.h",
+            "absl/strings/strip.h",
+            "absl/strings/substitute.cc",
+            "absl/strings/substitute.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/endian": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/numeric/bits": [
+
+            ],
+            "abseil/numeric/int128": [
+
+            ],
+            "abseil/strings/internal": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "synchronization",
+      "subspecs": [
+        {
+          "name": "graphcycles_internal",
+          "source_files": [
+            "absl/synchronization/internal/graphcycles.cc",
+            "absl/synchronization/internal/graphcycles.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/malloc_internal": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "kernel_timeout_internal",
+          "source_files": "absl/synchronization/internal/kernel_timeout.h",
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/time/time": [
+
+            ]
+          }
+        },
+        {
+          "name": "synchronization",
+          "source_files": [
+            "absl/synchronization/barrier.cc",
+            "absl/synchronization/barrier.h",
+            "absl/synchronization/blocking_counter.cc",
+            "absl/synchronization/blocking_counter.h",
+            "absl/synchronization/internal/create_thread_identity.cc",
+            "absl/synchronization/internal/create_thread_identity.h",
+            "absl/synchronization/internal/futex.h",
+            "absl/synchronization/internal/per_thread_sem.cc",
+            "absl/synchronization/internal/per_thread_sem.h",
+            "absl/synchronization/internal/waiter.cc",
+            "absl/synchronization/internal/waiter.h",
+            "absl/synchronization/mutex.cc",
+            "absl/synchronization/mutex.h",
+            "absl/synchronization/notification.cc",
+            "absl/synchronization/notification.h"
+          ],
+          "dependencies": {
+            "abseil/base/atomic_hook": [
+
+            ],
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/dynamic_annotations": [
+
+            ],
+            "abseil/base/malloc_internal": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/debugging/stacktrace": [
+
+            ],
+            "abseil/debugging/symbolize": [
+
+            ],
+            "abseil/synchronization/graphcycles_internal": [
+
+            ],
+            "abseil/synchronization/kernel_timeout_internal": [
+
+            ],
+            "abseil/time/time": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "subspecs": [
+        {
+          "name": "internal",
+          "subspecs": [
+            {
+              "name": "cctz",
+              "subspecs": [
+                {
+                  "name": "civil_time",
+                  "source_files": [
+                    "absl/time/internal/cctz/include/cctz/civil_time.h",
+                    "absl/time/internal/cctz/include/cctz/civil_time_detail.h",
+                    "absl/time/internal/cctz/src/civil_time_detail.cc"
+                  ],
+                  "dependencies": {
+                    "abseil/base/config": [
+
+                    ]
+                  }
+                },
+                {
+                  "name": "time_zone",
+                  "source_files": [
+                    "absl/time/internal/cctz/include/cctz/time_zone.h",
+                    "absl/time/internal/cctz/include/cctz/zone_info_source.h",
+                    "absl/time/internal/cctz/src/time_zone_fixed.cc",
+                    "absl/time/internal/cctz/src/time_zone_fixed.h",
+                    "absl/time/internal/cctz/src/time_zone_format.cc",
+                    "absl/time/internal/cctz/src/time_zone_if.cc",
+                    "absl/time/internal/cctz/src/time_zone_if.h",
+                    "absl/time/internal/cctz/src/time_zone_impl.cc",
+                    "absl/time/internal/cctz/src/time_zone_impl.h",
+                    "absl/time/internal/cctz/src/time_zone_info.cc",
+                    "absl/time/internal/cctz/src/time_zone_info.h",
+                    "absl/time/internal/cctz/src/time_zone_libc.cc",
+                    "absl/time/internal/cctz/src/time_zone_libc.h",
+                    "absl/time/internal/cctz/src/time_zone_lookup.cc",
+                    "absl/time/internal/cctz/src/time_zone_posix.cc",
+                    "absl/time/internal/cctz/src/time_zone_posix.h",
+                    "absl/time/internal/cctz/src/tzfile.h",
+                    "absl/time/internal/cctz/src/zone_info_source.cc"
+                  ],
+                  "dependencies": {
+                    "abseil/base/config": [
+
+                    ],
+                    "abseil/time/internal/cctz/civil_time": [
+
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "time",
+          "source_files": [
+            "absl/time/civil_time.cc",
+            "absl/time/civil_time.h",
+            "absl/time/clock.cc",
+            "absl/time/clock.h",
+            "absl/time/duration.cc",
+            "absl/time/format.cc",
+            "absl/time/internal/get_current_time_chrono.inc",
+            "absl/time/internal/get_current_time_posix.inc",
+            "absl/time/time.cc",
+            "absl/time/time.h"
+          ],
+          "dependencies": {
+            "abseil/base/base": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ],
+            "abseil/numeric/int128": [
+
+            ],
+            "abseil/strings/strings": [
+
+            ],
+            "abseil/time/internal/cctz/civil_time": [
+
+            ],
+            "abseil/time/internal/cctz/time_zone": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "subspecs": [
+        {
+          "name": "any",
+          "source_files": "absl/types/any.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/fast_type_id": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/types/bad_any_cast": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "bad_any_cast",
+          "source_files": "absl/types/bad_any_cast.h",
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/types/bad_any_cast_impl": [
+
+            ]
+          }
+        },
+        {
+          "name": "bad_any_cast_impl",
+          "source_files": [
+            "absl/types/bad_any_cast.cc",
+            "absl/types/bad_any_cast.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "bad_optional_access",
+          "source_files": [
+            "absl/types/bad_optional_access.cc",
+            "absl/types/bad_optional_access.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "bad_variant_access",
+          "source_files": [
+            "absl/types/bad_variant_access.cc",
+            "absl/types/bad_variant_access.h"
+          ],
+          "dependencies": {
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/raw_logging_internal": [
+
+            ]
+          }
+        },
+        {
+          "name": "compare",
+          "source_files": "absl/types/compare.h",
+          "dependencies": {
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "optional",
+          "source_files": [
+            "absl/types/internal/optional.h",
+            "absl/types/optional.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/memory/memory": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/types/bad_optional_access": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        },
+        {
+          "name": "span",
+          "source_files": [
+            "absl/types/internal/span.h",
+            "absl/types/span.h"
+          ],
+          "dependencies": {
+            "abseil/algorithm/algorithm": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/base/throw_delegate": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        },
+        {
+          "name": "variant",
+          "source_files": [
+            "absl/types/internal/variant.h",
+            "absl/types/variant.h"
+          ],
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/base/core_headers": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ],
+            "abseil/types/bad_variant_access": [
+
+            ],
+            "abseil/utility/utility": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "utility",
+      "subspecs": [
+        {
+          "name": "utility",
+          "source_files": "absl/utility/utility.h",
+          "dependencies": {
+            "abseil/base/base_internal": [
+
+            ],
+            "abseil/base/config": [
+
+            ],
+            "abseil/meta/type_traits": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
