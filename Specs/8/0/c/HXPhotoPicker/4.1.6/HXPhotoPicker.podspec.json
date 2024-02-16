@@ -1,0 +1,196 @@
+{
+  "name": "HXPhotoPicker",
+  "version": "4.1.6",
+  "summary": "照片/视频选择器 - 支持LivePhoto、GIF图片选择、自定义编辑照片/视频、3DTouch预览、浏览网络图片/网络视频 功能 - Imitation weibo photo/image picker - support for LivePhoto, GIF image selection, 3DTouch preview, browse the web image function",
+  "homepage": "https://github.com/SilenceLove/HXPhotoPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "SilenceLove": "294005139@qq.com"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/SilenceLove/HXPhotoPicker.git",
+    "tag": "4.1.6"
+  },
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "PhotosUI"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Full",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/HXPhotoPicker/Core/**/*.{swift}",
+      "resources": "Sources/HXPhotoPicker/Resources/*.{bundle}"
+    },
+    {
+      "name": "Picker",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPhotoPicker/Picker/**/*.{swift}",
+          "dependencies": {
+            "HXPhotoPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_PICKER"
+          }
+        },
+        {
+          "name": "KF",
+          "dependencies": {
+            "HXPhotoPicker/Picker/Lite": [
+
+            ],
+            "Kingfisher": [
+              "~> 7.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Editor",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPhotoPicker/Editor/**/*.{swift}",
+          "dependencies": {
+            "HXPhotoPicker/EditorView/Lite": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR"
+          }
+        },
+        {
+          "name": "KF",
+          "dependencies": {
+            "HXPhotoPicker/EditorView/KF": [
+
+            ],
+            "HXPhotoPicker/Editor/Lite": [
+
+            ],
+            "Kingfisher": [
+              "~> 7.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "EditorView",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPhotoPicker/Editor+View/**/*.{swift}",
+          "dependencies": {
+            "HXPhotoPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR_VIEW"
+          }
+        },
+        {
+          "name": "KF",
+          "dependencies": {
+            "HXPhotoPicker/EditorView/Lite": [
+
+            ],
+            "Kingfisher": [
+              "~> 7.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Camera",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPhotoPicker/Camera/**/*.{swift,metal}",
+          "dependencies": {
+            "HXPhotoPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA"
+          }
+        },
+        {
+          "name": "Location",
+          "source_files": "Sources/HXPhotoPicker/Camera+Location/**/*.{swift}",
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA_LOCATION"
+          },
+          "dependencies": {
+            "HXPhotoPicker/Camera/Lite": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lite",
+      "dependencies": {
+        "HXPhotoPicker/Picker/Lite": [
+
+        ],
+        "HXPhotoPicker/Editor/Lite": [
+
+        ],
+        "HXPhotoPicker/Camera/Lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "NoLocation",
+      "dependencies": {
+        "HXPhotoPicker/Picker": [
+
+        ],
+        "HXPhotoPicker/Editor": [
+
+        ],
+        "HXPhotoPicker/Camera/Lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "HXPhotoPicker/Picker": [
+
+        ],
+        "HXPhotoPicker/Editor": [
+
+        ],
+        "HXPhotoPicker/Camera": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
