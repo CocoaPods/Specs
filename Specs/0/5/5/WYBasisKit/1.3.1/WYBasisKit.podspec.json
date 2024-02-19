@@ -1,0 +1,309 @@
+{
+  "name": "WYBasisKit",
+  "version": "1.3.1",
+  "summary": "WYBasisKit 不仅可以帮助开发者快速构建一个工程，还有基于常用网络框架和系统API而封装的各种实用方法、扩展，开发者只需简单的调用API就可以快速实现相应功能， 大幅提高开发效率。",
+  "description": "Localizable: 国际化解决方案\nExtension: 各种系统扩展\nNetworking: 网络请求解决方案\nActivity: 活动指示器\nStorage: 本地存储\nLayout: 布局相关\nCodable: 数据解析\nAuthorization: 各种权限请求与判断",
+  "homepage": "https://github.com/Jacke-xu/WYBasisKit-swift",
+  "license": {
+    "type": "MIT",
+    "file": "License.md"
+  },
+  "authors": {
+    "官人": "mobileAppDvlp@icloud.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/Jacke-xu/WYBasisKit-swift.git",
+    "tag": "1.3.1"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "default_subspecs": "Extension",
+  "subspecs": [
+    {
+      "name": "Config",
+      "source_files": "WYBasisKit/Config/**/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Localizable",
+      "source_files": "WYBasisKit/Localizable/WYLocalizableManager.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WYBasisKit/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "source_files": "WYBasisKit/Extension/**/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "LocalAuthentication",
+        "Photos",
+        "CoreFoundation"
+      ],
+      "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+      "dependencies": {
+        "WYBasisKit/Localizable": [
+
+        ],
+        "WYBasisKit/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "Codable",
+      "source_files": "WYBasisKit/Codable/**/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Networking",
+      "source_files": [
+        "WYBasisKit/Networking/**/*",
+        "WYBasisKit/Extension/UIAlertController/**/*"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+      "dependencies": {
+        "WYBasisKit/Localizable": [
+
+        ],
+        "WYBasisKit/Storage": [
+
+        ],
+        "WYBasisKit/Codable": [
+
+        ],
+        "Moya": [
+
+        ]
+      }
+    },
+    {
+      "name": "Activity",
+      "source_files": [
+        "WYBasisKit/Activity/WYActivity.swift",
+        "WYBasisKit/Extension/UIView/UIView.swift",
+        "WYBasisKit/Extension/UIViewController/UIViewController.swift",
+        "WYBasisKit/Extension/NSAttributedString/NSAttributedString.swift",
+        "WYBasisKit/Extension/String/String.swift",
+        "WYBasisKit/Extension/UIImage/UIImage.swift",
+        "WYBasisKit/Config/WYBasisKitConfig.swift"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "resources": [
+        "WYBasisKit/Activity/WYActivity.bundle",
+        "WYBasisKit/Localizable/WYLocalizable.bundle"
+      ],
+      "dependencies": {
+        "WYBasisKit/Localizable": [
+
+        ]
+      }
+    },
+    {
+      "name": "Storage",
+      "source_files": "WYBasisKit/Storage/**/*",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Authorization",
+      "subspecs": [
+        {
+          "name": "Camera",
+          "source_files": [
+            "WYBasisKit/Authorization/Camera/**/*",
+            "WYBasisKit/Extension/UIAlertController/**/*"
+          ],
+          "frameworks": [
+            "AVFoundation",
+            "UIKit",
+            "Photos"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        },
+        {
+          "name": "Biometric",
+          "source_files": "WYBasisKit/Authorization/Biometric/**/*",
+          "frameworks": [
+            "Foundation",
+            "LocalAuthentication"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        },
+        {
+          "name": "Contacts",
+          "source_files": [
+            "WYBasisKit/Authorization/Contacts/**/*",
+            "WYBasisKit/Extension/UIAlertController/**/*"
+          ],
+          "frameworks": [
+            "Contacts",
+            "UIKit"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        },
+        {
+          "name": "PhotoAlbums",
+          "source_files": [
+            "WYBasisKit/Authorization/PhotoAlbums/**/*",
+            "WYBasisKit/Extension/UIAlertController/**/*"
+          ],
+          "frameworks": [
+            "Photos",
+            "UIKit"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        },
+        {
+          "name": "Microphone",
+          "source_files": [
+            "WYBasisKit/Authorization/Microphone/**/*",
+            "WYBasisKit/Extension/UIAlertController/**/*"
+          ],
+          "frameworks": [
+            "Photos",
+            "UIKit"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        },
+        {
+          "name": "SpeechRecognition",
+          "source_files": [
+            "WYBasisKit/Authorization/SpeechRecognition/**/*",
+            "WYBasisKit/Extension/UIAlertController/**/*"
+          ],
+          "frameworks": [
+            "Speech",
+            "UIKit"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layout",
+      "subspecs": [
+        {
+          "name": "ScrollText",
+          "source_files": [
+            "WYBasisKit/Layout/ScrollText/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "resources": "WYBasisKit/Localizable/WYLocalizable.bundle",
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ],
+            "SnapKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "PagingView",
+          "source_files": [
+            "WYBasisKit/Layout/PagingView/**/*",
+            "WYBasisKit/Extension/UIView/**/*",
+            "WYBasisKit/Extension/UIButton/**/*",
+            "WYBasisKit/Extension/UIColor/**/*",
+            "WYBasisKit/Extension/UIImage/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "SnapKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "BannerView",
+          "source_files": [
+            "WYBasisKit/Layout/BannerView/WYBannerView.swift",
+            "WYBasisKit/Extension/UIView/**/*",
+            "WYBasisKit/Config/WYBasisKitConfig.swift"
+          ],
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "resources": [
+            "WYBasisKit/Layout/BannerView/WYBannerView.bundle",
+            "WYBasisKit/Localizable/WYLocalizable.bundle"
+          ],
+          "dependencies": {
+            "WYBasisKit/Localizable": [
+
+            ],
+            "Kingfisher": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
