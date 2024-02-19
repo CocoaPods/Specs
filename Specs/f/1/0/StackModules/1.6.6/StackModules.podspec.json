@@ -1,0 +1,73 @@
+{
+  "name": "StackModules",
+  "version": "1.6.6",
+  "summary": "Supported modules for Stack iOS products",
+  "description": "Supported modules for Stack iOS products. Used in Appodeal, BidMachine and DataCore",
+  "homepage": "https://appodeal.com",
+  "license": {
+    "type": "Commercial License",
+    "text": "Copyright 2024. Appodeal Inc. All rights reserved.\nThe StackModules is available under a commercial license (https://appodeal.com/sdk-license-agreement)."
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/StackModules/1.6.6/StackModules.zip"
+  },
+  "default_subspecs": "StackProductPresentation",
+  "static_framework": true,
+  "swift_versions": "5.1",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "StackFoundation",
+      "vendored_frameworks": "StackFoundation.xcframework",
+      "libraries": "z",
+      "frameworks": [
+        "SafariServices",
+        "StoreKit",
+        "WebKit",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "CoreLocation",
+        "MobileCoreServices",
+        "AVFoundation",
+        "AudioToolbox",
+        "UIKit",
+        "ImageIO",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "StackUIKit",
+      "vendored_frameworks": "StackUIKit.xcframework",
+      "dependencies": {
+        "StackModules/StackFoundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "StackProductPresentation",
+      "vendored_frameworks": "StackProductPresentation.xcframework",
+      "source_files": "Dummy.swift",
+      "dependencies": {
+        "StackModules/StackUIKit": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
