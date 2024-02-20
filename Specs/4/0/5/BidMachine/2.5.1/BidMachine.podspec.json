@@ -1,0 +1,79 @@
+{
+  "name": "BidMachine",
+  "version": "2.5.1",
+  "summary": "BidMachine iOS SDK",
+  "homepage": "https://bidmachine.io",
+  "license": {
+    "type": "Commercial",
+    "text": "https://bidmachine.io/sdk-license-agreement/"
+  },
+  "authors": {
+    "Stack": "https://explorestack.com/bidmachine/"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.1",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64"
+  },
+  "source": {
+    "http": "https://s3-us-west-1.amazonaws.com/appodeal-ios/BidMachine/2.5.1/BidMachine.zip"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "BidMachine.xcframework",
+      "resources": "BidMachine.bundle",
+      "dependencies": {
+        "BidMachine/ApiCore": [
+
+        ],
+        "BidMachine/BiddingCore": [
+
+        ],
+        "BidMachine/ModulesCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApiCore",
+      "vendored_frameworks": "BidMachineApiCore.xcframework",
+      "resources": "BidMachineApiCore.bundle"
+    },
+    {
+      "name": "BiddingCore",
+      "vendored_frameworks": "BidMachineBidding.xcframework",
+      "resources": "BidMachineBidding.bundle",
+      "dependencies": {
+        "BidMachine/ApiCore": [
+
+        ],
+        "BidMachineRendering": [
+          "~> 0.1.0"
+        ],
+        "StackIAB": [
+          "~> 2.5.0"
+        ],
+        "StackModules": [
+          "~> 1.7.0"
+        ]
+      }
+    },
+    {
+      "name": "ModulesCore",
+      "vendored_frameworks": "BidMachineModules.xcframework",
+      "resources": "BidMachineModules.bundle",
+      "dependencies": {
+        "BidMachine/ApiCore": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
