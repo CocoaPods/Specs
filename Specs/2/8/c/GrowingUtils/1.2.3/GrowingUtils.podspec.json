@@ -1,0 +1,51 @@
+{
+  "name": "GrowingUtils",
+  "version": "1.2.3",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAnalytics具备自动采集基本的用户行为事件，比如访问和行为数据等。目前支持代码埋点、无埋点、可视化圈选、热图等功能。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-utilities.git",
+    "tag": "1.2.3"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "12.0",
+    "watchos": "7.0",
+    "visionos": "1.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "TrackerCore",
+  "subspecs": [
+    {
+      "name": "TrackerCore",
+      "source_files": "Sources/TrackerCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "resource_bundles": {
+        "GrowingUtils": [
+          "Sources/TrackerCore/Resources/**/*"
+        ]
+      }
+    },
+    {
+      "name": "AutotrackerCore",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "12.0"
+      },
+      "dependencies": {
+        "GrowingUtils/TrackerCore": [
+
+        ]
+      },
+      "source_files": "Sources/AutotrackerCore/**/*{.h,.m,.c,.cpp,.mm}"
+    }
+  ]
+}
