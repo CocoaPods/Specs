@@ -1,0 +1,63 @@
+{
+  "name": "ClickstreamLib",
+  "version": "2.0.20",
+  "summary": "Real time Analytics SDK",
+  "description": "Clickstream is an event agnostic, real-time data ingestion analytics SDK",
+  "homepage": "https://github.com/gojek/clickstream-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Gojek",
+  "source": {
+    "git": "https://github.com/gojek/clickstream-ios.git",
+    "tag": "2.0.20"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "Sources/**/*.swift",
+  "exclude_files": "Sources/ETETestSuite/**/*.swift",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreTelephony"
+  ],
+  "dependencies": {
+    "SwiftProtobuf": [
+      "~> 1.10"
+    ],
+    "ReachabilitySwift": [
+      "~> 5.0"
+    ],
+    "GRDB.swift": [
+      "~> 6.7"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core"
+    },
+    {
+      "name": "Tracker",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) TRACKER_ENABLED"
+      }
+    },
+    {
+      "name": "EventVisualizer",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) EVENT_VISUALIZER_ENABLED"
+      }
+    },
+    {
+      "name": "ETETestSuite",
+      "xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) ETE_TEST_SUITE_ENABLED"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
