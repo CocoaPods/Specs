@@ -1,0 +1,44 @@
+{
+  "name": "YunoSDK",
+  "version": "1.2.5-HF",
+  "summary": "A short description of YunoSDK.",
+  "description": "A fast checkout that integrates your company\nto the payments and fraud ecosystem.\n\nCheckout + Routing + Reconciliations + Alternative Payment Methods",
+  "homepage": "https://www.y.uno/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jonathan Pacheco": "jonathan.pacheco@y.uno.com"
+  },
+  "source": {
+    "http": "https://github.com/yuno-payments/yuno-sdk-ios/releases/download/1.2.5-HF/YunoSDK.xcframework.zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.4",
+  "requires_arc": true,
+  "prepare_command": "curl -L -o OpenpayKit.xcframework.zip https://github.com/open-pay/openpay-swift-ios/releases/download/3.1.0/OpenpayKit.xcframework.zip &&     unzip OpenpayKit.xcframework.zip &&     rm OpenpayKit.xcframework.zip",
+  "vendored_frameworks": [
+    "YunoSDK.xcframework",
+    "OpenpayKit.xcframework"
+  ],
+  "resource_bundles": {
+    "Resources": [
+      "YunoSDK.xcframework/Assets/**/*.xcassets",
+      "YunoSDK.xcframework/Assets/Localization/*.lproj",
+      "YunoSDK.xcframework/Assets/**/*.{storyboard,xib,json,ttf}"
+    ]
+  },
+  "frameworks": "Combine",
+  "xcconfig": {
+    "SWIFT_INCLUDE_PATHS": [
+      "${PODS_XCFRAMEWORKS_BUILD_DIR}/YunoSDK"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES"
+  },
+  "swift_version": "5.4"
+}
