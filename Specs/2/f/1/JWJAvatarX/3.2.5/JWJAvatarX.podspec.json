@@ -1,0 +1,101 @@
+{
+  "name": "JWJAvatarX",
+  "version": "3.2.5",
+  "license": "MIT",
+  "summary": "A framework of JWJAvatarX",
+  "description": "a seak and package for sticker object and user do not attention release the sticker. convenient and easy to user JWJAvatarX function.",
+  "homepage": "https://www.faceunity.com",
+  "authors": {
+    "faceunity": "dev@faceunity.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://fu-sdk.oss-cn-hangzhou.aliyuncs.com/DebugWindow/JWJAvatarX-v3.2.4.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Utility",
+      "ios": {
+        "vendored_frameworks": "*/FUAXUtility.xcframework"
+      }
+    },
+    {
+      "name": "Networking",
+      "ios": {
+        "vendored_frameworks": "*/FUAXNetworking.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "CloudService",
+      "ios": {
+        "vendored_frameworks": "*/FUAXCloudService.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/Networking": [
+
+        ]
+      }
+    },
+    {
+      "name": "Assist",
+      "ios": {
+        "vendored_frameworks": "*/FUAXAssist.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "Resource",
+      "ios": {
+        "vendored_frameworks": "*/FUAXResource.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/CloudService": [
+
+        ],
+        "JWJAvatarX/Assist": [
+
+        ]
+      }
+    },
+    {
+      "name": "Build",
+      "ios": {
+        "vendored_frameworks": "*/FUAXBuild.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/CloudService": [
+
+        ]
+      }
+    },
+    {
+      "name": "Edit",
+      "ios": {
+        "vendored_frameworks": "*/FUAXEdit.xcframework"
+      },
+      "dependencies": {
+        "JWJAvatarX/Utility": [
+
+        ]
+      }
+    }
+  ]
+}
