@@ -1,0 +1,75 @@
+{
+  "name": "WebEngageAppEx",
+  "version": "1.1.2",
+  "summary": "App Extension Target SDK for WebEngage for Rich Push Notifications support.",
+  "description": "This pod includes various subspecs which are intended for use in Application Extensions, and depends on APIs which are App Extension Safe. The Core subspecs provides APIs which lets you track Users and Events from within Application Extensions.",
+  "license": "MIT",
+  "authors": [
+    "Saumitra Bhave",
+    "Uzma Sayyed",
+    "Unmesh Rathod",
+    "Bhavesh Sarwar"
+  ],
+  "homepage": "https://webengage.com",
+  "social_media_url": "http://twitter.com/webengage",
+  "documentation_url": "https://docs.webengage.com/docs/ios-getting-started",
+  "source": {
+    "git": "https://github.com/WebEngage/WebEngageAppEx.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "CoreApi",
+      "source_files": "WebEngageAppEx/Classes/CoreApi/**/*.{h,m,swift}",
+      "public_header_files": [
+        "WebEngageAppEx/Classes/CoreApi/WebEngageAppEx.h",
+        "WebEngageAppEx/Classes/CoreApi/WEXAnalytics.h",
+        "WebEngageAppEx/Classes/CoreApi/WEXUser.h"
+      ],
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "NotificationService",
+      "source_files": "WebEngageAppEx/Classes/NotificationService/WEXPushNotificationService.{h,m}",
+      "public_header_files": "WebEngageAppEx/Classes/NotificationService/WEXPushNotificationService.h",
+      "frameworks": "Foundation",
+      "weak_frameworks": "UserNotifications",
+      "dependencies": {
+        "WebEngage": [
+          ">= 6.4.0"
+        ]
+      }
+    },
+    {
+      "name": "ContentExtension",
+      "source_files": "WebEngageAppEx/Classes/ContentExtension/**/*.{h,m,swift,rb}",
+      "public_header_files": [
+        "WebEngageAppEx/Classes/ContentExtension/WEXRichPushNotificationViewController.h",
+        "WebEngageAppEx/Classes/ContentExtension/WEXRichPushLayout.h",
+        "WebEngageAppEx/Classes/ContentExtension/WEXRichPushNotificationViewController+Private.h",
+        "WebEngageAppEx/Classes/ContentExtension/UIImage+animatedGIF.h"
+      ],
+      "frameworks": "Foundation",
+      "weak_frameworks": [
+        "UserNotifications",
+        "UserNotificationsUI"
+      ],
+      "dependencies": {
+        "WebEngageAppEx/CoreApi": [
+
+        ]
+      },
+      "script_phases": {
+        "name": "Modify Build Setting",
+        "script": "project_path=\"Pods.xcodeproj\"\n                    target_name=\"WebEngageAppEx\"\n                    build_setting=\"SWIFT_INSTALL_OBJC_HEADER\"\n                    build_setting_value=\"NO\"\n                    ruby -r 'xcodeproj' -e \"\n                      project = Xcodeproj::Project.open('$project_path')\n                      target = project.targets.find { |t| t.name == '$target_name' }\n                      if target\n                        target.build_configurations.each do |config|\n                        puts config.build_settings['$build_setting']\n                        current_setting = config.build_settings['$build_setting']\n                        \n                            if current_setting && current_setting != 'YES'\n                              puts 'Skip Modifying SWIFT_INSTALL_OBJC_HEADER'\n                            else\n                                config.build_settings['$build_setting'] = '$build_setting_value'\n                                puts 'Modified SWIFT_INSTALL_OBJC_HEADER set to NO'\n                                project.save\n                            end\n                        end\n                        \n                      else\n                        puts 'Target $target_name not found in the project.'\n                      end\n                    \"\n",
+        "execution_position": "before_compile"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
