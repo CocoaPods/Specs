@@ -1,0 +1,75 @@
+{
+  "name": "onnxruntime-training-objc",
+  "version": "1.17.1",
+  "summary": "ONNX Runtime Objective-C Pod",
+  "description": "A pod for the ONNX Runtime Objective-C training API.",
+  "homepage": "https://github.com/microsoft/onnxruntime",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ONNX Runtime": "onnxruntime@microsoft.com"
+  },
+  "source": {
+    "http": "https://onnxruntimepackages.z14.web.core.windows.net/pod-archive-onnxruntime-training-objc-1.17.1.zip"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "11.0"
+  },
+  "preserve_paths": [
+    "LICENSE"
+  ],
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "onnxruntime-training-c": [
+          "1.17.1"
+        ]
+      },
+      "requires_arc": true,
+      "compiler_flags": [
+        "-std=c++17",
+        "-fobjc-arc-exceptions",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/objectivec\"",
+        "OTHER_CPLUSPLUSFLAGS": "-fvisibility=hidden -fvisibility-inlines-hidden"
+      },
+      "public_header_files": [
+        "objectivec/include/*.h"
+      ],
+      "source_files": [
+        "objectivec/include/*.h",
+        "objectivec/*.h",
+        "objectivec/*.m",
+        "objectivec/*.mm"
+      ],
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "objectivec/test/*.h",
+            "objectivec/test/*.m",
+            "objectivec/test/*.mm"
+          ],
+          "resources": [
+            "objectivec/test/testdata/*.ort",
+            "onnxruntime/test/testdata/training_api/*.onnx",
+            "onnxruntime/test/testdata/training_api/*.ckpt",
+            "onnxruntime/test/testdata/training_api/*.in",
+            "onnxruntime/test/testdata/training_api/*.out"
+          ]
+        }
+      ]
+    }
+  ]
+}
