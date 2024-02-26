@@ -1,0 +1,103 @@
+{
+  "name": "StraaS-iOS-SDK",
+  "version": "0.74.0",
+  "summary": "StraaS.io iOS SDK",
+  "description": "StraaS.io - Streaming as a Service, Your Best OTT Solution.",
+  "homepage": "https://github.com/StraaS/StraaS-iOS-sdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 StraaS.io. All rights reserved."
+  },
+  "authors": "StraaS.io",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "source": {
+    "git": "https://github.com/StraaS/StraaS-iOS-sdk.git",
+    "tag": "0.74.0"
+  },
+  "static_framework": true,
+  "resource_bundles": {
+    "StraaSPlayerSDK": [
+      "ios/StraaSPlayerSDK.framework/Assets.car",
+      "ios/StraaSPlayerSDK.framework/*.lproj"
+    ],
+    "StraaSMessagingSDK": [
+      "ios/StraaSMessagingSDK.framework/*.lproj"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Messaging",
+      "vendored_frameworks": "ios/StraaSMessagingSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "Socket.IO-Client-Swift": [
+          "= 15.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "ios/StraaSCoreSDK.framework",
+      "dependencies": {
+        "AFNetworking": [
+          "= 4.0.1"
+        ],
+        "Socket.IO-Client-Swift": [
+          "= 15.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Streaming",
+      "vendored_frameworks": "ios/StraaSStreamingSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "GPUImage-StraaS": [
+          "= 0.1.10"
+        ]
+      }
+    },
+    {
+      "name": "Player",
+      "vendored_frameworks": "ios/StraaSPlayerSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Core": [
+
+        ],
+        "Socket.IO-Client-Swift": [
+          "= 15.1.0"
+        ],
+        "GoogleAds-IMA-iOS-SDK": [
+          "= 3.13.0"
+        ],
+        "KVOController": [
+          "= 1.2.0"
+        ],
+        "AFNetworking": [
+          "= 4.0.1"
+        ]
+      }
+    },
+    {
+      "name": "PlayerLowLatencyExtension",
+      "vendored_frameworks": "ios/StraaSPlayerLowLatencyExtensionSDK.framework",
+      "dependencies": {
+        "StraaS-iOS-SDK/Player": [
+
+        ]
+      }
+    }
+  ]
+}
