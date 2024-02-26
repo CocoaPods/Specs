@@ -1,0 +1,70 @@
+{
+  "name": "FURenderKit_AvatarX",
+  "version": "2.9.0",
+  "license": "MIT",
+  "summary": "A framework of FaceUnity",
+  "description": "a seak and package for sticker object and user do not attention release the sticker. convenient and easy to user FaceUnity function.",
+  "homepage": "https://www.faceunity.com",
+  "authors": {
+    "faceunity": "dev@faceunity.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://fu-sdk.oss-cn-hangzhou.aliyuncs.com/AvatarX/FURenderKit_AvatarX-v2.9.0.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "BasicKit",
+      "ios": {
+        "vendored_frameworks": "**/FUBasicKit.xcframework"
+      }
+    },
+    {
+      "name": "RenderKit",
+      "ios": {
+        "vendored_frameworks": "*/FURenderKit.xcframework"
+      },
+      "dependencies": {
+        "FURenderKit_AvatarX/BasicKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "AIKit",
+      "ios": {
+        "vendored_frameworks": "*/FUAIKit.xcframework"
+      },
+      "dependencies": {
+        "FURenderKit_AvatarX/BasicKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "Engine",
+      "resources": "**/EngineAssets.bundle"
+    },
+    {
+      "name": "AIFace",
+      "resources": "**/ai_face_processor_e51.bundle"
+    },
+    {
+      "name": "AIBody",
+      "resources": "**/ai_human_processor_driver_mbgpu.bundle"
+    },
+    {
+      "name": "AIHand",
+      "resources": "**/ai_hand_processor.bundle"
+    }
+  ]
+}
