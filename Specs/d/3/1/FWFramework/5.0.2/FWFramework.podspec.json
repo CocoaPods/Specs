@@ -1,0 +1,148 @@
+{
+  "name": "FWFramework",
+  "version": "5.0.2",
+  "summary": "ios develop framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWFramework.git",
+    "tag": "5.0.2"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.7",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "FWFramework"
+  ],
+  "subspecs": [
+    {
+      "name": "FWObjC",
+      "source_files": "Sources/FWObjC/**/*.{h,m}"
+    },
+    {
+      "name": "FWFramework",
+      "source_files": "Sources/FWFramework/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWObjC": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "FWSwiftUI",
+      "weak_frameworks": [
+        "SwiftUI",
+        "Combine"
+      ],
+      "source_files": "Sources/FWSwiftUI/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWFramework": [
+
+        ]
+      }
+    },
+    {
+      "name": "FWMacro",
+      "subspecs": [
+        {
+          "name": "Contacts",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroContacts"
+          }
+        },
+        {
+          "name": "Microphone",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroMicrophone"
+          }
+        },
+        {
+          "name": "Calendar",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroCalendar"
+          }
+        },
+        {
+          "name": "Tracking",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroTracking"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FWVendor",
+      "subspecs": [
+        {
+          "name": "SDWebImage",
+          "source_files": "Sources/FWVendor/SDWebImage/**/*.swift",
+          "dependencies": {
+            "SDWebImage": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "Alamofire",
+          "source_files": "Sources/FWVendor/Alamofire/**/*.swift",
+          "dependencies": {
+            "Alamofire": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lottie",
+          "source_files": "Sources/FWVendor/Lottie/**/*.swift",
+          "dependencies": {
+            "lottie-ios": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.7"
+}
