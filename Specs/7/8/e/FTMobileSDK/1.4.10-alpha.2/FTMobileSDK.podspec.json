@@ -1,0 +1,177 @@
+{
+  "name": "FTMobileSDK",
+  "version": "1.4.10-alpha.2",
+  "summary": "观测云 iOS 数据采集 SDK",
+  "homepage": "https://github.com/GuanceCloud/datakit-ios.git",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "hulilei@jiagouyun.com",
+    "Brandon Zhang": "zhangbo@jiagouyun.com"
+  },
+  "default_subspecs": "FTMobileAgent",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "source": {
+    "git": "https://github.com/GuanceCloud/datakit-ios.git",
+    "tag": "1.4.10-alpha.2"
+  },
+  "resource_bundles": {
+    "FTSDKPrivacyInfo": "FTMobileSDK/FTSDKCore/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "FTMobileAgent",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "FTMobileSDK/FTMobileAgent/**/*{.h,.m}",
+      "dependencies": {
+        "FTMobileSDK/FTSDKCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "FTMobileSDK/FTMobileExtension/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Config/*.{h,m}",
+        "FTMobileSDK/FTMobileAgent/ExternalData/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Extension/*{.h,.m}"
+      ],
+      "dependencies": {
+        "FTMobileSDK/FTSDKCore/FTRUM": [
+
+        ],
+        "FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation": [
+
+        ],
+        "FTMobileSDK/FTSDKCore/Crash": [
+
+        ],
+        "FTMobileSDK/FTSDKCore/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "FTSDKCore",
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.13"
+      },
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": [
+            "FTMobileSDK/FTSDKCore/FTRUM/RUMCore/**/*{.h,.m}",
+            "FTMobileSDK/FTSDKCore/FTRUM/Monitor/*{.h,.m}",
+            "FTMobileSDK/FTSDKCore/FTRUM/FTAppLaunchTracker.{h,m}"
+          ],
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "Crash",
+          "source_files": "FTMobileSDK/FTSDKCore/Crash/**/*{.h,.m,.c}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "FTMobileSDK/FTSDKCore/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "BaseUtils",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Base/*{.h,.m}"
+            },
+            {
+              "name": "Thread",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Thread/*{.h,.m}"
+            },
+            {
+              "name": "Swizzle",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle/*{.h,.m,.c}",
+              "dependencies": {
+                "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logger",
+          "source_files": "FTMobileSDK/FTSDKCore/Logger/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTWKWebView",
+          "source_files": "FTMobileSDK/FTSDKCore/FTWKWebView/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "DataManager",
+          "source_files": "FTMobileSDK/FTSDKCore/DataManager/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
