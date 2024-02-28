@@ -1,0 +1,38 @@
+{
+  "name": "DataDrivenRxDatasources",
+  "version": "3.5.3",
+  "summary": "MVVM abstraction boilerplate code over RxDataSources.",
+  "description": "DataDrivenRxDatasources - MVVM abstraction boilerplate code over RxDataSources.\n\n  The standard approach to managing table/collection views with data sources has several flaws:\n  - Repeated boilerplate code - data source and delegate methods, cell registration, etc.\n  - Tangled follow the flow of control of TableView/CollectionView data source and delegate methods since they are often placed in a different order, far from each other, or even located in different files.\n  - Violation of dependency inversion principle. The knowledge about which cells are attached to a table/collection view and how these cells are instantiated (nib or class) leaks to corresponding view controllers. View controller becomes dependent on the module of the lower level (table/collection view cell).\n  - Leaves lots of room for mistakes, since data source methods must be consistent with each other. For example, if numberOfRows(inSection:), numberOfSections(in:) and tableView(_,cellForRowAt:) are inconsistent, it results in an unwanted behaviour or even crash. Cells in these methods is a generic UITableViewCell/UICollectionViewCell type which usually should be type casted to a concrete class.\n  - Table/collection view data source protocol implementation is imperative and does not feel Swift way.\n  \n  RxDataSources helps us to solve some of this problem with an elegant data binding mechanism and powerful AnimatableSectionModel & SectionModel abstractions, but still stays us on our own with repeatable cell registration and violation of dependency inversion principle.\n  \n  Data-driven is a programming paradigm in which the program code, although separated from the input data, is designed in such a way that the program logic is determined by the input data. DataDrivenRxDatasources lets us address these issues and design a data-driven, reusable, and declarative table view component which depends only on its ViewModel.\n```swift\nprivate typealias SectionViewModel = AnimatableTableSectionModel<String>\n\nlet cellItems = [\n      SampleCellViewModel(name: \"Name 1\"),\n      SampleCellViewModel(name: \"Name 2\")\n    ]\n  \nlet sections: Driver<[AnimatableTableSectionModel<String>]> = .just([ReloadSectionViewModel(model: \"Some Section\", items: cellItems)])\n    \ntableView.rx\n  .bind(sections: sections)\n  .disposed(by: bag)\n```",
+  "homepage": "https://github.com/bigMOTOR/DataDrivenRxDatasources",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dmytro Makarenko": "dmitevmak@gmail.com",
+    "Nikolay Fiantsev": "to.bigmotor@gmail.com",
+    "Misha Markin": "shire8bit@gmail.com",
+    "Dmytro Dovhan": "montazher@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bigMOTOR/DataDrivenRxDatasources.git",
+    "tag": "3.5.3"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": [
+    "Sources/DataDrivenRxDatasources/*.swift",
+    "Sources/DataDrivenRxDatasources/**/*.swift"
+  ],
+  "dependencies": {
+    "RxSwift": [
+      "~> 6.0"
+    ],
+    "RxDataSources": [
+      "~> 5.0"
+    ]
+  },
+  "swift_version": "5.0"
+}
