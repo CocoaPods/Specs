@@ -1,0 +1,105 @@
+{
+  "name": "libjxl",
+  "version": "0.10.0",
+  "summary": "JPEG XL image format reference implementation",
+  "description": "JPEG XL image format reference implementation",
+  "homepage": "https://jpeg.org/jpegxl/",
+  "license": {
+    "type": "BSD 3-Clause"
+  },
+  "authors": [
+    "Google Inc.",
+    "Cloudinary Ltd."
+  ],
+  "source": {
+    "git": "https://github.com/SDWebImage/libjxl-Xcode.git",
+    "tag": "0.10.0",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11",
+    "tvos": "9.0",
+    "watchos": "2.0",
+    "visionos": "1.0"
+  },
+  "default_subspecs": "libjxl",
+  "libraries": "c++",
+  "preserve_paths": [
+    "libjxl",
+    "generate",
+    "include"
+  ],
+  "subspecs": [
+    {
+      "name": "brotli",
+      "source_files": "libjxl/third_party/brotli/c/**/*.{c,cc}",
+      "exclude_files": [
+        "libjxl/third_party/brotli/c/fuzz",
+        "libjxl/third_party/brotli/c/tools"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/libjxl/libjxl/third_party/brotli/c/include ${PODS_ROOT}/libjxl/libjxl/third_party/brotli/c"
+      }
+    },
+    {
+      "name": "lcms",
+      "source_files": "libjxl/third_party/lcms/src/**/*.{c,cc}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/libjxl/libjxl/third_party/lcms/include ${PODS_ROOT}/libjxl/libjxl/third_party/lcms/src"
+      }
+    },
+    {
+      "name": "hwy",
+      "source_files": "libjxl/third_party/highway/hwy/**/*.{c,cc}",
+      "exclude_files": [
+        "libjxl/third_party/highway/hwy/tests",
+        "libjxl/third_party/highway/hwy/examples",
+        "libjxl/third_party/highway/hwy/contrib",
+        "libjxl/third_party/highway/hwy/*_test.{c,cc}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/libjxl/libjxl/third_party/highway"
+      }
+    },
+    {
+      "name": "libjxl",
+      "dependencies": {
+        "libjxl/brotli": [
+
+        ],
+        "libjxl/lcms": [
+
+        ],
+        "libjxl/hwy": [
+
+        ]
+      },
+      "source_files": [
+        "libjxl/lib/jxl/**/*.{c,cc}",
+        "generate/**/*.{c,cc}",
+        "include/**/*.h"
+      ],
+      "exclude_files": [
+        "libjxl/lib/jxl/**/*_test.{c,cc}",
+        "libjxl/lib/jxl/dec_transforms_testonly.{c,cc}",
+        "libjxl/lib/jxl/test_image.{c,cc}",
+        "libjxl/lib/jxl/test_utils.{c,cc}",
+        "libjxl/lib/jxl/**/*_gbench.{c,cc}"
+      ],
+      "header_mappings_dir": "include",
+      "public_header_files": "include/**/*.h",
+      "compiler_flags": [
+        "-DCMS_NO_REGISTER_KEYWORD",
+        "-fnew-alignment=8",
+        "-fno-cxx-exceptions",
+        "-fno-slp-vectorize",
+        "-fno-vectorize",
+        "-Wno-shorten-64-to-32"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/libjxl/include ${PODS_ROOT}/libjxl/libjxl"
+      }
+    }
+  ]
+}
