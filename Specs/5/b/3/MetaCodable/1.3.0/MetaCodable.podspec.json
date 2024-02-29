@@ -1,0 +1,72 @@
+{
+  "name": "MetaCodable",
+  "version": "1.3.0",
+  "homepage": "https://github.com/SwiftyLab/MetaCodable",
+  "summary": "Supercharge Swift's Codable implementations with macros.",
+  "description": "MetaCodable exposes custom macros which can be used to generate dynamic Codable implementations.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "social_media_url": "https://twitter.com/soumya_mahunt",
+  "readme": "https://github.com/SwiftyLab/MetaCodable/blob/v1.3.0/README.md",
+  "changelog": "https://github.com/SwiftyLab/MetaCodable/blob/v1.3.0/CHANGELOG.md",
+  "documentation_url": "https://swiftpackageindex.com/SwiftyLab/MetaCodable/v1.3.0/documentation/metacodable",
+  "source": {
+    "git": "https://github.com/SwiftyLab/MetaCodable.git",
+    "tag": "v1.3.0"
+  },
+  "authors": {
+    "Soumya Ranjan Mahunt": "soumya.mahunt@gmail.com"
+  },
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "tvos": "13.0",
+    "watchos": "6.0"
+  },
+  "preserve_paths": [
+    "*.md",
+    "LICENSE"
+  ],
+  "default_subspecs": "Macro",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/MetaCodableTests/HelperCoders/**/*.swift",
+      "dependencies": {
+        "MetaCodable/Macro": [
+          "= 1.3.0"
+        ],
+        "MetaCodable/HelperCoders": [
+          "= 1.3.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Macros/MacroPlugin/release/MacroPlugin#MacroPlugin",
+        "METACODABLE_PLUGIN_BUILD_ENVIRONMENT": "METACODABLE_BEING_USED_FROM_COCOAPODS=true"
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Macro",
+      "dependencies": {
+        "MetaCodableMacro": [
+          "= 1.3.0"
+        ]
+      }
+    },
+    {
+      "name": "HelperCoders",
+      "dependencies": {
+        "MetaCodableHelperCoders": [
+          "= 1.3.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
