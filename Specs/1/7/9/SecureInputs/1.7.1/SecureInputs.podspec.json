@@ -1,0 +1,83 @@
+{
+  "name": "SecureInputs",
+  "version": "1.7.1",
+  "summary": "SecureInputs library for ios app.",
+  "description": "SecureInputs library allows integrator using secure fields for handling PCI and PII data. This way it cannot be easily exopsed.",
+  "homepage": "https://github.com/melisource/fury_secure-inputs-ios",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "Mercado Libre",
+  "source": {
+    "http": "https://artifacts.mercadolibre.com/repository/ios-releases/SecureInputs/1.7.1/SecureInputs.zip"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.7",
+  "default_subspecs": "AndesFields",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "requires_app_host": false,
+      "source_files": "LibraryComponents/Tests/**/*.{swift}",
+      "frameworks": "XCTest"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Networking",
+      "source_files": [
+        "LibraryComponents/Sources/Networking/**/*.{swift}"
+      ]
+    },
+    {
+      "name": "Tokenization",
+      "source_files": [
+        "LibraryComponents/Sources/Tokenization/**/*.{swift}"
+      ],
+      "dependencies": {
+        "SecureInputs/Networking": [
+
+        ]
+      }
+    },
+    {
+      "name": "PlainFields",
+      "source_files": [
+        "LibraryComponents/Sources/SecureInputs/**/*.{swift}"
+      ],
+      "dependencies": {
+        "SecureInputs/Tokenization": [
+
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "requires_app_host": false,
+          "source_files": "LibraryComponents/Tests/**/*.{swift}",
+          "frameworks": "XCTest"
+        }
+      ]
+    },
+    {
+      "name": "AndesFields",
+      "dependencies": {
+        "SecureInputs/PlainFields": [
+
+        ],
+        "AndesUI": [
+          "~> 3.120"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7"
+}
