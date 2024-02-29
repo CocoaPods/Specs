@@ -1,0 +1,56 @@
+{
+  "name": "abbi",
+  "version": "2.18.3",
+  "summary": "Simple SDK for developers to manage and maximize conversions of all in-app promotions.",
+  "description": "In one line of code, ABBI provides the full life-cycle of in app marketing to your app. Create and manage your in app promotions and let ABBI do all the hard work and optimize your CTR's!",
+  "homepage": "http://walkme.com",
+  "license": "Commercial",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "authors": {
+    "WalkMe Inc": "http://walkme.com"
+  },
+  "source": {
+    "git": "https://github.com/abbiio/iosdk.git",
+    "tag": "2.18.3"
+  },
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/abbi\"",
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "frameworks": [
+    "CoreMotion",
+    "UIKit",
+    "Social",
+    "StoreKit",
+    "SystemConfiguration",
+    "WebKit",
+    "AudioToolbox"
+  ],
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "preserve_paths": "WalkMeSDK.xcframework",
+      "vendored_frameworks": "WalkMeSDK.xcframework"
+    },
+    {
+      "name": "XCFramework",
+      "preserve_paths": "WalkMeSDK.xcframework",
+      "vendored_frameworks": "WalkMeSDK.xcframework"
+    },
+    {
+      "name": "Legacy",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "preserve_paths": "WalkMeSDK.framework",
+      "vendored_frameworks": "WalkMeSDK.framework"
+    }
+  ]
+}
