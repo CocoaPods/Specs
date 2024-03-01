@@ -1,0 +1,94 @@
+{
+  "name": "Harbeth",
+  "version": "1.1.1",
+  "summary": "About image and video add filter for metal.",
+  "homepage": "https://github.com/yangKJ/Harbeth",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Condy": "yangkj310@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/Harbeth.git",
+    "tag": "1.1.1"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "module_name": "Harbeth",
+  "ios": {
+    "source_files": "Sources/Harbeth.h"
+  },
+  "osx": {
+    "source_files": "Sources/Harbeth.h"
+  },
+  "prefix_header_file": false,
+  "subspecs": [
+    {
+      "name": "Basic",
+      "source_files": "Sources/Basic/**/*.swift",
+      "weak_frameworks": [
+        "ImageIO",
+        "MetalKit",
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "Compute",
+      "source_files": "Sources/Compute/**/*.swift",
+      "resource_bundles": {
+        "Harbeth": [
+          "Sources/Compute/**/*.metal"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HARBETH_COMPUTE_LIBRARY_IN_BUNDLE",
+        "GCC_PREPROCESSOR_DEFINITIONS": "HARBETH_COMPUTE_LIBRARY_IN_BUNDLE=1"
+      },
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    },
+    {
+      "name": "CoreImage",
+      "source_files": "Sources/CoreImage/**/*.swift",
+      "weak_frameworks": "CoreImage",
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    },
+    {
+      "name": "MPS",
+      "source_files": "Sources/MPS/*.swift",
+      "weak_frameworks": "MetalPerformanceShaders",
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    },
+    {
+      "name": "SwiftUI",
+      "source_files": "Sources/SwiftUI/*.swift",
+      "dependencies": {
+        "Harbeth/Basic": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
