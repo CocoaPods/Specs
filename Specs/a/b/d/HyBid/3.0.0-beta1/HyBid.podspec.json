@@ -1,0 +1,131 @@
+{
+  "name": "HyBid",
+  "version": "3.0.0-beta1",
+  "summary": "This is the iOS SDK of HyBid. You can read more about it at https://pubnative.net.",
+  "description": "HyBid leverages first-look prebid technology to maximize yield for the publishers across\ntheir current monetization suit. Access to the unique demand across different formats allows\npublishers to immediately benefit with additional revenues on top of their current yield. Prebid technology\nallows getting a competitive bid before executing your regular waterfall logic, and then\nparticipate in the relevant auctions in the cascade.",
+  "homepage": "https://github.com/pubnative/pubnative-hybid-ios-sdk",
+  "documentation_url": "https://developers.verve.com/v3.0/docs/hybid",
+  "license": {
+    "type": "MIT",
+    "text": "    MIT License\n\n    Copyright (c) 2024 PubNative GmbH\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE.\n"
+  },
+  "authors": {
+    "Can Soykarafakili": "can.soykarafakili@pubnative.net",
+    "Eros Garcia Ponte": "eros.ponte@pubnative.net",
+    "Fares Benhamouda": "fares.benhamouda@pubnative.net",
+    "Orkhan Alizada": "orkhan.alizada@pubnative.net",
+    "Jose Contreras": "jose.contreras@verve.com",
+    "Aysel Abdullayeva": "aysel.abdullayeva@verve.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/pubnative/pubnative-hybid-ios-sdk.git",
+    "tag": "3.0.0-beta1"
+  },
+  "resource_bundles": {
+    "HyBid_Privacy": "PubnativeLite/PubnativeLite/PrivacyInfo.xcprivacy"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-framework OMSDK_Pubnativenet"
+  },
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xcc -Wno-incomplete-umbrella",
+    "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/ATOM-Standalone ${PODS_XCFRAMEWORKS_BUILD_DIR}/ATOM-Standalone"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PubnativeLite/PubnativeLite/Core/**/*.{swift,h,m}",
+      "resources": [
+        "PubnativeLite/PubnativeLite/Resources/**/*",
+        "PubnativeLite/PubnativeLite/OMSDK-1.4.10/*.js",
+        "PubnativeLite/PubnativeLite/Core/MRAID/*.js"
+      ],
+      "exclude_files": "PubnativeLite/PubnativeLite/Core/Public/HyBidStatic.{swift,h,m}",
+      "vendored_frameworks": [
+        "PubnativeLite/PubnativeLite/OMSDK-1.4.10/*.{xcframework}"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/HyBid/module"
+      },
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/HyBid/module"
+      },
+      "public_header_files": [
+        "PubnativeLite/PubnativeLite/Core/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Viewability/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Consent/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Ad Model/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Ad Request/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Ad Cache/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Ad Presenter/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/MRAID/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Remote Config/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Auction/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Utils/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/VAST/Public/*.h",
+        "PubnativeLite/PubnativeLite/Core/Analytics/Public/*.h"
+      ]
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "HyBid/Core": [
+
+        ]
+      },
+      "source_files": [
+        "PubnativeLite/PubnativeLite/Banner/**/*.{swift,h,m}"
+      ],
+      "public_header_files": [
+        "PubnativeLite/PubnativeLite/Banner/**/*.h"
+      ]
+    },
+    {
+      "name": "Native",
+      "dependencies": {
+        "HyBid/Core": [
+
+        ]
+      },
+      "source_files": [
+        "PubnativeLite/PubnativeLite/Native/**/*.{swift,h,m}"
+      ],
+      "public_header_files": [
+        "PubnativeLite/PubnativeLite/Native/**/*.h"
+      ]
+    },
+    {
+      "name": "FullScreen",
+      "dependencies": {
+        "HyBid/Core": [
+
+        ]
+      },
+      "source_files": [
+        "PubnativeLite/PubnativeLite/FullScreen/**/*.{swift,h,m}"
+      ],
+      "public_header_files": [
+        "PubnativeLite/PubnativeLite/FullScreen/Public/*.h"
+      ]
+    },
+    {
+      "name": "RewardedVideo",
+      "dependencies": {
+        "HyBid/Core": [
+
+        ]
+      },
+      "source_files": [
+        "PubnativeLite/PubnativeLite/Rewarded/**/*.{swift,h,m}"
+      ],
+      "public_header_files": [
+        "PubnativeLite/PubnativeLite/Rewarded/Public/*.h"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
