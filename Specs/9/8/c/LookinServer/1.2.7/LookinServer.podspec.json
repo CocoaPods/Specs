@@ -1,0 +1,72 @@
+{
+  "name": "LookinServer",
+  "version": "1.2.7",
+  "summary": "The iOS framework of Lookin.",
+  "description": "Embed this framework into your iOS project to enable Lookin mac app.",
+  "homepage": "https://lookin.work",
+  "license": "GPL-3.0",
+  "authors": {
+    "Li Kai": "lookin@lookin.work"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "9.0"
+  },
+  "default_subspecs": "Core",
+  "source": {
+    "git": "https://github.com/QMUI/LookinServer.git",
+    "tag": "1.2.7"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Src/Main/**/*",
+        "Src/Base/**/*"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SHOULD_COMPILE_LOOKIN_SERVER=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) SHOULD_COMPILE_LOOKIN_SERVER"
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "LookinServer/Core": [
+
+        ]
+      },
+      "source_files": "Src/Swift/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED"
+      }
+    },
+    {
+      "name": "NoHook",
+      "dependencies": {
+        "LookinServer/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_DISABLE_HOOK=1"
+      }
+    },
+    {
+      "name": "SwiftAndNoHook",
+      "dependencies": {
+        "LookinServer/Core": [
+
+        ]
+      },
+      "source_files": "Src/Swift/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED=1 LOOKIN_SERVER_DISABLE_HOOK=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED"
+      }
+    }
+  ]
+}
