@@ -1,0 +1,83 @@
+{
+  "name": "JxlCoder",
+  "version": "1.6.0",
+  "summary": "JXL coder for iOS and MacOS",
+  "description": "Provides support for JXL files in iOS and MacOS",
+  "homepage": "https://github.com/awxkee/jxl-coder-swift",
+  "license": {
+    "type": "CC0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "username": "radzivon.bartoshyk@proton.me"
+  },
+  "source": {
+    "git": "https://github.com/awxkee/jxl-coder-swift.git",
+    "tag": "1.6.0"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "12.0"
+  },
+  "source_files": [
+    "Sources/jxlc/**/*.{swift,h,m,cpp,mm,hpp}",
+    "Sources/JxlCoder/*.swift",
+    "Sources/Module/JxlCoder.h",
+    "Sources/Frameworks/libjxl.xcframework/ios-arm64/Headers/**/*.h"
+  ],
+  "swift_versions": [
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "frameworks": [
+    "Foundation",
+    "CoreGraphics",
+    "Accelerate"
+  ],
+  "ios": {
+    "vendored_frameworks": [
+      "Sources/Frameworks/libbrotlicommon.xcframework",
+      "Sources/Frameworks/libbrotlidec.xcframework",
+      "Sources/Frameworks/libbrotlienc.xcframework",
+      "Sources/Frameworks/libhwy.xcframework",
+      "Sources/Frameworks/libjxl.xcframework",
+      "Sources/Frameworks/libjxl_threads.xcframework",
+      "Sources/Frameworks/libjxl_cms.xcframework",
+      "Sources/Frameworks/libskcms.xcframework"
+    ]
+  },
+  "osx": {
+    "vendored_frameworks": [
+      "Sources/Frameworks/libbrotlicommon.xcframework",
+      "Sources/Frameworks/libbrotlidec.xcframework",
+      "Sources/Frameworks/libbrotlienc.xcframework",
+      "Sources/Frameworks/libhwy.xcframework",
+      "Sources/Frameworks/libjxl.xcframework",
+      "Sources/Frameworks/libjxl_threads.xcframework",
+      "Sources/Frameworks/libjxl_cms.xcframework",
+      "Sources/Frameworks/libskcms.xcframework"
+    ]
+  },
+  "public_header_files": [
+    "Sources/jxlc/**.h",
+    "Sources/jxlc/**.hpp",
+    "Headers/**/*.h"
+  ],
+  "project_header_files": "Sources/jxlc/JxlWorker.hpp",
+  "pod_target_xcconfig": {
+    "OTHER_CXXFLAGS": "$(inherited) -std=c++20 -ffast-math",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/Sources/Frameworks/libjxl.xcframework/ios-arm64/Headers\" \"$(PODS_TARGET_SRCROOT)/Sources/Frameworks/libhwy.xcframework/ios-arm64/Headers\"",
+    "OTHER_CPLUSPLUSFLAGS": "$(inherited) -fmodules -fcxx-modules -std=c++20 -ffast-math"
+  },
+  "preserve_paths": [
+    "Sources/Frameworks/*.xcframework",
+    "Sources/Frameworks/*.xcframework/**/Headers",
+    "Sources/Frameworks/libjxl.xcframework/ios-arm64/Headers/jxl",
+    "Sources/Frameworks/libjxl.xcframework/ios-arm64/Headers/jpegli",
+    "Sources/Frameworks/libjxl.xcframework/ios-arm64/Headers/libhwy"
+  ],
+  "libraries": "c++",
+  "requires_arc": true,
+  "swift_version": "5.5"
+}
