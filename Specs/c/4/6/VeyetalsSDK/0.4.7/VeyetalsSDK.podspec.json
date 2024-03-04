@@ -1,0 +1,76 @@
+{
+  "name": "VeyetalsSDK",
+  "version": "0.4.7",
+  "summary": "iOS SDK for Veyetals scanning using PPG and RPPG techniques",
+  "info_plist": {
+    "CFBundleIdentifier": "com.markitech.VeyetalsSDK"
+  },
+  "description": "iOS SDK for Veyetals scanning using PPG and RPPG techniques.",
+  "homepage": "https://www.bitbucket.org/fmarki/markitech-veyetals-sdk-pod.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Farooq Zaman": "farooq.zaman@markitech.ca"
+  },
+  "source": {
+    "git": "https://www.bitbucket.org/fmarki/markitech-veyetals-sdk-pod.git",
+    "tag": "0.4.7"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "VeyetalsSDK/Classes/**/*",
+  "resources": [
+    "VeyetalsSDK/Assets/Veyetals.storyboard",
+    "VeyetalsSDK/Assets/haarcascade_frontalface_alt2.xml"
+  ],
+  "static_framework": true,
+  "private_header_files": "VeyetalsSDK/Classes/Models/MatObj.h",
+  "public_header_files": [
+    "VeyetalsSDK/Classes/Models/MTExceptionWrapper.h",
+    "VeyetalsSDK/Classes/Models/OpenCVWrapper.h"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Accelerate",
+    "CoreFoundation",
+    "CoreMedia",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreML",
+    "Vision"
+  ],
+  "dependencies": {
+    "OpenCV": [
+      "4.3.0"
+    ],
+    "Alamofire": [
+      "~> 5.6"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "script_phases": {
+    "name": "Update Precompiled Header",
+    "script": "echo \"#ifdef __cplusplus\\n#import <opencv2/opencv.hpp>\\n#import <opencv2/stitching/detail/blenders.hpp>\\n#import <opencv2/stitching/detail/exposure_compensate.hpp>\\n#endif\\n\\n$(cat Target\\ Support\\ Files/VeyetalsSDK/VeyetalsSDK-prefix.pch)\" > Target\\ Support\\ Files/VeyetalsSDK/VeyetalsSDK-prefix.pch",
+    "execution_position": "before_compile"
+  },
+  "subspecs": [
+    {
+      "name": "Resources",
+      "resource_bundles": {
+        "VeyetalsLocalizedStrings": [
+          "VeyetalsSDK/Assets/**/*.{strings}"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
