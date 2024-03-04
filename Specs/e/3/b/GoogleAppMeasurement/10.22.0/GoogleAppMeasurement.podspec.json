@@ -1,0 +1,61 @@
+{
+  "name": "GoogleAppMeasurement",
+  "version": "10.22.0",
+  "summary": "Shared measurement methods for Google libraries. Not intended for direct use.",
+  "description": "Measurement methods that are shared between\nGoogle libraries. This pod does not expose\nany headers and isn't intended for direct\nuse, but rather as a dependency of some\nGoogle libraries.",
+  "homepage": "https://developers.google.com/ios",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2022 Google"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "http": "https://dl.google.com/firebase/ios/analytics/a92666f1e01923b8/GoogleAppMeasurement-10.22.0.tar.gz"
+  },
+  "cocoapods_version": ">= 1.12.0",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13",
+    "tvos": "12.0"
+  },
+  "libraries": [
+    "c++",
+    "sqlite3",
+    "z"
+  ],
+  "frameworks": "StoreKit",
+  "dependencies": {
+    "GoogleUtilities/AppDelegateSwizzler": [
+      "~> 7.11"
+    ],
+    "GoogleUtilities/MethodSwizzler": [
+      "~> 7.11"
+    ],
+    "GoogleUtilities/NSData+zlib": [
+      "~> 7.11"
+    ],
+    "GoogleUtilities/Network": [
+      "~> 7.11"
+    ],
+    "nanopb": [
+      ">= 2.30908.0",
+      "< 2.30911.0"
+    ]
+  },
+  "default_subspecs": "AdIdSupport",
+  "subspecs": [
+    {
+      "name": "AdIdSupport",
+      "dependencies": {
+        "GoogleAppMeasurement/WithoutAdIdSupport": [
+          "10.22.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/GoogleAppMeasurementIdentitySupport.xcframework"
+    },
+    {
+      "name": "WithoutAdIdSupport",
+      "vendored_frameworks": "Frameworks/GoogleAppMeasurement.xcframework"
+    }
+  ]
+}
