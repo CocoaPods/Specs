@@ -1,0 +1,74 @@
+{
+  "name": "Apollo",
+  "version": "1.9.1",
+  "authors": "Apollo GraphQL",
+  "homepage": "https://github.com/apollographql/apollo-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A GraphQL client for iOS, written in Swift.",
+  "source": {
+    "git": "https://github.com/apollographql/apollo-ios.git",
+    "tag": "1.9.1"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.6",
+  "default_subspecs": "Core",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "12.0",
+    "watchos": "5.0"
+  },
+  "preserve_paths": [
+    "apollo-ios-cli"
+  ],
+  "prepare_command": "make unpack-cli",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Apollo/**/*.swift",
+        "Sources/ApolloAPI/**/*.swift"
+      ],
+      "resource_bundles": {
+        "Apollo": [
+          "Sources/Apollo/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "SQLite",
+      "source_files": "Sources/ApolloSQLite/*.swift",
+      "dependencies": {
+        "Apollo/Core": [
+
+        ],
+        "SQLite.swift": [
+          "~>0.13.1"
+        ]
+      },
+      "resource_bundles": {
+        "ApolloSQLite": [
+          "Sources/ApolloSQLite/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "WebSocket",
+      "source_files": "Sources/ApolloWebSocket/**/*.swift",
+      "dependencies": {
+        "Apollo/Core": [
+
+        ]
+      },
+      "resource_bundles": {
+        "ApolloWebSocket": [
+          "Sources/ApolloWebSocket/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.6"
+}
