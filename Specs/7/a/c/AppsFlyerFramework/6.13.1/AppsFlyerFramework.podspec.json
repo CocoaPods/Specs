@@ -1,0 +1,94 @@
+{
+  "name": "AppsFlyerFramework",
+  "version": "6.13.1",
+  "summary": "AppsFlyer iOS SDK",
+  "description": "AppsFlyer native track allows you to find what attracts new users to your app,\nmeasure all your app marketing activities on one dashboard, and add new traffic sources in minutes,\nall without having to update SDK.",
+  "homepage": "https://www.appsflyer.com",
+  "license": {
+    "type": "Proprietary",
+    "text": "Copyright 2018 AppsFlyer Ltd. All rights reserved."
+  },
+  "authors": {
+    "Maxim": "maxim\\@appsflyer.com",
+    "Andrii": "andrii.h\\@appsflyer.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "9.0",
+    "tvos": "9.0",
+    "osx": "10.11"
+  },
+  "source": {
+    "http": "https://github.com/AppsFlyerSDK/AppsFlyerFramework/releases/download/6.13.1/AppsFlyerLib-Binaries.zip",
+    "sha256": "04e6803296325ddaeae4f77394e0d65979963893bdb8740545ee9c40ab7de910"
+  },
+  "ios": {
+    "frameworks": [
+      "Security",
+      "SystemConfiguration",
+      "CoreTelephony"
+    ]
+  },
+  "osx": {
+    "frameworks": "Security"
+  },
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "ios": {
+        "vendored_frameworks": "binaries/xcframework/full/AppsFlyerLib.xcframework"
+      },
+      "tvos": {
+        "vendored_frameworks": "binaries/xcframework/full/AppsFlyerLib.xcframework"
+      },
+      "osx": {
+        "vendored_frameworks": "binaries/xcframework/full/AppsFlyerLib.xcframework"
+      }
+    },
+    {
+      "name": "Legacy",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64 arm64e"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 arm64e",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64 arm64e"
+      },
+      "ios": {
+        "vendored_frameworks": "binaries/ios/AppsFlyerLib.framework"
+      },
+      "tvos": {
+        "vendored_frameworks": "binaries/tv/AppsFlyerLib.framework"
+      },
+      "osx": {
+        "vendored_frameworks": "binaries/xcframework/full/AppsFlyerLib.xcframework"
+      }
+    },
+    {
+      "name": "Strict",
+      "ios": {
+        "vendored_frameworks": "binaries/xcframework/strict/AppsFlyerLib.xcframework"
+      },
+      "tvos": {
+        "vendored_frameworks": "binaries/xcframework/strict/AppsFlyerLib.xcframework"
+      },
+      "osx": {
+        "vendored_frameworks": "binaries/xcframework/strict/AppsFlyerLib.xcframework"
+      }
+    },
+    {
+      "name": "Dynamic",
+      "ios": {
+        "vendored_frameworks": "binaries/xcframework/dynamic/AppsFlyerLib.xcframework"
+      },
+      "tvos": {
+        "vendored_frameworks": "binaries/xcframework/dynamic/AppsFlyerLib.xcframework"
+      },
+      "osx": {
+        "vendored_frameworks": "binaries/xcframework/full/AppsFlyerLib.xcframework"
+      }
+    }
+  ]
+}
