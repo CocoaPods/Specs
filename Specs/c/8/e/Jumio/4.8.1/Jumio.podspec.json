@@ -1,0 +1,102 @@
+{
+  "name": "Jumio",
+  "version": "4.8.1",
+  "summary": "Jumio SDK",
+  "homepage": "https://www.jumio.com",
+  "license": {
+    "type": "Commercial",
+    "text": "See https://www.jumio.com"
+  },
+  "authors": {
+    "Jumio Corporation": "support@jumio.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "source": {
+    "http": "https://repo.mobile.jumio.ai/com/jumio/ios/jumio-mobile-sdk/4.8.1/ios-jumio-mobile-sdk-4.8.1.zip"
+  },
+  "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings",
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC -lc++ -lz",
+    "CLANG_MODULES_AUTOLINK": "YES"
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Slim",
+      "vendored_frameworks": "JumioSlim/Jumio.xcframework",
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "Jumio",
+      "vendored_frameworks": "Jumio/Jumio.xcframework",
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "IProov",
+      "vendored_frameworks": "JumioIProov.xcframework",
+      "dependencies": {
+        "iProov": [
+          "10.3.3"
+        ],
+        "Jumio/Liveness": [
+          "4.8.1"
+        ]
+      },
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "Liveness",
+      "vendored_frameworks": "JumioLiveness.xcframework",
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "DeviceRisk",
+      "vendored_frameworks": "JumioDeviceRisk.xcframework",
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "Datadog",
+      "vendored_frameworks": "JumioDatadog.xcframework",
+      "dependencies": {
+        "DatadogCore": [
+          "2.1.2"
+        ],
+        "DatadogRUM": [
+          "2.1.2"
+        ]
+      },
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "DocFinder",
+      "vendored_frameworks": "JumioDocFinder.xcframework",
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "Jumio/Jumio": [
+          "4.8.1"
+        ],
+        "Jumio/DocFinder": [
+          "4.8.1"
+        ],
+        "Jumio/IProov": [
+          "4.8.1"
+        ],
+        "Jumio/Liveness": [
+          "4.8.1"
+        ],
+        "Jumio/Datadog": [
+          "4.8.1"
+        ]
+      },
+      "preserve_paths": "Localization/*lproj/Localizable-Jumio.strings"
+    }
+  ],
+  "swift_version": "5.0"
+}
