@@ -1,0 +1,91 @@
+{
+  "name": "OpenIMSDK",
+  "version": "3.5.1",
+  "summary": "Open-IM-SDK",
+  "description": "An OpenIM SDK in Objective-C for iOS",
+  "homepage": "https://github.com/OpenIMSDK/Open-IM-SDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "OpenIM": "https://github.com/OpenIMSDK/Open-IM-SDK-iOS"
+  },
+  "source": {
+    "git": "https://github.com/OpenIMSDK/Open-IM-SDK-iOS.git",
+    "tag": "3.5.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "OpenIMSDK/OpenIMSDK.{h,m}",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7s arm64 x86_64"
+  },
+  "pod_target_xcconfig": {
+    "ARCHS[sdk=iphonesimulator*]": "$(ARCHS_STANDARD_64_BIT)",
+    "DEFINES_MODULE": "YES"
+  },
+  "libraries": "resolv",
+  "frameworks": "SystemConfiguration",
+  "static_framework": true,
+  "dependencies": {
+    "OpenIMSDKCore": [
+      "3.5.1"
+    ],
+    "MJExtension": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Utils",
+      "source_files": "OpenIMSDK/Utils/*.{h,m}"
+    },
+    {
+      "name": "CallbackProxy",
+      "dependencies": {
+        "OpenIMSDK/Utils": [
+
+        ]
+      },
+      "source_files": "OpenIMSDK/CallbackProxy/*.{h,m}"
+    },
+    {
+      "name": "Model",
+      "dependencies": {
+        "OpenIMSDK/Utils": [
+
+        ]
+      },
+      "source_files": "OpenIMSDK/Model/*.{h,m}"
+    },
+    {
+      "name": "Interface",
+      "dependencies": {
+        "OpenIMSDK/Model": [
+
+        ],
+        "OpenIMSDK/CallbackProxy": [
+
+        ],
+        "OpenIMSDK/Callbacker": [
+
+        ]
+      },
+      "source_files": "OpenIMSDK/Interface/*.{h,m}"
+    },
+    {
+      "name": "Callbacker",
+      "dependencies": {
+        "OpenIMSDK/Model": [
+
+        ],
+        "OpenIMSDK/Utils": [
+
+        ]
+      },
+      "source_files": "OpenIMSDK/Callbacker/*.{h,m}"
+    }
+  ]
+}
