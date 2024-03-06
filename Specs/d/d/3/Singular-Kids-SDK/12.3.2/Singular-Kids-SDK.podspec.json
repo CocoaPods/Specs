@@ -1,0 +1,58 @@
+{
+  "name": "Singular-Kids-SDK",
+  "version": "12.3.2",
+  "summary": "Singular's iOS Kids SDK",
+  "description": "Singular's SDK integration for iOS",
+  "license": "MIT",
+  "homepage": "https://www.singular.net/",
+  "authors": "Singular Labs",
+  "source": {
+    "git": "https://github.com/singular-labs/Singular-Kids-SDK.git",
+    "tag": "12.3.2"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": [
+      "Security",
+      "SystemConfiguration",
+      "StoreKit",
+      "WebKit"
+    ],
+    "libraries": [
+      "sqlite3.0",
+      "z"
+    ]
+  },
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "ios": {
+        "vendored_frameworks": "Singular.xcframework"
+      }
+    },
+    {
+      "name": "Legacy",
+      "ios": {
+        "vendored_frameworks": "frameworks/Singular.framework",
+        "source_files": "headers/*.h",
+        "resources": [
+          "headers/*.js"
+        ],
+        "pod_target_xcconfig": {
+          "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/Singular-SDK/frameworks/**",
+          "OTHER_LDFLAGS": "$(inherited) -framework \"Singular\""
+        }
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    }
+  ]
+}
