@@ -1,0 +1,92 @@
+{
+  "name": "PaysafePaymentsSDK",
+  "version": "0.0.12",
+  "summary": "Paysafe iOS SDK that implements the Payments APIs.",
+  "homepage": "https://github.com/paysafegroup/paysafe_sdk_ios_payments_api.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Paysafe Group": "paysafe@paysafe.com"
+  },
+  "source": {
+    "git": "https://github.com/paysafegroup/paysafe_sdk_ios_payments_api.git",
+    "tag": "0.0.12"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.5",
+  "subspecs": [
+    {
+      "name": "PaysafeCommon",
+      "source_files": "Sources/PaysafeCommon/**/*.swift"
+    },
+    {
+      "name": "PaysafeNetworking",
+      "source_files": "Sources/PaysafeNetworking/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "PaysafeApplePay",
+      "source_files": "Sources/PaysafeApplePay/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "PaysafePayPal",
+      "source_files": "Sources/PaysafePayPal/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ],
+        "PayPal": [
+          "~> 1.1.0"
+        ]
+      }
+    },
+    {
+      "name": "Paysafe3DS",
+      "source_files": "Sources/Paysafe3DS/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ],
+        "PaysafePaymentsSDK/PaysafeNetworking": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/CardinalMobile.xcframework"
+    },
+    {
+      "name": "PaysafeCore",
+      "source_files": "Sources/PaysafeCore/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ],
+        "PaysafePaymentsSDK/PaysafeNetworking": [
+
+        ],
+        "PaysafePaymentsSDK/Paysafe3DS": [
+
+        ],
+        "PaysafePaymentsSDK/PaysafeApplePay": [
+
+        ],
+        "PaysafePaymentsSDK/PaysafePayPal": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.5"
+}
