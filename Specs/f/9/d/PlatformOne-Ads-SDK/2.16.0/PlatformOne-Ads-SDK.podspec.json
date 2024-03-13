@@ -1,0 +1,169 @@
+{
+  "name": "PlatformOne-Ads-SDK",
+  "version": "2.16.0",
+  "summary": "PlatformOne Ads SDK for iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2015-2023 UNITED Marketing Technologies, Inc. All rights reserved."
+  },
+  "homepage": "https://yieldone.com/service/",
+  "authors": "UNITED Marketing Technologies, Inc.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://dl.ad-stir.com/p1_sdk/PlatformOneAdsSdkiOS-2.16.0-MediationAdapter.zip",
+    "sha256": "3efcbc809fbf97e0955179a50945c128373f05e1863aeef7a9b71f140f041c1f"
+  },
+  "preserve_paths": "**/README.md",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "cocoapods_version": ">= 1.9.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "**/PlatformOneAds.xcframework",
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreTelephony",
+        "CoreMedia",
+        "QuartzCore",
+        "SystemConfiguration",
+        "SafariServices",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "Mediation",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "GADMediationAdapter",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "vendored_frameworks": "**/GADMediationAdapter/GADMAdapterPlatformOneAds.xcframework"
+    },
+    {
+      "name": "AppLovin",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "AppLovinSDK": [
+          "12.2.1"
+        ]
+      },
+      "vendored_frameworks": "**/PlatformOneAdsMediationAdapterAppLovin.xcframework"
+    },
+    {
+      "name": "IMobile",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "ImobileSdkAds": [
+          "2.3.3"
+        ]
+      },
+      "vendored_frameworks": "**/PlatformOneAdsMediationAdapterIMobile.xcframework"
+    },
+    {
+      "name": "Maio",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "MaioSDK-v2": [
+          "2.1.3"
+        ]
+      },
+      "vendored_frameworks": "**/PlatformOneAdsMediationAdapterMaio.xcframework"
+    },
+    {
+      "name": "TikTok",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "Ads-Global/BUAdSDK": [
+          "5.8.0.7"
+        ]
+      },
+      "vendored_frameworks": "**/PlatformOneAdsMediationAdapterTikTok.xcframework"
+    },
+    {
+      "name": "UnityAds",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/Mediation": [
+
+        ],
+        "UnityAds": [
+          "4.9.3"
+        ]
+      },
+      "vendored_frameworks": "**/PlatformOneAdsMediationAdapterUnityAds.xcframework"
+    },
+    {
+      "name": "All-Incentivized",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/AppLovin": [
+
+        ],
+        "PlatformOne-Ads-SDK/Maio": [
+
+        ],
+        "PlatformOne-Ads-SDK/TikTok": [
+
+        ],
+        "PlatformOne-Ads-SDK/UnityAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-Interstitial",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/AppLovin": [
+
+        ],
+        "PlatformOne-Ads-SDK/IMobile": [
+
+        ],
+        "PlatformOne-Ads-SDK/Maio": [
+
+        ],
+        "PlatformOne-Ads-SDK/TikTok": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-PlatformOne",
+      "dependencies": {
+        "PlatformOne-Ads-SDK/GADMediationAdapter": [
+
+        ],
+        "PlatformOne-Ads-SDK/All-Incentivized": [
+
+        ],
+        "PlatformOne-Ads-SDK/All-Interstitial": [
+
+        ]
+      }
+    }
+  ]
+}
