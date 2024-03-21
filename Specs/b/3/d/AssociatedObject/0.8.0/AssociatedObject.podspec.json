@@ -1,0 +1,44 @@
+{
+  "name": "AssociatedObject",
+  "version": "0.8.0",
+  "summary": "Swift Macro for allowing variable declarations even in class extensions.",
+  "description": "Swift Macro for allowing variable declarations even in class extensions.",
+  "homepage": "https://github.com/p-x9/AssociatedObject",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "p-x9": "https://github.com/p-x9"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "tvos": "13.0",
+    "osx": "10.15",
+    "watchos": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/p-x9/AssociatedObject.git",
+    "tag": "0.8.0"
+  },
+  "prepare_command": "swift build -c release && cp -f .build/release/AssociatedObjectPlugin ./Binary",
+  "source_files": [
+    "Sources/AssociatedObject/**/*.{c,h,m,swift}",
+    "Sources/AssociatedObjectC/**/*.{c,h,m,swift}"
+  ],
+  "swift_versions": "5.9",
+  "preserve_paths": [
+    "Binary/AssociatedObjectPlugin"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": [
+      "-load-plugin-executable ${PODS_ROOT}/AssociatedObject/Binary/AssociatedObjectPlugin#AssociatedObjectPlugin"
+    ]
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": [
+      "-load-plugin-executable ${PODS_ROOT}/AssociatedObject/Binary/AssociatedObjectPlugin#AssociatedObjectPlugin"
+    ]
+  },
+  "swift_version": "5.9"
+}
