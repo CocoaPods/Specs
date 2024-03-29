@@ -1,0 +1,175 @@
+{
+  "name": "FWFramework",
+  "version": "5.2.0",
+  "summary": "ios develop framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWFramework.git",
+    "tag": "5.2.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "FWFramework"
+  ],
+  "subspecs": [
+    {
+      "name": "FWObjC",
+      "source_files": "Sources/FWObjC/**/*.{h,m}"
+    },
+    {
+      "name": "FWFramework",
+      "source_files": "Sources/FWFramework/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWObjC": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "FWSwiftUI",
+      "weak_frameworks": [
+        "SwiftUI",
+        "Combine"
+      ],
+      "source_files": "Sources/FWSwiftUI/**/*.swift",
+      "dependencies": {
+        "FWFramework/FWFramework": [
+
+        ]
+      }
+    },
+    {
+      "name": "FWMacro",
+      "subspecs": [
+        {
+          "name": "Contacts",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroContacts"
+          }
+        },
+        {
+          "name": "Microphone",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroMicrophone"
+          }
+        },
+        {
+          "name": "Calendar",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroCalendar"
+          }
+        },
+        {
+          "name": "Tracking",
+          "dependencies": {
+            "FWFramework/FWFramework": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWMacroTracking"
+          }
+        },
+        {
+          "name": "Macros",
+          "source_files": "Macros/FWMacro/**/*.swift",
+          "preserve_paths": [
+            "Macros/Package.swift",
+            "Macros/FWMacroMacros/**/*.swift"
+          ],
+          "script_phases": {
+            "name": "Build FWFramework macro plugin",
+            "script": "env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -c release --disable-sandbox --package-path \\\"$PODS_TARGET_SRCROOT/Macros\\\" --scratch-path \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros\\\"\"",
+            "input_files": [
+              "$(PODS_TARGET_SRCROOT)/Macros/Package.swift"
+            ],
+            "output_files": [
+              "${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros"
+            ],
+            "execution_position": "before_compile"
+          },
+          "user_target_xcconfig": {
+            "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+            "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros#FWMacroMacros"
+          },
+          "pod_target_xcconfig": {
+            "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+            "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros#FWMacroMacros"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FWVendor",
+      "subspecs": [
+        {
+          "name": "SDWebImage",
+          "source_files": "Sources/FWVendor/SDWebImage/**/*.swift",
+          "dependencies": {
+            "SDWebImage": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "Alamofire",
+          "source_files": "Sources/FWVendor/Alamofire/**/*.swift",
+          "dependencies": {
+            "Alamofire": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lottie",
+          "source_files": "Sources/FWVendor/Lottie/**/*.swift",
+          "dependencies": {
+            "lottie-ios": [
+
+            ],
+            "FWFramework/FWFramework": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.9"
+}
