@@ -1,0 +1,204 @@
+{
+  "name": "ThirdOpenSDK",
+  "version": "2.0.1",
+  "summary": "包含:微信,腾讯QQ,支付宝,新浪微博,小红书,钉钉,抖音,阿里云存储,阿里云一键登录,阿里云人机验证,友盟统计,极光推送,讯飞语音",
+  "description": "微信SDK: OpenSDK.xcframework 2.0.4\n腾讯QQ: ThirdOpenSDK.framework 3.5.15.353\n支付宝: 好友及圈子分享,第三方授权登录\n微博: libWeiboSDK.a 3.3.5\n小红书: 一件分享\n钉钉: 暂无\n抖音: 暂无\n阿里云: OSS, 一键登录, 人机验证\n友盟统计: 官方\n极光推送: 官方\n讯飞语音: 实时语音转文字60秒",
+  "homepage": "https://github.com/xygkevin/ThirdOpenSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "许亚光": "xu_yaguang@163.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://gitee.com/xuyaguang/third-open-sdk.git",
+    "tag": "2.0.1"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "libraries": [
+    "iconv",
+    "sqlite3",
+    "stdc++",
+    "z"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ThirdOpenSDK/Sources/*.{h,m}"
+    },
+    {
+      "name": "Alipay",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/Alipay/*.framework",
+      "source_files": "Framework/Alipay/*.h",
+      "vendored_libraries": "Framework/Alipay/*.a"
+    },
+    {
+      "name": "ATAuth",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/ATAuth/*.framework"
+    },
+    {
+      "name": "AlicomCaptcha4",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/AlicomCaptcha4/*.xcframework",
+      "resource_bundles": {
+        "AlicomCaptchaBundle": [
+          "Framework/AlicomCaptcha4/AlicomCaptcha4.bundle"
+        ]
+      }
+    },
+    {
+      "name": "AliyunOSSiOS",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ],
+        "AliyunOSSiOS": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentOpenAPI",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/TencentOpenAPI/*.framework",
+      "frameworks": [
+        "Security",
+        "SystemConfiguration",
+        "CoreGraphics",
+        "CoreTelephony",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "WeChat",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/WeChat/*.xcframework",
+      "frameworks": [
+        "UIKit",
+        "Security",
+        "CoreGraphics",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "WeiBo",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "source_files": "Framework/WeiBo/*.h",
+      "vendored_libraries": "Framework/WeiBo/*.a",
+      "frameworks": [
+        "Security",
+        "Photos",
+        "ImageIO",
+        "SystemConfiguration",
+        "CoreText",
+        "QuartzCore",
+        "UIKit",
+        "Foundation",
+        "CoreGraphics",
+        "CoreTelephony",
+        "WebKit"
+      ],
+      "resource_bundles": {
+        "WeiboSDKBundle": [
+          "Framework/WeiBo/WeiboSDK.bundle"
+        ]
+      }
+    },
+    {
+      "name": "XiaoHongShu",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/XiaoHongShu/*.xcframework"
+    },
+    {
+      "name": "XunFei",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Framework/XunFei/*.framework",
+      "frameworks": [
+        "AVFoundation",
+        "SystemConfiguration",
+        "Foundation",
+        "CoreTelephony",
+        "AudioToolbox",
+        "CoreLocation",
+        "UIKit",
+        "Contacts",
+        "AddressBook",
+        "QuartzCore",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "UMeng",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ],
+        "UMCommon": [
+
+        ]
+      }
+    },
+    {
+      "name": "JPush",
+      "dependencies": {
+        "ThirdOpenSDK/Core": [
+
+        ],
+        "JPush": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
