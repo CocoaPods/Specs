@@ -1,0 +1,83 @@
+{
+  "name": "TUITranslationPlugin",
+  "version": "7.9.5666",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUITranslationPlugin",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/7.9.5666/ios/TUITranslationPlugin.zip"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "GENERATE_INFOPLIST_FILE": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "GENERATE_INFOPLIST_FILE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUITranslationPlugin/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TUICore": [
+
+        ],
+        "TIMCommon": [
+          "~> 7.9.5666"
+        ],
+        "TUIChat": [
+          "~> 7.9.5666"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "resources": [
+        "**/TUITranslationPlugin/Resources/*.bundle",
+        "**/TUITranslationPlugin/Resources/PrivacyInfo.xcprivacy"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUITranslationPlugin/UI/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUITranslationPlugin/UI/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/UI/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUITranslationPlugin/UI/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/UI/UI": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
