@@ -1,0 +1,45 @@
+{
+  "name": "TempoSDK",
+  "version": "1.4.1-rc.16",
+  "swift_versions": "5.6.1",
+  "authors": {
+    "Tempo Engineering": "development@tempoplatform.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/Tempo-Platform/tempo-ios-sdk",
+  "readme": "https://github.com/Tempo-Platform/tempo-ios-sdk/blob/main/README.md",
+  "source": {
+    "git": "https://github.com/Tempo-Platform/tempo-ios-sdk.git",
+    "tag": "1.4.1-rc.16"
+  },
+  "summary": "Tempo SDK to show payable ads",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "TempoSDK/**/*.{h,m,swift}",
+  "resource_bundles": {
+    "TempoSDK": [
+      "TempoSDK/Resources/**/*"
+    ]
+  },
+  "resources": "TempoInfo.plist",
+  "script_phases": {
+    "name": "Add or Update Info.plist Entries",
+    "script": "          plist_file=$(find \"${SRCROOT}\" -name TempoInfo.plist | head -n 1)\n          if [[ -z $plist_file ]]; then\n              echo \"TempoInfo.plist not found.\"\n              exit 1\n          fi\n\n          if /usr/libexec/PlistBuddy -c \"Print NSLocationWhenInUseUsageDescription\" \"$plist_file\" &>/dev/null; then\n              echo \"NSLocationWhenInUseUsageDescription already exists. Updating value.\"\n              if /usr/libexec/PlistBuddy -c \"Set NSLocationWhenInUseUsageDescription 'Your updated description here'\" \"$plist_file\"; then\n                  echo \"NSLocationWhenInUseUsageDescription updated successfully.\"\n              else\n                  echo \"Failed to update NSLocationWhenInUseUsageDescription.\"\n                  exit 1\n              fi\n          else\n              echo \"NSLocationWhenInUseUsageDescription does not exist. Adding entry.\"\n              if /usr/libexec/PlistBuddy -c \"Add NSLocationWhenInUseUsageDescription string 'Your description here'\" \"$plist_file\"; then\n                  echo \"NSLocationWhenInUseUsageDescription added successfully.\"\n              else\n                  echo \"Failed to add NSLocationWhenInUseUsageDescription.\"\n                  exit 1\n              fi\n          fi\n"
+  },
+  "tvos": {
+    "pod_target_xcconfig": {
+      "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+    },
+    "user_target_xcconfig": {
+      "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+    }
+  },
+  "pod_target_xcconfig": {
+    "PRODUCT_BUNDLE_IDENTIFIER": "com.tempoplatform.sdk"
+  },
+  "swift_version": "5.6.1"
+}
