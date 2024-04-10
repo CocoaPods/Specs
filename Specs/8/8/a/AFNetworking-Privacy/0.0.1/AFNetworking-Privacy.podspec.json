@@ -1,0 +1,79 @@
+{
+  "name": "AFNetworking-Privacy",
+  "version": "0.0.1",
+  "license": "MIT",
+  "summary": "A delightful networking framework for Apple platforms.",
+  "homepage": "https://github.com/yuemoj/AFNetworking-Privacy.git",
+  "authors": {
+    "yuemoj": "yj_745@163.com"
+  },
+  "source": {
+    "git": "https://github.com/yuemoj/AFNetworking-Privacy.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "ios": {
+    "pod_target_xcconfig": {
+      "PRODUCT_BUNDLE_IDENTIFIER": "com.alamofire.AFNetworking"
+    }
+  },
+  "source_files": "AFNetworking/AFNetworking.h",
+  "resource_bundles": {
+    "AFNetworking-Privacy": [
+      "AFNetworking/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "AFNetworking/AFURL{Request,Response}Serialization.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "AFNetworking/AFSecurityPolicy.{h,m}"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "AFNetworking/AFNetworkReachabilityManager.{h,m}"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "AFNetworking-Privacy/Serialization": [
+
+        ],
+        "AFNetworking-Privacy/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "AFNetworking-Privacy/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "AFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+        "AFNetworking/AFCompatibilityMacros.h"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "AFNetworking-Privacy/NSURLSession": [
+
+        ]
+      },
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
