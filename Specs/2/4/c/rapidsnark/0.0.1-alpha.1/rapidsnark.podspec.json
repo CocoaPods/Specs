@@ -1,0 +1,60 @@
+{
+  "name": "rapidsnark",
+  "version": "0.0.1-alpha.1",
+  "summary": "Swift wrapper for the rapidsnark proof generation library.",
+  "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS environment.",
+  "homepage": "https://github.com/iden3/ios-rapidsnark",
+  "license": {
+    "type": "GNU",
+    "file": "COPYING"
+  },
+  "authors": {
+    "Yaroslav Moria": "morya.yaroslav@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iden3/ios-rapidsnark.git",
+    "tag": "0.0.1-alpha.1"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "pod_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "default_subspecs": "rapidsnark",
+  "subspecs": [
+    {
+      "name": "C",
+      "source_files": "Sources/C/**/*",
+      "vendored_frameworks": "Libs/Rapidsnark.xcframework",
+      "ios": {
+        "vendored_frameworks": "Libs/Rapidsnark.xcframework"
+      }
+    },
+    {
+      "name": "rapidsnark",
+      "source_files": "Sources/rapidsnark/**/*",
+      "dependencies": {
+        "rapidsnark/C": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "rapidsnark/C": [
+
+          ]
+        }
+      }
+    }
+  ],
+  "swift_version": "5"
+}
