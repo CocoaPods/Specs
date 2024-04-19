@@ -1,0 +1,85 @@
+{
+  "name": "DLNetworking",
+  "module_name": "AFNetworking",
+  "version": "4.1.0",
+  "license": "MIT",
+  "summary": "A delightful networking framework for Apple platforms.",
+  "homepage": "https://github.com/AFNetworking/AFNetworking",
+  "authors": {
+    "Mattt Thompson": "m@mattt.me"
+  },
+  "source": {
+    "git": "https://github.com/sdkdimon/AFNetworking.git",
+    "tag": "4.1.0"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "ios": {
+    "pod_target_xcconfig": {
+      "PRODUCT_BUNDLE_IDENTIFIER": "com.alamofire.AFNetworking"
+    }
+  },
+  "osx": {
+    "pod_target_xcconfig": {
+      "PRODUCT_BUNDLE_IDENTIFIER": "com.alamofire.AFNetworking"
+    }
+  },
+  "source_files": "AFNetworking/AFNetworking.h",
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "AFNetworking/AFURL{Request,Response}Serialization.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "AFNetworking/AFSecurityPolicy.{h,m}"
+    },
+    {
+      "name": "Reachability",
+      "source_files": "AFNetworking/AFNetworkReachabilityManager.{h,m}"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "DLNetworking/Serialization": [
+
+        ],
+        "DLNetworking/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "DLNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "DLNetworking/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "AFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+        "AFNetworking/AFCompatibilityMacros.h"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "DLNetworking/NSURLSession": [
+
+        ]
+      },
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
