@@ -1,0 +1,37 @@
+{
+  "name": "JSONCodeSwiftMacro",
+  "version": "1.0.3",
+  "summary": "Define a macro. Parse json using the Codable",
+  "description": "使用swift提供Codable协议解析Json,提供了自定义的key的处理,如果模型是class类型且是子类的话声明成JSONCodeSub，否则声明成JSONCode",
+  "homepage": "https://github.com/chaichai9323/JSONCode",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chaichai9323": "chailintao@laien.io"
+  },
+  "source": {
+    "git": "https://github.com/chaichai9323/JSONCode.git",
+    "tag": "1.0.3"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "Sources/JSONCode/**/*",
+  "preserve_paths": [
+    "Package.swift",
+    "Sources",
+    "Tests"
+  ],
+  "script_phases": {
+    "name": "Build JSONCode macro plugin",
+    "script": " env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -v -c release --package-path $PODS_TARGET_SRCROOT --scratch-path $PODS_TARGET_SRCROOT/Macro\"\n",
+    "execution_position": "before_compile"
+  },
+  "xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-load-plugin-executable $(PODS_ROOT)/JSONCodeSwiftMacro/Macro/release/JSONCodeMacros#JSONCodeMacros"
+  },
+  "swift_version": "5.0"
+}
