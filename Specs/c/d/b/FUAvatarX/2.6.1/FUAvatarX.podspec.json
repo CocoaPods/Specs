@@ -1,0 +1,101 @@
+{
+  "name": "FUAvatarX",
+  "version": "2.6.1",
+  "license": "MIT",
+  "summary": "Business components of FaceUnity",
+  "description": "Solutions that encapsulate the FaceUnity cloud platform and other business standards",
+  "homepage": "https://www.faceunity.com",
+  "authors": {
+    "faceunity": "baojianliu@faceunity.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://fu-sdk.oss-cn-hangzhou.aliyuncs.com/AvatarX/FUAvatarX-v2.6.0.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Utility",
+      "ios": {
+        "vendored_frameworks": "*/FUAXUtility.xcframework"
+      }
+    },
+    {
+      "name": "Networking",
+      "ios": {
+        "vendored_frameworks": "*/FUAXNetworking.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "CloudService",
+      "ios": {
+        "vendored_frameworks": "*/FUAXCloudService.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/Networking": [
+
+        ]
+      }
+    },
+    {
+      "name": "Assist",
+      "ios": {
+        "vendored_frameworks": "*/FUAXAssist.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/Utility": [
+
+        ]
+      }
+    },
+    {
+      "name": "Resource",
+      "ios": {
+        "vendored_frameworks": "*/FUAXResource.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/CloudService": [
+
+        ],
+        "FUAvatarX/Assist": [
+
+        ]
+      }
+    },
+    {
+      "name": "Build",
+      "ios": {
+        "vendored_frameworks": "*/FUAXBuild.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/CloudService": [
+
+        ]
+      }
+    },
+    {
+      "name": "Edit",
+      "ios": {
+        "vendored_frameworks": "*/FUAXEdit.xcframework"
+      },
+      "dependencies": {
+        "FUAvatarX/Utility": [
+
+        ]
+      }
+    }
+  ]
+}
