@@ -1,0 +1,127 @@
+{
+  "name": "ApesterKit",
+  "version": "3.3.19",
+  "summary": "ApesterKit provides a light-weight framework that loads Apester Unit in a webView",
+  "description": "'ApesterKit provides a light-weight framework that loads Apester Unit in a webView'",
+  "homepage": "https://github.com/apester-dev/ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hasan Sa": "hasansa007@gmail.com",
+    "ArkadiYoskovitz": "arkadiy@gini-apps.com",
+    "Michael Kroitoro": "michael.kroitoro@apester.com"
+  },
+  "source": {
+    "git": "https://github.com/apester-dev/ios-sdk.git",
+    "tag": "v3.3.19"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "WebKit",
+    "SafariServices",
+    "OSLog",
+    "AdSupport"
+  ],
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "default_subspecs": "Content",
+  "scheme": {
+    "code_coverage": true
+  },
+  "subspecs": [
+    {
+      "name": "Content_Core",
+      "source_files": [
+        "Sources/ApesterKit/Content/Classes/Common/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/Services/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/Logger/**/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/Helpers/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/FastStrip/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/_Display/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/Data/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/Loader/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/Bidding/*.{h,m,swift}",
+        "Sources/ApesterKit/Content/Classes/Deprecated/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "ApesterObjcBridging": [
+          "3.3.17"
+        ],
+        "OpenWrapSDK": [
+          "~> 2.7.0"
+        ],
+        "DTBiOSSDK": [
+          "~> 0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "ContentAdmob",
+      "source_files": "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/AdMob/*.{h,m,swift}",
+      "dependencies": {
+        "ApesterKit/Content_Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "9.7.0"
+        ]
+      }
+    },
+    {
+      "name": "ContentPubmatic",
+      "source_files": "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/PubMatic/*.{h,m,swift}",
+      "dependencies": {
+        "ApesterKit/Content_Core": [
+
+        ],
+        "OpenWrapSDK": [
+          "~> 2.7.0"
+        ]
+      }
+    },
+    {
+      "name": "ContentAmazon",
+      "source_files": "Sources/ApesterKit/Content/Classes/EmbededUnit/AdProvider/Amazon/*.{h,m,swift}",
+      "dependencies": {
+        "ApesterKit/Content_Core": [
+
+        ],
+        "ApesterKit/ContentPubmatic": [
+
+        ],
+        "OpenWrapHandlerDFP": [
+          "~> 3.1.0"
+        ],
+        "AmazonPublisherServicesSDK": [
+          "~> 4.6.0"
+        ]
+      }
+    },
+    {
+      "name": "Content",
+      "dependencies": {
+        "ApesterKit/Content_Core": [
+
+        ],
+        "ApesterKit/ContentAdmob": [
+
+        ],
+        "ApesterKit/ContentPubmatic": [
+
+        ],
+        "ApesterKit/ContentAmazon": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
