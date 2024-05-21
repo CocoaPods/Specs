@@ -1,0 +1,206 @@
+{
+  "name": "Texture",
+  "version": "3.2.0",
+  "license": {
+    "type": "Apache 2"
+  },
+  "homepage": "http://texturegroup.org",
+  "authors": {
+    "Huy Nguyen": "hi@huynguyen.dev",
+    "Garrett Moon": "garrett@excitedpixel.com",
+    "Scott Goodson": "scottgoodson@gmail.com",
+    "Michael Schneider": "mischneider1@gmail.com",
+    "Adlai Holler": "adlai@icloud.com"
+  },
+  "summary": "Smooth asynchronous user interfaces for iOS apps.",
+  "source": {
+    "git": "https://github.com/TextureGroup/Texture.git",
+    "tag": "3.2.0"
+  },
+  "module_name": "AsyncDisplayKit",
+  "header_dir": "AsyncDisplayKit",
+  "documentation_url": "http://texturegroup.org/appledoc/",
+  "platforms": {
+    "ios": "14.0",
+    "tvos": "14.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "PINRemoteImage",
+    "Video",
+    "MapKit",
+    "AssetsLibrary",
+    "Photos"
+  ],
+  "social_media_url": "https://twitter.com/TextureiOS",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "compiler_flags": "-fno-exceptions",
+      "public_header_files": [
+        "Source/*.h",
+        "Source/Details/**/*.h",
+        "Source/Layout/**/*.h",
+        "Source/Base/*.h",
+        "Source/Debug/**/*.h",
+        "Source/TextKit/ASTextNodeTypes.h",
+        "Source/TextKit/ASTextKitComponents.h",
+        "Source/TextExperiment/Component/*.h",
+        "Source/TextExperiment/String/ASTextAttribute.h"
+      ],
+      "source_files": [
+        "Source/**/*.{h,mm}",
+        "Source/TextKit/*.h"
+      ]
+    },
+    {
+      "name": "PINRemoteImage",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "dependencies": {
+        "PINRemoteImage/iOS": [
+          "~> 3.0.0"
+        ],
+        "PINRemoteImage/PINCache": [
+
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "IGListKit",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "dependencies": {
+        "IGListKit": [
+          "~> 4.0"
+        ],
+        "IGListDiffKit": [
+          "~> 4.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Yoga",
+      "platforms": {
+        "ios": "14.0"
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YOGA=1"
+      },
+      "dependencies": {
+        "Yoga": [
+          "~> 2.0"
+        ],
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TextNode2",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_ENABLE_TEXTNODE=0"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Video",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "frameworks": [
+        "AVFoundation",
+        "CoreMedia"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_VIDEO=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MapKit",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "frameworks": [
+        "CoreLocation",
+        "MapKit"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_MAPKIT=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Photos",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "frameworks": "Photos",
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_PHOTOS=1"
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AssetsLibrary",
+      "platforms": {
+        "ios": "14.0",
+        "tvos": "14.0"
+      },
+      "ios": {
+        "frameworks": "AssetsLibrary",
+        "xcconfig": {
+          "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) AS_USE_ASSETS_LIBRARY=1"
+        }
+      },
+      "dependencies": {
+        "Texture/Core": [
+
+        ]
+      }
+    }
+  ]
+}
