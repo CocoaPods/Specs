@@ -1,0 +1,120 @@
+{
+  "name": "LibMobileCoin",
+  "version": "6.0.2",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/libmobilecoin.git",
+    "tag": "v6.0.2",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "Core",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "GCC_OPTIMIZATION_LEVEL": "z",
+    "ENABLE_BITCODE": "YES",
+    "SUPPORTS_MACCATALYST": "NO",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Artifacts/include",
+    "SWIFT_INCLUDE_PATHS": "$(HEADER_SEARCH_PATHS)",
+    "LIBMOBILECOIN_LIB_IF_NEEDED": "$(PODS_TARGET_SRCROOT)/Artifacts/target/$(CARGO_BUILD_TARGET)/release/libmobilecoin.a",
+    "OTHER_LDFLAGS": "-lz -u _mc_string_free $(LIBMOBILECOIN_LIB_IF_NEEDED)",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=arm64]": "aarch64-apple-ios-sim",
+    "CARGO_BUILD_TARGET[sdk=iphonesimulator*][arch=*]": "x86_64-apple-ios",
+    "CARGO_BUILD_TARGET[sdk=iphoneos*]": "aarch64-apple-ios",
+    "CARGO_BUILD_TARGET[sdk=macosx*][arch=arm64]": "aarch64-apple-darwin",
+    "CARGO_BUILD_TARGET[sdk=macosx*][arch=*]": "x86_64-apple-darwin",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64",
+    "ARCHS[sdk=iphonesimulator*]": "x86_64 arm64",
+    "ARCHS[sdk=iphoneos*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "user_target_xcconfig": {
+    "SUPPORTS_MACCATALYST": "NO",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "TestVectors",
+      "source_files": [
+        "Sources/TestVector/Util/Bundle+TestVector.swift",
+        "Sources/TestVector/Util/TestVectorError.swift"
+      ],
+      "preserve_paths": [
+        "Artifacts/target/**/libmobilecoin.a"
+      ],
+      "resources": [
+        "Sources/TestVector/vectors/*.*"
+      ]
+    },
+    {
+      "name": "Core",
+      "preserve_paths": [
+        "Artifacts/target/**/libmobilecoin.a"
+      ],
+      "source_files": [
+        "Artifacts/include/*.h",
+        "Sources/HTTP/*.{http}.swift",
+        "Sources/HTTP/Interface/*.swift",
+        "Sources/GRPC/*.{grpc}.swift",
+        "Sources/Common/*.{pb}.swift"
+      ],
+      "dependencies": {
+        "gRPC-Swift": [
+
+        ],
+        "SwiftProtobuf": [
+          "~> 1.5"
+        ]
+      }
+    },
+    {
+      "name": "CoreHTTP",
+      "preserve_paths": [
+        "Artifacts/target/**/libmobilecoin.a"
+      ],
+      "source_files": [
+        "Artifacts/include/*.h",
+        "Sources/HTTP/*.{http}.swift",
+        "Sources/HTTP/Interface/*.swift",
+        "Sources/Common/*.{pb}.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+          "~> 1.5"
+        ]
+      }
+    },
+    {
+      "name": "CoreGRPC",
+      "preserve_paths": [
+        "Artifacts/target/**/libmobilecoin.a"
+      ],
+      "source_files": [
+        "Artifacts/include/*.h",
+        "Sources/GRPC/*.{grpc}.swift",
+        "Sources/Common/*.{pb}.swift"
+      ],
+      "dependencies": {
+        "gRPC-Swift": [
+
+        ],
+        "SwiftProtobuf": [
+          "~> 1.5"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
