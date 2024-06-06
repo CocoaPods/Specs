@@ -1,0 +1,287 @@
+{
+  "name": "JRAnalytics",
+  "version": "0.0.2",
+  "summary": "The official iOS SDK of Easyhome Analytics.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://gitlab.jrdaimao.com/easyhome-client/analyticssdk-ios.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sgy": "anshao2218@163.com"
+  },
+  "source": {
+    "git": "http://gitlab.jrdaimao.com/easyhome-client/analyticssdk-ios.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.13"
+  },
+  "frameworks": [
+    "Foundation",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "icucore",
+    "z"
+  ],
+  "subspecs": [
+    {
+      "name": "__Store",
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Store/*.{h,m}",
+      "public_header_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Store/SABaseStoreManager.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Store/SAStorePlugin.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Store/SAAESStorePlugin.h"
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Core/**/*.{h,m}",
+      "exclude_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SAAlertController.{h,m}",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/HookDelegate/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SensorsAnalyticsExtension.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SensorsAnalyticsSDK+Public.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SASecurityPolicy.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SAConfigOptions.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SAConstants.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/PropertyPlugin/SAPropertyPlugin.h"
+      ],
+      "ios": {
+        "frameworks": "CoreTelephony"
+      },
+      "dependencies": {
+        "JRAnalytics/__Store": [
+
+        ]
+      },
+      "resource_bundles": {
+        "SensorsAnalyticsSDK": "JRAnalytics/SensorsAnalyticsSDK/Resources/**/*"
+      }
+    },
+    {
+      "name": "Common",
+      "platforms": {
+        "ios": "9.0",
+        "osx": "10.13"
+      },
+      "dependencies": {
+        "JRAnalytics/Base": [
+
+        ]
+      },
+      "frameworks": "WebKit",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/JSBridge/SensorsAnalyticsSDK+JavaScriptBridge.h",
+      "source_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Core/SAAlertController.{h,m}",
+        "JRAnalytics/SensorsAnalyticsSDK/JSBridge/**/*.{h,m}",
+        "JRAnalytics/SensorsAnalyticsSDK/Core/HookDelegate/**/*.{h,m}"
+      ],
+      "ios": {
+        "source_files": [
+          "JRAnalytics/SensorsAnalyticsSDK/RemoteConfig/**/*.{h,m}",
+          "JRAnalytics/SensorsAnalyticsSDK/ChannelMatch/**/*.{h,m}",
+          "JRAnalytics/SensorsAnalyticsSDK/Encrypt/**/*.{h,m}",
+          "JRAnalytics/SensorsAnalyticsSDK/Deeplink/**/*.{h,m}",
+          "JRAnalytics/SensorsAnalyticsSDK/DebugMode/**/*.{h,m}",
+          "JRAnalytics/SensorsAnalyticsSDK/Core/SAAlertController.h",
+          "JRAnalytics/SensorsAnalyticsSDK/UIRelated/**/*.{h,m}"
+        ],
+        "public_header_files": [
+          "JRAnalytics/SensorsAnalyticsSDK/{Encrypt,RemoteConfig,ChannelMatch,Deeplink,DebugMode}/{SAConfigOptions,SensorsAnalyticsSDK}+*.h",
+          "JRAnalytics/SensorsAnalyticsSDK/Encrypt/SAEncryptProtocol.h",
+          "JRAnalytics/SensorsAnalyticsSDK/Encrypt/SASecretKey.h",
+          "JRAnalytics/SensorsAnalyticsSDK/Deeplink/SASlinkCreator.h",
+          "JRAnalytics/SensorsAnalyticsSDK/UIRelated/UIView+SensorsAnalytics.h",
+          "JRAnalytics/SensorsAnalyticsSDK/Deeplink/SAAdvertisingConfig.h"
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "ios": {
+        "dependencies": {
+          "JRAnalytics/Visualized": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "JRAnalytics/Common": [
+
+          ]
+        }
+      },
+      "tvos": {
+        "dependencies": {
+          "JRAnalytics/Base": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AutoTrack",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Common": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/AutoTrack/**/*.{h,m}",
+      "public_header_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/AutoTrack/SensorsAnalyticsSDK+SAAutoTrack.h",
+        "JRAnalytics/SensorsAnalyticsSDK/AutoTrack/SAConfigOptions+AutoTrack.h"
+      ],
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Visualized",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/AutoTrack": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Visualized/**/*.{h,m}",
+      "public_header_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Visualized/SensorsAnalyticsSDK+Visualized.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Visualized/SAConfigOptions+Visualized.h"
+      ]
+    },
+    {
+      "name": "Location",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "JRAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Location/**/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/Location/SensorsAnalyticsSDK+Location.h"
+    },
+    {
+      "name": "DeviceOrientation",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/DeviceOrientation/**/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/DeviceOrientation/SensorsAnalyticsSDK+DeviceOrientation.h",
+      "frameworks": "CoreMotion"
+    },
+    {
+      "name": "AppPush",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/AppPush/**/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/AppPush/SAConfigOptions+AppPush.h"
+    },
+    {
+      "name": "Exception",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Common": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Exception/**/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/Exception/SAConfigOptions+Exception.h"
+    },
+    {
+      "name": "WKWebView",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/WKWebView/**/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/WKWebView/SensorsAnalyticsSDK+WKWebView.h"
+    },
+    {
+      "name": "ApplicationExtension",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Base": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/AppExtension/*.{h,m}",
+      "public_header_files": "JRAnalytics/SensorsAnalyticsSDK/AppExtension/SensorsAnalyticsSDK+SAAppExtension.h"
+    },
+    {
+      "name": "DeprecatedCellClick",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Core": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/CellClick_HookDelegate_Deprecated/*.{h,m}",
+      "project_header_files": "JRAnalytics/CellClick_HookDelegate_Deprecated/*.h"
+    },
+    {
+      "name": "Exposure",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "JRAnalytics/Common": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SensorsAnalyticsSDK/Exposure/**/*.{h,m}",
+      "public_header_files": [
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/SAConfigOptions+Exposure.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/SAExposureConfig.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/SAExposureData.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/SensorsAnalyticsSDK+Exposure.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/UIView+ExposureIdentifier.h",
+        "JRAnalytics/SensorsAnalyticsSDK/Exposure/SAExposureListener.h"
+      ]
+    },
+    {
+      "name": "EnglishResources",
+      "dependencies": {
+        "JRAnalytics/Base": [
+
+        ]
+      },
+      "source_files": "JRAnalytics/SpecialFileSources/SACoreResources+English.{h,m}",
+      "project_header_files": "JRAnalytics/SpecialFileSources/SACoreResources+English.h"
+    }
+  ]
+}
