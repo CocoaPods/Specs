@@ -1,0 +1,61 @@
+{
+  "name": "Booming",
+  "version": "1.1.2",
+  "summary": "Network Api Library.",
+  "homepage": "https://github.com/yangKJ/RxNetworks",
+  "description": "https://github.com/yangKJ/RxNetworks/blob/master/README.md",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yangkejun": "yangkj310@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/yangKJ/RxNetworks.git",
+    "tag": "1.1.2"
+  },
+  "social_media_url": "https://juejin.cn/user/1987535102554472/posts",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "cocoapods_version": ">= 1.4.0",
+  "pod_target_xcconfig": {
+    "SWIFT_WHOLE_MODULE_OPTIMIZATION": "YES",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-D DEBUG"
+  },
+  "source_files": "Booming.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Booming/*.swift",
+      "dependencies": {
+        "Moya": [
+
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Plugins",
+      "source_files": [
+        "Plugins/Features/*.swift",
+        "Plugins/Views/*.swift"
+      ],
+      "dependencies": {
+        "Booming/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "BOOMING_PLUGINGS_FEATURES",
+        "GCC_PREPROCESSOR_DEFINITIONS": "BOOMING_PLUGINGS_FEATURES=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
