@@ -1,0 +1,155 @@
+{
+  "name": "Pockyt",
+  "version": "0.5.4",
+  "summary": "Pockyt Mobile iOS SDK",
+  "description": "A simple and user-friendly iOS payment SDK that supports payment methods such as WeChat Pay, Alipay, Braintree, and more.",
+  "homepage": "https://pockyt.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Fly": "hanshan@pockyt.io"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/yuansfer/yuansfer-mobile-sdk-ios.git",
+    "tag": "0.5.4"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay",
+    "WechatPay"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Pockyt/Classes/Core/*.swift",
+      "xcconfig": {
+        "SWIFT_VERSION": "5.0"
+      }
+    },
+    {
+      "name": "Alipay",
+      "source_files": "Pockyt/Classes/Alipay/**/*",
+      "public_header_files": "Pockyt/Classes/Alipay/**/*.h",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "AlipaySDK-iOS": [
+          "~> 15.8.11"
+        ]
+      }
+    },
+    {
+      "name": "WechatPay",
+      "source_files": "Pockyt/Classes/WechatPay/**/*",
+      "public_header_files": "Pockyt/Classes/WechatPay/**/*.h",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "WechatOpenSDK-XCFramework": [
+          "~> 2.0.2"
+        ]
+      }
+    },
+    {
+      "name": "DropIn",
+      "source_files": "Pockyt/Classes/DropIn/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "BraintreeDropIn": [
+          "~> 9.8.0"
+        ]
+      }
+    },
+    {
+      "name": "CardPal",
+      "source_files": "Pockyt/Classes/CardPal/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "Braintree": [
+          "~> 5.26.0"
+        ]
+      }
+    },
+    {
+      "name": "ApplePay",
+      "source_files": "Pockyt/Classes/ApplePay/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "Braintree/ApplePay": [
+          "~> 5.26.0"
+        ]
+      }
+    },
+    {
+      "name": "Venmo",
+      "source_files": "Pockyt/Classes/Venmo/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "Braintree/Venmo": [
+          "~> 5.26.0"
+        ]
+      }
+    },
+    {
+      "name": "ThreeDSecure",
+      "source_files": "Pockyt/Classes/ThreeDSecure/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "Braintree/ThreeDSecure": [
+          "~> 5.26.0"
+        ]
+      }
+    },
+    {
+      "name": "DataCollect",
+      "source_files": "Pockyt/Classes/DataCollect/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "Braintree/PayPalDataCollector": [
+          "~> 5.26.0"
+        ]
+      }
+    },
+    {
+      "name": "CashApp",
+      "source_files": "Pockyt/Classes/CashApp/*.swift",
+      "dependencies": {
+        "Pockyt/Core": [
+
+        ],
+        "CashAppPayKit": [
+          "~> 0.6.1"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
