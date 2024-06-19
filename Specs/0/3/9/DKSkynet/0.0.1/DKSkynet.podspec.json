@@ -1,0 +1,227 @@
+{
+  "name": "DKSkynet",
+  "version": "0.0.1",
+  "summary": "A short description of DKSkynet.",
+  "description": "iOS Analytics/Debugging AIDS (Memory Usage, CPU Usage, FPS, App Launch, Time Profiler, Memory Leaks, Network, Crash, UI Tools, Sandbox browsing...).",
+  "homepage": "https://github.com/xiezhongmin/DKSkynet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "duke": "364101515@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/xiezhongmin/DKSkynet.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resources": "DKSkynet/Resource/*",
+  "default_subspecs": [
+    "Core",
+    "DefaultPlugins"
+  ],
+  "dependencies": {
+    "DKKit": [
+
+    ],
+    "DKMonitor": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "LookinServer": [
+      "~> 1.1.9"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "DKSkynet/Classes/Core/**/*.{h}",
+      "source_files": [
+        "DKSkynet/Classes/Core/**/*.{h,m}",
+        "DKSkynet/Classes/Core/Lib/XFAssistiveTouch/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "DKSkynet/Store": [
+
+        ],
+        "DKSkynet/Common": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "public_header_files": "DKSkynet/Classes/Common/**/*.{h}",
+      "source_files": "DKSkynet/Classes/Common/**/*.{h,m}"
+    },
+    {
+      "name": "Store",
+      "public_header_files": "DKSkynet/Classes/Store/*.{h}",
+      "source_files": "DKSkynet/Classes/Store/*.{h,m}",
+      "dependencies": {
+        "DKSkynet/Common": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "MTAppenderFile",
+          "public_header_files": [
+            "DKSkynet/Classes/Store/MTAppenderFile/loglib/MTAppenderFile.h",
+            "DKSkynet/Classes/Store/MTAppenderFile/loglib/mtaf_base.h",
+            "DKSkynet/Classes/Store/MTAppenderFile/loglib/mtaf_appender.h"
+          ],
+          "source_files": [
+            "DKSkynet/Classes/Store/MTAppenderFile/comm/*.{h,hpp,m,mm,cpp,cc,c}",
+            "DKSkynet/Classes/Store/MTAppenderFile/loglib/*.{h,hpp,m,mm,cpp,cc,c}"
+          ],
+          "requires_arc": false,
+          "libraries": [
+            "z",
+            "c++"
+          ],
+          "pod_target_xcconfig": {
+            "OTHER_LDFLAGS": "-lc++"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DefaultPlugins",
+      "dependencies": {
+        "DKSkynet/NetworkPlugins": [
+
+        ],
+        "DKSkynet/DatasInfoPlugins": [
+
+        ],
+        "DKSkynet/EnvPlugins": [
+
+        ],
+        "DKSkynet/UIPlugins": [
+
+        ],
+        "DKSkynet/LookinPlugins": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetworkPlugins",
+      "subspecs": [
+        {
+          "name": "Common",
+          "public_header_files": "DKSkynet/Classes/NetworkPlugins/Common/**/*.{h}",
+          "source_files": "DKSkynet/Classes/NetworkPlugins/Common/**/*.{h,m}",
+          "dependencies": {
+            "DKSkynet/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Monitor",
+          "public_header_files": "DKSkynet/Classes/NetworkPlugins/Monitor/**/*.{h}",
+          "source_files": "DKSkynet/Classes/NetworkPlugins/Monitor/**/*.{h,m}",
+          "dependencies": {
+            "DKSkynet/Core": [
+
+            ],
+            "DKSkynet/NetworkPlugins/Common": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DatasInfoPlugins",
+      "public_header_files": "DKSkynet/Classes/DatasInfoPlugins/Common/**/*.{h}",
+      "source_files": "DKSkynet/Classes/DatasInfoPlugins/Common/**/*.{h,m}",
+      "dependencies": {
+        "DKSkynet/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Common"
+        },
+        {
+          "name": "SanboxBrowse",
+          "public_header_files": "DKSkynet/Classes/DatasInfoPlugins/SanboxBrowse/**/*.{h}",
+          "source_files": "DKSkynet/Classes/DatasInfoPlugins/SanboxBrowse/**/*.{h,m}",
+          "resource_bundles": {
+            "DKSanbox": "DKSkynet/Classes/DatasInfoPlugins/SanboxBrowse/Resources/**/*"
+          },
+          "dependencies": {
+            "DKSkynet/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "EnvPlugins",
+      "public_header_files": "DKSkynet/Classes/EnvPlugins/Common/**/*.{h}",
+      "source_files": "DKSkynet/Classes/EnvPlugins/Common/**/*.{h,m}",
+      "dependencies": {
+        "DKSkynet/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Common"
+        },
+        {
+          "name": "Env",
+          "public_header_files": "DKSkynet/Classes/EnvPlugins/Env/**/*.{h}",
+          "source_files": "DKSkynet/Classes/EnvPlugins/Env/**/*.{h,m}",
+          "resources": "DKSkynet/Classes/EnvPlugins/Env/Envs.bundle",
+          "dependencies": {
+            "DKSkynet/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UIPlugins",
+      "public_header_files": "DKSkynet/Classes/UIPlugins/Common/**/*.{h}",
+      "source_files": "DKSkynet/Classes/UIPlugins/Common/**/*.{h,m}",
+      "dependencies": {
+        "DKSkynet/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Common"
+        }
+      ]
+    },
+    {
+      "name": "LookinPlugins",
+      "public_header_files": "DKSkynet/Classes/LookinPlugins/Common/**/*.{h}",
+      "source_files": "DKSkynet/Classes/LookinPlugins/Common/**/*.{h,m}",
+      "dependencies": {
+        "DKSkynet/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Common"
+        }
+      ]
+    }
+  ]
+}
