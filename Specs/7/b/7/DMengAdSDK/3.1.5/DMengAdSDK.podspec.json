@@ -1,0 +1,76 @@
+{
+  "name": "DMengAdSDK",
+  "version": "3.1.5",
+  "summary": "多盟广告SDK",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/dmdsp/DMengAdSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "shilin.liu": "shilin.liu@domob.cn"
+  },
+  "source": {
+    "git": "https://github.com/dmdsp/DMengAdSDK.git",
+    "tag": "3.1.5"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "DMAdSDK",
+  "subspecs": [
+    {
+      "name": "DMAdSDK",
+      "frameworks": [
+        "AdSupport",
+        "AppTrackingTransparency",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "AFNetworking": [
+
+        ],
+        "Protobuf": [
+          "~> 3.20.0"
+        ],
+        "Masonry": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      },
+      "vendored_frameworks": "DMengAdSDK/Classes/DMAdSDK.xcframework",
+      "resource_bundles": {
+        "DMAdSDK_Bundle": [
+          "DMengAdSDK/Classes/DMAdSDK_Bundle.bundle"
+        ]
+      }
+    },
+    {
+      "name": "DMengSDKAdapter",
+      "dependencies": {
+        "DMengAdSDK/DMAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "DMengAdSDK/Classes/DMengSDKAdapter.xcframework"
+    },
+    {
+      "name": "DMAdSDKAdapter",
+      "dependencies": {
+        "DMengAdSDK/DMAdSDK": [
+
+        ],
+        "DMengAdSDK/DMengSDKAdapter": [
+
+        ]
+      },
+      "vendored_frameworks": "DMengAdSDK/Classes/DMAdSDKAdapter.xcframework"
+    }
+  ]
+}
