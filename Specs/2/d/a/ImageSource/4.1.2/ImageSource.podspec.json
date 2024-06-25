@@ -1,0 +1,96 @@
+{
+  "name": "ImageSource",
+  "module_name": "ImageSource",
+  "version": "4.1.2",
+  "summary": "Image abstraction toolkit",
+  "homepage": "https://github.com/avito-tech/ImageSource",
+  "license": "MIT",
+  "authors": {
+    "Andrey Yutkin": "ayutkin@avito.ru"
+  },
+  "source": {
+    "git": "https://github.com/avito-tech/ImageSource.git",
+    "tag": "4.1.2"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "PHAsset",
+    "Local",
+    "Remote",
+    "AlamofireImage"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": "CoreGraphics",
+      "source_files": "ImageSource/Core/*"
+    },
+    {
+      "name": "PHAsset",
+      "frameworks": "Photos",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/PHAsset/*"
+    },
+    {
+      "name": "Local",
+      "frameworks": [
+        "ImageIO",
+        "CoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/Local/*"
+    },
+    {
+      "name": "Remote",
+      "frameworks": [
+        "ImageIO",
+        "CoreServices"
+      ],
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ],
+        "ImageSource/UIKit": [
+
+        ]
+      },
+      "source_files": "ImageSource/Remote/*"
+    },
+    {
+      "name": "AlamofireImage",
+      "dependencies": {
+        "ImageSource/Remote": [
+
+        ],
+        "AlamofireImage": [
+          "~> 4.3"
+        ]
+      },
+      "source_files": "ImageSource/AlamofireImage/*"
+    },
+    {
+      "name": "UIKit",
+      "frameworks": "UIKit",
+      "dependencies": {
+        "ImageSource/Core": [
+
+        ]
+      },
+      "source_files": "ImageSource/UIKit/*"
+    }
+  ],
+  "swift_version": "5.0"
+}
