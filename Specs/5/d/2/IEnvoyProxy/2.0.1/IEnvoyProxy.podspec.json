@@ -1,0 +1,24 @@
+{
+  "name": "IEnvoyProxy",
+  "version": "2.0.1",
+  "summary": "Lyrebird/Obfs4proxy, Snowflake and V2Ray for iOS and macOS",
+  "description": "All contained libraries are written in Go, which\nis a little annoying to use on iOS and Android.\nThis project encapsulates all the machinations to make it work and provides an\neasy to install binary including a wrapper around all.\n\nProblems solved in particular are:\n\n- One cannot compile `main` packages with `gomobile`. All libs are patched\n  to avoid this.\n- All libs are gathered under one roof here, since you cannot have two\n  `gomobile` frameworks as dependencies, as there are some common Go\n  runtime functions exported, which will create a name clash.\n- Environment variable changes during runtime will not be recognized by\n  `goptlib` when done from within Swift/Objective-C. Therefore, sensible\n  values are hardcoded in the Go wrapper.\n- The ports where the libs will listen on are hardcoded, since communicating\n  the used ports back to the app would be quite some work (e.g. trying to\n  read it from STDOUT) for very little benefit.\n- All libs are patched to accept all configuration parameters\n  directly.\n\nContained transport versions:\n\n| Transport | Version |\n|-----------|--------:|\n| Lyrebird  |   0.2.0 |\n| Snowflake |   2.9.2 |\n| V2Ray     |  5.15.1 |\n| Hysteria2 |   2.4.1 |",
+  "homepage": "https://github.com/stevenmcdonald/IEnvoyProxy",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "http": "https://github.com/stevenmcdonald/IEnvoyProxy/releases/download/e2.0.1/IEnvoyProxy.xcframework.zip"
+  },
+  "social_media_url": "https://twitter.com/tladesignz",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "11"
+  },
+  "vendored_frameworks": "IEnvoyProxy.xcframework",
+  "libraries": "resolv"
+}
