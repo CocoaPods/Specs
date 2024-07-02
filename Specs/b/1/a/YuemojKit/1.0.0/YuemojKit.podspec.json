@@ -1,0 +1,129 @@
+{
+  "name": "YuemojKit",
+  "version": "1.0.0",
+  "summary": "A decoupling framework for UI layout, data sources, and event responses",
+  "description": "YuemojKit\n1.处理控件与数据模型的耦合, 提供控件事件的回调处理; \n2.支持Layout定制, 避免重复创建大量类似布局的cell;\n3.自定义TabView, MaskView演示实现.\n4.TableView和CollectionView的DataSource通用处理\n5.数据库SQL语句对象化构建\n6.生产者消费者工厂\n7.JSON排序构建",
+  "homepage": "https://github.com/yuemoj/YuemojKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yuemoj": "yj_745@163.com"
+  },
+  "source": {
+    "git": "https://github.com/yuemoj/YuemojKit.git",
+    "tag": "1.0.0"
+  },
+  "resources": "YuemojKit.codesnippet.zip",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "source_files": "YuemojKit/YuemojKit.h",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "YuemojKit/Yuemoj.{h,m}",
+        "YuemojKit/Yuemoj{CoreTypes,Macros,Metamacros}.h"
+      ]
+    },
+    {
+      "name": "UIAbility",
+      "project_header_files": "YuemojKit/UIKit/*Namespace.h",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC",
+        "HEADER_SEARCH_PATHS": "$(inherited)"
+      },
+      "source_files": "YuemojKit/UIKit/*.{h,m}",
+      "dependencies": {
+        "YuemojKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "FoundationAbility",
+      "project_header_files": "YuemojKit/Foundation/YJFoundationNamespace.h",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC",
+        "HEADER_SEARCH_PATHS": "$(inherited)"
+      },
+      "source_files": "YuemojKit/Foundation/*.{h,m}",
+      "dependencies": {
+        "YuemojKit/Core": [
+
+        ],
+        "PinYin4Objc": [
+
+        ]
+      }
+    },
+    {
+      "name": "ComponentSupport",
+      "subspecs": [
+        {
+          "name": "Common",
+          "project_header_files": "YuemojKit/ComponentSupport/YJComponentWrapper.h",
+          "source_files": "YuemojKit/ComponentSupport/*.{h,m}",
+          "dependencies": {
+            "YuemojKit/UIAbility": [
+
+            ]
+          }
+        },
+        {
+          "name": "EventBuilder",
+          "project_header_files": "YuemojKit/ComponentSupport/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h",
+          "source_files": "YuemojKit/ComponentSupport/EventBuilder/*.{h,m}",
+          "dependencies": {
+            "YuemojKit/ComponentSupport/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Filler",
+          "project_header_files": "YuemojKit/ComponentSupport/Filler/YJDataFill{Delegate,er,Namespace}.h",
+          "source_files": "YuemojKit/ComponentSupport/Filler/*.{h,m}",
+          "dependencies": {
+            "YuemojKit/ComponentSupport/Common": [
+
+            ]
+          }
+        },
+        {
+          "name": "Layouter",
+          "project_header_files": "YuemojKit/ComponentSupport/Layouter/YJLayout{Delegate,er,Namespace}.h",
+          "source_files": "YuemojKit/ComponentSupport/Layouter/*.{h,m}",
+          "dependencies": {
+            "YuemojKit/ComponentSupport/Common": [
+
+            ],
+            "Masonry": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DataSource",
+      "source_files": "YuemojKit/DataSource/*.{h,m}"
+    },
+    {
+      "name": "Tools",
+      "source_files": "YuemojKit/Tools/*.{h,m}"
+    },
+    {
+      "name": "ComponentGallery",
+      "source_files": "YuemojKit/ComponentGallery/**/*.{h,m}",
+      "dependencies": {
+        "YuemojKit/ComponentSupport": [
+
+        ]
+      }
+    }
+  ]
+}
