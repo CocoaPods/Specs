@@ -1,0 +1,37 @@
+{
+  "name": "VoizeLibTorch-Lite",
+  "version": "2.1.0",
+  "authors": "voize GmbH",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://github.com/voize-gmbh/pytorch-lite-builds",
+  "source": {
+    "http": "https://github.com/voize-gmbh/pytorch-lite-builds/releases/download/v2.1.0/libtorch_lite_ios_xc_2.1.0.zip"
+  },
+  "summary": "The PyTorch C++ library for iOS",
+  "description": "The PyTorch C++ library for iOS.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "vendored_frameworks": "LibTorchLite.xcframework",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "user_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "$(inherited) -force_load \"$(PODS_ROOT)/VoizeLibTorch-Lite/LibTorchLite.xcframework/ios-arm64/libtorch_lite.a\"",
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]": "$(inherited) -force_load \"$(PODS_ROOT)/VoizeLibTorch-Lite/LibTorchLite.xcframework/ios-arm64_x86_64-simulator/libtorch_lite.a\""
+  },
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "source_files": "src/*.{h,cpp,c,cc}",
+  "public_header_files": [
+    "src/LibTorch-Lite.h"
+  ],
+  "frameworks": "Accelerate"
+}
