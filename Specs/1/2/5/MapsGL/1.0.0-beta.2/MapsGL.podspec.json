@@ -1,0 +1,79 @@
+{
+  "name": "MapsGL",
+  "version": "1.0.0-beta.2",
+  "summary": "MapsGL is an easy-to-use, highly customizable Swift SDK for visualizing both weather and custom data, powered by Metal.",
+  "description": "MapsGL Apple SDK is a powerful mapping library designed for iOS developers. It enables the integration of MapsGL's rich mapping features into iOS applications, providing a seamless and interactive user experience.",
+  "readme": "https://raw.githubusercontent.com/vaisala-xweather/mapsgl-apple-sdk/v1.0.0-beta.2/README.md",
+  "homepage": "https://github.com/vaisala-xweather/mapsgl-apple-sdk",
+  "screenshots": "https://raw.githubusercontent.com/vaisala-xweather/mapsgl-apple-sdk/v1.0.0-beta.2/images/MapsGL-iPad-PM10-layer.png",
+  "authors": {
+    "Vaisala Xweather": "https://www.xweather.com/"
+  },
+  "social_media_url": "https://twitter.com/vaisalaxweather",
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source": {
+    "http": "https://github.com/vaisala-xweather/mapsgl-apple-sdk/releases/download/v1.0.0-beta.2/MapsGL.zip",
+    "sha256": "d5041c277788c1cb6fe57e30a0d83d0f733b52a81b2247d67487ce6bc491978f",
+    "flatten": true
+  },
+  "default_subspecs": [
+    "Core",
+    "Maps",
+    "Mapbox"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "MapsGLCore.xcframework",
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "Metal",
+        "MetalKit",
+        "SwiftUI",
+        "UIKit",
+        "CoreLocation"
+      ]
+    },
+    {
+      "name": "Maps",
+      "vendored_frameworks": "MapsGLMaps.xcframework",
+      "frameworks": [
+        "Foundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "Combine",
+        "ImageIO",
+        "Metal",
+        "UIKit",
+        "CoreLocation",
+        "UniformTypeIdentifiers"
+      ],
+      "dependencies": {
+        "MapsGL/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapbox",
+      "vendored_frameworks": "MapsGLMapbox.xcframework",
+      "frameworks": [
+        "Foundation",
+        "Combine",
+        "Metal"
+      ],
+      "dependencies": {
+        "MapsGL/Maps": [
+
+        ],
+        "MapboxMaps": [
+          "~> 11.0"
+        ]
+      }
+    }
+  ]
+}
