@@ -1,0 +1,63 @@
+{
+  "name": "RevolutPayments",
+  "version": "2.6.4",
+  "summary": "Revolut - RevolutPayments",
+  "homepage": "https://bitbucket.org/revolut/revolut-payments-ios",
+  "source": {
+    "git": "https://bitbucket.org/revolut/revolut-payments-ios",
+    "tag": "2.6.4"
+  },
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Revolut": "team@revolut.com"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "RevolutPaymentsAPI",
+  "subspecs": [
+    {
+      "name": "RevolutPaymentsAPI",
+      "source_files": "RevolutPayments/*.swift"
+    },
+    {
+      "name": "RevolutPaymentsCore",
+      "vendored_frameworks": [
+        "Frameworks/RevolutPaymentsCore/RevolutPaymentsCore.xcframework"
+      ],
+      "resources": [
+        "Frameworks/RevolutPaymentsCore/Money.bundle",
+        "Frameworks/RevolutPaymentsCore/Pandora.bundle",
+        "Frameworks/RevolutPaymentsCore/RevolutPaymentsCoreSDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutPay",
+      "vendored_frameworks": [
+        "Frameworks/RevolutPay/RevolutPay.xcframework"
+      ],
+      "resources": [
+        "Frameworks/RevolutPay/Money.bundle",
+        "Frameworks/RevolutPay/Pandora.bundle",
+        "Frameworks/RevolutPay/RevolutPay.bundle",
+        "Frameworks/RevolutPaymentsCoreSDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsCore": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
