@@ -1,0 +1,68 @@
+{
+  "name": "hyperswitch-sdk-ios",
+  "version": "0.1.3",
+  "summary": "Hyperswitch SDK",
+  "description": "Core of Hyperswitch SDK an open-source payments switch",
+  "homepage": "https://hyperswitch.io/",
+  "authors": "Harshit S",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/juspay/hyperswitch-sdk-ios.git",
+    "tag": "v0.1.3"
+  },
+  "module_name": "Hyperswitch",
+  "default_subspecs": "core",
+  "dependencies": {
+    "Hyperswitch-Hermes": [
+
+    ],
+    "KlarnaMobileSDK": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "hyperswitch/hyperWrapper/**/*.{m,swift,h}",
+      "resources": [
+        "hyperswitch/hyperWrapper/Resources/CodePush.plist",
+        "hyperswitch/hyperWrapper/Resources/hyperswitch.bundle"
+      ],
+      "vendored_frameworks": "frameworkgen/Frameworks/Core/*.xcframework"
+    },
+    {
+      "name": "sentry",
+      "vendored_frameworks": "frameworkgen/Frameworks/Sentry/*.xcframework",
+      "dependencies": {
+        "hyperswitch-sdk-ios/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "scancard",
+      "vendored_frameworks": "frameworkgen/Frameworks/ScanCard/*.xcframework",
+      "dependencies": {
+        "hyperswitch-sdk-ios/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "netcetera3ds",
+      "source_files": "3ds/Source/**/*.{m,swift,h}",
+      "vendored_frameworks": "3ds/Frameworks/*.xcframework",
+      "dependencies": {
+        "hyperswitch-sdk-ios/core": [
+
+        ]
+      }
+    }
+  ]
+}
