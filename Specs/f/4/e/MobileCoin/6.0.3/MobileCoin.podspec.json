@@ -1,0 +1,89 @@
+{
+  "name": "MobileCoin",
+  "version": "6.0.3",
+  "summary": "A library for communicating with MobileCoin network",
+  "authors": "MobileCoin",
+  "homepage": "https://www.mobilecoin.com/",
+  "license": {
+    "type": "GPLv3"
+  },
+  "source": {
+    "git": "https://github.com/mobilecoinofficial/MobileCoin-Swift.git",
+    "tag": "v6.0.3",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "none",
+  "swift_versions": "5.2",
+  "pod_target_xcconfig": {
+    "GCC_OPTIMIZATION_LEVEL": "z",
+    "ENABLE_BITCODE": "YES",
+    "SUPPORTS_MACCATALYST": "YES",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/{Unit,Common}/**/*.swift",
+      "resources": [
+        "Tests/Common/FixtureData/**/*",
+        "Vendor/libmobilecoin/Vendor/mobilecoin/test-vectors/vectors/**/*"
+      ]
+    },
+    {
+      "name": "IntegrationTransactingTests",
+      "test_type": "unit",
+      "source_files": "Tests/{Common,Integration/Common,Integration/Transacting}/**/*.swift",
+      "resources": [
+        "Tests/Common/FixtureData/**/*",
+        "Tests/Common/Secrets/process_info.json"
+      ]
+    },
+    {
+      "name": "IntegrationNonTransactingTests",
+      "test_type": "unit",
+      "source_files": "Tests/{Common,Util,Integration/Common,Integration/NonTransacting}/**/*.swift",
+      "resources": [
+        "Tests/Common/FixtureData/**/*",
+        "Tests/Common/Secrets/process_info.json"
+      ]
+    },
+    {
+      "name": "PerformanceTests",
+      "test_type": "ui",
+      "source_files": "Tests/{Performance,Common}/**/*.swift",
+      "requires_app_host": true
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "CoreHTTP",
+      "source_files": [
+        "Sources/{Common,HTTPS}/**/*.swift",
+        "CocoapodsOnly/*.{h,m,swift}",
+        "HTTPOnly/WrappedNIOSSLCertificateValidator.swift"
+      ],
+      "dependencies": {
+        "LibMobileCoin/CoreHTTP": [
+          "~> 6.0.0-pre1"
+        ],
+        "Logging": [
+          "~> 1.4"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "HttpProtocolUnitTests",
+          "test_type": "unit",
+          "source_files": "Tests/ProtocolSpecific/Http/**/*.swift",
+          "resources": "Tests/ProtocolSpecific/Http/FixtureData/**/*"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.2"
+}
