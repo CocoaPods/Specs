@@ -1,0 +1,86 @@
+{
+  "name": "PaysafePaymentsSDK",
+  "version": "0.0.30",
+  "summary": "Paysafe iOS SDK that implements the Payments APIs.",
+  "homepage": "https://github.com/paysafegroup/paysafe_sdk_ios_payments_api.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Paysafe Group": "paysafe@paysafe.com"
+  },
+  "source": {
+    "git": "https://github.com/paysafegroup/paysafe_sdk_ios_payments_api.git",
+    "tag": "0.0.30"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.9",
+  "resource_bundles": {
+    "PaysafePaymentsSDK": "Sources/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "PaysafeCommon",
+      "source_files": "Sources/PaysafeCommon/**/*.swift"
+    },
+    {
+      "name": "PaysafeApplePay",
+      "source_files": "Sources/PaysafeApplePay/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ]
+      },
+      "resource_bundles": {
+        "PaysafeApplePay_PrivacyInfo": "Sources/PaysafeApplePay/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "PaysafeVenmo",
+      "source_files": "Sources/PaysafeVenmo/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ],
+        "Braintree/Venmo": [
+
+        ]
+      },
+      "resource_bundles": {
+        "PaysafeVenmo_PrivacyInfo": "Sources/PaysafeVenmo/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Paysafe3DS",
+      "source_files": "Sources/Paysafe3DS/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/CardinalMobile.xcframework",
+      "resource_bundles": {
+        "Paysafe3DS_PrivacyInfo": "Sources/Paysafe3DS/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "PaysafeCardPayments",
+      "source_files": "Sources/PaysafeCardPayments/**/*.swift",
+      "dependencies": {
+        "PaysafePaymentsSDK/PaysafeCommon": [
+
+        ],
+        "PaysafePaymentsSDK/Paysafe3DS": [
+
+        ]
+      },
+      "resource_bundles": {
+        "PaysafeCardPayments_PrivacyInfo": "Sources/PaysafeCardPayments/PrivacyInfo.xcprivacy"
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
