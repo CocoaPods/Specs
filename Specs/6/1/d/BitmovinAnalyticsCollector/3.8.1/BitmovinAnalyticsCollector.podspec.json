@@ -1,0 +1,68 @@
+{
+  "name": "BitmovinAnalyticsCollector",
+  "version": "3.8.1",
+  "summary": "iOS library that allows you to monitor your iOS video playback with Bitmovin Analytics",
+  "description": "iOS library that allows you to monitor your iOS video playback with Bitmovin Analytics. This SDK can monitor an AVPlayer, a Bitmovin Player or AmazonIVSPlayer.",
+  "homepage": "https://github.com/bitmovin/bitmovin-analytics-collector-ios",
+  "authors": {
+    "Bitmovin Inc": "support@bitmovin.com"
+  },
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.md"
+  },
+  "platforms": {
+    "ios": "14.0",
+    "tvos": "14.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.7",
+  "source": {
+    "http": "https://cdn.bitmovin.com/analytics/ios_tvos/3.8.1/BitmovinAnalyticsCollector.zip"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "CoreCollector.xcframework"
+    },
+    {
+      "name": "BitmovinPlayer",
+      "vendored_frameworks": "BitmovinCollector.xcframework",
+      "dependencies": {
+        "BitmovinPlayerCore": [
+          "~> 3.48"
+        ],
+        "BitmovinAnalyticsCollector/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AmazonIVSPlayer",
+      "platforms": {
+        "ios": "14.0"
+      },
+      "ios": {
+        "vendored_frameworks": "AmazonIVSCollector.xcframework",
+        "dependencies": {
+          "AmazonIVSPlayer": [
+            "1.24.0"
+          ],
+          "BitmovinAnalyticsCollector/Core": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AVPlayer",
+      "vendored_frameworks": "AVFoundationCollector.xcframework",
+      "dependencies": {
+        "BitmovinAnalyticsCollector/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7"
+}
