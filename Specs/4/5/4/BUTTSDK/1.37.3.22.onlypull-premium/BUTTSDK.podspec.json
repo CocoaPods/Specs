@@ -1,0 +1,166 @@
+{
+  "name": "BUTTSDK",
+  "version": "1.37.3.22.onlypull-premium",
+  "summary": "A comprehensive multimedia SDK.",
+  "description": "A comprehensive multimedia SDK which provides live streaming, VOD and the other related abilities.",
+  "homepage": "https://github.com/volcengine-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chenzhaojie": "chenzhaojie@bytedance.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "http": "https://sf3-ttcdn-tos.pstatp.com/obj/volcengine/TTSDK/1.37.3.22.onlypull-premium/TTSDK.zip"
+  },
+  "default_subspecs": "LivePull",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "TTSDK/VCloudPandora/**/TTSDKManager.h"
+      ],
+      "source_files": [
+        "TTSDK/VCloudPandora/**/TTSDKManager.h",
+        "TTSDK/TTSDK_Dummy/TTSDK_Module_Dummy.m"
+      ],
+      "vendored_libraries": [
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_Core_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_CN_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_SG_ios.a"
+      ],
+      "libraries": "stdc++"
+    },
+    {
+      "name": "Tools",
+      "vendored_libraries": [
+        "TTSDK/lib_h_dec/**/*.a",
+        "TTSDK/BVCParser/**/*.a"
+      ],
+      "dependencies": {
+        "BUTTSDK/SSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "SSL",
+      "vendored_frameworks": [
+        "TTSDK/boringssl/*.framework"
+      ],
+      "libraries": [
+        "stdc++",
+        "z",
+        "xml2",
+        "iconv"
+      ]
+    },
+    {
+      "name": "VCN",
+      "vendored_libraries": [
+        "TTSDK/VCNVCloudNetwork/**/*.a",
+        "TTSDK/protobuf_lite/**/*.a"
+      ],
+      "vendored_frameworks": [
+        "TTSDK/VCNVCloudNetwork/products/framework/*.framework"
+      ]
+    },
+    {
+      "name": "VideoProcessor",
+      "vendored_libraries": [
+        "TTSDK/videoprocessor/**/*.a"
+      ],
+      "resources": [
+        "TTSDK/videoprocessor/videoprocessor/metal/processor.metallib"
+      ]
+    },
+    {
+      "name": "TTFFmpeg",
+      "vendored_frameworks": [
+        "TTSDK/TTFFmpeg/*.framework"
+      ],
+      "frameworks": [
+        "CoreMotion",
+        "CoreMedia",
+        "MetalKit",
+        "OpenAL",
+        "VideoToolBox",
+        "AudioToolBox",
+        "AVFoundation",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "BUTTSDK/Tools": [
+
+        ]
+      }
+    },
+    {
+      "name": "PlayerCore",
+      "public_header_files": [
+        "TTSDK/TTPlayerSDK/TTPlayerSDK/TTPlayer/{*}.h"
+      ],
+      "source_files": [
+        "TTSDK/TTPlayerSDK/TTPlayerSDK/TTPlayer/{*}.h"
+      ],
+      "vendored_libraries": [
+        "TTSDK/TTPlayerSDK/**/*.a"
+      ],
+      "vendored_frameworks": [
+        "TTSDK/ffmpeg_dashdec_iOS/*.framework"
+      ],
+      "resources": [
+        "TTSDK/TTPlayerSDK/TTPlayerSDK/Assets/ttplayer.metallib"
+      ],
+      "dependencies": {
+        "BUTTSDK/TTFFmpeg": [
+
+        ],
+        "BUTTSDK/VideoProcessor": [
+
+        ]
+      }
+    },
+    {
+      "name": "LivePull",
+      "public_header_files": [
+        "TTSDK/VCloudPandora/**/{TTLiveURLComposer,TVLPlayerItem+TTSDK,TVLManager+External}.h",
+        "TTSDK/TTVideoLive/TTVideoLive/Classes/**/*.h"
+      ],
+      "source_files": [
+        "TTSDK/TTVideoLive/TTVideoLive/Classes/**/*.h",
+        "TTSDK/VCloudPandora/**/{TTLiveURLComposer,TVLPlayerItem+TTSDK,TVLManager+External}.h"
+      ],
+      "vendored_libraries": [
+        "TTSDK/TTVideoLive/**/libTTVideoLive_Wrapper_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_LivePull_ios.a"
+      ],
+      "dependencies": {
+        "BUTTSDK/LiveSettings": [
+
+        ],
+        "BUTTSDK/Core": [
+
+        ],
+        "BUTTSDK/PlayerCore": [
+
+        ]
+      },
+      "frameworks": [
+        "MetalPerformanceShaders",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "LiveSettings",
+      "vendored_libraries": [
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_TTLiveSetting_ios.a"
+      ]
+    }
+  ]
+}
