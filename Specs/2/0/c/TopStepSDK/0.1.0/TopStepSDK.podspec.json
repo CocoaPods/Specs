@@ -1,0 +1,101 @@
+{
+  "name": "TopStepSDK",
+  "version": "0.1.0",
+  "summary": "A short description of TopStepSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/htangsmart/TopStepSDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "topstep": "xinshangguan@topstep-tech.com"
+  },
+  "source": {
+    "git": "https://github.com/htangsmart/TopStepSDK-iOS.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "CoreBluetooth"
+  ],
+  "default_subspecs": "core",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "core",
+      "source_files": "TopStepSDK/Classes/*.{h,m}",
+      "public_header_files": "TopStepSDK/Classes/*.h",
+      "vendored_frameworks": "TopStepSDK/Frameworks/TopStepComKit.framework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "x86_64",
+        "VALID_ARCHS": "arm64",
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_IDFA=1"
+      }
+    },
+    {
+      "name": "persimwear",
+      "vendored_frameworks": "TopStepSDK/Frameworks/persimwearSDK.framework",
+      "dependencies": {
+        "TopStepSDK/core": [
+
+        ]
+      },
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3",
+        "bz2.1.0"
+      ]
+    },
+    {
+      "name": "proxy",
+      "vendored_frameworks": "TopStepSDK/Frameworks/TopStepComKitProxy.framework",
+      "dependencies": {
+        "TopStepSDK/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "flywear",
+      "vendored_frameworks": "TopStepSDK/Frameworks/flywearsdk.framework",
+      "dependencies": {
+        "TopStepSDK/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "sj",
+      "vendored_frameworks": "TopStepSDK/Frameworks/TopStepComKitSJ.framework",
+      "dependencies": {
+        "TopStepSDK/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "fw",
+      "vendored_frameworks": "TopStepSDK/Frameworks/TopStepComKitFw.framework",
+      "dependencies": {
+        "TopStepSDK/flywear": [
+
+        ]
+      }
+    },
+    {
+      "name": "fitcloud",
+      "vendored_frameworks": "TopStepSDK/Frameworks/TopStepComKitFitCloud.framework",
+      "dependencies": {
+        "TopStepSDK/core": [
+
+        ]
+      }
+    }
+  ]
+}
