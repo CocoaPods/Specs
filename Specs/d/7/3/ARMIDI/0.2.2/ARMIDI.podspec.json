@@ -1,0 +1,62 @@
+{
+  "name": "ARMIDI",
+  "version": "0.2.2",
+  "summary": "Layers of abstraction for working with CoreMIDI in pure Swift.",
+  "description": "CoreMIDI's c interface is poorly documented and cumbersome. At the lowest level of abstraction, ARMIDI provides simple Swift wrappers for all of the CoreMIDIServices functions, available at the global level. At the next level of abstraction, protocols with default implementations are provided for the basic CoreMIDI Services components: objects, devices, entities, endpoints, ports, and clients. The final level of abstraction is a set of classes that implement the protocols and are available for subclassing. The ARMIDIError type provides a simple Swift Error type for handling the CoreMIDI OSStatus error codes. ARMIDIParser is a simple MIDI 1.0 parser engine.",
+  "homepage": "https://github.com/AaronRasmussen/ARMIDI.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Aaron Rasmussen": "aaron.rasmussen@me.com"
+  },
+  "source": {
+    "git": "https://github.com/AaronRasmussen/ARMIDI.git",
+    "tag": "0.2.2"
+  },
+  "platforms": {
+    "osx": "10.15"
+  },
+  "swift_versions": "5.3",
+  "source_files": "ARMIDI*/**/*",
+  "frameworks": "CoreMIDI",
+  "subspecs": [
+    {
+      "name": "ARMIDIParser",
+      "source_files": "ARMIDIParser/Sources/**/*"
+    },
+    {
+      "name": "ARMIDIError",
+      "source_files": "ARMIDIError/Sources/**/*"
+    },
+    {
+      "name": "ARMIDIServices",
+      "source_files": "ARMIDIServices/Sources/**/*",
+      "dependencies": {
+        "ARMIDI/ARMIDIError": [
+
+        ]
+      }
+    },
+    {
+      "name": "ARMIDIServices+Protocols",
+      "source_files": "ARMIDIServices+Protocols/Sources/**/*",
+      "dependencies": {
+        "ARMIDI/ARMIDIServices": [
+
+        ]
+      }
+    },
+    {
+      "name": "ARMIDIServices+Classes",
+      "source_files": "ARMIDIServices+Classes/Sources/**/*",
+      "dependencies": {
+        "ARMIDI/ARMIDIServices+Protocols": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.3"
+}
