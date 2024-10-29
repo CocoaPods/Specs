@@ -1,0 +1,49 @@
+{
+  "name": "leveldb-library",
+  "version": "1.22.6",
+  "license": "New BSD",
+  "summary": "A fast key-value storage library",
+  "description": "LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.",
+  "homepage": "https://github.com/google/leveldb",
+  "authors": "The LevelDB Authors",
+  "cocoapods_version": ">= 1.12.0",
+  "platforms": {
+    "ios": "11.0",
+    "osx": "10.13",
+    "tvos": "11.0",
+    "watchos": "6.0"
+  },
+  "source": {
+    "git": "https://github.com/firebase/leveldb.git",
+    "tag": "CocoaPods-1.22.6"
+  },
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "LEVELDB_IS_BIG_ENDIAN=0 LEVELDB_PLATFORM_POSIX HAVE_FULLFSYNC=1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\"",
+    "WARNING_CFLAGS": "-Wno-shorten-64-to-32 -Wno-comma -Wno-unreachable-code -Wno-conditional-uninitialized -Wno-deprecated-declarations",
+    "USE_HEADERMAP": "No"
+  },
+  "header_dir": "leveldb",
+  "source_files": [
+    "db/*.{cc,h}",
+    "port/*.{cc,h}",
+    "table/*.{cc,h}",
+    "util/*.{cc,h}",
+    "include/leveldb/*.h"
+  ],
+  "public_header_files": [
+    "include/leveldb/*.h"
+  ],
+  "exclude_files": [
+    "**/*_test.cc",
+    "**/*_bench.cc",
+    "db/leveldbutil.cc",
+    "util/env_windows.cc",
+    "util/testutil.cc"
+  ],
+  "resource_bundles": {
+    "leveldb_Privacy": "Resources/PrivacyInfo.xcprivacy"
+  },
+  "libraries": "c++"
+}
