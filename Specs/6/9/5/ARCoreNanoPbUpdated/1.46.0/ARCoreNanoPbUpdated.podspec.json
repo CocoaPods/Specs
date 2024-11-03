@@ -1,0 +1,299 @@
+{
+  "name": "ARCoreNanoPbUpdated",
+  "version": "1.46.0",
+  "summary": "Custom ARCore SDK with updated nanopb dependency.",
+  "homepage": "https://github.com/hlefe/ARCoreNanoPbUpdated",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "cocoapods_version": ">= 1.12.0",
+  "preserve_paths": [
+    "CHANGELOG",
+    "README.md",
+    "LICENSE",
+    "Package.swift"
+  ],
+  "license": {
+    "type": "Copyright",
+    "file": "LICENSE"
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "authors": {
+    "YOURNAME": "Google, Inc."
+  },
+  "source": {
+    "git": "https://github.com/hlefe/ARCoreNanoPbUpdated.git"
+  },
+  "frameworks": "UIKit",
+  "default_subspecs": "Base",
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": [
+        "Base/Sources/dummy.h",
+        "Base/Sources/ARCore/ARCore.h"
+      ],
+      "preserve_paths": [
+        "Base/dummy.m",
+        "Base/Sources/ARCore/module.modulemap"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "Foundation",
+        "SystemConfiguration",
+        "Security",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) ${PODS_ROOT}/ARCore/Base/Sources"
+      },
+      "dependencies": {
+        "GoogleDataTransport": [
+          "~> 10.1.0"
+        ],
+        "nanopb": [
+          "~> 3.30910"
+        ]
+      }
+    },
+    {
+      "name": "CloudAnchors",
+      "source_files": [
+        "CloudAnchors/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "CloudAnchors/dummy.m"
+      ],
+      "frameworks": [
+        "ARKit",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMotion",
+        "CoreVideo",
+        "CoreTelephony",
+        "Foundation",
+        "ImageIO",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3",
+        "m"
+      ],
+      "dependencies": {
+        "ARCoreNanoPbUpdated/GARSession": [
+          "~> 1.46"
+        ],
+        "GTMSessionFetcher/Core": [
+          ">= 1.5",
+          "< 4.0"
+        ],
+        "nanopb": [
+          "~> 3.30910"
+        ]
+      }
+    },
+    {
+      "name": "Geospatial",
+      "source_files": [
+        "Geospatial/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "Geospatial/dummy.m"
+      ],
+      "frameworks": [
+        "ARKit",
+        "AVFoundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreLocation",
+        "CoreMedia",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "ImageIO",
+        "SceneKit",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3",
+        "dl",
+        "m"
+      ],
+      "dependencies": {
+        "ARCoreNanoPbUpdated/GARSession": [
+          "~> 1.46"
+        ]
+      }
+    },
+    {
+      "name": "GARSession",
+      "source_files": [
+        "GARSession/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "GARSession/dummy.m"
+      ],
+      "frameworks": [
+        "ARKit",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreMotion",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "ImageIO",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "resource_bundles": {
+        "ARCoreResources": [
+          "GARSession/Resources/ARCoreResources/**"
+        ]
+      },
+      "dependencies": {
+        "ARCoreNanoPbUpdated/Base": [
+          "~> 1.46"
+        ],
+        "Firebase/RemoteConfig": [
+          "~> 11.2"
+        ],
+        "nanopb": [
+          "~> 3.30910"
+        ]
+      }
+    },
+    {
+      "name": "AugmentedFaces",
+      "source_files": [
+        "AugmentedFaces/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "AugmentedFaces/dummy.m"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "AVFoundation",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreMedia",
+        "CoreTelephony",
+        "CoreVideo",
+        "Foundation",
+        "GLKit",
+        "ImageIO",
+        "Metal",
+        "MobileCoreServices",
+        "OpenGLES",
+        "QuartzCore",
+        "Security",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "dl",
+        "m"
+      ],
+      "resource_bundles": {
+        "ARCoreFaceResources": [
+          "AugmentedFaces/Resources/ARCoreFaceResources/**"
+        ]
+      },
+      "dependencies": {
+        "ARCoreNanoPbUpdated/Base": [
+          "~> 1.46"
+        ],
+        "ARCoreNanoPbUpdated/TFShared": [
+          "~> 1.46"
+        ],
+        "nanopb": [
+          "~> 3.30910"
+        ]
+      }
+    },
+    {
+      "name": "Semantics",
+      "source_files": [
+        "Semantics/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "Semantics/dummy.m"
+      ],
+      "frameworks": [
+        "Accelerate",
+        "ARKit",
+        "CoreVideo",
+        "Foundation"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "dl",
+        "m"
+      ],
+      "resource_bundles": {
+        "ARCoreCoreMLSemanticsResources": [
+          "Semantics/Resources/ARCoreCoreMLSemanticsResources/**"
+        ]
+      },
+      "dependencies": {
+        "ARCoreNanoPbUpdated/GARSession": [
+          "~> 1.46"
+        ],
+        "ARCoreNanoPbUpdated/TFShared": [
+          "~> 1.46"
+        ]
+      }
+    },
+    {
+      "name": "TFShared",
+      "source_files": [
+        "TFShared/Sources/dummy.h"
+      ],
+      "preserve_paths": [
+        "TFShared/dummy.m"
+      ],
+      "frameworks": [
+        "Accelerate"
+      ],
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "dependencies": {
+        "ARCoreNanoPbUpdated/Base": [
+          "~> 1.46"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
