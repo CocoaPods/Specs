@@ -1,0 +1,307 @@
+{
+  "name": "BUTTSDK",
+  "version": "1.44.2.7-premium",
+  "summary": "A comprehensive multimedia SDK.",
+  "description": "A comprehensive multimedia SDK which provides live streaming, VOD and the other related abilities.",
+  "homepage": "https://github.com/volcengine/TTSDK-iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Bytedance copyright"
+  },
+  "authors": {
+    "chenzhaojie": "chenzhaojie@bytedance.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://hstob-cdn-tos.volccdn.com/volcengine/TTSDK/1.44.2.7-premium/TTSDK-1.44.2.7-premium.zip"
+  },
+  "default_subspecs": "LivePull-Lite",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": [
+        "TTSDK/VCloudPandora/**/TTSDKManager.h"
+      ],
+      "source_files": [
+        "TTSDK/VCloudPandora/**/TTSDKManager.h",
+        "TTSDK/TTSDK_Dummy/TTSDK_Module_Dummy.m"
+      ],
+      "vendored_libraries": [
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_Core_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_CN_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_SG_ios.a",
+        "TTSDK/TTSDKVersion/libTTSDKVersion.a"
+      ],
+      "vendored_frameworks": [
+        "TTSDK/VCBaseKit/*.xcframework",
+        "TTSDK/VCBaseKit/*.framework"
+      ],
+      "libraries": "stdc++"
+    },
+    {
+      "name": "Tools",
+      "vendored_libraries": [
+        "TTSDK/lib_h_dec/**/*.a"
+      ],
+      "dependencies": {
+        "BUTTSDK/SSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "SSL",
+      "vendored_frameworks": [
+        "TTSDK/boringssl/*.framework"
+      ],
+      "libraries": [
+        "stdc++",
+        "z",
+        "xml2",
+        "iconv"
+      ]
+    },
+    {
+      "name": "TTFFmpeg",
+      "subspecs": [
+        {
+          "name": "Base",
+          "weak_frameworks": [
+            "CoreMotion",
+            "CoreMedia",
+            "MetalKit",
+            "OpenAL",
+            "VideoToolBox",
+            "AudioToolBox",
+            "AVFoundation",
+            "SystemConfiguration"
+          ],
+          "dependencies": {
+            "BUTTSDK/Tools": [
+
+            ]
+          }
+        },
+        {
+          "name": "LiveLite",
+          "vendored_libraries": [
+            "TTSDK/BVCParser/lib/**/*.a"
+          ],
+          "vendored_frameworks": [
+            "TTSDK/TTFFmpeg/LiveLite/*.framework"
+          ],
+          "dependencies": {
+            "BUTTSDK/TTFFmpeg/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlayerCore",
+      "subspecs": [
+        {
+          "name": "Base",
+          "public_header_files": [
+            "TTSDK/TTPlayerSDK/TTPlayerSDK/TTPlayer/{*}.h"
+          ],
+          "source_files": [
+            "TTSDK/TTPlayerSDK/TTPlayerSDK/TTPlayer/{*}.h"
+          ],
+          "resources": [
+            "TTSDK/TTPlayerSDK/TTPlayerSDK/Assets/ttplayer.metallib"
+          ],
+          "dependencies": {
+            "BUTTSDK/Core": [
+
+            ],
+            "BUTTSDK/Tools": [
+
+            ]
+          },
+          "libraries": [
+            "z",
+            "stdc++"
+          ]
+        },
+        {
+          "name": "LiveLite",
+          "vendored_libraries": [
+            "TTSDK/TTPlayerSDK/LiveLite/TTPlayerSDK/TTPlayer/*.a"
+          ],
+          "vendored_frameworks": [
+            "TTSDK/TTPlayerSDK/LiveLite/TTPlayerSDK/TTPlayer/*.xcframework",
+            "TTSDK/TTPlayerSDK/LiveLite/TTPlayerSDK/TTPlayer/*.framework"
+          ],
+          "dependencies": {
+            "BUTTSDK/PlayerCore/Base": [
+
+            ],
+            "BUTTSDK/TTFFmpeg/LiveLite": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "LiveBase",
+      "vendored_libraries": [
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_Live-CN_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_Live-SG_ios.a",
+        "TTSDK/VCloudPandora/ios-arch-iphone/libVCloudPandora_TTLiveSetting_ios.a",
+        "TTSDK/VeLiveCommon/ios-arch-iphone/libVeLiveCommon_Core_ios.a",
+        "TTSDK/VeLiveCommon/ios-arch-iphone/libVeLiveCommon_CN_ios.a",
+        "TTSDK/VeLiveCommon/ios-arch-iphone/libVeLiveCommon_SG_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_AppLog_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_Log_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK__Core_SettingsManager_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK__SettingsManager_NodeProberConfig_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_NodeProberConfig_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_webrtc_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_Utils_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK__Log_NodeProberToB_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_Preconnect_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_NodeProberToB_ios.a",
+        "TTSDK/LiveStreamStrategySDK/ios-arch-iphone/libLiveStreamStrategySDK_Core_ios.a"
+      ],
+      "public_header_files": [
+        "TTSDK/VeLiveCommon/iOS/VeLiveCommon/Classes/Core/*.h"
+      ],
+      "source_files": [
+        "TTSDK/VeLiveCommon/iOS/VeLiveCommon/Classes/Core/*.h"
+      ],
+      "resource_bundles": {
+        "VeLive": [
+          "TTSDK/VeLiveCommon/iOS/VeLiveCommon/Assets/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "dependencies": {
+        "BUTTSDK/Reachability": [
+
+        ],
+        "BUTTSDK/Core": [
+
+        ]
+      },
+      "libraries": "stdc++"
+    },
+    {
+      "name": "LivePlayer",
+      "subspecs": [
+        {
+          "name": "Base",
+          "public_header_files": [
+            "TTSDK/LivePlayer/business_modules/LivePlayer/Sources/Classes/**/*.h"
+          ],
+          "source_files": [
+            "TTSDK/LivePlayer/business_modules/LivePlayer/Sources/Classes/**/*.h"
+          ],
+          "weak_frameworks": [
+            "MetalPerformanceShaders",
+            "AVFoundation",
+            "CoreMedia",
+            "AudioToolBox",
+            "VideoToolBox",
+            "CoreTelephony",
+            "SystemConfiguration",
+            "CoreML"
+          ],
+          "libraries": "stdc++",
+          "dependencies": {
+            "BUTTSDK/Reachability": [
+
+            ],
+            "BUTTSDK/Core": [
+
+            ],
+            "BUTTSDK/LiveBase": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lite",
+          "vendored_libraries": [
+            "TTSDK/LivePlayer/LiveLite/**/libLivePlayer_Wrapper_ios.a",
+            "TTSDK/LivePlayer/LiveLite/**/libLivePlayer_Settings_ios.a"
+          ],
+          "dependencies": {
+            "BUTTSDK/PlayerCore/LiveLite": [
+
+            ],
+            "BUTTSDK/LivePlayer/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "LivePull-Lite",
+      "dependencies": {
+        "BUTTSDK/LivePlayer/Lite": [
+
+        ],
+        "BUTTSDK/Core": [
+
+        ],
+        "BUTTSDK/Strategy/Lite": [
+
+        ],
+        "BUTTSDK/LiveBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "Strategy",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "BUTTSDK/Reachability": [
+
+            ],
+            "BUTTSDK/LiveBase": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lite",
+          "vendored_libraries": [
+            "TTSDK/LivePlayer/LiveLite/**/libLivePlayer_LSS_ios.a"
+          ],
+          "dependencies": {
+            "BUTTSDK/LivePlayer/Lite": [
+
+            ],
+            "BUTTSDK/Strategy/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reachability",
+      "vendored_libraries": [
+        "TTSDK/TTReachability/**/*.a"
+      ],
+      "weak_frameworks": [
+        "MetricKit",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "stdc++",
+        "z"
+      ]
+    }
+  ]
+}
