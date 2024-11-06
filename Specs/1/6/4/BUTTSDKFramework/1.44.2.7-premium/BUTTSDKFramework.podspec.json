@@ -1,0 +1,239 @@
+{
+  "name": "BUTTSDKFramework",
+  "version": "1.44.2.7-premium",
+  "summary": "A comprehensive multimedia SDK",
+  "description": "A comprehensive multimedia SDK which provides live streaming, VOD, webimage, uploader, and the other related abilities.",
+  "homepage": "https://github.com/volcengine/TTSDK-iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Bytedance copyright"
+  },
+  "authors": {
+    "shangjincheng-bd": "shangjincheng@bytedance.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://hstob-cdn-tos.volccdn.com/volcengine/TTSDKFramework/1.44.2.7-premium/TTSDKFramework-1.44.2.7-premium-ta.zip",
+    "type": "zip"
+  },
+  "default_subspecs": "LivePull-Lite",
+  "module_name": "BUTTSDKFramework",
+  "header_dir": "BUTTSDKFramework",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "TTSDKFramework/TTSDKCore/Classes/Headers/*.h",
+        "TTSDKFramework/*.{h,m}"
+      ],
+      "public_header_files": [
+        "TTSDKFramework/TTSDKCore/Classes/Headers/*.h",
+        "TTSDKFramework/*.h"
+      ],
+      "vendored_frameworks": "TTSDKFramework/TTSDKCore/*.{xcframework,framework}",
+      "libraries": "stdc++"
+    },
+    {
+      "name": "Tools",
+      "vendored_frameworks": "TTSDKFramework/TTSDKTools/*.{xcframework,framework}",
+      "dependencies": {
+        "BUTTSDKFramework/SSL": [
+
+        ]
+      }
+    },
+    {
+      "name": "SSL",
+      "vendored_frameworks": "TTSDKFramework/TTSDKSSL/*.{xcframework,framework}",
+      "libraries": [
+        "stdc++",
+        "z",
+        "xml2",
+        "iconv"
+      ]
+    },
+    {
+      "name": "TTFFmpeg",
+      "subspecs": [
+        {
+          "name": "Base",
+          "weak_frameworks": [
+            "CoreMotion",
+            "CoreMedia",
+            "MetalKit",
+            "OpenAL",
+            "VideoToolBox",
+            "AudioToolBox",
+            "AVFoundation",
+            "SystemConfiguration"
+          ],
+          "dependencies": {
+            "BUTTSDKFramework/Tools": [
+
+            ]
+          }
+        },
+        {
+          "name": "LiveLite",
+          "vendored_frameworks": "TTSDKFramework/TTSDKTTFFmpegLiveLite/*.{xcframework,framework}",
+          "dependencies": {
+            "BUTTSDKFramework/TTFFmpeg/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlayerCore",
+      "subspecs": [
+        {
+          "name": "Base",
+          "dependencies": {
+            "BUTTSDKFramework/Core": [
+
+            ],
+            "BUTTSDKFramework/Tools": [
+
+            ]
+          },
+          "libraries": [
+            "z",
+            "stdc++"
+          ]
+        },
+        {
+          "name": "LiveLite",
+          "source_files": "TTSDKFramework/TTSDKPlayerCoreLiveLite/Classes/Headers/*.h",
+          "public_header_files": "TTSDKFramework/TTSDKPlayerCoreLiveLite/Classes/Headers/*.h",
+          "vendored_frameworks": "TTSDKFramework/TTSDKPlayerCoreLiveLite/*.{xcframework,framework}",
+          "resources": "TTSDKFramework/TTSDKPlayerCoreLiveLite/Resources/*",
+          "dependencies": {
+            "BUTTSDKFramework/PlayerCore/Base": [
+
+            ],
+            "BUTTSDKFramework/TTFFmpeg/LiveLite": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "LivePlayer",
+      "weak_frameworks": [
+        "MetalPerformanceShaders",
+        "AVFoundation",
+        "CoreMedia",
+        "AudioToolBox",
+        "VideoToolBox",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "CoreML"
+      ],
+      "libraries": "stdc++",
+      "subspecs": [
+        {
+          "name": "Base",
+          "dependencies": {
+            "BUTTSDKFramework/LiveBase": [
+
+            ],
+            "BUTTSDKFramework/Reachability": [
+
+            ],
+            "BUTTSDKFramework/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lite",
+          "source_files": "TTSDKFramework/TTSDKLivePlayerLite/Classes/Headers/*.h",
+          "public_header_files": "TTSDKFramework/TTSDKLivePlayerLite/Classes/Headers/*.h",
+          "vendored_frameworks": "TTSDKFramework/TTSDKLivePlayerLite/*.{xcframework,framework}",
+          "dependencies": {
+            "BUTTSDKFramework/PlayerCore/LiveLite": [
+
+            ],
+            "BUTTSDKFramework/LivePlayer/Base": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "LivePull-Lite",
+      "dependencies": {
+        "BUTTSDKFramework/Strategy/Lite": [
+
+        ],
+        "BUTTSDKFramework/LivePlayer/Lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "LiveBase",
+      "source_files": "TTSDKFramework/TTSDKLiveBase/Classes/Headers/*.h",
+      "public_header_files": "TTSDKFramework/TTSDKLiveBase/Classes/Headers/*.h",
+      "vendored_frameworks": "TTSDKFramework/TTSDKLiveBase/*.{xcframework,framework}",
+      "resources": [
+        "TTSDKFramework/TTSDKLiveBase/Resources/*.bundle"
+      ],
+      "dependencies": {
+        "BUTTSDKFramework/Core": [
+
+        ],
+        "BUTTSDKFramework/Reachability": [
+
+        ]
+      },
+      "libraries": "stdc++"
+    },
+    {
+      "name": "Reachability",
+      "vendored_frameworks": "TTSDKFramework/TTSDKReachability/*.{xcframework,framework}",
+      "weak_frameworks": [
+        "MetricKit",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "libraries": [
+        "stdc++",
+        "z"
+      ]
+    },
+    {
+      "name": "Strategy",
+      "subspecs": [
+        {
+          "name": "Core",
+          "dependencies": {
+            "BUTTSDKFramework/Reachability": [
+
+            ],
+            "BUTTSDKFramework/LiveBase": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lite",
+          "vendored_frameworks": "TTSDKFramework/TTSDKStrategyLite/*.{xcframework,framework}",
+          "dependencies": {
+            "BUTTSDKFramework/LivePlayer/Lite": [
+
+            ],
+            "BUTTSDKFramework/Strategy/Core": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
