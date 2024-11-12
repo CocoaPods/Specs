@@ -1,0 +1,102 @@
+{
+  "name": "SMADKit",
+  "version": "0.0.9",
+  "summary": "AD",
+  "homepage": "https://github.com/Soulmob/SMADKit",
+  "authors": {
+    "mengqingzheng": "mengqingzheng@munimob.com"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "15.0"
+  },
+  "static_framework": true,
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "6.0"
+  ],
+  "source": {
+    "git": "git@github.com:Soulmob/SMADKit.git",
+    "tag": "0.0.9"
+  },
+  "default_subspecs": "Admob",
+  "subspecs": [
+    {
+      "name": "Admob",
+      "source_files": [
+        "Source/Admob/*.{h,m,swift}",
+        "Source/*.{h,m,swift}",
+        "Source/Common/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Google-Mobile-Ads-SDK": [
+          "~> 11.12.0"
+        ],
+        "SwiftyJSON": [
+          "~> 5.0.2"
+        ]
+      }
+    },
+    {
+      "name": "Unity",
+      "source_files": [
+        "Source/Unity/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "UnityAds": [
+          "~> 4.12.4"
+        ],
+        "SMADKit/Admob": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SMADKit_Unity",
+        "GCC_PREPROCESSOR_DEFINITIONS": "SMADKit_Unity=1"
+      }
+    },
+    {
+      "name": "Vungle",
+      "source_files": [
+        "Source/Vungle/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "VungleAds": [
+          "~> 7.4.2"
+        ],
+        "SMADKit/Admob": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SMADKit_Vungle",
+        "GCC_PREPROCESSOR_DEFINITIONS": "SMADKit_Vungle=1"
+      }
+    },
+    {
+      "name": "AppLovin",
+      "source_files": [
+        "Source/AppLovin/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "AppLovinSDK": [
+          "~> 13.0.1"
+        ],
+        "SMADKit/Admob": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SMADKit_AppLovin",
+        "GCC_PREPROCESSOR_DEFINITIONS": "SMADKit_AppLovin=1"
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
