@@ -1,0 +1,56 @@
+{
+  "name": "Vouched",
+  "version": "1.9.2",
+  "summary": "Making Verifications Fast and Simple.",
+  "swift_versions": "5.0",
+  "description": "The Vouched Library allows for fast and simple verifications using an ID and Selfie.",
+  "homepage": "https://github.com/vouched/vouched-ios",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vouched": "support@vouched.id"
+  },
+  "source": {
+    "http": "https://github.com/vouched/vouched-ios/releases/download/v1.9.2/VouchedMobileSDK.zip"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "TensorFlowLiteSwift": [
+          "2.7.0"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "VouchedMobileSDK/VouchedCore.framework"
+      }
+    },
+    {
+      "name": "Barcode",
+      "dependencies": {
+        "Vouched/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "VouchedMobileSDK/VouchedCore.framework",
+          "VouchedMobileSDK/VouchedBarcode.framework"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
