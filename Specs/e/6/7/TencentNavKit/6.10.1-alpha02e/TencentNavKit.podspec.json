@@ -1,0 +1,82 @@
+{
+  "name": "TencentNavKit",
+  "version": "6.10.1-alpha02e",
+  "summary": "TencentNavKit",
+  "homepage": "https://lbs.qq.com",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright © 1998-2023 Tencent All Rights Reserved"
+  },
+  "authors": {
+    "mikedpzhang": "mikedpzhang@tencent.com"
+  },
+  "source": {
+    "http": "https://framework-70105.njc.vod.tencent-cloud.com/nav/TencentNavKit_6.10.1-alpha02e.zip",
+    "sha256": "41080f68c836e8308ed41295af789497c86ab6897373779f6a87496c72ac2e47"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "AVFoundation",
+    "CoreMotion"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "TencentNavMapFoundationKit",
+      "vendored_frameworks": "QMapFoundationKit.framework"
+    },
+    {
+      "name": "TencentNavMapKit",
+      "vendored_frameworks": "QMapKit.framework",
+      "resources": "QMapKit.framework/QMapKit.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapFoundationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavLocationKit",
+      "vendored_frameworks": "TencentLBS.framework",
+      "resources": "TencentLBS.framework/TLBSBundle.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapFoundationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavKit",
+      "vendored_frameworks": "TencentNavKit.framework",
+      "resources": "TencentNavKit.framework/TencentNavKit.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapKit": [
+
+        ],
+        "TencentNavKit/TencentNavLocationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TNKAudioPlayer",
+      "vendored_frameworks": "TNKAudioPlayer.framework",
+      "resources": "TNKAudioPlayer.framework/TencentNavKitTTS.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavKit": [
+
+        ]
+      }
+    }
+  ]
+}
