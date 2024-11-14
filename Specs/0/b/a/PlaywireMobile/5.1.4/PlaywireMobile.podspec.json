@@ -1,0 +1,49 @@
+{
+  "name": "PlaywireMobile",
+  "version": "5.1.4",
+  "summary": "PlaywireMobile SDK",
+  "homepage": "https://www.playwire.com",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ios.team": "mobile.team@playwire.com"
+  },
+  "source": {
+    "git": "https://github.com/intergi/PlaywireMobile.git",
+    "tag": "5.1.4"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "cocoapods_version": ">= 1.12.1",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "SWIFT_INCLUDE_PATHS": "\"$(PODS_ROOT)/PlaywireMobile/**\" \"$(PODS_XCFRAMEWORKS_BUILD_DIR)/**\""
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "PlaywireMobile.xcframework",
+      "preserve_paths": "PlaywireMobile.xcframework/*"
+    },
+    {
+      "name": "VAST",
+      "vendored_frameworks": "PlaywireMobileVAST.xcframework",
+      "preserve_paths": "PlaywireMobileVAST.xcframework/*",
+      "dependencies": {
+        "PlaywireMobile/Core": [
+          "5.1.4"
+        ],
+        "GoogleAds-IMA-iOS-SDK": [
+          "~> 3.22.1"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
