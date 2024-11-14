@@ -1,0 +1,81 @@
+{
+  "name": "RakutenAnalytics",
+  "version": "10.4.0",
+  "authors": "Rakuten Analytics",
+  "summary": "SDK that can record user activity and automatically send tracking events to RAT.",
+  "homepage": "https://github.com/rakutenanalytics/ios-rakutenanalytics",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/rakutenanalytics/ios-rakutenanalytics",
+    "tag": "10.4.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "swift_versions": [
+    "5.7.1"
+  ],
+  "resources": [
+    "Sources/Main/Resources/PrivacyInfo.xcprivacy"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_ENABLE_MODULES": "YES",
+    "CLANG_MODULES_AUTOLINK": "YES",
+    "GCC_C_LANGUAGE_STANDARD": "gnu99",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "CLANG_ENABLE_MODULES": "YES",
+    "CLANG_MODULES_AUTOLINK": "YES",
+    "GCC_C_LANGUAGE_STANDARD": "gnu99",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "default_subspecs": [
+    "RAT"
+  ],
+  "module_map": "Sources/RAnalytics.modulemap",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Main/RAnalytics.h",
+        "Sources/{Main/Core/,Main/Core/Private/,Main/Core/Geo/,RAnalyticsSwiftLoader/,Main/Util/,Main/Util/Private/,Main/Util/Model/,Main/Util/Optional/,Main/Util/Wrapper/,Main/Util/Extensions/,Main/Util/Lockable/,Main/Util/RLogger/,Main/Util/Networking/,Main/Util/DependencyInjection/,Main/Util/Environment/}*.{m,swift}"
+      ],
+      "private_header_files": "Sources/Main/Core/{Private,Util}/*.h",
+      "resource_bundles": {
+        "RAnalyticsAssets": [
+          "Sources/Main/Core/Assets/*"
+        ]
+      },
+      "weak_frameworks": [
+        "Foundation",
+        "UIKit",
+        "CoreGraphics",
+        "CoreLocation",
+        "AdSupport"
+      ],
+      "libraries": [
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "RAT",
+      "source_files": "Sources/Main/RAT/**/*.{swift}",
+      "weak_frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "dependencies": {
+        "RakutenAnalytics/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7.1"
+}
