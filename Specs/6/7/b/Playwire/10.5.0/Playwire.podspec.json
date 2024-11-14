@@ -1,0 +1,108 @@
+{
+  "name": "Playwire",
+  "version": "10.5.0",
+  "summary": "Playwire SDK",
+  "homepage": "https://www.playwire.com",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ios.team": "mobile.team@playwire.com"
+  },
+  "source": {
+    "git": "https://github.com/intergi/playwire-ios-pods.git",
+    "tag": "10.5.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "cocoapods_version": ">= 1.10",
+  "requires_arc": true,
+  "default_subspecs": "Total",
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "SWIFT_INCLUDE_PATHS": "\"$(PODS_ROOT)/Playwire/**\" \"$(PODS_XCFRAMEWORKS_BUILD_DIR)/**\""
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "sdks/Playwire.xcframework",
+      "preserve_paths": "sdks/Playwire.xcframework/*",
+      "dependencies": {
+        "Google-Mobile-Ads-SDK": [
+          "11.2.0"
+        ],
+        "FirebaseAnalytics": [
+          "~> 10"
+        ],
+        "PlaywireMobile/VAST": [
+          "5.1.4"
+        ],
+        "GoogleUserMessagingPlatform": [
+          "2.5.0"
+        ]
+      }
+    },
+    {
+      "name": "Coppa",
+      "dependencies": {
+        "Playwire/Core": [
+          "10.5.0"
+        ],
+        "GoogleMobileAdsMediationChartboost": [
+          "9.7.0.0"
+        ],
+        "GoogleMobileAdsMediationInMobi": [
+          "10.7.1"
+        ],
+        "GoogleMobileAdsMediationIronSource": [
+          "7.9.1.0.0"
+        ],
+        "GoogleMobileAdsMediationVungle": [
+          "7.3.0.0"
+        ]
+      },
+      "vendored_frameworks": "sdks/Playwire_COPPA.xcframework",
+      "preserve_paths": "sdks/Playwire_COPPA.xcframework/*"
+    },
+    {
+      "name": "Total",
+      "vendored_frameworks": [
+        "sdks/Playwire_NonCOPPA.xcframework",
+        "sdks/PrebidMobile.xcframework"
+      ],
+      "preserve_paths": [
+        "sdks/Playwire_NonCOPPA.xcframework/*",
+        "sdks/PrebidMobile.xcframework/*"
+      ],
+      "dependencies": {
+        "Playwire/Coppa": [
+          "10.5.0"
+        ],
+        "GoogleMobileAdsMediationFyber": [
+          "8.2.7.0"
+        ],
+        "GoogleMobileAdsMediationPangle": [
+          "5.8.0.8.0"
+        ],
+        "GoogleMobileAdsMediationAppLovin": [
+          "12.4.0.0"
+        ],
+        "GoogleMobileAdsMediationFacebook": [
+          "6.15.0.0"
+        ],
+        "AmazonPublisherServicesSDK": [
+          "4.10.1"
+        ]
+      },
+      "resource_bundles": {
+        "PlaywirePrivacy": [
+          "sdks/Playwire_NonCOPPA.xcframework/ios-arm64/PrivacyInfo.xcprivacy"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
