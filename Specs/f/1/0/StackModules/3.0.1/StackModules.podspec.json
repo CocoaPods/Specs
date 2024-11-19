@@ -1,0 +1,144 @@
+{
+  "name": "StackModules",
+  "version": "3.0.1",
+  "summary": "Supported modules for Stack iOS products",
+  "description": "Supported modules for Stack iOS products. Used in Appodeal, BidMachine and DataCore",
+  "homepage": "https://appodeal.com",
+  "license": {
+    "type": "Commercial License",
+    "text": "Copyright 2024. Appodeal Inc. All rights reserved.\nThe StackModules is available under a commercial license (https://appodeal.com/sdk-license-agreement)."
+  },
+  "authors": {
+    "Stack": "http://www.explorestack.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://bidmachine-ios.s3.amazonaws.com/StackModules/3.0.1/pod/StackModules.zip"
+  },
+  "default_subspecs": "Static",
+  "swift_versions": "5.1",
+  "frameworks": [
+    "SafariServices",
+    "StoreKit",
+    "WebKit",
+    "CoreTelephony",
+    "SystemConfiguration",
+    "AdSupport",
+    "CoreLocation",
+    "MobileCoreServices",
+    "AVFoundation",
+    "AudioToolbox",
+    "UIKit",
+    "ImageIO",
+    "CoreGraphics",
+    "QuartzCore"
+  ],
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Dynamic",
+      "dependencies": {
+        "StackModules/Core-Dynamic": [
+
+        ],
+        "StackModules/ProductPresentation-Dynamic": [
+
+        ],
+        "StackModules/Rendering-Dynamic": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core-Dynamic",
+      "vendored_frameworks": "release/Dynamic/StackModules.xcframework"
+    },
+    {
+      "name": "ProductPresentation-Dynamic",
+      "vendored_frameworks": "release/Dynamic/StackProductPresentation.xcframework",
+      "dependencies": {
+        "StackModules/Core-Dynamic": [
+
+        ]
+      }
+    },
+    {
+      "name": "Rendering-Dynamic",
+      "vendored_frameworks": "release/Dynamic/StackRendering.xcframework",
+      "dependencies": {
+        "StackModules/Core-Dynamic": [
+
+        ],
+        "StackModules/ProductPresentation-Dynamic": [
+
+        ],
+        "OMSDK_Appodeal": [
+          "~> 1.5.2"
+        ]
+      }
+    },
+    {
+      "name": "Static",
+      "dependencies": {
+        "StackModules/Core-Static": [
+
+        ],
+        "StackModules/ProductPresentation-Static": [
+
+        ],
+        "StackModules/Rendering-Static": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core-Static",
+      "vendored_frameworks": "release/Static/StackModules.xcframework",
+      "resource_bundles": {
+        "StackModules": [
+          "release/Static/StackModules.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "ProductPresentation-Static",
+      "vendored_frameworks": "release/Static/StackProductPresentation.xcframework",
+      "dependencies": {
+        "StackModules/Core-Static": [
+
+        ]
+      },
+      "resource_bundles": {
+        "StackProductPresentation": [
+          "release/Static/StackProductPresentation.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "Rendering-Static",
+      "vendored_frameworks": "release/Static/StackRendering.xcframework",
+      "dependencies": {
+        "StackModules/Core-Static": [
+
+        ],
+        "StackModules/ProductPresentation-Static": [
+
+        ],
+        "OMSDK_Appodeal": [
+          "~> 1.5.2"
+        ]
+      },
+      "resource_bundles": {
+        "StackRendering": [
+          "release/Static/StackRendering.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
