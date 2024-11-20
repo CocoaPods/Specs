@@ -1,0 +1,80 @@
+{
+  "name": "PoporWebServer",
+  "version": "3.5.8",
+  "authors": {
+    "Pierre-Olivier Latour": "info@pol-online.net"
+  },
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://gitee.com/popor/PoporWebServer",
+  "summary": "原作者放弃维护了,我正好需要自定义功能. Lightweight GCD based HTTP server for OS X & iOS (includes web based uploader & WebDAV server)",
+  "source": {
+    "git": "https://gitee.com/popor/PoporWebServer.git",
+    "tag": "3.5.8"
+  },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.7"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PoporWebServer/Classes/PoporWebServer/**/*.{h,m}",
+      "private_header_files": "PoporWebServer/Classes/PoporWebServer/Core/PoporWebServerPrivate.h",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "z",
+        "frameworks": [
+          "CoreServices",
+          "CFNetwork"
+        ]
+      },
+      "tvos": {
+        "libraries": "z",
+        "frameworks": [
+          "CoreServices",
+          "CFNetwork"
+        ]
+      },
+      "osx": {
+        "libraries": "z",
+        "frameworks": "SystemConfiguration"
+      }
+    },
+    {
+      "name": "WebDAV",
+      "dependencies": {
+        "PoporWebServer/Core": [
+
+        ]
+      },
+      "source_files": "PoporWebServer/Classes/PoporWebDAVServer/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "xml2"
+      },
+      "tvos": {
+        "libraries": "xml2"
+      },
+      "osx": {
+        "libraries": "xml2"
+      },
+      "compiler_flags": "-I$(SDKROOT)/usr/include/libxml2"
+    },
+    {
+      "name": "WebUploader",
+      "dependencies": {
+        "PoporWebServer/Core": [
+
+        ]
+      },
+      "source_files": "PoporWebServer/Classes/PoporWebUploader/*.{h,m}",
+      "requires_arc": true,
+      "resources": "PoporWebServer/Classes/PoporWebUploader/PoporWebUploader.bundle"
+    }
+  ]
+}
