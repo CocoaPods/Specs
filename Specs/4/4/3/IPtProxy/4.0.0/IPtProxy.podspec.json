@@ -1,0 +1,39 @@
+{
+  "name": "IPtProxy",
+  "version": "4.0.0",
+  "summary": "Lyrebird/Obfs4proxy and Snowflake Pluggable Transports for iOS and macOS",
+  "description": "Both Lyrebird/Obfs4proxy and Snowflake Pluggable Transports are written in Go, which\nis a little annoying to use on iOS and Android.\nThis project encapsulates all the machinations to make it work and provides an\neasy to install binary including a wrapper around both.\n\nProblems solved in particular are:\n\n- One cannot compile `main` packages with `gomobile`. Both PTs are patched\n  to avoid this.\n- Both PTs are gathered under one roof here, since you cannot have two\n  `gomobile` frameworks as dependencies, since there are some common Go\n  runtime functions exported, which will create a name clash.\n- Environment variable changes during runtime will not be recognized by\n  `goptlib` when done from within Swift/Objective-C. Therefore, sensible\n  values are hardcoded in the Go wrapper.\n- The ports where the PTs will listen on are hardcoded, since communicating\n  the used ports back to the app would be quite some work (e.g. trying to\n  read it from STDOUT) for very little benefit.\n- Snowflake and Lyrebird/Obfs4proxy are patched to accept all configuration parameters\n  directly.\n\nContained transport versions:\n\n| Transport | Version |\n|-----------|--------:|\n| Lyrebird  |   0.5.0 |\n| Snowflake |  2.10.1 |",
+  "homepage": "https://github.com/tladesignz/IPtProxy",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/tladesignz/IPtProxy.git",
+    "tag": "4.0.0"
+  },
+  "social_media_url": "https://twitter.com/tladesignz",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "11"
+  },
+  "preserve_paths": [
+    "build.sh",
+    "*.patch",
+    "IPtProxy.go/*"
+  ],
+  "prepare_command": "./build.sh",
+  "script_phases": {
+    "name": "Go build of IPtProxy.xcframework",
+    "execution_position": "before_compile",
+    "script": "sh \"$PODS_TARGET_SRCROOT/build.sh\"",
+    "output_files": [
+      "$(DERIVED_FILE_DIR)/IPtProxy.xcframework"
+    ]
+  },
+  "vendored_frameworks": "IPtProxy.xcframework",
+  "libraries": "resolv"
+}
