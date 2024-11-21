@@ -1,0 +1,100 @@
+{
+  "name": "DomobSDK",
+  "version": "3.4.13",
+  "summary": "多盟广告SDK",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/dmdsp/DomobAdSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "shilin.liu": "shilin.liu@domob.cn"
+  },
+  "source": {
+    "git": "https://github.com/dmdsp/DomobAdSDK.git",
+    "tag": "3.4.13"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "DMAdSDK",
+  "subspecs": [
+    {
+      "name": "DMAdSDK",
+      "frameworks": [
+        "AdSupport",
+        "AppTrackingTransparency",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.27"
+        ],
+        "Masonry": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      },
+      "vendored_frameworks": "DomobSDK/Classes/DMAdSDK.xcframework",
+      "resource_bundles": {
+        "DMAdSDK_Bundle": [
+          "DomobSDK/Classes/DMAdSDK_Bundle.bundle/**/*"
+        ]
+      }
+    },
+    {
+      "name": "DomobSDKAdapter",
+      "dependencies": {
+        "DomobSDK/DMAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "DomobSDK/Classes/DomobSDKAdapter.xcframework"
+    },
+    {
+      "name": "GMAdSDKAdapter",
+      "dependencies": {
+        "Ads-CN-Beta": [
+          "6.2.0.0"
+        ],
+        "Ads-CN-Beta/CSJMediation": [
+
+        ],
+        "GMKsAdapter-Beta": [
+          "~> 3.3.64.0.0"
+        ],
+        "KSAdSDK": [
+          "~> 3.3.61"
+        ],
+        "DomobSDK/DomobSDKAdapter": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "DomobSDK/Classes/GMAdSDKAdapter.xcframework"
+    },
+    {
+      "name": "KSAdSDKAdapter",
+      "dependencies": {
+        "KSAdSDK": [
+          "~> 3.3.61"
+        ],
+        "DomobSDK/DomobSDKAdapter": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "DomobSDK/Classes/KSAdSDKAdapter.xcframework"
+    }
+  ]
+}
