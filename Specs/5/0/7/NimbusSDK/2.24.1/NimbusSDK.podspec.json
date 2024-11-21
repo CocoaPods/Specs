@@ -1,0 +1,255 @@
+{
+  "name": "NimbusSDK",
+  "version": "2.24.1",
+  "summary": "The Nimbus SDK is the easiest and fastest way to start using Nimbus on iOS.",
+  "description": "Nimbus is a disruptive new mobile ad platform that combines an ultra low-latency server-to-server publisher\nexchange with a flexible, lightweight client-side SDK. With one call to our platform, you get\naccess to a pool of bidders who compete for your impression on a first-price auction, so you\nget the highest CPMs available, right from the source. Nimbus is designed to do two things well:\nmaximize your revenue and deliver a polished mobile advertising experience to your users.",
+  "homepage": "https://www.adsbynimbus.com",
+  "social_media_url": "https://twitter.com/adsbynimbus",
+  "authors": "Nimbus",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "documentation_url": "https://docs.adsbynimbus.com/docs/sdk/ios",
+  "license": {
+    "type": "Copyright",
+    "text": "Nimbus. All rights reserved."
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "source": {
+    "http": "https://adsbynimbus-public.s3.amazonaws.com/iOS/sdks/2.24.1/Nimbus-2.24.1.zip",
+    "sha256": "b6c90b85ed093ca04e9976d5d4edb38d149b08738309997b49188e132c78136e"
+  },
+  "default_subspecs": "NimbusKit",
+  "subspecs": [
+    {
+      "name": "NimbusCoreKit",
+      "vendored_frameworks": "NimbusCoreKit.xcframework"
+    },
+    {
+      "name": "NimbusRequestKit",
+      "vendored_frameworks": "NimbusRequestKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusCoreKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusRequestAPSKit",
+      "vendored_frameworks": "NimbusRequestAPSKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRequestKit": [
+
+        ],
+        "AmazonPublisherServicesSDK": [
+          ">=4.9.3"
+        ]
+      }
+    },
+    {
+      "name": "NimbusRequestFANKit",
+      "source_files": "NimbusFAN/NimbusRequestFANKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusRequestKit": [
+
+        ],
+        "FBAudienceNetwork": [
+          ">=6.15.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderKit",
+      "vendored_frameworks": [
+        "NimbusRenderKit.xcframework",
+        "OMSDK_Adsbynimbus.xcframework"
+      ],
+      "dependencies": {
+        "NimbusSDK/NimbusCoreKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderStaticKit",
+      "vendored_frameworks": "NimbusRenderStaticKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRenderKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderVideoKit",
+      "vendored_frameworks": "NimbusRenderVideoKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRenderKit": [
+
+        ],
+        "GoogleAds-IMA-iOS-SDK": [
+          ">=3.18.4"
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderVASTKit",
+      "vendored_frameworks": "NimbusRenderVASTKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRenderStaticKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderFANKit",
+      "source_files": "NimbusFAN/NimbusRenderFANKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusRenderKit": [
+
+        ],
+        "FBAudienceNetwork": [
+          ">=6.15.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusKit",
+      "vendored_frameworks": [
+        "NimbusKit.xcframework"
+      ],
+      "dependencies": {
+        "NimbusSDK/NimbusRequestKit": [
+
+        ],
+        "NimbusSDK/NimbusRenderKit": [
+
+        ],
+        "NimbusSDK/NimbusRenderStaticKit": [
+
+        ],
+        "NimbusSDK/NimbusRenderVideoKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusGAMKit",
+      "source_files": "NimbusGAM/NimbusGAMKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          ">=9.0.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusAdMobKit",
+      "source_files": "NimbusAdMob/NimbusAdMobKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          ">=11.7.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusGoogleKit",
+      "source_files": "NimbusGoogle/NimbusGoogleKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          ">=9.0.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusUnityKit",
+      "source_files": "NimbusUnity/NimbusUnityKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "UnityAds": [
+          ">=4.9.2"
+        ]
+      }
+    },
+    {
+      "name": "NimbusLiveRampKit",
+      "source_files": "NimbusLiveRamp/NimbusLiveRampKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusLiveRampKitCompat": [
+
+        ],
+        "NimbusSDK/NimbusRequestKit": [
+
+        ],
+        "LRAtsSDK": [
+          ">= 1.4"
+        ]
+      }
+    },
+    {
+      "name": "NimbusVungleKit",
+      "source_files": "NimbusVungle/NimbusVungleKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "VungleAds": [
+          ">=7.4.0"
+        ]
+      }
+    },
+    {
+      "name": "NimbusMintegralKit",
+      "source_files": "NimbusMintegral/NimbusMintegralKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "MintegralAdSDK": [
+          ">= 7.5.1"
+        ]
+      }
+    },
+    {
+      "name": "NimbusMobileFuseKit",
+      "source_files": "NimbusMobileFuse/NimbusMobileFuseKit/**/*",
+      "dependencies": {
+        "NimbusSDK/NimbusKit": [
+
+        ],
+        "MobileFuseSDK": [
+          "~> 1.7"
+        ]
+      }
+    },
+    {
+      "name": "NimbusLiveRampKitCompat",
+      "vendored_frameworks": "NimbusLiveRampKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRequestKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "NimbusRenderOMKit",
+      "vendored_frameworks": "NimbusRenderOMKit.xcframework",
+      "dependencies": {
+        "NimbusSDK/NimbusRenderKit": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
