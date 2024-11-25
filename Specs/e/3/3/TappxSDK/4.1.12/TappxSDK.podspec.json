@@ -1,0 +1,65 @@
+{
+  "name": "TappxSDK",
+  "version": "4.1.12",
+  "summary": "Tappx SDK for iOS monetization.",
+  "description": "Tappx, an AdTech firm that offers innovative app monetization, user acquisition, and advertising solutions for mobile publishers, app developers, and advertisers; helps developers: \n\nMaximize its revenue and optimize the monetization performance\nIncrease its eCPMs being sure that the highest bid always wins\nGet high fill rates and the best quality ads from top brands worldwide\n\nThanks to the simple and flexible Tappx SDK, publishers and app developers can integrate the Tappx network to maximize their advertising revenue with 100% brand campaigns and increase the eCPMs with a convenient self-serve monetization platform.",
+  "homepage": "https://www.tappx.com",
+  "license": "MIT",
+  "static_framework": true,
+  "authors": {
+    "Tappx": "tappx@tappx.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/tappx-com/TappxSDK.git",
+    "tag": "4.1.12"
+  },
+  "default_subspecs": "TappxFramework",
+  "subspecs": [
+    {
+      "name": "OMSDK_Tappx",
+      "vendored_frameworks": "OMSDK_Tappx.xcframework",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "TappxFramework",
+      "vendored_frameworks": "TappxFramework.xcframework",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "TappxSDK/OMSDK_Tappx": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "TPXCrossPromotionAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "TPXCrossPromotionAdapter/*.{h,m}",
+      "dependencies": {
+        "TappxSDK/TappxFramework": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 11.5.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    }
+  ]
+}
