@@ -1,0 +1,249 @@
+{
+  "name": "AdStir-Ads-SDK",
+  "version": "2.17.1",
+  "summary": "AdStir Ads SDK for iOS",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2015-2023 UNITED Marketing Technologies, Inc. All rights reserved."
+  },
+  "homepage": "https://ad-stir.com",
+  "authors": "UNITED, Inc.",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://dl.ad-stir.com/sdk/AdstirAdsSdkiOS-2.17.1-MediationAdapter.zip",
+    "sha256": "5eecc3d0653ae67ef5e014609de7425ff639f3b6763e2907691fe1ad830fbaab"
+  },
+  "documentation_url": "https://united-adstir.github.io/ios-sdk-docs/",
+  "preserve_paths": "**/README.md",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "cocoapods_version": ">= 1.9.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "**/AdstirAds.xcframework",
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreTelephony",
+        "CoreMedia",
+        "QuartzCore",
+        "SystemConfiguration",
+        "SafariServices",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "Mediation",
+      "dependencies": {
+        "AdStir-Ads-SDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lObjC"
+      }
+    },
+    {
+      "name": "AdMobMediationAdapter",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "vendored_frameworks": "**/AdMobMediationAdapter/AdMobMediationAdapterAdstirAds.xcframework"
+    },
+    {
+      "name": "AppLovinMaxMediationAdapter",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "AppLovinSDK": [
+          ">=11.0.0"
+        ]
+      },
+      "vendored_frameworks": "**/ALAdstirMediationAdapter/ALAdstirMediationAdapter.xcframework"
+    },
+    {
+      "name": "AppLovin",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "AppLovinSDK": [
+          "13.0.0"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterAppLovin.xcframework"
+    },
+    {
+      "name": "IMobile",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "ImobileSdkAds": [
+          "2.3.4"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterIMobile.xcframework"
+    },
+    {
+      "name": "IronSource",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "IronSourceSDK": [
+          "8.3.0.0"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterIronSource.xcframework"
+    },
+    {
+      "name": "Maio",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "MaioSDK-v2": [
+          "2.1.4"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterMaio.xcframework"
+    },
+    {
+      "name": "TikTok",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "Ads-Global/BUAdSDK": [
+          "6.2.0.7"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterTikTok.xcframework"
+    },
+    {
+      "name": "UnityAds",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "UnityAds": [
+          "4.11.3"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterUnityAds.xcframework"
+    },
+    {
+      "name": "Zucks",
+      "dependencies": {
+        "AdStir-Ads-SDK/Mediation": [
+
+        ],
+        "ZucksAdNetworkSDK": [
+          "5.0.0"
+        ]
+      },
+      "vendored_frameworks": "**/AdstirAdsMediationAdapterZucks.xcframework"
+    },
+    {
+      "name": "All-Incentivized",
+      "dependencies": {
+        "AdStir-Ads-SDK/AppLovin": [
+
+        ],
+        "AdStir-Ads-SDK/IronSource": [
+
+        ],
+        "AdStir-Ads-SDK/Maio": [
+
+        ],
+        "AdStir-Ads-SDK/TikTok": [
+
+        ],
+        "AdStir-Ads-SDK/UnityAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-Interstitial",
+      "dependencies": {
+        "AdStir-Ads-SDK/AppLovin": [
+
+        ],
+        "AdStir-Ads-SDK/IMobile": [
+
+        ],
+        "AdStir-Ads-SDK/IronSource": [
+
+        ],
+        "AdStir-Ads-SDK/Maio": [
+
+        ],
+        "AdStir-Ads-SDK/TikTok": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-Swipeinterstitial",
+      "dependencies": {
+        "AdStir-Ads-SDK/Zucks": [
+
+        ]
+      }
+    },
+    {
+      "name": "All-adstir",
+      "dependencies": {
+        "AdStir-Ads-SDK/AdMobMediationAdapter": [
+
+        ],
+        "AdStir-Ads-SDK/All-Incentivized": [
+
+        ],
+        "AdStir-Ads-SDK/All-Interstitial": [
+
+        ],
+        "AdStir-Ads-SDK/All-Swipeinterstitial": [
+
+        ],
+        "AdStir-Ads-SDK/IronSource": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdMob-Package",
+      "dependencies": {
+        "AdStir-Ads-SDK/AdMobMediationAdapter": [
+
+        ],
+        "AdStir-Ads-SDK/AppLovin": [
+
+        ],
+        "AdStir-Ads-SDK/IMobile": [
+
+        ],
+        "AdStir-Ads-SDK/Maio": [
+
+        ],
+        "AdStir-Ads-SDK/TikTok": [
+
+        ],
+        "AdStir-Ads-SDK/UnityAds": [
+
+        ]
+      }
+    }
+  ]
+}
