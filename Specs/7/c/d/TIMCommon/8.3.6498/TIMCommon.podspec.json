@@ -1,0 +1,96 @@
+{
+  "name": "TIMCommon",
+  "version": "8.3.6498",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TIMCommon",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.3.6498/ios/TIMCommon.zip?time=6"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "resource_bundles": {
+    "TIMCommon_Privacy": "**/TIMCommon/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TIMCommon/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TXIMSDK_Plus_iOS_XCFramework": [
+
+        ],
+        "TUICore": [
+
+        ],
+        "ReactiveObjC": [
+
+        ],
+        "SDWebImage": [
+
+        ],
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCellData",
+      "source_files": "**/TIMCommon/BaseCellData/*.{h,m,mm}",
+      "dependencies": {
+        "TIMCommon/CommonModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCell",
+      "source_files": "**/TIMCommon/BaseCell/*.{h,m,mm}",
+      "dependencies": {
+        "TIMCommon/BaseCellData": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "source_files": "**/TIMCommon/UI_Classic/*.{h,m,mm}",
+      "dependencies": {
+        "TIMCommon/BaseCell": [
+
+        ]
+      },
+      "resources": [
+        "**/TIMCommon/Resources/*.bundle"
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "source_files": "**/TIMCommon/UI_Minimalist/*.{h,m,mm}",
+      "dependencies": {
+        "TIMCommon/BaseCell": [
+
+        ]
+      },
+      "resources": [
+        "**/TIMCommon/Resources/*.bundle"
+      ]
+    }
+  ]
+}
