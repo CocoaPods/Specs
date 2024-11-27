@@ -1,0 +1,76 @@
+{
+  "name": "AppNexusSDK",
+  "version": "9.2.1",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "summary": "AppNexus iOS Mobile Advertising SDK",
+  "description": "Our mobile advertising SDK gives developers a fast and convenient way to monetize their apps.",
+  "homepage": "https://wiki.xandr.com",
+  "source": {
+    "http": "https://adsdkprod.azureedge.net/mobile/ios/releases/9.2.1/static/sdks.zip"
+  },
+  "authors": {
+    "AppNexus Mobile Engineering": "sdk@appnexus.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "sdks/LICENSE"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "default_subspecs": "AppNexusSDK",
+  "subspecs": [
+    {
+      "name": "AppNexusSDK",
+      "vendored_frameworks": "sdks/AppNexusSDK.xcframework",
+      "resources": "sdks/ANSDKResources.bundle",
+      "resource_bundles": {
+        "AppNexusSDK": "sdks/AppNexusSDK.xcframework/ios-arm64/AppNexusSDK.framework/PrivacyInfo.xcprivacy"
+      },
+      "frameworks": "WebKit",
+      "pod_target_xcconfig": {
+        "VALID_ARCHS[sdk=iphoneos*]": "arm64 armv7",
+        "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+      }
+    },
+    {
+      "name": "GoogleAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "9.2.1"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "11.2.0"
+        ]
+      },
+      "vendored_frameworks": "sdks/ANGoogleAdapter.xcframework"
+    },
+    {
+      "name": "FacebookCSRAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "9.2.1"
+        ],
+        "FBAudienceNetwork": [
+          "6.15.1"
+        ]
+      },
+      "vendored_frameworks": "sdks/ANFacebookCSRAdapter.xcframework"
+    },
+    {
+      "name": "SmartAdAdapter",
+      "dependencies": {
+        "AppNexusSDK/AppNexusSDK": [
+          "9.2.1"
+        ],
+        "Smart-Display-SDK": [
+          "7.24.2"
+        ]
+      },
+      "vendored_frameworks": "sdks/ANSmartAdapter.xcframework"
+    }
+  ],
+  "swift_version": "5.0"
+}
