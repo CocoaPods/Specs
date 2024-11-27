@@ -1,0 +1,374 @@
+{
+  "name": "hippy",
+  "version": "3.3.3-rc.0",
+  "summary": "Hippy Cross Platform Framework",
+  "description": "Hippy is designed for developers to easily build cross-platform \nand high-performance awesome apps.",
+  "homepage": "https://hippyjs.org",
+  "license": {
+    "type": "Apache2",
+    "file": "LICENSE"
+  },
+  "authors": "OpenHippy Team",
+  "source": {
+    "git": "https://github.com/Tencent/Hippy.git",
+    "tag": "3.3.3-rc.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "prepare_command": "./xcodeinitscript.sh \"Taitank\" \"jsc\"",
+  "testspecs": [
+    {
+      "name": "UnitTests",
+      "test_type": "unit",
+      "source_files": "tests/ios/**/*.{h,m,mm}",
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Base",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/base/*.{h,m,mm}",
+        "modules/ios/logutils/*.{h,mm}"
+      ],
+      "public_header_files": [
+        "modules/ios/base/*.h",
+        "modules/ios/logutils/*.h"
+      ],
+      "private_header_files": [
+        "modules/ios/base/TypeConverter.h"
+      ],
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "HIPPY_VERSION=3.3.3-rc.0"
+      }
+    },
+    {
+      "name": "Framework",
+      "source_files": [
+        "framework/ios/**/*.{h,m,c,mm,s,cpp,cc}",
+        "renderer/native/ios/**/*.{h,m,mm}",
+        "modules/vfs/ios/*.{h,m,mm}",
+        "modules/ios/image/*.{h,m,mm}"
+      ],
+      "private_header_files": [
+        "framework/ios/**/*+Private.h",
+        "framework/ios/**/*+Inne.h",
+        "framework/ios/**/*+Internal.h",
+        "framework/ios/**/HippyJSEnginesMapper.h",
+        "framework/ios/**/NSObject+CtxValue.h",
+        "framework/ios/**/HippyTurboModuleManager.h",
+        "renderer/native/ios/**/*+Private.h",
+        "renderer/native/ios/**/*+Internal.h",
+        "renderer/native/ios/**/NativeRenderManager.h",
+        "renderer/native/ios/**/HippyComponentMap.h",
+        "renderer/native/ios/**/UIView+DirectionalLayout.h",
+        "modules/vfs/ios/**/*.h"
+      ],
+      "public_header_files": [
+        "framework/ios/**/*.h",
+        "renderer/native/ios/**/*.h",
+        "modules/vfs/ios/*.h",
+        "modules/ios/image/*.h"
+      ],
+      "libraries": "c++",
+      "frameworks": "CoreServices",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Base": [
+
+        ],
+        "hippy/JSDriver": [
+
+        ],
+        "hippy/VFS": [
+
+        ],
+        "hippy/Dom": [
+
+        ],
+        "hippy/DomUtils": [
+
+        ],
+        "hippy/Footstone": [
+
+        ],
+        "hippy/FootstoneUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "Footstone",
+      "libraries": "c++",
+      "source_files": [
+        "modules/footstone/**/*.{h,cc}"
+      ],
+      "project_header_files": [
+        "modules/footstone/**/*.h"
+      ],
+      "exclude_files": [
+        "modules/footstone/include/footstone/platform/adr",
+        "modules/footstone/src/platform/adr"
+      ],
+      "header_mappings_dir": "modules/footstone/include/",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_PREPROCESSOR_DEFINITIONS[config=Release]": "${inherited} NDEBUG=1",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false,
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/modules/footstone $(PODS_TARGET_SRCROOT)/modules/footstone/include"
+      }
+    },
+    {
+      "name": "FootstoneUtils",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/footstoneutils/*.{h,mm}"
+      ],
+      "project_header_files": [
+        "modules/ios/footstoneutils/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "VFS",
+      "libraries": "c++",
+      "source_files": [
+        "modules/vfs/native/**/*.{h,cc}"
+      ],
+      "project_header_files": [
+        "modules/vfs/native/include/**/*.h"
+      ],
+      "header_mappings_dir": "modules/vfs/native/include/",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/modules/vfs/native/include/",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSDriver",
+      "libraries": "c++",
+      "frameworks": "JavaScriptCore",
+      "source_files": [
+        "driver/js/include/**/*.h",
+        "driver/js/src/**/*.cc"
+      ],
+      "private_header_files": "driver/js/include/**/*.h",
+      "header_mappings_dir": "driver/js/include/",
+      "exclude_files": [
+        "driver/js/include/driver/napi/v8",
+        "driver/js/src/napi/v8",
+        "driver/js/include/driver/runtime",
+        "driver/js/src/runtime",
+        "driver/js/include/driver/vm/v8",
+        "driver/js/src/vm/v8"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/driver/js/include/",
+        "GCC_PREPROCESSOR_DEFINITIONS": "JS_JSC=1",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Dom": [
+
+        ],
+        "hippy/VFS": [
+
+        ]
+      }
+    },
+    {
+      "name": "Dom",
+      "libraries": "c++",
+      "source_files": [
+        "dom/include/**/*.h",
+        "dom/src/**/*.cc"
+      ],
+      "project_header_files": [
+        "dom/include/**/*.h"
+      ],
+      "header_mappings_dir": "dom/include/",
+      "exclude_files": [
+        "dom/src/dom/*unittests.cc",
+        "dom/src/dom/tools",
+        "dom/include/dom/yoga_layout_node.h",
+        "dom/src/dom/yoga_layout_node.cc"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/dom/include/",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Taitank": [
+
+        ]
+      }
+    },
+    {
+      "name": "DomUtils",
+      "libraries": "c++",
+      "source_files": [
+        "modules/ios/domutils/*.{h,mm}"
+      ],
+      "private_header_files": [
+        "modules/ios/domutils/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "dependencies": {
+        "hippy/Dom": [
+
+        ],
+        "hippy/FootstoneUtils": [
+
+        ],
+        "hippy/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Taitank",
+      "source_files": [
+        "dom/dom_project/_deps/taitank-src/src/*.{h,cc}"
+      ],
+      "private_header_files": [
+        "dom/dom_project/_deps/taitank-src/src/*.h"
+      ],
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "AsioForDevTools",
+      "libraries": "c++",
+      "project_header_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/asio-src/asio/include/**/*.{hpp,ipp}"
+      ],
+      "source_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/asio-src/asio/include/**/*.{hpp,ipp}"
+      ],
+      "header_mappings_dir": "devtools/devtools-integration/ios/DevtoolsBackend/_deps/asio-src/asio/include/"
+    },
+    {
+      "name": "JsonForDevTools",
+      "libraries": "c++",
+      "project_header_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/json-src/single_include/**/*.{hpp}"
+      ],
+      "source_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/json-src/single_include/**/*.{hpp}"
+      ],
+      "header_mappings_dir": "devtools/devtools-integration/ios/DevtoolsBackend/_deps/json-src/single_include/"
+    },
+    {
+      "name": "WebsocketForDevTools",
+      "libraries": "c++",
+      "project_header_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/websocketpp-src/websocketpp/**/*.{hpp}"
+      ],
+      "source_files": [
+        "devtools/devtools-integration/ios/DevtoolsBackend/_deps/websocketpp-src/websocketpp/**/*.{hpp,ipp}"
+      ],
+      "header_mappings_dir": "devtools/devtools-integration/ios/DevtoolsBackend/_deps/websocketpp-src/"
+    },
+    {
+      "name": "DevTools",
+      "libraries": "c++",
+      "exclude_files": [
+        "devtools/devtools-integration/native/include/devtools/v8",
+        "devtools/devtools-integration/native/src/v8"
+      ],
+      "project_header_files": [
+        "devtools/devtools-integration/native/**/*.h",
+        "devtools/devtools-integration/native/include/devtools/devtools_data_source.h",
+        "devtools/devtools-backend/**/*.{h,hpp}"
+      ],
+      "source_files": [
+        "devtools/devtools-integration/native/**/*.{h,cc}",
+        "devtools/devtools-backend/**/*.{h,hpp,cc}"
+      ],
+      "header_mappings_dir": "devtools/",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": " $(PODS_TARGET_SRCROOT)/devtools/devtools-integration/native/include/ $(PODS_TARGET_SRCROOT)/devtools/devtools-backend/include/ $(PODS_TARGET_SRCROOT)/devtools/devtools-integration/ios/DevtoolsBackend/_deps/asio-src/asio/include/ $(PODS_TARGET_SRCROOT)/devtools/devtools-integration/ios/DevtoolsBackend/_deps/json-src/single_include/ $(PODS_TARGET_SRCROOT)/devtools/devtools-integration/ios/DevtoolsBackend/_deps/websocketpp-src/",
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_INSPECTOR=1 ASIO_NO_TYPEID ASIO_NO_EXCEPTIONS ASIO_DISABLE_ALIGNOF _WEBSOCKETPP_NO_EXCEPTIONS_ JSON_NOEXCEPTION BASE64_STATIC_DEFINE",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "GCC_ENABLE_CPP_EXCEPTIONS": false,
+        "GCC_ENABLE_CPP_RTTI": false
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_INSPECTOR=1"
+      },
+      "dependencies": {
+        "hippy/JsonForDevTools": [
+
+        ],
+        "hippy/AsioForDevTools": [
+
+        ],
+        "hippy/WebsocketForDevTools": [
+
+        ],
+        "hippy/Footstone": [
+
+        ],
+        "hippy/Dom": [
+
+        ],
+        "hippy/VFS": [
+
+        ]
+      }
+    }
+  ]
+}
