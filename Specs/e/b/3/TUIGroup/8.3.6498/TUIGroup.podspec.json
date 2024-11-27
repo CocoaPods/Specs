@@ -1,0 +1,203 @@
+{
+  "name": "TUIGroup",
+  "version": "8.3.6498",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUIGroup",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.3.6498/ios/TUIGroup.zip?time=2"
+  },
+  "default_subspecs": "ALL",
+  "resource_bundles": {
+    "TUIGroup_Privacy": "**/TUIGroup/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUIGroup/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TXIMSDK_Plus_iOS_XCFramework": [
+
+        ],
+        "TUICore": [
+
+        ],
+        "TIMCommon": [
+          "~> 8.3.6498"
+        ],
+        "ReactiveObjC": [
+
+        ],
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUIGroup/BaseCell/CellData/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUIGroup/BaseCell/CellUI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/BaseCell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseDataProvider",
+      "source_files": "**/TUIGroup/BaseDataProvider/*.{h,m,mm}",
+      "dependencies": {
+        "TUIGroup/BaseCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "CommonUI",
+      "source_files": "**/TUIGroup/CommonUI/*.{h,m,mm}",
+      "dependencies": {
+        "TUIGroup/BaseDataProvider": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUIGroup/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "UI",
+          "source_files": "**/TUIGroup/UI_Classic/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/CommonUI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIGroup/UI_Classic/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Classic/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIGroup/UI_Classic/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Classic/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "resources": [
+        "**/TUIGroup/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "CellData",
+              "source_files": "**/TUIGroup/UI_Minimalist/Cell/CellData/*.{h,m,mm}",
+              "dependencies": {
+                "TUIGroup/CommonUI": [
+
+                ]
+              }
+            },
+            {
+              "name": "CellUI",
+              "source_files": "**/TUIGroup/UI_Minimalist/Cell/CellUI/*.{h,m,mm}",
+              "dependencies": {
+                "TUIGroup/UI_Minimalist/Cell/CellData": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIGroup/UI_Minimalist/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Minimalist/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIGroup/UI_Minimalist/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Minimalist/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIGroup/UI_Minimalist/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Minimalist/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIGroup/UI_Minimalist/Header/*.{h,m,mm}",
+          "dependencies": {
+            "TUIGroup/UI_Minimalist/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUIGroup/UI_Classic": [
+
+        ],
+        "TUIGroup/UI_Minimalist": [
+
+        ]
+      }
+    }
+  ]
+}
