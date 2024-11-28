@@ -1,0 +1,98 @@
+{
+  "name": "TUICustomerServicePlugin",
+  "version": "8.3.6498",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUICustomerServicePlugin",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.3.6498/ios/TUICustomerServicePlugin.zip"
+  },
+  "default_subspecs": "ALL",
+  "resource_bundles": {
+    "TUICustomerServicePlugin_Privacy": "**/TUICustomerServicePlugin/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUICustomerServicePlugin/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TUICore": [
+
+        ],
+        "TIMCommon": [
+          "~> 8.3.6498"
+        ],
+        "TUIChat/UI_Classic": [
+          "~> 8.3.6498"
+        ],
+        "TUIContact/UI_Classic": [
+          "~> 8.3.6498"
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUICustomerServicePlugin/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUICustomerServicePlugin/UI_Classic/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUICustomerServicePlugin/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseCell",
+          "source_files": "**/TUICustomerServicePlugin/UI_Classic/BaseCell/*.{h,m,mm}",
+          "dependencies": {
+            "TUICustomerServicePlugin/UI_Classic/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUICustomerServicePlugin/UI_Classic/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUICustomerServicePlugin/UI_Classic/BaseCell": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUICustomerServicePlugin/UI_Classic/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUICustomerServicePlugin/UI_Classic/UI": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUICustomerServicePlugin/UI_Classic": [
+
+        ]
+      }
+    }
+  ]
+}
