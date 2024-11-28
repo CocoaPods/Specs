@@ -1,0 +1,77 @@
+{
+  "name": "TUIVoiceToTextPlugin",
+  "version": "8.3.6498",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUIVoiceToTextPlugin",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.3.6498/ios/TUIVoiceToTextPlugin.zip"
+  },
+  "resource_bundles": {
+    "TUIVoiceToTextPlugin_Privacy": "**/TUIVoiceToTextPlugin/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUIVoiceToTextPlugin/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TUICore": [
+
+        ],
+        "TIMCommon": [
+          "~> 8.3.6498"
+        ],
+        "TUIChat": [
+          "~> 8.3.6498"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "resources": [
+        "**/TUIVoiceToTextPlugin/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIVoiceToTextPlugin/UI/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUIVoiceToTextPlugin/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIVoiceToTextPlugin/UI/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUIVoiceToTextPlugin/UI/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIVoiceToTextPlugin/UI/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUIVoiceToTextPlugin/UI/UI": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
