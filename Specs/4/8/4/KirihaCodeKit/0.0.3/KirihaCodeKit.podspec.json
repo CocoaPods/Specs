@@ -1,0 +1,77 @@
+{
+  "name": "KirihaCodeKit",
+  "version": "0.0.3",
+  "summary": "一个包含 iOS 开发基本功能（包括 UI 和 Foundation）的框架",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitlab.com/kiriha/kiriha-code-kit.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "月见坂桐叶": "git_kiriha@163.com"
+  },
+  "source": {
+    "git": "https://gitlab.com/kiriha/kiriha-code-kit.git",
+    "tag": "ios-0.0.3"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "pod_target_xcconfig": {
+    "IPHONEOS_DEPLOYMENT_TARGET": "13.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "KCKCore",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "KCKCore",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "KirihaCodeKit/Classes/KCKCore/Core/**/*",
+          "frameworks": "Foundation"
+        },
+        {
+          "name": "Components",
+          "source_files": "KirihaCodeKit/Classes/KCKCore/Components/**/*",
+          "frameworks": "Foundation",
+          "dependencies": {
+            "KirihaCodeKit/KCKCore/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "UIBase",
+          "source_files": "KirihaCodeKit/Classes/KCKCore/UIBase/**/*",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "KirihaCodeKit/KCKCore/Core": [
+
+            ],
+            "Masonry": [
+              "1.1.0"
+            ],
+            "SDWebImage": [
+              "5.20.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "resource_bundles": {
+        "KirihaCodeKit": [
+          "KirihaCodeKit/Assets/*.xcassets"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
