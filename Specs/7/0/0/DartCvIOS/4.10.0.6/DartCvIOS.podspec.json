@@ -1,0 +1,175 @@
+{
+  "name": "DartCvIOS",
+  "version": "4.10.0.6",
+  "summary": "dartcv for ios",
+  "description": "OpenCV bindings for Dart.",
+  "homepage": "https://github.com/rainyl/dartcv",
+  "license": {
+    "type": "Apache License v2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rainyl": "rainyliusy3@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/rainyl/dartcv.git",
+    "tag": "4.10.0.6"
+  },
+  "libraries": "c++",
+  "requires_arc": false,
+  "platforms": {
+    "ios": "12.0"
+  },
+  "vendored_libraries": "libopencv/libopencv.a",
+  "frameworks": [
+    "Accelerate",
+    "AssetsLibrary",
+    "AVFoundation",
+    "CoreGraphics",
+    "CoreImage",
+    "CoreMedia",
+    "CoreVideo",
+    "Foundation",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "HEADER_SEARCH_PATHS": "\"$(inherited)\" \"${PODS_TARGET_SRCROOT}/libopencv/include/opencv4\"",
+    "USER_HEADER_SEARCH_PATHS": [
+      "\"$(PODS_TARGET_SRCROOT)\"",
+      "\"$(PODS_TARGET_SRCROOT)/dartcv\""
+    ],
+    "CLANG_WARN_STRICT_PROTOTYPES": "NO",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "OTHER_LDFLAGS": "-Wno-unused-function"
+  },
+  "swift_versions": "5.0",
+  "prepare_command": "if [ ! -f libopencv/libopencv.a ]; then\n  if [ ! -f libopencv.zip ]; then\n    echo \"libopencv.a and libopencv.zip not found, downloading...\";\n    curl -L \"https://github.com/rainyl/opencv.full/releases/download/4.10.0+10/libopencv-ios.zip\" > libopencv.zip;\n  else\n    echo \"found libopencv.zip\";\n  fi\n  echo \"extracting...\";\n  unzip -q -o libopencv.zip;\n  echo \"cleaning...\";\n  rm -f libopencv.zip;\nelse\n  echo \"found libopencv.a, continue...\";\nfi",
+  "default_subspecs": [
+    "core",
+    "calib3d",
+    "contrib",
+    "features2d",
+    "imgproc",
+    "objdetect",
+    "photo",
+    "stitching",
+    "video"
+  ],
+  "subspecs": [
+    {
+      "name": "core",
+      "header_mappings_dir": ".",
+      "preserve_paths": [
+        "dartcv/**",
+        "libopencv/{include,lib,share}"
+      ],
+      "source_files": "dartcv/{core,imgcodecs}/*.{h,c,cpp}",
+      "vendored_libraries": "libopencv/libopencv.a"
+    },
+    {
+      "name": "calib3d",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/calib3d/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "contrib",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/contrib/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "dnn",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/dnn/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "features2d",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/features2d/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "imgproc",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/imgproc/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "objdetect",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/objdetect/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "photo",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/photo/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "stitching",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/stitching/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "video",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/video/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    },
+    {
+      "name": "videoio",
+      "header_mappings_dir": ".",
+      "source_files": "dartcv/videoio/*.{h,c,cpp}",
+      "dependencies": {
+        "DartCvIOS/core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
