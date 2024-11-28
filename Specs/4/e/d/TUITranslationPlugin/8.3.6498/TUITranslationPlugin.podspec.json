@@ -1,0 +1,77 @@
+{
+  "name": "TUITranslationPlugin",
+  "version": "8.3.6498",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUITranslationPlugin",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.3.6498/ios/TUITranslationPlugin.zip"
+  },
+  "resource_bundles": {
+    "TUITranslationPlugin_Privacy": "**/TUITranslationPlugin/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUITranslationPlugin/CommonModel/*.{h,m,mm}",
+      "dependencies": {
+        "TUICore": [
+
+        ],
+        "TIMCommon": [
+          "~> 8.3.6498"
+        ],
+        "TUIChat": [
+          "~> 8.3.6498"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "resources": [
+        "**/TUITranslationPlugin/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUITranslationPlugin/UI/DataProvider/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUITranslationPlugin/UI/UI/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/UI/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUITranslationPlugin/UI/Service/*.{h,m,mm}",
+          "dependencies": {
+            "TUITranslationPlugin/UI/UI": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
