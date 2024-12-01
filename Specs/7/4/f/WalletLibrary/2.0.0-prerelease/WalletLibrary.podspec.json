@@ -1,0 +1,80 @@
+{
+  "name": "WalletLibrary",
+  "version": "2.0.0-prerelease",
+  "license": "MIT",
+  "summary": "An SDK to manage your Decentralized Identities and Verifiable Credentials.",
+  "homepage": "https://github.com/microsoft/entra-verifiedid-wallet-library-ios",
+  "authors": {
+    "symorton": "symorton@microsoft.com"
+  },
+  "documentation_url": "https://github.com/microsoft/entra-verifiedid-wallet-library-ios",
+  "source": {
+    "git": "https://github.com/microsoft/entra-verifiedid-wallet-library-ios.git",
+    "submodules": true,
+    "tag": "2.0.0-prerelease"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Secp256k1",
+      "libraries": "c++",
+      "public_header_files": [
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/include/*"
+      ],
+      "compiler_flags": [
+        "-Wno-shorten-64-to-32",
+        "-Wno-unused-function"
+      ],
+      "preserve_paths": "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}",
+      "source_files": [
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}"
+      ],
+      "exclude_files": [
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecdh.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecmult.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_internal.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_recover.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_schnorrsig.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_sign.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_verify.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/tests.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/testrand_impl.h",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/testrand.h",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/valgrind_ctime_test.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/ctime_tests.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/gen_context.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/precompute_ecmult.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/precompute_ecmult_gen.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/src/tests_exhaustive.c",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/Submodules/Secp256k1/bitcoin-core/secp256k1/contrib/*.{c, h}"
+      ],
+      "prefix_header_contents": "#define ECMULT_WINDOW_SIZE 15 \n#define LIBSECP256K1_CONFIG_H\n#define USE_NUM_NONE 1 \n#define ECMULT_WINDOW_SIZE 15\n#define ECMULT_GEN_PREC_BITS 4\n#define USE_FIELD_INV_BUILTIN 1\n#define USE_SCALAR_INV_BUILTIN 1\n#define HAVE_DLFCN_H 1\n#define HAVE_INTTYPES_H 1\n#define HAVE_MEMORY_H 1\n#define HAVE_STDINT_H 1\n#define HAVE_STDLIB_H 1\n#define HAVE_STRINGS_H 1\n#define HAVE_STRING_H 1\n#define HAVE_SYS_STAT_H 1\n#define HAVE_SYS_TYPES_H 1\n#define HAVE_UNISTD_H 1\n#define LT_OBJDIR \".libs/\"\n#define PACKAGE \"libsecp256k1\"\n#define PACKAGE_BUGREPORT \"\"\n#define PACKAGE_NAME \"libsecp256k1\"\n#define PACKAGE_STRING \"libsecp256k1 0.1\"\n#define PACKAGE_TARNAME \"libsecp256k1\"\n#define PACKAGE_URL \"\"\n#define PACKAGE_VERSION \"0.1\"\n#define STDC_HEADERS 1\n#define VERSION \"0.1\""
+    },
+    {
+      "name": "Core",
+      "source_files": [
+        "WalletLibrary/WalletLibrary/**/*.swift",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCServices/VCServices/**/*.{swift, xcdatamodeld, xcdatamodel}",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCNetworking/VCNetworking/**/*.swift",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCEntities/VCEntities/**/*.swift",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCToken/VCToken/**/*.swift",
+        "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCCrypto/VCCrypto/**/*.swift"
+      ],
+      "resources": "WalletLibrary/Submodules/VerifiableCredential-SDK-iOS/VCServices/VCServices/Resources/**/*.{xcdatamodeld,xcdatamodel,mom,momd}",
+      "exclude_files": [
+        "WalletLibrary/**/*Test/*.swift"
+      ],
+      "dependencies": {
+        "WalletLibrary/Secp256k1": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
