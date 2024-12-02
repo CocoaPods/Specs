@@ -1,0 +1,66 @@
+{
+  "name": "CCLCategories",
+  "version": "0.1.12",
+  "summary": "the base service for chehang168 iOS project",
+  "authors": {
+    "Rogers": "http://www.chehang168.com/"
+  },
+  "license": {
+    "type": "GPL",
+    "file": "LICENSE"
+  },
+  "homepage": "http://www.chehang168.com/",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "source": {
+    "git": "https://go.cheoo.com/mcgjgroup/ch168sdk/CCLCategories.git",
+    "tag": "0.1.12"
+  },
+  "subspecs": [
+    {
+      "name": "Foundation",
+      "source_files": "CCLCategories/Foundation/*.{h,m}",
+      "public_header_files": "CCLCategories/Foundation/*.{h}"
+    },
+    {
+      "name": "UIKit",
+      "dependencies": {
+        "CCLCategories/CCLKit": [
+
+        ]
+      },
+      "source_files": "CCLCategories/UIKit/*.{h,m}",
+      "public_header_files": "CCLCategories/UIKit/*.{h}",
+      "subspecs": [
+        {
+          "name": "iOS",
+          "ios": {
+            "dependencies": {
+              "CCLCategories/CCLKit": [
+
+              ]
+            },
+            "source_files": "CCLCategories/UIKit/**/*.{h,m}",
+            "public_header_files": "CCLCategories/UIKit/**/*.{h}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CCLKit",
+      "ios": {
+        "frameworks": "AdSupport"
+      },
+      "dependencies": {
+        "CCLCategories/Foundation": [
+
+        ]
+      },
+      "source_files": "CCLCategories/CCLKit/*.{h,m}",
+      "public_header_files": "CCLCategories/CCLKit/*.{h}"
+    }
+  ]
+}
