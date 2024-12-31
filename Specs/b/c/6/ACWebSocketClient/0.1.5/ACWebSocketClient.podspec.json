@@ -1,0 +1,27 @@
+{
+  "name": "ACWebSocketClient",
+  "version": "0.1.5",
+  "summary": "ACWebSocketClient provides a real-time API for Azuracast stream metadata.",
+  "description": "Azuracast is an easy-to-use and easy-to-deploy streaming audio radio station;\nsimply start it up with Docker and add music to have a working station.\n\nIt does not, however, play nicely with Apple's recommended stream metadata monitoring.\nUsing the Apple recommendation results in no updates and empty metadata. Fortunately,\nAzuracast provides high-frequency metadata updates via both a websocket interface\nand an SSE one.\n\nThis library connects to an Azuracast websocket server and receives and parses\nthe metadata into a struct, `ACStreamStatus`. For 0.1.x releases,\nonly the track name, artist name, album name, and streamer (DJ) name are\navailable, but much more data is available; I intend to expand this API in the\nfuture to add more metadata to `ACStreamStatus`.\n\nTo use the library, it is necessary to know the server name and the Azuracast\n\"shortcode\" name for the station. These can be obtained from the station's\nprofile page. Be especially careful to get the shortcode right, or the\nclient will connect but not be able to fetch metadata. The client is set up like this:\n\n  // Initialize the client with a server and shortcode\n  var client = ACWebSocketClient(serverName: \"example.com\", shortcode: \"station\")\n\n  // This function sets accesses the data in the ACStreamStatus struct for\n  // use by main application.\n  client.addSubscriber(callbackFunc)\n\n  // Actually connect the client and receive data asynchronously.\n  client.connect()\n\nThe client will run in the background, calling `callbackFunc` with the\nmost-recently-parsed status from the websocket datastream, returning it as\nan `ACStreamStatus` struct. Your application should extract this data\nand do with it what you will.\n\nThe provided example applications (iOS, Mac, and tvOS) connect to the\ndemo streaming server at azuracast.com and displays the updates as they\narrive.",
+  "homepage": "https://github.com/joemcmahon/ACWebSocketClient",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "joemcmahon": "joe.mcmahon@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/joemcmahon/ACWebSocketClient.git",
+    "tag": "0.1.5"
+  },
+  "social_media_url": "https://bsky.app/profile/equinoxdeschanel.bsky.social",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "tvos": "15"
+  },
+  "swift_versions": "5.0",
+  "source_files": "Sources/**/*",
+  "swift_version": "5.0"
+}
