@@ -1,0 +1,62 @@
+{
+  "name": "BaiduNaviAPIKit",
+  "version": "1.0.0",
+  "summary": "百度导航API SDK（CocoaPods百度导航官方库,导航API包）",
+  "description": "百度导航APIiOS SDK：百度导航API官方CocoaPods.\n百度iOS导航APISDK是一套基于iOS 10及以上版本设备的应用程序接口。\n您可以使用该套 SDK开发适用于iOS系统移动设备的导航应用，通过调用导航API接口，\n您可以轻松访问百度导航的服务和数据，构建功能丰富、交互性强的导航类应用程序",
+  "homepage": "http://developer.baidu.com/map/index.php?title=iossdk",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2020 BaiduLBS"
+  },
+  "authors": {
+    "baidu navi api sdk": "dituapi_01@163.com"
+  },
+  "source": {
+    "http": "https://lbsyun-baidu.cdn.bcebos.com/iossdk/navi-api/1.0.0/BaiduNaviAPIKitV1.0.0.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-w",
+    "ENABLE_BITCODE": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "frameworks": [
+    "CoreLocation"
+  ],
+  "default_subspecs": [
+    "Auth",
+    "NaviAPI"
+  ],
+  "subspecs": [
+    {
+      "name": "Auth",
+      "ios": {
+        "vendored_frameworks": "BaiduNaviAPIKit/BMKAuthKit.framework",
+        "source_files": "BaiduNaviAPIKit/BMKAuthKit.framework/Headers/*.{h}",
+        "public_header_files": "BaiduNaviAPIKit/BMKAuthKit.framework/Headers/*.{h}"
+      }
+    },
+    {
+      "name": "NaviAPI",
+      "ios": {
+        "dependencies": {
+          "BaiduNaviAPIKit/Auth": [
+
+          ]
+        },
+        "vendored_frameworks": "BaiduNaviAPIKit/BaiduNaviAPI.framework",
+        "source_files": "BaiduNaviAPIKit/BaiduNaviAPI.framework/Headers/*.{h}",
+        "public_header_files": "BaiduNaviAPIKit/BaiduNaviAPI.framework/Headers/*.{h}"
+      }
+    }
+  ]
+}
