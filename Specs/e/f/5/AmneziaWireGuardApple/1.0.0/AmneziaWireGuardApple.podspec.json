@@ -1,0 +1,52 @@
+{
+  "name": "AmneziaWireGuardApple",
+  "version": "1.0.0",
+  "summary": "Amnezia WireGuard for iOS and macOS",
+  "description": "This project is a fork of WireGuard for iOS and macOS, with customizations for Amnezia VPN.\nIt contains components shared between platforms and additional custom functionality.",
+  "homepage": "https://github.com/cybergrom/amneziawg-apple",
+  "license": {
+    "type": "MIT",
+    "file": "COPYING"
+  },
+  "authors": {
+    "CyberGrom": "cybergrom@example.com"
+  },
+  "platforms": {
+    "ios": "15.0",
+    "osx": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/cybergrom/amneziawg-apple.git",
+    "tag": "1.0.0"
+  },
+  "vendored_frameworks": "Frameworks/wg-go.xcframework",
+  "swift_versions": "5.7",
+  "source_files": [
+    "Sources/WireGuardKitC/**/*.{c,h}",
+    "Sources/WireGuardKit/**/*.{swift}",
+    "Sources/Shared/**/*.{c,h,swift}",
+    "Sources/WireGuardKitGo/wireguard.h",
+    "Sources/WireGuardNetworkExtension/**/*.{c,h,swift}"
+  ],
+  "exclude_files": [
+    "Sources/Shared/**/test*.*",
+    "Sources/WireGuardKitGo/out/**"
+  ],
+  "preserve_paths": [
+    "Sources/WireGuardKitC/module.modulemap"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": [
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitC/**",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKit/**",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitGo/wireguard.h",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/Shared/**/*",
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardNetworkExtension/**/*"
+    ],
+    "HEADER_SEARCH_PATHS": [
+      "${PODS_TARGET_SRCROOT}/WireGuardKit/Sources/WireGuardKitGo/wireguard.h"
+    ],
+    "APPLICATION_EXTENSION_API_ONLY": "YES"
+  },
+  "swift_version": "5.7"
+}
