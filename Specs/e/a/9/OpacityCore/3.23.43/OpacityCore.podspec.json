@@ -1,0 +1,38 @@
+{
+  "name": "OpacityCore",
+  "version": "3.23.43",
+  "summary": "Core of Opacity",
+  "description": "Core library of Opacity Network for iOS",
+  "homepage": "https://github.com/OpacityLabs/opacity-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ospfranco": "ospfranco@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/OpacityLabs/opacity-ios.git",
+    "tag": "3.23.43"
+  },
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17"
+  },
+  "pod_target_xcconfig": {
+    "DEAD_CODE_STRIPPING": "YES"
+  },
+  "source_files": "src/**/*",
+  "prepare_command": "if [ -f \"framework-3.23.43.zip\" ]; then\n  echo \"Using existing 3.23.43 binaries\"\nelse\n  rm -f framework-*.zip\n  echo \"Downloading 3.23.43 binaries\"\n  curl -L \"https://github.com/OpacityLabs/opacity-ios/releases/download/3.23.43/opacity.xcframework.zip\" -o \"framework-3.23.43.zip\"\n  unzip -o \"framework-3.23.43.zip\"\n  rm -rf opacity.xcframework\n  mv opacity-ios/opacity.xcframework .\n  rm -rf opacity-ios\nfi",
+  "vendored_frameworks": "opacity.xcframework",
+  "frameworks": [
+    "WebKit",
+    "CoreTelephony",
+    "CoreLocation",
+    "SystemConfiguration"
+  ],
+  "swift_version": "5.9"
+}
