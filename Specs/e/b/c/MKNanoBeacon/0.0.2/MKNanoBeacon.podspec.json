@@ -1,0 +1,122 @@
+{
+  "name": "MKNanoBeacon",
+  "version": "0.0.2",
+  "summary": "A short description of MKNanoBeacon.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/BeaconX-Pro/06-iOS-NanoBeacon-SDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lovexiaoxia": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/BeaconX-Pro/06-iOS-NanoBeacon-SDK.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "resource_bundles": {
+    "MKNanoBeacon": [
+      "MKNanoBeacon/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "SDK",
+      "source_files": "MKNanoBeacon/Classes/SDK/**",
+      "dependencies": {
+        "MKBaseBleModule": [
+
+        ]
+      }
+    },
+    {
+      "name": "Target",
+      "source_files": "MKNanoBeacon/Classes/Target/**",
+      "dependencies": {
+        "MKNanoBeacon/Functions": [
+
+        ]
+      }
+    },
+    {
+      "name": "Functions",
+      "dependencies": {
+        "MKNanoBeacon/SDK": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "MKBeaconXCustomUI": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "AboutPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKNanoBeacon/Classes/Functions/AboutPage/Controller/**"
+            }
+          ]
+        },
+        {
+          "name": "ScanPage",
+          "subspecs": [
+            {
+              "name": "Controller",
+              "source_files": "MKNanoBeacon/Classes/Functions/ScanPage/Controller/**",
+              "dependencies": {
+                "MKNanoBeacon/Functions/ScanPage/Model": [
+
+                ],
+                "MKNanoBeacon/Functions/ScanPage/Adopter": [
+
+                ],
+                "MKNanoBeacon/Functions/ScanPage/View": [
+
+                ],
+                "MKNanoBeacon/Functions/AboutPage/Controller": [
+
+                ]
+              }
+            },
+            {
+              "name": "Model",
+              "source_files": "MKNanoBeacon/Classes/Functions/ScanPage/Model/**"
+            },
+            {
+              "name": "Adopter",
+              "source_files": "MKNanoBeacon/Classes/Functions/ScanPage/Adopter/**",
+              "dependencies": {
+                "MKNanoBeacon/Functions/ScanPage/Model": [
+
+                ],
+                "MKNanoBeacon/Functions/ScanPage/View": [
+
+                ]
+              }
+            },
+            {
+              "name": "View",
+              "source_files": "MKNanoBeacon/Classes/Functions/ScanPage/View/**",
+              "dependencies": {
+                "MKNanoBeacon/Functions/ScanPage/Model": [
+
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
