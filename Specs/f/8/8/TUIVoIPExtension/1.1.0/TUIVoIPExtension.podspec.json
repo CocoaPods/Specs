@@ -1,0 +1,71 @@
+{
+  "name": "TUIVoIPExtension",
+  "version": "1.1.0",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "    copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/product/trtc",
+  "documentation_url": "https://cloud.tencent.com/document/product/647/71930",
+  "authors": "tencent video cloud",
+  "summary": "TUIVoIPExtension",
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "requires_arc": true,
+  "source": {
+    "http": "https://liteav.sdk.qcloud.com/app/tuikit/download/release/1.1/TUIVoIPExtension_iOS_1.1.0.zip"
+  },
+  "dependencies": {
+    "TUICore": [
+      ">= 8.3.6499"
+    ],
+    "TXIMSDK_Plus_iOS_XCFramework": [
+      ">= 8.3.6498"
+    ]
+  },
+  "default_subspecs": "Professional",
+  "resource_bundles": {
+    "TUIVoIPExtension_Privacy": [
+      "Sources/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "TRTC",
+      "dependencies": {
+        "TXLiteAVSDK_TRTC": [
+
+        ]
+      },
+      "source_files": "TUIVoIPExtension/**/*.{h,m,mm,swift}",
+      "resource_bundles": {
+        "TUIVoIPExtensionBundle": [
+          "Resources/Localized/**/*.strings",
+          "Resources/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Professional",
+      "dependencies": {
+        "TXLiteAVSDK_Professional": [
+
+        ]
+      },
+      "source_files": "TUIVoIPExtension/**/*.{h,m,mm,swift}",
+      "resource_bundles": {
+        "TUIVoIPExtensionBundle": [
+          "Resources/Localized/**/*.strings",
+          "Resources/*.xcassets"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) TUI_CALL_VOIP_EXTENSION_TXLITEAVSDK_PROFESSIONAL=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
