@@ -1,0 +1,53 @@
+{
+  "name": "MNCIdentifier",
+  "version": "1.1.13",
+  "summary": "A comprehensive iOS SDK for seamless KYC verification.",
+  "description": "This SDK streamlines customer identity verification through advanced liveness detection, ensuring secure and efficient KYC compliance.",
+  "homepage": "https://mobile.mncinnovation.id/docs/mncidentifier/overview/",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ihksan Sukmawan": "ihksan.sukmawan@mncgroup.com",
+    "Ari Fajrianda Alfi": "ari.alfi@mncgroup.com"
+  },
+  "platforms": {
+    "ios": "15.5"
+  },
+  "source": {
+    "git": "https://github.com/mncinnovation/mnc-identifiersdk-ios.git",
+    "tag": "1.1.13"
+  },
+  "frameworks": "UIKit",
+  "default_subspecs": "OCR",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Face",
+      "vendored_frameworks": "MNCFaceIdentifier.xcframework",
+      "dependencies": {
+        "GoogleMLKit/FaceDetection": [
+          "4.0.0"
+        ]
+      }
+    },
+    {
+      "name": "OCR",
+      "vendored_frameworks": "MNCOCRIdentifier.xcframework",
+      "dependencies": {
+        "GoogleMLKit/TextRecognition": [
+          "7.0.0"
+        ],
+        "GoogleMLKit/ObjectDetection": [
+          "7.0.0"
+        ]
+      }
+    }
+  ]
+}
