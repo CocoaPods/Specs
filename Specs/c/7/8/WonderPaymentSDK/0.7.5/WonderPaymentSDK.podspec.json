@@ -1,0 +1,71 @@
+{
+  "name": "WonderPaymentSDK",
+  "version": "0.7.5",
+  "summary": "Wonder Payment SDK for iOS devices",
+  "description": "beta testing",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "homepage": "https://wonder.app/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jax": "yx.xuya@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wonder-platform/WonderPayment-iOS.git",
+    "tag": "0.7.5"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0",
+    "5.1"
+  ],
+  "resource_bundles": {
+    "WonderPaymentSDK_Resources": [
+      "WonderPaymentSDK/Assets/anim/**.*",
+      "WonderPaymentSDK/Assets/icons/common/**.*",
+      "WonderPaymentSDK/Assets/icons/flags/**.*",
+      "WonderPaymentSDK/Assets/fonts/**.*"
+    ]
+  },
+  "source_files": "WonderPaymentSDK/Classes/**/*",
+  "frameworks": "PassKit",
+  "dependencies": {
+    "AlipaySDK-iOS": [
+
+    ],
+    "WechatOpenSDK-XCFramework": [
+
+    ],
+    "SVGKit": [
+
+    ],
+    "QMUIKit": [
+      "~> 4.8.0"
+    ],
+    "lottie-ios": [
+      "~> 3.4.0"
+    ],
+    "IQKeyboardManagerSwift": [
+      "6.3.0"
+    ],
+    "TangramKit": [
+
+    ],
+    "UPPay": [
+
+    ]
+  },
+  "static_framework": true,
+  "script_phases": [
+    {
+      "name": "UpdateQueriesSchemes",
+      "script": "        SCHEMES=(\n                \"weixin\"\n                \"weixinULAPI\"\n                \"weixinURLParamsAPI\"\n                \"uppaysdk\"\n                \"uppaywallet\"\n                \"uppayx1\"\n                \"uppayx2\"\n                \"uppayx3\"\n                \"octopus\"\n                \"alipayhk\"\n                \"alipays\"\n              )\n          cd \"${PODS_ROOT}/../\"\n          PROJECT_ROOT=`pwd`\n          # 查找所有宿主工程的 Info.plist（排除 Pods 目录）\n          INFOPLIST_PATH=$(find $PROJECT_ROOT -name \"Info.plist\" -not -path \"*/Pods/*\" -not -path \"*/Target Support Files/*\" -not -path \"*/Tests/*\" | head -n 1)\n          if [ -z \"$INFOPLIST_PATH\" ]; then\n            echo \"⚠️警告: 未找到宿主工程Info.plist文件，请手动修改QueriesSchemes配置\"\n            exit 0\n          fi\n          \n          PLIST_BUDDY=\"/usr/libexec/PlistBuddy\"\n          \n          # 检查或创建 LSApplicationQueriesSchemes 数组\n          if ! ${PLIST_BUDDY} -c \"Print :LSApplicationQueriesSchemes\" \"${INFOPLIST_PATH}\" &>/dev/null; then\n            ${PLIST_BUDDY} -c \"Add :LSApplicationQueriesSchemes array\" \"${INFOPLIST_PATH}\" || true\n            echo \"✅ 创建 LSApplicationQueriesSchemes 数组\"\n          fi\n          \n          # 遍历所有需要添加的 Scheme\n          for SCHEME in \"${SCHEMES[@]}\"; do\n            # 检查是否已存在\n            if ${PLIST_BUDDY} -c \"Print :LSApplicationQueriesSchemes\" \"${INFOPLIST_PATH}\" | grep -q \"${SCHEME}\"; then\n              echo \"   [已存在] ${SCHEME}\"\n            else\n              # 添加到数组末尾\n              ${PLIST_BUDDY} -c \"Add :LSApplicationQueriesSchemes: string ${SCHEME}\" \"${INFOPLIST_PATH}\" || true\n              echo \"   ✅ 添加 ${SCHEME}\"\n            fi\n          done\n",
+      "execution_position": "before_compile"
+    }
+  ],
+  "swift_version": "5.1"
+}
