@@ -1,0 +1,39 @@
+{
+  "name": "QuicklySwift",
+  "version": "1.0.0",
+  "summary": "swift 常用方法扩展，便捷使用 qq交流群：580839749",
+  "description": "swift 常用方法扩展，便捷使用，所有方法以“q”开头，使用链式语法  \"rztime@vip.qq.com\" \"https://github.com/rztime/QuicklySwift.git\"",
+  "homepage": "https://github.com/rztime/QuicklySwift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rztime": "rztime@vip.qq.com"
+  },
+  "source": {
+    "git": "https://github.com/rztime/QuicklySwift.git",
+    "tag": "1.0.0"
+  },
+  "social_media_url": "https://github.com/rztime",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ],
+  "source_files": "QuicklySwift/Classes/**/*",
+  "dependencies": {
+    "SnapKit": [
+
+    ]
+  },
+  "script_phases": {
+    "name": "pod compile before",
+    "script": "\n    root_path=\"${SRCROOT}\"\n    info_plist_path=$(dirname \"$root_path\")\n    find \"$info_plist_path\" -iname \"info.plist\" | while read -r line; do\n      auth_list=(\"NSCameraUsageDescription\" \"NSPhotoLibraryUsageDescription\" \"NSMicrophoneUsageDescription\" \"NSContactsUsageDescription\" \"NSLocationWhenInUseUsageDescription\" \"NSLocationAlwaysUsageDescription\" \"NSLocationAlwaysAndWhenInUseUsageDescription\" \"NSCalendarsUsageDescription\" \"NSRemindersUsageDescription\" \"NSAppleMusicUsageDescription\" \"NSSpeechRecognitionUsageDescription\" \"NSMotionUsageDescription\" \"NSSiriUsageDescription\" \"NSUserTrackingUsageDescription\")\n      use_list=(\"\\$(inherited)\")\n      infoplist_content=$(cat \"$line\" | perl -0777 -pe \"s/<!--.*?-->//gs\")\n      for auth in \"${auth_list[@]}\"; do\n        if grep -q \"${auth}\" <<< \"${infoplist_content}\"; then\n          use_list+=(\"Q_${auth}\")\n        fi\n      done\n    \n      if [ \"${#use_list[@]}\" -eq 1 ]; then\n        echo \"忽略\"\n      else\n        result_list=\"\\nSWIFT_ACTIVE_COMPILATION_CONDITIONS = ${use_list[@]}\"\n        find \"$root_path\" -type f -name \"QuicklySwift.debug.xcconfig\" | while read -r file; do\n            content=$(cat \"${file}\")\n            if grep -q \"SWIFT_ACTIVE_COMPILATION_CONDITIONS\" <<< \"$content\"; then\n                content=$(echo \"$content\" | grep -v \"SWIFT_ACTIVE_COMPILATION_CONDITIONS\")\n            fi\n            content+=\"${result_list}\"\n            echo \"$content\" > \"$file\"\n        done\n        find \"$root_path\" -type f -name \"QuicklySwift.release.xcconfig\" | while read -r file; do\n            content=$(cat \"${file}\")\n            if grep -q \"SWIFT_ACTIVE_COMPILATION_CONDITIONS\" <<< \"$content\"; then\n                content=$(echo \"$content\" | grep -v \"SWIFT_ACTIVE_COMPILATION_CONDITIONS\")\n            fi\n            content+=\"${result_list}\"\n            echo \"$content\" > \"$file\"\n        done\n      fi\n    done\n  ",
+    "shell_path": "/bin/sh",
+    "execution_position": "before_compile"
+  },
+  "swift_version": "5.0"
+}
