@@ -1,0 +1,67 @@
+{
+  "name": "CICOPersistent",
+  "version": "0.39.62",
+  "summary": "A simple local storage service using codable.",
+  "description": "CICOPersistent is a simple local storage service using codable. It contains orm database, key-value file, key-value database and key-value key chain.",
+  "homepage": "https://github.com/cicout/cico_persistent",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ethan.Li": "wxindfx@gmail.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "source": {
+    "git": "https://github.com/cicout/cico_persistent.git",
+    "tag": "0.39.62"
+  },
+  "default_subspecs": "Standard",
+  "subspecs": [
+    {
+      "name": "Standard",
+      "source_files": "CICOPersistent/**/*.swift",
+      "dependencies": {
+        "CICOFoundationKit": [
+
+        ],
+        "CICOAutoCodable": [
+
+        ],
+        "FMDB": [
+
+        ]
+      }
+    },
+    {
+      "name": "SQLCipher",
+      "source_files": [
+        "CICOPersistent/**/*.swift",
+        "CICOPersistentCipher/**/*.swift"
+      ],
+      "xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1"
+      },
+      "dependencies": {
+        "CICOFoundationKit": [
+
+        ],
+        "CICOAutoCodable": [
+
+        ],
+        "FMDB/SQLCipher": [
+
+        ],
+        "SQLCipher": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}
