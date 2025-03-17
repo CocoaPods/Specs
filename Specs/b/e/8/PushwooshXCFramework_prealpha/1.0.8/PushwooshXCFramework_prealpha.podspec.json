@@ -1,0 +1,90 @@
+{
+  "name": "PushwooshXCFramework_prealpha",
+  "version": "1.0.8",
+  "summary": "Push notifications library by Pushwoosh.",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "description": "Push notifications iOS library by Pushwoosh - cross platform push notifications service. http://www.pushwoosh.com",
+  "homepage": "http://www.pushwoosh.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Andrew Kis": "akiselev@pushwoosh.com"
+  },
+  "source": {
+    "git": "https://github.com/akidison/PRE_ALPHA_iOS.git",
+    "tag": "1.0.8"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "XCFramework/PushwooshFramework.xcframework"
+      },
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "frameworks": [
+        "Security",
+        "StoreKit"
+      ],
+      "dependencies": {
+        "PushwooshXCFramework_prealpha/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework_prealpha/PushwooshBridge": [
+
+        ],
+        "PushwooshXCFramework_prealpha/PushwooshLiveActivities": [
+
+        ]
+      }
+    },
+    {
+      "name": "PushwooshCore",
+      "vendored_frameworks": "XCFramework/PushwooshCore.xcframework"
+    },
+    {
+      "name": "PushwooshBridge",
+      "dependencies": {
+        "PushwooshXCFramework_prealpha/PushwooshCore": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshBridge.xcframework"
+    },
+    {
+      "name": "PushwooshLiveActivities",
+      "dependencies": {
+        "PushwooshXCFramework_prealpha/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework_prealpha/PushwooshBridge": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshLiveActivities.xcframework"
+    },
+    {
+      "name": "Geozones",
+      "ios": {
+        "vendored_frameworks": "XCFramework/PushwooshGeozones.xcframework"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "PushwooshXCFramework_prealpha/Core": [
+
+        ]
+      }
+    }
+  ]
+}
