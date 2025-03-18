@@ -1,0 +1,126 @@
+{
+  "name": "YRMob",
+  "version": "1.3.1",
+  "summary": "YRMob is a SDK from YouRong providing AD service.",
+  "description": "YRMob provides ADs which include native、banner、splash、RewardVideo、Interstitial etc.",
+  "homepage": "https://gitee.com/yleaves/yrmob-sdk-ios-pod.git",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Fang Ting": "fangting@juancloud.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://gitee.com/yleaves/yrmob-sdk-ios-pod.git",
+    "tag": "1.3.1"
+  },
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "default_subspecs": "JAGatherAdSDK",
+  "subspecs": [
+    {
+      "name": "JAGatherAdSDK",
+      "ios": {
+        "libraries": "resolv"
+      },
+      "frameworks": [
+        "Security",
+        "CoreLocation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AppTrackingTransparency",
+        "AdSupport",
+        "WebKit",
+        "AVFoundation"
+      ],
+      "vendored_frameworks": "YRMob/JAGatherAdSDK/*.xcframework",
+      "resources": "YRMob/JAGatherAdSDK/*.bundle",
+      "dependencies": {
+        "QiMingADXSDK": [
+          "2.2.1.3"
+        ]
+      }
+    },
+    {
+      "name": "JAGBdAdapter",
+      "vendored_frameworks": "YRMob/JAGBdAdapter/*.xcframework",
+      "dependencies": {
+        "BaiduMobAdSDK": [
+          "5.371"
+        ],
+        "YRMob/JAGatherAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "JAGCsjFusionAdapter",
+      "vendored_frameworks": "YRMob/JAGCsjFusionAdapter/*.xcframework",
+      "dependencies": {
+        "Ads-CN-Beta/BUAdSDK": [
+          "6.4.1.0"
+        ],
+        "Ads-CN-Beta/CSJMediation": [
+          "6.4.1.0"
+        ],
+        "YRMob/JAGatherAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "JAGGdtAdapter",
+      "vendored_frameworks": "YRMob/JAGGdtAdapter/*.xcframework",
+      "vendored_libraries": "YRMob/JAGGdtAdapter/lib/*.a",
+      "source_files": "YRMob/JAGGdtAdapter/lib/*.h",
+      "frameworks": [
+        "StoreKit",
+        "Security",
+        "CoreTelephony",
+        "AdSupport",
+        "CoreLocation",
+        "QuartzCore",
+        "SystemConfiguration",
+        "AVFoundation",
+        "JavaScriptCore"
+      ],
+      "weak_frameworks": "WebKit",
+      "libraries": [
+        "z",
+        "xml2",
+        "sqlite3",
+        "c++",
+        "c++abi"
+      ],
+      "dependencies": {
+        "YRMob/JAGatherAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "JAGKsAdapter",
+      "vendored_frameworks": "YRMob/JAGKsAdapter/*.xcframework",
+      "dependencies": {
+        "KSAdSDK": [
+          "3.3.69"
+        ],
+        "YRMob/JAGatherAdSDK": [
+
+        ]
+      }
+    }
+  ]
+}
