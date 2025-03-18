@@ -1,0 +1,97 @@
+{
+  "name": "JSMediaBrowser",
+  "version": "3.0.0",
+  "summary": "图片、视频浏览器",
+  "homepage": "https://github.com/CloudlessMoon/JSMediaBrowser",
+  "authors": "CloudlessMoon",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.1"
+  ],
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/CloudlessMoon/JSMediaBrowser.git",
+    "tag": "3.0.0"
+  },
+  "frameworks": "UIKit",
+  "license": "MIT",
+  "dependencies": {
+    "JSCoreKit": [
+      "~> 1.0"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/*.{swift,h,m}"
+    },
+    {
+      "name": "MediaView",
+      "source_files": "Sources/MediaView/Basis/*.{swift,h,m}"
+    },
+    {
+      "name": "MediaZoomView",
+      "source_files": "Sources/MediaView/ZoomView/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/MediaView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Business",
+      "source_files": "Sources/Business/**/*.{swift,h,m}",
+      "exclude_files": [
+        "Sources/Business/Photo/PHLivePhoto/*.{swift,h,m}",
+        "Sources/Business/Photo/SDWebImage/*.{swift,h,m}",
+        "Sources/Business/Photo/SDWebImagePhotos/*.{swift,h,m}"
+      ],
+      "dependencies": {
+        "JSMediaBrowser/Core": [
+
+        ],
+        "JSMediaBrowser/MediaZoomView": [
+
+        ]
+      }
+    },
+    {
+      "name": "BusinessForPHLivePhoto",
+      "source_files": "Sources/Business/Photo/PHLivePhoto/*.{swift,h,m}",
+      "frameworks": "PhotosUI",
+      "dependencies": {
+        "JSMediaBrowser/Business": [
+
+        ]
+      }
+    },
+    {
+      "name": "BusinessForSDWebImage",
+      "source_files": "Sources/Business/Photo/SDWebImage/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/Business": [
+
+        ],
+        "SDWebImage": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "BusinessForSDWebImagePhotos",
+      "source_files": "Sources/Business/Photo/SDWebImagePhotos/*.{swift,h,m}",
+      "dependencies": {
+        "JSMediaBrowser/BusinessForSDWebImage": [
+
+        ],
+        "SDWebImagePhotosPlugin": [
+          "~> 1.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
