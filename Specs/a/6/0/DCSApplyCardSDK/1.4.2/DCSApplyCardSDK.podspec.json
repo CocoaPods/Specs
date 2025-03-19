@@ -1,0 +1,40 @@
+{
+  "name": "DCSApplyCardSDK",
+  "version": "1.4.2",
+  "summary": "DCSApplyCardSDK is a powerful SDK for digital card applications, authentication, and management.",
+  "description": "DCSApplyCardSDK provides a comprehensive solution for digital card applications, user authentication,  \ncard issuance, and lifecycle management. It is designed for financial institutions and fintech companies  \nto integrate secure and seamless digital card services into their applications.\n\nKey Features:\n- User authentication and token-based authorization  \n- Digital card application and issuance  \n- Card status tracking and management  \n- Secure PIN reset functionality  \n\nDCSApplyCardSDK is optimized for iOS applications and supports seamless integration with Jumio for identity verification.",
+  "homepage": "https://github.com/decard-tech/dcs-apply-card-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ryan": "ryan.an@dcsserv.com"
+  },
+  "source": {
+    "git": "https://github.com/decard-tech/dcs-apply-card-sdk.git",
+    "tag": "1.4.1"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.5",
+  "vendored_frameworks": "framework/DcsCardSdk.xcframework",
+  "script_phases": [
+    {
+      "name": "Fix Datadog Dependency",
+      "script": "echo \"确保 Datadog 依赖被正确处理\"",
+      "execution_position": "before_compile"
+    }
+  ],
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/Jumio/**\" \"${PODS_ROOT}/Datadog/**\"",
+    "OTHER_LDFLAGS": "$(inherited) -framework \"DatadogRUM\""
+  },
+  "dependencies": {
+    "Jumio/All": [
+      "4.11.0"
+    ]
+  },
+  "swift_version": "5.5"
+}
