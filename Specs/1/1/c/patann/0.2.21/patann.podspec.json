@@ -1,0 +1,44 @@
+{
+  "name": "patann",
+  "version": "0.2.21",
+  "summary": "pattern-aware, massively parallel, distributed, and scalable vector database framework.",
+  "description": "PatANN is a pattern-aware, massively parallel, distributed, and scalable vector database algorithm and framework for efficient nearest neighbor search, operating both in-memory and on-disk. It uses recursive patterns to mitigate the curse of dimensionality and hubness in high-dimensional data, consistently outperforming conventional ANN libraries in industry-standard benchmarks with superior recall and speed.",
+  "homepage": "https://patann.dev",
+  "license": {
+    "type": "Copyright",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Name": "support@mesibo.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/mesibo/patannframeworks.git",
+    "tag": "v0.2.21"
+  },
+  "ios": {
+    "vendored_frameworks": "patann.xcframework"
+  },
+  "requires_arc": true,
+  "libraries": [
+    "c++",
+    "stdc++"
+  ],
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "HEADER_SEARCH_PATHS": "\"${{PODS_XCFRAMEWORKS_BUILD_DIR}}/patann/Headers\""
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "VALID_ARCHS": "arm64",
+    "DEFINES_MODULE": "YES",
+    "HEADER_SEARCH_PATHS": "\"${{PODS_XCFRAMEWORKS_BUILD_DIR}}/patann/Headers\""
+  },
+  "preserve_paths": [
+    "patann.xcframework/**/module.modulemap",
+    "patann.xcframework/**/*.h"
+  ],
+  "prepare_command": "# Define paths to modulemap files\nDEVICE_MODULEMAP=\"patann.xcframework/ios-arm64/Headers/module.modulemap\"\nSIMULATOR_MODULEMAP=\"patann.xcframework/ios-arm64-simulator/Headers/module.modulemap\"\n\n# Create backup of original files\ncp \"$DEVICE_MODULEMAP\" \"${DEVICE_MODULEMAP}.bak\" 2>/dev/null || true\ncp \"$SIMULATOR_MODULEMAP\" \"${SIMULATOR_MODULEMAP}.bak\" 2>/dev/null || true\n\n# Update the device modulemap with absolute path\necho 'framework module patann {' > \"$DEVICE_MODULEMAP\"\necho '  umbrella header \"${PODS_ROOT}/patann/patann.xcframework/ios-arm64/Headers/patann.h\"' >> \"$DEVICE_MODULEMAP\"\necho '' >> \"$DEVICE_MODULEMAP\"\necho '  export *' >> \"$DEVICE_MODULEMAP\"\necho '  module * { export * }' >> \"$DEVICE_MODULEMAP\"\necho '}' >> \"$DEVICE_MODULEMAP\"\n\n# Update the simulator modulemap with absolute path\necho 'framework module patann {' > \"$SIMULATOR_MODULEMAP\"\necho '  umbrella header \"${PODS_ROOT}/patann/patann.xcframework/ios-arm64-simulator/Headers/patann.h\"' >> \"$SIMULATOR_MODULEMAP\"\necho '' >> \"$SIMULATOR_MODULEMAP\"\necho '  export *' >> \"$SIMULATOR_MODULEMAP\"\necho '  module * { export * }' >> \"$SIMULATOR_MODULEMAP\"\necho '}' >> \"$SIMULATOR_MODULEMAP\"\n\necho \"Updated modulemap files with absolute paths\""
+}
