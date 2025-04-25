@@ -1,0 +1,39 @@
+{
+  "name": "RealTimeCutVADLibrary",
+  "version": "1.0.12",
+  "summary": "A real-time VAD library for iOS",
+  "homepage": "https://github.com/helloooideeeeea/RealTimeCutVADLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "helloooideeeeea": "yasushi.sakita@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/helloooideeeeea/RealTimeCutVADLibrary.git",
+    "tag": "1.0.12"
+  },
+  "platforms": {
+    "ios": "15.6",
+    "osx": "11.5"
+  },
+  "swift_versions": "5.0",
+  "source_files": "RealTimeCutVADLibrary/src/**/*.{h,m}",
+  "public_header_files": "RealTimeCutVADLibrary/src/include/VADWrapper.h",
+  "resources": [
+    "RealTimeCutVADLibrary/src/Resources/**/*"
+  ],
+  "prepare_command": "curl -LO https://github.com/helloooideeeeea/RealTimeCutVADLibraryForXCFramework/releases/download/v1.0.3/RealTimeCutVADCXXLibrary.xcframework.zip\nunzip -o RealTimeCutVADCXXLibrary.xcframework.zip -d RealTimeCutVADLibrary/Frameworks\n\ncurl -LO https://github.com/helloooideeeeea/RealTimeCutVADLibraryForXCFramework/releases/download/v1.0.5/onnxruntime.xcframework.zip\nunzip -o onnxruntime.xcframework.zip -d RealTimeCutVADLibrary/Frameworks\n\ncurl -LO https://github.com/helloooideeeeea/RealTimeCutVADLibraryForXCFramework/releases/download/v1.0.5/webrtc_audio_processing.xcframework.zip\nunzip -o webrtc_audio_processing.xcframework.zip -d RealTimeCutVADLibrary/Frameworks",
+  "vendored_frameworks": [
+    "RealTimeCutVADLibrary/Frameworks/RealTimeCutVADCXXLibrary.xcframework",
+    "RealTimeCutVADLibrary/Frameworks/onnxruntime.xcframework",
+    "RealTimeCutVADLibrary/Frameworks/webrtc_audio_processing.xcframework"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/RealTimeCutVADLibrary/Frameworks/RealTimeCutVADCXXLibrary.xcframework/ios-arm64/RealTimeCutVADCXXLibrary.framework/Headers",
+    "EXCLUDED_ARCHS[sdk=macosx*]": "x86_64"
+  },
+  "swift_version": "5.0"
+}
