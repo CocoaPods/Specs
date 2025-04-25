@@ -1,0 +1,88 @@
+{
+  "name": "Airwallex",
+  "version": "6.0.0",
+  "summary": "Integrate Airwallex into your iOS app",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://www.airwallex.com/docs/#overview",
+  "authors": {
+    "Airwallex": "pa_mobile_sdk@airwallex.com"
+  },
+  "source": {
+    "git": "https://github.com/airwallex/airwallex-payment-ios.git",
+    "tag": "6.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "default_subspecs": "AirwallexPaymentSheet",
+  "subspecs": [
+    {
+      "name": "AirwallexPaymentSheet",
+      "source_files": "Airwallex/AirwallexPaymentSheet/Sources/**/*.{swift,h,m}",
+      "public_header_files": "Airwallex/AirwallexPaymentSheet/Sources/*.h",
+      "resource_bundles": {
+        "AirwallexPaymentSheet": "Airwallex/AirwallexPaymentSheet/Resources/**/*"
+      },
+      "dependencies": {
+        "Airwallex/AirwallexPayment": [
+
+        ]
+      }
+    },
+    {
+      "name": "AirwallexPayment",
+      "source_files": "Airwallex/AirwallexPayment/Sources/**/*.{swift,h,m}",
+      "public_header_files": "Airwallex/AirwallexPayment/Sources/*.h",
+      "resource_bundles": {
+        "AirwallexPayment": "Airwallex/AirwallexPayment/Resources/**/*"
+      },
+      "dependencies": {
+        "Airwallex/AirwallexCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "AirwallexCore",
+      "source_files": [
+        "Airwallex/Airwallex/Airwallex.h",
+        "Airwallex/AirwallexCore/Sources/**/*.{swift,h,m}"
+      ],
+      "public_header_files": [
+        "Airwallex/Airwallex/Airwallex.h",
+        "Airwallex/AirwallexCore/Sources/*.h",
+        "Airwallex/AirwallexCore/Sources/Card/*.h",
+        "Airwallex/AirwallexCore/Sources/Redirect/*.h",
+        "Airwallex/AirwallexCore/Sources/ApplePay/*.h",
+        "Airwallex/AirwallexCore/Sources/UI/*.h",
+        "Airwallex/AirwallexCore/Sources/Model/*.h",
+        "Airwallex/AirwallexCore/Sources/Logging/*.h",
+        "Airwallex/AirwallexCore/Sources/Network/*.h"
+      ],
+      "resource_bundles": {
+        "AirwallexCore": "Airwallex/AirwallexCore/Resources/**/*"
+      },
+      "vendored_frameworks": [
+        "Frameworks/AirTracker.xcframework",
+        "Frameworks/AirwallexRisk.xcframework"
+      ]
+    },
+    {
+      "name": "AirwallexWeChatPay",
+      "dependencies": {
+        "Airwallex/AirwallexCore": [
+
+        ]
+      },
+      "source_files": "Airwallex/AirwallexWeChatPay/**/*.{h,m}",
+      "public_header_files": "Airwallex/AirwallexWeChatPay/*.h",
+      "vendored_frameworks": "Frameworks/WechatOpenSDKDynamic.xcframework"
+    }
+  ],
+  "swift_version": "5.0"
+}
