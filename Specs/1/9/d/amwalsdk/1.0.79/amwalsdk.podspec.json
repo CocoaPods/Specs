@@ -1,0 +1,61 @@
+{
+  "name": "amwalsdk",
+  "version": "1.0.79",
+  "summary": "AMWAL SDK for iOS",
+  "description": "The AMWAL SDK provides features for payment integration in iOS applications.",
+  "homepage": "https://github.com/amwal-pay/AnwalPaySDKNativeiOSExample",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Amwal Pay": "amr.elskaan@amwal-pay.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "http": "https://github.com/amwal-pay/AnwalPaySDKNativeiOSExample/releases/download/v1.0.79/amwalsdk.zip"
+  },
+  "source_files": "*.{h,m,swift}",
+  "pod_target_xcconfig": {
+    "SWIFT_OPTIMIZATION_LEVEL": "-Onone",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "ENABLE_BITCODE": "NO",
+    "VALID_ARCHS": "arm64 arm64e x86_64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "",
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "default_subspecs": "Debug",
+  "subspecs": [
+    {
+      "name": "Debug",
+      "vendored_frameworks": [
+        "Flutter/Debug/*.xcframework",
+        "Flutter/*.xcframework"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/amwalsdk/Flutter/Debug\"",
+        "OTHER_LDFLAGS": "$(inherited) -framework Flutter -framework FlutterPluginRegistrant",
+        "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_ROOT}/amwalsdk/Flutter/Debug\"",
+        "DEFINES_MODULE": "YES",
+        "SWIFT_INSTALL_OBJC_HEADER": "NO"
+      }
+    },
+    {
+      "name": "Release",
+      "vendored_frameworks": [
+        "Flutter/Release/*.xcframework",
+        "Flutter/*.xcframework"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/amwalsdk/Flutter/Release\"",
+        "OTHER_LDFLAGS": "$(inherited) -framework Flutter -framework FlutterPluginRegistrant",
+        "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_ROOT}/amwalsdk/Flutter/Release\"",
+        "DEFINES_MODULE": "YES",
+        "SWIFT_INSTALL_OBJC_HEADER": "NO"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
