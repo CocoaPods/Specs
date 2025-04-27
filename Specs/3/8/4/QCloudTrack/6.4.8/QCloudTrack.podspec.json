@@ -1,0 +1,82 @@
+{
+  "name": "QCloudTrack",
+  "version": "6.4.8",
+  "summary": "QCloudTrack 腾讯云iOS-SDK组件",
+  "description": "TODO: Add long description of the pod here.aaa",
+  "homepage": "https://cloud.tencent.com/",
+  "license": "MIT",
+  "authors": {
+    "QCloudTerminalLab": "g_PDTC_storage_DEV_terminallab@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/qcloud-sdk-ios.git",
+    "tag": "6.4.8"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12"
+      },
+      "source_files": [
+        "QCloudTrack/Classes/*.{h,m}",
+        "QCloudTrack/Classes/Default/*.{h,m}",
+        "QCloudTrack/Classes/Default/*/*.{h,m}"
+      ]
+    },
+    {
+      "name": "Beacon",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "QCloudTrack/Classes/*.{h,m}",
+        "QCloudTrack/Classes/Default/*.{h,m}",
+        "QCloudTrack/Classes/Default/*/*.{h,m}",
+        "QCloudTrack/Classes/Beacon/*.{h,m}"
+      ],
+      "vendored_frameworks": [
+        "QCloudTrack/Classes/BeaconFramework/COSBeaconAPI_Base.xcframework",
+        "QCloudTrack/Classes/BeaconFramework/QimeiSDK.xcframework"
+      ],
+      "libraries": [
+        "stdc++",
+        "resolv"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "Cls",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "QCloudTrack/Classes/*.{h,m}",
+        "QCloudTrack/Classes/Default/*.{h,m}",
+        "QCloudTrack/Classes/Default/*/*.{h,m}",
+        "QCloudTrack/Classes/Cls/*.{h,m}"
+      ],
+      "dependencies": {
+        "TencentCloudLogProducer": [
+
+        ]
+      }
+    }
+  ]
+}
