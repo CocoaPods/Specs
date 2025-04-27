@@ -1,0 +1,73 @@
+{
+  "name": "QCloudCore",
+  "version": "6.4.8",
+  "summary": "QCloudCore--腾讯云iOS-SDK Foundation",
+  "description": "QCloudCore--腾讯云iOS-SDK Foundation。提供腾讯云iOS相关SDK的基础能力，包括网络、日志、编程框架、辅助工具等等",
+  "homepage": "https://cloud.tencent.com/",
+  "license": "MIT",
+  "authors": {
+    "QCloud Terminal Team": "QCloudTerminalTeam"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/qcloud-sdk-ios.git",
+    "tag": "6.4.8"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12"
+  },
+  "frameworks": [
+    "CoreMedia",
+    "Accelerate",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "static_framework": true,
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "QCloudCore/Classes/Base/**/*",
+      "dependencies": {
+        "QCloudTrack/Beacon": [
+          "6.4.8"
+        ]
+      }
+    },
+    {
+      "name": "WithoutMTA",
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.12"
+      },
+      "source_files": "QCloudCore/Classes/Base/**/*"
+    },
+    {
+      "name": "DNSLoader",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "dependencies": {
+        "MSDKDns_C11": [
+
+        ],
+        "QCloudCore/WithoutMTA": [
+
+        ]
+      },
+      "source_files": "QCloudCore/Classes/DNSLoader/*"
+    }
+  ]
+}
