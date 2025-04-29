@@ -1,0 +1,121 @@
+{
+  "name": "CPaySDK",
+  "version": "2.3.1",
+  "summary": "UPI mobile SDK for iOS.",
+  "description": "Release UPI mobile SDK for iOS.\n\nThe Citcon’s iOS app payment solution provides a convenient, safe, and reliable payment services to third-party applications. By using the SDK, merchant developers can focus on business logics without having to understand the pluming of payment transactions. The payment experience will be totally transparent and seamless to end consumers.",
+  "homepage": "https://github.com/Citcon/citcon_upi_sdk_ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yansheng.ao@citcon.cn": "yansheng.ao@citcon.cn"
+  },
+  "source": {
+    "git": "https://github.com/Citcon/citcon_upi_sdk_ios.git",
+    "tag": "v2.3.1"
+  },
+  "libraries": "stdc++",
+  "requires_arc": true,
+  "static_framework": false,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Ext",
+    "Payment/PayPal/Web",
+    "Payment/PayPal/Fraud",
+    "Payment/PayPal/Button",
+    "Payment/CashApp/Core",
+    "Payment/CashApp/Button"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "CPaySDK/Core/CPaySDK.xcframework"
+    },
+    {
+      "name": "Ext",
+      "subspecs": [
+        {
+          "name": "CardinalMobile",
+          "vendored_frameworks": "CPaySDK/Ext/CardinalMobile.xcframework"
+        },
+        {
+          "name": "PPRiskMagnes",
+          "vendored_frameworks": "CPaySDK/Ext/PPRiskMagnes.xcframework"
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "subspecs": [
+        {
+          "name": "PayPal",
+          "subspecs": [
+            {
+              "name": "Core",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/PayPal/Ext/CorePayments.xcframework"
+              ]
+            },
+            {
+              "name": "Web",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/PayPal/Ext/PayPalWebPayments.xcframework"
+              ],
+              "dependencies": {
+                "CPaySDK/Payment/PayPal/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "Fraud",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/PayPal/Ext/FraudProtection.xcframework"
+              ],
+              "dependencies": {
+                "CPaySDK/Ext/PPRiskMagnes": [
+
+                ],
+                "CPaySDK/Payment/PayPal/Core": [
+
+                ]
+              }
+            },
+            {
+              "name": "Button",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/PayPal/Ext/PaymentButtons.xcframework"
+              ],
+              "dependencies": {
+                "CPaySDK/Payment/PayPal/Core": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CashApp",
+          "subspecs": [
+            {
+              "name": "Core",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/CashApp/Ext/PayKit.xcframework"
+              ]
+            },
+            {
+              "name": "Button",
+              "vendored_frameworks": [
+                "CPaySDK/Payment/CashApp/Ext/PayKitUI.xcframework"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
