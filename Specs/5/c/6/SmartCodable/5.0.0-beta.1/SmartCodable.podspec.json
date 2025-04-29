@@ -1,0 +1,38 @@
+{
+  "name": "SmartCodable",
+  "version": "5.0.0-beta.1",
+  "summary": "Swift数据解析库",
+  "homepage": "https://github.com/intsig171",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mccc": "562863544@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/intsig171/SmartCodable.git",
+    "tag": "5.0.0-beta.1"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "Sources/SmartCodable/**/*{.swift}",
+  "preserve_paths": [
+    "Package.swift",
+    "Sources/SmartCodableMacros",
+    "Tests",
+    "Bin"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend $(PODS_BUILD_DIR)/SmartCodable/release/SmartCodableMacros-tool#SmartCodableMacros"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend $(PODS_BUILD_DIR)/SmartCodable/release/SmartCodableMacros-tool#SmartCodableMacros"
+  },
+  "script_phases": {
+    "name": "Build SmartCodable macro plugin",
+    "script": "    env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -c release --package-path \\\"$PODS_TARGET_SRCROOT\\\" --build-path \\\"${PODS_BUILD_DIR}/SmartCodable\\\"\"\n",
+    "execution_position": "before_compile"
+  }
+}
