@@ -1,0 +1,39 @@
+{
+  "name": "EmAdsSDK",
+  "version": "2.0.4",
+  "summary": "EmAdsSDK 是一款广告变现的 SDK，由Esell公司研发，将百度、穿山甲、快手、腾讯广告联盟集合到一起，支持瀑布和竞价方式展示广告，使您的收益最大化。",
+  "description": "EmAdsSDK初始化\nSwift 语言:\n      在入口AppDelegate类中的 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool 方法中增加下方代码：\n          import EmAds\n          EmAdsSDK.initSDK(launchOptions: launchOptions, isDebug: true, emlAppId: \"填写你易售申请的APPID\") { err in\n              if err.code == .succeed {\n                  //初始化成功，每次启动仅有一次执行\n              } else {\n                  //初始化失败，此逻辑可能会多次执行\n              }\n          }\n      \n  Objective-C语言:\n      在入口AppDelegate类 的方法 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 中增加下方代码：\n          #import <EmAds/EmAds.h>\n          [EmAdsSDK initSDKWithLaunchOptions:launchOptions isDebug:YES emlAppId:@\"填写你易售申请的APPID\" resultHandler:^(EmAdError * _Nonnull err) {\n              if(err.code == EmAdErrorCodeSucceed) {\n                  //初始化成功，每次启动仅有一次执行\n              } else {\n                  //初始化失败，此逻辑可能会多次执行\n              }\n          }];",
+  "homepage": "https://github.com/esell2016/EmAdsSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "esell2016": "zhengqisi@eselltech.com"
+  },
+  "source": {
+    "git": "https://github.com/esell2016/EmAdsSDK.git",
+    "tag": "2.0.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64"
+  },
+  "requires_arc": true,
+  "vendored_frameworks": [
+    "EmAdsSDK/frameworks/KSAdSDK.xcframework",
+    "EmAdsSDK/frameworks/EmCore.framework",
+    "EmAdsSDK/frameworks/EmAds.framework"
+  ],
+  "resources": [
+    "EmAdsSDK/frameworks/baidumobadsdk.bundle",
+    "EmAdsSDK/frameworks/CSJAdSDK.bundle"
+  ]
+}
