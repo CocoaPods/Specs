@@ -1,0 +1,35 @@
+{
+  "name": "DataManagerSDK",
+  "version": "1.0.8",
+  "summary": "DataManagerSDK IOS",
+  "description": "'DataManagerSDK의 iOS버전 SDK 입니다.'",
+  "homepage": "https://github.com/tune720/DataManagerSDK_iOS",
+  "license": {
+    "type": "MIT",
+    "text": "Copyright 2022 by Enliple"
+  },
+  "authors": {
+    "tune720": "dh.lee@mobwith.co.kr"
+  },
+  "source": {
+    "git": "https://github.com/tune720/DataManagerSDK_iOS.git",
+    "tag": "1.0.8",
+    "submodules": true
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "requires_arc": false,
+  "vendored_frameworks": "DataManagerSDK.xcframework",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "script_phases": {
+    "name": "Copy DataManagerSDK dSYM",
+    "script": "\n    if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n      echo \"Debug 빌드: 시뮬레이터용 dSYM 복사\"\n      cp -R \"${PODS_ROOT}/DataManagerSDK/DataManagerSDK.xcframework/dSYMs/iphonesimulator/DataManagerSDK.framework.dSYM\" \"${DWARF_DSYM_FOLDER_PATH}\"\n    elif [ \"$CONFIGURATION\" == \"Release\" ]; then\n      echo \"Release 빌드: 실제 디바이스용 dSYM 복사\"\n      cp -R \"${PODS_ROOT}/DataManagerSDK/DataManagerSDK.xcframework/dSYMs/iphoneos/DataManagerSDK.framework.dSYM\" \"${DWARF_DSYM_FOLDER_PATH}\"\n    else\n      echo \"알 수 없는 빌드 설정: dSYM 복사 생략\"\n    fi\n    ",
+    "execution_position": "after_compile"
+  }
+}
