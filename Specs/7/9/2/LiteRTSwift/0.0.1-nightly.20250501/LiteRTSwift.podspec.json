@@ -1,0 +1,108 @@
+{
+  "name": "LiteRTSwift",
+  "version": "0.0.1-nightly.20250501",
+  "authors": "Google Inc.",
+  "license": {
+    "type": "Apache"
+  },
+  "homepage": "https://github.com/tensorflow/tensorflow",
+  "source": {
+    "git": "https://github.com/tensorflow/tensorflow.git",
+    "commit": "536cbae08d7f8643007a3c6f762d23800b34255b"
+  },
+  "summary": "TensorFlow Lite for Swift",
+  "description": "TensorFlow Lite is TensorFlow's lightweight solution for Swift developers. It\nenables low-latency inference of on-device machine learning models with a\nsmall binary size and fast performance supporting hardware acceleration.",
+  "cocoapods_version": ">= 1.9.0",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "module_name": "TensorFlowLite",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Privacy",
+      "resource_bundles": {
+        "TensorFlowLite": "tensorflow/lite/swift/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "LiteRTC": [
+          "0.0.1-nightly.20250501"
+        ],
+        "LiteRTSwift/Privacy": [
+          "0.0.1-nightly.20250501"
+        ]
+      },
+      "source_files": "tensorflow/lite/swift/Sources/*.swift",
+      "exclude_files": "tensorflow/lite/swift/Sources/{CoreML,Metal}Delegate.swift",
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/*.swift",
+          "exclude_files": "tensorflow/lite/swift/Tests/MetalDelegateTests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin",
+            "tensorflow/lite/testdata/multi_signatures.bin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CoreML",
+      "source_files": "tensorflow/lite/swift/Sources/CoreMLDelegate.swift",
+      "dependencies": {
+        "LiteRTC/CoreML": [
+          "0.0.1-nightly.20250501"
+        ],
+        "LiteRTSwift/Core": [
+          "0.0.1-nightly.20250501"
+        ],
+        "LiteRTSwift/Privacy": [
+          "0.0.1-nightly.20250501"
+        ]
+      }
+    },
+    {
+      "name": "Metal",
+      "source_files": "tensorflow/lite/swift/Sources/MetalDelegate.swift",
+      "dependencies": {
+        "LiteRTC/Metal": [
+          "0.0.1-nightly.20250501"
+        ],
+        "LiteRTSwift/Core": [
+          "0.0.1-nightly.20250501"
+        ],
+        "LiteRTSwift/Privacy": [
+          "0.0.1-nightly.20250501"
+        ]
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "tensorflow/lite/swift/Tests/{Interpreter,MetalDelegate}Tests.swift",
+          "resources": [
+            "tensorflow/lite/testdata/add.bin",
+            "tensorflow/lite/testdata/add_quantized.bin",
+            "tensorflow/lite/testdata/multi_add.bin"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
