@@ -1,0 +1,80 @@
+{
+  "name": "JTScanKit",
+  "version": "0.2.3",
+  "summary": "扫描组件",
+  "description": "内置多种识别器的扫描组件",
+  "homepage": "http://code.jms.com/mobile_sea/public/scankit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wooseng": "zhanbaocheng@jtexpress.com"
+  },
+  "source": {
+    "git": "http://code.jms.com/mobile_sea/public/scankit.git",
+    "tag": "0.2.3"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "swift_versions": "5.8",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/**/*",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "Predictor",
+      "subspecs": [
+        {
+          "name": "Apple",
+          "source_files": "Predictors/Apple/**/*",
+          "dependencies": {
+            "JTScanKit/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JTSK_PREDICTOR_APPLE"
+          }
+        },
+        {
+          "name": "ZXing",
+          "source_files": "Predictors/ZXing/**/*",
+          "dependencies": {
+            "JTScanKit/Core": [
+
+            ],
+            "ZXingObjC": [
+              "~> 3.6.9"
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JTSK_PREDICTOR_ZXING"
+          }
+        },
+        {
+          "name": "Google",
+          "source_files": "Predictors/Google/**/*",
+          "dependencies": {
+            "JTScanKit/Core": [
+
+            ],
+            "GoogleMLKit/BarcodeScanning": [
+              "6.0.0"
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JTSK_PREDICTOR_GOOGLE"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.8"
+}
