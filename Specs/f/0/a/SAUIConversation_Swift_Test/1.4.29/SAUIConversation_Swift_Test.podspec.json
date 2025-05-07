@@ -1,0 +1,201 @@
+{
+  "name": "SAUIConversation_Swift_Test",
+  "module_name": "TUIConversation",
+  "version": "1.4.29",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "SAUIConversation_Swift",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.5.6870/ios/TUIConversation_Swift.zip?time=3"
+  },
+  "default_subspecs": "ALL",
+  "resource_bundles": {
+    "TUIConversation_Privacy": "**/TUIConversation/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUIConversation/CommonModel/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TXIMSDK_Plus_iOS_XCFramework": [
+
+        ],
+        "SAUICore_Test": [
+
+        ],
+        "SAIMCommon_Swift_Test": [
+          "~> 1.4.29"
+        ],
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUIConversation/BaseCell/CellData/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUIConversation/BaseCell/CellUI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/BaseCell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseDataProvider",
+      "source_files": "**/TUIConversation/BaseDataProvider/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TUIConversation/BaseCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUIConversation/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIConversation/UI_Classic/DataProvider/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/BaseDataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIConversation/UI_Classic/UI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIConversation/UI_Classic/Service/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIConversation/UI_Classic/Header/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Classic/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "resources": [
+        "**/TUIConversation/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "CellData",
+              "source_files": "**/TUIConversation/UI_Minimalist/Cell/CellData/*.{h,m,mm,swift}",
+              "dependencies": {
+                "TUIConversation/BaseDataProvider": [
+
+                ]
+              }
+            },
+            {
+              "name": "CellUI",
+              "source_files": "**/TUIConversation/UI_Minimalist/Cell/CellUI/*.{h,m,mm,swift}",
+              "dependencies": {
+                "TUIConversation/UI_Minimalist/Cell/CellData": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIConversation/UI_Minimalist/DataProvider/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIConversation/UI_Minimalist/UI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIConversation/UI_Minimalist/Service/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIConversation/UI_Minimalist/Header/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIConversation/UI_Minimalist/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUIConversation/UI_Classic": [
+
+        ],
+        "TUIConversation/UI_Minimalist": [
+
+        ]
+      }
+    }
+  ]
+}
