@@ -1,0 +1,201 @@
+{
+  "name": "SAUIContact_Swift_Test",
+  "module_name": "TUIContact",
+  "version": "1.4.29",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "SAUIContact_Swift",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.5.6870/ios/TUIContact_Swift.zip?time=2"
+  },
+  "default_subspecs": "ALL",
+  "resource_bundles": {
+    "TUIContact_Privacy": "**/TUIContact/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUIContact/CommonModel/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TXIMSDK_Plus_iOS_XCFramework": [
+
+        ],
+        "SAUICore_Test": [
+
+        ],
+        "SAIMCommon_Swift_Test": [
+          "~> 1.4.29"
+        ],
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseCell",
+      "subspecs": [
+        {
+          "name": "CellData",
+          "source_files": "**/TUIContact/BaseCell/CellData/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "CellUI",
+          "source_files": "**/TUIContact/BaseCell/CellUI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/BaseCell/CellData": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseDataProvider",
+      "source_files": "**/TUIContact/BaseDataProvider/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TUIContact/BaseCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "CommonUI",
+      "source_files": "**/TUIContact/CommonUI/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TUIContact/BaseDataProvider": [
+
+        ]
+      }
+    },
+    {
+      "name": "UI_Classic",
+      "resources": [
+        "**/TUIContact/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "UI",
+          "source_files": "**/TUIContact/UI_Classic/UI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/CommonUI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIContact/UI_Classic/Service/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Classic/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIContact/UI_Classic/Header/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Classic/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UI_Minimalist",
+      "resources": [
+        "**/TUIContact/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "Cell",
+          "subspecs": [
+            {
+              "name": "CellData",
+              "source_files": "**/TUIContact/UI_Minimalist/Cell/CellData/*.{h,m,mm,swift}",
+              "dependencies": {
+                "TUIContact/CommonUI": [
+
+                ]
+              }
+            },
+            {
+              "name": "CellUI",
+              "source_files": "**/TUIContact/UI_Minimalist/Cell/CellUI/*.{h,m,mm,swift}",
+              "dependencies": {
+                "TUIContact/UI_Minimalist/Cell/CellData": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUIContact/UI_Minimalist/DataProvider/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Minimalist/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUIContact/UI_Minimalist/UI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Minimalist/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUIContact/UI_Minimalist/Service/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Minimalist/UI": [
+
+            ]
+          }
+        },
+        {
+          "name": "Header",
+          "source_files": "**/TUIContact/UI_Minimalist/Header/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUIContact/UI_Minimalist/Service": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALL",
+      "dependencies": {
+        "TUIContact/UI_Classic": [
+
+        ],
+        "TUIContact/UI_Minimalist": [
+
+        ]
+      }
+    }
+  ]
+}
