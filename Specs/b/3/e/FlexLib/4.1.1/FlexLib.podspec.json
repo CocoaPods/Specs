@@ -1,0 +1,84 @@
+{
+  "name": "FlexLib",
+  "version": "4.1.1",
+  "summary": "An obj-c flex layout framework for IOS & mac",
+  "description": "It's a layout framework based on yoga engine. The main purpose is to provide easy and fast usage.",
+  "homepage": "https://github.com/zhenglibao/FlexLib",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "798393829@qq.com": "798393829@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhenglibao/FlexLib.git",
+    "tag": "4.1.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "standard",
+  "subspecs": [
+    {
+      "name": "yoga",
+      "source_files": "FlexLib/Classes/yoga/**/*.{c,h,cpp}",
+      "public_header_files": "FlexLib/Classes/yoga/{Yoga,YGEnums,YGMacros,YGValue}.h",
+      "requires_arc": false,
+      "pod_target_xcconfig": {
+        "DEFINES_MODULE": "YES"
+      },
+      "compiler_flags": [
+        "-fno-omit-frame-pointer",
+        "-fexceptions",
+        "-Wall",
+        "-Werror",
+        "-std=c++1y",
+        "-fPIC"
+      ]
+    },
+    {
+      "name": "standard",
+      "source_files": "FlexLib/Classes/{FlexLib,YogaKit}/**/*",
+      "resource_bundles": {
+        "FlexLib": [
+          "FlexLib/Assets/*"
+        ]
+      },
+      "dependencies": {
+        "FlexLib/yoga": [
+
+        ]
+      },
+      "libraries": [
+        "xml2",
+        "c++"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "/usr/include/libxml2"
+      },
+      "exclude_files": "FlexLib/Classes/Flexlib/GDataXMLNode.{h,m}",
+      "subspecs": [
+        {
+          "name": "no-arc",
+          "requires_arc": false,
+          "source_files": "FlexLib/Classes/Flexlib/GDataXMLNode.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "preview",
+      "source_files": "FlexLibPreview/Classes/**/*",
+      "resource_bundles": {
+        "FlexLibPreview": [
+          "FlexLibPreview/Assets/*"
+        ]
+      },
+      "dependencies": {
+        "FlexLib/standard": [
+
+        ]
+      }
+    }
+  ]
+}
