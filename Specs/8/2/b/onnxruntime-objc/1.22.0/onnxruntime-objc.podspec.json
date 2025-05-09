@@ -1,0 +1,103 @@
+{
+  "name": "onnxruntime-objc",
+  "version": "1.22.0",
+  "summary": "ONNX Runtime Objective-C Pod",
+  "description": "A pod for the ONNX Runtime Objective-C API.",
+  "homepage": "https://github.com/microsoft/onnxruntime",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ONNX Runtime": "onnxruntime@microsoft.com"
+  },
+  "source": {
+    "http": "https://download.onnxruntime.ai/pod-archive-onnxruntime-objc-1.22.0.zip"
+  },
+  "platforms": {
+    "ios": "15.1",
+    "osx": "13.3"
+  },
+  "preserve_paths": [
+    "LICENSE"
+  ],
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "onnxruntime-c": [
+          "1.22.0"
+        ]
+      },
+      "requires_arc": true,
+      "compiler_flags": [
+        "-std=c++17",
+        "-fobjc-arc-exceptions",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/objectivec\"",
+        "OTHER_CPLUSPLUSFLAGS": "-fvisibility=hidden -fvisibility-inlines-hidden"
+      },
+      "public_header_files": [
+        "objectivec/include/ort_xnnpack_execution_provider.h",
+        "objectivec/include/ort_session.h",
+        "objectivec/include/ort_coreml_execution_provider.h",
+        "objectivec/include/ort_custom_op_registration.h",
+        "objectivec/include/ort_env.h",
+        "objectivec/include/ort_value.h",
+        "objectivec/include/ort_enums.h",
+        "objectivec/include/onnxruntime.h"
+      ],
+      "source_files": [
+        "objectivec/ort_coreml_execution_provider.mm",
+        "objectivec/error_utils.h",
+        "objectivec/ort_env_internal.h",
+        "objectivec/include/ort_env.h",
+        "objectivec/assert_arc_enabled.mm",
+        "objectivec/include/ort_xnnpack_execution_provider.h",
+        "objectivec/cxx_api.h",
+        "objectivec/ort_env.mm",
+        "objectivec/include/ort_session.h",
+        "objectivec/include/ort_coreml_execution_provider.h",
+        "objectivec/ort_session.mm",
+        "objectivec/ort_session_internal.h",
+        "objectivec/error_utils.mm",
+        "objectivec/cxx_utils.h",
+        "objectivec/include/ort_enums.h",
+        "objectivec/ort_enums_internal.h",
+        "objectivec/include/onnxruntime.h",
+        "objectivec/ort_value.mm",
+        "objectivec/cxx_utils.mm",
+        "objectivec/include/ort_custom_op_registration.h",
+        "objectivec/ort_value_internal.h",
+        "objectivec/ort_enums.mm",
+        "objectivec/ort_xnnpack_execution_provider.mm",
+        "objectivec/include/ort_value.h"
+      ],
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": [
+            "objectivec/test/test_utils.h",
+            "objectivec/test/ort_env_test.mm",
+            "objectivec/test/ort_value_test.mm",
+            "objectivec/test/assertion_utils.h",
+            "objectivec/test/assert_arc_enabled.mm",
+            "objectivec/test/ort_session_test.mm",
+            "objectivec/test/test_utils.mm"
+          ],
+          "resources": [
+            "objectivec/test/testdata/identity_string.ort",
+            "objectivec/test/testdata/single_add.basic.ort"
+          ]
+        }
+      ]
+    }
+  ]
+}
