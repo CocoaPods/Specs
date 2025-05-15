@@ -1,0 +1,59 @@
+{
+  "name": "Xendit",
+  "version": "3.10.7",
+  "license": "MIT",
+  "homepage": "https://www.xendit.co",
+  "authors": {
+    "Juan Gonzalez’": "juan@xendit.co"
+  },
+  "social_media_url": "https://www.facebook.com/xendit",
+  "summary": "Xendit is an API for accepting payments online",
+  "source": {
+    "git": "https://github.com/xendit/xendit-sdk-ios-src.git",
+    "tag": "3.10.7"
+  },
+  "swift_versions": [
+    "4",
+    "5",
+    "6"
+  ],
+  "platforms": {
+    "ios": "11.0"
+  },
+  "resource_bundles": {
+    "Xendit": [
+      "Sources/Xendit/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "default_subspecs": "Default",
+  "pod_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "user_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "subspecs": [
+    {
+      "name": "Default",
+      "dependencies": {
+        "Xendit/XenditObjC": [
+
+        ],
+        "Sentry": [
+          "8.46.0"
+        ]
+      },
+      "source_files": "Sources/Xendit/**/*.swift"
+    },
+    {
+      "name": "XenditObjC",
+      "source_files": [
+        "Sources/XenditObjC/**/*.{h,m}",
+        "Sources/XenditObjC/include/Xendit.h"
+      ]
+    }
+  ],
+  "swift_version": "6"
+}
