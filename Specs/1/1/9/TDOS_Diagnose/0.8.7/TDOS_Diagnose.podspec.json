@@ -1,0 +1,116 @@
+{
+  "name": "TDOS_Diagnose",
+  "version": "0.8.7",
+  "summary": "腾讯Bugly-日志诊断SDK",
+  "description": "一款由腾讯Bugly团队推出的日志诊断SDK.\n提供日志打印、日志上传、问题诊断等App基础能力",
+  "homepage": "https://github.com/BuglyDevTeam/TDOS-Diagnose-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tencent": "bugly@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/BuglyDevTeam/TDOS-Diagnose-iOS.git",
+    "tag": "0.8.7"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": "AIO",
+  "static_framework": true,
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "TDIAG_VERSION=0.8.7"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "YYModel": [
+
+        ]
+      },
+      "frameworks": "SystemConfiguration",
+      "public_header_files": [
+        "TDOS_Diagnose/Core/Headers/*.{h,hpp}"
+      ],
+      "source_files": "TDOS_Diagnose/Core/Headers/*.{h,m,hpp,mm,cpp}",
+      "vendored_frameworks": "TDOS_Diagnose/Core/TDS_Diagnose.xcframework"
+    },
+    {
+      "name": "DefaultLogger",
+      "source_files": "TDOS_Diagnose/DefaultInjectIMP/Logger/*{.h,.c,.hpp,.cpp,.m,.mm}",
+      "public_header_files": "TDOS_Diagnose/DefaultInjectIMP/Logger/*{.h}",
+      "dependencies": {
+        "TDOS_Diagnose/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "TDOS_Diagnose/DefaultInjectIMP/Logger/ios/mars.xcframework"
+      }
+    },
+    {
+      "name": "DefaultStorageImpl",
+      "source_files": "TDOS_Diagnose/DefaultInjectIMP/Storage/**/*{.h,.c,.hpp,.cpp,.m,.mm}",
+      "public_header_files": "TDOS_Diagnose/DefaultInjectIMP/Storage/**/*{.h}",
+      "dependencies": {
+        "MMKV": [
+
+        ],
+        "TDOS_Diagnose/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DefaultFilePacker",
+      "source_files": "TDOS_Diagnose/DefaultInjectIMP/FilePacker/**/*{.h,.c,.hpp,.cpp,.m,.mm}",
+      "public_header_files": "TDOS_Diagnose/DefaultInjectIMP/FilePacker/**/*{.h}",
+      "dependencies": {
+        "TDOS_Diagnose/Core": [
+
+        ],
+        "SSZipArchive": [
+
+        ]
+      }
+    },
+    {
+      "name": "DefaultFilePacker2",
+      "source_files": "TDOS_Diagnose/DefaultInjectIMP/FilePacker/**/*{.h,.c,.hpp,.cpp,.m,.mm}",
+      "public_header_files": "TDOS_Diagnose/DefaultInjectIMP/FilePacker/**/*{.h}",
+      "dependencies": {
+        "TDOS_Diagnose/Core": [
+
+        ],
+        "ZipArchive": [
+
+        ]
+      }
+    },
+    {
+      "name": "AIO",
+      "dependencies": {
+        "TDOS_Diagnose/Core": [
+
+        ],
+        "TDOS_Diagnose/DefaultLogger": [
+
+        ],
+        "TDOS_Diagnose/DefaultStorageImpl": [
+
+        ],
+        "TDOS_Diagnose/DefaultFilePacker": [
+
+        ]
+      }
+    }
+  ]
+}
