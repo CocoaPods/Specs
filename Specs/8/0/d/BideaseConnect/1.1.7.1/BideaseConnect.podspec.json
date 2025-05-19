@@ -1,0 +1,211 @@
+{
+  "name": "BideaseConnect",
+  "version": "1.1.7.1",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "summary": "Bidease - Real Time Mediation",
+  "description": "Bidease - Real Time Mediation.",
+  "homepage": "https://bidease.com",
+  "authors": {
+    "Bidease": "be-sdk@bidease.com"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2024 Bidease. All Rights Reserved."
+  },
+  "source": {
+    "http": "https://storage.googleapis.com/s3.be.wtf/sdk/BideaseConnect_1.1.7.zip"
+  },
+  "preserve_paths": [
+    "*.md",
+    "*.xcframework"
+  ],
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Bidease.xcframework"
+      ],
+      "resource_bundles": {
+        "Bidease": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "CoreData",
+        "SystemConfiguration"
+      ],
+      "weak_frameworks": [
+        "AppTrackingTransparency"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Test",
+      "vendored_frameworks": "ProviderTest.xcframework",
+      "resource_bundles": {
+        "ProviderTest": [
+          "ProviderTest.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+
+      ],
+      "weak_frameworks": [
+
+      ],
+      "libraries": [
+
+      ],
+      "dependencies": {
+        "BideaseConnect/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BideaseRTB",
+      "vendored_frameworks": "ProviderBideaseRTB.xcframework",
+      "resource_bundles": {
+        "ProviderBideaseRTB": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "libraries": "xml2",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BideaseConnect/Core": [
+
+        ],
+        "BideaseConnect/BideaseRTBCore": [
+
+        ],
+        "BideaseConnect/BideaseBidRequester": [
+
+        ]
+      }
+    },
+    {
+      "name": "BideaseRTBCore",
+      "vendored_frameworks": "ProviderLibs/BideaseMobile.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseBidRequester",
+      "vendored_frameworks": "ProviderLibs/BideaseBidRequester.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseNative",
+      "vendored_frameworks": "ProviderLibs/BideaseNativeLoader.xcframework",
+      "resource_bundles": {
+        "BideaseNative": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BideaseConnect/BideaseBidRequester": [
+
+        ]
+      }
+    },
+    {
+      "name": "IronSourceAdapter",
+      "vendored_frameworks": "Adapters/IronSource/ISBideaseConnectAdapter.xcframework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "IronSourceSDK": [
+
+        ],
+        "BideaseConnect/Core": [
+
+        ],
+        "BideaseConnect/BideaseRTB": [
+
+        ],
+        "BideaseConnect/Test": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppLovinMaxAdapter",
+      "source_files": "Adapters/AppLovinMAX/BideaseConnectAppLovinMaxAdapter.mm",
+      "dependencies": {
+        "AppLovinSDK": [
+
+        ],
+        "BideaseConnect/Core": [
+
+        ],
+        "BideaseConnect/BideaseRTB": [
+
+        ],
+        "BideaseConnect/Test": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
