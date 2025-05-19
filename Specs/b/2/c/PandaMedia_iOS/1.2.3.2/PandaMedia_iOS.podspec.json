@@ -1,0 +1,104 @@
+{
+  "name": "PandaMedia_iOS",
+  "version": "1.2.3.2",
+  "summary": "/1.2.3.2 of PandaMedia_iOS.",
+  "description": "sdkVersion of PandaMedia_iOS.PandaAdSdk for iOS.",
+  "homepage": "https://gitee.com/WANG0000001/panda-media_i-os",
+  "license": "MIT",
+  "authors": "Pandabus",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://gitee.com/WANG0000001/panda-media_i-os.git",
+    "tag": "1.2.3.2"
+  },
+  "resources": "PandaAdSDK/core/PandaAdResource.bundle",
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "StoreKit",
+    "CFNetwork",
+    "CoreMedia",
+    "AdSupport",
+    "MediaPlayer",
+    "CoreGraphics",
+    "AVFoundation",
+    "CoreLocation",
+    "SafariServices",
+    "MobileCoreServices",
+    "WebKit",
+    "SystemConfiguration",
+    "ImageIO",
+    "AudioToolbox",
+    "CoreTelephony",
+    "CoreMotion",
+    "Accelerate",
+    "Photos",
+    "AssetsLibrary",
+    "CoreServices",
+    "AddressBook",
+    "AVKit",
+    "CoreData",
+    "Security",
+    "MessageUI",
+    "JavaScriptCore",
+    "QuickLook",
+    "MapKit",
+    "AppTrackingTransparency"
+  ],
+  "weak_frameworks": "DeviceCheck",
+  "libraries": [
+    "c++abi",
+    "sqlite3",
+    "c++",
+    "xml2",
+    "resolv",
+    "bz2.1.0",
+    "z",
+    "resolv.9",
+    "bz2"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "PandaAdCore",
+      "vendored_frameworks": "PandaAdSDK/core/PandaAdSDK.framework",
+      "resources": "PandaAdSDK/core/PandaAdResource.bundle"
+    },
+    {
+      "name": "PandaOctopusAdsAdapter",
+      "vendored_frameworks": "PandaAdSDK/adapter/OctopusAds/PandaOctopusAdsAdapter.framework",
+      "dependencies": {
+        "OctopusSDK": [
+          "1.6.3.1"
+        ]
+      }
+    },
+    {
+      "name": "PandaNoahAdsAdapter",
+      "subspecs": [
+        {
+          "name": "Core",
+          "vendored_frameworks": [
+            "PandaAdSDK/adapter/NoahAds/PandaNoahAdAdapter.framework",
+            "PandaAdSDK/adapter/NoahAds/NoahSDK.framework",
+            "PandaAdSDK/adapter/NoahAds/ShuQiHCSDK.framework"
+          ],
+          "resources": [
+            "PandaAdSDK/adapter/NoahAds/NoahSDK.framework/*.bundle",
+            "PandaAdSDK/adapter/NoahAds/ShuQiHCSDK.framework/*.bundle"
+          ]
+        },
+        {
+          "name": "UTDID",
+          "vendored_frameworks": "PandaAdSDK/adapter/NoahAds/UTDID.framework"
+        },
+        {
+          "name": "ATokenSDK",
+          "vendored_frameworks": "PandaAdSDK/adapter/NoahAds/ATokenSDK.framework"
+        }
+      ]
+    }
+  ]
+}
