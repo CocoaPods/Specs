@@ -1,0 +1,118 @@
+{
+  "name": "Sentinel",
+  "version": "2.3.0",
+  "summary": "Developer's toolbox for debugging applications",
+  "description": "Sentinel is a simple library which gives developers a possibility to configure one entry point for every debug tool.\nThe idea of Sentinel is to give ability to developers to configure screen with multiple debug tools which are available via some event (e.g. shake, notification).",
+  "homepage": "https://github.com/infinum/ios-sentinel",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Infinum": "ios@infinum.com",
+    "Vlaho Poluta": "vlaho.poluta@infinum.com",
+    "Nikola Majcen": "nikola.majcen@infinum.com"
+  },
+  "source": {
+    "git": "https://github.com/infinum/ios-sentinel.git",
+    "tag": "2.3.0"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "14.0",
+    "osx": "12.0"
+  },
+  "swift_versions": "5.0",
+  "resource_bundles": {
+    "Sentinel": [
+      "Sentinel/Assets/**/*",
+      "Sentinel/SupportingFiles/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "resources": "Sentinel/Assets/**/*.{pdf}",
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sentinel/Classes/Core/**/*"
+    },
+    {
+      "name": "UserDefaults",
+      "source_files": "Sentinel/Classes/UserDefaults/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "EmailSender",
+      "source_files": "Sentinel/Classes/EmailSender/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "14.0"
+      }
+    },
+    {
+      "name": "CustomLocation",
+      "source_files": "Sentinel/Classes/CustomLocation/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      },
+      "platforms": {
+        "ios": "14.0"
+      }
+    },
+    {
+      "name": "TextEditing",
+      "source_files": "Sentinel/Classes/TextEditing/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrashDetection",
+      "source_files": "Sentinel/Classes/CrashDetection/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": "Sentinel/Classes/DatabaseTool/**/*",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "Sentinel/Core": [
+
+        ],
+        "Sentinel/UserDefaults": [
+
+        ],
+        "Sentinel/TextEditing": [
+
+        ],
+        "Sentinel/CrashDetection": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
