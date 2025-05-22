@@ -1,0 +1,142 @@
+{
+  "name": "newios_sdk",
+  "version": "0.0.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "newios_sdk.",
+  "description": "test newios_sdk I wish win",
+  "homepage": "https://github.com/Wu-An-Jun/newios_sdk",
+  "authors": {
+    "Lzc": "2489754250@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Wu-An-Jun/newios_sdk.git",
+    "tag": "0.0.2"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "resource_bundles": {
+    "newios_sdk": [
+      "Assets/**/*.*"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/Core/**/*.{h,m}",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "AdSpot",
+      "dependencies": {
+        "newios_sdk/Core": [
+
+        ]
+      },
+      "source_files": "Classes/AdSpot/**/*.{h,m}"
+    },
+    {
+      "name": "MercuryAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "MercurySDK": [
+          "4.4.7"
+        ]
+      },
+      "source_files": "Classes/Adapters/Mercury/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      },
+      "user_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      }
+    },
+    {
+      "name": "CSJAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "Ads-CN-Beta/BUAdSDK": [
+          "6.8.0.1"
+        ]
+      },
+      "source_files": "Classes/Adapters/CSJ/**/*.{h,m}"
+    },
+    {
+      "name": "GDTAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "GDTMobSDK": [
+          "4.15.30"
+        ]
+      },
+      "source_files": "Classes/Adapters/GDT/**/*.{h,m}"
+    },
+    {
+      "name": "KSAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "KSAdSDK": [
+          "3.3.74"
+        ]
+      },
+      "source_files": "Classes/Adapters/KS/**/*.{h,m}"
+    },
+    {
+      "name": "BDAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "BaiduMobAdSDK": [
+          "5.373"
+        ]
+      },
+      "source_files": "Classes/Adapters/BD/**/*.{h,m}"
+    },
+    {
+      "name": "TanxAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "TanxSDK": [
+          "3.7.2"
+        ]
+      },
+      "source_files": "Classes/Adapters/TANX/**/*.{h,m}"
+    },
+    {
+      "name": "SigmobAdapter",
+      "dependencies": {
+        "newios_sdk/AdSpot": [
+
+        ],
+        "SigmobAd-iOS": [
+          "4.17.0"
+        ]
+      },
+      "source_files": "Classes/Adapters/Sigmob/**/*.{h,m}"
+    }
+  ]
+}
