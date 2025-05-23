@@ -1,0 +1,69 @@
+{
+  "name": "Executorch",
+  "version": "0.1.7",
+  "authors": {
+    "Cat": "a599231042@gmail.com"
+  },
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://docs.pytorch.org/executorch/stable/index.html",
+  "source": {
+    "git": "https://github.com/cat-x/Executorch_Pod",
+    "tag": "0.1.7"
+  },
+  "summary": "The executorch library for iOS",
+  "description": "The executorch library for iOS.",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "default_subspecs": "Core",
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/Executorch/install/include/\"",
+    "OTHER_LDFLAGS": "$(inherited) -force_load \"$(PODS_ROOT)/Executorch/install/lib/libexecutorch_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libbackend_coreml_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libbackend_mps_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libbackend_xnnpack_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libkernels_optimized_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libkernels_quantized_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libkernels_custom_ios.a\" -force_load \"$(PODS_ROOT)/Executorch/install/lib/libkernels_portable_ios.a\"",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_ENABLE_OBJC_WEAK": "YES",
+    "GCC_C_LANGUAGE_STANDARD": "c17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64 i386"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_ROOT)/Executorch/install/include/\"",
+    "VALID_ARCHS": "x86_64 arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64 i386",
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "libraries": [
+    "sqlite3"
+  ],
+  "frameworks": [
+    "Accelerate",
+    "Metal",
+    "MetalPerformanceShaders",
+    "MetalPerformanceShadersGraph",
+    "CoreML"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "Executorch/Torch": [
+
+        ]
+      },
+      "source_files": "src/*.{h,cpp,c,cc}",
+      "public_header_files": [
+        "src/Executorch.h"
+      ]
+    },
+    {
+      "name": "Torch",
+      "header_mappings_dir": "install/include/",
+      "preserve_paths": "install/include/**/*.{h,cpp,cc,c}",
+      "vendored_libraries": "install/lib/*.a",
+      "libraries": [
+        "sqlite3"
+      ]
+    }
+  ]
+}
