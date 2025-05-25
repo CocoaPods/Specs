@@ -1,0 +1,78 @@
+{
+  "name": "TUITranslationPlugin_Swift",
+  "module_name": "TUITranslationPlugin",
+  "version": "8.5.6870",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "Proprietary",
+    "text": "        copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "homepage": "https://cloud.tencent.com/document/product/269/3794",
+  "documentation_url": "https://cloud.tencent.com/document/product/269/9147",
+  "authors": "tencent video cloud",
+  "summary": "TUITranslationPlugin_Swift",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://im.sdk.cloud.tencent.cn/download/tuikit/8.5.6870/ios/TUITranslationPlugin_Swift.zip"
+  },
+  "resource_bundles": {
+    "TUITranslationPlugin_Privacy": "**/TUITranslationPlugin/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "CommonModel",
+      "source_files": "**/TUITranslationPlugin/CommonModel/*.{h,m,mm,swift}",
+      "dependencies": {
+        "TUICore": [
+
+        ],
+        "TIMCommon_Swift": [
+          "~> 8.5.6870"
+        ],
+        "TUIChat_Swift": [
+          "~> 8.5.6870"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "resources": [
+        "**/TUITranslationPlugin/Resources/*.bundle"
+      ],
+      "subspecs": [
+        {
+          "name": "DataProvider",
+          "source_files": "**/TUITranslationPlugin/UI/DataProvider/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUITranslationPlugin_Swift/CommonModel": [
+
+            ]
+          }
+        },
+        {
+          "name": "UI",
+          "source_files": "**/TUITranslationPlugin/UI/UI/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUITranslationPlugin_Swift/UI/DataProvider": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "**/TUITranslationPlugin/UI/Service/*.{h,m,mm,swift}",
+          "dependencies": {
+            "TUITranslationPlugin_Swift/UI/UI": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
