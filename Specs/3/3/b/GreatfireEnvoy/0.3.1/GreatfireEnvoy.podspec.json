@@ -1,0 +1,69 @@
+{
+  "name": "GreatfireEnvoy",
+  "version": "0.3.1",
+  "summary": "Greatfire's Envoy is a manager for various proxy implementations.",
+  "description": "It will automatically find the best working proxy and provide the necessary configuration\nvia helper methods.\n\nSupported Proxies are:\n- Envoy HTTP proxy (partial support on Apple platforms)\n- V2Ray\n- Hysteria2\n- Pluggable Transports together with an Envoy HTTP proxy or a SOCKS5 proxy:\n  - Meek\n  - Obfs4\n  - WebTunnel\n  - Snowflake",
+  "homepage": "https://github.com/greatfire/envoy",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/greatfire/envoy.git",
+    "tag": "apple-0.3.1"
+  },
+  "social_media_url": "https://chaos.social/@tla",
+  "readme": "https://raw.githubusercontent.com/greatfire/envoy/apple-0.3.1/apple/README.md",
+  "changelog": "https://raw.githubusercontent.com/greatfire/envoy/apple-#{s.version}/apple/CHANGELOG.md",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "12"
+  },
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "apple/Tests/GreatfireEnvoyTests/**/*"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "apple/Sources/GreatfireEnvoy/**/*",
+      "dependencies": {
+        "IEnvoyProxy": [
+          "~> 3.4"
+        ]
+      }
+    },
+    {
+      "name": "Curl",
+      "dependencies": {
+        "GreatfireEnvoy/Core": [
+
+        ],
+        "SwiftyCurl": [
+          "~> 0.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "USE_CURL=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) USE_CURL"
+      },
+      "testspecs": [
+        {
+          "name": "Tests",
+          "test_type": "unit",
+          "source_files": "apple/Tests/GreatfireEnvoyTests/**/*"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
