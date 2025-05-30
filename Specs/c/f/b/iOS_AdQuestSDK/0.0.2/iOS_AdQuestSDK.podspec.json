@@ -1,0 +1,142 @@
+{
+  "name": "iOS_AdQuestSDK",
+  "version": "0.0.2",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "广告SDK",
+  "description": "一个可以展示不同平台的广告SDK",
+  "homepage": "https://github.com/Wu-An-Jun/iOS_AdQuestSDK",
+  "authors": {
+    "Lzc": "2489754250@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Wu-An-Jun/iOS_AdQuestSDK.git",
+    "tag": "0.0.2"
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "resource_bundles": {
+    "iOS_AdQuestSDK": [
+      "Assets/**/*.*"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Classes/Core/**/*.{h,m}",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "AdSpot",
+      "dependencies": {
+        "iOS_AdQuestSDK/Core": [
+
+        ]
+      },
+      "source_files": "Classes/AdSpot/**/*.{h,m}"
+    },
+    {
+      "name": "MercuryAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "MercurySDK": [
+          "4.4.7"
+        ]
+      },
+      "source_files": "Classes/Adapters/Mercury/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      },
+      "user_target_xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      }
+    },
+    {
+      "name": "CSJAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "Ads-CN-Beta/BUAdSDK": [
+          "6.8.0.1"
+        ]
+      },
+      "source_files": "Classes/Adapters/CSJ/**/*.{h,m}"
+    },
+    {
+      "name": "GDTAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "GDTMobSDK": [
+          "4.15.30"
+        ]
+      },
+      "source_files": "Classes/Adapters/GDT/**/*.{h,m}"
+    },
+    {
+      "name": "KSAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "KSAdSDK": [
+          "3.3.74"
+        ]
+      },
+      "source_files": "Classes/Adapters/KS/**/*.{h,m}"
+    },
+    {
+      "name": "BDAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "BaiduMobAdSDK": [
+          "5.373"
+        ]
+      },
+      "source_files": "Classes/Adapters/BD/**/*.{h,m}"
+    },
+    {
+      "name": "TanxAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "TanxSDK": [
+          "3.7.2"
+        ]
+      },
+      "source_files": "Classes/Adapters/TANX/**/*.{h,m}"
+    },
+    {
+      "name": "SigmobAdapter",
+      "dependencies": {
+        "iOS_AdQuestSDK/AdSpot": [
+
+        ],
+        "SigmobAd-iOS": [
+          "4.17.0"
+        ]
+      },
+      "source_files": "Classes/Adapters/Sigmob/**/*.{h,m}"
+    }
+  ]
+}
