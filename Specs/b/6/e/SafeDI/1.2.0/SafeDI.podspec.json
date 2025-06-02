@@ -1,0 +1,43 @@
+{
+  "name": "SafeDI",
+  "version": "1.2.0",
+  "summary": "Compile-time-safe dependency injection",
+  "homepage": "https://github.com/dfed/SafeDI",
+  "license": "MIT",
+  "authors": "Dan Federman",
+  "source": {
+    "git": "https://github.com/dfed/SafeDI.git",
+    "tag": "1.2.0"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "tvos": "13.0",
+    "watchos": "6.0",
+    "osx": "10.15",
+    "visionos": "1.0"
+  },
+  "source_files": "Sources/SafeDI/**/*.{swift}",
+  "preserve_paths": [
+    "Package.swift",
+    "Sources/**/*",
+    "Tests/**/*",
+    "Plugins/**/*"
+  ],
+  "script_phases": {
+    "name": "Build SafeDI macro plugin",
+    "script": "env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"set -x; SAFEDI_MACRO_COCOAPODS_BUILD=1 swift build -c $(echo ${CONFIGURATION} | tr '[:upper:]' '[:lower:]') --product SafeDIMacros --sdk \\\"`xcrun --show-sdk-path`\\\" --package-path \\\"${PODS_TARGET_SRCROOT}\\\" --scratch-path \\\"${PODS_BUILD_DIR}/Macros/SafeDIMacros\\\"\"",
+    "input_files": [
+
+    ],
+    "output_files": [
+      "$(PODS_BUILD_DIR)/Macros/SafeDIMacros/${CONFIGURATION}/SafeDIMacros-tool"
+    ],
+    "execution_position": "before_compile"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Macros/SafeDIMacros/${CONFIGURATION}/SafeDIMacros-tool#SafeDIMacros"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Macros/SafeDIMacros/${CONFIGURATION}/SafeDIMacros-tool#SafeDIMacros"
+  }
+}
