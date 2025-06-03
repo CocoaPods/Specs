@@ -1,0 +1,180 @@
+{
+  "name": "AppStart",
+  "version": "0.1.0",
+  "summary": "A foundational component library for customizable app development.",
+  "description": "基础组件库，用于高效构建和定制相关应用。\nA foundational component library for efficient development and customization of related applications.",
+  "homepage": "https://github.com/hubin97/AppStart",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hubin.h": "970216474@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/hubin97/AppStart.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "resources": "AppStart/Resources.bundle",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Base",
+      "dependencies": {
+        "SnapKit": [
+
+        ],
+        "Kingfisher": [
+
+        ],
+        "Toast-Swift": [
+
+        ],
+        "ProgressHUD": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "source_files": "AppStart/Base/Core/**/*.swift"
+        },
+        {
+          "name": "UI",
+          "source_files": "AppStart/Base/UI/*.swift",
+          "dependencies": {
+            "AppStart/Base/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utils",
+      "dependencies": {
+        "Toast-Swift": [
+
+        ],
+        "Kingfisher": [
+
+        ],
+        "CocoaLumberjack": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "AuthStatus",
+          "source_files": "AppStart/Utils/AuthStatus",
+          "dependencies": {
+            "AppStart/Base/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Helpers",
+          "source_files": "AppStart/Utils/Helpers",
+          "dependencies": {
+            "Toast-Swift": [
+
+            ],
+            "Kingfisher": [
+
+            ],
+            "AppStart/Base/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "LoggerManager",
+          "source_files": "AppStart/Utils/LoggerManager",
+          "dependencies": {
+            "RxSwift": [
+
+            ],
+            "CocoaLumberjack": [
+
+            ],
+            "AppStart/Base": [
+
+            ],
+            "AppStart/Utils/Helpers": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Network",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxRelay": [
+
+        ],
+        "Moya": [
+
+        ],
+        "ObjectMapper": [
+
+        ],
+        "PromiseKit": [
+
+        ],
+        "ProgressHUD": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "AppStart/Network/Core/*.swift",
+          "dependencies": {
+            "AppStart/Utils": [
+
+            ]
+          }
+        },
+        {
+          "name": "Utils",
+          "source_files": "AppStart/Network/Utils/*.swift",
+          "frameworks": [
+            "Foundation",
+            "CoreTelephony"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "BLE",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
+
+        ],
+        "NSObject+Rx": [
+
+        ]
+      },
+      "source_files": "AppStart/BLE/**/*.swift"
+    }
+  ],
+  "swift_version": "5.0"
+}
