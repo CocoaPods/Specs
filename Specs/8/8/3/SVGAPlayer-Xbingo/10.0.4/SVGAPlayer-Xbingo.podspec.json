@@ -1,0 +1,60 @@
+{
+  "name": "SVGAPlayer-Xbingo",
+  "version": "10.0.4",
+  "summary": "SVGAPlayer 是一个高性能的动画播放器",
+  "description": "SVGA 是一种全新的动画格式，由 YY UED 团队主导开发；\nSVGA 让动画开发分工明确，大大减少动画交互的沟通成本，提升开发效率；\nSVGA 可以在 iOS / Android / Web / Flutter 实现高性能的动画播放。",
+  "homepage": "https://github.com/yanxiaobing",
+  "license": "Apache 2.0",
+  "authors": {
+    "Xbingo": "dove025@qq.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/yanxiaobing/SVGAPlayer-iOS.git",
+    "tag": "10.0.4"
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "OTHER_CFLAGS": "-Wno-error=implicit-function-declaration"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.2",
+    "5.0"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          ">= 1.8.1"
+        ],
+        "SVGAPlayer-Xbingo/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+        "OTHER_CFLAGS": "-Wno-error=implicit-function-declaration"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
