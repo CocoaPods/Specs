@@ -1,0 +1,383 @@
+{
+  "name": "XZKit",
+  "version": "1.0.0",
+  "summary": "一款高效、轻量、强大的 iOS 开发库",
+  "description": "一款包含 iOS 开发中常用开发组件、高频方法拓展、高性能工具类的开发库，采用了组件最小化设计原则，可以按需最小化引用。",
+  "homepage": "https://github.com/Xezun/XZKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Xezun": "xezun@icloud.com"
+  },
+  "source": {
+    "git": "https://github.com/Xezun/XZKit.git",
+    "tag": "1.0.0"
+  },
+  "readme": "https://github.com/Xezun/XZKit/blob/main/README.md",
+  "swift_versions": "6.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "preserve_paths": [
+    "Products"
+  ],
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "XZ_FRAMEWORK=1",
+    "OTHER_SWIFT_FLAGS": "-D XZ_FRAMEWORK",
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-load-plugin-executable ${PODS_ROOT}/XZKit/Products/XZKitMacros-debug#XZKitMacros",
+    "OTHER_SWIFT_FLAGS[config=Release]": "-load-plugin-executable ${PODS_ROOT}/XZKit/Products/XZKitMacros-release#XZKitMacros"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS[config=Debug]": "-load-plugin-executable ${PODS_ROOT}/XZKit/Products/XZKitMacros-debug#XZKitMacros",
+    "OTHER_SWIFT_FLAGS[config=Release]": "-load-plugin-executable ${PODS_ROOT}/XZKit/Products/XZKitMacros-release#XZKitMacros"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "public_header_files": "Sources/Code/ObjC/XZKit.h",
+      "source_files": "Sources/Code/ObjC/XZKit.h"
+    },
+    {
+      "name": "XZLog",
+      "public_header_files": "Sources/Code/ObjC/XZLog/**/*.h",
+      "source_files": "Sources/Code/{ObjC,Swift}/XZLog/**/*.{h,m,swift}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZDefines",
+      "public_header_files": "Sources/Code/ObjC/XZDefines/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZDefines/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZLog": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZExtensions",
+      "public_header_files": "Sources/Code/ObjC/XZExtensions/**/*.h",
+      "source_files": "Sources/Code/{ObjC,Swift}/XZExtensions/**/*.{h,m,swift}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZURLQuery",
+      "public_header_files": "Sources/Code/ObjC/XZURLQuery/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZURLQuery/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZGeometry",
+      "public_header_files": "Sources/Code/ObjC/XZGeometry/**/*.h",
+      "source_files": "Sources/Code/{ObjC,Swift}/XZGeometry/**/*.{h,m,swift}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZContentStatus",
+      "source_files": "Sources/Code/Swift/XZContentStatus/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZTextImageView": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZImage",
+      "public_header_files": "Sources/Code/ObjC/XZImage/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZImage/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZImage/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZLog": [
+
+        ],
+        "XZKit/XZGeometry": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZObjcDescriptor",
+      "public_header_files": "Sources/Code/ObjC/XZObjcDescriptor/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZObjcDescriptor/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZML",
+      "public_header_files": "Sources/Code/ObjC/XZML/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZML/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZML/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZMocoa",
+      "public_header_files": "Sources/Code/ObjC/XZMocoa/**/*.h",
+      "source_files": "Sources/Code/{ObjC,Swift}/XZMocoa/**/*.{h,m,swift}",
+      "project_header_files": "Sources/Code/Objc/XZMocoa/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ],
+        "XZKit/XZObjcDescriptor": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZToast",
+      "public_header_files": "Sources/Code/ObjC/XZToast/**/*.h",
+      "source_files": "Sources/Code/{ObjC,Swift}/XZToast/**/*.{h,m,swift}",
+      "project_header_files": "Sources/Code/Objc/XZToast/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZGeometry": [
+
+        ],
+        "XZKit/XZTextImageView": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZRefresh",
+      "public_header_files": "Sources/Code/ObjC/XZRefresh/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZRefresh/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZRefresh/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZPageView",
+      "public_header_files": "Sources/Code/ObjC/XZPageView/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZPageView/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZPageView/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ],
+        "XZKit/XZGeometry": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZProgressView",
+      "source_files": "Sources/Code/Swift/XZProgressView/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZPageControl",
+      "public_header_files": "Sources/Code/ObjC/XZPageControl/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZPageControl/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZSegmentedControl",
+      "public_header_files": "Sources/Code/ObjC/XZSegmentedControl/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZSegmentedControl/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZSegmentedControl/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZTextImageView",
+      "source_files": "Sources/Code/Swift/XZTextImageView/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZGeometry": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZNavigationController",
+      "source_files": "Sources/Code/Swift/XZNavigationController/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZCollectionViewFlowLayout",
+      "source_files": "Sources/Code/Swift/XZCollectionViewFlowLayout/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZTicker",
+      "source_files": "Sources/Code/Swift/XZTicker/**/*.swift",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZJSON",
+      "public_header_files": "Sources/Code/ObjC/XZJSON/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZJSON/**/*.{h,m}",
+      "project_header_files": "Sources/Code/Objc/XZJSON/**/Private/**/*.h",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZObjcDescriptor": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZLocale",
+      "public_header_files": "Sources/Code/ObjC/XZLocale/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZLocale/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZDataCryptor",
+      "public_header_files": "Sources/Code/ObjC/XZDataCryptor/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZDataCryptor/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZDataDigester",
+      "public_header_files": "Sources/Code/ObjC/XZDataDigester/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZDataDigester/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZDefines": [
+
+        ],
+        "XZKit/XZExtensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "XZKeychain",
+      "public_header_files": "Sources/Code/ObjC/XZKeychain/**/*.h",
+      "source_files": "Sources/Code/ObjC/XZKeychain/**/*.{h,m}",
+      "dependencies": {
+        "XZKit/Core": [
+
+        ],
+        "XZKit/XZLog": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
