@@ -1,0 +1,92 @@
+{
+  "name": "ZombieHunter",
+  "version": "0.9.1",
+  "summary": "iOS find Zombie object, support both C/OC",
+  "description": "中文:\n 找到iOS中的僵尸对象(aka.野指针), 让其尽早暴露\n 支持 C 和 Objective-C, 帮助开发者提前发现内存问题。\nEnglish:\n Detect zombie objects (dangling pointers) in iOS apps,\n supporting C and Objective-C. Helps debug memory issues early.",
+  "homepage": "https://github.com/wujingcheng7/ZombieHunter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wujc": "love@jingchengwu.cn"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "Foundation",
+  "source": {
+    "git": "https://github.com/wujingcheng7/ZombieHunter.git",
+    "tag": "0.9.1"
+  },
+  "requires_arc": true,
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LIBRARY": "libc++"
+  },
+  "subspecs": [
+    {
+      "name": "all-in-one",
+      "source_files": "all-in-one/*.{h,m,mm}",
+      "requires_arc": true,
+      "frameworks": "Foundation",
+      "dependencies": {
+        "ZombieHunter/c-hunter": [
+
+        ],
+        "ZombieHunter/oc-hunter-no-arc": [
+
+        ],
+        "ZombieHunter/oc-hunter-arc": [
+
+        ]
+      }
+    },
+    {
+      "name": "c-hunter",
+      "source_files": "c-hunter/*.{h,c,mm}",
+      "private_header_files": "c-hunter/*.h",
+      "requires_arc": true,
+      "frameworks": "Foundation",
+      "dependencies": {
+        "ZombieHunter/facebook-fishhook": [
+
+        ]
+      }
+    },
+    {
+      "name": "oc-hunter-no-arc",
+      "source_files": "oc-hunter-no-arc/*.{h,hpp,mm,m}",
+      "private_header_files": "oc-hunter-no-arc/*.{h,hpp}",
+      "requires_arc": false,
+      "frameworks": "Foundation",
+      "libraries": "c++",
+      "dependencies": {
+        "ZombieHunter/c-hunter": [
+
+        ],
+        "ZombieHunter/oc-hunter-arc": [
+
+        ]
+      }
+    },
+    {
+      "name": "oc-hunter-arc",
+      "source_files": "oc-hunter-arc/*.{h,m,c}",
+      "private_header_files": "oc-hunter-arc/*.h",
+      "requires_arc": true,
+      "frameworks": "Foundation",
+      "dependencies": {
+        "ZombieHunter/c-hunter": [
+
+        ]
+      }
+    },
+    {
+      "name": "facebook-fishhook",
+      "source_files": "facebook-fishhook/*.{h,c}",
+      "private_header_files": "facebook-fishhook/*.h",
+      "requires_arc": false
+    }
+  ]
+}
