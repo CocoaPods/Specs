@@ -1,0 +1,106 @@
+{
+  "name": "Kevin-Ad-M",
+  "version": "7.1.6.1",
+  "summary": "Kevin-Ad is a SDK from Bytedance providing union AD service.",
+  "description": "Kevin-Ad provides ADs which include native、banner、RewardVideo、FullscreenVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "bytedance": "xxxx@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD.git",
+  "source": {
+    "http": "https://sf16-fe-tos-sg.i18n-pglstatp.com/obj/pangle-sdk-static-va/Debug/7.1.6.1/SDK.zip",
+    "sha256": "fe4ad5128a59bf902068a1b1407ae0fcd996fdc5aa11685c55300c00448b3849"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "WebKit",
+    "MediaPlayer",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "weak_frameworks": [
+    "AppTrackingTransparency",
+    "CoreML",
+    "DeviceCheck"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "CODE_SIGNING_ALLOWED": "NO"
+  },
+  "default_subspecs": [
+    "Mediation"
+  ],
+  "subspecs": [
+    {
+      "name": "BUAdSDK",
+      "vendored_frameworks": [
+        "SDK/PAGAdSDK.xcframework"
+      ],
+      "preserve_paths": "SDK/PAGAdSDK.xcframework",
+      "resources": "SDK/PAGAdSDK.bundle",
+      "resource_bundles": {
+        "AdsGlobalSDK": [
+          "SDK/PAGAdSDK.xcframework/ios-arm64/PAGAdSDK.framework/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "Mediation",
+      "vendored_frameworks": [
+        "SDK/PAGMediation.xcframework"
+      ],
+      "preserve_paths": "SDK/PAGMediation.xcframework",
+      "dependencies": {
+        "Kevin-Ad-M/BUAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MTestSuite",
+      "vendored_frameworks": [
+        "SDK/PAGMTestSuite.xcframework"
+      ],
+      "preserve_paths": "SDK/PAGMTestSuite.xcframework",
+      "resources": "SDK/PAGMTestSuite.bundle",
+      "dependencies": {
+        "Kevin-Ad-M/Mediation": [
+
+        ]
+      }
+    }
+  ]
+}
