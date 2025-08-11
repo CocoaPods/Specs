@@ -1,0 +1,47 @@
+{
+  "name": "swift-cmark-pod",
+  "version": "0.29.1",
+  "summary": "A CocoaPods wrapper for the cmark-gfm library.",
+  "description": "This pod provides the cmark-gfm library, including both the core parser and GFM extensions, for use in iOS, macOS, and other Apple platforms.",
+  "homepage": "https://github.com/GIKICoder/swift-cmark",
+  "license": {
+    "type": "BSD-2-Clause",
+    "file": "COPYING"
+  },
+  "authors": {
+    "GIKICoder": "https://github.com/GIKICoder"
+  },
+  "source": {
+    "git": "https://github.com/GIKICoder/swift-cmark.git",
+    "tag": "0.29.1"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": [
+    "cmark_gfm",
+    "cmark_gfm_extensions"
+  ],
+  "subspecs": [
+    {
+      "name": "cmark_gfm",
+      "source_files": "src/**/*.{h,c}",
+      "preserve_paths": "src/**/*",
+      "public_header_files": "src/include/*.h",
+      "pod_target_xcconfig": {
+        "MODULEMAP_FILE": "$(PODS_TARGET_SRCROOT)/src/include/module.modulemap"
+      }
+    },
+    {
+      "name": "cmark_gfm_extensions",
+      "dependencies": {
+        "swift-cmark-pod/cmark_gfm": [
+
+        ]
+      },
+      "source_files": "extensions/**/*.{h,c}",
+      "preserve_paths": "extensions/**/*",
+      "public_header_files": "extensions/include/*.h"
+    }
+  ]
+}
