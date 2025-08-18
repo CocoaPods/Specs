@@ -1,0 +1,176 @@
+{
+  "name": "MNWSDK",
+  "version": "0.0.35",
+  "summary": "A short description of MNWSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://yw-gitlab.miniworldplus.com/miniw/helix",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wuweiwei": "wuwiewei@mini1.cn"
+  },
+  "source": {
+    "git": "https://github.com/zy765450034/MNWSDK.git",
+    "tag": "0.0.35"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "IPHONEOS_DEPLOYMENT_TARGET": "13.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "MNWSDK/MNWSDK.xcframework",
+      "resources": "MNWSDK/MNWSDK.bundle",
+      "preserve_paths": "MNWSDK/MNWSDK.bundle"
+    },
+    {
+      "name": "IAP",
+      "vendored_frameworks": "MNWSDK/IAPComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppleSignIn",
+      "vendored_frameworks": "MNWSDK/AppleComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "JVerification",
+      "vendored_frameworks": "MNWSDK/JVerificationComm.xcframework",
+      "resources": "MNWSDK/JVerificationComm.bundle",
+      "preserve_paths": "MNWSDK/JVerificationComm.bundle",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "JCore": [
+          "5.0.2"
+        ],
+        "JVerification": [
+          "3.4.2"
+        ]
+      }
+    },
+    {
+      "name": "QQSignIn",
+      "vendored_frameworks": "MNWSDK/QQComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "TencentOpenAPI": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ld64 -lc++ -lz -lsqlite3",
+        "LIBRARY_SEARCH_PATHS": "$(inherited) $(SDKROOT)/usr/lib"
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "Security",
+        "SystemConfiguration",
+        "UIKit",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386 x86_64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 i386 x86_64"
+      }
+    },
+    {
+      "name": "WechatSignIn",
+      "vendored_frameworks": "MNWSDK/WeChatComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "2.0.4"
+        ]
+      }
+    },
+    {
+      "name": "GoogleSignIn",
+      "vendored_frameworks": "MNWSDK/GooglePlusComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "GoogleSignIn": [
+          "8.0.0"
+        ]
+      }
+    },
+    {
+      "name": "FacebookSignIn",
+      "vendored_frameworks": "MNWSDK/FacebookComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "FBSDKLoginKit": [
+          "17.4.0"
+        ]
+      }
+    },
+    {
+      "name": "VKIDSignIn",
+      "vendored_frameworks": [
+        "MNWSDK/VKIDComm.xcframework",
+        "MNWSDK/VK_ios_sdk.xcframework"
+      ],
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "YandexSignIn",
+      "vendored_frameworks": "MNWSDK/YandexComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "YandexLoginSDK": [
+          "3.0.2"
+        ]
+      }
+    },
+    {
+      "name": "FIRPush",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": "MNWSDK/FIRPushComm.xcframework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "FirebaseAnalytics": [
+          "11.14.0"
+        ],
+        "FirebaseMessaging": [
+          "11.14.0"
+        ]
+      }
+    }
+  ]
+}
