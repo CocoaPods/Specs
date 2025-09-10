@@ -1,0 +1,164 @@
+{
+  "name": "Dynatrace",
+  "version": "8.323.1.1009",
+  "summary": "Dynatrace collects app performance and usage data in real-time",
+  "readme": "https://github.com/Dynatrace/swift-mobile-sdk/raw/main/other/README_cocoapods_dyntrace_8.323.1.1009.md",
+  "homepage": "https://www.dynatrace.com",
+  "documentation_url": "https://help.dynatrace.com",
+  "license": {
+    "type": "Commercial",
+    "text": "https://github.com/Dynatrace/dem-license/blob/main/LICENSE.md"
+  },
+  "authors": {
+    "Dynatrace": "https://support.dynatrace.com"
+  },
+  "social_media_url": "https://twitter.com/dynatrace",
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0"
+  },
+  "source": {
+    "http": "https://mobileagent.downloads.dynatrace.com/ios/8.323.1.1009/dynatrace-mobile-agent-ios-8.323.1.1009.zip"
+  },
+  "cocoapods_version": ">= 1.9",
+  "default_subspecs": "xcframework",
+  "ios": {
+    "frameworks": [
+      "CoreLocation",
+      "CoreTelephony",
+      "Security",
+      "SystemConfiguration",
+      "MessageUI",
+      "WebKit"
+    ]
+  },
+  "tvos": {
+    "frameworks": [
+      "CoreLocation",
+      "Security",
+      "SystemConfiguration",
+      "TVUIKit",
+      "TVMLKit",
+      "TVServices"
+    ]
+  },
+  "libraries": [
+    "sqlite3",
+    "z",
+    "c++"
+  ],
+  "requires_arc": true,
+  "compiler_flags": "-DOS_OBJECT_USE_OBJC=1",
+  "swift_versions": "5.1",
+  "subspecs": [
+    {
+      "name": "framework",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "ios": {
+        "vendored_frameworks": "iOS/agent/Dynatrace.framework"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "xcframework",
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "12.0"
+      },
+      "ios": {
+        "vendored_frameworks": "XCFramework/Dynatrace.xcframework"
+      },
+      "tvos": {
+        "vendored_frameworks": "XCFramework/Dynatrace.xcframework"
+      }
+    },
+    {
+      "name": "tvOS",
+      "platforms": {
+        "tvos": "12.0"
+      },
+      "tvos": {
+        "vendored_frameworks": "tvOS/agent/DynatraceTVOS.framework"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": "arm64"
+      }
+    },
+    {
+      "name": "SessionReplay",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "Dynatrace/SessionReplayXCFramework": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      }
+    },
+    {
+      "name": "SessionReplayFramework",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "Dynatrace/framework": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "iOS/agent/DynatraceSessionReplay.framework"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      }
+    },
+    {
+      "name": "SessionReplayXCFramework",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "Dynatrace/xcframework": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": "XCFramework/DynatraceSessionReplay.xcframework"
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=appletvos*]": "",
+        "EXCLUDED_ARCHS[sdk=appletvsimulator*]": ""
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
