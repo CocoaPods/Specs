@@ -1,0 +1,141 @@
+{
+  "name": "NAMSDK",
+  "version": "8.11.4",
+  "summary": "Naver Mobile Ads Mediation SDK",
+  "description": "NAM wiil find the best available ad network to fill your ad slots.",
+  "homepage": "https://github.com/naver/nam-sdk-ios",
+  "license": {
+    "type": "Naver",
+    "text": "Copyright 2022 NAVER Corp."
+  },
+  "authors": {
+    "Sanghun.han": "sanghun.han@navercorp.com",
+    "Sodam.kim": "sodam.k@navercorp.com",
+    "Dojin.park": "dojin.park@navercorp.com",
+    "Sangeun.yoon": "sangeun.yoon@navercorp.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/naver/nam-sdk-ios",
+    "tag": "8.11.4"
+  },
+  "default_subspecs": [
+    "GFPSDK",
+    "Inspector"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "QuartzCore",
+    "AdSupport",
+    "AVFoundation",
+    "AVKit",
+    "MobileCoreServices",
+    "SystemConfiguration",
+    "WebKit",
+    "CoreLocation"
+  ],
+  "requires_arc": true,
+  "static_framework": true,
+  "resource_bundles": {
+    "NAMSDKResources": "NAMSDK/xcframework/GFPSDK.xcframework/ios-arm64/GFPSDK.framework/PrivacyInfo.xcprivacy"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "GCC_PREPROCESSOR_DEFINITIONS": "NAM=1",
+    "OTHER_SWIFT_FLAGS": "-D NAM"
+  },
+  "subspecs": [
+    {
+      "name": "GFPSDK",
+      "vendored_frameworks": [
+        "NAMSDK/xcframework/GFPSDK.xcframework",
+        "NAMSDK/xcframework/libraries/OMSDK_Navercorp.xcframework"
+      ],
+      "dependencies": {
+        "KissXML": [
+          "~> 5.2"
+        ],
+        "Naver-Ads-Services": [
+          "~> 1.2.2"
+        ]
+      },
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPSDKResource.bundle"
+      ]
+    },
+    {
+      "name": "AdRenderer",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKAdRenderer.xcframework",
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPSDKRendererResource.bundle"
+      ],
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediationNDA",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationNDA.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ]
+      },
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPNDAMraidResource.bundle",
+        "NAMSDK/ResourceBundle/GFPNDANativeResource.bundle"
+      ]
+    },
+    {
+      "name": "MediationNDAVideo",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationNDAVideo.xcframework",
+      "resources": [
+        "NAMSDK/ResourceBundle/GFPNDAVideoResource.bundle"
+      ],
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "NAMSDK/MediationNDA": [
+
+        ]
+      }
+    },
+    {
+      "name": "MediationNDARich",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKMediationNDARich.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ],
+        "NAMSDK/MediationNDA": [
+
+        ],
+        "NAMSDK/MediationNDAVideo": [
+
+        ],
+        "NAMSDK/AdRenderer": [
+
+        ]
+      }
+    },
+    {
+      "name": "Inspector",
+      "vendored_frameworks": "NAMSDK/xcframework/GFPSDKInspector.xcframework",
+      "dependencies": {
+        "NAMSDK/GFPSDK": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
