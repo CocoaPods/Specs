@@ -1,0 +1,62 @@
+{
+  "name": "YIM",
+  "version": "5.1.20",
+  "summary": "YIM for ios",
+  "description": "YIM for ios",
+  "homepage": "https://gitee.com/lingyang-network-tech/YIM",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "领杨网络科技": "lingyangnettech@163.com"
+  },
+  "source": {
+    "git": "https://gitee.com/lingyang-network-tech/YIM.git",
+    "tag": "5.1.20"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "YIM/Classes/**/*.{h,m,swift}",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "dependencies": {
+    "ObjectBox": [
+      "~> 4.0.0"
+    ],
+    "AliyunOSSiOS": [
+      "~> 2.11.1"
+    ],
+    "Socket.IO-Client-Swift": [
+      "16.1.0"
+    ],
+    "Starscream": [
+      "4.0.6"
+    ],
+    "ULID.swift": [
+      "~> 1.2.0"
+    ],
+    "FYVideoCompressor": [
+      "~> 0.0.9"
+    ],
+    "WXImageCompress": [
+      "~> 0.1.3"
+    ],
+    "YPush": [
+      "~> 3.0.7"
+    ]
+  },
+  "script_phases": [
+    {
+      "name": "script_objectbox",
+      "script": "    cd $PODS_ROOT\n    cd ../ #到项目开发目录\n    DIRECTORY=\"_YIM\"\n    if [ ! -d \"$DIRECTORY\" ]; then\n      mkdir -p \"$DIRECTORY\"\n    fi\n    $PODS_ROOT/ObjectBox/generate_sources.sh -- --output \"$PODS_ROOT/YIM/Classes/$DIRECTORY/__YIM.swift\" --model-json \"./$DIRECTORY/__YIM.json\" --no-statistics\n",
+      "shell_path": "/bin/sh",
+      "execution_position": "before_compile"
+    }
+  ],
+  "swift_version": "5.0"
+}
