@@ -1,0 +1,194 @@
+{
+  "name": "FTMobileSDK",
+  "version": "1.6.2-alpha.6",
+  "summary": "Guance Cloud iOS Data Collection SDK",
+  "homepage": "https://github.com/GuanceCloud/datakit-ios.git",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "hulilei@jiagouyun.com",
+    "Brandon Zhang": "zhangbo@jiagouyun.com"
+  },
+  "default_subspecs": "FTMobileAgent",
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13",
+    "tvos": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/GuanceCloud/datakit-ios.git",
+    "tag": "1.6.2-alpha.6"
+  },
+  "resource_bundles": {
+    "FTSDKPrivacyInfo": "FTMobileSDK/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "FTMobileAgent",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "12.0"
+      },
+      "source_files": "FTMobileSDK/FTMobileAgent/**/*{.h,.m}",
+      "dependencies": {
+        "FTMobileSDK/FTSDKCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "FTMobileSDK/FTMobileExtension/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Config/*.{h,m}",
+        "FTMobileSDK/FTMobileAgent/ExternalData/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Extension/*{.h,.m}"
+      ],
+      "dependencies": {
+        "FTMobileSDK/FTSDKCore/FTRUM": [
+
+        ],
+        "FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation": [
+
+        ],
+        "FTMobileSDK/FTSDKCore/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "FTSDKCore",
+      "platforms": {
+        "ios": "10.0",
+        "osx": "10.13",
+        "tvos": "12.0"
+      },
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": "FTMobileSDK/FTSDKCore/FTRUM/**/*.{h,m,c}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "FTMobileSDK/FTSDKCore/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "RemoteConfig",
+          "source_files": "FTMobileSDK/FTSDKCore/RemoteConfig/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/DataManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseUtils",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Base/**/*{.h,.m,.c}",
+              "dependencies": {
+                "FTMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+                ]
+              }
+            },
+            {
+              "name": "Thread",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Thread/**/*{.h,.m}"
+            },
+            {
+              "name": "Swizzle",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle/*{.h,.m,.c}",
+              "dependencies": {
+                "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logger",
+          "source_files": "FTMobileSDK/FTSDKCore/Logger/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTWKWebView",
+          "platforms": {
+            "ios": "10.0",
+            "osx": "10.13"
+          },
+          "source_files": "FTMobileSDK/FTSDKCore/FTWKWebView/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "DataManager",
+          "source_files": "FTMobileSDK/FTSDKCore/DataManager/**/*{.h,.m}",
+          "dependencies": {
+            "FTMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "FTMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FTSessionReplay",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "FTMobileSDK/FTSessionReplay/**/*{.h,.m}",
+      "dependencies": {
+        "FTMobileSDK/FTSDKCore": [
+
+        ]
+      }
+    }
+  ]
+}
