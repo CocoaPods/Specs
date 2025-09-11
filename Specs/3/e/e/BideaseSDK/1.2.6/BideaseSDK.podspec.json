@@ -1,0 +1,211 @@
+{
+  "name": "BideaseSDK",
+  "version": "1.2.6",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "summary": "Bidease - advertising solutions",
+  "description": "Bidease - advertising solutions",
+  "homepage": "https://bidease.com",
+  "authors": {
+    "Bidease": "be-sdk@bidease.com"
+  },
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2025 Bidease. All Rights Reserved."
+  },
+  "source": {
+    "http": "https://storage.googleapis.com/s3.be.wtf/sdk/BideaseSDK_1.2.6.zip"
+  },
+  "preserve_paths": [
+    "*.md",
+    "*.xcframework"
+  ],
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Bidease.xcframework"
+      ],
+      "resource_bundles": {
+        "Bidease": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "AdSupport",
+        "CoreData",
+        "SystemConfiguration"
+      ],
+      "weak_frameworks": [
+        "AppTrackingTransparency"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseRTB",
+      "vendored_frameworks": "ProviderBideaseRTB.xcframework",
+      "resource_bundles": {
+        "ProviderBideaseRTB": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "libraries": "xml2",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BideaseSDK/Core": [
+
+        ],
+        "BideaseSDK/BideaseBidRequester": [
+
+        ],
+        "BideaseSDK/BideaseAdLoader": [
+
+        ],
+        "BideaseSDK/BideaseDisplayManager": [
+
+        ],
+        "BideaseSDK/URLClicker": [
+
+        ]
+      }
+    },
+    {
+      "name": "BideaseBidRequester",
+      "vendored_frameworks": "ProviderLibs/BideaseBidRequester.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseAdLoader",
+      "vendored_frameworks": "ProviderLibs/BideaseAdLoader.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseDisplayManager",
+      "vendored_frameworks": "ProviderLibs/BideaseDisplayManager.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "URLClicker",
+      "vendored_frameworks": "ProviderLibs/URLClicker.xcframework",
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "BideaseNative",
+      "vendored_frameworks": "ProviderLibs/BideaseNativeLoader.xcframework",
+      "resource_bundles": {
+        "BideaseNative": [
+          "ProviderBideaseRTB.xcframework/*.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AdSupport",
+        "UIKit",
+        "StoreKit",
+        "CoreData",
+        "QuartzCore",
+        "AVFoundation",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BideaseSDK/BideaseBidRequester": [
+
+        ],
+        "BideaseSDK/URLClicker": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppLovinMaxAdapter",
+      "source_files": "Adapters/AppLovinMAX/BideaseSDKAppLovinMaxAdapter.mm",
+      "dependencies": {
+        "AppLovinSDK": [
+
+        ],
+        "BideaseSDK/Core": [
+
+        ],
+        "BideaseSDK/BideaseRTB": [
+
+        ]
+      }
+    },
+    {
+      "name": "TestMode",
+      "source_files": "BideaseTestMode.mm"
+    }
+  ],
+  "swift_version": "5.0"
+}
