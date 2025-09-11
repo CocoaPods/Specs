@@ -1,0 +1,68 @@
+{
+  "name": "IronSourceSDK",
+  "version": "8.10.0.1",
+  "summary": "The Leading Mobile Advertising Technology Platform",
+  "description": "Monetize & Promote Your Apps\nMobile sdk for IronSource",
+  "homepage": "http://www.is.com/",
+  "license": {
+    "type": "Commercial",
+    "text": "https://platform.ironsrc.com/partners/terms-and-conditions-new-user"
+  },
+  "authors": {
+    "IronSource": "http://www.is.com/contact/"
+  },
+  "source": {
+    "http": "https://raw.githubusercontent.com/ironsource-mobile/iOS-sdk/master/8.10.0/IronSource8.10.0.zip"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "frameworks": [
+    "AdSupport",
+    "AudioToolbox",
+    "AVFoundation",
+    "CFNetwork",
+    "CoreGraphics",
+    "CoreMedia",
+    "CoreTelephony",
+    "CoreVideo",
+    "Foundation",
+    "MobileCoreServices",
+    "QuartzCore",
+    "Security",
+    "StoreKit",
+    "SystemConfiguration"
+  ],
+  "swift_versions": "5.0",
+  "resource_bundles": {
+    "IronSourcePrivacyInfo": "IronSource/IronSource.xcframework/ios-arm64/**/*.xcprivacy"
+  },
+  "default_subspecs": [
+    "Ads",
+    "AdQuality"
+  ],
+  "subspecs": [
+    {
+      "name": "Ads",
+      "source_files": "IronSource/IronSource.xcframework/**/*.{h,m}",
+      "public_header_files": "IronSource/IronSource.xcframework/**/*.h",
+      "preserve_paths": "IronSource/IronSource.xcframework/*",
+      "vendored_frameworks": "IronSource/IronSource.xcframework"
+    },
+    {
+      "name": "AdQuality",
+      "dependencies": {
+        "IronSourceAdQualitySDK": [
+          "~> 7.26.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
