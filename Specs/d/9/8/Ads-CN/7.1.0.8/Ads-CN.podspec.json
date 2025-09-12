@@ -1,0 +1,148 @@
+{
+  "name": "Ads-CN",
+  "version": "7.1.0.8",
+  "summary": "Ads-CN is a SDK from Bytedance providing union AD service.",
+  "description": "Ads-CN provides ADs which include native、banner、feed、splash、RewardVideo etc.",
+  "license": {
+    "type": "MIT",
+    "file": "SDK/LICENSE"
+  },
+  "authors": {
+    "csj-ios": "csj-ios@bytedance.com"
+  },
+  "homepage": "https://github.com/bytedance/Bytedance-UnionAD",
+  "source": {
+    "http": "https://sf3-fe-tos.pglstatp-toutiao.com/obj/csj-sdk-static/Public/SDK/7.1.0.8/SDK.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "MapKit",
+    "WebKit",
+    "MediaPlayer",
+    "CoreLocation",
+    "AdSupport",
+    "CoreMedia",
+    "AVFoundation",
+    "CoreTelephony",
+    "StoreKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "Accelerate",
+    "AudioToolbox",
+    "JavaScriptCore",
+    "Security",
+    "CoreImage",
+    "AudioToolbox",
+    "ImageIO",
+    "QuartzCore",
+    "CoreGraphics",
+    "CoreText"
+  ],
+  "weak_frameworks": [
+    "AppTrackingTransparency",
+    "DeviceCheck",
+    "CoreML",
+    "CoreHaptics"
+  ],
+  "libraries": [
+    "c++",
+    "resolv",
+    "z",
+    "sqlite3",
+    "bz2",
+    "xml2",
+    "iconv",
+    "c++abi"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": [
+    "BUAdSDK",
+    "BUAdLive-Framework"
+  ],
+  "subspecs": [
+    {
+      "name": "BUAdSDK",
+      "vendored_frameworks": [
+        "SDK/BUAdSDK.xcframework"
+      ],
+      "preserve_paths": "SDK/BUAdSDK.xcframework",
+      "resources": "SDK/CSJAdSDK.bundle"
+    },
+    {
+      "name": "CSJMediation",
+      "dependencies": {
+        "Ads-CN/CSJMediation-Only": [
+
+        ],
+        "Ads-CN/BUAdLive-Framework": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJMediation-Lib",
+      "dependencies": {
+        "Ads-CN/CSJMediation-Only": [
+
+        ],
+        "Ads-CN/BUAdLive-Lib": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJMediation-Only",
+      "vendored_frameworks": [
+        "SDK/CSJMediation.xcframework"
+      ],
+      "dependencies": {
+        "Ads-CN/BUAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BUAdLive",
+      "vendored_frameworks": [
+        "SDK/BUAdLive.xcframework"
+      ],
+      "preserve_paths": "SDK/BUAdLive.xcframework"
+    },
+    {
+      "name": "BUAdLive-Lib",
+      "dependencies": {
+        "Ads-CN/BUAdLive": [
+
+        ],
+        "BUTTSDK/LivePull-Lite": [
+          "1.46.2.7-premium"
+        ]
+      }
+    },
+    {
+      "name": "BUAdLive-Framework",
+      "dependencies": {
+        "Ads-CN/BUAdLive": [
+
+        ],
+        "BUTTSDKFramework/LivePull-Lite": [
+          "1.46.2.7-premium"
+        ]
+      }
+    },
+    {
+      "name": "BUAdTestMeasurement",
+      "vendored_frameworks": [
+        "SDK/BUAdTestMeasurement.xcframework"
+      ],
+      "preserve_paths": "SDK/BUAdTestMeasurement.xcframework",
+      "resources": "SDK/BUAdTestMeasurement.bundle"
+    }
+  ]
+}
