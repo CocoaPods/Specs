@@ -1,0 +1,173 @@
+{
+  "name": "CXHAdSDK",
+  "version": "1.9.7",
+  "summary": "A short description of CXHAdSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/two-jumps/cxhad-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "华资融创": "10675175+huazi-rongchuang@user.noreply.gitee.com"
+  },
+  "source": {
+    "git": "https://gitee.com/two-jumps/cxhad-sdk.git",
+    "tag": "1.9.7"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "xcconfig": {
+    "ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "VALID_ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "dependencies": {
+    "CXHAdSDK-Adapter": [
+      "1.9.7"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/Core/CXHAdSDK-Core.framework"
+        ]
+      }
+    },
+    {
+      "name": "Channel",
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "2.0.4"
+        ]
+      },
+      "frameworks": [
+        "CoreMotion",
+        "AVFoundation",
+        "CoreMedia"
+      ],
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/Channel/CXHAdSDK-Channel.framework"
+        ]
+      }
+    },
+    {
+      "name": "ChannelNoWechat",
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "CoreMotion",
+        "AVFoundation",
+        "CoreMedia"
+      ],
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/Channel/CXHAdSDK-Channel.framework"
+        ]
+      }
+    },
+    {
+      "name": "GDT",
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ],
+        "GDTMobSDK": [
+          "4.14.76"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/GDT/CXHAdSDK-GDT.framework"
+        ]
+      }
+    },
+    {
+      "name": "BU",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ],
+        "Ads-CN/BUAdSDK": [
+          "7.0.1.3"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/BU/CXHAdSDK-BU.framework"
+        ]
+      }
+    },
+    {
+      "name": "MobTech",
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ],
+        "MOBFoundation": [
+          "3.2.61"
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/MobTech/CXHAdSDK-MobTech.framework"
+        ]
+      }
+    },
+    {
+      "name": "AdMob",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/AdMob/CXHAdSDK_Google.framework"
+        ]
+      }
+    },
+    {
+      "name": "RC",
+      "dependencies": {
+        "CXHAdSDK/Core": [
+
+        ]
+      },
+      "ios": {
+        "vendored_frameworks": [
+          "CXHAdSDK/Classes/RC/CXHAdSDK-RC.framework"
+        ]
+      }
+    }
+  ]
+}
