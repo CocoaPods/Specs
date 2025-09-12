@@ -1,0 +1,57 @@
+{
+  "name": "KarteUtilities",
+  "version": "3.14.0",
+  "summary": "KARTE Utilities SDK",
+  "homepage": "https://karte.io",
+  "authors": {
+    "PLAID": "dev.share@plaid.co.jp"
+  },
+  "documentation_url": "https://developers.karte.io/docs/ios-sdk",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "cocoapods_version": ">= 1.10.0",
+  "swift_versions": [
+    5.1
+  ],
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source": {
+    "git": "https://github.com/plaidev/karte-ios-sdk.git",
+    "tag": "Utilities-3.14.0"
+  },
+  "default_subspecs": "standard",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -suppress-warnings",
+    "GCC_PREPROCESSOR_DEFINITIONS": "UTILITIES_VERSION=3.14.0"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": "KarteUtilities/**/*.{swift,h,m}",
+      "resource_bundles": {
+        "KarteUtilities": [
+          "KarteUtilities/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "sqlite-standalone",
+      "source_files": "KarteUtilities/**/*.{swift,h,m}",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DKARTE_SQLITE_STANDALONE",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) KARTE_SQLITE_STANDALONE=1"
+      },
+      "dependencies": {
+        "sqlite3": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
