@@ -1,0 +1,106 @@
+{
+  "name": "MapsGL",
+  "version": "1.2.4",
+  "summary": "MapsGL is an easy-to-use, highly customizable Swift SDK for visualizing both weather and custom data, powered by Metal.",
+  "description": "MapsGL Apple SDK is a powerful mapping library designed for iOS developers. It enables the integration of MapsGL's rich mapping features into iOS applications, providing a seamless and interactive user experience.",
+  "readme": "https://raw.githubusercontent.com/vaisala-xweather/mapsgl-apple-sdk/v1.2.4/README.md",
+  "homepage": "https://github.com/vaisala-xweather/mapsgl-apple-sdk",
+  "screenshots": "https://raw.githubusercontent.com/vaisala-xweather/mapsgl-apple-sdk/v1.2.4/images/MapsGL-iPad-PM10-layer.png",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Vaisala Xweather": "https://www.xweather.com/"
+  },
+  "social_media_url": "https://twitter.com/vaisalaxweather",
+  "platforms": {
+    "ios": "16.0"
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "source": {
+    "http": "https://github.com/vaisala-xweather/mapsgl-apple-sdk/releases/download/v1.2.4/MapsGL.zip",
+    "sha256": "193133e76368c5b69a59105e62e536b382576e705731cb536539150efff7162d",
+    "flatten": true
+  },
+  "default_subspecs": [
+    "Core",
+    "Renderer",
+    "Maps",
+    "Mapbox"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "MapsGLCore.xcframework",
+      "frameworks": [
+        "Foundation",
+        "CoreLocation",
+        "OSLog",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Renderer",
+      "vendored_frameworks": "MapsGLRenderer.xcframework",
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics",
+        "Metal",
+        "MetalKit",
+        "OSLog",
+        "SwiftUI"
+      ],
+      "dependencies": {
+        "MapsGL/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Maps",
+      "vendored_frameworks": "MapsGLMaps.xcframework",
+      "frameworks": [
+        "Foundation",
+        "Combine",
+        "CoreGraphics",
+        "CoreLocation",
+        "ImageIO",
+        "Metal",
+        "OSLog",
+        "UIKit",
+        "UniformTypeIdentifiers"
+      ],
+      "dependencies": {
+        "MapsGL/Core": [
+
+        ],
+        "MapsGL/Renderer": [
+
+        ]
+      }
+    },
+    {
+      "name": "Mapbox",
+      "source_files": "MapsGLMapbox/**/*",
+      "frameworks": [
+        "Foundation",
+        "Combine",
+        "CoreLocation",
+        "Metal",
+        "OSLog"
+      ],
+      "dependencies": {
+        "MapsGL/Maps": [
+
+        ],
+        "MapboxMaps": [
+          "~> 11.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}
