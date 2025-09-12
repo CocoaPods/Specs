@@ -1,0 +1,126 @@
+{
+  "name": "ForYouAndMe",
+  "version": "0.98.0",
+  "summary": "Framework for research studies apps",
+  "description": "ForYouAndMe is a framework aimed to easily develop an app for research study",
+  "homepage": "https://github.com/4YouandMeData/4YouandMeiOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Giuseppe Lapenta": "giuseppe@balzo.eu"
+  },
+  "source": {
+    "git": "https://github.com/4YouandMeData/4YouandMeiOS.git",
+    "tag": "0.98.0"
+  },
+  "cocoapods_version": ">= 1.6.0",
+  "platforms": {
+    "ios": "15.6"
+  },
+  "swift_versions": "5.2",
+  "static_framework": true,
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ForYouAndMe/Classes/**/*",
+      "resource_bundles": {
+        "ForYouAndMe": [
+          "ForYouAndMe/Assets/**/*.{json,xcassets}"
+        ]
+      },
+      "vendored_frameworks": "ForYouAndMe/Frameworks/MirSmartDevice.xcframework",
+      "script_phases": [
+        {
+          "name": "Embed MirSmartDevice.xcframework",
+          "execution_position": "after_compile",
+          "shell_path": "/bin/sh",
+          "input_files": [
+            "${PODS_TARGET_SRCROOT}/ForYouAndMe/Frameworks/MirSmartDevice.xcframework/ios-arm64/MirSmartDevice.framework/MirSmartDevice",
+            "${PODS_TARGET_SRCROOT}/ForYouAndMe/Frameworks/MirSmartDevice.xcframework/ios-arm64_x86_64-simulator/MirSmartDevice.framework/MirSmartDevice"
+          ],
+          "output_files": [
+            "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MirSmartDevice.framework/MirSmartDevice"
+          ],
+          "script": "  set -euo pipefail\n  # All comments must be in English.\n\n  # Prefer using PODS_TARGET_SRCROOT so it works both as dev pod and as installed pod.\n  XCFRAMEWORK_ROOT=\"${PODS_TARGET_SRCROOT}/ForYouAndMe/Frameworks/MirSmartDevice.xcframework\"\n  DEST_DIR=\"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\n  if [[ \"${PLATFORM_NAME}\" == \"iphonesimulator\" ]]; then\n    SLICE_DIR=\"ios-arm64_x86_64-simulator\"\n  else\n    SLICE_DIR=\"ios-arm64\"\n  fi\n\n  SRC_FRAMEWORK=\"${XCFRAMEWORK_ROOT}/${SLICE_DIR}/MirSmartDevice.framework\"\n\n  echo \"Embedding ${SRC_FRAMEWORK} -> ${DEST_DIR}\"\n  mkdir -p \"${DEST_DIR}\"\n  rsync -a --delete \"${SRC_FRAMEWORK}\" \"${DEST_DIR}\"\n\n  # Code sign if needed\n  if [[ -n \"${EXPANDED_CODE_SIGN_IDENTITY:-}\" && \"${CODE_SIGNING_ALLOWED}\" != \"NO\" ]]; then\n    /usr/bin/codesign --force --sign \"${EXPANDED_CODE_SIGN_IDENTITY}\" \\\n      --preserve-metadata=identifier,entitlements \\\n      \"${DEST_DIR}/MirSmartDevice.framework\"\n  fi\n"
+        }
+      ],
+      "dependencies": {
+        "Moya/RxSwift": [
+          "~> 15.0.0"
+        ],
+        "Moya/ReactiveSwift": [
+          "~> 15.0.0"
+        ],
+        "AlamofireImage": [
+          "~> 4.3.0"
+        ],
+        "RxCocoa": [
+          "~> 6.0"
+        ],
+        "PureLayout": [
+          "~> 3.1.9"
+        ],
+        "SVProgressHUD": [
+          "~> 2.3.1"
+        ],
+        "TPKeyboardAvoiding": [
+          "~> 1.3.3"
+        ],
+        "OAuthSwift": [
+          "~> 2.1.2"
+        ],
+        "ReachabilitySwift": [
+          "~> 5.2.4"
+        ],
+        "Validator": [
+          "~> 3.2.1"
+        ],
+        "Firebase/Analytics": [
+          "~> 11.7.0"
+        ],
+        "Firebase/Crashlytics": [
+          "~> 11.7.0"
+        ],
+        "Firebase/Messaging": [
+          "~> 11.7.0"
+        ],
+        "PhoneNumberKit": [
+          "3.3.1"
+        ],
+        "CountryPickerView": [
+          "~> 3.1.2"
+        ],
+        "UberSignature": [
+          "~> 1.0.3"
+        ],
+        "RxSwiftExt": [
+          "~> 6.2.1"
+        ],
+        "FYAMResearchKit": [
+          "~> 3.0.0"
+        ],
+        "StepSlider": [
+          "~> 1.8.0"
+        ],
+        "BalzoGPUImage2": [
+          "~> 0.2.1"
+        ],
+        "JJFloatingActionButton": [
+          "~> 3.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Terra",
+      "dependencies": {
+        "TerraiOS": [
+          "~> 1.6.26"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.2"
+}
