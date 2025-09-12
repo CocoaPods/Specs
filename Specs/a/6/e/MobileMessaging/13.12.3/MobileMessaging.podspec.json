@@ -1,0 +1,124 @@
+{
+  "name": "MobileMessaging",
+  "version": "13.12.3",
+  "summary": "Mobile Messaging SDK for iOS",
+  "description": "Mobile Messaging SDK is designed and developed to easily enable push notification channel in your mobile application. In almost no time of implementation you get push notification in you application and access to the features of Infobip IP Messaging Platform.",
+  "homepage": "https://github.com/infobip/mobile-messaging-sdk-ios",
+  "license": "MIT",
+  "authors": {
+    "Andrey Kadochnikov": "andrey.kadochnikov@infobip.com",
+    "Olga Koroleva": "olga.koroleva@infobip.com"
+  },
+  "source": {
+    "git": "https://github.com/infobip/mobile-messaging-sdk-ios.git",
+    "tag": "13.12.3"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) COCOAPODS=1 WEBRTCUI_ENABLED=1",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -D WEBRTCUI_ENABLED"
+  },
+  "default_subspecs": "CocoaLumberjack",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "CoreData",
+        "CoreTelephony",
+        "SystemConfiguration"
+      ],
+      "resource_bundles": {
+        "MMCore": [
+          "Classes/MobileMessaging/Resources/InteractiveNotifications/*.xib",
+          "Classes/MobileMessaging/Resources/InteractiveNotifications/*.plist",
+          "Classes/MobileMessaging/Resources/Localization/**/*.strings",
+          "Classes/MobileMessaging/Resources/MessageStorage/*.xcdatamodeld",
+          "Classes/MobileMessaging/Resources/InternalStorage/*.xcdatamodeld",
+          "Classes/MobileMessaging/Resources/InternalStorage/*.xcmappingmodel",
+          "Classes/MobileMessaging/Resources/*.{xcprivacy}"
+        ]
+      },
+      "public_header_files": [
+        "Classes/MobileMessagingObjC/Headers/MobileMessagingPluginApplicationDelegate.h",
+        "Classes/MobileMessagingObjC/Headers/MMNotifications.h",
+        "Classes/MobileMessagingObjC/Headers/SwiftTryCatch.h"
+      ],
+      "private_header_files": [
+        "Classes/MobileMessagingObjC/Headers/Alamofire.h",
+        "Classes/MobileMessagingObjC/Headers/Kingsfisher.h"
+      ],
+      "source_files": [
+        "Classes/MobileMessaging/Core/**/*.{h,m,swift}",
+        "Classes/MobileMessaging/InteractiveNotifications/**/*.{h,m,swift}",
+        "Classes/MobileMessaging/MessageStorage/**/*.{h,m,swift}",
+        "Classes/MobileMessaging/RichNotifications/**/*.{h,m,swift}",
+        "Classes/MobileMessaging/UserSession/**/*.{h,m,swift}",
+        "Classes/MobileMessaging/Vendor/**/*.{h,m,swift}",
+        "Classes/MobileMessagingObjC/Core/**/*.{h,m,swift}",
+        "Classes/MobileMessagingObjC/Vendor/**/*.{h,m,swift}",
+        "Classes/MobileMessagingObjC/Headers/**/*.{h,m,swift}",
+        "Headers/Public/MobileMessaging/MobileMessaging-umbrella.h"
+      ]
+    },
+    {
+      "name": "CocoaLumberjack",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ],
+        "CocoaLumberjack/Swift": [
+          "3.8.5"
+        ]
+      },
+      "source_files": "Classes/Logging/CocoaLumberjack/**/*.{h,m,swift}"
+    },
+    {
+      "name": "InAppChat",
+      "frameworks": "AudioToolbox",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      },
+      "source_files": "Classes/Chat/**/*.{h,m,swift}",
+      "resource_bundles": {
+        "MMInAppChat": [
+          "Classes/Chat/Resources/**/*.{xcassets,png,html}",
+          "Classes/Chat/Localization/**/*.strings"
+        ]
+      }
+    },
+    {
+      "name": "Inbox",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ]
+      },
+      "source_files": "Classes/Inbox/**/*.{h,m,swift}"
+    },
+    {
+      "name": "WebRTCUI",
+      "dependencies": {
+        "MobileMessaging/Core": [
+
+        ],
+        "InfobipRTC": [
+          "2.6.2"
+        ]
+      },
+      "source_files": "Classes/WebRTCUI/**/*.{h,m,swift}",
+      "resource_bundles": {
+        "MMWebRTCUI": [
+          "Classes/WebRTCUI/Resources/**/*.{xcassets,png,wav,svg,html}"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5"
+}
