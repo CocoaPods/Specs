@@ -1,0 +1,370 @@
+{
+  "name": "PlayerUI",
+  "version": "0.14.0--canary.720.26680",
+  "summary": "A native renderer for Player content",
+  "swift_versions": [
+    "5.1"
+  ],
+  "description": "This package is used to process semantic JSON in the Player format\nand display it as a SwiftUI view comprised of registered assets.",
+  "homepage": "https://github.com/player-ui/player",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hborawski": "harris_borawski@intuit.com"
+  },
+  "source": {
+    "git": "https://github.com/player-ui/playerui-swift-package.git",
+    "tag": "0.14.0--canary.720.26680"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "dependencies": {
+        "PlayerUI/SwiftUI": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "ios/core/Sources/**/*",
+      "dependencies": {
+        "SwiftHooks": [
+          "~> 0",
+          ">= 0.1.0"
+        ],
+        "PlayerUI/Logger": [
+
+        ]
+      },
+      "resource_bundles": {
+        "PlayerUI": [
+          "ios/core/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "SwiftUI",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "ios/swiftui/Sources/**/*"
+    },
+    {
+      "name": "Logger",
+      "dependencies": {
+        "SwiftHooks": [
+          "~> 0",
+          ">= 0.1.0"
+        ]
+      },
+      "source_files": "ios/logger/Sources/**/*"
+    },
+    {
+      "name": "ReferenceAssets",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ],
+        "PlayerUI/BeaconPlugin": [
+
+        ],
+        "PlayerUI/SwiftUIPendingTransactionPlugin": [
+
+        ]
+      },
+      "source_files": "plugins/reference-assets/swiftui/Sources/**/*",
+      "resource_bundles": {
+        "ReferenceAssets": [
+          "plugins/reference-assets/swiftui/Resources/js/**/*.js",
+          "plugins/reference-assets/swiftui/Resources/svg/*.xcassets",
+          "plugins/reference-assets/swiftui/Resources/svg/*.xcassets/**/*"
+        ]
+      }
+    },
+    {
+      "name": "TestUtilitiesCore",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ]
+      },
+      "source_files": "ios/test-utils-core/Sources/**/*",
+      "resource_bundles": {
+        "TestUtilities": [
+          "ios/test-utils-core/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "TestUtilities",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ],
+        "PlayerUI/TestUtilitiesCore": [
+
+        ]
+      },
+      "source_files": "ios/test-utils/Sources/**/*",
+      "weak_frameworks": "XCTest",
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "NO",
+        "ENABLE_TESTING_SEARCH_PATHS": "YES"
+      }
+    },
+    {
+      "name": "BaseBeaconPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/beacon/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_BaseBeaconPlugin": [
+          "plugins/beacon/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "CheckPathPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/check-path/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_CheckPathPlugin": [
+          "plugins/check-path/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "CommonExpressionsPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/common-expressions/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_CommonExpressionsPlugin": [
+          "plugins/common-expressions/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "CommonTypesPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/common-types/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_CommonTypesPlugin": [
+          "plugins/common-types/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "ComputedPropertiesPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/computed-properties/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_ComputedPropertiesPlugin": [
+          "plugins/computed-properties/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "ExpressionPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/expression/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_ExpressionPlugin": [
+          "plugins/expression/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "ExternalActionPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/external-action/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_ExternalActionPlugin": [
+          "plugins/external-action/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "PubSubPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/pubsub/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_PubSubPlugin": [
+          "plugins/pubsub/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "StageRevertDataPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/stage-revert-data/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_StageRevertDataPlugin": [
+          "plugins/stage-revert-data/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "TypesProviderPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/types-provider/ios/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_TypesProviderPlugin": [
+          "plugins/types-provider/ios/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "PrintLoggerPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ]
+      },
+      "source_files": "plugins/console-logger/ios/Sources/**/*"
+    },
+    {
+      "name": "BeaconPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ],
+        "PlayerUI/BaseBeaconPlugin": [
+
+        ]
+      },
+      "source_files": "plugins/beacon/swiftui/Sources/**/*"
+    },
+    {
+      "name": "MetricsPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ]
+      },
+      "source_files": "plugins/metrics/swiftui/Sources/**/*",
+      "resource_bundles": {
+        "PlayerUI_MetricsPlugin": [
+          "plugins/metrics/swiftui/Resources/**/*.js"
+        ]
+      }
+    },
+    {
+      "name": "SwiftUICheckPathPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ],
+        "PlayerUI/CheckPathPlugin": [
+
+        ]
+      },
+      "source_files": "plugins/check-path/swiftui/Sources/**/*"
+    },
+    {
+      "name": "ExternalActionViewModifierPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ],
+        "PlayerUI/ExternalActionPlugin": [
+
+        ]
+      },
+      "source_files": "plugins/external-action/swiftui/Sources/**/*"
+    },
+    {
+      "name": "SwiftUIPendingTransactionPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ]
+      },
+      "source_files": "plugins/pending-transaction/swiftui/Sources/**/*"
+    },
+    {
+      "name": "TransitionPlugin",
+      "dependencies": {
+        "PlayerUI/Core": [
+
+        ],
+        "PlayerUI/SwiftUI": [
+
+        ]
+      },
+      "source_files": "plugins/transition/swiftui/Sources/**/*"
+    }
+  ],
+  "swift_version": "5.1"
+}
