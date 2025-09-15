@@ -1,0 +1,105 @@
+{
+  "name": "CafSDKiOS",
+  "version": "5.4.4-rc1",
+  "summary": "Caf iOS SDK",
+  "homepage": "https://github.com/combateafraude/caf-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Caf": "service@caf.io"
+  },
+  "source": {
+    "git": "https://github.com/combateafraude/caf-ios-sdk.git",
+    "tag": "5.4.4-rc1"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "CafSDK",
+  "subspecs": [
+    {
+      "name": "CafCore",
+      "vendored_frameworks": "Frameworks/CafSDK.xcframework"
+    },
+    {
+      "name": "CafSDK",
+      "dependencies": {
+        "CafSDKiOS/DocumentDetector": [
+
+        ],
+        "CafSDKiOS/CafFaceLiveness": [
+
+        ]
+      }
+    },
+    {
+      "name": "DocumentDetector",
+      "vendored_frameworks": "Frameworks/DocumentDetector.xcframework",
+      "dependencies": {
+        "CafSDKiOS/CafCore": [
+
+        ],
+        "TensorFlowLiteC": [
+          "2.14.0"
+        ],
+        "CafSolutions": [
+          "2.0.5"
+        ]
+      }
+    },
+    {
+      "name": "CafFaceLiveness",
+      "dependencies": {
+        "CafSDKiOS/CafFaceLivenessCore": [
+
+        ],
+        "CafSDKiOS/IproovProvider": [
+
+        ],
+        "CafSDKiOS/FaceTec2DProvider": [
+
+        ]
+      }
+    },
+    {
+      "name": "CafFaceLivenessCore",
+      "vendored_frameworks": "Frameworks/CafFaceLiveness.xcframework",
+      "dependencies": {
+        "CafSDKiOS/CafCore": [
+
+        ],
+        "FingerprintPro": [
+          "2.7.0"
+        ],
+        "CafSolutions": [
+          "2.0.5"
+        ]
+      }
+    },
+    {
+      "name": "IproovProvider",
+      "vendored_frameworks": "Frameworks/IproovProvider.xcframework",
+      "dependencies": {
+        "iProov": [
+          "12.3.1"
+        ],
+        "CafSDKiOS/CafFaceLivenessCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "FaceTec2DProvider",
+      "vendored_frameworks": "Frameworks/FaceTec2DProvider.xcframework",
+      "dependencies": {
+        "CafSDKiOS/CafFaceLivenessCore": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
