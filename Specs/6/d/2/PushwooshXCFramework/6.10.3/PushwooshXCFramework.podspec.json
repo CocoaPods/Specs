@@ -1,0 +1,114 @@
+{
+  "name": "PushwooshXCFramework",
+  "version": "6.10.3",
+  "summary": "Push notifications library by Pushwoosh.",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "description": "Push notifications iOS library by Pushwoosh - cross platform push notifications service. http://www.pushwoosh.com",
+  "homepage": "http://www.pushwoosh.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Max Konev": "max@pushwoosh.com"
+  },
+  "source": {
+    "git": "https://github.com/Pushwoosh/pushwoosh-ios-sdk.git",
+    "tag": "6.10.3"
+  },
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": "XCFramework/PushwooshFramework.xcframework"
+      },
+      "libraries": [
+        "c++",
+        "z"
+      ],
+      "frameworks": [
+        "Security",
+        "StoreKit"
+      ],
+      "dependencies": {
+        "PushwooshXCFramework/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework/PushwooshBridge": [
+
+        ],
+        "PushwooshXCFramework/PushwooshLiveActivities": [
+
+        ]
+      }
+    },
+    {
+      "name": "PushwooshCore",
+      "vendored_frameworks": "XCFramework/PushwooshCore.xcframework"
+    },
+    {
+      "name": "PushwooshBridge",
+      "dependencies": {
+        "PushwooshXCFramework/PushwooshCore": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshBridge.xcframework"
+    },
+    {
+      "name": "PushwooshLiveActivities",
+      "dependencies": {
+        "PushwooshXCFramework/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework/PushwooshBridge": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshLiveActivities.xcframework"
+    },
+    {
+      "name": "PushwooshVoIP",
+      "dependencies": {
+        "PushwooshXCFramework/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework/PushwooshBridge": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshVoIP.xcframework"
+    },
+    {
+      "name": "PushwooshForegroundPush",
+      "dependencies": {
+        "PushwooshXCFramework/PushwooshCore": [
+
+        ],
+        "PushwooshXCFramework/PushwooshBridge": [
+
+        ]
+      },
+      "vendored_frameworks": "XCFramework/PushwooshForegroundPush.xcframework"
+    },
+    {
+      "name": "Geozones",
+      "ios": {
+        "vendored_frameworks": "XCFramework/PushwooshGeozones.xcframework"
+      },
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "PushwooshXCFramework/Core": [
+
+        ]
+      }
+    }
+  ]
+}
