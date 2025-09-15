@@ -1,0 +1,71 @@
+{
+  "name": "BitmovinAnalyticsCollector",
+  "version": "3.15.0-rc.1",
+  "summary": "Allows you to monitor your iOS/tvOS/visionOS video playback with Bitmovin Analytics",
+  "description": "Library that allows you to monitor your iOS/tvOS/visionOS video playback with Bitmovin Analytics. This SDK can monitor an AVPlayer, a Bitmovin Player or AmazonIVSPlayer.",
+  "homepage": "https://github.com/bitmovin/bitmovin-analytics-collector-ios",
+  "social_media_url": "https://twitter.com/bitmovin",
+  "documentation_url": "https://developer.bitmovin.com/playback/docs/setup-analytics-ios",
+  "authors": {
+    "Bitmovin Inc": "player-sdks@bitmovin.com"
+  },
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.md"
+  },
+  "platforms": {
+    "ios": "14.0",
+    "tvos": "14.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.7",
+  "source": {
+    "http": "https://cdn.bitmovin.com/analytics/ios_tvos/3.15.0-rc.1/BitmovinAnalyticsCollector.zip"
+  },
+  "readme": "https://raw.githubusercontent.com/bitmovin/bitmovin-analytics-collector-ios/3.15.0-rc.1/README.md",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "CoreCollector.xcframework"
+    },
+    {
+      "name": "BitmovinPlayer",
+      "vendored_frameworks": "BitmovinCollector.xcframework",
+      "dependencies": {
+        "BitmovinPlayerCore": [
+          "~> 3.48"
+        ],
+        "BitmovinAnalyticsCollector/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AmazonIVSPlayer",
+      "platforms": {
+        "ios": "14.0"
+      },
+      "ios": {
+        "vendored_frameworks": "AmazonIVSCollector.xcframework",
+        "dependencies": {
+          "AmazonIVSPlayer": [
+            "1.24.0"
+          ],
+          "BitmovinAnalyticsCollector/Core": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "AVPlayer",
+      "vendored_frameworks": "AVFoundationCollector.xcframework",
+      "dependencies": {
+        "BitmovinAnalyticsCollector/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7"
+}
