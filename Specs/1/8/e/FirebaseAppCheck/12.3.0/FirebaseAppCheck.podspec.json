@@ -1,0 +1,111 @@
+{
+  "name": "FirebaseAppCheck",
+  "version": "12.3.0",
+  "summary": "Firebase App Check SDK.",
+  "description": "Firebase SDK for anti-abuse compatibility.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-12.3.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "15.0",
+    "osx": "10.15",
+    "tvos": "15.0",
+    "watchos": "7.0"
+  },
+  "cocoapods_version": ">= 1.12.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebaseAppCheck/Sources/**/*.[mh]",
+    "FirebaseCore/Extension/*.h"
+  ],
+  "public_header_files": "FirebaseAppCheck/Sources/Public/FirebaseAppCheck/*.h",
+  "ios": {
+    "weak_frameworks": "DeviceCheck"
+  },
+  "osx": {
+    "weak_frameworks": "DeviceCheck"
+  },
+  "tvos": {
+    "weak_frameworks": "DeviceCheck"
+  },
+  "dependencies": {
+    "AppCheckCore": [
+      "~> 11.0"
+    ],
+    "FirebaseAppCheckInterop": [
+      "~> 12.3.0"
+    ],
+    "FirebaseCore": [
+      "~> 12.3.0"
+    ],
+    "GoogleUtilities/Environment": [
+      "~> 8.1"
+    ],
+    "GoogleUtilities/UserDefaults": [
+      "~> 8.1"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "10.15",
+        "tvos": "15.0"
+      },
+      "source_files": [
+        "FirebaseAppCheck/Tests/Unit/**/*.[mh]",
+        "SharedTestUtilities/AppCheckFake/*",
+        "SharedTestUtilities/AppCheckBackoffWrapperFake/*",
+        "SharedTestUtilities/Date/*",
+        "SharedTestUtilities/URLSession/*"
+      ],
+      "resources": "FirebaseAppCheck/Tests/Unit/Fixture/**/*",
+      "dependencies": {
+        "OCMock": [
+
+        ]
+      },
+      "requires_app_host": true
+    },
+    {
+      "name": "integration",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "10.15",
+        "tvos": "15.0"
+      },
+      "source_files": [
+        "FirebaseAppCheck/Tests/Integration/**/*.swift"
+      ],
+      "requires_app_host": true
+    },
+    {
+      "name": "swift-unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "10.15",
+        "tvos": "15.0"
+      },
+      "source_files": [
+        "FirebaseAppCheck/Tests/Unit/Swift/**/*.swift"
+      ]
+    }
+  ],
+  "swift_version": "5.9"
+}
