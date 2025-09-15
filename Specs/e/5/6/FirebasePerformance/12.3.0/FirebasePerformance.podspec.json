@@ -1,0 +1,139 @@
+{
+  "name": "FirebasePerformance",
+  "version": "12.3.0",
+  "summary": "Firebase Performance",
+  "description": "Firebase Performance library to measure performance of Mobile and Web Apps.",
+  "homepage": "https://firebase.google.com",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": "Google, Inc.",
+  "source": {
+    "git": "https://github.com/firebase/firebase-ios-sdk.git",
+    "tag": "CocoaPods-12.3.0"
+  },
+  "social_media_url": "https://twitter.com/Firebase",
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "15.0",
+    "tvos": "15.0"
+  },
+  "cocoapods_version": ">= 1.12.0",
+  "prefix_header_file": false,
+  "source_files": [
+    "FirebasePerformance/Sources/**/*.[cmh]",
+    "FirebaseCore/Extension/*.h",
+    "FirebaseInstallations/Source/Library/Private/*.h",
+    "FirebaseRemoteConfig/Sources/Private/*.h"
+  ],
+  "requires_arc": [
+    "FirebasePerformance/Sources/**/*.[mh]",
+    "FirebasePerformance/Public/**/*.h"
+  ],
+  "public_header_files": "FirebasePerformance/Sources/Public/FirebasePerformance/*.h",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "FIRPerformance_LIB_VERSION=12.3.0 PB_FIELD_32BIT=1 PB_NO_PACKED_STRUCTS=1 PB_ENABLE_MALLOC=1",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "ios": {
+    "frameworks": "CoreTelephony"
+  },
+  "frameworks": "SystemConfiguration",
+  "dependencies": {
+    "FirebaseCore": [
+      "~> 12.3.0"
+    ],
+    "FirebaseInstallations": [
+      "~> 12.3.0"
+    ],
+    "FirebaseRemoteConfig": [
+      "~> 12.3.0"
+    ],
+    "FirebaseSessions": [
+      "~> 12.3.0"
+    ],
+    "GoogleDataTransport": [
+      "~> 10.1"
+    ],
+    "GoogleUtilities/Environment": [
+      "~> 8.1"
+    ],
+    "GoogleUtilities/MethodSwizzler": [
+      "~> 8.1"
+    ],
+    "GoogleUtilities/UserDefaults": [
+      "~> 8.1"
+    ],
+    "nanopb": [
+      "~> 3.30910.0"
+    ]
+  },
+  "testspecs": [
+    {
+      "name": "unit",
+      "test_type": "unit",
+      "platforms": {
+        "ios": "15.0",
+        "tvos": "15.0"
+      },
+      "scheme": {
+        "code_coverage": true
+      },
+      "source_files": [
+        "FirebasePerformance/Tests/Unit/**/*.{m,h,plist}",
+        "SharedTestUtilities/*.[hm]"
+      ],
+      "resources": [
+        "FirebasePerformance/Tests/Unit/Server/*File"
+      ],
+      "requires_arc": true,
+      "requires_app_host": true,
+      "pod_target_xcconfig": {
+        "CLANG_ENABLE_OBJC_WEAK": "YES"
+      },
+      "info_plist": {
+        "FPRTestingDummyFeature": true,
+        "FPRScreenTracesForContainerVC": true,
+        "FPRDelegateSwizzling": true,
+        "FPRNSURLConnection": true,
+        "FPRScreenTracesSwizzling": true,
+        "FPRScreenTraces": false
+      },
+      "dependencies": {
+        "GoogleUtilities/SwizzlerTestHelpers": [
+
+        ],
+        "OCMock": [
+
+        ],
+        "GCDWebServer": [
+
+        ]
+      }
+    }
+  ],
+  "appspecs": [
+    {
+      "name": "TestApp",
+      "platforms": {
+        "ios": "15.0",
+        "tvos": "15.0"
+      },
+      "source_files": [
+        "FirebasePerformance/Tests/TestApp/Source/**/*.{m,h}"
+      ],
+      "info_plist": {
+        "CFBundleIdentifier": "com.google.FIRPerfTestApp"
+      },
+      "ios": {
+        "resources": [
+          "FirebasePerformance/Tests/TestApp/Resources/*.*",
+          "FirebasePerformance/Tests/TestApp/Plists/Prod/**/*.plist"
+        ]
+      },
+      "requires_arc": true
+    }
+  ],
+  "swift_version": "5.9"
+}
