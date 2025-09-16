@@ -1,0 +1,173 @@
+{
+  "name": "PrimJS",
+  "version": "2.13.2-rc.2-dev",
+  "summary": "A short description of PrimJS.",
+  "homepage": "https://github.com/lynx-family/primjs",
+  "description": "TODO: Add long description of the pod here.",
+  "license": "MIT",
+  "authors": {
+    "pandazyp": "2823543594@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/lynx-family/primjs.git",
+    "tag": "2.13.2-rc.2-dev"
+  },
+  "compiler_flags": [
+    "-Wall",
+    "-Wno-shorten-64-to-32",
+    "-Os"
+  ],
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "OS_IOS=1 JSC_OBJC_API_ENABLED=1 ENABLE_CODECACHE",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17",
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/src\"                               \"${PODS_TARGET_SRCROOT}/src/interpreter\""
+  },
+  "default_subspecs": "quickjs",
+  "subspecs": [
+    {
+      "name": "quickjs",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_PRIMJS_SNAPSHOT ENABLE_COMPATIBLE_MM ENABLE_LEPUSNG LYNX_SIMPLIFY=0"
+      },
+      "header_dir": "quickjs/include",
+      "public_header_files": [
+        "src/interpreter/quickjs/include/*.h",
+        "src/gc/*.h"
+      ],
+      "source_files": [
+        "src/gc/*.{h,cc}",
+        "src/interpreter/quickjs/**/*.{h,cc}",
+        "src/interpreter/primjs/ios/embedded.S",
+        "src/inspector/interface.h"
+      ],
+      "dependencies": {
+        "PrimJS/log": [
+
+        ]
+      }
+    },
+    {
+      "name": "quickjs_debugger",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_PRIMJS_SNAPSHOT ENABLE_COMPATIBLE_MM ENABLE_LEPUSNG LYNX_SIMPLIFY=0 ENABLE_QUICKJS_DEBUGGER"
+      },
+      "public_header_files": "src/inspector/*.h",
+      "header_dir": "devtool/quickjs",
+      "source_files": [
+        "src/inspector/**/*.{h,cc}",
+        "src/interpreter/primjs/ios/embedded-inspector.S"
+      ],
+      "exclude_files": [
+        "src/inspector/interface.h"
+      ],
+      "dependencies": {
+        "PrimJS/quickjs": [
+
+        ]
+      }
+    },
+    {
+      "name": "quickjs_heapprofiler",
+      "dependencies": {
+        "PrimJS/quickjs_debugger": [
+
+        ]
+      }
+    },
+    {
+      "name": "quickjs_profiler",
+      "dependencies": {
+        "PrimJS/quickjs_debugger": [
+
+        ]
+      }
+    },
+    {
+      "name": "napi",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_ROOT}/PrimJS\""
+      },
+      "subspecs": [
+        {
+          "name": "core",
+          "source_files": [
+            "src/napi/*.{h,cc}",
+            "src/napi/common/*.{h,cc}"
+          ],
+          "public_header_files": [
+            "src/napi/*.h",
+            "src/napi/common/*.h"
+          ]
+        },
+        {
+          "name": "env",
+          "source_files": "src/napi/env/*.{h,cc}",
+          "public_header_files": "src/napi/env/*.h",
+          "dependencies": {
+            "PrimJS/napi/core": [
+
+            ]
+          }
+        },
+        {
+          "name": "quickjs",
+          "source_files": "src/napi/quickjs/*.{h,cc}",
+          "public_header_files": "src/napi/quickjs/napi_env_quickjs.h",
+          "dependencies": {
+            "PrimJS/napi/core": [
+
+            ],
+            "PrimJS/quickjs": [
+
+            ]
+          }
+        },
+        {
+          "name": "jsc",
+          "pod_target_xcconfig": {
+            "GCC_PREPROCESSOR_DEFINITIONS": "JSC_OBJC_API_ENABLED=0"
+          },
+          "source_files": "src/napi/jsc/*.{h,cc}",
+          "public_header_files": "src/napi/jsc/napi_env_jsc.h",
+          "dependencies": {
+            "PrimJS/napi/core": [
+
+            ],
+            "PrimJS/log": [
+
+            ],
+            "PrimJS/quickjs": [
+
+            ]
+          },
+          "frameworks": "JavaScriptCore"
+        },
+        {
+          "name": "adapter",
+          "source_files": "src/napi/adapter/*.{h,cc}",
+          "public_header_files": "src/napi/adapter/js_native_api_adapter.h",
+          "dependencies": {
+            "PrimJS/napi/core": [
+
+            ],
+            "PrimJS/napi/env": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "header_mappings_dir": "src",
+      "source_files": [
+        "src/basic/log/logging.*",
+        "src/basic/log/primjs_logging.cc",
+        "src/interpreter/quickjs/include/base_export.h"
+      ]
+    }
+  ]
+}
