@@ -1,0 +1,199 @@
+{
+  "name": "Airship",
+  "version": "19.9.2",
+  "summary": "Airship iOS SDK",
+  "documentation_url": "https://docs.airship.com/platform/ios",
+  "homepage": "https://www.airship.com",
+  "authors": {
+    "Airship": "support@airship.com"
+  },
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/urbanairship/ios-library.git",
+    "tag": "19.9.2"
+  },
+  "module_name": "AirshipKit",
+  "header_dir": "AirshipKit",
+  "platforms": {
+    "ios": "15.0",
+    "tvos": "18.0",
+    "watchos": "11.0"
+  },
+  "swift_versions": "6.0",
+  "requires_arc": true,
+  "default_subspecs": [
+    "Basement",
+    "Core",
+    "Automation",
+    "MessageCenter",
+    "PreferenceCenter",
+    "FeatureFlags"
+  ],
+  "subspecs": [
+    {
+      "name": "Basement",
+      "public_header_files": [
+        "Airship/AirshipBasement/Source/Public/*.h",
+        "Cocoapods/AirshipKit.h"
+      ],
+      "source_files": [
+        "Airship/AirshipBasement/Source/Public/*.h",
+        "Airship/AirshipBasement/Source/Internal/*.{h,m}",
+        "Cocoapods/AirshipKit.h"
+      ],
+      "private_header_files": "Airship/AirshipBasement/Source/Internal/*.h",
+      "exclude_files": "Airship/AirshipBasement/Source/Public/AirshipBasement.h",
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "UserNotifications",
+        "CFNetwork",
+        "CoreGraphics",
+        "Foundation",
+        "Security",
+        "UIKit",
+        "CoreData"
+      ],
+      "ios": {
+        "frameworks": [
+          "WebKit",
+          "CoreTelephony",
+          "SystemConfiguration"
+        ]
+      },
+      "tvos": {
+        "frameworks": "SystemConfiguration"
+      },
+      "watchos": {
+        "frameworks": "WatchKit"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Airship/AirshipCore/Source/*.{swift}",
+      "resource_bundles": {
+        "AirshipCoreResources": "Airship/AirshipCore/Resources/*"
+      },
+      "exclude_files": [
+        "Airship/AirshipCore/Resources/Info.plist",
+        "Airship/AirshipCore/Source/AirshipCore.h"
+      ],
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "UserNotifications",
+        "CFNetwork",
+        "CoreGraphics",
+        "Foundation",
+        "Security",
+        "UIKit",
+        "CoreData"
+      ],
+      "ios": {
+        "frameworks": [
+          "WebKit",
+          "CoreTelephony",
+          "SystemConfiguration",
+          "StoreKit"
+        ]
+      },
+      "tvos": {
+        "frameworks": "SystemConfiguration"
+      },
+      "watchos": {
+        "frameworks": "WatchKit"
+      },
+      "dependencies": {
+        "Airship/Basement": [
+
+        ]
+      }
+    },
+    {
+      "name": "Automation",
+      "ios": {
+        "source_files": "Airship/AirshipAutomation/Source/**/*.{h,m,swift}",
+        "exclude_files": "Airship/AirshipAutomation/Source/AirshipAutomation.h",
+        "resource_bundles": {
+          "AirshipAutomationResources": "Airship/AirshipAutomation/Resources/**/*"
+        }
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MessageCenter",
+      "ios": {
+        "source_files": "Airship/AirshipMessageCenter/Source/**/*.{h,m,swift}",
+        "exclude_files": "Airship/AirshipMessageCenter/Source/AirshipMessageCenter.h",
+        "resource_bundles": {
+          "AirshipMessageCenterResources": "Airship/AirshipMessageCenter/Resources/**/*"
+        }
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PreferenceCenter",
+      "ios": {
+        "source_files": "Airship/AirshipPreferenceCenter/Source/**/*.{h,m,swift}",
+        "exclude_files": "Airship/AirshipPreferenceCenter/Source/AirshipPreferenceCenter.h"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "FeatureFlags",
+      "ios": {
+        "source_files": "Airship/AirshipFeatureFlags/Source/**/*.{h,m,swift}",
+        "exclude_files": "Airship/AirshipFeatureFlags/Source/AirshipFeatureFlags.h"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ObjectiveC",
+      "ios": {
+        "source_files": "Airship/AirshipObjectiveC/Source/**/*.{h,m,swift}",
+        "exclude_files": "Airship/AirshipObjectiveC/Source/AirshipObjectiveC.h"
+      },
+      "dependencies": {
+        "Airship/Core": [
+
+        ],
+        "Airship/Automation": [
+
+        ],
+        "Airship/MessageCenter": [
+
+        ],
+        "Airship/PreferenceCenter": [
+
+        ],
+        "Airship/FeatureFlags": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
