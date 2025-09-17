@@ -1,0 +1,112 @@
+{
+  "name": "BTOneSDK",
+  "version": "3.3.13",
+  "summary": "天梯OneSDK",
+  "description": "天梯OneSDK主库",
+  "homepage": "https://gitlab.bt/sdk/onesdk-ios/china/baitiansdk",
+  "license": {
+    "type": "BT",
+    "text": "Copyright (c) 2018, Baioo Limited.\nAll rights reserved.\nThis sources and libs can only be used in BAIOO Family Interactive Limited and its subsidiaries.\n"
+  },
+  "authors": {
+    "zhangzezhou": "zhangzezhou@aobi.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://yw-depot-nexus.100bt.com/repository/onesdk-ios-trunk/BTOneSDK/3.3.13/BTOneSDK.zip",
+    "flatten": true
+  },
+  "default_subspecs": "Tianti",
+  "subspecs": [
+    {
+      "name": "InternalCore",
+      "frameworks": [
+        "UIKit",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "OpenAL",
+        "MediaPlayer",
+        "Foundation",
+        "CoreVideo",
+        "CoreMotion",
+        "CoreMedia",
+        "CoreLocation",
+        "CoreGraphics",
+        "CFNetwork",
+        "AVFoundation",
+        "AudioToolbox",
+        "CoreText",
+        "MediaToolbox",
+        "AdSupport",
+        "JavaScriptCore",
+        "ImageIO",
+        "Security",
+        "CoreTelephony",
+        "Photos"
+      ],
+      "weak_frameworks": [
+        "Network",
+        "AdServices"
+      ],
+      "libraries": [
+        "sqlite3",
+        "c++",
+        "icucore",
+        "resolv",
+        "z"
+      ],
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "requires_arc": true,
+      "dependencies": {
+        "BTLoganManager": [
+          "~> 1.0.4"
+        ],
+        "BTWebViewKit": [
+          "~> 1.0.12"
+        ]
+      },
+      "vendored_frameworks": [
+        "*.framework",
+        "OtherThirdFrameworks/**/*.framework"
+      ],
+      "resources": [
+        "OtherResources/**/*.bundle"
+      ]
+    },
+    {
+      "name": "Tianti",
+      "resources": "skin/tianti/*.bundle",
+      "dependencies": {
+        "BTOneSDK/InternalCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Qutang",
+      "resources": "skin/qutang/*.bundle",
+      "dependencies": {
+        "BTOneSDK/InternalCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "HappyMaker",
+      "resources": "skin/happymaker/*.bundle",
+      "dependencies": {
+        "BTOneSDK/InternalCore": [
+
+        ]
+      }
+    }
+  ]
+}
