@@ -1,0 +1,242 @@
+{
+  "name": "BuglyPro",
+  "authors": {
+    "Tencent": "bugly@tencent.com"
+  },
+  "version": "2.8.1.13",
+  "summary": "BuglyPro iOS SDK",
+  "description": "iOS library for Bugly Service. Sign up for a service at https://bugly.tds.qq.com.",
+  "homepage": "http://bugly.tds.qq.com/",
+  "license": {
+    "type": "Commercial",
+    "text": "Copyright (C) 2025 Tencent Bugly, Inc. All rights reserved."
+  },
+  "source": {
+    "http": "https://buglyprococoapodssdk-75649.gzc.vod.tencent-cloud.com/BuglyPro-2.8.1.13.zip"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "SystemConfiguration",
+    "Security"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "default_subspecs": "BuglyPro",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "static/BuglyProCore.xcframework/ios-arm64/BuglyProCore.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProCore.xcframework/ios-arm64/BuglyProCore.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProCore.xcframework",
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/BuglyPro/static/BuglyProCore.xcframework/ios-arm64/BuglyProCore.framework/Headers"
+      }
+    },
+    {
+      "name": "VCSwizzle",
+      "source_files": "static/BuglyProVCSwizzle.xcframework/ios-arm64/BuglyProVCSwizzle.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProVCSwizzle.xcframework/ios-arm64/BuglyProVCSwizzle.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProVCSwizzle.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "BacktraceRecording",
+      "source_files": "static/BuglyProBacktraceRecording.xcframework/ios-arm64/BuglyProBacktraceRecording.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProBacktraceRecording.xcframework/ios-arm64/BuglyProBacktraceRecording.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProBacktraceRecording.xcframework"
+    },
+    {
+      "name": "AppEventTracker",
+      "source_files": "static/BuglyProAppEventTracker.xcframework/ios-arm64/BuglyProAppEventTracker.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProAppEventTracker.xcframework/ios-arm64/BuglyProAppEventTracker.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProAppEventTracker.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ],
+        "BuglyPro/VCSwizzle": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrashMonitor",
+      "source_files": "static/BuglyProCrashMonitor.xcframework/ios-arm64/BuglyProCrashMonitor.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProCrashMonitor.xcframework/ios-arm64/BuglyProCrashMonitor.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProCrashMonitor.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ],
+        "BuglyPro/BacktraceRecording": [
+
+        ],
+        "BuglyPro/AppEventTracker": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/BuglyPro/static/BuglyProCrashMonitor.xcframework/ios-arm64/BuglyProCrashMonitor.framework/Headers"
+      }
+    },
+    {
+      "name": "MemoryMonitor",
+      "source_files": [
+        "static/BuglyProMemoryMonitor.xcframework/ios-arm64/BuglyProMemoryMonitor.framework/Headers/*.{h}",
+        "static/BuglyProYellow.xcframework/ios-arm64/BuglyProYellow.framework/Headers/*.{h}"
+      ],
+      "public_header_files": [
+        "static/BuglyProMemoryMonitor.xcframework/ios-arm64/BuglyProMemoryMonitor.framework/Headers/*.{h}",
+        "static/BuglyProYellow.xcframework/ios-arm64/BuglyProYellow.framework/Headers/*.{h}"
+      ],
+      "vendored_frameworks": [
+        "static/BuglyProMemoryMonitor.xcframework",
+        "static/BuglyProYellow.xcframework"
+      ],
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ],
+        "BuglyPro/BacktraceRecording": [
+
+        ],
+        "BuglyPro/AppEventTracker": [
+
+        ]
+      }
+    },
+    {
+      "name": "LooperMonitor",
+      "source_files": "static/BuglyProLooperMonitor.xcframework/ios-arm64/BuglyProLooperMonitor.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProLooperMonitor.xcframework/ios-arm64/BuglyProLooperMonitor.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProLooperMonitor.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ],
+        "BuglyPro/AppEventTracker": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/BuglyPro/static/BuglyProLooperMonitor.xcframework/ios-arm64/BuglyProLooperMonitor.framework/Headers"
+      }
+    },
+    {
+      "name": "LaunchMonitor",
+      "source_files": [
+        "static/BuglyProLaunchMonitor.xcframework/ios-arm64/BuglyProLaunchMonitor.framework/Headers/*.{h}",
+        "static/BuglyProPageLaunch.xcframework/ios-arm64/BuglyProPageLaunch.framework/Headers/*.{h}"
+      ],
+      "public_header_files": [
+        "static/BuglyProLaunchMonitor.xcframework/ios-arm64/BuglyProLaunchMonitor.framework/Headers/*.{h}",
+        "static/BuglyProPageLaunch.xcframework/ios-arm64/BuglyProPageLaunch.framework/Headers/*.{h}"
+      ],
+      "vendored_frameworks": [
+        "static/BuglyProLaunchMonitor.xcframework",
+        "static/BuglyProPageLaunch.xcframework"
+      ],
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ],
+        "BuglyPro/AppEventTracker": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "${PODS_ROOT}/BuglyPro/static/BuglyProLaunchMonitor.xcframework/ios-arm64/BuglyProLaunchMonitor.framework/Headers",
+          "${PODS_ROOT}/BuglyPro/static/BuglyProPageLaunch.xcframework/ios-arm64/BuglyProPageLaunch.framework/Headers"
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "static/BuglyProNetwork.xcframework/ios-arm64/BuglyProNetwork.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProNetwork.xcframework/ios-arm64/BuglyProNetwork.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProNetwork.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ]
+      },
+      "weak_frameworks": "Network",
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/BuglyPro/static/BuglyProNetwork.xcframework/ios-arm64/BuglyProNetwork.framework/Headers"
+      }
+    },
+    {
+      "name": "MetricKitMonitor",
+      "source_files": "static/BuglyProMetricKitMonitor.xcframework/ios-arm64/BuglyProMetricKitMonitor.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProMetricKitMonitor.xcframework/ios-arm64/BuglyProMetricKitMonitor.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProMetricKitMonitor.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ]
+      },
+      "weak_frameworks": "MetricKit",
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/BuglyPro/static/BuglyProMetricKitMonitor.xcframework/ios-arm64/BuglyProMetricKitMonitor.framework/Headers"
+      }
+    },
+    {
+      "name": "BuglyGWPASan",
+      "source_files": "static/BuglyProGWPASan.xcframework/ios-arm64/BuglyProGWPASan.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProGWPASan.xcframework/ios-arm64/BuglyProGWPASan.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProGWPASan.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Logger",
+      "source_files": "static/BuglyProLogger.xcframework/ios-arm64/BuglyProLogger.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProLogger.xcframework/ios-arm64/BuglyProLogger.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProLogger.xcframework",
+      "dependencies": {
+        "BuglyPro/Core": [
+
+        ]
+      },
+      "user_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/Bugly/static/BuglyProLogger.xcframework/ios-arm64/BuglyProLogger.framework/Headers"
+      }
+    },
+    {
+      "name": "BuglyPro",
+      "source_files": "static/BuglyPro.xcframework/ios-arm64/BuglyPro.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyPro.xcframework/ios-arm64/BuglyPro.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyPro.xcframework",
+      "weak_frameworks": [
+        "Network",
+        "MetricKit"
+      ]
+    },
+    {
+      "name": "BuglyProOAExtension",
+      "source_files": "static/BuglyProOAExtension.xcframework/ios-arm64/BuglyProOAExtension.framework/Headers/*.{h}",
+      "public_header_files": "static/BuglyProOAExtension.xcframework/ios-arm64/BuglyProOAExtension.framework/Headers/*.{h}",
+      "vendored_frameworks": "static/BuglyProOAExtension.xcframework",
+      "weak_frameworks": [
+        "Network",
+        "MetricKit"
+      ]
+    }
+  ]
+}
