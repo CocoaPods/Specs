@@ -1,0 +1,443 @@
+{
+  "name": "GrowingAnalytics",
+  "version": "4.9.0",
+  "summary": "iOS SDK of GrowingIO.",
+  "description": "GrowingAnalytics具备自动采集基本的用户行为事件，比如访问和行为数据等。目前支持代码埋点、无埋点、可视化圈选、热图等功能。",
+  "homepage": "https://www.growingio.com/",
+  "license": {
+    "type": "Apache2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GrowingIO": "support@growingio.com"
+  },
+  "source": {
+    "git": "https://github.com/growingio/growingio-sdk-ios-autotracker.git",
+    "tag": "4.9.0"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "watchos": "7.0",
+    "tvos": "12.0",
+    "visionos": "1.0"
+  },
+  "ios": {
+    "frameworks": "WebKit"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Autotracker",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}\""
+  },
+  "subspecs": [
+    {
+      "name": "Autotracker",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "12.0"
+      },
+      "source_files": "GrowingAutotracker/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingAutotracker/*.h",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/DefaultServices": [
+          "4.9.0"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "GrowingAnalytics/Hybrid": [
+            "4.9.0"
+          ],
+          "GrowingAnalytics/MobileDebugger": [
+            "4.9.0"
+          ],
+          "GrowingAnalytics/WebCircle": [
+            "4.9.0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Tracker",
+      "source_files": "GrowingTracker/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingTracker/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/DefaultServices": [
+          "4.9.0"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "GrowingAnalytics/MobileDebugger": [
+            "4.9.0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "TrackerCore",
+      "dependencies": {
+        "GrowingUtils/TrackerCore": [
+          "~> 1.2.4"
+        ]
+      },
+      "source_files": "GrowingTrackerCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingTrackerCore/Public/*.h",
+      "ios": {
+        "resource_bundles": {
+          "GrowingAnalytics": [
+            "Resources/iOS/GrowingAnalytics.bundle/PrivacyInfo.xcprivacy"
+          ]
+        }
+      },
+      "osx": {
+        "resource_bundles": {
+          "GrowingAnalytics": [
+            "Resources/macOS/GrowingAnalytics.bundle/PrivacyInfo.xcprivacy"
+          ]
+        }
+      },
+      "watchos": {
+        "resource_bundles": {
+          "GrowingAnalytics": [
+            "Resources/watchOS/GrowingAnalytics.bundle/PrivacyInfo.xcprivacy"
+          ]
+        }
+      },
+      "tvos": {
+        "resource_bundles": {
+          "GrowingAnalytics": [
+            "Resources/tvOS/GrowingAnalytics.bundle/PrivacyInfo.xcprivacy"
+          ]
+        }
+      },
+      "visionos": {
+        "resource_bundles": {
+          "GrowingAnalytics": [
+            "Resources/visionOS/GrowingAnalytics.bundle/PrivacyInfo.xcprivacy"
+          ]
+        }
+      },
+      "libraries": "c++"
+    },
+    {
+      "name": "AutotrackerCore",
+      "platforms": {
+        "ios": "10.0",
+        "tvos": "12.0"
+      },
+      "dependencies": {
+        "GrowingUtils/AutotrackerCore": [
+          "~> 1.2.4"
+        ],
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      },
+      "source_files": "GrowingAutotrackerCore/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "GrowingAutotrackerCore/Public/*.h"
+    },
+    {
+      "name": "Database",
+      "source_files": "Services/Database/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Database/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "JSON",
+      "source_files": "Services/JSON/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/JSON/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/Database": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Protobuf",
+      "source_files": "Services/Protobuf/**/*{.h,.m,.c,.cpp,.mm}",
+      "exclude_files": "Services/Protobuf/Proto/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Protobuf/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/Database": [
+          "4.9.0"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Proto",
+          "source_files": "Services/Protobuf/Proto/**/*{.h,.m,.c,.cpp,.mm}",
+          "public_header_files": "Services/Protobuf/Proto/include/*.h",
+          "requires_arc": false,
+          "dependencies": {
+            "Protobuf": [
+              "~> 3.27"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Network",
+      "source_files": "Services/Network/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Network/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "WebSocket",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Services/WebSocket/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/WebSocket/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Compression",
+      "source_files": "Services/Compression/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Compression/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "Services/Encryption/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Encryption/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Screenshot",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Services/Screenshot/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Services/Screenshot/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "DefaultServices",
+      "source_files": "Modules/DefaultServices/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/DefaultServices/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/JSON": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Protobuf": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Network": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Encryption": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Compression": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "MobileDebugger",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/MobileDebugger/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/MobileDebugger/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/WebSocket": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Screenshot": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "WebCircle",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/WebCircle/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/WebCircle/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Hybrid": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/WebSocket": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/Screenshot": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "ImpressionTrack",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/ImpressionTrack/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/ImpressionTrack/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Hybrid",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/Hybrid/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/Hybrid/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Ads",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/Advertising/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/Advertising/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "APM",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/APM/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/APM/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAPM/Core": [
+          "~> 1.0.1"
+        ]
+      }
+    },
+    {
+      "name": "V2Adapter",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/V2Adapter/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/V2Adapter/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/AutotrackerCore": [
+          "4.9.0"
+        ],
+        "GrowingAnalytics/V2AdapterTrackOnly": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "V2AdapterTrackOnly",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/V2AdapterTrackOnly/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/V2AdapterTrackOnly/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "ABTesting",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": "Modules/ABTesting/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/ABTesting/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "Flutter",
+      "source_files": "Modules/Flutter/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/Flutter/include/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "UniApp",
+      "source_files": "Modules/UniApp/**/*{.h,.m,.c,.cpp,.mm}",
+      "public_header_files": "Modules/UniApp/Public/*.h",
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    },
+    {
+      "name": "DISABLE_IDFA",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "GROWING_ANALYSIS_DISABLE_IDFA=1"
+      },
+      "dependencies": {
+        "GrowingAnalytics/TrackerCore": [
+          "4.9.0"
+        ]
+      }
+    }
+  ]
+}
