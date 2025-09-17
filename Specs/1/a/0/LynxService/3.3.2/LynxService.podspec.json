@@ -1,0 +1,96 @@
+{
+  "name": "LynxService",
+  "authors": "Lynx",
+  "compiler_flags": [
+    "-Wall",
+    "-Wextra",
+    "-Wno-unused-parameter",
+    "-Wshorten-64-to-32",
+    "-fno-rtti"
+  ],
+  "homepage": "https://github.com/lynx-family/lynx",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": "Apache 2.0",
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17",
+    "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_TRACE_PERFETTO=0                                       NDEBUG=1                                       OS_IOS=1",
+    "OTHER_CPLUSPLUSFLAGS": "-fno-aligned-allocation -fno-c++-static-destructors"
+  },
+  "requires_arc": true,
+  "source": {
+    "http": "https://github.com/lynx-family/lynx/releases/download/3.3.2/LynxService.zip"
+  },
+  "summary": "The framework of Lynx Service",
+  "version": "3.3.2",
+  "prepare_command": "",
+  "subspecs": [
+    {
+      "name": "Devtool",
+      "public_header_files": "lynx/platform/darwin/ios/lynx_service/devtool/LynxDevToolService.h",
+      "source_files": [
+        "lynx/platform/darwin/ios/lynx_service/devtool/LynxDevToolService.h",
+        "lynx/platform/darwin/ios/lynx_service/devtool/LynxDevToolService.mm"
+      ],
+      "dependencies": {
+        "Lynx": [
+          "3.3.2"
+        ],
+        "LynxDevtool": [
+          "3.3.2"
+        ]
+      }
+    },
+    {
+      "name": "Http",
+      "private_header_files": [
+        "lynx/platform/darwin/ios/lynx_service/http/LynxHttpService.h",
+        "lynx/platform/darwin/ios/lynx_service/http/LynxNSUrlSessionDelegate.h"
+      ],
+      "source_files": [
+        "lynx/platform/darwin/ios/lynx_service/http/LynxHttpService.h",
+        "lynx/platform/darwin/ios/lynx_service/http/LynxHttpService.m",
+        "lynx/platform/darwin/ios/lynx_service/http/LynxNSUrlSessionDelegate.h",
+        "lynx/platform/darwin/ios/lynx_service/http/LynxNSUrlSessionDelegate.m"
+      ],
+      "dependencies": {
+        "Lynx": [
+          "3.3.2"
+        ]
+      }
+    },
+    {
+      "name": "Image",
+      "private_header_files": "lynx/platform/darwin/ios/lynx_service/image/LynxImageService.h",
+      "source_files": [
+        "lynx/platform/darwin/ios/lynx_service/image/LynxImageService.h",
+        "lynx/platform/darwin/ios/lynx_service/image/LynxImageService.m"
+      ],
+      "dependencies": {
+        "Lynx": [
+          "3.3.2"
+        ],
+        "SDWebImage": [
+          "5.15.5"
+        ],
+        "SDWebImageWebPCoder": [
+          "0.11.0"
+        ]
+      }
+    },
+    {
+      "name": "Log",
+      "private_header_files": "lynx/platform/darwin/ios/lynx_service/log/LynxLogService.h",
+      "source_files": [
+        "lynx/platform/darwin/ios/lynx_service/log/LynxLogService.h",
+        "lynx/platform/darwin/ios/lynx_service/log/LynxLogService.mm"
+      ],
+      "dependencies": {
+        "Lynx": [
+          "3.3.2"
+        ]
+      }
+    }
+  ]
+}
