@@ -1,0 +1,109 @@
+{
+  "name": "NoctuaSDK",
+  "version": "0.19.0",
+  "summary": "Noctua iOS SDK",
+  "description": "Noctua SDK is a framework to publish game in Noctua platform",
+  "homepage": "https://github.com/NoctuaLabs/noctua-native-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Noctua Labs": "tech@noctua.gg"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "source": {
+    "git": "https://github.com/NoctuaLabs/noctua-native-sdk.git",
+    "tag": "ios-sdk-v0.19.0"
+  },
+  "frameworks": [
+    "WebKit",
+    "StoreKit",
+    "AppTrackingTransparency",
+    "AdServices",
+    "AdSupport",
+    "Security"
+  ],
+  "default_subspecs": "Core",
+  "prepare_command": "echo \"Downloading FacebookSDK-Static_XCFramework\"\nVERSION=\"17.0.2\"\nZIPFILE=\"FacebookSDK-Static_XCFramework.zip\"\nURL=\"https://github.com/facebook/facebook-ios-sdk/releases/download/v${VERSION}/${ZIPFILE}\"\nDESTINATION=\"ios/NoctuaSDK\"\n\necho \"Remove ${DESTINATION}/XCFrameworks\"\nrm -rf \"${DESTINATION}/XCFrameworks\"\n\necho \"Create the ${DESTINATION}/XCFrameworks directory\"\nmkdir -p \"${DESTINATION}/XCFrameworks\"\n\necho \"Download ${ZIPFILE} FROM ${URL}\"\ncurl -L \"${URL}\" -o \"${ZIPFILE}\"\n\necho \"Unzip ${ZIPFILE} to ${DESTINATION}\"\nunzip -q \"${ZIPFILE}\" -d \"${DESTINATION}\"\n\necho \"Remove ${ZIPFILE} after extraction\"\nrm \"${ZIPFILE}\"",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": "ios/NoctuaSDK/Sources/**/*.{h,m,swift}"
+      }
+    },
+    {
+      "name": "Adjust",
+      "dependencies": {
+        "Adjust": [
+          "~> 4.38.4"
+        ]
+      }
+    },
+    {
+      "name": "FirebaseAnalytics",
+      "dependencies": {
+        "FirebaseAnalytics": [
+          "~> 11.6.0"
+        ]
+      }
+    },
+    {
+      "name": "FirebaseCrashlytics",
+      "dependencies": {
+        "FirebaseCrashlytics": [
+          "~> 11.6.0"
+        ]
+      }
+    },
+    {
+      "name": "FirebaseMessaging",
+      "dependencies": {
+        "FirebaseMessaging": [
+          "~> 11.6.0"
+        ]
+      },
+      "frameworks": "UserNotifications"
+    },
+    {
+      "name": "FacebookSDK",
+      "platforms": {
+        "ios": "14.0"
+      },
+      "subspecs": [
+        {
+          "name": "FBSDKCoreKit_Basics",
+          "vendored_frameworks": "ios/NoctuaSDK/XCFrameworks/FBSDKCoreKit_Basics.xcframework"
+        },
+        {
+          "name": "FBAEMKit",
+          "vendored_frameworks": "ios/NoctuaSDK/XCFrameworks/FBAEMKit.xcframework",
+          "dependencies": {
+            "NoctuaSDK/FacebookSDK/FBSDKCoreKit_Basics": [
+
+            ]
+          }
+        },
+        {
+          "name": "FBSDKCoreKit",
+          "vendored_frameworks": "ios/NoctuaSDK/XCFrameworks/FBSDKCoreKit.xcframework",
+          "dependencies": {
+            "NoctuaSDK/FacebookSDK/FBSDKCoreKit_Basics": [
+
+            ],
+            "NoctuaSDK/FacebookSDK/FBAEMKit": [
+
+            ]
+          },
+          "frameworks": "Accelerate"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
