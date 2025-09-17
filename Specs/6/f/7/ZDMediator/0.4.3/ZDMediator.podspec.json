@@ -1,0 +1,73 @@
+{
+  "name": "ZDMediator",
+  "version": "0.4.3",
+  "summary": "模块通信中间件",
+  "description": "用于模块间通信的中间件，支持自动注册、手动注册、强弱引用、实例方法、类方法调用",
+  "homepage": "https://github.com/faimin/ZDMediator",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zero.D.Saber": "fuxianchao@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/faimin/ZDMediator.git",
+    "tag": "0.4.3"
+  },
+  "social_media_url": "https://faimin.github.io/",
+  "prefix_header_file": false,
+  "module_name": "ZDMediator",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12"
+  },
+  "default_subspecs": "Mediator",
+  "subspecs": [
+    {
+      "name": "Tools",
+      "source_files": "Sources/Classes/Tools/*.{h,m}"
+    },
+    {
+      "name": "Mediator",
+      "source_files": "Sources/Classes/**/*.{h,m}",
+      "exclude_files": "Sources/Classes/Tools/*.{h,m}",
+      "project_header_files": "Sources/Classes/Private/*.{h}",
+      "resource_bundles": {
+        "ZDMediator_Privacy": [
+          "Sources/Resource/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "dependencies": {
+        "ZDMediator/Tools": [
+
+        ]
+      }
+    },
+    {
+      "name": "EnableAssert",
+      "dependencies": {
+        "ZDMediator/Tools": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ENABLE_ASSERT=1"
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "ZDMediator/Mediator": [
+
+        ],
+        "ZDMediator/EnableAssert": [
+
+        ]
+      }
+    }
+  ]
+}
