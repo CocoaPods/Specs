@@ -1,0 +1,83 @@
+{
+  "name": "HRAdSDK",
+  "version": "1.8.3.0",
+  "summary": "HRAdSDK.",
+  "homepage": "https://www.zhltech.net",
+  "license": "MIT",
+  "authors": {
+    "haorui": "cocoapods@tj-haorui.cn"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "http": "https://d.zhltech.net/archives/ios/HR/1.8.3.0/HRAdSDK.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "HR",
+  "subspecs": [
+    {
+      "name": "HR",
+      "frameworks": [
+        "AdSupport",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreMotion",
+        "CoreImage",
+        "CoreTelephony",
+        "Foundation",
+        "Security",
+        "StoreKit",
+        "UIKit",
+        "WebKit",
+        "SystemConfiguration"
+      ],
+      "vendored_frameworks": "HRAdSDK/HRAdSDK.xcframework",
+      "resources": "HRAdSDK/HRAdSDK.bundle",
+      "libraries": "z"
+    },
+    {
+      "name": "TPAdapter",
+      "vendored_frameworks": "HRAdSDK/TPForHRAdapter.framework",
+      "dependencies": {
+        "HRAdSDK/HR": [
+
+        ],
+        "AnyThinkiOS": [
+
+        ]
+      }
+    },
+    {
+      "name": "GMAdapter",
+      "dependencies": {
+        "HRAdSDK/HR": [
+
+        ],
+        "Ads-CN-Beta": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "HRAdSDK/GMForHRAdapter.framework",
+        "Ads-CN-Beta/SDK/BUAdSDK.xcframework",
+        "Ads-CN-Beta/SDK/CSJMediation.xcframework"
+      ]
+    },
+    {
+      "name": "MSAdapter",
+      "vendored_frameworks": "HRAdSDK/MSForHRAdapter.framework",
+      "dependencies": {
+        "HRAdSDK/HR": [
+
+        ]
+      }
+    }
+  ]
+}
