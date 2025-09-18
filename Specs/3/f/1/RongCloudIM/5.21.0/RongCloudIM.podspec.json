@@ -1,0 +1,202 @@
+{
+  "name": "RongCloudIM",
+  "version": "5.21.0",
+  "summary": "RongCloud IM SDK.(如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库，从 2.9.0 版本开始这里不再包含 CallKit 和 CallLib 类库的管理，音视频服务升级为融云自有音视频，2.9.0 版本之前用户请根据站内信提示更新)",
+  "description": "RongCloud IM SDK for iOS.\n\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "http://rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2014 Rong Cloud"
+  },
+  "authors": {
+    "litao": "litao@rongcloud.cn"
+  },
+  "social_media_url": "http://www.rongcloud.cn",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/Rong_Cloud_iOS_IM_SDK_v5_21_0_Stable.zip"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "IMLibCore",
+      "vendored_frameworks": "RongCloudIM/RongIMLibCore.xcframework",
+      "resources": "RongCloudIM/RCConfig.plist",
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongIMLibCore.xcframework/ios-arm64_armv7/RongIMLibCore.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongIMLibCore.xcframework/ios-arm64_armv7/RongIMLibCore.framework/Headers/**.h"
+    },
+    {
+      "name": "ChatRoom",
+      "vendored_frameworks": "RongCloudIM/RongChatRoom.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongChatRoom.xcframework/ios-arm64_armv7/RongChatRoom.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongChatRoom.xcframework/ios-arm64_armv7/RongChatRoom.framework/Headers/**.h"
+    },
+    {
+      "name": "CustomerService",
+      "vendored_frameworks": "RongCloudIM/RongCustomerService.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongCustomerService.xcframework/ios-arm64_armv7/RongCustomerService.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongCustomerService.xcframework/ios-arm64_armv7/RongCustomerService.framework/Headers/**.h"
+    },
+    {
+      "name": "Discussion",
+      "vendored_frameworks": "RongCloudIM/RongDiscussion.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongDiscussion.xcframework/ios-arm64_armv7/RongDiscussion.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongDiscussion.xcframework/ios-arm64_armv7/RongDiscussion.framework/Headers/**.h"
+    },
+    {
+      "name": "PublicService",
+      "vendored_frameworks": "RongCloudIM/RongPublicService.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongPublicService.xcframework/ios-arm64_armv7/RongPublicService.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongPublicService.xcframework/ios-arm64_armv7/RongPublicService.framework/Headers/**.h"
+    },
+    {
+      "name": "Location",
+      "vendored_frameworks": "RongCloudIM/RongLocation.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongLocation.xcframework/ios-arm64_armv7/RongLocation.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongLocation.xcframework/ios-arm64_armv7/RongLocation.framework/Headers/**.h"
+    },
+    {
+      "name": "IMLib",
+      "vendored_frameworks": "RongCloudIM/RongIMLib.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLibCore": [
+
+        ],
+        "RongCloudIM/ChatRoom": [
+
+        ],
+        "RongCloudIM/Discussion": [
+
+        ],
+        "RongCloudIM/PublicService": [
+
+        ],
+        "RongCloudIM/CustomerService": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "source_files": "RongCloudIM/RongIMLib.xcframework/ios-arm64_armv7/RongIMLib.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongIMLib.xcframework/ios-arm64_armv7/RongIMLib.framework/Headers/**.h"
+    },
+    {
+      "name": "IMKit",
+      "resources": [
+        "RongCloudIM/RongCloud.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/ar.lproj",
+        "RongCloudIM/Emoji.plist",
+        "RongCloudIM/RCColor.plist"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongIMKit.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMLib": [
+
+        ]
+      },
+      "source_files": "RongCloudIM/RongIMKit.xcframework/ios-arm64_armv7/RongIMKit.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongIMKit.xcframework/ios-arm64_armv7/RongIMKit.framework/Headers/**.h"
+    },
+    {
+      "name": "RongSticker",
+      "resources": [
+        "RongCloudIM/RongSticker.bundle",
+        "RongCloudIM/en.lproj",
+        "RongCloudIM/zh-Hans.lproj",
+        "RongCloudIM/ar.lproj"
+      ],
+      "vendored_frameworks": "RongCloudIM/RongSticker.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      },
+      "source_files": "RongCloudIM/RongSticker.xcframework/ios-arm64_armv7/RongSticker.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongSticker.xcframework/ios-arm64_armv7/RongSticker.framework/Headers/**.h"
+    },
+    {
+      "name": "Sight",
+      "vendored_frameworks": "RongCloudIM/RongSight.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      },
+      "source_files": "RongCloudIM/RongSight.xcframework/ios-arm64_armv7/RongSight.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongSight.xcframework/ios-arm64_armv7/RongSight.framework/Headers/**.h"
+    },
+    {
+      "name": "ContactCard",
+      "vendored_frameworks": "RongCloudIM/RongContactCard.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ]
+      },
+      "source_files": "RongCloudIM/RongContactCard.xcframework/ios-arm64_armv7/RongContactCard.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongContactCard.xcframework/ios-arm64_armv7/RongContactCard.framework/Headers/**.h"
+    },
+    {
+      "name": "LocationKit",
+      "vendored_frameworks": "RongCloudIM/RongLocationKit.xcframework",
+      "dependencies": {
+        "RongCloudIM/IMKit": [
+
+        ],
+        "RongCloudIM/Location": [
+
+        ]
+      },
+      "source_files": "RongCloudIM/RongLocationKit.xcframework/ios-arm64_armv7/RongLocationKit.framework/Headers/**.h",
+      "public_header_files": "RongCloudIM/RongLocationKit.xcframework/ios-arm64_armv7/RongLocationKit.framework/Headers/**.h"
+    }
+  ]
+}
