@@ -1,0 +1,114 @@
+{
+  "name": "IPtProxyUI",
+  "version": "4.9.1",
+  "summary": "IPtProxyUI provides a UI to configure bridges for all Pluggable Transports available in the IPtProxy package.",
+  "description": "This package provides some scenes and configuration code which is shared between\ndifferent apps using the `IPtProxy` package together with `Tor.framework`.\n\nThe UI is complete for your users to configure all aspects of the Transports,\nincluding MOAT support to fetch new Obfs4 proxies.\n\nThe configuration provided is good for using the PTs together with Tor.",
+  "homepage": "https://github.com/tladesignz/IPtProxyUI-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/tladesignz/IPtProxyUI-ios.git",
+    "tag": "4.9.1"
+  },
+  "social_media_url": "https://chaos.social/@tla",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11"
+  },
+  "swift_versions": "5.5",
+  "static_framework": true,
+  "dependencies": {
+    "IPtProxy": [
+      "~> 4.2.2"
+    ]
+  },
+  "ios": {
+    "dependencies": {
+      "Eureka": [
+        "~> 5.3"
+      ]
+    }
+  },
+  "default_subspecs": "App",
+  "subspecs": [
+    {
+      "name": "AppEx",
+      "preserve_paths": [
+        "update-bridges.sh",
+        "update-bridges.swift",
+        ".bartycrouch.toml"
+      ],
+      "ios": {
+        "source_files": "IPtProxyUI/Classes/{Shared,iOS-AppEx}/**/*",
+        "resource_bundles": {
+          "IPtProxyUI": [
+            "IPtProxyUI/Assets/{Shared,iOS}/**/*"
+          ]
+        }
+      },
+      "osx": {
+        "source_files": "IPtProxyUI/Classes/{Shared,macOS}/**/*",
+        "resource_bundles": {
+          "IPtProxyUI": [
+            "IPtProxyUI/Assets/{Shared,macOS}/**/*"
+          ]
+        }
+      },
+      "script_phases": [
+        {
+          "name": "Update Built-in Bridges",
+          "script": "\"$PODS_TARGET_SRCROOT/update-bridges.sh\"",
+          "execution_position": "before_compile",
+          "output_files": [
+            "iptproxy-appex-always-execute-this-but-supress-warning"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "App",
+      "ios": {
+        "dependencies": {
+          "ProgressHUD": [
+            "~> 14.1"
+          ]
+        },
+        "source_files": "IPtProxyUI/Classes/{Shared,iOS-App,iOS-AppEx}/**/*",
+        "resource_bundles": {
+          "IPtProxyUI": [
+            "IPtProxyUI/Assets/{Shared,iOS}/**/*"
+          ]
+        }
+      },
+      "preserve_paths": [
+        "update-bridges.sh",
+        "update-bridges.swift",
+        ".bartycrouch.toml"
+      ],
+      "osx": {
+        "source_files": "IPtProxyUI/Classes/{Shared,macOS}/**/*",
+        "resource_bundles": {
+          "IPtProxyUI": [
+            "IPtProxyUI/Assets/{Shared,macOS}/**/*"
+          ]
+        }
+      },
+      "script_phases": [
+        {
+          "name": "Update Built-in Bridges",
+          "script": "\"$PODS_TARGET_SRCROOT/update-bridges.sh\"",
+          "execution_position": "before_compile",
+          "output_files": [
+            "iptproxy-app-always-execute-this-but-supress-warning"
+          ]
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.5"
+}
