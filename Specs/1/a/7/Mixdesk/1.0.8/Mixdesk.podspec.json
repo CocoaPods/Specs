@@ -1,0 +1,70 @@
+{
+  "name": "Mixdesk",
+  "version": "1.0.8",
+  "summary": "Mixdesk官方 SDK for iOS",
+  "description": "Mixdesk官方的 iOS SDK, 可接入Mixdesk系统",
+  "homepage": "https://github.com/Mixdesk/MixdeskSDK-iOS",
+  "license": "MIT",
+  "authors": {
+    "songuu": "1101309860@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Mixdesk/MixdeskSDK-iOS.git",
+    "tag": "v1.0.8"
+  },
+  "social_media_url": "https://mixdesk.com",
+  "documentation_url": "https://github.com/Mixdesk/MixdeskSDK-iOS/wiki",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "subspecs": [
+    {
+      "name": "MixdeskSDK",
+      "frameworks": [
+        "AVFoundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "MobileCoreServices"
+      ],
+      "vendored_frameworks": "Mixdesk-SDK-files/MixdeskSDK.framework",
+      "libraries": [
+        "sqlite3",
+        "icucore",
+        "stdc++"
+      ],
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "${PODS_ROOT}/Mixdesk/Mixdesk-SDK-files"
+      }
+    },
+    {
+      "name": "MXChatViewController",
+      "dependencies": {
+        "Mixdesk/MixdeskSDK": [
+
+        ]
+      },
+      "private_header_files": "Mixdesk-SDK-files/MXChatViewController/Vendors/VoiceConvert/amrwapper/wav.h",
+      "source_files": [
+        "Mixdesk-SDK-files/MixdeskSDKViewInterface/*.{h,m}",
+        "Mixdesk-SDK-files/MXChatViewController/**/*.{h,m,mm,cpp}",
+        "Mixdesk-SDK-files/MixdeskMessageForm/**/*.{h,m}",
+        "Mixdesk-SDK-files/Notification/*.{h,m}"
+      ],
+      "vendored_libraries": [
+        "Mixdesk-SDK-files/MXChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrnb.a",
+        "Mixdesk-SDK-files/MXChatViewController/Vendors/MLAudioRecorder/amr_en_de/lib/libopencore-amrwb.a"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/Mixdesk/Mixdesk-SDK-files\""
+      },
+      "resources": "Mixdesk-SDK-files/MXChatViewController/Assets/MXChatViewAsset.bundle"
+    }
+  ]
+}
