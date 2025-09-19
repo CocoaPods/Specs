@@ -1,0 +1,216 @@
+{
+  "name": "HXPhotoPicker",
+  "version": "5.0.4",
+  "summary": "照片/视频选择器 - 支持LivePhoto、GIF图片选择、自定义编辑照片/视频、3DTouch预览、浏览网络图片/网络视频 功能 - Imitation weibo photo/image picker - support for LivePhoto, GIF image selection, 3DTouch preview, browse the web image function",
+  "homepage": "https://github.com/SilenceLove/HXPhotoPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "SilenceLove": "294005139@qq.com"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/SilenceLove/HXPhotoPicker.git",
+    "tag": "5.0.4"
+  },
+  "frameworks": [
+    "UIKit",
+    "Photos",
+    "PhotosUI"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/HXPhotoPicker/Core/**/*.{swift}",
+      "dependencies": {
+        "HXPhotoPicker/Resources": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CORE"
+      }
+    },
+    {
+      "name": "Resources",
+      "resources": "Sources/HXPhotoPicker/Resources/*.{bundle}",
+      "resource_bundles": {
+        "HXPhotoPicker_Privacy": [
+          "Sources/HXPhotoPicker/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "Picker",
+      "source_files": "Sources/HXPhotoPicker/Picker/**/*.{swift}",
+      "dependencies": {
+        "HXPhotoPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_PICKER"
+      }
+    },
+    {
+      "name": "Editor",
+      "source_files": "Sources/HXPhotoPicker/Editor/**/*.{swift}",
+      "dependencies": {
+        "HXPhotoPicker/EditorView": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR"
+      }
+    },
+    {
+      "name": "EditorView",
+      "source_files": "Sources/HXPhotoPicker/Editor+View/**/*.{swift}",
+      "dependencies": {
+        "HXPhotoPicker/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_EDITOR_VIEW"
+      }
+    },
+    {
+      "name": "Camera",
+      "subspecs": [
+        {
+          "name": "Lite",
+          "source_files": "Sources/HXPhotoPicker/Camera/**/*.{swift,metal}",
+          "dependencies": {
+            "HXPhotoPicker/Core": [
+
+            ]
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA"
+          }
+        },
+        {
+          "name": "Location",
+          "dependencies": {
+            "HXPhotoPicker/Camera/Lite": [
+
+            ]
+          },
+          "source_files": "Sources/HXPhotoPicker/Camera+Location/**/*.{swift}",
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CAMERA_LOCATION"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NoLocation",
+      "dependencies": {
+        "HXPhotoPicker/Picker": [
+
+        ],
+        "HXPhotoPicker/Editor": [
+
+        ],
+        "HXPhotoPicker/Camera/Lite": [
+
+        ]
+      }
+    },
+    {
+      "name": "GIFImageView",
+      "source_files": "Sources/ImageView/GIFImageView.swift",
+      "dependencies": {
+        "SwiftyGif": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CORE_IMAGEVIEW_GIF"
+      }
+    },
+    {
+      "name": "KFImageView",
+      "source_files": "Sources/ImageView/KFImageView.swift",
+      "dependencies": {
+        "Kingfisher": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CORE_IMAGEVIEW_KF"
+      }
+    },
+    {
+      "name": "SDImageView",
+      "source_files": "Sources/ImageView/SDImageView.swift",
+      "dependencies": {
+        "SDWebImage": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "HXPICKER_ENABLE_CORE_IMAGEVIEW_SD"
+      }
+    },
+    {
+      "name": "SwiftyGif",
+      "dependencies": {
+        "HXPhotoPicker/Default": [
+
+        ],
+        "HXPhotoPicker/GIFImageView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Kingfisher",
+      "dependencies": {
+        "HXPhotoPicker/Default": [
+
+        ],
+        "HXPhotoPicker/KFImageView": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "dependencies": {
+        "HXPhotoPicker/Default": [
+
+        ],
+        "HXPhotoPicker/SDImageView": [
+
+        ]
+      }
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "HXPhotoPicker/Picker": [
+
+        ],
+        "HXPhotoPicker/Editor": [
+
+        ],
+        "HXPhotoPicker/Camera": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
