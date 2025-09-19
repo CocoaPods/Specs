@@ -1,0 +1,384 @@
+{
+  "name": "FWFramework",
+  "version": "9.3.0",
+  "summary": "ios develop framework",
+  "homepage": "http://wuyong.site",
+  "license": "MIT",
+  "authors": {
+    "Wu Yong": "admin@wuyong.site"
+  },
+  "source": {
+    "git": "https://github.com/lszzy/FWFramework.git",
+    "tag": "9.3.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "default_subspecs": [
+    "FWFramework",
+    "FWUIKit"
+  ],
+  "subspecs": [
+    {
+      "name": "FWFramework",
+      "subspecs": [
+        {
+          "name": "Toolkit",
+          "source_files": "Sources/FWFramework/Toolkit/**/*.swift",
+          "resources": [
+            "Sources/PrivacyInfo.xcprivacy"
+          ],
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited)"
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "Sources/FWFramework/Service/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Toolkit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Plugin",
+          "source_files": "Sources/FWFramework/Plugin/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Module",
+          "source_files": "Sources/FWFramework/Module/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Plugin": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FWUIKit",
+      "subspecs": [
+        {
+          "name": "Toolkit",
+          "source_files": "Sources/FWUIKit/Toolkit/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Toolkit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "source_files": "Sources/FWUIKit/Service/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWUIKit/Toolkit": [
+
+            ],
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Plugin",
+          "source_files": "Sources/FWUIKit/Plugin/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWUIKit/Service": [
+
+            ],
+            "FWFramework/FWFramework/Plugin": [
+
+            ]
+          }
+        },
+        {
+          "name": "Module",
+          "source_files": "Sources/FWUIKit/Module/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWUIKit/Plugin": [
+
+            ],
+            "FWFramework/FWFramework/Module": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FWSwiftUI",
+      "subspecs": [
+        {
+          "name": "Toolkit",
+          "weak_frameworks": [
+            "SwiftUI",
+            "Combine"
+          ],
+          "source_files": "Sources/FWSwiftUI/Toolkit/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Toolkit": [
+
+            ]
+          }
+        },
+        {
+          "name": "Service",
+          "weak_frameworks": [
+            "SwiftUI",
+            "Combine"
+          ],
+          "source_files": "Sources/FWSwiftUI/Service/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWSwiftUI/Toolkit": [
+
+            ],
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Plugin",
+          "weak_frameworks": [
+            "SwiftUI",
+            "Combine"
+          ],
+          "source_files": "Sources/FWSwiftUI/Plugin/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWSwiftUI/Service": [
+
+            ],
+            "FWFramework/FWFramework/Plugin": [
+
+            ]
+          }
+        },
+        {
+          "name": "Module",
+          "weak_frameworks": [
+            "SwiftUI",
+            "Combine"
+          ],
+          "source_files": "Sources/FWSwiftUI/Module/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWSwiftUI/Plugin": [
+
+            ],
+            "FWFramework/FWFramework/Module": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FWPlugin",
+      "subspecs": [
+        {
+          "name": "Location",
+          "source_files": "Sources/FWPlugin/Authorize/Location/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Microphone",
+          "source_files": "Sources/FWPlugin/Authorize/Microphone/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Contacts",
+          "source_files": "Sources/FWPlugin/Authorize/Contacts/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Calendar",
+          "source_files": "Sources/FWPlugin/Authorize/Calendar/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Tracking",
+          "source_files": "Sources/FWPlugin/Authorize/Tracking/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Biometry",
+          "source_files": "Sources/FWPlugin/Authorize/Biometry/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Bluetooth",
+          "source_files": "Sources/FWPlugin/Authorize/Bluetooth/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Motion",
+          "source_files": "Sources/FWPlugin/Authorize/Motion/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Speech",
+          "source_files": "Sources/FWPlugin/Authorize/Speech/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Purchase",
+          "source_files": "Sources/FWPlugin/Purchase/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Cloud",
+          "source_files": "Sources/FWPlugin/Cloud/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "SDWebImage",
+          "source_files": "Sources/FWPlugin/SDWebImage/**/*.swift",
+          "dependencies": {
+            "SDWebImage": [
+
+            ],
+            "FWFramework/FWFramework/Plugin": [
+
+            ]
+          }
+        },
+        {
+          "name": "Alamofire",
+          "source_files": "Sources/FWPlugin/Alamofire/**/*.swift",
+          "dependencies": {
+            "Alamofire": [
+
+            ],
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "ObjectMapper",
+          "source_files": "Sources/FWPlugin/ObjectMapper/**/*.swift",
+          "dependencies": {
+            "ObjectMapper": [
+
+            ],
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Lottie",
+          "source_files": "Sources/FWPlugin/Lottie/**/*.swift",
+          "dependencies": {
+            "lottie-ios": [
+
+            ],
+            "FWFramework/FWFramework/Plugin": [
+
+            ]
+          }
+        },
+        {
+          "name": "MMKV",
+          "source_files": "Sources/FWPlugin/MMKV/**/*.swift",
+          "dependencies": {
+            "MMKV": [
+
+            ],
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          }
+        },
+        {
+          "name": "Macros",
+          "source_files": "Sources/FWPlugin/Macros/FWPluginMacros/**/*.swift",
+          "dependencies": {
+            "FWFramework/FWFramework/Service": [
+
+            ]
+          },
+          "preserve_paths": [
+            "Sources/FWPlugin/Macros/Package.swift",
+            "Sources/FWPlugin/Macros/FWMacroMacros/**/*.swift"
+          ],
+          "script_phases": {
+            "name": "Build FWMacroMacros",
+            "script": "env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -c release --disable-sandbox --package-path \\\"$PODS_TARGET_SRCROOT/Sources/FWPlugin/Macros\\\" --scratch-path \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros\\\" && (([ -e \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros-tool\\\" ] && ! [ -L \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros-tool\\\" ]) && ln -sf \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros-tool\\\" \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros\\\" || ln -sf \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros\\\" \\\"${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros-tool\\\")\"",
+            "input_files": [
+              "$(PODS_TARGET_SRCROOT)/Sources/FWPlugin/Macros/Package.swift"
+            ],
+            "output_files": [
+              "${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros"
+            ],
+            "execution_position": "before_compile"
+          },
+          "user_target_xcconfig": {
+            "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+            "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros#FWMacroMacros"
+          },
+          "pod_target_xcconfig": {
+            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "FWPluginMacros",
+            "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+            "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Products/FWMacroMacros/release/FWMacroMacros#FWMacroMacros"
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5"
+}
