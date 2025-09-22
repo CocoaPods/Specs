@@ -1,0 +1,60 @@
+{
+  "name": "PrimerSDK",
+  "version": "2.41.1",
+  "summary": "Official iOS SDK for Primer",
+  "description": "This library contains the official iOS SDK for Primer. Install this Cocoapod to seemlessly integrate the Primer Checkout & API platform in your app.",
+  "homepage": "https://www.primer.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Primer": "dx@primer.io"
+  },
+  "source": {
+    "git": "https://github.com/primer-io/primer-sdk-ios.git",
+    "tag": "2.41.1"
+  },
+  "swift_versions": "5",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "Core",
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "UIKit"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": "Sources/PrimerSDK/Classes/**/*.{h,m,swift}",
+        "resource_bundles": {
+          "PrimerResources": [
+            "Sources/PrimerSDK/Resources/*.xcassets",
+            "Sources/PrimerSDK/Resources/Localizable/**/*.strings",
+            "Sources/PrimerSDK/Resources/Localizable/**/*.stringsdict",
+            "Sources/PrimerSDK/Resources/Storyboards/*.{storyboard}",
+            "Sources/PrimerSDK/Resources/Nibs/*",
+            "Sources/PrimerSDK/Resources/JSONs/**/*.json"
+          ]
+        },
+        "pod_target_xcconfig": {
+          "FRAMEWORK_SEARCH_PATHS": [
+            "$(inherited)",
+            "${PODS_CONFIGURATION_BUILD_DIR}/Primer3DS",
+            "${PODS_CONFIGURATION_BUILD_DIR}/PrimerKlarnaSDK",
+            "${PODS_CONFIGURATION_BUILD_DIR}/PrimerIPay88MYSDK",
+            "${PODS_CONFIGURATION_BUILD_DIR}/PrimerNolPaySDK",
+            "${PODS_XCFRAMEWORKS_BUILD_DIR}/PrimerKlarnaSDK",
+            "${PODS_XCFRAMEWORKS_BUILD_DIR}/PrimerStripeSDK"
+          ],
+          "SWIFT_ENABLE_EXPLICIT_MODULES": "NO"
+        }
+      }
+    }
+  ],
+  "swift_version": "5"
+}
