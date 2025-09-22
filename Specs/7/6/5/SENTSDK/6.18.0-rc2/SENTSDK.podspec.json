@@ -1,0 +1,66 @@
+{
+  "name": "SENTSDK",
+  "version": "6.18.0-rc2",
+  "summary": "Sentiance Platform helps to improve your app's user experience by learning and anticipating key moments that matter for end users.",
+  "description": "First, GPS and motion sensor data from a user's phone or IOT devices is collected via our SDK. Once the data is collected, we turn this into valuable insights about the user, grouped into EVENTS, MOMENTS, and SEGMENTS. In other words, we give you an understanding of where the user likes to go, what the user likes to do, and provide an insight into the persona of the user.",
+  "homepage": "https://docs.sentiance.com",
+  "changelog": "https://github.com/sentiance/documentation/blob/1.0.1/sdk/changelog/ios.md",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 Sentiance"
+  },
+  "authors": {
+    "Sentiance Inc": "dev@sentiance.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://sentiance-u1-sdk-downloads.s3-eu-west-1.amazonaws.com/ios/frameworks/SENTSDK/6.18.0-rc2/SENTSDK-thin-6.18.0-rc2.xcframework.zip"
+  },
+  "vendored_frameworks": [
+    "SENTSDK.xcframework",
+    "SENTSDK.xcframework/Frameworks/mpde.xcframework",
+    "SENTSDK.xcframework/Frameworks/dskoball.xcframework"
+  ],
+  "frameworks": [
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "CoreMotion",
+    "CoreLocation",
+    "Foundation",
+    "CallKit",
+    "CoreTelephony",
+    "CoreData"
+  ],
+  "libraries": "z",
+  "resources": "**/SENTSDK.bundle",
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_CFLAGS": "-fembed-bitcode",
+    "OTHER_LDFLAGS": "-lz -lc++",
+    "FRAMEWORK_SEARCH_PATHS": "\"$(PODS_ROOT)/SENTSDK/**\"",
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "SWIFT_INCLUDE_PATHS": "$(inherited) $(PODS_ROOT)/SENTSDK/** $(BUILT_PRODUCTS_DIR)/**"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/SENTSDK/**",
+    "EXCLUDED_ARCHS[sdk=iphoneos*]": "armv7",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "swift_versions": "5.0",
+  "module_map": "SENTSDK.xcframework/ios-arm64/SENTSDK.framework/Modules/module.modulemap",
+  "module_name": "SENTSDK",
+  "dependencies": {
+    "TensorFlowLiteC": [
+      "~> 2.17.0"
+    ],
+    "Protobuf": [
+      "~> 3.18"
+    ],
+    "UnzipKit": [
+      "~> 1.9"
+    ]
+  },
+  "swift_version": "5.0"
+}
