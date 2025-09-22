@@ -1,0 +1,77 @@
+{
+  "name": "RapidKit",
+  "version": "2025.0922.1700.2259",
+  "summary": "Real-time Audio-visual Platform for IoT Devices",
+  "description": "Real-time Audio-visual Platform for IoT Devices by tange-ai",
+  "homepage": "https://tange.ai/",
+  "license": {
+    "type": "MIT",
+    "file": "Release/LICENSE"
+  },
+  "authors": {
+    "allenfeng": "fengjun.dev@gmail.com"
+  },
+  "readme": "Release/README.md",
+  "source": {
+    "http": "https://icam-media-cloud-user-public.oss-cn-shenzhen.aliyuncs.com/RAPID_RELEASE/RapidKitDarwin/RapidKit-2025.0922.1700.2259.zip"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.14"
+  },
+  "ios": {
+    "frameworks": [
+      "CoreVideo",
+      "UIKit"
+    ],
+    "pod_target_xcconfig": {
+      "LD_RUNPATH_SEARCH_PATHS": "@executable_path/Frameworks @loader_path/Frameworks",
+      "ARCHS": "arm64",
+      "VALID_ARCHS": "arm64",
+      "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64 i386",
+      "ONLY_ACTIVE_ARCH": "NO"
+    }
+  },
+  "osx": {
+    "frameworks": [
+      "CoreVideo"
+    ],
+    "pod_target_xcconfig": {
+      "LD_RUNPATH_SEARCH_PATHS": "@executable_path/../Frameworks @loader_path/Frameworks",
+      "ARCHS": "arm64",
+      "VALID_ARCHS": "arm64"
+    }
+  },
+  "default_subspecs": "Main",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "HEADER_SEARCH_PATHS": "$(inherited) $(SRCROOT)/Frameworks/Sources/Public",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64 i386"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64 x86_64 i386"
+  },
+  "subspecs": [
+    {
+      "name": "Main",
+      "vendored_frameworks": "Release/RapidKit.xcframework",
+      "ios": {
+        "dependencies": {
+          "RapidKit/WebRTC": [
+
+          ]
+        }
+      },
+      "libraries": "z"
+    },
+    {
+      "name": "WebRTC",
+      "vendored_frameworks": "Release/Libraries/iOS/WebRTC.framework",
+      "platforms": {
+        "ios": "13.0"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
