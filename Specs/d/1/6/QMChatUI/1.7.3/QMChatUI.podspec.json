@@ -1,0 +1,176 @@
+{
+  "name": "QMChatUI",
+  "version": "1.7.3",
+  "summary": "A short description of QMChatUI.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/7moor-tech/QMChatUI",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "焦林生": "18515384635@163.com"
+  },
+  "source": {
+    "git": "https://github.com/7moor-tech/QMChatUI.git",
+    "tag": "1.7.3"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "frameworks": "UIKit",
+  "dependencies": {
+    "QMChatUICore": [
+      "~> 1.0.1"
+    ],
+    "QMLineSDK": [
+      "~> 4.10.5"
+    ],
+    "FQDateTimePicker": [
+      "~> 2.0.3"
+    ]
+  },
+  "resources": [
+    "QMChatUI/Assets/*.bundle"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "armv7 x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Cell",
+      "source_files": "QMChatUI/Classes/Cell/*.{h,m}",
+      "dependencies": {
+        "QMChatUI/Vendors": [
+
+        ],
+        "QMChatUI/Models": [
+
+        ],
+        "QMChatUI/View/CommonProblem": [
+
+        ],
+        "QMChatUI/View/msgTask": [
+
+        ],
+        "QMChatUI/View/QMFormView": [
+
+        ],
+        "QMChatUI/View/QMAudio": [
+
+        ],
+        "QMChatUI/ViewController/QMImageWithWebPage": [
+
+        ]
+      }
+    },
+    {
+      "name": "Models",
+      "source_files": "QMChatUI/Classes/Models/*.{h,m}"
+    },
+    {
+      "name": "Vendors",
+      "subspecs": [
+        {
+          "name": "EmojiLabel",
+          "source_files": "QMChatUI/Classes/Vendors/EmojiLabel/*.{h,m}"
+        },
+        {
+          "name": "Voice",
+          "vendored_libraries": [
+            "QMChatUI/Classes/Vendors/Voice/*.a"
+          ],
+          "source_files": "QMChatUI/Classes/Vendors/Voice/*.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "View",
+      "subspecs": [
+        {
+          "name": "CommonProblem",
+          "source_files": "QMChatUI/Classes/View/CommonProblem/*.{h,m}"
+        },
+        {
+          "name": "QMAudio",
+          "source_files": "QMChatUI/Classes/View/QMAudio/*.{h,m}"
+        },
+        {
+          "name": "QMFileManager",
+          "source_files": "QMChatUI/Classes/View/QMFileManager/**/*.{h,m}"
+        },
+        {
+          "name": "msgTask",
+          "source_files": "QMChatUI/Classes/View/msgTask/*.{h,m}",
+          "dependencies": {
+            "QMChatUI/ViewController/QMImageWithWebPage": [
+
+            ],
+            "QMChatUI/Models": [
+
+            ],
+            "QMChatUI/Vendors": [
+
+            ]
+          }
+        },
+        {
+          "name": "QMChatView",
+          "source_files": "QMChatUI/Classes/View/QMChatView/*.{h,m}",
+          "dependencies": {
+            "QMChatUI/ViewController/QMImageWithWebPage": [
+
+            ],
+            "QMChatUI/Models": [
+
+            ],
+            "QMChatUI/Cell": [
+
+            ]
+          }
+        },
+        {
+          "name": "QMFormView",
+          "source_files": "QMChatUI/Classes/View/QMFormView/*.{h,m}",
+          "dependencies": {
+            "QMChatUI/ViewController/QMImageWithWebPage": [
+
+            ],
+            "QMChatUI/View/QMFileManager": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ViewController",
+      "subspecs": [
+        {
+          "name": "QMChatPage",
+          "source_files": "QMChatUI/Classes/ViewController/QMChatPage/*.{h,m}",
+          "dependencies": {
+            "QMChatUI/Vendors": [
+
+            ],
+            "QMChatUI/Models": [
+
+            ],
+            "QMChatUI/Cell": [
+
+            ],
+            "QMChatUI/View": [
+
+            ]
+          }
+        },
+        {
+          "name": "QMImageWithWebPage",
+          "source_files": "QMChatUI/Classes/ViewController/QMImageWithWebPage/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
