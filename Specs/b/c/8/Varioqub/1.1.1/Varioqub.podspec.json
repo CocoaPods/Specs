@@ -1,0 +1,57 @@
+{
+  "name": "Varioqub",
+  "version": "1.1.1",
+  "summary": "Varioqub",
+  "homepage": "https://varioqub.ru",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "AppMetrica": "admin@appmetrica.io"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "tvos": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/appmetrica/varioqub-sdk-ios.git",
+    "tag": "1.1.1"
+  },
+  "swift_versions": "5.8",
+  "pod_target_xcconfig": {
+    "APPLICATION_EXTENSION_API_ONLY": "YES",
+    "DEFINES_MODULE": "YES",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -DVQ_LOGGER"
+  },
+  "frameworks": "Foundation",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Varioqub/**/*.swift",
+        "Sources/VarioqubLogger/**/*.swift",
+        "Sources/VarioqubNetwork/**/*.swift",
+        "Sources/VarioqubUtils/**/*.swift"
+      ],
+      "dependencies": {
+        "SwiftProtobuf": [
+          "~> 1.31"
+        ]
+      }
+    },
+    {
+      "name": "ObjC",
+      "source_files": [
+        "Sources/VarioqubObjC/**/*.swift"
+      ],
+      "dependencies": {
+        "Varioqub/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.8"
+}
