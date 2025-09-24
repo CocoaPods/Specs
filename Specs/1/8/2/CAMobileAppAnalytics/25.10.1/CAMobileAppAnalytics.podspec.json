@@ -1,0 +1,65 @@
+{
+  "name": "CAMobileAppAnalytics",
+  "version": "25.10.1",
+  "summary": "CAMobileAppAnalytics is an iOS SDK for App Experience Analytics.",
+  "description": "\"CAMobileAppAnalytics is an iOS SDK for App Experience Analytics that provides deep insights into the performance, user experience, crash, and log analytics of apps.\"",
+  "homepage": "https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-enterprise-software/it-operations-management/app-experience-analytics-saas/SaaS/configuring/collect-data-from-ios-applications.html",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CA Technologies (A Broadcom Company)": "www.broadcom.com"
+  },
+  "source": {
+    "git": "https://github.com/CA-Application-Performance-Management/CAMobileAppAnalytics.git",
+    "tag": "25.10.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "lib",
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3"
+  ],
+  "frameworks": [
+    "CoreLocation",
+    "SystemConfiguration",
+    "Foundation",
+    "UIKit",
+    "CoreGraphics",
+    "Security",
+    "CoreTelephony",
+    "WebKit"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "lib",
+      "source_files": "Sources/CAMobileAppAnalytics/Classes/*.h",
+      "public_header_files": "Sources/CAMobileAppAnalytics/Classes/*.h",
+      "resource_bundles": {
+        "CAMobileAppAnalytics": [
+          "Sources/CAMobileAppAnalytics/Resources/*.{xcprivacy,js}"
+        ]
+      },
+      "vendored_libraries": "Sources/CAMobileAppAnalytics/Classes/*.a"
+    },
+    {
+      "name": "xcframework",
+      "source_files": "Sources/CAMobileAppAnalytics/Classes/*.h",
+      "public_header_files": "Sources/CAMobileAppAnalytics/Classes/*.h",
+      "vendored_frameworks": "Sources/CAMobileAppAnalytics/CAMobileAppAnalytics.xcframework",
+      "resource_bundles": {
+        "CAMobileAppAnalytics": [
+          "Sources/CAMobileAppAnalytics/Resources/*.{xcprivacy,js}"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    }
+  ]
+}
