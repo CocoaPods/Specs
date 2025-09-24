@@ -1,0 +1,43 @@
+{
+  "name": "FireworkVideo",
+  "version": "1.35.2",
+  "summary": "FireworkVideoSDK",
+  "homepage": "https://github.com/loopsocial/firework_ios_sdk",
+  "license": {
+    "text": "Copyright 2021 Loop Now Technologies, Inc.",
+    "type": "Copyright"
+  },
+  "authors": "Loop Now Technologies, Inc.",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.3",
+  "module_name": "FireworkVideo",
+  "source": {
+    "http": "https://github.com/loopsocial/firework_ios_sdk/releases/download/v1.35.2/FireworkVideo-v1.35.2.xcframework.zip"
+  },
+  "preserve_paths": "FireworkVideo.xcframework",
+  "ios": {
+    "vendored_frameworks": "FireworkVideo.xcframework"
+  },
+  "frameworks": "AVFoundation",
+  "cocoapods_version": ">= 1.10.0",
+  "default_subspecs": "none",
+  "script_phases": [
+    {
+      "name": "Check FireworkVideoIVSSupport version",
+      "script": "\n      LIBRARY_NAME=\"FireworkVideoIVSSupport\"\n      BASE_VERSION=\"0.9.0\"\n\n      INFO_PLIST_PATH=\"${PODS_ROOT}/\"$LIBRARY_NAME\"/\"$LIBRARY_NAME\".xcframework/ios-arm64/\"$LIBRARY_NAME\".framework/Info.plist\"\n      if [ ! -e \"$INFO_PLIST_PATH\" ]; then\n        echo \"$LIBRARY_NAME is not installed.\"\n        exit 0\n      fi\n\n      FRAMEWORK_VERSION=$(plutil -convert xml1 -o - \"$INFO_PLIST_PATH\" | grep -A 1 \"<key>CFBundleShortVersionString</key>\" | grep \"<string>\" | sed \"s/.*<string>\\(.*\\)<\\/string>.*/\\1/\")\n      echo \"Checking $LIBRARY_NAME version: $FRAMEWORK_VERSION\"\n      if [[ -n \"$FRAMEWORK_VERSION\" ]]; then\n        if awk \"BEGIN {exit !(ARGV[1] < ARGV[2])}\" \"$FRAMEWORK_VERSION\" \"$BASE_VERSION\"; then\n          echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is incompatible with the current version of FireworkVideo. Please use a version of $LIBRARY_NAME that is $BASE_VERSION or higher.\"\n        exit 1\n        else\n          echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is compatible with the current version of FireworkVideo.\"\n        fi\n      else\n        echo \"Failed to extract framework version.\"\n      fi\n      ",
+      "output_files": [
+        "${DERIVED_FILE_DIR}/out_file1.txt"
+      ]
+    },
+    {
+      "name": "Check FireworkVideoAgoraSupport version",
+      "script": "\n      LIBRARY_NAME=\"FireworkVideoAgoraSupport\"\n      BASE_VERSION=\"0.6.0\"\n\n      INFO_PLIST_PATH=\"${PODS_ROOT}/\"$LIBRARY_NAME\"/\"$LIBRARY_NAME\".xcframework/ios-arm64/\"$LIBRARY_NAME\".framework/Info.plist\"\n      if [ ! -e \"$INFO_PLIST_PATH\" ]; then\n        echo \"$LIBRARY_NAME is not installed.\"\n        exit 0\n      fi\n\n      FRAMEWORK_VERSION=$(plutil -convert xml1 -o - \"$INFO_PLIST_PATH\" | grep -A 1 \"<key>CFBundleShortVersionString</key>\" | grep \"<string>\" | sed \"s/.*<string>\\(.*\\)<\\/string>.*/\\1/\")\n      echo \"Checking $LIBRARY_NAME version: $FRAMEWORK_VERSION\"\n      if [[ -n \"$FRAMEWORK_VERSION\" ]]; then\n        if awk \"BEGIN {exit !(ARGV[1] < ARGV[2])}\" \"$FRAMEWORK_VERSION\" \"$BASE_VERSION\"; then\n          echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is incompatible with the current version of FireworkVideo. Please use a version of $LIBRARY_NAME that is $BASE_VERSION or higher.\"\n        exit 1\n        else\n          echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is compatible with the current version of FireworkVideo.\"\n        fi\n      else\n        echo \"Failed to extract framework version.\"\n      fi\n      ",
+      "output_files": [
+        "${DERIVED_FILE_DIR}/out_file2.txt"
+      ]
+    }
+  ],
+  "swift_version": "5.3"
+}
