@@ -1,0 +1,79 @@
+{
+  "name": "Verint-XM",
+  "version": "7.5.4-alpha0",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright (c) 2025 Verint. All rights reserved."
+  },
+  "summary": "Verint Experience Management SDK",
+  "homepage": "https://connect.verint.com/developers/fscxs/w/mobilesdk/24140/verint-xm-ios-sdk",
+  "authors": {
+    "Verint": "support@Verint.com"
+  },
+  "source": {
+    "http": "https://foresee-developer-mobile-sdk.s3.amazonaws.com/sdk/iOS/7.5.4-alpha0/verint_xm_sdk_ios_7.5.4-alpha0.zip"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "WebKit"
+  ],
+  "weak_frameworks": "UserNotifications",
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "default_subspecs": "SurveyManagement",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "lib/EXPCore.xcframework",
+        "lib/EXPUtilities.xcframework",
+        "lib/EXPIngestionLogger.xcframework"
+      ]
+    },
+    {
+      "name": "Predictive",
+      "dependencies": {
+        "Verint-XM/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "lib/EXPPredictive.xcframework"
+    },
+    {
+      "name": "Digital",
+      "dependencies": {
+        "Verint-XM/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "lib/EXPDigital.xcframework"
+    },
+    {
+      "name": "DBA",
+      "dependencies": {
+        "Verint-XM/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "lib/EXPDBA.xcframework",
+        "lib/EXPDiagnosticLogger.xcframework"
+      ]
+    },
+    {
+      "name": "SurveyManagement",
+      "dependencies": {
+        "Verint-XM/Predictive": [
+
+        ]
+      },
+      "vendored_frameworks": "lib/EXPSurveyManagement.xcframework"
+    }
+  ]
+}
