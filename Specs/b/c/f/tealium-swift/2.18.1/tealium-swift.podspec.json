@@ -1,0 +1,217 @@
+{
+  "name": "tealium-swift",
+  "module_name": "TealiumSwift",
+  "version": "2.18.1",
+  "summary": "Tealium Swift Integration Library",
+  "description": "Supports Tealium's iQ and UDH suite of products on iOS, macOS, tvOS and watchOS",
+  "homepage": "https://github.com/Tealium/tealium-swift",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "Tealium Inc.": "tealium@tealium.com",
+    "craigrouse": "craig.rouse@tealium.com",
+    "christinasund": "christina.sund@tealium.com"
+  },
+  "social_media_url": "http://twitter.com/tealium",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "watchos": "4.0",
+    "tvos": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/Tealium/tealium-swift.git",
+    "tag": "2.18.1"
+  },
+  "default_subspecs": "TealiumFull",
+  "subspecs": [
+    {
+      "name": "TealiumFull",
+      "source_files": [
+        "tealium/core/**/*.{swift,h,m}",
+        "tealium/collectors/**/*",
+        "tealium/dispatchers/**/*",
+        "tealium/scripts/*"
+      ],
+      "ios": {
+        "exclude_files": [
+          "tealium/scripts/*",
+          "tealium/collectors/crash/*",
+          "tealium/**/objc/include/*"
+        ]
+      },
+      "tvos": {
+        "exclude_files": [
+          "tealium/dispatchers/tagmanagement/*",
+          "tealium/dispatchers/remotecommands/*",
+          "tealium/collectors/attribution/*",
+          "tealium/scripts/*",
+          "tealium/collectors/location/*",
+          "tealium/collectors/autotracking/objc/include/*.{h,m}",
+          "tealium/core/objc/**/*"
+        ]
+      },
+      "watchos": {
+        "exclude_files": [
+          "tealium/dispatchers/tagmanagement/*",
+          "tealium/dispatchers/remotecommands/*",
+          "tealium/collectors/attribution/*",
+          "tealium/scripts/*",
+          "tealium/collectors/location/*",
+          "tealium/collectors/autotracking/**/*.{h,m}",
+          "tealium/core/objc/**/*"
+        ]
+      },
+      "osx": {
+        "exclude_files": [
+          "tealium/dispatchers/tagmanagement/*",
+          "tealium/dispatchers/remotecommands/*",
+          "tealium/collectors/attribution/*",
+          "tealium/scripts/*",
+          "tealium/collectors/location/*",
+          "tealium/collectors/autotracking/**/*.{h,m}",
+          "tealium/core/objc/**/*"
+        ]
+      },
+      "resources": "tealium/core/devicedata/device-names.json",
+      "resource_bundles": {
+        "TealiumSwift": "tealium/core/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "tealium/core/**/*.{swift,h,m}",
+      "ios": {
+        "exclude_files": "tealium/core/objc/include/*"
+      },
+      "tvos": {
+        "exclude_files": "tealium/core/objc/**/*"
+      },
+      "watchos": {
+        "exclude_files": "tealium/core/objc/**/*"
+      },
+      "osx": {
+        "exclude_files": "tealium/core/objc/**/*"
+      },
+      "resources": "tealium/core/devicedata/device-names.json",
+      "resource_bundles": {
+        "TealiumSwift": "tealium/core/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Attribution",
+      "source_files": "tealium/collectors/attribution/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Autotracking",
+      "source_files": "tealium/collectors/autotracking/**/*.{swift,h,m}",
+      "ios": {
+        "exclude_files": "tealium/collectors/autotracking/objc/include/*"
+      },
+      "tvos": {
+        "exclude_files": "tealium/collectors/autotracking/objc/include/*"
+      },
+      "watchos": {
+        "exclude_files": "tealium/collectors/autotracking/objc/**/*"
+      },
+      "osx": {
+        "exclude_files": "tealium/collectors/autotracking/objc/**/*"
+      },
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Collect",
+      "source_files": "tealium/dispatchers/collect/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "InAppPurchase",
+      "source_files": "tealium/collectors/inapppurchase/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lifecycle",
+      "source_files": "tealium/collectors/lifecycle/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Location",
+      "source_files": "tealium/collectors/location/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Media",
+      "source_files": "tealium/collectors/media/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "MomentsAPI",
+      "source_files": "tealium/collectors/momentsapi/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "RemoteCommands",
+      "source_files": "tealium/dispatchers/remotecommands/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TagManagement",
+      "source_files": "tealium/dispatchers/tagmanagement/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "VisitorService",
+      "source_files": "tealium/collectors/visitorservice/*",
+      "dependencies": {
+        "tealium-swift/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
