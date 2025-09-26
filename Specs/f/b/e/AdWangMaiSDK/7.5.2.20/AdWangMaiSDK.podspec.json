@@ -1,0 +1,190 @@
+{
+  "name": "AdWangMaiSDK",
+  "version": "7.5.2.20",
+  "summary": "AdWangMaiSDK is a SDK from WangMai providing AD service.",
+  "description": "AdWangMaiSDK is a SDK from WangMai providing AD service.",
+  "homepage": "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WangMai": "yangdi.yang@adwangmai.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "OTHER_LDFLAGS": [
+      "-ObjC"
+    ],
+    "ENABLE_BITCODE": "NO",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-ObjC"
+    ],
+    "ENABLE_BITCODE": "NO",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-ObjC"
+    ],
+    "ENABLE_BITCODE": "NO",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "source": {
+    "git": "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git",
+    "tag": "7.5.2.20"
+  },
+  "requires_arc": true,
+  "default_subspecs": "AdSDk",
+  "subspecs": [
+    {
+      "name": "AdSDk",
+      "resources": "WangMaiSDK/adwangmai_sdk.bundle",
+      "ios": {
+        "vendored_frameworks": "WangMaiSDK/AdWangMaiSDK.framework"
+      },
+      "frameworks": [
+        "AppTrackingTransparency",
+        "AssetsLibrary",
+        "AdSupport",
+        "Audiotoolbox",
+        "AddressBook",
+        "AVKit",
+        "AVFoundation",
+        "Accelerate",
+        "CFNetwork",
+        "CoreServices",
+        "CoreImage",
+        "CoreLocation",
+        "CoreTelephony",
+        "CoreText",
+        "CoreML",
+        "CoreMotion",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreMedia",
+        "CoreData",
+        "DeviceCheck",
+        "Foundation",
+        "ImageIO",
+        "JavaScriptCore",
+        "MobileCoreServices",
+        "MapKit",
+        "MessageUI",
+        "MediaPlayer",
+        "Photos",
+        "QuartzCore",
+        "QuickLook",
+        "SystemConfiguration",
+        "Security",
+        "StoreKit",
+        "SafariServices",
+        "UIKit",
+        "WebKit"
+      ],
+      "libraries": [
+        "z",
+        "resolv.9",
+        "xml2",
+        "c++",
+        "c++abi",
+        "z.1.2.5",
+        "sqlite3.0",
+        "sqlite3",
+        "bz2.1.0",
+        "bz2",
+        "iconv",
+        "resolv"
+      ]
+    },
+    {
+      "name": "JDYunAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "WangMaiSDK/JDYunAdapter/*.a",
+      "dependencies": {
+        "AdWangMaiSDK/AdSDk": [
+
+        ],
+        "JADYun": [
+          "2.6.8"
+        ],
+        "JADYunMotion": [
+          "2.6.8"
+        ]
+      }
+    },
+    {
+      "name": "GDTAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "WangMaiSDK/GDTAdapter/*.a",
+      "dependencies": {
+        "AdWangMaiSDK/AdSDk": [
+
+        ],
+        "GDTMobSDK": [
+          "4.15.30"
+        ]
+      }
+    },
+    {
+      "name": "TanxAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_libraries": "WangMaiSDK/TanxAdapter/*.a",
+      "dependencies": {
+        "TanxSDK": [
+          "3.6.6"
+        ],
+        "AdWangMaiSDK/AdSDk": [
+
+        ]
+      }
+    },
+    {
+      "name": "QuMengAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "WangMaiSDK/QuMengAdapter/*.a",
+      "dependencies": {
+        "QuMengAdSDK": [
+          "1.3.4"
+        ],
+        "AdWangMaiSDK/AdSDk": [
+
+        ]
+      }
+    },
+    {
+      "name": "OneAdapter",
+      "platforms": {
+        "ios": "11.0"
+      },
+      "vendored_libraries": "WangMaiSDK/OneAdapter/*.a",
+      "ios": {
+        "vendored_frameworks": "WangMaiSDK/OneAdapter/*.framework"
+      },
+      "resources": "WangMaiSDK/OneAdapter/*.bundle",
+      "dependencies": {
+        "AdWangMaiSDK/AdSDk": [
+
+        ]
+      }
+    }
+  ]
+}
