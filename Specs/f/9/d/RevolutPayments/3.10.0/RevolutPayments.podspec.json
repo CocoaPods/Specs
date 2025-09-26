@@ -1,0 +1,153 @@
+{
+  "name": "RevolutPayments",
+  "version": "3.10.0",
+  "summary": "Revolut - RevolutPayments",
+  "homepage": "https://bitbucket.org/revolut/revolut-payments-ios",
+  "source": {
+    "http": "https://bitbucket.org/revolut/revolut-payments-ios/raw/master/Releases/3.10.0/RevolutPayments.zip"
+  },
+  "license": {
+    "type": "Custom",
+    "file": "RevolutPayments/LICENSE"
+  },
+  "authors": {
+    "Revolut": "team@revolut.com"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "default_subspecs": "RevolutPaymentsAPI",
+  "subspecs": [
+    {
+      "name": "RevolutPaymentsAPI",
+      "source_files": "RevolutPayments/RevolutPayments/*.swift"
+    },
+    {
+      "name": "RevolutPayReactNativeBridge",
+      "source_files": "RevolutPayments/RevolutPayReactNativeBridge/*.swift",
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutPaymentsCore",
+      "vendored_frameworks": [
+        "RevolutPayments/Frameworks/RevolutPaymentsCore/RevolutPaymentsCore.xcframework"
+      ],
+      "resources": [
+        "RevolutPayments/Frameworks/RevolutPaymentsCore/Money.bundle",
+        "RevolutPayments/Frameworks/RevolutPaymentsCore/Pandora.bundle",
+        "RevolutPayments/Frameworks/RevolutPaymentsCore/RevolutPaymentsCoreSDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsAPI": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutMerchantCardForm",
+      "vendored_frameworks": [
+        "RevolutPayments/Frameworks/RevolutMerchantCardForm/RevolutMerchantCardForm.xcframework"
+      ],
+      "resources": [
+        "RevolutPayments/Frameworks/RevolutMerchantCardForm/RevolutMerchantCardFormSDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutApplePay",
+      "vendored_frameworks": [
+        "RevolutPayments/Frameworks/RevolutApplePay/RevolutApplePay.xcframework"
+      ],
+      "resources": [
+        "RevolutPayments/Frameworks/RevolutApplePay/RevolutApplePaySDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutPayLite",
+      "vendored_frameworks": [
+        "RevolutPayments/Frameworks/RevolutPayLite/RevolutPayLite.xcframework"
+      ],
+      "resources": [
+        "RevolutPayments/Frameworks/RevolutPayLite/RevolutPayLiteSDK.bundle",
+        "RevolutPayments/Frameworks/RevolutPayLite/RevolutPayCoreSDK.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "RevolutPay",
+      "vendored_frameworks": [
+        "RevolutPayments/Frameworks/RevolutPay/RevolutPay.xcframework"
+      ],
+      "resources": [
+        "RevolutPayments/Frameworks/RevolutPay/AddressKit.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/ApiErrors.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/CardInput.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/CountryKit.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/CurrencyKit.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/LottiePrivacyInfo.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/Networking.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutErrors.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutPasscode.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutPayCoreSDK.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutPayNativeSDK.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutPayUI.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutSSOCore.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutSSOThirdParty.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutSwiftUI.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutUIKit.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutUIKitAssets.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/RevolutUIKitAtom.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/ScreenCaptureProtector.bundle",
+        "RevolutPayments/Frameworks/RevolutPay/UIUtils.bundle"
+      ],
+      "dependencies": {
+        "RevolutPayments/RevolutPaymentsCore": [
+
+        ],
+        "HCaptcha": [
+          ">= 2.8",
+          "< 2.9.3"
+        ],
+        "InputMask": [
+          "~> 4.2"
+        ],
+        "lottie-ios": [
+          ">= 4.4.1",
+          "< 5.0"
+        ],
+        "PhoneNumberKit": [
+          ">= 4.0",
+          "< 4.0.2"
+        ],
+        "SDWebImage": [
+          ">= 5.19.1",
+          "< 6.0"
+        ],
+        "TrustKit": [
+          ">= 3.0.4",
+          "< 4.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
