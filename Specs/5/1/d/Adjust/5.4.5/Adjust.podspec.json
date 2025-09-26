@@ -1,0 +1,101 @@
+{
+  "name": "Adjust",
+  "module_name": "AdjustSdk",
+  "version": "5.4.5",
+  "summary": "This is the iOS SDK of Adjust. You can read more about it at https://adjust.com.",
+  "homepage": "https://github.com/adjust/ios_sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Adjust": "sdk@adjust.com"
+  },
+  "source": {
+    "git": "https://github.com/adjust/ios_sdk.git",
+    "tag": "v5.4.5"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0"
+  },
+  "frameworks": "SystemConfiguration",
+  "ios": {
+    "weak_frameworks": "AdSupport"
+  },
+  "tvos": {
+    "weak_frameworks": "AdSupport"
+  },
+  "default_subspecs": "Adjust",
+  "subspecs": [
+    {
+      "name": "Adjust",
+      "source_files": [
+        "Adjust/**/*.{h,m}",
+        "UmbrellaHeaders/sdk/*.{h,m}"
+      ],
+      "public_header_files": [
+        "Adjust/*.h",
+        "UmbrellaHeaders/sdk/*.h"
+      ],
+      "exclude_files": "Adjust/include/**/*.h",
+      "resource_bundles": {
+        "Adjust": [
+          "Adjust/*.xcprivacy"
+        ]
+      },
+      "header_dir": "AdjustSdk",
+      "dependencies": {
+        "AdjustSignature": [
+          "3.47.0"
+        ]
+      }
+    },
+    {
+      "name": "AdjustWebBridge",
+      "source_files": [
+        "Adjust/**/*.{h,m}",
+        "AdjustBridge/*.{h,m}",
+        "UmbrellaHeaders/webbridge/*.{h,m}"
+      ],
+      "public_header_files": [
+        "Adjust/*.h",
+        "AdjustBridge/*.h",
+        "UmbrellaHeaders/webbridge/*.h"
+      ],
+      "exclude_files": [
+        "Adjust/include/**/*.h",
+        "AdjustBridge/include/**/*.h"
+      ],
+      "resource_bundles": {
+        "Adjust": [
+          "Adjust/*.xcprivacy"
+        ]
+      },
+      "header_dir": "AdjustSdk",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "AdjustSignature": [
+          "3.47.0"
+        ]
+      }
+    },
+    {
+      "name": "AdjustGoogleOdm",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "plugins/odm/headers/*.{h,m}",
+        "plugins/odm/sources/cocoapods/*.{h,m}"
+      ],
+      "dependencies": {
+        "Adjust/Adjust": [
+
+        ]
+      }
+    }
+  ]
+}
