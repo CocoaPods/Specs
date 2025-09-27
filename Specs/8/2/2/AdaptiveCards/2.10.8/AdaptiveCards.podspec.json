@@ -1,0 +1,99 @@
+{
+  "name": "AdaptiveCards",
+  "version": "2.10.8",
+  "license": {
+    "type": "Adaptive Cards Binary EULA",
+    "file": "source/EULA-Non-Windows.txt"
+  },
+  "homepage": "https://adaptivecards.io",
+  "authors": {
+    "AdaptiveCards": "Joseph.Woo@microsoft.com"
+  },
+  "summary": "Adaptive Cards are a new way for developers to exchange card content in a common and consistent way",
+  "source": {
+    "git": "https://github.com/microsoft/AdaptiveCards-Mobile.git",
+    "tag": "iOS/adaptivecards-ios@2.10.8"
+  },
+  "default_subspecs": [
+    "AdaptiveCardsCore",
+    "AdaptiveCardsPrivate",
+    "ObjectModel",
+    "UIProviders"
+  ],
+  "swift_versions": [
+    "5.0"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_OBJC_INTERFACE_HEADER_NAME": "AdaptiveCards-Swift.h",
+    "CLANG_ENABLE_MODULES": "YES"
+  },
+  "platforms": {
+    "ios": "14"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "AVKit",
+    "CoreGraphics",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "exclude_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/include/**/*",
+  "subspecs": [
+    {
+      "name": "AdaptiveCardsCore",
+      "source_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/*.{h,m,mm,swift}",
+      "resource_bundles": {
+        "AdaptiveCards": [
+          "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/Resources/**/*"
+        ]
+      },
+      "dependencies": {
+        "AdaptiveCards/AdaptiveCardsPrivate": [
+
+        ],
+        "AdaptiveCards/ObjectModel": [
+
+        ],
+        "AdaptiveCards/SwiftBridge": [
+
+        ],
+        "SVGKit": [
+          ">= 3.0.0"
+        ]
+      }
+    },
+    {
+      "name": "ObjectModel",
+      "source_files": "source/shared/cpp/ObjectModel/**/*.{h,cpp}",
+      "header_mappings_dir": "source/shared/cpp/ObjectModel/",
+      "private_header_files": "source/shared/cpp/ObjectModel/**/*.{h}",
+      "xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+        "CLANG_CXX_LIBRARY": "libc++"
+      }
+    },
+    {
+      "name": "AdaptiveCardsPrivate",
+      "source_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/**/*.{h,m,mm}",
+      "header_mappings_dir": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/",
+      "private_header_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/PrivateHeaders/*.h"
+    },
+    {
+      "name": "SwiftBridge",
+      "source_files": "source/ios/AdaptiveCards/AdaptiveCards/AdaptiveCards/SwiftAdaptiveCards/**/*.{swift,h}"
+    },
+    {
+      "name": "UIProviders",
+      "dependencies": {
+        "MicrosoftFluentUI/Tooltip_ios": [
+          "~> 0.3.6"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "ADAPTIVECARDS_USE_FLUENT_TOOLTIPS=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
