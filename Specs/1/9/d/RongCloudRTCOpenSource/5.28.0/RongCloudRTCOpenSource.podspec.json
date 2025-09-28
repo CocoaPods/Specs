@@ -1,0 +1,57 @@
+{
+  "name": "RongCloudRTCOpenSource",
+  "version": "5.28.0",
+  "summary": "融云音视频开源 UI SourceCode SDK.",
+  "description": "RongCloudRTC UI SourceCode SDK for iOS.\n如果看不到最新版本，请使用 pod repo update 命令更新一下本地pod仓库.",
+  "homepage": "https://www.rongcloud.cn/",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2021 RongCloud"
+  },
+  "authors": {
+    "rongcloud": "https://www.rongcloud.cn/"
+  },
+  "social_media_url": "https://www.rongcloud.cn/",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/rongcloud/callkit-ios.git",
+    "tag": "5.28.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "DEFINES_MODULE": "YES",
+    "SWIFT_MODULE_NAME": "RongCloudRTCOpenSource"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "RongCallKit",
+  "subspecs": [
+    {
+      "name": "RongCallKit",
+      "source_files": [
+        "ios-rongcallkit/RongCallKit/RongCallKit.h",
+        "ios-rongcallkit/RongCallKit/**/*.{h,hpp,m,mm,cpp,swift}"
+      ],
+      "public_header_files": "ios-rongcallkit/RongCallKit/Header/*.h",
+      "private_header_files": "ios-rongcallkit/RongCallKit/Header/*.h",
+      "resources": "ios-rongcallkit/RongCallKit/Resources/**",
+      "dependencies": {
+        "RongCloudRTC/RongCallLib": [
+          "5.28.0"
+        ],
+        "RongCloudIM/IMKit": [
+          ">=5.28.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
