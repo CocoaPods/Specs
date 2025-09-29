@@ -1,0 +1,190 @@
+{
+  "name": "KSCrash",
+  "version": "2.4.0",
+  "summary": "The Ultimate iOS Crash Reporter",
+  "homepage": "https://github.com/kstenerud/KSCrash",
+  "license": {
+    "type": "KSCrash license agreement",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Karl Stenerud": "kstenerud@gmail.com"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "12.0",
+    "watchos": "5.0",
+    "visionos": "1.0"
+  },
+  "source": {
+    "git": "https://github.com/kstenerud/KSCrash.git",
+    "tag": "2.4.0"
+  },
+  "frameworks": "Foundation",
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "xcconfig": {
+    "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
+  },
+  "default_subspecs": "Installations",
+  "subspecs": [
+    {
+      "name": "Recording",
+      "dependencies": {
+        "KSCrash/RecordingCore": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashRecording/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashRecording/include/*.h",
+      "resource_bundles": {
+        "KSCrashRecording": "Sources/KSCrashRecording/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Filters",
+      "dependencies": {
+        "KSCrash/Recording": [
+
+        ],
+        "KSCrash/RecordingCore": [
+
+        ],
+        "KSCrash/ReportingCore": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashFilters/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashFilters/include/*.h",
+      "resource_bundles": {
+        "KSCrashFilters": "Sources/KSCrashFilters/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Sinks",
+      "dependencies": {
+        "KSCrash/Recording": [
+
+        ],
+        "KSCrash/Filters": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "MessageUI"
+      },
+      "source_files": "Sources/KSCrashSinks/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashSinks/include/*.h",
+      "resource_bundles": {
+        "KSCrashSinks": "Sources/KSCrashSinks/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Installations",
+      "dependencies": {
+        "KSCrash/Filters": [
+
+        ],
+        "KSCrash/Sinks": [
+
+        ],
+        "KSCrash/Recording": [
+
+        ],
+        "KSCrash/DemangleFilter": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashInstallations/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashInstallations/include/*.h",
+      "resource_bundles": {
+        "KSCrashInstallations": "Sources/KSCrashInstallations/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "RecordingCore",
+      "dependencies": {
+        "KSCrash/Core": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashRecordingCore/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashRecordingCore/include/*.h",
+      "resource_bundles": {
+        "KSCrashRecordingCore": "Sources/KSCrashRecordingCore/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "BootTimeMonitor",
+      "dependencies": {
+        "KSCrash/RecordingCore": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashBootTimeMonitor/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashBootTimeMonitor/include/*.h",
+      "resource_bundles": {
+        "KSCrashBootTimeMonitor": "Sources/KSCrashBootTimeMonitor/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "DiscSpaceMonitor",
+      "dependencies": {
+        "KSCrash/RecordingCore": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashDiscSpaceMonitor/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashDiscSpaceMonitor/include/*.h",
+      "resource_bundles": {
+        "KSCrashDiscSpaceMonitor": "Sources/KSCrashDiscSpaceMonitor/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "DemangleFilter",
+      "dependencies": {
+        "KSCrash/Recording": [
+
+        ]
+      },
+      "source_files": "Sources/KSCrashDemangleFilter/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashDemangleFilter/include/*.h",
+      "resource_bundles": {
+        "KSCrashDemangleFilter": "Sources/KSCrashDemangleFilter/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "ReportingCore",
+      "dependencies": {
+        "KSCrash/Core": [
+
+        ]
+      },
+      "ios": {
+        "frameworks": "SystemConfiguration"
+      },
+      "tvos": {
+        "frameworks": "SystemConfiguration"
+      },
+      "osx": {
+        "frameworks": "SystemConfiguration"
+      },
+      "source_files": "Sources/KSCrashReportingCore/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashReportingCore/include/*.h",
+      "resource_bundles": {
+        "KSCrashReportingCore": "Sources/KSCrashReportingCore/Resources/PrivacyInfo.xcprivacy"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/KSCrashCore/**/*.{h,m,mm,c,cpp,def}",
+      "public_header_files": "Sources/KSCrashCore/include/*.h",
+      "resource_bundles": {
+        "KSCrashCore": "Sources/KSCrashCore/Resources/PrivacyInfo.xcprivacy"
+      }
+    }
+  ]
+}
