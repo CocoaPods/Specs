@@ -1,0 +1,57 @@
+{
+  "name": "TrustWalletCore",
+  "version": "4.3.13",
+  "summary": "Trust Wallet core data structures and algorithms.",
+  "homepage": "https://github.com/trustwallet/wallet-core",
+  "license": "MIT",
+  "authors": {
+    "Alejandro Isaza": "al@isaza.ca"
+  },
+  "module_name": "WalletCore",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14"
+  },
+  "swift_versions": "5.1",
+  "source": {
+    "http": "https://github.com/trustwallet/wallet-core/releases/download/4.3.13/TrustWalletCore-4.3.13.tar.xz"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Types",
+      "source_files": [
+        "Sources/Types/*.swift",
+        "Sources/Generated/Enums/*.swift",
+        "Sources/Generated/Protobuf/*.swift"
+      ],
+      "dependencies": {
+        "WalletCoreSwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "*.xcframework",
+      "exclude_files": "Sources/Generated/WalletCore.h",
+      "source_files": [
+        "include/**/*.h",
+        "Sources/*.{swift,h,m,cpp}",
+        "Sources/Extensions/*.swift",
+        "Sources/Generated/*.{swift,h}"
+      ],
+      "public_header_files": [
+        "include/**/*.h",
+        "Sources/*.h"
+      ],
+      "libraries": "c++",
+      "dependencies": {
+        "TrustWalletCore/Types": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.1"
+}
