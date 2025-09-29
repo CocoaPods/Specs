@@ -1,0 +1,73 @@
+{
+  "name": "JZAdSDK",
+  "version": "1.9.3",
+  "summary": "A short description of JZAdSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/i-os-open/jzad-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "二跳": "14096268+two-jumps@user.noreply.gitee.com"
+  },
+  "source": {
+    "git": "git@gitee.com:i-os-open/jzad-sdk.git",
+    "tag": "1.9.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "xcconfig": {
+    "ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "VALID_ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": [
+          "JZAdSDK/Classes/JZAdSDK.framework"
+        ]
+      },
+      "dependencies": {
+        "CXHAdSDK/RC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Channel",
+      "dependencies": {
+        "JZAdSDK/Core": [
+
+        ],
+        "CXHAdSDK/Channel": [
+
+        ]
+      }
+    },
+    {
+      "name": "ChannelNoWechat",
+      "dependencies": {
+        "JZAdSDK/Core": [
+
+        ],
+        "CXHAdSDK/ChannelNoWechat": [
+
+        ]
+      }
+    }
+  ]
+}
