@@ -1,0 +1,40 @@
+{
+  "name": "HyperSDK",
+  "version": "2.2.4.10",
+  "summary": "Hyper visualization and payment processing.",
+  "description": "Create payment experiences for user to improve coversion and success rate.",
+  "homepage": "https://juspay.in/",
+  "license": {
+    "type": "LGPL",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sachin Sharma": "sachin.sharma@juspay.in"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resources": "Fuse.rb",
+  "source": {
+    "http": "https://public.releases.juspay.in/release/ios/hyper-sdk/2.2.4.10/HyperSDK.zip"
+  },
+  "dependencies": {
+    "JuspaySafeBrowser": [
+      "0.1.92"
+    ],
+    "HyperCore": [
+      "0.1.6"
+    ],
+    "Airborne": [
+      "0.1.0"
+    ]
+  },
+  "ios": {
+    "vendored_frameworks": "HyperSDK.xcframework"
+  },
+  "script_phases": {
+    "name": "Validate Mandatory Files",
+    "script": "\n#!/bin/bash\n\nSKIP_HYPERSDK_VALIDATION=$(launchctl getenv SKIP_HYPERSDK_VALIDATION 2>/dev/null);\n\n# Check if validation should be skipped\nif [ \"$SKIP_HYPERSDK_VALIDATION\" = \"true\" ] || [ \"$SKIP_HYPERSDK_VALIDATION\" = \"1\" ]; then\n    echo \"⚠️ Skipping HyperSDK validation\"\n    exit 0\nfi\n\nXCFRAMEWORK_PATH=\"${PODS_ROOT}/HyperSDK/HyperSDK.xcframework\"\n\n# Find all .bundle directories in the framework\nARCHITECTURES=(\"ios-arm64\")\nMANDATORY_FILES=(\"release_config.json\")\n\necho \"Validating HyperSDK mandatory files...\"\n\nfor arch in \"${ARCHITECTURES[@]}\"; do\n    FRAMEWORK_PATH=\"${XCFRAMEWORK_PATH}/${arch}/HyperSDK.framework\"\n    \n    for file in \"${MANDATORY_FILES[@]}\"; do\n        FILE_FOUND=false\n        \n        # Check in framework root first\n        FRAMEWORK_ROOT_PATH=\"${FRAMEWORK_PATH}/${file}\"\n        if [ -f \"$FRAMEWORK_ROOT_PATH\" ]; then\n            FILE_FOUND=true\n            echo \"✅ Found ${file} in framework root (${arch})\"\n        else\n            # Check in all bundle files\n            BUNDLES=($(find \"$FRAMEWORK_PATH\" -name \"*.bundle\" -type d 2>/dev/null))\n            \n            for bundle in \"${BUNDLES[@]}\"; do\n                BUNDLE_FILE_PATH=\"${bundle}/${file}\"\n                if [ -f \"$BUNDLE_FILE_PATH\" ]; then\n                    FILE_FOUND=true\n                    echo \"✅ Found ${file} in $(basename \"$bundle\") (${arch})\"\n                    break\n                fi\n            done\n        fi\n        \n        if [ \"$FILE_FOUND\" = false ]; then\n            echo \"❌ ERROR: Required files are missing in HyperSDK.xcframework\"\n            echo \"⚠️ Please check if your have added the post_install script and the MerchantConfig file\"\n            exit 1\n        fi\n    done\ndone\n\necho \"✅ HyperSDK properly configured\"\n    ",
+    "execution_position": "before_compile"
+  }
+}
