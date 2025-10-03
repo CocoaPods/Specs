@@ -1,0 +1,36 @@
+{
+  "name": "KHTweetNacl",
+  "version": "1.1.5",
+  "summary": "TweetNacl wrapper library written in Swift.",
+  "description": "A Swift wrapper for TweetNacl C library, this is a fork of the original proyect just to be able to set the IOS_DEPLOYMENT_TARGET to 12 to be able to use it as a dependency in other pods.",
+  "homepage": "https://github.com/khipu/tweetnacl-swiftwrap",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bitmark Inc": "support@bitmark.com"
+  },
+  "social_media_url": "https://twitter.com/bitmarkinc",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/khipu/tweetnacl-swiftwrap.git",
+    "tag": "1.1.5"
+  },
+  "source_files": "Sources/**/*.{swift,h,c}",
+  "public_header_files": "Sources/TweetNacl/TweetNacl.h",
+  "preserve_paths": "Sources/CTweetNacl/include/**/*",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]": "$(PODS_TARGET_SRCROOT)/Sources/CTweetNacl/include",
+    "SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]": "$(PODS_TARGET_SRCROOT)/Sources/CTweetNacl/include",
+    "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/CTweetNacl/include $(PODS_TARGET_SRCROOT)/Sources/CTweetNacl $(inherited)",
+    "LIBRARY_SEARCH_PATHS": "$(inherited)",
+    "OTHER_CFLAGS": "-fmodule-map-file=$(PODS_TARGET_SRCROOT)/Sources/CTweetNacl/include/module.modulemap",
+    "OTHER_SWIFT_FLAGS": "-Xcc -fmodule-map-file=$(PODS_TARGET_SRCROOT)/Sources/CTweetNacl/include/module.modulemap"
+  },
+  "frameworks": "Foundation",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}
