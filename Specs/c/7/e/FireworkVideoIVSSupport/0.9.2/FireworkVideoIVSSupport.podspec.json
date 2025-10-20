@@ -1,0 +1,37 @@
+{
+  "name": "FireworkVideoIVSSupport",
+  "version": "0.9.2",
+  "summary": "FireworkVideoIVSSupport",
+  "homepage": "https://github.com/loopsocial/firework_ios_sdk_ivs_support",
+  "license": {
+    "text": "Copyright 2023 Loop Now Technologies, Inc.",
+    "type": "Copyright"
+  },
+  "authors": "Loop Now Technologies, Inc.",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "module_name": "FireworkVideoIVSSupport",
+  "source": {
+    "http": "https://github.com/loopsocial/firework_ios_sdk_ivs_support/releases/download/v0.9.2/FireworkVideoIVSSupport-v0.9.2.xcframework.zip"
+  },
+  "swift_versions": "5.3",
+  "preserve_paths": "FireworkVideoIVSSupport.xcframework",
+  "ios": {
+    "vendored_frameworks": "FireworkVideoIVSSupport.xcframework"
+  },
+  "cocoapods_version": ">= 1.10.0",
+  "script_phases": {
+    "name": "Check FireworkVideo version from FireworkVideoIVSSupport",
+    "script": "\n    LIBRARY_NAME=\"FireworkVideo\"\n    BASE_VERSION=\"1.29.0\"\n\n    INFO_PLIST_PATH=\"${PODS_ROOT}/\"$LIBRARY_NAME\"/\"$LIBRARY_NAME\".xcframework/ios-arm64/\"$LIBRARY_NAME\".framework/Info.plist\"\n    if [ ! -e \"$INFO_PLIST_PATH\" ]; then\n      echo \"$LIBRARY_NAME is not installed.\"\n      exit 0\n    fi\n\n    FRAMEWORK_VERSION=$(plutil -convert xml1 -o - \"$INFO_PLIST_PATH\" | grep -A 1 \"<key>CFBundleShortVersionString</key>\" | grep \"<string>\" | sed \"s/.*<string>\\(.*\\)<\\/string>.*/\\1/\")\n    echo \"Checking $LIBRARY_NAME version: $FRAMEWORK_VERSION\"\n    if [[ -n \"$FRAMEWORK_VERSION\" ]]; then\n      if awk \"BEGIN {exit !(ARGV[1] < ARGV[2])}\" \"$FRAMEWORK_VERSION\" \"$BASE_VERSION\"; then\n        echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is incompatible with the current version of FireworkVideoIVSSupport. Please use a version of $LIBRARY_NAME that is $BASE_VERSION or higher.\"\n      exit 1\n      else\n        echo \"Version $FRAMEWORK_VERSION of $LIBRARY_NAME is compatible with the current version of FireworkVideoIVSSupport.\"\n      fi\n    else\n      echo \"Failed to extract framework version.\"\n    fi\n    ",
+    "output_files": [
+      "${DERIVED_FILE_DIR}/out.txt"
+    ]
+  },
+  "dependencies": {
+    "AmazonIVSPlayer": [
+      "1.38.0"
+    ]
+  },
+  "swift_version": "5.3"
+}
