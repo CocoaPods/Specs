@@ -1,0 +1,86 @@
+{
+  "name": "QXMSDK",
+  "version": "1.2.0.9",
+  "summary": "QXMSDK - 广告SDK聚合平台",
+  "description": "QXMSDK - 广告SDK聚合平台，支持多种广告平台适配器。\n采用subspec架构，可按需集成核心SDK和各个适配器。",
+  "homepage": "https://github.com/houjianzheng/QXMSDK",
+  "license": {
+    "type": "MIT",
+    "text": "                   Copyright 2012\n                   Permission is granted to...\n"
+  },
+  "authors": {
+    "mumu": "houjianzheng@qimao.com"
+  },
+  "source": {
+    "http": "https://qmx-ad-sdk.oss-cn-shanghai.aliyuncs.com/1.2.0.9/LuckyCatSDK.zip"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "MobileCoreServices",
+    "CoreGraphics",
+    "Security",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "AdSupport",
+    "CoreData",
+    "StoreKit",
+    "AVFoundation",
+    "MediaPlayer",
+    "CoreMedia",
+    "WebKit",
+    "Accelerate",
+    "CoreLocation",
+    "AVKit",
+    "MessageUI",
+    "QuickLook",
+    "AudioToolBox",
+    "JavaScriptCore",
+    "CoreMotion"
+  ],
+  "libraries": [
+    "z",
+    "resolv.9",
+    "sqlite3",
+    "c++",
+    "c++abi"
+  ],
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "LuckyCatSDK/QXMAdSDK.xcframework",
+      "resources": "LuckyCatSDK/QXMAdSDK.bundle"
+    },
+    {
+      "name": "KSAdapter",
+      "vendored_frameworks": "LuckyCatSDK/QXMKSAdapter.xcframework",
+      "dependencies": {
+        "QXMSDK/Core": [
+
+        ],
+        "KSAdSDK": [
+          "~> 3.3.76.5"
+        ]
+      }
+    },
+    {
+      "name": "QuMengAdapter",
+      "vendored_frameworks": "LuckyCatSDK/QXMQuMengAdapter.xcframework",
+      "dependencies": {
+        "QXMSDK/Core": [
+
+        ],
+        "QuMengAdSDK": [
+          "~> 1.3.4"
+        ]
+      }
+    }
+  ]
+}
