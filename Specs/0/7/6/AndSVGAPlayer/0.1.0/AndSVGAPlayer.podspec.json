@@ -1,0 +1,53 @@
+{
+  "name": "AndSVGAPlayer",
+  "version": "0.1.0",
+  "summary": "SVGAPlayer for iOS with bug fixes",
+  "description": "iOS SVGAPlayer, fix bugs and improve stability",
+  "homepage": "https://github.com/DrXbobo/AndSVGAPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wenbo xu": "xuwenbo@sencent.com"
+  },
+  "source": {
+    "git": "https://github.com/DrXbobo/AndSVGAPlayer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 4.33.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          "~> 2.4.3"
+        ],
+        "AndSVGAPlayer/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    }
+  ],
+  "swift_version": "5.0"
+}
