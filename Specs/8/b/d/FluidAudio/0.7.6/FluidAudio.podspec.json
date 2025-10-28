@@ -1,0 +1,84 @@
+{
+  "name": "FluidAudio",
+  "version": "0.7.6",
+  "summary": "Speaker diarization, voice-activity-detection and transcription with CoreML",
+  "description": "Fluid Audio is a Swift SDK for fully local, low-latency audio AI on Apple devices,\nwith inference offloaded to the Apple Neural Engine (ANE). The SDK includes\nstate-of-the-art speaker diarization, transcription, and voice activity detection\nvia open-source models that can be integrated with just a few lines of code.",
+  "homepage": "https://github.com/FluidInference/FluidAudio",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "FluidInference": "info@fluidinference.com"
+  },
+  "platforms": {
+    "ios": "17.0",
+    "osx": "14.0"
+  },
+  "source": {
+    "git": "https://github.com/FluidInference/FluidAudio.git",
+    "tag": "v0.7.6"
+  },
+  "swift_versions": [
+    "5.10"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "ARCHS[sdk=macosx*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=macosx*]": "x86_64",
+    "ARCHS[sdk=iphonesimulator*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "ARCHS[sdk=iphoneos*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "ARCHS[sdk=macosx*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=macosx*]": "x86_64",
+    "ARCHS[sdk=iphonesimulator*]": "arm64",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386 x86_64",
+    "ARCHS[sdk=iphoneos*]": "arm64"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "FastClusterWrapper",
+      "requires_arc": false,
+      "source_files": "Sources/FastClusterWrapper/**/*.{cpp,h,hpp}",
+      "public_header_files": "Sources/FastClusterWrapper/include/FastClusterWrapper.h",
+      "private_header_files": "Sources/FastClusterWrapper/fastcluster_internal.hpp",
+      "header_mappings_dir": "Sources/FastClusterWrapper",
+      "pod_target_xcconfig": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++17"
+      }
+    },
+    {
+      "name": "Core",
+      "dependencies": {
+        "FluidAudio/FastClusterWrapper": [
+
+        ]
+      },
+      "source_files": "Sources/FluidAudio/**/*.swift",
+      "ios": {
+        "exclude_files": "Sources/FluidAudio/TextToSpeech/**/*",
+        "frameworks": [
+          "CoreML",
+          "AVFoundation",
+          "Accelerate",
+          "UIKit"
+        ]
+      },
+      "osx": {
+        "vendored_frameworks": "Sources/FluidAudio/Frameworks/ESpeakNG.xcframework",
+        "frameworks": [
+          "CoreML",
+          "AVFoundation",
+          "Accelerate",
+          "Cocoa"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.10"
+}
