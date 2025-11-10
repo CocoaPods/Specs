@@ -1,0 +1,71 @@
+{
+  "name": "WebServerKit",
+  "version": "3.5.5",
+  "authors": [
+    "Pierre-Olivier Latour",
+    "Tim Oliver"
+  ],
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/TimOliver/WebServerKit",
+  "summary": "Lightweight GCD based HTTP server for OS X & iOS. A fork of GCDWebServer.",
+  "source": {
+    "git": "https://github.com/TimOliver/WebServerKit.git",
+    "tag": "3.5.5"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.15"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "GCDWebServer/**/*.{h,m}",
+      "private_header_files": "GCDWebServer/Core/GCDWebServerPrivate.h",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "z",
+        "frameworks": [
+          "CoreServices",
+          "CFNetwork"
+        ]
+      },
+      "osx": {
+        "libraries": "z",
+        "frameworks": "SystemConfiguration"
+      }
+    },
+    {
+      "name": "WebDAV",
+      "dependencies": {
+        "WebServerKit/Core": [
+
+        ]
+      },
+      "source_files": "GCDWebDAVServer/*.{h,m}",
+      "requires_arc": true,
+      "ios": {
+        "libraries": "xml2"
+      },
+      "osx": {
+        "libraries": "xml2"
+      },
+      "compiler_flags": "-I$(SDKROOT)/usr/include/libxml2"
+    },
+    {
+      "name": "WebUploader",
+      "dependencies": {
+        "WebServerKit/Core": [
+
+        ]
+      },
+      "source_files": "GCDWebUploader/*.{h,m}",
+      "requires_arc": true,
+      "resources": "GCDWebUploader/GCDWebUploader.bundle"
+    }
+  ]
+}
