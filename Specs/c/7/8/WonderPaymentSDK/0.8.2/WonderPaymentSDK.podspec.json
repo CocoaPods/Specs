@@ -1,0 +1,65 @@
+{
+  "name": "WonderPaymentSDK",
+  "version": "0.8.2",
+  "summary": "Wonder Payment SDK for iOS devices",
+  "description": "beta testing",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "homepage": "https://wonder.app/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jax": "jax.xu@bindo.com"
+  },
+  "source": {
+    "git": "https://github.com/wonder-sources/WonderPayment-iOS.git",
+    "tag": "0.8.2"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0",
+    "5.1"
+  ],
+  "resource_bundles": {
+    "WonderPaymentSDK_Resources": [
+      "WonderPaymentSDK/Assets/anim/**.*",
+      "WonderPaymentSDK/Assets/icons/common/**.*",
+      "WonderPaymentSDK/Assets/icons/flags/**.*",
+      "WonderPaymentSDK/Assets/fonts/**.*"
+    ]
+  },
+  "source_files": "WonderPaymentSDK/Classes/**/*",
+  "frameworks": "PassKit",
+  "dependencies": {
+    "AlipaySDK-iOS": [
+
+    ],
+    "WechatOpenSDK-XCFramework": [
+
+    ],
+    "SVGKit": [
+
+    ],
+    "lottie-ios": [
+      "~> 3.4.0"
+    ],
+    "IQKeyboardManagerSwift": [
+      "6.3.0"
+    ],
+    "UPPay": [
+
+    ]
+  },
+  "static_framework": true,
+  "script_phases": [
+    {
+      "name": "UpdateQueriesSchemes",
+      "script": "        SCHEMES=(\n            \"weixin\"\n            \"weixinULAPI\"\n            \"weixinURLParamsAPI\"\n            \"uppaysdk\"\n            \"uppaywallet\"\n            \"uppayx1\"\n            \"uppayx2\"\n            \"uppayx3\"\n            \"octopus\"\n            \"alipayhk\"\n            \"alipays\"\n          )\n          \n        cd \"${PODS_ROOT}/../\"\n\n        # 自动查找当前目录下的 Xcode 项目文件（.xcodeproj）\n        project_file=$(find . -maxdepth 1 -name \"*.xcodeproj\" -print -quit)\n        if [ -z \"$project_file\" ]; then\n          echo \"⚠️ 警告：未找到 Xcode 项目文件 (.xcodeproj)，请手动添加QueriesSchemes！\"\n          exit 0\n        fi\n\n        # 获取所有 Targets\n        echo \"正在提取 Targets...\"\n        targets=$(xcodebuild -list -project \"$project_file\" | awk '/Targets:/ {flag=1; next} /^$/ {flag=0} flag {gsub(/^[[:space:]]+/, \"\", $0); print}')\n\n        # 存储符合条件的 Info.plist 路径\n        declare -a info_plist_files=()\n\n        # 遍历每个 Target\n        for target in $targets; do\n          echo \"正在检查 Target: $target\"\n          \n          # 获取 Build Settings 并过滤应用类型\n          build_settings=$(xcodebuild -target \"$target\" -project \"$project_file\" -showBuildSettings 2>/dev/null)\n          if echo \"$build_settings\" | grep -q \"PRODUCT_TYPE = com.apple.product-type.application\"; then\n            echo \"  ✅ 是应用程序类型\"\n            \n            # 提取 INFOPLIST_FILE 路径\n            plist_path=$(echo \"$build_settings\" | awk -F ' *= *' '/^ *INFOPLIST_FILE *=/{print $2}')\n            \n            if [ -n \"$plist_path\" ]; then\n              info_plist_files+=(\"$plist_path\")\n              echo \"  ✅ 找到 Info.plist: $plist_path\"\n            else\n              echo \"  ⚠️ 未找到 INFOPLIST_FILE\"\n            fi\n          else\n            echo \"  ❌ 非应用程序类型（跳过）\"\n          fi\n        done\n\n\n        for INFOPLIST_PATH in \"${info_plist_files[@]}\"; do\n          echo \"正在修改▸ $INFOPLIST_PATH\"\n          \n           PLIST_BUDDY=\"/usr/libexec/PlistBuddy\"\n                  \n           # 检查或创建 LSApplicationQueriesSchemes 数组\n           if ! ${PLIST_BUDDY} -c \"Print :LSApplicationQueriesSchemes\" \"${INFOPLIST_PATH}\" &>/dev/null; then\n             ${PLIST_BUDDY} -c \"Add :LSApplicationQueriesSchemes array\" \"${INFOPLIST_PATH}\" || true\n             echo \"✅ 创建 LSApplicationQueriesSchemes 数组\"\n           fi\n          \n           # 遍历所有需要添加的 Scheme\n           for SCHEME in \"${SCHEMES[@]}\"; do\n             # 检查是否已存在\n             if ${PLIST_BUDDY} -c \"Print :LSApplicationQueriesSchemes\" \"${INFOPLIST_PATH}\" | grep -q \"${SCHEME}\"; then\n               echo \"   [已存在] ${SCHEME}\"\n             else\n               # 添加到数组末尾\n               ${PLIST_BUDDY} -c \"Add :LSApplicationQueriesSchemes: string ${SCHEME}\" \"${INFOPLIST_PATH}\" || true\n               echo \"   ✅ 添加 ${SCHEME}\"\n             fi\n           done\n        done\n",
+      "execution_position": "before_compile"
+    }
+  ],
+  "swift_version": "5.1"
+}
