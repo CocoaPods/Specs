@@ -1,0 +1,75 @@
+{
+  "name": "RTBSDK",
+  "version": "1.9.0",
+  "summary": "Mobile Ad Mediation Framework",
+  "xcconfig": {
+    "VALID_ARCHS": "arm64 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64 arm64"
+  },
+  "description": "Integrate RTBSDK to maximise your revenues.",
+  "homepage": "https://aatkit.gitbook.io/ios-integration",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2012\\u20132023 AddApptr GmbH."
+  },
+  "authors": {
+    "Gravite GmbH": "support@gravite.net"
+  },
+  "social_media_url": "https://www.linkedin.com/company/gravite-2023",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "http": "https://ios-sdk-rtb.gravite.net/RTBSDK-1.9.0.zip",
+    "sha256": "effd1ee860fc08bf5369579082bc49d3f7cb0b9d43fa4b40ca5700f40ba4d134"
+  },
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "dependencies": {
+        "RTBSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "RTBSDK/RTBSDK.xcframework",
+        "RTBSDK/OMSDK_Addapptr.xcframework"
+      ]
+    },
+    {
+      "name": "AppLovinCustomAdapter",
+      "dependencies": {
+        "RTBSDK/Core": [
+
+        ],
+        "AppLovinSDK": [
+          "13.4.0"
+        ]
+      },
+      "vendored_frameworks": [
+        "RTBSDK/GraviteRTBAppLovinMediationAdapter.xcframework"
+      ]
+    },
+    {
+      "name": "GraviteRTBAdMobMediationAdapter",
+      "dependencies": {
+        "RTBSDK/Core": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "12.13.0"
+        ]
+      },
+      "vendored_frameworks": [
+        "RTBSDK/GraviteRTBAdMobMediationAdapter.xcframework"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
