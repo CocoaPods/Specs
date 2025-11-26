@@ -1,0 +1,90 @@
+{
+  "name": "Backpack",
+  "version": "85.0.0",
+  "summary": "Skyscanner's Design System Backpack for iOS",
+  "description": "The Skyscanner Design System, Backpack, for iOS apps",
+  "homepage": "https://github.com/Skyscanner/backpack-ios",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Backpack Design System": "backpack@skyscanner.net"
+  },
+  "source": {
+    "git": "https://github.com/Skyscanner/backpack-ios.git",
+    "tag": "85.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": [
+    "Backpack/Backpack.h",
+    "Backpack/Common.h",
+    "Backpack/*/Classes/**/*.{h,m,swift}"
+  ],
+  "exclude_files": "Backpack/Tests/**",
+  "public_header_files": [
+    "Backpack/Backpack.h",
+    "Backpack/*/Classes/**/*.h"
+  ],
+  "private_header_files": "Backpack/{BorderWidth,Color,Duration,Font,Radii,Shadow,Spacing}/Classes/Generated/**/*.h",
+  "dependencies": {
+    "FloatingPanel": [
+      "2.8.6"
+    ],
+    "Backpack-Common": [
+
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreText"
+  ],
+  "requires_arc": true,
+  "swift_versions": [
+    "5.0",
+    "4.2",
+    "4.0"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Backpack\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\""
+  },
+  "script_phases": [
+    {
+      "name": "Backpack Generated Headers",
+      "execution_position": "before_compile",
+      "shell_path": "/bin/sh",
+      "script": "set -euo pipefail\n\n# Only run when building the Backpack pod itself.\nTARGET_ENV=\"${TARGET_NAME:-${TARGETNAME:-}}\"\ncase \"$TARGET_ENV\" in\n  \"Backpack\"|\"Pods-Backpack\")\n    ;;\n  *)\n    exit 0\n    ;;\nesac\n\nif [ -z \"${PUBLIC_HEADERS_FOLDER_PATH:-}\" ]; then\n  exit 0\nfi\n\nDEST=\"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/Generated\"\nmkdir -p \"$DEST\"\nrm -f \"$DEST\"/*.h\n\nfind \"${PODS_TARGET_SRCROOT}/Backpack\" -path '*/Classes/Generated/*.h' -print0 | while IFS= read -r -d '' HEADER; do\n  case \"$HEADER\" in\n    *\"/Icon/\"*)\n      continue\n      ;;\n  esac\n  cp -f \"$HEADER\" \"$DEST/$(basename \"$HEADER\")\"\ndone\n"
+    }
+  ],
+  "testspecs": [
+    {
+      "name": "SnapshotTests",
+      "test_type": "unit",
+      "dependencies": {
+        "SnapshotTesting": [
+          "~> 1.9.0"
+        ]
+      },
+      "source_files": "Backpack/Tests/SnapshotTests/**/*.{swift,h,m}",
+      "ios": {
+        "resource_bundles": {
+          "SnapshotTestImages": "Backpack/Tests/SnapshotTests/Images*"
+        }
+      }
+    },
+    {
+      "name": "UnitTests",
+      "test_type": "unit",
+      "source_files": "Backpack/Tests/UnitTests/**/*.{swift,h,m}",
+      "ios": {
+        "resource_bundles": {
+          "UnitTestImages": "Backpack/Tests/UnitTests/Images*"
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
