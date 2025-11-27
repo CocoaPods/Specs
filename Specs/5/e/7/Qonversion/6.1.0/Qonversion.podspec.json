@@ -1,0 +1,122 @@
+{
+  "name": "Qonversion",
+  "swift_versions": "5.5",
+  "version": "6.1.0",
+  "summary": "qonversion.io",
+  "description": "Deep Analytics for iOS Subscriptions\n  Qonversion is the data platform to power in-app subscription revenue growth. Qonversion allows fast in-app subscriptions implementation. It provides the back-end infrastructure to validate user receipts and manage cross-platform user access to paid content on your app, so you do not need to build your own server. Qonversion also provides comprehensive subscription analytics and out-of-the-box integrations with the leading marketing, attribution, and product analytics platforms.\n  \n  This SDK also includes No-Codes functionality for building and customizing paywall and onboarding screens without writing code, enabling seamless integration of pre-built subscription UI components.",
+  "homepage": "https://github.com/qonversion/qonversion-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Qonversion Inc.": "hi@qonversion.io"
+  },
+  "source": {
+    "git": "https://github.com/qonversion/qonversion-ios-sdk.git",
+    "tag": "6.1.0"
+  },
+  "frameworks": "StoreKit",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.12",
+    "tvos": "9.0",
+    "watchos": "6.2",
+    "visionos": "1.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "WebKit"
+    ]
+  },
+  "watchos": {
+    "frameworks": [
+      "WatchKit"
+    ]
+  },
+  "visionos": {
+    "frameworks": [
+      "RealityKit"
+    ]
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "Qonversion": [
+      "Sources/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS[sdk=xrsimulator*]": "$(inherited) VISION_OS",
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS[sdk=xros*]": "$(inherited) VISION_OS",
+    "DEFINES_MODULE": "YES"
+  },
+  "default_subspecs": "Main",
+  "subspecs": [
+    {
+      "name": "Main",
+      "source_files": [
+        "Sources/Qonversion/**/*.{h,m}",
+        "Sources/Swift/**/*.swift",
+        "Sources/NoCodes/**/*.swift"
+      ],
+      "osx": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift"
+        ]
+      },
+      "tvos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift"
+        ]
+      },
+      "watchos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift"
+        ]
+      },
+      "visionos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift"
+        ]
+      }
+    },
+    {
+      "name": "NoIdfa",
+      "source_files": [
+        "Sources/Qonversion/**/*.{h,m}",
+        "Sources/Swift/**/*.swift"
+      ],
+      "osx": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift",
+          "Sources/Qonversion/IDFA"
+        ]
+      },
+      "tvos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift",
+          "Sources/Qonversion/IDFA"
+        ]
+      },
+      "watchos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift",
+          "Sources/Qonversion/IDFA"
+        ]
+      },
+      "visionos": {
+        "exclude_files": [
+          "Sources/NoCodes/**/*.swift",
+          "Sources/Qonversion/IDFA"
+        ]
+      },
+      "ios": {
+        "exclude_files": [
+          "Sources/Qonversion/IDFA"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.5"
+}
