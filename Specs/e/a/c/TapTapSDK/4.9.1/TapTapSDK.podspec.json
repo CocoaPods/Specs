@@ -1,0 +1,227 @@
+{
+  "name": "TapTapSDK",
+  "version": "4.9.1",
+  "summary": "TapTap SDK 统一接入方式，支持按需引入各个功能模块",
+  "swift_versions": "5.0",
+  "description": "TapTap SDK 提供了 TapTap 游戏服务的完整功能，包括：\n- 数据分析（Core）\n- 用户登录（Login）\n- 成就系统（Achievement）\n- 排行榜（Leaderboard）\n- 内嵌动态（Moment）\n- 合规认证（Compliance）\n- 云存档（CloudSave）\n- 好友系统（Relation/RelationLite）\n- 用户资料（Profile）\n- 分享功能（Share）\n\n支持两种使用方式：\n1. 独立 Pod 方式（推荐现有用户）：pod 'TapTapLoginSDK'\n2. Subspec 方式（推荐新用户）：pod 'TapTapSDK/Login'",
+  "homepage": "https://github.com/taptap/TapSDK4-frameworks",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "TapTap",
+  "source": {
+    "git": "https://github.com/taptap/TapSDK4-frameworks.git",
+    "tag": "4.9.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Gid",
+      "vendored_frameworks": [
+        "Frameworks/TapTapBasicToolsSDK.xcframework",
+        "Frameworks/THEMISLite.xcframework",
+        "Frameworks/TapTapNetworkSDK.xcframework",
+        "Frameworks/TapTapGidSDK.xcframework",
+        "Frameworks/tapsdkcorecpp.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "GameController"
+      ],
+      "libraries": [
+        "c++"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lz.1"
+      },
+      "pod_target_xcconfig": {
+        "CLANG_MODULES_AUTOLINK": "NO"
+      }
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/TapTapCoreSDK.xcframework",
+      "dependencies": {
+        "TapTapSDK/Gid": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "GameController"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Login",
+      "vendored_frameworks": [
+        "Frameworks/TapTapLoginSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapLoginResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "CoreTelephony",
+        "SystemConfiguration",
+        "AdSupport",
+        "GameController"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Achievement",
+      "vendored_frameworks": [
+        "Frameworks/TapTapAchievementSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapAchievementResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Login": [
+
+        ]
+      }
+    },
+    {
+      "name": "Moment",
+      "vendored_frameworks": [
+        "Frameworks/TapTapMomentSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapMomentResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Login": [
+
+        ]
+      }
+    },
+    {
+      "name": "Compliance",
+      "vendored_frameworks": [
+        "Frameworks/TapTapComplianceSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapComplianceResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Login": [
+
+        ]
+      }
+    },
+    {
+      "name": "CloudSave",
+      "vendored_frameworks": [
+        "Frameworks/TapTapCloudSaveSDK.xcframework",
+        "Frameworks/cloudsave_sdk.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "dependencies": {
+        "TapTapSDK/Login": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-lz.1"
+      },
+      "pod_target_xcconfig": {
+        "CLANG_MODULES_AUTOLINK": "NO"
+      }
+    },
+    {
+      "name": "Share",
+      "vendored_frameworks": "Frameworks/TapTapShareSDK.xcframework",
+      "dependencies": {
+        "TapTapSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Profile",
+      "vendored_frameworks": [
+        "Frameworks/TapTapProfileSDK.xcframework",
+        "Frameworks/TapTapKingfisher.xcframework"
+      ],
+      "resources": "Frameworks/TapTapProfileResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Login": [
+
+        ]
+      }
+    },
+    {
+      "name": "RelationLite",
+      "vendored_frameworks": [
+        "Frameworks/TapTapRelationLiteSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapRelationLiteResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Profile": [
+
+        ]
+      }
+    },
+    {
+      "name": "Relation",
+      "vendored_frameworks": [
+        "Frameworks/TapTapRelationSDK.xcframework",
+        "Frameworks/bifrost_sdk.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapRelationResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Profile": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "CLANG_MODULES_AUTOLINK": "NO"
+      }
+    },
+    {
+      "name": "Leaderboard",
+      "vendored_frameworks": [
+        "Frameworks/TapTapLeaderboardSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "resources": "Frameworks/TapTapLeaderboardResource.bundle",
+      "dependencies": {
+        "TapTapSDK/Profile": [
+
+        ]
+      }
+    },
+    {
+      "name": "Rep",
+      "vendored_frameworks": [
+        "Frameworks/TapTapRepSDK.xcframework",
+        "Frameworks/TapTapSDKBridgeCore.xcframework"
+      ],
+      "dependencies": {
+        "TapTapSDK/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
