@@ -1,0 +1,74 @@
+{
+  "name": "YieldloveAdIntegration",
+  "version": "10.3.0",
+  "summary": "A lightweight SDK that helps publishers maximize ad revenue across mobile websites and apps.",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE"
+  },
+  "description": "We provide publishers with a platform that maximizes ad monetization, ensuring every impression is optimized for top-tier revenue performance.",
+  "homepage": "https://yieldlove.com/",
+  "documentation_url": "https://stroeerdigitalgroup.atlassian.net/wiki/x/FgGyc",
+  "authors": {
+    "Stroeer Labs": "stroeerlabs@adscale.co.nz"
+  },
+  "source": {
+    "http": "https://slabs-yieldlove-ad-integration.s3.eu-central-1.amazonaws.com/ios/yieldlove-ad-integration-10.3.0.tgz"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "15.0"
+  },
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "YieldloveAdIntegration/Classes/**/*.{swift,h,m,mm}",
+      "resource_bundles": {
+        "YieldloveAdIntegration": [
+          "YieldloveAdIntegration/Resources/*.xcprivacy"
+        ]
+      },
+      "dependencies": {
+        "PrebidMobile": [
+          "3.1.0"
+        ],
+        "PromiseKit": [
+          "~>8"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~>12"
+        ]
+      }
+    },
+    {
+      "name": "Consent",
+      "preserve_paths": "Plugins/YieldloveConsent/YieldloveConsent/**/*",
+      "source_files": "Plugins/YieldloveConsent/YieldloveConsent/Classes/**/*.swift",
+      "dependencies": {
+        "YieldloveAdIntegration/Core": [
+
+        ],
+        "ConsentViewController": [
+          "~>7.7.7"
+        ]
+      }
+    },
+    {
+      "name": "Gravite",
+      "preserve_paths": "Plugins/Backfill/GravitePlugin/**/*",
+      "source_files": "Plugins/Backfill/GravitePlugin/GravitePlugin/Classes/**/*.swift",
+      "dependencies": {
+        "AATKit/Core": [
+          "3.12.3"
+        ],
+        "YieldloveAdIntegration/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
