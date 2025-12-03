@@ -1,0 +1,119 @@
+{
+  "name": "HXSDK",
+  "version": "5.0.3",
+  "summary": "HXSDK for iOS.",
+  "homepage": "https://gitee.com/octmon/hxsdk-ios.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "octmon": "octmon@qq.com"
+  },
+  "source": {
+    "git": "https://gitee.com/octmon/hxsdk-ios.git",
+    "tag": "5.0.3"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 armv7s x86_64 arm64"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "HXSDK.framework",
+      "source_files": "HXSDK.framework/Headers/*.h",
+      "public_header_files": "HXSDK.framework/Headers/*.h"
+    },
+    {
+      "name": "PTG",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ],
+        "PTGAdFramework": [
+          "~> 2.2.84"
+        ]
+      }
+    },
+    {
+      "name": "UBiX",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ],
+        "UBiXMerakSDK": [
+          "~> 2.8.0"
+        ]
+      }
+    },
+    {
+      "name": "Mobile",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ]
+      },
+      "frameworks": "AdSupport",
+      "vendored_frameworks": [
+        "Frameworks/CJMobileAd/LingYeLibs/*.xcframework",
+        "Frameworks/CJMobileAd/LingYeLibs/*.framework",
+        "Frameworks/CJWmAdSDK/Classes/*.{xcframework,framework}"
+      ],
+      "vendored_libraries": "Frameworks/CJWmAdSDK/Classes/*.a",
+      "resources": [
+        "Frameworks/CJMobileAd/Assets/*.bundle",
+        "Frameworks/CJWmAdSDK/Assets/*.bundle"
+      ]
+    },
+    {
+      "name": "IconAd",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ],
+        "CXHAdSDK/ChannelNoWechat": [
+          "~> 1.9.2"
+        ],
+        "CXHAdSDK/RC": [
+          "~> 1.9.2"
+        ]
+      }
+    },
+    {
+      "name": "LH",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Frameworks/LH/LHAdSDK.xcframework",
+        "Frameworks/LH/LHAdMotion.xcframework",
+        "Frameworks/LH/LHAdvertisingID.xcframework"
+      ],
+      "resources": "Frameworks/LH/LHAdSDK.bundle"
+    },
+    {
+      "name": "YT",
+      "dependencies": {
+        "HXSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Frameworks/YouTuiAd/YouTuiAdSDK.xcframework",
+        "Frameworks/YouTuiAd/YTRelayFoundation.xcframework"
+      ],
+      "resources": "Frameworks/YouTuiAd/YouTuiAdSDK.bundle"
+    }
+  ]
+}
