@@ -1,0 +1,73 @@
+{
+  "name": "PWCore",
+  "version": "3.13.3",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2009-present Phunware Inc. All rights reserved."
+  },
+  "summary": "Phunware's Core SDK for use with its Multiscreen-as-a-Service platform",
+  "homepage": "https://github.com/phunware/maas-core-ios-sdk",
+  "authors": {
+    "Phunware, Inc.": "https://www.phunware.com"
+  },
+  "social_media_url": "https://twitter.com/phunware",
+  "platforms": {
+    "ios": "15.5"
+  },
+  "source": {
+    "git": "https://github.com/phunware/maas-core-ios-sdk.git",
+    "tag": "3.13.3"
+  },
+  "documentation_url": "https://phunware.github.io/maas-core-ios-sdk/",
+  "cocoapods_version": ">= 1.15.2",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "dependencies": {
+        "SSZipArchive": [
+          "~> 2.5.5"
+        ],
+        "PINCache": [
+          "~> 3.0.4"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/PWCore.xcframework",
+      "frameworks": [
+        "Security",
+        "SystemConfiguration"
+      ],
+      "weak_frameworks": "CoreLocation",
+      "libraries": [
+        "xml2.2",
+        "z"
+      ]
+    },
+    {
+      "name": "DeviceIdentity",
+      "dependencies": {
+        "PWCore/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/DeviceIdentity.xcframework",
+      "frameworks": "AdSupport",
+      "weak_frameworks": "AppTrackingTransparency"
+    },
+    {
+      "name": "CoreStaticLinks",
+      "vendored_frameworks": "FrameworksStaticLinks/PWCore.xcframework"
+    },
+    {
+      "name": "DeviceIdentityStaticLinks",
+      "dependencies": {
+        "PWCore/CoreStaticLinks": [
+
+        ]
+      },
+      "vendored_frameworks": "FrameworksStaticLinks/DeviceIdentity.xcframework",
+      "frameworks": "AdSupport",
+      "weak_frameworks": "AppTrackingTransparency"
+    }
+  ]
+}
