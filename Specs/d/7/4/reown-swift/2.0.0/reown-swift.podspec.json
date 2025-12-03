@@ -1,0 +1,270 @@
+{
+  "name": "reown-swift",
+  "version": "2.0.0",
+  "summary": "Reown Swift WalletKit & AppKit",
+  "description": "Implementation of WalletKit and AppKit",
+  "homepage": "https://reown.com",
+  "license": {
+    "type": "WalletConnect Community License Agreement",
+    "file": "LICENSE"
+  },
+  "authors": "Reown, Inc.",
+  "source": {
+    "git": "https://github.com/reown-com/reown-swift.git",
+    "tag": "2.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-DCocoaPods",
+    "HEADER_SEARCH_PATHS": "$(PODS_ROOT)/reown-swift/Sources/**",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/reown-swift/Sources/**"
+  },
+  "default_subspecs": "WalletKit",
+  "subspecs": [
+    {
+      "name": "WalletKit",
+      "source_files": "Sources/ReownWalletKit/**/*.{h,m,swift}",
+      "dependencies": {
+        "YttriumWrapper": [
+          "0.9.68"
+        ],
+        "reown-swift/WalletConnectSign": [
+
+        ],
+        "reown-swift/WalletConnectPush": [
+
+        ],
+        "reown-swift/WalletConnectVerify": [
+
+        ],
+        "reown-swift/WalletConnectUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "ReownAppKitBackport",
+      "source_files": "Sources/ReownAppKitBackport/**/*.{h,m,swift}"
+    },
+    {
+      "name": "ReownAppKitUI",
+      "source_files": "Sources/ReownAppKitUI/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/ReownAppKitBackport": [
+
+        ]
+      },
+      "resource_bundles": {
+        "ReownAppKitUI": [
+          "Sources/ReownAppKitUI/Resources/*"
+        ]
+      }
+    },
+    {
+      "name": "ReownAppKit",
+      "source_files": "Sources/ReownAppKit/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectSign": [
+
+        ],
+        "reown-swift/ReownAppKitUI": [
+
+        ],
+        "reown-swift/ReownAppKitBackport": [
+
+        ],
+        "DSF_QRCode": [
+          "~> 16.1.1"
+        ],
+        "CoinbaseWalletSDK": [
+          "~> 1.1.0"
+        ]
+      },
+      "resource_bundles": {
+        "ReownAppKit": [
+          "Sources/ReownAppKit/Resources/*"
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectSign",
+      "source_files": "Sources/WalletConnectSign/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectPairing": [
+
+        ],
+        "reown-swift/WalletConnectSigner": [
+
+        ],
+        "reown-swift/WalletConnectVerify": [
+
+        ],
+        "reown-swift/Events": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectVerify",
+      "source_files": "Sources/WalletConnectVerify/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectUtils": [
+
+        ],
+        "reown-swift/WalletConnectNetworking": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectSigner",
+      "source_files": "Sources/WalletConnectSigner/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectNetworking": [
+
+        ],
+        "YttriumWrapper": [
+          "0.9.68"
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectIdentity",
+      "source_files": "Sources/WalletConnectIdentity/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectNetworking": [
+
+        ],
+        "reown-swift/WalletConnectJWT": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectPush",
+      "source_files": "Sources/WalletConnectPush/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectNetworking": [
+
+        ],
+        "reown-swift/WalletConnectJWT": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectJWT",
+      "source_files": "Sources/WalletConnectJWT/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectKMS": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectNetworking",
+      "source_files": "Sources/WalletConnectNetworking/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectRelay": [
+
+        ],
+        "reown-swift/WalletConnectUtils": [
+
+        ],
+        "reown-swift/HTTPClient": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectPairing",
+      "source_files": "Sources/WalletConnectPairing/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectNetworking": [
+
+        ],
+        "reown-swift/Events": [
+
+        ]
+      }
+    },
+    {
+      "name": "ReownRouter",
+      "source_files": "Sources/ReownRouter/**/*.{h,m,swift}",
+      "platforms": {
+        "ios": null
+      }
+    },
+    {
+      "name": "WalletConnectRelay",
+      "source_files": "Sources/WalletConnectRelay/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectJWT": [
+
+        ],
+        "reown-swift/JSONRPC": [
+
+        ],
+        "reown-swift/WalletConnectUtils": [
+
+        ]
+      },
+      "resource_bundles": {
+        "reown_WalletConnectRelay": [
+          "Sources/WalletConnectRelay/PackageConfig.json"
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectUtils",
+      "source_files": "Sources/WalletConnectUtils/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/JSONRPC": [
+
+        ]
+      }
+    },
+    {
+      "name": "WalletConnectKMS",
+      "source_files": "Sources/WalletConnectKMS/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "Commons",
+      "source_files": "Sources/Commons/**/*.{h,m,swift}"
+    },
+    {
+      "name": "Events",
+      "source_files": "Sources/Events/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/WalletConnectNetworking": [
+
+        ],
+        "reown-swift/WalletConnectUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "JSONRPC",
+      "source_files": "Sources/JSONRPC/**/*.{h,m,swift}",
+      "dependencies": {
+        "reown-swift/Commons": [
+
+        ]
+      }
+    },
+    {
+      "name": "HTTPClient",
+      "source_files": "Sources/HTTPClient/**/*.{h,m,swift}"
+    }
+  ],
+  "swift_version": "5.9"
+}
