@@ -1,0 +1,302 @@
+{
+  "name": "MNWSDK",
+  "version": "0.0.1.12",
+  "summary": "A short description of MNWSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://yw-gitlab.miniworldplus.com/miniw/helix",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wuweiwei": "wuwiewei@mini1.cn"
+  },
+  "source": {
+    "git": "http://yw-gitlab.miniworldplus.com/miniw/helix.git",
+    "tag": "0.0.1.12"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "MNWSDK/MNWSDK.framework",
+      "resources": "MNWSDK/MNWSDK.bundle",
+      "preserve_paths": "MNWSDK/MNWSDK.bundle"
+    },
+    {
+      "name": "IAP",
+      "vendored_frameworks": "MNWSDK/IAPComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppleSignIn",
+      "vendored_frameworks": "MNWSDK/AppleComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "TapTapSignIn",
+      "vendored_frameworks": "MNWSDK/TapTapComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "TapTapLoginSDK": [
+          "4.8.2"
+        ]
+      }
+    },
+    {
+      "name": "JVerification",
+      "vendored_frameworks": "MNWSDK/JVerificationComm.framework",
+      "resources": "MNWSDK/JVerificationComm.bundle",
+      "preserve_paths": "MNWSDK/JVerificationComm.bundle",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "JCore": [
+          "5.0.2"
+        ],
+        "JVerification": [
+          "3.4.2"
+        ]
+      }
+    },
+    {
+      "name": "QQSignIn",
+      "vendored_frameworks": "MNWSDK/QQComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "TencentOpenAPI": [
+
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ld64 -lc++ -lz -lsqlite3",
+        "LIBRARY_SEARCH_PATHS": "$(inherited) $(SDKROOT)/usr/lib"
+      },
+      "frameworks": [
+        "CoreGraphics",
+        "Security",
+        "SystemConfiguration",
+        "UIKit",
+        "WebKit"
+      ]
+    },
+    {
+      "name": "WechatSignIn",
+      "vendored_frameworks": "MNWSDK/WeChatComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "2.0.4"
+        ]
+      }
+    },
+    {
+      "name": "GoogleSignIn",
+      "vendored_frameworks": "MNWSDK/GooglePlusComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "GoogleSignIn": [
+          "8.0.0"
+        ]
+      }
+    },
+    {
+      "name": "FacebookSignIn",
+      "vendored_frameworks": "MNWSDK/FacebookComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "FBSDKLoginKit": [
+          "17.4.0"
+        ]
+      }
+    },
+    {
+      "name": "VKIDSignIn",
+      "resources": "MNWSDK/VKSdkResources.bundle",
+      "preserve_paths": "MNWSDK/VKSdkResources.bundle",
+      "vendored_frameworks": [
+        "MNWSDK/VKIDComm.framework",
+        "MNWSDK/VK_ios_sdk.framework"
+      ],
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "YandexSignIn",
+      "vendored_frameworks": "MNWSDK/YandexComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "YandexLoginSDK": [
+          "3.0.2"
+        ]
+      }
+    },
+    {
+      "name": "FIRPush",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": "MNWSDK/FIRPushComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "FirebaseAnalytics": [
+          "11.14.0"
+        ],
+        "FirebaseMessaging": [
+          "11.14.0"
+        ]
+      }
+    },
+    {
+      "name": "AdsSDK",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": "MNWSDK/AdComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "ToBid-iOS": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/AdScopeAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/BaiduAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/TouTiaoAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/KSAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/MSAdAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/MintegralAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/QuMengAdapter": [
+          "4.6.20"
+        ],
+        "ToBid-iOS/GDTAdapter": [
+          "4.6.20"
+        ],
+        "FLAD": [
+          "~> 2.8.4.0.0"
+        ],
+        "LYAdSDK": [
+          "3.0.40"
+        ]
+      }
+    },
+    {
+      "name": "AppFlyer",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": "MNWSDK/AppFlyerComm.framework",
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ],
+        "AppsFlyerFramework": [
+          "6.17.0"
+        ]
+      }
+    },
+    {
+      "name": "Share",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "MNWSDK/ShareComm.framework",
+        "MNWSDK/TikTokOpenSDK.framework"
+      ],
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Attrack",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "MNWSDK/AttrackComm.framework",
+        "MNWSDK/BDASignal/BaLeSDK.framework"
+      ],
+      "vendored_libraries": "MNWSDK/BDASignal/libBDASignalSDK.a",
+      "source_files": [
+        "MNWSDK/BDASignal/BDASignalManager.h",
+        "MNWSDK/BDASignal/BDASignalDefinitions.h"
+      ],
+      "public_header_files": [
+        "MNWSDK/BDASignal/BDASignalManager.h",
+        "MNWSDK/BDASignal/BDASignalDefinitions.h"
+      ],
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "DYDataLink",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "MNWSDK/DYDataLinkComm.framework",
+        "MNWSDK/UnionOpenPlatformCore.framework",
+        "MNWSDK/UnionOpenPlatformDataLink.framework"
+      ],
+      "dependencies": {
+        "MNWSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
