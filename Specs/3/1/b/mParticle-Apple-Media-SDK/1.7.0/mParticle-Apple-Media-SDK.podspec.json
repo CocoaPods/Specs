@@ -1,0 +1,54 @@
+{
+  "name": "mParticle-Apple-Media-SDK",
+  "version": "1.7.0",
+  "summary": "mParticle Apple Media SDK",
+  "description": "This is the mParticle Apple Media SDK.",
+  "homepage": "https://www.mparticle.com",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mParticle": "support@mparticle.com"
+  },
+  "source": {
+    "git": "https://github.com/mparticle/mparticle-apple-media-sdk.git",
+    "tag": "1.7.0"
+  },
+  "social_media_url": "https://twitter.com/mparticle",
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0"
+  },
+  "default_subspecs": "mParticleMedia",
+  "subspecs": [
+    {
+      "name": "mParticleMedia",
+      "source_files": [
+        "mParticle-Apple-Media-SDK-Shared/**/*.{h,m,mm,swift}"
+      ],
+      "dependencies": {
+        "mParticle-Apple-SDK/mParticle": [
+          "~> 8.37"
+        ]
+      }
+    },
+    {
+      "name": "mParticleMediaNoLocation",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MP_NO_LOCATION=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MP_NO_LOCATION"
+      },
+      "source_files": [
+        "mParticle-Apple-Media-SDK-Shared/**/*.{h,m,mm,swift}"
+      ],
+      "dependencies": {
+        "mParticle-Apple-SDK/mParticleNoLocation": [
+          "~> 8.37"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
