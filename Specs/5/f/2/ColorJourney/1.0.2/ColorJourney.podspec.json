@@ -1,0 +1,43 @@
+{
+  "name": "ColorJourney",
+  "version": "1.0.2",
+  "summary": "Perceptually Uniform Color Palette Generator",
+  "description": "ColorJourney is a high-performance color palette generator using perceptually uniform color math based on OKLab.\nIt provides both continuous sampling for smooth gradients and discrete palette generation for UI design.\nThe library combines a high-performance C99 core with an elegant Swift wrapper for iOS/macOS development.\n\n## Features\n\n- **OKLab Color Math**: Perceptually uniform colors based on OKLab color space\n- **Continuous Sampling**: Generate infinite palette points along the color journey\n- **Discrete Palettes**: Generate N distinct colors with enforced contrast for UI design\n- **Deterministic Output**: Same input always produces same colors\n- **Cross-Platform**: iOS, macOS, tvOS, watchOS, visionOS support\n- **High Performance**: C99 core optimized for speed\n\n## Quick Start\n\n```swift\nimport ColorJourney\n\n// Create a journey from a base color\nlet journey = ColorJourney(\n    config: .singleAnchor(\n        ColorJourneyRGB(red: 0.5, green: 0.2, blue: 0.8),\n        style: .balanced\n    )\n)\n\n// Sample continuously for gradients\nlet midColor = journey.sample(at: 0.5)\n\n// Generate discrete palette for UI\nlet palette = journey.discrete(count: 8)\n```\n\nSee the [GitHub repository](https://github.com/peternicholls/ColorJourney) for detailed documentation.",
+  "homepage": "https://github.com/peternicholls/ColorJourney",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Peter Nicholls": "peter@colorjourney.dev"
+  },
+  "social_media_url": "https://github.com/peternicholls/ColorJourney",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "tvos": "13.0",
+    "watchos": "6.0",
+    "visionos": "1.0"
+  },
+  "source": {
+    "git": "https://github.com/peternicholls/ColorJourney.git",
+    "tag": "1.0.2"
+  },
+  "swift_versions": "5.9",
+  "source_files": [
+    "Sources/ColorJourney/**/*.swift",
+    "Sources/CColorJourney/**/*.{c,h}"
+  ],
+  "public_header_files": "Sources/CColorJourney/include/ColorJourney.h",
+  "preserve_paths": "Sources/CColorJourney/include",
+  "pod_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/CColorJourney/include",
+    "GCC_PREPROCESSOR_DEFINITIONS": "_GNU_SOURCE",
+    "CLANG_ENABLE_OBJC_ARC": "YES",
+    "GCC_OPTIMIZATION_LEVEL": "3"
+  },
+  "user_target_xcconfig": {
+    "SWIFT_INCLUDE_PATHS": "$(PODS_ROOT)/ColorJourney/Sources/CColorJourney/include"
+  },
+  "swift_version": "5.9"
+}
