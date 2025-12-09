@@ -1,0 +1,142 @@
+{
+  "name": "DeepAdSDK",
+  "version": "2.0.8",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "iOS DeepAdSDK - 聚合广告SDK",
+  "description": "DeepAD——免费透明的流量变现神器\n600+ 移动媒体选择的广告商业化管理工具",
+  "homepage": "https://gitee.com/DeepAdx/deepadsdk",
+  "authors": {
+    "DeepAdx": "https://gitee.com/DeepAdx"
+  },
+  "source": {
+    "git": "https://gitee.com/DeepAdx/deepadsdk.git",
+    "tag": "2.0.8"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-ObjC"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64",
+    "ENABLE_BITCODE": "NO"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/DeepAdCore.xcframework",
+      "resource_bundles": {
+        "DeepAdSDK": [
+          "Resources/**/*"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport"
+      ]
+    },
+    {
+      "name": "AdSpot",
+      "dependencies": {
+        "DeepAdSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/DeepAdSpot.xcframework"
+    },
+    {
+      "name": "MercuryAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "MercurySDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/MercuryAdapter.xcframework"
+    },
+    {
+      "name": "CSJAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "Ads-CN-Beta/BUAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/CSJAdapter.xcframework"
+    },
+    {
+      "name": "GDTAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "GDTMobSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/GDTAdapter.xcframework"
+    },
+    {
+      "name": "KSAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "KSAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/KSAdapter.xcframework"
+    },
+    {
+      "name": "BDAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "BaiduMobAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/BDAdapter.xcframework"
+    },
+    {
+      "name": "TanxAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "TanxSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/TanxAdapter.xcframework"
+    },
+    {
+      "name": "SigmobAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "SigmobAd-iOS": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/SigmobAdapter.xcframework"
+    }
+  ]
+}
