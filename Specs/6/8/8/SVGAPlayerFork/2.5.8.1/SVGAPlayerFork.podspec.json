@@ -1,0 +1,48 @@
+{
+  "name": "SVGAPlayerFork",
+  "version": "2.5.8.1",
+  "summary": "SVGAPlayer 非官方分叉版，补丁打包发布",
+  "description": "SVGA 是一种全新的动画格式，由 YY UED 团队主导开发；\n本 Pod 基于官方已归档的 SVGAPlayer-iOS 分叉，包含额外修复和补丁。",
+  "homepage": "https://github.com/0112020179/Svga",
+  "license": "Apache 2.0",
+  "authors": {
+    "PonyCui": "cuiminghui1@yy.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/0112020179/Svga.git",
+    "tag": "2.5.8.1"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          ">= 1.8.1"
+        ],
+        "SVGAPlayerFork/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1"
+      }
+    }
+  ]
+}
