@@ -1,0 +1,52 @@
+{
+  "name": "TapConnectSDK",
+  "version": "1.0.0",
+  "summary": "Tap Connect SDK for iOS - React Native based financial account connection",
+  "description": "TapConnectSDK provides a seamless way to integrate Tap Connect functionality into your iOS application.\nIt wraps a React Native implementation with a simple Swift API.",
+  "homepage": "https://github.com/Tap-Payments/ConnecSDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tap Payments": "developer@tap.company"
+  },
+  "source": {
+    "git": "https://github.com/Tap-Payments/ConnecSDK-iOS.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "TapConnectSDK/Classes/**/*.{swift,h,m}",
+  "vendored_frameworks": [
+    "TestConnectSDK/ConnectSdkFramework.xcframework",
+    "TestConnectSDK/ReactBrownfield.xcframework",
+    "TestConnectSDK/hermesvm.xcframework"
+  ],
+  "preserve_paths": [
+    "TestConnectSDK/**/*",
+    "TapConnectSDK/**/*"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_XCFRAMEWORKS_BUILD_DIR)/TapConnectSDK",
+    "OTHER_LDFLAGS": "$(inherited) -framework ConnectSdkFramework -framework hermesvm",
+    "SWIFT_SUPPRESS_WARNINGS": "NO",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_XCFRAMEWORKS_BUILD_DIR)/TapConnectSDK",
+    "OTHER_LDFLAGS": "$(inherited) -framework ConnectSdkFramework -framework hermesvm",
+    "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
+  },
+  "requires_arc": true,
+  "swift_version": "5.0"
+}
