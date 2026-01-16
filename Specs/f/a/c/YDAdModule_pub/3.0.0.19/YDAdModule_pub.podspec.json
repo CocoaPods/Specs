@@ -1,0 +1,135 @@
+{
+  "name": "YDAdModule_pub",
+  "version": "3.0.0.19",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://github.com/yuedong12345/ydsdk_pub.git",
+  "authors": {
+    "yuedong12345": "yuedong12345@126.com"
+  },
+  "summary": "Advibe iOS融合广告SDK",
+  "description": "Advibe iOS端融合广告SDK，支持多广告网络聚合。\n可选的第三方ADN：穿山甲(字节跳动)、广点通(腾讯)、百度、快手。\n开发者可根据需求选择集成的广告网络。",
+  "source": {
+    "git": "https://github.com/yuedong12345/ydsdk_pub.git",
+    "tag": "3.0.0.19"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "YDAdModule.xcframework",
+        "Frameworks/UbiXAdSDK.framework",
+        "Frameworks/UbiXDaq.framework"
+      ],
+      "preserve_paths": "Frameworks/ZindexBase.framework",
+      "resources": "YDAdModule.bundle",
+      "dependencies": {
+        "YFAdsSDK/YFAdsSDK": [
+          "6.0.8.0"
+        ],
+        "YFAdsSDK/YFAdsSubstrate": [
+          "6.0.8.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_CORE_ENABLED=1 YDADMODULE_CXHR_ENABLED=1 YDADMODULE_YF_ENABLED=1 YDADMODULE_UX_ENABLED=1",
+        "OTHER_LDFLAGS[sdk=iphoneos*]": "$(inherited) -framework ZindexBase",
+        "FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]": "$(inherited) \"${PODS_TARGET_SRCROOT}/Frameworks\"",
+        "OTHER_LDFLAGS[sdk=iphonesimulator*]": "$(inherited)"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_CORE_ENABLED=1 YDADMODULE_CXHR_ENABLED=1 YDADMODULE_YF_ENABLED=1 YDADMODULE_UX_ENABLED=1",
+        "OTHER_LDFLAGS[sdk=iphoneos*]": "$(inherited) -framework ZindexBase",
+        "FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]": "$(inherited) \"${PODS_TARGET_SRCROOT}/Frameworks\"",
+        "OTHER_LDFLAGS[sdk=iphonesimulator*]": "$(inherited)",
+        "GENERATE_INFOPLIST_FILE": "YES"
+      }
+    },
+    {
+      "name": "CSJ",
+      "dependencies": {
+        "YDAdModule_pub/Core": [
+
+        ],
+        "Ads-Fusion-CN-Beta/CSJMediation": [
+          "6.4.1.0"
+        ],
+        "CSJMGdtAdapter": [
+          "4.14.45.0"
+        ],
+        "CSJMBaiduAdapter": [
+          "5.325.1"
+        ],
+        "CSJMKsAdapter": [
+          "3.3.55.0.0"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/YDAdModule_CSJ.xcframework",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_CSJ_ENABLED=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_CSJ_ENABLED=1"
+      }
+    },
+    {
+      "name": "GDT",
+      "dependencies": {
+        "YDAdModule_pub/Core": [
+
+        ],
+        "GDTMobSDK": [
+          "4.15.70"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/YDAdModule_GDT.xcframework",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_GDT_ENABLED=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_GDT_ENABLED=1"
+      }
+    },
+    {
+      "name": "KS",
+      "dependencies": {
+        "YDAdModule_pub/Core": [
+
+        ],
+        "KSAdSDK": [
+          "3.3.69.3"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/YDAdModule_KS.xcframework",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_KS_ENABLED=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_KS_ENABLED=1"
+      }
+    },
+    {
+      "name": "BD",
+      "dependencies": {
+        "YDAdModule_pub/Core": [
+
+        ],
+        "BaiduMobAdSDK": [
+          "5.14"
+        ]
+      },
+      "vendored_frameworks": "Frameworks/YDAdModule_BD.xcframework",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_BD_ENABLED=1"
+      },
+      "user_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) YDADMODULE_BD_ENABLED=1"
+      }
+    }
+  ]
+}
