@@ -1,0 +1,83 @@
+{
+  "name": "MetaCodable",
+  "version": "1.6.0",
+  "homepage": "https://github.com/SwiftyLab/MetaCodable",
+  "summary": "Supercharge Swift's Codable implementations with macros.",
+  "description": "MetaCodable exposes custom macros which can be used to generate dynamic Codable implementations.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "social_media_url": "https://twitter.com/soumya_mahunt",
+  "readme": "https://github.com/SwiftyLab/MetaCodable/blob/v1.6.0/README.md",
+  "changelog": "https://github.com/SwiftyLab/MetaCodable/blob/v1.6.0/CHANGELOG.md",
+  "documentation_url": "https://swiftpackageindex.com/SwiftyLab/MetaCodable/v1.6.0/documentation/metacodable",
+  "source": {
+    "git": "https://github.com/SwiftyLab/MetaCodable.git",
+    "tag": "v1.6.0"
+  },
+  "authors": {
+    "Soumya Ranjan Mahunt": "soumya.mahunt@gmail.com"
+  },
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "tvos": "13.0",
+    "watchos": "6.0"
+  },
+  "preserve_paths": [
+    "*.md",
+    "LICENSE"
+  ],
+  "default_subspecs": "Macro",
+  "testspecs": [
+    {
+      "name": "HelperCodersTests",
+      "test_type": "unit",
+      "source_files": "Tests/MetaCodableTests/**/*.swift",
+      "exclude_files": "Tests/MetaCodableTests/DynamicCodable/**/*.swift",
+      "dependencies": {
+        "MetaCodableMacroPluginCore": [
+          "= 1.6.0"
+        ],
+        "MetaCodableMacroPlugin": [
+          "= 1.6.0"
+        ],
+        "MetaCodable/Macro": [
+          "= 1.6.0"
+        ],
+        "MetaCodable/HelperCoders": [
+          "= 1.6.0"
+        ],
+        "SwiftSyntax/MacrosTestSupport": [
+          ">= 509.1.0",
+          "<601.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/Macros/MacroPlugin/${CONFIGURATION}/MacroPlugin#MacroPlugin -Xfrontend -package-name -Xfrontend MetaCodable -Xfrontend -swift-version -Xfrontend 6",
+        "METACODABLE_PLUGIN_BUILD_ENVIRONMENT": "METACODABLE_BEING_USED_FROM_COCOAPODS=true"
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Macro",
+      "dependencies": {
+        "MetaCodableMacro": [
+          "= 1.6.0"
+        ]
+      }
+    },
+    {
+      "name": "HelperCoders",
+      "dependencies": {
+        "MetaCodableHelperCoders": [
+          "= 1.6.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
