@@ -1,0 +1,105 @@
+{
+  "name": "SQLite.swift",
+  "version": "0.15.5",
+  "summary": "A type-safe, Swift-language layer over SQLite3.",
+  "description": "SQLite.swift provides compile-time confidence in SQL statement syntax and\nintent.",
+  "homepage": "https://github.com/stephencelis/SQLite.swift",
+  "license": "MIT",
+  "authors": {
+    "Stephen Celis": "stephen@stephencelis.com"
+  },
+  "source": {
+    "git": "https://github.com/stephencelis/SQLite.swift.git",
+    "tag": "0.15.5"
+  },
+  "social_media_url": "https://twitter.com/stephencelis",
+  "module_name": "SQLite",
+  "default_subspecs": "standard",
+  "swift_versions": [
+    "5"
+  ],
+  "platforms": {
+    "ios": "12.0",
+    "tvos": "12.0",
+    "osx": "10.13",
+    "watchos": "4.0",
+    "visionos": "1.0"
+  },
+  "subspecs": [
+    {
+      "name": "standard",
+      "libraries": "sqlite3",
+      "source_files": "Sources/SQLite/**/*.{c,h,m,swift}",
+      "exclude_files": "Sources/**/Cipher.swift",
+      "resource_bundles": {
+        "SQLite.swift": "Sources/SQLite/PrivacyInfo.xcprivacy"
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSystemSQLite"
+      },
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/Resources/*",
+          "source_files": "Tests/SQLiteTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "standalone",
+      "dependencies": {
+        "sqlite3": [
+
+        ]
+      },
+      "source_files": "Sources/SQLite/**/*.{c,h,m,swift}",
+      "exclude_files": "Sources/**/Cipher.swift",
+      "resource_bundles": {
+        "SQLite.swift": "Sources/SQLite/PrivacyInfo.xcprivacy"
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DStandaloneSQLite"
+      },
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/Resources/*",
+          "source_files": "Tests/SQLiteTests/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "SQLCipher",
+      "dependencies": {
+        "SQLCipher": [
+          ">= 4.0.0"
+        ]
+      },
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "12.0",
+        "osx": "10.13",
+        "watchos": "4.0"
+      },
+      "source_files": "Sources/SQLite/**/*.{c,h,m,swift}",
+      "resource_bundles": {
+        "SQLite.swift": "Sources/SQLite/PrivacyInfo.xcprivacy"
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSQLCipher",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1"
+      },
+      "testspecs": [
+        {
+          "name": "tests",
+          "test_type": "unit",
+          "resources": "Tests/SQLiteTests/Resources/*",
+          "source_files": "Tests/SQLiteTests/**/*.swift"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5"
+}
