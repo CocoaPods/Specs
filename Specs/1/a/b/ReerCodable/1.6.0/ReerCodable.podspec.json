@@ -1,0 +1,45 @@
+{
+  "name": "ReerCodable",
+  "version": "1.6.0",
+  "summary": "Codable extensions using Swift Macro",
+  "description": "Enhancing Swift's Codable Protocol Using Macros: A Declarative Approach to Serialization",
+  "homepage": "https://github.com/reers/ReerCodable",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Asura19": "x.rhythm@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/reers/ReerCodable.git",
+    "tag": "1.6.0"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "watchos": "6.0",
+    "tvos": "13.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.10",
+  "source_files": "Sources/ReerCodable/**/*",
+  "preserve_paths": [
+    "Package.swift",
+    "Sources/ReerCodableMacros",
+    "Tests",
+    "MacroPlugin"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/ReerCodable/MacroPlugin/ReerCodableMacros#ReerCodableMacros"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/ReerCodable/MacroPlugin/ReerCodableMacros#ReerCodableMacros"
+  },
+  "script_phases": {
+    "name": "Download ReerCodableMacros Plugin",
+    "script": "    set -e\n        \n    PLUGIN_DIR=\"${PODS_BUILD_DIR}/ReerCodable/MacroPlugin\"\n    PLUGIN_NAME=\"ReerCodableMacros\"\n    VERSION=\"1.6.0\"\n    DOWNLOAD_URL=\"https://github.com/reers/ReerCodable/releases/download/${VERSION}/${PLUGIN_NAME}.zip\"\n    \n    # Check if plugin already exists\n    if [ -x \"${PLUGIN_DIR}/${PLUGIN_NAME}\" ]; then\n      echo \"Macro plugin already exists, skipping download.\"\n      exit 0\n    fi\n    \n    mkdir -p \"${PLUGIN_DIR}\"\n    \n    echo \"Downloading prebuilt macro plugin from ${DOWNLOAD_URL}...\"\n    \n    if curl -L -f --connect-timeout 3 --max-time 60 -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" \"${DOWNLOAD_URL}\"; then\n      unzip -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" -d \"${PLUGIN_DIR}\"\n      rm -f \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Successfully downloaded prebuilt macro plugin\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    else\n      echo \"Warning: Failed to download prebuilt macro plugin, will build from source...\"\n      \n      # Fallback: build from source\n      env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -c release --package-path \\\"${PODS_TARGET_SRCROOT}\\\" --build-path \\\"${PODS_BUILD_DIR}/ReerCodable\\\" --product ReerCodableMacros\"\n      cp \"${PODS_BUILD_DIR}/ReerCodable/release/ReerCodableMacros-tool\" \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Built macro plugin from source\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    fi\n",
+    "execution_position": "before_compile"
+  },
+  "swift_version": "5.10"
+}
