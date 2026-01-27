@@ -1,0 +1,39 @@
+{
+  "name": "IPtProxy",
+  "version": "5.1.0",
+  "summary": "Lyrebird/Obfs4proxy, Snowflake and DNSTT Pluggable Transports for iOS and macOS",
+  "description": "Lyrebird/Obfs4proxy as well as Snowflake and DNSTT Pluggable Transports are written in Go, which\nis a little annoying to use on iOS and Android.\nThis project encapsulates all the machinations to make it work and provides an\neasy-to-install binary including a wrapper around both.\n\nProblems solved in particular are:\n\n- One cannot compile `main` packages with `gomobile`. For all PTs, IPtProxy\n  provides wrapper code to use them as libraries.\n- All PTs are gathered under one roof here, since you cannot have two\n  `gomobile` frameworks as dependencies. There are some common Go\n  runtime functions exported, which would create a name clash.\n- Free ports to be used are automatically found by this library and can be fetched\n  by the consuming app after start.\n\nContained transport versions:\n\n| Transport | Version      |\n|-----------|--------------|\n| Lyrebird  | 0.8.1        |\n| Snowflake | 2.11.0       |\n| DNSTT     | 1.20240513.0 |",
+  "homepage": "https://github.com/tladesignz/IPtProxy",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/tladesignz/IPtProxy.git",
+    "tag": "5.1.0"
+  },
+  "social_media_url": "https://chaos.social/@tla",
+  "platforms": {
+    "ios": "15.0",
+    "osx": "11.0"
+  },
+  "preserve_paths": [
+    "build.sh",
+    "*.patch",
+    "IPtProxy.go/*"
+  ],
+  "prepare_command": "./build.sh",
+  "script_phases": {
+    "name": "Go build of IPtProxy.xcframework",
+    "execution_position": "before_compile",
+    "script": "sh \"$PODS_TARGET_SRCROOT/build.sh\"",
+    "output_files": [
+      "$(DERIVED_FILE_DIR)/IPtProxy.xcframework"
+    ]
+  },
+  "vendored_frameworks": "IPtProxy.xcframework",
+  "libraries": "resolv"
+}
