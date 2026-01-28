@@ -1,0 +1,58 @@
+{
+  "name": "OctoMobSDK",
+  "version": "1.1.19",
+  "summary": "Better gaming",
+  "homepage": "https://mobsdkrep.espritgames.com/artifactory/libs-release/OctoMobSDK_1.1.19.zip",
+  "authors": {
+    "Name": "7va.motw@gmail.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://mobsdkrep.espritgames.com/artifactory/libs-release/OctoMobSDK_1.1.19.zip"
+  },
+  "ios": {
+    "vendored_frameworks": "OctoMobSDK.framework"
+  },
+  "dependencies": {
+    "Amplitude": [
+      "~> 5.1.0"
+    ],
+    "AppsFlyerFramework": [
+      "6.17.0"
+    ],
+    "FBSDKCoreKit": [
+      "18.0.0"
+    ],
+    "FBSDKLoginKit": [
+      "18.0.0"
+    ],
+    "VKID": [
+      "2.9.2"
+    ],
+    "Firebase/Analytics": [
+      "10.25.0"
+    ],
+    "Firebase/Messaging": [
+      "10.25.0"
+    ],
+    "myTrackerSDK": [
+      "3.2.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "script_phases": [
+    {
+      "name": "OctoMobSDK – ensure dSYM in archive",
+      "shell_path": "/bin/sh",
+      "execution_position": "after_compile",
+      "script": "\n        set -euo pipefail\n        if [ -z \"${DWARF_DSYM_FOLDER_PATH:-}\" ] || [ -z \"${FRAMEWORKS_FOLDER_PATH:-}\" ]; then\n          exit 0\n        fi\n        FW=\"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OctoMobSDK.framework/OctoMobSDK\"\n        OUT=\"${DWARF_DSYM_FOLDER_PATH}/OctoMobSDK.framework.dSYM\"\n        if [ -f \"${FW}\" ]; then\n          rm -rf \"${OUT}\"\n          dsymutil \"${FW}\" -o \"${OUT}\" || true\n        fi\n      "
+    }
+  ]
+}
