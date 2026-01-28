@@ -1,0 +1,64 @@
+{
+  "name": "BszM3u8Downloader",
+  "version": "0.1.4",
+  "summary": "An Objective-C M3U8 downloader Manager",
+  "description": "An Objective-C library that downloads HLS (m3u8) playlists and their TS segments to local storage, provides rich callbacks and simple multi-task management, and optionally exposes a local HTTP server for playback.",
+  "homepage": "https://github.com/w1217358955/BszM3u8Downloader",
+  "authors": {
+    "Bin": "w1217358955@163.com"
+  },
+  "source": {
+    "git": "https://github.com/w1217358955/BszM3u8Downloader.git",
+    "tag": "0.1.4",
+    "submodules": true
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "BszM3u8Downloader/*.{h,m}",
+        "BszM3u8Downloader/Manager/**/*.{h,m}"
+      ]
+    },
+    {
+      "name": "VendoredGCDWebServer",
+      "source_files": "Vendor/GCDWebServer/GCDWebServer/**/*.{m}",
+      "preserve_paths": [
+        "Vendor/GCDWebServer/GCDWebServer/**/*.h",
+        "External/GCDWebServer/*.h"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(inherited)\" \"$(PODS_TARGET_SRCROOT)/Vendor/GCDWebServer/GCDWebServer\" \"$(PODS_TARGET_SRCROOT)/Vendor/GCDWebServer/GCDWebServer/Core\" \"$(PODS_TARGET_SRCROOT)/Vendor/GCDWebServer/GCDWebServer/Requests\" \"$(PODS_TARGET_SRCROOT)/Vendor/GCDWebServer/GCDWebServer/Responses\""
+      },
+      "libraries": "z",
+      "frameworks": [
+        "CoreServices",
+        "CFNetwork"
+      ]
+    },
+    {
+      "name": "LocalServer",
+      "dependencies": {
+        "BszM3u8Downloader/Core": [
+
+        ],
+        "BszM3u8Downloader/VendoredGCDWebServer": [
+
+        ]
+      },
+      "source_files": "BszM3u8Downloader/LocalServer/**/*.{h,m}",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(inherited)\" \"$(PODS_TARGET_SRCROOT)/External\" \"$(PODS_TARGET_SRCROOT)/Vendor/GCDWebServer\""
+      }
+    }
+  ]
+}
