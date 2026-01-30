@@ -1,0 +1,108 @@
+{
+  "name": "UnitySDKManager",
+  "version": "3.3.16.1",
+  "summary": "Native SDKManager API for Unity.",
+  "description": "OneSDK iOS桥接模块。",
+  "homepage": "https://gitlab.bt/tech-u3d/aounity-native-projects/onesdk-iOS",
+  "license": {
+    "type": "BT",
+    "text": "Copyright (c) 2018, Baioo Limited.\nAll rights reserved.\nThis sources and libs can only be used in BAIOO Family Interactive Limited and its subsidiaries.\n"
+  },
+  "authors": {
+    "zhangzhurong": "zhangzhurong@aobi.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "http": "https://yw-depot-nexus.100bt.com/repository/onesdk-ios-trunk/UnitySDKManager/3.3.16.1/UnitySDKManager.zip",
+    "flatten": true
+  },
+  "default_subspecs": "Tianti",
+  "subspecs": [
+    {
+      "name": "InternalCore",
+      "frameworks": [
+        "UIKit",
+        "SystemConfiguration",
+        "QuartzCore",
+        "OpenGLES",
+        "OpenAL",
+        "MediaPlayer",
+        "Foundation",
+        "CoreVideo",
+        "CoreMotion",
+        "CoreMedia",
+        "CoreLocation",
+        "CoreGraphics",
+        "CFNetwork",
+        "AVFoundation",
+        "AudioToolbox",
+        "CoreText",
+        "MediaToolbox",
+        "AdSupport",
+        "JavaScriptCore",
+        "ImageIO",
+        "Security",
+        "CoreTelephony",
+        "Photos"
+      ],
+      "libraries": [
+        "sqlite3",
+        "c++",
+        "icucore",
+        "resolv",
+        "z"
+      ],
+      "vendored_frameworks": "UnitySDKManager.framework",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "dependencies": {
+        "NetKitUnityBridge": [
+          "~> 1.2.1"
+        ],
+        "BTLoganManager": [
+          "~> 1.0.4"
+        ]
+      },
+      "requires_arc": true
+    },
+    {
+      "name": "Tianti",
+      "dependencies": {
+        "UnitySDKManager/InternalCore": [
+
+        ],
+        "BTOneSDK/Tianti": [
+          "3.3.16.1"
+        ]
+      }
+    },
+    {
+      "name": "Qutang",
+      "dependencies": {
+        "UnitySDKManager/InternalCore": [
+
+        ],
+        "BTOneSDK/Qutang": [
+          "3.3.16.1"
+        ]
+      }
+    },
+    {
+      "name": "HappyMaker",
+      "dependencies": {
+        "UnitySDKManager/InternalCore": [
+
+        ],
+        "BTOneSDK/HappyMaker": [
+          "3.3.16.1"
+        ]
+      }
+    }
+  ]
+}
