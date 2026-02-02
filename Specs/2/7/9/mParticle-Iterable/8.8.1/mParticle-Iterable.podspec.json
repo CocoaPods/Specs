@@ -1,0 +1,63 @@
+{
+  "name": "mParticle-Iterable",
+  "version": "8.8.1",
+  "summary": "Iterable integration for mParticle",
+  "description": "This is the Iterable integration for mParticle.",
+  "homepage": "https://www.mparticle.com",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mParticle": "support@mparticle.com"
+  },
+  "source": {
+    "git": "https://github.com/mparticle-integrations/mparticle-apple-integration-iterable.git",
+    "tag": "v8.8.1"
+  },
+  "social_media_url": "https://twitter.com/mparticle",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "ios": {
+    "resource_bundles": {
+      "mParticle-Iterable-Privacy": [
+        "mParticle-Iterable/PrivacyInfo.xcprivacy"
+      ]
+    },
+    "dependencies": {
+      "Iterable-iOS-SDK": [
+        "~> 6.5"
+      ]
+    }
+  },
+  "default_subspecs": "mParticleIterable",
+  "subspecs": [
+    {
+      "name": "mParticleIterable",
+      "source_files": [
+        "mParticle-iterable/**/*.{h,m,mm,swift}"
+      ],
+      "dependencies": {
+        "mParticle-Apple-SDK/mParticle": [
+          "~> 8.37"
+        ]
+      }
+    },
+    {
+      "name": "mParticleIterableNoLocation",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MP_NO_LOCATION=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) MP_NO_LOCATION"
+      },
+      "source_files": [
+        "mParticle-iterable/**/*.{h,m,mm,swift}"
+      ],
+      "dependencies": {
+        "mParticle-Apple-SDK/mParticleNoLocation": [
+          "~> 8.37"
+        ]
+      }
+    }
+  ]
+}
