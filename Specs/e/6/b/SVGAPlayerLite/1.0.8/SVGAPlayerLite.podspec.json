@@ -1,0 +1,70 @@
+{
+  "name": "SVGAPlayerLite",
+  "version": "1.0.8",
+  "summary": "Lightweight, high-performance SVGA animation player for iOS with 40% less memory usage",
+  "description": "SVGAPlayerLite is a lightweight, optimized version of SVGAPlayer with significant performance improvements.\n\nKey Features:\n• 40-50% lower memory usage (20MB → 12MB)\n• 40% lower CPU usage (22% → 13%)\n• 50% faster startup time (185ms → 92ms)\n• Stable 60 FPS rendering\n• Perfect Swift support with full type safety\n• iOS 12.0+ support with modern API\n• Lightweight implementation with optimized caching\n\nSVGA is a cross-platform animation format that works on iOS, Android, Web, and Flutter.\nSVGAPlayerLite provides the best performance for iOS applications.",
+  "homepage": "https://github.com/jfyGiveMeFive/SVGAPlayer-Lite",
+  "license": "Apache 2.0",
+  "authors": {
+    "jfyGiveMeFive": "jfyGiveMeFive@users.noreply.github.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "git": "https://github.com/jfyGiveMeFive/SVGAPlayer-Lite.git",
+    "tag": "v1.0.8"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5",
+    "5.6",
+    "5.7",
+    "5.8",
+    "5.9"
+  ],
+  "social_media_url": "https://github.com/jfyGiveMeFive",
+  "documentation_url": "https://github.com/jfyGiveMeFive/SVGAPlayer-Lite/blob/main/README.md",
+  "screenshots": [
+
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Source/*.{h,m}",
+      "requires_arc": true,
+      "dependencies": {
+        "SSZipArchive": [
+          "2.4.3"
+        ],
+        "SVGAPlayerLite/ProtoFiles": [
+
+        ]
+      },
+      "libraries": "z",
+      "frameworks": "AVFoundation"
+    },
+    {
+      "name": "ProtoFiles",
+      "source_files": "Source/pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "Protobuf": [
+          "3.27.2"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "WARNING_CFLAGS": "-Wno-deprecated-declarations -Wno-implicit-function-declaration"
+      },
+      "compiler_flags": "-Wno-deprecated-declarations -Wno-implicit-function-declaration"
+    }
+  ],
+  "swift_version": "5.9"
+}
