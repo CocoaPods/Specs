@@ -1,0 +1,99 @@
+{
+  "name": "Backpack",
+  "version": "88.1.1",
+  "summary": "Skyscanner's Design System Backpack for iOS",
+  "description": "The Skyscanner Design System, Backpack, for iOS apps",
+  "homepage": "https://github.com/Skyscanner/backpack-ios",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Backpack Design System": "backpack@skyscanner.net"
+  },
+  "source": {
+    "git": "https://github.com/Skyscanner/backpack-ios.git",
+    "tag": "88.1.1"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "source_files": [
+    "Backpack/Backpack.h",
+    "Backpack/Common.h",
+    "Backpack/*/Classes/**/*.{h,m,swift}"
+  ],
+  "exclude_files": [
+    "Backpack/Tests/**",
+    "Backpack/BorderWidth/Classes/BPKBorderWidth.h",
+    "Backpack/Color/Classes/BPKColor.h",
+    "Backpack/Color/Classes/UIColor+Backpack.h",
+    "Backpack/Duration/Classes/BPKDuration.h",
+    "Backpack/Font/Classes/BPKFont.h",
+    "Backpack/Radii/Classes/BPKRadii.h",
+    "Backpack/Shadow/Classes/BPKShadow.h",
+    "Backpack/Spacing/Classes/BPKSpacing.h"
+  ],
+  "public_header_files": [
+    "Backpack/Backpack.h",
+    "Backpack/*/Classes/**/*.h"
+  ],
+  "dependencies": {
+    "FloatingPanel": [
+      "2.8.6"
+    ],
+    "Backpack-Common": [
+
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "CoreText"
+  ],
+  "requires_arc": true,
+  "swift_versions": [
+    "5.0",
+    "4.2",
+    "4.0"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Backpack\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\" \"${PODS_TARGET_SRCROOT}/Backpack/Button/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Label/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Icon/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Icon/Classes/Generated\" \"${PODS_TARGET_SRCROOT}/Backpack/BorderWidth/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Color/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Duration/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Font/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Radii/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Shadow/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Spacing/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/FlareView/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Dialog/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/NavigationBar/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/Map/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/ProgressBar/Classes\" \"${PODS_TARGET_SRCROOT}/Backpack/TappableLinkLabel/Classes\""
+  },
+  "script_phases": [
+    {
+      "name": "Backpack Generated Headers",
+      "execution_position": "before_compile",
+      "shell_path": "/bin/sh",
+      "script": "set -euo pipefail\n\n# Only run when building the Backpack pod itself.\nTARGET_ENV=\"${TARGET_NAME:-${TARGETNAME:-}}\"\ncase \"$TARGET_ENV\" in\n  \"Backpack\"|\"Pods-Backpack\")\n    ;;\n  *)\n    exit 0\n    ;;\nesac\n\nif [ -z \"${PUBLIC_HEADERS_FOLDER_PATH:-}\" ]; then\n  exit 0\nfi\n\n# Remove CocoaPods-created token subdirectories to prevent incomplete umbrella errors\n# Generated headers are already copied to root by CocoaPods\n# The subdirectory copies cause \"incomplete umbrella\" warnings\nHEADERS_DIR=\"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}\"\nfor token in BorderWidth Color Duration Font Radii Shadow Spacing; do\n  if [ -d \"$HEADERS_DIR/$token\" ]; then\n    rm -rf \"$HEADERS_DIR/$token\"\n  fi\ndone\n"
+    }
+  ],
+  "testspecs": [
+    {
+      "name": "SnapshotTests",
+      "test_type": "unit",
+      "dependencies": {
+        "SnapshotTesting": [
+          "~> 1.9.0"
+        ]
+      },
+      "source_files": "Backpack/Tests/SnapshotTests/**/*.{swift,h,m}",
+      "ios": {
+        "resource_bundles": {
+          "SnapshotTestImages": "Backpack/Tests/SnapshotTests/Images*"
+        }
+      }
+    },
+    {
+      "name": "UnitTests",
+      "test_type": "unit",
+      "source_files": "Backpack/Tests/UnitTests/**/*.{swift,h,m}",
+      "ios": {
+        "resource_bundles": {
+          "UnitTestImages": "Backpack/Tests/UnitTests/Images*"
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
