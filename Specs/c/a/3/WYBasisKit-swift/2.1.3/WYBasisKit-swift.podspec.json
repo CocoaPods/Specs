@@ -1,0 +1,577 @@
+{
+  "name": "WYBasisKit-swift",
+  "version": "2.1.3",
+  "summary": "WYBasisKit 不仅可以帮助开发者快速构建一个工程，还有基于常用网络框架和系统API而封装的各种实用方法、扩展，开发者只需简单的调用API就可以快速实现相应功能， 大幅提高开发效率。",
+  "description": "Localizable: 国际化解决方案\nExtension: 各种系统扩展\nNetworking: 网络请求解决方案\nActivity: 活动指示器\nStorage: 本地存储\nLayout: 各种自定义控件(注意：ChatView尚未开发完毕，敬请期待)\nCodable: 数据解析\nAuthorization: 各种权限请求与判断\nLogManager: 日志打印，日志导出等日志管理相关\nAudioKit: 音频录制与播放",
+  "homepage": "https://github.com/aiguanren/WYBasisKit",
+  "license": {
+    "type": "MIT",
+    "file": "WYBasisKit/WYBasisKit/WYBasisKit/License.md"
+  },
+  "authors": {
+    "官人": "aiguanren@icloud.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/aiguanren/WYBasisKit.git",
+    "tag": "2.1.3"
+  },
+  "resource_bundles": {
+    "WYBasisKitSwift": [
+      "WYBasisKit/WYBasisKit/WYBasisKit/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "requires_arc": true,
+  "module_name": "WYBasisKitSwift",
+  "subspecs": [
+    {
+      "name": "Config",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftConfig": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "LogManager",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/LogManager/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIApplication/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftLogManager": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/LogManager/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Localizable",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftLocalizable": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WYBasisKit-swift/Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/**/*.{swift,h,m}"
+      ],
+      "resources": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftExtension": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "LocalAuthentication",
+        "Photos",
+        "CoreFoundation",
+        "AudioToolbox",
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "WYBasisKit-swift/Localizable": [
+
+        ],
+        "WYBasisKit-swift/Config": [
+
+        ],
+        "WYBasisKit-swift/LogManager": [
+
+        ]
+      }
+    },
+    {
+      "name": "Codable",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Codable/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftCodable": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Codable/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Networking",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Networking/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIApplication/**/*.{swift,h,m}"
+      ],
+      "resources": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftNetworking": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Networking/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "Network"
+      ],
+      "dependencies": {
+        "WYBasisKit-swift/Localizable": [
+
+        ],
+        "WYBasisKit-swift/Storage": [
+
+        ],
+        "WYBasisKit-swift/Codable": [
+
+        ],
+        "Moya": [
+
+        ]
+      }
+    },
+    {
+      "name": "Activity",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Activity/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIView/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIViewController/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/AttributedString/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/String/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIImage/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIDevice/**/*.{swift,h,m}",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/**/*.{swift}"
+      ],
+      "resources": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle",
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Activity/WYActivity.bundle"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftActivity": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Activity/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "dependencies": {
+        "WYBasisKit-swift/Localizable": [
+
+        ],
+        "WYBasisKit-swift/LogManager": [
+
+        ]
+      }
+    },
+    {
+      "name": "Storage",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Storage/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftStorage": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Storage/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "EventHandler",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/EventHandler/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftEventHandler": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/EventHandler/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "AudioKit",
+      "source_files": [
+        "WYBasisKit/WYBasisKit/WYBasisKit/Swift/AudioKit/**/*.{swift,h,m}"
+      ],
+      "resource_bundles": {
+        "WYBasisKitSwiftAudioKit": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/AudioKit/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AVFoundation",
+        "Combine",
+        "QuartzCore"
+      ]
+    },
+    {
+      "name": "Authorization",
+      "resource_bundles": {
+        "WYBasisKitSwiftAuthorization": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Camera",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Camera/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationCamera": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Camera/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "AVFoundation",
+            "UIKit",
+            "Photos"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "Biometric",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Biometric/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationBiometric": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Biometric/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "LocalAuthentication"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "Contacts",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Contacts/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationContacts": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Contacts/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Contacts",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "PhotoAlbums",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/PhotoAlbums/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationPhotoAlbums": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/PhotoAlbums/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Photos",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "Microphone",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Microphone/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationMicrophone": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/Microphone/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Photos",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "SpeechRecognition",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/SpeechRecognition/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIAlertController/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftAuthorizationSpeechRecognition": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Authorization/SpeechRecognition/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Speech",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layout",
+      "resource_bundles": {
+        "WYBasisKitSwiftLayout": [
+          "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "ScrollText",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/ScrollText/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIFont/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIDevice/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIViewController/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/**/*.{swift}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftLayoutScrollText": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/ScrollText/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "PagingView",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/PagingView/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIView/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIButton/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIColor/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIImage/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIDevice/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIFont/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIViewController/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/**/*.{swift,h,m}"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftLayoutPagingView": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/PagingView/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "BannerView",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/BannerView/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIView/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIDevice/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIViewController/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Extension/UIApplication/**/*.{swift,h,m}",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Config/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Localizable/WYLocalizable.bundle",
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/BannerView/WYBannerView.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftLayoutBannerView": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/BannerView/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "ChatView",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/ChatView/**/*.{swift,h,m}"
+          ],
+          "resources": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/ChatView/WYChatView.bundle"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftLayoutChatView": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/ChatView/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "frameworks": [
+            "Foundation",
+            "UIKit"
+          ],
+          "dependencies": {
+            "WYBasisKit-swift/Extension": [
+
+            ],
+            "WYBasisKit-swift/Localizable": [
+
+            ],
+            "WYBasisKit-swift/Authorization/Microphone": [
+
+            ],
+            "WYBasisKit-swift/Storage": [
+
+            ],
+            "WYBasisKit-swift/LogManager": [
+
+            ],
+            "SnapKit": [
+
+            ],
+            "Kingfisher": [
+
+            ]
+          }
+        },
+        {
+          "name": "MediaPlayer",
+          "source_files": [
+            "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/MediaPlayer/**/*.{swift,h,m}"
+          ],
+          "resource_bundles": {
+            "WYBasisKitSwiftMediaPlayerFS": [
+              "WYBasisKit/WYBasisKit/WYBasisKit/Swift/Layout/MediaPlayer/PrivacyInfo.xcprivacy"
+            ]
+          },
+          "dependencies": {
+            "IJKPlayerKit": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "swift_version": "5"
+}
