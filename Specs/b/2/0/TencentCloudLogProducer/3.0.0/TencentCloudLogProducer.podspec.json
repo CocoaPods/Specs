@@ -1,0 +1,73 @@
+{
+  "name": "TencentCloudLogProducer",
+  "version": "3.0.0",
+  "summary": "TencentCloudLogProducer ios",
+  "description": "log service ios producer.\nhttps://cloud.tencent.com/product/cls",
+  "homepage": "https://cloud.tencent.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "herrylv": "herrylv@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/TencentCloud/tencentcloud-cls-sdk-ios.git",
+    "tag": "3.0.0"
+  },
+  "social_media_url": "https://cloud.tencent.com/document/product/614/67157",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TencentCloudLogProducer/Core/*.{h,m}",
+      "public_header_files": "TencentCloudLogProducer/Core/*.h",
+      "dependencies": {
+        "Protobuf": [
+          "~> 3.29.5"
+        ],
+        "FMDB": [
+          "~> 2.7.5"
+        ],
+        "Reachability": [
+          "~> 3.7"
+        ]
+      },
+      "libraries": [
+        "z",
+        "sqlite3"
+      ],
+      "frameworks": [
+        "Foundation",
+        "SystemConfiguration",
+        "UIKit"
+      ],
+      "resource_bundles": {
+        "TencentCloudLogProducer": [
+          "TencentCloudLogProducer/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "NetWorkDiagnosis",
+      "dependencies": {
+        "TencentCloudLogProducer/Core": [
+
+        ]
+      },
+      "source_files": "TencentCloudLogProducer/NetWorkDiagnosis/**/*.{m,h}",
+      "public_header_files": "TencentCloudLogProducer/NetWorkDiagnosis/*.h",
+      "frameworks": [
+        "CoreTelephony",
+        "Network"
+      ],
+      "libraries": "resolv",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "CLS_HAS_CORE_TELEPHONY=1"
+      }
+    }
+  ]
+}
