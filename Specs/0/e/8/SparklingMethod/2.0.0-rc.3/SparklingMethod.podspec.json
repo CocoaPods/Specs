@@ -1,0 +1,100 @@
+{
+  "name": "SparklingMethod",
+  "version": "2.0.0-rc.3",
+  "summary": "iOS SDK for Sparkling Method",
+  "description": "Core iOS method runtime for Sparkling, with Lynx integration, dependency injection support, and debug helpers.",
+  "license": "Apache 2.0",
+  "authors": "zhangyujie",
+  "homepage": "https://github.com/tiktok/sparkling.git",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.10",
+  "source": {
+    "git": "https://github.com/tiktok/sparkling.git",
+    "tag": "2.0.0-rc.3"
+  },
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_COMPILATION_MODE": "wholemodule"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/Core/Definitions/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/Definitions/*.{h,m,swift}",
+        "Sources/Core/Pipe/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/Pipe/*.{h,m,swift}",
+        "Sources/Core/Models/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/Models/*.{h,m,swift}",
+        "Sources/Core/Protocols/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/Protocols/*.{h,m,swift}",
+        "Sources/Core/Utils/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/Utils/*.{h,m,swift}",
+        "Sources/Core/DI/**/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Core/DI/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "Mantle": [
+          "~> 2.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Lynx",
+      "source_files": [
+        "Sources/Lynx/Pipe/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Lynx/Pipe/*.{h,m,swift}",
+        "Sources/Lynx/Engine/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Lynx/Engine/*.{h,m,swift}",
+        "Sources/Lynx/Definitions/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Lynx/Definitions/*.{h,m,swift}",
+        "Sources/Lynx/Module/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Lynx/Module/*.{h,m,swift}",
+        "Sources/Lynx/Models/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Lynx/Models/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "SparklingMethod/Core": [
+
+        ],
+        "Lynx/Framework": [
+          ">=3.4.2"
+        ],
+        "PrimJS/quickjs": [
+          ">=2.12.0"
+        ],
+        "PrimJS/napi": [
+          ">=2.12.0"
+        ]
+      }
+    },
+    {
+      "name": "DIProvider",
+      "source_files": [
+        "Sources/DIProvider/**/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/DIProvider/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "SparklingMethod/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Debug",
+      "source_files": [
+        "Sources/Debug/**/*.{h,m,swift}",
+        "packages/sparkling-method/ios/Sources/Debug/**/*.{h,m,swift}"
+      ],
+      "dependencies": {
+        "SparklingMethod/Core": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.10"
+}
