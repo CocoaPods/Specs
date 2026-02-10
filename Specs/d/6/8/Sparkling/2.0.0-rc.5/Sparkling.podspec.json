@@ -1,0 +1,94 @@
+{
+  "name": "Sparkling",
+  "version": "2.0.0-rc.5",
+  "summary": "iOS SDK for Sparkling Framework",
+  "description": "Main iOS framework for Sparkling, including app container, services, and Lynx integration.",
+  "license": "Apache 2.0",
+  "authors": "junchen.ge",
+  "homepage": "https://github.com/tiktok/sparkling.git",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.10",
+  "source": {
+    "git": "https://github.com/tiktok/sparkling.git",
+    "tag": "2.0.0-rc.5"
+  },
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_COMPILATION_MODE": "wholemodule",
+    "OTHER_SWIFT_FLAGS": "-enable-experimental-feature SymbolLinkageMarkers"
+  },
+  "subspecs": [
+    {
+      "name": "Application",
+      "source_files": [
+        "Sparkling/Application/**/*.{swift,m,h}",
+        "packages/sparkling-sdk/ios/Sparkling/Application/**/*.{swift,m,h}"
+      ],
+      "dependencies": {
+        "Sparkling/Service": [
+
+        ],
+        "Sparkling/Utils": [
+
+        ],
+        "SparklingMethod/Core": [
+          "2.0.0-rc.5"
+        ],
+        "SnapKit": [
+
+        ]
+      },
+      "resource_bundles": {
+        "sparklingPageResource": [
+          "Sparkling/Application/Container/UI/SparklingPageResource.xcassets",
+          "packages/sparkling-sdk/ios/Sparkling/Application/Container/UI/SparklingPageResource.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Service",
+      "source_files": [
+        "Sparkling/Service/{Base,Protocols}/**/*.{swift,m,h}",
+        "packages/sparkling-sdk/ios/Sparkling/Service/{Base,Protocols}/**/*.{swift,m,h}"
+      ],
+      "dependencies": {
+        "Sparkling/Utils": [
+
+        ],
+        "SparklingMethod/Core": [
+          "2.0.0-rc.5"
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "LynxService",
+          "dependencies": {
+            "Lynx/Framework": [
+              "3.6.0"
+            ],
+            "SparklingMethod/Lynx": [
+              "2.0.0-rc.5"
+            ]
+          },
+          "source_files": [
+            "Sparkling/Service/{Base,Protocols}/**/*.{swift,m,h}",
+            "packages/sparkling-sdk/ios/Sparkling/Service/{Base,Protocols}/**/*.{swift,m,h}",
+            "Sparkling/Service/LynxService/**/*.{swift,m,h}",
+            "packages/sparkling-sdk/ios/Sparkling/Service/LynxService/**/*.{swift,m,h}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Utils",
+      "source_files": [
+        "Sparkling/Utils/**/*.{swift,m,h}",
+        "packages/sparkling-sdk/ios/Sparkling/Utils/**/*.{swift,m,h}"
+      ]
+    }
+  ],
+  "swift_version": "5.10"
+}
