@@ -1,0 +1,28 @@
+{
+  "name": "KnotAPI",
+  "version": "2.0.0",
+  "summary": "Connect to your customers online accounts easily",
+  "description": "Change Card on File Information, Cancel Subscriptions, Change Passwords, and more via Knot.",
+  "homepage": "https://www.knotapi.com/",
+  "license": "MIT",
+  "authors": "Tarik",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/millionscard/knot-api-ios.git",
+    "tag": "2.0.0"
+  },
+  "vendored_frameworks": "KnotAPI.xcframework",
+  "script_phases": {
+    "name": "Knot SDK Version Warning",
+    "execution_position": "before_compile",
+    "shell_path": "/bin/sh",
+    "output_files": [
+      "$(DERIVED_FILE_DIR)/knot-sdk-version-check-complete.txt"
+    ],
+    "script": "set +e\n\n# Kill switch\nif [ \"${KNOT_SDK_VERSION_WARNING_DISABLED}\" = \"1\" ]; then\n  exit 0\nfi\n\n/usr/bin/env ruby <<'RUBY'\n# encoding: utf-8\nbegin\n  require 'json'\n  require 'net/http'\n  require 'uri'\n  require 'timeout'\n\n  # Exit silently if disabled\n  if ENV['KNOT_SDK_VERSION_WARNING_DISABLED'] == '1'\n    exit 0\n  end\n\n  # Normalize version string:\n  # - strip leading v\n  # - drop build metadata (+...)\n  # - drop prerelease (-...)\n  # - normalize x.y -> x.y.0\n  def normalize_version(version)\n    v = version.to_s.strip\n    v = v.sub(/^v/i, '')\n    v = v.split('+').first\n    v = v.split('-').first\n\n    if v.match?(/^\\d+\\.\\d+$/)\n      v = \"#{v}.0\"\n    end\n\n    v\n  end\n\n  def valid_semver?(version)\n    v = normalize_version(version)\n    v.match?(/^\\d+\\.\\d+\\.\\d+$/)\n  end\n\n  # Extract PODS section from Podfile.lock\n  def extract_pods_section(lock_contents)\n    # Matches:\n    # PODS:\n    #   - Foo (1.0.0)\n    #   ...\n    # <NEXT_SECTION>:\n    #\n    m = lock_contents.match(/^PODS:\\n(?<body>.*?)(^\\S.*?:\\n|\\z)/m)\n    m ? (\"PODS:\\n\" + m[:body]) : nil\n  end\n\n  # Parse Podfile.lock to get installed version\n  def get_installed_version\n    candidates = []\n\n    if ENV['PODS_PODFILE_DIR_PATH'] && !ENV['PODS_PODFILE_DIR_PATH'].to_s.empty?\n      candidates << File.join(ENV['PODS_PODFILE_DIR_PATH'], 'Podfile.lock')\n    end\n\n    # Fallback attempts (best-effort; silent failures)\n    candidates.concat([\n      File.expand_path('Podfile.lock', Dir.pwd),\n      File.expand_path('../Podfile.lock', Dir.pwd),\n      File.expand_path('../../Podfile.lock', Dir.pwd)\n    ])\n\n    lock_path = candidates.find { |p| p && File.exist?(p) }\n    unless lock_path\n      return nil\n    end\n\n    content = File.read(lock_path)\n    pods_section = extract_pods_section(content)\n    unless pods_section\n      return nil\n    end\n\n    # Prefer root pod entry if present\n    # Typical lines are indented: \"  - KnotAPI (1.0.0)\" or \"  - KnotAPI/Subspec (1.0.0)\"\n    # 1) Try root KnotAPI\n    if (m = pods_section.match(/^\\s*-\\s+KnotAPI\\s+\\(([^)]+)\\)/))\n      v = normalize_version(m[1])\n      return v if valid_semver?(v)\n    end\n\n    # 2) Fallback to subspec if root not found\n    if (m = pods_section.match(/^\\s*-\\s+KnotAPI\\/[^\\s]+\\s+\\(([^)]+)\\)/))\n      v = normalize_version(m[1])\n      return v if valid_semver?(v)\n    end\n\n    nil\n  rescue => e\n    nil\n  end\n\n  # Fetch version warning message from Knot API endpoint\n  def fetch_version_warning_message(installed_version)\n    return nil unless installed_version && valid_semver?(installed_version)\n\n    uri = URI(\"https://production.knotapi.com/sdk/version-check?currentVersion=#{installed_version}&platform=ios\")\n\n    begin\n      Timeout.timeout(2) do\n        http = Net::HTTP.new(uri.host, uri.port)\n        http.use_ssl = true\n        http.open_timeout = 2\n        http.read_timeout = 2\n\n        req = Net::HTTP::Get.new(uri)\n        req['User-Agent'] = 'KnotSDKVersionCheck'\n\n        resp = http.request(req)\n        return nil unless resp.code == '200'\n\n        data = JSON.parse(resp.body)\n        message = data['message']\n        return message if message && !message.to_s.strip.empty?\n      end\n    rescue\n      # Silent failure\n    end\n\n    nil\n  end\n\n  installed_version = get_installed_version\n  unless installed_version && valid_semver?(installed_version)\n    exit 0\n  end\n\n  warning_message = fetch_version_warning_message(installed_version)\n  if warning_message && !warning_message.to_s.strip.empty?\n    $stderr.puts \"warning: #{warning_message}\"\n  end\n\nrescue => e\n  exit 0\nend\nRUBY\n\n# Create output marker file (with error handling to prevent build failures)\n# Use $DERIVED_FILE_DIR directly (it's an environment variable set by Xcode)\nif [ -n \"$DERIVED_FILE_DIR\" ]; then\n  OUTPUT_FILE=\"$DERIVED_FILE_DIR/knot-sdk-version-check-complete.txt\"\n  mkdir -p \"$DERIVED_FILE_DIR\" 2>/dev/null || true\n  echo \"checked\" > \"$OUTPUT_FILE\" 2>/dev/null || true\nfi\n\nexit 0\n"
+  },
+  "swift_version": "5.0"
+}
