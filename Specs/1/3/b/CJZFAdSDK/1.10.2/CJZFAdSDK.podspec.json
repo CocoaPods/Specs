@@ -1,0 +1,85 @@
+{
+  "name": "CJZFAdSDK",
+  "version": "1.10.2",
+  "summary": "CJZFAdSDK binary framework with optional WeChat support",
+  "description": "CJZFAdSDK is a prebuilt binary framework for iOS.\nIt includes a Core module and optional modules for WeChat integration.",
+  "homepage": "https://gitee.com/zfad-ios/cjzfad-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "早范": "jnfdc580@163.com"
+  },
+  "source": {
+    "git": "https://gitee.com/zfad-ios/cjzfad-sdk.git",
+    "tag": "1.10.2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "CoreLocation",
+    "WebKit",
+    "CoreFoundation",
+    "QuartzCore",
+    "AssetsLibrary",
+    "ImageIO",
+    "Accelerate",
+    "MobileCoreServices",
+    "AdSupport",
+    "CoreMotion",
+    "AVFoundation",
+    "CoreMedia"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "VALID_ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": [
+          "CJZFAdSDK/Classes/CJZFAdSDK.framework"
+        ]
+      }
+    },
+    {
+      "name": "Channel",
+      "dependencies": {
+        "CJZFAdSDK/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "2.0.4"
+        ]
+      }
+    },
+    {
+      "name": "ChannelNoWechat",
+      "dependencies": {
+        "CJZFAdSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
