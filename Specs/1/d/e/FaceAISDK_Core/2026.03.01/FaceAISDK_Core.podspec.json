@@ -1,0 +1,60 @@
+{
+  "name": "FaceAISDK_Core",
+  "version": "2026.03.01",
+  "platforms": {
+    "ios": "15.5"
+  },
+  "summary": "FaceAISDK人脸识别和活体检验，可离线无需网络端侧实现",
+  "homepage": "https://github.com/FaceAISDK/FaceAISDK_Core",
+  "license": {
+    "type": "FaceAISDK License",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "FaceAISDK_Core": "FaceAISDK.Service@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/FaceAISDK/FaceAISDK_Core.git",
+    "tag": "2026.03.01"
+  },
+  "swift_versions": [
+    "5.9",
+    "6.0",
+    "6.1",
+    "6.2"
+  ],
+  "static_framework": true,
+  "dependencies": {
+    "GoogleMLKit/FaceDetection": [
+      "9.0.0"
+    ],
+    "TensorFlowLiteSwift": [
+      "~> 2.17"
+    ]
+  },
+  "ios": {
+    "vendored_frameworks": [
+      "BuildOut/*.xcframework",
+      "FaceAISDK_Core/silent/framework/ncnn.framework",
+      "FaceAISDK_Core/silent/framework/openmp.framework"
+    ]
+  },
+  "resources": [
+    "Resources/subModel.bundle"
+  ],
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lc++ -ObjC",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"${PODS_ROOT}/FaceAISDK_Core/FaceAISDK_Core/silent/framework\"",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -enable-library-evolution",
+    "SKIP_INSTALL": "NO",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lc++",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "swift_version": "6.2"
+}
