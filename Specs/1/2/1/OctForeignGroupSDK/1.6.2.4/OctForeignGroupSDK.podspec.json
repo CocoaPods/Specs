@@ -1,0 +1,83 @@
+{
+  "name": "OctForeignGroupSDK",
+  "version": "1.6.2.4",
+  "summary": "OctForeignGroupSDK",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/zy_octopus/octopus_foreign_ios_group",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhaojinlong": "zhaojinlong@adintl.cn"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "libraries": [
+    "c++"
+  ],
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Foundation",
+    "UIKit",
+    "AppTrackingTransparency"
+  ],
+  "source": {
+    "git": "https://gitee.com/zy_octopus/octopus_foreign_ios_group.git",
+    "tag": "1.6.2.4"
+  },
+  "default_subspecs": "OctForeignGroupBaseSDK",
+  "subspecs": [
+    {
+      "name": "OctForeignGroupBaseSDK",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "OctForeignGroupSDK/OctGroupAdSDK.xcframework",
+      "dependencies": {
+        "OctopusForeignSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "OctGroupTakuAdapterSDK",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "OctForeignGroupSDK/OctGroupTakuAdapterSDK.xcframework",
+      "dependencies": {
+        "OctForeignGroupSDK/OctForeignGroupBaseSDK": [
+
+        ],
+        "TPNiOS": [
+
+        ],
+        "TPNMediationAdxSmartdigimktAdapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "OctForeignGroupKwaiSDK",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "OctForeignGroupSDK/OctKsAdpaterSDK.xcframework",
+      "dependencies": {
+        "OctForeignGroupSDK/OctForeignGroupBaseSDK": [
+
+        ],
+        "KwaiAdsSDK": [
+
+        ]
+      }
+    }
+  ]
+}
