@@ -1,0 +1,141 @@
+{
+  "name": "Plexy",
+  "version": "4.0.0",
+  "summary": "Plexy Components for iOS",
+  "description": "Plexy Components for iOS allows you to accept in-app payments by providing you with the building blocks you need to create a checkout experience.",
+  "homepage": "https://plexy.money",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Plexy": "support@plexy.money"
+  },
+  "source": {
+    "git": "https://github.com/plexypay/plexy-ios.git",
+    "tag": "4.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.7",
+  "frameworks": "Foundation",
+  "default_subspecs": [
+    "Core",
+    "Components",
+    "Actions",
+    "Card",
+    "Encryption",
+    "DropIn",
+    "Session"
+  ],
+  "pod_target_xcconfig": {
+    "SWIFT_SUPPRESS_WARNINGS": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Plexy/**/*.swift",
+      "exclude_files": "Plexy/**/BundleSPMExtension.swift",
+      "dependencies": {
+        "PlexyNetworking": [
+
+        ]
+      },
+      "resource_bundles": {
+        "Plexy": [
+          "Plexy/Assets/**/*.strings",
+          "Plexy/Assets/**/*.xcassets",
+          "Plexy/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "Encryption",
+      "source_files": "PlexyEncryption/**/*.swift"
+    },
+    {
+      "name": "SwiftUI",
+      "source_files": "PlexySwiftUI/**/*.swift"
+    },
+    {
+      "name": "Actions",
+      "dependencies": {
+        "Plexy/Core": [
+
+        ]
+      },
+      "source_files": "PlexyActions/**/*.swift",
+      "exclude_files": "PlexyActions/**/BundleSPMExtension.swift",
+      "resource_bundles": {
+        "PlexyActions": [
+          "PlexyActions/Assets/**/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Card",
+      "dependencies": {
+        "Plexy/Core": [
+
+        ],
+        "Plexy/Encryption": [
+
+        ]
+      },
+      "source_files": "PlexyCard/**/*.swift",
+      "exclude_files": "PlexyCard/**/BundleSPMExtension.swift",
+      "resource_bundles": {
+        "PlexyCard": [
+          "PlexyCard/Assets/**/*.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "Components",
+      "dependencies": {
+        "Plexy/Core": [
+
+        ],
+        "Plexy/Encryption": [
+
+        ]
+      },
+      "source_files": "PlexyComponents/**/*.swift"
+    },
+    {
+      "name": "Session",
+      "dependencies": {
+        "Plexy/Core": [
+
+        ],
+        "Plexy/Actions": [
+
+        ]
+      },
+      "source_files": "PlexySession/**/*.swift"
+    },
+    {
+      "name": "DropIn",
+      "source_files": "PlexyDropIn/**/*.swift",
+      "dependencies": {
+        "Plexy/Core": [
+
+        ],
+        "Plexy/Actions": [
+
+        ],
+        "Plexy/Card": [
+
+        ],
+        "Plexy/Encryption": [
+
+        ],
+        "Plexy/Components": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.7"
+}
