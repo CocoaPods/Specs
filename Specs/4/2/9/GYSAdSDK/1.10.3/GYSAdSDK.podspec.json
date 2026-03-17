@@ -1,0 +1,85 @@
+{
+  "name": "GYSAdSDK",
+  "version": "1.10.3",
+  "summary": "A short description of GYSAdSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/gys-ios/gysad-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "广盈速": "16741527+guangying-speed@user.noreply.gitee.com"
+  },
+  "source": {
+    "git": "git@gitee.com:gys-ios/gysad-sdk.git",
+    "tag": "1.10.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "frameworks": [
+    "UIKit",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "CoreLocation",
+    "WebKit",
+    "CoreFoundation",
+    "QuartzCore",
+    "AssetsLibrary",
+    "ImageIO",
+    "Accelerate",
+    "MobileCoreServices",
+    "AdSupport",
+    "CoreMotion",
+    "AVFoundation",
+    "CoreMedia"
+  ],
+  "libraries": [
+    "z",
+    "sqlite3"
+  ],
+  "requires_arc": true,
+  "xcconfig": {
+    "ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "VALID_ARCHS": "${ARCHS_STANDARD_64_BIT}",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "vendored_frameworks": [
+          "GYSAdSDK/Classes/GYSAdSDK.framework"
+        ]
+      }
+    },
+    {
+      "name": "Channel",
+      "dependencies": {
+        "GYSAdSDK/Core": [
+
+        ],
+        "WechatOpenSDK": [
+          "2.0.4"
+        ]
+      }
+    },
+    {
+      "name": "ChannelNoWechat",
+      "dependencies": {
+        "GYSAdSDK/Core": [
+
+        ]
+      }
+    }
+  ]
+}
