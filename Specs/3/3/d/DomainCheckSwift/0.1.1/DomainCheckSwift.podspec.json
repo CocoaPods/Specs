@@ -1,0 +1,24 @@
+{
+  "name": "DomainCheckSwift",
+  "version": "0.1.1",
+  "summary": "域名检查库：从配置的 URL 拉取内容并解析出可用域名。OC 和 Swift 均可以使用，最低 iOS 15.0。",
+  "description": "OC 和 Swift 均可以使用。使用前必须创建 DomainCheckConfig 并调用 initialize(config:)（Swift）或 setupWithConfig:（OC）进行配置。依赖系统 URLSession，无第三方网络库。\n\n## Swift 使用示例\n\n// 1. 创建配置（必填：检查用 URL 列表、响应内容中的开始/中间/结尾标记字符串）\nlet config = DomainCheckConfig(\n    checkDomainUrls: [\n        \"https://raw.githubusercontent.com/IFPLLIMIT/Kingfisher/refs/heads/master/README.md\",\n        \"https://pastebin.com/raw/M9Y6kLv3\",\n        \"https://hackmd.io/@IFPLLIMIT/HJWKWzbslx\"\n    ],\n    startString: \"KINGFISHERSTART\",\n    middleString: \"LIMITED\",\n    endString: \"ENDRUPEE\"\n)\nDomainCheckManager.initialize(config: config)\n\n// 2. 可选：监听网络状态\nDomainCheckManager.share.hallNetworkCanConnect = {\n    DomainCheckManager.share.getHallCanUserDomain(success: { domain in\n        print(\"可用域名: \\(domain)\")\n    }, failure: {\n        print(\"获取域名失败\")\n    })\n}\nDomainCheckManager.share.hallNetworkUnConnect = { /* 断网回调 */ }\nDomainCheckManager.share.startCheckNetwork()\n\n// 3. 直接获取可用域名\nDomainCheckManager.share.getHallCanUserDomain(success: { domain in\n    // 使用 domain\n}, failure: {\n    // 失败\n})\n\n## Objective-C 使用示例\n\n@import DomainCheckSwift;\n\nDomainCheckConfig *config = [[DomainCheckConfig alloc] initWithCheckDomainUrls:@[\n    @\"https://raw.githubusercontent.com/IFPLLIMIT/Kingfisher/refs/heads/master/README.md\",\n    @\"https://pastebin.com/raw/M9Y6kLv3\",\n    @\"https://hackmd.io/@IFPLLIMIT/HJWKWzbslx\"\n] startString:@\"KINGFISHERSTART\" middleString:@\"LIMITED\" endString:@\"ENDRUPEE\"];\n[DomainCheckManager setupWithConfig:config];\n\n[DomainCheckManager.share getHallCanUserDomainWithSuccess:^(NSString *domain) {\n    NSLog(@\"可用域名: %@\", domain);\n} failure:^{\n    NSLog(@\"获取域名失败\");\n}];",
+  "homepage": "https://github.com/yanwenbo78201/DomainCheckSwift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yanwenbo78201": "yanwenbo_78201@163.com"
+  },
+  "source": {
+    "git": "https://github.com/yanwenbo78201/DomainCheckSwift.git",
+    "tag": "0.1.1"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source_files": "DomainCheckSwift/Classes/**/*",
+  "swift_version": "5.0"
+}
