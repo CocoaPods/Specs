@@ -1,0 +1,71 @@
+{
+  "name": "FKLogger",
+  "version": "1.0.0",
+  "summary": "A lightweight logging and crash management library for iOS.",
+  "description": "FKLogger is a lightweight logging library with crash detection and management capabilities.\nIt supports both Objective-C and Swift, providing easy-to-use logging functions and crash handlers.",
+  "homepage": "https://github.com/FunkeyM/FKLogger",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bobby": "liyoxing@126.com"
+  },
+  "source": {
+    "git": "https://github.com/FunkeyM/FKLogger.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "SWIFT_OBJC_INTERFACE_HEADER_NAME": "FKLogger-Swift.h"
+  },
+  "source_files": [
+    "FKLogger/FKLogger/Logger/**/*.{h,m,swift}",
+    "FKLogger/FKLogger/CrashManager/**/*.{h,m,swift}",
+    "FKLogger/FKLogger/*.h"
+  ],
+  "public_header_files": [
+    "FKLogger/FKLogger/Logger/FKLoggerHeader.h",
+    "FKLogger/FKLogger/CrashManager/CrashManager.h"
+  ],
+  "dependencies": {
+    "CocoaLumberjack/Swift": [
+      "~> 3.8"
+    ],
+    "SSZipArchive": [
+      "~> 2.4"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Logger",
+      "source_files": [
+        "FKLogger/FKLogger/Logger/**/*.{h,m,swift}",
+        "FKLogger/FKLogger/*.h"
+      ],
+      "public_header_files": "FKLogger/FKLogger/Logger/FKLoggerHeader.h",
+      "dependencies": {
+        "CocoaLumberjack/Swift": [
+          "~> 3.8"
+        ],
+        "SSZipArchive": [
+          "~> 2.4"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_OBJC_INTERFACE_HEADER_NAME": "FKLogger-Swift.h"
+      }
+    },
+    {
+      "name": "CrashManager",
+      "source_files": "FKLogger/FKLogger/CrashManager/**/*.{h,m,swift}",
+      "public_header_files": "FKLogger/FKLogger/CrashManager/CrashManager.h"
+    }
+  ],
+  "swift_version": "5.0"
+}
