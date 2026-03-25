@@ -1,0 +1,66 @@
+{
+  "name": "SwiftSystemService",
+  "version": "0.1.2",
+  "summary": "iOS 设备与系统信息采集（网络、存储、时间、设备、越狱检测等），支持 Swift / Objective-C。",
+  "description": "聚合常用系统能力，按子模块（subspec）拆分依赖，可按需只引入部分功能。\n\n- Network：网络类型、代理、VPN 等\n- Storage：内存等存储相关信息\n- Time：启动时间等\n- Device：屏幕、CPU、IDFA、语言时区、电量等\n- Broken：越狱环境相关检测\n- 根 spec 仅含 SystemService 入口，用于汇总设备信息字典\n\n主要类型继承 NSObject 并暴露给 Objective-C，便于混编工程调用。",
+  "homepage": "https://github.com/yanwenbo78201/SwiftSystemService",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yanwenbo78201": "yanwenbo78201@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/yanwenbo78201/SwiftSystemService.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "5.0",
+  "source_files": "SwiftSystemService/Classes/SystemService.swift",
+  "frameworks": [
+    "UIKit",
+    "CoreTelephony",
+    "AppTrackingTransparency",
+    "AdSupport"
+  ],
+  "subspecs": [
+    {
+      "name": "Network",
+      "source_files": "SwiftSystemService/Classes/Network/**/*",
+      "frameworks": [
+        "UIKit",
+        "CoreTelephony",
+        "AppTrackingTransparency"
+      ]
+    },
+    {
+      "name": "Broken",
+      "source_files": "SwiftSystemService/Classes/Broken/**/*",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Storage",
+      "source_files": "SwiftSystemService/Classes/Storage/**/*",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Time",
+      "source_files": "SwiftSystemService/Classes/Time/**/*",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Device",
+      "source_files": "SwiftSystemService/Classes/Device/**/*",
+      "frameworks": [
+        "UIKit",
+        "CoreTelephony",
+        "AppTrackingTransparency",
+        "AdSupport"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
