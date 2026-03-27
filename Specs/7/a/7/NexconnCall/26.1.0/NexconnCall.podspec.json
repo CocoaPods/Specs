@@ -1,0 +1,48 @@
+{
+  "name": "NexconnCall",
+  "version": "26.1.0",
+  "summary": "NexconnCall SDK",
+  "description": "NexconnCall SDK for iOS.\nIf you do not see the latest version, run `pod repo update` to refresh your local CocoaPods specs repo.",
+  "homepage": "https://www.nexconn.ai",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2026 Nexconn"
+  },
+  "authors": {
+    "Nexconn": "https://www.nexconn.ai"
+  },
+  "social_media_url": "https://www.nexconn.ai",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://downloads.rongcloud.cn/NexconnCall_iOS_SDK_v26_1_0_Dev.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS": "arm64 armv7 x86_64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "default_subspecs": "Call",
+  "subspecs": [
+    {
+      "name": "Call",
+      "vendored_frameworks": [
+        "NexconnCallSDK/**/NexconnCall.xcframework",
+        "NexconnCallSDK/**/RongRTCLib.xcframework",
+        "NexconnCallSDK/**/RongCallPlusLib.xcframework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "NexconnChat/Chat": [
+          ">=26.1.0"
+        ]
+      }
+    }
+  ]
+}
