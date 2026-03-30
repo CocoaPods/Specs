@@ -1,0 +1,36 @@
+{
+  "name": "MatrixCryptoBridge",
+  "version": "1.2.13",
+  "summary": "Native Rust cryptography bridge for Matrix End-to-End Encryption",
+  "description": "MatrixCryptoBridge provides high-performance Rust-based cryptography for Matrix clients\non iOS. It includes pre-built static libraries for device and simulator architectures.\n\nFeatures:\n- OlmMachine for cryptographic operations\n- Device verification and key management\n- Megolm session handling for group encryption\n- 10x faster than WebAssembly implementations",
+  "homepage": "https://github.com/k9o-dev/matrix-crypto-bridge",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "k9o": "support@pmglobaltechnology.com"
+  },
+  "source": {
+    "http": "https://github.com/k9o-dev/matrix-crypto-bridge/releases/download/v1.2.13/matrix-crypto-bridge-dist.tar.gz",
+    "sha256": "2312243244f82dd105d263e96dbc0b946b3919430bb758d0e5f20d1dfbda75b3"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "vendored_libraries": "ios/libmatrix_crypto_ios.a",
+  "source_files": [
+    "ios/bindings/matrix_crypto.swift",
+    "ios/bindings/matrix_cryptoFFI.h"
+  ],
+  "public_header_files": "ios/bindings/matrix_cryptoFFI.h",
+  "module_map": "ios/bindings/matrix_cryptoFFI.modulemap",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lc++ -lresolv",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/ios/bindings",
+    "DEFINES_MODULE": "YES"
+  },
+  "swift_version": "5.0"
+}
