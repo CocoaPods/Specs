@@ -1,0 +1,76 @@
+{
+  "name": "AFNetworkingPrivacy",
+  "version": "4.0.1.1",
+  "homepage": "https://github.com/taojeff/AFNetworkingPrivacy",
+  "source": {
+    "git": "https://github.com/taojeff/AFNetworkingPrivacy.git",
+    "tag": "4.0.1.1"
+  },
+  "authors": {
+    "taojeff": "990073834@qq.com"
+  },
+  "summary": "AFNetworking 4.0.1 + 隐私清单 PrivacyInfo.xcprivacy",
+  "license": "MIT",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "AFNetworking/AFNetworking.h",
+  "module_name": "AFNetworking",
+  "header_dir": "AFNetworking",
+  "resource_bundles": {
+    "AFNetworkingPrivacy": [
+      "PrivacyInfo.xcprivacy"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "AFNetworking/AFURL{Request,Response}Serialization.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "AFNetworking/AFSecurityPolicy.{h,m}"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "AFNetworking/AFNetworkReachabilityManager.{h,m}"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "AFNetworkingPrivacy/Serialization": [
+
+        ],
+        "AFNetworkingPrivacy/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "AFNetworkingPrivacy/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "AFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+        "AFNetworking/AFCompatibilityMacros.h"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "dependencies": {
+        "AFNetworkingPrivacy/NSURLSession": [
+
+        ]
+      },
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
