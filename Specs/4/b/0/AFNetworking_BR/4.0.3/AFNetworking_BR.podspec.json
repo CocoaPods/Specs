@@ -1,0 +1,85 @@
+{
+  "name": "AFNetworking_BR",
+  "summary": "A delightful networking framework for Apple platforms.",
+  "version": "4.0.3",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "renbo": "developer@irenb.com"
+  },
+  "social_media_url": "https://www.irenb.com",
+  "homepage": "https://github.com/agiapp/AFNetworking_BR",
+  "source": {
+    "git": "https://github.com/agiapp/AFNetworking_BR.git",
+    "tag": "4.0.3"
+  },
+  "resource_bundles": {
+    "AFNetworking.Privacy": "AFNetworking/PrivacyInfo.xcprivacy"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.13"
+  },
+  "source_files": "AFNetworking/AFNetworking.h",
+  "subspecs": [
+    {
+      "name": "Serialization",
+      "source_files": "AFNetworking/AFURL{Request,Response}Serialization.{h,m}"
+    },
+    {
+      "name": "Security",
+      "source_files": "AFNetworking/AFSecurityPolicy.{h,m}"
+    },
+    {
+      "name": "Reachability",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.13"
+      },
+      "source_files": "AFNetworking/AFNetworkReachabilityManager.{h,m}"
+    },
+    {
+      "name": "NSURLSession",
+      "dependencies": {
+        "AFNetworking_BR/Serialization": [
+
+        ],
+        "AFNetworking_BR/Security": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "AFNetworking_BR/Reachability": [
+
+          ]
+        }
+      },
+      "osx": {
+        "dependencies": {
+          "AFNetworking_BR/Reachability": [
+
+          ]
+        }
+      },
+      "source_files": [
+        "AFNetworking/AF{URL,HTTP}SessionManager.{h,m}",
+        "AFNetworking/AFCompatibilityMacros.h"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "AFNetworking_BR/NSURLSession": [
+
+        ]
+      },
+      "source_files": "UIKit+AFNetworking"
+    }
+  ]
+}
