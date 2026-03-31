@@ -1,0 +1,92 @@
+{
+  "name": "XCToolkit",
+  "version": "1.0.0",
+  "summary": "iOS 开发综合工具库，包含扩展、UI组件、网络封装及底层工具。",
+  "description": "XCToolkit 是一个功能全面的 iOS 库，涵盖了：\n- 基础 Foundation/UIKit 扩展\n- 进制转换、蓝牙数据处理工具\n- 基于 Moya/MQTT/WebSocket 的网络封装\n- 常用 UI 组件（弹窗、选择器、空页面等）\n- 基础业务框架封装（BaseVC, Theme, Permission）",
+  "homepage": "https://github.com/aliuhongliang/XCToolkit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "XiChuan": "617745514@qq.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "source": {
+    "git": "https://github.com/aliuhongliang/XCToolkit.git",
+    "tag": "1.0.0"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "default_subspecs": [
+    "Core",
+    "Extensions",
+    "Architecture",
+    "Components"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/XCCore/**/*.swift"
+    },
+    {
+      "name": "Extensions",
+      "source_files": "Sources/XCExtensions/**/*.swift",
+      "dependencies": {
+        "XCToolkit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Architecture",
+      "source_files": "Sources/XCArchitecture/**/*.swift",
+      "dependencies": {
+        "XCToolkit/Extensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "Components",
+      "source_files": "Sources/XCComponents/**/*.swift",
+      "dependencies": {
+        "XCToolkit/Extensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "Sources/XCNetwork/**/*.swift",
+      "dependencies": {
+        "XCToolkit/Core": [
+
+        ],
+        "Moya": [
+
+        ],
+        "Starscream": [
+
+        ],
+        "CocoaMQTT": [
+
+        ]
+      }
+    },
+    {
+      "name": "Crypto",
+      "source_files": "Sources/XCCrypto/**/*.swift",
+      "dependencies": {
+        "CryptoSwift": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
