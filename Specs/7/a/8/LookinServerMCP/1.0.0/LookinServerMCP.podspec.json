@@ -1,0 +1,71 @@
+{
+  "name": "LookinServerMCP",
+  "version": "1.0.0",
+  "summary": "The iOS framework of Lookin with MCP HTTP server support.",
+  "description": "Embed this framework into your iOS project to enable Lookin mac app and lookin-mcp direct connection via HTTP.",
+  "homepage": "https://github.com/hepiao3/LookinServer",
+  "license": "GPL-3.0",
+  "authors": {
+    "hepiao3": "hp193220847@gmail.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Core",
+  "source": {
+    "git": "https://github.com/hepiao3/LookinServer.git",
+    "tag": "1.0.0"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Src/Main/**/*",
+        "Src/Base/**/*"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SHOULD_COMPILE_LOOKIN_SERVER=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) SHOULD_COMPILE_LOOKIN_SERVER"
+      }
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "LookinServerMCP/Core": [
+
+        ]
+      },
+      "source_files": "Src/Swift/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED"
+      }
+    },
+    {
+      "name": "NoHook",
+      "dependencies": {
+        "LookinServerMCP/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_DISABLE_HOOK=1"
+      }
+    },
+    {
+      "name": "SwiftAndNoHook",
+      "dependencies": {
+        "LookinServerMCP/Core": [
+
+        ]
+      },
+      "source_files": "Src/Swift/**/*",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED=1 LOOKIN_SERVER_DISABLE_HOOK=1",
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LOOKIN_SERVER_SWIFT_ENABLED"
+      }
+    }
+  ]
+}
