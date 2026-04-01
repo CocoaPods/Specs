@@ -1,0 +1,52 @@
+{
+  "name": "ByeDPIC",
+  "version": "0.17.3",
+  "summary": "Wrapper and a build workflow for hufrea/byedpi",
+  "homepage": "https://github.com/mIwr/SwByeDPI",
+  "license": {
+    "type": "AGPL 3.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mIwr": "https://github.com/mIwr"
+  },
+  "platforms": {
+    "osx": "10.12",
+    "ios": "9.0",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "source": {
+    "git": "https://github.com/mIwr/SwByeDPI.git",
+    "tag": "0.17.3"
+  },
+  "exclude_files": [
+    "Sources/ByeDPIC/byedpi/win_service.c",
+    "Sources/ByeDPIC/byedpi/win_service.h",
+    "Sources/ByeDPIC/byedpi/.gitignore"
+  ],
+  "source_files": [
+    "Sources/ByeDPIC/*.{c,h}",
+    "Sources/ByeDPIC/byedpi/*.{c,h}",
+    "Sources/ByeDPIC/include/*.h"
+  ],
+  "public_header_files": "Sources/ByeDPIC/include/*.h",
+  "private_header_files": [
+    "Sources/ByeDPIC/byedpi/*.h",
+    "Sources/ByeDPIC/ciadpi_bridge.h"
+  ],
+  "libraries": "c",
+  "pod_target_xcconfig": {
+    "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+    "CLANG_C_LANGUAGE_STANDARD": "c17",
+    "CLANG_C_LIBRARY": "libc",
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/SwByeDPI/Sources/ByeDPIC/include",
+    "OTHER_CFLAGS": "-UDAEMON -Dmain=ciadpi_main -Wno-implicit-function-declaration"
+  },
+  "resource_bundles": {
+    "ByeDPIC": [
+      "Sources/ByeDPIC/PrivacyInfo.xcprivacy",
+      "Sources/ByeDPIC/byedpi/LICENSE"
+    ]
+  }
+}
