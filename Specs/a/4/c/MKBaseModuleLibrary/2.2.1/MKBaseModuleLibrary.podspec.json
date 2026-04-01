@@ -1,0 +1,116 @@
+{
+  "name": "MKBaseModuleLibrary",
+  "version": "2.2.1",
+  "summary": "Some basic component libraries of MOKO.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MOKO-iOS-Base-Library/MKBaseModuleLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MOKO-iOS-Base-Library/MKBaseModuleLibrary.git",
+    "tag": "2.2.1"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "resource_bundles": {
+    "MKBaseModuleLibrary": [
+      "MKBaseModuleLibrary/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "Masonry": [
+      "~> 1.1.0"
+    ],
+    "Toast": [
+      "~> 4.0.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Defines",
+      "source_files": "MKBaseModuleLibrary/Classes/Defines/*.h"
+    },
+    {
+      "name": "Category",
+      "source_files": "MKBaseModuleLibrary/Classes/Category/**",
+      "dependencies": {
+        "MKBaseModuleLibrary/Defines": [
+
+        ],
+        "MKBaseModuleLibrary/Tools/MKClassInfo": [
+
+        ]
+      }
+    },
+    {
+      "name": "Tools",
+      "dependencies": {
+        "MKBaseModuleLibrary/Defines": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "MKClassInfo",
+          "source_files": "MKBaseModuleLibrary/Classes/Tools/MKClassInfo/**"
+        },
+        {
+          "name": "MKExcelManager",
+          "source_files": "MKBaseModuleLibrary/Classes/Tools/MKExcelManager/**",
+          "dependencies": {
+            "libxlsxwriter": [
+              "~> 1.1.7"
+            ],
+            "SSZipArchive": [
+              "~> 2.4.0"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "dependencies": {
+        "MKBaseModuleLibrary/Defines": [
+
+        ],
+        "MKBaseModuleLibrary/Category": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "MKBaseCell",
+          "source_files": "MKBaseModuleLibrary/Classes/Base/MKBaseCell/**"
+        },
+        {
+          "name": "View",
+          "subspecs": [
+            {
+              "name": "CollectionView",
+              "source_files": "MKBaseModuleLibrary/Classes/Base/View/CollectionView/**"
+            },
+            {
+              "name": "TableView",
+              "source_files": "MKBaseModuleLibrary/Classes/Base/View/TableView/**"
+            }
+          ]
+        },
+        {
+          "name": "Controller",
+          "source_files": "MKBaseModuleLibrary/Classes/Base/Controller/**"
+        },
+        {
+          "name": "NavigationController",
+          "source_files": "MKBaseModuleLibrary/Classes/Base/NavigationController/**"
+        }
+      ]
+    }
+  ]
+}
