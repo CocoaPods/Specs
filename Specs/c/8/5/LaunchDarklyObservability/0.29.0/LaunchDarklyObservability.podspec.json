@@ -1,0 +1,132 @@
+{
+  "name": "LaunchDarklyObservability",
+  "version": "0.29.0",
+  "summary": "iOS Observability Plugin for LaunchDarkly.",
+  "description": "LaunchDarkly is the feature management platform that software teams use to build better software, faster.",
+  "homepage": "https://github.com/launchdarkly/swift-launchdarkly-observability",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "LaunchDarkly": "sdks@launchdarkly.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/launchdarkly/swift-launchdarkly-observability.git",
+    "tag": "0.29.0"
+  },
+  "swift_versions": "5.9",
+  "default_subspecs": "LaunchDarklyObservability",
+  "pod_target_xcconfig": {
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LD_COCOAPODS"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
+  },
+  "subspecs": [
+    {
+      "name": "LaunchDarklyObservability",
+      "source_files": [
+        "Sources/LaunchDarklyObservability/**/*.{swift,h,m}",
+        "Sources/ObjCBridge/**/*.{h,m}"
+      ],
+      "public_header_files": "Sources/ObjCBridge/*.h",
+      "dependencies": {
+        "LaunchDarklyObservability/Common": [
+
+        ],
+        "LaunchDarklyObservability/OpenTelemetryProtocolExporterCommon": [
+
+        ],
+        "LaunchDarklyObservability/URLSessionInstrumentation": [
+
+        ],
+        "LaunchDarklyObservability/SDKResourceExtension": [
+
+        ],
+        "LaunchDarklyObservability/OpenTelemetry": [
+
+        ],
+        "LaunchDarklyObservability/Misc": [
+
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "source_files": "Sources/Common/**/*.{swift,h,m}",
+      "dependencies": {
+        "LaunchDarkly": [
+          "~> 11.1.0"
+        ]
+      }
+    },
+    {
+      "name": "OpenTelemetryProtocolExporterCommon",
+      "source_files": "Sources/OpenTelemetry/OpenTelemetryProtocolExporterCommon/**/*.{swift,h,m}",
+      "dependencies": {
+        "OpenTelemetry-Swift-Sdk": [
+          "~> 2.3.0"
+        ],
+        "SwiftProtobuf": [
+
+        ]
+      }
+    },
+    {
+      "name": "NetworkStatus",
+      "source_files": "Sources/OpenTelemetry/Instrumentation/NetworkStatus/**/*.{swift,h,m}",
+      "dependencies": {
+        "OpenTelemetry-Swift-Api": [
+          "~> 2.3.0"
+        ]
+      },
+      "frameworks": "CoreTelephony"
+    },
+    {
+      "name": "URLSessionInstrumentation",
+      "source_files": "Sources/OpenTelemetry/Instrumentation/URLSession/**/*.{swift,h,m}",
+      "dependencies": {
+        "OpenTelemetry-Swift-Sdk": [
+          "~> 2.3.0"
+        ],
+        "LaunchDarklyObservability/NetworkStatus": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDKResourceExtension",
+      "source_files": "Sources/OpenTelemetry/Instrumentation/SDKResourceExtension/**/*.{swift,h,m}",
+      "exclude_files": "Sources/OpenTelemetry/Instrumentation/SDKResourceExtension/README.md",
+      "dependencies": {
+        "LaunchDarklyObservability/OpenTelemetry": [
+
+        ]
+      }
+    },
+    {
+      "name": "OpenTelemetry",
+      "dependencies": {
+        "OpenTelemetry-Swift-Api": [
+          "~> 2.3.0"
+        ],
+        "OpenTelemetry-Swift-Sdk": [
+          "~> 2.3.0"
+        ]
+      }
+    },
+    {
+      "name": "Misc",
+      "dependencies": {
+        "KSCrash": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
