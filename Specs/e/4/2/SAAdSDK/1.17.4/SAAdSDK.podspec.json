@@ -1,0 +1,85 @@
+{
+  "name": "SAAdSDK",
+  "version": "1.17.4",
+  "summary": "Mobit流量聚合 SAAdSDK.",
+  "description": "Ad aggregation SDK.",
+  "homepage": "https://gameley.yuque.com/gdxgxn/araqcn/mluoke051i53y82o",
+  "license": "MIT",
+  "authors": {
+    "dongzhiyue": "mrdongyueyue@163.com"
+  },
+  "source": {
+    "http": "https://lemon-cos-1258625126.cos.ap-beijing.myqcloud.com/lemon-ios-sdk/SAAdSDK/1.17.3/SAAdSDK.zip"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "pod_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "NO"
+  },
+  "libraries": [
+    "sqlite3",
+    "xml2",
+    "z",
+    "c++",
+    "resolv",
+    "bz2",
+    "iconv",
+    "c++abi"
+  ],
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreGraphics",
+    "Foundation",
+    "UIKit",
+    "AdSupport",
+    "StoreKit",
+    "QuartzCore",
+    "CoreTelephony",
+    "MobileCoreServices",
+    "Accelerate",
+    "AVFoundation",
+    "WebKit"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "SAAdSDK/SAAdSDK/*.{xcframework,framework}",
+      "dependencies": {
+        "YTNativeEvolutionAd": [
+
+        ]
+      }
+    },
+    {
+      "name": "SAPtgAdAdapter",
+      "vendored_frameworks": "SAAdSDK/SAPtgAdAdapter/*.{xcframework}",
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "user_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+      },
+      "dependencies": {
+        "SAAdSDK/Core": [
+
+        ],
+        "PTGAdFramework": [
+          "2.3.10"
+        ]
+      }
+    },
+    {
+      "name": "All-NewCSJ",
+      "dependencies": {
+        "SAAdSDK/Core": [
+
+        ],
+        "SAAdSDK/SAPtgAdAdapter": [
+
+        ]
+      }
+    }
+  ]
+}
