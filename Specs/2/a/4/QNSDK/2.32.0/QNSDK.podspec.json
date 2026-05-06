@@ -1,0 +1,38 @@
+{
+  "name": "QNSDK",
+  "version": "2.32.0",
+  "summary": "轻牛旗下设备通讯类",
+  "description": "支持智能体脂秤、共享秤二维码数据解析，仅支持arm64架构",
+  "homepage": "https://github.com/YolandaQingniu/sdk-ios-demo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "service@qnniu.com": "service@qnniu.com"
+  },
+  "source": {
+    "git": "https://github.com/YolandaQingniu/sdk-ios-demo.git",
+    "tag": "2.32.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source_files": "QNSDK/SDK/**/*.{h,m}",
+  "public_header_files": "QNSDK/SDK/**/*.h",
+  "preserve_paths": "QNSDK/SDK/libQNDeviceSDK.a",
+  "static_framework": true,
+  "frameworks": "CoreBluetooth",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "\"$(PODS_TARGET_SRCROOT)/QNSDK/SDK\"",
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-l\"QNDeviceSDK\""
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "LIBRARY_SEARCH_PATHS[sdk=iphoneos*]": "\"$(PODS_ROOT)/QNSDK/QNSDK/SDK\"",
+    "OTHER_LDFLAGS[sdk=iphoneos*]": "-l\"QNDeviceSDK\""
+  }
+}
