@@ -1,0 +1,41 @@
+{
+  "name": "KontextKit",
+  "version": "0.0.1",
+  "summary": "Kontext shared native modules for iOS SDKs",
+  "description": "KontextKit bundles the iOS-native primitives shared across every Kontext\nSDK that targets iOS — sdk-swift, sdk-react-native (iOS), and sdk-flutter\n(iOS). It contains:\n\n- System-info collectors (hardware, OS, screen, battery, audio, network).\n- IDFA/IDFV access (`AdvertisingIdProvider`) and ATT prompts\n  (`TrackingAuthorizationManager`).\n- StoreKit attribution (`SKAdNetworkManager`, `SKOverlayManager`,\n  `SKStoreProductManager`, `SKAdNetworkIdsProvider`).\n- IAB OMID (Open Measurement) integration via the bundled\n  `OMSDK_Kontextso.xcframework`.\n- IAB TCF (Transparency & Consent Framework) UserDefaults reader.\n- Brightness control, in-app browser (`SFSafariViewController`).\n\nThe point is to write platform-utility code once and share it across SDKs\nrather than re-deriving it three times. See the README for the decision\nrule and naming convention.",
+  "homepage": "https://github.com/kontextso/kontextkit-ios",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kontext": "support@kontext.so"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "source": {
+    "git": "https://github.com/kontextso/kontextkit-ios.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "Sources/**/*.swift",
+  "resource_bundles": {
+    "KontextKit": [
+      "Sources/OMSDK/omsdk-v1.js",
+      "Sources/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "vendored_frameworks": "Frameworks/OMSDK_Kontextso.xcframework",
+  "frameworks": [
+    "SafariServices",
+    "AdSupport",
+    "AppTrackingTransparency",
+    "StoreKit",
+    "CoreTelephony",
+    "AVFoundation",
+    "Network",
+    "WebKit"
+  ],
+  "swift_versions": "5.9",
+  "swift_version": "5.9"
+}
