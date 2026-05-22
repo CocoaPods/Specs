@@ -1,0 +1,57 @@
+{
+  "name": "LynxWeakNodeAPI",
+  "version": "0.0.6",
+  "summary": "Weak-linked Node-API bridge for Lynx on iOS.",
+  "description": "LynxWeakNodeAPI packages the generated weak-node-api sources, headers, and\noptional PrimJS bridge sources for iOS.",
+  "homepage": "https://github.com/lynx-family/primjs",
+  "license": "Apache-2.0",
+  "authors": {
+    "Lynx Authors": "lynx.authors@users.noreply.github.com"
+  },
+  "source": {
+    "http": "https://github.com/lynx-family/primjs/releases/download/weak-node-api-v0.0.6/LynxWeakNodeAPI-0.0.6.zip",
+    "sha256": "515a7a86a66d104d8f5b44ccadb68d5a997ed054b4d2ffc1a578422cda9da4ce"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "core",
+  "subspecs": [
+    {
+      "name": "core",
+      "header_mappings_dir": "packages/weak-node-api",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/packages/weak-node-api/generated\" \"${PODS_TARGET_SRCROOT}/packages/weak-node-api/shim\" \"${PODS_TARGET_SRCROOT}/packages/weak-node-api/headers\""
+      },
+      "source_files": [
+        "packages/weak-node-api/generated/*.{h,hpp,cc,cpp}",
+        "packages/weak-node-api/headers/*.{h,hpp}",
+        "packages/weak-node-api/shim/*.{h,hpp}",
+        "packages/weak-node-api/defs_header/*.{h,hpp}"
+      ],
+      "public_header_files": [
+        "packages/weak-node-api/generated/*.{h,hpp}",
+        "packages/weak-node-api/headers/*.{h,hpp}",
+        "packages/weak-node-api/defs_header/*.{h,hpp}"
+      ]
+    },
+    {
+      "name": "primjs_bridge",
+      "source_files": [
+        "src/napi/adapter/primjs_weak_node_api_installer.h",
+        "src/napi/adapter/weak_napi_host_injector.cc",
+        "src/napi/adapter/weak_node_api_host.h"
+      ],
+      "public_header_files": "src/napi/adapter/primjs_weak_node_api_installer.h",
+      "private_header_files": "src/napi/adapter/weak_node_api_host.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/packages/weak-node-api/generated\" \"${PODS_TARGET_SRCROOT}/packages/weak-node-api/shim\" \"${PODS_TARGET_SRCROOT}/packages/weak-node-api/headers\""
+      },
+      "dependencies": {
+        "LynxWeakNodeAPI/core": [
+
+        ]
+      }
+    }
+  ]
+}
