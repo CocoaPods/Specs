@@ -1,0 +1,65 @@
+{
+  "name": "VisionSDK",
+  "version": "2.2.8",
+  "summary": "PackageX VisionSDK — barcode/OCR/price-tag scanning and optional 3D box dimensioning.",
+  "description": "PackageX VisionSDK is a comprehensive scanning framework for iOS. It provides\nbarcode and QR code detection with both manual and auto capturing modes,\nOCR for text detection in offline (without internet) and online\n(shipping-label scanning with Restful API) modes, and optional ARKit/LiDAR-based\n3D box dimensioning (iOS 17+, opt-in via the Dimensioning subspec).",
+  "license": {
+    "type": "Proprietary"
+  },
+  "homepage": "https://github.com/packagexlabs/vision-sdk",
+  "authors": {
+    "PackageX": "engineering@packagex.io"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/packagexlabs/vision-sdk.git",
+    "tag": "2.2.8"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "vendored_frameworks": [
+        "Sources/VisionSDK.xcframework",
+        "Sources/TensorFlowLiteC.xcframework"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lc++"
+      },
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-lc++"
+      }
+    },
+    {
+      "name": "Dimensioning",
+      "dependencies": {
+        "VisionSDK/Core": [
+
+        ],
+        "PostHog": [
+          "~> 3.0"
+        ]
+      },
+      "platforms": {
+        "ios": "17.0"
+      },
+      "vendored_frameworks": [
+        "Sources/VisionSDKDimensioning.xcframework",
+        "Sources/MVDimensioningCore.xcframework"
+      ],
+      "resources": "Sources/MVDimensioning.mlmodelkey",
+      "frameworks": [
+        "ARKit",
+        "RealityKit",
+        "CoreML"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
