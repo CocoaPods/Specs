@@ -1,0 +1,68 @@
+{
+  "name": "MSMUBiMAXAdapter",
+  "version": "2.7.18.1.1",
+  "summary": "MeiShu (MSAdSDK) Custom ADN Adapter for UBiMAX",
+  "homepage": "https://www.ubixai.com/product/md",
+  "authors": {
+    "zhugq": "guoqiang.zhu@ubixai.com"
+  },
+  "source": {
+    "git": "https://gitee.com/ubixai/ubimax-ios-adapter-ms.git",
+    "tag": "2.7.18.1.1"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) MSM_UBIMAX_ADAPTER_VERSION=@\\\"2.7.18.1.1\\\""
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "ios": {
+        "source_files": "MSMUBiMAXAdapter/Core/**/*.{h,m}",
+        "public_header_files": "MSMUBiMAXAdapter/Core/**/*.h"
+      },
+      "dependencies": {
+        "MSMobAdSDK/MS": [
+          "~> 2.7"
+        ],
+        "UBiMAXAdSDK": [
+
+        ],
+        "UBiMAXAdxAdapter": [
+
+        ],
+        "UBiXMUBiXAdapter": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/UBiMAXAdSDK/**",
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/UBiMAXAdSDK/**"
+      }
+    },
+    {
+      "name": "Splash",
+      "ios": {
+        "source_files": "MSMUBiMAXAdapter/Splash/**/*.{h,m}",
+        "public_header_files": "MSMUBiMAXAdapter/Splash/**/*.h"
+      },
+      "dependencies": {
+        "MSMUBiMAXAdapter/Core": [
+
+        ],
+        "UBiMAXSplash": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/UBiMAXSplash/**",
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_ROOT)/UBiMAXSplash/**"
+      }
+    }
+  ]
+}
