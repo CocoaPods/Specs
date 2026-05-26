@@ -1,0 +1,75 @@
+{
+  "name": "PostHog",
+  "version": "3.59.0",
+  "summary": "The hassle-free way to add posthog to your iOS app.",
+  "description": "PostHog for iOS provides a single API that lets you\nintegrate with over 100s of tools.",
+  "homepage": "http://posthog.com/",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "PostHog": "engineering@posthog.com"
+  },
+  "source": {
+    "git": "https://github.com/PostHog/posthog-ios.git",
+    "tag": "3.59.0"
+  },
+  "social_media_url": "https://twitter.com/PostHog",
+  "readme": "https://raw.githubusercontent.com/PostHog/posthog-ios/3.59.0/README.md",
+  "changelog": "https://raw.githubusercontent.com/PostHog/posthog-ios/3.59.0/CHANGELOG.md",
+  "platforms": {
+    "ios": "13.0",
+    "tvos": "13.0",
+    "osx": "10.15",
+    "watchos": "6.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.3",
+  "frameworks": "Foundation",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PLCR_PRIVATE PLCF_RELEASE_BUILD PLCRASHREPORTER_PREFIX=PH SWIFT_PACKAGE",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/vendor/PHPLCrashReporter/Dependencies/protobuf-c\" \"${PODS_TARGET_SRCROOT}/vendor/PHPLCrashReporter/Dependencies/protobuf-c/protobuf-c\" \"${PODS_TARGET_SRCROOT}/vendor/PHPLCrashReporter/Source\"",
+    "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/PostHog/PrivateModules/phlibwebp\" \"${PODS_TARGET_SRCROOT}/PostHog/PrivateModules/PHPLCrashReporter\""
+  },
+  "source_files": [
+    "PostHog/**/*.{swift,h,hpp,m,mm,c,cpp}",
+    "vendor/libwebp/**/*.{h,c}",
+    "vendor/PHPLCrashReporter/Source/**/*.{h,hpp,m,mm,c,cpp,S}",
+    "vendor/PHPLCrashReporter/Dependencies/protobuf-c/**/*.h",
+    "vendor/PHPLCrashReporter/Dependencies/protobuf-c/**/*.c"
+  ],
+  "public_header_files": "PostHog/PostHog.h",
+  "private_header_files": [
+    "vendor/libwebp/**/*.h",
+    "vendor/PHPLCrashReporter/Source/**/*.{h,hpp}",
+    "vendor/PHPLCrashReporter/Dependencies/protobuf-c/**/*.h"
+  ],
+  "watchos": {
+    "exclude_files": [
+      "vendor/PHPLCrashReporter/Source/**/*",
+      "vendor/PHPLCrashReporter/Dependencies/**/*"
+    ]
+  },
+  "visionos": {
+    "exclude_files": [
+      "vendor/PHPLCrashReporter/Source/**/*",
+      "vendor/PHPLCrashReporter/Dependencies/**/*"
+    ]
+  },
+  "exclude_files": [
+    "vendor/PHPLCrashReporter/Source/PLCrashReport.proto"
+  ],
+  "resource_bundles": {
+    "PostHog": "PostHog/Resources/PrivacyInfo.xcprivacy",
+    "PHPLCrashReporter": "vendor/PHPLCrashReporter/Resources/PrivacyInfo.xcprivacy"
+  },
+  "preserve_paths": [
+    "build-tools/upload-symbols.sh",
+    "vendor/PHPLCrashReporter/LICENSE",
+    "vendor/libwebp/COPYING",
+    "vendor/libwebp/PATENTS",
+    "PostHog/PrivateModules/**/*.modulemap"
+  ],
+  "swift_version": "5.3"
+}
