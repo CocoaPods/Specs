@@ -1,0 +1,112 @@
+{
+  "name": "HFCheckout",
+  "version": "1.0.0",
+  "summary": "汇付天下收银台SDK，支持微信、支付宝、云闪付等支付方式按需引入",
+  "description": "HFCheckout 是汇付天下收银台SDK，支持通过 CocoaPods subspec 按需引入微信支付、支付宝、云闪付等支付SDK。\n\n主要特性：\n- 支持通过 subspec 按需引入支付SDK，避免不必要的依赖\n- pod 'HFCheckout' 仅引入核心收银台，不含第三方支付SDK\n- pod 'HFCheckout/WechatPaySDK' 引入微信支付\n- pod 'HFCheckout/AlipaySDK' 引入支付宝（含花呗分期）\n- pod 'HFCheckout/UnionPaySDK' 引入云闪付\n- pod 'HFCheckout/All' 聚合引入全部支付SDK\n- 简洁的收银台UI\n- 自动注册已引入的支付Handler\n- 支持自定义支付方式扩展",
+  "homepage": "https://github.com/huifurepo/hfpx-checkout-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张体宾": "tibin.zhang@huifu.com"
+  },
+  "source": {
+    "git": "https://github.com/huifurepo/hfpx-checkout-ios.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "SystemConfiguration",
+    "CoreTelephony",
+    "QuartzCore",
+    "CoreText",
+    "CoreGraphics",
+    "CoreMotion",
+    "Security",
+    "WebKit",
+    "Network"
+  ],
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "HFCheckout/HFCheckout.xcframework",
+        "HFCheckout/Frameworks/GMObjC/*.framework"
+      ],
+      "resource_bundles": {
+        "HFCheckout": [
+          "HFCheckout/Assets/**/*"
+        ]
+      }
+    },
+    {
+      "name": "WechatPaySDK",
+      "dependencies": {
+        "HFCheckout/Core": [
+
+        ],
+        "WechatOpenSDK-XCFramework": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "AlipaySDK",
+      "dependencies": {
+        "HFCheckout/Core": [
+
+        ],
+        "AlipaySDK-iOS": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "UnionPaySDK",
+      "source_files": "HFCheckout/Frameworks/UMSPosPayOnly/include/*.h",
+      "public_header_files": "HFCheckout/Frameworks/UMSPosPayOnly/include/*.h",
+      "dependencies": {
+        "HFCheckout/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "HFCheckout/Frameworks/UPPaymentControl/UPPaymentControlMini.framework",
+      "vendored_libraries": "HFCheckout/Frameworks/UMSPosPayOnly/libUMSPosPayOnly.a",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "HFCheckout/WechatPaySDK": [
+
+        ],
+        "HFCheckout/AlipaySDK": [
+
+        ],
+        "HFCheckout/UnionPaySDK": [
+
+        ]
+      }
+    }
+  ]
+}
