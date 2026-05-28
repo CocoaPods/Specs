@@ -1,0 +1,131 @@
+{
+  "name": "QY_iOS_SDK",
+  "version": "11.6.0",
+  "license": {
+    "type": "Copyright",
+    "text": " Copyright 2021 Netease \n"
+  },
+  "summary": "网易七鱼客服访客端 iOS SDK",
+  "homepage": "https://qiyukf.com",
+  "authors": {
+    "qiyukf": "yunshangfu@126.com"
+  },
+  "source": {
+    "git": "https://github.com/qiyukf/QY_iOS_SDK.git",
+    "tag": "11.6.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "frameworks": [
+    "AVFoundation",
+    "UIKit",
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "WebKit",
+    "CoreTelephony",
+    "CoreText",
+    "CoreMedia",
+    "ImageIO",
+    "CoreMotion",
+    "AudioToolbox",
+    "Photos",
+    "Accelerate",
+    "PhotosUI"
+  ],
+  "libraries": [
+    "c++",
+    "z",
+    "sqlite3.0",
+    "xml2",
+    "resolv"
+  ],
+  "resources": [
+    "**/Resources/QYResource.bundle",
+    "**/Resources/QYLanguage.bundle",
+    "**/Resources/QYCustomResource.bundle"
+  ],
+  "default_subspecs": "Default",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "armv7 x86_64 arm64"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Default",
+      "resources": [
+        "**/Resources/QYResource.bundle",
+        "**/Resources/QYLanguage.bundle",
+        "**/Resources/QYCustomResource.bundle"
+      ],
+      "vendored_frameworks": [
+        "**/QYSDK.xcframework",
+        "**/QYKFNIMSDK.xcframework",
+        "**/QYKFNIMNOS.xcframework"
+      ],
+      "script_phases": [
+        {
+          "name": "[QY] Copy SDK dSYMs to xcarchive",
+          "execution_position": "after_compile",
+          "shell_path": "/bin/sh",
+          "script": "set -eu\n# 仅在 archive 时 Xcode 会设置 DWARF_DSYM_FOLDER_PATH，其它时候跳过\nif [ -z \"${DWARF_DSYM_FOLDER_PATH:-}\" ]; then\n  exit 0\nfi\n\n# 选 slice：真机 vs 模拟器\nif [[ \"${PLATFORM_NAME:-iphoneos}\" == *simulator ]]; then\n  SLICE=\"ios-arm64_x86_64-simulator\"\nelse\n  SLICE=\"ios-arm64\"\nfi\n\n# 兼容多种集成方式定位 SDK 根目录：\n#   1) 远端 :git / Release pod      → ${PODS_ROOT}/QY_iOS_SDK/SDK\n#   2) 本地 :path => './QY_iOS_SDK' → ${SRCROOT}/QY_iOS_SDK/SDK 或 ${PODS_ROOT}/../QY_iOS_SDK/SDK\nSDK_ROOT=\"\"\nfor cand in \\\n  \"${PODS_ROOT}/QY_iOS_SDK/SDK\" \\\n  \"${SRCROOT}/QY_iOS_SDK/SDK\" \\\n  \"${PODS_ROOT}/../QY_iOS_SDK/SDK\"; do\n  if [ -d \"$cand\" ]; then\n    SDK_ROOT=\"$cand\"\n    break\n  fi\ndone\nif [ -z \"${SDK_ROOT}\" ]; then\n  echo \"warning: [QY] SDK_ROOT not found, skip dSYM copy\"\n  exit 0\nfi\necho \"[QY] SDK_ROOT=${SDK_ROOT}, SLICE=${SLICE}\"\n\nmkdir -p \"${DWARF_DSYM_FOLDER_PATH}\"\n\n# 列出 podspec 三个 subspec 涉及到的所有 xcframework；不存在的会被自动跳过\nfor fw in QYSDK QYKFNIMSDK QYKFNIMNOS QYVideoService QYKFAWSCore QYKFAWSS3; do\n  SRC=\"${SDK_ROOT}/${fw}.xcframework/${SLICE}/dSYMs/${fw}.framework.dSYM\"\n  DST=\"${DWARF_DSYM_FOLDER_PATH}/${fw}.framework.dSYM\"\n  if [ -d \"${SRC}\" ]; then\n    /usr/bin/ditto \"${SRC}\" \"${DST}\"\n    echo \"[QY] Copied ${fw}.framework.dSYM\"\n  fi\ndone\n"
+        }
+      ]
+    },
+    {
+      "name": "Abroad",
+      "resources": [
+        "**/Resources/QYResource.bundle",
+        "**/Resources/QYLanguage.bundle",
+        "**/Resources/QYCustomResource.bundle",
+        "**/Resources/QYConfigResource.bundle"
+      ],
+      "vendored_frameworks": [
+        "**/QYSDK.xcframework",
+        "**/QYKFNIMSDK.xcframework",
+        "**/QYKFNIMNOS.xcframework",
+        "**/QYKFAWSCore.xcframework",
+        "**/QYKFAWSS3.xcframework"
+      ],
+      "script_phases": [
+        {
+          "name": "[QY] Copy SDK dSYMs to xcarchive",
+          "execution_position": "after_compile",
+          "shell_path": "/bin/sh",
+          "script": "set -eu\n# 仅在 archive 时 Xcode 会设置 DWARF_DSYM_FOLDER_PATH，其它时候跳过\nif [ -z \"${DWARF_DSYM_FOLDER_PATH:-}\" ]; then\n  exit 0\nfi\n\n# 选 slice：真机 vs 模拟器\nif [[ \"${PLATFORM_NAME:-iphoneos}\" == *simulator ]]; then\n  SLICE=\"ios-arm64_x86_64-simulator\"\nelse\n  SLICE=\"ios-arm64\"\nfi\n\n# 兼容多种集成方式定位 SDK 根目录：\n#   1) 远端 :git / Release pod      → ${PODS_ROOT}/QY_iOS_SDK/SDK\n#   2) 本地 :path => './QY_iOS_SDK' → ${SRCROOT}/QY_iOS_SDK/SDK 或 ${PODS_ROOT}/../QY_iOS_SDK/SDK\nSDK_ROOT=\"\"\nfor cand in \\\n  \"${PODS_ROOT}/QY_iOS_SDK/SDK\" \\\n  \"${SRCROOT}/QY_iOS_SDK/SDK\" \\\n  \"${PODS_ROOT}/../QY_iOS_SDK/SDK\"; do\n  if [ -d \"$cand\" ]; then\n    SDK_ROOT=\"$cand\"\n    break\n  fi\ndone\nif [ -z \"${SDK_ROOT}\" ]; then\n  echo \"warning: [QY] SDK_ROOT not found, skip dSYM copy\"\n  exit 0\nfi\necho \"[QY] SDK_ROOT=${SDK_ROOT}, SLICE=${SLICE}\"\n\nmkdir -p \"${DWARF_DSYM_FOLDER_PATH}\"\n\n# 列出 podspec 三个 subspec 涉及到的所有 xcframework；不存在的会被自动跳过\nfor fw in QYSDK QYKFNIMSDK QYKFNIMNOS QYVideoService QYKFAWSCore QYKFAWSS3; do\n  SRC=\"${SDK_ROOT}/${fw}.xcframework/${SLICE}/dSYMs/${fw}.framework.dSYM\"\n  DST=\"${DWARF_DSYM_FOLDER_PATH}/${fw}.framework.dSYM\"\n  if [ -d \"${SRC}\" ]; then\n    /usr/bin/ditto \"${SRC}\" \"${DST}\"\n    echo \"[QY] Copied ${fw}.framework.dSYM\"\n  fi\ndone\n"
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "resources": [
+        "**/Resources/QYResource.bundle",
+        "**/Resources/QYLanguage.bundle",
+        "**/Resources/QYCustomResource.bundle",
+        "**/Resources/QYVideoResource.bundle"
+      ],
+      "vendored_frameworks": [
+        "**/QYSDK.xcframework",
+        "**/QYKFNIMSDK.xcframework",
+        "**/QYKFNIMNOS.xcframework",
+        "**/QYVideoService.xcframework"
+      ],
+      "dependencies": {
+        "NERtcSDK/RtcBasic": [
+          "5.6.50"
+        ],
+        "NERtcSDK/ScreenShare": [
+          "5.6.50"
+        ]
+      },
+      "script_phases": [
+        {
+          "name": "[QY] Copy SDK dSYMs to xcarchive",
+          "execution_position": "after_compile",
+          "shell_path": "/bin/sh",
+          "script": "set -eu\n# 仅在 archive 时 Xcode 会设置 DWARF_DSYM_FOLDER_PATH，其它时候跳过\nif [ -z \"${DWARF_DSYM_FOLDER_PATH:-}\" ]; then\n  exit 0\nfi\n\n# 选 slice：真机 vs 模拟器\nif [[ \"${PLATFORM_NAME:-iphoneos}\" == *simulator ]]; then\n  SLICE=\"ios-arm64_x86_64-simulator\"\nelse\n  SLICE=\"ios-arm64\"\nfi\n\n# 兼容多种集成方式定位 SDK 根目录：\n#   1) 远端 :git / Release pod      → ${PODS_ROOT}/QY_iOS_SDK/SDK\n#   2) 本地 :path => './QY_iOS_SDK' → ${SRCROOT}/QY_iOS_SDK/SDK 或 ${PODS_ROOT}/../QY_iOS_SDK/SDK\nSDK_ROOT=\"\"\nfor cand in \\\n  \"${PODS_ROOT}/QY_iOS_SDK/SDK\" \\\n  \"${SRCROOT}/QY_iOS_SDK/SDK\" \\\n  \"${PODS_ROOT}/../QY_iOS_SDK/SDK\"; do\n  if [ -d \"$cand\" ]; then\n    SDK_ROOT=\"$cand\"\n    break\n  fi\ndone\nif [ -z \"${SDK_ROOT}\" ]; then\n  echo \"warning: [QY] SDK_ROOT not found, skip dSYM copy\"\n  exit 0\nfi\necho \"[QY] SDK_ROOT=${SDK_ROOT}, SLICE=${SLICE}\"\n\nmkdir -p \"${DWARF_DSYM_FOLDER_PATH}\"\n\n# 列出 podspec 三个 subspec 涉及到的所有 xcframework；不存在的会被自动跳过\nfor fw in QYSDK QYKFNIMSDK QYKFNIMNOS QYVideoService QYKFAWSCore QYKFAWSS3; do\n  SRC=\"${SDK_ROOT}/${fw}.xcframework/${SLICE}/dSYMs/${fw}.framework.dSYM\"\n  DST=\"${DWARF_DSYM_FOLDER_PATH}/${fw}.framework.dSYM\"\n  if [ -d \"${SRC}\" ]; then\n    /usr/bin/ditto \"${SRC}\" \"${DST}\"\n    echo \"[QY] Copied ${fw}.framework.dSYM\"\n  fi\ndone\n"
+        }
+      ]
+    }
+  ]
+}
