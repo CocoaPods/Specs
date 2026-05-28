@@ -1,0 +1,58 @@
+{
+  "name": "DVAIBridge",
+  "version": "4.0.2",
+  "summary": "DVAI-Bridge iOS native SDK — embedded local OpenAI-compatible HTTP server with llama.cpp + Apple Foundation Models + CoreML backends.",
+  "description": "DVAIBridge embeds an OpenAI-compatible HTTP server inside your iOS\napp's own process — `http://127.0.0.1:38883/v1/chat/completions`,\n`/v1/embeddings`, `/v1/models`, SSE streaming, the standard error\nenvelope. Any OpenAI client speaks to it (the OpenAI SDK, LangChain,\nautogen, crewai, instructor, Vercel AI SDK — anything).\n\nBackends: llama.cpp (Metal), Apple Foundation Models (iOS 26+),\nCoreML / ANE, MLX. Engine selected at runtime by device capability;\nyour call site doesn't change.\n\nWhy not just llama.cpp / MLX-Swift / Apple Foundation Models? Those\nare runtimes you wire up yourself — no HTTP surface, no agentic-\nframework interop, no resumable model downloader, no cross-device\noffload. DVAIBridge ships all of that as one library.\n\nWhy not Ollama / LM Studio / llama-server? Those are SERVERS your\nEND USERS install. DVAIBridge ships inside YOUR APP's binary —\n`pod install`, build, run. Zero setup for the user.\n\nOptional peer expansion: phone too slow? Pair with your Mac on the\nsame Wi-Fi (mDNS) or across networks via a self-hostable WebSocket\nrendezvous — same OpenAI wire, transparent to consuming code.\n\nSame library, same OpenAI surface, also available for Android\n(Maven Central), Flutter (pub.dev), React Native + Capacitor +\nbrowser + Node (npm), and .NET MAUI / Avalonia / WinUI / Catalyst\n/ desktop (NuGet). Cross-platform agentic apps stop being a\nper-platform porting exercise.\n\nDocs + architecture: https://bridge.deepvoiceai.co",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/dvai-global/dvai-bridge",
+  "authors": {
+    "Deep Chakraborty": "chakraborty.deep013@gmail.com"
+  },
+  "source": {
+    "http": "https://github.com/dvai-global/dvai-bridge/releases/download/v4.0.2/DVAIBridge-v4.0.2.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "18.1"
+  },
+  "swift_versions": "5.9",
+  "source_files": [
+    "packages/dvai-bridge-ios/ios/Sources/DVAIBridge/**/*.swift",
+    "packages/dvai-bridge-ios/ios/Sources/DVAICoreMLCore/**/*.swift",
+    "packages/dvai-bridge-ios/Sources/_external/DVAISharedCore/**/*.swift",
+    "packages/dvai-bridge-ios/Sources/_external/DVAILlamaCore/**/*.swift",
+    "packages/dvai-bridge-ios/Sources/_external/DVAILlamaCoreObjC/**/*.{h,mm}",
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/Tokenizers/**/*.swift",
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/Hub/**/*.swift",
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/Jinja/**/*.swift",
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/OrderedCollections/**/*.swift",
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/InternalCollectionsUtilities/**/*.swift"
+  ],
+  "resources": [
+    "packages/dvai-bridge-ios/Vendor/swift-transformers/Hub/Resources/*.json"
+  ],
+  "vendored_frameworks": [
+    "packages/dvai-bridge-ios/Frameworks/llama.xcframework",
+    "packages/dvai-bridge-ios/Frameworks/mtmd.xcframework"
+  ],
+  "frameworks": [
+    "Foundation",
+    "CoreML",
+    "AVFoundation",
+    "CryptoKit"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -package-name DVAIBridgeVendored -enable-experimental-feature Lifetimes",
+    "IPHONEOS_DEPLOYMENT_TARGET": "18.1",
+    "OTHER_LDFLAGS": "$(inherited) -framework \"llama\" -framework \"mtmd\""
+  },
+  "dependencies": {
+    "Telegraph": [
+      "~> 0.30"
+    ]
+  },
+  "swift_version": "5.9"
+}
