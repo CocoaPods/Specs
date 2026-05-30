@@ -1,0 +1,39 @@
+{
+  "name": "MyUltronServer",
+  "version": "0.1.12",
+  "summary": "MyUltronServer — an embeddable TCP debug server for iOS apps.",
+  "description": "MyUltronServer enables real-time two-way communication between a host iOS application\nand the MyUltron desktop client via a custom TCP binary protocol.\n\nFeatures:\n- Auto-starting TCP socket server on a configurable port\n- Custom usbmux-compatible binary packet protocol (Ping/Pong/JSON/Binary)\n- Message-type-based routing system for extensible business modules\n- Built-in modules: handshake (version exchange) and appInfo (metadata reporting)\n- Lightweight: only Foundation + CocoaAsyncSocket dependency\n- Background/foreground resilience\n\nIntegration: add `pod 'MyUltronServer'` to your Podfile, then in your AppDelegate\ncall `[[MyUltronManager sharedInstance] start]` — the server auto-starts on +load.",
+  "homepage": "https://github.com/genwe/MyUltronServer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "genwe": "weareroot@163.com"
+  },
+  "source": {
+    "git": "https://github.com/genwe/MyUltronServer.git",
+    "tag": "0.1.12"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "Sources/MyUltronServer/**/*.{h,m,mm}",
+  "public_header_files": [
+    "Sources/MyUltronServer/include/MyUltronServer.h",
+    "Sources/MyUltronServer/Manager/MyUltronManager.h"
+  ],
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "dependencies": {
+    "CocoaAsyncSocket": [
+      "~> 7.6"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++14",
+    "OTHER_CFLAGS": "-fobjc-arc"
+  }
+}
