@@ -1,0 +1,112 @@
+{
+  "name": "STBaseProject",
+  "version": "1.4.0",
+  "summary": "Modular iOS foundation: MVVM bases, networking, security, UIKit, Markdown, localization (SPM & CocoaPods).",
+  "description": "STBaseProject is an iOS 16+ modular foundation toolkit distributed via CocoaPods subspecs and Swift Package Manager.\nIt includes STBaseViewController/STBaseViewModel patterns, STHTTPSession with interceptors and optional SSL pinning,\nKeychain and crypto helpers, UIKit components and dialogs, Markdown rendering (including tables and extensions),\nlocalization utilities, plus optional modules for Contacts, Location, and Media (camera/scan/screenshot).",
+  "homepage": "https://github.com/i-stack/STBaseProject",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "i-stack": "songshoubing7664@163.com"
+  },
+  "source": {
+    "git": "https://github.com/i-stack/STBaseProject.git",
+    "tag": "1.4.0"
+  },
+  "documentation_url": "https://github.com/i-stack/STBaseProject/blob/main/README.md",
+  "readme": "https://github.com/i-stack/STBaseProject/blob/main/README.md",
+  "platforms": {
+    "ios": "16.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5",
+    "5.6",
+    "5.7",
+    "5.8",
+    "5.9",
+    "5.10",
+    "5.11"
+  ],
+  "requires_arc": true,
+  "default_subspecs": [
+    "STBaseProject"
+  ],
+  "subspecs": [
+    {
+      "name": "STBaseProject",
+      "source_files": "Sources/**/*.swift",
+      "exclude_files": [
+        "Sources/STContacts/**/*.swift",
+        "Sources/STLocation/**/*.swift",
+        "Sources/STMedia/**/*.swift",
+        "Sources/STMarkdown/**/*.swift"
+      ],
+      "resource_bundles": {
+        "STBaseProject_Privacy": [
+          "Sources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "STContacts",
+      "source_files": "Sources/STContacts/*.swift",
+      "resource_bundles": {
+        "STBaseProject_STContacts_Privacy": [
+          "Sources/STContacts/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "STLocation",
+      "source_files": "Sources/STLocation/*.swift",
+      "resource_bundles": {
+        "STBaseProject_STLocation_Privacy": [
+          "Sources/STLocation/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "STMedia",
+      "source_files": "Sources/STMedia/*.swift",
+      "resource_bundles": {
+        "STBaseProject_STMedia_Privacy": [
+          "Sources/STMedia/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "STMarkdown",
+      "source_files": "Sources/STMarkdown/**/*.swift",
+      "dependencies": {
+        "STBaseProject/STBaseProject": [
+
+        ],
+        "swift-markdown-pod": [
+          "~> 1.0"
+        ],
+        "SwiftMath-pod": [
+          ">= 2.0.1.pod"
+        ]
+      },
+      "resource_bundles": {
+        "STBaseProject_STMarkdown": [
+          "Sources/STMarkdown/Resources/*"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -fmodule-map-file=\"$(PODS_ROOT)/swift-markdown-pod/Sources/CAtomic/include/module.modulemap\" -Xcc -I\"$(PODS_ROOT)/swift-markdown-pod/Sources/CAtomic/include\""
+      },
+      "user_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -fmodule-map-file=\"$(PODS_ROOT)/swift-markdown-pod/Sources/CAtomic/include/module.modulemap\" -Xcc -I\"$(PODS_ROOT)/swift-markdown-pod/Sources/CAtomic/include\""
+      }
+    }
+  ],
+  "swift_version": "5.11"
+}
