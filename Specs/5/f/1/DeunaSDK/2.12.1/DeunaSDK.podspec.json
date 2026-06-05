@@ -1,0 +1,112 @@
+{
+  "name": "DeunaSDK",
+  "version": "2.12.1",
+  "summary": "SDK de Deuna para iOS",
+  "description": "SDK oficial de Deuna para integrar pagos y funcionalidades en aplicaciones iOS.",
+  "homepage": "https://github.com/deuna-developers/deuna-sdk-ios.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "deuna": "dmorocho@deuna.com"
+  },
+  "source": {
+    "git": "https://github.com/deuna-developers/deuna-sdk-ios.git",
+    "tag": "2.12.1"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/DeunaSDK/**/*.swift",
+        "Sources/_DeunaSDKObjCBridge/**/*.{h,m}"
+      ],
+      "public_header_files": "Sources/_DeunaSDKObjCBridge/include/*.h",
+      "dependencies": {
+        "DEUNAClient": [
+          "~> 1.0.0"
+        ]
+      }
+    },
+    {
+      "name": "Cybersource",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Sources/DeunaSDK/Vendor/Cybersource/RLTMXProfiling.xcframework",
+        "Sources/DeunaSDK/Vendor/Cybersource/RLTMXProfiling-companion.xcframework",
+        "Sources/DeunaSDK/Vendor/Cybersource/RLTMXProfilingConnections.xcframework",
+        "Sources/DeunaSDK/Vendor/Cybersource/RLTMXProfilingConnections-companion.xcframework"
+      ]
+    },
+    {
+      "name": "Kount",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Sources/DeunaSDK/Vendor/Kount/KountSDK.xcframework"
+      ]
+    },
+    {
+      "name": "Sift",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ],
+        "Sift": [
+          "~> 2.2.5"
+        ]
+      }
+    },
+    {
+      "name": "Riskified",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ],
+        "RiskifiedBeacon": [
+          "~> 1.2.9"
+        ]
+      }
+    },
+    {
+      "name": "Signifyd",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Sources/DeunaSDK/Vendor/Signifyd/TMXProfiling.xcframework",
+        "Sources/DeunaSDK/Vendor/Signifyd/TMXProfilingConnections.xcframework"
+      ]
+    },
+    {
+      "name": "Accertify",
+      "dependencies": {
+        "DeunaSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "Sources/DeunaSDK/Vendor/Accertify/InMobileMME.xcframework"
+      ]
+    }
+  ],
+  "swift_version": "5.0"
+}
