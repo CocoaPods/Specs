@@ -1,0 +1,31 @@
+{
+  "name": "SparklingMacro",
+  "version": "2.1.0-rc.26",
+  "summary": "Swift macro plugin for Sparkling Framework",
+  "description": "Provides the #spk_register Swift compiler macro used by the Sparkling iOS SDK.",
+  "license": "Apache 2.0",
+  "authors": "junchen.ge",
+  "homepage": "https://github.com/tiktok/sparkling.git",
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.10",
+  "source": {
+    "http": "https://github.com/tiktok/sparkling/releases/download/2.1.0-rc.26/SparklingMacro-2.1.0-rc.26.zip"
+  },
+  "static_framework": true,
+  "default_subspecs": "RegisterMacro",
+  "preserve_paths": "Release/SparklingMacro",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_COMPILATION_MODE": "wholemodule",
+    "OTHER_SWIFT_FLAGS": "-Xfrontend -load-plugin-executable -Xfrontend ${PODS_TARGET_SRCROOT}/Release/SparklingMacro#SparklingMacrosImpl"
+  },
+  "subspecs": [
+    {
+      "name": "RegisterMacro",
+      "source_files": "Sources/RegisterMacro/**/*.{swift,m,mm,h}"
+    }
+  ],
+  "swift_version": "5.10"
+}
