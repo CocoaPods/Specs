@@ -1,0 +1,62 @@
+{
+  "name": "YJDLNA",
+  "version": "1.0.0",
+  "summary": "DLNA投屏",
+  "description": "DLNA投屏,支持各大主流盒子互联网电视.",
+  "homepage": "https://github.com/yj-labs/YJDLNA",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yongtaisin": "971175049@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/yj-labs/YJDLNA.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "default_subspecs": "DLNA",
+  "subspecs": [
+    {
+      "name": "CLUPnP",
+      "source_files": "YJDLNA/Classes/CLUPnP/**/*.swift",
+      "libraries": [
+        "icucore",
+        "c++",
+        "z",
+        "xml2"
+      ],
+      "dependencies": {
+        "CocoaAsyncSocket": [
+
+        ]
+      },
+      "xcconfig": {
+        "ENABLE_BITCODE": "NO",
+        "HEADER_SEARCH_PATHS": "${SDKROOT}/usr/include/libxml2",
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+      }
+    },
+    {
+      "name": "DLNA",
+      "source_files": "YJDLNA/Classes/DLNA/**/*.swift",
+      "dependencies": {
+        "YJDLNA/CLUPnP": [
+
+        ],
+        "GCDWebServer": [
+          "~> 3.0"
+        ],
+        "AEXML": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
