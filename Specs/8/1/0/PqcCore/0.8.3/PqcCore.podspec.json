@@ -1,0 +1,39 @@
+{
+  "name": "PqcCore",
+  "version": "0.8.3",
+  "summary": "Post-Quantum TLS HTTPS client (Rust + UniFFI) — iOS XCFramework + Swift bindings.",
+  "description": "Vendors PqcCore.xcframework (rustls + rustls-post-quantum + aws-lc-rs)\nand the UniFFI-generated Swift binding. Consumers do not need a local\nbuild; the podspec fetches the prebuilt XCFramework + Swift binding from\nthe matching GitHub release asset (PqcCore-X.Y.Z.zip).",
+  "homepage": "https://github.com/sriharsha-y/pqc-mobile-client",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Harsha Yarabarla": "harsha.yarabarla@gmail.com"
+  },
+  "source": {
+    "http": "https://github.com/sriharsha-y/pqc-mobile-client/releases/download/v0.8.3/PqcCore-0.8.3.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "source_files": [
+    "pqc.swift",
+    "PqcConfig+Defaults.swift",
+    "PqcURLProtocol.swift"
+  ],
+  "vendored_frameworks": "PqcCore.xcframework",
+  "preserve_paths": "PqcCore.xcframework",
+  "frameworks": [
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": "c++",
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_CONFIGURATION_BUILD_DIR)/PqcCore/Swift Compatibility Header\""
+  },
+  "swift_version": "5.9"
+}
