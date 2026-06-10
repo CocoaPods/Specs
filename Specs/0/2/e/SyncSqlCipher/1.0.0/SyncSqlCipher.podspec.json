@@ -1,0 +1,46 @@
+{
+  "name": "SyncSqlCipher",
+  "version": "1.0.0",
+  "summary": "Synchronous, DispatchQueue-based SQLCipher wrapper for Swift.",
+  "homepage": "https://github.com/customerio/SyncSqlCipher",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "CustomerIO Team": "win@customer.io"
+  },
+  "source": {
+    "git": "https://github.com/customerio/SyncSqlCipher.git",
+    "tag": "1.0.0"
+  },
+  "swift_versions": "5.10",
+  "cocoapods_version": ">= 1.11.0",
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15"
+  },
+  "source_files": [
+    "Sources/CSqlCipher/sqlite3.c",
+    "Sources/CSqlCipher/include/*.h",
+    "Sources/SyncSqlCipher/**/*.swift"
+  ],
+  "private_header_files": "Sources/CSqlCipher/include/*.h",
+  "preserve_paths": "Sources/CSqlCipher/include/module.modulemap",
+  "frameworks": "Security",
+  "pod_target_xcconfig": {
+    "GCC_PREPROCESSOR_DEFINITIONS": "SQLITE_HAS_CODEC=1 SQLITE_TEMP_STORE=2 SQLITE_EXTRA_INIT=sqlcipher_extra_init SQLITE_EXTRA_SHUTDOWN=sqlcipher_extra_shutdown SQLCIPHER_CRYPTO_CC=1 SQLITE_THREADSAFE=1 HAVE_STDINT_H=1 NDEBUG=1 SQLITE_DQS=0",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/CSqlCipher/include",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "OTHER_CFLAGS": "$(inherited) -w"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/SyncSqlCipherTests/**/*.swift",
+      "frameworks": "Foundation"
+    }
+  ],
+  "swift_version": "5.10"
+}
