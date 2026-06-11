@@ -1,0 +1,53 @@
+{
+  "name": "FootprintOnboardingComponents",
+  "version": "2.0.0",
+  "summary": "A package for Swift onboarding components.",
+  "description": "Footprint-powered onboarding flows to your application",
+  "homepage": "https://docs.onefootprint.com/articles/sdks/swift-introduction",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rodrigo Pagnuzzi": "rodrigo@onefootprint.com"
+  },
+  "source": {
+    "git": "https://github.com/onefootprint/Swift-Onboarding-Components.git",
+    "tag": "2.0.0"
+  },
+  "module_name": "Footprint",
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": "5.9",
+  "prepare_command": "set -e\nrm -rf ./SwiftOnboardingComponentsShared.xcframework\ncurl -L https://github.com/onefootprint/Swift-Onboarding-Components/releases/download/2.0.0/SwiftOnboardingComponentsShared.xcframework.zip -o SwiftOnboardingComponentsShared.xcframework.zip\nunzip -o SwiftOnboardingComponentsShared.xcframework.zip\nrm -f SwiftOnboardingComponentsShared.xcframework.zip",
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-package-name Footprint"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Footprint/**/*",
+      "vendored_frameworks": "SwiftOnboardingComponentsShared.xcframework",
+      "dependencies": {
+        "FingerprintPro": [
+          "~> 2.10"
+        ]
+      }
+    },
+    {
+      "name": "BankLinking",
+      "source_files": "Sources/FootprintBankLinking/**/*",
+      "dependencies": {
+        "FootprintOnboardingComponents/Core": [
+
+        ],
+        "MoneyKit": [
+          "1.11.2"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
