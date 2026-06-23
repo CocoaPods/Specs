@@ -1,0 +1,437 @@
+{
+  "name": "ToBid-iOS-RC-Global",
+  "version": "5.7.1",
+  "summary": "ToBid-iOS is a SDK from Sigmob providing AD service.",
+  "description": "ToBid-iOS provides ADs which include native、banner、splash、RewardVideo、Interstitial etc.",
+  "homepage": "https://www.sigmob.com/",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Codi": "peng.zhao@sigmob.com"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source": {
+    "http": "https://sdkres.sigmob.cn/ToBid/ios/5.7.1_172c46afee29087c190ea0d06ee02403/tobid_release_ios_cocoapods_global_5.7.1_20260623.zip"
+  },
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64",
+    "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64",
+    "OTHER_LDFLAGS": [
+      "-lObjC"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "requires_arc": true,
+  "default_subspecs": "ToBidSDK",
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "ToBidSDK",
+      "frameworks": [
+        "ImageIO",
+        "StoreKit",
+        "CFNetwork",
+        "CoreMedia",
+        "AdSupport",
+        "CoreMotion",
+        "MediaPlayer",
+        "CoreGraphics",
+        "AVFoundation",
+        "CoreLocation",
+        "CoreTelephony",
+        "SafariServices",
+        "MobileCoreServices",
+        "SystemConfiguration",
+        "AudioToolbox"
+      ],
+      "weak_frameworks": [
+        "WebKit",
+        "UIKit",
+        "Foundation"
+      ],
+      "libraries": [
+        "c++",
+        "z",
+        "sqlite3"
+      ],
+      "vendored_frameworks": [
+        "tobid-sdk-ios-cocoapods-global/Core/*.xcframework"
+      ],
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/Core/*.xcframework"
+    },
+    {
+      "name": "BidResultAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/bidresult/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/bidresult/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "CSJAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/csj/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/csj/**/*",
+      "dependencies": {
+        "Ads-CN": [
+          "7.6.0.4"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GromoreAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/gromore/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/gromore/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/CSJAdapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "GDTAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/gdt/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/gdt/**/*",
+      "dependencies": {
+        "GDTMobSDK": [
+          "4.15.90"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "KSAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/kuaishou/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/kuaishou/**/*",
+      "dependencies": {
+        "KSAdSDK": [
+          "5.4.10.1"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaiduAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/baidu/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/baidu/**/*",
+      "dependencies": {
+        "BaiduMobAdSDK": [
+          "10.050"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "AdScopeAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/adscope/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/adscope/**/*",
+      "dependencies": {
+        "BeiZiSDK-iOS/BeiZiSDK-iOS": [
+          "5.5.0.0"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MSAdAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/meishu/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/meishu/**/*",
+      "dependencies": {
+        "MSMobAdSDK/MS": [
+          "2.7.18.1"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "MercuryAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/mercury/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/mercury/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "MercurySDK": [
+          "4.7.2"
+        ]
+      }
+    },
+    {
+      "name": "OctopusAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/octopus/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/octopus/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "OctopusSDK": [
+          "2.6.4.29"
+        ]
+      }
+    },
+    {
+      "name": "AdmobAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/admob/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/admob/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "13.1.0"
+        ]
+      }
+    },
+    {
+      "name": "JADYunAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/jadYun/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/jadYun/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "JADYun": [
+          "2.6.8"
+        ]
+      }
+    },
+    {
+      "name": "MintegralAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/mintegral-global/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/mintegral-global/**/*",
+      "dependencies": {
+        "MintegralAdSDK": [
+          "7.7.6"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "VungleAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/vungle/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/vungle/**/*",
+      "dependencies": {
+        "VungleAds": [
+          "7.5.3"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "UnityAdsAdapter",
+      "platforms": {
+        "ios": "13.0"
+      },
+      "ios": {
+        "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/unity/*.xcframework"
+      },
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/unity/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "UnityAds": [
+          "4.12.2"
+        ]
+      }
+    },
+    {
+      "name": "AppLovinAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/applovin/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/applovin/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "AppLovinSDK": [
+          "13.6.1"
+        ]
+      }
+    },
+    {
+      "name": "IronSourceAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/ironSource/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/ironSource/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "IronSourceSDK": [
+          "8.2.0.0"
+        ]
+      }
+    },
+    {
+      "name": "QuMengAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/qumeng/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/qumeng/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "QuMengAdSDK": [
+          "1.6.0.5"
+        ]
+      }
+    },
+    {
+      "name": "JuTuiAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/jutui/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/jutui/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "JTAdSDK": [
+          "4.2.3.1"
+        ]
+      }
+    },
+    {
+      "name": "WangMaiAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/wangmai/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/wangmai/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "AdWangMaiSDK": [
+          "7.9.4.33"
+        ]
+      }
+    },
+    {
+      "name": "PTGAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/ptg/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/ptg/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "PTGAdFramework": [
+          "2.3.11"
+        ]
+      }
+    },
+    {
+      "name": "InMobiAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/inMobi/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/inMobi/**/*",
+      "dependencies": {
+        "InMobiSDK": [
+          "10.5.8"
+        ],
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "PangleAdapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "vendored_frameworks": "tobid-sdk-ios-cocoapods-global/AdNetworks/pangle/*.xcframework",
+      "preserve_paths": "tobid-sdk-ios-cocoapods-global/AdNetworks/pangle/**/*",
+      "dependencies": {
+        "ToBid-iOS-RC-Global/ToBidSDK": [
+
+        ],
+        "Ads-Global-Beta": [
+          "5.7.0.3"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
