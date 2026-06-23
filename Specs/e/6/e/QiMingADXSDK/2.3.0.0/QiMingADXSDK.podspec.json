@@ -1,0 +1,86 @@
+{
+  "name": "QiMingADXSDK",
+  "version": "2.3.0.0",
+  "summary": "QiMingADXSDK is a SDK from QiMing providing AD service",
+  "description": "QiMingADXSDK provides ADs which include native、splash、banner、rewardVideo、interstitial etc.",
+  "homepage": "https://gitee.com/kevin_vo/qimingadx-sdk-ios-pod.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fangting@juancloud.com": "fangting@juancloud.com"
+  },
+  "source": {
+    "git": "https://gitee.com/kevin_vo/qimingadx-sdk-ios-pod.git",
+    "tag": "2.3.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "ADXSDK",
+  "subspecs": [
+    {
+      "name": "ADKit",
+      "vendored_frameworks": [
+        "QiMingADXSDK/framework/QiMingADKit.xcframework",
+        "QiMingADXSDK/framework/QiMingADKitIDFA.xcframework"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "resolv"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AdSupport",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "ADNetwork",
+      "vendored_frameworks": "QiMingADXSDK/framework/QiMingADNetwork.xcframework",
+      "dependencies": {
+        "QiMingADXSDK/ADKit": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "ADLocationManager",
+      "vendored_frameworks": "QiMingADXSDK/framework/QiMingADLocationManager.xcframework",
+      "dependencies": {
+        "QiMingADXSDK/ADKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ADXSDK",
+      "vendored_frameworks": "QiMingADXSDK/framework/QiMingADXSDK.xcframework",
+      "dependencies": {
+        "QiMingADXSDK/ADKit": [
+
+        ],
+        "QiMingADXSDK/ADNetwork": [
+
+        ],
+        "QiMingADXSDK/ADLocationManager": [
+
+        ]
+      },
+      "frameworks": [
+        "StoreKit",
+        "WebKit"
+      ],
+      "libraries": "resolv.9"
+    }
+  ]
+}
