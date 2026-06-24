@@ -1,0 +1,86 @@
+{
+  "name": "QiXingADXSDK",
+  "version": "2.3.0.0",
+  "summary": "QiXingADXSDK is a SDK from QiXing providing AD service",
+  "description": "QiXingADXSDK provides ADs which include native、splash、banner、rewardVideo、interstitial etc.",
+  "homepage": "https://gitee.com/qixing_adx/qixingadx-sdk-ios.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yechao@juancloud.com": "yechao@juancloud.com"
+  },
+  "source": {
+    "git": "https://gitee.com/qixing_adx/qixingadx-sdk-ios.git",
+    "tag": "2.3.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "static_framework": true,
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "default_subspecs": "ADXSDK",
+  "subspecs": [
+    {
+      "name": "ADKit",
+      "vendored_frameworks": [
+        "QiXingADXSDK/framework/QiXingADKit.xcframework",
+        "QiXingADXSDK/framework/QiXingADKitIDFA.xcframework"
+      ],
+      "libraries": [
+        "z",
+        "c++",
+        "resolv"
+      ],
+      "frameworks": [
+        "UIKit",
+        "AdSupport",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ]
+    },
+    {
+      "name": "ADNetwork",
+      "vendored_frameworks": "QiXingADXSDK/framework/QiXingADNetwork.xcframework",
+      "dependencies": {
+        "QiXingADXSDK/ADKit": [
+
+        ]
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "ADLocationManager",
+      "vendored_frameworks": "QiXingADXSDK/framework/QiXingADLocationManager.xcframework",
+      "dependencies": {
+        "QiXingADXSDK/ADKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "ADXSDK",
+      "vendored_frameworks": "QiXingADXSDK/framework/QiXingADXSDK.xcframework",
+      "dependencies": {
+        "QiXingADXSDK/ADKit": [
+
+        ],
+        "QiXingADXSDK/ADNetwork": [
+
+        ],
+        "QiXingADXSDK/ADLocationManager": [
+
+        ]
+      },
+      "frameworks": [
+        "StoreKit",
+        "WebKit"
+      ],
+      "libraries": "resolv.9"
+    }
+  ]
+}
