@@ -1,0 +1,100 @@
+{
+  "name": "Tor",
+  "version": "409.10.1",
+  "summary": "Tor.framework is the easiest way to embed Tor in your iOS application.",
+  "description": "Tor.framework is the easiest way to embed Tor in your iOS application. Currently, the framework compiles in static versions of tor, libevent, openssl, and liblzma.",
+  "homepage": "https://github.com/iCepa/Tor.framework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Conrad Kramer": "conrad@conradkramer.com",
+    "Chris Ballinger": "chris@chatsecure.org",
+    "Mike Tigas": "mike@tig.as",
+    "Benjamin Erhart": "berhart@netzarchitekten.com"
+  },
+  "source": {
+    "git": "https://github.com/iCepa/Tor.framework.git",
+    "branch": "pure_pod",
+    "tag": "v409.10.1"
+  },
+  "social_media_url": "https://chaos.social/@tla",
+  "platforms": {
+    "ios": "15.0",
+    "osx": "11.0"
+  },
+  "prepare_command": "Tor/download.sh v409.10.1 \"tor tor-nolzma\" f848f255ea11f7c21c4f2b21569af19ad98115449aa410bcea9746a3b90098dc dabb1a077799814e6a94d5a2d722a5b00d38be60dbf8b0d68085b083689800da",
+  "default_subspecs": "CTor",
+  "subspecs": [
+    {
+      "name": "Core",
+      "requires_arc": true,
+      "source_files": "Tor/Classes/Core/**/*"
+    },
+    {
+      "name": "CTor",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "source_files": "Tor/Classes/CTor/**/*",
+      "vendored_frameworks": "tor.xcframework",
+      "libraries": "z",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/tor.xcframework/ios-arm64/tor.framework/Headers\""
+      },
+      "preserve_paths": [
+        "tor.xcframework",
+        "download.sh"
+      ]
+    },
+    {
+      "name": "CTor-NoLZMA",
+      "dependencies": {
+        "Tor/Core": [
+
+        ]
+      },
+      "source_files": "Tor/Classes/CTor/**/*",
+      "vendored_frameworks": "tor-nolzma.xcframework",
+      "libraries": "z",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/tor-nolzma.xcframework/ios-arm64/tor-nolzma.framework/Headers\""
+      },
+      "preserve_paths": [
+        "tor-nolzma.xcframework",
+        "Tor/download.sh"
+      ]
+    },
+    {
+      "name": "GeoIP",
+      "dependencies": {
+        "Tor/CTor": [
+
+        ]
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "Tor/Assets/geoip",
+          "Tor/Assets/geoip6"
+        ]
+      }
+    },
+    {
+      "name": "GeoIP-NoLZMA",
+      "dependencies": {
+        "Tor/CTor-NoLZMA": [
+
+        ]
+      },
+      "resource_bundles": {
+        "GeoIP": [
+          "Tor/Assets/geoip",
+          "Tor/Assets/geoip6"
+        ]
+      }
+    }
+  ]
+}
