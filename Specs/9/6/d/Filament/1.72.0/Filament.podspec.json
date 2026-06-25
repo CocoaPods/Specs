@@ -1,0 +1,204 @@
+{
+  "name": "Filament",
+  "version": "1.72.0",
+  "license": {
+    "type": "Apache 2.0",
+    "file": "LICENSE"
+  },
+  "homepage": "https://google.github.io/filament",
+  "authors": "Google LLC.",
+  "summary": "Filament is a real-time physically based rendering engine for Android, iOS, Windows, Linux, macOS, and WASM/WebGL.",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://github.com/google/filament/releases/download/v1.72.0/filament-v1.72.0-ios.tgz"
+  },
+  "libraries": "c++",
+  "subspecs": [
+    {
+      "name": "filament",
+      "source_files": [
+        "include/filament/*.h",
+        "include/backend/*.h",
+        "include/filament/MaterialChunkType.h",
+        "include/filament/MaterialEnums.h",
+        "include/ibl/*.h",
+        "include/geometry/*.h"
+      ],
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libfilament.xcframework",
+        "lib/libbackend.xcframework",
+        "lib/libfilabridge.xcframework",
+        "lib/libfilaflat.xcframework",
+        "lib/libibl.xcframework",
+        "lib/libgeometry.xcframework"
+      ],
+      "dependencies": {
+        "Filament/utils": [
+
+        ],
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "filamat",
+      "source_files": [
+        "include/filamat/*.h",
+        "include/filament/MaterialChunkType.h",
+        "include/filament/MaterialEnums.h"
+      ],
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libfilamat.xcframework",
+        "lib/libshaders.xcframework",
+        "lib/libsmol-v.xcframework"
+      ],
+      "dependencies": {
+        "Filament/utils": [
+
+        ],
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "gltfio_core",
+      "source_files": "include/gltfio/**/*.h",
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libgltfio_core.xcframework",
+        "lib/libdracodec.xcframework",
+        "lib/libuberarchive.xcframework",
+        "lib/libstb.xcframework"
+      ],
+      "dependencies": {
+        "Filament/filament": [
+
+        ],
+        "Filament/ktxreader": [
+
+        ],
+        "Filament/uberz": [
+
+        ]
+      }
+    },
+    {
+      "name": "camutils",
+      "source_files": "include/camutils/*.h",
+      "vendored_frameworks": "lib/libcamutils.xcframework",
+      "header_dir": "camutils",
+      "dependencies": {
+        "Filament/math": [
+
+        ]
+      }
+    },
+    {
+      "name": "filameshio",
+      "source_files": "include/filameshio/*.h",
+      "vendored_frameworks": [
+        "lib/libfilameshio.xcframework",
+        "lib/libmeshoptimizer.xcframework"
+      ],
+      "header_dir": "filameshio",
+      "dependencies": {
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "image",
+      "source_files": "include/image/*.h",
+      "vendored_frameworks": "lib/libimage.xcframework",
+      "header_dir": "image",
+      "dependencies": {
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "utils",
+      "source_files": "include/utils/**/*.h",
+      "header_mappings_dir": "include",
+      "vendored_frameworks": "lib/libutils.xcframework",
+      "dependencies": {
+        "Filament/tsl": [
+
+        ]
+      }
+    },
+    {
+      "name": "tsl",
+      "source_files": "include/tsl/*.h",
+      "header_dir": "tsl"
+    },
+    {
+      "name": "math",
+      "source_files": "include/math/*.h",
+      "header_dir": "math"
+    },
+    {
+      "name": "ktxreader",
+      "source_files": "include/ktxreader/*.h",
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libktxreader.xcframework",
+        "lib/libbasis_transcoder.xcframework"
+      ],
+      "dependencies": {
+        "Filament/image": [
+
+        ],
+        "Filament/filament": [
+
+        ]
+      }
+    },
+    {
+      "name": "viewer",
+      "source_files": "include/viewer/*.h",
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libviewer.xcframework",
+        "lib/libcivetweb.xcframework"
+      ],
+      "dependencies": {
+        "Filament/filament": [
+
+        ],
+        "Filament/gltfio_core": [
+
+        ]
+      }
+    },
+    {
+      "name": "uberz",
+      "source_files": "include/uberz/*.h",
+      "header_mappings_dir": "include",
+      "vendored_frameworks": [
+        "lib/libuberzlib.xcframework",
+        "lib/libzstd.xcframework"
+      ],
+      "header_dir": "uberz",
+      "dependencies": {
+        "Filament/filamat": [
+
+        ],
+        "Filament/tsl": [
+
+        ],
+        "Filament/utils": [
+
+        ]
+      }
+    }
+  ]
+}
