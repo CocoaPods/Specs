@@ -1,0 +1,82 @@
+{
+  "name": "TencentNavKit",
+  "version": "7.8.0",
+  "summary": "TencentNavKit",
+  "homepage": "https://lbs.qq.com",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright © 1998-2023 Tencent All Rights Reserved"
+  },
+  "authors": {
+    "mikedpzhang": "mikedpzhang@tencent.com"
+  },
+  "source": {
+    "http": "https://framework-70105.njc.vod.tencent-cloud.com/nav/TencentNavKit_7.8.0_214.zip",
+    "sha256": "8dba652f09598929c85b35e21654e0411ccf3ca439d58dd6f7c8711a5884fce6"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "AVFoundation",
+    "CoreMotion",
+    "AdSupport"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "TencentNavMapFoundationKit",
+      "vendored_frameworks": "QMapFoundationKit.framework"
+    },
+    {
+      "name": "TencentNavMapKit",
+      "vendored_frameworks": "QMapKit.framework",
+      "resources": "QMapKit.framework/QMapKit.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapFoundationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavLocationKit",
+      "vendored_frameworks": "TencentLBS.framework",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapFoundationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavKit",
+      "vendored_frameworks": "TencentNavKit.framework",
+      "resources": "TencentNavKit.framework/TencentNavKit.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavMapKit": [
+
+        ],
+        "TencentNavKit/TencentNavLocationKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "TNKAudioPlayer",
+      "vendored_frameworks": "TNKAudioPlayer.framework",
+      "resources": "TNKAudioPlayer.framework/TencentNavKitTTS.bundle",
+      "dependencies": {
+        "TencentNavKit/TencentNavKit": [
+
+        ]
+      }
+    }
+  ]
+}
