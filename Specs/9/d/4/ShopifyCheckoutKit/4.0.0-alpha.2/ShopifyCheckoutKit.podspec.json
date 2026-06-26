@@ -1,0 +1,55 @@
+{
+  "name": "ShopifyCheckoutKit",
+  "version": "4.0.0-alpha.2",
+  "summary": "Enables Swift apps to embed the Shopify's highest converting, customizable, one-page checkout.",
+  "authors": "Shopify Inc.",
+  "homepage": "https://github.com/Shopify/checkout-kit",
+  "readme": "https://github.com/Shopify/checkout-kit/blob/main/README.md",
+  "changelog": "https://github.com/Shopify/checkout-kit/releases",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "source": {
+    "git": "https://github.com/Shopify/checkout-kit.git",
+    "tag": "4.0.0-alpha.2"
+  },
+  "swift_versions": "6.0",
+  "platforms": {
+    "ios": "15.0"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-package-name ShopifyCheckoutKit -DCOCOAPODS"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "platforms/swift/Sources/ShopifyCheckoutKit/**/*.swift",
+        "protocol/languages/swift/Sources/ShopifyCheckoutProtocol/**/*.swift"
+      ],
+      "resource_bundles": {
+        "ShopifyCheckoutKit": [
+          "platforms/swift/Sources/ShopifyCheckoutKit/Assets.xcassets"
+        ]
+      }
+    },
+    {
+      "name": "AcceleratedCheckouts",
+      "source_files": "platforms/swift/Sources/ShopifyAcceleratedCheckouts/**/*.swift",
+      "dependencies": {
+        "ShopifyCheckoutKit/Core": [
+
+        ]
+      },
+      "resource_bundles": {
+        "ShopifyAcceleratedCheckouts": [
+          "platforms/swift/Sources/ShopifyAcceleratedCheckouts/Localizable.xcstrings",
+          "platforms/swift/Sources/ShopifyAcceleratedCheckouts/Media.xcassets"
+        ]
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
