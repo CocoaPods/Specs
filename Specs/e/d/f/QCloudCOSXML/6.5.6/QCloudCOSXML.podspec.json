@@ -1,0 +1,93 @@
+{
+  "name": "QCloudCOSXML",
+  "version": "6.5.6",
+  "summary": "QCloudCOSXML 腾讯云iOS-SDK组件",
+  "homepage": "https://cloud.tencent.com/",
+  "license": "MIT",
+  "authors": {
+    "QCloud Terminal Team": "QCloudTerminalTeam"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/qcloud-sdk-ios.git",
+    "tag": "6.5.6"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.13"
+  },
+  "resource_bundles": {
+    "QCloudCOSXML": [
+      "QCloudCOSXML/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "static_framework": true,
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Default",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "QCloudCOSXML/Classes/**/*",
+        "QCloudCOSXML/Classes/QCloudCOSXML/*"
+      ],
+      "dependencies": {
+        "QCloudCore": [
+          "6.5.6"
+        ]
+      }
+    },
+    {
+      "name": "Slim",
+      "source_files": [
+        "QCloudCOSXML/Classes/**/*",
+        "QCloudCOSXML/Classes/QCloudCOSXML/*"
+      ],
+      "osx": {
+        "exclude_files": "QCloudCOSXML/Classes/Base/QCloudAbstractRequest+Quality.*"
+      },
+      "dependencies": {
+        "QCloudCore/WithoutMTA": [
+          "6.5.6"
+        ]
+      }
+    },
+    {
+      "name": "Transfer",
+      "source_files": [
+        "QCloudCOSXML/Classes/*",
+        "QCloudCOSXML/Classes/Transfer/**/*",
+        "QCloudCOSXML/Classes/Base/**/*"
+      ],
+      "osx": {
+        "exclude_files": "QCloudCOSXML/Classes/Base/QCloudAbstractRequest+Quality.*"
+      },
+      "dependencies": {
+        "QCloudCore/WithoutMTA": [
+          "6.5.6"
+        ]
+      }
+    },
+    {
+      "name": "Widget",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "source_files": [
+        "QCloudCOSXML/Classes/*",
+        "QCloudCOSXML/Classes/Transfer/**/*",
+        "QCloudCOSXML/Classes/Base/**/*"
+      ],
+      "exclude_files": [
+        "QCloudCOSXML/Classes/Base/QCloudLogManager.h",
+        "QCloudCOSXML/Classes/Base/QCloudLogManager.m"
+      ],
+      "dependencies": {
+        "QCloudCore/WithoutMTA": [
+          "6.5.6"
+        ]
+      }
+    }
+  ]
+}
