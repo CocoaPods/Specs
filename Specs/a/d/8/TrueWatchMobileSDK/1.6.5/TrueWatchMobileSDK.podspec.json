@@ -1,0 +1,212 @@
+{
+  "name": "TrueWatchMobileSDK",
+  "version": "1.6.5",
+  "summary": "TrueWatchTech iOS Data Collection SDK",
+  "homepage": "https://github.com/TrueWatchTech/datakit-ios",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "huuuu1016@gmail.com",
+    "Brandon Zhang": "brandonzhangdev@gmail.com"
+  },
+  "default_subspecs": "FTMobileAgent",
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "12.0"
+  },
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
+  },
+  "source": {
+    "git": "https://github.com/TrueWatchTech/datakit-ios.git",
+    "tag": "1.6.5"
+  },
+  "resource_bundles": {
+    "FTSDKPrivacyInfo": "FTMobileSDK/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "FTMobileAgent",
+      "platforms": {
+        "ios": "12.0",
+        "tvos": "12.0"
+      },
+      "source_files": "FTMobileSDK/FTMobileAgent/**/*{.h,.m,.swift}",
+      "dependencies": {
+        "TrueWatchMobileSDK/FTSDKCore": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "FTMobileSDK/FTMobileExtension/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Config/*.{h,m}",
+        "FTMobileSDK/FTMobileAgent/ExternalData/*{.h,.m}",
+        "FTMobileSDK/FTMobileAgent/Extension/*{.h,.m}"
+      ],
+      "dependencies": {
+        "TrueWatchMobileSDK/FTSDKCore/FTRUM": [
+
+        ],
+        "TrueWatchMobileSDK/FTSDKCore/URLSessionAutoInstrumentation": [
+
+        ],
+        "TrueWatchMobileSDK/FTSDKCore/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "FTSDKCore",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14",
+        "tvos": "12.0"
+      },
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": "FTMobileSDK/FTSDKCore/FTRUM/**/*.{h,m,c,cpp}",
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "FTMobileSDK/FTSDKCore/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "RemoteConfig",
+          "source_files": "FTMobileSDK/FTSDKCore/RemoteConfig/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/DataManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseUtils",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Base/**/*{.h,.m,.c}",
+              "dependencies": {
+                "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+                ]
+              }
+            },
+            {
+              "name": "Thread",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Thread/**/*{.h,.m}"
+            },
+            {
+              "name": "Swizzle",
+              "source_files": "FTMobileSDK/FTSDKCore/BaseUtils/Swizzle/*{.h,.m,.c}",
+              "dependencies": {
+                "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logger",
+          "source_files": "FTMobileSDK/FTSDKCore/Logger/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTWKWebView",
+          "platforms": {
+            "ios": "12.0",
+            "osx": "10.14"
+          },
+          "source_files": "FTMobileSDK/FTSDKCore/FTWKWebView/**/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/Protocol": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "DataManager",
+          "source_files": [
+            "FTMobileSDK/FTSDKCore/DataManager/*{.h,.m}",
+            "FTMobileSDK/FTSDKCore/DataManager/Upload/*{.h,.m}",
+            "FTMobileSDK/FTSDKCore/DataManager/Storage/**/*{.h,.m}",
+            "FTMobileSDK/FTSDKCore/DataFilter/*{.h,.m}"
+          ],
+          "dependencies": {
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Thread": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/BaseUtils/Base": [
+
+            ],
+            "TrueWatchMobileSDK/FTSDKCore/Protocol": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FTSessionReplay",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "public_header_files": "FTMobileSDK/FTSessionReplay/Public/*.h",
+      "source_files": "FTMobileSDK/FTSessionReplay/**/*{.h,.m,.swift}",
+      "dependencies": {
+        "TrueWatchMobileSDK/FTSDKCore": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT)"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
