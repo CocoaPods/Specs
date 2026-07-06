@@ -1,0 +1,172 @@
+{
+  "name": "DeepAdSDK",
+  "version": "2.0.19",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "iOS DeepAdSDK",
+  "description": "DeepAdSDK——免费透明的流量变现神器\n600+ 移动媒体选择的广告商业化管理工具，定制私有的移动媒体商业化解决方案。优质上游资源一网打尽，接入方式快速透明稳定。支持流量分发、渠道策略、精准投放、数据报表、排期管理、广告审核等全流程业务场景。",
+  "homepage": "https://deepadx.com",
+  "authors": {
+    "deepads": "ads@deepadx.com"
+  },
+  "source": {
+    "git": "https://gitee.com/deepads/ios_sdk.git",
+    "tag": "2.0.19"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": [
+      "-ObjC"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64 armv7 arm64",
+    "ENABLE_BITCODE": "NO"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/DeepAdCore.xcframework",
+      "resource_bundles": {
+        "DeepAdSDK": [
+          "Resources/**/*"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "AdSupport",
+        "AppTrackingTransparency"
+      ],
+      "source_files": "Headers/*.h",
+      "public_header_files": "Headers/*.h"
+    },
+    {
+      "name": "AdSpot",
+      "dependencies": {
+        "DeepAdSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/DeepAdSpot.xcframework"
+    },
+    {
+      "name": "MercuryAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "MercurySDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/MercuryAdapter.xcframework"
+    },
+    {
+      "name": "CSJAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "Ads-CN-Beta/BUAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/CSJAdapter.xcframework"
+    },
+    {
+      "name": "GDTAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "GDTMobSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/GDTAdapter.xcframework"
+    },
+    {
+      "name": "KSAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "KSAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/KSAdapter.xcframework"
+    },
+    {
+      "name": "BDAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "BaiduMobAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/BDAdapter.xcframework"
+    },
+    {
+      "name": "TanxAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "TanxSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/TanxAdapter.xcframework"
+    },
+    {
+      "name": "SigmobAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "SigmobAd-iOS": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/SigmobAdapter.xcframework"
+    },
+    {
+      "name": "AdmobAdapter",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+
+        ],
+        "GoogleUserMessagingPlatform": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/AdmobAdapter.xcframework"
+    },
+    {
+      "name": "GroMoreBidding",
+      "dependencies": {
+        "DeepAdSDK/AdSpot": [
+
+        ],
+        "Ads-CN-Beta/BUAdSDK": [
+
+        ]
+      },
+      "vendored_frameworks": "Frameworks/Adapters/GroMoreBidding.xcframework"
+    }
+  ]
+}
