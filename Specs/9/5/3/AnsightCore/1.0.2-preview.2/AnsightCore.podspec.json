@@ -1,0 +1,43 @@
+{
+  "name": "AnsightCore",
+  "version": "1.0.2-preview.2",
+  "summary": "Native iOS runtime for Ansight",
+  "homepage": "https://github.com/ansight-ai/ansight-sdk",
+  "license": {
+    "type": "Ansight SDK Source-Available License",
+    "file": "src/ios/LICENSE"
+  },
+  "authors": {
+    "Ansight": "dev@ansight.ai"
+  },
+  "source": {
+    "git": "https://github.com/ansight-ai/ansight-sdk.git",
+    "tag": "v1.0.2-preview.2"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source_files": [
+    "src/ios/Sources/AnsightCore/**/*.swift",
+    "src/ios/Generated/CocoaPods/AnsightGeneratedBuildArtifacts.swift"
+  ],
+  "preserve_paths": "src/ios/Plugins/AnsightBuildTool/**/*.swift",
+  "frameworks": [
+    "CryptoKit",
+    "Metal",
+    "Network",
+    "QuartzCore",
+    "Security",
+    "UIKit"
+  ],
+  "script_phases": {
+    "name": "Generate Ansight Developer Build Artifacts",
+    "execution_position": "before_compile",
+    "output_files": [
+      "${PODS_TARGET_SRCROOT}/src/ios/Generated/CocoaPods/AnsightGeneratedBuildArtifacts.swift"
+    ],
+    "script": "set -euo pipefail\n\nTOOL=\"${DERIVED_FILE_DIR}/ansight-build-tool\"\nmkdir -p \"$(dirname \"${TOOL}\")\" \"${PODS_TARGET_SRCROOT}/src/ios/Generated/CocoaPods\"\nMACOS_SDK=\"$(xcrun --sdk macosx --show-sdk-path)\"\nSDKROOT=\"${MACOS_SDK}\" xcrun --sdk macosx swiftc -sdk \"${MACOS_SDK}\" \"${PODS_TARGET_SRCROOT}/src/ios/Plugins/AnsightBuildTool/\"*.swift -o \"${TOOL}\"\n\"${TOOL}\"   --output-file \"${PODS_TARGET_SRCROOT}/src/ios/Generated/CocoaPods/AnsightGeneratedBuildArtifacts.swift\"   --target-directory \"${PODS_TARGET_SRCROOT}/src/ios/Sources/AnsightCore\"   --package-directory \"${PODS_TARGET_SRCROOT}/src/ios\"\n"
+  },
+  "swift_versions": "6.0",
+  "swift_version": "6.0"
+}
