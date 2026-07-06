@@ -1,0 +1,247 @@
+{
+  "name": "GuanceSDK",
+  "version": "1.6.6-alpha.1",
+  "summary": "Guance Cloud iOS Data Collection SDK",
+  "homepage": "https://github.com/GuanceCloud/datakit-ios.git",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "hulilei@guance.com",
+    "Brandon Zhang": "zhangbo@guance.com"
+  },
+  "default_subspecs": "Agent",
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.14",
+    "tvos": "12.0"
+  },
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
+    "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT) $(PODS_TARGET_SRCROOT)/Sources $(PODS_TARGET_SRCROOT)/Sources/Core/** $(PODS_TARGET_SRCROOT)/Sources/Agent/** $(PODS_TARGET_SRCROOT)/Sources/WidgetExtension $(PODS_TARGET_SRCROOT)/Sources/SessionReplay/**",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GUANCE_COCOAPODS=1"
+  },
+  "source": {
+    "git": "https://github.com/GuanceCloud/datakit-ios.git",
+    "tag": "1.6.6-alpha.1"
+  },
+  "resource_bundles": {
+    "FTSDKPrivacyInfo": "Sources/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "Agent",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14",
+        "tvos": "12.0"
+      },
+      "source_files": [
+        "Sources/*.{h}",
+        "Sources/Agent/**/*{.h,.m}"
+      ],
+      "ios": {
+        "exclude_files": "Sources/Agent/AutoTrack/Mac/**/*"
+      },
+      "tvos": {
+        "exclude_files": "Sources/Agent/AutoTrack/Mac/**/*"
+      },
+      "dependencies": {
+        "GuanceSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WidgetExtension",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "Sources/WidgetExtension/*{.h,.m}",
+        "Sources/Agent/Config/*.{h,m}",
+        "Sources/Agent/ExternalData/*{.h,.m}",
+        "Sources/Agent/Extension/*{.h,.m}"
+      ],
+      "dependencies": {
+        "GuanceSDK/Core/FTRUM": [
+
+        ],
+        "GuanceSDK/Core/URLSessionAutoInstrumentation": [
+
+        ],
+        "GuanceSDK/Core/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "GuanceSDK/WidgetExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "12.0",
+        "osx": "10.14",
+        "tvos": "12.0"
+      },
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": "Sources/Core/FTRUM/**/*.{h,m,c,cpp}",
+          "dependencies": {
+            "GuanceSDK/Core/BaseUtils/Base": [
+
+            ],
+            "GuanceSDK/Core/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "Sources/Core/URLSessionAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "GuanceSDK/Core/Protocol": [
+
+            ],
+            "GuanceSDK/Core/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "Sources/Core/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "RemoteConfig",
+          "source_files": "Sources/Core/RemoteConfig/*{.h,.m}",
+          "dependencies": {
+            "GuanceSDK/Core/DataManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseUtils",
+          "subspecs": [
+            {
+              "name": "Base",
+              "source_files": "Sources/Core/BaseUtils/Base/**/*{.h,.m,.c}",
+              "dependencies": {
+                "GuanceSDK/Core/BaseUtils/Thread": [
+
+                ]
+              }
+            },
+            {
+              "name": "Thread",
+              "source_files": "Sources/Core/BaseUtils/Thread/**/*{.h,.m}"
+            },
+            {
+              "name": "Swizzle",
+              "source_files": "Sources/Core/BaseUtils/Swizzle/*{.h,.m,.c}",
+              "dependencies": {
+                "GuanceSDK/Core/BaseUtils/Base": [
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logger",
+          "source_files": "Sources/Core/Logger/*{.h,.m}",
+          "dependencies": {
+            "GuanceSDK/Core/BaseUtils/Base": [
+
+            ],
+            "GuanceSDK/Core/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTWKWebView",
+          "platforms": {
+            "ios": "12.0",
+            "osx": "10.14"
+          },
+          "source_files": "Sources/Core/FTWKWebView/**/*{.h,.m}",
+          "dependencies": {
+            "GuanceSDK/Core/Protocol": [
+
+            ],
+            "GuanceSDK/Core/BaseUtils/Swizzle": [
+
+            ]
+          }
+        },
+        {
+          "name": "DataManager",
+          "source_files": [
+            "Sources/Core/DataManager/*{.h,.m}",
+            "Sources/Core/DataManager/Upload/*{.h,.m}",
+            "Sources/Core/DataManager/Storage/**/*{.h,.m}",
+            "Sources/Core/DataFilter/*{.h,.m}"
+          ],
+          "dependencies": {
+            "GuanceSDK/Core/BaseUtils/Thread": [
+
+            ],
+            "GuanceSDK/Core/BaseUtils/Base": [
+
+            ],
+            "GuanceSDK/Core/Protocol": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SessionReplay",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "public_header_files": "Sources/SessionReplay/Public/*.h",
+      "source_files": "Sources/SessionReplay/**/*{.h,.m}",
+      "dependencies": {
+        "GuanceSDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT) $(PODS_TARGET_SRCROOT)/Sources $(PODS_TARGET_SRCROOT)/Sources/Core/** $(PODS_TARGET_SRCROOT)/Sources/Agent/** $(PODS_TARGET_SRCROOT)/Sources/WidgetExtension $(PODS_TARGET_SRCROOT)/Sources/SessionReplay/**",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) GUANCE_COCOAPODS=1"
+      }
+    },
+    {
+      "name": "FTSessionReplay",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "GuanceSDK/SessionReplay": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
