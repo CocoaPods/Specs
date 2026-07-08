@@ -1,0 +1,41 @@
+{
+  "name": "OpenCDP",
+  "version": "1.0.2",
+  "summary": "OpenCDP iOS SDK — analytics, push v2, in-app messaging, and optional Customer.io dual-write.",
+  "description": "OpenCDP iOS SDK with gateway failover, push delivery/open/click metrics,\nNotification Service Extension helper, in-app message sync/SSE, and optional Customer.io dual-write.",
+  "homepage": "https://github.com/code-matic/opencdp-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "README.md"
+  },
+  "authors": {
+    "CodeMatic": "developers@codematic.io"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.9",
+  "source": {
+    "git": "https://github.com/code-matic/opencdp-ios-sdk.git",
+    "tag": "1.0.2"
+  },
+  "source_files": "Sources/OpenCDP/**/*.swift",
+  "subspecs": [
+    {
+      "name": "PushExtension",
+      "source_files": "Sources/OpenCDPPushExtension/**/*.swift"
+    },
+    {
+      "name": "CustomerIO",
+      "dependencies": {
+        "CustomerIO/DataPipelines": [
+          "~> 3.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -D OPENCdp_HAS_CUSTOMER_IO"
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
