@@ -1,0 +1,232 @@
+{
+  "name": "CQDemoKit",
+  "version": "0.9.8",
+  "summary": "CQDemoKit 基础库 - 包含 Helper、BaseVC、BaseUIKit、BaseUtil、Demo_Resource、TestMethod、Monitor 等通用 Demo 组件",
+  "homepage": "https://github.com/dvlproad/001-UIKit-CQDemo-iOS",
+  "description": "Demo，可按需独立引入：\n• CQDemoKit/Helper - 本库中的资源获取帮助类\n\n• CQDemoKit/BaseVC - 基础模块VC\n• CQDemoKit/BaseVC/Base - 基础模块\n• CQDemoKit/BaseVC/ScrollView - 滚动视图\n• CQDemoKit/BaseVC/TableView - 表格视图\n• CQDemoKit/BaseVC/Collection - 集合视图\n• CQDemoKit/BaseVC/TabBar - TabBar\n\n• CQDemoKit/BaseUIKit - 基础模块UIKit\n• CQDemoKit/BaseUtil - 基础工具\n\n• CQDemoKit/Demo_Resource - Demo 工程中基本都需要的 DemoResource\n\n• CQDemoKit/Demo_RipeView - 为了快速构建完整 Demo 工程提供的一些成熟的DemoRipeView(已含内容和事件)\n• CQDemoKit/Demo_DataSourceAndDelegate - 为了快速构建完整 Demo 工程提供的一些成熟的DataSource和Delegate(已含内容和事件)\n• CQDemoKit/Auxiliary - 辅助模块(①添加辅助文本(含删除)、添加任意辅助视图；②为 present 出来的视图，添加 NavigationBar)\n• CQDemoKit/TestMethod - 验证方法是否正确的基类(CompareHopeResult:输入支持单行和多行，如测试获取字符串长度的方法、测试获取字符串、日期计算等方法；MinusAddFeedback:中间是文本框，左侧\"-\"按钮，右侧\"+\"按钮 ，下面是方法执行结果的 的方法列表测试视图（常用于时间加减、数值加减))\n• CQDemoKit/Monitor - 监控\n\n每个子库可独立引入，详见各子库描述。",
+  "license": "MIT",
+  "authors": {
+    "dvlproad": ""
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/dvlproad/001-UIKit-CQDemo-iOS.git",
+    "tag": "CQDemoKit_0.9.8"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "resource_bundles": {
+    "CQDemoKit_Privacy": [
+      "CQDemoKit/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Helper",
+      "source_files": "CQDemoKit/Helper/**/*.{h,m}"
+    },
+    {
+      "name": "BaseVC",
+      "subspecs": [
+        {
+          "name": "Base",
+          "source_files": "CQDemoKit/BaseVC/Base/**/*.{h,m}",
+          "dependencies": {
+            "Masonry": [
+
+            ],
+            "CQDemoKit/BaseUIKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "ScrollView",
+          "source_files": "CQDemoKit/BaseVC/ScrollView/**/*.{h,m}",
+          "dependencies": {
+            "CQDemoKit/BaseVC/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "TableView",
+          "source_files": "CQDemoKit/BaseVC/TableView/**/*.{h,m}",
+          "dependencies": {
+            "CQDemoKit/BaseVC/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "Collection",
+          "source_files": "CQDemoKit/BaseVC/Collection/**/*.{h,m}",
+          "dependencies": {
+            "CQDemoKit/BaseVC/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "TabBar",
+          "source_files": "CQDemoKit/BaseVC/TabBar/**/*.{h,m}",
+          "dependencies": {
+            "CQDemoKit/Helper": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseUIKit",
+      "source_files": "CQDemoKit/BaseUIKit/**/*.{h,m}",
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "BaseUtil",
+      "source_files": "CQDemoKit/BaseUtil/**/*.{h,m}"
+    },
+    {
+      "name": "Demo_Resource",
+      "subspecs": [
+        {
+          "name": "ResourceInfoUtil",
+          "source_files": "CQDemoKit/Demo_Resource/CQTSResourceInfoUtil.{h,m}"
+        },
+        {
+          "name": "SandboxPathUtil",
+          "source_files": "CQDemoKit/Demo_Resource/SandboxUtil/CQTSSandboxPathUtil.{h,m}",
+          "dependencies": {
+            "CQDemoKit/Demo_Resource/ResourceInfoUtil": [
+
+            ]
+          }
+        },
+        {
+          "name": "SandboxFileUtil",
+          "source_files": "CQDemoKit/Demo_Resource/SandboxUtil/CQTSSandboxFileUtil.{h,m}",
+          "dependencies": {
+            "CQDemoKit/Demo_Resource/SandboxPathUtil": [
+
+            ],
+            "CQDemoKit/Helper": [
+
+            ]
+          }
+        },
+        {
+          "name": "SandboxPhotoUtil",
+          "source_files": "CQDemoKit/Demo_Resource/SandboxUtil/CQTSSandboxPhotoUtil.{h,m}",
+          "dependencies": {
+            "CQDemoKit/Demo_Resource/ResourceInfoUtil": [
+
+            ]
+          }
+        },
+        {
+          "name": "ImageModel",
+          "source_files": "CQDemoKit/Demo_Resource/ImageModel/**/*.{h,m}"
+        },
+        {
+          "name": "RandomUtil",
+          "source_files": "CQDemoKit/Demo_Resource/String/CJUIKitRandomUtil.{h,m}"
+        },
+        {
+          "name": "GitUtil",
+          "source_files": "CQDemoKit/Demo_Resource/String/CQTSGitUtil.{h,m}"
+        },
+        {
+          "name": "InFramework",
+          "source_files": "CQDemoKit/Demo_Resource/UIImage+CQTSInFramework.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Demo_RipeView",
+      "source_files": "CQDemoKit/Demo_RipeView/*.{h,m}",
+      "dependencies": {
+        "CQDemoKit/BaseUtil": [
+
+        ],
+        "CQDemoKit/BaseUIKit": [
+
+        ],
+        "CQDemoKit/Demo_Resource": [
+
+        ],
+        "CQDemoKit/Demo_DataSourceAndDelegate": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "RipeCollectionView",
+          "source_files": "CQDemoKit/Demo_RipeView/RipeCollectionView/**/*.{h,m}",
+          "dependencies": {
+            "Masonry": [
+
+            ],
+            "CQDemoKit/BaseUIKit": [
+
+            ]
+          }
+        },
+        {
+          "name": "ImagePicker",
+          "source_files": "CQDemoKit/Demo_RipeView/ImagePicker/**/*.{h,m}",
+          "dependencies": {
+            "Masonry": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Demo_DataSourceAndDelegate",
+      "source_files": "CQDemoKit/Demo_DataSourceAndDelegate/**/*.{h,m}",
+      "dependencies": {
+        "CQDemoKit/BaseVC": [
+
+        ]
+      }
+    },
+    {
+      "name": "Auxiliary",
+      "source_files": "CQDemoKit/Auxiliary/**/*.{h,m}",
+      "dependencies": {
+        "Masonry": [
+
+        ]
+      }
+    },
+    {
+      "name": "TestMethod",
+      "source_files": "CQDemoKit/TestMethod/**/*.{h,m}",
+      "resource_bundles": {
+        "CQDemoKit_TestMethod": [
+          "CQDemoKit/TestMethod/**/*.{png,jpg,jpeg}"
+        ]
+      },
+      "dependencies": {
+        "CQDemoKit/BaseVC/Base": [
+
+        ],
+        "CQDemoKit/BaseUtil": [
+
+        ]
+      }
+    },
+    {
+      "name": "Monitor",
+      "source_files": "CQDemoKit/Monitor/**/*.{h,m}"
+    }
+  ]
+}
