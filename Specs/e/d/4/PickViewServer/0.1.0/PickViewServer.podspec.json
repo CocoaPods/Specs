@@ -1,0 +1,88 @@
+{
+  "name": "PickViewServer",
+  "version": "0.1.0",
+  "summary": "The embeddable iOS and macOS inspection server for PickView.",
+  "homepage": "https://github.com/kriskicekk/PickView",
+  "license": {
+    "type": "GPL-3.0",
+    "file": "Source/PickViewCore/InspectionModels/LICENSE.PickView-GPL-3.0.txt"
+  },
+  "authors": "kris cheng",
+  "source": {
+    "git": "https://github.com/kriskicekk/PickView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "14.0",
+    "osx": "11.0"
+  },
+  "requires_arc": true,
+  "module_name": "PickViewServer",
+  "header_dir": "PickViewServer",
+  "source_files": [
+    "Source/PickViewServerKit/Public/*.{h,m}",
+    "Source/PickViewServerKit/Internal/*.{h,m}",
+    "Source/PickViewServerKit/Internal/Inspection/Common/**/*.{h,m}",
+    "Source/PickViewServerKit/Internal/RequestHandling/**/*.{h,m}",
+    "Source/PickViewServerKit/Internal/Session/**/*.{h,m}",
+    "Source/PickViewTransport/Common/*.{h,m}",
+    "Source/PickViewTransport/LAN/PVLANConnection.{h,m}",
+    "Source/PickViewTransport/LAN/PVLANConstants.h",
+    "Source/PickViewTransport/LAN/PVLANEndpoint.{h,m}",
+    "Source/PickViewTransport/LAN/Server/**/*.{h,m}",
+    "Source/PickViewTransport/Loopback/PVLoopbackConnection.{h,m}",
+    "Source/PickViewTransport/Loopback/PVLoopbackEndpoint.{h,m}",
+    "Source/PickViewTransport/Loopback/Server/**/*.{h,m}"
+  ],
+  "ios": {
+    "source_files": [
+      "Source/PickViewServerKit/Internal/Inspection/iOS/*.{h,m}",
+      "Source/PickViewServerKit/Internal/Inspection/iOS/Flutter/**/*.{h,m}"
+    ],
+    "private_header_files": [
+      "Source/PickViewServerKit/Internal/Inspection/iOS/*.h",
+      "Source/PickViewServerKit/Internal/Inspection/iOS/Flutter/**/*.h"
+    ],
+    "frameworks": "UIKit",
+    "dependencies": {
+      "KKFlutterInspectorKit": [
+        "0.1.0"
+      ]
+    }
+  },
+  "osx": {
+    "source_files": "Source/PickViewServerKit/Internal/Inspection/macOS/**/*.{h,m}",
+    "private_header_files": "Source/PickViewServerKit/Internal/Inspection/macOS/**/*.h",
+    "frameworks": "AppKit"
+  },
+  "public_header_files": "Source/PickViewServerKit/Public/*.h",
+  "private_header_files": [
+    "Source/PickViewServerKit/Internal/Inspection/Common/**/*.h",
+    "Source/PickViewServerKit/Internal/RequestHandling/**/*.h",
+    "Source/PickViewServerKit/Internal/Session/**/*.h",
+    "Source/PickViewTransport/Common/*.h",
+    "Source/PickViewTransport/LAN/PVLANConnection.h",
+    "Source/PickViewTransport/LAN/PVLANConstants.h",
+    "Source/PickViewTransport/LAN/PVLANEndpoint.h",
+    "Source/PickViewTransport/LAN/Server/*.h",
+    "Source/PickViewTransport/Loopback/PVLoopbackConnection.h",
+    "Source/PickViewTransport/Loopback/PVLoopbackEndpoint.h",
+    "Source/PickViewTransport/Loopback/Server/*.h"
+  ],
+  "frameworks": [
+    "Foundation",
+    "QuartzCore",
+    "Network"
+  ],
+  "dependencies": {
+    "PickViewCore": [
+      "0.1.0"
+    ],
+    "PeerTalk": [
+      "0.1.0"
+    ]
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  }
+}
