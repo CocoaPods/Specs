@@ -1,0 +1,62 @@
+{
+  "name": "WHEPStreamKit",
+  "version": "1.0.2",
+  "summary": "WHEP WebRTC live streaming player for iOS with Swift and Objective-C APIs.",
+  "description": "WHEPStreamKit wraps WebRTC.xcframework to provide a production-ready WHEP pull-stream player.\nIt includes rich lifecycle callbacks (loading phases, ICE states, reconnect, metrics),\nSwiftUI/UIKit components, and an Objective-C bridge subspec for legacy projects.\n(WHEPStreamKit 封装 WebRTC.xcframework，提供可用于生产的 WHEP 拉流播放器，包含完整生命周期回调、SwiftUI/UIKit 组件，以及供 Objective-C 项目使用的桥接子模块。)",
+  "homepage": "https://github.com/inmine/WHEPStreamKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "inmine": "287916135.com"
+  },
+  "source": {
+    "git": "https://github.com/inmine/WHEPStreamKit.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "swift_versions": "5.9",
+  "default_subspecs": "Swift",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "Frameworks/WebRTC.xcframework",
+      "source_files": [
+        "WHEPStreamKit/WHEPStreamKit.h",
+        "WHEPStreamKit/Core/**/*.swift"
+      ],
+      "public_header_files": "WHEPStreamKit/WHEPStreamKit.h",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "AVFoundation",
+        "Network"
+      ],
+      "weak_frameworks": "MetalKit"
+    },
+    {
+      "name": "Swift",
+      "dependencies": {
+        "WHEPStreamKit/Core": [
+
+        ]
+      },
+      "source_files": "WHEPStreamKit/Swift/**/*.swift",
+      "frameworks": "SwiftUI"
+    },
+    {
+      "name": "ObjectiveC",
+      "dependencies": {
+        "WHEPStreamKit/Core": [
+
+        ]
+      },
+      "source_files": "WHEPStreamKit/ObjectiveC/**/*.{h,swift}",
+      "public_header_files": "WHEPStreamKit/ObjectiveC/**/*.h"
+    }
+  ],
+  "swift_version": "5.9"
+}
