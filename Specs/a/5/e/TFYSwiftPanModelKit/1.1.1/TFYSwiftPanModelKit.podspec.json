@@ -1,0 +1,57 @@
+{
+  "name": "TFYSwiftPanModelKit",
+  "version": "1.1.1",
+  "summary": "纯 Swift 弹窗库：PanModal 半屏 + PopupView 动画弹窗 + presentPopup 控制器弹出",
+  "description": "TFYSwiftPanModelKit 是无第三方依赖的纯 Swift iOS 弹窗组件库（iOS 15+）。\n\n架构分三层（可按 CocoaPods subspec 按需引入，彼此关系见下）：\n• Tools — 窗口/安全区、KVO、UIView/UIScrollView 辅助、触感反馈\n• popController — PanModal 底部半屏弹窗（依赖 Tools）\n• popView — PopupView 通用弹窗 + presentPopup（依赖 Tools）\npopController 与 popView 无交叉依赖；默认安装全部三层。\n\n能力概览：\n1. PanModal（popController）\n   - Short / Medium / Long 多状态 + 手势拖拽\n   - ScrollView 联动、自定义背景/圆角/阴影/指示器\n   - ViewController 路径（presentPanModal）与纯 View 路径（ContentView.present）\n2. PopupView（popView）\n   - 12 种动画、6 种布局、BottomSheet 手势面板\n   - 优先级队列、容器发现、键盘避让、无障碍/暗色模式\n3. presentPopup（同属 popView）\n   - 任意 UIViewController 以 PopupView 动画弹出\n   - TFYSwiftPopupPresentable 配置协议 + PopupContentViewController 基类\n   - TFYSwiftPopupHostingView 完整管理 child VC 生命周期",
+  "homepage": "https://github.com/13662049573/TFYSwiftPanModelKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "田风有": "420144542@qq.com"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.0",
+  "source": {
+    "git": "https://github.com/13662049573/TFYSwiftPanModelKit.git",
+    "tag": "1.1.1"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "default_subspecs": [
+    "Tools",
+    "popController",
+    "popView"
+  ],
+  "subspecs": [
+    {
+      "name": "Tools",
+      "source_files": "TFYSwiftPanModelKit/TFYSwiftPanModel/Tools/**/*.swift"
+    },
+    {
+      "name": "popController",
+      "source_files": "TFYSwiftPanModelKit/TFYSwiftPanModel/popController/**/*.swift",
+      "dependencies": {
+        "TFYSwiftPanModelKit/Tools": [
+
+        ]
+      }
+    },
+    {
+      "name": "popView",
+      "source_files": "TFYSwiftPanModelKit/TFYSwiftPanModel/popView/**/*.swift",
+      "dependencies": {
+        "TFYSwiftPanModelKit/Tools": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
