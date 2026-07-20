@@ -1,0 +1,89 @@
+{
+  "name": "NearWire",
+  "module_name": "NearWire",
+  "version": "0.1.0",
+  "summary": "A local bidirectional event platform for iOS applications and a macOS Viewer.",
+  "description": "NearWire provides a Swift event API for local communication between iOS applications and\na native macOS Viewer. The SDK supports peer-to-peer-enabled discovery, bounded delivery,\noptional connection UI, and optional built-in performance collection.",
+  "homepage": "https://github.com/TangentW/NearWire",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "TangentW",
+  "source": {
+    "git": "https://github.com/TangentW/NearWire.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "SDK",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_STRICT_CONCURRENCY": "complete",
+    "SWIFT_TREAT_WARNINGS_AS_ERRORS": "YES"
+  },
+  "testspecs": [
+    {
+      "name": "PublicAPI",
+      "test_type": "unit",
+      "source_files": "SDK/Tests/PublicAPIConsumer/**/*.swift"
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Core/Sources/NearWireCore/**/*.swift",
+        "Core/Sources/NearWireTransport/**/*.swift",
+        "Core/Sources/NearWireFlowControl/**/*.swift"
+      ]
+    },
+    {
+      "name": "SDK",
+      "dependencies": {
+        "NearWire/Core": [
+
+        ]
+      },
+      "source_files": "SDK/Sources/NearWire/**/*.swift",
+      "frameworks": [
+        "Security"
+      ],
+      "resource_bundles": {
+        "NearWireSDKPrivacy": [
+          "SDK/Sources/NearWire/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "NearWire/Performance": [
+
+        ]
+      },
+      "source_files": "SDK/Sources/NearWireUI/**/*.swift"
+    },
+    {
+      "name": "Performance",
+      "dependencies": {
+        "NearWire/SDK": [
+
+        ]
+      },
+      "source_files": "SDK/Sources/NearWirePerformance/**/*.swift",
+      "frameworks": [
+        "QuartzCore",
+        "UIKit"
+      ],
+      "resource_bundles": {
+        "NearWirePerformancePrivacy": [
+          "SDK/Sources/NearWirePerformance/PrivacyInfo.xcprivacy"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
