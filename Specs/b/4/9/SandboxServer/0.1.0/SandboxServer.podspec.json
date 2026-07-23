@@ -1,0 +1,46 @@
+{
+  "name": "SandboxServer",
+  "version": "0.1.0",
+  "summary": "In-app debug server: browse the iOS sandbox, databases, and network traffic from a browser — with MCP tools for AI.",
+  "description": "SandboxServer embeds an HTTP + WebSocket server inside a host iOS app (DEBUG only). A browser\non the same LAN gets a web console for the sandbox file system, databases, and live network\ncapture; the same on-device API is also consumed by a standalone MCP bridge so AI tools can\ndrive it. The server is off by default, requires an explicit start() and a per-session token,\nbinds loopback by default, and is physically absent from Release/App Store builds.",
+  "homepage": "https://github.com/xinghelee/SandboxServer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xinghe": "hi@xinghelee.com"
+  },
+  "source": {
+    "git": "https://github.com/xinghelee/SandboxServer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "swift_versions": [
+    "5.9",
+    "6.0"
+  ],
+  "source_files": [
+    "Sources/SandboxServerAPI/**/*.swift",
+    "Sources/SandboxServerNoOp/**/*.swift",
+    "Sources/SandboxServerCore/**/*.swift",
+    "Sources/SandboxServer/**/*.swift"
+  ],
+  "resource_bundles": {
+    "SandboxServerWebConsole": [
+      "Sources/SandboxServerCore/Resources/web"
+    ]
+  },
+  "frameworks": [
+    "Foundation",
+    "Network",
+    "CryptoKit"
+  ],
+  "libraries": "sqlite3",
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-D SandboxServerEnabled"
+  },
+  "swift_version": "6.0"
+}
