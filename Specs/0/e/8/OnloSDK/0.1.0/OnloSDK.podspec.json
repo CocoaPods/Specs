@@ -1,0 +1,42 @@
+{
+  "name": "OnloSDK",
+  "version": "0.1.0",
+  "summary": "Native Onlo support messenger for iOS.",
+  "description": "The single native iOS Core used by native, React Native, and Flutter hosts.\nIt owns protected identity, transport, persistence, outbox, and messenger UI.",
+  "homepage": "https://github.com/onlo-ai/onlo-mobile-sdks",
+  "documentation_url": "https://github.com/onlo-ai/onlo-mobile-sdks/blob/main/packages/ios/README.md",
+  "license": {
+    "type": "Proprietary",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Onlo": "support@onlo.ai"
+  },
+  "source": {
+    "git": "https://github.com/onlo-ai/onlo-mobile-sdks.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.10",
+  "static_framework": true,
+  "source_files": "packages/ios/Sources/OnloSDK/**/*.swift",
+  "preserve_paths": [
+    "packages/ios/Sources/CSQLite/module.modulemap",
+    "packages/ios/Sources/CSQLite/shim.h"
+  ],
+  "frameworks": [
+    "Security",
+    "CryptoKit",
+    "UIKit"
+  ],
+  "libraries": "sqlite3",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "SWIFT_INCLUDE_PATHS": "$(PODS_TARGET_SRCROOT)/packages/ios/Sources/CSQLite",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -fmodule-map-file=\"$(PODS_TARGET_SRCROOT)/packages/ios/Sources/CSQLite/module.modulemap\" -Xcc -I\"$(PODS_TARGET_SRCROOT)/packages/ios/Sources/CSQLite\"",
+    "OTHER_CFLAGS": "$(inherited) -fmodule-map-file=\"$(PODS_TARGET_SRCROOT)/packages/ios/Sources/CSQLite/module.modulemap\" -I\"$(PODS_TARGET_SRCROOT)/packages/ios/Sources/CSQLite\""
+  },
+  "swift_version": "5.10"
+}
