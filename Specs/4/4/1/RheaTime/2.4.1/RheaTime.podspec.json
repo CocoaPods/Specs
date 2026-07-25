@@ -1,0 +1,58 @@
+{
+  "name": "RheaTime",
+  "version": "2.4.1",
+  "summary": "iOS App Time Dispatcher.",
+  "description": "iOS App Time Dispatcher (Swift, Objc supported).",
+  "homepage": "https://github.com/reers/Rhea",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Asura19": "x.rhythm@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/reers/Rhea.git",
+    "tag": "2.4.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15",
+    "watchos": "7.0",
+    "tvos": "13.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.10",
+  "source_files": [
+    "Sources/RheaTime/**/*",
+    "Sources/OCRhea/**/*"
+  ],
+  "exclude_files": [
+    "Sources/RheaTimeMacros",
+    "Sources/RheaTimeMacroExpansion"
+  ],
+  "preserve_paths": [
+    "Package.swift",
+    "Sources/RheaTimeMacros",
+    "Sources/RheaTimeMacroExpansion",
+    "Tests",
+    "MacroPlugin"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-enable-experimental-feature SymbolLinkageMarkers -Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/RheaTime/MacroPlugin/RheaTimeMacros#RheaTimeMacros"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-enable-experimental-feature SymbolLinkageMarkers -Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/RheaTime/MacroPlugin/RheaTimeMacros#RheaTimeMacros"
+  },
+  "script_phases": {
+    "name": "Download RheaTimeMacros Plugin",
+    "script": "    set -e\n\n    PLUGIN_DIR=\"${PODS_BUILD_DIR}/RheaTime/MacroPlugin\"\n    PLUGIN_NAME=\"RheaTimeMacros\"\n    VERSION=\"2.4.1\"\n    DOWNLOAD_URL=\"https://github.com/reers/Rhea/releases/download/${VERSION}/${PLUGIN_NAME}.zip\"\n\n    # Check if plugin already exists\n    if [ -x \"${PLUGIN_DIR}/${PLUGIN_NAME}\" ]; then\n      echo \"Macro plugin already exists, skipping download.\"\n      exit 0\n    fi\n\n    mkdir -p \"${PLUGIN_DIR}\"\n\n    echo \"Downloading prebuilt macro plugin from ${DOWNLOAD_URL}...\"\n\n    if curl -L -f --connect-timeout 3 --max-time 60 -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" \"${DOWNLOAD_URL}\"; then\n      unzip -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" -d \"${PLUGIN_DIR}\"\n      rm -f \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Successfully downloaded prebuilt macro plugin\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    else\n      echo \"Warning: Failed to download prebuilt macro plugin, will build from source...\"\n\n      # Fallback: build from source\n      env -i PATH=\"$PATH\" \"$SHELL\" -l -c \"swift build -c release --package-path \\\"${PODS_TARGET_SRCROOT}\\\" --build-path \\\"${PODS_BUILD_DIR}/RheaTime\\\" --product RheaTimeMacros\"\n      cp \"${PODS_BUILD_DIR}/RheaTime/release/RheaTimeMacros-tool\" \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Built macro plugin from source\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    fi\n",
+    "execution_position": "before_compile"
+  },
+  "dependencies": {
+    "SectionReader": [
+
+    ]
+  },
+  "swift_version": "5.10"
+}
