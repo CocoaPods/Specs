@@ -1,0 +1,49 @@
+{
+  "name": "ReerRouter",
+  "version": "2.3.1",
+  "summary": "A router for iOS app.",
+  "description": "App URL router for iOS (Swift only).",
+  "homepage": "https://github.com/reers/ReerRouter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "phoenix": "x.rhythm@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/reers/ReerRouter.git",
+    "tag": "2.3.1"
+  },
+  "swift_versions": "5.10",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": [
+    "Sources/ReerRouter/**/*",
+    "Sources/RouterLauncher/**/*"
+  ],
+  "exclude_files": "Sources/ReerRouterMacros",
+  "preserve_paths": [
+    "Package.swift",
+    "Sources/ReerRouterMacros",
+    "MacroPlugin"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-enable-experimental-feature SymbolLinkageMarkers -Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/ReerRouter/MacroPlugin/ReerRouterMacros#ReerRouterMacros"
+  },
+  "user_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "-enable-experimental-feature SymbolLinkageMarkers -Xfrontend -load-plugin-executable -Xfrontend ${PODS_BUILD_DIR}/ReerRouter/MacroPlugin/ReerRouterMacros#ReerRouterMacros"
+  },
+  "script_phases": {
+    "name": "Download ReerRouterMacros Plugin",
+    "script": "    set -e\n\n    PLUGIN_DIR=\"${PODS_BUILD_DIR}/ReerRouter/MacroPlugin\"\n    PLUGIN_NAME=\"ReerRouterMacros\"\n    VERSION=\"2.3.1\"\n    DOWNLOAD_URL=\"https://github.com/reers/ReerRouter/releases/download/${VERSION}/${PLUGIN_NAME}.zip\"\n\n    # Check if plugin already exists\n    if [ -x \"${PLUGIN_DIR}/${PLUGIN_NAME}\" ]; then\n      echo \"Macro plugin already exists, skipping download.\"\n      exit 0\n    fi\n\n    mkdir -p \"${PLUGIN_DIR}\"\n\n    echo \"Downloading prebuilt macro plugin from ${DOWNLOAD_URL}...\"\n\n    DOWNLOAD_OK=0\n    for i in 1 2 3; do\n      if curl -L -f --connect-timeout 30 --max-time 180 --retry 2 --retry-delay 2         -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" \"${DOWNLOAD_URL}\"; then\n        DOWNLOAD_OK=1\n        break\n      fi\n      echo \"Download attempt ${i} failed, retrying...\"\n      sleep 2\n    done\n\n    if [ \"${DOWNLOAD_OK}\" -eq 1 ]; then\n      unzip -o \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\" -d \"${PLUGIN_DIR}\"\n      rm -f \"${PLUGIN_DIR}/${PLUGIN_NAME}.zip\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Successfully downloaded prebuilt macro plugin\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    else\n      echo \"Warning: Failed to download prebuilt macro plugin, will build from source...\"\n\n      # Fallback: build from source\n      env -i PATH=\"$PATH\" HOME=\"$HOME\" \"$SHELL\" -l -c \"swift build -c release --package-path \\\"${PODS_TARGET_SRCROOT}\\\" --build-path \\\"${PODS_BUILD_DIR}/ReerRouter\\\" --product ReerRouterMacros\"\n      cp \"${PODS_BUILD_DIR}/ReerRouter/release/ReerRouterMacros-tool\" \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      chmod +x \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n      echo \"Built macro plugin from source\"\n      file \"${PLUGIN_DIR}/${PLUGIN_NAME}\"\n    fi\n",
+    "execution_position": "before_compile"
+  },
+  "dependencies": {
+    "SectionReader": [
+
+    ]
+  },
+  "swift_version": "5.10"
+}
