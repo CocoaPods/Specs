@@ -1,0 +1,51 @@
+{
+  "name": "CJPopupAction",
+  "version": "1.6.0",
+  "summary": "UIView的类别，用来实现UIView弹出popupView的一个UIView的类别",
+  "description": "UIView的类别，用来实现UIView弹出popupView的一个UIView的类别。支持多种弹出方式：从上方弹出、从下方弹出、从中间弹出等。，可按需独立引入：\n• CJPopupAction/Core - 位置计算器(位移位置计算器:CJExpandCalculator; 展开位置计算器:CJSlideCalculator;)\n\n• CJPopupAction/Base - 不关心隐藏的基础动画，常用于视图show带动画，也是关心隐藏的动画需要调用的底层方法（位移动画 UIView+CJSlideAnimation； 展开动画: UIView+CJExpandAnimation）\n\n• CJPopupAction/CareAboutHide - 关心隐藏的动画：内部有封装以简化hide的动画（UIView+CJBottomInWindow  UIView+CJCenterInWindow  UIView+CJExpandByPoint  UIView+CJExpandForView)\n\n• CJPopupAction/ShowExtendView - 由视图本身(非弹出视图，如按钮本身)调用直接展开一个弹出视图的方法\n\n每个子库可独立引入，详见各子库描述。",
+  "homepage": "https://github.com/dvlproad/CJPopupAction",
+  "license": "MIT",
+  "authors": "dvlproad",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/dvlproad/CJPopupAction.git",
+    "tag": "CJPopupAction_1.6.0_1"
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "CJPopupAction/Core/**/*.{h,m}"
+    },
+    {
+      "name": "Base",
+      "source_files": "CJPopupAction/Base/**/*.{h,m}",
+      "dependencies": {
+        "CJPopupAction/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CareAboutHide",
+      "source_files": "CJPopupAction/CareAboutHide/**/*.{h,m}",
+      "dependencies": {
+        "CJPopupAction/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "ShowExtendView",
+      "source_files": "CJPopupAction/ShowExtendView/**/*.{h,m}",
+      "dependencies": {
+        "CJPopupAction/CareAboutHide": [
+
+        ]
+      }
+    }
+  ]
+}
