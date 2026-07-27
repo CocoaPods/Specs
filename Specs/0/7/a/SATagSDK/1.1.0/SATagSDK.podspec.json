@@ -1,0 +1,111 @@
+{
+  "name": "SATagSDK",
+  "version": "1.1.0",
+  "summary": "SATagSDK 聚合 AppsFlyer、Facebook、TikTok、Firebase 打点",
+  "description": "SATagSDK provides a unified Objective-C and Swift-compatible API for AppsFlyer,\nFacebook, TikTok and Firebase Analytics custom events.",
+  "homepage": "https://github.com/iamgang520/SATagSDK",
+  "license": {
+    "type": "Commercial",
+    "text": "Copyright Star Fortune."
+  },
+  "authors": {
+    "Star Fortune": "sdk@starfortune.com"
+  },
+  "source": {
+    "git": "https://github.com/iamgang520/SATagSDK.git",
+    "tag": "1.1.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "CLANG_ENABLE_MODULES": "YES",
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SATagSDK/**/*.{h,m}",
+      "public_header_files": [
+        "SATagSDK/SATagSDK.h",
+        "SATagSDK/Models/SATagTypes.h",
+        "SATagSDK/Models/SATagInitializationResult.h",
+        "SATagSDK/Models/SATagEventResult.h"
+      ],
+      "resource_bundles": {
+        "SATagSDK_Privacy": [
+          "SATagSDK/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    },
+    {
+      "name": "AppsFlyer",
+      "dependencies": {
+        "SATagSDK/Core": [
+
+        ],
+        "AppsFlyerFramework": [
+          "7.0.1"
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "SATagSDK/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "18.0.1"
+        ]
+      }
+    },
+    {
+      "name": "TikTok",
+      "dependencies": {
+        "SATagSDK/Core": [
+
+        ],
+        "TikTokBusinessSDK": [
+          "1.7.1"
+        ]
+      }
+    },
+    {
+      "name": "Firebase",
+      "dependencies": {
+        "SATagSDK/Core": [
+
+        ],
+        "FirebaseAnalytics": [
+          "11.15.0"
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "SATagSDK/AppsFlyer": [
+
+        ],
+        "SATagSDK/Facebook": [
+
+        ],
+        "SATagSDK/TikTok": [
+
+        ],
+        "SATagSDK/Firebase": [
+
+        ]
+      }
+    }
+  ]
+}
