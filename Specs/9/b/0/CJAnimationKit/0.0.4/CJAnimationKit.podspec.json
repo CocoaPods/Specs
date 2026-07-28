@@ -1,0 +1,100 @@
+{
+  "name": "CJAnimationKit",
+  "version": "0.0.4",
+  "summary": "各种动画相关的处理(视图转场、弹窗出现/消失、组件特效、SwiftUI 动画 + SF Symbol)",
+  "homepage": "https://github.com/dvlproad/CJAnimationKit",
+  "description": "各种动画相关的处理(视图转场、弹窗出现/消失、组件特效、SwiftUI 动画 + SF Symbol)，可按需独立引入：\n• CJAnimationKit/TransitionAnimation - 视图转场动画：常见出现动画、自定义出现动画、转场动画。【如常见的出现动画：Fade淡入淡出、MoveIn覆盖、Push推挤、Reveal揭开；自定义的出现动画：Cube立方体、SuckEffect吮吸、OglFlip翻转、RippleEffect波纹、PageCurl翻页、PageUnCurl反翻页、CameraIrisHollowOpen开镜头、CameraIrisHollowClose关镜头；转场动画：None无、FlipFromLeft左翻转、FlipFromRight右翻转、CurlUp上翻页、CurlDown下翻页)】\n\n• CJAnimationKit/PopupAnimation - 视图显示动画：除为自己自身显示时候增加动画的功能外，还可以作为弹窗功能出现/消失的动画\n• CJAnimationKit/PopupAnimation/Core - 位置计算器(位移位置计算器:CJExpandCalculator; 展开位置计算器:CJSlideCalculator;)\n• CJAnimationKit/PopupAnimation/Base - 不关心隐藏的基础动画，常用于视图show带动画，也是关心隐藏的动画需要调用的底层方法（位移动画 UIView+CJSlideAnimation； 展开动画: UIView+CJExpandAnimation）\n• CJAnimationKit/PopupAnimation/BaseBind - 关心隐藏但需自己先主动添加进superView的基础动画：绑定参数到view，show时记录，hide时复用（展开动画 UIView+CJExpandFrameAnimationBind； 位移动画 UIView+CJSlideTransformAnimationBind）  \n• CJAnimationKit/PopupAnimation/BaseConvenience - 便捷方法：自动计算距离、小距离动画（UIView+CJSlideConvenience）\n\n• CJAnimationKit/ComponentAnimation/Shake - 让 UIView 进行各种抖动效果：UIView+CJShake （密码错误抖一下、拖动时持续抖动）\n• CJAnimationKit/ComponentAnimation/Shimmer - 闪烁加载动画：UIView+CJShimmering(类似Facebook Shimmer效果)\n\n• CJAnimationKit/ComponentAnimation/ShapeLayerCore - ShapeLayerCore\n• CJAnimationKit/ComponentAnimation/Radar - 水波纹雷达动画：UIControl+CJRadarAnimation(按压水波纹)、CJAnimationFactory(动画工厂)\n• CJAnimationKit/ComponentAnimation/ShapeLayer - 图形绘制：CAShapeLayerFactory(图形工厂)、CJGraduatedCycleView(渐变刻度圆盘)\n• CJAnimationKit/ComponentAnimation/ZoomFrame - 缩放动画：UIView+CJZoomFrame(layer缩放动画)\n\n每个子库可独立引入，详见各子库描述。",
+  "license": "MIT",
+  "authors": {
+    "dvlproad": ""
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/dvlproad/CJAnimationKit.git",
+    "tag": "CJAnimationKit_0.0.4"
+  },
+  "source_files": "CJAnimationKit/**/*.{h,m}",
+  "frameworks": [
+    "UIKit",
+    "QuartzCore"
+  ],
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "TransitionAnimation",
+      "source_files": "CJAnimationKit/TransitionAnimation/**/*.{h,m}"
+    },
+    {
+      "name": "PopupAnimation",
+      "subspecs": [
+        {
+          "name": "Core",
+          "source_files": "CJAnimationKit/PopupAnimation/Core/**/*.{h,m}"
+        },
+        {
+          "name": "Base",
+          "source_files": "CJAnimationKit/PopupAnimation/Base/**/*.{h,m}",
+          "dependencies": {
+            "CJAnimationKit/PopupAnimation/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseBind",
+          "source_files": "CJAnimationKit/PopupAnimation/BaseBind/**/*.{h,m}",
+          "dependencies": {
+            "CJAnimationKit/PopupAnimation/Base": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseConvenience",
+          "source_files": "CJAnimationKit/PopupAnimation/BaseConvenience/**/*.{h,m}",
+          "dependencies": {
+            "CJAnimationKit/PopupAnimation/BaseBind": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ComponentAnimation",
+      "subspecs": [
+        {
+          "name": "Shake",
+          "source_files": "CJAnimationKit/ComponentAnimation/Shake/**/*.{h,m}"
+        },
+        {
+          "name": "Shimmer",
+          "source_files": "CJAnimationKit/ComponentAnimation/Shimmer/**/*.{h,m}"
+        },
+        {
+          "name": "ShapeLayerCore",
+          "source_files": "CJAnimationKit/ComponentAnimation/ShapeLayerCore/**/*.{h,m}"
+        },
+        {
+          "name": "Radar",
+          "source_files": "CJAnimationKit/ComponentAnimation/Radar/**/*.{h,m}",
+          "dependencies": {
+            "CJAnimationKit/ComponentAnimation/ShapeLayerCore": [
+
+            ]
+          }
+        },
+        {
+          "name": "ShapeLayer",
+          "source_files": "CJAnimationKit/ComponentAnimation/ShapeLayer/**/*.{h,m}"
+        },
+        {
+          "name": "ZoomFrame",
+          "source_files": "CJAnimationKit/ComponentAnimation/ZoomFrame/**/*.{h,m}"
+        }
+      ]
+    }
+  ]
+}
