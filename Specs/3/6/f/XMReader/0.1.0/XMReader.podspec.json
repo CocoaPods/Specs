@@ -1,0 +1,92 @@
+{
+  "name": "XMReader",
+  "version": "0.1.0",
+  "summary": "An Objective-C reader for EPUB, TXT, DOCX, PDF, and optional MOBI/AZW3.",
+  "description": "XMReader normalizes reflowable documents into HTML and paginates them with\nDTCoreText. PDF keeps its fixed layout through PDFKit. The optional MOBI\nsubspec uses libmobi for DRM-free MOBI7 and KF8/AZW3 documents.",
+  "homepage": "https://github.com/hongfei0721/XMReader",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hongfei0721": "hongfei0721@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/hongfei0721/XMReader.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "preserve_paths": [
+    "THIRD_PARTY_NOTICES.md",
+    "LICENSES/*"
+  ],
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/**/*.{h,m}",
+      "resources": "Tests/Fixtures/*",
+      "frameworks": "XCTest",
+      "dependencies": {
+        "XMReader/MOBI": [
+
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "XMReader/Classes/**/*.{h,m}",
+      "exclude_files": "XMReader/Classes/Parsers/XMMOBIParser.{h,m}",
+      "public_header_files": "XMReader/Classes/Public/*.h",
+      "dependencies": {
+        "DTCoreText": [
+          "1.6.28"
+        ],
+        "DTFoundation/DTZipArchive": [
+          "1.7.19"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "CoreText",
+        "CoreGraphics",
+        "QuartzCore",
+        "ImageIO",
+        "PDFKit"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "MOBI",
+      "dependencies": {
+        "XMReader/Core": [
+
+        ]
+      },
+      "source_files": [
+        "XMReader/Classes/Parsers/XMMOBIParser.{h,m}",
+        "XMReader/Vendor/libmobi/*.h",
+        "XMReader/Vendor/libmobi/{buffer,compression,debug,index,memory,meta,opf,parse_rawml,read,structure,util,xmlwriter}.c"
+      ],
+      "private_header_files": [
+        "XMReader/Classes/Parsers/XMMOBIParser.h",
+        "XMReader/Vendor/libmobi/*.h"
+      ],
+      "preserve_paths": [
+        "XMReader/Vendor/libmobi/COPYING",
+        "XMReader/Vendor/libmobi/AUTHORS"
+      ],
+      "pod_target_xcconfig": {
+        "GCC_C_LANGUAGE_STANDARD": "c99",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) XMREADER_HAS_MOBI=1 _DARWIN_C_SOURCE=1 USE_XMLWRITER=1"
+      },
+      "libraries": "z"
+    }
+  ]
+}
