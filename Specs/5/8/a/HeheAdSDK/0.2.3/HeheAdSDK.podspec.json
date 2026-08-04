@@ -1,0 +1,96 @@
+{
+  "name": "HeheAdSDK",
+  "version": "0.2.3",
+  "summary": "Hehe iOS Advertising SDK with mediation adapters",
+  "description": "Hehe SDK Core plus optional AdMob / MAX / TopOn / TradPlus adapters via Subspecs.",
+  "homepage": "https://github.com/hehesdk/ios-sdk-release",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hehe": "support@hehessp.com"
+  },
+  "source": {
+    "git": "https://github.com/hehesdk/ios-sdk-release.git",
+    "tag": "0.2.3"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "static_framework": true,
+  "default_subspecs": [
+    "Core"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "HeheSDK.xcframework",
+      "frameworks": [
+        "UIKit",
+        "Foundation",
+        "WebKit",
+        "AVFoundation",
+        "CoreTelephony",
+        "AdSupport",
+        "AppTrackingTransparency",
+        "SafariServices",
+        "Security"
+      ],
+      "libraries": "z"
+    },
+    {
+      "name": "AdMob",
+      "dependencies": {
+        "HeheAdSDK/Core": [
+          "0.2.3"
+        ],
+        "Google-Mobile-Ads-SDK": [
+          ">= 11.0"
+        ]
+      },
+      "vendored_frameworks": "adapters/admob/HeheAdMobAdapter.xcframework"
+    },
+    {
+      "name": "MAX",
+      "dependencies": {
+        "HeheAdSDK/Core": [
+          "0.2.3"
+        ],
+        "AppLovinSDK": [
+          ">= 13.0"
+        ]
+      },
+      "vendored_frameworks": "adapters/max/HeheMaxAdapter.xcframework"
+    },
+    {
+      "name": "TopOn",
+      "dependencies": {
+        "HeheAdSDK/Core": [
+          "0.2.3"
+        ],
+        "TPNiOS/TPNSDK": [
+          ">= 6.4.94"
+        ]
+      },
+      "vendored_frameworks": "adapters/topon/HeheTopOnAdapter.xcframework"
+    },
+    {
+      "name": "TradPlus",
+      "dependencies": {
+        "HeheAdSDK/Core": [
+          "0.2.3"
+        ],
+        "TradPlusAdSDK/NoneTPExchange": [
+          ">= 15.0"
+        ]
+      },
+      "vendored_frameworks": "adapters/tradplus/HeheTradPlusAdapter.xcframework"
+    }
+  ],
+  "swift_version": "5.0"
+}
