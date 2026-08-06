@@ -1,0 +1,52 @@
+{
+  "name": "DirichletMediationAdapterGDT",
+  "version": "5.1.1.1",
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "https://www.dirichlet.cn/",
+  "authors": {
+    "Dirichlet Inc.": "adn@dirichlet.ai"
+  },
+  "summary": "Dirichlet Mediation 广点通适配器",
+  "description": "DirichletMediationSDK 的广点通（优量汇）适配器，支持 Banner、插屏、激励视频、开屏、模板渲染信息流、自渲染信息流广告。",
+  "source": {
+    "http": "https://tapad-platform.tapimg.com/sdk/ios/DirichletMediationAdapterGDT-5.1.1.1.zip"
+  },
+  "static_framework": true,
+  "platforms": {
+    "ios": "11.0"
+  },
+  "default_subspecs": [
+    "Core"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "DirichletMediationAdapterGDT-5.1.1.1/DirichletMediationAdapterGDT.xcframework",
+      "dependencies": {
+        "DirichletMediationSDK": [
+          "5.1.1.1"
+        ],
+        "GDTMobSDK": [
+          "4.15.80"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "DevTools",
+      "dependencies": {
+        "DirichletMediationAdapterGDT/Core": [
+
+        ],
+        "GDTDevToolSDK": [
+          "~> 1.9"
+        ]
+      }
+    }
+  ]
+}
