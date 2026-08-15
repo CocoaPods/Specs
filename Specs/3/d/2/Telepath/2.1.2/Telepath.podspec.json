@@ -1,0 +1,45 @@
+{
+  "name": "Telepath",
+  "version": "2.1.2",
+  "summary": "Telepath 的 iOS 二进制 SDK。",
+  "description": "面向 AI agent 的 iOS 远程调试 SDK 二进制发行包。\n包含真机与模拟器静态库，以及端内面板所需资源。",
+  "homepage": "https://apptelepath.com/",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE"
+  },
+  "authors": "Yibi AI LLC",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://github.com/PsionicLab/AppTelepath-iOS/releases/download/2.1.2/Telepath-2.1.2.zip",
+    "sha256": "3ca9c9f728f4722e7a8adfb2bc93738f24fc31fecd4a0221c674c9e5ae6f8669"
+  },
+  "default_subspecs": "Base",
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": "Telepath.xcframework",
+      "resources": "TelepathResources.bundle",
+      "frameworks": [
+        "Network",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "ReactNative",
+      "dependencies": {
+        "Telepath/Base": [
+
+        ]
+      },
+      "source_files": "Adapters/ReactNative/**/*.{h,m,mm}"
+    }
+  ]
+}
