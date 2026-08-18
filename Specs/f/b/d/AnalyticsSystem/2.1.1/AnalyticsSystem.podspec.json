@@ -1,0 +1,120 @@
+{
+  "name": "AnalyticsSystem",
+  "version": "2.1.1",
+  "summary": "Multi-provider analytics for Apple platforms, with a dependency-free core.",
+  "description": "AnalyticsSystem fans analytics events out to any number of providers behind one small,\nSendable API. The core carries no third-party dependencies; each provider is an opt-in\nsubspec. Built for Swift 6 strict concurrency.",
+  "homepage": "https://github.com/AndrewKochulab/AnalyticsSystem",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "Andrew Kochulab",
+  "social_media_url": "https://github.com/AndrewKochulab",
+  "source": {
+    "git": "https://github.com/AndrewKochulab/AnalyticsSystem.git",
+    "tag": "2.1.1"
+  },
+  "platforms": {
+    "ios": "15.0",
+    "osx": "12.0",
+    "tvos": "15.0",
+    "watchos": "8.0",
+    "visionos": "1.0"
+  },
+  "cocoapods_version": ">= 1.13.0",
+  "swift_versions": [
+    "6.0"
+  ],
+  "default_subspecs": "Core",
+  "static_framework": true,
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/AnalyticsSystem/**/*.swift"
+    },
+    {
+      "name": "Firebase",
+      "dependencies": {
+        "AnalyticsSystem/Core": [
+
+        ],
+        "Firebase/Analytics": [
+          "~> 12.17"
+        ],
+        "Firebase/Crashlytics": [
+          "~> 12.17"
+        ]
+      },
+      "source_files": "Sources/FirebaseProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) Firebase"
+      },
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0",
+        "tvos": "15.0"
+      }
+    },
+    {
+      "name": "Facebook",
+      "dependencies": {
+        "AnalyticsSystem/Core": [
+
+        ],
+        "FBSDKCoreKit": [
+          "~> 18.1"
+        ]
+      },
+      "source_files": "Sources/FacebookProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) Facebook"
+      },
+      "platforms": {
+        "ios": "15.0"
+      }
+    },
+    {
+      "name": "Mixpanel",
+      "dependencies": {
+        "AnalyticsSystem/Core": [
+
+        ],
+        "Mixpanel-swift": [
+          "~> 6.5"
+        ]
+      },
+      "source_files": "Sources/MixpanelProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) Mixpanel"
+      },
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0",
+        "tvos": "15.0",
+        "watchos": "8.0"
+      }
+    },
+    {
+      "name": "Bugsnag",
+      "dependencies": {
+        "AnalyticsSystem/Core": [
+
+        ],
+        "Bugsnag": [
+          "~> 6.37"
+        ]
+      },
+      "source_files": "Sources/BugsnagProvider/**/*.swift",
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) Bugsnag"
+      },
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0",
+        "tvos": "15.0",
+        "watchos": "8.0"
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
