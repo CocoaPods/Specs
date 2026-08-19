@@ -1,0 +1,92 @@
+{
+  "name": "LaunchDarklyOtel",
+  "version": "0.53.1",
+  "summary": "iOS OpenTelemetry Plugin for LaunchDarkly.",
+  "description": "Records logs, spans, metrics and track events through LDObserve and exports\nthem over OTLP. Installs no swizzling and no crash handlers, so it can run\nalongside another observability SDK. Use LaunchDarklyObservability instead\nfor automatic instrumentation and crash reporting.",
+  "homepage": "https://github.com/launchdarkly/swift-launchdarkly-observability",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE.txt"
+  },
+  "authors": {
+    "LaunchDarkly": "sdks@launchdarkly.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/launchdarkly/swift-launchdarkly-observability.git",
+    "tag": "0.53.1"
+  },
+  "swift_versions": "5.9",
+  "default_subspecs": "LaunchDarklyOtel",
+  "pod_target_xcconfig": {
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) LD_COCOAPODS"
+  },
+  "subspecs": [
+    {
+      "name": "LaunchDarklyOtel",
+      "source_files": "Sources/LaunchDarklyOtel/**/*.{swift,h,m}",
+      "dependencies": {
+        "LaunchDarklyOtel/Common": [
+
+        ],
+        "LaunchDarklyOtel/JSONExporters": [
+
+        ],
+        "LaunchDarklyOtel/SDKResourceExtension": [
+
+        ],
+        "LaunchDarklyOtel/OpenTelemetry": [
+
+        ],
+        "LaunchDarkly": [
+          "~> 11.5"
+        ]
+      }
+    },
+    {
+      "name": "Common",
+      "source_files": "Sources/Common/**/*.{swift,h,m}",
+      "dependencies": {
+        "LaunchDarkly": [
+          "~> 11.5"
+        ]
+      }
+    },
+    {
+      "name": "JSONExporters",
+      "source_files": "Sources/OpenTelemetry/JSONExporters/**/*.{swift,h,m}",
+      "dependencies": {
+        "OpenTelemetry-Swift-Api": [
+          "~> 2.3.0"
+        ],
+        "OpenTelemetry-Swift-Sdk": [
+          "~> 2.3.0"
+        ]
+      }
+    },
+    {
+      "name": "SDKResourceExtension",
+      "source_files": "Sources/OpenTelemetry/Instrumentation/SDKResourceExtension/**/*.{swift,h,m}",
+      "exclude_files": "Sources/OpenTelemetry/Instrumentation/SDKResourceExtension/README.md",
+      "dependencies": {
+        "LaunchDarklyOtel/OpenTelemetry": [
+
+        ]
+      }
+    },
+    {
+      "name": "OpenTelemetry",
+      "dependencies": {
+        "OpenTelemetry-Swift-Api": [
+          "~> 2.3.0"
+        ],
+        "OpenTelemetry-Swift-Sdk": [
+          "~> 2.3.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
