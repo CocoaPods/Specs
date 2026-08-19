@@ -1,0 +1,38 @@
+{
+  "name": "AmwalECR",
+  "version": "0.2.0",
+  "summary": "Drive an Amwal POS terminal from an iOS app: sale, void, refund, inquiry, e-receipt.",
+  "description": "Speaks the Amwal ECR wire protocol over TCP on the local network, so a till\nrunning on iOS can drive a POS terminal directly.\n\nEvery operation answers with a typed outcome that keeps an unknown result apart\nfrom a refusal: a timeout, a lost connection or an unreadable answer is never\nreported as a decline, because the transaction may still have completed. Amounts\nare `Decimal` throughout and converted to the wire's minor units once, half-up,\nmatching the Android SDK to the last minor unit.",
+  "homepage": "https://github.com/amwal-pay/AmwalECR-iOS-CocoaPods",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Amwal Pay": "support@amwal-pay.com"
+  },
+  "documentation_url": "https://github.com/amwal-pay/AmwalECR-iOS-CocoaPods/blob/main/README.md",
+  "source": {
+    "git": "https://github.com/amwal-pay/AmwalECR-iOS-CocoaPods.git",
+    "tag": "v0.2.0"
+  },
+  "source_files": "Sources/AmwalECR/**/*.swift",
+  "platforms": {
+    "ios": "12.0",
+    "osx": "12.0"
+  },
+  "swift_versions": "5.5",
+  "frameworks": "Foundation",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Tests/AmwalECRTests/**/*.swift"
+    }
+  ],
+  "swift_version": "5.5"
+}
