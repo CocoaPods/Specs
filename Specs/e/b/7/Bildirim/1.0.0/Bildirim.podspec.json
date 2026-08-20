@@ -1,0 +1,65 @@
+{
+  "name": "Bildirim",
+  "version": "1.0.0",
+  "summary": "Bildirim (bildirim.io) push bildirim SDK'sı — iOS",
+  "description": "Self-hosted, KVKK uyumlu push bildirim platformu Bildirim için iOS SDK'sı: jeton yaşam döngüsü, izin akışı, ölçüm, çevrimdışı kuyruk, zengin içerik (NSE).",
+  "homepage": "https://bildirim.io",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Bildirim": "destek@bildirim.io"
+  },
+  "source": {
+    "git": "https://github.com/bildirim-io/sdk-ios.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.9"
+  ],
+  "default_subspecs": [
+    "Core",
+    "App"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/BildirimCore/**/*.swift",
+      "resource_bundles": {
+        "BildirimCore": [
+          "Sources/BildirimCore/Resources/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": "UserNotifications"
+    },
+    {
+      "name": "App",
+      "source_files": "Sources/Bildirim/**/*.swift",
+      "dependencies": {
+        "Bildirim/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "UserNotifications",
+        "Security"
+      ]
+    },
+    {
+      "name": "NotificationServiceExtension",
+      "source_files": "Sources/BildirimNotificationServiceExtension/**/*.swift",
+      "dependencies": {
+        "Bildirim/Core": [
+
+        ]
+      },
+      "frameworks": "UserNotifications"
+    }
+  ],
+  "swift_version": "5.9"
+}
