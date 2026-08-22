@@ -1,0 +1,35 @@
+{
+  "name": "CoreDataDB",
+  "module_name": "CoreDataDB",
+  "version": "1.0.0",
+  "summary": "A Sendable, async/await Core Data layer that trades in value types instead of managed objects.",
+  "description": "CoreDataDB wraps Core Data behind a small Sendable facade. Every operation is\nasync/await and exchanges value-type DTOs rather than managed objects, so\nnothing thread-confined escapes the context it was fetched on, and a client\ncan be built from any isolation domain.\n\nThe framework ships no managed object model of its own — the host application\nsupplies one, and any models registered against it are checked when the store\nopens, turning a missing entity or an absent uniqueness constraint into a\nnamed error instead of a crash or a silent duplicate row.\n\nWhat it provides:\n\n  * Object-graph CRUD that honours delete rules, validation and save hooks.\n  * A separate, clearly-labelled batch tier issuing NSBatch* requests straight\n    to the store, merging the resulting object IDs back into the live contexts.\n  * A two-part migration layer: staged schema plans that run inside the store\n    load, and per-model data migrations run afterwards against the migrated\n    store, each recorded in a ledger kept in the store's own metadata so the\n    record survives a backup and restore.\n  * A per-call choice of context — the main queue, a shared background queue,\n    or a detached context for long imports.",
+  "homepage": "https://github.com/ilyaSoftDev/CoreDataDB",
+  "documentation_url": "https://ilyaSoftDev.github.io/CoreDataDB",
+  "license": {
+    "type": "Proprietary",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ilya Slipak": "ilyaslipak@gmail.com"
+  },
+  "platforms": {
+    "ios": "26.5",
+    "osx": "26.5",
+    "visionos": "26.5"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source": {
+    "git": "https://github.com/ilyaSoftDev/CoreDataDB.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "CoreDataDB/**/*.swift",
+  "frameworks": "CoreData",
+  "pod_target_xcconfig": {
+    "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
+    "SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY": "YES"
+  },
+  "swift_version": "5.0"
+}
