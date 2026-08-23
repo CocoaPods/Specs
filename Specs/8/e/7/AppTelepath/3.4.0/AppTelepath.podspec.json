@@ -1,0 +1,44 @@
+{
+  "name": "AppTelepath",
+  "version": "3.4.0",
+  "summary": "Remote iOS debugging for AI coding agents — device SDK.",
+  "description": "AppTelepath turns a running iOS app into structured commands an AI\ncoding agent can call over a hosted MCP server: screenshots, UI tree,\ntaps, network traffic, logs, files, UserDefaults, SQLite, performance\nand crash diagnostics — on a real device, over the internet.\nThis pod ships the prebuilt device and simulator slices plus the\nresources used by the in-app panel.",
+  "homepage": "https://apptelepath.com/",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE"
+  },
+  "authors": "Yibi AI LLC",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://github.com/AppTelepath/AppTelepath-iOS/releases/download/3.4.0/Telepath-3.4.0.zip",
+    "sha256": "296978a353650436e64f9f676dd850ce3dc4385e2d1734d8add594caeb2364e8"
+  },
+  "default_subspecs": "Base",
+  "subspecs": [
+    {
+      "name": "Base",
+      "vendored_frameworks": "Telepath.xcframework",
+      "resources": "TelepathResources.bundle",
+      "frameworks": [
+        "Network",
+        "CoreTelephony"
+      ],
+      "libraries": [
+        "c++",
+        "sqlite3",
+        "z"
+      ]
+    },
+    {
+      "name": "ReactNative",
+      "dependencies": {
+        "AppTelepath/Base": [
+
+        ]
+      }
+    }
+  ]
+}
