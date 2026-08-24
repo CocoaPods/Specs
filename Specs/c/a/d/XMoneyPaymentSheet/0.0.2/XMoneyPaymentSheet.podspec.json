@@ -1,0 +1,111 @@
+{
+  "name": "XMoneyPaymentSheet",
+  "version": "0.0.2",
+  "summary": "Native xMoney checkout SDK for iOS",
+  "description": "Drop-in payment sheet, embedded Payment Element, and Apple Pay for xMoney.",
+  "homepage": "https://github.com/xMoney-Payments/xmoney-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xMoney": "support@xmoney.com"
+  },
+  "source": {
+    "git": "https://github.com/xMoney-Payments/xmoney-ios.git",
+    "tag": "0.0.2"
+  },
+  "swift_versions": "5.9",
+  "platforms": {
+    "ios": "15.0"
+  },
+  "resource_bundles": {
+    "XMoneyPaymentSheet": "PrivacyInfo.xcprivacy"
+  },
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -package-name XMoneyPaymentSheet"
+  },
+  "default_subspecs": "PaymentSheet",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/XMoneyCore/**/*.swift",
+      "resources": [
+        "Resources/**/*",
+        "Sources/XMoneyCore/Resources/**/*"
+      ],
+      "resource_bundles": {
+        "XMoneyCore": "PrivacyInfo.xcprivacy"
+      },
+      "frameworks": [
+        "UIKit",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -package-name XMoneyPaymentSheet"
+      }
+    },
+    {
+      "name": "ApplePay",
+      "source_files": [
+        "Sources/XMoneyApplePay/**/*.swift",
+        "Sources/XMoneyApplePayObjC/**/*.{h,m}"
+      ],
+      "dependencies": {
+        "XMoneyPaymentSheet/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "PassKit",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -package-name XMoneyPaymentSheet"
+      }
+    },
+    {
+      "name": "PaymentElement",
+      "source_files": "Sources/XMoneyPaymentElement/**/*.swift",
+      "dependencies": {
+        "XMoneyPaymentSheet/Core": [
+
+        ]
+      },
+      "resources": [
+        "Sources/XMoneyPaymentElement/Resources/XMoneyAssets.xcassets",
+        "Sources/XMoneyPaymentElement/Resources/Fonts/*"
+      ],
+      "frameworks": [
+        "PassKit",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -package-name XMoneyPaymentSheet"
+      }
+    },
+    {
+      "name": "PaymentSheet",
+      "source_files": "Sources/XMoneyPaymentSheet/**/*.swift",
+      "dependencies": {
+        "XMoneyPaymentSheet/Core": [
+
+        ],
+        "XMoneyPaymentSheet/PaymentElement": [
+
+        ],
+        "XMoneyPaymentSheet/ApplePay": [
+
+        ]
+      },
+      "frameworks": [
+        "PassKit",
+        "WebKit"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -package-name XMoneyPaymentSheet"
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
