@@ -1,0 +1,407 @@
+{
+  "name": "AIBudsSDK",
+  "version": "1.0.0",
+  "summary": "AIBuds SDK - An iOS framework for connecting AI devices",
+  "description": "AIBuds SDK is a versatile framework for connecting iOS apps to AI devices. It provides modular components including core connectivity, Bluetooth management, voice assistant, AI capabilities, logging utilities, and foundation services.\n\nThe SDK supports seamless communication with AIBuds devices, enabling developers to build intelligent audio experiences with features like real-time audio streaming, voice recognition, and smart device management. With its flexible subspec architecture, developers can easily include only the components they need, from basic logging to full AI integration.",
+  "homepage": "https://github.com/topstepsmart/AIBuds-SDK-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "pcjbird": "pcjbird@hotmail.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/topstepsmart/AIBuds-SDK-iOS.git",
+    "tag": "1.0.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Log",
+      "subspecs": [
+        {
+          "name": "Core",
+          "vendored_frameworks": "AIBudsSDK/Log/Core/AIBudsLog.xcframework",
+          "dependencies": {
+            "zipzap": [
+
+            ]
+          },
+          "frameworks": "Foundation"
+        },
+        {
+          "name": "XLFacility",
+          "vendored_frameworks": "AIBudsSDK/Log/XLFacility/AIBudsXLFacility.xcframework",
+          "dependencies": {
+            "iOSLogBrowserSDK": [
+
+            ],
+            "AIBudsSDK/Log/Core": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Foundation",
+      "vendored_frameworks": "AIBudsSDK/Foundation/AIBudsFoundation.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Log/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "Core",
+      "vendored_frameworks": "AIBudsSDK/Core/AIBuds.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Log/Core": [
+
+        ],
+        "AIBudsSDK/Foundation": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreBluetooth",
+        "CoreGraphics"
+      ]
+    },
+    {
+      "name": "ABMate",
+      "vendored_frameworks": "AIBudsSDK/ABMate/ABMate.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Core": [
+
+        ],
+        "AIBudsSDK/ThirdParty/GCDWebServer": [
+
+        ],
+        "libopus": [
+          "1.1"
+        ]
+      }
+    },
+    {
+      "name": "ThirdParty",
+      "subspecs": [
+        {
+          "name": "Lame",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/LAME/LAME.xcframework"
+        },
+        {
+          "name": "tenVad",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/TenVad/ten_vad.framework"
+        },
+        {
+          "name": "StarburstSdk",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/StarBurst/StarburstSdk.framework",
+          "resources": "AIBudsSDK/ThirdParty/StarBurst/StarburstVadAssets.bundle",
+          "dependencies": {
+            "SocketRocket": [
+
+            ],
+            "AFNetworking": [
+              "~> 4.0"
+            ]
+          }
+        },
+        {
+          "name": "MicrosoftCognitiveServicesSpeech",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/Microsoft/MicrosoftCognitiveServicesSpeech.xcframework"
+        },
+        {
+          "name": "MagicHelper",
+          "vendored_frameworks": [
+            "AIBudsSDK/ThirdParty/MltCloud/MagicHelper.framework",
+            "AIBudsSDK/ThirdParty/MltCloud/DscrowSdk.framework"
+          ],
+          "vendored_libraries": "AIBudsSDK/ThirdParty/MltCloud/libQPlayAutoSDK.a",
+          "resources": "AIBudsSDK/ThirdParty/MltCloud/MGBundle.bundle",
+          "dependencies": {
+            "AIBudsSDK/ThirdParty/MicrosoftCognitiveServicesSpeech": [
+
+            ],
+            "SocketRocket": [
+
+            ],
+            "onnxruntime-objc": [
+              "1.18.0"
+            ],
+            "AFNetworking": [
+              "~> 4.0"
+            ]
+          }
+        },
+        {
+          "name": "openssl",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/openssl/openssl.framework"
+        },
+        {
+          "name": "MZEncryptSDK",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/MltCloud/MZEncryptSDK.framework",
+          "dependencies": {
+            "AIBudsSDK/ThirdParty/openssl": [
+
+            ]
+          }
+        },
+        {
+          "name": "ffmpeg",
+          "vendored_frameworks": [
+            "AIBudsSDK/ThirdParty/ffmpeg/libavcodec.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libavformat.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libavutil.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libswscale.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libswresample.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libavdevice.xcframework",
+            "AIBudsSDK/ThirdParty/ffmpeg/libavfilter.xcframework"
+          ],
+          "pod_target_xcconfig": {
+            "OTHER_LDFLAGS": "-lz",
+            "ENABLE_BITCODE": "NO",
+            "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+          },
+          "user_target_xcconfig": {
+            "OTHER_LDFLAGS": "-lz"
+          }
+        },
+        {
+          "name": "GCDWebServer",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/GCDWebServer/GCDWebServer.xcframework",
+          "libraries": "xml2",
+          "pod_target_xcconfig": {
+            "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+          }
+        },
+        {
+          "name": "AWEISIMG",
+          "vendored_frameworks": "AIBudsSDK/ThirdParty/AWEISIMG/AWEISIMG_SDK.xcframework"
+        }
+      ]
+    },
+    {
+      "name": "VideoStabilization",
+      "vendored_frameworks": "AIBudsSDK/VideoStabilization/AIBudsVideoStabilization.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Core": [
+
+        ],
+        "AIBudsSDK/ThirdParty/AWEISIMG": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "AVFoundation",
+        "CoreMedia",
+        "CoreVideo",
+        "VideoToolbox"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      },
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "Audio",
+      "vendored_frameworks": "AIBudsSDK/Audio/AIBudsAudio.xcframework",
+      "resources": "AIBudsSDK/Audio/AIBudsAudio.bundle",
+      "dependencies": {
+        "AIBudsSDK/Core": [
+
+        ],
+        "AIBudsSDK/ThirdParty/tenVad": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreAudio",
+        "CoreMedia",
+        "AVFoundation"
+      ]
+    },
+    {
+      "name": "AI",
+      "subspecs": [
+        {
+          "name": "Foundation",
+          "vendored_frameworks": "AIBudsSDK/AI/Foundation/AIBudsAIFoundation.xcframework",
+          "dependencies": {
+            "AIBudsSDK/Core": [
+
+            ]
+          }
+        },
+        {
+          "name": "Core",
+          "vendored_frameworks": "AIBudsSDK/AI/Core/AIBudsAI.xcframework",
+          "dependencies": {
+            "AIBudsSDK/Core": [
+
+            ],
+            "AIBudsSDK/AI/Foundation": [
+
+            ],
+            "WCDB.swift": [
+              "2.1.16"
+            ]
+          }
+        },
+        {
+          "name": "StarBurst",
+          "vendored_frameworks": "AIBudsSDK/AI/StarBurst/AIBudsStarBurst.xcframework",
+          "dependencies": {
+            "AIBudsSDK/Audio": [
+
+            ],
+            "AIBudsSDK/ThirdParty/Lame": [
+
+            ],
+            "AIBudsSDK/ThirdParty/StarburstSdk": [
+
+            ],
+            "AIBudsSDK/AI/Core": [
+
+            ],
+            "libopus": [
+              "1.1"
+            ],
+            "libogg": [
+              "1.3.5"
+            ]
+          }
+        },
+        {
+          "name": "MltCloud",
+          "vendored_frameworks": "AIBudsSDK/AI/MltCloud/AIBudsMagicHelper.xcframework",
+          "dependencies": {
+            "AIBudsSDK/Audio": [
+
+            ],
+            "AIBudsSDK/ThirdParty/Lame": [
+
+            ],
+            "AIBudsSDK/ThirdParty/MagicHelper": [
+
+            ],
+            "AIBudsSDK/AI/Core": [
+
+            ],
+            "libopus": [
+              "1.1"
+            ],
+            "libogg": [
+              "1.3.5"
+            ]
+          }
+        },
+        {
+          "name": "Dashboard",
+          "vendored_frameworks": "AIBudsSDK/AI/Dashboard/AIBudsAIDashboard.xcframework",
+          "resources": "AIBudsSDK/AI/Dashboard/AIBudsAIDashboard.bundle",
+          "dependencies": {
+            "AIBudsSDK/AI/Core": [
+
+            ],
+            "WCDB.swift": [
+              "2.1.16"
+            ],
+            "AIBudsSDK/ThirdParty/GCDWebServer": [
+
+            ],
+            "YYWebImage": [
+
+            ],
+            "iOSLogBrowserSDK": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "VoiceAssistant",
+      "vendored_frameworks": "AIBudsSDK/VoiceAssistant/AIBudsVoiceAssistant.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Core": [
+
+        ],
+        "AIBudsSDK/ThirdParty/MZEncryptSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "CrashReporter",
+      "vendored_frameworks": "AIBudsSDK/CrashReporter/AIBudsCrashReporter.xcframework"
+    },
+    {
+      "name": "LiveStream",
+      "vendored_frameworks": "AIBudsSDK/LiveStream/AIBudsLiveStream.xcframework",
+      "resources": "AIBudsSDK/LiveStream/AIBudsLiveStream.bundle",
+      "dependencies": {
+        "AIBudsSDK/Log": [
+
+        ],
+        "AIBudsSDK/ThirdParty/ffmpeg": [
+
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "CoreAudio",
+        "CoreMedia",
+        "AVFoundation",
+        "UIKit",
+        "QuartzCore",
+        "Metal",
+        "CoreVideo",
+        "CoreGraphics",
+        "CoreMotion",
+        "Accelerate",
+        "VideoToolbox"
+      ]
+    },
+    {
+      "name": "AllInOne",
+      "vendored_frameworks": "AIBudsSDK/AllInOne/AIBudsAllInOne.xcframework",
+      "dependencies": {
+        "AIBudsSDK/Log": [
+
+        ],
+        "AIBudsSDK/ABMate": [
+
+        ],
+        "AIBudsSDK/AI": [
+
+        ],
+        "AIBudsSDK/VoiceAssistant": [
+
+        ],
+        "AIBudsSDK/CrashReporter": [
+
+        ],
+        "AIBudsSDK/LiveStream": [
+
+        ],
+        "AIBudsSDK/VideoStabilization": [
+
+        ]
+      }
+    }
+  ]
+}
