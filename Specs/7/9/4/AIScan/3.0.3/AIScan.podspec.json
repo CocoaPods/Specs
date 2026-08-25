@@ -1,0 +1,90 @@
+{
+  "name": "AIScan",
+  "version": "3.0.3",
+  "summary": "AI module for diagnosing dogs (eyes, teeth, skin, joints) and cats (eyes, teeth).",
+  "description": "AIScan is a powerful AI module designed to assist veterinarians and pet owners in diagnosing common health issues in dogs and cats. The module specializes in:\n\n- Dogs: Eyes, Teeth, Skin, Joints\n- Cats: Eyes, Teeth\n\nBy leveraging advanced machine learning algorithms, AIScan provides accurate and fast diagnostics to help ensure the health and well-being of pets.",
+  "homepage": "https://www.aiforpet.com/",
+  "license": {
+    "type": "Data and API Subscription License",
+    "text": "This library requires a subscription license to access the AIScan service. Please refer to the service documentation for more details."
+  },
+  "authors": {
+    "hjlee": "hjlee@aiforpet.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/Aiforpet-TTcare/AIScan.git",
+    "tag": "3.0.3"
+  },
+  "swift_versions": [
+    "5.9",
+    "5.10",
+    "6.0"
+  ],
+  "default_subspecs": "UI",
+  "user_target_xcconfig": {
+    "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "AIScanCore.xcframework"
+    },
+    {
+      "name": "UI",
+      "source_files": [
+        "Sources/AIScan/**/*.swift",
+        "Sources/AIScanCameraUI/**/*.swift",
+        "Sources/AIScanReferenceUI/**/*.swift"
+      ],
+      "resource_bundles": {
+        "AIScanCameraUIResources": [
+          "Sources/AIScanCameraUI/Resources/*.lproj/*.strings"
+        ],
+        "AIScanReferenceUIResources": [
+          "Sources/AIScanCameraUI/ReferenceResources/Assets/*.xcassets",
+          "Sources/AIScanCameraUI/ReferenceResources/Legacy/*.storyboard",
+          "Sources/AIScanCameraUI/ReferenceResources/Result/*.storyboard",
+          "Sources/AIScanCameraUI/ReferenceResources/Result/*.xib"
+        ]
+      },
+      "dependencies": {
+        "AIScan/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CameraUI",
+      "source_files": "Sources/AIScanCameraUI/**/*.swift",
+      "resource_bundles": {
+        "AIScanCameraUIResources": [
+          "Sources/AIScanCameraUI/Resources/*.lproj/*.strings"
+        ],
+        "AIScanReferenceUIResources": [
+          "Sources/AIScanCameraUI/ReferenceResources/Assets/*.xcassets",
+          "Sources/AIScanCameraUI/ReferenceResources/Legacy/*.storyboard",
+          "Sources/AIScanCameraUI/ReferenceResources/Result/*.storyboard",
+          "Sources/AIScanCameraUI/ReferenceResources/Result/*.xib"
+        ]
+      },
+      "dependencies": {
+        "AIScan/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "ReferenceUI",
+      "source_files": "Sources/AIScanReferenceUI/**/*.swift",
+      "dependencies": {
+        "AIScan/CameraUI": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
