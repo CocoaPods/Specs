@@ -1,0 +1,57 @@
+{
+  "name": "AtomicXCore",
+  "version": "4.3.7",
+  "summary": "Base module of AtomicX.",
+  "homepage": "https://trtc.io/",
+  "license": {
+    "type": "Proprietary",
+    "text": "    copyright 2017 tencent Ltd. All rights reserved.\n"
+  },
+  "authors": "trtc.io",
+  "static_framework": true,
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.0",
+  "xcconfig": {
+    "VALID_ARCHS": "armv7 arm64 x86_64"
+  },
+  "source": {
+    "http": "https://liteav.sdk.qcloud.com/app/tuikit/download/release/4.3/AtomicXCore_4.3.7.41.zip"
+  },
+  "dependencies": {
+    "RTCRoomEngine/Professional": [
+      ">= 4.3.3"
+    ],
+    "TXLiteAVSDK_Professional": [
+      ">= 13.4.21067"
+    ],
+    "TXIMSDK_Plus_iOS_XCFramework": [
+      ">= 9.0.7661"
+    ]
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "AtomicXCore.xcframework"
+      ]
+    },
+    {
+      "name": "WithAppleCallKit",
+      "dependencies": {
+        "AtomicXCore/Core": [
+
+        ]
+      },
+      "weak_frameworks": [
+        "CallKit"
+      ],
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) ATOMICXCORE_HAS_CALLKIT"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
