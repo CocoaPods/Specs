@@ -1,0 +1,64 @@
+{
+  "name": "GranwinAPKit",
+  "version": "1.0.11",
+  "summary": "Granwin IoT SDK for iOS (binary)",
+  "description": "GranwinAPKit XCFramework binary distribution with optional AWS IoT support",
+  "homepage": "https://gitee.com/granwin/v5-ios-sdk",
+  "license": {
+    "type": "Proprietary",
+    "text": "Copyright (c) Granwin. All rights reserved."
+  },
+  "authors": {
+    "许力文": "steven.xu@granwin.com"
+  },
+  "source": {
+    "git": "https://gitee.com/granwin/v5-ios-sdk.git",
+    "tag": "1.0.11"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "CoreBluetooth",
+    "Security",
+    "SystemConfiguration"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "dependencies": {
+    "CocoaAsyncSocket": [
+
+    ],
+    "AFNetworking": [
+      "~> 4.0"
+    ],
+    "MJExtension": [
+
+    ]
+  },
+  "default_subspecs": "Paho",
+  "static_framework": true,
+  "pod_target_xcconfig": {
+    "CLANG_ENABLE_MODULES": "YES",
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Paho",
+      "vendored_frameworks": "GranwinAPKit.xcframework"
+    },
+    {
+      "name": "AWS",
+      "vendored_frameworks": "AWS/GranwinAPKit.xcframework",
+      "dependencies": {
+        "AWSIoT": [
+          "~> 2.41.0"
+        ]
+      }
+    }
+  ]
+}
