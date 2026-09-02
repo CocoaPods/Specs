@@ -1,0 +1,46 @@
+{
+  "name": "TugboatCaptureRuntime",
+  "version": "0.1.1",
+  "summary": "Tugboat native CPU screenshot capture for Apple platforms.",
+  "description": "Experimental Apple capture runtime. Renders the live Flutter layer into a\nnative bitmap, applies privacy masks and dHash through the portable C++ core,\nencodes JPEG with ImageIO, and returns masked JPEG bytes only. A view-hierarchy\ncompatibility mode remains available for UIKit platform views.",
+  "homepage": "https://github.com/blendto/tugboat-flutter",
+  "license": {
+    "type": "AGPL-3.0-only",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tugboat": "dev@bijatech.com"
+  },
+  "source": {
+    "git": "https://github.com/blendto/tugboat-flutter.git",
+    "tag": "apple-runtime-v0.1.1"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.9",
+  "static_framework": true,
+  "source_files": [
+    "platforms/apple/Sources/TugboatCaptureRuntime/**/*.swift",
+    "platforms/apple/Sources/TugboatImageCoreBridge/**/*.{h,mm}",
+    "core/image-processing/src/**/*.cpp",
+    "core/image-processing/include/**/*.h"
+  ],
+  "public_header_files": "platforms/apple/Sources/TugboatImageCoreBridge/**/*.h",
+  "private_header_files": "core/image-processing/include/**/*.h",
+  "libraries": "c++",
+  "frameworks": [
+    "UIKit",
+    "ImageIO",
+    "CoreGraphics",
+    "UniformTypeIdentifiers"
+  ],
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/core/image-processing/include\"",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  },
+  "swift_version": "5.9"
+}
