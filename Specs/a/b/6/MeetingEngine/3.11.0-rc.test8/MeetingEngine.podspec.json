@@ -1,0 +1,67 @@
+{
+  "name": "MeetingEngine",
+  "version": "3.11.0-rc.test8",
+  "summary": "MeetingEngine iOS SDK",
+  "homepage": "https://www.agora.io",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright Agora."
+  },
+  "authors": {
+    "Agora": "developer@agora.io"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "https://solutions-apaas.agora.io/lib/ios/MeetingEngine_3.11.0-rc.test8.zip",
+    "sha256": "ac1ed16227230719e43ccc415b6d6a3cb8f2889fd18edecd26674224696f24a3"
+  },
+  "default_subspecs": "UIScene",
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "DEFINES_MODULE": "YES"
+  },
+  "user_target_xcconfig": {
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    "DEFINES_MODULE": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": [
+        "Frameworks/AgoraFoundation/*.xcframework",
+        "Frameworks/AgoraRte/*.xcframework",
+        "Frameworks/FcrDeps/*.xcframework",
+        "Frameworks/FcrCore/*.xcframework"
+      ],
+      "dependencies": {
+        "AgoraRtm_OC_Special/RtmKit": [
+          "= 2.2.6.3"
+        ],
+        "ShengwangRtcEngine_Special_iOS": [
+          "= 4.6.3.133"
+        ]
+      },
+      "frameworks": [
+        "Security"
+      ],
+      "libraries": [
+        "iconv",
+        "z"
+      ]
+    },
+    {
+      "name": "UIScene",
+      "dependencies": {
+        "MeetingEngine/Core": [
+          "= 3.11.0-rc.test8"
+        ]
+      },
+      "vendored_frameworks": [
+        "Frameworks/AgoraUIFoundation/*.xcframework",
+        "Frameworks/FcrUIScene/*.xcframework"
+      ]
+    }
+  ]
+}
