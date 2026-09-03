@@ -1,0 +1,44 @@
+{
+  "name": "NexconnCall",
+  "version": "26.4.0",
+  "summary": "NexconnCall iOS Call SDK.",
+  "description": "NexconnCall provides audio and video calling capabilities for iOS.\nIf you do not see the latest version, run `pod repo update` to refresh your local CocoaPods specs repo.",
+  "homepage": "https://www.nexconn.ai",
+  "license": {
+    "type": "Proprietary",
+    "text": "Copyright (c) Nexconn. All rights reserved."
+  },
+  "authors": {
+    "Nexconn Support Team": "support@nexconn.ai"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://downloads.nexconn.ai/release/call/ios/26.4.0/NexconnCall_iOS_SDK_v26_4_0_Dev.zip"
+  },
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64",
+    "VALID_ARCHS": "arm64 armv7 x86_64"
+  },
+  "default_subspecs": "Call",
+  "subspecs": [
+    {
+      "name": "Call",
+      "vendored_frameworks": [
+        "NexconnCallSDK/**/NexconnCall.xcframework",
+        "NexconnCallSDK/**/RongRTCLib.xcframework",
+        "NexconnCallSDK/**/RongCallPlusLib.xcframework"
+      ],
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "NexconnChat/Chat": [
+          "~>26.4.0"
+        ]
+      }
+    }
+  ]
+}
