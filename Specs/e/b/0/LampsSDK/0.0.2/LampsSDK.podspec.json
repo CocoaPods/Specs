@@ -1,0 +1,202 @@
+{
+  "name": "LampsSDK",
+  "version": "0.0.2",
+  "summary": "WebView、Bridge、激励视频与监测上报 SDK",
+  "description": "LampsSDK 面向三方 App，提供 WebView 展示与 Bridge 通信、激励视频、CM/PM/XM 监测上报。\n支持源码 / 二进制两种分发；广告 SDK 通过 CSJ / GDT / Noah Subspec 按需拉取。",
+  "homepage": "https://github.com/HoorahTech/lamps-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yujianchao": "yujianchao@hupu.com"
+  },
+  "source": {
+    "git": "https://github.com/HoorahTech/lamps-ios-sdk.git",
+    "tag": "0.0.2"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "swift_versions": "5.0",
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "LampsSDK/Binary/LampsSDK.xcframework",
+      "resources": [
+        "LampsSDK/Binary/LampsSDKResources.bundle"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "WebKit",
+        "AdSupport",
+        "SystemConfiguration",
+        "CoreTelephony"
+      ],
+      "weak_frameworks": "AppTrackingTransparency",
+      "libraries": "z"
+    },
+    {
+      "name": "CSJAdapter",
+      "dependencies": {
+        "LampsSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "LampsSDK/Binary/Adapters/LampsCSJAdapter.xcframework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "GDTAdapter",
+      "dependencies": {
+        "LampsSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "LampsSDK/Binary/Adapters/LampsGDTAdapter.xcframework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "NoahAdapter",
+      "dependencies": {
+        "LampsSDK/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "LampsSDK/Binary/Adapters/LampsNoahAdapter.xcframework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "CSJ",
+      "dependencies": {
+        "LampsSDK/CSJAdapter": [
+
+        ],
+        "Ads-CN/BUAdSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "GDT",
+      "dependencies": {
+        "LampsSDK/GDTAdapter": [
+
+        ],
+        "GDTMobSDK": [
+
+        ]
+      }
+    },
+    {
+      "name": "Noah",
+      "dependencies": {
+        "LampsSDK/NoahAdapter": [
+
+        ],
+        "AFNetworking": [
+
+        ],
+        "SDWebImage": [
+
+        ],
+        "YYModel": [
+
+        ]
+      },
+      "vendored_frameworks": [
+        "LampsSDK/Vendor/Noah/NoahSDK.framework",
+        "LampsSDK/Vendor/Noah/Other/*.framework"
+      ],
+      "resources": [
+        "LampsSDK/Vendor/Noah/NoahSDK.framework/*.bundle",
+        "LampsSDK/Vendor/Noah/Other/**/*.bundle"
+      ],
+      "frameworks": [
+        "CoreTelephony",
+        "SystemConfiguration",
+        "WebKit",
+        "ImageIO",
+        "Accelerate",
+        "CoreServices",
+        "AVKit",
+        "CoreData",
+        "Security",
+        "CoreGraphics",
+        "MobileCoreServices",
+        "MessageUI",
+        "SafariServices",
+        "StoreKit",
+        "AVFoundation",
+        "MediaPlayer",
+        "JavaScriptCore",
+        "QuickLook",
+        "CoreMotion",
+        "CoreMedia",
+        "CoreLocation",
+        "MapKit",
+        "AdSupport"
+      ],
+      "weak_frameworks": [
+        "AppTrackingTransparency",
+        "DeviceCheck"
+      ],
+      "libraries": [
+        "c++abi",
+        "sqlite3",
+        "c++",
+        "xml2",
+        "resolv",
+        "z"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "Ads",
+      "dependencies": {
+        "LampsSDK/CSJ": [
+
+        ],
+        "LampsSDK/GDT": [
+
+        ],
+        "LampsSDK/Noah": [
+
+        ]
+      }
+    },
+    {
+      "name": "DevTools",
+      "dependencies": {
+        "LampsSDK/Core": [
+
+        ],
+        "GDTDevToolSDK": [
+
+        ],
+        "Ads-CN/BUAdTestMeasurement": [
+
+        ]
+      },
+      "vendored_frameworks": "LampsSDK/Binary/DevTools/LampsDevTools.xcframework",
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
