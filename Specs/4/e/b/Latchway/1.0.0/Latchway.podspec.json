@@ -1,0 +1,74 @@
+{
+  "name": "Latchway",
+  "version": "1.0.0",
+  "summary": "Device-bound access to a self-hosted Latchway gateway.",
+  "description": "Latchway authorizes iOS and React Native requests without embedding\nupstream provider credentials. It provides Secure Enclave P-256 DPoP,\nrotating Keychain sessions, URLSession integration, and optional App\nAttest support.",
+  "homepage": "https://github.com/Latchway/latchway-ios-sdk",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Latchway": "https://github.com/Latchway"
+  },
+  "source": {
+    "git": "https://github.com/Latchway/latchway-ios-sdk.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "6.0",
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "SWIFT_STRICT_CONCURRENCY": "complete",
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) COCOAPODS"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Latchway/**/*.swift",
+      "frameworks": [
+        "CryptoKit",
+        "Foundation",
+        "Security"
+      ]
+    },
+    {
+      "name": "AppAttest",
+      "dependencies": {
+        "Latchway/Core": [
+          "1.0.0"
+        ]
+      },
+      "source_files": "Sources/LatchwayAppAttest/**/*.swift",
+      "frameworks": [
+        "DeviceCheck",
+        "Foundation",
+        "Security"
+      ]
+    },
+    {
+      "name": "AppExtensions",
+      "dependencies": {
+        "Latchway/Core": [
+          "1.0.0"
+        ]
+      },
+      "source_files": "Sources/LatchwayAppExtensions/**/*.swift",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "FirebaseAuth",
+      "dependencies": {
+        "Latchway/Core": [
+          "1.0.0"
+        ]
+      },
+      "source_files": "Sources/LatchwayFirebaseAuth/**/*.swift",
+      "frameworks": "Foundation"
+    }
+  ],
+  "swift_version": "6.0"
+}
