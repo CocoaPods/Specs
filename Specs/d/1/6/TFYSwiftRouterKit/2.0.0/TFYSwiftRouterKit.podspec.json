@@ -1,0 +1,112 @@
+{
+  "name": "TFYSwiftRouterKit",
+  "version": "2.0.0",
+  "summary": "Swift 6 强类型通用 iOS 组件路由，支持多导航域、双向会话、Deep Link、恢复与测试。",
+  "description": "TFYSwiftRouterKit 是一套面向组件化 iOS 工程的 Swift Concurrency First 通用路由工具。\n它提供强类型 Route/Contract、可配置 Navigation Scope、UIKit 与 SwiftUI Driver、\nCommand/Event/Output 双向会话、事务注册、超时取消、Deep Link、状态恢复、组件服务和测试替身。\n路由核心不绑定业务名称、固定 URL、图片、文案或持久化键；产品资源和降级界面均由 App 注入。\n组件根页面同样通过 Route 注册，App 壳无需直接依赖业务 UIViewController。",
+  "homepage": "https://github.com/13662049573/TFYSwiftRouterKit",
+  "documentation_url": "https://github.com/13662049573/TFYSwiftRouterKit/tree/2.0.0#readme",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "田风有": "420144542@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/13662049573/TFYSwiftRouterKit.git",
+    "tag": "2.0.0"
+  },
+  "platforms": {
+    "ios": "16.0"
+  },
+  "swift_versions": "6.0",
+  "requires_arc": true,
+  "static_framework": true,
+  "module_name": "TFYSwiftRouterKit",
+  "default_subspecs": "Umbrella",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/Core/**/*.swift",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "UIKit",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/UIKit/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "SwiftUI"
+      ]
+    },
+    {
+      "name": "SwiftUI",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/SwiftUI/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ]
+      },
+      "frameworks": [
+        "SwiftUI",
+        "Combine"
+      ]
+    },
+    {
+      "name": "DeepLink",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/DeepLink/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Restoration",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/Restoration/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Testing",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/Testing/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ]
+      },
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "Umbrella",
+      "source_files": "TFYSwiftRouterKit/TFYSwiftRouter/Umbrella/**/*.swift",
+      "dependencies": {
+        "TFYSwiftRouterKit/Core": [
+
+        ],
+        "TFYSwiftRouterKit/UIKit": [
+
+        ],
+        "TFYSwiftRouterKit/SwiftUI": [
+
+        ],
+        "TFYSwiftRouterKit/DeepLink": [
+
+        ],
+        "TFYSwiftRouterKit/Restoration": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
