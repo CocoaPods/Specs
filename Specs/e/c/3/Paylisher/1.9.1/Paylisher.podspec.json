@@ -1,0 +1,65 @@
+{
+  "name": "Paylisher",
+  "version": "1.9.1",
+  "summary": "Paylisher Analytics, Replay & Deep Link SDK",
+  "description": "Paylisher is a comprehensive mobile SDK providing event tracking, session replay, secure data collection, and advanced deep linking capabilities including deferred deep links for install attribution.",
+  "homepage": "https://github.com/paylisher/PAYLISHER-SDK-IOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Paylisher": "info@paylisher.com"
+  },
+  "source": {
+    "git": "https://github.com/paylisher/PAYLISHER-SDK-IOS.git",
+    "tag": "1.9.1"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "Core",
+  "swift_versions": [
+    "5.7",
+    "5.8",
+    "5.9"
+  ],
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) PAYLISHER_SSL_PINNING"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Paylisher/**/*.{swift,h,m}",
+      "exclude_files": "Paylisher/PaylisherATT/**/*",
+      "resource_bundles": {
+        "Paylisher_Privacy": [
+          "Paylisher/Resources/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "weak_frameworks": "AdServices"
+    },
+    {
+      "name": "ATT",
+      "dependencies": {
+        "Paylisher/Core": [
+
+        ]
+      },
+      "source_files": "Paylisher/PaylisherATT/**/*.swift",
+      "platforms": {
+        "ios": "14.0"
+      },
+      "frameworks": "AdSupport",
+      "weak_frameworks": "AppTrackingTransparency",
+      "resource_bundles": {
+        "PaylisherATT_Privacy": [
+          "Paylisher/PaylisherATT/Resources/PrivacyInfo.xcprivacy"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
