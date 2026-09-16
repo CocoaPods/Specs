@@ -1,0 +1,48 @@
+{
+  "name": "AppAtlasSDK",
+  "version": "0.1.0",
+  "summary": "App Atlas SDK for iOS and macOS: deep-link inflow and telemetry.",
+  "description": "The client half of App Atlas. Links: deferred deep links claimed from a\nconsented clipboard handoff, direct opens handed in from the app delegate,\none listener for both. Objective-C, Foundation-only core, no dependencies.",
+  "homepage": "https://appatlas.dev",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Park Jungyoung": "qkrwnss0509@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pjy0509/atlas-sdk-apple.git",
+    "tag": "v0.1.0"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.13"
+  },
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "default_subspecs": "Links",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/AppAtlasSDK/include/{Atlas,ATLCore}.h",
+        "Sources/AppAtlasSDK/Core/*.{h,m}"
+      ],
+      "public_header_files": "Sources/AppAtlasSDK/include/{Atlas,ATLCore}.h"
+    },
+    {
+      "name": "Links",
+      "dependencies": {
+        "AppAtlasSDK/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/AppAtlasSDK/include/ATLLink*.h",
+        "Sources/AppAtlasSDK/Links/*.{h,m}"
+      ],
+      "public_header_files": "Sources/AppAtlasSDK/include/ATLLink*.h"
+    }
+  ]
+}
