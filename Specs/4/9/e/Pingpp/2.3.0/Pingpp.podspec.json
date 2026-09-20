@@ -1,0 +1,79 @@
+{
+  "name": "Pingpp",
+  "version": "2.3.0",
+  "summary": "Pingplusplus iOS SDK",
+  "description": "移动应用支付接口。\n开发者不再需要编写冗长的代码，简单几步就可以使你的应用获得支付功能。\n让你的移动应用接入支付像大厦接入电力一样简单，方便，和温暖。\n2.3.0 支持支付宝钱包及其境外支付渠道。",
+  "homepage": "https://pingxx.com",
+  "license": "COMMERCIAL",
+  "authors": {
+    "Afon Weng": "xufeng.weng@pingxx.com"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source": {
+    "http": "https://sdk-assets.oss-cn-shanghai.aliyuncs.com/pingpp/2.3.0/pingpp-ios-libs.zip"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "Alipay"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "lib/*.h",
+        "lib/Dependencies/Network/*.h"
+      ],
+      "public_header_files": [
+        "lib/*.h",
+        "lib/Dependencies/Network/*.h"
+      ],
+      "vendored_frameworks": [
+        "lib/XCFrameworks/PingppCore.xcframework",
+        "lib/XCFrameworks/PingppNetwork.xcframework"
+      ],
+      "resources": "lib/*.bundle",
+      "frameworks": [
+        "CFNetwork",
+        "SystemConfiguration",
+        "Security",
+        "CoreLocation"
+      ],
+      "ios": {
+        "libraries": [
+          "c++",
+          "z"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      }
+    },
+    {
+      "name": "Alipay",
+      "vendored_frameworks": "lib/XCFrameworks/PingppAlipay.xcframework",
+      "frameworks": [
+        "CoreMotion",
+        "CoreTelephony"
+      ],
+      "dependencies": {
+        "Pingpp/Core": [
+
+        ],
+        "PingppAlipaySDK": [
+          "~> 15.8.42.1"
+        ]
+      }
+    },
+    {
+      "name": "CBAlipay",
+      "dependencies": {
+        "Pingpp/Alipay": [
+
+        ]
+      }
+    }
+  ]
+}
