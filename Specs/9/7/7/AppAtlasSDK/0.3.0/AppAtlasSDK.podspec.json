@@ -1,0 +1,73 @@
+{
+  "name": "AppAtlasSDK",
+  "version": "0.3.0",
+  "summary": "App Atlas SDK for iOS and macOS: deep-link inflow, crash reporting and telemetry.",
+  "description": "The client half of App Atlas. Links: deferred deep links claimed from a\nconsented clipboard handoff, direct opens handed in from the app delegate,\none listener for both. Crash: mach exceptions, signals, uncaught\nNSExceptions and Swift traps captured in async-signal-safe C, main-thread\nhangs, out-of-memory and watchdog kills inferred at the next start,\nMetricKit diagnostics on iOS 14+, dSYM symbolication on the server.\nObjective-C, Foundation-only core, no dependencies.",
+  "homepage": "https://appatlas.dev",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Park Jungyoung": "qkrwnss0509@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pjy0509/atlas-sdk-apple.git",
+    "tag": "v0.3.0"
+  },
+  "platforms": {
+    "ios": "12.0",
+    "osx": "10.13"
+  },
+  "requires_arc": true,
+  "frameworks": "Foundation",
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "resource_bundles": {
+    "AppAtlasSDK": [
+      "Sources/AppAtlasSDK/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "default_subspecs": [
+    "Links",
+    "Crash"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Sources/AppAtlasSDK/include/{Atlas,ATLCore}.h",
+        "Sources/AppAtlasSDK/Core/*.{h,m}"
+      ],
+      "public_header_files": "Sources/AppAtlasSDK/include/{Atlas,ATLCore}.h"
+    },
+    {
+      "name": "Links",
+      "dependencies": {
+        "AppAtlasSDK/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/AppAtlasSDK/include/ATLLink*.h",
+        "Sources/AppAtlasSDK/Links/*.{h,m}"
+      ],
+      "public_header_files": "Sources/AppAtlasSDK/include/ATLLink*.h"
+    },
+    {
+      "name": "Crash",
+      "dependencies": {
+        "AppAtlasSDK/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Sources/AppAtlasSDK/include/ATLCrash.h",
+        "Sources/AppAtlasSDK/Crash/*.{h,m,c}"
+      ],
+      "public_header_files": "Sources/AppAtlasSDK/include/ATLCrash.h"
+    }
+  ]
+}
