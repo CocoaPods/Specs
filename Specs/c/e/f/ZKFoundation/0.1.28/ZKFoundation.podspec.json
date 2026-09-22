@@ -1,0 +1,177 @@
+{
+  "name": "ZKFoundation",
+  "version": "0.1.28",
+  "summary": "A short description of ZKFoundation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/kaiser143/ZKFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangkai": "deyang143@126.com"
+  },
+  "source": {
+    "git": "https://github.com/kaiser143/ZKFoundation.git",
+    "tag": "0.1.28"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "LocationManager",
+    "Permission",
+    "UIKit",
+    "Adapter",
+    "Categories",
+    "AuthContext",
+    "URLProtocol"
+  ],
+  "source_files": "ZKFoundation/Classes/Source/ZKFoundation.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\"",
+    "OTHER_LDFLAGS": "$(inherited) -weak_framework UIUtilities",
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(SDKROOT)/System/Library/SubFrameworks\""
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(SDKROOT)/System/Library/SubFrameworks\""
+  },
+  "dependencies": {
+    "ZKCategories": [
+      "~> 0.4.26"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "ZKFoundation/Classes/Source/ZKApp.{h,m}",
+        "ZKFoundation/Classes/Source/ZKFolderMonitor.{h,m}",
+        "ZKFoundation/Classes/Source/ZKHTTPURLResponse.{h,m}",
+        "ZKFoundation/Classes/Source/ZKKeyboardManager.{h,m}",
+        "ZKFoundation/Classes/Source/ZKMultipleDelegates.{h,m}",
+        "ZKFoundation/Classes/Source/NSObject+ZKMultipleDelegates.{h,m}",
+        "ZKFoundation/Classes/Source/ZKVersion.{h,m}",
+        "ZKFoundation/Classes/Source/ZKCategoriesImport.h"
+      ],
+      "dependencies": {
+        "ZKCategories": [
+          "~> 0.4.26"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\""
+      }
+    },
+    {
+      "name": "LocationManager",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "ZKFoundation/Classes/Source/LocationManager/*.{h,m}",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Permission",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "ZKFoundation/Classes/Source/Permission/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "ZKFoundation/Classes/Source/UIKit/*.{h,m}",
+        "ZKFoundation/Classes/Source/UIKit/ZKNavigationBarTransition/*.{h,m}",
+        "ZKFoundation/Classes/Source/UIKit/ZKNavigationBarTransition/internal/*.{h,m}",
+        "ZKFoundation/Classes/Source/UIKit/ZKAlert/*.{h,m}",
+        "ZKFoundation/Classes/Source/UIKit/ZKUIImagePreview/*.{h,m}"
+      ],
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ],
+        "ZKFoundation/Categories": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\""
+      }
+    },
+    {
+      "name": "Adapter",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": [
+        "ZKFoundation/Classes/Source/Adapter/*.{h,m}",
+        "ZKFoundation/Classes/Source/Categories/*.{h,m}"
+      ],
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\""
+      }
+    },
+    {
+      "name": "Categories",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "dependencies": {
+        "ZKFoundation/Adapter": [
+
+        ]
+      }
+    },
+    {
+      "name": "AuthContext",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "ZKFoundation/Classes/Source/AuthContext/*.{h,m}"
+    },
+    {
+      "name": "URLProtocol",
+      "platforms": {
+        "ios": "12.0"
+      },
+      "source_files": "ZKFoundation/Classes/Source/URLProtocol/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\""
+      }
+    }
+  ]
+}
