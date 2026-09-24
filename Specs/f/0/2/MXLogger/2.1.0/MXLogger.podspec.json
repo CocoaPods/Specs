@@ -1,0 +1,39 @@
+{
+  "name": "MXLogger",
+  "version": "2.1.0",
+  "summary": "High-performance cross-platform logger built on mmap — the Objective-C API for iOS.",
+  "description": "MXLogger is a cross-platform logging library built on mmap memory\nmapping, with AES-CFB-128 encryption. This pod is the Objective-C API\nfor iOS; the C/C++ engine lives in MXLoggerCore and is shared with the\nAndroid and Flutter bindings, so log files are interchangeable across\nplatforms.\n\n* mmap-backed writes: no main-thread I/O blocking, no data loss on crash\n* Five levels (debug / info / warn / error / fatal) with a per-level\n  file-write threshold\n* A name and comma-separated tags on every record, for filtering on read-back\n* File split policies: yyyy_MM_dd_HH / yyyy_MM_dd / yyyy_ww / yyyy_MM\n* Disk budget by max age and max total size, cleaned up automatically\n  when the app enters background\n* Optional AES-CFB-128 encryption with a 16-byte key and IV\n* Read logs back in-process, or open the .mx files with the desktop\n  mxlogger_analyzer\n\nSee https://github.com/coder-dongjiayi/MXLogger for full documentation.",
+  "homepage": "https://github.com/coder-dongjiayi/MXLogger",
+  "license": {
+    "type": "BSD 3-Clause",
+    "file": "LICENSE.TXT"
+  },
+  "authors": {
+    "dongjiayi": "dongjiayi"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/coder-dongjiayi/MXLogger.git",
+    "tag": "v2.1.0"
+  },
+  "source_files": "iOS/MXLogger/MXLogger/**/*.{h,mm}",
+  "public_header_files": "iOS/MXLogger/MXLogger/include/MXLogger/MXLogger.h",
+  "frameworks": "CoreFoundation",
+  "dependencies": {
+    "MXLoggerCore": [
+      "2.1.0"
+    ]
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64  arm64",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
+  }
+}
