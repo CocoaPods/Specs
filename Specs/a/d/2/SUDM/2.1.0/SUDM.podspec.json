@@ -1,0 +1,147 @@
+{
+  "name": "SUDM",
+  "version": "2.1.0",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright © 2020-2026 SUD. All Rights Reserved.\n"
+  },
+  "homepage": "https://docs.sud.tech",
+  "authors": {
+    "sud.tech": "dev@sud.tech"
+  },
+  "summary": "The SUD mediation SDK for iOS.",
+  "description": "SUDM provides mediation runtime and adapters for SUDGI advertising.",
+  "documentation_url": "https://docs.sud.tech",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://resource.sud.tech/developer/sdk/ios/SUDM-iOS-v2.1.0.1489.zip",
+    "sha256": "93205183bd69622ce66b7bbbeb90a103a5cab06942b9e900526c419a5c239b80"
+  },
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "default_subspecs": "full",
+  "subspecs": [
+    {
+      "name": "base",
+      "vendored_frameworks": "SUDM.xcframework",
+      "dependencies": {
+        "SUDCoreKit": [
+          "~> 2.1.0"
+        ],
+        "SUDReport": [
+          "2.1.0"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ]
+    },
+    {
+      "name": "carty",
+      "vendored_frameworks": "SUDMAdapterCarty.xcframework",
+      "dependencies": {
+        "SUDM/base": [
+
+        ],
+        "CartySDK": [
+          "1.10.0"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      },
+      "user_target_xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "$(inherited) \"$(SDKROOT)/usr/lib/swift\" \"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\""
+      }
+    },
+    {
+      "name": "admob",
+      "vendored_frameworks": "SUDMAdapterAdmob.xcframework",
+      "dependencies": {
+        "SUDM/base": [
+
+        ],
+        "Google-Mobile-Ads-SDK": [
+          "~> 13.7.0"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "max",
+      "vendored_frameworks": "SUDMAdapterMax.xcframework",
+      "dependencies": {
+        "SUDM/base": [
+
+        ],
+        "AppLovinSDK": [
+          "~> 13.6.3"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "topon",
+      "vendored_frameworks": "SUDMAdapterTopOn.xcframework",
+      "dependencies": {
+        "SUDM/base": [
+
+        ],
+        "TPNiOS": [
+          "6.5.73"
+        ],
+        "TPNMediationAdmobAdapter": [
+          "13.7.0.2.0"
+        ]
+      },
+      "libraries": [
+        "sqlite3",
+        "c++"
+      ],
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -ObjC"
+      }
+    },
+    {
+      "name": "full",
+      "dependencies": {
+        "SUDM/carty": [
+
+        ],
+        "SUDM/admob": [
+
+        ],
+        "SUDM/max": [
+
+        ],
+        "SUDM/topon": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
