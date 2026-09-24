@@ -1,0 +1,49 @@
+{
+  "name": "MXLoggerCore",
+  "version": "2.1.0",
+  "summary": "High-performance cross-platform logging core built on mmap, with AES-CFB-128 encryption.",
+  "description": "MXLoggerCore is the C/C++ engine behind MXLogger. Records are written\nthrough an mmap-ed buffer, so a write costs a memcpy instead of a file\nI/O syscall, and buffered data survives an abnormal process exit.\n\n* mmap-backed writes: no main-thread I/O blocking, no data loss on crash\n* AES-CFB-128 encryption with a caller-supplied key and IV\n* FlatBuffers serialization: compact binary records, zero-copy reads\n* File split policies: per hour, day, week or month\n* Disk budget enforced by max file age and max total size\n* Shared by the iOS, Android and Flutter bindings, so the .mx file\n  format is byte-identical on every platform\n\nThis pod contains the core only. iOS projects should depend on the\nMXLogger pod, which provides the Objective-C API on top of it.",
+  "homepage": "https://github.com/coder-dongjiayi/MXLogger",
+  "license": {
+    "type": "BSD 3-Clause",
+    "file": "LICENSE.TXT"
+  },
+  "authors": {
+    "dongjiayi": "dongjiayi"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/coder-dongjiayi/MXLogger.git",
+    "tag": "v2.1.0"
+  },
+  "source_files": [
+    "Core",
+    "Core/*.{h,cpp,hpp}",
+    "Core/md5/*",
+    "Core/aes/*.{hpp,cpp}",
+    "Core/aes/openssl/*",
+    "Core/json/*",
+    "Core/flatbuffers/*",
+    "Core/sink/*"
+  ],
+  "public_header_files": [
+    "Core/mxlogger.hpp",
+    "Core/mxlogger_util.hpp"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "frameworks": [
+    "CoreFoundation",
+    "UIKit"
+  ],
+  "pod_target_xcconfig": {
+    "VALID_ARCHS": "x86_64  arm64",
+    "CLANG_CXX_LANGUAGE_STANDARD": "gnu++17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
+  }
+}
