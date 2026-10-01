@@ -1,0 +1,126 @@
+{
+  "name": "TFYSwiftSQLiteKit",
+  "version": "1.1.0",
+  "summary": "Swift SQLite ORM with model migrations and optional SQLCipher encryption.",
+  "description": "TFYSwiftSQLiteKit maps Codable models to SQLite via reflection, supports @TFYPrimaryKey / @TFYColumn /\nindexes / JSON columns, type-safe and prepared queries, Date/Data/Bool scalar round-trips,\ntransactional schema migration, serialized connections and transactions, WAL checkpoints,\nconsistent backups, optional SQLCipher encryption, key rotation and file-format exports,\nand an App Store Privacy Manifest. CocoaPods and Swift Package Manager ship the same runtime.",
+  "homepage": "https://github.com/13662049573/TFYSwiftSQLite",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "田风有": "420144542@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/13662049573/TFYSwiftSQLite.git",
+    "tag": "1.1.0"
+  },
+  "swift_versions": "5.9",
+  "requires_arc": true,
+  "module_name": "TFYSwiftSQLiteKit",
+  "platforms": {
+    "ios": "16.0",
+    "osx": "13.0",
+    "tvos": "16.0",
+    "watchos": "9.0"
+  },
+  "frameworks": "Foundation",
+  "default_subspecs": "Standard",
+  "resource_bundles": {
+    "TFYSwiftSQLiteKit_Privacy": [
+      "TFYSwiftSQLite/TFYSwiftSQLiteKit/PrivacyInfo.xcprivacy"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Standard",
+      "source_files": [
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Annotation/TFYSwiftColumnAnnotations.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBConnection.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBError.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBEncryption.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBLogging.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBStatement.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Manager/TFYSwiftDatabaseCenter.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftColumn.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftDBModel.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftORM.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftQuery.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftTableBuilder.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Reflection/TFYSwiftModelMirror.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftAutoTable.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftIndexBuilder.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftSchemaMigrator.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Utils/TFYSwiftBenchmark.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Utils/TFYSwiftTypeMapper.swift"
+      ],
+      "libraries": "sqlite3",
+      "testspecs": [
+        {
+          "name": "RuntimeTests",
+          "test_type": "unit",
+          "platforms": {
+            "osx": "13.0"
+          },
+          "source_files": [
+            "TFYSwiftSQLiteTests/TestModels.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteKitTests.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteHardeningTests.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteEncryptionTests.swift"
+          ],
+          "frameworks": "XCTest"
+        }
+      ]
+    },
+    {
+      "name": "SQLCipher",
+      "source_files": [
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Annotation/TFYSwiftColumnAnnotations.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBConnection.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBError.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBEncryption.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBLogging.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Core/TFYSwiftDBStatement.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Manager/TFYSwiftDatabaseCenter.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftColumn.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftDBModel.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftORM.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftQuery.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/ORM/TFYSwiftTableBuilder.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Reflection/TFYSwiftModelMirror.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftAutoTable.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftIndexBuilder.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Schema/TFYSwiftSchemaMigrator.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Utils/TFYSwiftBenchmark.swift",
+        "TFYSwiftSQLite/TFYSwiftSQLiteKit/Utils/TFYSwiftTypeMapper.swift"
+      ],
+      "dependencies": {
+        "SQLCipher": [
+          "~> 4.10.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) TFY_SQLCIPHER",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) SQLITE_HAS_CODEC=1",
+        "OTHER_SWIFT_FLAGS": "$(inherited) -Xcc -DSQLITE_HAS_CODEC=1"
+      },
+      "testspecs": [
+        {
+          "name": "RuntimeTests",
+          "test_type": "unit",
+          "platforms": {
+            "osx": "13.0"
+          },
+          "source_files": [
+            "TFYSwiftSQLiteTests/TestModels.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteKitTests.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteHardeningTests.swift",
+            "TFYSwiftSQLiteTests/TFYSwiftSQLiteEncryptionTests.swift"
+          ],
+          "frameworks": "XCTest"
+        }
+      ]
+    }
+  ],
+  "swift_version": "5.9"
+}
