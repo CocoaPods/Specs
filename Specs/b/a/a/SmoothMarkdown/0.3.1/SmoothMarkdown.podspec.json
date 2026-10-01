@@ -1,0 +1,52 @@
+{
+  "name": "SmoothMarkdown",
+  "version": "0.3.1",
+  "summary": "Native SwiftUI Markdown reader, streaming reader, and editor.",
+  "description": "A native iOS Markdown library with source-preserving CommonMark and GFM\nparsing, streaming updates, selectable rich text, custom renderers,\nmath and SVG rendering, and a Markdown editor.",
+  "homepage": "https://github.com/JackCaow/ios-smooth-markdown",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "JackCaow",
+  "source": {
+    "git": "https://github.com/JackCaow/ios-smooth-markdown.git",
+    "tag": "0.3.1"
+  },
+  "platforms": {
+    "ios": "17.0"
+  },
+  "swift_versions": "5.9",
+  "module_name": "SmoothMarkdown",
+  "default_subspecs": "UI",
+  "static_framework": true,
+  "preserve_paths": [
+    "rust-core/**/*",
+    "tools/build-rust-parser.py"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/SmoothMarkdownCore/**/*.swift",
+      "vendored_frameworks": "Artifacts/CSmoothMarkdownRust.xcframework",
+      "frameworks": "Foundation"
+    },
+    {
+      "name": "UI",
+      "dependencies": {
+        "SmoothMarkdown/Core": [
+
+        ]
+      },
+      "source_files": "Sources/SmoothMarkdown/**/*.swift",
+      "frameworks": [
+        "SwiftUI",
+        "UIKit",
+        "WebKit",
+        "CoreText",
+        "CoreGraphics"
+      ]
+    }
+  ],
+  "swift_version": "5.9"
+}
