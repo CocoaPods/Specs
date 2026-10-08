@@ -1,0 +1,82 @@
+{
+  "name": "TencentNavKit-XC",
+  "version": "7.9.0",
+  "summary": "TencentNavKit",
+  "homepage": "https://lbs.qq.com",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright © 1998-2023 Tencent All Rights Reserved"
+  },
+  "authors": {
+    "mikedpzhang": "mikedpzhang@tencent.com"
+  },
+  "source": {
+    "http": "https://framework-70105.njc.vod.tencent-cloud.com/nav/TencentNavKit_XC_7.9.0_135.zip",
+    "sha256": "f40380d524cd8b00fa57a5b04919dc70680281c6be1b207a234c77b9c0db2d21"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "AVFoundation",
+    "CoreMotion",
+    "AdSupport"
+  ],
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "TencentNavMapFoundationKit-XC",
+      "vendored_frameworks": "QMapFoundationKit.xcframework"
+    },
+    {
+      "name": "TencentNavMapKit-XC",
+      "vendored_frameworks": "QMapKit.xcframework",
+      "resources": "QMapKit.xcframework/ios-arm64/QMapKit.framework/QMapKit.bundle",
+      "dependencies": {
+        "TencentNavKit-XC/TencentNavMapFoundationKit-XC": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavLocationKit-XC",
+      "vendored_frameworks": "TencentLBS.xcframework",
+      "dependencies": {
+        "TencentNavKit-XC/TencentNavMapFoundationKit-XC": [
+
+        ]
+      }
+    },
+    {
+      "name": "TencentNavKit-XC",
+      "vendored_frameworks": "TencentNavKit.xcframework",
+      "resources": "TencentNavKit.xcframework/ios-arm64/TencentNavKit.framework/TencentNavKit.bundle",
+      "dependencies": {
+        "TencentNavKit-XC/TencentNavMapKit-XC": [
+
+        ],
+        "TencentNavKit-XC/TencentNavLocationKit-XC": [
+
+        ]
+      }
+    },
+    {
+      "name": "TNKAudioPlayer-XC",
+      "vendored_frameworks": "TNKAudioPlayer.xcframework",
+      "resources": "TNKAudioPlayer.xcframework/ios-arm64/TNKAudioPlayer.framework/TencentNavKitTTS.bundle",
+      "dependencies": {
+        "TencentNavKit-XC/TencentNavKit-XC": [
+
+        ]
+      }
+    }
+  ]
+}
