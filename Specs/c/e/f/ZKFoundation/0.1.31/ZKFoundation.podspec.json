@@ -1,0 +1,138 @@
+{
+  "name": "ZKFoundation",
+  "version": "0.1.31",
+  "summary": "ZKFoundation: iOS base library (UIKit, Adapter, Categories, Location, Permission, AuthContext).",
+  "description": "ZKFoundation is the shared iOS base library for ZK projects, including Core utilities,\nUIKit components, Adapter, Categories, LocationManager, Permission, AuthContext and URLProtocol.",
+  "homepage": "https://github.com/kaiser143/ZKFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangkai": "deyang143@126.com"
+  },
+  "source": {
+    "git": "https://github.com/kaiser143/ZKFoundation.git",
+    "tag": "0.1.31"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "LocationManager",
+    "Permission",
+    "UIKit",
+    "Adapter",
+    "Categories",
+    "AuthContext",
+    "URLProtocol"
+  ],
+  "source_files": "ZKFoundation/Classes/Source/ZKFoundation.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\""
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ZKFoundation/Classes/Source/ZKApp.{h,m}",
+        "ZKFoundation/Classes/Source/ZKFolderMonitor.{h,m}",
+        "ZKFoundation/Classes/Source/ZKHTTPURLResponse.{h,m}",
+        "ZKFoundation/Classes/Source/ZKKeyboardManager.{h,m}",
+        "ZKFoundation/Classes/Source/ZKMultipleDelegates.{h,m}",
+        "ZKFoundation/Classes/Source/NSObject+ZKMultipleDelegates.{h,m}",
+        "ZKFoundation/Classes/Source/ZKVersion.{h,m}",
+        "ZKFoundation/Classes/Source/ZKCategoriesImport.h"
+      ],
+      "dependencies": {
+        "ZKCategories": [
+          "~> 0.4.28"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\""
+      }
+    },
+    {
+      "name": "LocationManager",
+      "source_files": "ZKFoundation/Classes/Source/LocationManager/*.{h,m}",
+      "frameworks": "CoreLocation",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Permission",
+      "source_files": "ZKFoundation/Classes/Source/Permission/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "ZKFoundation/Classes/Source/UIKit/**/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ],
+        "ZKFoundation/Adapter": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\""
+      }
+    },
+    {
+      "name": "Adapter",
+      "source_files": "ZKFoundation/Classes/Source/Adapter/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ],
+        "ZKFoundation/Categories": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Adapter\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/Categories\" \"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source/UIKit\""
+      }
+    },
+    {
+      "name": "Categories",
+      "source_files": "ZKFoundation/Classes/Source/Categories/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "AuthContext",
+      "source_files": "ZKFoundation/Classes/Source/AuthContext/*.{h,m}"
+    },
+    {
+      "name": "URLProtocol",
+      "source_files": "ZKFoundation/Classes/Source/URLProtocol/*.{h,m}",
+      "dependencies": {
+        "ZKFoundation/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/ZKFoundation/Classes/Source\""
+      }
+    }
+  ]
+}
