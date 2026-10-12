@@ -1,0 +1,60 @@
+{
+  "name": "AutoCollapseKit",
+  "version": "0.1.0",
+  "summary": "Opt-in hidden constraint folding for UIKit, SnapKit and Masonry.",
+  "description": "Mark selected Auto Layout constraints to collapse when their owning view hides,\nand restore the latest expanded constants when it becomes visible. Core supports\nnative NSLayoutConstraint; independent SnapKit and Masonry adapters can be used\nseparately or together through CocoaPods subspecs.",
+  "homepage": "https://github.com/OrisunWang/AutoCollapseKit",
+  "authors": {
+    "Orisun Wang": "orisun.wang@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/OrisunWang/AutoCollapseKit.git",
+    "tag": "0.1.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.{h,m}",
+      "public_header_files": "Sources/Core/**/*.h",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "SnapKit",
+      "source_files": "Sources/SnapKit/**/*.swift",
+      "dependencies": {
+        "AutoCollapseKit/Core": [
+
+        ],
+        "SnapKit": [
+          "~> 5.6"
+        ]
+      }
+    },
+    {
+      "name": "Masonry",
+      "source_files": "Sources/Masonry/**/*.{h,m}",
+      "public_header_files": "Sources/Masonry/**/*.h",
+      "dependencies": {
+        "AutoCollapseKit/Core": [
+
+        ],
+        "Masonry": [
+          "~> 1.1"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
