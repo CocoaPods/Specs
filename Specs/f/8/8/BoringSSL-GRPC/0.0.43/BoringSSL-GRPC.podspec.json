@@ -1,0 +1,87 @@
+{
+  "name": "BoringSSL-GRPC",
+  "version": "0.0.43",
+  "summary": "BoringSSL is a fork of OpenSSL that is designed to meet Google's needs.",
+  "description": "BoringSSL is a fork of OpenSSL that is designed to meet Google's needs.\n\nAlthough BoringSSL is an open source project, it is not intended for general use, as OpenSSL is.\nWe don't recommend that third parties depend upon it. Doing so is likely to be frustrating\nbecause there are no guarantees of API stability. Only the latest version of this pod is\nsupported, and every new version is a new major version.\n\nWe update Google libraries and programs that use BoringSSL as needed when deciding to make API\nchanges. This allows us to mostly avoid compromises in the name of compatibility. It works for\nus, but it may not work for you.\n\nAs a Cocoapods pod, it has the advantage over OpenSSL's pods that the library doesn't need to\nbe precompiled. This eliminates the 10 - 20 minutes of wait the first time a user does \"pod\ninstall\", lets it be used as a dynamic framework (pending solution of Cocoapods' issue #4605),\nand works with bitcode automatically. It's also thought to be smaller than OpenSSL (which takes\n1MB - 2MB per ARM architecture), but we don't have specific numbers yet.\n\nBoringSSL arose because Google used OpenSSL for many years in various ways and, over time, built\nup a large number of patches that were maintained while tracking upstream OpenSSL. As Google's\nproduct portfolio became more complex, more copies of OpenSSL sprung up and the effort involved\nin maintaining all these patches in multiple places was growing steadily.\n\nCurrently BoringSSL is the SSL library in Chrome/Chromium, Android (but it's not part of the\nNDK) and a number of other apps/programs.",
+  "homepage": "https://github.com/google/boringssl",
+  "license": {
+    "type": "Mixed",
+    "file": "LICENSE"
+  },
+  "authors": [
+    "Adam Langley",
+    "David Benjamin",
+    "Matt Braithwaite"
+  ],
+  "source": {
+    "git": "https://github.com/google/boringssl.git",
+    "commit": "3adc3d1aba162a578e2547f329fcce8659b8e89c"
+  },
+  "platforms": {
+    "ios": "15.0",
+    "osx": "11.0",
+    "tvos": "13.0",
+    "watchos": "6.0",
+    "visionos": "1.0"
+  },
+  "module_name": "openssl_grpc",
+  "header_mappings_dir": "include/openssl",
+  "header_dir": "openssl_grpc",
+  "compiler_flags": [
+    "-DOPENSSL_NO_ASM",
+    "-w",
+    "-DBORINGSSL_PREFIX=GRPC"
+  ],
+  "requires_arc": false,
+  "pod_target_xcconfig": {
+    "USE_HEADERMAP": "NO",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17"
+  },
+  "prepare_command": "set -e\n\n# We are renaming openssl to openssl_grpc so that there is no conflict with openssl if it exists\nfind . -type f \\( -path '*.h' -or -path '*.cc' -or -path '*.c' -or -path '*.inc' \\) -print0 | xargs -0 -L1 sed -E -i'.grpc_back' 's;#include <openssl/;#include <openssl_grpc/;g'",
+  "subspecs": [
+    {
+      "name": "Interface",
+      "header_mappings_dir": "include/openssl",
+      "private_header_files": "include/openssl/time.h",
+      "source_files": [
+        "include/openssl/*.h",
+        "include/openssl/**/*.h"
+      ]
+    },
+    {
+      "name": "Implementation",
+      "header_mappings_dir": ".",
+      "resource_bundles": {
+        "openssl_grpc": "PrivacyInfo.xcprivacy"
+      },
+      "source_files": [
+        "ssl/*.{h,c,cc}",
+        "ssl/**/*.{h,c,cc}",
+        "crypto/*.{h,c,cc}",
+        "crypto/**/*.{h,c,cc,inc}",
+        "third_party/fiat/*.{h,c,cc,inc}",
+        "gen/*.inc",
+        "gen/crypto/err_data.cc"
+      ],
+      "private_header_files": [
+        "ssl/*.h",
+        "ssl/**/*.h",
+        "crypto/*.h",
+        "crypto/**/*.{h,inc}",
+        "gen/*.inc",
+        "third_party/fiat/*.{h,inc}"
+      ],
+      "exclude_files": [
+        "include/openssl/pki/**",
+        "**/*_test.*",
+        "**/test_*.*",
+        "**/test/*.*"
+      ],
+      "dependencies": {
+        "BoringSSL-GRPC/Interface": [
+          "0.0.43"
+        ]
+      }
+    }
+  ]
+}
