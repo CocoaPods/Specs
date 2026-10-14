@@ -1,0 +1,69 @@
+{
+  "name": "AotterTrekMediation",
+  "version": "5.0.0",
+  "summary": "AotterTrek mediation adapters for Google Mobile Ads (AdMob / Ad Manager) and AppLovin MAX.",
+  "description": "Closed-source mediation adapters that let Google Mobile Ads (AdMob and Google Ad Manager) and AppLovin MAX serve\nAotterTrek native and banner ads through AotterTrekSDK 5.0.0 or later. Pure Objective-C static frameworks; the app links the\nad network SDKs and AotterTrekSDK itself. Subspecs: GoogleMobileAds (default; AdMob and GAM are aliases), MAX.",
+  "homepage": "https://github.com/aotter/AotterTrekMediation-iOS",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Aotter": "sdk@aotter.net"
+  },
+  "source": {
+    "git": "https://github.com/aotter/AotterTrekMediation-iOS.git",
+    "tag": "5.0.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "static_framework": true,
+  "dependencies": {
+    "AotterTrekSDK": [
+      ">= 5.0.0"
+    ]
+  },
+  "default_subspecs": "GoogleMobileAds",
+  "subspecs": [
+    {
+      "name": "GoogleMobileAds",
+      "vendored_frameworks": "AotterTrekGoogleMobileAdsMediation.xcframework",
+      "dependencies": {
+        "Google-Mobile-Ads-SDK": [
+          ">= 12.0",
+          "< 14.0"
+        ]
+      }
+    },
+    {
+      "name": "AdMob",
+      "dependencies": {
+        "AotterTrekMediation/GoogleMobileAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "GAM",
+      "dependencies": {
+        "AotterTrekMediation/GoogleMobileAds": [
+
+        ]
+      }
+    },
+    {
+      "name": "MAX",
+      "vendored_frameworks": "AotterTrekMAXMediation.xcframework",
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "AppLovinSDK": [
+          ">= 13.0",
+          "< 14.0"
+        ]
+      }
+    }
+  ]
+}
