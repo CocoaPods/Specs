@@ -1,0 +1,279 @@
+{
+  "name": "TrueWatchSDK",
+  "version": "1.6.8",
+  "summary": "TrueWatchTech iOS Data Collection SDK",
+  "homepage": "https://github.com/TrueWatchTech/datakit-ios.git",
+  "license": {
+    "type": "Apache",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hulilei": "huuuu1016@gmail.com",
+    "Brandon Zhang": "brandonzhangdev@gmail.com"
+  },
+  "default_subspecs": "Agent",
+  "swift_versions": [
+    "5.0"
+  ],
+  "platforms": {
+    "ios": "15.0",
+    "osx": "12.0",
+    "tvos": "15.0"
+  },
+  "libraries": "z",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
+    "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT) $(PODS_TARGET_SRCROOT)/Sources $(PODS_TARGET_SRCROOT)/Sources/Core/** $(PODS_TARGET_SRCROOT)/Sources/Agent/** $(PODS_TARGET_SRCROOT)/Sources/WidgetExtension $(PODS_TARGET_SRCROOT)/Sources/SessionReplay/**",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FT_COCOAPODS=1"
+  },
+  "source": {
+    "git": "https://github.com/TrueWatchTech/datakit-ios.git",
+    "tag": "1.6.8"
+  },
+  "resource_bundles": {
+    "FTSDKPrivacyInfo": "Sources/Resources/PrivacyInfo.xcprivacy"
+  },
+  "subspecs": [
+    {
+      "name": "Diagnostics",
+      "source_files": "Sources/Diagnostics/**/*.{h,m}",
+      "public_header_files": "Sources/Diagnostics/include/*.h",
+      "dependencies": {
+        "TrueWatchSDK/Core/BaseUtils": [
+
+        ]
+      }
+    },
+    {
+      "name": "Agent",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0",
+        "tvos": "15.0"
+      },
+      "source_files": [
+        "Sources/Agent/Public/*.{h}",
+        "Sources/Agent/**/*{.h,.m,.swift}"
+      ],
+      "exclude_files": "Sources/Agent/AutoTrack/FTSwiftUIBridgeStub.m",
+      "ios": {
+        "exclude_files": "Sources/Agent/AutoTrack/Mac/**/*"
+      },
+      "tvos": {
+        "exclude_files": "Sources/Agent/AutoTrack/Mac/**/*"
+      },
+      "dependencies": {
+        "TrueWatchSDK/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "WidgetExtension",
+      "platforms": {
+        "ios": "15.0"
+      },
+      "source_files": [
+        "Sources/WidgetExtension/*{.h,.m}",
+        "Sources/Agent/Config/*.{h,m}",
+        "Sources/Agent/ExternalData/*{.h,.m}",
+        "Sources/Agent/Extension/*{.h,.m}",
+        "Sources/Agent/Shared/Public/*.h"
+      ],
+      "dependencies": {
+        "TrueWatchSDK/Core/FTRUM": [
+
+        ],
+        "TrueWatchSDK/Core/URLSessionAutoInstrumentation": [
+
+        ],
+        "TrueWatchSDK/Core/Logger": [
+
+        ]
+      }
+    },
+    {
+      "name": "Extension",
+      "platforms": {
+        "ios": "15.0"
+      },
+      "dependencies": {
+        "TrueWatchSDK/WidgetExtension": [
+
+        ]
+      }
+    },
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0",
+        "tvos": "15.0"
+      },
+      "subspecs": [
+        {
+          "name": "FTRUM",
+          "source_files": "Sources/Core/FTRUM/**/*.{h,m,c,cpp}",
+          "dependencies": {
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ],
+            "TrueWatchSDK/Core/Protocol": [
+
+            ],
+            "TrueWatchSDK/Core/VisitorID": [
+
+            ]
+          }
+        },
+        {
+          "name": "URLSessionAutoInstrumentation",
+          "source_files": "Sources/Core/NetworkAutoInstrumentation/**/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchSDK/Core/Protocol": [
+
+            ],
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ],
+            "TrueWatchSDK/Core/VisitorID": [
+
+            ]
+          }
+        },
+        {
+          "name": "VisitorID",
+          "source_files": "Sources/Core/VisitorID/**/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ],
+            "TrueWatchSDK/Core/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "Protocol",
+          "source_files": "Sources/Core/Protocol/**/*{.h,.m}"
+        },
+        {
+          "name": "RemoteConfig",
+          "source_files": [
+            "Sources/Core/RemoteConfig/*{.h,.m}",
+            "Sources/Core/Public/FTRemoteConfigModel.h"
+          ],
+          "dependencies": {
+            "TrueWatchSDK/Core/DataManager": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseUtils",
+          "source_files": "Sources/Core/BaseUtils/**/*{.h,.m,.c}"
+        },
+        {
+          "name": "Logger",
+          "source_files": "Sources/Core/Logger/*{.h,.m}",
+          "dependencies": {
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ],
+            "TrueWatchSDK/Core/Protocol": [
+
+            ]
+          }
+        },
+        {
+          "name": "FTWKWebView",
+          "platforms": {
+            "ios": "15.0",
+            "osx": "12.0"
+          },
+          "source_files": [
+            "Sources/Core/FTWKWebView/**/*{.h,.m}",
+            "Sources/Core/Public/FTWKWebViewHandler.h"
+          ],
+          "dependencies": {
+            "TrueWatchSDK/Core/Protocol": [
+
+            ],
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ]
+          }
+        },
+        {
+          "name": "DataManager",
+          "source_files": [
+            "Sources/Core/DataManager/*{.h,.m}",
+            "Sources/Core/DataManager/Upload/*{.h,.m}",
+            "Sources/Core/DataManager/Storage/**/*{.h,.m}",
+            "Sources/Core/DataFilter/*{.h,.m}"
+          ],
+          "dependencies": {
+            "TrueWatchSDK/Core/BaseUtils": [
+
+            ],
+            "TrueWatchSDK/Core/Protocol": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SessionReplay",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0"
+      },
+      "public_header_files": "Sources/SessionReplay/Public/*.h",
+      "source_files": "Sources/SessionReplay/**/*{.h,.m}",
+      "dependencies": {
+        "TrueWatchSDK/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT) $(PODS_TARGET_SRCROOT)/Sources $(PODS_TARGET_SRCROOT)/Sources/Core/** $(PODS_TARGET_SRCROOT)/Sources/Agent/** $(PODS_TARGET_SRCROOT)/Sources/WidgetExtension $(PODS_TARGET_SRCROOT)/Sources/SessionReplay/**",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FT_COCOAPODS=1"
+      }
+    },
+    {
+      "name": "FTSessionReplay",
+      "platforms": {
+        "ios": "15.0",
+        "osx": "12.0"
+      },
+      "dependencies": {
+        "TrueWatchSDK/SessionReplay": [
+
+        ]
+      }
+    },
+    {
+      "name": "ElectronWebView",
+      "platforms": {
+        "osx": "12.0"
+      },
+      "public_header_files": "Sources/ElectronWebView/Public/*.h",
+      "source_files": "Sources/ElectronWebView/**/*{.h,.m}",
+      "dependencies": {
+        "TrueWatchSDK/Core": [
+
+        ],
+        "TrueWatchSDK/SessionReplay": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(inherited) $(PODS_TARGET_SRCROOT) $(PODS_TARGET_SRCROOT)/Sources $(PODS_TARGET_SRCROOT)/Sources/Core/** $(PODS_TARGET_SRCROOT)/Sources/Agent/** $(PODS_TARGET_SRCROOT)/Sources/WidgetExtension $(PODS_TARGET_SRCROOT)/Sources/SessionReplay/**",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FT_COCOAPODS=1"
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
