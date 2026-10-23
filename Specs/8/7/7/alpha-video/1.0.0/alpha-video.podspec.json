@@ -1,0 +1,89 @@
+{
+  "name": "alpha-video",
+  "module_name": "AlphaVideo",
+  "version": "1.0.0",
+  "summary": "Transparent video for iOS: VP8, VP9 or AV1 WebM with alpha, decoded by libvpx or dav1d and drawn with Metal.",
+  "homepage": "https://github.com/MediaCacheDev/alpha-video",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Kasprowicz": "9932671+danielkpl2@users.noreply.github.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "http": "https://github.com/MediaCacheDev/alpha-video/releases/download/v1.0.0/alpha-video-1.0.0-ios.zip",
+    "sha256": "abe4b8eb0792df77e534f07331109c5c42ebd25bb7f9f024f1efb028ef260451"
+  },
+  "default_subspecs": [
+    "VPX",
+    "AV1",
+    "Source"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_WARN_DOCUMENTATION_COMMENTS": "NO",
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/cpp\" \"$(PODS_TARGET_SRCROOT)/codecs/vpx\" \"$(PODS_TARGET_SRCROOT)/codecs/av1\" \"$(PODS_TARGET_SRCROOT)/third_party/range-source/include\" \"$(PODS_TARGET_SRCROOT)/third_party/libwebm/webm_parser\" \"$(PODS_TARGET_SRCROOT)/third_party/libwebm/webm_parser/include\""
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "cpp/*.{h,cpp}",
+        "ios/Sources/AlphaVideo/**/*.{h,mm}",
+        "third_party/libwebm/webm_parser/**/*.{h,cc}",
+        "third_party/range-source/include/*.h"
+      ],
+      "exclude_files": "cpp/*_jni.cpp",
+      "public_header_files": "ios/Sources/AlphaVideo/include/AlphaVideo.h",
+      "frameworks": [
+        "Metal",
+        "MetalKit",
+        "UIKit"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Source",
+      "dependencies": {
+        "alpha-video/Core": [
+
+        ],
+        "range-source": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
+      "name": "VPX",
+      "dependencies": {
+        "alpha-video/Core": [
+
+        ]
+      },
+      "source_files": [
+        "codecs/vpx/*.{h,cpp}",
+        "ios/Sources/AlphaVideoVPX/**/*.{h,mm}"
+      ],
+      "public_header_files": "ios/Sources/AlphaVideoVPX/include/AlphaVideoVPX.h",
+      "vendored_frameworks": "AlphaVideoLibvpx.xcframework"
+    },
+    {
+      "name": "AV1",
+      "dependencies": {
+        "alpha-video/Core": [
+
+        ]
+      },
+      "source_files": [
+        "codecs/av1/*.{h,cpp}",
+        "ios/Sources/AlphaVideoAV1/**/*.{h,mm}"
+      ],
+      "public_header_files": "ios/Sources/AlphaVideoAV1/include/AlphaVideoAV1.h",
+      "vendored_frameworks": "AlphaVideoDav1d.xcframework"
+    }
+  ]
+}
