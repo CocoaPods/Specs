@@ -1,0 +1,60 @@
+{
+  "name": "alpha-video-gpu",
+  "module_name": "AlphaVideoGPU",
+  "version": "1.0.0",
+  "summary": "Transparent (alpha) animations for iOS from ASTC texture arrays in KTX2 files, drawn with Metal.",
+  "description": "Plays transparent animations stored as ASTC texture arrays in KTX2 files (made with\nalpha-video-gpu-encoder). The GPU samples the frames as stored, with no video decoding, so\ndozens of players run at once with little CPU. Streams files by range requests, with\nframe-exact seeking and offline storage.",
+  "homepage": "https://github.com/MediaCacheDev/alpha-video-gpu",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Kasprowicz": "9932671+danielkpl2@users.noreply.github.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/MediaCacheDev/alpha-video-gpu.git",
+    "tag": "v1.0.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "Source"
+  ],
+  "pod_target_xcconfig": {
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/third_party\" \"$(PODS_TARGET_SRCROOT)/third_party/range-source/include\""
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "ios/Sources/AlphaVideoGPU/**/*.{h,mm}",
+        "third_party/range-source/include/*.h"
+      ],
+      "public_header_files": "ios/Sources/AlphaVideoGPU/include/AlphaVideoGPU.h",
+      "preserve_paths": [
+        "ios/Sources/AlphaVideoGPU/astc_decomp.cpp",
+        "third_party/zstd/**/*"
+      ],
+      "frameworks": [
+        "Metal",
+        "MetalKit"
+      ],
+      "libraries": "c++"
+    },
+    {
+      "name": "Source",
+      "dependencies": {
+        "alpha-video-gpu/Core": [
+
+        ],
+        "range-source": [
+          "~> 1.0"
+        ]
+      }
+    }
+  ]
+}
