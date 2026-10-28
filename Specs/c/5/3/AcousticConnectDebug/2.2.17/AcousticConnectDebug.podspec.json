@@ -1,0 +1,42 @@
+{
+  "name": "AcousticConnectDebug",
+  "version": "2.2.17",
+  "authors": "Acoustic, L.P.",
+  "license": {
+    "type": "Proprietary, Acoustic, L.P.",
+    "text": "https://github.com/go-acoustic/Connect/blob/master/Licenses/License"
+  },
+  "homepage": "https://github.com/go-acoustic/Connect",
+  "summary": "Acoustic Connect iOS SDK. Install with SPM (go-acoustic/Connect-SP) or CocoaPods via go-acoustic/PodSpecs.",
+  "description": "Acoustic Connect iOS SDK.\n\nSwift Package Manager is the recommended integration:\nhttps://github.com/go-acoustic/Connect-SP (release) or https://github.com/go-acoustic/ConnectDebug-SP (debug).\n\nFor CocoaPods, add the Acoustic spec repo above the CocoaPods CDN in your Podfile:\n  source 'https://github.com/go-acoustic/PodSpecs.git'\n  source 'https://cdn.cocoapods.org/'\n\nCocoaPods trunk becomes read-only on 2 December 2026 and receives no later versions of this pod.",
+  "cocoapods_version": ">= 1.10.0",
+  "platforms": {
+    "ios": "15.1"
+  },
+  "source": {
+    "git": "https://github.com/go-acoustic/Connect.git",
+    "tag": "2.2.17"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "frameworks": [
+        "SystemConfiguration",
+        "CoreTelephony",
+        "CoreLocation",
+        "WebKit"
+      ],
+      "libraries": "z",
+      "resources": "SDKs/iOS/Debug/ConnectResources.bundle",
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_ROOT)/SDKs/iOS/Debug/Connect.xcframework/*/Connect.framework/Headers/\"/** "
+      },
+      "vendored_frameworks": [
+        "SDKs/iOS/Debug/Connect.xcframework",
+        "SDKs/iOS/Debug/Tealeaf.xcframework",
+        "SDKs/iOS/Debug/EOCore.xcframework"
+      ]
+    }
+  ]
+}
