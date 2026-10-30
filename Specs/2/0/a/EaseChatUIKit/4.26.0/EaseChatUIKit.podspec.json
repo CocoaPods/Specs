@@ -1,0 +1,86 @@
+{
+  "name": "EaseChatUIKit",
+  "version": "4.26.0",
+  "summary": "A easy for use ChatUIKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://doc.easemob.com/uikit/chatuikit/ios/chatuikit_overview.html",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zjc19891106": "984065974@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/easemob/easemob-uikit-ios.git",
+    "tag": "4.26.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source_files": [
+    "Sources/EaseChatUIKit/Classes/**/*.{h,swift}"
+  ],
+  "exclude_files": [
+    "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/third-party/opencore-amr/**/*",
+    "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/third-party/vo-amrwbenc/**/*",
+    "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/third-party/AmrCodec.h",
+    "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/third-party/AMRCodec.xcframework/**/*"
+  ],
+  "resources": [
+    "Sources/EaseChatUIKit/Classes/UI/**/*.bundle",
+    "Sources/EaseChatUIKit/Classes/UI/**/*.xcprivacy"
+  ],
+  "dependencies": {
+    "HyphenateChat": [
+      ">= 4.22.0",
+      "< 5.0"
+    ],
+    "FLAnimatedImage": [
+      "~> 1.0"
+    ]
+  },
+  "static_framework": true,
+  "swift_versions": "5.0",
+  "prefix_header_contents": "# if __has_include (<EaseChatUIKit/EaseChatUIKit-Bridge.h>)\n#import <EaseChatUIKit/EaseChatUIKit-Bridge.h>\n# else\n#import \"EaseChatUIKit-Bridge.h\"\n# endif",
+  "public_header_files": "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/EaseChatUIKit-Bridge.h",
+  "vendored_frameworks": "Sources/EaseChatUIKit/Classes/UI/Core/Foundation/third-party/AMRCodec.xcframework",
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "NO"
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "Combine",
+    "AudioToolbox",
+    "AVFoundation",
+    "AVFAudio",
+    "Photos"
+  ],
+  "testspecs": [
+    {
+      "name": "IntegrationTests",
+      "test_type": "unit",
+      "source_files": "Tests/EaseChatUIKitTests/*.swift",
+      "dependencies": {
+        "EaseChatUIKit/TestHost": [
+
+        ]
+      },
+      "requires_app_host": true,
+      "app_host_name": "EaseChatUIKit/TestHost"
+    }
+  ],
+  "appspecs": [
+    {
+      "name": "TestHost",
+      "source_files": "Tests/HostApp/*.swift",
+      "resources": "Tests/EaseChatUIKitTests/HostResources/**/*",
+      "info_plist": {
+        "UILaunchScreen": {
+        }
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}
