@@ -1,0 +1,67 @@
+{
+  "name": "BidMachinePlus",
+  "version": "0.2.0",
+  "summary": "BidMachinePlus iOS SDK",
+  "description": "BidMachinePlus is the next generation BidMachine SDK with built-in mediation.",
+  "homepage": "https://bidmachine.io",
+  "license": {
+    "type": "Commercial",
+    "text": "https://bidmachine.io/sdk-license-agreement/"
+  },
+  "authors": {
+    "BidMachine": "https://bidmachine.io"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.9"
+  ],
+  "source": {
+    "http": "https://bidmachine-ios.s3.amazonaws.com/BidMachinePlus/0.2.0/pod/BidMachinePlus.zip"
+  },
+  "cocoapods_version": ">= 1.12.0",
+  "default_subspecs": "Static",
+  "subspecs": [
+    {
+      "name": "Static",
+      "vendored_frameworks": [
+        "release/Static/BidMachinePlus.xcframework"
+      ],
+      "resource_bundles": {
+        "BidMachinePlus": [
+          "release/Static/BidMachinePlus.xcframework/ios-arm64/**/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BidMachine/Static": [
+          "3.8.0"
+        ],
+        "BidMachinePlusAdapterAPI/Static": [
+          "= 0.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Dynamic",
+      "vendored_frameworks": [
+        "release/Dynamic/BidMachinePlus.xcframework"
+      ],
+      "user_target_xcconfig": {
+        "OTHER_LDFLAGS": "-ObjC"
+      },
+      "dependencies": {
+        "BidMachine/Dynamic": [
+          "3.8.0"
+        ],
+        "BidMachinePlusAdapterAPI/Dynamic": [
+          "= 0.2.0"
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.9"
+}
