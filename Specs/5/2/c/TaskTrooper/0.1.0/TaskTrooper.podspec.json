@@ -1,0 +1,72 @@
+{
+  "name": "TaskTrooper",
+  "version": "0.1.0",
+  "summary": "TaskTrooper Telemetry RUM SDK for iOS and tvOS.",
+  "description": "Sessions, views, app start, network (traceparent), crashes, hangs and frame vitals sent to TaskTrooper Telemetry.",
+  "homepage": "https://tasktrooper.ai",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "sdks/LICENSE"
+  },
+  "authors": "Mehmet Akif Baysal",
+  "source": {
+    "git": "https://github.com/makifbaysal/tasktrooper-telemetry.git",
+    "tag": "ios-v0.1.0"
+  },
+  "module_name": "TaskTrooper",
+  "swift_versions": [
+    "5.9",
+    "6.0"
+  ],
+  "platforms": {
+    "ios": "15.0",
+    "tvos": "15.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "sdks/ios/Sources/TaskTrooper/**/*.swift",
+        "sdks/ios/Sources/TaskTrooperCrashC/**/*.{h,c,m}"
+      ],
+      "public_header_files": "sdks/ios/Sources/TaskTrooperCrashC/include/*.h",
+      "libraries": "z",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "Network"
+      ],
+      "pod_target_xcconfig": {
+        "APPLICATION_EXTENSION_API_ONLY": "YES"
+      },
+      "ios": {
+        "weak_frameworks": "MetricKit"
+      }
+    },
+    {
+      "name": "Replay",
+      "dependencies": {
+        "TaskTrooper/Core": [
+
+        ]
+      },
+      "source_files": "sdks/ios/Sources/TaskTrooperReplay/**/*.swift",
+      "frameworks": [
+        "UIKit",
+        "SwiftUI"
+      ]
+    },
+    {
+      "name": "SwiftUI",
+      "dependencies": {
+        "TaskTrooper/Core": [
+
+        ]
+      },
+      "source_files": "sdks/ios/Sources/TaskTrooperSwiftUI/**/*.swift",
+      "frameworks": "SwiftUI"
+    }
+  ],
+  "swift_version": "6.0"
+}
