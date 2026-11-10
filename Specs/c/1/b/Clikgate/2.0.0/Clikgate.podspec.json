@@ -1,0 +1,73 @@
+{
+  "name": "Clikgate",
+  "version": "2.0.0",
+  "summary": "Clikgate iOS SDK: deep links, deferred deep links, install attribution, referrals and uninstall tracking.",
+  "description": "The Clikgate SDK handles Universal Links and custom-scheme links, deferred deep links\n(pasteboard / Apple Search Ads), install attribution, goals, referral codes (referee side),\npush-token registration for uninstall tracking and SKAdNetwork / AdAttributionKit conversion\nvalues. No third-party dependencies.",
+  "homepage": "https://clikgate.com",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Clikgate": "sdk@clikgate.com"
+  },
+  "source": {
+    "http": "https://github.com/clikgate/clikgate-mobile-sdk/releases/download/ios-v2.0.0/Clikgate-ios-2.0.0.zip"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": [
+    "5.9",
+    "5.10",
+    "6.0"
+  ],
+  "module_name": "Clikgate",
+  "static_framework": false,
+  "default_subspecs": "Core",
+  "pod_target_xcconfig": {
+    "SWIFT_OPTIMIZATION_LEVEL[config=Release]": "-Osize"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Clikgate/**/*.swift",
+      "resource_bundles": {
+        "Clikgate_Privacy": [
+          "Sources/Clikgate/Resources/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "Security",
+        "StoreKit",
+        "CryptoKit",
+        "SafariServices"
+      ],
+      "weak_frameworks": [
+        "AdServices",
+        "AdAttributionKit",
+        "AppTrackingTransparency",
+        "DeviceCheck"
+      ]
+    },
+    {
+      "name": "Engage",
+      "dependencies": {
+        "Clikgate/Core": [
+
+        ]
+      },
+      "source_files": "Sources/ClikgateEngage/**/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ],
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "$(inherited) CLIKGATE_POD_SINGLE_MODULE"
+      }
+    }
+  ],
+  "swift_version": "6.0"
+}
