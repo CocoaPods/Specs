@@ -1,0 +1,69 @@
+{
+  "name": "ZeotapSDK",
+  "version": "0.1.0",
+  "summary": "Zeotap SDK for iOS: collects events in iOS apps and streams them to Zeotap.",
+  "description": "The iOS counterpart of the Zeotap browser SDK: same event model, consent model (opt-in gating,\nIAB TCF v2 via the TCF-for-Apps IABTCF_* defaults, persisted decisions), on-device PII hashing and\nwire format, proven identical by a shared conformance suite — plus a durable offline queue, flush on\nbackground, device/app context and app-lifecycle events.",
+  "homepage": "https://github.com/zeotap/zt-ios-sdk",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Zeotap": "engineering@zeotap.com"
+  },
+  "source": {
+    "git": "https://github.com/zeotap/zt-ios-sdk.git",
+    "tag": "v0.1.0"
+  },
+  "swift_versions": [
+    "5.9"
+  ],
+  "platforms": {
+    "ios": "14.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/ZeotapSDK/**/*.swift",
+      "resource_bundles": {
+        "ZeotapSDK": [
+          "Sources/ZeotapSDK/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "Network"
+      ],
+      "libraries": "sqlite3"
+    },
+    {
+      "name": "AdSupport",
+      "dependencies": {
+        "ZeotapSDK/Core": [
+
+        ]
+      },
+      "source_files": "Sources/ZeotapSDKAdSupport/**/*.swift",
+      "resource_bundles": {
+        "ZeotapSDKAdSupport": [
+          "Sources/ZeotapSDKAdSupport/PrivacyInfo.xcprivacy"
+        ]
+      },
+      "weak_frameworks": [
+        "AdSupport",
+        "AppTrackingTransparency"
+      ]
+    },
+    {
+      "name": "ObjC",
+      "dependencies": {
+        "ZeotapSDK/Core": [
+
+        ]
+      },
+      "source_files": "Sources/ZeotapSDKObjC/**/*.swift"
+    }
+  ],
+  "swift_version": "5.9"
+}
