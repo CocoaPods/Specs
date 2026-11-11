@@ -1,0 +1,131 @@
+{
+  "name": "IFLYADLib",
+  "version": "6.5.1",
+  "summary": "讯飞广告 iOS SDK，支持按广告形式组合接入。",
+  "homepage": "https://github.com/LJMcarryu/IFLYADLib_iOS",
+  "authors": "LJMcarryu",
+  "source": {
+    "http": "https://download-adsdk.voiceads.cn/ios_sdk/6.5.1/general/IFLYADLib-modelA-6.5.1.zip"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "Full",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "user_target_xcconfig": {
+    "OTHER_LDFLAGS": "$(inherited) -ObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "vendored_frameworks": "IFLYAdCore.xcframework",
+      "resource_bundles": {
+        "IFLYADLibCoreResources": [
+          "resources/Core/**/*"
+        ]
+      },
+      "frameworks": "AdSupport",
+      "weak_frameworks": "AppTrackingTransparency"
+    },
+    {
+      "name": "VideoUI",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdVideoUI.xcframework",
+      "resource_bundles": {
+        "IFLYADLibVideoUIResources": [
+          "resources/VideoUI/**/*"
+        ]
+      }
+    },
+    {
+      "name": "Banner",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdBanner.xcframework"
+    },
+    {
+      "name": "NativeFeed",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdNativeFeed.xcframework"
+    },
+    {
+      "name": "Splash",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ],
+        "IFLYADLib/VideoUI": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdSplash.xcframework"
+    },
+    {
+      "name": "Interstitial",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ],
+        "IFLYADLib/VideoUI": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdInterstitial.xcframework"
+    },
+    {
+      "name": "Reward",
+      "dependencies": {
+        "IFLYADLib/Core": [
+
+        ],
+        "IFLYADLib/VideoUI": [
+
+        ]
+      },
+      "vendored_frameworks": "IFLYAdReward.xcframework",
+      "resource_bundles": {
+        "IFLYADLibRewardResources": [
+          "resources/Reward/**/*"
+        ]
+      }
+    },
+    {
+      "name": "Full",
+      "dependencies": {
+        "IFLYADLib/Banner": [
+
+        ],
+        "IFLYADLib/Splash": [
+
+        ],
+        "IFLYADLib/Interstitial": [
+
+        ],
+        "IFLYADLib/NativeFeed": [
+
+        ],
+        "IFLYADLib/Reward": [
+
+        ]
+      }
+    }
+  ]
+}
