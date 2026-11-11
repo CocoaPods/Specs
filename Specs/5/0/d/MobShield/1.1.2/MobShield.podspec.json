@@ -1,0 +1,159 @@
+{
+  "name": "MobShield",
+  "version": "1.1.2",
+  "summary": "MobShield iOS RASP library suite",
+  "description": "Runtime self-protection for iOS. See mobshield-spec/MOBSHIELD_SPEC.md.",
+  "homepage": "https://github.com/Inforaam/MobShield-iOS",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MobShield Contributors": "security@mobshield.dev"
+  },
+  "source": {
+    "git": "https://github.com/Inforaam/MobShield-iOS.git",
+    "tag": "1.1.2"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.10",
+  "default_subspecs": "Core",
+  "preserve_paths": [
+    "scripts/mobshield-personalize.sh",
+    "scripts/MobShieldPersonalize.swift"
+  ],
+  "script_phases": {
+    "name": "MobShield Personalize",
+    "script": "\"${PODS_TARGET_SRCROOT}/scripts/mobshield-personalize.sh\"",
+    "execution_position": "before_compile"
+  },
+  "subspecs": [
+    {
+      "name": "CoreNative",
+      "source_files": "Sources/MobShieldCoreNative/**/*.{h,mm}",
+      "public_header_files": "Sources/MobShieldCoreNative/include/*.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/MobShieldCoreNative/include"
+      }
+    },
+    {
+      "name": "Core",
+      "source_files": "Sources/MobShieldCore/**/*.swift",
+      "dependencies": {
+        "MobShield/CoreNative": [
+
+        ]
+      }
+    },
+    {
+      "name": "JailbreakNative",
+      "source_files": "Sources/MobShieldDetectJailbreakNative/**/*.{h,c,mm}",
+      "public_header_files": "Sources/MobShieldDetectJailbreakNative/include/*.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/MobShieldDetectJailbreakNative/include",
+        "OTHER_CFLAGS": "-Wall -Werror",
+        "OTHER_CPLUSPLUSFLAGS": "-Wall -Werror"
+      },
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "Jailbreak",
+      "source_files": "Sources/MobShieldDetectJailbreak/**/*.swift",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ],
+        "MobShield/JailbreakNative": [
+
+        ]
+      }
+    },
+    {
+      "name": "HooksNative",
+      "source_files": "Sources/MobShieldDetectHooksNative/**/*.{h,c,mm}",
+      "public_header_files": "Sources/MobShieldDetectHooksNative/include/*.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/MobShieldDetectHooksNative/include",
+        "OTHER_CFLAGS": "-Wall -Werror",
+        "OTHER_CPLUSPLUSFLAGS": "-Wall -Werror"
+      }
+    },
+    {
+      "name": "Hooks",
+      "source_files": "Sources/MobShieldDetectHooks/**/*.swift",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ],
+        "MobShield/HooksNative": [
+
+        ]
+      }
+    },
+    {
+      "name": "DebuggerNative",
+      "source_files": "Sources/MobShieldDetectDebuggerNative/**/*.{h,c}",
+      "public_header_files": "Sources/MobShieldDetectDebuggerNative/include/*.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(PODS_TARGET_SRCROOT)/Sources/MobShieldDetectDebuggerNative/include",
+        "OTHER_CFLAGS": "-Wall -Werror"
+      }
+    },
+    {
+      "name": "Debugger",
+      "source_files": "Sources/MobShieldDetectDebugger/**/*.swift",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ],
+        "MobShield/DebuggerNative": [
+
+        ]
+      }
+    },
+    {
+      "name": "Environment",
+      "source_files": "Sources/MobShieldDetectEnvironment/**/*.swift",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Integrity",
+      "source_files": "Sources/MobShieldDetectIntegrity/**/*.swift",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "MobShield/Core": [
+
+        ],
+        "MobShield/Jailbreak": [
+
+        ],
+        "MobShield/Hooks": [
+
+        ],
+        "MobShield/Debugger": [
+
+        ],
+        "MobShield/Environment": [
+
+        ],
+        "MobShield/Integrity": [
+
+        ]
+      }
+    }
+  ],
+  "swift_version": "5.10"
+}
