@@ -1,0 +1,76 @@
+{
+  "name": "MYKit",
+  "version": "2.0.0",
+  "summary": "iOS Foundation、UIKit 扩展与可选的异常防护。",
+  "description": "为 Objective-C 项目提供集合、字符串、日期及 UIKit 辅助功能，支持按需启用\n容器、KVO、通知、定时器、未知方法和 NSNull 防护。保留合法调用语义，\n提供错误上报与独立 XCTest 回归矩阵；未知方法兜底需要显式登记真实签名。",
+  "homepage": "https://github.com/iOS-Strikers/MYKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sunjinshuai": "sunjinshuai@aikucun.com"
+  },
+  "source": {
+    "git": "https://github.com/iOS-Strikers/MYKit.git",
+    "tag": "2.0.0"
+  },
+  "static_framework": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "platforms": {
+    "ios": "15.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "MYKit/Classes/Core/MYKit.h",
+        "MYKit/Classes/Core/MYKitDefinition.h"
+      ],
+      "dependencies": {
+        "MYKit/UIKit": [
+
+        ],
+        "MYKit/Foundation": [
+
+        ],
+        "MYKit/SafeKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": [
+        "MYKit/Classes/UIKit/MYUIKit.h",
+        "MYKit/Classes/UIKit/**/*"
+      ],
+      "dependencies": {
+        "MYKit/Foundation": [
+
+        ]
+      }
+    },
+    {
+      "name": "Foundation",
+      "source_files": [
+        "MYKit/Classes/Foundation/MYFoundationKit.h",
+        "MYKit/Classes/Foundation/**/*"
+      ]
+    },
+    {
+      "name": "SafeKit",
+      "source_files": "MYKit/Classes/SafeKit/**/*.{h,m}",
+      "private_header_files": "MYKit/Classes/SafeKit/FoundationContainer/MYSafeContainerInternal.h",
+      "dependencies": {
+        "MYKit/Foundation": [
+
+        ]
+      }
+    }
+  ]
+}
