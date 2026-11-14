@@ -1,0 +1,74 @@
+{
+  "name": "Txlemetry",
+  "version": "4.0.0",
+  "summary": "The hassle-free way to add Txlemetry to your iOS app.",
+  "description": "Txlemetry for iOS provides a single API that lets you\nintegrate with over 100s of tools.",
+  "homepage": "http://txlemetry.com/",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "Txlemetry": "support@txlemetry.com"
+  },
+  "source": {
+    "git": "https://github.com/hectorvss/txlemetry-ios.git",
+    "tag": "4.0.0"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "tvos": "13.0",
+    "osx": "10.15",
+    "watchos": "6.0",
+    "visionos": "1.0"
+  },
+  "swift_versions": "5.3",
+  "frameworks": "Foundation",
+  "libraries": "c++",
+  "pod_target_xcconfig": {
+    "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES",
+    "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) PLCR_PRIVATE PLCF_RELEASE_BUILD PLCRASHREPORTER_PREFIX=PH SWIFT_PACKAGE",
+    "SWIFT_VERIFY_EMITTED_MODULE_INTERFACE": "NO",
+    "OTHER_SWIFT_FLAGS": "$(inherited) -no-verify-emitted-module-interface",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/vendor/PHPLCrashReporter/Source\"",
+    "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_TARGET_SRCROOT}/Txlemetry/PrivateModules/phlibwebp\" \"${PODS_TARGET_SRCROOT}/Txlemetry/PrivateModules/PHPLCrashReporter\" \"${PODS_TARGET_SRCROOT}/Txlemetry/PrivateModules/TxlemetryObjCExceptionSupport\""
+  },
+  "source_files": [
+    "Txlemetry/**/*.{swift,h,hpp,m,mm,c,cpp}",
+    "vendor/libwebp/**/*.{h,c}",
+    "vendor/PHPLCrashReporter/Source/**/*.{h,hpp,m,mm,c,cpp,S}"
+  ],
+  "public_header_files": "Txlemetry/Txlemetry.h",
+  "private_header_files": [
+    "Txlemetry/ObjCExceptionSupport/PHObjCExceptionCatcher.h",
+    "Txlemetry/ObjCExceptionSupport/PHURLSessionTaskSafeAccess.h",
+    "vendor/libwebp/**/*.h",
+    "vendor/PHPLCrashReporter/Source/**/*.{h,hpp}"
+  ],
+  "watchos": {
+    "exclude_files": [
+      "vendor/PHPLCrashReporter/Source/**/*",
+      "vendor/PHPLCrashReporter/Dependencies/**/*"
+    ]
+  },
+  "visionos": {
+    "exclude_files": [
+      "vendor/PHPLCrashReporter/Source/**/*",
+      "vendor/PHPLCrashReporter/Dependencies/**/*"
+    ]
+  },
+  "exclude_files": [
+    "vendor/PHPLCrashReporter/Source/PLCrashReport.proto"
+  ],
+  "resource_bundles": {
+    "Txlemetry": "Txlemetry/Resources/PrivacyInfo.xcprivacy",
+    "PHPLCrashReporter": "vendor/PHPLCrashReporter/Resources/PrivacyInfo.xcprivacy"
+  },
+  "preserve_paths": [
+    "build-tools/upload-symbols.sh",
+    "vendor/PHPLCrashReporter/LICENSE",
+    "vendor/libwebp/COPYING",
+    "vendor/libwebp/PATENTS",
+    "Txlemetry/PrivateModules/**/*.modulemap"
+  ],
+  "swift_version": "5.3"
+}
