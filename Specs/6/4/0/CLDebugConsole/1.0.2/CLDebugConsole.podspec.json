@@ -1,0 +1,60 @@
+{
+  "name": "CLDebugConsole",
+  "version": "1.0.2",
+  "summary": "A modular floating debug console for iOS applications",
+  "description": "CLDebugConsole provides a floating debug toolbar with pluggable modules.\nFeatures include floating icon with edge snapping, multi-plugin support,\nlogging system with storage/filtering/export, and extensible architecture.",
+  "homepage": "https://github.com/tttsymq/CLDebugConsole",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Your Name": "your.email@example.com"
+  },
+  "source": {
+    "git": "https://github.com/tttsymq/CLDebugConsole.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "LogPlugin"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "CLDebugConsole/Core/**/*.{h,m}",
+        "CLDebugConsole/UI/**/*.{h,m}",
+        "CLDebugConsole/Utils/**/*.{h,m}"
+      ],
+      "public_header_files": [
+        "CLDebugConsole/Core/**/*.h",
+        "CLDebugConsole/UI/**/*.h",
+        "CLDebugConsole/Utils/**/*.h"
+      ],
+      "resource_bundles": {
+        "CLDebugConsole": [
+          "CLDebugConsole/Resources/**/*"
+        ]
+      },
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ]
+    },
+    {
+      "name": "LogPlugin",
+      "source_files": "CLDebugConsole/Plugins/Log/**/*.{h,m}",
+      "public_header_files": "CLDebugConsole/Plugins/Log/**/*.h",
+      "dependencies": {
+        "CLDebugConsole/Core": [
+
+        ]
+      }
+    }
+  ]
+}
