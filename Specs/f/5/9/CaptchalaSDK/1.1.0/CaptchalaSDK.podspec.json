@@ -1,0 +1,70 @@
+{
+  "name": "CaptchalaSDK",
+  "module_name": "Captchala",
+  "version": "1.1.0",
+  "summary": "CaptchaLa SDK for iOS, macOS, and Mac Catalyst - risk-driven captcha verification",
+  "description": "CaptchaLa SDK - risk-driven captcha verification with native UI for iOS, macOS\nand Mac Catalyst, prebuilt. The default subspec is a static XCFramework; the\nDynamic subspec ships the same SDK as a dynamic framework, which additionally\nsupports the SDK's code integrity check.",
+  "homepage": "https://captcha.la",
+  "documentation_url": "https://captcha.la/docs/sdk/ios",
+  "license": {
+    "type": "Proprietary",
+    "file": "Captchala/LICENSE"
+  },
+  "authors": {
+    "CaptchaLa": "supply@captcha.la"
+  },
+  "source": {
+    "http": "https://pkg.captcha-pkg.net/ios/Captchala-1.1.0.zip",
+    "sha256": "e78573b66a442d664399f7454523435e6645e51fed04afc0653791e8186274d3"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "10.15"
+  },
+  "swift_versions": "5.9",
+  "default_subspecs": "Static",
+  "libraries": "z",
+  "frameworks": [
+    "Foundation",
+    "Security",
+    "Network",
+    "WebKit"
+  ],
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "CallKit",
+      "DeviceCheck",
+      "LocalAuthentication",
+      "AVFoundation"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "AppKit",
+      "IOKit"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Static",
+      "vendored_frameworks": "output/Captchala.xcframework",
+      "resources": "output/Captchala.bundle",
+      "user_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_XCFRAMEWORKS_BUILD_DIR}/CaptchalaSDK\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/CaptchalaSDK/Static\""
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_INCLUDE_PATHS": "$(inherited) \"${PODS_XCFRAMEWORKS_BUILD_DIR}/CaptchalaSDK\" \"${PODS_XCFRAMEWORKS_BUILD_DIR}/CaptchalaSDK/Static\""
+      }
+    },
+    {
+      "name": "Dynamic",
+      "vendored_frameworks": "output-dynamic/Captchala.xcframework"
+    },
+    {
+      "name": "FlutterDynamic",
+      "vendored_frameworks": "output-CaptchalaCore/CaptchalaCore.xcframework"
+    }
+  ],
+  "swift_version": "5.9"
+}
