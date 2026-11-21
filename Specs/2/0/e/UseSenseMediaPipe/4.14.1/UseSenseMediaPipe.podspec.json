@@ -1,0 +1,37 @@
+{
+  "name": "UseSenseMediaPipe",
+  "version": "4.14.1",
+  "summary": "Patched MediaPipe Tasks xcframeworks vendored for UseSenseSDK on-device face mesh.",
+  "description": "Redistributes Google's MediaPipeTasksVision + MediaPipeTasksCommon\nxcframeworks with a corrected top-level Info.plist LibraryPath\n(\".a\" -> \".framework\") so CocoaPods links them as frameworks instead of\nemitting an unresolvable `-l<NAME>` flag. This lets UseSenseSDK depend on\nMediaPipe normally -- integrators no longer need a per-app `pre_install`\nInfo.plist patch hook. Built by scripts/vendor-mediapipe.sh at release time.",
+  "homepage": "https://github.com/qudusadeyemi/usesense-ios-sdk",
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "UseSense": "support@usesense.ai"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source": {
+    "http": "https://github.com/qudusadeyemi/usesense-ios-sdk/releases/download/v4.14.1/UseSenseMediaPipe.xcframeworks.zip"
+  },
+  "vendored_frameworks": [
+    "MediaPipeTasksVision.xcframework",
+    "MediaPipeTasksCommon.xcframework"
+  ],
+  "preserve_paths": "MEDIAPIPE_NOTICE.txt",
+  "frameworks": [
+    "Accelerate",
+    "CoreMedia",
+    "AssetsLibrary",
+    "CoreFoundation",
+    "CoreGraphics",
+    "CoreImage",
+    "QuartzCore",
+    "AVFoundation",
+    "CoreVideo"
+  ],
+  "libraries": "c++"
+}
