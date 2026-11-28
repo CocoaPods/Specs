@@ -1,0 +1,39 @@
+{
+  "name": "TugboatSessionEngine",
+  "version": "0.1.0",
+  "summary": "Tugboat session engine (C++ core, C ABI).",
+  "homepage": "https://github.com/blendto/tugboat-mobile-sdk",
+  "license": {
+    "type": "AGPL-3.0-only",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tugboat": "dev@bijatech.com"
+  },
+  "source": {
+    "git": "https://github.com/blendto/tugboat-mobile-sdk.git",
+    "tag": "session-engine-v0.1.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "static_framework": true,
+  "source_files": [
+    "core/session-engine/src/**/*.{cpp,h}",
+    "core/session-engine/third_party/double-conversion/double-conversion/*.{cc,h}",
+    "core/session-engine/include/**/*.h"
+  ],
+  "public_header_files": "core/session-engine/include/**/*.h",
+  "private_header_files": [
+    "core/session-engine/src/**/*.h",
+    "core/session-engine/third_party/**/*.h"
+  ],
+  "libraries": "c++",
+  "compiler_flags": "-std=c++17",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
+    "CLANG_CXX_LIBRARY": "libc++",
+    "HEADER_SEARCH_PATHS": "$(inherited) \"$(PODS_TARGET_SRCROOT)/core/session-engine/include\" \"$(PODS_TARGET_SRCROOT)/core/session-engine/src\" \"$(PODS_TARGET_SRCROOT)/core/session-engine/third_party/double-conversion\""
+  }
+}
